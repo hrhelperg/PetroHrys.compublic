@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Printer: Wireless Printing & Document Scanner for iPhone | Petro Hrys</title>
+    <meta name="description" content="Print photos, PDFs, emails, and web pages from your iPhone to 10,000+ printer models over Wi-Fi. Includes a document scanner with auto edge detection.">
+    <link rel="canonical" href="https://www.petrohrys.com/smart-printer/">
+    <meta property="og:title" content="Smart Printer — Print & Scan from Your iPhone">
+    <meta property="og:description" content="Wireless printing to 10,000+ printers. Built-in document scanner. No drivers needed.">
+    <meta property="og:url" content="https://www.petrohrys.com/smart-printer/">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.petrohrys.com/og/smart-printer.png">
+    <meta property="og:site_name" content="Petro Hrys">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@petrohrys">
+    <meta name="twitter:title" content="Smart Printer — Print & Scan from Your iPhone">
+    <meta name="twitter:description" content="Wireless printing to 10,000+ printers. Built-in scanner. No drivers.">
+    <meta name="twitter:image" content="https://www.petrohrys.com/og/smart-printer.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #f7f7f5;
+            --accent: #3B82F6;
+            --text: #1a1a1a;
+            --text-light: #666;
+            --border: #e5e5e0;
+            --white: #fff;
+        }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--white);
+            padding: 1rem 2rem;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            font-size: 0.9rem;
+            color: var(--text-light);
+            background: var(--white);
+        }
+
+        .breadcrumb a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        /* Sections */
+        section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Hero */
+        .hero {
+            text-align: center;
+            padding: 6rem 2rem;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: var(--text);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-btn {
+            padding: 0.75rem 2rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .cta-primary {
+            background: var(--accent);
+            color: var(--white);
+        }
+
+        .cta-primary:hover {
+            background: #2563eb;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.2);
+        }
+
+        .cta-secondary {
+            background: transparent;
+            color: var(--accent);
+            border: 2px solid var(--accent);
+        }
+
+        .cta-secondary:hover {
+            background: var(--accent);
+            color: var(--white);
+        }
+
+        /* Problem Statement */
+        .problem {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 0.75rem;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .problem h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--text);
+        }
+
+        .problem p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 0.75rem;
+            border-left: 4px solid var(--accent);
+            animation: fadeInUp 0.8s ease-out;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Use Cases */
+        .use-cases {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 0.75rem;
+        }
+
+        .use-cases h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--text);
+        }
+
+        .use-case-list {
+            list-style: none;
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .use-case-list li {
+            padding-left: 2rem;
+            position: relative;
+            color: var(--text-light);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .use-case-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* Comparison Table */
+        .comparison {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 0.75rem;
+            overflow-x: auto;
+        }
+
+        .comparison h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--text);
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .comparison-table th {
+            background: var(--bg);
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .comparison-table td {
+            color: var(--text-light);
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .check {
+            color: #10b981;
+            font-weight: bold;
+        }
+
+        .cross {
+            color: #ef4444;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 0.75rem;
+        }
+
+        .how-it-works h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--text);
+            text-align: center;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .step {
+            text-align: center;
+            padding: 2rem;
+            background: var(--bg);
+            border-radius: 0.75rem;
+        }
+
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 3rem;
+            height: 3rem;
+            background: var(--accent);
+            color: var(--white);
+            border-radius: 50%;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .step h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+
+        .step p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* FAQ */
+        .faq {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 0.75rem;
+        }
+
+        .faq h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--text);
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border);
+            padding: 1.5rem 0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--text);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: color 0.3s;
+        }
+
+        .faq-question:hover {
+            color: var(--accent);
+        }
+
+        .faq-toggle {
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            color: var(--text-light);
+            margin-top: 0.5rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+
+        /* Download Section */
+        .download {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 0.75rem;
+            text-align: center;
+        }
+
+        .download h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--text);
+        }
+
+        .download-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .download-link {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--accent);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .download-link:hover {
+            background: #2563eb;
+            transform: translateY(-2px);
+        }
+
+        /* Related Tools */
+        .related {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 0.75rem;
+        }
+
+        .related h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--text);
+        }
+
+        .related-tools {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .tool-card {
+            background: var(--bg);
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            color: var(--text);
+            transition: all 0.3s;
+        }
+
+        .tool-card:hover {
+            background: var(--accent);
+            color: var(--white);
+        }
+
+        .tool-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Blog Preview */
+        .blog-preview {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 0.75rem;
+        }
+
+        .blog-preview h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--text);
+        }
+
+        .articles {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .article {
+            background: var(--bg);
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            color: var(--text);
+            transition: all 0.3s;
+        }
+
+        .article:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .article h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+
+        .article p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--white);
+            padding: 2rem;
+            border-top: 1px solid var(--border);
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 2.5rem;
+            height: 2.5rem;
+            background: var(--bg);
+            border-radius: 50%;
+            color: var(--accent);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--accent);
+            color: var(--white);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .scroll-reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            section {
+                padding: 2rem 1rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .comparison {
+                font-size: 0.85rem;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 0.75rem;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-links {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/#tools">Tools</a></li>
+            <li><a href="/#about">About</a></li>
+        </ul>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <a href="/">Home</a> > <a href="/">Document Tools</a> > Smart Printer
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Smart Printer: Scan Master</h1>
+        <p>Print anything from your iPhone to 10,000+ printers. Scan documents with your camera. Zero setup.</p>
+        <div class="cta-group">
+            <a href="#download" class="cta-btn cta-primary">Download on App Store</a>
+            <a href="#features" class="cta-btn cta-secondary">Learn More</a>
+        </div>
+    </section>
+
+    <!-- Problem Statement -->
+    <section class="scroll-reveal">
+        <div class="problem">
+            <h2>The Mobile Printing Frustration</h2>
+            <p>iOS doesn't make printing intuitive. Most people don't even know their printer supports AirPrint. Web pages print badly by default. And there's no built-in way to scan documents with your camera.</p>
+            <p>Smart Printer solves this. It handles everything—from printing high-quality documents to scanning with edge detection and optimization—in seconds, without configuration headaches.</p>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features">
+        <h2 style="font-size: 2rem; margin-bottom: 2rem; text-align: center;">Powerful Features Built for Mobile</h2>
+        <div class="features-grid">
+            <div class="feature-card scroll-reveal">
+                <h3>📄 Print Anything</h3>
+                <p>Photos, PDFs, emails, web pages, docs, spreadsheets, and presentations. Supports PDF, DOC, DOCX, XLS, PPT, JPG, PNG, and TXT.</p>
+            </div>
+            <div class="feature-card scroll-reveal">
+                <h3>📸 Smart Scanner</h3>
+                <p>Camera-based document scanner with automatic edge detection and optimization. Scan receipts, IDs, contracts—anything.</p>
+            </div>
+            <div class="feature-card scroll-reveal">
+                <h3>🖨️ 10,000+ Printers</h3>
+                <p>Connect to virtually any AirPrint-compatible printer. Works on the same Wi-Fi network. Zero setup required.</p>
+            </div>
+            <div class="feature-card scroll-reveal">
+                <h3>⚙️ Advanced Settings</h3>
+                <p>Control paper size, orientation, number of copies, and color mode. Print preview before sending.</p>
+            </div>
+            <div class="feature-card scroll-reveal">
+                <h3>☁️ Cloud & File Import</h3>
+                <p>Import from Dropbox, iCloud, email, and local files. All in one place.</p>
+            </div>
+            <div class="feature-card scroll-reveal">
+                <h3>👁️ PDF Preview</h3>
+                <p>See exactly how your document will look before printing. Avoid wasted paper and ink.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Use Cases -->
+    <section class="scroll-reveal">
+        <div class="use-cases">
+            <h2>Real-World Uses</h2>
+            <ul class="use-case-list">
+                <li><strong>Hotel check-in:</strong> Print your boarding pass at the hotel desk in seconds.</li>
+                <li><strong>Expense reports:</strong> Scan receipts with edge detection and auto-optimization for easy tracking.</li>
+                <li><strong>Homework help:</strong> Print your child's assignment from your phone at work.</li>
+                <li><strong>Document verification:</strong> Scan ID documents, contracts, and forms for applications.</li>
+                <li><strong>Photo gifts:</strong> Print your favorite photos directly to physical prints.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Comparison -->
+    <section class="scroll-reveal">
+        <div class="comparison">
+            <h2>How Smart Printer Compares</h2>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Smart Printer</th>
+                        <th>AirPrint</th>
+                        <th>Manufacturer Apps</th>
+                        <th>Office Stores</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Print from iPhone</td>
+                        <td><span class="check">✓</span></td>
+                        <td><span class="check">✓</span></td>
+                        <td><span class="check">✓</span></td>
+                        <td>N/A</td>
+                    </tr>
+                    <tr>
+                        <td>Built-in Scanner</td>
+                        <td><span class="check">✓</span></td>
+                        <td><span class="cross">✗</span></td>
+                        <td><span class="check">✓</span></td>
+                        <td><span class="cross">✗</span></td>
+                    </tr>
+                    <tr>
+                        <td>Auto Edge Detection</td>
+                        <td><span class="check">✓</span></td>
+                        <td>N/A</td>
+                        <td>Some</td>
+                        <td><span class="check">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td>Cloud Import</td>
+                        <td><span class="check">✓</span></td>
+                        <td><span class="cross">✗</span></td>
+                        <td>Some</td>
+                        <td><span class="cross">✗</span></td>
+                    </tr>
+                    <tr>
+                        <td>Print Preview</td>
+                        <td><span class="check">✓</span></td>
+                        <td><span class="cross">✗</span></td>
+                        <td>Some</td>
+                        <td><span class="check">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td>Setup Required</td>
+                        <td>None</td>
+                        <td>None</td>
+                        <td>Download app per printer</td>
+                        <td>In-person</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="scroll-reveal">
+        <div class="how-it-works">
+            <h2>How It Works in 3 Steps</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Select Your File</h3>
+                    <p>Choose what to print—photos, PDFs, emails, or use the built-in scanner to capture documents with your camera.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Pick Your Printer</h3>
+                    <p>Smart Printer automatically discovers nearby AirPrint-compatible printers on your Wi-Fi network.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Customize & Print</h3>
+                    <p>Adjust paper size, orientation, copies, and color mode. Preview your document and hit print.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="scroll-reveal">
+        <div class="faq">
+            <h2>Frequently Asked Questions</h2>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Will Smart Printer work with my printer?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">Smart Printer supports 10,000+ AirPrint-compatible printers from major brands like HP, Canon, Epson, and Brother. If your printer supports AirPrint, it works with Smart Printer. Check your printer's manual or manufacturer website to confirm AirPrint support.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Do I need to set anything up?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">No setup required. Smart Printer automatically discovers printers on your Wi-Fi network. Just open the app, select your file, choose a printer, and print.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Can I scan documents with Smart Printer?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">Yes. Smart Printer includes a built-in document scanner that uses your camera with automatic edge detection and optimization. Perfect for receipts, IDs, contracts, and other documents.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What file types can I print?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">Smart Printer supports PDF, DOC, DOCX, XLS, PPT, JPG, PNG, and TXT files. You can also print from emails, web pages, and cloud services like Dropbox and iCloud.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Can I see how my document will look before printing?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">Absolutely. Smart Printer includes a PDF preview feature so you can see exactly how your document will look before sending it to the printer.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Is my data private?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">Yes. Smart Printer takes privacy seriously. Your documents are processed locally on your device and never stored on our servers unless you explicitly choose to save them to cloud storage.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section id="download" class="scroll-reveal">
+        <div class="download">
+            <h2>Get Smart Printer Today</h2>
+            <p style="margin-bottom: 2rem; color: var(--text-light);">Available on iOS. Free to download and start using.</p>
+            <div class="download-links">
+                <a href="https://apps.apple.com/cz/app/smart-printer-scan-master-pro/id6746067890" class="download-link" target="_blank">Download on App Store</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Tools -->
+    <section class="scroll-reveal">
+        <div class="related">
+            <h2>Related Tools You Might Like</h2>
+            <div class="related-tools">
+                <a href="/pdf-editor/" class="tool-card">
+                    <h3>PDF Editor</h3>
+                    <p>Edit, annotate, and merge PDFs on your iPhone.</p>
+                </a>
+                <a href="/unzip/" class="tool-card">
+                    <h3>Unzip</h3>
+                    <p>Extract and manage zip archives on the go.</p>
+                </a>
+                <a href="/invoice-maker/" class="tool-card">
+                    <h3>Invoice Maker</h3>
+                    <p>Create professional invoices in 60 seconds.</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Preview -->
+    <section class="scroll-reveal">
+        <div class="blog-preview">
+            <h2>Learn More About Printing & Scanning</h2>
+            <div class="articles">
+                <a href="/#blog" class="article">
+                    <h3>How to Print from Your iPhone Like a Pro</h3>
+                    <p>Master wireless printing with AirPrint and Smart Printer. Learn tricks to save paper and ink while getting professional results.</p>
+                </a>
+                <a href="/#blog" class="article">
+                    <h3>Document Scanning Tips: From Photo to Perfect Scan</h3>
+                    <p>Lighting, angles, and optimization. We break down how to scan documents that look as good as the originals.</p>
+                </a>
+                <a href="/#blog" class="article">
+                    <h3>Mobile Printing for Small Businesses</h3>
+                    <p>Why mobile printing matters, how to set it up, and the best practices for printing on the go.</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="https://docs.google.com/document/d/11yrh35mfkEWHd2DNptRYTzVXfI34FxhRDnSVHey1VUo/edit" target="_blank">Privacy Policy</a>
+                <a href="https://docs.google.com/document/d/11uY2wAqBkwhRYUXriLmHpgcxxF3phbGPeZec0nuFLNg/edit" target="_blank">Terms of Service</a>
+                <a href="/#contact">Contact</a>
+            </div>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/petro-hrys-8306b9401" target="_blank" title="LinkedIn">in</a>
+                <a href="https://x.com/petrohrys" target="_blank" title="X">𝕏</a>
+                <a href="https://youtube.com/@petrohrys" target="_blank" title="YouTube">▶</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JSON-LD Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Smart Printer: Scan Master",
+        "description": "Print anything from your iPhone to 10,000+ printers. Scan documents with your camera. Zero setup required.",
+        "url": "https://example.com/smart-printer/",
+        "operatingSystem": "iOS",
+        "applicationCategory": "UtilitiesApplication",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "ratingCount": "1000"
+        }
+    }
+    </script>
+
+    <!-- Scroll Reveal Script -->
+    <script>
+        const revealElements = document.querySelectorAll('.scroll-reveal');
+
+        const revealOnScroll = () => {
+            revealElements.forEach(element => {
+                const top = element.getBoundingClientRect().top;
+                const isVisible = top < window.innerHeight - 100;
+
+                if (isVisible) {
+                    element.classList.add('visible');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll();
+
+        // FAQ Toggle
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', function() {
+                const faqItem = this.closest('.faq-item');
+                faqItem.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>

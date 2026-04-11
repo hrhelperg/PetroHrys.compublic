@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Scan any trading card with your iPhone camera and get live market prices from TCGPlayer and Cardmarket. AI recognition for Pokemon, Magic, Yu-Gi-Oh, and more.">
+    <meta name="keywords" content="trading card scanner, TCG scanner, card price checker, Pokemon card value, MTG card scanner">
+    <link rel="canonical" href="https://www.petrohrys.com/tcg-scanner/">
+    <meta property="og:title" content="TCG Card Value Scanner — AI Card Recognition & Live Prices">
+    <meta property="og:description" content="Point your camera at any trading card. Get instant market prices from TCGPlayer and Cardmarket.">
+    <meta property="og:url" content="https://www.petrohrys.com/tcg-scanner/">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.petrohrys.com/og/tcg-scanner.png">
+    <meta property="og:site_name" content="Petro Hrys">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@petrohrys">
+    <meta name="twitter:title" content="TCG Card Value Scanner — AI Card Recognition">
+    <meta name="twitter:description" content="Scan trading cards, get instant market prices. Pokemon, MTG, Yu-Gi-Oh.">
+    <meta name="twitter:image" content="https://www.petrohrys.com/og/tcg-scanner.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>TCG Card Value Scanner — AI Card Recognition & Price Tracking | Petro Hrys</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background-color: #f7f7f5;
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: white;
+            border-bottom: 1px solid #e5e5e0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-back {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #CC2200;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: opacity 0.2s;
+        }
+
+        .nav-back:hover {
+            opacity: 0.7;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #1a1a1a;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #CC2200;
+        }
+
+        .breadcrumb {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        .breadcrumb a {
+            color: #CC2200;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        /* Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 4rem 1.5rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+            color: #CC2200;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: #555;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background-color: #CC2200;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #A01A00;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: #CC2200;
+            border: 1px solid #CC2200;
+        }
+
+        .btn-secondary:hover {
+            background-color: #CC2200;
+            color: white;
+        }
+
+        /* Problem Statement */
+        .problem {
+            background-color: white;
+            padding: 4rem 1.5rem;
+            margin: 3rem 0;
+            border-radius: 0.75rem;
+        }
+
+        .problem h2 {
+            font-size: 2rem;
+            color: #CC2200;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .problem-item {
+            padding: 1.5rem;
+            background-color: #f7f7f5;
+            border-radius: 0.5rem;
+        }
+
+        .problem-item h3 {
+            font-size: 1.1rem;
+            color: #CC2200;
+            margin-bottom: 0.5rem;
+        }
+
+        .problem-item p {
+            font-size: 0.95rem;
+            color: #555;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 4rem 1.5rem;
+            background-color: white;
+            margin: 3rem 0;
+            border-radius: 0.75rem;
+        }
+
+        .features h2 {
+            font-size: 2rem;
+            color: #CC2200;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            padding: 2rem;
+            background-color: #f7f7f5;
+            border-radius: 0.5rem;
+            border-left: 4px solid #CC2200;
+        }
+
+        .feature-card h3 {
+            font-size: 1.2rem;
+            color: #CC2200;
+            margin-bottom: 0.75rem;
+        }
+
+        .feature-card p {
+            color: #555;
+            font-size: 0.95rem;
+        }
+
+        /* Use Cases */
+        .use-cases {
+            padding: 4rem 1.5rem;
+            background-color: white;
+            margin: 3rem 0;
+            border-radius: 0.75rem;
+        }
+
+        .use-cases h2 {
+            font-size: 2rem;
+            color: #CC2200;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .use-case-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .use-case-item {
+            padding: 1.5rem;
+            background-color: #f7f7f5;
+            border-radius: 0.5rem;
+        }
+
+        .use-case-item h3 {
+            font-size: 1rem;
+            color: #CC2200;
+            margin-bottom: 0.5rem;
+        }
+
+        .use-case-item p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* Comparison */
+        .comparison {
+            padding: 4rem 1.5rem;
+            background-color: white;
+            margin: 3rem 0;
+            border-radius: 0.75rem;
+        }
+
+        .comparison h2 {
+            font-size: 2rem;
+            color: #CC2200;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            overflow-x: auto;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #e5e5e0;
+            font-size: 0.95rem;
+        }
+
+        .comparison-table th {
+            background-color: #f7f7f5;
+            font-weight: 600;
+            color: #CC2200;
+        }
+
+        .comparison-table tr:hover {
+            background-color: #f7f7f5;
+        }
+
+        .checkmark {
+            color: #CC2200;
+            font-weight: bold;
+        }
+
+        .x-mark {
+            color: #999;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            padding: 4rem 1.5rem;
+            background-color: white;
+            margin: 3rem 0;
+            border-radius: 0.75rem;
+        }
+
+        .how-it-works h2 {
+            font-size: 2rem;
+            color: #CC2200;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .step {
+            text-align: center;
+            padding: 2rem;
+            background-color: #f7f7f5;
+            border-radius: 0.5rem;
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background-color: #CC2200;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.5rem;
+            margin: 0 auto 1rem;
+        }
+
+        .step h3 {
+            font-size: 1.1rem;
+            color: #CC2200;
+            margin-bottom: 0.75rem;
+        }
+
+        .step p {
+            color: #555;
+            font-size: 0.95rem;
+        }
+
+        /* FAQ */
+        .faq {
+            padding: 4rem 1.5rem;
+            background-color: white;
+            margin: 3rem 0;
+            border-radius: 0.75rem;
+        }
+
+        .faq h2 {
+            font-size: 2rem;
+            color: #CC2200;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .faq-item {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #e5e5e0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            color: #CC2200;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1rem;
+            transition: color 0.2s;
+        }
+
+        .faq-question:hover {
+            color: #A01A00;
+        }
+
+        .faq-toggle {
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+        }
+
+        .faq-answer {
+            color: #555;
+            font-size: 0.95rem;
+            margin-top: 1rem;
+            line-height: 1.6;
+            display: none;
+        }
+
+        .faq-answer.show {
+            display: block;
+        }
+
+        /* Download Section */
+        .download {
+            padding: 4rem 1.5rem;
+            background-color: white;
+            margin: 3rem 0;
+            border-radius: 0.75rem;
+            text-align: center;
+        }
+
+        .download h2 {
+            font-size: 2rem;
+            color: #CC2200;
+            margin-bottom: 2rem;
+        }
+
+        .download-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .app-store-badge {
+            display: inline-block;
+        }
+
+        .app-store-badge img {
+            height: 50px;
+            width: auto;
+        }
+
+        /* Related Tools */
+        .related-tools {
+            padding: 4rem 1.5rem;
+            background-color: white;
+            margin: 3rem 0;
+            border-radius: 0.75rem;
+        }
+
+        .related-tools h2 {
+            font-size: 2rem;
+            color: #CC2200;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .tool-card {
+            padding: 2rem;
+            background-color: #f7f7f5;
+            border-radius: 0.5rem;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .tool-card h3 {
+            font-size: 1.1rem;
+            color: #CC2200;
+            margin-bottom: 1rem;
+        }
+
+        .tool-card p {
+            color: #555;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tool-card a {
+            color: #CC2200;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid #CC2200;
+            transition: opacity 0.2s;
+        }
+
+        .tool-card a:hover {
+            opacity: 0.7;
+        }
+
+        /* Blog Preview */
+        .blog-preview {
+            padding: 4rem 1.5rem;
+            background-color: white;
+            margin: 3rem 0;
+            border-radius: 0.75rem;
+        }
+
+        .blog-preview h2 {
+            font-size: 2rem;
+            color: #CC2200;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .blog-card {
+            padding: 1.5rem;
+            background-color: #f7f7f5;
+            border-radius: 0.5rem;
+        }
+
+        .blog-card h3 {
+            font-size: 1.1rem;
+            color: #CC2200;
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+
+        .blog-card p {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .blog-card a {
+            color: #CC2200;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid #CC2200;
+            transition: opacity 0.2s;
+        }
+
+        .blog-card a:hover {
+            opacity: 0.7;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0a0e1a;
+            color: white;
+            padding: 3rem 1.5rem;
+            margin-top: 3rem;
+        }
+
+        footer .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-top {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: color 0.2s;
+        }
+
+        .footer-section a:hover {
+            color: #CC2200;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #333;
+        }
+
+        .social-links a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .social-links a:hover {
+            color: #CC2200;
+        }
+
+        .legal-links {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #333;
+            font-size: 0.85rem;
+            color: #999;
+        }
+
+        .legal-links a {
+            color: #ccc;
+            text-decoration: none;
+            margin: 0 1rem;
+            transition: color 0.2s;
+        }
+
+        .legal-links a:hover {
+            color: #CC2200;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .disclaimer {
+            font-size: 0.8rem;
+            color: #999;
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .problem-grid,
+            .feature-grid,
+            .use-case-list,
+            .steps,
+            .tools-grid,
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .comparison-table {
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-content">
+            <a href="/" class="nav-back">← Petro Hrys</a>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/#career">Career & Personal</a>
+                <a href="#faq">FAQ</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Breadcrumb -->
+        <div class="breadcrumb" style="margin-top: 2rem;">
+            <a href="/">Home</a> > <a href="/#career">Career & Personal</a> > TCG Card Scanner
+        </div>
+
+        <!-- Hero Section -->
+        <section class="hero fade-in">
+            <h1>TCG Card Value Scanner</h1>
+            <p>AI-powered card recognition. Live prices. Know what your cards are worth in seconds.</p>
+            <div class="hero-ctas">
+                <a href="https://apps.apple.com/cz/app/tcg-card-value-scanner-dex/id6754197485" class="btn btn-primary">Get on App Store</a>
+                <a href="#features" class="btn btn-secondary">Learn More</a>
+            </div>
+        </section>
+
+        <!-- Problem Statement -->
+        <section class="problem fade-in">
+            <h2>Stop Guessing What Your Cards Are Worth</h2>
+            <p style="text-align: center; color: #666; margin-bottom: 2rem;">Card collectors and traders waste time and money without accurate pricing information.</p>
+            <div class="problem-grid">
+                <div class="problem-item">
+                    <h3>Manual Price Checking Takes Forever</h3>
+                    <p>Looking up each card on TCGPlayer or CardMarket is time-consuming, especially when you have dozens or hundreds of cards.</p>
+                </div>
+                <div class="problem-item">
+                    <h3>Prices Change Daily</h3>
+                    <p>Card values fluctuate constantly. Yesterday's price might be outdated by today, making it hard to track your collection's value.</p>
+                </div>
+                <div class="problem-item">
+                    <h3>Easy to Get Ripped Off</h3>
+                    <p>Without real-time pricing, traders might offer you significantly less than market value, and you'd have no way to know.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section class="features fade-in" id="features">
+            <h2>What DEX Can Do</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3>Scan in Seconds</h3>
+                    <p>AI-powered recognition identifies cards from photos in under 2 seconds. No manual input needed.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Live Market Prices</h3>
+                    <p>Get real-time pricing from TCGPlayer and CardMarket. Always know what your cards are worth.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Full Card Database</h3>
+                    <p>Supports name, rarity, edition, and set information for thousands of trading cards.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Price Alerts</h3>
+                    <p>Create a Smart Price Watchlist. Get notifications when cards you're tracking hit your target price.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Organize Your Collection</h3>
+                    <p>Save cards, sort by rarity or value, categorize by set. Track your entire collection in one place.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Handle Any Condition</h3>
+                    <p>Recognizes cards at stores, tournaments, flea markets. Works with rare, damaged, and vintage cards too.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Use Cases -->
+        <section class="use-cases fade-in">
+            <h2>Real-World Use Cases</h2>
+            <div class="use-case-list">
+                <div class="use-case-item">
+                    <h3>Inherited Collections</h3>
+                    <p>Found an old card collection? Instantly discover what it's worth.</p>
+                </div>
+                <div class="use-case-item">
+                    <h3>Local Shop Verification</h3>
+                    <p>Verify prices before buying at card shops. Know if you're getting a fair deal.</p>
+                </div>
+                <div class="use-case-item">
+                    <h3>Catalog for Insurance</h3>
+                    <p>Document your binder with photos and values for insurance purposes.</p>
+                </div>
+                <div class="use-case-item">
+                    <h3>Booster Pull Evaluation</h3>
+                    <p>Check the value of cards you pull from booster packs instantly.</p>
+                </div>
+                <div class="use-case-item">
+                    <h3>Tournament Trading</h3>
+                    <p>Before trading at tournaments, know your cards' market value with confidence.</p>
+                </div>
+                <div class="use-case-item">
+                    <h3>Collection Valuation</h3>
+                    <p>Get a complete valuation of your entire collection at a glance.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Comparison -->
+        <section class="comparison fade-in">
+            <h2>DEX vs. Alternatives</h2>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>DEX Scanner</th>
+                        <th>Manual TCGPlayer</th>
+                        <th>Other Scanner Apps</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Recognition Speed</td>
+                        <td><span class="checkmark">&lt;2 seconds</span></td>
+                        <td>5-10 minutes</td>
+                        <td>3-5 seconds</td>
+                    </tr>
+                    <tr>
+                        <td>Live Prices</td>
+                        <td><span class="checkmark">Yes</span></td>
+                        <td><span class="checkmark">Yes</span></td>
+                        <td>Limited</td>
+                    </tr>
+                    <tr>
+                        <td>Collection Manager</td>
+                        <td><span class="checkmark">Yes</span></td>
+                        <td><span class="x-mark">No</span></td>
+                        <td><span class="x-mark">No</span></td>
+                    </tr>
+                    <tr>
+                        <td>Price Alerts</td>
+                        <td><span class="checkmark">Yes</span></td>
+                        <td><span class="x-mark">No</span></td>
+                        <td><span class="x-mark">No</span></td>
+                    </tr>
+                    <tr>
+                        <td>Works Offline</td>
+                        <td>Basic</td>
+                        <td><span class="x-mark">No</span></td>
+                        <td>Varies</td>
+                    </tr>
+                    <tr>
+                        <td>Cost</td>
+                        <td>Free + Premium</td>
+                        <td><span class="checkmark">Free</span></td>
+                        <td>Free + Premium</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- How It Works -->
+        <section class="how-it-works fade-in">
+            <h2>How It Works</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Take a Photo</h3>
+                    <p>Point your camera at a trading card. The app instantly recognizes it.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Get Live Prices</h3>
+                    <p>See real-time market prices from TCGPlayer and CardMarket in seconds.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Save to Collection</h3>
+                    <p>Add the card to your collection, set price alerts, or organize by category.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="faq fade-in" id="faq">
+            <h2>Frequently Asked Questions</h2>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span class="faq-toggle">+</span>
+                    <span>How accurate is the AI recognition?</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Our AI is trained to recognize trading cards with high accuracy. It works with cards at different angles, lighting conditions, and even partially obscured cards. For difficult cases, you can manually verify or correct the recognition.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span class="faq-toggle">+</span>
+                    <span>Which card games does DEX support?</span>
+                </div>
+                <div class="faq-answer">
+                    <p>DEX currently supports the most popular trading card games, with a focus on cards with active secondary markets. We're constantly expanding our database to support more games and editions.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span class="faq-toggle">+</span>
+                    <span>Is there a free version?</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes. DEX is free to download and use for basic card scanning and price checking. Premium features include advanced collection management and price alerts.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span class="faq-toggle">+</span>
+                    <span>Does it work at card shops and tournaments?</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Absolutely. Designed to work anywhere—shops, tournaments, flea markets, or at home. You can scan cards on display, in hands, or in binders.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span class="faq-toggle">+</span>
+                    <span>Can I export my collection data?</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes. You can export your collection in multiple formats for backup, insurance documentation, or use in spreadsheets.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span class="faq-toggle">+</span>
+                    <span>Is my data secure and private?</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Your collection data is stored securely. We don't sell your data or use it for advertising. See our privacy policy for complete details on how we handle your information.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Download Section -->
+        <section class="download fade-in">
+            <h2>Get DEX Today</h2>
+            <p style="color: #666; margin-bottom: 2rem;">Available for iPhone</p>
+            <div class="download-buttons">
+                <a href="https://apps.apple.com/cz/app/tcg-card-value-scanner-dex/id6754197485" class="app-store-badge">
+                    <svg width="120" height="40" viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M110.335 0H9.665C4.333 0 0 4.373 0 9.792v20.416C0 35.627 4.333 40 9.665 40h100.67C115.667 40 120 35.627 120 30.208V9.792C120 4.373 115.667 0 110.335 0z" fill="black"/>
+                        <path d="M30.128 19.784c0-1.662.904-3.229 2.317-4.084 1.412-.855 3.175-.982 4.748-.34 1.574.64 2.666 2.053 2.666 3.738 0 1.662-.904 3.229-2.317 4.084-1.412.855-3.175.982-4.748.34-1.574-.64-2.666-2.053-2.666-3.738z" fill="white"/>
+                        <text x="50" y="25" font-family="Arial, sans-serif" font-size="11" fill="white" font-weight="bold">App Store</text>
+                    </svg>
+                </a>
+            </div>
+            <p class="disclaimer">Not affiliated with The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK.</p>
+        </section>
+
+        <!-- Related Tools -->
+        <section class="related-tools fade-in">
+            <h2>Complement DEX With These Tools</h2>
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <h3>PDF Editor</h3>
+                    <p>Create invoices or documentation for your card collection. Edit documents on the go.</p>
+                    <a href="/pdf-editor/">Explore →</a>
+                </div>
+                <div class="tool-card">
+                    <h3>CV Builder</h3>
+                    <p>Build your professional resume to showcase your expertise in the trading card community.</p>
+                    <a href="/cv-builder/">Explore →</a>
+                </div>
+                <div class="tool-card">
+                    <h3>Pocket Manager</h3>
+                    <p>Track personal finances alongside your valuable card collection investments.</p>
+                    <a href="/pocket-manager/">Explore →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Preview -->
+        <section class="blog-preview fade-in">
+            <h2>Learn More About Card Collecting</h2>
+            <div class="blog-grid">
+                <div class="blog-card">
+                    <h3>The Complete Guide to Card Grading and Valuation</h3>
+                    <p>Understanding how card condition, rarity, and edition affect price. What makes a card valuable and how to spot undervalued gems.</p>
+                    <a href="/#blog">Read Article →</a>
+                </div>
+                <div class="blog-card">
+                    <h3>Building a Valuable Collection: Strategy and Tips</h3>
+                    <p>Learn how experienced collectors identify investment opportunities, manage their collections, and maximize long-term value.</p>
+                    <a href="/#blog">Read Article →</a>
+                </div>
+                <div class="blog-card">
+                    <h3>Trading Card Market Trends in 2026</h3>
+                    <p>Which games and cards are gaining value? Market analysis, emerging trends, and where collectors are investing their money.</p>
+                    <a href="/#blog">Read Article →</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-top">
+                <div class="footer-section">
+                    <h3>Apps</h3>
+                    <ul>
+                        <li><a href="/tcg-scanner/">TCG Card Scanner</a></li>
+                        <li><a href="/pdf-editor/">PDF Editor</a></li>
+                        <li><a href="/cv-builder/">CV Builder</a></li>
+                        <li><a href="/pocket-manager/">Pocket Manager</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="/#about">About</a></li>
+                        <li><a href="/#blog">Blog</a></li>
+                        <li><a href="/#contact">Contact</a></li>
+                        <li><a href="/privacy/">Privacy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="/#contact">Help Center</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="/#contact">Contact Support</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/petro-hrys-8306b9401">LinkedIn</a>
+                <a href="https://x.com/petrohrys">X (Twitter)</a>
+                <a href="https://youtube.com/@petrohrys">YouTube</a>
+            </div>
+
+            <div class="legal-links">
+                <a href="https://docs.google.com/document/d/1o51c2cvs8R-DUih-TrWQN4e-9n1ilK7KiQ_j5We9izA/edit">Privacy Policy</a>
+                <a href="https://docs.google.com/document/d/1xH0GuKPVkwkTkjzIpGPYvRd2V0QivfjMQ1fIMg6Ny6M/edit">Terms of Service</a>
+            </div>
+
+            <div style="text-align: center; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #333; color: #999; font-size: 0.85rem;">
+                <p>&copy; 2026 Petro Hrys. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleFaq(element) {
+            const answer = element.nextElementSibling;
+            const toggle = element.querySelector('.faq-toggle');
+
+            answer.classList.toggle('show');
+            toggle.textContent = answer.classList.contains('show') ? '−' : '+';
+        }
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transition = 'opacity 0.6s ease-out';
+            observer.observe(el);
+        });
+    </script>
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "TCG Card Value Scanner - DEX",
+        "description": "AI-powered trading card scanner with live market prices from TCGPlayer and CardMarket.",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "iOS",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock"
+        },
+        "url": "https://yoursite.com/tcg-scanner/",
+        "author": {
+            "@type": "Person",
+            "name": "Petro Hrys"
+        }
+    }
+    </script>
+</body>
+</html>

@@ -1,0 +1,1546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pocket Manager — Budget Tracker & Expense Tracking App | Petro Hrys</title>
+    <meta name="description" content="Track expenses in 30 seconds with Pocket Manager. Privacy-first budget tracker for iOS and Android with smart insights, savings goals, and no bank linking required.">
+    <meta name="keywords" content="budget tracker, expense tracker, money management, personal finance app, savings goals">
+    <meta name="author" content="Petro Hrys">
+    <link rel="canonical" href="https://www.petrohrys.com/pocket-manager/">
+    <meta property="og:title" content="Pocket Manager — Budget Tracker & Expense App">
+    <meta property="og:description" content="Track expenses in 30 seconds. Privacy-first, no bank linking, free.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.petrohrys.com/og/pocket-manager.png">
+    <meta property="og:url" content="https://www.petrohrys.com/pocket-manager/">
+    <meta property="og:site_name" content="Petro Hrys">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@petrohrys">
+    <meta name="twitter:title" content="Pocket Manager — Budget Tracker & Expense App">
+    <meta name="twitter:description" content="Track expenses in 30 seconds. Privacy-first, free.">
+    <meta name="twitter:image" content="https://www.petrohrys.com/og/pocket-manager.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #f7f7f5;
+            --bg-secondary: #ffffff;
+            --accent-green: #3EC45A;
+            --accent-green-hover: #35a84d;
+            --text-primary: #1a1a1a;
+            --text-secondary: #666666;
+            --border-light: #e8e8e6;
+            --shadow-light: 0 2px 8px rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border-light);
+            padding: 1rem 2rem;
+            z-index: 1000;
+            box-shadow: var(--shadow-light);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-logo {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-logo:hover {
+            color: var(--accent-green);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-green);
+        }
+
+        .breadcrumb {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .breadcrumb a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--accent-green);
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem;
+            }
+
+            .nav-left {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .nav-links {
+                gap: 1.5rem;
+            }
+
+            .breadcrumb {
+                width: 100%;
+                font-size: 0.75rem;
+            }
+        }
+
+        /* Main content */
+        main {
+            margin-top: 80px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .container-md {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Hero section */
+        .hero {
+            padding: 4rem 2rem;
+            text-align: center;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero .tagline {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .platforms {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .platform-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-light);
+            border-radius: 50px;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+        }
+
+        .platform-badge:hover {
+            border-color: var(--accent-green);
+            color: var(--accent-green);
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: var(--accent-green);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-green-hover);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-secondary {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            border: 2px solid var(--border-light);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent-green);
+            color: var(--accent-green);
+        }
+
+        .btn-small {
+            padding: 0.75rem 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero .tagline {
+                font-size: 1.1rem;
+            }
+
+            .cta-group {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        /* Problem section */
+        .problem-section {
+            padding: 4rem 2rem;
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-light);
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .problem-section h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .problem-card {
+            padding: 2rem;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .problem-card:hover {
+            border-color: var(--accent-green);
+            box-shadow: var(--shadow-light);
+        }
+
+        .problem-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+        }
+
+        .problem-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Features section */
+        .features-section {
+            padding: 4rem 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            padding: 2.5rem 2rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            border-color: var(--accent-green);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            background: var(--bg-primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .feature-highlight {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-light);
+            font-size: 0.9rem;
+            color: var(--accent-green);
+            font-weight: 600;
+        }
+
+        /* Use cases section */
+        .use-cases-section {
+            padding: 4rem 2rem;
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-light);
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .use-cases-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .use-case-card {
+            padding: 2rem;
+            background: var(--bg-primary);
+            border-radius: 8px;
+            border: 1px solid var(--border-light);
+        }
+
+        .use-case-icon {
+            font-size: 2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .use-case-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .use-case-card p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* Comparison section */
+        .comparison-section {
+            padding: 4rem 2rem;
+        }
+
+        .comparison-table {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border-light);
+            box-shadow: var(--shadow-light);
+        }
+
+        .table-header {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            background: var(--bg-primary);
+            border-bottom: 2px solid var(--border-light);
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .table-header div,
+        .table-row div {
+            padding: 1.5rem 1rem;
+        }
+
+        .table-header div:first-child,
+        .table-row div:first-child {
+            text-align: left;
+        }
+
+        .table-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            border-bottom: 1px solid var(--border-light);
+            align-items: center;
+        }
+
+        .table-row:last-child {
+            border-bottom: none;
+        }
+
+        .table-row:hover {
+            background: var(--bg-primary);
+        }
+
+        .check {
+            color: var(--accent-green);
+            font-weight: 700;
+        }
+
+        .cross {
+            color: #999;
+        }
+
+        @media (max-width: 768px) {
+            .comparison-table {
+                overflow-x: auto;
+            }
+
+            .table-header,
+            .table-row {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .table-header {
+                display: none;
+            }
+
+            .table-row {
+                padding: 1.5rem;
+                border: 1px solid var(--border-light);
+                margin-bottom: 1rem;
+                border-radius: 8px;
+            }
+
+            .table-row div:before {
+                font-weight: 600;
+                margin-right: 0.5rem;
+            }
+        }
+
+        /* How it works section */
+        .how-it-works {
+            padding: 4rem 2rem;
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-light);
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .steps-container {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+
+        .step {
+            position: relative;
+            text-align: center;
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: var(--accent-green);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin: 0 auto 1.5rem;
+        }
+
+        .step h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .step p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* FAQ section */
+        .faq-section {
+            padding: 4rem 2rem;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            background: var(--bg-secondary);
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            border-color: var(--accent-green);
+            box-shadow: var(--shadow-light);
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            user-select: none;
+        }
+
+        .faq-question:hover {
+            background: var(--bg-primary);
+        }
+
+        .faq-toggle {
+            transition: transform 0.3s ease;
+            font-size: 1.2rem;
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding: 0 1.5rem;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding: 0 1.5rem 1.5rem;
+        }
+
+        .faq-answer p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Download section */
+        .download-section {
+            padding: 4rem 2rem;
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-light);
+            border-bottom: 1px solid var(--border-light);
+            text-align: center;
+        }
+
+        .download-section h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .download-links {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .download-link {
+            flex: 1;
+            min-width: 200px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            padding: 1.25rem 2rem;
+            background: var(--bg-primary);
+            border: 2px solid var(--accent-green);
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--accent-green);
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .download-link:hover {
+            background: var(--accent-green);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        @media (max-width: 768px) {
+            .download-links {
+                flex-direction: column;
+            }
+
+            .download-link {
+                width: 100%;
+            }
+        }
+
+        /* Related tools section */
+        .related-section {
+            padding: 4rem 2rem;
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .related-card {
+            padding: 2rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+
+        .related-card:hover {
+            border-color: var(--accent-green);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .related-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--accent-green);
+        }
+
+        .related-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Blog preview section */
+        .blog-section {
+            padding: 4rem 2rem;
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-light);
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .blog-card {
+            background: var(--bg-primary);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border-light);
+            transition: all 0.3s ease;
+        }
+
+        .blog-card:hover {
+            border-color: var(--accent-green);
+            box-shadow: var(--shadow-md);
+        }
+
+        .blog-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, var(--accent-green), var(--accent-green-hover));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+        }
+
+        .blog-content {
+            padding: 1.5rem;
+        }
+
+        .blog-date {
+            font-size: 0.85rem;
+            color: var(--accent-green);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+            line-height: 1.4;
+        }
+
+        .blog-card p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .blog-link {
+            color: var(--accent-green);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: gap 0.3s ease;
+        }
+
+        .blog-link:hover {
+            gap: 0.75rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-primary);
+            color: white;
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-column h4 {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-column a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-column a:hover {
+            color: var(--accent-green);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+        }
+
+        .social-link:hover {
+            background: var(--accent-green);
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .footer-legal {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-legal a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-legal a:hover {
+            color: var(--accent-green);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        /* Intersection observer for scroll animations */
+        .scroll-in {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .scroll-in.visible {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        @media (max-width: 768px) {
+            .container,
+            .container-md {
+                padding: 0 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .features-grid,
+            .use-cases-grid,
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-header h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-left">
+            <a href="/" class="nav-logo">← Petro Hrys</a>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#use-cases">Use Cases</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+        </div>
+        <div class="breadcrumb">
+            <a href="/">Home</a> / <a href="/#products">Business Tools</a> / <span>Pocket Manager</span>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero section -->
+        <section class="hero">
+            <div class="container-md">
+                <h1>Pocket Manager: Budget Tracker</h1>
+                <p class="tagline">Track your spending in 30 seconds. Get smart insights. Reach your goals. No bank account linking. No subscription fatigue.</p>
+
+                <div class="platforms">
+                    <span class="platform-badge">📱 iOS</span>
+                    <span class="platform-badge">🤖 Android</span>
+                </div>
+
+                <div class="cta-group">
+                    <a href="https://apps.apple.com/cz/app/pocket-manager-budget-tracker/id6743084126" class="btn btn-primary">Download for iOS</a>
+                    <a href="https://play.google.com/store/apps/details?id=com.helperg.money" class="btn btn-primary">Download for Android</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Problem section -->
+        <section class="problem-section">
+            <div class="container-md">
+                <h2>The budget tracking problem</h2>
+                <div class="problem-grid">
+                    <div class="problem-card scroll-in">
+                        <h3>Spreadsheets are tedious</h3>
+                        <p>Manually tracking every expense in a spreadsheet takes time and discipline. Most people give up after a few weeks.</p>
+                    </div>
+                    <div class="problem-card scroll-in">
+                        <h3>Apps want your bank password</h3>
+                        <p>Popular budget apps require linking your bank account. That's a privacy risk for what should be simple expense tracking.</p>
+                    </div>
+                    <div class="problem-card scroll-in">
+                        <h3>Subscription overload</h3>
+                        <p>Budget apps charge monthly for basic features. You shouldn't need to pay $10-15/month just to track expenses.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features section -->
+        <section class="features-section" id="features">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Everything you need to manage money</h2>
+                    <p>Simple, powerful features that keep you in control of your finances</p>
+                </div>
+
+                <div class="features-grid">
+                    <div class="feature-card scroll-in">
+                        <div class="feature-icon">📊</div>
+                        <h3>Real-Time Expense Tracking</h3>
+                        <p>Log expenses instantly. See your spending broken down by category, day, or month with colorful, easy-to-read charts.</p>
+                        <div class="feature-highlight">Quick transaction entry</div>
+                    </div>
+
+                    <div class="feature-card scroll-in">
+                        <div class="feature-icon">🏷️</div>
+                        <h3>Custom Categories</h3>
+                        <p>Create your own categories that match how you spend. Groceries, rent, coffee, subscriptions—organize it your way.</p>
+                        <div class="feature-highlight">Flexible organization</div>
+                    </div>
+
+                    <div class="feature-card scroll-in">
+                        <div class="feature-icon">💡</div>
+                        <h3>Smart Insights</h3>
+                        <p>Get automatic analysis of your spending patterns. Discover where your money goes, find saving opportunities, and spot trends.</p>
+                        <div class="feature-highlight">Built-in analytics</div>
+                    </div>
+
+                    <div class="feature-card scroll-in">
+                        <div class="feature-icon">🎯</div>
+                        <h3>Savings Goals</h3>
+                        <p>Set goals for anything—vacation, emergency fund, new laptop. Track progress with visual milestones that keep you motivated.</p>
+                        <div class="feature-highlight">Visual progress tracking</div>
+                    </div>
+
+                    <div class="feature-card scroll-in">
+                        <div class="feature-icon">💰</div>
+                        <h3>Income & Balance Overview</h3>
+                        <p>Track multiple income sources and see your overall balance at a glance. Understand what you earn, what you spend, and what you have.</p>
+                        <div class="feature-highlight">Complete picture</div>
+                    </div>
+
+                    <div class="feature-card scroll-in">
+                        <div class="feature-icon">⚡</div>
+                        <h3>Energy Cost Calculator</h3>
+                        <p>Estimate your electricity usage and costs. Understand your utilities at a glance without digging through bills.</p>
+                        <div class="feature-highlight">Bonus utility</div>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 3rem; padding: 2rem; background: var(--bg-secondary); border-radius: 8px; border: 1px solid var(--border-light);">
+                    <p style="margin-bottom: 1rem; color: var(--text-secondary);"><strong>Privacy first:</strong> All data stays on your device. We never sync to external servers. Your financial information remains completely private.</p>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem;"><strong>Free and premium:</strong> Core budget tracking is free. Premium adds advanced analytics and features.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Use cases section -->
+        <section class="use-cases-section" id="use-cases">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Who uses Pocket Manager</h2>
+                    <p>Perfect for anyone serious about understanding their money</p>
+                </div>
+
+                <div class="use-cases-grid">
+                    <div class="use-case-card scroll-in">
+                        <div class="use-case-icon">💼</div>
+                        <h3>Freelancers</h3>
+                        <p>Track business expenses separately from personal spending. Get ready for tax season with clear categorized records.</p>
+                    </div>
+
+                    <div class="use-case-card scroll-in">
+                        <div class="use-case-icon">🎓</div>
+                        <h3>College Students</h3>
+                        <p>Living on a tight budget? Track exactly where your money goes and find ways to stretch it further.</p>
+                    </div>
+
+                    <div class="use-case-card scroll-in">
+                        <div class="use-case-icon">👨‍👩‍👧‍👦</div>
+                        <h3>Families</h3>
+                        <p>Coordinate household spending across multiple people. See what the family spends on groceries, utilities, and activities.</p>
+                    </div>
+
+                    <div class="use-case-card scroll-in">
+                        <div class="use-case-icon">📋</div>
+                        <h3>Tax Prep</h3>
+                        <p>Prepare for tax season with well-organized expense records. Export your data in a format that accountants appreciate.</p>
+                    </div>
+
+                    <div class="use-case-card scroll-in">
+                        <div class="use-case-icon">🏖️</div>
+                        <h3>Goal Savers</h3>
+                        <p>Save for a specific goal—dream vacation, car, house down payment. Watch progress grow month by month.</p>
+                    </div>
+
+                    <div class="use-case-card scroll-in">
+                        <div class="use-case-icon">💳</div>
+                        <h3>Debt Managers</h3>
+                        <p>Track your spending while paying down debt. See exactly how your budget changes each month as you progress.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Comparison section -->
+        <section class="comparison-section">
+            <div class="container-md">
+                <div class="section-header">
+                    <h2>How Pocket Manager compares</h2>
+                </div>
+
+                <div class="comparison-table">
+                    <div class="table-header">
+                        <div>Feature</div>
+                        <div>Pocket Manager</div>
+                        <div>Mint/YNAB</div>
+                        <div>Spreadsheets</div>
+                    </div>
+                    <div class="table-row">
+                        <div>Fast expense entry</div>
+                        <div class="check">✓</div>
+                        <div class="check">✓</div>
+                        <div class="cross">✗</div>
+                    </div>
+                    <div class="table-row">
+                        <div>Privacy (no bank linking)</div>
+                        <div class="check">✓</div>
+                        <div class="cross">✗</div>
+                        <div class="check">✓</div>
+                    </div>
+                    <div class="table-row">
+                        <div>Smart insights & analytics</div>
+                        <div class="check">✓</div>
+                        <div class="check">✓</div>
+                        <div class="cross">✗</div>
+                    </div>
+                    <div class="table-row">
+                        <div>Savings goals</div>
+                        <div class="check">✓</div>
+                        <div class="check">✓</div>
+                        <div class="cross">✗</div>
+                    </div>
+                    <div class="table-row">
+                        <div>Free core features</div>
+                        <div class="check">✓</div>
+                        <div class="cross">✗</div>
+                        <div class="check">✓</div>
+                    </div>
+                    <div class="table-row">
+                        <div>Works offline</div>
+                        <div class="check">✓</div>
+                        <div class="cross">✗</div>
+                        <div class="check">✓</div>
+                    </div>
+                    <div class="table-row">
+                        <div>Automatic expense detection</div>
+                        <div class="cross">✗</div>
+                        <div class="check">✓</div>
+                        <div class="cross">✗</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How it works section -->
+        <section class="how-it-works">
+            <div class="container">
+                <div class="section-header">
+                    <h2>How it works in 3 steps</h2>
+                </div>
+
+                <div class="steps-container">
+                    <div class="step scroll-in">
+                        <div class="step-number">1</div>
+                        <h3>Download & Set Up</h3>
+                        <p>Get Pocket Manager from the App Store or Google Play. Set your budget and custom categories—takes less than 5 minutes.</p>
+                    </div>
+
+                    <div class="step scroll-in">
+                        <div class="step-number">2</div>
+                        <h3>Log Expenses</h3>
+                        <p>Every time you spend, add it to Pocket Manager. It takes 30 seconds. Tap category, enter amount, done. That's it.</p>
+                    </div>
+
+                    <div class="step scroll-in">
+                        <div class="step-number">3</div>
+                        <h3>Get Insights</h3>
+                        <p>Watch your spending trends appear automatically. Adjust your budget. Work toward your savings goals. Stay in control.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ section -->
+        <section class="faq-section" id="faq">
+            <div class="container-md">
+                <div class="section-header">
+                    <h2>Frequently asked questions</h2>
+                </div>
+
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Is my data secure and private?</span>
+                            <span class="faq-toggle">▼</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes. All your data stays on your device. We never sync to external servers, never see your financial information, and never share data with third parties. Your budget is completely private.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Do I need to connect my bank account?</span>
+                            <span class="faq-toggle">▼</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>No. Unlike many budget apps, Pocket Manager doesn't require or support bank account linking. You manually log your expenses, which gives you more control and better privacy.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>How much does Pocket Manager cost?</span>
+                            <span class="faq-toggle">▼</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Core budget tracking is completely free. We offer a premium tier for advanced analytics and additional features, but the main app is free to use forever.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Can I use it on both iOS and Android?</span>
+                            <span class="faq-toggle">▼</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes. Pocket Manager is available on both iOS (iPhone) and Android. Since data stays on your device, you'll need to set it up separately on each phone.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>What if I lose my phone? Can I recover my data?</span>
+                            <span class="faq-toggle">▼</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Your data is stored locally on your device. We recommend backing up your phone regularly using iCloud (iOS) or Google Drive (Android). You can also export your data from the app's settings.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Can I export my data?</span>
+                            <span class="faq-toggle">▼</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes. Pocket Manager lets you export your expense data in standard formats that work with other apps and spreadsheets. Your data is yours to keep.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>How often is Pocket Manager updated?</span>
+                            <span class="faq-toggle">▼</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We release updates regularly with bug fixes, performance improvements, and new features based on user feedback. Check the app store for the latest version.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Download section -->
+        <section class="download-section">
+            <div class="container-md">
+                <h2>Ready to take control of your finances?</h2>
+                <p style="color: var(--text-secondary); margin-bottom: 2rem; font-size: 1.1rem;">Download Pocket Manager today and start tracking smarter.</p>
+
+                <div class="download-links">
+                    <a href="https://apps.apple.com/cz/app/pocket-manager-budget-tracker/id6743084126" class="download-link">
+                        <span>📱</span> App Store
+                    </a>
+                    <a href="https://play.google.com/store/apps/details?id=com.helperg.money" class="download-link">
+                        <span>🤖</span> Google Play
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Related tools section -->
+        <section class="related-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Related tools you might like</h2>
+                    <p>Check out other products designed to help you manage your work and money</p>
+                </div>
+
+                <div class="related-grid">
+                    <a href="/invoice-maker/" class="related-card scroll-in">
+                        <h3>Invoice Maker</h3>
+                        <p>Create professional invoices in seconds. Perfect for freelancers and small business owners who need to bill clients quickly.</p>
+                    </a>
+
+                    <a href="/pdf-editor/" class="related-card scroll-in">
+                        <h3>PDF Editor</h3>
+                        <p>Edit, sign, and annotate PDFs directly from your phone. No desktop software needed.</p>
+                    </a>
+
+                    <a href="/cv-builder/" class="related-card scroll-in">
+                        <h3>CV Builder</h3>
+                        <p>Build a professional CV in minutes. Create a resume that gets noticed.</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog preview section -->
+        <section class="blog-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Blog: Money management tips</h2>
+                    <p>Learn strategies to save more, spend wisely, and reach your financial goals</p>
+                </div>
+
+                <div class="blog-grid">
+                    <div class="blog-card scroll-in">
+                        <div class="blog-image">📚</div>
+                        <div class="blog-content">
+                            <div class="blog-date">March 2026</div>
+                            <h3>The 50/30/20 Budget Rule: A Simple Framework for Your Money</h3>
+                            <p>Learn how to divide your income into three categories and build a sustainable budget that actually works.</p>
+                            <a href="/#blog" class="blog-link">Read article →</a>
+                        </div>
+                    </div>
+
+                    <div class="blog-card scroll-in">
+                        <div class="blog-image">💡</div>
+                        <div class="blog-content">
+                            <div class="blog-date">February 2026</div>
+                            <h3>5 Hidden Expenses Draining Your Budget (And How to Fix Them)</h3>
+                            <p>Subscriptions, apps, and small purchases add up. Discover where your money really goes and how to take control.</p>
+                            <a href="/#blog" class="blog-link">Read article →</a>
+                        </div>
+                    </div>
+
+                    <div class="blog-card scroll-in">
+                        <div class="blog-image">🎯</div>
+                        <div class="blog-content">
+                            <div class="blog-date">January 2026</div>
+                            <h3>How to Set (and Actually Reach) Savings Goals</h3>
+                            <p>Setting savings goals is easy. Actually reaching them is harder. Here's the framework that works.</p>
+                            <a href="/#blog" class="blog-link">Read article →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h4>Pocket Manager</h4>
+                <ul>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#use-cases">Use Cases</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="https://apps.apple.com/cz/app/pocket-manager-budget-tracker/id6743084126">Download iOS</a></li>
+                    <li><a href="https://play.google.com/store/apps/details?id=com.helperg.money">Download Android</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>More Tools</h4>
+                <ul>
+                    <li><a href="/invoice-maker/">Invoice Maker</a></li>
+                    <li><a href="/pdf-editor/">PDF Editor</a></li>
+                    <li><a href="/cv-builder/">CV Builder</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Connect</h4>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/petro-hrys-8306b9401" class="social-link" title="LinkedIn">in</a>
+                    <a href="https://x.com/petrohrys" class="social-link" title="X (Twitter)">𝕏</a>
+                    <a href="https://youtube.com/@petrohrys" class="social-link" title="YouTube">▶</a>
+                </div>
+            </div>
+
+            <div class="footer-column">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="/#blog">Blog</a></li>
+                    <li><a href="/#about">About Petro</a></li>
+                    <li><a href="/#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-legal">
+                <a href="/privacy/">Privacy Policy</a>
+                <a href="/terms/">Terms of Service</a>
+            </div>
+            <p>&copy; 2026 Petro Hrys. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Pocket Manager: Budget Tracker",
+        "description": "Privacy-first budget tracking app for iOS and Android. Track expenses, get smart insights, and reach your savings goals without linking your bank account.",
+        "url": "https://petrohrys.com/pocket-manager/",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": ["iOS", "Android"],
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "ratingCount": "2500"
+        },
+        "author": {
+            "@type": "Person",
+            "name": "Petro Hrys",
+            "url": "https://petrohrys.com"
+        }
+    }
+    </script>
+
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Is my data secure and private?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. All your data stays on your device. We never sync to external servers, never see your financial information, and never share data with third parties."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Do I need to connect my bank account?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. Pocket Manager doesn't require or support bank account linking. You manually log your expenses for more control and privacy."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How much does Pocket Manager cost?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Core budget tracking is completely free. A premium tier offers advanced analytics, but the main app is free."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I use it on both iOS and Android?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. Pocket Manager is available on both iOS and Android through their respective app stores."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <!-- Scroll animation script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // FAQ functionality
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', function() {
+                    item.classList.toggle('active');
+                });
+            });
+
+            // Scroll animation observer
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            const scrollElements = document.querySelectorAll('.scroll-in');
+            scrollElements.forEach(element => {
+                observer.observe(element);
+            });
+
+            // Smooth scroll for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href !== '#' && document.querySelector(href)) {
+                        e.preventDefault();
+                        document.querySelector(href).scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
