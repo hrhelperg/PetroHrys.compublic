@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/af075fab2c66644b181224ee/script.js"></script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4RE6YCJZBD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-4RE6YCJZBD');
+</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Petro Hrys crea apps enfocadas con privacidad como prioridad para la fricción digital cotidiana. Editor PDF, herramientas de archivos, facturación y apps de carrera, diseñadas para funcionar sin conexión, sin cuentas requeridas.">
+  <meta name="keywords" content="editor PDF, desarrollador de apps, apps con privacidad, facturador, generador de currículum, herramientas de archivos">
+  <meta property="og:title" content="Petro Hrys – Desarrollador de Apps con Privacidad">
+  <meta property="og:description" content="Herramientas enfocadas que resuelven la fricción digital cotidiana. Sin bloat, sin cuentas obligatorias, sin spam.">
+  <meta property="og:image" content="https://www.petrohrys.com/photo1.jpg">
+  <meta property="og:url" content="https://www.petrohrys.com/es/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Petro Hrys">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@petrohrys">
+  <meta name="twitter:title" content="Petro Hrys – Desarrollador de Apps con Privacidad">
+  <meta name="twitter:description" content="Herramientas enfocadas que resuelven la fricción digital cotidiana. Sin bloat, sin spam.">
+  <meta name="twitter:image" content="https://www.petrohrys.com/photo1.jpg">
+  <title>Petro Hrys – Desarrollador de Apps con Privacidad</title>
+
+  <link rel="canonical" href="https://www.petrohrys.com/es/">
+  <link rel="alternate" hreflang="en" href="https://www.petrohrys.com/">
+  <link rel="alternate" hreflang="es" href="https://www.petrohrys.com/es/">
+  <link rel="alternate" hreflang="fr" href="https://www.petrohrys.com/fr/">
+  <link rel="alternate" hreflang="de" href="https://www.petrohrys.com/de/">
+  <link rel="alternate" hreflang="x-default" href="https://www.petrohrys.com/">
+  <link rel="sitemap" type="application/xml" href="https://www.petrohrys.com/sitemap.xml">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%231a1a1a'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-size='18' fill='white'>P</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background-color: #f7f7f5;
+      color: #1a1a1a;
+      line-height: 1.6;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      backdrop-filter: blur(10px);
+      background: rgba(247, 247, 245, 0.8);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      padding: 1rem 2rem;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .logo { font-weight: 600; font-size: 1.25rem; letter-spacing: -0.02em; color: #1a1a1a; text-decoration: none; }
+    .nav-right { display: flex; align-items: center; gap: 1.5rem; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { text-decoration: none; color: #1a1a1a; font-size: 0.95rem; font-weight: 400; transition: opacity 0.2s; }
+    .nav-links a:hover { opacity: 0.6; }
+    .lang-switcher { display: flex; gap: 0.2rem; align-items: center; }
+    .lang-option {
+      padding: 0.2rem 0.45rem; border-radius: 4px; text-decoration: none;
+      color: #888; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.02em; transition: all 0.2s;
+    }
+    .lang-option:hover, .lang-active { color: #1a1a1a; background: rgba(0,0,0,0.07); }
+    .hamburger { display: none; flex-direction: column; gap: 0.35rem; cursor: pointer; background: none; border: none; }
+    .hamburger span { width: 20px; height: 2px; background: #1a1a1a; border-radius: 1px; transition: all 0.3s; }
+    .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(8px, 8px); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
+
+    @media (max-width: 768px) {
+      .hamburger { display: flex; }
+      .nav-links {
+        position: absolute; top: 60px; left: 0; right: 0;
+        background: rgba(247, 247, 245, 0.95);
+        flex-direction: column; gap: 1rem; padding: 2rem;
+        max-height: 0; overflow: hidden; transition: max-height 0.3s;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      }
+      .nav-links.active { max-height: 400px; }
+      nav { padding: 1rem; }
+      .nav-right { gap: 0.75rem; }
+    }
+
+    /* Hero */
+    .hero {
+      padding-top: 120px; padding-bottom: 60px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+      max-width: 1200px; margin: 0 auto; padding-left: 2rem; padding-right: 2rem;
+    }
+    .hero-content h1 { font-size: 2.5rem; line-height: 1.2; margin-bottom: 1rem; font-weight: 600; letter-spacing: -0.02em; }
+    .hero-content p { font-size: 1.1rem; color: #666; margin-bottom: 2rem; line-height: 1.7; }
+    .hero-ctas { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+    .cta-primary, .cta-secondary {
+      padding: 0.75rem 1.75rem; border-radius: 8px; text-decoration: none;
+      font-size: 0.95rem; font-weight: 500; transition: all 0.2s; border: none; cursor: pointer;
+    }
+    .cta-primary { background-color: #1a1a1a; color: white; }
+    .cta-primary:hover { background-color: #333; }
+    .cta-secondary { background-color: transparent; color: #1a1a1a; border: 1px solid #1a1a1a; }
+    .cta-secondary:hover { background-color: #1a1a1a; color: white; }
+    .hero-image { position: relative; display: flex; justify-content: center; align-items: center; }
+    .hero-image img { width: 280px; height: 280px; border-radius: 50%; object-fit: cover; position: relative; z-index: 2; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1); }
+    .hero-image::before {
+      content: ''; position: absolute; width: 320px; height: 320px;
+      background: conic-gradient(from 0deg, #1a1a1a 0%, #666 50%, #1a1a1a 100%);
+      border-radius: 50%; z-index: 1; animation: rotate 20s linear infinite;
+    }
+    @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+    /* Sections */
+    section {
+      padding: 60px 2rem; max-width: 1200px; margin: 0 auto;
+      opacity: 0; transform: translateY(20px);
+      animation: fadeIn 0.6s ease-out forwards;
+    }
+    @keyframes fadeIn { to { opacity: 1; transform: translateY(0); } }
+    section:nth-of-type(2) { animation-delay: 0.1s; }
+    section:nth-of-type(3) { animation-delay: 0.2s; }
+    section:nth-of-type(4) { animation-delay: 0.3s; }
+    section:nth-of-type(5) { animation-delay: 0.4s; }
+    section:nth-of-type(6) { animation-delay: 0.5s; }
+    section:nth-of-type(7) { animation-delay: 0.6s; }
+    section:nth-of-type(8) { animation-delay: 0.7s; }
+    section:nth-of-type(9) { animation-delay: 0.8s; }
+
+    /* Philosophy */
+    .problem-section { text-align: center; }
+    .problem-section h2 { font-size: 1.8rem; margin-bottom: 1rem; font-weight: 600; }
+    .problem-section p { font-size: 1.05rem; color: #666; max-width: 700px; margin: 0 auto 2rem; line-height: 1.8; }
+    .philosophy-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 3rem; }
+    .philosophy-card { background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); text-align: center; }
+    .philosophy-card h4 { font-size: 1rem; margin-bottom: 0.75rem; font-weight: 600; }
+    .philosophy-card p { font-size: 0.9rem; color: #666; margin: 0; }
+
+    /* Products */
+    .products-section h2 { font-size: 2rem; margin-bottom: 1rem; font-weight: 600; }
+    .product-group { margin-bottom: 4rem; }
+    .product-group h3 { font-size: 1.4rem; margin-bottom: 0.5rem; font-weight: 600; }
+    .product-group > p { color: #666; margin-bottom: 2rem; font-size: 0.95rem; max-width: 600px; }
+    .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 2rem; }
+    .product-card { background: white; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.04); transition: all 0.3s ease; display: flex; flex-direction: column; }
+    .product-card:hover { box-shadow: 0 8px 20px rgba(0,0,0,0.1); transform: translateY(-4px); }
+    .product-icon { width: 50px; height: 50px; margin-bottom: 1rem; }
+    .product-card h4 { font-size: 1.15rem; margin-bottom: 0.5rem; font-weight: 600; }
+    .product-description { color: #666; font-size: 0.95rem; margin-bottom: 1rem; flex-grow: 1; }
+    .product-features { list-style: none; margin-bottom: 1.5rem; }
+    .product-features li { font-size: 0.85rem; color: #999; padding: 0.25rem 0; }
+    .product-features li::before { content: '• '; color: #1a1a1a; margin-right: 0.5rem; }
+    .product-platforms { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+    .platform-badge { display: inline-block; background-color: #f0f0ee; color: #666; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+    .product-cta { display: inline-flex; gap: 0.75rem; margin-top: auto; }
+    .product-link { padding: 0.6rem 1.2rem; border-radius: 6px; text-decoration: none; font-size: 0.85rem; font-weight: 500; transition: all 0.2s; border: 1px solid transparent; }
+    .product-link-primary { background-color: #1a1a1a; color: white; }
+    .product-link-primary:hover { background-color: #333; }
+    .product-link-secondary { background-color: transparent; color: #1a1a1a; border: 1px solid #ddd; font-size: 0.8rem; }
+    .product-link-secondary:hover { border-color: #1a1a1a; }
+
+    /* Stats */
+    .stats-section { text-align: center; background: white; border-radius: 12px; padding: 4rem 2rem; }
+    .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 2rem; margin-top: 3rem; }
+    .stat-card h3 { font-size: 2.5rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .stat-card p { color: #666; font-size: 0.95rem; }
+
+    /* About */
+    .about-section { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+    .about-image img { width: 100%; max-width: 350px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+    .about-content h2 { font-size: 2rem; margin-bottom: 1.5rem; font-weight: 600; }
+    .about-content p { color: #666; font-size: 0.95rem; margin-bottom: 1rem; line-height: 1.8; }
+    .about-link { display: inline-block; margin-top: 1.5rem; color: #1a1a1a; text-decoration: none; font-weight: 500; border-bottom: 2px solid #1a1a1a; transition: opacity 0.2s; }
+    .about-link:hover { opacity: 0.6; }
+
+    /* Blog */
+    .blog-section h2 { font-size: 2rem; margin-bottom: 2rem; font-weight: 600; }
+    .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 2rem; }
+    .blog-card { background: white; border-radius: 12px; padding: 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.04); transition: all 0.3s ease; }
+    .blog-card:hover { box-shadow: 0 8px 20px rgba(0,0,0,0.1); transform: translateY(-4px); }
+    .blog-category { color: #999; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; margin-bottom: 0.5rem; }
+    .blog-card h4 { font-size: 1.1rem; margin-bottom: 1rem; line-height: 1.5; font-weight: 600; }
+    .blog-card p { color: #666; font-size: 0.9rem; margin-bottom: 1rem; }
+    .blog-card a { color: #1a1a1a; text-decoration: none; font-weight: 500; font-size: 0.9rem; border-bottom: 2px solid #1a1a1a; transition: opacity 0.2s; }
+    .blog-card a:hover { opacity: 0.6; }
+    .blog-all { text-align: center; margin-top: 2rem; }
+    .blog-all a { display: inline-block; color: #1a1a1a; text-decoration: none; font-weight: 500; border-bottom: 2px solid #1a1a1a; transition: opacity 0.2s; }
+    .blog-all a:hover { opacity: 0.6; }
+
+    /* Contact */
+    .contact-section { background: white; border-radius: 12px; padding: 4rem 2rem; text-align: center; }
+    .contact-section h2 { font-size: 2rem; margin-bottom: 1rem; font-weight: 600; }
+    .contact-section p { color: #666; max-width: 600px; margin: 0 auto 2rem; font-size: 0.95rem; line-height: 1.8; }
+    .contact-methods { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-bottom: 2rem; }
+    .contact-card { padding: 1.5rem; }
+    .contact-card h4 { font-size: 0.9rem; font-weight: 600; margin-bottom: 0.5rem; text-transform: uppercase; color: #999; }
+    .contact-card a { color: #1a1a1a; text-decoration: none; font-weight: 500; transition: opacity 0.2s; }
+    .contact-card a:hover { opacity: 0.6; }
+    .social-links { display: flex; gap: 1rem; justify-content: center; margin-top: 2rem; flex-wrap: wrap; }
+    .social-link { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; background-color: #f0f0ee; color: #1a1a1a; text-decoration: none; transition: all 0.2s; }
+    .social-link:hover { background-color: #1a1a1a; color: white; }
+
+    /* Footer */
+    footer { background: white; border-top: 1px solid rgba(0,0,0,0.05); padding: 4rem 2rem 2rem; margin-top: 4rem; }
+    .footer-content { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem; margin-bottom: 3rem; }
+    .footer-section h4 { font-size: 0.85rem; font-weight: 700; text-transform: uppercase; color: #999; margin-bottom: 1rem; }
+    .footer-section a { display: block; color: #1a1a1a; text-decoration: none; font-size: 0.9rem; margin-bottom: 0.75rem; transition: opacity 0.2s; }
+    .footer-section a:hover { opacity: 0.6; }
+    .footer-bottom { max-width: 1200px; margin: 0 auto; padding-top: 2rem; border-top: 1px solid rgba(0,0,0,0.05); text-align: center; color: #999; font-size: 0.85rem; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero { grid-template-columns: 1fr; padding-top: 100px; padding-bottom: 40px; gap: 2rem; }
+      .hero-content h1 { font-size: 1.8rem; }
+      .hero-content p { font-size: 1rem; }
+      .hero-ctas { flex-direction: column; }
+      .cta-primary, .cta-secondary { width: 100%; text-align: center; }
+      .about-section { grid-template-columns: 1fr; gap: 2rem; }
+      .philosophy-grid { grid-template-columns: repeat(2, 1fr); }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .product-grid { grid-template-columns: 1fr; }
+      section { padding: 40px 1.5rem; }
+    }
+    @media (max-width: 480px) {
+      .hero-content h1 { font-size: 1.5rem; }
+      .philosophy-grid { grid-template-columns: 1fr; }
+      .stats-grid { grid-template-columns: 1fr; }
+      .product-cta { flex-direction: column; }
+      .product-link { width: 100%; text-align: center; }
+      .contact-methods { grid-template-columns: 1fr; }
+      .footer-content { grid-template-columns: 1fr; gap: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="/es/" class="logo">Petro Hrys</a>
+    <div class="nav-right">
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Inicio</a></li>
+        <li><a href="#products">Productos</a></li>
+        <li><a href="#about">Sobre mí</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="#contact">Contacto</a></li>
+      </ul>
+      <div class="lang-switcher">
+        <a href="/" class="lang-option">EN</a>
+        <a href="/es/" class="lang-option lang-active">ES</a>
+        <a href="/fr/" class="lang-option">FR</a>
+        <a href="/de/" class="lang-option">DE</a>
+      </div>
+    </div>
+    <button class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Hero -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h1>Apps que respetan tu tiempo y privacidad</h1>
+      <p>Creo herramientas enfocadas que resuelven la fricción digital cotidiana. Sin bloat. Sin cuentas innecesarias. Sin spam.</p>
+      <div class="hero-ctas">
+        <a href="#products" class="cta-primary">Explorar herramientas</a>
+        <a href="#about" class="cta-secondary">Mi historia</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="/photo1.jpg" alt="Petro Hrys" />
+    </div>
+  </section>
+
+  <!-- Philosophy -->
+  <section id="philosophy" class="problem-section">
+    <h2>Por qué construyo así</h2>
+    <p>La mayoría de las apps de productividad son pesadas, caras o requieren cuentas y suscripciones que realmente no necesitas. Están diseñadas para métricas de engagement, no para resolver tu problema real. Yo construyo diferente: cada herramienta hace una cosa bien, funciona sin conexión y respeta tus datos.</p>
+    <div class="philosophy-grid">
+      <div class="philosophy-card">
+        <h4>Sin cuentas requeridas</h4>
+        <p>Usa las herramientas al instante. Sin registro, sin inicio de sesión, sin recolección de emails.</p>
+      </div>
+      <div class="philosophy-card">
+        <h4>Funciona sin conexión</h4>
+        <p>Todo se ejecuta en tu dispositivo. Sin sincronización en la nube, sin rastreo.</p>
+      </div>
+      <div class="philosophy-card">
+        <h4>Pago único o gratis</h4>
+        <p>Paga una vez si quieres, o usa las versiones gratuitas para siempre. Tú eliges.</p>
+      </div>
+      <div class="philosophy-card">
+        <h4>Privacidad por diseño</h4>
+        <p>Tus archivos son tuyos. Sin analíticas, sin reventa de datos.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products -->
+  <section id="products" class="products-section">
+    <h2>Herramientas que he creado</h2>
+
+    <div class="product-group">
+      <h3>Herramientas de documentos y archivos</h3>
+      <p>Gestiona PDFs, archivos comprimidos y escaneos sin depender de servicios en la nube ni software costoso.</p>
+      <div class="product-grid">
+        <div class="product-card">
+          <svg class="product-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="2" width="18" height="20" rx="1" stroke="#1a1a1a" stroke-width="1.5" fill="#f7f7f5"/>
+            <path d="M6 6h12M6 10h12M6 14h8" stroke="#1a1a1a" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <h4>PDF Editor</h4>
+          <p class="product-description">Edita, convierte, escanea y firma PDFs directamente en tu teléfono.</p>
+          <ul class="product-features">
+            <li>Edita texto e imágenes en PDFs</li>
+            <li>Firma documentos con tu dedo o lápiz óptico</li>
+            <li>Convierte imágenes a PDF, escanea con la cámara</li>
+          </ul>
+          <div class="product-platforms">
+            <span class="platform-badge">iOS</span>
+            <span class="platform-badge">Android</span>
+          </div>
+          <div class="product-cta">
+            <a href="/es/pdf-editor/" class="product-link product-link-primary">Más información</a>
+            <a href="https://apps.apple.com/app/id6747341672" target="_blank" rel="noopener noreferrer" class="product-link product-link-secondary">App Store</a>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <svg class="product-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="4" width="18" height="16" rx="1.5" stroke="#1a1a1a" stroke-width="1.5"/>
+            <path d="M8 9v6M12 9v6M16 9v6" stroke="#1a1a1a" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M7 8l2.5-2.5M17 8l-2.5-2.5" stroke="#1a1a1a" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <h4>Unzip – RAR, Zip, 7zip+</h4>
+          <p class="product-description">Extrae y gestiona archivos comprimidos de cualquier formato.</p>
+          <ul class="product-features">
+            <li>Abre RAR, ZIP, 7Z, TAR y más</li>
+            <li>Extrae directamente al almacenamiento del teléfono</li>
+            <li>Previsualiza archivos antes de extraer</li>
+          </ul>
+          <div class="product-platforms">
+            <span class="platform-badge">iOS</span>
+            <span class="platform-badge">Android</span>
+          </div>
+          <div class="product-cta">
+            <a href="/unzip/" class="product-link product-link-primary">Más información</a>
+            <a href="https://apps.apple.com/app/id6753772583" target="_blank" rel="noopener noreferrer" class="product-link product-link-secondary">App Store</a>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <svg class="product-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="4" width="20" height="16" rx="1" stroke="#1a1a1a" stroke-width="1.5"/>
+            <path d="M2 10h20" stroke="#1a1a1a" stroke-width="1.5"/>
+            <circle cx="5" cy="15" r="1" fill="#1a1a1a"/>
+            <circle cx="11" cy="15" r="1" fill="#1a1a1a"/>
+          </svg>
+          <h4>Smart Printer: Scan Master</h4>
+          <p class="product-description">Imprime y escanea de forma inalámbrica desde tu iPhone.</p>
+          <ul class="product-features">
+            <li>Impresión inalámbrica con impresoras AirPrint</li>
+            <li>Escaneo de documentos de alta calidad</li>
+            <li>Guarda escaneos como PDF o JPEG</li>
+          </ul>
+          <div class="product-platforms">
+            <span class="platform-badge">iOS</span>
+          </div>
+          <div class="product-cta">
+            <a href="/smart-printer/" class="product-link product-link-primary">Más información</a>
+            <a href="https://apps.apple.com/app/id6746067890" target="_blank" rel="noopener noreferrer" class="product-link product-link-secondary">App Store</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-group">
+      <h3>Herramientas de negocio y finanzas</h3>
+      <p>Gestiona facturas, gastos y comunicaciones sin hojas de cálculo ni suscripciones mensuales.</p>
+      <div class="product-grid">
+        <div class="product-card">
+          <svg class="product-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="2" width="18" height="20" rx="1" stroke="#1a1a1a" stroke-width="1.5"/>
+            <path d="M3 8h18" stroke="#1a1a1a" stroke-width="1.5"/>
+            <path d="M8 12h8M8 16h6" stroke="#1a1a1a" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <h4>Invoice Maker</h4>
+          <p class="product-description">Crea facturas PDF profesionales en 60 segundos.</p>
+          <ul class="product-features">
+            <li>Crea facturas con tu logotipo</li>
+            <li>Exporta como PDF con un toque</li>
+            <li>Guarda plantillas para clientes habituales</li>
+          </ul>
+          <div class="product-platforms">
+            <span class="platform-badge">iOS</span>
+          </div>
+          <div class="product-cta">
+            <a href="/es/invoice-maker/" class="product-link product-link-primary">Más información</a>
+            <a href="https://apps.apple.com/app/id6747311276" target="_blank" rel="noopener noreferrer" class="product-link product-link-secondary">App Store</a>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <svg class="product-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="4" width="18" height="16" rx="1" stroke="#1a1a1a" stroke-width="1.5"/>
+            <circle cx="12" cy="12" r="3" stroke="#1a1a1a" stroke-width="1.5"/>
+            <path d="M8 7h8" stroke="#1a1a1a" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <h4>Pocket Manager</h4>
+          <p class="product-description">Controla ingresos y gastos sin hojas de cálculo complicadas.</p>
+          <ul class="product-features">
+            <li>Registra transacciones en segundos</li>
+            <li>Categoriza y analiza gastos</li>
+            <li>Exporta informes como PDF o CSV</li>
+          </ul>
+          <div class="product-platforms">
+            <span class="platform-badge">iOS</span>
+            <span class="platform-badge">Android</span>
+          </div>
+          <div class="product-cta">
+            <a href="/es/pocket-manager/" class="product-link product-link-primary">Más información</a>
+            <a href="https://apps.apple.com/app/id6743084126" target="_blank" rel="noopener noreferrer" class="product-link product-link-secondary">App Store</a>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <svg class="product-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="4" y="3" width="16" height="18" rx="1" stroke="#1a1a1a" stroke-width="1.5"/>
+            <path d="M8 8h8M8 12h8M8 16h6" stroke="#1a1a1a" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <h4>FAX: Send from Phone</h4>
+          <p class="product-description">Envía faxes directamente desde tu iPhone a cualquier máquina de fax en el mundo.</p>
+          <ul class="product-features">
+            <li>Envía PDFs y fotos como faxes</li>
+            <li>No necesitas una máquina de fax separada</li>
+            <li>Confirmación de entrega incluida</li>
+          </ul>
+          <div class="product-platforms">
+            <span class="platform-badge">iOS</span>
+          </div>
+          <div class="product-cta">
+            <a href="/fax/" class="product-link product-link-primary">Más información</a>
+            <a href="https://apps.apple.com/app/id6760895885" target="_blank" rel="noopener noreferrer" class="product-link product-link-secondary">App Store</a>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <svg class="product-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="2" width="8" height="14" rx="1" stroke="#1a1a1a" stroke-width="1.5"/>
+            <rect x="13" y="2" width="8" height="14" rx="1" stroke="#1a1a1a" stroke-width="1.5"/>
+            <circle cx="7" cy="19" r="1.5" fill="#1a1a1a"/>
+            <circle cx="17" cy="19" r="1.5" fill="#1a1a1a"/>
+          </svg>
+          <h4>TwinPhone</h4>
+          <p class="product-description">Obtén un segundo número de teléfono en más de 145 países. Disponible en línea o en tu app de contactos.</p>
+          <ul class="product-features">
+            <li>Segundo número en un solo teléfono</li>
+            <li>Funciona en más de 145 países</li>
+            <li>SMS, llamadas y buzón de voz incluidos</li>
+          </ul>
+          <div class="product-platforms">
+            <span class="platform-badge">SaaS</span>
+            <span class="platform-badge">Web</span>
+          </div>
+          <div class="product-cta">
+            <a href="/twinphone/" class="product-link product-link-primary">Más información</a>
+            <a href="https://www.twin-phone.com" target="_blank" rel="noopener noreferrer" class="product-link product-link-secondary">Visitar sitio</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-group">
+      <h3>Herramientas de carrera y uso personal</h3>
+      <p>Construye tu perfil profesional y monetiza tus aficiones con herramientas que trabajan para ti.</p>
+      <div class="product-grid">
+        <div class="product-card">
+          <svg class="product-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="2" width="18" height="20" rx="1" stroke="#1a1a1a" stroke-width="1.5"/>
+            <circle cx="12" cy="6" r="1.5" fill="#1a1a1a"/>
+            <path d="M8 9h8M8 12h8M8 15h6M8 18h7" stroke="#1a1a1a" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <h4>CV Builder: Make Resume</h4>
+          <p class="product-description">Crea currículums compatibles con ATS que superan los sistemas de seguimiento de candidatos.</p>
+          <ul class="product-features">
+            <li>Plantillas optimizadas para ATS</li>
+            <li>Exporta a PDF o texto plano</li>
+            <li>Guarda y actualiza múltiples versiones</li>
+          </ul>
+          <div class="product-platforms">
+            <span class="platform-badge">iOS</span>
+          </div>
+          <div class="product-cta">
+            <a href="/es/cv-builder/" class="product-link product-link-primary">Más información</a>
+            <a href="https://apps.apple.com/cz/app/cv-builder-make-resume/id6745150815" target="_blank" rel="noopener noreferrer" class="product-link product-link-secondary">App Store</a>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <svg class="product-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="4" y="3" width="16" height="18" rx="1" stroke="#1a1a1a" stroke-width="1.5"/>
+            <path d="M7 7h10M7 12h10M7 17h6" stroke="#1a1a1a" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <h4>TCG Card Value Scanner</h4>
+          <p class="product-description">Escanea cartas coleccionables con IA y obtén precios de mercado al instante.</p>
+          <ul class="product-features">
+            <li>Reconocimiento de cartas con IA desde fotos</li>
+            <li>Precios de mercado en tiempo real</li>
+            <li>Crea catálogos de colección</li>
+          </ul>
+          <div class="product-platforms">
+            <span class="platform-badge">iOS</span>
+          </div>
+          <div class="product-cta">
+            <a href="/tcg-scanner/" class="product-link product-link-primary">Más información</a>
+            <a href="https://apps.apple.com/app/id6754197485" target="_blank" rel="noopener noreferrer" class="product-link product-link-secondary">App Store</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="stats-section">
+    <h2>Impacto hasta ahora</h2>
+    <div class="stats-grid">
+      <div class="stat-card"><h3>9</h3><p>Apps lanzadas</p></div>
+      <div class="stat-card"><h3>145+</h3><p>Países alcanzados</p></div>
+      <div class="stat-card"><h3>iOS & Android</h3><p>Disponible en todas partes</p></div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="about-section">
+    <div class="about-image">
+      <img src="/photo1.jpg" alt="Petro Hrys" />
+    </div>
+    <div class="about-content">
+      <h2>Creo herramientas que usaría yo mismo</h2>
+      <p>Soy Petro Hrys, desarrollador de apps con base entre Europa y Estados Unidos. Nací en Ucrania y llevo la última década construyendo software enfocado y con privacidad como prioridad para iOS y Android.</p>
+      <p>Me frustran las apps cargadas de funciones innecesarias, los patrones oscuros y la economía de vigilancia. Cada herramienta que creo está diseñada para resolver un problema real sin complejidad innecesaria. Creo que el buen software respeta tu tiempo, protege tus datos y no malgasta tu atención.</p>
+      <p>Cuando no estoy programando, exploro cómo la tecnología puede construirse con respeto genuino por los usuarios, no solo por las métricas de engagement.</p>
+      <a href="/es/#about" class="about-link">Leer la historia completa →</a>
+    </div>
+  </section>
+
+  <!-- Blog -->
+  <section id="blog" class="blog-section">
+    <h2>Últimas guías</h2>
+    <div class="blog-grid">
+      <div class="blog-card">
+        <span class="blog-category">Cómo hacerlo</span>
+        <h4>Cómo firmar un PDF en tu iPhone sin pagar por software</h4>
+        <p>Una guía paso a paso para firmar digitalmente contratos y documentos usando solo tu teléfono, sin apps de PDF costosas.</p>
+        <a href="/es/pdf-editor/">Leer artículo →</a>
+      </div>
+      <div class="blog-card">
+        <span class="blog-category">Productividad</span>
+        <h4>5 formas de controlar gastos empresariales sin hojas de cálculo</h4>
+        <p>Simplifica tu seguimiento financiero. Aprende alternativas prácticas a Excel que son más rápidas y fáciles para propietarios de pequeñas empresas.</p>
+        <a href="/es/pocket-manager/">Leer artículo →</a>
+      </div>
+      <div class="blog-card">
+        <span class="blog-category">Carrera</span>
+        <h4>Por qué tu currículum no supera los filtros ATS (y cómo solucionarlo)</h4>
+        <p>Entiende cómo funcionan los sistemas de seguimiento de candidatos y qué formato y palabras clave ayudarán a tu currículum a llegar a ojos humanos.</p>
+        <a href="/es/cv-builder/">Leer artículo →</a>
+      </div>
+    </div>
+    <div class="blog-all">
+      <a href="/es/#products">Ver todas las herramientas →</a>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="contact-section">
+    <h2>Hablemos</h2>
+    <p>¿Tienes una pregunta sobre una de mis herramientas? ¿Quieres colaborar, reportar un error o simplemente saludar? Leo todos los mensajes y te responderé lo antes posible.</p>
+    <div class="contact-methods">
+      <div class="contact-card">
+        <h4>Correo electrónico</h4>
+        <a href="mailto:hrhelperg@gmail.com">hrhelperg@gmail.com</a>
+      </div>
+      <div class="contact-card">
+        <h4>Sígueme</h4>
+        <div style="display: flex; gap: 0.75rem; justify-content: center;">
+          <a href="https://www.linkedin.com/in/petro-hrys-8306b9401" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: #1a1a1a;">LinkedIn</a>
+          <a href="https://x.com/petrohrys" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: #1a1a1a;">X</a>
+          <a href="https://youtube.com/@petrohrys" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: #1a1a1a;">YouTube</a>
+        </div>
+      </div>
+    </div>
+    <div class="social-links">
+      <a href="https://www.linkedin.com/in/petro-hrys-8306b9401" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+      </a>
+      <a href="https://x.com/petrohrys" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="X">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/></svg>
+      </a>
+      <a href="https://youtube.com/@petrohrys" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="YouTube">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>Productos</h4>
+        <a href="/es/pdf-editor/">PDF Editor</a>
+        <a href="/unzip/">Unzip</a>
+        <a href="/smart-printer/">Smart Printer</a>
+        <a href="/es/invoice-maker/">Invoice Maker</a>
+        <a href="/es/pocket-manager/">Pocket Manager</a>
+      </div>
+      <div class="footer-section">
+        <h4>Más productos</h4>
+        <a href="/fax/">FAX: Send from Phone</a>
+        <a href="/twinphone/">TwinPhone</a>
+        <a href="/es/cv-builder/">CV Builder</a>
+        <a href="/tcg-scanner/">TCG Card Scanner</a>
+      </div>
+      <div class="footer-section">
+        <h4>Empresa</h4>
+        <a href="/es/#about">Sobre mí</a>
+        <a href="/es/#contact">Contacto</a>
+      </div>
+      <div class="footer-section">
+        <h4>Legal</h4>
+        <a href="/es/privacy/">Política de privacidad</a>
+        <a href="/es/terms/">Términos de servicio</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Petro Hrys. Todos los derechos reservados. Creado con enfoque en privacidad y simplicidad.</p>
+    </div>
+  </footer>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "name": "Petro Hrys",
+        "email": "hrhelperg@gmail.com",
+        "sameAs": [
+          "https://www.linkedin.com/in/petro-hrys-8306b9401",
+          "https://x.com/petrohrys",
+          "https://youtube.com/@petrohrys"
+        ],
+        "jobTitle": "App Developer",
+        "description": "Desarrollador de apps con privacidad como prioridad"
+      }
+    ]
+  }
+  </script>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navLinks.classList.toggle('active');
+    });
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('active');
+      });
+    });
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href !== '#' && document.querySelector(href)) {
+          e.preventDefault();
+          document.querySelector(href).scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>

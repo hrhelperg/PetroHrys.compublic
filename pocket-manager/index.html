@@ -18,6 +18,11 @@
     <meta name="keywords" content="budget tracker, expense tracker, money management, personal finance app, savings goals">
     <meta name="author" content="Petro Hrys">
     <link rel="canonical" href="https://www.petrohrys.com/pocket-manager/">
+    <link rel="alternate" hreflang="en" href="https://www.petrohrys.com/pocket-manager/">
+    <link rel="alternate" hreflang="es" href="https://www.petrohrys.com/es/pocket-manager/">
+    <link rel="alternate" hreflang="fr" href="https://www.petrohrys.com/fr/pocket-manager/">
+    <link rel="alternate" hreflang="de" href="https://www.petrohrys.com/de/pocket-manager/">
+    <link rel="alternate" hreflang="x-default" href="https://www.petrohrys.com/pocket-manager/">
     <meta property="og:title" content="Pocket Manager — Budget Tracker & Expense App">
     <meta property="og:description" content="Track expenses in 30 seconds. Privacy-first, no bank linking, free.">
     <meta property="og:type" content="website">
@@ -115,6 +120,10 @@
         .nav-links a:hover {
             color: var(--accent-green);
         }
+
+        .lang-switcher { display: flex; gap: 0.2rem; align-items: center; }
+        .lang-option { padding: 0.2rem 0.45rem; border-radius: 4px; text-decoration: none; color: #888; font-size: 0.78rem; font-weight: 600; transition: all 0.2s; }
+        .lang-option:hover, .lang-active { color: var(--text-primary); background: rgba(0,0,0,0.07); }
 
         .breadcrumb {
             font-size: 0.85rem;
@@ -997,10 +1006,16 @@
                 <li><a href="#faq">FAQ</a></li>
             </ul>
         </div>
-        <div class="breadcrumb">
-            <a href="/">Home</a> / <a href="/#products">Business Tools</a> / <span>Pocket Manager</span>
+        <div class="lang-switcher">
+            <a href="/pocket-manager/" class="lang-option lang-active">EN</a>
+            <a href="/es/pocket-manager/" class="lang-option">ES</a>
+            <a href="/fr/pocket-manager/" class="lang-option">FR</a>
+            <a href="/de/pocket-manager/" class="lang-option">DE</a>
         </div>
     </nav>
+    <div class="breadcrumb" style="padding:0.5rem 2rem;font-size:0.85rem;color:#999;">
+        <a href="/">Home</a> / <a href="/#products">Business Tools</a> / <span>Pocket Manager</span>
+    </div>
 
     <main>
         <!-- Hero section -->

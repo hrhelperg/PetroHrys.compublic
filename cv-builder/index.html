@@ -17,6 +17,11 @@
     <meta name="keywords" content="resume builder, CV builder, ATS-friendly resume, professional templates, iOS resume app">
     <meta name="author" content="Petro Hrys">
     <link rel="canonical" href="https://www.petrohrys.com/cv-builder/">
+    <link rel="alternate" hreflang="en" href="https://www.petrohrys.com/cv-builder/">
+    <link rel="alternate" hreflang="es" href="https://www.petrohrys.com/es/cv-builder/">
+    <link rel="alternate" hreflang="fr" href="https://www.petrohrys.com/fr/cv-builder/">
+    <link rel="alternate" hreflang="de" href="https://www.petrohrys.com/de/cv-builder/">
+    <link rel="alternate" hreflang="x-default" href="https://www.petrohrys.com/cv-builder/">
     <meta property="og:title" content="CV Builder — ATS-Friendly Resume Builder for iPhone">
     <meta property="og:description" content="20+ professional templates. ATS-optimized. Build your resume in minutes.">
     <meta property="og:url" content="https://www.petrohrys.com/cv-builder/">
@@ -100,6 +105,10 @@
         .nav-links a:hover {
             color: #2563EB;
         }
+
+        .lang-switcher { display: flex; gap: 0.2rem; align-items: center; }
+        .lang-option { padding: 0.2rem 0.45rem; border-radius: 4px; text-decoration: none; color: #888; font-size: 0.78rem; font-weight: 600; transition: all 0.2s; }
+        .lang-option:hover, .lang-active { color: #1f2937; background: rgba(0,0,0,0.07); }
 
         .breadcrumb {
             font-size: 0.8rem;
@@ -925,6 +934,12 @@
                 <a href="#features">Features</a>
                 <a href="#use-cases">Use Cases</a>
                 <a href="#faq">FAQ</a>
+            </div>
+            <div class="lang-switcher">
+                <a href="/cv-builder/" class="lang-option lang-active">EN</a>
+                <a href="/es/cv-builder/" class="lang-option">ES</a>
+                <a href="/fr/cv-builder/" class="lang-option">FR</a>
+                <a href="/de/cv-builder/" class="lang-option">DE</a>
             </div>
         </div>
     </nav>

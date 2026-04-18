@@ -16,6 +16,11 @@
     <meta name="description" content="Edit, annotate, convert, scan, and e-sign PDFs on iPhone and Android. Works offline, no account required. Free PDF editor by Petro Hrys.">
     <meta name="keywords" content="PDF editor, PDF annotator, PDF converter, e-signature, document scanner, iOS PDF editor">
     <link rel="canonical" href="https://www.petrohrys.com/pdf-editor/">
+    <link rel="alternate" hreflang="en" href="https://www.petrohrys.com/pdf-editor/">
+    <link rel="alternate" hreflang="es" href="https://www.petrohrys.com/es/pdf-editor/">
+    <link rel="alternate" hreflang="fr" href="https://www.petrohrys.com/fr/pdf-editor/">
+    <link rel="alternate" hreflang="de" href="https://www.petrohrys.com/de/pdf-editor/">
+    <link rel="alternate" hreflang="x-default" href="https://www.petrohrys.com/pdf-editor/">
     <meta property="og:title" content="PDF Editor — Edit, Convert & Sign PDFs on iOS & Android">
     <meta property="og:description" content="Annotate, convert, scan, and sign PDFs on your phone. Offline, no account, free.">
     <meta property="og:type" content="website">
@@ -116,6 +121,10 @@
         .nav-links a:hover {
             color: var(--text-primary);
         }
+
+        .lang-switcher { display: flex; gap: 0.2rem; align-items: center; }
+        .lang-option { padding: 0.2rem 0.45rem; border-radius: 4px; text-decoration: none; color: #888; font-size: 0.78rem; font-weight: 600; transition: all 0.2s; }
+        .lang-option:hover, .lang-active { color: var(--text-primary); background: rgba(0,0,0,0.07); }
 
         @media (max-width: 768px) {
             nav.top-nav {
@@ -896,6 +905,12 @@
                 <li><a href="#use-cases">Use Cases</a></li>
                 <li><a href="#faq">FAQ</a></li>
             </ul>
+        </div>
+        <div class="lang-switcher">
+            <a href="/pdf-editor/" class="lang-option lang-active">EN</a>
+            <a href="/es/pdf-editor/" class="lang-option">ES</a>
+            <a href="/fr/pdf-editor/" class="lang-option">FR</a>
+            <a href="/de/pdf-editor/" class="lang-option">DE</a>
         </div>
     </nav>
 

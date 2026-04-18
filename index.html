@@ -29,6 +29,11 @@
   <title>Petro Hrys – Privacy-First App Developer</title>
 
   <link rel="canonical" href="https://www.petrohrys.com/">
+  <link rel="alternate" hreflang="en" href="https://www.petrohrys.com/">
+  <link rel="alternate" hreflang="es" href="https://www.petrohrys.com/es/">
+  <link rel="alternate" hreflang="fr" href="https://www.petrohrys.com/fr/">
+  <link rel="alternate" hreflang="de" href="https://www.petrohrys.com/de/">
+  <link rel="alternate" hreflang="x-default" href="https://www.petrohrys.com/">
   <link rel="sitemap" type="application/xml" href="https://www.petrohrys.com/sitemap.xml">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%231a1a1a'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-size='18' fill='white'>P</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -93,6 +98,34 @@
 
     .nav-links a:hover {
       opacity: 0.6;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .lang-switcher {
+      display: flex;
+      gap: 0.2rem;
+      align-items: center;
+    }
+
+    .lang-option {
+      padding: 0.2rem 0.45rem;
+      border-radius: 4px;
+      text-decoration: none;
+      color: #888;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      transition: all 0.2s;
+    }
+
+    .lang-option:hover, .lang-active {
+      color: #1a1a1a;
+      background: rgba(0,0,0,0.07);
     }
 
     .hamburger {
@@ -821,18 +854,26 @@
   <!-- Navigation -->
   <nav>
     <a href="/" class="logo">Petro Hrys</a>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#products">Products</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#blog">Blog</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <button class="hamburger" id="hamburger">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
+    <div class="nav-right">
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="lang-switcher">
+        <a href="/" class="lang-option lang-active">EN</a>
+        <a href="/es/" class="lang-option">ES</a>
+        <a href="/fr/" class="lang-option">FR</a>
+        <a href="/de/" class="lang-option">DE</a>
+      </div>
+      <button class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
   </nav>
 
   <!-- Hero Section -->

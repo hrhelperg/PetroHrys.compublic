@@ -16,6 +16,11 @@
     <title>Invoice Maker — Create Professional Invoices in 60 Seconds | Petro Hrys</title>
     <meta name="description" content="Create and send professional invoices in under a minute on iPhone. Recurring billing, client management, PDF export, and payment tracking. Free to start.">
     <link rel="canonical" href="https://www.petrohrys.com/invoice-maker/">
+    <link rel="alternate" hreflang="en" href="https://www.petrohrys.com/invoice-maker/">
+    <link rel="alternate" hreflang="es" href="https://www.petrohrys.com/es/invoice-maker/">
+    <link rel="alternate" hreflang="fr" href="https://www.petrohrys.com/fr/invoice-maker/">
+    <link rel="alternate" hreflang="de" href="https://www.petrohrys.com/de/invoice-maker/">
+    <link rel="alternate" hreflang="x-default" href="https://www.petrohrys.com/invoice-maker/">
     <meta property="og:title" content="Invoice Maker — Professional Invoices in 60 Seconds">
     <meta property="og:description" content="Create, send, and track invoices from your iPhone. Recurring billing, PDF export, free.">
     <meta property="og:url" content="https://www.petrohrys.com/invoice-maker/">
@@ -62,14 +67,16 @@
             position: sticky;
             top: 0;
             z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 100%;
         }
 
         nav ul {
             list-style: none;
             display: flex;
             gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
         }
 
         nav a {
@@ -82,6 +89,10 @@
         nav a:hover {
             color: var(--accent);
         }
+
+        .lang-switcher { display: flex; gap: 0.2rem; align-items: center; }
+        .lang-option { padding: 0.2rem 0.45rem; border-radius: 4px; text-decoration: none; color: #888; font-size: 0.78rem; font-weight: 600; transition: all 0.2s; }
+        .lang-option:hover, .lang-active { color: var(--text); background: rgba(0,0,0,0.07); }
 
         /* Breadcrumb */
         .breadcrumb {
@@ -683,6 +694,12 @@
             <li><a href="/#tools">Tools</a></li>
             <li><a href="/#about">About</a></li>
         </ul>
+        <div class="lang-switcher">
+            <a href="/invoice-maker/" class="lang-option lang-active">EN</a>
+            <a href="/es/invoice-maker/" class="lang-option">ES</a>
+            <a href="/fr/invoice-maker/" class="lang-option">FR</a>
+            <a href="/de/invoice-maker/" class="lang-option">DE</a>
+        </div>
     </nav>
 
     <!-- Breadcrumb -->
