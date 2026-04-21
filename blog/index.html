@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/af075fab2c66644b181224ee/script.js"></script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4RE6YCJZBD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-4RE6YCJZBD');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Practical guides on PDF editing, document management, and mobile productivity — from the team behind PDF Editor, CV Builder, and other apps.">
+    <meta name="author" content="Petro Hrys">
+    <link rel="canonical" href="https://www.petrohrys.com/blog/">
+    <meta property="og:title" content="Blog — Petro Hrys">
+    <meta property="og:description" content="Practical guides on PDF editing, document management, and mobile productivity.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.petrohrys.com/blog/">
+    <meta property="og:image" content="https://www.petrohrys.com/og/pdf-editor.png">
+    <meta property="og:site_name" content="Petro Hrys">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@petrohrys">
+    <meta name="theme-color" content="#f7f7f5">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Blog — Practical Guides on PDF & Document Tools | Petro Hrys</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg-primary: #f7f7f5;
+            --bg-secondary: #ffffff;
+            --text-primary: #1a1a1a;
+            --text-secondary: #666666;
+            --text-tertiary: #999999;
+            --accent-red: #d32f2f;
+            --border-color: #e8e8e6;
+            --shadow-light: 0 2px 8px rgba(0,0,0,0.06);
+            --shadow-medium: 0 4px 16px rgba(0,0,0,0.08);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        nav.top-nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            background-color: var(--bg-secondary);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: var(--shadow-light);
+        }
+
+        .nav-back {
+            display: flex; align-items: center; gap: 0.5rem;
+            color: var(--text-primary); text-decoration: none;
+            font-weight: 500; transition: color 0.2s;
+        }
+
+        .nav-back:hover { color: var(--accent-red); }
+
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
+
+        .nav-links a {
+            color: var(--text-secondary); text-decoration: none;
+            font-size: 0.9rem; transition: color 0.2s;
+        }
+
+        .nav-links a:hover { color: var(--text-primary); }
+
+        .breadcrumb {
+            margin-top: 70px;
+            padding: 1rem 2rem;
+            font-size: 0.85rem;
+            color: var(--text-tertiary);
+        }
+
+        .breadcrumb a { color: var(--text-secondary); text-decoration: none; transition: color 0.2s; }
+        .breadcrumb a:hover { color: var(--accent-red); }
+
+        .page-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem 2rem 5rem;
+        }
+
+        .page-header { margin-bottom: 3rem; }
+
+        .page-header h1 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 0.75rem;
+        }
+
+        .page-header p { font-size: 1.05rem; color: var(--text-secondary); max-width: 600px; }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .blog-card {
+            background-color: var(--bg-secondary);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            transition: all 0.25s;
+            text-decoration: none;
+            color: var(--text-primary);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-medium);
+            border-color: var(--accent-red);
+        }
+
+        .blog-card-tag {
+            background-color: #fde8e8;
+            color: var(--accent-red);
+            padding: 0.85rem 1.5rem;
+            font-size: 0.78rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .blog-card-body { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
+
+        .blog-card-body h2 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            line-height: 1.35;
+        }
+
+        .blog-card-body p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            flex: 1;
+            margin-bottom: 1.25rem;
+        }
+
+        .blog-card-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.78rem;
+            color: var(--text-tertiary);
+        }
+
+        .blog-card-read-more {
+            color: var(--accent-red);
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            nav.top-nav { padding: 0.75rem 1rem; }
+            .page-header h1 { font-size: 1.75rem; }
+            .blog-grid { grid-template-columns: 1fr; }
+        }
+
+        footer {
+            background-color: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+            padding: 2.5rem 2rem;
+        }
+
+        .footer-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-inner a {
+            color: var(--text-secondary); text-decoration: none;
+            font-size: 0.875rem; transition: color 0.2s;
+        }
+
+        .footer-inner a:hover { color: var(--accent-red); }
+        .footer-inner p { font-size: 0.875rem; color: var(--text-tertiary); }
+    </style>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Blog",
+        "name": "Petro Hrys Blog",
+        "description": "Practical guides on PDF editing, document management, and mobile productivity.",
+        "url": "https://www.petrohrys.com/blog/",
+        "author": {
+            "@type": "Person",
+            "name": "Petro Hrys",
+            "url": "https://petrohrys.com"
+        }
+    }
+    </script>
+</head>
+<body>
+    <nav class="top-nav">
+        <a href="/" class="nav-back">← Petro Hrys</a>
+        <ul class="nav-links">
+            <li><a href="/pdf-editor/">PDF Editor</a></li>
+            <li><a href="/cv-builder/">CV Builder</a></li>
+            <li><a href="/invoice-maker/">Invoice Maker</a></li>
+        </ul>
+    </nav>
+
+    <div class="breadcrumb">
+        <a href="/">Home</a> › Blog
+    </div>
+
+    <div class="page-container">
+        <header class="page-header">
+            <h1>Blog</h1>
+            <p>Practical guides on PDF editing, document management, and getting more done on your phone.</p>
+        </header>
+
+        <div class="blog-grid">
+
+            <a href="/blog/best-pdf-editor-app-iphone-android/" class="blog-card">
+                <div class="blog-card-tag">PDF Tools</div>
+                <div class="blog-card-body">
+                    <h2>Best PDF Editor App for iPhone &amp; Android (Scan, Convert, Sign)</h2>
+                    <p>Most people need a PDF editor a few times a year — not a $20/month subscription. This guide covers what you actually need and why one free app handles 90% of real-world tasks.</p>
+                    <div class="blog-card-meta">
+                        <span>April 21, 2026 · 7 min read</span>
+                        <span class="blog-card-read-more">Read →</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Placeholder for future articles -->
+            <div class="blog-card" style="opacity: 0.5; pointer-events: none; cursor: default;">
+                <div class="blog-card-tag">Coming Soon</div>
+                <div class="blog-card-body">
+                    <h2>How to Sign a PDF on iPhone Without Adobe</h2>
+                    <p>A step-by-step guide to signing PDF documents from your iPhone — no subscription, no printer, no fuss.</p>
+                    <div class="blog-card-meta">
+                        <span>Coming soon · 5 min read</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="blog-card" style="opacity: 0.5; pointer-events: none; cursor: default;">
+                <div class="blog-card-tag">Coming Soon</div>
+                <div class="blog-card-body">
+                    <h2>5 Free Ways to Compress a PDF File</h2>
+                    <p>Reduce PDF file size without losing quality — practical methods for email attachments and limited device storage.</p>
+                    <div class="blog-card-meta">
+                        <span>Coming soon · 6 min read</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-inner">
+            <p>&copy; 2026 Petro Hrys. All rights reserved.</p>
+            <div style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
+                <a href="/">Home</a>
+                <a href="/pdf-editor/">PDF Editor</a>
+                <a href="/privacy/">Privacy Policy</a>
+                <a href="https://x.com/petrohrys?s=21" target="_blank" rel="noopener noreferrer">X / Twitter</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
