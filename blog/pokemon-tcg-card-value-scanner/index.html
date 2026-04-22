@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/af075fab2c66644b181224ee/script.js"></script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4RE6YCJZBD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-4RE6YCJZBD');
+</script>
+  <meta name="msvalidate.01" content="PASTE_YOUR_BING_VERIFICATION_CODE_HERE">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn how a Pokemon TCG card value scanner works, how to check what your cards are worth, and which apps give the most accurate market prices. A complete guide for collectors.">
+    <meta name="keywords" content="pokemon tcg card value scanner, pokemon card scanner app, pokemon card value, trading card scanner, check pokemon card price, card scanner app, tcg price checker">
+    <meta name="author" content="Petro Hrys">
+    <link rel="canonical" href="https://www.petrohrys.com/blog/pokemon-tcg-card-value-scanner/">
+    <link rel="alternate" hreflang="en" href="https://www.petrohrys.com/blog/pokemon-tcg-card-value-scanner/">
+    <link rel="alternate" hreflang="x-default" href="https://www.petrohrys.com/blog/pokemon-tcg-card-value-scanner/">
+    <link rel="sitemap" type="application/xml" href="https://www.petrohrys.com/sitemap.xml">
+    <meta property="og:title" content="Pokemon TCG Card Value Scanner: How to Check What Your Cards Are Worth">
+    <meta property="og:description" content="A complete guide to using a Pokemon TCG card value scanner — how AI card recognition works, step-by-step scanning tips, and how to get accurate prices for your collection.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://www.petrohrys.com/blog/pokemon-tcg-card-value-scanner/">
+    <meta property="og:image" content="https://www.petrohrys.com/og/tcg-scanner.png">
+    <meta property="og:site_name" content="Petro Hrys">
+    <meta property="article:published_time" content="2026-04-22">
+    <meta property="article:author" content="Petro Hrys">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@petrohrys">
+    <meta name="twitter:title" content="Pokemon TCG Card Value Scanner: How to Check What Your Cards Are Worth">
+    <meta name="twitter:description" content="How to scan Pokemon cards and get accurate market prices. Tips, step-by-step guide, and FAQ for collectors.">
+    <meta name="twitter:image" content="https://www.petrohrys.com/og/tcg-scanner.png">
+    <meta name="theme-color" content="#f7f7f5">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Pokemon TCG Card Value Scanner: How to Check What Your Cards Are Worth | Petro Hrys</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg-primary: #f7f7f5;
+            --bg-secondary: #ffffff;
+            --text-primary: #1a1a1a;
+            --text-secondary: #666666;
+            --text-tertiary: #999999;
+            --accent-red: #d32f2f;
+            --border-color: #e8e8e6;
+            --shadow-light: 0 2px 8px rgba(0,0,0,0.06);
+            --shadow-medium: 0 4px 16px rgba(0,0,0,0.08);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        nav.top-nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            background-color: var(--bg-secondary);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: var(--shadow-light);
+        }
+
+        .nav-left { display: flex; align-items: center; gap: 2rem; }
+
+        .nav-back {
+            display: flex; align-items: center; gap: 0.5rem;
+            color: var(--text-primary); text-decoration: none;
+            font-weight: 500; transition: color 0.2s;
+        }
+
+        .nav-back:hover { color: var(--accent-red); }
+
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
+
+        .nav-links a {
+            color: var(--text-secondary); text-decoration: none;
+            font-size: 0.9rem; transition: color 0.2s;
+        }
+
+        .nav-links a:hover { color: var(--text-primary); }
+
+        @media (max-width: 768px) {
+            nav.top-nav { padding: 0.75rem 1rem; }
+            .nav-links { display: none; }
+        }
+
+        .page-wrapper {
+            padding-top: 5rem;
+            min-height: 100vh;
+        }
+
+        .article-container {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 3rem 2rem 4rem;
+        }
+
+        .breadcrumb {
+            font-size: 0.85rem;
+            color: var(--text-tertiary);
+            margin-bottom: 2rem;
+        }
+
+        .breadcrumb a {
+            color: var(--text-tertiary);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover { color: var(--accent-red); }
+
+        .breadcrumb span { margin: 0 0.4rem; }
+
+        .article-tag {
+            display: inline-block;
+            background-color: #fde8e8;
+            color: var(--accent-red);
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 0.3rem 0.75rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            font-size: 0.875rem;
+            color: var(--text-tertiary);
+            flex-wrap: wrap;
+        }
+
+        .article-meta-item { display: flex; align-items: center; gap: 0.4rem; }
+
+        .article-intro {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-top: 1.5rem;
+            line-height: 1.7;
+            border-left: 4px solid var(--accent-red);
+            padding-left: 1.25rem;
+        }
+
+        .article-body h2 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin: 2.5rem 0 1rem;
+            letter-spacing: -0.3px;
+            color: var(--text-primary);
+        }
+
+        .article-body h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 2rem 0 0.75rem;
+            color: var(--text-primary);
+        }
+
+        .article-body p {
+            color: var(--text-secondary);
+            margin-bottom: 1.25rem;
+        }
+
+        .article-body ul, .article-body ol {
+            margin: 1rem 0 1.5rem 1.5rem;
+            color: var(--text-secondary);
+        }
+
+        .article-body li {
+            margin-bottom: 0.6rem;
+            line-height: 1.6;
+        }
+
+        .article-body strong { color: var(--text-primary); }
+
+        .callout {
+            background-color: #fde8e8;
+            border-left: 4px solid var(--accent-red);
+            padding: 1.25rem 1.5rem;
+            border-radius: 0 8px 8px 0;
+            margin: 2rem 0;
+        }
+
+        .callout p { color: var(--text-primary); margin: 0; }
+
+        .feature-list {
+            list-style: none;
+            margin: 1rem 0 1.5rem;
+            padding: 0;
+        }
+
+        .feature-list li {
+            padding: 0.5rem 0 0.5rem 1.75rem;
+            color: var(--text-secondary);
+            position: relative;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .feature-list li:last-child { border-bottom: none; }
+
+        .feature-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--accent-red);
+            font-weight: bold;
+        }
+
+        .step-list {
+            list-style: none;
+            margin: 1rem 0 1.5rem;
+            padding: 0;
+            counter-reset: step-counter;
+        }
+
+        .step-list li {
+            counter-increment: step-counter;
+            padding: 1rem 1rem 1rem 3.5rem;
+            color: var(--text-secondary);
+            position: relative;
+            background-color: var(--bg-secondary);
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 0.75rem;
+        }
+
+        .step-list li:before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 1.75rem;
+            height: 1.75rem;
+            background-color: var(--accent-red);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.85rem;
+        }
+
+        .step-list li strong {
+            display: block;
+            margin-bottom: 0.25rem;
+            color: var(--text-primary);
+        }
+
+        .use-case-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.25rem;
+            margin: 1.5rem 0;
+        }
+
+        .use-case-mini {
+            background-color: var(--bg-secondary);
+            padding: 1.25rem;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+        }
+
+        .use-case-mini h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--accent-red);
+        }
+
+        .use-case-mini p {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        .cta-block {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            border-radius: 14px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            margin: 2.5rem 0;
+            color: white;
+        }
+
+        .cta-block h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 0.75rem;
+        }
+
+        .cta-block p { color: rgba(255,255,255,0.75); margin: 0 auto 1.75rem; max-width: 480px; }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.85rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+        }
+
+        .cta-btn-primary {
+            background-color: white;
+            color: #1a1a1a;
+        }
+
+        .cta-btn-primary:hover {
+            background-color: var(--accent-red);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .cta-btn-secondary {
+            background-color: transparent;
+            color: rgba(255,255,255,0.8);
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .cta-btn-secondary:hover {
+            background-color: rgba(255,255,255,0.1);
+            color: white;
+        }
+
+        .faq-list { margin: 1.5rem 0; }
+
+        .faq-item {
+            background-color: var(--bg-secondary);
+            padding: 1.25rem;
+            margin-bottom: 0.75rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            transition: border-color 0.2s;
+        }
+
+        .faq-item:hover { border-color: var(--accent-red); }
+
+        .faq-question {
+            font-weight: 600;
+            color: var(--text-primary);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+            font-size: 0.975rem;
+        }
+
+        .faq-toggle {
+            font-size: 1.25rem;
+            color: var(--text-tertiary);
+            transition: transform 0.2s;
+            flex-shrink: 0;
+            margin-left: 1rem;
+        }
+
+        .faq-item.open .faq-toggle { transform: rotate(45deg); }
+
+        .faq-answer {
+            display: none;
+            margin-top: 0.75rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.65;
+        }
+
+        .faq-item.open .faq-answer { display: block; }
+
+        .internal-links-box {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 2.5rem 0;
+        }
+
+        .internal-links-box h4 {
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-tertiary);
+            margin-bottom: 1rem;
+        }
+
+        .internal-links-box a {
+            display: block;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            padding: 0.4rem 0;
+            border-bottom: 1px solid var(--border-color);
+            transition: color 0.2s;
+        }
+
+        .internal-links-box a:last-child { border-bottom: none; }
+        .internal-links-box a:hover { color: var(--accent-red); }
+
+        .article-divider {
+            border: none;
+            border-top: 1px solid var(--border-color);
+            margin: 2.5rem 0;
+        }
+
+        footer {
+            background-color: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+            padding: 2rem;
+        }
+
+        .footer-inner {
+            max-width: 760px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            font-size: 0.875rem;
+            color: var(--text-tertiary);
+        }
+
+        .footer-inner a {
+            color: var(--text-tertiary);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-inner a:hover { color: var(--text-primary); }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 1.75rem; }
+            .article-body h2 { font-size: 1.35rem; }
+            .article-container { padding: 2rem 1.25rem; }
+            .footer-inner { flex-direction: column; align-items: flex-start; }
+        }
+    </style>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Pokemon TCG Card Value Scanner: How to Check What Your Cards Are Worth",
+      "description": "A complete guide to using a Pokemon TCG card value scanner — how AI card recognition works, step-by-step scanning tips, and how to get accurate prices for your collection.",
+      "author": {
+        "@type": "Person",
+        "name": "Petro Hrys",
+        "url": "https://www.petrohrys.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Petro Hrys",
+        "url": "https://www.petrohrys.com/"
+      },
+      "datePublished": "2026-04-22",
+      "dateModified": "2026-04-22",
+      "url": "https://www.petrohrys.com/blog/pokemon-tcg-card-value-scanner/",
+      "mainEntityOfPage": "https://www.petrohrys.com/blog/pokemon-tcg-card-value-scanner/",
+      "image": "https://www.petrohrys.com/og/tcg-scanner.png",
+      "keywords": ["pokemon tcg card value scanner", "pokemon card scanner app", "pokemon card value", "trading card scanner", "card scanner app"],
+      "articleSection": "TCG Collecting"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the best Pokemon TCG card value scanner app?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The best card scanner apps combine AI-based visual recognition with live market data from TCGPlayer and Cardmarket. Look for apps that update prices in real-time, support multiple card sets, and let you save your scans to a personal collection."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How accurate are Pokemon card scanning apps?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Modern AI-based scanners are highly accurate for identifying cards from major sets — typically above 95% for clean, well-lit cards. Accuracy drops for cards with heavy wear, foil glare, or very old sets with limited training data."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I scan Pokemon cards that are in sleeves or binders?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, most scanner apps handle cards in protective sleeves, though matte sleeves produce better results than glossy ones which can create glare. Scanning through binder pockets works but may slightly reduce recognition accuracy."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How often do Pokemon card prices change?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pokemon card prices fluctuate constantly — sometimes daily for popular cards. New set releases, tournament results, social media attention, and influencer pulls can cause rapid price swings. Always check current prices before buying or selling."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are old Pokemon cards worth anything?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Many older Pokemon cards — particularly Base Set holographics, first editions, and shadowless variants — are worth significant amounts. A Base Set Charizard in Near Mint condition can sell for hundreds to thousands of dollars. Always scan or look up older cards before assuming they have no value."
+          }
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <nav class="top-nav">
+        <div class="nav-left">
+            <a href="/blog/" class="nav-back">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+                Blog
+            </a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/tcg-scanner/">TCG Scanner App</a></li>
+                <li><a href="/pdf-editor/">PDF Editor</a></li>
+            </ul>
+        </div>
+        <a href="/" style="font-weight: 600; text-decoration: none; color: #1a1a1a;">Petro Hrys</a>
+    </nav>
+
+    <div class="page-wrapper">
+        <article class="article-container">
+
+            <div class="breadcrumb">
+                <a href="/">Home</a>
+                <span>›</span>
+                <a href="/blog/">Blog</a>
+                <span>›</span>
+                Pokemon TCG Card Value Scanner
+            </div>
+
+            <div class="article-tag">TCG Collecting</div>
+
+            <h1>Pokemon TCG Card Value Scanner: How to Check What Your Cards Are Worth</h1>
+
+            <div class="article-meta">
+                <span class="article-meta-item">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    10 min read
+                </span>
+                <span class="article-meta-item">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                    April 22, 2026
+                </span>
+                <span class="article-meta-item">By Petro Hrys</span>
+            </div>
+
+            <p class="article-intro">You pull a shiny card from a pack. Is it worth $0.50 or $500? Without the right tools, there's no easy way to know. A Pokemon TCG card value scanner turns a camera snap into an instant market price — no spreadsheets, no manual searching, no guesswork.</p>
+
+            <div class="article-body">
+
+                <h2>Why Pokemon Card Prices Are Harder to Track Than You Think</h2>
+
+                <p>Pokemon has printed thousands of unique cards across more than 100 sets since 1996. The same character — say, Charizard — can appear in dozens of different versions, each with a wildly different market value. A Base Set holographic Charizard might be worth $400. A Charizard from a recent standard set might be worth $0.25. The difference comes down to set, rarity, print run, and condition.</p>
+
+                <p>Manual price checking used to mean visiting TCGPlayer, Cardmarket, or eBay, typing in the card name, filtering by condition, and averaging recent sold listings. That process works — but it takes 3 to 5 minutes per card. If you're sorting through a binder of 500 cards, manual checking isn't realistic.</p>
+
+                <p>This is where a <strong>Pokemon TCG card value scanner</strong> solves a real problem. Instead of searching manually, you point your phone camera at a card, and the app identifies it and pulls live market pricing in seconds.</p>
+
+                <h2>How a Pokemon TCG Card Value Scanner Works</h2>
+
+                <p>Modern card scanner apps use a combination of computer vision and real-time market data to deliver accurate results. Here's what happens under the hood when you scan a card:</p>
+
+                <h3>Step 1: Image Capture and Processing</h3>
+                <p>The app captures a high-resolution photo of the card through your phone camera. It corrects for lighting, angle, and glare automatically. The card border is detected and the image is cropped and normalized before recognition begins.</p>
+
+                <h3>Step 2: AI Card Identification</h3>
+                <p>A trained machine learning model compares the card image against a database of known cards. It analyzes multiple visual features: the card art, the set symbol in the bottom right corner, the card number, the name, and the holographic pattern if present. Most apps can identify a card within 1 to 2 seconds on a modern phone.</p>
+
+                <h3>Step 3: Market Data Retrieval</h3>
+                <p>Once the card is identified, the app queries live pricing data from marketplaces like TCGPlayer (primarily US-based) and Cardmarket (primarily European). It pulls recent sold listings, current buy-it-now prices, and sometimes auction results. The result is a current market price range broken down by card condition.</p>
+
+                <h3>Step 4: Results Display</h3>
+                <p>You see the card's name, set, number, rarity, and current market value. Better apps display separate prices for Near Mint, Lightly Played, and lower conditions so you can accurately assess your specific copy.</p>
+
+                <div class="callout">
+                    <p><strong>Key insight:</strong> A scanner app is only as good as its pricing database. Look for apps that pull data in real-time from actual marketplace listings — not static price lists that might be weeks or months out of date.</p>
+                </div>
+
+                <h2>Why Knowing Your Card Value Matters</h2>
+
+                <p>Whether you're a casual collector or a serious trader, accurate card valuation matters in three distinct situations:</p>
+
+                <div class="use-case-grid">
+                    <div class="use-case-mini">
+                        <h4>Selling</h4>
+                        <p>Underpricing a card means leaving money on the table. Overpricing means it never sells. Accurate values help you list competitively.</p>
+                    </div>
+                    <div class="use-case-mini">
+                        <h4>Buying</h4>
+                        <p>At card shows, markets, or from friends, a scanner tells you instantly whether a "deal" is actually a deal — or a trap.</p>
+                    </div>
+                    <div class="use-case-mini">
+                        <h4>Insuring</h4>
+                        <p>Collections worth thousands of dollars should be documented. Scanning your collection gives you a timestamped record of card values.</p>
+                    </div>
+                    <div class="use-case-mini">
+                        <h4>Trading</h4>
+                        <p>When trading cards with other collectors, both parties can scan in real-time to ensure a fair exchange without awkward disputes.</p>
+                    </div>
+                </div>
+
+                <p>There's also a nostalgia factor. Many people rediscovering Pokemon as adults are shocked to find that cards they had as children — and thought were worthless — are now fetching serious money. A quick scan can reveal whether your childhood collection is a financial asset worth protecting.</p>
+
+                <h2>Step-by-Step: How to Scan Pokemon Cards and Check Their Value</h2>
+
+                <p>Getting accurate results from a Pokemon TCG card value scanner isn't complicated, but a few habits make a significant difference in the quality of your results.</p>
+
+                <ol class="step-list">
+                    <li>
+                        <strong>Download a card scanner app</strong>
+                        Use an app with a current card database and real-time market pricing. Our <a href="/tcg-scanner/" style="color: var(--accent-red);">TCG Card Value Scanner</a> for iPhone supports Pokemon, Magic: The Gathering, Yu-Gi-Oh!, and other major TCGs.
+                    </li>
+                    <li>
+                        <strong>Set up good lighting</strong>
+                        Natural light from a window is ideal. Avoid direct sunlight or overhead fluorescent lights that cause glare on holographic cards. If you're scanning foil cards, hold the card at a slight angle to reduce reflections.
+                    </li>
+                    <li>
+                        <strong>Place the card on a neutral background</strong>
+                        A white or grey surface helps the scanner detect card borders accurately. Avoid patterned or colorful backgrounds that can confuse edge detection.
+                    </li>
+                    <li>
+                        <strong>Hold your phone steady and scan</strong>
+                        Frame the entire card in the viewfinder. Most apps work in live-scan mode — the recognition happens automatically once the card is clearly in frame. Keep your hand steady for 1 to 2 seconds.
+                    </li>
+                    <li>
+                        <strong>Verify the identification</strong>
+                        After the card is recognized, confirm the set name and card number match your actual card. This is especially important for cards that appear across multiple sets with similar art. The set symbol and number (e.g., "025/102") are the definitive identifiers.
+                    </li>
+                    <li>
+                        <strong>Assess your card's condition</strong>
+                        The scanner identifies the card, but you assess the condition. Check for whitening on corners (called "whitening"), surface scratches, creases, or print defects. Match your card to the standard condition grades (NM, LP, MP, HP, DMG) to find the right price tier.
+                    </li>
+                    <li>
+                        <strong>Review the price range</strong>
+                        Look at both the TCGPlayer market price and any recent sales data. A card listed at $40 but with recent sales at $28 tells a different story than one where both figures align. Use the range to inform your decision, not just the headline number.
+                    </li>
+                    <li>
+                        <strong>Save to your collection</strong>
+                        Good scanner apps let you log scanned cards to a personal collection catalog. This gives you a running total of your collection's value and makes it easy to track price changes over time.
+                    </li>
+                </ol>
+
+                <h2>Understanding Pokemon Card Condition Grades</h2>
+
+                <p>Card condition is the single biggest variable in Pokemon card pricing, and it's entirely assessed by the human eye — not the scanner. Understanding the standard grading scale is essential for getting accurate price readings.</p>
+
+                <ul class="feature-list">
+                    <li><strong>Near Mint (NM):</strong> Essentially perfect. Minor handling marks only. Commands full market price.</li>
+                    <li><strong>Lightly Played (LP):</strong> Minor edge wear, light scuffs. Typically 80–90% of NM price.</li>
+                    <li><strong>Moderately Played (MP):</strong> Visible wear, edge whitening, surface marks. 60–75% of NM.</li>
+                    <li><strong>Heavily Played (HP):</strong> Significant damage, creases, heavy whitening. 30–50% of NM.</li>
+                    <li><strong>Damaged (DMG):</strong> Bends, tears, writing on card. 10–25% of NM. Often not tournament-legal.</li>
+                </ul>
+
+                <p>When in doubt, grade conservatively. Sellers who overgrade cards lose buyer trust quickly, and returns are a headache. A card sold as LP that turns out to be MP creates friction you don't want.</p>
+
+                <h2>Tips for Getting the Most Accurate Card Values</h2>
+
+                <h3>Cross-reference multiple markets</h3>
+                <p>TCGPlayer prices reflect the US market. Cardmarket prices reflect the European market. These can differ by 20–40% for the same card due to regional supply, demand, and import costs. If you're selling internationally, check both. If you're buying locally, focus on the market your seller is using.</p>
+
+                <h3>Check recent sales, not just listings</h3>
+                <p>Anyone can list a card at any price. What matters is what cards have actually sold for. Completed sales data is your best signal for true market value. Most scanner apps and TCGPlayer itself show recent sale prices — use those numbers over raw listing prices.</p>
+
+                <h3>Watch for variants and editions</h3>
+                <p>A "1st Edition" stamp, a shadowless print, or a reverse holo variant can change a card's value dramatically. Scan and then manually verify the variant. Some older variants are visually subtle — learn what to look for by set.</p>
+
+                <h3>Monitor price trends, not just snapshots</h3>
+                <p>If a card jumped from $10 to $50 in the last two weeks, it may just as quickly drop back. Sustained demand is more valuable than a temporary spike. Many apps show a price chart over time — use it to understand whether a current price reflects genuine collector demand or just a short-term moment.</p>
+
+                <h3>Factor in grading for high-value cards</h3>
+                <p>For cards worth more than $100 in raw condition, professional grading services (PSA, CGC, Beckett) can significantly increase value and buyer confidence. A PSA 10 Charizard commands multiples of the ungraded Near Mint price. The scanner gives you the starting point; grading is the next step for valuable finds.</p>
+
+                <h2>Common Mistakes Collectors Make When Checking Card Values</h2>
+
+                <p>Even with a great scanner app, these mistakes lead to inaccurate valuations:</p>
+
+                <ul>
+                    <li><strong>Not checking condition accurately.</strong> Grading your cards as NM when they're LP is the most common error. It leads to pricing mismatches and buyer disputes.</li>
+                    <li><strong>Ignoring set and edition differences.</strong> A Pikachu from the Base Set and a Pikachu from a recent expansion are completely different products with completely different values.</li>
+                    <li><strong>Using stale price data.</strong> Pokemon card markets move fast. Prices from three months ago may be irrelevant for cards affected by set releases, bans, or social media attention.</li>
+                    <li><strong>Scanning in poor lighting.</strong> Bad lighting causes misidentification, especially on foil and holo cards. Always scan in consistent, diffuse light.</li>
+                    <li><strong>Confusing market price with immediate sell price.</strong> The "market price" is what buyers are paying on a platform — not what you'll pocket today. Subtract platform fees (around 12–15% on TCGPlayer) to find your actual net.</li>
+                    <li><strong>Forgetting about postage and fees.</strong> When selling online, factor in shipping, packaging, and platform fees. A card worth $5 may net you $2.50 after costs — sometimes it's more efficient to trade locally.</li>
+                </ul>
+
+                <div class="cta-block">
+                    <h3>Scan your Pokemon cards in seconds</h3>
+                    <p>AI recognition, live market prices from TCGPlayer and Cardmarket, and collection tracking — in one app.</p>
+                    <div class="cta-buttons">
+                        <a href="https://apps.apple.com/app/id6754197485" target="_blank" rel="noopener noreferrer" class="cta-btn cta-btn-primary">Download on App Store</a>
+                        <a href="/tcg-scanner/" class="cta-btn cta-btn-secondary">Learn more about the app →</a>
+                    </div>
+                </div>
+
+                <h2>Building a Collection Catalog with a Card Scanner</h2>
+
+                <p>Scanning individual cards to check prices is useful. Scanning your entire collection and maintaining a catalog is transformative — especially if your collection has grown to hundreds or thousands of cards.</p>
+
+                <p>A collection catalog lets you:</p>
+
+                <ul>
+                    <li>Know your collection's total current market value at a glance</li>
+                    <li>Get notified when specific cards spike in price</li>
+                    <li>Identify duplicates you could sell or trade</li>
+                    <li>Create a want list to track cards you're looking for</li>
+                    <li>Document cards for insurance purposes with timestamped values</li>
+                </ul>
+
+                <p>The best approach is to scan cards in batches — a stack at a time — rather than one-by-one. Good scanner apps support rapid batch scanning where you move quickly through a stack without having to tap for each card. A collection of 500 cards can typically be cataloged in under an hour.</p>
+
+                <p>Once cataloged, run a value sort to surface your most valuable cards. You'll often find cards you thought were bulk commons are actually worth $5–$15, and cards you assumed were valuable turn out to be reprints worth almost nothing.</p>
+
+                <hr class="article-divider">
+
+                <div class="internal-links-box">
+                    <h4>More from Petro Hrys</h4>
+                    <a href="/tcg-scanner/">TCG Card Value Scanner — App Overview</a>
+                    <a href="/blog/best-pdf-editor-app-iphone-android/">Best PDF Editor App for iPhone &amp; Android</a>
+                    <a href="/blog/">All Blog Articles</a>
+                </div>
+
+                <h2>Frequently Asked Questions</h2>
+
+                <div class="faq-list">
+
+                    <div class="faq-item" onclick="this.classList.toggle('open')">
+                        <div class="faq-question">
+                            What is the best Pokemon TCG card value scanner app?
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            The best card scanner apps combine AI-based visual recognition with live market data from TCGPlayer and Cardmarket. Look for apps that update prices in real-time, support multiple card sets, and let you save your scans to a personal collection. Our <a href="/tcg-scanner/" style="color: var(--accent-red);">TCG Card Value Scanner</a> for iPhone supports Pokemon, Magic: The Gathering, Yu-Gi-Oh!, and more — with live pricing from both major markets.
+                        </div>
+                    </div>
+
+                    <div class="faq-item" onclick="this.classList.toggle('open')">
+                        <div class="faq-question">
+                            How accurate are Pokemon card scanning apps?
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            Modern AI-based scanners are highly accurate for identifying cards from major sets — typically above 95% for clean, well-lit cards. Accuracy drops for cards with heavy wear, foil glare, or very old sets with limited training data. Always verify the set symbol and card number after scanning, especially for high-value cards.
+                        </div>
+                    </div>
+
+                    <div class="faq-item" onclick="this.classList.toggle('open')">
+                        <div class="faq-question">
+                            Can I scan Pokemon cards that are in sleeves or binders?
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            Yes, most scanner apps handle cards in protective sleeves, though matte sleeves produce better results than glossy ones which can create glare. Scanning through binder pockets works but may slightly reduce recognition accuracy due to the reflective plastic. For best results, scan cards out of the sleeve.
+                        </div>
+                    </div>
+
+                    <div class="faq-item" onclick="this.classList.toggle('open')">
+                        <div class="faq-question">
+                            How often do Pokemon card prices change?
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            Pokemon card prices fluctuate constantly — sometimes daily for popular cards. New set releases, tournament results, social media attention (particularly pulls from popular content creators), and product availability can cause rapid price swings. Always check current prices within a day or two before completing a significant buy or sell.
+                        </div>
+                    </div>
+
+                    <div class="faq-item" onclick="this.classList.toggle('open')">
+                        <div class="faq-question">
+                            Are old Pokemon cards worth anything?
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            Many older Pokemon cards — particularly Base Set holographics, first editions, and shadowless variants — are worth significant amounts. A Base Set Charizard in Near Mint condition can sell for hundreds to thousands of dollars. Even common cards from early sets have collector interest. Always scan or look up older cards before assuming they have no value — you may be surprised.
+                        </div>
+                    </div>
+
+                    <div class="faq-item" onclick="this.classList.toggle('open')">
+                        <div class="faq-question">
+                            Does a card scanner work for Magic: The Gathering or Yu-Gi-Oh?
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            Yes. The best TCG scanner apps support multiple trading card games — not just Pokemon. Our <a href="/tcg-scanner/" style="color: var(--accent-red);">TCG Card Value Scanner</a> recognizes cards from Pokemon, Magic: The Gathering, Yu-Gi-Oh!, and other major TCGs, pulling pricing from the relevant marketplaces for each game.
+                        </div>
+                    </div>
+
+                    <div class="faq-item" onclick="this.classList.toggle('open')">
+                        <div class="faq-question">
+                            What is a card scanner app and is it free?
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            A card scanner app is a mobile application that uses your phone's camera to identify trading cards and display their current market value. Many apps offer free basic scanning with premium features — like unlimited collection storage and price alerts — available as a one-time purchase or subscription.
+                        </div>
+                    </div>
+
+                </div>
+
+                <h2>Conclusion</h2>
+
+                <p>A Pokemon TCG card value scanner eliminates the most tedious part of card collecting: figuring out what everything is worth. Instead of spending hours cross-referencing prices manually, you scan a card and have an accurate market price in seconds.</p>
+
+                <p>The technology has matured significantly. AI recognition is reliable for the vast majority of cards, pricing data is real-time, and collection management features make it practical to catalog even large collections efficiently.</p>
+
+                <p>The most important habit to develop alongside using a scanner is accurate condition grading. The app tells you what the card is — you have to honestly assess what condition it's in. Get that right, and you'll buy, sell, and trade with confidence.</p>
+
+                <p>If you're holding a binder full of cards you haven't looked at in years, start scanning. You might find your old collection is worth far more than you expected — or you might finally have the accurate numbers you need to trade without guessing.</p>
+
+                <div class="cta-block">
+                    <h3>Ready to scan your collection?</h3>
+                    <p>Download the TCG Card Value Scanner for iPhone. AI recognition, live prices, collection tracking — no subscription required to get started.</p>
+                    <div class="cta-buttons">
+                        <a href="https://apps.apple.com/app/id6754197485" target="_blank" rel="noopener noreferrer" class="cta-btn cta-btn-primary">Download on App Store</a>
+                        <a href="/tcg-scanner/" class="cta-btn cta-btn-secondary">See all features →</a>
+                    </div>
+                </div>
+
+            </div>
+        </article>
+    </div>
+
+    <footer>
+        <div class="footer-inner">
+            <p>&copy; 2026 Petro Hrys. All rights reserved.</p>
+            <div style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
+                <a href="/">Home</a>
+                <a href="/blog/">Blog</a>
+                <a href="/tcg-scanner/">TCG Scanner</a>
+                <a href="/privacy/">Privacy Policy</a>
+                <a href="https://x.com/petrohrys" target="_blank" rel="noopener noreferrer">X / Twitter</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.addEventListener('click', () => {
+                item.classList.toggle('open');
+            });
+        });
+    </script>
+</body>
+</html>
