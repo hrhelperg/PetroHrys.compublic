@@ -1,12 +1,11 @@
-# robots.txt — www.petrohrys.com
-# Last updated: 2026-04-11
+# robots.txt — petrohrys.com
+# Last updated: 2026-04-22
 
 User-agent: *
 Allow: /
 
 # Block crawling of non-content utility paths
 Disallow: /cgi-bin/
-Disallow: /*.json$
 Disallow: /wp-admin/
 Disallow: /wp-includes/
 
@@ -31,3 +30,4 @@ Disallow: /
 
 # Sitemap location
 Sitemap: https://www.petrohrys.com/sitemap.xml
+Sitemap: https://petrohrys.com/sitemap.xml
