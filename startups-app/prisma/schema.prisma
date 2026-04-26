@@ -1,0 +1,122 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  GUEST
+  USER
+  ADMIN
+}
+
+enum Status {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+enum ContentType {
+  ARTICLE
+  CASE_STUDY
+  GUIDE
+  TEMPLATE
+}
+
+enum FundingStage {
+  IDEA
+  MVP
+  REVENUE
+  SCALING
+}
+
+model User {
+  id        String    @id @default(cuid())
+  email     String    @unique
+  password  String
+  role      Role      @default(USER)
+  createdAt DateTime  @default(now())
+  startups  Startup[]
+  content   Content[]
+}
+
+model Category {
+  id       String    @id @default(cuid())
+  name     String    @unique
+  slug     String    @unique
+  startups Startup[]
+  content  Content[]
+}
+
+model Tag {
+  id      String       @id @default(cuid())
+  name    String       @unique
+  slug    String       @unique
+  startups StartupTag[]
+  content  ContentTag[]
+}
+
+model Startup {
+  id                   String        @id @default(cuid())
+  slug                 String        @unique
+  title                String
+  description          String
+  websiteUrl           String        @unique
+  logoUrl              String?
+  screenshots          String[]      @default([])
+  founderName          String?
+  contactEmail         String?
+  status               Status        @default(PENDING)
+  lookingForInvestment Boolean       @default(false)
+  fundingStage         FundingStage?
+  shortPitch           String?
+  category             Category      @relation(fields: [categoryId], references: [id])
+  categoryId           String
+  createdBy            User          @relation(fields: [createdById], references: [id])
+  createdById          String
+  createdAt            DateTime      @default(now())
+  updatedAt            DateTime      @updatedAt
+  tags                 StartupTag[]
+  content              Content[]
+}
+
+model StartupTag {
+  startup   Startup @relation(fields: [startupId], references: [id])
+  startupId String
+  tag       Tag     @relation(fields: [tagId], references: [id])
+  tagId     String
+
+  @@id([startupId, tagId])
+}
+
+model Content {
+  id            String      @id @default(cuid())
+  slug          String      @unique
+  title         String
+  body          String
+  excerpt       String
+  coverImageUrl String?
+  contentType   ContentType
+  status        Status      @default(PENDING)
+  author        User        @relation(fields: [authorId], references: [id])
+  authorId      String
+  startup       Startup?    @relation(fields: [startupId], references: [id])
+  startupId     String?
+  category      Category?   @relation(fields: [categoryId], references: [id])
+  categoryId    String?
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+  tags          ContentTag[]
+}
+
+model ContentTag {
+  content   Content @relation(fields: [contentId], references: [id])
+  contentId String
+  tag       Tag     @relation(fields: [tagId], references: [id])
+  tagId     String
+
+  @@id([contentId, tagId])
+}

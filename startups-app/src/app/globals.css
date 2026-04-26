@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #f7f7f5;
+    color: #1a1a1a;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Prose styles for article/guide body content */
+  .prose-content p { margin-bottom: 1rem; line-height: 1.75; }
+  .prose-content h2 { font-size: 1.4rem; font-weight: 600; margin: 2rem 0 0.75rem; }
+  .prose-content h3 { font-size: 1.15rem; font-weight: 600; margin: 1.5rem 0 0.5rem; }
+  .prose-content ul { list-style: disc; padding-left: 1.5rem; margin-bottom: 1rem; }
+  .prose-content ol { list-style: decimal; padding-left: 1.5rem; margin-bottom: 1rem; }
+  .prose-content li { margin-bottom: 0.25rem; line-height: 1.75; }
+  .prose-content a { color: #d32f2f; text-decoration: underline; }
+  .prose-content code { background: rgba(0,0,0,0.05); padding: 0.1em 0.4em; border-radius: 4px; font-size: 0.9em; }
+  .prose-content pre { background: #1a1a1a; color: #f7f7f5; padding: 1rem; border-radius: 0.75rem; overflow-x: auto; margin-bottom: 1rem; }
+  .prose-content blockquote { border-left: 3px solid #d32f2f; padding-left: 1rem; color: #6b7280; margin-bottom: 1rem; }
+}
