@@ -64,6 +64,13 @@
     .disclaimer{font-size:0.8rem;color:#888;text-align:center;margin-top:1rem;}
     .back-link{display:inline-flex;align-items:center;gap:0.4rem;color:#888;font-size:0.87rem;text-decoration:none;transition:color 0.2s;margin-bottom:2rem;}
     .back-link:hover{color:#1a1a1a;}
+    .checkbox-group{display:flex;align-items:center;gap:0.65rem;padding:1rem;background:#f8fdf8;border:1px solid #c3e6c3;border-radius:10px;margin-bottom:1.25rem;cursor:pointer;}
+    .checkbox-group input[type=checkbox]{width:18px;height:18px;accent-color:#28a745;flex-shrink:0;cursor:pointer;}
+    .checkbox-group label{font-size:0.9rem;font-weight:600;color:#1a1a1a;cursor:pointer;margin:0;}
+    .investment-fields{display:none;background:#f0faf0;border:1px solid #c3e6c3;border-radius:10px;padding:1.25rem;margin-bottom:1.25rem;}
+    .investment-fields .inv-title{font-size:0.8rem;font-weight:700;text-transform:uppercase;color:#2d6a2d;letter-spacing:0.04em;margin-bottom:1rem;}
+    .raising-preview{display:none;background:#d4edda;color:#155724;font-size:0.8rem;font-weight:700;padding:0.25rem 0.7rem;border-radius:20px;margin-left:0.6rem;vertical-align:middle;}
+    .char-count{font-size:0.78rem;color:#888;margin-top:0.35rem;text-align:right;}
     footer{background:#fff;border-top:1px solid rgba(0,0,0,0.05);padding:3rem 2rem 2rem;margin-top:4rem;}
     .footer-bottom{max-width:1200px;margin:0 auto;text-align:center;color:#999;font-size:0.85rem;}
     @media(max-width:600px){
@@ -124,7 +131,7 @@
 
       <form action="mailto:hrhelperg@gmail.com" method="get" enctype="text/plain" id="submitForm">
         <div class="form-group">
-          <label for="name">Startup Name *</label>
+          <label for="name">Startup Name * <span class="raising-preview" id="raisingBadge">🚀 Raising</span></label>
           <input type="text" id="name" name="Startup Name" required placeholder="e.g. Acme Analytics">
         </div>
         <div class="form-group">
@@ -153,6 +160,30 @@
             <option>Other</option>
           </select>
         </div>
+        <div class="checkbox-group" onclick="document.getElementById('looking_for_investment').click()">
+          <input type="checkbox" id="looking_for_investment">
+          <label for="looking_for_investment">Looking for venture investment</label>
+        </div>
+
+        <div class="investment-fields" id="investmentFields">
+          <p class="inv-title">Investment details</p>
+          <div class="form-group" style="margin-bottom:1rem;">
+            <label for="funding_stage">Funding Stage</label>
+            <select id="funding_stage">
+              <option value="">Select stage…</option>
+              <option value="Idea">💡 Idea Stage</option>
+              <option value="MVP">🛠️ MVP</option>
+              <option value="Revenue">📈 Revenue Stage</option>
+              <option value="Scaling">🚀 Scaling</option>
+            </select>
+          </div>
+          <div class="form-group" style="margin-bottom:0;">
+            <label for="short_pitch">Short Pitch <span style="font-weight:400;color:#888;">(max 300 chars)</span></label>
+            <textarea id="short_pitch" maxlength="300" rows="3" placeholder="e.g. Raising $200k pre-seed. 150 paying users, 12% MoM growth. Looking for angels with B2B SaaS experience."></textarea>
+            <p class="char-count"><span id="pitchCount">0</span> / 300</p>
+          </div>
+        </div>
+
         <div class="form-group">
           <label for="founder">Founder Name <span style="font-weight:400;color:#888;">(optional)</span></label>
           <input type="text" id="founder" name="Founder Name" placeholder="Jane Doe">
@@ -185,6 +216,20 @@
       hamburger.classList.toggle('active');
       navLinks.classList.toggle('active');
     });
+    // Investment fields toggle
+    const investmentCheckbox = document.getElementById('looking_for_investment');
+    const investmentFields = document.getElementById('investmentFields');
+    const raisingBadge = document.getElementById('raisingBadge');
+    investmentCheckbox.addEventListener('change', function() {
+      investmentFields.style.display = this.checked ? 'block' : 'none';
+      raisingBadge.style.display = this.checked ? 'inline' : 'none';
+    });
+
+    // Short pitch char counter
+    document.getElementById('short_pitch').addEventListener('input', function() {
+      document.getElementById('pitchCount').textContent = this.value.length;
+    });
+
     // Use mailto with form data
     document.getElementById('submitForm').addEventListener('submit', function(e) {
       e.preventDefault();
@@ -194,8 +239,24 @@
       const cat = document.getElementById('category').value;
       const founder = document.getElementById('founder').value;
       const email = document.getElementById('email').value;
+      const raising = investmentCheckbox.checked;
+      const stage = document.getElementById('funding_stage').value;
+      const pitch = document.getElementById('short_pitch').value.trim();
+
       const subject = encodeURIComponent('Startup submission: ' + name);
+
+      let investmentSection = '';
+      if (raising) {
+        investmentSection =
+          '--- INVESTMENT ---\n' +
+          'Looking for investment: Yes\n' +
+          (stage ? 'Funding stage: ' + stage + '\n' : '') +
+          (pitch ? 'Short pitch: ' + pitch + '\n' : '') +
+          '------------------\n\n';
+      }
+
       const body = encodeURIComponent(
+        investmentSection +
         'Startup Name: ' + name + '\n' +
         'Website: ' + url + '\n' +
         'Category: ' + cat + '\n' +
