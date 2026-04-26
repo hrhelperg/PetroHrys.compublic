@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/af075fab2c66644b181224ee/script.js"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4RE6YCJZBD"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-4RE6YCJZBD');</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Startup Directory – petrohrys.com</title>
+  <meta name="description" content="Discover indie startups across SaaS, mobile apps, developer tools, AI, and more. Free listings, curated by humans on petrohrys.com.">
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://www.petrohrys.com/startups/">
+  <meta property="og:title" content="Startup Directory – petrohrys.com">
+  <meta property="og:description" content="Discover indie startups. Free listings, curated by humans.">
+  <meta property="og:url" content="https://www.petrohrys.com/startups/">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@petrohrys">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%231a1a1a'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-size='18' fill='white'>P</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f7f7f5;color:#1a1a1a;line-height:1.6;}
+    /* Nav */
+    nav{position:fixed;top:0;left:0;right:0;z-index:1000;backdrop-filter:blur(10px);background:rgba(247,247,245,0.8);border-bottom:1px solid rgba(0,0,0,0.05);padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;}
+    .logo{font-weight:600;font-size:1.25rem;letter-spacing:-0.02em;color:#1a1a1a;text-decoration:none;}
+    .nav-links{display:flex;gap:2rem;list-style:none;}
+    .nav-links a{text-decoration:none;color:#1a1a1a;font-size:0.95rem;transition:opacity 0.2s;}
+    .nav-links a:hover{opacity:0.6;}
+    .nav-right{display:flex;align-items:center;gap:1.5rem;}
+    .hamburger{display:none;flex-direction:column;gap:0.35rem;cursor:pointer;background:none;border:none;}
+    .hamburger span{width:20px;height:2px;background:#1a1a1a;border-radius:1px;transition:all 0.3s;}
+    .hamburger.active span:nth-child(1){transform:rotate(45deg) translate(8px,8px);}
+    .hamburger.active span:nth-child(2){opacity:0;}
+    .hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(7px,-7px);}
+    @media(max-width:768px){
+      .hamburger{display:flex;}
+      .nav-links{position:absolute;top:60px;left:0;right:0;background:rgba(247,247,245,0.95);flex-direction:column;gap:1rem;padding:2rem;max-height:0;overflow:hidden;transition:max-height 0.3s;border-bottom:1px solid rgba(0,0,0,0.05);}
+      .nav-links.active{max-height:400px;}
+    }
+    /* Page */
+    .page-wrap{max-width:1100px;margin:0 auto;padding:6rem 2rem 4rem;}
+    .page-header{margin-bottom:3rem;}
+    .page-header h1{font-size:2.5rem;font-weight:700;letter-spacing:-0.03em;margin-bottom:0.75rem;}
+    .page-header p{font-size:1.1rem;color:#555;max-width:540px;}
+    .badge{display:inline-block;background:#1a1a1a;color:#fff;font-size:0.75rem;font-weight:600;padding:0.25rem 0.7rem;border-radius:20px;margin-bottom:1rem;letter-spacing:0.03em;}
+    /* Filters row */
+    .filters{display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:2.5rem;}
+    .filter-chip{padding:0.4rem 0.9rem;border-radius:20px;font-size:0.85rem;font-weight:500;text-decoration:none;color:#1a1a1a;background:#fff;border:1px solid rgba(0,0,0,0.1);transition:all 0.2s;cursor:default;}
+    .filter-chip.active{background:#1a1a1a;color:#fff;border-color:#1a1a1a;}
+    /* Startup grid */
+    .startup-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.25rem;margin-bottom:3rem;}
+    .startup-card{background:#fff;border-radius:16px;border:1px solid rgba(0,0,0,0.06);padding:1.25rem;transition:border-color 0.2s,box-shadow 0.2s;opacity:0.55;}
+    .startup-card-inner{display:flex;align-items:flex-start;gap:0.85rem;margin-bottom:0.85rem;}
+    .startup-logo{width:44px;height:44px;border-radius:10px;background:#e0e0e0;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1.1rem;font-weight:700;color:#fff;}
+    .startup-name{font-weight:600;font-size:0.95rem;color:#1a1a1a;}
+    .startup-category{font-size:0.78rem;color:#888;margin-top:0.15rem;}
+    .startup-desc{font-size:0.85rem;color:#555;line-height:1.55;margin-bottom:0.85rem;}
+    .startup-tags{display:flex;flex-wrap:wrap;gap:0.35rem;}
+    .startup-tag{padding:0.2rem 0.55rem;background:rgba(0,0,0,0.05);border-radius:6px;font-size:0.75rem;color:#666;}
+    /* Launch banner */
+    .launch-banner{background:#1a1a1a;color:#fff;border-radius:20px;padding:3rem 2.5rem;text-align:center;margin-bottom:3rem;}
+    .launch-banner h2{font-size:1.75rem;font-weight:700;margin-bottom:0.75rem;}
+    .launch-banner p{color:rgba(255,255,255,0.65);margin-bottom:1.75rem;max-width:480px;margin-left:auto;margin-right:auto;}
+    .btn-primary{display:inline-block;background:#d32f2f;color:#fff;padding:0.8rem 1.75rem;border-radius:8px;font-weight:600;font-size:0.95rem;text-decoration:none;transition:background 0.2s;}
+    .btn-primary:hover{background:#b71c1c;}
+    .btn-secondary{display:inline-block;background:rgba(255,255,255,0.1);color:#fff;padding:0.8rem 1.75rem;border-radius:8px;font-weight:600;font-size:0.95rem;text-decoration:none;transition:background 0.2s;margin-left:0.75rem;}
+    .btn-secondary:hover{background:rgba(255,255,255,0.18);}
+    .btn-outline{display:inline-block;background:#fff;color:#1a1a1a;padding:0.7rem 1.5rem;border-radius:8px;font-weight:600;font-size:0.9rem;text-decoration:none;border:1px solid rgba(0,0,0,0.12);transition:border-color 0.2s;}
+    .btn-outline:hover{border-color:rgba(0,0,0,0.3);}
+    .cta-btns{display:flex;gap:0.75rem;flex-wrap:wrap;justify-content:center;}
+    .overlay-label{display:inline-block;font-size:0.75rem;font-weight:600;background:rgba(255,255,255,0.12);color:#fff;padding:0.25rem 0.7rem;border-radius:20px;margin-bottom:1rem;letter-spacing:0.04em;}
+    /* Footer */
+    footer{background:#fff;border-top:1px solid rgba(0,0,0,0.05);padding:4rem 2rem 2rem;margin-top:4rem;}
+    .footer-content{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:3rem;margin-bottom:3rem;}
+    .footer-section h4{font-size:0.85rem;font-weight:700;text-transform:uppercase;color:#999;margin-bottom:1rem;}
+    .footer-section a{display:block;color:#1a1a1a;text-decoration:none;font-size:0.9rem;margin-bottom:0.75rem;transition:opacity 0.2s;}
+    .footer-section a:hover{opacity:0.6;}
+    .footer-bottom{max-width:1200px;margin:0 auto;padding-top:2rem;border-top:1px solid rgba(0,0,0,0.05);text-align:center;color:#999;font-size:0.85rem;}
+    @media(max-width:768px){
+      .page-header h1{font-size:1.8rem;}
+      .launch-banner{padding:2rem 1.5rem;}
+      .btn-secondary{margin-left:0;}
+      .cta-btns{flex-direction:column;align-items:center;}
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="/" class="logo">Petro Hrys</a>
+    <div class="nav-right">
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/">Home</a></li>
+        <li><a href="/#products">Products</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="/startups/" style="font-weight:600;">Startups</a></li>
+        <li><a href="/#contact">Contact</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <div class="page-wrap">
+    <div class="page-header">
+      <span class="badge">🚀 Launching soon</span>
+      <h1>Startup Directory</h1>
+      <p>Discover indie startups across SaaS, mobile apps, developer tools, AI, and more. Free listings, curated by humans.</p>
+    </div>
+
+    <div class="filters">
+      <span class="filter-chip active">All</span>
+      <span class="filter-chip">SaaS</span>
+      <span class="filter-chip">Mobile App</span>
+      <span class="filter-chip">Developer Tools</span>
+      <span class="filter-chip">AI / ML</span>
+      <span class="filter-chip">Productivity</span>
+      <span class="filter-chip">Finance</span>
+      <span class="filter-chip">Education</span>
+    </div>
+
+    <!-- Preview cards (placeholder) -->
+    <div class="startup-grid">
+      <div class="startup-card">
+        <div class="startup-card-inner">
+          <div class="startup-logo" style="background:#2d2d2d;">P</div>
+          <div>
+            <p class="startup-name">Your Startup Here</p>
+            <p class="startup-category">SaaS · Productivity</p>
+          </div>
+        </div>
+        <p class="startup-desc">This is where approved startups will appear. Submit yours to get a free SEO-optimized listing page.</p>
+        <div class="startup-tags"><span class="startup-tag">b2b</span><span class="startup-tag">web</span></div>
+      </div>
+      <div class="startup-card">
+        <div class="startup-card-inner">
+          <div class="startup-logo" style="background:#555;">A</div>
+          <div>
+            <p class="startup-name">Another Startup</p>
+            <p class="startup-category">Mobile App</p>
+          </div>
+        </div>
+        <p class="startup-desc">Each listing gets its own page with schema.org structured data, internal links, and sitemap inclusion.</p>
+        <div class="startup-tags"><span class="startup-tag">mobile</span><span class="startup-tag">free</span></div>
+      </div>
+      <div class="startup-card">
+        <div class="startup-card-inner">
+          <div class="startup-logo" style="background:#888;">B</div>
+          <div>
+            <p class="startup-name">Be First in Line</p>
+            <p class="startup-category">Developer Tools</p>
+          </div>
+        </div>
+        <p class="startup-desc">Submit early for priority listing placement when the directory goes live. All submissions are reviewed.</p>
+        <div class="startup-tags"><span class="startup-tag">api</span><span class="startup-tag">open-source</span></div>
+      </div>
+    </div>
+
+    <div class="launch-banner">
+      <span class="overlay-label">EARLY ACCESS</span>
+      <h2>Submit your startup now</h2>
+      <p>Be among the first listings when the directory launches publicly. Free forever. No account needed to browse.</p>
+      <div class="cta-btns">
+        <a href="/submit-startup/" class="btn-primary">Submit your startup →</a>
+        <a href="/startups/raising/" class="btn-secondary">See raising startups</a>
+      </div>
+    </div>
+
+    <div style="display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;margin-bottom:1rem;">
+      <a href="/articles/" class="btn-outline">Read founder articles →</a>
+      <a href="/templates/" class="btn-outline">Browse templates →</a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>Products</h4>
+        <a href="/pdf-editor/">PDF Editor</a>
+        <a href="/unzip/">Unzip</a>
+        <a href="/smart-printer/">Smart Printer</a>
+        <a href="/invoice-maker/">Invoice Maker</a>
+        <a href="/pocket-manager/">Pocket Manager</a>
+      </div>
+      <div class="footer-section">
+        <h4>Directory</h4>
+        <a href="/startups/">All Startups</a>
+        <a href="/startups/raising/">Raising Round</a>
+        <a href="/submit-startup/">Submit Yours</a>
+        <a href="/articles/">Articles</a>
+        <a href="/templates/">Templates</a>
+      </div>
+      <div class="footer-section">
+        <h4>Company</h4>
+        <a href="/#about">About</a>
+        <a href="/#contact">Contact</a>
+        <a href="/blog/">Blog</a>
+      </div>
+      <div class="footer-section">
+        <h4>Legal</h4>
+        <a href="/privacy/">Privacy Policy</a>
+        <a href="/terms/">Terms of Service</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Petro Hrys. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navLinks.classList.toggle('active');
+    });
+  </script>
+</body>
+</html>

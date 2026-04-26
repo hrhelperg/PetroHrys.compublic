@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/af075fab2c66644b181224ee/script.js"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4RE6YCJZBD"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-4RE6YCJZBD');</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Founder Articles &amp; Guides – petrohrys.com</title>
+  <meta name="description" content="Founder articles, growth guides, and case studies from indie startup builders. Real stories and practical advice from people shipping products.">
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://www.petrohrys.com/articles/">
+  <meta property="og:title" content="Founder Articles &amp; Guides – petrohrys.com">
+  <meta property="og:description" content="Real stories and practical advice from indie founders and builders.">
+  <meta property="og:url" content="https://www.petrohrys.com/articles/">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@petrohrys">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%231a1a1a'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-size='18' fill='white'>P</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;background:#f7f7f5;color:#1a1a1a;line-height:1.6;}
+    nav{position:fixed;top:0;left:0;right:0;z-index:1000;backdrop-filter:blur(10px);background:rgba(247,247,245,0.8);border-bottom:1px solid rgba(0,0,0,0.05);padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;}
+    .logo{font-weight:600;font-size:1.25rem;letter-spacing:-0.02em;color:#1a1a1a;text-decoration:none;}
+    .nav-links{display:flex;gap:2rem;list-style:none;}
+    .nav-links a{text-decoration:none;color:#1a1a1a;font-size:0.95rem;transition:opacity 0.2s;}
+    .nav-links a:hover{opacity:0.6;}
+    .nav-right{display:flex;align-items:center;gap:1.5rem;}
+    .hamburger{display:none;flex-direction:column;gap:0.35rem;cursor:pointer;background:none;border:none;}
+    .hamburger span{width:20px;height:2px;background:#1a1a1a;border-radius:1px;transition:all 0.3s;}
+    .hamburger.active span:nth-child(1){transform:rotate(45deg) translate(8px,8px);}
+    .hamburger.active span:nth-child(2){opacity:0;}
+    .hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(7px,-7px);}
+    @media(max-width:768px){
+      .hamburger{display:flex;}
+      .nav-links{position:absolute;top:60px;left:0;right:0;background:rgba(247,247,245,0.95);flex-direction:column;gap:1rem;padding:2rem;max-height:0;overflow:hidden;transition:max-height 0.3s;border-bottom:1px solid rgba(0,0,0,0.05);}
+      .nav-links.active{max-height:400px;}
+    }
+    .page-wrap{max-width:1100px;margin:0 auto;padding:6rem 2rem 4rem;}
+    .page-header{margin-bottom:3rem;}
+    .badge{display:inline-block;background:#1a1a1a;color:#fff;font-size:0.75rem;font-weight:600;padding:0.25rem 0.7rem;border-radius:20px;margin-bottom:1rem;letter-spacing:0.03em;}
+    h1{font-size:2.5rem;font-weight:700;letter-spacing:-0.03em;margin-bottom:0.75rem;}
+    .subtitle{font-size:1.1rem;color:#555;max-width:540px;}
+    .type-filters{display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:2.5rem;}
+    .filter-chip{padding:0.4rem 0.9rem;border-radius:20px;font-size:0.85rem;font-weight:500;color:#1a1a1a;background:#fff;border:1px solid rgba(0,0,0,0.1);cursor:default;}
+    .filter-chip.active{background:#1a1a1a;color:#fff;border-color:#1a1a1a;}
+    /* Article cards */
+    .articles-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.25rem;margin-bottom:3rem;}
+    .article-card{background:#fff;border-radius:16px;border:1px solid rgba(0,0,0,0.06);overflow:hidden;opacity:0.55;}
+    .article-cover{height:140px;background:linear-gradient(135deg,#e8e8e6 0%,#d0d0ce 100%);display:flex;align-items:center;justify-content:center;font-size:2.5rem;}
+    .article-body{padding:1.25rem;}
+    .article-type{display:inline-block;font-size:0.72rem;font-weight:600;background:rgba(0,0,0,0.05);padding:0.2rem 0.55rem;border-radius:6px;color:#666;margin-bottom:0.65rem;}
+    .article-title{font-weight:700;font-size:0.95rem;color:#1a1a1a;margin-bottom:0.5rem;line-height:1.4;}
+    .article-excerpt{font-size:0.83rem;color:#666;line-height:1.55;}
+    /* CTA panel */
+    .cta-panel{background:#1a1a1a;border-radius:20px;padding:3rem 2.5rem;text-align:center;margin-bottom:3rem;}
+    .cta-panel h2{font-size:1.75rem;font-weight:700;color:#fff;margin-bottom:0.75rem;}
+    .cta-panel p{color:rgba(255,255,255,0.65);margin-bottom:1.75rem;max-width:460px;margin-left:auto;margin-right:auto;}
+    .cta-btns{display:flex;gap:0.75rem;flex-wrap:wrap;justify-content:center;}
+    .btn-red{display:inline-block;background:#d32f2f;color:#fff;padding:0.8rem 1.75rem;border-radius:8px;font-weight:600;font-size:0.95rem;text-decoration:none;transition:background 0.2s;}
+    .btn-red:hover{background:#b71c1c;}
+    .btn-ghost{display:inline-block;background:rgba(255,255,255,0.1);color:#fff;padding:0.8rem 1.75rem;border-radius:8px;font-weight:600;font-size:0.95rem;text-decoration:none;transition:background 0.2s;}
+    .btn-ghost:hover{background:rgba(255,255,255,0.18);}
+    .overlay-label{display:inline-block;font-size:0.75rem;font-weight:600;background:rgba(255,255,255,0.12);color:#fff;padding:0.25rem 0.7rem;border-radius:20px;margin-bottom:1rem;letter-spacing:0.04em;}
+    /* Existing blog section */
+    .section-title{font-size:1.2rem;font-weight:700;margin-bottom:1.5rem;padding-top:1rem;border-top:1px solid rgba(0,0,0,0.07);}
+    .blog-list{display:grid;gap:1rem;margin-bottom:3rem;}
+    .blog-row{background:#fff;border-radius:12px;border:1px solid rgba(0,0,0,0.06);padding:1.25rem 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;text-decoration:none;color:inherit;transition:border-color 0.2s;}
+    .blog-row:hover{border-color:rgba(0,0,0,0.15);}
+    .blog-row-title{font-weight:600;font-size:0.95rem;}
+    .blog-row-meta{font-size:0.8rem;color:#888;margin-top:0.15rem;}
+    .blog-row-arrow{color:#888;flex-shrink:0;font-size:1.1rem;}
+    footer{background:#fff;border-top:1px solid rgba(0,0,0,0.05);padding:4rem 2rem 2rem;margin-top:4rem;}
+    .footer-content{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:3rem;margin-bottom:3rem;}
+    .footer-section h4{font-size:0.85rem;font-weight:700;text-transform:uppercase;color:#999;margin-bottom:1rem;}
+    .footer-section a{display:block;color:#1a1a1a;text-decoration:none;font-size:0.9rem;margin-bottom:0.75rem;transition:opacity 0.2s;}
+    .footer-section a:hover{opacity:0.6;}
+    .footer-bottom{max-width:1200px;margin:0 auto;padding-top:2rem;border-top:1px solid rgba(0,0,0,0.05);text-align:center;color:#999;font-size:0.85rem;}
+    @media(max-width:768px){h1{font-size:1.8rem;}.cta-panel{padding:2rem 1.5rem;}}
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="/" class="logo">Petro Hrys</a>
+    <div class="nav-right">
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/">Home</a></li>
+        <li><a href="/startups/">Startups</a></li>
+        <li><a href="/articles/" style="font-weight:600;">Articles</a></li>
+        <li><a href="/templates/">Templates</a></li>
+        <li><a href="/blog/">Blog</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <div class="page-wrap">
+    <div class="page-header">
+      <span class="badge">✍️ Community content</span>
+      <h1>Articles &amp; Guides</h1>
+      <p class="subtitle">Founder articles, growth guides, and case studies from indie builders. Real stories, practical advice.</p>
+    </div>
+
+    <div class="type-filters">
+      <span class="filter-chip active">All</span>
+      <span class="filter-chip">Articles</span>
+      <span class="filter-chip">Case Studies</span>
+      <span class="filter-chip">Guides</span>
+    </div>
+
+    <!-- Placeholder cards -->
+    <div class="articles-grid">
+      <div class="article-card">
+        <div class="article-cover">✍️</div>
+        <div class="article-body">
+          <span class="article-type">Article</span>
+          <p class="article-title">How We Got Our First 100 Customers Without Ads</p>
+          <p class="article-excerpt">Your article could appear here. Share your startup story, growth tactics, or lessons learned.</p>
+        </div>
+      </div>
+      <div class="article-card">
+        <div class="article-cover">📊</div>
+        <div class="article-body">
+          <span class="article-type">Case Study</span>
+          <p class="article-title">From $0 to $5k MRR: A 6-Month Case Study</p>
+          <p class="article-excerpt">Case studies from real founders building real products. Detailed breakdowns with numbers.</p>
+        </div>
+      </div>
+      <div class="article-card">
+        <div class="article-cover">🗺️</div>
+        <div class="article-body">
+          <span class="article-type">Guide</span>
+          <p class="article-title">The Indie Founder's SEO Playbook</p>
+          <p class="article-excerpt">Step-by-step guides for shipping, marketing, and scaling solo or with a tiny team.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="cta-panel">
+      <span class="overlay-label">EARLY ACCESS</span>
+      <h2>Publish your article for free</h2>
+      <p>Write once, reach developers and founders browsing this directory. SEO-indexed, reviewed within 48 hours.</p>
+      <div class="cta-btns">
+        <a href="mailto:hrhelperg@gmail.com?subject=Article submission for petrohrys.com" class="btn-red">Submit an article →</a>
+        <a href="/startups/" class="btn-ghost">Browse startups</a>
+      </div>
+    </div>
+
+    <!-- Point to existing blog -->
+    <p class="section-title">Recent posts from the blog</p>
+    <div class="blog-list">
+      <a href="/blog/best-pdf-editor-app-iphone-android/" class="blog-row">
+        <div>
+          <p class="blog-row-title">Best PDF Editor App for iPhone &amp; Android</p>
+          <p class="blog-row-meta">Mobile Apps · petrohrys.com</p>
+        </div>
+        <span class="blog-row-arrow">→</span>
+      </a>
+      <a href="/blog/smart-printer-guide.html" class="blog-row">
+        <div>
+          <p class="blog-row-title">Smart Printer – Complete User Guide</p>
+          <p class="blog-row-meta">Guides · petrohrys.com</p>
+        </div>
+        <span class="blog-row-arrow">→</span>
+      </a>
+      <a href="/blog/pokemon-tcg-card-value-scanner/" class="blog-row">
+        <div>
+          <p class="blog-row-title">How to Check Pokémon Card Value with a Scanner</p>
+          <p class="blog-row-meta">Guides · petrohrys.com</p>
+        </div>
+        <span class="blog-row-arrow">→</span>
+      </a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>Products</h4>
+        <a href="/pdf-editor/">PDF Editor</a>
+        <a href="/invoice-maker/">Invoice Maker</a>
+        <a href="/cv-builder/">CV Builder</a>
+      </div>
+      <div class="footer-section">
+        <h4>Directory</h4>
+        <a href="/startups/">All Startups</a>
+        <a href="/startups/raising/">Raising Round</a>
+        <a href="/submit-startup/">Submit Yours</a>
+        <a href="/articles/">Articles</a>
+        <a href="/templates/">Templates</a>
+      </div>
+      <div class="footer-section">
+        <h4>Company</h4>
+        <a href="/#about">About</a>
+        <a href="/#contact">Contact</a>
+        <a href="/blog/">Blog</a>
+      </div>
+      <div class="footer-section">
+        <h4>Legal</h4>
+        <a href="/privacy/">Privacy Policy</a>
+        <a href="/terms/">Terms of Service</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Petro Hrys. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navLinks.classList.toggle('active');
+    });
+  </script>
+</body>
+</html>

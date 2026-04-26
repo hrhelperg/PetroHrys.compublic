@@ -1,0 +1,6 @@
+# Normalize trailing-slash variants so Netlify never 404s on these routes
+/startups          /startups/       301
+/submit-startup    /submit-startup/ 301
+/articles          /articles/       301
+/templates         /templates/      301
+/startups/raising  /startups/raising/ 301

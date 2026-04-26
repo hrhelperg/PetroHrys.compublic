@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/af075fab2c66644b181224ee/script.js"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4RE6YCJZBD"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-4RE6YCJZBD');</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Templates &amp; Resources – petrohrys.com</title>
+  <meta name="description" content="Free templates, frameworks, and resources for indie founders and developers. Pitch decks, pricing pages, launch checklists, and more.">
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://www.petrohrys.com/templates/">
+  <meta property="og:title" content="Templates &amp; Resources – petrohrys.com">
+  <meta property="og:description" content="Free templates and resources for indie founders and developers.">
+  <meta property="og:url" content="https://www.petrohrys.com/templates/">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@petrohrys">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%231a1a1a'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-size='18' fill='white'>P</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;background:#f7f7f5;color:#1a1a1a;line-height:1.6;}
+    nav{position:fixed;top:0;left:0;right:0;z-index:1000;backdrop-filter:blur(10px);background:rgba(247,247,245,0.8);border-bottom:1px solid rgba(0,0,0,0.05);padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;}
+    .logo{font-weight:600;font-size:1.25rem;letter-spacing:-0.02em;color:#1a1a1a;text-decoration:none;}
+    .nav-links{display:flex;gap:2rem;list-style:none;}
+    .nav-links a{text-decoration:none;color:#1a1a1a;font-size:0.95rem;transition:opacity 0.2s;}
+    .nav-links a:hover{opacity:0.6;}
+    .nav-right{display:flex;align-items:center;gap:1.5rem;}
+    .hamburger{display:none;flex-direction:column;gap:0.35rem;cursor:pointer;background:none;border:none;}
+    .hamburger span{width:20px;height:2px;background:#1a1a1a;border-radius:1px;transition:all 0.3s;}
+    .hamburger.active span:nth-child(1){transform:rotate(45deg) translate(8px,8px);}
+    .hamburger.active span:nth-child(2){opacity:0;}
+    .hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(7px,-7px);}
+    @media(max-width:768px){
+      .hamburger{display:flex;}
+      .nav-links{position:absolute;top:60px;left:0;right:0;background:rgba(247,247,245,0.95);flex-direction:column;gap:1rem;padding:2rem;max-height:0;overflow:hidden;transition:max-height 0.3s;border-bottom:1px solid rgba(0,0,0,0.05);}
+      .nav-links.active{max-height:400px;}
+    }
+    .page-wrap{max-width:1100px;margin:0 auto;padding:6rem 2rem 4rem;}
+    .badge{display:inline-block;background:#1a1a1a;color:#fff;font-size:0.75rem;font-weight:600;padding:0.25rem 0.7rem;border-radius:20px;margin-bottom:1rem;letter-spacing:0.03em;}
+    h1{font-size:2.5rem;font-weight:700;letter-spacing:-0.03em;margin-bottom:0.75rem;}
+    .subtitle{font-size:1.1rem;color:#555;max-width:540px;margin-bottom:3rem;}
+    /* Template cards */
+    .templates-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.25rem;margin-bottom:3rem;}
+    .template-card{background:#fff;border-radius:16px;border:1px solid rgba(0,0,0,0.06);padding:1.5rem;opacity:0.55;}
+    .template-icon{width:48px;height:48px;border-radius:12px;margin-bottom:1rem;display:flex;align-items:center;justify-content:center;font-size:1.5rem;}
+    .template-title{font-weight:700;font-size:0.95rem;margin-bottom:0.4rem;}
+    .template-desc{font-size:0.84rem;color:#666;line-height:1.55;margin-bottom:1rem;}
+    .template-tags{display:flex;flex-wrap:wrap;gap:0.35rem;}
+    .template-tag{padding:0.2rem 0.55rem;background:rgba(0,0,0,0.05);border-radius:6px;font-size:0.75rem;color:#666;}
+    /* What you'll find */
+    .what-section{margin-bottom:3rem;}
+    .what-section h2{font-size:1.4rem;font-weight:700;margin-bottom:1.5rem;}
+    .what-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;}
+    .what-item{background:#fff;border-radius:12px;border:1px solid rgba(0,0,0,0.06);padding:1.25rem;}
+    .what-emoji{font-size:1.6rem;margin-bottom:0.5rem;}
+    .what-title{font-weight:600;font-size:0.9rem;margin-bottom:0.25rem;}
+    .what-desc{font-size:0.82rem;color:#666;}
+    /* CTA */
+    .cta-panel{background:#1a1a1a;border-radius:20px;padding:3rem 2.5rem;text-align:center;margin-bottom:3rem;}
+    .cta-panel h2{font-size:1.75rem;font-weight:700;color:#fff;margin-bottom:0.75rem;}
+    .cta-panel p{color:rgba(255,255,255,0.65);margin-bottom:1.75rem;max-width:460px;margin-left:auto;margin-right:auto;}
+    .cta-btns{display:flex;gap:0.75rem;flex-wrap:wrap;justify-content:center;}
+    .btn-red{display:inline-block;background:#d32f2f;color:#fff;padding:0.8rem 1.75rem;border-radius:8px;font-weight:600;font-size:0.95rem;text-decoration:none;transition:background 0.2s;}
+    .btn-red:hover{background:#b71c1c;}
+    .btn-ghost{display:inline-block;background:rgba(255,255,255,0.1);color:#fff;padding:0.8rem 1.75rem;border-radius:8px;font-weight:600;font-size:0.95rem;text-decoration:none;transition:background 0.2s;}
+    .btn-ghost:hover{background:rgba(255,255,255,0.18);}
+    .overlay-label{display:inline-block;font-size:0.75rem;font-weight:600;background:rgba(255,255,255,0.12);color:#fff;padding:0.25rem 0.7rem;border-radius:20px;margin-bottom:1rem;letter-spacing:0.04em;}
+    footer{background:#fff;border-top:1px solid rgba(0,0,0,0.05);padding:4rem 2rem 2rem;margin-top:4rem;}
+    .footer-content{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:3rem;margin-bottom:3rem;}
+    .footer-section h4{font-size:0.85rem;font-weight:700;text-transform:uppercase;color:#999;margin-bottom:1rem;}
+    .footer-section a{display:block;color:#1a1a1a;text-decoration:none;font-size:0.9rem;margin-bottom:0.75rem;transition:opacity 0.2s;}
+    .footer-section a:hover{opacity:0.6;}
+    .footer-bottom{max-width:1200px;margin:0 auto;padding-top:2rem;border-top:1px solid rgba(0,0,0,0.05);text-align:center;color:#999;font-size:0.85rem;}
+    @media(max-width:768px){h1{font-size:1.8rem;}.cta-panel{padding:2rem 1.5rem;}}
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="/" class="logo">Petro Hrys</a>
+    <div class="nav-right">
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/">Home</a></li>
+        <li><a href="/startups/">Startups</a></li>
+        <li><a href="/articles/">Articles</a></li>
+        <li><a href="/templates/" style="font-weight:600;">Templates</a></li>
+        <li><a href="/blog/">Blog</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <div class="page-wrap">
+    <span class="badge">📁 Community resources</span>
+    <h1>Templates &amp; Resources</h1>
+    <p class="subtitle">Free templates, frameworks, and checklists from founders who've shipped. Take what's useful, skip what isn't.</p>
+
+    <!-- What's coming -->
+    <div class="what-section">
+      <h2>What you'll find here</h2>
+      <div class="what-grid">
+        <div class="what-item">
+          <div class="what-emoji">📊</div>
+          <p class="what-title">Pitch deck templates</p>
+          <p class="what-desc">Investor-ready slide structures for pre-seed and seed rounds.</p>
+        </div>
+        <div class="what-item">
+          <div class="what-emoji">💰</div>
+          <p class="what-title">Pricing page frameworks</p>
+          <p class="what-desc">SaaS pricing structures that convert browsers into buyers.</p>
+        </div>
+        <div class="what-item">
+          <div class="what-emoji">🚀</div>
+          <p class="what-title">Launch checklists</p>
+          <p class="what-desc">Everything to do before, during, and after a ProductHunt launch.</p>
+        </div>
+        <div class="what-item">
+          <div class="what-emoji">📧</div>
+          <p class="what-title">Cold outreach scripts</p>
+          <p class="what-desc">Email sequences for early customer discovery and B2B sales.</p>
+        </div>
+        <div class="what-item">
+          <div class="what-emoji">📝</div>
+          <p class="what-title">Privacy policy drafts</p>
+          <p class="what-desc">Starter privacy policies for privacy-first indie apps.</p>
+        </div>
+        <div class="what-item">
+          <div class="what-emoji">🔍</div>
+          <p class="what-title">SEO content frameworks</p>
+          <p class="what-desc">Keyword research and content planning templates for bootstrapped products.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Placeholder template cards -->
+    <div class="templates-grid">
+      <div class="template-card">
+        <div class="template-icon" style="background:#f0f0ee;">🚀</div>
+        <p class="template-title">SaaS Launch Checklist</p>
+        <p class="template-desc">A step-by-step checklist for shipping and promoting your SaaS. Your templates will replace this card.</p>
+        <div class="template-tags"><span class="template-tag">launch</span><span class="template-tag">saas</span></div>
+      </div>
+      <div class="template-card">
+        <div class="template-icon" style="background:#f0f0ee;">💰</div>
+        <p class="template-title">Pricing Page Copy Template</p>
+        <p class="template-desc">Proven copy structure for a high-converting SaaS pricing page. Add yours here.</p>
+        <div class="template-tags"><span class="template-tag">marketing</span><span class="template-tag">b2c</span></div>
+      </div>
+      <div class="template-card">
+        <div class="template-icon" style="background:#f0f0ee;">📊</div>
+        <p class="template-title">Investor Pitch Template</p>
+        <p class="template-desc">Pre-seed pitch deck structure used by successful indie founders raising their first round.</p>
+        <div class="template-tags"><span class="template-tag">fundraising</span><span class="template-tag">pitch</span></div>
+      </div>
+    </div>
+
+    <div class="cta-panel">
+      <span class="overlay-label">SHARE WITH THE COMMUNITY</span>
+      <h2>Share a template you use</h2>
+      <p>Publish resources you actually use in your own startup. Help other founders skip the guesswork.</p>
+      <div class="cta-btns">
+        <a href="mailto:hrhelperg@gmail.com?subject=Template submission for petrohrys.com" class="btn-red">Share a template →</a>
+        <a href="/articles/" class="btn-ghost">Browse articles</a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>Products</h4>
+        <a href="/pdf-editor/">PDF Editor</a>
+        <a href="/invoice-maker/">Invoice Maker</a>
+        <a href="/cv-builder/">CV Builder</a>
+      </div>
+      <div class="footer-section">
+        <h4>Directory</h4>
+        <a href="/startups/">All Startups</a>
+        <a href="/startups/raising/">Raising Round</a>
+        <a href="/submit-startup/">Submit Yours</a>
+        <a href="/articles/">Articles</a>
+        <a href="/templates/">Templates</a>
+      </div>
+      <div class="footer-section">
+        <h4>Company</h4>
+        <a href="/#about">About</a>
+        <a href="/#contact">Contact</a>
+        <a href="/blog/">Blog</a>
+      </div>
+      <div class="footer-section">
+        <h4>Legal</h4>
+        <a href="/privacy/">Privacy Policy</a>
+        <a href="/terms/">Terms of Service</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Petro Hrys. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navLinks.classList.toggle('active');
+    });
+  </script>
+</body>
+</html>
