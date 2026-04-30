@@ -1,5 +1,5 @@
 # robots.txt — petrohrys.com
-# Last updated: 2026-04-22
+# Last updated: 2026-04-30
 
 User-agent: *
 Allow: /
@@ -29,5 +29,4 @@ User-agent: Bytespider
 Disallow: /
 
 # Sitemap location
-Sitemap: https://www.petrohrys.com/sitemap.xml
 Sitemap: https://petrohrys.com/sitemap.xml
