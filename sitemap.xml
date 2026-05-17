@@ -9,6 +9,14 @@
     <priority>1.0</priority>
   </url>
 
+  <!-- Artificial Intelligence -->
+  <url>
+    <loc>https://petrohrys.com/artificial-intelligence/</loc>
+    <lastmod>2026-05-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- Startup Directory -->
   <url>
     <loc>https://petrohrys.com/startups/</loc>
