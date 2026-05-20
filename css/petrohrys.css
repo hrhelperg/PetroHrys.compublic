@@ -37,6 +37,7 @@
   --s-7: 4rem;     /* 64 */
   --s-8: 6rem;     /* 96 */
   --s-9: 8rem;     /* 128 */
+  --s-10: 12rem;  /* 192 */
 
   /* Layout widths */
   --col-main: 720px;
@@ -222,7 +223,7 @@ header > nav {
     background: var(--bg);
     border-bottom: var(--rule-w) solid var(--rule);
     padding: var(--s-4);
-    z-index: 99;
+    z-index: 101;
   }
   .nav-mobile-panel .nav-primary,
   .nav-mobile-panel .nav-lang {
