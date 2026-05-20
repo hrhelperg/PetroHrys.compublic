@@ -340,7 +340,7 @@ No inline `<style>`. No second analytics provider. No A/B testing snippets.
 - `<title>` → `Petro Hrys — Digital infrastructure builder`
 - `<meta name="description">` → `Petro Hrys researches search systems, AI architectures, automation, and digital intelligence networks. Independent infrastructure research on the open web.`
 - `og:title` → matches `<title>`
-- `og:description` → matches `<meta description>`
+- `og:description` → on the homepage, a shorter punchier variant of the `<meta name="description">` (best practice for social-card readability — meta description optimizes for the 150–160 char Google snippet; `og:description` optimizes for the social-share preview where shorter is better). The Twitter description mirrors the OG description, not the meta description. On section pages, `og:description` may equal `<meta description>` because section descriptions are already short.
 - `og:image` → **unchanged in Phase 1** (keeps `https://www.petrohrys.com/photo1.jpg`). Phase 2 introduces a typographic OG card.
 - `twitter:*` mirrors OG.
 - All hreflang `<link>` tags preserved exactly.
