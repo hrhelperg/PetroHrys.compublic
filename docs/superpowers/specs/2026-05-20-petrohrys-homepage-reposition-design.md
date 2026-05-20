@@ -295,24 +295,27 @@ The two tools-related entries are reframed editorially (the titles shown above r
 
 #### `/about/index.html` — real, not a stub
 
-```
-H1: About
-Lede: Independent researcher and builder working on digital infrastructure.
-Body: ~150 words, two short paragraphs:
-  1. Who: short factual paragraph. Origin (Ukraine), current geography
-     (Europe / US), current focus (search systems, AI architectures,
-     automation, indexing systems). Tone: institutional, third-person-able.
-  2. What: a single sentence noting that a set of independent tools is
-     maintained at the tool URLs (with a single quiet link to the footer
-     listing, *not* a re-emphasis of the consumer-product brand).
-Contact: same single-line treatment as the homepage — email, optional
-         note about collaborations.
-Sameas social: surfaced as a small unobtrusive list at the bottom of the
-               page, NOT as icon row. Plain text links: LinkedIn · X ·
-               YouTube. (Other social profiles remain in JSON-LD only.)
-```
+**Page structure:**
 
-**Implementation note:** the implementation plan must include a checkpoint where the operator approves the exact `/about/` prose before it ships. The outline above is structural guidance, not finished copy.
+- H1: `About`
+- Lede (serif, secondary): `Independent researcher and builder working on digital infrastructure.`
+- Body: three short paragraphs (exact copy below).
+- Contact line: single sentence + email link.
+- Elsewhere: plain-text social list (LinkedIn · X · YouTube) at the bottom, no icons. All other social profiles remain in JSON-LD only.
+
+**Body copy (finalized — 142 words):**
+
+> Petro Hrys is a researcher and engineer working independently on digital infrastructure — the search systems, indexing behavior, AI architectures, and automation layers that shape how information is discovered, retrieved, and surfaced on the open web.
+>
+> Born in Ukraine and currently based between Europe and the United States. The practice is small and self-directed: long-form writing, applied research, and a steady cadence of independent infrastructure work. The interest is in the systems beneath the visible web rather than in products built on top of them.
+>
+> A small set of independent tools is maintained at their own URLs and [listed quietly in the footer](#footer-tools). They are useful work in adjacent domains, not the primary work.
+
+**Contact line:**
+
+> Available for research collaborations and infrastructure consulting. <a href="mailto:hrhelperg@gmail.com">hrhelperg@gmail.com</a>.
+
+The implementation plan should treat this copy as final — operator review happened during spec review.
 
 ### 6.5 `<head>` block (shared template across homepage + 5 new pages)
 
@@ -365,12 +368,7 @@ Replace the current `@graph` with:
       "@type": "WebSite",
       "name": "Petro Hrys",
       "url": "https://www.petrohrys.com/",
-      "inLanguage": "en",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://www.petrohrys.com/?q={search_term_string}",
-        "query-input": "required name=search_term_string"
-      }
+      "inLanguage": "en"
     },
     {
       "@type": "Organization",
@@ -383,7 +381,7 @@ Replace the current `@graph` with:
 }
 ```
 
-Note on `SearchAction`: the site does not yet implement `?q=` search. The schema declares the *intent* (helps Google decide whether to render sitelinks search box). Wiring the actual search is Phase 2.
+`SearchAction` is intentionally **not** declared. The site has no `?q=` search yet, and declaring intent for a non-existent feature is misleading to indexers. Add `SearchAction` when real search ships (Phase 2 — see §11).
 
 ### 6.7 JSON-LD (5 new section pages)
 
@@ -474,7 +472,7 @@ Items intentionally NOT delivered by this spec; each is a separate Phase-2 spec.
 5. **Tool-page restyle.** The nine tool pages keep their current styles. Phase 2+ decides whether to (a) leave them as-is (good SEO equity, dissonant brand), (b) restyle them to inherit `/css/petrohrys.css`, or (c) move them off the apex to a `tools.petrohrys.com` subdomain.
 6. **`/articles/`, `/startups/`, `/templates/`, `/blog/` voice/style alignment.** These pages currently match the old positioning. They keep their URLs but their visual language will eventually need to harmonize with the new system.
 7. **Section content build-out.** `/research/`, `/infrastructure/`, `/ai-systems/` ship as honest stubs with a "first entries arrive in Phase 2" note. The actual research and infrastructure essays are written in subsequent phases.
-8. **Search.** The `WebSite` JSON-LD declares a `SearchAction` at `?q=`. Wiring the actual search UI and index is Phase 2.
+8. **Search.** No search UI exists yet, and `SearchAction` is intentionally absent from the Phase 1 JSON-LD. Phase 2 implements a real search (likely a static client-side index over the section pages and `/blog/`) and adds the matching `SearchAction` declaration.
 9. **Bing site verification.** The placeholder `msvalidate.01` value is preserved; replacing it with a real code is a small follow-up.
 
 ## 12. Risks
