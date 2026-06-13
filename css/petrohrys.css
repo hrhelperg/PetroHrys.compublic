@@ -474,4 +474,84 @@ footer[role="contentinfo"] {
   color: var(--text-3);
 }
 
+/* ===== Phase 1.5 — Editorial identity ===== */
+/* The personal mark is used purely as a founder/masthead device: monochrome,
+   minimal, understated. SVGs are applied via CSS mask so a single asset drives
+   every placement and the ink colour is set here, not baked into the file. */
+
+.hero-mark,
+.star-divider,
+.footer-bottom::before {
+  -webkit-mask-repeat: no-repeat;  mask-repeat: no-repeat;
+  -webkit-mask-position: center;   mask-position: center;
+  -webkit-mask-size: contain;      mask-size: contain;
+}
+
+/* Homepage hero — constellation mark, above the masthead eyebrow */
+.hero-mark {
+  width: 46px;
+  height: 46px;
+  margin-bottom: var(--s-4);
+  background-color: var(--text-2);
+  -webkit-mask-image: url(/images/mark-constellation.svg);
+  mask-image: url(/images/mark-constellation.svg);
+}
+
+/* Optional section divider — single star, centred between major sections */
+.star-divider {
+  width: 13px;
+  height: 13px;
+  margin-inline: auto;
+  background-color: var(--text-3);
+  -webkit-mask-image: url(/images/mark-star.svg);
+  mask-image: url(/images/mark-star.svg);
+}
+
+/* Footer signature — single star ahead of the © line, sitewide */
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  gap: var(--s-1);
+}
+.footer-bottom::before {
+  content: "";
+  flex: 0 0 auto;
+  width: 12px;
+  height: 12px;
+  background-color: var(--text-3);
+  -webkit-mask-image: url(/images/mark-star.svg);
+  mask-image: url(/images/mark-star.svg);
+}
+
+/* About — author portrait (small, editorial, monochrome) */
+.bio .portrait {
+  float: right;
+  width: 200px;
+  margin: 0.35rem 0 var(--s-4) var(--s-6);
+}
+.bio .portrait img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: 50% 28%;
+  filter: grayscale(1) contrast(1.03);
+  border: var(--rule-w) solid var(--rule);
+}
+.bio .portrait figcaption {
+  margin-top: var(--s-2);
+  font-family: var(--ff-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.03em;
+  line-height: 1.4;
+  color: var(--text-3);
+  max-width: 22ch;
+}
+@media (max-width: 640px) {
+  .bio .portrait {
+    float: none;
+    width: 164px;
+    margin: 0 0 var(--s-5);
+  }
+}
+
 /* ===== End ===== */
