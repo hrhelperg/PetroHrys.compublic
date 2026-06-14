@@ -620,4 +620,17 @@ footer[role="contentinfo"] {
   letter-spacing: 0.03em; color: var(--text-3);
 }
 
+/* ===== Phase 3 — i18n "EN" tag (links to untranslated English articles) ===== */
+.ext-lang {
+  font-family: var(--ff-mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.06em;
+  color: var(--text-3);
+  border: var(--rule-w) solid var(--rule);
+  border-radius: 2px;
+  padding: 0 0.3em;
+  margin-left: 0.5em;
+  vertical-align: middle;
+}
+
 /* ===== End ===== */
