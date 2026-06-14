@@ -164,7 +164,7 @@ No change to IDs, endpoints, or consent gating. `/work/` and `/writing/` ship wi
 
 0. Branch `feat/premium-personal-ecosystem` (done).
 1. `css/petrohrys.css`: add components (product list, featured-products, writing-hub list, single-portrait About 2-col, homepage identity chip, current-focus block, work/writing portrait blocks) using existing tokens.
-2. Define canonical new **nav + footer** markup once; apply to all EN top-level pages (index, about, work, writing, the 4 sections, the 9 product pages [footer only], blog, articles, privacy, terms). *es/fr/de deferred — old template.*
+2. Define canonical new **nav + footer** markup once; apply **only to the editorial pages** that already load `petrohrys.css`: `index`, `about`, `research`, `infrastructure`, `ai-systems`, `essays`, plus the two new hubs `work` and `writing`. **Old-design pages stay byte-unchanged** (the 9 product pages, `blog`, `articles`, `privacy`, `terms`, `artificial-intelligence`, `startups*`, `templates`) — they don't load the editorial system; retrofitting them would violate "preserve existing product pages unchanged." They remain reachable + indexed via the new footer's outbound links, exactly as the homepage footer already links them today. *es/fr/de deferred — old template.*
 3. Replace `images/logo-red.svg` with the single-star-on-red-square mark; regenerate `images/og-default.png`.
 4. Rewrite `index.html` to the new section order (drop 01–05 TOC; add Current Focus; add suit identity chip; update lede).
 5. Create `/work/index.html` (Featured Products → full index → café portrait + full analytics head + canonical + JSON-LD `BreadcrumbList`/`ItemList`).
@@ -179,6 +179,7 @@ No change to IDs, endpoints, or consent gating. `/work/` and `/writing/` ship wi
 ---
 
 ## Out of scope (later phases)
+- **Unifying old-design pages** (product pages, blog, articles, privacy, terms, artificial-intelligence, startups, templates) under the editorial nav/footer/stylesheet. They stay unchanged this phase.
 - es/fr/de localization of the new structure (still old template; broken `/photo1.jpg`).
 - Migrating individual blog/article posts into the new nav shell beyond footer linking.
 - Any redirect-based consolidation of the section pages.
