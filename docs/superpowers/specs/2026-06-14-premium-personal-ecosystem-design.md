@@ -62,7 +62,7 @@ Replaces the current "01–05 Sections" academic TOC. New order:
 ## 3. Work / products structure (`/work/` — new page)
 
 - Page-hero: H1 **"Work"**, lede *"Independent tools and products — built and maintained solo."*
-- **Featured Products** (new, before the full index): 3 highlighted products with a slightly fuller one-liner each. Default picks: **PDF Editor, Invoice Maker, Pocket Manager** (adjustable; confirm against traffic/positioning during build).
+- **Featured Products** (new, before the full index): 3 highlighted products with a slightly fuller one-liner each. Picks (confirmed): **PDF Editor** (utility/search intent), **CV Builder** (personal/professional identity product), **Invoice Maker** (business/finance utility). Pocket Manager remains in the full index but is not featured.
 - **Full product index:** all 9 products as a compact ruled list — name (link) + one-line description. No cards, no badges, no screenshot-heroes.
 - **Trust element:** small **portrait-3 (café)** with caption *"Built and maintained by Petro Hrys."*
 - Every product keeps its existing URL untouched; `/work/` only links to them.
