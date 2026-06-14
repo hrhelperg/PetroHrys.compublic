@@ -26,7 +26,7 @@ Turn the site from a faceless research-institute feel (and the older startup-dir
 2. **Section consolidation:** keep the four section pages live + indexable; build a new hub; **no redirects** (zero SEO risk).
 3. **Section label:** **"Research & Writing"** (better reflects research-led content). **URL stays `/writing/`** — only the nav label and page H1 use the longer name.
 4. **Portraits:** suit anchors `/about/` *and* the small homepage identity chip (the one deliberate repeat, across the two identity surfaces); train → Research & Writing; café → Work.
-5. **Civilist mark:** replace the busy star-constellation with the **simpler mark (single white star on a red square)**.
+5. **Civilist mark:** **keep the existing star-constellation `logo-red.svg` unchanged.** (Petro proposed a single-white-star simplification, then reversed it at implementation time, 2026-06-14 — use the original mark.)
 
 ---
 
@@ -93,8 +93,7 @@ Draft one-liners (verify each against the product page's own `<title>`/meta duri
 
 ## 6. Civilist mark usage
 
-- **Replace** `images/logo-red.svg` contents in place: red square `#C20203` + one centered white 5-point star (same filename, same `viewBox="0 0 100 100"`). All ~13 references (CSS `hero-mark` / `star-divider` / footer signature, plus the favicon `<link rel="icon">` on every page) update automatically — no markup churn.
-- **Regenerate** `images/og-default.png` to match the simpler mark (raster; cannot inherit the SVG change).
+- **Keep `images/logo-red.svg` unchanged** — the existing red star-constellation mark stays (Petro reversed the single-star simplification during implementation). No change to the mark asset, its ~13 references, or `images/og-default.png` (the OG card already shows this mark).
 - Keep usage **subtle**: `hero-mark` (~54px) homepage-only; `star-divider` (~18px) between sections; footer signature (~15px); favicon; OG. No large star-field visuals, no political/movement framing or copy.
 
 ---

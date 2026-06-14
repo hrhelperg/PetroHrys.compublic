@@ -12,6 +12,8 @@
 
 **Branch:** `feat/premium-personal-ecosystem` (already created, off `feat/editorial-identity-phase-1.5`).
 
+> **AMENDMENT (2026-06-14):** Petro reversed the Civilist-mark simplification — **keep the original star-constellation `logo-red.svg` unchanged.** Therefore: **Task 1 is SKIPPED** (do not overwrite the SVG), **Task 9 (OG regeneration) is SKIPPED** (the OG card already shows the original mark), and **Task 10 Step 2 (mark sizing) is N/A**. Everything else stands.
+
 ---
 
 ## Verification conventions (read once)
