@@ -309,7 +309,36 @@ for L in es fr de; do for P in index work/index writing/index about/index; do f=
 ```
 Expected all `wmid=1 gtag=2 cky=1`.
 
-- [ ] **Step 11 — Write the audit report** to the PR/summary covering the user's 10 points + remaining i18n debt, then **push** `git push -u origin feat/international-editorial-parity` (await user direction on PR, consistent with Phase 2).
+- [ ] **Step 11 — Language Leakage Audit:** localized pages must not contain untranslated English UI strings (brand names, `Petro Hrys`, social labels, and the `EN` badge are allowed). Grep each localized page for a curated set of English UI phrases that must have been translated; expect zero hits:
+```bash
+PHRASES=("Current focus" "Selected products" "Featured products" "All products" "Selected writing" "More about me" "All work" "All writing" "Built and maintained by" "Skip to content" ">Menu<" ">Home<" ">Work<" ">About<" ">Products<" ">Index<" ">Legal<" "Research &amp; Writing" "Independent tools and products" "Available for research" "Blog archive")
+for L in es fr de; do for P in index work/index writing/index about/index; do f="$L/$P.html"; for s in "${PHRASES[@]}"; do grep -qF "$s" "$f" && echo "  LEAK [$f]: $s"; done; done; done; echo "(leakage check done)"
+```
+Expected: only `(leakage check done)` (no LEAK lines).
+
+- [ ] **Step 12 — Structured Data & Canonical Audit:** every localized page has a parseable JSON-LD block whose `url`/`item` use the localized `/L/...` path, and a self-canonical equal to its own URL. Script:
+```bash
+python3 - <<'PY'
+import re, json, pathlib
+REPO = pathlib.Path.home()/"PetroHrys.com"
+ok=True
+for L in ("es","fr","de"):
+    for P,exp in (("index",f"/{L}/"),("work/index",f"/{L}/work/"),("writing/index",f"/{L}/writing/"),("about/index",f"/{L}/about/")):
+        f=REPO/L/(P+".html"); html=f.read_text()
+        m=re.search(r'rel="canonical" href="https://www\.petrohrys\.com([^"]+)"', html)
+        if not m or m.group(1)!=exp: print(f"  CANON {f}: {m and m.group(1)} != {exp}"); ok=False
+        blocks=re.findall(r'<script type="application/ld\+json">(.*?)</script>', html, re.DOTALL)
+        if not blocks: print(f"  NO JSON-LD {f}"); ok=False
+        for b in blocks:
+            try: json.loads(b)
+            except Exception as e: print(f"  BAD JSON-LD {f}: {e}"); ok=False
+        if f"petrohrys.com{exp}" not in html: print(f"  JSON-LD url missing {exp} in {f}"); ok=False
+print("SD+CANON OK" if ok else "SD+CANON ISSUES")
+PY
+```
+Expected: `SD+CANON OK`.
+
+- [ ] **Step 13 — Write the audit report** to the PR/summary covering the user's 12 audit points + remaining i18n debt, then **push** `git push -u origin feat/international-editorial-parity` (await user direction on PR, consistent with Phase 2).
 
 ---
 
