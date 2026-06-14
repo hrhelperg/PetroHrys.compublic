@@ -23,6 +23,62 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- Phase 3 localized editorial -->
+  <url>
+    <loc>https://petrohrys.com/es/work/</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://petrohrys.com/es/writing/</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://petrohrys.com/es/about/</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://petrohrys.com/fr/work/</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://petrohrys.com/fr/writing/</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://petrohrys.com/fr/about/</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://petrohrys.com/de/work/</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://petrohrys.com/de/writing/</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://petrohrys.com/de/about/</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
   <!-- Editorial sections (Phase 1) -->
   <url>
     <loc>https://petrohrys.com/research/</loc>
@@ -204,7 +260,7 @@
   <!-- Localized — Spanish (ES) -->
   <url>
     <loc>https://petrohrys.com/es/</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -236,7 +292,7 @@
   <!-- Localized — French (FR) -->
   <url>
     <loc>https://petrohrys.com/fr/</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -268,7 +324,7 @@
   <!-- Localized — German (DE) -->
   <url>
     <loc>https://petrohrys.com/de/</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
