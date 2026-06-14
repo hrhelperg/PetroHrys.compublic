@@ -1168,7 +1168,58 @@ git commit -m "feat(og): regenerate OG card with simplified single-star mark"
 
 ---
 
-## Task 10: Final verification sweep
+## Task 10: Polish Pass (before verification & deployment)
+
+A refinement pass after all build tasks — visual, copy, and consistency polish only. Each step is a concrete check with its target state; **fix-forward** if a check fails, then re-run it. **No architectural changes.** If a *major* structural issue surfaces here, stop and raise it rather than redesigning silently.
+
+**Files:** potentially any editorial page + `css/petrohrys.css` (small refinements only).
+
+- [ ] **Step 1: Nav/footer parity.** All 8 editorial footers should be byte-identical (Products / Research & Writing / Index / Legal).
+
+Run:
+```bash
+for f in index about work writing research infrastructure ai-systems essays; do
+  p=$([ "$f" = index ] && echo index.html || echo $f/index.html)
+  sed -n '/<footer role="contentinfo">/,/<\/footer>/p' "$p" > /tmp/foot_$f.txt
+done
+md5 /tmp/foot_*.txt | awk -F'= ' '{print $2}' | sort -u | wc -l | tr -d ' '
+```
+Expected: `1`. If not, reconcile the drift against the NEW FOOTER block.
+
+- [ ] **Step 2: Mark sizing.** The single star reads heavier than the old constellation at small sizes. Inspect hero-mark (54px), star-divider (18px), footer signature (15px), and the browser favicon. If the star looks cramped/heavy at 15–18px, nudge `.star-divider` / `.footer-bottom::before` sizes down a touch in `css/petrohrys.css`. Target: a calm, legible glyph — not a red blob.
+
+- [ ] **Step 3: Portrait framing.** For each portrait (home suit, about suit, writing train, work café) confirm the face sits well inside the 4:5 crop. Shared default is `object-position: 50% 22%`; add a per-context override if any face is clipped or too low. The `portrait-3-work.jpg` crop must exclude the coffee cup — recrop if it still reads "lifestyle."
+
+- [ ] **Step 4: Typographic polish.** Check hero H1/lede line breaks at 375/768/1280px; confirm em-dashes (—), `&middot;`, and `&rarr;` render consistently; no double spaces. Spacing rhythm of `.eyebrow` / `h2` / `.lede` matches the existing editorial pages.
+
+- [ ] **Step 5: Interactive states.** Tab through each new/edited page: skip link → nav → product-list rows → featured blocks → portrait links. Focus outlines visible, hover tints consistent, the product-list `→` vertically centered with its row.
+
+- [ ] **Step 6: Copy accuracy.** Open each of the 9 product pages' `<title>` / `<meta name="description">` and confirm the one-liners in `/work/` + the homepage match the real positioning; tighten any that misstate a product. Re-read Current Focus and the personal-note copy — warm but serious, no SaaS clichés.
+
+Run (to read the source meta quickly):
+```bash
+for d in pdf-editor cv-builder invoice-maker smart-printer pocket-manager unzip fax twinphone tcg-scanner; do
+  echo "== $d =="; grep -m1 -E '<title>|name="description"' "$d/index.html"
+done
+```
+
+- [ ] **Step 7: Contrast / a11y.** Confirm `--text-2` (#5a5a5e) and `--text-3` (#9a9aa0) on `--bg` (#fafaf8) meet WCAG AA at the sizes used (tighten a token only if a real failure — note `--text-3` is borderline for small text); every `<img>` has meaningful `alt` + explicit width/height; exactly one `<h1>` per page; headings ordered.
+
+- [ ] **Step 8: Dead CSS / DRY.** The homepage dropped the `.toc` block. Check whether any page still uses it:
+
+Run: `grep -rl 'class="toc"' --include='*.html' . | grep -v '\.git'`
+If nothing prints, the `.toc` rules are unused — leave them (harmless, may be reused) **or** remove for leaner CSS. Never remove a selector still referenced.
+
+- [ ] **Step 9: Commit any polish changes** (skip if none were needed):
+
+```bash
+git add -A
+git commit -m "polish: cross-page parity, mark sizing, portrait framing, copy + a11y pass"
+```
+
+---
+
+## Task 11: Final verification sweep
 
 **Files:** none modified (verification only; fix-forward if anything fails).
 
@@ -1235,6 +1286,6 @@ git push -u origin feat/premium-personal-ecosystem
 
 ## Self-review notes (author)
 
-- **Spec coverage:** nav model (T3,T4,T5,T6,T7) · homepage incl. Current Focus + identity (T7) · Work incl. Featured (T5) · Writing hub (T6) · sections stay live, no redirects (T3 + footer links, no redirect tasks) · simpler mark (T1) · portraits suit/train/café (T4,T7,T6,T5) · SEO additive + sitemap + JSON-LD (T5,T6,T8, breadcrumbs in T3/T4) · analytics identical block (every new/edited page + T10 sweep) · OG card (T9). All spec sections map to a task.
+- **Spec coverage:** nav model (T3,T4,T5,T6,T7) · homepage incl. Current Focus + identity (T7) · Work incl. Featured (T5) · Writing hub (T6) · sections stay live, no redirects (T3 + footer links, no redirect tasks) · simpler mark (T1) · portraits suit/train/café (T4,T7,T6,T5) · SEO additive + sitemap + JSON-LD (T5,T6,T8, breadcrumbs in T3/T4) · analytics identical block (every new/edited page + T11 sweep) · OG card (T9) · Polish Pass before verify/deploy (T10) · final verification + push (T11). All spec sections map to a task.
 - **Placeholder scan:** no TBD/TODO; the only conditional is T9's rasterizer fallback, which is fully specified with a documented no-op path.
 - **Consistency:** class names (`.portrait`, `.product-list`, `.featured-grid`, `.identity`, `.current-focus`, `.work-trust`, `.bio-2col`) defined in T2 are exactly the ones used in T4–T7. Portrait files: `portrait-2` (home+about), `portrait-1` (writing), `portrait-3-work` (work). Analytics IDs identical across tasks.
