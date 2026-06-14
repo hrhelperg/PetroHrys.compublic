@@ -517,31 +517,107 @@ footer[role="contentinfo"] {
   background-image: url(/images/logo-red.svg);
 }
 
-/* About — full-colour portrait trio */
-.bio .portrait-trio {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--s-2);
-  max-width: 480px;
-  margin: var(--s-2) 0 var(--s-5);
-}
-.bio .portrait-trio img {
-  width: 100%;
+/* ===== Phase 2 — Premium Personal Ecosystem ===== */
+
+/* Shared portrait treatment — full colour, uniform 4:5, hairline border.
+   Width is set per context; consistency comes from ratio + border, not desaturation. */
+.portrait {
+  display: block;
+  max-width: 100%;
   aspect-ratio: 4 / 5;
   object-fit: cover;
   object-position: 50% 22%;
   border: var(--rule-w) solid var(--rule);
 }
-.bio .portrait-trio figcaption {
-  grid-column: 1 / -1;
-  margin-top: var(--s-1);
+
+/* Current Focus — small mono-label row (homepage) */
+.current-focus {
+  border-top: var(--rule-w) solid var(--rule);
+  border-bottom: var(--rule-w) solid var(--rule);
+  padding: var(--s-4) 0;
+}
+.current-focus h2 {
   font-family: var(--ff-mono);
   font-size: var(--fs-xs);
-  letter-spacing: 0.03em;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   color: var(--text-3);
+  margin-bottom: var(--s-3);
 }
+.current-focus ul { display: flex; flex-wrap: wrap; gap: var(--s-1) var(--s-4); }
+.current-focus li { font-family: var(--ff-serif); font-size: var(--fs-md); color: var(--text); }
+
+/* Identity chip (homepage) + Writing personal note — portrait beside a short note */
+.identity { display: grid; grid-template-columns: 150px 1fr; gap: var(--s-5); align-items: start; }
+.identity .portrait { width: 150px; }
+.identity .note { max-width: var(--col-text); }
+.identity .note p + p { margin-top: var(--s-3); }
 @media (max-width: 640px) {
-  .bio .portrait-trio { gap: var(--s-1); }
+  .identity { grid-template-columns: 1fr; gap: var(--s-3); }
+  .identity .portrait { width: 140px; }
+}
+
+/* Product list (Work full index, homepage Selected products, Writing categories) */
+.product-list { border-top: var(--rule-w) solid var(--rule); }
+.product-list li { border-bottom: var(--rule-w) solid var(--rule); }
+.product-list a {
+  display: grid;
+  grid-template-columns: 16ch 1fr auto;
+  gap: var(--s-4);
+  padding: var(--s-3) var(--s-2);
+  text-decoration: none;
+  align-items: baseline;
+  transition: background 150ms ease;
+}
+.product-list a:hover { background: var(--hover-tint); }
+.product-list .name { font-family: var(--ff-serif); font-size: var(--fs-md); font-weight: 500; color: var(--text); }
+.product-list .desc { font-size: var(--fs-sm); color: var(--text-2); }
+.product-list .arrow { color: var(--text-3); align-self: center; }
+@media (max-width: 640px) {
+  .product-list a { grid-template-columns: 1fr; gap: var(--s-0); }
+  .product-list .arrow { display: none; }
+}
+
+/* Featured products — 3 framed blocks, no badges */
+.featured-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s-4); }
+.featured-grid a {
+  display: block;
+  padding: var(--s-4);
+  border: var(--rule-w) solid var(--rule);
+  text-decoration: none;
+  transition: background 150ms ease;
+}
+.featured-grid a:hover { background: var(--hover-tint); }
+.featured-grid .name {
+  font-family: var(--ff-serif); font-size: var(--fs-lg); font-weight: 500;
+  color: var(--text); display: block; margin-bottom: var(--s-1);
+}
+.featured-grid .desc { font-size: var(--fs-sm); color: var(--text-2); }
+@media (max-width: 760px) { .featured-grid { grid-template-columns: 1fr; } }
+
+/* About — single anchor portrait, 2-col with bio */
+.bio.bio-2col { display: grid; grid-template-columns: 320px 1fr; gap: var(--s-6); align-items: start; }
+.bio.bio-2col .portrait-figure { margin: 0; }
+.bio.bio-2col .portrait { width: 100%; max-width: 320px; }
+.bio.bio-2col figcaption {
+  margin-top: var(--s-1);
+  font-family: var(--ff-mono); font-size: var(--fs-xs);
+  letter-spacing: 0.03em; color: var(--text-3);
+}
+.bio.bio-2col .bio-text p + p { margin-top: var(--s-3); }
+@media (max-width: 760px) {
+  .bio.bio-2col { grid-template-columns: 1fr; gap: var(--s-4); }
+  .bio.bio-2col .portrait { max-width: 260px; margin-inline: auto; }
+}
+
+/* Work trust — small café portrait + caption */
+.work-trust { display: flex; align-items: center; gap: var(--s-3); }
+.work-trust .portrait { width: 96px; flex: 0 0 auto; }
+.work-trust figcaption {
+  margin: 0;
+  font-family: var(--ff-mono); font-size: var(--fs-xs);
+  letter-spacing: 0.03em; color: var(--text-3);
 }
 
 /* ===== End ===== */
