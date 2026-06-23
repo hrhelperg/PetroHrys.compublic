@@ -215,6 +215,13 @@
 
   <!-- Business Tools -->
   <url>
+    <loc>https://petrohrys.com/webmasterid/</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
     <loc>https://petrohrys.com/invoice-maker/</loc>
     <lastmod>2026-04-22</lastmod>
     <changefreq>monthly</changefreq>
@@ -265,6 +272,12 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://petrohrys.com/es/webmasterid/</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://petrohrys.com/es/pdf-editor/</loc>
     <lastmod>2026-04-22</lastmod>
     <changefreq>monthly</changefreq>
@@ -297,6 +310,12 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://petrohrys.com/fr/webmasterid/</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://petrohrys.com/fr/pdf-editor/</loc>
     <lastmod>2026-04-22</lastmod>
     <changefreq>monthly</changefreq>
@@ -327,6 +346,12 @@
     <lastmod>2026-06-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://petrohrys.com/de/webmasterid/</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://petrohrys.com/de/pdf-editor/</loc>
