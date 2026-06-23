@@ -517,6 +517,25 @@ footer[role="contentinfo"] {
   background-image: url(/images/logo-red.svg);
 }
 
+/* Footer attribution — understated technical credit beneath the © line.
+   Matches .footer-bottom metadata typography (12px, --text-3, inherited body
+   face) and aligns to the same left rule as the © signature. Static text, so
+   it adds no layout shift. */
+.footer-credit {
+  max-width: var(--col-footer);
+  margin: var(--s-2) auto 0;
+  font-size: var(--fs-xs);
+  color: var(--text-3);
+}
+.footer-credit a {
+  color: inherit;
+  text-decoration: none;
+}
+.footer-credit a:hover,
+.footer-credit a:focus-visible {
+  text-decoration: underline;
+}
+
 /* ===== Phase 2 — Premium Personal Ecosystem ===== */
 
 /* Shared portrait treatment — full colour, uniform 4:5, hairline border.
