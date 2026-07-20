@@ -28,9 +28,15 @@
   :root { --ecosystem-banner-height: 44px; }
 }
 
-/* Relocate each page's own sticky/fixed top bar below the banner.
-   `top` on a non-positioned element is a no-op, so this is safe even
-   when a matched <nav> is static. */
+/* ---- HOST-PAGE INTEGRATION (adapt per site) --------------------------
+   Relocate each page's OWN sticky/fixed top bar below the banner so the two
+   stack cleanly. These selectors match PetroHrys's two page systems and are
+   the only host-specific rules in this file. Another HELPERG site with a
+   different header simply adds its own one-liner here (or in its own CSS):
+       .site-header { top: var(--ecosystem-banner-height); }
+   `top` on a non-positioned element is a no-op, so this is harmless when a
+   matched element is static. The renderer reads config.headerSelector for
+   scroll-stack measurement, so the core JS carries no site selectors. */
 header[role="banner"] { top: var(--ecosystem-banner-height); }
 body > nav:not([data-helperg-eco]) { top: var(--ecosystem-banner-height); }
 
@@ -121,6 +127,17 @@ body > nav:not([data-helperg-eco]) { top: var(--ecosystem-banner-height); }
   max-width: none;
 }
 .helperg-eco li { display: block; margin: 0; }
+/* Search hides filtered rows/sections via [hidden]; the display:block reset
+   above (0,1,1) would otherwise beat the UA [hidden] rule, so force it. */
+.helperg-eco [hidden] { display: none !important; }
+
+/* Inline SVG platform icons — decorative, currentColor, no network. */
+.helperg-eco .eco-ico {
+  flex: 0 0 auto;
+  width: 13px;
+  height: 13px;
+  vertical-align: -2px;
+}
 
 /* ===== Bar (centered inner) ===== */
 .helperg-eco .eco-bar {
@@ -369,31 +386,56 @@ a.eco-item--self:hover { text-decoration: none; border-color: var(--eco-blue); }
 .helperg-eco a.eco-product-name:hover { color: var(--eco-blue-strong); text-decoration: underline; text-underline-offset: 2px; }
 .helperg-eco .eco-product-links { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; }
 
-.helperg-eco a.eco-plat {
+.helperg-eco a.eco-plat,
+.helperg-eco .eco-plat--muted {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
   font-size: 12px;
   font-weight: 500;
-  color: var(--eco-blue-strong);
-  text-decoration: none;
   white-space: nowrap;
 }
+.helperg-eco a.eco-plat { color: var(--eco-blue-strong); text-decoration: none; }
 .helperg-eco a.eco-plat:hover { text-decoration: underline; text-underline-offset: 2px; }
-.helperg-eco .eco-plat--muted {
-  font-size: 12px;
-  color: var(--eco-text-3);
-  white-space: nowrap;
+.helperg-eco a.eco-plat .eco-ico { color: var(--eco-green); }        /* available = green */
+.helperg-eco .eco-plat--muted { color: var(--eco-text-3); font-weight: 400; }
+.helperg-eco .eco-plat--coming-soon .eco-ico { color: var(--eco-mint); }
+.helperg-eco .eco-plat--unavailable .eco-ico { color: var(--eco-rule); }
+
+/* ----- Local product search (All-products panel) ----- */
+.helperg-eco .eco-search-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 12px;
+  padding: 7px 11px;
+  border: 1px solid var(--eco-rule);
+  border-radius: 9px;
+  background: var(--eco-bg);
 }
-/* status dot is decorative; the status WORD carries the meaning */
-.helperg-eco .eco-dot {
-  display: inline-block;
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  margin-right: 4px;
-  vertical-align: middle;
-  background: var(--eco-text-3);
+.helperg-eco .eco-search-wrap:focus-within {
+  border-color: var(--eco-blue);
+  box-shadow: 0 0 0 2px var(--eco-tint);
 }
-.helperg-eco .eco-dot--available { background: var(--eco-green); }
-.helperg-eco .eco-dot--soon { background: var(--eco-mint); }
-.helperg-eco .eco-dot--unavailable { background: var(--eco-rule); }
+.helperg-eco .eco-search-wrap .eco-ico { width: 15px; height: 15px; color: var(--eco-text-3); vertical-align: middle; }
+.helperg-eco .eco-search {
+  flex: 1 1 auto;
+  min-width: 0;
+  border: 0;
+  outline: none;
+  background: transparent;
+  font: inherit;
+  font-size: 13px;
+  color: var(--eco-text);
+  padding: 0;
+}
+.helperg-eco .eco-search::placeholder { color: var(--eco-text-3); opacity: 1; }
+.helperg-eco .eco-no-results {
+  margin: 10px 2px 0;
+  font-size: 13px;
+  color: var(--eco-text-2);
+}
+.helperg-eco .eco-no-results:empty { display: none; }   /* silent when there is no message */
 
 /* ===== Focus + visually-hidden ===== */
 .helperg-eco :focus-visible {

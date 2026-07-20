@@ -22,6 +22,9 @@
 
   var registry = (typeof window !== 'undefined') && window.HELPERG_ECOSYSTEM;
   if (!registry) return;
+  // Per-site configuration (optional). Everything below degrades to sensible
+  // defaults so the core renderer stays generic across HELPERG sites.
+  var config = (typeof window !== 'undefined' && window.HELPERGEcosystemConfig) || {};
 
   function ready(fn) {
     if (document.readyState === 'loading') {
@@ -36,24 +39,25 @@
     var bar = nav.querySelector('.eco-bar') || nav;
 
     /* ---- language + labels ---- */
-    var docLang = (document.documentElement.getAttribute('lang') || 'en').slice(0, 2).toLowerCase();
+    var docLang = ((config.locale || document.documentElement.getAttribute('lang') || 'en') + '').slice(0, 2).toLowerCase();
     var L = registry.labels[docLang] ? registry.labels[docLang] : registry.labels.en;
     function t(key, name) {
       var s = (L && L[key]) || (registry.labels.en[key]) || key;
       return name != null ? s.replace('{name}', name) : s;
     }
 
+    var hubUrl = config.ecosystemHomeUrl || registry.hubUrl;
+    var showApps = config.showApps !== false;
+    var showSearch = config.showSearch !== false;
+
     var byId = {};
     registry.products.forEach(function (p) { byId[p.id] = p; });
 
-    /* ---- current-site detection (hostname → currentSiteDomains) ---- */
-    var host = (location.hostname || '').replace(/^www\./, '').toLowerCase();
-    var selfId = registry.self && registry.self.id;
-    registry.products.forEach(function (p) {
-      (p.currentSiteDomains || []).forEach(function (d) {
-        if (String(d).replace(/^www\./, '').toLowerCase() === host) selfId = p.id;
-      });
-    });
+    /* ---- current-site detection: explicit config id, else EXACT hostname
+       match against currentSiteDomains (never partial/substring). ---- */
+    var selfId = (config.currentProductId && byId[config.currentProductId])
+      ? config.currentProductId
+      : (registry.productIdForHost ? registry.productIdForHost(location.hostname) : null);
 
     /* ---- tiny DOM helper ---- */
     function el(tag, attrs, kids) {
@@ -70,6 +74,47 @@
       return n;
     }
 
+    /* ---- inline SVG platform icons (decorative; the adjacent text carries
+       the label, so each icon is aria-hidden). currentColor, one viewBox,
+       restrained strokes, no network, no proprietary logos. ---- */
+    var SVGNS = 'http://www.w3.org/2000/svg';
+    function svgEl(name, attrs) {
+      var e = document.createElementNS(SVGNS, name);
+      Object.keys(attrs).forEach(function (k) { e.setAttribute(k, attrs[k]); });
+      return e;
+    }
+    function svgIcon(shapes) {
+      var s = svgEl('svg', {
+        'class': 'eco-ico', viewBox: '0 0 16 16', width: '13', height: '13',
+        fill: 'none', stroke: 'currentColor', 'stroke-width': '1.4',
+        'stroke-linecap': 'round', 'stroke-linejoin': 'round',
+        'aria-hidden': 'true', focusable: 'false'
+      });
+      shapes.forEach(function (sh) { s.appendChild(svgEl(sh[0], sh[1])); });
+      return s;
+    }
+    function platformIcon(platform) {
+      if (platform === 'website') { // globe
+        return svgIcon([
+          ['circle', { cx: 8, cy: 8, r: 6 }],
+          ['line', { x1: 2, y1: 8, x2: 14, y2: 8 }],
+          ['path', { d: 'M8 2c1.9 1.7 2.9 3.8 2.9 6S9.9 12.3 8 14C6.1 12.3 5.1 10.2 5.1 8S6.1 3.7 8 2z' }]
+        ]);
+      }
+      if (platform === 'webApp') { // application window
+        return svgIcon([
+          ['rect', { x: 2, y: 3, width: 12, height: 10, rx: 1.6 }],
+          ['line', { x1: 2, y1: 6.4, x2: 14, y2: 6.4 }]
+        ]);
+      }
+      // ios + android: a generic mobile-device outline; the visible "iOS" /
+      // "Android" text distinguishes them (no Apple / Play-triangle marks).
+      return svgIcon([
+        ['rect', { x: 4.4, y: 1.6, width: 7.2, height: 12.8, rx: 1.7 }],
+        ['line', { x1: 6.6, y1: 12.7, x2: 9.4, y2: 12.7 }]
+      ]);
+    }
+
     var STORE = { ios: 'openAppStore', android: 'openGooglePlay' };
     var PLATLABEL = { website: 'website', webApp: 'webApp', ios: 'ios', android: 'android' };
     var URLKEY = { website: 'websiteUrl', webApp: 'webAppUrl', ios: 'iosUrl', android: 'androidUrl' };
@@ -84,23 +129,20 @@
       var isStore = (platform === 'ios' || platform === 'android');
 
       if (status === 'available' && url) {
-        var dot = el('span', { 'class': 'eco-dot eco-dot--available', 'aria-hidden': 'true' });
         var descKey = isStore ? STORE[platform] : (platform === 'website' ? 'visitWebsite' : 'openWebApp');
         // Keep the visible word inside the accessible name (WCAG 2.5.3).
         var vh = el('span', { 'class': 'eco-vh', text: ' — ' + t(descKey, product.name) });
-        var a = el('a', { 'class': 'eco-plat' }, [dot, document.createTextNode(label), vh]);
+        var a = el('a', { 'class': 'eco-plat' }, [platformIcon(platform), document.createTextNode(label), vh]);
         a.href = url;
         if (isStore) { a.target = '_blank'; a.rel = 'noopener noreferrer'; }
         return a;
       }
 
-      var statusWord = status === 'coming-soon' ? t('comingSoon')
-        : status === 'unavailable' ? t('unavailable')
-        : status === 'unknown' ? t('unavailable')
-        : t('unavailable');
-      var dotClass = status === 'coming-soon' ? 'eco-dot--soon' : 'eco-dot--unavailable';
-      return el('span', { 'class': 'eco-plat--muted' }, [
-        el('span', { 'class': 'eco-dot ' + dotClass, 'aria-hidden': 'true' }),
+      // coming-soon / unavailable / unknown → muted, non-interactive; the
+      // status WORD carries the meaning (never colour/icon alone).
+      var statusWord = status === 'coming-soon' ? t('comingSoon') : t('unavailable');
+      return el('span', { 'class': 'eco-plat--muted eco-plat--' + status }, [
+        platformIcon(platform),
         label + ' · ' + statusWord
       ]);
     }
@@ -134,13 +176,32 @@
         links.appendChild(renderPlat(product, 'webApp'));
       }
 
-      return el('li', null, el('div', { 'class': 'eco-product' }, [nameNode, links]));
+      var li = el('li', null, el('div', { 'class': 'eco-product' }, [nameNode, links]));
+      li.setAttribute('data-eco-search', searchHaystack(product));
+      li.setAttribute('data-eco-searchable', product.showInSearch ? 'true' : 'false');
+      return li;
     }
 
-    /* Products for a group, ordered by displayPriority. */
+    function groupLabelKey(gid) {
+      for (var i = 0; i < registry.groups.length; i++) {
+        if (registry.groups[i].id === gid) return registry.groups[i].labelKey;
+      }
+      return '';
+    }
+    // Case-insensitive, Unicode-safe haystack: name + description + group +
+    // applicable platform labels (so "iOS"/"web app"/etc. find products).
+    function searchHaystack(product) {
+      var parts = [product.name, product.shortDescription || '', t(groupLabelKey(product.group))];
+      if (product.group === 'applications') { parts.push(t('ios'), t('android')); }
+      else { parts.push(t('website'), t('webApp')); }
+      return parts.join(' ').toLowerCase();
+    }
+
+    /* Products for a group that opt into the complete panel, ordered by
+       displayPriority. */
     function groupProducts(groupId) {
       return registry.products
-        .filter(function (p) { return p.group === groupId; })
+        .filter(function (p) { return p.group === groupId && p.showInAllProducts; })
         .sort(function (a, b) { return (a.displayPriority || 0) - (b.displayPriority || 0); });
     }
 
@@ -179,6 +240,29 @@
       var groupsWrap = el('div', { 'class': 'eco-groups' },
         groupsToShow.map(renderGroup).filter(Boolean));
 
+      var children = [head];
+      var search = null, noRes = null;
+      // Local product search lives only in the complete All-products panel.
+      if (!isApps && showSearch) {
+        search = el('input', {
+          type: 'search', 'class': 'eco-search',
+          placeholder: t('searchLabel'), 'aria-label': t('searchLabel'),
+          autocomplete: 'off', autocorrect: 'off', autocapitalize: 'none',
+          spellcheck: 'false', 'aria-controls': id
+        });
+        // A persistent aria-live region: it announces the no-results message
+        // (text change is announced reliably) and is visible when populated.
+        noRes = el('p', { 'class': 'eco-no-results', role: 'status', 'aria-live': 'polite' });
+        children.push(el('div', { 'class': 'eco-search-wrap' }, [
+          svgIcon([['circle', { cx: 7, cy: 7, r: 4.5 }], ['line', { x1: 10.5, y1: 10.5, x2: 14, y2: 14 }]]),
+          search
+        ]));
+        children.push(groupsWrap);
+        children.push(noRes);
+      } else {
+        children.push(groupsWrap);
+      }
+
       /* role=dialog + aria-labelledby gives the popover a reliable accessible
          name (an aria-label on a bare div is often ignored by AT). aria-modal
          is toggled to "true" only when opened as the full-screen mobile sheet. */
@@ -189,9 +273,9 @@
         'aria-modal': 'false',
         'aria-labelledby': titleId,
         hidden: 'hidden'
-      }, [head, groupsWrap]);
+      }, children);
 
-      return { panel: panel, id: id, close: close };
+      return { panel: panel, id: id, close: close, search: search, groupsWrap: groupsWrap, noRes: noRes };
     }
 
     /* ---- build controls + panels ---- */
@@ -212,14 +296,22 @@
       return btn;
     }
 
-    var appsBtn = trigger(t('apps'), appsPanel.id);
-    appsBtn.setAttribute('data-panel', 'apps');
     var allBtn = trigger(t('allProducts'), allPanel.id, 'eco-trigger-all');
     allBtn.setAttribute('data-panel', 'all');
     var mobileBtn = trigger(t('products'), allPanel.id, 'eco-trigger-mobile');
     mobileBtn.setAttribute('data-panel', 'all');
 
-    var controls = el('div', { 'class': 'eco-controls' }, [appsBtn, allBtn, mobileBtn]);
+    // The Apps popover trigger is optional (config.showApps). When absent, the
+    // applications still appear inside the All-products panel.
+    var appsBtn = null;
+    var controlKids = [];
+    if (showApps) {
+      appsBtn = trigger(t('apps'), appsPanel.id);
+      appsBtn.setAttribute('data-panel', 'apps');
+      controlKids.push(appsBtn);
+    }
+    controlKids.push(allBtn, mobileBtn);
+    var controls = el('div', { 'class': 'eco-controls' }, controlKids);
 
     var backdrop = el('div', { 'class': 'eco-backdrop', 'aria-hidden': 'true' });
 
@@ -227,7 +319,7 @@
     var fallbackLink = bar.querySelector('.eco-explore');
     if (fallbackLink) { bar.insertBefore(controls, fallbackLink.nextSibling); }
     else { bar.appendChild(controls); }
-    bar.appendChild(appsPanel.panel);
+    if (showApps) bar.appendChild(appsPanel.panel);
     bar.appendChild(allPanel.panel);
     nav.appendChild(backdrop);
     nav.setAttribute('data-eco-enhanced', 'true');
@@ -237,9 +329,44 @@
     var openTrigger = null;
 
     var PANELS = {
-      apps: { panel: appsPanel.panel, close: appsPanel.close, triggers: [appsBtn] },
-      all: { panel: allPanel.panel, close: allPanel.close, triggers: [allBtn, mobileBtn] }
+      all: {
+        panel: allPanel.panel, close: allPanel.close, triggers: [allBtn, mobileBtn],
+        search: allPanel.search, groupsWrap: allPanel.groupsWrap, noRes: allPanel.noRes
+      }
     };
+    if (showApps) {
+      PANELS.apps = { panel: appsPanel.panel, close: appsPanel.close, triggers: [appsBtn], search: null };
+    }
+
+    /* ---- local product search (dependency-free; All-products panel only) ---- */
+    function filterSearch(ref) {
+      if (!ref || !ref.search) return;
+      var q = (ref.search.value || '').trim().toLowerCase();
+      var anyVisible = false;
+      var rows = ref.groupsWrap.querySelectorAll('li[data-eco-search]');
+      for (var i = 0; i < rows.length; i++) {
+        var li = rows[i];
+        var vis = q === '' ? true
+          : (li.getAttribute('data-eco-searchable') === 'true' && li.getAttribute('data-eco-search').indexOf(q) !== -1);
+        if (vis) { li.removeAttribute('hidden'); anyVisible = true; } else { li.setAttribute('hidden', 'hidden'); }
+      }
+      // Hide group headings whose products are all filtered out.
+      var secs = ref.groupsWrap.querySelectorAll('.eco-group');
+      for (var s = 0; s < secs.length; s++) {
+        var visible = secs[s].querySelectorAll('li[data-eco-search]:not([hidden])').length;
+        if (visible === 0) secs[s].setAttribute('hidden', 'hidden'); else secs[s].removeAttribute('hidden');
+      }
+      // aria-live: announce the no-results state (text change is announced).
+      ref.noRes.textContent = (q !== '' && !anyVisible) ? t('noResults') : '';
+    }
+    function resetSearch(ref) {
+      if (!ref || !ref.search) return;
+      ref.search.value = '';
+      filterSearch(ref);
+    }
+    if (allPanel.search) {
+      allPanel.search.addEventListener('input', function () { filterSearch(PANELS.all); });
+    }
 
     function setExpanded(name, expanded) {
       PANELS[name].triggers.forEach(function (b) { b.setAttribute('aria-expanded', expanded ? 'true' : 'false'); });
@@ -257,6 +384,7 @@
       cur.panel.setAttribute('aria-modal', 'false');
       setExpanded(openName, false);
       nav.removeAttribute('data-eco-open');
+      resetSearch(cur);            // search state resets when the panel closes
       var trig = openTrigger;
       openName = null;
       openTrigger = null;
@@ -283,8 +411,12 @@
       openName = name;
       openTrigger = triggerEl;
       // On the mobile full-screen sheet, move focus into the dialog so
-      // keyboard/AT users are not left behind the dimmed backdrop.
-      if (modal && next.close && typeof next.close.focus === 'function') next.close.focus();
+      // keyboard/AT users are not left behind the dimmed backdrop. Prefer the
+      // search field when present, else the close button.
+      if (modal) {
+        var focusTarget = next.search || next.close;
+        if (focusTarget && typeof focusTarget.focus === 'function') focusTarget.focus();
+      }
     }
 
     function toggle(name, triggerEl) {
@@ -297,7 +429,7 @@
       if (!openName || e.key !== 'Tab') return;
       var panel = PANELS[openName].panel;
       if (panel.getAttribute('aria-modal') !== 'true') return;
-      var f = panel.querySelectorAll('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])');
+      var f = panel.querySelectorAll('a[href], button:not([disabled]), input:not([disabled]), [tabindex]:not([tabindex="-1"])');
       if (!f.length) return;
       var first = f[0], last = f[f.length - 1];
       if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
@@ -317,6 +449,13 @@
 
     document.addEventListener('keydown', function (e) {
       if ((e.key === 'Escape' || e.key === 'Esc') && openName) {
+        var cur = PANELS[openName];
+        // First Escape clears a non-empty search; a second Escape closes.
+        if (cur.search && (cur.search.value || '').trim() !== '') {
+          resetSearch(cur);
+          cur.search.focus();
+          return;
+        }
         closePanel(true);
         return;
       }
@@ -334,8 +473,10 @@
     /* ---- sticky-stack height (for anchor scroll-margin) ---- */
     function measureStack() {
       var bannerH = nav.offsetHeight || 0;
-      var topBar = document.querySelector('header[role="banner"]')
-        || document.querySelector('body > nav:not([data-helperg-eco])');
+      // The host site declares its own top bar(s) via config.headerSelector,
+      // so the core renderer carries no site-specific selectors.
+      var sel = config.headerSelector || 'header[role="banner"], body > nav:not([data-helperg-eco])';
+      var topBar = document.querySelector(sel);
       var topH = topBar ? topBar.offsetHeight : 0;
       document.documentElement.style.setProperty('--sticky-stack-height', (bannerH + topH) + 'px');
     }
