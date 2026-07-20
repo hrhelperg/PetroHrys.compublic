@@ -138,9 +138,11 @@
         return a;
       }
 
-      // coming-soon / unavailable / unknown → muted, non-interactive; the
+      // coming-soon / unknown / unavailable → muted, non-interactive; the
       // status WORD carries the meaning (never colour/icon alone).
-      var statusWord = status === 'coming-soon' ? t('comingSoon') : t('unavailable');
+      var statusWord = status === 'coming-soon' ? t('comingSoon')
+        : status === 'unknown' ? t('unknown')
+        : t('unavailable');
       return el('span', { 'class': 'eco-plat--muted eco-plat--' + status }, [
         platformIcon(platform),
         label + ' · ' + statusWord
@@ -174,6 +176,14 @@
       } else {
         links.appendChild(renderPlat(product, 'website'));
         links.appendChild(renderPlat(product, 'webApp'));
+        // Disclose native platforms for a web product only when we have a
+        // DEFINITIVE (non "coming-soon") statement about them — e.g. eSIMky,
+        // which has no native apps (iOS/Android "unavailable"). Other web
+        // products keep their native status speculative and stay compact.
+        if (product.iosStatus !== 'coming-soon' || product.androidStatus !== 'coming-soon') {
+          links.appendChild(renderPlat(product, 'ios'));
+          links.appendChild(renderPlat(product, 'android'));
+        }
       }
 
       var li = el('li', null, el('div', { 'class': 'eco-product' }, [nameNode, links]));

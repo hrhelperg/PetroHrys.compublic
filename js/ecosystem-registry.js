@@ -117,9 +117,12 @@ function () {
       shortDescription: 'Second-number calling & messaging.'
     },
     {
+      /* eSIMky: only the public website is verified. A separate browser-based
+         web app is NOT independently verified, so webApp is "unknown" with no
+         URL — do NOT reuse the website URL as the web-app URL. */
       id: 'esimky', name: 'eSIMky', type: 'platform', group: 'platforms',
-      websiteUrl: 'https://esimky.com', webAppUrl: 'https://esimky.com', iosUrl: null, androidUrl: null,
-      websiteStatus: 'available', webAppStatus: 'available', iosStatus: 'unavailable', androidStatus: 'unavailable',
+      websiteUrl: 'https://esimky.com', webAppUrl: null, iosUrl: null, androidUrl: null,
+      websiteStatus: 'available', webAppStatus: 'unknown', iosStatus: 'unavailable', androidStatus: 'unavailable',
       featured: false, showInTimeline: false, showInAllProducts: true, showInSearch: true, displayPriority: 23,
       currentSiteDomains: ['esimky.com', 'www.esimky.com'],
       shortDescription: 'eSIM connectivity service.'
@@ -352,6 +355,7 @@ function () {
       comingSoon: 'Coming soon',
       soonShort: 'Soon',
       unavailable: 'Unavailable',
+      unknown: 'Unknown',
       currentSite: 'Current site',
       close: 'Close',
       siteNav: 'Primary',
@@ -382,6 +386,7 @@ function () {
       comingSoon: 'Próximamente',
       soonShort: 'Pronto',
       unavailable: 'No disponible',
+      unknown: 'Desconocido',
       currentSite: 'Sitio actual',
       close: 'Cerrar',
       siteNav: 'Principal',
@@ -412,6 +417,7 @@ function () {
       comingSoon: 'Bientôt disponible',
       soonShort: 'Bientôt',
       unavailable: 'Indisponible',
+      unknown: 'Inconnu',
       currentSite: 'Site actuel',
       close: 'Fermer',
       siteNav: 'Principale',
@@ -442,6 +448,7 @@ function () {
       comingSoon: 'Demnächst verfügbar',
       soonShort: 'Bald',
       unavailable: 'Nicht verfügbar',
+      unknown: 'Unbekannt',
       currentSite: 'Aktuelle Website',
       close: 'Schließen',
       siteNav: 'Hauptmenü',

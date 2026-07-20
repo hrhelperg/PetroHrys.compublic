@@ -49,7 +49,7 @@ const EXPECTED_WEB = {
   talentpartnerid:        { url: 'https://talentpartnerid.com',        website: 'available',   webApp: 'unavailable', ios: 'coming-soon', android: 'coming-soon' },
   hrhelperg:              { url: 'https://hrhelperg.com',              website: 'available',   webApp: 'unavailable', ios: 'coming-soon', android: 'coming-soon' },
   twinphone:              { url: 'https://twin-phone.com',             website: 'available',   webApp: 'available',   ios: 'coming-soon', android: 'coming-soon' },
-  esimky:                 { url: 'https://esimky.com',                 website: 'available',   webApp: 'available',   ios: 'unavailable', android: 'unavailable' },
+  esimky:                 { url: 'https://esimky.com',                 website: 'available',   webApp: 'unknown',     ios: 'unavailable', android: 'unavailable' },
   socialsporthub:         { url: 'https://socialsporthub.com',         website: 'available',   webApp: 'available',   ios: 'coming-soon', android: 'coming-soon' },
   globalcityintelligence: { url: 'https://globalcityintelligence.com', website: 'available',   webApp: 'available',   ios: 'coming-soon', android: 'coming-soon' },
   agricultureid:          { url: 'https://agricultureid.com',          website: 'available',   webApp: 'unavailable', ios: 'coming-soon', android: 'coming-soon' },
@@ -181,9 +181,13 @@ Object.keys(EXPECTED_APP).forEach(id => {
 (() => {
   const e = byId.esimky;
   check(e && e.type === 'platform' && e.group === 'platforms', 'eSIMky must be a platform in the platforms group');
-  check(e && e.websiteUrl === 'https://esimky.com' && e.websiteStatus === 'available', 'eSIMky website must be https://esimky.com / available');
-  check(e && e.iosUrl === null && e.androidUrl === null, 'eSIMky must not invent store links');
-  check(e && e.iosStatus === 'unavailable' && e.androidStatus === 'unavailable', 'eSIMky iOS/Android must be unavailable (not coming-soon)');
+  // Platform-honesty: only the public website is verified.
+  check(e && e.websiteUrl === 'https://esimky.com', 'eSIMky websiteUrl must be https://esimky.com');
+  check(e && e.websiteStatus === 'available', 'eSIMky websiteStatus must be available (clickable)');
+  check(e && e.webAppUrl === null, 'eSIMky webAppUrl MUST be null (no separate web app verified)');
+  check(e && e.webAppStatus === 'unknown', 'eSIMky webAppStatus MUST be unknown (not available / not coming-soon)');
+  check(e && e.iosUrl === null && e.iosStatus === 'unavailable', 'eSIMky iOS must be null / unavailable');
+  check(e && e.androidUrl === null && e.androidStatus === 'unavailable', 'eSIMky Android must be null / unavailable');
   check(e && e.showInTimeline === false, 'eSIMky must NOT be in the visible timeline');
   check(e && e.showInAllProducts === true && e.showInSearch === true, 'eSIMky must be in All Products + search');
   const tp = byId.twinphone, ss = byId.socialsporthub;
