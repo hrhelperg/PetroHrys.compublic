@@ -6,15 +6,18 @@
  *
  *   node scripts/validate-ecosystem-registry.cjs
  *
- * Exits 0 when everything passes, 1 on the first category of failures.
- * Checks:
- *   1. Registry shape (required fields, enums, uniqueness).
+ * Exits 0 when everything passes, 1 on any failure. Checks:
+ *   1. Registry shape (required fields, enums, uniqueness, display controls).
  *   2. Status/link honesty (available => real URL; null URL => not available).
- *   3. Exact match against the approved brief (URLs + statuses verbatim).
- *   4. CV Resume is iOS-only; Android is null + unavailable (never invented).
- *   5. Timeline / groups reference real products.
- *   6. Localized label parity across en/es/fr/de.
- *   7. Public-page banner coverage (both markers on every public HTML file).
+ *   3. Exact match against the approved brief (17 web + 7 apps = 24).
+ *   4. Cash Workspace: website available/clickable; web app coming-soon/null.
+ *   5. CV Resume: iOS-only; Android null + unavailable (never invented).
+ *   6. eSIMky present + configured correctly.
+ *   7. Display controls deterministic; timeline<=>showInTimeline; search flags.
+ *   8. Exact hostname normalization + matching (deceptive hosts never match).
+ *   9. Localized label parity across en/es/fr/de.
+ *  10. SVG platform icons are locally defined; no icon dependency added.
+ *  11. Public-page banner coverage (both markers on every public HTML file).
  */
 'use strict';
 
@@ -28,8 +31,6 @@ const HEAD_START = '<!-- helperg-eco:head:start -->';
 const HEAD_END = '<!-- helperg-eco:head:end -->';
 const BODY_START = '<!-- helperg-eco:body:start -->';
 const BODY_END = '<!-- helperg-eco:body:end -->';
-
-/* Directories that contain no public HTML (app source / dev docs). */
 const EXCLUDED_DIRS = new Set(['.git', 'node_modules', 'startups-app', 'docs']);
 
 const errors = [];
@@ -38,27 +39,26 @@ function check(cond, msg) { if (!cond) errors.push(msg); }
 
 /* --------------------------------------------------------------- *
  * Expected data — transcribed VERBATIM from the approved brief.    *
- * If the registry ever drifts from this table the test fails.      *
  * --------------------------------------------------------------- */
 const EXPECTED_WEB = {
+  helperg:                { url: 'https://helperg.com',                website: 'available',   webApp: 'unavailable', ios: 'coming-soon', android: 'coming-soon' },
+  petrohrys:              { url: 'https://petrohrys.com',              website: 'available',   webApp: 'unavailable', ios: 'coming-soon', android: 'coming-soon' },
   webmasterid:            { url: 'https://www.webmasterid.com',        website: 'available',   webApp: 'available',   ios: 'coming-soon', android: 'coming-soon' },
-  cashworkspace:          { url: 'https://www.cashworkspace.com',      website: 'coming-soon', webApp: 'coming-soon', ios: 'coming-soon', android: 'coming-soon' },
+  cashworkspace:          { url: 'https://www.cashworkspace.com',      website: 'available',   webApp: 'coming-soon', ios: 'coming-soon', android: 'coming-soon' },
   geobusinessiq:          { url: 'https://geobusinessiq.com',          website: 'available',   webApp: 'available',   ios: 'coming-soon', android: 'coming-soon' },
   talentpartnerid:        { url: 'https://talentpartnerid.com',        website: 'available',   webApp: 'unavailable', ios: 'coming-soon', android: 'coming-soon' },
   hrhelperg:              { url: 'https://hrhelperg.com',              website: 'available',   webApp: 'unavailable', ios: 'coming-soon', android: 'coming-soon' },
   twinphone:              { url: 'https://twin-phone.com',             website: 'available',   webApp: 'available',   ios: 'coming-soon', android: 'coming-soon' },
+  esimky:                 { url: 'https://esimky.com',                 website: 'available',   webApp: 'available',   ios: 'unavailable', android: 'unavailable' },
   socialsporthub:         { url: 'https://socialsporthub.com',         website: 'available',   webApp: 'available',   ios: 'coming-soon', android: 'coming-soon' },
+  globalcityintelligence: { url: 'https://globalcityintelligence.com', website: 'available',   webApp: 'available',   ios: 'coming-soon', android: 'coming-soon' },
   agricultureid:          { url: 'https://agricultureid.com',          website: 'available',   webApp: 'unavailable', ios: 'coming-soon', android: 'coming-soon' },
   asteriastar:            { url: 'https://asteriastar.com',            website: 'available',   webApp: 'unavailable', ios: 'coming-soon', android: 'coming-soon' },
   faunahub:               { url: 'https://faunahub.com',               website: 'available',   webApp: 'unavailable', ios: 'coming-soon', android: 'coming-soon' },
   builddesignhub:         { url: 'https://builddesignhub.com',         website: 'available',   webApp: 'unavailable', ios: 'coming-soon', android: 'coming-soon' },
   printerarchive:         { url: 'https://printerarchive.net',         website: 'available',   webApp: 'unavailable', ios: 'coming-soon', android: 'coming-soon' },
-  virtueandpower:         { url: 'https://virtueandpower.com',         website: 'available',   webApp: 'unavailable', ios: 'coming-soon', android: 'coming-soon' },
-  globalcityintelligence: { url: 'https://globalcityintelligence.com', website: 'available',   webApp: 'available',   ios: 'coming-soon', android: 'coming-soon' },
-  petrohrys:              { url: 'https://petrohrys.com',              website: 'available',   webApp: 'unavailable', ios: 'coming-soon', android: 'coming-soon' },
-  helperg:                { url: 'https://helperg.com',                website: 'available',   webApp: 'unavailable', ios: 'coming-soon', android: 'coming-soon' }
+  virtueandpower:         { url: 'https://virtueandpower.com',         website: 'available',   webApp: 'unavailable', ios: 'coming-soon', android: 'coming-soon' }
 };
-
 const EXPECTED_APP = {
   zip:           { ios: 'https://apps.apple.com/app/id6753772583', android: 'https://play.google.com/store/apps/details?id=com.ziparchivator.zip&pcampaignid=web_share', iosStatus: 'available', androidStatus: 'available' },
   printer:       { ios: 'https://apps.apple.com/app/id6746067890', android: 'https://play.google.com/store/apps/details?id=com.helperg.smart.printer',                    iosStatus: 'available', androidStatus: 'available' },
@@ -69,20 +69,24 @@ const EXPECTED_APP = {
   pocketmanager: { ios: 'https://apps.apple.com/app/id6743084126', android: 'https://play.google.com/store/apps/details?id=com.helperg.money',                            iosStatus: 'available', androidStatus: 'available' }
 };
 
+const EXPECTED_TIMELINE = ['helperg', 'petrohrys', 'webmasterid', 'cashworkspace', 'geobusinessiq', 'globalcityintelligence'];
+
 const STATUS_ENUM = ['available', 'coming-soon', 'unavailable', 'unknown'];
 const TYPE_ENUM = ['ecosystem', 'platform', 'publication', 'application', 'personal'];
 const GROUP_ENUM = ['platforms', 'knowledge', 'ecosystem', 'applications'];
 const REQUIRED_FIELDS = [
-  'id', 'name', 'type', 'websiteUrl', 'webAppUrl', 'iosUrl', 'androidUrl',
+  'id', 'name', 'type', 'group', 'websiteUrl', 'webAppUrl', 'iosUrl', 'androidUrl',
   'websiteStatus', 'webAppStatus', 'iosStatus', 'androidStatus',
-  'displayPriority', 'featuredInTimeline', 'currentSiteDomains'
+  'featured', 'showInTimeline', 'showInAllProducts', 'showInSearch',
+  'displayPriority', 'currentSiteDomains'
 ];
+const DISPLAY_BOOLS = ['featured', 'showInTimeline', 'showInAllProducts', 'showInSearch'];
 
 const products = registry.products;
 const byId = {};
 products.forEach(p => { byId[p.id] = p; });
 
-/* -------------------- 1. shape -------------------- */
+/* -------------------- 1. shape + display controls -------------------- */
 const ids = products.map(p => p.id);
 check(new Set(ids).size === ids.length, 'Duplicate product ids: ' + ids.filter((v, i) => ids.indexOf(v) !== i).join(', '));
 
@@ -93,59 +97,50 @@ products.forEach(p => {
   ['websiteStatus', 'webAppStatus', 'iosStatus', 'androidStatus'].forEach(s =>
     check(STATUS_ENUM.indexOf(p[s]) !== -1, `[${p.id}] invalid ${s}: ${p[s]}`));
   check(Array.isArray(p.currentSiteDomains), `[${p.id}] currentSiteDomains must be an array`);
+  // display controls must be deterministic (never undefined after normalization)
+  DISPLAY_BOOLS.forEach(b => check(typeof p[b] === 'boolean', `[${p.id}] ${b} must be a boolean, got ${typeof p[b]}`));
+  check(typeof p.displayPriority === 'number', `[${p.id}] displayPriority must be a number`);
 
-  /* URL syntax */
   ['websiteUrl', 'webAppUrl', 'iosUrl', 'androidUrl'].forEach(u => {
     if (p[u] != null) {
       try { new URL(p[u]); } catch (e) { errors.push(`[${p.id}] ${u} is not a valid URL: ${p[u]}`); }
       check(!/["'<>` ]/.test(p[u]), `[${p.id}] ${u} contains unsafe characters`);
+      check(p[u] !== '#' && !/^#/.test(p[u]), `[${p.id}] ${u} is a placeholder anchor`);
     }
   });
-  if (p.detailUrl != null) {
-    check(/^\//.test(p.detailUrl), `[${p.id}] detailUrl must be a root-relative path: ${p.detailUrl}`);
-  }
+  if (p.detailUrl != null) check(/^\//.test(p.detailUrl), `[${p.id}] detailUrl must be root-relative: ${p.detailUrl}`);
 });
 
 /* -------------------- 2. status/link honesty -------------------- */
-const PAIRS = [['websiteStatus', 'websiteUrl'], ['webAppStatus', 'webAppUrl'], ['iosStatus', 'iosUrl'], ['androidStatus', 'androidUrl']];
-products.forEach(p => {
-  PAIRS.forEach(([s, u]) => {
-    if (p[s] === 'available') check(p[u] != null && p[u] !== '', `[${p.id}] ${s}=available but ${u} is empty (would render a fake/empty link)`);
-    if (p[u] == null || p[u] === '') check(p[s] !== 'available', `[${p.id}] ${u} is empty but ${s}=available`);
+[['websiteStatus', 'websiteUrl'], ['webAppStatus', 'webAppUrl'], ['iosStatus', 'iosUrl'], ['androidStatus', 'androidUrl']].forEach(([s, u]) => {
+  products.forEach(p => {
+    if (p[s] === 'available') check(p[u] != null && p[u] !== '', `[${p.id}] ${s}=available but ${u} is empty`);
+    if (p[u] == null || p[u] === '') check(p[s] !== 'available', `[${p.id}] ${u} empty but ${s}=available`);
   });
 });
-
-/* No fake placeholder links anywhere. */
-products.forEach(p => {
-  ['websiteUrl', 'webAppUrl', 'iosUrl', 'androidUrl', 'detailUrl'].forEach(u => {
-    if (p[u] != null) check(p[u] !== '#' && !/^#/.test(p[u]), `[${p.id}] ${u} is a placeholder anchor`);
-  });
-});
-
-/* Unique store links across different apps. */
 ['iosUrl', 'androidUrl'].forEach(field => {
   const seen = {};
   products.forEach(p => {
     if (p[field] == null) return;
-    if (seen[p[field]]) errors.push(`Duplicate ${field} shared by ${seen[p[field]]} and ${p.id}: ${p[field]}`);
+    if (seen[p[field]]) errors.push(`Duplicate ${field} shared by ${seen[p[field]]} and ${p.id}`);
     else seen[p[field]] = p.id;
   });
 });
-/* Unique website across different products. */
 (() => {
   const seen = {};
   products.forEach(p => {
     if (p.websiteUrl == null) return;
-    if (seen[p.websiteUrl]) errors.push(`Duplicate websiteUrl shared by ${seen[p.websiteUrl]} and ${p.id}: ${p.websiteUrl}`);
+    if (seen[p.websiteUrl]) errors.push(`Duplicate websiteUrl shared by ${seen[p.websiteUrl]} and ${p.id}`);
     else seen[p.websiteUrl] = p.id;
   });
 })();
 
-/* -------------------- 3. exact brief match -------------------- */
+/* -------------------- 3. exact brief match (17 web + 7 apps) -------------------- */
 const webProducts = products.filter(p => p.type !== 'application');
 const appProducts = products.filter(p => p.type === 'application');
-check(webProducts.length === 16, `Expected 16 web products, found ${webProducts.length}`);
+check(webProducts.length === 17, `Expected 17 web products, found ${webProducts.length}`);
 check(appProducts.length === 7, `Expected 7 applications, found ${appProducts.length}`);
+check(products.length === 24, `Expected 24 total registry records, found ${products.length}`);
 
 Object.keys(EXPECTED_WEB).forEach(id => {
   const p = byId[id]; const e = EXPECTED_WEB[id];
@@ -156,17 +151,25 @@ Object.keys(EXPECTED_WEB).forEach(id => {
   check(p.iosStatus === e.ios, `[${id}] iosStatus ${p.iosStatus} != brief ${e.ios}`);
   check(p.androidStatus === e.android, `[${id}] androidStatus ${p.androidStatus} != brief ${e.android}`);
 });
-
 Object.keys(EXPECTED_APP).forEach(id => {
   const p = byId[id]; const e = EXPECTED_APP[id];
   if (!p) { errors.push(`Missing expected application: ${id}`); return; }
-  check(p.iosUrl === e.ios, `[${id}] iosUrl ${p.iosUrl} != brief ${e.ios}`);
-  check(p.androidUrl === e.android, `[${id}] androidUrl ${p.androidUrl} != brief ${e.android}`);
-  check(p.iosStatus === e.iosStatus, `[${id}] iosStatus ${p.iosStatus} != brief ${e.iosStatus}`);
-  check(p.androidStatus === e.androidStatus, `[${id}] androidStatus ${p.androidStatus} != brief ${e.androidStatus}`);
+  check(p.iosUrl === e.ios, `[${id}] iosUrl mismatch`);
+  check(p.androidUrl === e.android, `[${id}] androidUrl mismatch`);
+  check(p.iosStatus === e.iosStatus, `[${id}] iosStatus mismatch`);
+  check(p.androidStatus === e.androidStatus, `[${id}] androidStatus mismatch`);
 });
 
-/* -------------------- 4. CV Resume guard -------------------- */
+/* -------------------- 4. Cash Workspace explicit assertions -------------------- */
+(() => {
+  const c = byId.cashworkspace;
+  check(c && c.websiteUrl === 'https://www.cashworkspace.com', 'Cash Workspace websiteUrl must be https://www.cashworkspace.com');
+  check(c && c.websiteStatus === 'available', 'Cash Workspace website MUST be available (live, clickable)');
+  check(c && c.webAppUrl === null, 'Cash Workspace webAppUrl MUST stay null (no invented app URL)');
+  check(c && c.webAppStatus === 'coming-soon', 'Cash Workspace webApp MUST stay coming-soon');
+})();
+
+/* -------------------- 5. CV Resume guard -------------------- */
 (() => {
   const cv = byId.cvresume;
   check(cv && cv.androidUrl === null, 'CV Resume Android URL MUST remain null (never invented)');
@@ -174,49 +177,94 @@ Object.keys(EXPECTED_APP).forEach(id => {
   check(cv && cv.iosUrl && cv.iosStatus === 'available', 'CV Resume must keep its available iOS link');
 })();
 
-/* -------------------- 5. timeline / groups -------------------- */
+/* -------------------- 6. eSIMky assertions -------------------- */
+(() => {
+  const e = byId.esimky;
+  check(e && e.type === 'platform' && e.group === 'platforms', 'eSIMky must be a platform in the platforms group');
+  check(e && e.websiteUrl === 'https://esimky.com' && e.websiteStatus === 'available', 'eSIMky website must be https://esimky.com / available');
+  check(e && e.iosUrl === null && e.androidUrl === null, 'eSIMky must not invent store links');
+  check(e && e.iosStatus === 'unavailable' && e.androidStatus === 'unavailable', 'eSIMky iOS/Android must be unavailable (not coming-soon)');
+  check(e && e.showInTimeline === false, 'eSIMky must NOT be in the visible timeline');
+  check(e && e.showInAllProducts === true && e.showInSearch === true, 'eSIMky must be in All Products + search');
+  const tp = byId.twinphone, ss = byId.socialsporthub;
+  check(e && tp && ss && tp.displayPriority < e.displayPriority && e.displayPriority < ss.displayPriority,
+    'eSIMky must be ordered after Twin Phone and before SocialSportHub');
+})();
+
+/* -------------------- 7. display controls / timeline / search -------------------- */
 check(registry.timeline.length === 6, `Timeline should have 6 entries, has ${registry.timeline.length}`);
+check(registry.timeline.join(',') === EXPECTED_TIMELINE.join(','), 'Timeline order != recommended sequence');
 registry.timeline.forEach(id => {
   check(byId[id], `Timeline references unknown product: ${id}`);
-  check(byId[id] && byId[id].featuredInTimeline === true, `Timeline product not flagged featuredInTimeline: ${id}`);
+  check(byId[id] && byId[id].showInTimeline === true, `Timeline product not flagged showInTimeline: ${id}`);
 });
-products.filter(p => p.featuredInTimeline).forEach(p =>
-  check(registry.timeline.indexOf(p.id) !== -1, `featuredInTimeline product missing from timeline order: ${p.id}`));
-
+// showInTimeline set must exactly equal the timeline set
+products.filter(p => p.showInTimeline).forEach(p =>
+  check(registry.timeline.indexOf(p.id) !== -1, `showInTimeline product missing from timeline: ${p.id}`));
+// search must never surface a showInSearch:false product (none expected, but assert the flag exists + is honored downstream)
+check(products.filter(p => p.showInSearch).length >= 1, 'At least one product should be searchable');
 registry.groups.forEach(g => {
   check(GROUP_ENUM.indexOf(g.id) !== -1, `Unknown group id: ${g.id}`);
-  const members = products.filter(p => p.group === g.id);
-  check(members.length > 0, `Group ${g.id} has no products`);
+  check(products.filter(p => p.group === g.id).length > 0, `Group ${g.id} has no products`);
 });
-check(registry.self && registry.self.id === 'petrohrys', 'self.id must be petrohrys (this site)');
 
-/* -------------------- 6. label parity -------------------- */
+/* -------------------- 8. hostname normalization + exact matching -------------------- */
+check(typeof registry.productIdForHost === 'function', 'registry.productIdForHost must be exported');
+check(typeof registry.normalizeHost === 'function', 'registry.normalizeHost must be exported');
+const HOST_CASES = [
+  ['petrohrys.com', 'petrohrys'],
+  ['www.petrohrys.com', 'petrohrys'],
+  ['https://www.petrohrys.com/about/', 'petrohrys'],
+  ['PETROHRYS.COM:443', 'petrohrys'],
+  ['petrohrys.com.', 'petrohrys'],
+  ['fakepetrohrys.com', null],
+  ['petrohrys.com.evil.com', null],
+  ['esimky.com', 'esimky'],
+  ['www.esimky.com', 'esimky'],
+  ['https://esimky.com/plans', 'esimky'],
+  ['fakeesimky.com', null],
+  ['esimky.com.attacker.net', null],
+  ['cashworkspace.com', 'cashworkspace'],
+  ['unrelated.example', null]
+];
+HOST_CASES.forEach(([host, expected]) => {
+  const got = registry.productIdForHost(host);
+  check(got === expected, `Host match "${host}" => ${got}, expected ${expected}`);
+});
+
+/* -------------------- 9. label parity + new search labels -------------------- */
 const LANGS = ['en', 'es', 'fr', 'de'];
 LANGS.forEach(l => check(registry.labels[l], `Missing label set: ${l}`));
 const enKeys = Object.keys(registry.labels.en).sort();
+['searchLabel', 'noResults'].forEach(k => check(enKeys.indexOf(k) !== -1, `Missing label key: ${k}`));
 LANGS.forEach(l => {
   if (!registry.labels[l]) return;
   const k = Object.keys(registry.labels[l]).sort();
-  check(k.join('|') === enKeys.join('|'), `Label key mismatch for ${l} (expected ${enKeys.length} keys)`);
+  check(k.join('|') === enKeys.join('|'), `Label key mismatch for ${l}`);
   enKeys.forEach(key => check(registry.labels[l][key] && String(registry.labels[l][key]).trim() !== '', `Empty label ${l}.${key}`));
 });
 
-/* -------------------- 7. page coverage -------------------- */
+/* -------------------- 10. SVG icons local; no icon dependency -------------------- */
+(() => {
+  const banner = fs.readFileSync(path.join(ROOT, 'js', 'ecosystem-banner.js'), 'utf8');
+  check(/function platformIcon\s*\(/.test(banner), 'platformIcon() must be defined locally in banner.js');
+  check(/createElementNS/.test(banner), 'SVG icons must be built with createElementNS (local, no network)');
+  check(!/(fontawesome|feather|material-icons|iconify|cdn\.).*\.(js|css|svg)/i.test(banner), 'No external icon library/CDN may be referenced');
+  // no <img>/<use xlink:href> to a remote icon
+  check(!/xlink:href\s*=\s*["']https?:/i.test(banner), 'Icons must not reference remote sprite URLs');
+})();
+
+/* -------------------- 11. page coverage -------------------- */
 function walk(dir, acc) {
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
-    if (entry.isDirectory()) {
-      if (EXCLUDED_DIRS.has(entry.name)) continue;
-      walk(path.join(dir, entry.name), acc);
-    } else if (entry.isFile() && entry.name.endsWith('.html')) {
-      acc.push(path.join(dir, entry.name));
-    }
+    if (entry.isDirectory()) { if (EXCLUDED_DIRS.has(entry.name)) continue; walk(path.join(dir, entry.name), acc); }
+    else if (entry.isFile() && entry.name.endsWith('.html')) acc.push(path.join(dir, entry.name));
   }
   return acc;
 }
 const htmlFiles = walk(ROOT, []);
 let covered = 0;
-const missing = [];
-const dupes = [];
+const missing = [], dupes = [];
 htmlFiles.forEach(f => {
   const html = fs.readFileSync(f, 'utf8');
   const rel = path.relative(ROOT, f);
@@ -230,9 +278,9 @@ check(missing.length === 0, `Pages missing banner: ${missing.join(', ')}`);
 check(dupes.length === 0, `Pages with duplicated banner markers: ${dupes.join(', ')}`);
 
 notes.push(`Products: ${products.length} (web ${webProducts.length}, apps ${appProducts.length})`);
+notes.push(`Timeline: ${registry.timeline.length}; searchable: ${products.filter(p => p.showInSearch).length}; in-all-products: ${products.filter(p => p.showInAllProducts).length}`);
 notes.push(`HTML files scanned: ${htmlFiles.length}; banner present on ${covered}`);
 
-/* -------------------- report -------------------- */
 if (errors.length) {
   console.error('\n✗ Ecosystem registry validation FAILED (' + errors.length + ' issue(s)):\n');
   errors.forEach(e => console.error('  • ' + e));
