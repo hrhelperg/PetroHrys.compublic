@@ -1,0 +1,522 @@
+/*!
+ * HELPERG Ecosystem Banner — shared styles
+ * ------------------------------------------------------------------
+ * Loaded AFTER the page's own CSS (petrohrys.css on editorial pages,
+ * inline <style> on legacy pages) so these rules win by source order.
+ *
+ * Design system: reuses the Codex "Balanced Blue/Mint" tokens when the
+ * page defines them (editorial pages), and falls back to the exact same
+ * literal values on legacy pages that do not define them. This is one
+ * palette with fallbacks — NOT a competing design system.
+ *
+ * Sticky stack: the banner is the first flow child of <body> and sticks
+ * to top:0. The page's own top bar is relocated below it via
+ *   header[role="banner"]        (editorial, position:sticky)
+ *   body > nav:not([data-...])   (legacy product/blog/startups nav)
+ * Both keyed off --ecosystem-banner-height so there are no per-page
+ * magic numbers and no cumulative layout shift.
+ */
+
+/* ===== Centralized layout variables ===== */
+:root {
+  --ecosystem-banner-height: 46px;
+  /* Combined sticky height for anchor offsets. JS refines this after
+     load by measuring the page's own top bar; this is a safe fallback. */
+  --sticky-stack-height: calc(var(--ecosystem-banner-height) + 64px);
+}
+@media (max-width: 640px) {
+  :root { --ecosystem-banner-height: 44px; }
+}
+
+/* ---- HOST-PAGE INTEGRATION (adapt per site) --------------------------
+   Relocate each page's OWN sticky/fixed top bar below the banner so the two
+   stack cleanly. These selectors match PetroHrys's two page systems and are
+   the only host-specific rules in this file. Another HELPERG site with a
+   different header simply adds its own one-liner here (or in its own CSS):
+       .site-header { top: var(--ecosystem-banner-height); }
+   `top` on a non-positioned element is a no-op, so this is harmless when a
+   matched element is static. The renderer reads config.headerSelector for
+   scroll-stack measurement, so the core JS carries no site selectors. */
+header[role="banner"] { top: var(--ecosystem-banner-height); }
+body > nav:not([data-helperg-eco]) { top: var(--ecosystem-banner-height); }
+
+/* Anchor targets clear the full sticky stack (banner + page top bar). */
+:where([id]) { scroll-margin-top: var(--sticky-stack-height); }
+
+/* ===== Banner root + local tokens (with literal fallbacks) ===== */
+.helperg-eco {
+  --eco-h: var(--ecosystem-banner-height);
+  --eco-bg: var(--surface, #ffffff);
+  --eco-tint: var(--surface-blue, #edf6ff);
+  --eco-mint-tint: var(--surface-green, #eefaf5);
+  --eco-text: var(--text, #10233f);
+  --eco-text-2: var(--text-2, #496078);
+  --eco-text-3: var(--text-3, #5f7185);
+  --eco-rule: var(--rule, #dbe7f1);
+  --eco-blue: var(--blue, #0f6cbd);
+  --eco-blue-strong: var(--blue-strong, #005fb8);
+  --eco-green: var(--green, #187450);
+  --eco-mint: var(--mint, #78d7b5);
+  --eco-focus: var(--focus, #005fb8);
+  /* Every page (editorial + legacy) loads DM Sans, so prefer it for a
+     consistent banner typeface regardless of the host page's own tokens. */
+  --eco-font: var(--ff-sans, 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
+  --eco-shadow: 0 14px 40px rgba(15, 108, 189, 0.16);
+  --eco-radius: 12px;
+
+  position: sticky;
+  top: 0;
+  z-index: 2000;
+  height: var(--eco-h);
+  box-sizing: border-box;
+  font-family: var(--eco-font);
+  font-size: 14px;
+  line-height: 1.2;
+  color: var(--eco-text);
+  background: var(--eco-bg);
+  border-bottom: 1px solid var(--eco-rule);
+  box-shadow: 0 1px 2px rgba(16, 35, 63, 0.05);
+  /* Never clip the popovers that overflow the bar's own height. */
+  overflow: visible;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+
+  /* Defensive reset: several legacy pages style a BARE `nav { … }`
+     (display:flex; padding; backdrop-filter; justify-content …) which
+     would otherwise bleed into this banner (it is also a <nav>). Pin the
+     box/layout properties so the banner renders identically everywhere. */
+  display: block;
+  width: auto;
+  margin: 0;
+  padding: 0;
+  left: auto;
+  right: auto;
+  gap: 0;
+  justify-content: initial;
+  align-items: initial;
+  flex-wrap: initial;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+/* Thin Blue→Mint ecosystem accent so the bar reads as native to the
+   redesign and distinct from the site header below it. */
+.helperg-eco::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--eco-blue-strong), var(--eco-blue) 45%, var(--eco-mint));
+  pointer-events: none;
+}
+.helperg-eco *,
+.helperg-eco *::before,
+.helperg-eco *::after { box-sizing: border-box; }
+
+/* Neutralize legacy `nav ul/li{…}` descendant rules (e.g. smart-printer /
+   invoice-maker define `nav ul{display:flex;gap:2rem;max-width:1200px}`)
+   that would otherwise turn the banner's own vertical lists into broken
+   horizontal rows. The specific `.helperg-eco .eco-*` rules below out-specify
+   these and re-apply flex only where intended (e.g. the timeline). */
+.helperg-eco ul,
+.helperg-eco ol {
+  display: block;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  gap: 0;
+  max-width: none;
+}
+.helperg-eco li { display: block; margin: 0; }
+/* Search hides filtered rows/sections via [hidden]; the display:block reset
+   above (0,1,1) would otherwise beat the UA [hidden] rule, so force it. */
+.helperg-eco [hidden] { display: none !important; }
+
+/* Inline SVG platform icons — decorative, currentColor, no network. */
+.helperg-eco .eco-ico {
+  flex: 0 0 auto;
+  width: 13px;
+  height: 13px;
+  vertical-align: -2px;
+}
+
+/* ===== Bar (centered inner) ===== */
+.helperg-eco .eco-bar {
+  position: relative;      /* positioning context for desktop popovers */
+  max-width: 1200px;       /* a touch wider than the 1080 site header so the
+                              full 6-item curated timeline fits without clip */
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 clamp(12px, 2.2vw, 24px);
+  display: flex;
+  align-items: center;
+  gap: clamp(10px, 1.4vw, 16px);
+}
+
+/* ----- Brand ----- */
+.helperg-eco .eco-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex: 0 0 auto;
+  font-weight: 600;
+  font-size: 13.5px;
+  letter-spacing: 0.01em;
+  color: var(--eco-text);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.helperg-eco .eco-brand:hover { color: var(--eco-blue-strong); }
+.helperg-eco .eco-brand-mark {
+  width: 15px;
+  height: 15px;
+  flex: 0 0 auto;
+  border-radius: 3px;
+  background:
+    radial-gradient(circle at 4px 4px,  var(--eco-blue-strong) 0 2px, transparent 2.4px),
+    radial-gradient(circle at 11px 4px, var(--eco-blue) 0 2px, transparent 2.4px),
+    radial-gradient(circle at 4px 11px, var(--eco-mint) 0 2px, transparent 2.4px),
+    radial-gradient(circle at 11px 11px, var(--eco-blue) 0 2px, transparent 2.4px);
+  background-repeat: no-repeat;
+}
+
+/* ----- Desktop timeline ----- */
+.helperg-eco .eco-timeline {
+  display: flex;
+  align-items: center;
+  gap: clamp(8px, 1.2vw, 15px);
+  margin: 0 0 0 6px;
+  padding: 0;
+  list-style: none;
+  min-width: 0;
+  flex: 1 1 auto;   /* fill space so controls sit flush right */
+  overflow: hidden;
+}
+.helperg-eco .eco-timeline > li {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+}
+.helperg-eco .eco-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--eco-text-2);
+  text-decoration: none;
+  border-radius: 6px;
+  padding: 3px 2px;
+}
+a.eco-item:hover { color: var(--eco-blue-strong); text-decoration: underline; text-underline-offset: 3px; }
+
+/* Current site: aria-current + a shape cue (inset box), never colour alone. */
+.helperg-eco .eco-item--self {
+  color: var(--eco-text);
+  font-weight: 600;
+  padding: 3px 8px;
+  border: 1px solid var(--eco-rule);
+  background: var(--eco-tint);
+  border-radius: 999px;
+}
+.helperg-eco .eco-item--self::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--eco-blue);
+  flex: 0 0 auto;
+}
+a.eco-item--self:hover { text-decoration: none; border-color: var(--eco-blue); }
+
+/* Coming-soon timeline item: muted, non-interactive, with a text tag
+   (never colour-only). */
+.helperg-eco .eco-item--soon { color: var(--eco-text-3); cursor: default; }
+.helperg-eco .eco-tag {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--eco-text-2);
+  background: var(--eco-mint-tint);
+  border: 1px solid var(--eco-rule);
+  border-radius: 999px;
+  padding: 1px 5px;
+  line-height: 1.4;
+}
+
+/* Responsive timeline trimming: drop trailing items cleanly (never a
+   mid-word clip) as width tightens. Every dropped product stays reachable
+   in the All-products panel. Below 768px the whole timeline is hidden. */
+@media (max-width: 1160px) { .helperg-eco .eco-timeline > li:nth-child(6) { display: none; } }
+@media (max-width: 990px)  { .helperg-eco .eco-timeline > li:nth-child(5) { display: none; } }
+@media (max-width: 880px)  { .helperg-eco .eco-timeline > li:nth-child(4) { display: none; } }
+
+/* ----- Controls (Apps / All products / Products) ----- */
+.helperg-eco .eco-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 0 0 auto;
+  margin-left: auto;
+}
+.helperg-eco .eco-timeline + .eco-controls { margin-left: 12px; }
+.helperg-eco .eco-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--eco-text);
+  background: var(--eco-bg);
+  border: 1px solid var(--eco-rule);
+  border-radius: 999px;
+  padding: 5px 12px;
+  cursor: pointer;
+  white-space: nowrap;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.helperg-eco .eco-trigger:hover {
+  border-color: var(--eco-blue);
+  color: var(--eco-blue-strong);
+  background: var(--eco-tint);
+}
+.helperg-eco .eco-trigger[aria-expanded="true"] {
+  border-color: var(--eco-blue);
+  color: var(--eco-blue-strong);
+  background: var(--eco-tint);
+}
+.helperg-eco .eco-trigger .eco-caret {
+  width: 8px; height: 8px;
+  border-right: 1.6px solid currentColor;
+  border-bottom: 1.6px solid currentColor;
+  transform: rotate(45deg);
+  margin-top: -2px;
+  transition: transform 0.15s ease;
+}
+.helperg-eco .eco-trigger[aria-expanded="true"] .eco-caret { transform: rotate(-135deg); margin-top: 2px; }
+.helperg-eco .eco-trigger-all { border-color: var(--eco-blue); color: var(--eco-blue-strong); }
+.helperg-eco .eco-trigger-all:hover { background: var(--eco-tint); }
+
+/* No-JS fallback link (replaced by controls when JS enhances). */
+.helperg-eco .eco-explore {
+  margin-left: auto;
+  flex: 0 0 auto;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--eco-blue-strong);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.helperg-eco .eco-explore:hover { text-decoration: underline; text-underline-offset: 3px; }
+.helperg-eco[data-eco-enhanced] .eco-explore { display: none; }
+
+/* Mobile-only "Products" trigger, hidden on desktop. */
+.helperg-eco .eco-trigger-mobile { display: none; }
+
+/* ===== Panels (popover on desktop / sheet on mobile) ===== */
+.helperg-eco .eco-panel {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  left: auto;
+  width: min(720px, calc(100vw - 24px));
+  max-height: calc(100vh - var(--eco-h) - 24px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  background: var(--eco-bg);
+  border: 1px solid var(--eco-rule);
+  border-radius: var(--eco-radius);
+  box-shadow: var(--eco-shadow);
+  padding: 16px 18px 18px;
+  z-index: 10;
+}
+.helperg-eco .eco-panel[hidden] { display: none; }
+
+.helperg-eco .eco-panel-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding-bottom: 12px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid var(--eco-rule);
+}
+.helperg-eco .eco-panel-titles { min-width: 0; }
+.helperg-eco .eco-panel-title { margin: 0; font-size: 14px; font-weight: 700; color: var(--eco-text); }
+.helperg-eco .eco-panel-sub { margin: 3px 0 0; font-size: 12.5px; color: var(--eco-text-2); }
+.helperg-eco .eco-close {
+  margin-left: auto;
+  flex: 0 0 auto;
+  width: 30px; height: 30px;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 16px; line-height: 1;
+  color: var(--eco-text-2);
+  background: transparent;
+  border: 1px solid var(--eco-rule);
+  border-radius: 8px;
+  cursor: pointer;
+}
+.helperg-eco .eco-close:hover { color: var(--eco-blue-strong); border-color: var(--eco-blue); background: var(--eco-tint); }
+
+.helperg-eco .eco-groups { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 22px; }
+.helperg-eco .eco-panel-apps .eco-groups { grid-template-columns: 1fr; }
+.helperg-eco .eco-group { min-width: 0; }
+.helperg-eco .eco-group-title {
+  margin: 0 0 6px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--eco-text-3);
+}
+.helperg-eco .eco-group ul { margin: 0; padding: 0; list-style: none; }
+.helperg-eco .eco-product {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 4px 12px;
+  padding: 5px 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--eco-rule) 55%, transparent);
+}
+.helperg-eco .eco-group li:last-child .eco-product { border-bottom: 0; }
+.helperg-eco .eco-product-name { font-size: 13px; font-weight: 600; color: var(--eco-text); }
+.helperg-eco a.eco-product-name { text-decoration: none; }
+.helperg-eco a.eco-product-name:hover { color: var(--eco-blue-strong); text-decoration: underline; text-underline-offset: 2px; }
+.helperg-eco .eco-product-links { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; }
+
+.helperg-eco a.eco-plat,
+.helperg-eco .eco-plat--muted {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.helperg-eco a.eco-plat { color: var(--eco-blue-strong); text-decoration: none; }
+.helperg-eco a.eco-plat:hover { text-decoration: underline; text-underline-offset: 2px; }
+.helperg-eco a.eco-plat .eco-ico { color: var(--eco-green); }        /* available = green */
+.helperg-eco .eco-plat--muted { color: var(--eco-text-3); font-weight: 400; }
+.helperg-eco .eco-plat--coming-soon .eco-ico { color: var(--eco-mint); }
+.helperg-eco .eco-plat--unavailable .eco-ico { color: var(--eco-rule); }
+
+/* ----- Local product search (All-products panel) ----- */
+.helperg-eco .eco-search-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 12px;
+  padding: 7px 11px;
+  border: 1px solid var(--eco-rule);
+  border-radius: 9px;
+  background: var(--eco-bg);
+}
+.helperg-eco .eco-search-wrap:focus-within {
+  border-color: var(--eco-blue);
+  box-shadow: 0 0 0 2px var(--eco-tint);
+}
+.helperg-eco .eco-search-wrap .eco-ico { width: 15px; height: 15px; color: var(--eco-text-3); vertical-align: middle; }
+.helperg-eco .eco-search {
+  flex: 1 1 auto;
+  min-width: 0;
+  border: 0;
+  outline: none;
+  background: transparent;
+  font: inherit;
+  font-size: 13px;
+  color: var(--eco-text);
+  padding: 0;
+}
+.helperg-eco .eco-search::placeholder { color: var(--eco-text-3); opacity: 1; }
+.helperg-eco .eco-no-results {
+  margin: 10px 2px 0;
+  font-size: 13px;
+  color: var(--eco-text-2);
+}
+.helperg-eco .eco-no-results:empty { display: none; }   /* silent when there is no message */
+
+/* ===== Focus + visually-hidden ===== */
+.helperg-eco :focus-visible {
+  outline: 2px solid var(--eco-focus);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+.helperg-eco .eco-vh {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0);
+  white-space: nowrap; border: 0;
+}
+
+/* ===== Backdrop (mobile sheet) ===== */
+.helperg-eco .eco-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(16, 35, 63, 0.28);
+  z-index: 1;
+  border: 0;
+  display: none;
+}
+
+/* ===== Responsive: mobile ===== */
+@media (max-width: 768px) {
+  .helperg-eco .eco-timeline { display: none; }
+  .helperg-eco .eco-trigger[data-panel="apps"],
+  .helperg-eco .eco-trigger-all { display: none; }
+  .helperg-eco .eco-trigger-mobile { display: inline-flex; }
+  .helperg-eco .eco-controls { margin-left: auto; }
+  .helperg-eco .eco-brand-text { font-size: 13px; }
+
+  .helperg-eco .eco-panel {
+    position: fixed;
+    top: var(--eco-h);
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-width: 100%;
+    max-height: calc(100dvh - var(--eco-h));
+    border-radius: 0 0 var(--eco-radius) var(--eco-radius);
+    border-left: 0;
+    border-right: 0;
+    padding-bottom: calc(18px + env(safe-area-inset-bottom, 0px));
+    z-index: 2;
+  }
+  .helperg-eco .eco-groups { grid-template-columns: 1fr; }
+  .helperg-eco[data-eco-open] .eco-backdrop { display: block; }
+}
+
+/* Larger touch targets on touch/coarse pointers (WCAG 2.5.8, >=24px) */
+@media (pointer: coarse) {
+  .helperg-eco .eco-trigger { padding: 8px 14px; }
+  .helperg-eco a.eco-plat, .helperg-eco .eco-plat--muted { padding: 6px 2px; }
+  .helperg-eco a.eco-product-name { padding: 6px 0; }
+  .helperg-eco .eco-item { padding: 6px 4px; }
+  .helperg-eco .eco-close { width: 40px; height: 40px; }
+}
+
+/* ===== Reduced motion ===== */
+@media (prefers-reduced-motion: reduce) {
+  .helperg-eco *,
+  .helperg-eco *::before,
+  .helperg-eco *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* Panel open animation (motion-safe only) */
+@media (prefers-reduced-motion: no-preference) {
+  .helperg-eco .eco-panel { animation: eco-panel-in 0.16s ease-out; }
+  @keyframes eco-panel-in {
+    from { opacity: 0; transform: translateY(-6px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+}
+
+/* Fallback for browsers without color-mix() */
+@supports not (color: color-mix(in srgb, white 50%, transparent)) {
+  .helperg-eco .eco-product { border-bottom-color: var(--eco-rule); }
+}
