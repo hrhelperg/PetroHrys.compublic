@@ -26,7 +26,12 @@ const path = require('path');
 
 const ROOT = path.resolve(__dirname, '..');
 const registry = require(path.join(ROOT, 'js', 'ecosystem-registry.js'));
+const siteConfig = require(path.join(ROOT, 'js', 'ecosystem-config.js'));
 const CHECK_ONLY = process.argv.includes('--check');
+
+// The current site's product id comes from the per-site config (the registry
+// core is site-agnostic). Falls back to hostname matching if unset.
+const CURRENT_ID = siteConfig.currentProductId || null;
 
 const EXCLUDED_DIRS = new Set(['.git', 'node_modules', 'startups-app', 'docs']);
 
@@ -53,13 +58,14 @@ function headBlock() {
     HEAD_START,
     '  <link rel="stylesheet" href="/css/ecosystem-banner.css">',
     '  <script src="/js/ecosystem-registry.js" defer></script>',
+    '  <script src="/js/ecosystem-config.js" defer></script>',
     '  <script src="/js/ecosystem-banner.js" defer></script>',
     HEAD_END
   ].join('\n');
 }
 
 function timelineItem(product, L) {
-  const isSelf = product.id === (registry.self && registry.self.id);
+  const isSelf = product.id === CURRENT_ID;
   if (isSelf) {
     return (
       '<li><a class="eco-item eco-item--self" href="/" aria-current="page">' +
