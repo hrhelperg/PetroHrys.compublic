@@ -24,7 +24,8 @@ Every task's requirements implicitly include this section.
 - **All new CSS classes are prefixed** `bd-`. Never redefine an existing selector. Never declare a raw color, font-family, font-size, or spacing literal — consume existing custom properties only.
 - **No fabricated data.** No invented directories, scores, ratings, traffic, pricing, or availability. Unknown values stay `null` and render as `—`.
 - **Do not copy** `<meta name="msvalidate.01" content="PASTE_YOUR_BING_VERIFICATION_CODE_HERE">` into generated pages. It is an unfilled placeholder on existing pages; propagating it 221 times is a defect. Recorded as a follow-up.
-- **Branch:** `feat/research-business-directories` (already created, spec already committed as `f64c4a3`).
+- **Branch:** `feat/research-business-directories` (already created, spec committed as `f64c4a3`, this plan as `9718139`).
+- **Stacked branch.** This branch forks from `feat/helperg-ecosystem-banner`, which is itself unmerged and already modifies `sitemap.xml` and `css/petrohrys.css` relative to `main`. **Never verify scope with `git diff main`** — always diff against `$(git merge-base HEAD feat/helperg-ecosystem-banner)`.
 - **Run tests with:** `node --test scripts/tests/`
 
 ---
@@ -2391,6 +2392,11 @@ const root = path.resolve(__dirname, '..', '..');
 const read = (p) => fs.readFileSync(path.join(root, p), 'utf8');
 const git = (...args) => execFileSync('git', args, { cwd: root, encoding: 'utf8' });
 
+// This branch is STACKED on feat/helperg-ecosystem-banner, which already modifies
+// sitemap.xml and css/petrohrys.css relative to main. Diffing against main would
+// therefore report the banner branch's changes as ours. Diff against the fork point.
+const BASELINE = git('merge-base', 'HEAD', 'feat/helperg-ecosystem-banner').trim();
+
 test('robots.txt references the section sitemap on the www host', () => {
   assert.ok(read('robots.txt').includes('Sitemap: https://www.petrohrys.com/sitemap-business-directories.xml'));
 });
@@ -2402,16 +2408,16 @@ test('robots.txt still contains its original directives', () => {
   }
 });
 
-test('the existing sitemap.xml is unmodified on this branch', () => {
-  assert.strictEqual(git('diff', 'main', '--name-only', '--', 'sitemap.xml').trim(), '');
+test('the existing sitemap.xml is unmodified by this work', () => {
+  assert.strictEqual(git('diff', BASELINE, '--name-only', '--', 'sitemap.xml').trim(), '');
 });
 
-test('the site stylesheet is unmodified on this branch', () => {
-  assert.strictEqual(git('diff', 'main', '--name-only', '--', 'css/petrohrys.css').trim(), '');
+test('the site stylesheet is unmodified by this work', () => {
+  assert.strictEqual(git('diff', BASELINE, '--name-only', '--', 'css/petrohrys.css').trim(), '');
 });
 
-test('no legacy or localised page was modified on this branch', () => {
-  const changed = git('diff', 'main', '--name-only').trim().split('\n').filter(Boolean);
+test('no legacy or localised page was modified by this work', () => {
+  const changed = git('diff', BASELINE, '--name-only').trim().split('\n').filter(Boolean);
   const forbidden = changed.filter((f) =>
     /^(es|fr|de)\//.test(f) ||
     /^(pdf-editor|pocket-manager|smart-printer|startups|privacy|fax|unzip|articles|terms|blog|webmasterid|submit-startup|artificial-intelligence|templates|twinphone|invoice-maker|tcg-scanner|cv-builder)\//.test(f));
@@ -2459,10 +2465,13 @@ Expected: validator prints `Business directories registry is valid.`; build repo
 - [ ] **Step 5: Confirm the diff against main is exactly what the spec allows**
 
 ```bash
-git diff main --stat -- . ':!research/business-directories' ':!data' ':!scripts' ':!css/business-directories.css' ':!js/business-directories.js' ':!docs' ':!sitemap-business-directories.xml'
+BASELINE=$(git merge-base HEAD feat/helperg-ecosystem-banner)
+git diff "$BASELINE" --stat -- . ':!research/business-directories' ':!data' ':!scripts' ':!css/business-directories.css' ':!js/business-directories.js' ':!docs' ':!sitemap-business-directories.xml'
 ```
 
 Expected: only the 8 editorial pages plus `robots.txt`. If anything else appears, revert it before committing.
+
+**Do not diff against `main`.** This branch is stacked on `feat/helperg-ecosystem-banner`, which already modifies `sitemap.xml` and `css/petrohrys.css`; diffing against `main` would attribute those to this work.
 
 - [ ] **Step 6: Commit**
 
