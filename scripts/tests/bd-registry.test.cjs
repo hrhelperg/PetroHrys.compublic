@@ -39,11 +39,14 @@ const record = (over = {}) => ({
   ...over,
 });
 
-test('loads the current empty registry', () => {
+test('loads the current registry', () => {
   const registry = loadRegistry();
   assert.strictEqual(registry.countries.length, 10);
   assert.strictEqual(registry.categories.length, 21);
-  assert.strictEqual(registry.directories.length, 0);
+  assert.ok(registry.directories.length > 0, 'the registry now holds verified records');
+  for (const entry of registry.directories) {
+    assert.ok(entry.lastVerified, `${entry.id} has no verification date`);
+  }
 });
 
 test('country and category ordering follows declaration order and is stable', () => {

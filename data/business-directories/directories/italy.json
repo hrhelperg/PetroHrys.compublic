@@ -1,1 +1,65 @@
-[]
+[
+  {
+    "id": "it-registro-imprese",
+    "name": "Registro Imprese",
+    "slug": "registro-imprese",
+    "country": "italy",
+    "category": "government",
+    "website": "https://www.registroimprese.it/",
+    "description": "Italian Business Register run by InfoCamere with the Chambers of Commerce, holding company data, officers, shareholdings and filed financial statements.",
+    "tier": "tier1",
+    "petroHrysScore": 92,
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricsProvenance": {},
+    "free": null,
+    "paid": null,
+    "verificationRequired": true,
+    "manualReview": false,
+    "acceptsCompanies": true,
+    "acceptsProducts": null,
+    "acceptsSaaS": null,
+    "acceptsApps": null,
+    "acceptsStartups": true,
+    "acceptsAI": null,
+    "acceptsLocalBusiness": null,
+    "acceptsEnterprise": true,
+    "acceptsEcommerce": null,
+    "acceptsAgency": null,
+    "acceptsFreelancer": null,
+    "acceptsNonprofit": null,
+    "acceptsDeveloper": null,
+    "acceptsMobileApp": null,
+    "acceptsOpenSource": null,
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-04",
+    "nextVerification": "2027-02-04",
+    "recommendedIndustries": [
+      "Any Italian-registered business"
+    ],
+    "pros": [
+      "Authoritative company, officer and shareholding records",
+      "Includes filed financial statements"
+    ],
+    "cons": [
+      "Certified extracts are a paid chamber service"
+    ],
+    "editorNotes": "Verified 2026-08-04. Operated by InfoCamere with the Italian Chambers of Commerce. Pricing tiers were not established from the homepage, so free and paid are null.",
+    "submissionModel": "unknown",
+    "registration": "required",
+    "reviewSystem": false,
+    "editorialTags": [
+      "statutory",
+      "primary-source"
+    ],
+    "scope": "national",
+    "verificationMethod": "official-url-fetch"
+  }
+]

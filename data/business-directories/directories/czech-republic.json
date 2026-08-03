@@ -1,1 +1,65 @@
-[]
+[
+  {
+    "id": "cz-verejny-rejstrik",
+    "name": "Veřejný rejstřík a Sbírka listin",
+    "slug": "verejny-rejstrik",
+    "country": "czech-republic",
+    "category": "government",
+    "website": "https://or.justice.cz/ias/ui/rejstrik",
+    "description": "Czech public register operated by the Ministry of Justice, covering the commercial register, insolvency register and beneficial-owner records.",
+    "tier": "tier1",
+    "petroHrysScore": 93,
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricsProvenance": {},
+    "free": true,
+    "paid": false,
+    "verificationRequired": true,
+    "manualReview": false,
+    "acceptsCompanies": true,
+    "acceptsProducts": null,
+    "acceptsSaaS": null,
+    "acceptsApps": null,
+    "acceptsStartups": true,
+    "acceptsAI": null,
+    "acceptsLocalBusiness": null,
+    "acceptsEnterprise": true,
+    "acceptsEcommerce": null,
+    "acceptsAgency": null,
+    "acceptsFreelancer": null,
+    "acceptsNonprofit": true,
+    "acceptsDeveloper": null,
+    "acceptsMobileApp": null,
+    "acceptsOpenSource": null,
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-04",
+    "nextVerification": "2027-02-04",
+    "recommendedIndustries": [
+      "Any Czech-registered legal entity"
+    ],
+    "pros": [
+      "Single portal spanning commercial, insolvency and beneficial-owner registers",
+      "Free search without registration"
+    ],
+    "cons": [
+      "Interface is primarily Czech-language"
+    ],
+    "editorNotes": "Verified 2026-08-04 by fetching or.justice.cz. Operated by Ministerstvo spravedlnosti ČR.",
+    "submissionModel": "free",
+    "registration": "required",
+    "reviewSystem": false,
+    "editorialTags": [
+      "statutory",
+      "primary-source"
+    ],
+    "scope": "national",
+    "verificationMethod": "official-url-fetch"
+  }
+]

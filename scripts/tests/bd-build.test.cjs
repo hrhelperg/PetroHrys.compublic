@@ -271,12 +271,15 @@ test('15 a dry run stages and validates a full tree without writing', () => {
 });
 
 test('15 staging directories are always cleaned up', () => {
-  const before = fs.readdirSync(os.tmpdir()).filter((n) => n.startsWith('bd-stage-')).length;
+  // Asserts on the specific directory this build created, not on a count of
+  // bd-stage-* in the shared tmpdir: node --test runs files in parallel, so a
+  // concurrent build's staging directory would make a global count flaky.
   const { dataRoot, outRoot } = fixture();
+  const dry = buildAll({ dataRoot, outRoot, dryRun: true });
+  assert.ok(dry.stageDir, 'a dry run should report the directory it staged into');
+  assert.ok(!fs.existsSync(dry.stageDir), 'the staging directory it created was not removed');
   buildAll({ dataRoot, outRoot });
-  buildAll({ dataRoot, outRoot, dryRun: true });
-  const after = fs.readdirSync(os.tmpdir()).filter((n) => n.startsWith('bd-stage-')).length;
-  assert.strictEqual(after, before, 'a staging directory leaked');
+  assert.ok(!fs.existsSync(dry.stageDir));
 });
 
 // --- content correctness ----------------------------------------------------

@@ -1,1 +1,66 @@
-[]
+[
+  {
+    "id": "au-abn-lookup",
+    "name": "ABN Lookup",
+    "slug": "abn-lookup",
+    "country": "australia",
+    "category": "government",
+    "website": "https://abr.business.gov.au/",
+    "description": "Australian Government service exposing public Australian Business Number records, including entity status, type and GST registration.",
+    "tier": "tier1",
+    "petroHrysScore": 94,
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricsProvenance": {},
+    "free": true,
+    "paid": false,
+    "verificationRequired": true,
+    "manualReview": false,
+    "acceptsCompanies": true,
+    "acceptsProducts": null,
+    "acceptsSaaS": null,
+    "acceptsApps": null,
+    "acceptsStartups": true,
+    "acceptsAI": null,
+    "acceptsLocalBusiness": null,
+    "acceptsEnterprise": true,
+    "acceptsEcommerce": null,
+    "acceptsAgency": null,
+    "acceptsFreelancer": null,
+    "acceptsNonprofit": true,
+    "acceptsDeveloper": null,
+    "acceptsMobileApp": null,
+    "acceptsOpenSource": null,
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-04",
+    "nextVerification": "2027-02-04",
+    "recommendedIndustries": [
+      "Any Australian business with an ABN"
+    ],
+    "pros": [
+      "Free, no login required",
+      "Authoritative ABN status and GST data"
+    ],
+    "cons": [
+      "Limited to publicly disclosable ABR fields"
+    ],
+    "editorNotes": "Verified 2026-08-04 by fetching abr.business.gov.au. Operated by the Australian Business Register.",
+    "submissionModel": "free",
+    "registration": "required",
+    "reviewSystem": false,
+    "editorialTags": [
+      "statutory",
+      "primary-source",
+      "open-data"
+    ],
+    "scope": "national",
+    "verificationMethod": "official-url-fetch"
+  }
+]

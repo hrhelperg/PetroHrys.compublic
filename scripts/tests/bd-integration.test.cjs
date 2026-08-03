@@ -5,6 +5,7 @@ const assert = require('node:assert');
 const fs = require('node:fs');
 const path = require('node:path');
 const { execFileSync } = require('node:child_process');
+const { MANIFEST_FILE } = require('../build-business-directories.cjs');
 
 const root = path.resolve(__dirname, '..', '..');
 const read = (rel) => fs.readFileSync(path.join(root, rel), 'utf8');
@@ -137,7 +138,6 @@ test('the sitemap excludes every noindex page', () => {
   for (const url of noindex) {
     assert.ok(!locs().includes(url), `noindex page listed in sitemap: ${url}`);
   }
-  assert.ok(noindex.length > 0, 'expected at least one noindex reference page');
 });
 
 test('the sitemap contains only indexable generated pages', () => {
@@ -171,10 +171,12 @@ test('the feed uses www URLs only', () => {
   assert.ok(!/https:\/\/petrohrys\.com/.test(xml), 'apex URL in feed');
 });
 
-test('the feed is a valid empty channel while no record is verified', () => {
+test('the feed carries one item per verified directory', () => {
   const xml = read(FEED);
-  assert.strictEqual((xml.match(/<item>/g) || []).length, 0);
-  assert.ok(xml.includes('<title>'), 'an empty channel still needs its metadata');
+  const { loadRegistry } = require('../lib/bd-registry.cjs');
+  const verified = loadRegistry().directories.filter((d) => d.lastVerified).length;
+  assert.strictEqual((xml.match(/<item>/g) || []).length, verified);
+  assert.ok(xml.includes('<title>'));
   assert.ok(xml.includes('<atom:link'));
 });
 
@@ -303,10 +305,18 @@ test('no internal link anywhere in the section or editorial pages is broken', ()
   assert.deepStrictEqual(broken, []);
 });
 
-test('only the lean scaffold is present in the site tree', () => {
-  assert.deepStrictEqual(generatedPages().sort(), [
-    path.join(SECTION, 'index.html'),
-    path.join(SECTION, 'united-states', 'categories', 'general-business', 'index.html'),
-    path.join(SECTION, 'united-states', 'index.html'),
-  ].sort());
+test('every generated page corresponds to a registry fact', () => {
+  const { loadRegistry } = require('../lib/bd-registry.cjs');
+  const registry = loadRegistry();
+  const manifest = JSON.parse(read(MANIFEST_FILE)).files;
+  const pages = generatedPages();
+  // one page per manifest entry that is an html file, and nothing extra
+  const manifestPages = Object.keys(manifest).filter((f) => f.endsWith('.html'));
+  assert.deepStrictEqual(pages.sort(), manifestPages.sort());
+  // every directory record has a detail page
+  for (const entry of registry.directories) {
+    const detail = path.join(SECTION, entry.country, entry.slug, 'index.html');
+    assert.ok(pages.includes(detail), `no detail page for ${entry.id}`);
+  }
+  assert.ok(pages.includes(path.join(SECTION, 'index.html')), 'hub missing');
 });

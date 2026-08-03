@@ -1,1 +1,66 @@
-[]
+[
+  {
+    "id": "gb-companies-house",
+    "name": "Companies House Register",
+    "slug": "companies-house",
+    "country": "united-kingdom",
+    "category": "government",
+    "website": "https://find-and-update.company-information.service.gov.uk/",
+    "description": "Statutory register of UK companies operated by Companies House, holding filed accounts, officers and registered office data.",
+    "tier": "tier1",
+    "petroHrysScore": 96,
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricsProvenance": {},
+    "free": true,
+    "paid": false,
+    "verificationRequired": true,
+    "manualReview": false,
+    "acceptsCompanies": true,
+    "acceptsProducts": null,
+    "acceptsSaaS": null,
+    "acceptsApps": null,
+    "acceptsStartups": true,
+    "acceptsAI": null,
+    "acceptsLocalBusiness": null,
+    "acceptsEnterprise": true,
+    "acceptsEcommerce": null,
+    "acceptsAgency": null,
+    "acceptsFreelancer": null,
+    "acceptsNonprofit": true,
+    "acceptsDeveloper": null,
+    "acceptsMobileApp": null,
+    "acceptsOpenSource": null,
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-04",
+    "nextVerification": "2027-02-04",
+    "recommendedIndustries": [
+      "Any UK-incorporated entity"
+    ],
+    "pros": [
+      "Primary legal source for UK company data",
+      "Free public access to filings"
+    ],
+    "cons": [
+      "Companies House states it does not verify the accuracy of filed information"
+    ],
+    "editorNotes": "Verified 2026-08-04 by fetching the official GOV.UK service. Incorporation is a legal process, not a discretionary listing.",
+    "submissionModel": "free",
+    "registration": "required",
+    "reviewSystem": false,
+    "editorialTags": [
+      "statutory",
+      "primary-source",
+      "open-data"
+    ],
+    "scope": "national",
+    "verificationMethod": "official-url-fetch"
+  }
+]

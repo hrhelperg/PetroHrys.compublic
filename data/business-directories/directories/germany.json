@@ -1,1 +1,65 @@
-[]
+[
+  {
+    "id": "de-registerportal",
+    "name": "Gemeinsames Registerportal der Länder",
+    "slug": "registerportal",
+    "country": "germany",
+    "category": "government",
+    "website": "https://www.handelsregister.de/rp_web/welcome.xhtml",
+    "description": "Joint German register portal aggregating the commercial, cooperative, partnership and association registers of all federal states.",
+    "tier": "tier1",
+    "petroHrysScore": 93,
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricsProvenance": {},
+    "free": true,
+    "paid": null,
+    "verificationRequired": true,
+    "manualReview": false,
+    "acceptsCompanies": true,
+    "acceptsProducts": null,
+    "acceptsSaaS": null,
+    "acceptsApps": null,
+    "acceptsStartups": true,
+    "acceptsAI": null,
+    "acceptsLocalBusiness": null,
+    "acceptsEnterprise": true,
+    "acceptsEcommerce": null,
+    "acceptsAgency": null,
+    "acceptsFreelancer": null,
+    "acceptsNonprofit": true,
+    "acceptsDeveloper": null,
+    "acceptsMobileApp": null,
+    "acceptsOpenSource": null,
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-04",
+    "nextVerification": "2027-02-04",
+    "recommendedIndustries": [
+      "Any German-registered legal entity"
+    ],
+    "pros": [
+      "Covers every Bundesland from one portal",
+      "Includes register announcements"
+    ],
+    "cons": [
+      "Structured retrieval is described by the operator as a non-binding service"
+    ],
+    "editorNotes": "Verified 2026-08-04. Operated by the state justice administrations; copyright held by the Ministry of Justice of North Rhine-Westphalia. Whether every retrieval is free was not established, so paid is null.",
+    "submissionModel": "unknown",
+    "registration": "required",
+    "reviewSystem": false,
+    "editorialTags": [
+      "statutory",
+      "primary-source"
+    ],
+    "scope": "national",
+    "verificationMethod": "official-url-fetch"
+  }
+]
