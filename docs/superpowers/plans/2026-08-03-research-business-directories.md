@@ -34,6 +34,7 @@ Every task's requirements implicitly include this section.
 
   Never create empty HTML files merely to validate routing. The generator, validator, sorting, filters, SEO helpers, feeds, and route builders must nonetheless support the **complete** 10 × 21 matrix, exercised through tests rather than through emitted files.
 - **Pruning is mandatory.** When a directory record is removed and a route becomes empty, the generator must delete the now-stale `index.html` and any directory left empty. Pruning is confined to `research/business-directories/` and never touches `feed.xml`.
+- **`validateRegistry` is the single gate.** It returns `{ ok, errors }`. Every build — Task 10 and anything added later — must refuse to write or prune anything when `ok` is false. Errors are collected in one pass and reported in deterministic order; validators never mutate the registry.
 - **Never link an un-emitted route.** The hub and country pages list un-emitted countries/categories as non-linked "coming soon" text. A link to a page that was not written would be a 404.
 - **No real directory data in this phase** unless separately verified and explicitly approved.
 - **Branch:** `feat/research-business-directories` (already created, spec committed as `f64c4a3`, this plan as `9718139`).
@@ -973,7 +974,17 @@ git commit -m "feat(bd): add deterministic sorting with null-last ordering"
 
 **Interfaces:**
 - Consumes: `bd-registry.cjs` → `loadRegistry`, `reservedSlugs`
-- Produces: `validateRegistry(registry): string[]` (array of error messages; empty means valid). Module runs as a CLI when invoked directly, exiting 1 on any error.
+- Produces: `validateRegistry(registry): { ok: boolean, errors: ValidationError[] }` where `ValidationError = { file: string, id: string|null, field: string, reason: string }`. Also exports `formatReport(result): string`.
+- CLI: `node scripts/validate-business-directories.cjs` prints a human-readable report and exits 1 when `ok` is false; `--json` prints the raw result object instead.
+
+**Validation contract:**
+- **Collect, never fail fast.** Every problem in the registry is reported in one pass, so a single run surfaces all of them.
+- **Deterministic ordering.** Errors sort by `file`, then `id`, then `field`, then `reason`, using code-unit comparison — never `localeCompare`, never filesystem traversal order. Shuffling the input records must not change the reported order.
+- **Every error carries `file`, `id`, `field`, `reason`.** `id` is `null` only when the record has no usable id.
+- **`file` is derived, not stored.** Computed from the record's `country` as `data/business-directories/directories/<country>.json`, so the validator works on in-memory registries that never touched disk, without the loader annotating records.
+- **Never mutates.** The registry object and every record are left untouched; a test deep-compares before and after.
+- **Single source of truth for build gating.** Task 10 and every future build must refuse to run when `ok` is false.
+- **Cross-country duplicate domains are legal.** Consistent with the loader: one service may serve several countries as separate records. Only same-country duplicates are errors.
 
 - [ ] **Step 1: Write the failing test**
 
@@ -982,7 +993,7 @@ git commit -m "feat(bd): add deterministic sorting with null-last ordering"
 'use strict';
 const test = require('node:test');
 const assert = require('node:assert');
-const { validateRegistry } = require('../validate-business-directories.cjs');
+const { validateRegistry, formatReport } = require('../validate-business-directories.cjs');
 const { loadRegistry } = require('../lib/bd-registry.cjs');
 
 const base = {
@@ -997,92 +1008,207 @@ const base = {
   recommendedIndustries: [], pros: [], cons: [], editorNotes: '', metricsProvenance: {},
 };
 
-const withDirs = (dirs) => {
-  const registry = loadRegistry();
-  return { ...registry, directories: dirs };
-};
+const withDirs = (dirs) => ({ ...loadRegistry(), directories: dirs });
+const reasons = (result) => result.errors.map((e) => e.reason);
+const fields = (result) => result.errors.map((e) => e.field);
 
 test('the shipped empty registry is valid', () => {
-  assert.deepStrictEqual(validateRegistry(loadRegistry()), []);
+  const result = validateRegistry(loadRegistry());
+  assert.strictEqual(result.ok, true);
+  assert.deepStrictEqual(result.errors, []);
 });
 
-test('a fully-null record is valid', () => {
-  assert.deepStrictEqual(validateRegistry(withDirs([base])), []);
+test('an entirely empty registry object is valid', () => {
+  const result = validateRegistry({ countries: [], categories: [], directories: [] });
+  assert.strictEqual(result.ok, true);
+  assert.deepStrictEqual(result.errors, []);
+});
+
+test('a registry with exactly one valid directory is valid', () => {
+  const result = validateRegistry(withDirs([base]));
+  assert.deepStrictEqual(result.errors, []);
+  assert.strictEqual(result.ok, true);
+});
+
+test('the result is machine-readable with the documented shape', () => {
+  const result = validateRegistry(withDirs([{ ...base, website: 'http://example.com' }]));
+  assert.strictEqual(typeof result.ok, 'boolean');
+  assert.ok(Array.isArray(result.errors));
+  for (const error of result.errors) {
+    assert.deepStrictEqual(Object.keys(error).sort(), ['field', 'file', 'id', 'reason']);
+    assert.strictEqual(typeof error.file, 'string');
+    assert.strictEqual(typeof error.field, 'string');
+    assert.strictEqual(typeof error.reason, 'string');
+  }
+  assert.ok(JSON.parse(JSON.stringify(result)), 'must survive a JSON round trip');
+});
+
+test('the derived file path points at the country registry file', () => {
+  const result = validateRegistry(withDirs([{ ...base, website: 'http://example.com' }]));
+  assert.strictEqual(result.errors[0].file,
+    'data/business-directories/directories/united-states.json');
+  assert.strictEqual(result.errors[0].id, 'us-example');
+});
+
+test('multiple simultaneous errors are all collected, not just the first', () => {
+  const result = validateRegistry(withDirs([{
+    ...base, website: 'http://example.com', tier: 'platinum', category: 'blockchain',
+  }]));
+  assert.ok(result.errors.length >= 3, `expected 3+, got ${result.errors.length}`);
+  assert.ok(fields(result).includes('website'));
+  assert.ok(fields(result).includes('tier'));
+  assert.ok(fields(result).includes('category'));
+});
+
+test('error ordering is identical across repeated runs', () => {
+  const registry = withDirs([
+    { ...base, id: 'b', slug: 'b', website: 'http://b.example', tier: 'nope' },
+    { ...base, id: 'a', slug: 'a', website: 'http://a.example', category: 'nope' },
+  ]);
+  const runs = Array.from({ length: 25 },
+    () => JSON.stringify(validateRegistry(registry).errors));
+  assert.strictEqual(new Set(runs).size, 1);
+});
+
+test('error ordering does not depend on record input order', () => {
+  const a = { ...base, id: 'a', slug: 'a', website: 'http://a.example' };
+  const b = { ...base, id: 'b', slug: 'b', website: 'http://b.example' };
+  const forward = JSON.stringify(validateRegistry(withDirs([a, b])).errors);
+  const reverse = JSON.stringify(validateRegistry(withDirs([b, a])).errors);
+  assert.strictEqual(forward, reverse);
+});
+
+test('errors are sorted by file, id, field, reason', () => {
+  const result = validateRegistry(withDirs([
+    { ...base, id: 'zz', slug: 'zz', website: 'http://z.example' },
+    { ...base, id: 'aa', slug: 'aa', website: 'http://a.example' },
+  ]));
+  const ids = result.errors.map((e) => e.id);
+  assert.deepStrictEqual(ids, [...ids].sort());
+});
+
+test('validateRegistry never mutates the registry or its records', () => {
+  const registry = withDirs([{ ...base, website: 'http://example.com', tier: 'bad' }]);
+  const snapshot = JSON.stringify(registry);
+  validateRegistry(registry);
+  assert.strictEqual(JSON.stringify(registry), snapshot);
 });
 
 test('rejects a duplicate id', () => {
-  const errors = validateRegistry(withDirs([base, { ...base, slug: 'other' }]));
-  assert.ok(errors.some((e) => e.includes('Duplicate id')));
+  const result = validateRegistry(withDirs([base, { ...base, slug: 'other' }]));
+  assert.ok(reasons(result).some((r) => /duplicate id/i.test(r)));
 });
 
 test('rejects a duplicate slug within one country', () => {
-  const errors = validateRegistry(withDirs([base, { ...base, id: 'us-two' }]));
-  assert.ok(errors.some((e) => e.includes('Duplicate slug')));
+  const result = validateRegistry(withDirs([base, { ...base, id: 'us-two' }]));
+  assert.ok(reasons(result).some((r) => /duplicate slug/i.test(r)));
+});
+
+test('rejects a duplicate canonical domain within one country', () => {
+  const result = validateRegistry(withDirs([
+    base, { ...base, id: 'us-two', slug: 'other', website: 'https://www.example.com/list' },
+  ]));
+  assert.ok(reasons(result).some((r) => /duplicate canonical domain/i.test(r)));
+});
+
+test('accepts the same canonical domain in two different countries', () => {
+  const result = validateRegistry(withDirs([
+    base, { ...base, id: 'de-one', country: 'germany' },
+  ]));
+  assert.deepStrictEqual(result.errors, []);
+  assert.strictEqual(result.ok, true);
 });
 
 test('rejects a slug that collides with a category', () => {
-  const errors = validateRegistry(withDirs([{ ...base, slug: 'saas' }]));
-  assert.ok(errors.some((e) => e.includes('reserved slug')));
+  const result = validateRegistry(withDirs([{ ...base, slug: 'saas' }]));
+  assert.ok(reasons(result).some((r) => /reserved/i.test(r)));
 });
 
-test('rejects an unknown country reference', () => {
-  const errors = validateRegistry(withDirs([{ ...base, country: 'atlantis' }]));
-  assert.ok(errors.some((e) => e.includes('unknown country')));
-});
-
-test('rejects an unknown category reference', () => {
-  const errors = validateRegistry(withDirs([{ ...base, category: 'blockchain' }]));
-  assert.ok(errors.some((e) => e.includes('unknown category')));
+test('rejects unknown country and category references', () => {
+  const country = validateRegistry(withDirs([{ ...base, country: 'atlantis' }]));
+  assert.ok(reasons(country).some((r) => /unknown country/i.test(r)));
+  const category = validateRegistry(withDirs([{ ...base, category: 'blockchain' }]));
+  assert.ok(reasons(category).some((r) => /unknown category/i.test(r)));
 });
 
 test('rejects a non-https website', () => {
-  const errors = validateRegistry(withDirs([{ ...base, website: 'http://example.com' }]));
-  assert.ok(errors.some((e) => e.includes('must use https')));
+  const result = validateRegistry(withDirs([{ ...base, website: 'http://example.com' }]));
+  assert.ok(reasons(result).some((r) => /https/i.test(r)));
 });
 
 test('rejects a score outside 0-100', () => {
-  const errors = validateRegistry(withDirs([
+  const result = validateRegistry(withDirs([
     { ...base, petroHrysScore: 140, lastVerified: '2026-08-01' },
   ]));
-  assert.ok(errors.some((e) => e.includes('out of range')));
+  assert.ok(reasons(result).some((r) => /out of range/i.test(r)));
 });
 
 test('rejects an invalid enum value', () => {
-  const errors = validateRegistry(withDirs([{ ...base, tier: 'platinum' }]));
-  assert.ok(errors.some((e) => e.includes('invalid value')));
+  const result = validateRegistry(withDirs([{ ...base, tier: 'platinum' }]));
+  assert.ok(reasons(result).some((r) => /invalid value/i.test(r)));
 });
 
 test('honesty gate rejects a metric on an unverified record', () => {
-  const errors = validateRegistry(withDirs([{ ...base, petroHrysScore: 80 }]));
-  assert.ok(errors.some((e) => e.includes('lastVerified is null')));
+  const result = validateRegistry(withDirs([{ ...base, petroHrysScore: 80 }]));
+  assert.ok(reasons(result).some((r) => /lastVerified is null/i.test(r)));
 });
 
 test('rejects a third-party metric without provenance', () => {
-  const errors = validateRegistry(withDirs([
+  const result = validateRegistry(withDirs([
     { ...base, lastVerified: '2026-08-01', domainRating: 70 },
   ]));
-  assert.ok(errors.some((e) => e.includes('provenance')));
+  assert.ok(reasons(result).some((r) => /provenance/i.test(r)));
 });
 
 test('accepts a third-party metric with full provenance', () => {
-  const errors = validateRegistry(withDirs([{
+  const result = validateRegistry(withDirs([{
     ...base, lastVerified: '2026-08-01', domainRating: 70,
     metricsProvenance: { domainRating: { provider: 'Ahrefs', measuredAt: '2026-08-01' } },
   }]));
-  assert.deepStrictEqual(errors, []);
+  assert.deepStrictEqual(result.errors, []);
 });
 
 test('rejects nextVerification on or before lastVerified', () => {
-  const errors = validateRegistry(withDirs([
+  const result = validateRegistry(withDirs([
     { ...base, lastVerified: '2026-08-01', nextVerification: '2026-08-01' },
   ]));
-  assert.ok(errors.some((e) => e.includes('nextVerification')));
+  assert.ok(reasons(result).some((r) => /nextVerification/i.test(r)));
+});
+
+test('rejects malformed optional values', () => {
+  const result = validateRegistry(withDirs([{
+    ...base, recommendedIndustries: 'legal', pros: [1, 2], cons: null,
+    editorNotes: 42, ssl: 'yes', httpStatus: '200',
+  }]));
+  const bad = fields(result);
+  for (const field of ['recommendedIndustries', 'pros', 'cons', 'editorNotes', 'ssl', 'httpStatus']) {
+    assert.ok(bad.includes(field), `expected an error for ${field}, got ${bad.join(', ')}`);
+  }
+});
+
+test('a record with no id still produces a reportable error', () => {
+  const { id, ...noId } = base;
+  const result = validateRegistry(withDirs([{ ...noId, website: 'http://x.example' }]));
+  assert.ok(result.errors.length > 0);
+  assert.ok(result.errors.every((e) => typeof e.file === 'string'));
+});
+
+test('formatReport renders a human-readable report', () => {
+  const result = validateRegistry(withDirs([{ ...base, website: 'http://example.com' }]));
+  const report = formatReport(result);
+  assert.ok(report.includes('united-states.json'));
+  assert.ok(report.includes('website'));
+  assert.ok(/1 validation error/.test(report));
+});
+
+test('formatReport reports success for a valid registry', () => {
+  assert.ok(/valid/i.test(formatReport(validateRegistry(loadRegistry()))));
 });
 ```
 
 - [ ] **Step 2: Run test to verify it fails**
 
-Run: `node --test scripts/tests/bd-validate.test.cjs`
+Run: `node --test "scripts/tests/bd-validate.test.cjs"`
 Expected: FAIL — `Cannot find module '../validate-business-directories.cjs'`
 
 - [ ] **Step 3: Write minimal implementation**
@@ -1099,103 +1225,212 @@ const ENUMS = {
 };
 
 const SCORE_FIELDS = ['petroHrysScore', 'domainRating', 'authorityScore'];
-const NUMERIC_FIELDS = [...SCORE_FIELDS, 'estimatedTraffic', 'referringDomains', 'httpStatus'];
+const COUNT_FIELDS = ['estimatedTraffic', 'referringDomains', 'httpStatus'];
+const NUMERIC_FIELDS = [...SCORE_FIELDS, ...COUNT_FIELDS];
 const THIRD_PARTY_FIELDS = ['domainRating', 'authorityScore', 'estimatedTraffic', 'referringDomains'];
+const BOOLEAN_FIELDS = [
+  'free', 'paid', 'verificationRequired', 'manualReview', 'acceptsCompanies',
+  'acceptsProducts', 'acceptsSaaS', 'acceptsApps', 'acceptsStartups', 'acceptsAI',
+  'sitemap', 'indexed', 'ssl',
+];
+const REQUIRED_STRINGS = ['id', 'name', 'slug', 'country', 'category', 'website', 'description'];
+const ARRAY_FIELDS = ['recommendedIndustries', 'pros', 'cons'];
+const DATE_FIELDS = ['lastVerified', 'nextVerification'];
 const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
+
+const isNullish = (v) => v === null || v === undefined;
+
+// Code-unit comparison; localeCompare would make ordering depend on the
+// platform's ICU build.
+function cmp(a, b) {
+  const as = String(a ?? '');
+  const bs = String(b ?? '');
+  if (as < bs) return -1;
+  if (as > bs) return 1;
+  return 0;
+}
+
+function fileFor(entry) {
+  const country = typeof entry.country === 'string' && entry.country ? entry.country : '<unknown>';
+  return `data/business-directories/directories/${country}.json`;
+}
+
+function canonicalDomain(website) {
+  try {
+    return new URL(website).hostname.replace(/^www\./, '').toLowerCase();
+  } catch {
+    return null;
+  }
+}
 
 function validateRegistry(registry) {
   const errors = [];
-  const countrySlugs = new Set(registry.countries.map((c) => c.slug));
-  const categorySlugs = new Set(registry.categories.map((c) => c.slug));
-  const reserved = reservedSlugs(registry.categories);
-  const seenIds = new Set();
-  const seenCountrySlug = new Set();
+  const countries = registry.countries || [];
+  const categories = registry.categories || [];
+  const directories = registry.directories || [];
 
-  for (const d of registry.directories) {
-    const at = `[${d.id || d.slug || 'unknown'}]`;
+  const countrySlugs = new Set(countries.map((c) => c.slug));
+  const categorySlugs = new Set(categories.map((c) => c.slug));
+  const reserved = reservedSlugs(categories);
 
-    if (seenIds.has(d.id)) errors.push(`${at} Duplicate id "${d.id}"`);
-    seenIds.add(d.id);
+  const seenId = new Set();
+  const seenSlug = new Set();
+  const seenDomain = new Set();
 
-    const countryKey = `${d.country}/${d.slug}`;
-    if (seenCountrySlug.has(countryKey)) errors.push(`${at} Duplicate slug "${d.slug}" in "${d.country}"`);
-    seenCountrySlug.add(countryKey);
+  for (const entry of directories) {
+    const file = fileFor(entry);
+    const id = typeof entry.id === 'string' && entry.id ? entry.id : null;
+    const add = (field, reason) => errors.push({ file, id, field, reason });
 
-    if (reserved.has(d.slug)) errors.push(`${at} Uses reserved slug "${d.slug}"`);
-    if (!countrySlugs.has(d.country)) errors.push(`${at} References unknown country "${d.country}"`);
-    if (!categorySlugs.has(d.category)) errors.push(`${at} References unknown category "${d.category}"`);
-    if (typeof d.website !== 'string' || !d.website.startsWith('https://')) {
-      errors.push(`${at} website must use https`);
+    for (const field of REQUIRED_STRINGS) {
+      if (typeof entry[field] !== 'string' || entry[field].length === 0) {
+        add(field, `Required field "${field}" must be a non-empty string.`);
+      }
+    }
+
+    if (typeof entry.website === 'string' && !entry.website.startsWith('https://')) {
+      add('website', 'Website must use https.');
+    }
+
+    if (typeof entry.slug === 'string' && reserved.has(entry.slug)) {
+      add('slug', `Slug "${entry.slug}" is a reserved slug and cannot be used.`);
+    }
+
+    if (typeof entry.country === 'string' && !countrySlugs.has(entry.country)) {
+      add('country', `References unknown country "${entry.country}".`);
+    }
+    if (typeof entry.category === 'string' && !categorySlugs.has(entry.category)) {
+      add('category', `References unknown category "${entry.category}".`);
     }
 
     for (const [field, allowed] of Object.entries(ENUMS)) {
-      if (d[field] !== null && d[field] !== undefined && !allowed.includes(d[field])) {
-        errors.push(`${at} Field "${field}" has invalid value "${d[field]}"`);
+      if (!isNullish(entry[field]) && !allowed.includes(entry[field])) {
+        add(field, `Field "${field}" has invalid value "${entry[field]}". Allowed: ${allowed.join(', ')}.`);
       }
     }
 
-    for (const field of SCORE_FIELDS) {
-      const v = d[field];
-      if (v !== null && v !== undefined && (typeof v !== 'number' || v < 0 || v > 100)) {
-        errors.push(`${at} Field "${field}" out of range 0-100: ${v}`);
+    for (const field of NUMERIC_FIELDS) {
+      const value = entry[field];
+      if (isNullish(value)) continue;
+      if (typeof value !== 'number' || !Number.isFinite(value)) {
+        add(field, `Field "${field}" must be a finite number or null, got ${JSON.stringify(value)}.`);
+      } else if (SCORE_FIELDS.includes(field) && (value < 0 || value > 100)) {
+        add(field, `Field "${field}" is out of range 0-100: ${value}.`);
+      } else if (COUNT_FIELDS.includes(field) && value < 0) {
+        add(field, `Field "${field}" must not be negative: ${value}.`);
       }
     }
 
-    if (d.lastVerified === null || d.lastVerified === undefined) {
+    for (const field of BOOLEAN_FIELDS) {
+      if (!isNullish(entry[field]) && typeof entry[field] !== 'boolean') {
+        add(field, `Field "${field}" must be a boolean or null, got ${JSON.stringify(entry[field])}.`);
+      }
+    }
+
+    for (const field of ARRAY_FIELDS) {
+      const value = entry[field];
+      if (!Array.isArray(value)) {
+        add(field, `Field "${field}" must be an array of strings.`);
+      } else if (!value.every((item) => typeof item === 'string')) {
+        add(field, `Field "${field}" must contain only strings.`);
+      }
+    }
+
+    if (!isNullish(entry.editorNotes) && typeof entry.editorNotes !== 'string') {
+      add('editorNotes', 'Field "editorNotes" must be a string.');
+    }
+
+    for (const field of DATE_FIELDS) {
+      if (!isNullish(entry[field]) && !DATE_RE.test(entry[field])) {
+        add(field, `Field "${field}" must be an ISO date (YYYY-MM-DD).`);
+      }
+    }
+
+    // Honesty gate: an unverified record may not carry measurements.
+    if (isNullish(entry.lastVerified)) {
       for (const field of NUMERIC_FIELDS) {
-        if (d[field] !== null && d[field] !== undefined) {
-          errors.push(`${at} Field "${field}" is populated but lastVerified is null`);
+        if (!isNullish(entry[field])) {
+          add(field, `Field "${field}" is populated but lastVerified is null.`);
         }
       }
     }
 
     for (const field of THIRD_PARTY_FIELDS) {
-      if (d[field] === null || d[field] === undefined) continue;
-      const p = (d.metricsProvenance || {})[field];
-      if (!p || !p.provider || !p.measuredAt) {
-        errors.push(`${at} Field "${field}" requires provenance (provider + measuredAt)`);
-      } else if (!DATE_RE.test(p.measuredAt)) {
-        errors.push(`${at} Provenance measuredAt for "${field}" must be YYYY-MM-DD`);
+      if (isNullish(entry[field])) continue;
+      const provenance = (entry.metricsProvenance || {})[field];
+      if (!provenance || !provenance.provider || !provenance.measuredAt) {
+        add(field, `Third-party metric "${field}" requires provenance (provider and measuredAt).`);
+      } else if (!DATE_RE.test(provenance.measuredAt)) {
+        add(field, `Provenance measuredAt for "${field}" must be an ISO date (YYYY-MM-DD).`);
       }
     }
 
-    for (const field of ['lastVerified', 'nextVerification']) {
-      if (d[field] !== null && d[field] !== undefined && !DATE_RE.test(d[field])) {
-        errors.push(`${at} Field "${field}" must be YYYY-MM-DD`);
-      }
+    if (entry.lastVerified && entry.nextVerification
+        && !(entry.nextVerification > entry.lastVerified)) {
+      add('nextVerification', 'nextVerification must be later than lastVerified.');
     }
 
-    if (d.lastVerified && d.nextVerification && !(d.nextVerification > d.lastVerified)) {
-      errors.push(`${at} nextVerification must be later than lastVerified`);
+    if (id !== null) {
+      if (seenId.has(id)) add('id', `Duplicate id "${id}".`);
+      seenId.add(id);
+    }
+
+    if (typeof entry.country === 'string' && typeof entry.slug === 'string') {
+      const slugKey = `${entry.country}/${entry.slug}`;
+      if (seenSlug.has(slugKey)) {
+        add('slug', `Duplicate slug "${entry.slug}" within country "${entry.country}".`);
+      }
+      seenSlug.add(slugKey);
+
+      // Per country only: one service may legitimately serve several countries.
+      const domain = canonicalDomain(entry.website);
+      if (domain) {
+        const domainKey = `${entry.country}/${domain}`;
+        if (seenDomain.has(domainKey)) {
+          add('website', `Duplicate canonical domain "${domain}" within country "${entry.country}".`);
+        }
+        seenDomain.add(domainKey);
+      }
     }
   }
 
-  return errors;
+  errors.sort((a, b) => cmp(a.file, b.file) || cmp(a.id, b.id)
+    || cmp(a.field, b.field) || cmp(a.reason, b.reason));
+
+  return { ok: errors.length === 0, errors };
+}
+
+function formatReport(result) {
+  if (result.ok) return 'Business directories registry is valid.';
+  const lines = result.errors.map(
+    (e) => `  ${e.file} [${e.id ?? '(no id)'}] ${e.field}: ${e.reason}`);
+  const count = result.errors.length;
+  return `${lines.join('\n')}\n\n${count} validation error${count === 1 ? '' : 's'}.`;
 }
 
 if (require.main === module) {
-  const errors = validateRegistry(loadRegistry());
-  if (errors.length) {
-    for (const e of errors) console.error(e);
-    console.error(`\n${errors.length} validation error(s).`);
-    process.exit(1);
+  const result = validateRegistry(loadRegistry());
+  if (process.argv.includes('--json')) {
+    console.log(JSON.stringify(result, null, 2));
+  } else {
+    console.log(formatReport(result));
   }
-  console.log('Business directories registry is valid.');
+  if (!result.ok) process.exit(1);
 }
 
-module.exports = { validateRegistry };
+module.exports = { validateRegistry, formatReport };
 ```
 
 - [ ] **Step 4: Run test to verify it passes**
 
-Run: `node --test scripts/tests/bd-validate.test.cjs && node scripts/validate-business-directories.cjs`
-Expected: PASS (14 tests), then `Business directories registry is valid.` and exit 0
+Run: `node --test "scripts/tests/bd-validate.test.cjs" && node scripts/validate-business-directories.cjs`
+Expected: PASS (27 tests), then `Business directories registry is valid.` and exit 0
 
 - [ ] **Step 5: Commit**
 
 ```bash
 git add scripts/validate-business-directories.cjs scripts/tests/bd-validate.test.cjs
-git commit -m "feat(bd): add registry validator with honesty and provenance gates"
+git commit -m "feat(bd): add machine-readable registry validator"
 ```
 
 ---
@@ -2733,7 +2968,7 @@ const seo = require('./lib/bd-seo.cjs');
 const c = require('./lib/bd-components.cjs');
 const { renderPage } = require('./lib/bd-render.cjs');
 const { renderSitemap, renderRss } = require('./lib/bd-feeds.cjs');
-const { validateRegistry } = require('./validate-business-directories.cjs');
+const { validateRegistry, formatReport } = require('./validate-business-directories.cjs');
 
 const BASE = '/research/business-directories/';
 
@@ -2990,9 +3225,12 @@ function buildAll(options = {}) {
   const outRoot = options.outRoot || PATHS.siteRoot;
 
   const registry = loadRegistry(dataRoot);
-  const errors = validateRegistry(registry);
-  if (errors.length) {
-    throw new Error(`Registry is invalid:\n${errors.join('\n')}`);
+
+  // The validator is the single source of truth for build gating: nothing is
+  // written unless it reports ok.
+  const validation = validateRegistry(registry);
+  if (!validation.ok) {
+    throw new Error(`Registry is invalid; refusing to build.\n${formatReport(validation)}`);
   }
 
   const pages = pageModel(registry);
