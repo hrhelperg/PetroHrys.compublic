@@ -10,10 +10,10 @@ function nullLastDesc(a, b) {
   return b - a;
 }
 
-// Deliberately avoids the locale-aware string comparator: its ordering depends
-// on the platform's ICU build, so identical data could sort differently on two
-// machines. toLowerCase() uses Unicode default case folding and is not
-// locale-sensitive; the code-unit tiebreak then makes the order total.
+// Deliberately avoids localeCompare: its ordering depends on the platform's ICU
+// build, so identical data could sort differently on two machines. toLowerCase()
+// uses Unicode default case folding and is not locale-sensitive; the code-unit
+// tiebreak then makes the order total.
 function compareByName(a, b) {
   const an = String(a.name ?? '');
   const bn = String(b.name ?? '');

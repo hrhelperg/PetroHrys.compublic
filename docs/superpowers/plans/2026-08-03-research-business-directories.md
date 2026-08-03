@@ -794,8 +794,14 @@ test('name ordering is not locale-dependent', () => {
 
 test('the implementation never calls localeCompare', () => {
   const source = fs.readFileSync(path.join(__dirname, '..', 'lib', 'bd-sort.cjs'), 'utf8');
-  assert.ok(!source.includes('localeCompare'), 'localeCompare is platform-dependent and banned');
-  assert.ok(!source.includes('toLocaleLowerCase'), 'toLocaleLowerCase is locale-sensitive and banned');
+  // Strip comments before scanning, so the rationale is free to name the banned
+  // API while the guard still catches a real call. The `[^:]` guard keeps `//`
+  // inside a URL from being treated as a line comment.
+  const code = source
+    .replace(/\/\*[\s\S]*?\*\//g, '')
+    .replace(/(^|[^:])\/\/.*$/gm, '$1');
+  assert.ok(!/\.localeCompare\s*\(/.test(code), 'localeCompare is platform-dependent and banned');
+  assert.ok(!/toLocale(Lower|Upper)Case\s*\(/.test(code), 'toLocale*Case is locale-sensitive and banned');
 });
 
 test('sorting is stable for fully tied records', () => {
