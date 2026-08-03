@@ -1,0 +1,23 @@
+[
+  { "id": "general-business",        "slug": "general-business",        "name": "General Business",        "description": "Broad, cross-industry listing sites that accept companies of any type or sector." },
+  { "id": "local-business",          "slug": "local-business",          "name": "Local Business",          "description": "Location-driven listings built around physical presence, service areas, and map results." },
+  { "id": "saas",                    "slug": "saas",                    "name": "SaaS",                    "description": "Listing sites focused on subscription software products and their buyers." },
+  { "id": "ai",                      "slug": "ai",                      "name": "AI",                      "description": "Catalogues of AI tools, models, and applied machine-learning products." },
+  { "id": "telecommunications",      "slug": "telecommunications",      "name": "Telecommunications",      "description": "Directories covering carriers, connectivity providers, and telecom infrastructure vendors." },
+  { "id": "healthcare",              "slug": "healthcare",              "name": "Healthcare",              "description": "Listings for clinical providers, health services, and medical technology suppliers." },
+  { "id": "legal",                   "slug": "legal",                   "name": "Legal",                   "description": "Directories of law firms, individual practitioners, and legal service providers." },
+  { "id": "finance",                 "slug": "finance",                 "name": "Finance",                 "description": "Listings covering financial institutions, advisers, fintech, and accounting services." },
+  { "id": "construction",            "slug": "construction",            "name": "Construction",            "description": "Directories for contractors, trades, building suppliers, and project services." },
+  { "id": "manufacturing",           "slug": "manufacturing",           "name": "Manufacturing",           "description": "Industrial and supplier directories covering producers, fabricators, and distributors." },
+  { "id": "education",               "slug": "education",               "name": "Education",               "description": "Listings for institutions, training providers, and educational technology." },
+  { "id": "marketing",               "slug": "marketing",               "name": "Marketing",               "description": "Agency and marketing-service directories, including advertising and creative suppliers." },
+  { "id": "software",                "slug": "software",                "name": "Software",                "description": "General software catalogues spanning desktop, mobile, and web applications." },
+  { "id": "developer",               "slug": "developer",               "name": "Developer",               "description": "Directories aimed at engineers: APIs, libraries, developer tools, and platforms." },
+  { "id": "startup",                 "slug": "startup",                 "name": "Startup",                 "description": "Launch platforms and early-stage company listings used for initial visibility." },
+  { "id": "government",              "slug": "government",              "name": "Government",              "description": "Official public-sector registries and government-operated business listings." },
+  { "id": "industry-associations",   "slug": "industry-associations",   "name": "Industry Associations",   "description": "Member directories maintained by trade bodies and professional associations." },
+  { "id": "chambers-of-commerce",    "slug": "chambers-of-commerce",    "name": "Chambers of Commerce",    "description": "Chamber membership registries, typically regional and membership-gated." },
+  { "id": "review-sites",            "slug": "review-sites",            "name": "Review Sites",            "description": "Platforms whose primary function is collecting and publishing customer reviews." },
+  { "id": "press-release-platforms", "slug": "press-release-platforms", "name": "Press Release Platforms", "description": "Distribution services that publish company announcements and newsroom content." },
+  { "id": "app-directories",         "slug": "app-directories",         "name": "App Directories",         "description": "Storefronts and catalogues listing mobile, desktop, and platform applications." }
+]
