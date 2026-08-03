@@ -24,6 +24,18 @@ Every task's requirements implicitly include this section.
 - **All new CSS classes are prefixed** `bd-`. Never redefine an existing selector. Never declare a raw color, font-family, font-size, or spacing literal — consume existing custom properties only.
 - **No fabricated data.** No invented directories, scores, ratings, traffic, pricing, or availability. Unknown values stay `null` and render as `—`.
 - **Do not copy** `<meta name="msvalidate.01" content="PASTE_YOUR_BING_VERIFICATION_CODE_HERE">` into generated pages. It is an unfilled placeholder on existing pages; propagating it 221 times is a defect. Recorded as a follow-up.
+- **Lean emission policy (supersedes the 221-page matrix).** Only these routes are ever written to disk:
+  1. the hub `/research/business-directories/` — always, and indexable;
+  2. the reference country `/research/business-directories/united-states/` — always;
+  3. the reference category `/research/business-directories/united-states/categories/general-business/` — always;
+  4. any country that has at least one real directory record;
+  5. any category that has at least one real directory record;
+  6. a detail page for every real directory record.
+
+  Never create empty HTML files merely to validate routing. The generator, validator, sorting, filters, SEO helpers, feeds, and route builders must nonetheless support the **complete** 10 × 21 matrix, exercised through tests rather than through emitted files.
+- **Pruning is mandatory.** When a directory record is removed and a route becomes empty, the generator must delete the now-stale `index.html` and any directory left empty. Pruning is confined to `research/business-directories/` and never touches `feed.xml`.
+- **Never link an un-emitted route.** The hub and country pages list un-emitted countries/categories as non-linked "coming soon" text. A link to a page that was not written would be a 404.
+- **No real directory data in this phase** unless separately verified and explicitly approved.
 - **Branch:** `feat/research-business-directories` (already created, spec committed as `f64c4a3`, this plan as `9718139`).
 - **Stacked branch.** This branch forks from `feat/helperg-ecosystem-banner`, which is itself unmerged and already modifies `sitemap.xml` and `css/petrohrys.css` relative to `main`. **Never verify scope with `git diff main`** — always diff against `$(git merge-base HEAD feat/helperg-ecosystem-banner)`.
 - **Run tests with:** `node --test scripts/tests/`
@@ -45,7 +57,7 @@ Every task's requirements implicitly include this section.
 | `scripts/lib/bd-render.cjs` | Full-document shell matching the editorial system |
 | `scripts/lib/bd-feeds.cjs` | Sitemap and RSS emitters |
 | `scripts/validate-business-directories.cjs` | Schema, referential, and honesty gate |
-| `scripts/build-business-directories.cjs` | Orchestrates generation of 221 pages + feeds |
+| `scripts/build-business-directories.cjs` | Orchestrates on-demand generation + pruning + feeds |
 | `scripts/inject-research-nav.cjs` | Idempotent nav injection on 8 editorial pages |
 | `css/business-directories.css` | Section styling from existing tokens |
 | `js/business-directories.js` | Progressive-enhancement sort/filter/search |
@@ -911,7 +923,7 @@ git commit -m "feat(bd): add SEO and structured-data builders"
 
 **Interfaces:**
 - Consumes: `bd-util.cjs` → `escapeHtml`; `bd-sort.cjs` → `SORTS`, `SORT_KEYS`
-- Produces: `emptyState(message): string`, `metric(value, opts?): string`, `linkGrid(items): string`, `sortControl(): string`, `filterBar(): string`, `searchBox(): string`, `directoryRow(directory): string`, `directoryTable(directories): string`, `faqSection(faqs): string`, `pagination({current, total, basePath}): string`, `metricNote(): string`
+- Produces: `emptyState(message): string`, `metric(value, provenance?): string`, `linkGrid(items): string` (items are `{name, path, pending?}`; `pending` renders unlinked text), `sortControl(): string`, `filterBar(): string`, `searchBox(): string`, `directoryRow(directory): string`, `directoryTable(directories): string`, `directoryDetail(directory): string`, `faqSection(faqs): string`, `pagination({current, total, basePath}): string`, `metricNote(): string`
 
 - [ ] **Step 1: Write the failing test**
 
@@ -947,6 +959,42 @@ test('linkGrid escapes item names', () => {
   const html = c.linkGrid([{ name: '<script>', path: '/x/' }]);
   assert.ok(!html.includes('<script>'));
   assert.ok(html.includes('&lt;script&gt;'));
+});
+
+test('linkGrid renders a pending item as text, never as a link', () => {
+  const html = c.linkGrid([{ name: 'Germany', path: '/germany/', pending: true }]);
+  assert.ok(!html.includes('<a '), 'pending item must not be a link');
+  assert.ok(html.includes('coming soon'));
+  assert.ok(html.includes('Germany'));
+});
+
+test('linkGrid still links a non-pending item', () => {
+  const html = c.linkGrid([{ name: 'United States', path: '/united-states/' }]);
+  assert.ok(html.includes('<a href="/united-states/">'));
+  assert.ok(!html.includes('coming soon'));
+});
+
+test('directoryDetail renders every unknown field as an em dash, never zero', () => {
+  const html = c.directoryDetail({
+    name: 'Example', slug: 'example', website: 'https://example.com',
+    description: 'A directory.', tier: null, petroHrysScore: null, domainRating: null,
+    authorityScore: null, estimatedTraffic: null, referringDomains: null, free: null,
+    paid: null, verificationRequired: null, manualReview: null, acceptsCompanies: null,
+    acceptsProducts: null, acceptsSaaS: null, acceptsApps: null, acceptsStartups: null,
+    acceptsAI: null, backlinkType: null, robots: null, sitemap: null, indexed: null,
+    ssl: null, lastVerified: null, nextVerification: null, httpStatus: null,
+    recommendedIndustries: [], pros: [], cons: [], editorNotes: '', metricsProvenance: {},
+  });
+  assert.ok(html.includes('&mdash;'));
+  assert.ok(!/>0</.test(html), 'must never render 0 for an unknown value');
+});
+
+test('directoryDetail marks the outbound website link as external and nofollow', () => {
+  const html = c.directoryDetail({
+    name: 'Example', slug: 'example', website: 'https://example.com', description: 'D',
+    recommendedIndustries: [], pros: [], cons: [], editorNotes: '', metricsProvenance: {},
+  });
+  assert.ok(html.includes('rel="nofollow noopener"'));
 });
 
 test('sortControl lists every sort key', () => {
@@ -1019,13 +1067,99 @@ function metricNote() {
     'The PetroHrys Score is a first-party editorial assessment.</p>';
 }
 
+// A pending route has not been written to disk. It must never be linked, or the
+// page would advertise a 404.
 function linkGrid(items) {
   if (!items.length) return '';
   const rows = items.map((item) => {
-    const suffix = item.pending ? ' <span class="bd-tag">coming soon</span>' : '';
-    return `      <li><a href="${escapeHtml(item.path)}">${escapeHtml(item.name)}</a>${suffix}</li>`;
+    if (item.pending) {
+      return `      <li><span class="bd-pending">${escapeHtml(item.name)}</span> ` +
+        `<span class="bd-tag">coming soon</span></li>`;
+    }
+    return `      <li><a href="${escapeHtml(item.path)}">${escapeHtml(item.name)}</a></li>`;
   }).join('\n');
   return `    <ul class="bd-grid">\n${rows}\n    </ul>`;
+}
+
+const BOOLEAN_FIELDS = [
+  ['free', 'Free listing'], ['paid', 'Paid listing'],
+  ['verificationRequired', 'Verification required'], ['manualReview', 'Manual review'],
+  ['acceptsCompanies', 'Accepts companies'], ['acceptsProducts', 'Accepts products'],
+  ['acceptsSaaS', 'Accepts SaaS'], ['acceptsApps', 'Accepts apps'],
+  ['acceptsStartups', 'Accepts startups'], ['acceptsAI', 'Accepts AI products'],
+  ['sitemap', 'Publishes a sitemap'], ['indexed', 'Listings indexed'], ['ssl', 'HTTPS'],
+];
+
+const PLAIN_FIELDS = [
+  ['tier', 'Tier'], ['backlinkType', 'Backlink type'], ['robots', 'Crawlability'],
+  ['httpStatus', 'HTTP status'], ['lastVerified', 'Last verified'],
+  ['nextVerification', 'Next verification'],
+];
+
+function unknown() {
+  return '<span class="bd-metric bd-metric--empty">&mdash;</span>';
+}
+
+function boolCell(value) {
+  if (value === null || value === undefined) return unknown();
+  return `<span class="bd-metric">${value ? 'Yes' : 'No'}</span>`;
+}
+
+function plainCell(value) {
+  if (value === null || value === undefined || value === '') return unknown();
+  return `<span class="bd-metric">${escapeHtml(value)}</span>`;
+}
+
+function defRow(label, valueHtml) {
+  return `        <div class="bd-def"><dt class="bd-def-t">${escapeHtml(label)}</dt>` +
+    `<dd class="bd-def-d">${valueHtml}</dd></div>`;
+}
+
+function bulletList(items, emptyMessage) {
+  if (!items || !items.length) return `      <p class="bd-empty">${escapeHtml(emptyMessage)}</p>`;
+  return `      <ul class="bd-list">\n` +
+    items.map((i) => `        <li>${escapeHtml(i)}</li>`).join('\n') + `\n      </ul>`;
+}
+
+function directoryDetail(d) {
+  const p = d.metricsProvenance || {};
+  const rows = [
+    defRow('PetroHrys Score', metric(d.petroHrysScore)),
+    defRow('Domain Rating', metric(d.domainRating, p.domainRating)),
+    defRow('Authority Score', metric(d.authorityScore, p.authorityScore)),
+    defRow('Estimated traffic', metric(d.estimatedTraffic, p.estimatedTraffic)),
+    defRow('Referring domains', metric(d.referringDomains, p.referringDomains)),
+    ...PLAIN_FIELDS.map(([field, label]) => defRow(label, plainCell(d[field]))),
+    ...BOOLEAN_FIELDS.map(([field, label]) => defRow(label, boolCell(d[field]))),
+  ].join('\n');
+
+  return `    <div class="bd-detail">
+      <p class="bd-detail-site"><a href="${escapeHtml(d.website)}" rel="nofollow noopener" target="_blank">${escapeHtml(d.website)}</a></p>
+      <dl class="bd-defs">
+${rows}
+      </dl>
+${metricNote()}
+    </div>
+
+    <section class="bd-section" aria-labelledby="industries">
+      <h2 id="industries">Recommended industries</h2>
+${bulletList(d.recommendedIndustries, 'No recommended industries recorded yet.')}
+    </section>
+
+    <section class="bd-section" aria-labelledby="pros">
+      <h2 id="pros">Strengths</h2>
+${bulletList(d.pros, 'No strengths recorded yet.')}
+    </section>
+
+    <section class="bd-section" aria-labelledby="cons">
+      <h2 id="cons">Limitations</h2>
+${bulletList(d.cons, 'No limitations recorded yet.')}
+    </section>
+
+    <section class="bd-section" aria-labelledby="notes">
+      <h2 id="notes">Editor notes</h2>
+      ${d.editorNotes ? `<p class="bd-note">${escapeHtml(d.editorNotes)}</p>` : '<p class="bd-empty">No editor notes recorded yet.</p>'}
+    </section>`;
 }
 
 function sortControl() {
@@ -1130,8 +1264,8 @@ function pagination({ current, total, basePath }) {
 
 module.exports = {
   emptyState, metric, metricNote, linkGrid, sortControl, filterBar,
-  searchBox, directoryRow, directoryTable, faqSection, pagination,
-  VERIFICATION_NOTE, FILTERS,
+  searchBox, directoryRow, directoryTable, directoryDetail, faqSection,
+  pagination, VERIFICATION_NOTE, FILTERS,
 };
 ```
 
@@ -1699,6 +1833,25 @@ Expected: FAIL — `ENOENT ... css/business-directories.css`
   font-family: var(--ff-mono);
 }
 
+.bd-pending { color: var(--text-3); }
+
+.bd-detail { margin-top: var(--s-4); }
+
+.bd-detail-site { font-family: var(--ff-mono); font-size: var(--fs-sm); }
+
+.bd-defs {
+  margin: var(--s-4) 0 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+  gap: var(--s-3);
+}
+
+.bd-def { border-top: var(--rule-w) solid var(--rule); padding-top: var(--s-1); }
+.bd-def-t { color: var(--text-3); font-size: var(--fs-xs); }
+.bd-def-d { margin: 0; color: var(--text); }
+
+.bd-list { color: var(--text-2); margin: var(--s-3) 0 0; padding-left: var(--s-4); }
+
 .bd-controls {
   display: flex;
   flex-wrap: wrap;
@@ -1878,7 +2031,9 @@ git commit -m "feat(bd): add section stylesheet and progressive-enhancement scri
 
 **Interfaces:**
 - Consumes: every `bd-*` library module
-- Produces: `buildAll({ dryRun? }): { written: string[], pages: number }`. Runs as CLI when invoked directly. Accepts `--country=<slug>`.
+- Produces: `pageModel(registry): Page[]` where each `Page` has `kind` (`'hub'|'country'|'category'|'directory'`), `outPath`, `title`, `description`, `canonicalPath`, `robots`, `lastmod?`, `jsonLd`, `breadcrumbTrail`, `main`; and `buildAll({dataRoot?, outRoot?}): { written: string[], removed: string[], pages: number }`. Runs as CLI when invoked directly.
+- **No `--country=` subset flag.** A filtered build combined with pruning would delete every route it did not regenerate. Incremental behaviour comes from `writeIfChanged`, not from partial builds.
+- `dataRoot`/`outRoot` exist so tests build into temp directories and never touch the real site.
 
 - [ ] **Step 1: Write the failing test**
 
@@ -1888,62 +2043,203 @@ git commit -m "feat(bd): add section stylesheet and progressive-enhancement scri
 const test = require('node:test');
 const assert = require('node:assert');
 const fs = require('node:fs');
+const os = require('node:os');
 const path = require('node:path');
 const { buildAll, pageModel } = require('../build-business-directories.cjs');
 const { loadRegistry } = require('../lib/bd-registry.cjs');
+const { PATHS } = require('../lib/bd-util.cjs');
 
-const root = path.resolve(__dirname, '..', '..');
-const read = (p) => fs.readFileSync(path.join(root, p), 'utf8');
+const HUB = 'research/business-directories/index.html';
+const REF_COUNTRY = 'research/business-directories/united-states/index.html';
+const REF_CATEGORY = 'research/business-directories/united-states/categories/general-business/index.html';
+const SAAS_CATEGORY = 'research/business-directories/united-states/categories/saas/index.html';
+const DETAIL = 'research/business-directories/united-states/example-directory/index.html';
+const GERMANY = 'research/business-directories/germany/index.html';
 
-test('pageModel produces 221 pages for the empty registry', () => {
-  const pages = pageModel(loadRegistry());
-  assert.strictEqual(pages.length, 221);
-});
-
-test('exactly one page is the hub and it is indexable', () => {
-  const hub = pageModel(loadRegistry())
-    .filter((p) => p.outPath === 'research/business-directories/index.html');
-  assert.strictEqual(hub.length, 1);
-  assert.strictEqual(hub[0].robots, undefined);
-});
-
-test('every country and category page is noindex while empty', () => {
-  for (const page of pageModel(loadRegistry())) {
-    if (page.outPath === 'research/business-directories/index.html') continue;
-    assert.strictEqual(page.robots, 'noindex,follow', `indexable: ${page.outPath}`);
+// Builds an isolated data root + output root so tests never touch the real site.
+function fixture(byCountry = {}) {
+  const dataRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'bd-data-'));
+  const outRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'bd-out-'));
+  fs.copyFileSync(path.join(PATHS.dataRoot, 'countries.json'), path.join(dataRoot, 'countries.json'));
+  fs.copyFileSync(path.join(PATHS.dataRoot, 'categories.json'), path.join(dataRoot, 'categories.json'));
+  fs.mkdirSync(path.join(dataRoot, 'directories'));
+  const countries = JSON.parse(fs.readFileSync(path.join(dataRoot, 'countries.json'), 'utf8'));
+  for (const country of countries) {
+    writeDirs(dataRoot, country.slug, byCountry[country.slug] || []);
   }
+  return { dataRoot, outRoot };
+}
+
+function writeDirs(dataRoot, countrySlug, entries) {
+  fs.writeFileSync(path.join(dataRoot, 'directories', `${countrySlug}.json`),
+    `${JSON.stringify(entries, null, 2)}\n`);
+}
+
+const record = (over = {}) => ({
+  id: 'us-example', name: 'Example Directory', slug: 'example-directory',
+  country: 'united-states', category: 'saas', website: 'https://example.com',
+  description: 'A directory.', tier: 'tier1', petroHrysScore: null, domainRating: null,
+  authorityScore: null, estimatedTraffic: null, referringDomains: null, free: null,
+  paid: null, verificationRequired: null, manualReview: null, acceptsCompanies: null,
+  acceptsProducts: null, acceptsSaaS: null, acceptsApps: null, acceptsStartups: null,
+  acceptsAI: null, backlinkType: null, robots: null, sitemap: null, indexed: null,
+  ssl: null, lastVerified: null, nextVerification: null, httpStatus: null,
+  recommendedIndustries: [], pros: [], cons: [], editorNotes: '', metricsProvenance: {},
+  ...over,
 });
 
-test('build writes the hub, a country page and a category page', () => {
-  buildAll();
-  assert.ok(read('research/business-directories/index.html').includes('Business Directories'));
-  assert.ok(read('research/business-directories/united-states/index.html').includes('United States'));
-  assert.ok(read('research/business-directories/united-states/categories/saas/index.html').includes('SaaS'));
+const has = (outRoot, rel) => fs.existsSync(path.join(outRoot, rel));
+const read = (outRoot, rel) => fs.readFileSync(path.join(outRoot, rel), 'utf8');
+
+test('the hub is always emitted and is indexable', () => {
+  const { dataRoot, outRoot } = fixture();
+  buildAll({ dataRoot, outRoot });
+  assert.ok(has(outRoot, HUB));
+  assert.ok(!read(outRoot, HUB).includes('name="robots"'));
 });
 
-test('a second build writes nothing — output is byte-stable', () => {
-  buildAll();
-  const second = buildAll();
-  assert.deepStrictEqual(second.written, []);
+test('the reference country and category are emitted even with no data', () => {
+  const { dataRoot, outRoot } = fixture();
+  buildAll({ dataRoot, outRoot });
+  assert.ok(has(outRoot, REF_COUNTRY));
+  assert.ok(has(outRoot, REF_CATEGORY));
+  assert.ok(read(outRoot, REF_COUNTRY).includes('noindex,follow'));
+  assert.ok(read(outRoot, REF_CATEGORY).includes('noindex,follow'));
 });
 
-test('the section sitemap excludes every empty page', () => {
-  buildAll();
-  const xml = read('sitemap-business-directories.xml');
+test('an empty non-reference country is not emitted', () => {
+  const { dataRoot, outRoot } = fixture();
+  buildAll({ dataRoot, outRoot });
+  assert.ok(!has(outRoot, GERMANY));
+});
+
+test('an empty non-reference category is not emitted', () => {
+  const { dataRoot, outRoot } = fixture();
+  buildAll({ dataRoot, outRoot });
+  assert.ok(!has(outRoot, SAAS_CATEGORY));
+});
+
+test('only the lean scaffold is written when there is no data', () => {
+  const { dataRoot, outRoot } = fixture();
+  buildAll({ dataRoot, outRoot });
+  const count = countPages(path.join(outRoot, 'research', 'business-directories'));
+  assert.strictEqual(count, 3, 'expected hub + reference country + reference category');
+});
+
+function countPages(dir) {
+  let total = 0;
+  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    if (entry.isDirectory()) total += countPages(path.join(dir, entry.name));
+    else if (entry.name === 'index.html') total += 1;
+  }
+  return total;
+}
+
+test('adding the first real directory emits its country, category and detail pages', () => {
+  const { dataRoot, outRoot } = fixture({ 'united-states': [record()] });
+  buildAll({ dataRoot, outRoot });
+  assert.ok(has(outRoot, SAAS_CATEGORY), 'category page missing');
+  assert.ok(has(outRoot, DETAIL), 'detail page missing');
+  assert.ok(!read(outRoot, SAAS_CATEGORY).includes('noindex'), 'populated category must be indexable');
+  assert.ok(!read(outRoot, REF_COUNTRY).includes('noindex'), 'populated country must be indexable');
+});
+
+test('a directory in a new country emits that country page', () => {
+  const { dataRoot, outRoot } = fixture({
+    germany: [record({ id: 'de-example', country: 'germany' })],
+  });
+  buildAll({ dataRoot, outRoot });
+  assert.ok(has(outRoot, GERMANY));
+});
+
+test('removing the last directory prunes the now-empty dependent pages', () => {
+  const { dataRoot, outRoot } = fixture({ 'united-states': [record()] });
+  buildAll({ dataRoot, outRoot });
+  assert.ok(has(outRoot, SAAS_CATEGORY));
+  assert.ok(has(outRoot, DETAIL));
+
+  writeDirs(dataRoot, 'united-states', []);
+  const result = buildAll({ dataRoot, outRoot });
+
+  assert.ok(!has(outRoot, SAAS_CATEGORY), 'stale category page was not pruned');
+  assert.ok(!has(outRoot, DETAIL), 'stale detail page was not pruned');
+  assert.ok(result.removed.length >= 2);
+  assert.ok(has(outRoot, REF_COUNTRY), 'reference country must survive pruning');
+  assert.ok(has(outRoot, HUB), 'hub must survive pruning');
+});
+
+test('no empty route enters the sitemap', () => {
+  const { dataRoot, outRoot } = fixture();
+  buildAll({ dataRoot, outRoot });
+  const xml = read(outRoot, 'sitemap-business-directories.xml');
   assert.ok(xml.includes('<loc>https://www.petrohrys.com/research/business-directories/</loc>'));
-  assert.ok(!xml.includes('/united-states/'));
+  assert.ok(!xml.includes('/united-states/'), 'empty reference routes must stay out of the sitemap');
 });
 
-test('the RSS feed is a valid empty channel', () => {
-  buildAll();
-  const xml = read('research/business-directories/feed.xml');
+test('RSS has no items while no verified directory exists', () => {
+  const { dataRoot, outRoot } = fixture();
+  buildAll({ dataRoot, outRoot });
+  const xml = read(outRoot, 'research/business-directories/feed.xml');
   assert.ok(xml.includes('<channel>'));
   assert.ok(!xml.includes('<item>'));
 });
 
+test('a verified directory appears in RSS and the sitemap', () => {
+  const { dataRoot, outRoot } = fixture({
+    'united-states': [record({ lastVerified: '2026-08-01' })],
+  });
+  buildAll({ dataRoot, outRoot });
+  assert.ok(read(outRoot, 'research/business-directories/feed.xml').includes('<item>'));
+  assert.ok(read(outRoot, 'sitemap-business-directories.xml').includes('/united-states/example-directory/'));
+});
+
+test('the hub never links an un-emitted country', () => {
+  const { dataRoot, outRoot } = fixture();
+  const hub = read(outRoot, HUB) || '';
+  buildAll({ dataRoot, outRoot });
+  const html = read(outRoot, HUB);
+  assert.ok(!html.includes('href="/research/business-directories/germany/"'),
+    'hub must not link a page that was never written');
+  assert.ok(html.includes('coming soon'));
+  assert.ok(html.includes('href="/research/business-directories/united-states/"'));
+  void hub;
+});
+
+test('a second build writes nothing — output is byte-stable', () => {
+  const { dataRoot, outRoot } = fixture();
+  buildAll({ dataRoot, outRoot });
+  const second = buildAll({ dataRoot, outRoot });
+  assert.deepStrictEqual(second.written, []);
+  assert.deepStrictEqual(second.removed, []);
+});
+
 test('no generated page contains the bing placeholder', () => {
-  buildAll();
-  assert.ok(!read('research/business-directories/index.html').includes('PASTE_YOUR_BING'));
+  const { dataRoot, outRoot } = fixture();
+  buildAll({ dataRoot, outRoot });
+  assert.ok(!read(outRoot, HUB).includes('PASTE_YOUR_BING'));
+});
+
+test('the route builder still supports the complete 10x21 matrix', () => {
+  const registry = loadRegistry();
+  const byCountry = {};
+  let n = 0;
+  for (const country of registry.countries) {
+    byCountry[country.slug] = registry.categories.map((category) => {
+      n += 1;
+      return record({
+        id: `id-${n}`, slug: `dir-${n}`, country: country.slug, category: category.slug,
+      });
+    });
+  }
+  const { dataRoot } = fixture(byCountry);
+  const pages = pageModel(loadRegistry(dataRoot));
+  const countries = pages.filter((p) => p.kind === 'country').length;
+  const categories = pages.filter((p) => p.kind === 'category').length;
+  const details = pages.filter((p) => p.kind === 'directory').length;
+  assert.strictEqual(countries, 10);
+  assert.strictEqual(categories, 210);
+  assert.strictEqual(details, 210);
+  assert.strictEqual(pages.length, 431);
 });
 ```
 
@@ -1998,12 +2294,53 @@ ${body}
     </section>`;
 }
 
+const REFERENCE_COUNTRY = 'united-states';
+const REFERENCE_CATEGORY = 'general-business';
+const SECTION_DIR = path.join('research', 'business-directories');
+
+// A country page is written when it is the reference country or has real data.
+function countryEmitted(registry, country) {
+  return country.slug === REFERENCE_COUNTRY
+    || directoriesFor(registry, country.slug).length > 0;
+}
+
+// A category page is written when it has real data, or is the single reference category.
+function categoryEmitted(registry, country, category) {
+  if (directoriesFor(registry, country.slug, category.slug).length > 0) return true;
+  return country.slug === REFERENCE_COUNTRY && category.slug === REFERENCE_CATEGORY;
+}
+
+function toPubDate(isoDate) {
+  return new Date(`${isoDate}T00:00:00Z`).toUTCString();
+}
+
+// Deletes generated index.html files that the current registry no longer produces,
+// then removes any directory left empty. Confined to the section root; never
+// touches feed.xml.
+function pruneStale(sectionRoot, expected) {
+  if (!fs.existsSync(sectionRoot)) return [];
+  const removed = [];
+  const walk = (dir) => {
+    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+      const full = path.join(dir, entry.name);
+      if (entry.isDirectory()) walk(full);
+      else if (entry.name === 'index.html' && !expected.has(full)) {
+        fs.unlinkSync(full);
+        removed.push(full);
+      }
+    }
+    if (dir !== sectionRoot && fs.readdirSync(dir).length === 0) fs.rmdirSync(dir);
+  };
+  walk(sectionRoot);
+  return removed;
+}
+
 function pageModel(registry) {
   const pages = [];
   const countryLinks = registry.countries.map((country) => ({
     name: country.name,
     path: `${BASE}${country.slug}/`,
-    pending: directoriesFor(registry, country.slug).length === 0,
+    pending: !countryEmitted(registry, country),
   }));
 
   const hubMain = [
@@ -2019,7 +2356,8 @@ ${c.metricNote()}`),
   ].join('\n\n');
 
   pages.push({
-    outPath: 'research/business-directories/index.html',
+    kind: 'hub',
+    outPath: path.join(SECTION_DIR, 'index.html'),
     title: 'Business Directories',
     description: 'A country-by-country research index of business directories, with verification dates and sourcing for every metric.',
     canonicalPath: BASE,
@@ -2030,7 +2368,9 @@ ${c.metricNote()}`),
         description: 'A country-by-country research index of business directories.',
         url: seo.absoluteUrl(BASE),
       }),
-      seo.itemList(countryLinks.map((l) => ({ name: l.name, path: l.path }))),
+      // Only emitted routes may appear in ItemList; listing an unwritten page
+      // would point structured data at a 404.
+      seo.itemList(countryLinks.filter((l) => !l.pending).map((l) => ({ name: l.name, path: l.path }))),
       seo.faqPage(HUB_FAQS),
     ],
     breadcrumbTrail: [
@@ -2042,12 +2382,14 @@ ${c.metricNote()}`),
   });
 
   for (const country of registry.countries) {
+    if (!countryEmitted(registry, country)) continue;
+
     const countryPath = `${BASE}${country.slug}/`;
     const countryEntries = directoriesFor(registry, country.slug);
     const categoryLinks = registry.categories.map((category) => ({
       name: category.name,
       path: `${countryPath}categories/${category.slug}/`,
-      pending: directoriesFor(registry, country.slug, category.slug).length === 0,
+      pending: !categoryEmitted(registry, country, category),
     }));
     const faqs = countryFaqs(country, countryEntries.length);
 
@@ -2068,7 +2410,8 @@ ${c.metricNote()}`),
     ].join('\n\n');
 
     pages.push({
-      outPath: path.join('research', 'business-directories', country.slug, 'index.html'),
+      kind: 'country',
+      outPath: path.join(SECTION_DIR, country.slug, 'index.html'),
       title: `Business Directories in ${country.name}`,
       description: `Business directories relevant to companies operating in ${country.titleName}, organised by category and verified by hand.`,
       canonicalPath: countryPath,
@@ -2079,7 +2422,7 @@ ${c.metricNote()}`),
           description: `Business directories for ${country.titleName}.`,
           url: seo.absoluteUrl(countryPath),
         }),
-        seo.itemList(categoryLinks.map((l) => ({ name: l.name, path: l.path }))),
+        seo.itemList(categoryLinks.filter((l) => !l.pending).map((l) => ({ name: l.name, path: l.path }))),
         seo.faqPage(faqs),
       ],
       breadcrumbTrail: [
@@ -2092,6 +2435,8 @@ ${c.metricNote()}`),
     });
 
     for (const category of registry.categories) {
+      if (!categoryEmitted(registry, country, category)) continue;
+
       const catPath = `${countryPath}categories/${category.slug}/`;
       const entries = sortDirectories(directoriesFor(registry, country.slug, category.slug));
 
@@ -2106,7 +2451,8 @@ ${c.metricNote()}`),
       ].join('\n\n');
 
       pages.push({
-        outPath: path.join('research', 'business-directories', country.slug, 'categories', category.slug, 'index.html'),
+        kind: 'category',
+        outPath: path.join(SECTION_DIR, country.slug, 'categories', category.slug, 'index.html'),
         title: `${category.name} directories in ${country.name}`,
         description: `${category.description} This page covers ${country.titleName}.`,
         canonicalPath: catPath,
@@ -2129,47 +2475,98 @@ ${c.metricNote()}`),
         main: catMain,
       });
     }
+
+    // Detail pages exist only for real records, so nothing is emitted in this phase.
+    for (const directory of countryEntries) {
+      const detailPath = `${countryPath}${directory.slug}/`;
+      const category = registry.categories.find((cat) => cat.slug === directory.category);
+
+      pages.push({
+        kind: 'directory',
+        outPath: path.join(SECTION_DIR, country.slug, directory.slug, 'index.html'),
+        title: `${directory.name} — ${country.name}`,
+        description: directory.description,
+        canonicalPath: detailPath,
+        robots: undefined,
+        lastmod: directory.lastVerified || undefined,
+        jsonLd: [seo.directoryWebPage(directory, seo.absoluteUrl(detailPath))],
+        breadcrumbTrail: [
+          { name: 'Home', path: '/' },
+          { name: 'Research', path: '/research/' },
+          { name: 'Business Directories', path: BASE },
+          { name: country.name, path: countryPath },
+          { name: category ? category.name : directory.category,
+            path: `${countryPath}categories/${directory.category}/` },
+          { name: directory.name, path: detailPath },
+        ],
+        main: [
+          `    <article class="page-hero">
+      <h1>${directory.name}</h1>
+      <p class="lede">${directory.description}</p>
+    </article>`,
+          c.directoryDetail(directory),
+        ].join('\n\n'),
+      });
+    }
   }
 
   return pages;
 }
 
 function buildAll(options = {}) {
-  const registry = loadRegistry();
+  const dataRoot = options.dataRoot || PATHS.dataRoot;
+  const outRoot = options.outRoot || PATHS.siteRoot;
+
+  const registry = loadRegistry(dataRoot);
   const errors = validateRegistry(registry);
   if (errors.length) {
     throw new Error(`Registry is invalid:\n${errors.join('\n')}`);
   }
 
-  let pages = pageModel(registry);
-  if (options.country) pages = pages.filter((p) => p.outPath.includes(`/${options.country}/`));
-
+  const pages = pageModel(registry);
   const written = [];
+  const expected = new Set();
+
   for (const page of pages) {
-    const html = renderPage(page);
-    if (writeIfChanged(path.join(PATHS.siteRoot, page.outPath), html)) written.push(page.outPath);
+    const file = path.join(outRoot, page.outPath);
+    expected.add(file);
+    if (writeIfChanged(file, renderPage(page))) written.push(page.outPath);
   }
 
-  const indexable = pageModel(registry)
-    .filter((p) => p.robots === undefined)
-    .map((p) => ({ path: p.canonicalPath }));
-  if (writeIfChanged(path.join(PATHS.siteRoot, 'sitemap-business-directories.xml'), renderSitemap(indexable))) {
+  const removed = pruneStale(path.join(outRoot, SECTION_DIR), expected)
+    .map((file) => path.relative(outRoot, file));
+
+  const indexable = pages
+    .filter((page) => page.robots === undefined)
+    .map((page) => ({ path: page.canonicalPath, lastmod: page.lastmod }));
+  if (writeIfChanged(path.join(outRoot, 'sitemap-business-directories.xml'), renderSitemap(indexable))) {
     written.push('sitemap-business-directories.xml');
   }
 
-  const feedPath = path.join(PATHS.siteRoot, 'research', 'business-directories', 'feed.xml');
-  if (writeIfChanged(feedPath, renderRss([]))) written.push('research/business-directories/feed.xml');
+  const feedItems = registry.directories
+    .filter((d) => d.lastVerified)
+    .sort((a, b) => b.lastVerified.localeCompare(a.lastVerified))
+    .map((d) => ({
+      title: d.name,
+      path: `${BASE}${d.country}/${d.slug}/`,
+      description: d.description,
+      pubDate: toPubDate(d.lastVerified),
+    }));
+  const feedFile = path.join(outRoot, SECTION_DIR, 'feed.xml');
+  if (writeIfChanged(feedFile, renderRss(feedItems))) {
+    written.push(path.join(SECTION_DIR, 'feed.xml'));
+  }
 
-  return { written, pages: pages.length };
+  return { written, removed, pages: pages.length };
 }
 
 if (require.main === module) {
-  const arg = process.argv.find((a) => a.startsWith('--country='));
-  const result = buildAll({ country: arg ? arg.split('=')[1] : undefined });
-  console.log(`Generated ${result.pages} page(s); ${result.written.length} file(s) changed.`);
+  const result = buildAll();
+  console.log(`Generated ${result.pages} page(s); ` +
+    `${result.written.length} written, ${result.removed.length} pruned.`);
 }
 
-module.exports = { buildAll, pageModel };
+module.exports = { buildAll, pageModel, pruneStale, REFERENCE_COUNTRY, REFERENCE_CATEGORY };
 ```
 
 - [ ] **Step 4: Run test to verify it passes**
@@ -2182,10 +2579,18 @@ Expected: PASS, 8 tests
 ```bash
 cd ~/PetroHrys.com
 node scripts/build-business-directories.cjs
-find research/business-directories -name index.html | wc -l   # expect 221
-node scripts/build-business-directories.cjs                   # expect "0 file(s) changed"
-grep -c '<loc>' sitemap-business-directories.xml              # expect 1
+# expect "Generated 3 page(s); 3 written, 0 pruned."
+
+find research/business-directories -name index.html | sort
+# expect exactly:
+#   research/business-directories/index.html
+#   research/business-directories/united-states/categories/general-business/index.html
+#   research/business-directories/united-states/index.html
+
+node scripts/build-business-directories.cjs   # expect "0 written, 0 pruned"
+grep -c '<loc>' sitemap-business-directories.xml               # expect 1
 grep -L 'noindex,follow' $(find research/business-directories -name index.html)  # expect only the hub
+grep -c '<item>' research/business-directories/feed.xml || true # expect 0
 ```
 
 - [ ] **Step 6: Commit**
@@ -2429,11 +2834,22 @@ test('no generated page uses the apex origin', () => {
   assert.ok(!/https:\/\/petrohrys\.com/.test(hub));
 });
 
-test('221 section pages exist', () => {
-  const count = execFileSync('bash',
-    ['-c', 'find research/business-directories -name index.html | wc -l'],
+test('only the lean scaffold is committed to the site', () => {
+  const listed = execFileSync('bash',
+    ['-c', 'find research/business-directories -name index.html | sort'],
+    { cwd: root, encoding: 'utf8' }).trim().split('\n');
+  assert.deepStrictEqual(listed, [
+    'research/business-directories/index.html',
+    'research/business-directories/united-states/categories/general-business/index.html',
+    'research/business-directories/united-states/index.html',
+  ]);
+});
+
+test('no directory detail page exists while there is no real data', () => {
+  const dirs = execFileSync('bash',
+    ['-c', 'ls research/business-directories/united-states/ | grep -v categories | grep -v index.html || true'],
     { cwd: root, encoding: 'utf8' }).trim();
-  assert.strictEqual(count, '221');
+  assert.strictEqual(dirs, '');
 });
 ```
 

@@ -95,9 +95,19 @@ Every page is emitted as `index.html` inside its own folder, matching the site's
 
 The brief put directories at `{country}/{slug}`, which collides with category slugs — a directory slugged `saas` would fight the SaaS category. Categories are therefore nested under a `/categories/` segment. Directory URLs keep exactly the shape the brief specified. As a second guard, the validator treats all 21 category slugs plus `categories`, `page`, and `feed.xml` as reserved and rejects any directory that claims one.
 
-### Initial scale
+### Initial scale — lean reference scaffold
 
-1 hub + 10 countries + (10 × 21) categories = **221 pages**. Zero directory pages, because there is no real data yet.
+The full 10 × 21 matrix is **supported but not emitted**. Only three pages are written in this phase:
+
+1. the hub `/research/business-directories/` — indexable;
+2. the reference country `/research/business-directories/united-states/`;
+3. the reference category `/research/business-directories/united-states/categories/general-business/`.
+
+Every other country and category page is generated **on demand**, only once the registry holds a real directory record for that route. Directory detail pages exist as a template in code and tests, and are emitted only for real records — so none exist yet. Hundreds of empty HTML files are never created merely to validate routing; the full matrix is exercised through tests instead.
+
+**Pruning:** when a record is removed and a route becomes empty, the generator deletes the now-stale page and any directory left empty. Pruning is confined to `research/business-directories/` and never touches `feed.xml`.
+
+**Un-emitted routes are never linked.** The hub and country pages list them as non-linked "coming soon" text, and they are excluded from `ItemList` structured data. Linking a page that was not written would advertise a 404.
 
 Countries: United States, Germany, United Kingdom, France, Spain, Italy, Canada, Australia, Czech Republic, Poland.
 
@@ -280,12 +290,13 @@ Tests under `scripts/tests/`, run with `node --test scripts/tests/`, cover: regi
 
 ## 16. Acceptance criteria
 
-1. `node scripts/build-business-directories.cjs` generates 221 pages, a section sitemap, and an RSS feed.
-2. Running it twice produces an empty `git diff`.
+1. `node scripts/build-business-directories.cjs` generates exactly 3 pages (hub, reference country, reference category), a section sitemap, and an RSS feed. No directory detail page exists.
+2. Running it twice produces an empty `git diff` and reports `0 written, 0 pruned`.
 3. `node scripts/validate-business-directories.cjs` exits 0.
 4. `node --test scripts/tests/` passes.
 5. Every generated page validates as HTML and carries canonical, OG, Twitter, and correct JSON-LD, all on `https://www.petrohrys.com/`.
-6. Every country and category page currently carries `noindex,follow` and appears in neither sitemap nor RSS.
+6. The reference country and category pages carry `noindex,follow` and appear in neither sitemap nor RSS. No other country or category page exists on disk.
+11. Adding a real record emits its country, category, and detail pages; removing the last record prunes them again. Both directions are covered by tests.
 7. `sitemap.xml` and `css/petrohrys.css` are byte-identical. The only edits to existing files are: one nav `<li>` added to each of the 8 English editorial pages, one added section in `/research/index.html`, and one added `Sitemap:` line in `robots.txt`. The 23 legacy pages and all 33 localised pages are byte-identical.
 8. Sorting, filtering, and search work with JavaScript enabled and degrade to the prerendered default order without it.
 9. No fabricated directory, metric, or placeholder text appears anywhere in the output.
