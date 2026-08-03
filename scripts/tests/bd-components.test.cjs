@@ -121,7 +121,8 @@ test('breadcrumb paths are escaped', () => {
 // --- unsafe URLs ------------------------------------------------------------
 
 test('unsafe url schemes are never rendered as links', () => {
-  for (const bad of ['javascript:alert(1)', 'data:text/html;base64,PHN2Zz4=', 'file:///etc/passwd', 'not a url', '']) {
+  for (const bad of ['javascript:alert(1)', 'data:text/html;base64,PHN2Zz4=', 'file:///etc/passwd',
+    'http://example.com', 'ftp://example.com', 'not a url', '']) {
     const html = c.externalLinkCta({ url: bad });
     assert.ok(!html.includes('<a '), `scheme rendered as link: ${bad}`);
     assert.ok(html.includes('no usable address recorded'));

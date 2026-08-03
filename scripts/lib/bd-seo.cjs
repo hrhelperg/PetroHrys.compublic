@@ -45,8 +45,10 @@ function absoluteUrl(pathname) {
   return `${ORIGIN}${p}`;
 }
 
-// Outbound directory websites are registry data, so treat them as untrusted:
-// anything that is not a well-formed http(s) URL becomes null and is omitted.
+// Outbound directory websites are registry data, so treat them as untrusted.
+// HTTPS only, matching the registry validator exactly: two components
+// disagreeing about what a valid URL is means the looser one eventually
+// renders something the stricter one rejected.
 function safeExternalUrl(value) {
   if (typeof value !== 'string') return null;
   let parsed;
@@ -55,7 +57,7 @@ function safeExternalUrl(value) {
   } catch {
     return null;
   }
-  if (parsed.protocol !== 'https:' && parsed.protocol !== 'http:') return null;
+  if (parsed.protocol !== 'https:') return null;
   return parsed.toString();
 }
 

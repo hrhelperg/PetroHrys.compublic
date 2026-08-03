@@ -191,7 +191,18 @@ The default order is **prerendered into the HTML**. `js/business-directories.js`
 
 **Search** is a client-side substring match over prerendered name, description, and recommended industries.
 
-**Pagination** is genuinely static: `/page/2/`, 25 entries per page, `rel="prev"`/`rel="next"` link tags, and a self-referential canonical on each page. With no data, no page 2 is generated.
+**Pagination is DEFERRED and not implemented in this release.**
+
+The current release emits **one page per populated country and category**, with no entry cap. A `pagination()` component exists and is unit-tested, but the generator does not call it and contains no page-size logic. Nothing in the shipped output paginates.
+
+This cannot affect the current release, which contains zero directory records, so no listing can exceed a single page.
+
+**Precondition on the first large directory import:** two findings must be closed together before any substantial data is added —
+
+- **M-a** pagination itself (`/page/2/`, a fixed page size, `rel="prev"`/`rel="next"`, self-referential canonicals);
+- **M-b** `directoryTable` currently sorts its own input, so a caller cannot supply an order. Pagination must slice a known sequence, so M-b has to be fixed first or alongside.
+
+Until then, a country or category with many verified entries would render one unbounded page.
 
 ## 8. SEO
 

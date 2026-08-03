@@ -63,11 +63,40 @@ test('no builder ever emits an apex-domain URL', () => {
   }
 });
 
-test('safeExternalUrl normalises valid urls and rejects junk', () => {
+test('safeExternalUrl normalises valid https urls', () => {
   assert.strictEqual(seo.safeExternalUrl('https://example.com'), 'https://example.com/');
-  assert.strictEqual(seo.safeExternalUrl('not a url'), null);
-  assert.strictEqual(seo.safeExternalUrl('javascript:alert(1)'), null);
-  assert.strictEqual(seo.safeExternalUrl(null), null);
+  assert.strictEqual(seo.safeExternalUrl('  https://example.com/list  '), 'https://example.com/list');
+});
+
+test('safeExternalUrl accepts https only, matching the registry validator', () => {
+  // The validator rejects any non-https website. This must agree with it, or
+  // the looser rule eventually renders something the stricter one refused.
+  assert.strictEqual(seo.safeExternalUrl('http://example.com'), null, 'http must be rejected');
+  assert.strictEqual(seo.safeExternalUrl('HTTP://EXAMPLE.COM'), null);
+});
+
+test('safeExternalUrl rejects every dangerous or malformed scheme', () => {
+  const rejected = [
+    'javascript:alert(1)',
+    'JavaScript:alert(1)',
+    'data:text/html;base64,PHNjcmlwdD5hbGVydCgxKTwvc2NyaXB0Pg==',
+    'file:///etc/passwd',
+    'ftp://example.com',
+    'vbscript:msgbox(1)',
+    'not a url',
+    '//example.com',
+    '',
+    '   ',
+  ];
+  for (const value of rejected) {
+    assert.strictEqual(seo.safeExternalUrl(value), null, `accepted ${JSON.stringify(value)}`);
+  }
+});
+
+test('safeExternalUrl rejects non-string input', () => {
+  for (const value of [null, undefined, 42, {}, [], true]) {
+    assert.strictEqual(seo.safeExternalUrl(value), null, `accepted ${JSON.stringify(value)}`);
+  }
 });
 
 test('hub metadata is complete and indexable', () => {

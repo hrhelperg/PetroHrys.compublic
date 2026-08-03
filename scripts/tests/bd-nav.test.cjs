@@ -1,0 +1,158 @@
+// scripts/tests/bd-nav.test.cjs
+'use strict';
+const test = require('node:test');
+const assert = require('node:assert');
+const fs = require('node:fs');
+const path = require('node:path');
+const { injectNav, EDITORIAL_PAGES, ITEM } = require('../inject-research-nav.cjs');
+
+const root = path.resolve(__dirname, '..', '..');
+const read = (rel) => fs.readFileSync(path.join(root, rel), 'utf8');
+
+const NAV = `      <ul class="nav-primary">
+        <li><a href="/work/">Work</a></li>
+        <li><a href="/writing/" aria-current="page">Research &amp; Writing</a></li>
+        <li><a href="/about/">About</a></li>
+      </ul>`;
+
+test('exactly the eight English editorial pages are targeted', () => {
+  assert.deepStrictEqual([...EDITORIAL_PAGES].sort(), [
+    'about/index.html', 'ai-systems/index.html', 'essays/index.html',
+    'index.html', 'infrastructure/index.html', 'research/index.html',
+    'work/index.html', 'writing/index.html',
+  ]);
+});
+
+test('the item is inserted directly after Work', () => {
+  const out = injectNav(NAV);
+  assert.ok(out.includes('Research Center'));
+  assert.ok(out.indexOf('>Work<') < out.indexOf('Research Center'));
+  assert.ok(out.indexOf('Research Center') < out.indexOf('Research &amp; Writing'));
+});
+
+test('injection is idempotent', () => {
+  const once = injectNav(NAV);
+  assert.strictEqual(injectNav(once), once);
+  assert.strictEqual(injectNav(injectNav(injectNav(NAV))), once);
+  assert.strictEqual((injectNav(once).match(/Research Center/g) || []).length, 1);
+});
+
+test('existing labels, hrefs and ordering are untouched', () => {
+  const out = injectNav(NAV);
+  assert.ok(out.includes('<li><a href="/work/">Work</a></li>'));
+  assert.ok(out.includes('<li><a href="/writing/" aria-current="page">Research &amp; Writing</a></li>'));
+  assert.ok(out.includes('<li><a href="/about/">About</a></li>'));
+});
+
+test('the injected item carries no aria-current', () => {
+  // A second aria-current in the same list would be invalid; the existing one
+  // belongs to Research & Writing and is left exactly as it was.
+  assert.ok(ITEM.indexOf('aria-current') === -1);
+  const out = injectNav(NAV);
+  assert.strictEqual((out.match(/aria-current/g) || []).length, 1);
+});
+
+test('a nav without a Work item is left completely alone', () => {
+  const other = '<ul class="top-nav"><li><a href="#features">Features</a></li></ul>';
+  assert.strictEqual(injectNav(other), other);
+});
+
+// --- state of the repository after the injector has run ---------------------
+
+test('every editorial page carries the item exactly twice', () => {
+  for (const page of EDITORIAL_PAGES) {
+    const matches = read(page).match(/Research Center/g) || [];
+    assert.strictEqual(matches.length, 2, `${page} has ${matches.length} (expected desktop + mobile)`);
+  }
+});
+
+test('both the desktop list and the mobile panel are updated', () => {
+  for (const page of EDITORIAL_PAGES) {
+    const html = read(page);
+    const panelStart = html.indexOf('nav-mobile-panel');
+    assert.ok(panelStart > -1, `${page} has no mobile panel`);
+    assert.ok(html.slice(0, panelStart).includes('Research Center'), `${page}: desktop list missing`);
+    assert.ok(html.slice(panelStart).includes('Research Center'), `${page}: mobile panel missing`);
+  }
+});
+
+test('no localised page was touched', () => {
+  const localised = [];
+  for (const dir of ['es', 'fr', 'de']) {
+    const walk = (d) => {
+      for (const entry of fs.readdirSync(path.join(root, d), { withFileTypes: true })) {
+        const rel = path.join(d, entry.name);
+        if (entry.isDirectory()) walk(rel);
+        else if (entry.name.endsWith('.html')) localised.push(rel);
+      }
+    };
+    walk(dir);
+  }
+  assert.ok(localised.length > 0);
+  for (const page of localised) {
+    assert.ok(!read(page).includes('Research Center'), `${page} was modified`);
+  }
+});
+
+test('no legacy inline-style page was touched', () => {
+  for (const page of ['pdf-editor/index.html', 'blog/index.html', 'privacy/index.html',
+    'webmasterid/index.html', 'terms/index.html', 'startups/index.html']) {
+    assert.ok(!read(page).includes('Research Center'), `${page} was modified`);
+  }
+});
+
+test('each editorial page still has exactly one aria-current in nav-primary', () => {
+  for (const page of EDITORIAL_PAGES) {
+    const html = read(page);
+    const start = html.indexOf('<ul class="nav-primary">');
+    const nav = html.slice(start, html.indexOf('</ul>', start));
+    const count = (nav.match(/aria-current/g) || []).length;
+    assert.ok(count <= 1, `${page}: ${count} current items in one nav list`);
+  }
+});
+
+test('every editorial page keeps its original nav items', () => {
+  for (const page of EDITORIAL_PAGES) {
+    const html = read(page);
+    for (const label of ['>Work<', '>Research &amp; Writing<', '>About<']) {
+      assert.ok(html.includes(label), `${page} lost ${label}`);
+    }
+    assert.strictEqual((html.match(/class="nav-lang"/g) || []).length, 2, `${page}: language switcher changed`);
+  }
+});
+
+test('the injected link resolves to a real page', () => {
+  assert.ok(fs.existsSync(path.join(root, 'research', 'index.html')));
+});
+
+// --- the additive parent link ----------------------------------------------
+
+test('the research hub links to Business Directories', () => {
+  const html = read('research/index.html');
+  assert.ok(html.includes('/research/business-directories/'));
+});
+
+test('the research hub keeps all of its original sections', () => {
+  const html = read('research/index.html');
+  for (const anchor of ['id="scope"', 'id="entries"', 'id="related"']) {
+    assert.ok(html.includes(anchor), `lost ${anchor}`);
+  }
+  assert.ok(html.includes('Studies of search systems, indexing behavior, and crawl architecture.'));
+});
+
+test('the added section reuses existing markup patterns only', () => {
+  const html = read('research/index.html');
+  const start = html.indexOf('id="collections"');
+  assert.ok(start > -1, 'collections section missing');
+  const section = html.slice(html.lastIndexOf('<section', start), html.indexOf('</section>', start));
+  assert.ok(section.includes('class="prose"'), 'must reuse the existing .prose pattern');
+  assert.ok(!/style="/.test(section), 'no inline styles');
+  assert.ok(!/class="bd-/.test(section), 'no new design system classes on the hand-authored page');
+});
+
+test('the research hub gains no new stylesheet or script', () => {
+  const html = read('research/index.html');
+  assert.ok(!html.includes('business-directories.css'));
+  assert.ok(!html.includes('business-directories.js'));
+  assert.ok(!html.includes('bd-order.js'));
+});
