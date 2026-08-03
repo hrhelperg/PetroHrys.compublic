@@ -1442,8 +1442,28 @@ git commit -m "feat(bd): add machine-readable registry validator"
 - Test: `scripts/tests/bd-seo.test.cjs`
 
 **Interfaces:**
-- Consumes: `bd-util.cjs` → `escapeHtml`
-- Produces: `ORIGIN: string`, `absoluteUrl(path): string`, `breadcrumbList(trail): object`, `collectionPage({name, description, url}): object`, `itemList(items): object`, `faqPage(faqs): object`, `directoryWebPage(directory, url): object`, `renderJsonLd(graph): string`
+- Consumes: nothing (pure module)
+- Produces: `ORIGIN`, `SeoError`, `absoluteUrl(path)`, `safeExternalUrl(value)`, `renderJsonLd(graph)`, primitives `breadcrumbList`, `collectionPage`, `webPage`, `itemList`, `faqPage`, `organisationAbout`, and the four page builders `buildHubMeta`, `buildCountryMeta`, `buildCategoryMeta`, `buildDirectoryMeta`.
+
+**Builder result shape** (identical keys for all four page types, so `bd-render` consumes one contract):
+
+```
+{ title, fullTitle, description, canonicalPath, canonical, robots,
+  openGraph: { title, description, url, type, siteName, image },
+  twitter:   { card, site, title, description, image },
+  breadcrumbTrail: [{ name, path }],
+  jsonLd: [ ...ordered graph nodes ] }
+```
+
+**SEO contract:**
+- **Canonical host is hard-coded.** `ORIGIN` is a module constant; no environment variable, no hostname detection. Apex URLs can never be produced.
+- **Path hygiene.** `absoluteUrl` strips query strings and fragments, collapses duplicate slashes, forces a leading slash, rejects `..` segments, and rejects any absolute URL whose origin is not `ORIGIN`.
+- **`itemList` returns `null` when empty**, and builders drop nulls from the graph, so an `ItemList` is *omitted* rather than emitted with zero entries.
+- **`FAQPage` only when the caller supplies approved FAQ content.** The module never invents questions.
+- **Banned types:** `AggregateRating`, `Review`, `Product`, `SearchAction`. The PetroHrys Score is first-party editorial and must never be dressed as review markup; there is no site search endpoint, so `SearchAction` would be a false claim.
+- **Descriptions carry no counts or metrics.** They describe the page's purpose only, so they stay true whatever the data holds.
+- **Deterministic.** Fixed key insertion order, no timestamps, no random ids. Identical input yields byte-identical output.
+- **Serialisation safety.** `renderJsonLd` escapes `<`, `>`, and U+2028/U+2029, making `</script>` breakout impossible while preserving all other Unicode.
 
 - [ ] **Step 1: Write the failing test**
 
@@ -1454,69 +1474,303 @@ const test = require('node:test');
 const assert = require('node:assert');
 const seo = require('../lib/bd-seo.cjs');
 
-test('origin is the canonical www host', () => {
+const COUNTRY = { slug: 'united-states', name: 'United States', titleName: 'the United States' };
+const CATEGORY = { slug: 'saas', name: 'SaaS', description: 'Listing sites focused on subscription software.' };
+const DIRECTORY = {
+  id: 'us-example', slug: 'example', name: 'Example Directory',
+  website: 'https://example.com', description: 'A directory.',
+  country: 'united-states', category: 'saas',
+};
+const CAT_LINKS = [{ name: 'SaaS', path: '/research/business-directories/united-states/categories/saas/' }];
+const COUNTRY_LINKS = [{ name: 'United States', path: '/research/business-directories/united-states/' }];
+
+const types = (meta) => meta.jsonLd.map((node) => node['@type']);
+const node = (meta, type) => meta.jsonLd.find((n) => n['@type'] === type);
+
+test('ORIGIN is the canonical www host', () => {
   assert.strictEqual(seo.ORIGIN, 'https://www.petrohrys.com');
 });
 
 test('absoluteUrl joins paths without doubling slashes', () => {
   assert.strictEqual(seo.absoluteUrl('/research/business-directories/'),
     'https://www.petrohrys.com/research/business-directories/');
+  assert.strictEqual(seo.absoluteUrl('research/x/'), 'https://www.petrohrys.com/research/x/');
 });
 
-test('breadcrumbList numbers positions from 1 and uses absolute urls', () => {
-  const ld = seo.breadcrumbList([
-    { name: 'Home', path: '/' },
-    { name: 'Research', path: '/research/' },
-  ]);
-  assert.strictEqual(ld['@type'], 'BreadcrumbList');
-  assert.strictEqual(ld.itemListElement[0].position, 1);
-  assert.strictEqual(ld.itemListElement[1].item, 'https://www.petrohrys.com/research/');
+test('absoluteUrl collapses duplicate slashes', () => {
+  assert.strictEqual(seo.absoluteUrl('//research///x//'), 'https://www.petrohrys.com/research/x/');
 });
 
-test('itemList numbers entries and preserves order', () => {
-  const ld = seo.itemList([
-    { name: 'A', path: '/a/' },
-    { name: 'B', path: '/b/' },
-  ]);
-  assert.strictEqual(ld['@type'], 'ItemList');
-  assert.strictEqual(ld.numberOfItems, 2);
-  assert.strictEqual(ld.itemListElement[1].name, 'B');
+test('absoluteUrl strips query strings and fragments', () => {
+  assert.strictEqual(seo.absoluteUrl('/a/?utm_source=x#frag'), 'https://www.petrohrys.com/a/');
 });
 
-test('itemList on an empty array reports zero items', () => {
-  const ld = seo.itemList([]);
-  assert.strictEqual(ld.numberOfItems, 0);
-  assert.deepStrictEqual(ld.itemListElement, []);
+test('absoluteUrl rejects traversal segments', () => {
+  assert.throws(() => seo.absoluteUrl('/a/../../etc/passwd'), seo.SeoError);
 });
 
-test('faqPage builds Question and Answer nodes', () => {
-  const ld = seo.faqPage([{ q: 'Why?', a: 'Because.' }]);
-  assert.strictEqual(ld['@type'], 'FAQPage');
-  assert.strictEqual(ld.mainEntity[0]['@type'], 'Question');
-  assert.strictEqual(ld.mainEntity[0].acceptedAnswer.text, 'Because.');
+test('absoluteUrl rejects a URL on any other origin', () => {
+  assert.throws(() => seo.absoluteUrl('https://evil.example/x'), seo.SeoError);
+  assert.throws(() => seo.absoluteUrl('https://petrohrys.com/x'), seo.SeoError);
 });
 
-test('no builder ever emits AggregateRating or Review', () => {
-  const rendered = seo.renderJsonLd([
-    seo.collectionPage({ name: 'X', description: 'Y', url: seo.absoluteUrl('/x/') }),
-    seo.directoryWebPage(
-      { name: 'D', description: 'Desc', website: 'https://d.example' },
-      seo.absoluteUrl('/d/')),
-  ]);
-  assert.ok(!rendered.includes('AggregateRating'));
-  assert.ok(!rendered.includes('"Review"'));
+test('absoluteUrl rejects empty and non-string input', () => {
+  assert.throws(() => seo.absoluteUrl(''), seo.SeoError);
+  assert.throws(() => seo.absoluteUrl(null), seo.SeoError);
 });
 
-test('renderJsonLd escapes a closing script tag in data', () => {
-  const rendered = seo.renderJsonLd([{ '@type': 'WebPage', name: '</script><b>x' }]);
-  assert.ok(!rendered.includes('</script><b>'));
-  assert.ok(rendered.includes('<\\/script>'));
+test('no builder ever emits an apex-domain URL', () => {
+  const metas = [
+    seo.buildHubMeta({ countries: COUNTRY_LINKS }),
+    seo.buildCountryMeta({ country: COUNTRY, categories: CAT_LINKS, directories: [DIRECTORY] }),
+    seo.buildCategoryMeta({ country: COUNTRY, category: CATEGORY, directories: [DIRECTORY] }),
+    seo.buildDirectoryMeta({ country: COUNTRY, category: CATEGORY, directory: DIRECTORY }),
+  ];
+  for (const meta of metas) {
+    const blob = JSON.stringify(meta);
+    assert.ok(!/https:\/\/petrohrys\.com/.test(blob), 'apex URL leaked');
+    assert.ok(meta.canonical.startsWith('https://www.petrohrys.com/'));
+  }
+});
+
+test('safeExternalUrl normalises valid urls and rejects junk', () => {
+  assert.strictEqual(seo.safeExternalUrl('https://example.com'), 'https://example.com/');
+  assert.strictEqual(seo.safeExternalUrl('not a url'), null);
+  assert.strictEqual(seo.safeExternalUrl('javascript:alert(1)'), null);
+  assert.strictEqual(seo.safeExternalUrl(null), null);
+});
+
+test('hub metadata is complete and indexable', () => {
+  const meta = seo.buildHubMeta({ countries: COUNTRY_LINKS, faqs: [{ q: 'Why?', a: 'Because.' }] });
+  assert.strictEqual(meta.canonical, 'https://www.petrohrys.com/research/business-directories/');
+  assert.strictEqual(meta.robots, undefined, 'hub must be indexable');
+  assert.strictEqual(meta.fullTitle, 'Business Directories — Petro Hrys');
+  assert.strictEqual(meta.openGraph.url, meta.canonical);
+  assert.strictEqual(meta.openGraph.siteName, 'Petro Hrys');
+  assert.strictEqual(meta.twitter.card, 'summary_large_image');
+  assert.ok(meta.description.length > 0);
+});
+
+test('hub emits CollectionPage, ItemList, FAQPage and BreadcrumbList', () => {
+  const meta = seo.buildHubMeta({ countries: COUNTRY_LINKS, faqs: [{ q: 'Why?', a: 'Because.' }] });
+  assert.deepStrictEqual(types(meta), ['CollectionPage', 'ItemList', 'FAQPage', 'BreadcrumbList']);
+});
+
+test('hub omits ItemList when no country is emitted', () => {
+  const meta = seo.buildHubMeta({ countries: [] });
+  assert.ok(!types(meta).includes('ItemList'), 'empty ItemList must be omitted');
+});
+
+test('hub omits FAQPage when no approved faqs are supplied', () => {
+  const meta = seo.buildHubMeta({ countries: COUNTRY_LINKS });
+  assert.ok(!types(meta).includes('FAQPage'));
+});
+
+test('populated country metadata is indexable with an ItemList', () => {
+  const meta = seo.buildCountryMeta({
+    country: COUNTRY, categories: CAT_LINKS, directories: [DIRECTORY],
+    faqs: [{ q: 'Q', a: 'A' }],
+  });
+  assert.strictEqual(meta.robots, undefined);
+  assert.strictEqual(meta.canonical, 'https://www.petrohrys.com/research/business-directories/united-states/');
+  assert.ok(types(meta).includes('ItemList'));
+  assert.ok(types(meta).includes('FAQPage'));
+  assert.strictEqual(meta.title, 'Business Directories in United States');
+});
+
+test('empty country is noindex,follow and omits ItemList', () => {
+  const meta = seo.buildCountryMeta({ country: COUNTRY, categories: CAT_LINKS, directories: [] });
+  assert.strictEqual(meta.robots, 'noindex,follow');
+  assert.ok(!types(meta).includes('ItemList'));
+  assert.ok(types(meta).includes('CollectionPage'));
+  assert.ok(types(meta).includes('BreadcrumbList'));
+});
+
+test('populated category metadata is indexable with an ItemList', () => {
+  const meta = seo.buildCategoryMeta({ country: COUNTRY, category: CATEGORY, directories: [DIRECTORY] });
+  assert.strictEqual(meta.robots, undefined);
+  assert.strictEqual(meta.canonical,
+    'https://www.petrohrys.com/research/business-directories/united-states/categories/saas/');
+  assert.ok(types(meta).includes('ItemList'));
+});
+
+test('empty category is noindex,follow and omits ItemList', () => {
+  const meta = seo.buildCategoryMeta({ country: COUNTRY, category: CATEGORY, directories: [] });
+  assert.strictEqual(meta.robots, 'noindex,follow');
+  assert.ok(!types(meta).includes('ItemList'));
+});
+
+test('category never emits FAQPage', () => {
+  const meta = seo.buildCategoryMeta({ country: COUNTRY, category: CATEGORY, directories: [DIRECTORY] });
+  assert.ok(!types(meta).includes('FAQPage'));
+});
+
+test('directory detail emits WebPage with an Organization about', () => {
+  const meta = seo.buildDirectoryMeta({ country: COUNTRY, category: CATEGORY, directory: DIRECTORY });
+  assert.strictEqual(meta.robots, undefined);
+  assert.strictEqual(meta.canonical,
+    'https://www.petrohrys.com/research/business-directories/united-states/example/');
+  const page = node(meta, 'WebPage');
+  assert.strictEqual(page.about['@type'], 'Organization');
+  assert.strictEqual(page.about.name, 'Example Directory');
+  assert.strictEqual(page.about.url, 'https://example.com/');
+});
+
+test('directory about omits url when the website is unusable', () => {
+  const meta = seo.buildDirectoryMeta({
+    country: COUNTRY, category: CATEGORY,
+    directory: { ...DIRECTORY, website: 'javascript:alert(1)' },
+  });
+  const page = node(meta, 'WebPage');
+  assert.ok(!('url' in page.about), 'must not emit a bogus about.url');
+  assert.ok(!JSON.stringify(meta).includes('javascript:'));
+});
+
+test('breadcrumb hierarchy is correct for every page type', () => {
+  assert.deepStrictEqual(
+    seo.buildHubMeta({ countries: [] }).breadcrumbTrail.map((b) => b.name),
+    ['Home', 'Research', 'Business Directories']);
+  assert.deepStrictEqual(
+    seo.buildCountryMeta({ country: COUNTRY, categories: [], directories: [] })
+      .breadcrumbTrail.map((b) => b.name),
+    ['Home', 'Research', 'Business Directories', 'United States']);
+  assert.deepStrictEqual(
+    seo.buildCategoryMeta({ country: COUNTRY, category: CATEGORY, directories: [] })
+      .breadcrumbTrail.map((b) => b.name),
+    ['Home', 'Research', 'Business Directories', 'United States', 'SaaS']);
+  assert.deepStrictEqual(
+    seo.buildDirectoryMeta({ country: COUNTRY, category: CATEGORY, directory: DIRECTORY })
+      .breadcrumbTrail.map((b) => b.name),
+    ['Home', 'Research', 'Business Directories', 'United States', 'SaaS', 'Example Directory']);
+});
+
+test('BreadcrumbList positions start at 1 and use absolute urls', () => {
+  const meta = seo.buildCategoryMeta({ country: COUNTRY, category: CATEGORY, directories: [] });
+  const crumbs = node(meta, 'BreadcrumbList').itemListElement;
+  assert.deepStrictEqual(crumbs.map((c) => c.position), [1, 2, 3, 4, 5]);
+  assert.strictEqual(crumbs[1].item, 'https://www.petrohrys.com/research/');
+});
+
+test('ItemList preserves input order and numbers from 1', () => {
+  const directories = [
+    { ...DIRECTORY, id: 'a', slug: 'aaa', name: 'Aaa' },
+    { ...DIRECTORY, id: 'b', slug: 'bbb', name: 'Bbb' },
+    { ...DIRECTORY, id: 'c', slug: 'ccc', name: 'Ccc' },
+  ];
+  const list = node(seo.buildCategoryMeta({ country: COUNTRY, category: CATEGORY, directories }), 'ItemList');
+  assert.strictEqual(list.numberOfItems, 3);
+  assert.deepStrictEqual(list.itemListElement.map((i) => i.name), ['Aaa', 'Bbb', 'Ccc']);
+  assert.deepStrictEqual(list.itemListElement.map((i) => i.position), [1, 2, 3]);
+  assert.strictEqual(list.itemListElement[0].url,
+    'https://www.petrohrys.com/research/business-directories/united-states/aaa/');
+});
+
+test('itemList returns null for an empty array', () => {
+  assert.strictEqual(seo.itemList([]), null);
+});
+
+test('no builder emits a banned schema type', () => {
+  const metas = [
+    seo.buildHubMeta({ countries: COUNTRY_LINKS, faqs: [{ q: 'Q', a: 'A' }] }),
+    seo.buildCountryMeta({ country: COUNTRY, categories: CAT_LINKS, directories: [DIRECTORY], faqs: [{ q: 'Q', a: 'A' }] }),
+    seo.buildCategoryMeta({ country: COUNTRY, category: CATEGORY, directories: [DIRECTORY] }),
+    seo.buildDirectoryMeta({ country: COUNTRY, category: CATEGORY, directory: DIRECTORY }),
+  ];
+  // Structural walk over @type rather than a substring scan: a real category is
+  // named "Review Sites", and a naive scan for "Review" would false-fail on it.
+  const BANNED = new Set(['AggregateRating', 'Review', 'Product', 'SearchAction']);
+  const walk = (n) => {
+    if (Array.isArray(n)) return n.forEach(walk);
+    if (n && typeof n === 'object') {
+      if (typeof n['@type'] === 'string') {
+        assert.ok(!BANNED.has(n['@type']), `banned @type emitted: ${n['@type']}`);
+      }
+      return Object.values(n).forEach(walk);
+    }
+    return undefined;
+  };
+  for (const meta of metas) {
+    walk(meta.jsonLd);
+    const blob = JSON.stringify(meta);
+    for (const token of ['ratingValue', 'reviewRating', 'aggregateRating', 'priceCurrency', 'bestRating']) {
+      assert.ok(!blob.includes(token), `banned property emitted: ${token}`);
+    }
+  }
+});
+
+test('a category literally named "Review Sites" is still allowed', () => {
+  const meta = seo.buildCategoryMeta({
+    country: COUNTRY,
+    category: { slug: 'review-sites', name: 'Review Sites', description: 'Platforms publishing customer reviews.' },
+    directories: [DIRECTORY],
+  });
+  assert.ok(meta.title.includes('Review Sites'));
+  assert.ok(!meta.jsonLd.some((n) => n['@type'] === 'Review'));
+});
+
+test('renderJsonLd makes a script breakout impossible', () => {
+  const html = seo.renderJsonLd([{ '@type': 'WebPage', name: '</script><img src=x onerror=alert(1)>' }]);
+  assert.ok(!html.includes('</script><img'));
+  assert.ok(!/<\/script\s*>/i.test(html.replace(/<\/script>\s*$/, '')));
+  assert.ok(html.includes('\\u003c'));
+});
+
+test('renderJsonLd escapes line and paragraph separators', () => {
+  const LS = '\u2028';
+  const PS = '\u2029';
+  const html = seo.renderJsonLd([{ '@type': 'WebPage', name: `a${LS}b${PS}c` }]);
+  assert.ok(!html.includes(LS), 'raw U+2028 must not survive');
+  assert.ok(!html.includes(PS), 'raw U+2029 must not survive');
+  assert.ok(html.includes('\\u2028'));
+  assert.ok(html.includes('\\u2029'));
+});
+
+test('renderJsonLd preserves non-ASCII Unicode', () => {
+  const html = seo.renderJsonLd([{ '@type': 'WebPage', name: 'Česká republika — 東京 — Ünïcodé' }]);
+  assert.ok(html.includes('Česká republika'));
+  assert.ok(html.includes('東京'));
+  assert.ok(html.includes('Ünïcodé'));
+});
+
+test('special characters in registry data survive into JSON-LD safely', () => {
+  const meta = seo.buildDirectoryMeta({
+    country: COUNTRY, category: CATEGORY,
+    directory: { ...DIRECTORY, name: 'A & B <Ltd> "quoted"', description: "O'Neil & Co" },
+  });
+  const html = seo.renderJsonLd(meta.jsonLd);
+  assert.ok(html.includes('A & B \\u003cLtd\\u003e'));
+  assert.ok(!html.includes('<Ltd>'));
+});
+
+test('repeated calls produce byte-identical output', () => {
+  const build = () => seo.renderJsonLd(seo.buildCountryMeta({
+    country: COUNTRY, categories: CAT_LINKS, directories: [DIRECTORY], faqs: [{ q: 'Q', a: 'A' }],
+  }).jsonLd);
+  const runs = new Set(Array.from({ length: 25 }, build));
+  assert.strictEqual(runs.size, 1);
+});
+
+test('output contains no build-time timestamp or random id', () => {
+  const blob = JSON.stringify(seo.buildHubMeta({ countries: COUNTRY_LINKS }));
+  assert.ok(!/\d{4}-\d{2}-\d{2}T\d{2}:/.test(blob), 'no ISO timestamp may appear');
+  assert.ok(!/"@id"\s*:/.test(blob), 'no generated @id may appear');
+});
+
+test('descriptions never contain fabricated counts or metrics', () => {
+  const metas = [
+    seo.buildHubMeta({ countries: COUNTRY_LINKS }),
+    seo.buildCountryMeta({ country: COUNTRY, categories: CAT_LINKS, directories: [DIRECTORY, DIRECTORY] }),
+    seo.buildCategoryMeta({ country: COUNTRY, category: CATEGORY, directories: [DIRECTORY] }),
+  ];
+  for (const meta of metas) {
+    assert.ok(!/\d/.test(meta.description), `description must not assert a count: ${meta.description}`);
+  }
 });
 ```
 
 - [ ] **Step 2: Run test to verify it fails**
 
-Run: `node --test scripts/tests/bd-seo.test.cjs`
+Run: `node --test "scripts/tests/bd-seo.test.cjs"`
 Expected: FAIL — `Cannot find module '../lib/bd-seo.cjs'`
 
 - [ ] **Step 3: Write minimal implementation**
@@ -1526,9 +1780,59 @@ Expected: FAIL — `Cannot find module '../lib/bd-seo.cjs'`
 'use strict';
 
 const ORIGIN = 'https://www.petrohrys.com';
+const SITE_NAME = 'Petro Hrys';
+const TWITTER_SITE = '@petrohrys';
+const OG_IMAGE = `${ORIGIN}/images/og-default.png`;
+const NOINDEX = 'noindex,follow';
+const BASE = '/research/business-directories/';
 
+class SeoError extends Error {
+  constructor(message) {
+    super(message);
+    this.name = 'SeoError';
+  }
+}
+
+// Hard-coded origin: never read a hostname from the environment, so an apex or
+// preview-domain URL can never be emitted.
 function absoluteUrl(pathname) {
-  return `${ORIGIN}${pathname.startsWith('/') ? '' : '/'}${pathname}`;
+  if (typeof pathname !== 'string' || pathname.trim() === '') {
+    throw new SeoError(`Invalid path: ${JSON.stringify(pathname)}`);
+  }
+  let p = pathname.trim();
+  if (/^[a-z][a-z0-9+.-]*:/i.test(p)) {
+    let parsed;
+    try {
+      parsed = new URL(p);
+    } catch {
+      throw new SeoError(`Invalid URL: ${p}`);
+    }
+    if (parsed.origin !== ORIGIN) {
+      throw new SeoError(`Refusing to emit a URL outside ${ORIGIN}: ${p}`);
+    }
+    p = parsed.pathname;
+  }
+  p = p.split('#')[0].split('?')[0];
+  if (!p.startsWith('/')) p = `/${p}`;
+  p = p.replace(/\/{2,}/g, '/');
+  if (p.split('/').includes('..')) {
+    throw new SeoError(`Path traversal is not allowed: ${pathname}`);
+  }
+  return `${ORIGIN}${p}`;
+}
+
+// Outbound directory websites are registry data, so treat them as untrusted:
+// anything that is not a well-formed http(s) URL becomes null and is omitted.
+function safeExternalUrl(value) {
+  if (typeof value !== 'string') return null;
+  let parsed;
+  try {
+    parsed = new URL(value.trim());
+  } catch {
+    return null;
+  }
+  if (parsed.protocol !== 'https:' && parsed.protocol !== 'http:') return null;
+  return parsed.toString();
 }
 
 function breadcrumbList(trail) {
@@ -1549,11 +1853,24 @@ function collectionPage({ name, description, url }) {
     name,
     description,
     url,
-    isPartOf: { '@type': 'WebSite', url: `${ORIGIN}/` },
+    isPartOf: { '@type': 'WebSite', name: SITE_NAME, url: `${ORIGIN}/` },
   };
 }
 
+function webPage({ name, description, url }) {
+  return {
+    '@type': 'WebPage',
+    name,
+    description,
+    url,
+    isPartOf: { '@type': 'WebSite', name: SITE_NAME, url: `${ORIGIN}/` },
+  };
+}
+
+// Returns null when there is nothing real to list, so callers omit the node
+// entirely rather than publishing an empty or placeholder ItemList.
 function itemList(items) {
+  if (!Array.isArray(items) || items.length === 0) return null;
   return {
     '@type': 'ItemList',
     numberOfItems: items.length,
@@ -1567,6 +1884,7 @@ function itemList(items) {
 }
 
 function faqPage(faqs) {
+  if (!Array.isArray(faqs) || faqs.length === 0) return null;
   return {
     '@type': 'FAQPage',
     mainEntity: faqs.map(({ q, a }) => ({
@@ -1577,48 +1895,169 @@ function faqPage(faqs) {
   };
 }
 
-// Deliberately emits no AggregateRating and no Review: the PetroHrys Score is a
-// first-party editorial metric and must not be dressed as third-party review data.
-function directoryWebPage(directory, url) {
+function organisationAbout(directory) {
+  const about = { '@type': 'Organization', name: directory.name };
+  const url = safeExternalUrl(directory.website);
+  if (url) about.url = url;
+  return about;
+}
+
+function meta({ title, description, canonicalPath, robots, breadcrumbTrail, graph }) {
+  const canonical = absoluteUrl(canonicalPath);
+  const fullTitle = `${title} — ${SITE_NAME}`;
   return {
-    '@type': 'WebPage',
-    name: directory.name,
-    description: directory.description,
-    url,
-    about: {
-      '@type': 'Organization',
-      name: directory.name,
-      url: directory.website,
+    title,
+    fullTitle,
+    description,
+    canonicalPath,
+    canonical,
+    robots: robots || undefined,
+    openGraph: {
+      title: fullTitle,
+      description,
+      url: canonical,
+      type: 'website',
+      siteName: SITE_NAME,
+      image: OG_IMAGE,
     },
+    twitter: {
+      card: 'summary_large_image',
+      site: TWITTER_SITE,
+      title: fullTitle,
+      description,
+      image: OG_IMAGE,
+    },
+    breadcrumbTrail,
+    jsonLd: graph.filter(Boolean),
   };
 }
 
+const ROOT_TRAIL = [
+  { name: 'Home', path: '/' },
+  { name: 'Research', path: '/research/' },
+  { name: 'Business Directories', path: BASE },
+];
+
+function buildHubMeta({ countries = [], faqs = [] } = {}) {
+  const title = 'Business Directories';
+  const description = 'A country-by-country research index of business directories, '
+    + 'recording what each one accepts, how it links, and when it was last verified.';
+  const trail = ROOT_TRAIL;
+  return meta({
+    title,
+    description,
+    canonicalPath: BASE,
+    robots: undefined,
+    breadcrumbTrail: trail,
+    graph: [
+      collectionPage({ name: title, description, url: absoluteUrl(BASE) }),
+      itemList(countries),
+      faqPage(faqs),
+      breadcrumbList(trail),
+    ],
+  });
+}
+
+function buildCountryMeta({ country, categories = [], directories = [], faqs = [] }) {
+  const canonicalPath = `${BASE}${country.slug}/`;
+  const title = `Business Directories in ${country.name}`;
+  const description = `Business directories relevant to companies operating in ${country.titleName}, `
+    + 'organised by category and verified by hand.';
+  const trail = [...ROOT_TRAIL, { name: country.name, path: canonicalPath }];
+  const populated = directories.length > 0;
+  return meta({
+    title,
+    description,
+    canonicalPath,
+    robots: populated ? undefined : NOINDEX,
+    breadcrumbTrail: trail,
+    graph: [
+      collectionPage({ name: title, description, url: absoluteUrl(canonicalPath) }),
+      populated ? itemList(categories) : null,
+      faqPage(faqs),
+      breadcrumbList(trail),
+    ],
+  });
+}
+
+function buildCategoryMeta({ country, category, directories = [] }) {
+  const countryPath = `${BASE}${country.slug}/`;
+  const canonicalPath = `${countryPath}categories/${category.slug}/`;
+  const title = `${category.name} directories in ${country.name}`;
+  const description = `${category.description} This page covers ${country.titleName}.`;
+  const trail = [
+    ...ROOT_TRAIL,
+    { name: country.name, path: countryPath },
+    { name: category.name, path: canonicalPath },
+  ];
+  return meta({
+    title,
+    description,
+    canonicalPath,
+    robots: directories.length > 0 ? undefined : NOINDEX,
+    breadcrumbTrail: trail,
+    graph: [
+      collectionPage({ name: title, description, url: absoluteUrl(canonicalPath) }),
+      itemList(directories.map((d) => ({ name: d.name, path: `${countryPath}${d.slug}/` }))),
+      breadcrumbList(trail),
+    ],
+  });
+}
+
+function buildDirectoryMeta({ country, category, directory }) {
+  const countryPath = `${BASE}${country.slug}/`;
+  const canonicalPath = `${countryPath}${directory.slug}/`;
+  const title = `${directory.name} — ${country.name}`;
+  const description = directory.description;
+  const trail = [
+    ...ROOT_TRAIL,
+    { name: country.name, path: countryPath },
+    { name: category.name, path: `${countryPath}categories/${category.slug}/` },
+    { name: directory.name, path: canonicalPath },
+  ];
+  const page = webPage({ name: directory.name, description, url: absoluteUrl(canonicalPath) });
+  page.about = organisationAbout(directory);
+  return meta({
+    title,
+    description,
+    canonicalPath,
+    robots: undefined,
+    breadcrumbTrail: trail,
+    graph: [page, breadcrumbList(trail)],
+  });
+}
+
+// Escapes only the characters that can terminate a script element or break a
+// JavaScript parse. All other Unicode is preserved verbatim.
 function renderJsonLd(graph) {
   const json = JSON.stringify({ '@context': 'https://schema.org', '@graph': graph }, null, 2)
     .replace(/</g, '\\u003c')
-    .replace(/>/g, '\\u003e');
+    .replace(/>/g, '\\u003e')
+    .replace(/\u2028/g, '\\u2028')
+    .replace(/\u2029/g, '\\u2029');
   return `  <script type="application/ld+json">\n${json}\n  </script>`;
 }
 
 module.exports = {
-  ORIGIN, absoluteUrl, breadcrumbList, collectionPage,
-  itemList, faqPage, directoryWebPage, renderJsonLd,
+  ORIGIN, SeoError, absoluteUrl, safeExternalUrl, renderJsonLd,
+  breadcrumbList, collectionPage, webPage, itemList, faqPage, organisationAbout,
+  buildHubMeta, buildCountryMeta, buildCategoryMeta, buildDirectoryMeta,
 };
 ```
 
-Note: the `<` / `>` escape yields `\u003c/script\u003e` in output, so the test's `<\\/script>` assertion must match. Adjust the test assertion to `assert.ok(rendered.includes('\\u003c/script'))` if the escape strategy differs — the requirement is only that a literal `</script>` can never appear.
-
 - [ ] **Step 4: Run test to verify it passes**
 
-Run: `node --test scripts/tests/bd-seo.test.cjs`
-Expected: PASS, 8 tests
+Run: `node --test "scripts/tests/bd-seo.test.cjs"`
+Expected: PASS, 33 tests
 
 - [ ] **Step 5: Commit**
 
 ```bash
 git add scripts/lib/bd-seo.cjs scripts/tests/bd-seo.test.cjs
-git commit -m "feat(bd): add SEO and structured-data builders"
+git commit -m "feat(bd): add SEO metadata and structured-data builders"
 ```
+
+> **Note for Task 10:** `pageModel` must call `buildHubMeta` / `buildCountryMeta` / `buildCategoryMeta` / `buildDirectoryMeta` and spread the result, rather than assembling `title`, `description`, `robots`, and `jsonLd` by hand. The builders own indexability and ItemList omission.
 
 ---
 
