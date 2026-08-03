@@ -206,6 +206,14 @@ Every page carries: `<title>`, meta description, canonical, Open Graph (title, d
 
 **No `AggregateRating` and no `Review` markup.** The PetroHrys Score is a first-party editorial metric. Emitting it as third-party review markup would be structured-data fabrication and a search-spam-policy violation.
 
+### Outbound link policy
+
+External directory links carry `rel="noopener noreferrer"` and **no `nofollow`**.
+
+This is a curated editorial knowledge base, not a link directory. Each directory page carries original methodology, strengths, limitations, recommendations, and context, so an outbound link is an editorial citation rather than a placement. Nothing here is sold, sponsored, or accepted in exchange for payment, so a blanket `nofollow` would misrepresent the section's nature.
+
+If sponsored or user-submitted listings are ever introduced, `rel` becomes a **per-link** decision — `sponsored` or `ugc` on those specific links only, never a section-wide default. The `backlinkType` field is unrelated: it records how a *directory* treats links to its own listees, and has no bearing on how this site links out.
+
 `ItemList` entries are emitted only for pages that actually exist and are indexable — an empty category is not listed as though it held verified entries.
 
 Breadcrumbs match the site's existing visual `.breadcrumb` pattern and mirror the URL hierarchy:

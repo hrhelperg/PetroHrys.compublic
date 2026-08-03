@@ -111,8 +111,16 @@ test('unsafe url schemes are never rendered as links', () => {
 test('a valid https url renders with the required rel attributes', () => {
   const html = c.externalLinkCta({ url: 'https://example.com/list' });
   assert.ok(html.includes('<a '));
-  assert.ok(html.includes('rel="nofollow noopener noreferrer"'));
+  assert.ok(html.includes('rel="noopener noreferrer"'));
   assert.ok(/noopener/.test(html) && /noreferrer/.test(html));
+});
+
+test('editorial outbound links are not nofollowed', () => {
+  // Outbound links are citations from original editorial pages, not paid
+  // placements. Blanket nofollow would frame the section as a link directory.
+  const html = c.externalLinkCta({ url: 'https://example.com/list' });
+  assert.ok(!html.includes('nofollow'), 'editorial references must not be nofollowed');
+  assert.strictEqual(c.REL_EXTERNAL, 'noopener noreferrer');
 });
 
 test('external cta announces that it opens a new tab', () => {

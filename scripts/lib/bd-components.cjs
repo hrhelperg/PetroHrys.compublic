@@ -9,7 +9,13 @@ const { sortDirectories, SORTS, SORT_KEYS } = require('./bd-sort.cjs');
 // ---------------------------------------------------------------------------
 
 const NOT_RECORDED = 'Not recorded';
-const REL_EXTERNAL = 'nofollow noopener noreferrer';
+
+// Editorial references, not paid placements. Every directory page carries
+// original methodology, strengths, limitations and context, so outbound links
+// are citations and must NOT be nofollowed — that would misrepresent a curated
+// knowledge base as a link directory. Revisit per link only if sponsored or
+// user-submitted listings are ever introduced.
+const REL_EXTERNAL = 'noopener noreferrer';
 
 const isNullish = (v) => v === null || v === undefined;
 

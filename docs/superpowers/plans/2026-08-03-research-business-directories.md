@@ -2073,7 +2073,7 @@ git commit -m "feat(bd): add SEO metadata and structured-data builders"
 
 **Component contract:**
 - **Existing classes are reused in markup, never redefined in CSS.** The hero uses `page-hero`/`lede` and the breadcrumb reuses `breadcrumb`, so the section inherits the site's look without a single new design token. Only genuinely new UI (table, badges, chips, controls, pagination) gets `bd-*` classes.
-- **Security.** Every string is escaped for both text and attribute positions. Outbound URLs pass through `safeExternalUrl`; `javascript:`, `data:`, `file:`, and malformed values are never rendered as links — the CTA says "no usable address recorded" instead. No inline styles, no inline event handlers, no `<script>`, no raw JSON.
+- **Security.** Every string is escaped for both text and attribute positions. Outbound URLs pass through `safeExternalUrl`; `javascript:`, `data:`, `file:`, and malformed values are never rendered as links — the CTA says "no usable address recorded" instead. External links carry `rel="noopener noreferrer"` and **deliberately no `nofollow`**: these are editorial citations from pages that carry original methodology and analysis, not paid placements, and blanket-nofollowing them would frame a curated knowledge base as a link directory. If sponsored or user-submitted listings are ever added, `rel` becomes a per-link decision. No inline styles, no inline event handlers, no `<script>`, no raw JSON.
 - **Honesty.** A null metric renders an em dash with a visually hidden "Not recorded", never `0`. An unknown field never implies verification: badges read "Not yet verified", "Listing cost not recorded", "Verification requirement not recorded".
 - **Accessibility.** Breadcrumb is `nav > ol` with `aria-label` and a single `aria-current="page"`. Pagination is `nav > ol`; the current page is a `<span>`, so it cannot be focused or activated. Every control has a `<label for>`, and `idPrefix` namespaces ids so two shells never collide. Status is always words, never colour alone. Headings are configurable and clamped to h2–h6. Cards link only their title, so no anchor ever wraps a block containing another anchor.
 - **No JavaScript required.** Controls render `hidden` and are revealed by Task 9. The table is fully sorted server-side by `bd-sort` and completely readable without scripting.
@@ -2196,8 +2196,16 @@ test('unsafe url schemes are never rendered as links', () => {
 test('a valid https url renders with the required rel attributes', () => {
   const html = c.externalLinkCta({ url: 'https://example.com/list' });
   assert.ok(html.includes('<a '));
-  assert.ok(html.includes('rel="nofollow noopener noreferrer"'));
+  assert.ok(html.includes('rel="noopener noreferrer"'));
   assert.ok(/noopener/.test(html) && /noreferrer/.test(html));
+});
+
+test('editorial outbound links are not nofollowed', () => {
+  // Outbound links are citations from original editorial pages, not paid
+  // placements. Blanket nofollow would frame the section as a link directory.
+  const html = c.externalLinkCta({ url: 'https://example.com/list' });
+  assert.ok(!html.includes('nofollow'), 'editorial references must not be nofollowed');
+  assert.strictEqual(c.REL_EXTERNAL, 'noopener noreferrer');
 });
 
 test('external cta announces that it opens a new tab', () => {
@@ -2468,7 +2476,13 @@ const { sortDirectories, SORTS, SORT_KEYS } = require('./bd-sort.cjs');
 // ---------------------------------------------------------------------------
 
 const NOT_RECORDED = 'Not recorded';
-const REL_EXTERNAL = 'nofollow noopener noreferrer';
+
+// Editorial references, not paid placements. Every directory page carries
+// original methodology, strengths, limitations and context, so outbound links
+// are citations and must NOT be nofollowed — that would misrepresent a curated
+// knowledge base as a link directory. Revisit per link only if sponsored or
+// user-submitted listings are ever introduced.
+const REL_EXTERNAL = 'noopener noreferrer';
 
 const isNullish = (v) => v === null || v === undefined;
 
@@ -2905,7 +2919,7 @@ module.exports = {
 - [ ] **Step 4: Run test to verify it passes**
 
 Run: `node --test "scripts/tests/bd-components.test.cjs"`
-Expected: PASS, 38 tests
+Expected: PASS, 39 tests
 
 - [ ] **Step 5: Commit**
 
