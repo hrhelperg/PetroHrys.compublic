@@ -3177,6 +3177,26 @@ test('the shell markup matches the live editorial pages', () => {
     assert.ok(html.includes(fragment), `rendered page lacks ${fragment}`);
   }
 });
+
+test('the section nav item claims section, not page', () => {
+  // Generated pages sit inside the Research Center but are never /research/,
+  // so aria-current="page" would be a false claim about this link's target.
+  const html = hub();
+  assert.ok(html.includes('<a href="/research/" aria-current="true">Research Center</a>'));
+  assert.ok(!html.includes('href="/research/" aria-current="page"'));
+});
+
+test('a footer link to the current page is marked aria-current', () => {
+  // The hub's footer links to the hub. The site marks self-links this way
+  // rather than leaving an unannotated loop.
+  const html = hub();
+  assert.ok(html.includes('<a href="/research/business-directories/" aria-current="page">'));
+});
+
+test('a footer link to a different page is not marked', () => {
+  const html = emptyCountry();
+  assert.ok(html.includes('<a href="/research/business-directories/">Business Directories</a>'));
+});
 ```
 
 - [ ] **Step 2: Run test to verify it fails**
@@ -3241,9 +3261,12 @@ const ECO_BODY = `<!-- helperg-eco:body:start -->
 <!-- helperg-eco:body:end -->`;
 
 // Existing items are reproduced exactly; Research Center is the single addition.
+// It carries aria-current="true" rather than "page": generated pages live inside
+// the Research Center section but are never /research/ itself, and "page" would
+// claim this link points at the document you are reading.
 const NAV_ITEMS = (indent) => [
   '<li><a href="/work/">Work</a></li>',
-  '<li><a href="/research/" aria-current="page">Research Center</a></li>',
+  '<li><a href="/research/" aria-current="true">Research Center</a></li>',
   '<li><a href="/writing/">Research &amp; Writing</a></li>',
   '<li><a href="/about/">About</a></li>',
 ].map((item) => `${indent}${item}`).join('\n');
@@ -3278,7 +3301,7 @@ ${LANGS('            ')}
     </nav>
   </header>`;
 
-const FOOTER = `  <footer role="contentinfo">
+const FOOTER = (currentPath) => `  <footer role="contentinfo">
     <div class="footer-grid">
       <section id="footer-tools">
         <h3>Products</h3>
@@ -3300,7 +3323,7 @@ const FOOTER = `  <footer role="contentinfo">
         <ul>
           <li><a href="/essays/">Essays</a></li>
           <li><a href="/research/">Research</a></li>
-          <li><a href="/research/business-directories/">Business Directories</a></li>
+          <li><a href="/research/business-directories/"${currentPath === '/research/business-directories/' ? ' aria-current="page"' : ''}>Business Directories</a></li>
           <li><a href="/infrastructure/">Infrastructure</a></li>
           <li><a href="/ai-systems/">AI Systems</a></li>
           <li><a href="/artificial-intelligence/">Artificial Intelligence</a></li>
@@ -3386,7 +3409,7 @@ ${breadcrumbs(meta.breadcrumbTrail)}
 ${main}
   </main>
 
-${FOOTER}
+${FOOTER(meta.canonicalPath)}
   <script src="/js/business-directories.js" defer></script>
 </body>
 </html>
@@ -3399,7 +3422,7 @@ module.exports = { renderPage, HEADER, FOOTER, ECO_HEAD, ECO_BODY };
 - [ ] **Step 4: Run test to verify it passes**
 
 Run: `node --test "scripts/tests/bd-render.test.cjs"`
-Expected: PASS, 24 tests
+Expected: PASS, 27 tests
 
 - [ ] **Step 5: Commit**
 

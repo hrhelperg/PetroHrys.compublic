@@ -52,9 +52,12 @@ const ECO_BODY = `<!-- helperg-eco:body:start -->
 <!-- helperg-eco:body:end -->`;
 
 // Existing items are reproduced exactly; Research Center is the single addition.
+// It carries aria-current="true" rather than "page": generated pages live inside
+// the Research Center section but are never /research/ itself, and "page" would
+// claim this link points at the document you are reading.
 const NAV_ITEMS = (indent) => [
   '<li><a href="/work/">Work</a></li>',
-  '<li><a href="/research/" aria-current="page">Research Center</a></li>',
+  '<li><a href="/research/" aria-current="true">Research Center</a></li>',
   '<li><a href="/writing/">Research &amp; Writing</a></li>',
   '<li><a href="/about/">About</a></li>',
 ].map((item) => `${indent}${item}`).join('\n');
@@ -89,7 +92,7 @@ ${LANGS('            ')}
     </nav>
   </header>`;
 
-const FOOTER = `  <footer role="contentinfo">
+const FOOTER = (currentPath) => `  <footer role="contentinfo">
     <div class="footer-grid">
       <section id="footer-tools">
         <h3>Products</h3>
@@ -111,7 +114,7 @@ const FOOTER = `  <footer role="contentinfo">
         <ul>
           <li><a href="/essays/">Essays</a></li>
           <li><a href="/research/">Research</a></li>
-          <li><a href="/research/business-directories/">Business Directories</a></li>
+          <li><a href="/research/business-directories/"${currentPath === '/research/business-directories/' ? ' aria-current="page"' : ''}>Business Directories</a></li>
           <li><a href="/infrastructure/">Infrastructure</a></li>
           <li><a href="/ai-systems/">AI Systems</a></li>
           <li><a href="/artificial-intelligence/">Artificial Intelligence</a></li>
@@ -197,7 +200,7 @@ ${breadcrumbs(meta.breadcrumbTrail)}
 ${main}
   </main>
 
-${FOOTER}
+${FOOTER(meta.canonicalPath)}
   <script src="/js/business-directories.js" defer></script>
 </body>
 </html>

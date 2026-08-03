@@ -225,3 +225,23 @@ test('the shell markup matches the live editorial pages', () => {
     assert.ok(html.includes(fragment), `rendered page lacks ${fragment}`);
   }
 });
+
+test('the section nav item claims section, not page', () => {
+  // Generated pages sit inside the Research Center but are never /research/,
+  // so aria-current="page" would be a false claim about this link's target.
+  const html = hub();
+  assert.ok(html.includes('<a href="/research/" aria-current="true">Research Center</a>'));
+  assert.ok(!html.includes('href="/research/" aria-current="page"'));
+});
+
+test('a footer link to the current page is marked aria-current', () => {
+  // The hub's footer links to the hub. The site marks self-links this way
+  // rather than leaving an unannotated loop.
+  const html = hub();
+  assert.ok(html.includes('<a href="/research/business-directories/" aria-current="page">'));
+});
+
+test('a footer link to a different page is not marked', () => {
+  const html = emptyCountry();
+  assert.ok(html.includes('<a href="/research/business-directories/">Business Directories</a>'));
+});
