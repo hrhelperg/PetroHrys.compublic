@@ -86,11 +86,30 @@ function assertNoAttributeInjection(html, label) {
 }
 
 test('quotes in attribute positions cannot break out', () => {
-  const evil = { ...DIR, name: '" onmouseover="alert(1)', slug: '" onfocus="alert(1)' };
+  const evil = { ...DIR, name: '" onmouseover="alert(1)' };
   const html = c.directoryTable({ directories: [evil] });
   assertNoAttributeInjection(html, 'directoryTable');
   assert.ok(html.includes('&quot;'), 'the quote must survive as an escaped entity');
   assert.ok(html.includes('onmouseover'), 'the payload text itself is kept, just inert');
+});
+
+test('a hostile slug is refused by the route builder, not rendered', () => {
+  // Slugs become URL segments, so an unsafe one is a hard error rather than
+  // something to escape and emit. The loader and validator already guarantee
+  // this shape; failing loudly here catches any future path that bypasses them.
+  const evil = { ...DIR, slug: '" onfocus="alert(1)' };
+  assert.throws(() => c.directoryTable({ directories: [evil] }), /Invalid directory slug/);
+  assert.throws(() => c.directoryCard({ directory: evil }), /Invalid directory slug/);
+});
+
+test('directory links are site-absolute so they resolve from any page depth', () => {
+  // Regression guard for C1: a relative href resolved into
+  // /country/categories/<cat>/<slug>/ from a category page, which is never
+  // generated, so every link on every category page was a 404.
+  const html = c.directoryTable({ directories: [DIR] });
+  const href = html.match(/scope="row"><a href="([^"]+)"/)[1];
+  assert.strictEqual(href, '/research/business-directories/united-states/example-directory/');
+  assert.ok(href.startsWith('/'), 'directory hrefs must never be relative');
 });
 
 test('breadcrumb paths are escaped', () => {

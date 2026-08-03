@@ -4,18 +4,19 @@ const fs = require('node:fs');
 const os = require('node:os');
 const path = require('node:path');
 const { PATHS, writeIfChanged } = require('./lib/bd-util.cjs');
-const { loadRegistry, directoriesFor, isIndexable } = require('./lib/bd-registry.cjs');
+const { loadRegistry, directoriesFor } = require('./lib/bd-registry.cjs');
 const { sortDirectories } = require('./lib/bd-sort.cjs');
 const seo = require('./lib/bd-seo.cjs');
 const c = require('./lib/bd-components.cjs');
 const { renderPage } = require('./lib/bd-render.cjs');
 const { renderSitemap, renderRss } = require('./lib/bd-feeds.cjs');
+const routes = require('./lib/bd-routes.cjs');
 const { validateRegistry, formatReport } = require('./validate-business-directories.cjs');
 
-const BASE = '/research/business-directories/';
-const SECTION_DIR = path.join('research', 'business-directories');
-const SITEMAP_FILE = 'sitemap-business-directories.xml';
-const FEED_FILE = path.join(SECTION_DIR, 'feed.xml');
+const BASE = routes.BASE;
+const SECTION_DIR = routes.SECTION_DIR;
+const SITEMAP_FILE = routes.sitemapOut();
+const FEED_FILE = routes.feedOut();
 const MANIFEST_FILE = path.join('data', 'business-directories', '.build-manifest.json');
 const REFERENCE_COUNTRY = 'united-states';
 const REFERENCE_CATEGORY = 'general-business';
@@ -79,7 +80,7 @@ function pageModel(registry) {
 
   const countryLinks = registry.countries.map((country) => ({
     name: country.name,
-    path: `${BASE}${country.slug}/`,
+    path: routes.countryPath(country.slug),
     pending: !countryEmitted(registry, country),
   }));
 
@@ -91,7 +92,7 @@ function pageModel(registry) {
   pages.push({
     kind: 'hub',
     owner: 'hub',
-    outPath: path.join(SECTION_DIR, 'index.html'),
+    outPath: routes.hubOut(),
     meta: hubMeta,
     main: [
       c.pageIntro({ title: 'Business Directories', lede: hubMeta.description }),
@@ -106,11 +107,11 @@ function pageModel(registry) {
   for (const country of registry.countries) {
     if (!countryEmitted(registry, country)) continue;
 
-    const countryPath = `${BASE}${country.slug}/`;
+    const countryPath = routes.countryPath(country.slug);
     const countryEntries = sortDirectories(directoriesFor(registry, country.slug));
     const categoryLinks = registry.categories.map((category) => ({
       name: category.name,
-      path: `${countryPath}categories/${category.slug}/`,
+      path: routes.categoryPath(country.slug, category.slug),
       description: category.description,
       pending: !categoryEmitted(registry, country, category),
     }));
@@ -125,7 +126,7 @@ function pageModel(registry) {
     pages.push({
       kind: 'country',
       owner: `country:${country.slug}`,
-      outPath: path.join(SECTION_DIR, country.slug, 'index.html'),
+      outPath: routes.countryOut(country.slug),
       meta,
       main: [
         c.pageIntro({ title: meta.title, lede: meta.description }),
@@ -151,8 +152,8 @@ function pageModel(registry) {
 
       pages.push({
         kind: 'category',
-        owner: `category:${country.slug}/${category.slug}`,
-        outPath: path.join(SECTION_DIR, country.slug, 'categories', category.slug, 'index.html'),
+        owner: `category:${country.slug}:${category.slug}`,
+        outPath: routes.categoryOut(country.slug, category.slug),
         meta: catMeta,
         main: [
           c.pageIntro({ title: catMeta.title, lede: category.description }),
@@ -174,7 +175,7 @@ function pageModel(registry) {
       pages.push({
         kind: 'directory',
         owner: `directory:${directory.id}`,
-        outPath: path.join(SECTION_DIR, country.slug, directory.slug, 'index.html'),
+        outPath: routes.directoryOut(country.slug, directory.slug),
         lastmod: directory.lastVerified || undefined,
         meta: dirMeta,
         main: [
@@ -219,7 +220,7 @@ function stageBuild(registry, pages) {
     .sort((a, b) => (a.lastVerified < b.lastVerified ? 1 : a.lastVerified > b.lastVerified ? -1 : 0))
     .map((d) => ({
       title: d.name,
-      path: `${BASE}${d.country}/${d.slug}/`,
+      path: routes.directoryPathFor(d),
       description: d.description,
       pubDate: toPubDate(d.lastVerified),
     }));

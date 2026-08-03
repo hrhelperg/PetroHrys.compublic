@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "files": {
+    "research/business-directories/feed.xml": "feed",
+    "research/business-directories/index.html": "hub",
+    "research/business-directories/united-states/categories/general-business/index.html": "category:united-states:general-business",
+    "research/business-directories/united-states/index.html": "country:united-states",
+    "sitemap-business-directories.xml": "sitemap"
+  }
+}

@@ -3,6 +3,7 @@
 const { escapeHtml } = require('./bd-util.cjs');
 const { safeExternalUrl } = require('./bd-seo.cjs');
 const { sortDirectories, SORTS, SORT_KEYS } = require('./bd-sort.cjs');
+const { directoryPathFor } = require('./bd-routes.cjs');
 
 // ---------------------------------------------------------------------------
 // Helpers
@@ -324,7 +325,7 @@ function numAttr(value) {
 function directoryRow(directory) {
   const provenance = directory.metricsProvenance || {};
   const attrs = [
-    `data-bd-name="${escapeHtml(String(directory.name || '').toLowerCase())}"`,
+    `data-bd-name="${escapeHtml(String(directory.name || ''))}"`,
     `data-bd-haystack="${escapeHtml(haystack(directory))}"`,
     `data-bd-score="${escapeHtml(numAttr(directory.petroHrysScore))}"`,
     `data-bd-dr="${escapeHtml(numAttr(directory.domainRating))}"`,
@@ -333,7 +334,7 @@ function directoryRow(directory) {
     ...FILTERS.map((f) => `${dataKey(f.field)}="${directory[f.field] === true ? '1' : '0'}"`),
   ].join(' ');
   return `          <tr class="bd-row" ${attrs}>
-            <th class="bd-cell" scope="row"><a href="${escapeHtml(directory.slug)}/">${escapeHtml(directory.name)}</a></th>
+            <th class="bd-cell" scope="row"><a href="${escapeHtml(directoryPathFor(directory))}">${escapeHtml(directory.name)}</a></th>
             <td class="bd-cell">${metric(directory.petroHrysScore)}</td>
             <td class="bd-cell">${metric(directory.domainRating, provenance.domainRating)}</td>
             <td class="bd-cell">${metric(directory.authorityScore, provenance.authorityScore)}</td>
@@ -374,7 +375,7 @@ ${rows}
 function directoryCard({ directory, headingLevel = 3 }) {
   const h = headingTag(headingLevel);
   return `      <article class="bd-summary">
-        <${h} class="bd-card-title"><a href="${escapeHtml(directory.slug)}/">${escapeHtml(directory.name)}</a></${h}>
+        <${h} class="bd-card-title"><a href="${escapeHtml(directoryPathFor(directory))}">${escapeHtml(directory.name)}</a></${h}>
         <p class="bd-card-body">${escapeHtml(directory.description)}</p>
 ${statusBadges(directory)}
       </article>`;

@@ -3,6 +3,7 @@
 const { escapeHtml } = require('./bd-util.cjs');
 const { renderJsonLd } = require('./bd-seo.cjs');
 const { breadcrumbs } = require('./bd-components.cjs');
+const routes = require('./bd-routes.cjs');
 
 // Copied verbatim from the existing editorial pages so the new section is
 // byte-comparable with the rest of the site. The msvalidate.01 meta is
@@ -114,7 +115,7 @@ const FOOTER = (currentPath) => `  <footer role="contentinfo">
         <ul>
           <li><a href="/essays/">Essays</a></li>
           <li><a href="/research/">Research</a></li>
-          <li><a href="/research/business-directories/"${currentPath === '/research/business-directories/' ? ' aria-current="page"' : ''}>Business Directories</a></li>
+          <li><a href="${routes.hubPath()}"${currentPath === routes.hubPath() ? ' aria-current="page"' : ''}>Business Directories</a></li>
           <li><a href="/infrastructure/">Infrastructure</a></li>
           <li><a href="/ai-systems/">AI Systems</a></li>
           <li><a href="/artificial-intelligence/">Artificial Intelligence</a></li>
@@ -178,7 +179,7 @@ ${social}
 
   <link rel="canonical" href="${escapeHtml(meta.canonical)}">
   <link rel="sitemap" type="application/xml" href="https://www.petrohrys.com/sitemap.xml">
-  <link rel="alternate" type="application/rss+xml" title="Business Directories — Petro Hrys" href="https://www.petrohrys.com/research/business-directories/feed.xml">
+  <link rel="alternate" type="application/rss+xml" title="Business Directories — Petro Hrys" href="https://www.petrohrys.com${routes.feedPath()}">
   <link rel="icon" href="/images/logo-red.svg">
 
 ${FONTS}
@@ -201,6 +202,7 @@ ${main}
   </main>
 
 ${FOOTER(meta.canonicalPath)}
+  <script src="/js/bd-order.js" defer></script>
   <script src="/js/business-directories.js" defer></script>
 </body>
 </html>

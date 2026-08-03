@@ -12,6 +12,7 @@ const CATEGORY = { slug: 'saas', name: 'SaaS', description: 'Listing sites for s
 const DIRECTORY = {
   id: 'us-example', slug: 'example', name: 'Example Directory',
   website: 'https://example.com', description: 'A directory.',
+  country: 'united-states', category: 'saas',
 };
 
 const hub = () => renderPage({
@@ -178,6 +179,13 @@ test('the client script is deferred and loaded once', () => {
   const html = hub();
   assert.strictEqual((html.match(/business-directories\.js/g) || []).length, 1);
   assert.ok(html.includes('<script src="/js/business-directories.js" defer></script>'));
+});
+
+test('the shared ordering module is loaded before the enhancement script', () => {
+  const html = hub();
+  assert.ok(html.includes('<script src="/js/bd-order.js" defer></script>'));
+  assert.ok(html.indexOf('/js/bd-order.js') < html.indexOf('/js/business-directories.js'),
+    'BDOrder must be defined before the script that consumes it');
 });
 
 test('the RSS feed is advertised', () => {

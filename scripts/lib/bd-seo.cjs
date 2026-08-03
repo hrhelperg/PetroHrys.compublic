@@ -1,12 +1,14 @@
 // scripts/lib/bd-seo.cjs
 'use strict';
 
+const routes = require('./bd-routes.cjs');
+
 const ORIGIN = 'https://www.petrohrys.com';
 const SITE_NAME = 'Petro Hrys';
 const TWITTER_SITE = '@petrohrys';
 const OG_IMAGE = `${ORIGIN}/images/og-default.png`;
 const NOINDEX = 'noindex,follow';
-const BASE = '/research/business-directories/';
+const BASE = routes.BASE;
 
 class SeoError extends Error {
   constructor(message) {
@@ -181,7 +183,7 @@ function buildHubMeta({ countries = [], faqs = [] } = {}) {
 }
 
 function buildCountryMeta({ country, categories = [], directories = [], faqs = [] }) {
-  const canonicalPath = `${BASE}${country.slug}/`;
+  const canonicalPath = routes.countryPath(country.slug);
   const title = `Business Directories in ${country.name}`;
   const description = `Business directories relevant to companies operating in ${country.titleName}, `
     + 'organised by category and verified by hand.';
@@ -203,8 +205,8 @@ function buildCountryMeta({ country, categories = [], directories = [], faqs = [
 }
 
 function buildCategoryMeta({ country, category, directories = [] }) {
-  const countryPath = `${BASE}${country.slug}/`;
-  const canonicalPath = `${countryPath}categories/${category.slug}/`;
+  const countryPath = routes.countryPath(country.slug);
+  const canonicalPath = routes.categoryPath(country.slug, category.slug);
   const title = `${category.name} directories in ${country.name}`;
   const description = `${category.description} This page covers ${country.titleName}.`;
   const trail = [
@@ -220,21 +222,21 @@ function buildCategoryMeta({ country, category, directories = [] }) {
     breadcrumbTrail: trail,
     graph: [
       collectionPage({ name: title, description, url: absoluteUrl(canonicalPath) }),
-      itemList(directories.map((d) => ({ name: d.name, path: `${countryPath}${d.slug}/` }))),
+      itemList(directories.map((d) => ({ name: d.name, path: routes.directoryPathFor(d) }))),
       breadcrumbList(trail),
     ],
   });
 }
 
 function buildDirectoryMeta({ country, category, directory }) {
-  const countryPath = `${BASE}${country.slug}/`;
-  const canonicalPath = `${countryPath}${directory.slug}/`;
+  const countryPath = routes.countryPath(country.slug);
+  const canonicalPath = routes.directoryPath(country.slug, directory.slug);
   const title = `${directory.name} — ${country.name}`;
   const description = directory.description;
   const trail = [
     ...ROOT_TRAIL,
     { name: country.name, path: countryPath },
-    { name: category.name, path: `${countryPath}categories/${category.slug}/` },
+    { name: category.name, path: routes.categoryPath(country.slug, category.slug) },
     { name: directory.name, path: canonicalPath },
   ];
   const page = webPage({ name: directory.name, description, url: absoluteUrl(canonicalPath) });

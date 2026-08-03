@@ -9,10 +9,12 @@ const components = require('../lib/bd-components.cjs');
 const root = path.resolve(__dirname, '..', '..');
 const css = () => fs.readFileSync(path.join(root, 'css', 'business-directories.css'), 'utf8');
 const js = () => fs.readFileSync(path.join(root, 'js', 'business-directories.js'), 'utf8');
+const orderJs = () => fs.readFileSync(path.join(root, 'js', 'bd-order.js'), 'utf8');
 const stripComments = (text) => text.replace(/\/\*[\s\S]*?\*\//g, '');
 
 const DIR = {
   id: 'a', slug: 'a', name: 'A', description: 'd', website: 'https://a.example',
+  country: 'united-states', category: 'saas',
   petroHrysScore: null, domainRating: null, authorityScore: null, estimatedTraffic: null,
   free: true, paid: null, verificationRequired: null, acceptsSaaS: null,
   acceptsStartups: null, acceptsAI: null, lastVerified: null, nextVerification: null,
@@ -123,12 +125,24 @@ test('the client script avoids locale-dependent ordering', () => {
   assert.ok(!/toLocale(Lower|Upper)Case\s*\(/.test(source));
 });
 
-test('the client sort keys match the server sort keys exactly', () => {
+test('the client and server share one ordering module', () => {
+  // Not "the same keys appear in both files" — literally the same file.
+  const sort = fs.readFileSync(path.join(root, 'scripts', 'lib', 'bd-sort.cjs'), 'utf8');
+  assert.ok(sort.includes("require('../../js/bd-order.js')"),
+    'the server comparator must come from js/bd-order.js');
+  assert.ok(js().includes('BDOrder'), 'the client must consume BDOrder');
+  assert.ok(!/function nullLastDesc/.test(js()), 'the client must not re-implement the comparator');
   const { SORT_KEYS } = require('../lib/bd-sort.cjs');
-  const source = js();
   for (const key of SORT_KEYS) {
-    assert.ok(source.includes(`'${key}'`), `client script is missing sort key ${key}`);
+    assert.ok(orderJs().includes(`'${key}'`), `shared module is missing sort key ${key}`);
   }
+});
+
+test('the shared ordering module loads in both environments', () => {
+  const source = orderJs();
+  assert.ok(source.includes('module.exports'), 'must be requirable by Node');
+  assert.ok(source.includes('root.BDOrder'), 'must expose a browser global');
+  assert.ok(!/\.localeCompare\s*\(/.test(source.replace(/\/\*[\s\S]*?\*\//g, '')));
 });
 
 test('every data attribute the client reads is emitted by the components', () => {
