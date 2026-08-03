@@ -244,7 +244,21 @@ git commit -m "feat(bd): add registry data and shared utilities"
 
 **Interfaces:**
 - Consumes: `bd-util.cjs` → `PATHS`
-- Produces: `loadRegistry(dataRoot?): { countries, categories, directories }`, `directoriesFor(registry, countrySlug, categorySlug?): object[]`, `reservedSlugs(categories): Set<string>`, `isIndexable(entries): boolean`
+- Produces: `RegistryError` (Error subclass), `loadRegistry(dataRoot?): { countries, categories, directories }`, `getCountry(registry, slug)`, `getCategory(registry, slug)`, `directoriesFor(registry, countrySlug, categorySlug?): object[]`, `groupByCategory(registry, countrySlug): Map<string, object[]>`, `reservedSlugs(categories): Set<string>`, `isIndexable(entries): boolean`, `STRUCTURAL_RESERVED: string[]`
+
+**Integrity contract — the loader fails loudly, with the offending file path in every message:**
+- every declared country has exactly one `directories/<slug>.json`; a missing one is an error naming the expected path;
+- an orphan `directories/*.json` whose country is not declared is an error;
+- malformed JSON reports the exact source file;
+- directory `id` is globally unique; `slug` is unique per country; canonical domain is unique **per country**;
+- a record must reference a declared country and category, and must sit in the file matching its `country`;
+- `null` is preserved exactly — never coerced to `0`, `''`, or `false`;
+- iteration follows `countries.json` declaration order, never `readdir` order; any `readdir` result is sorted before use;
+- slugs are validated against `^[a-z0-9]+(?:-[a-z0-9]+)*$` and every resolved path is asserted to stay inside the registry root, so a crafted slug cannot escape via `../`.
+
+**Deliberate decision — domain uniqueness is per country, not global.** One directory service can legitimately be listed for several countries as separate records sharing a domain. Global rejection would block real data later.
+
+**Deliberate overlap with Task 4.** The loader enforces on-disk structural integrity and fails fast; `validateRegistry` independently checks schema, honesty, and provenance on any registry object, including ones built in memory by tests. The small overlap on duplicates and references is defensive and intended.
 
 - [ ] **Step 1: Write the failing test**
 
@@ -253,28 +267,200 @@ git commit -m "feat(bd): add registry data and shared utilities"
 'use strict';
 const test = require('node:test');
 const assert = require('node:assert');
-const { loadRegistry, directoriesFor, reservedSlugs, isIndexable } = require('../lib/bd-registry.cjs');
+const fs = require('node:fs');
+const os = require('node:os');
+const path = require('node:path');
+const {
+  loadRegistry, getCountry, getCategory, directoriesFor,
+  groupByCategory, reservedSlugs, isIndexable, RegistryError,
+} = require('../lib/bd-registry.cjs');
+const { PATHS } = require('../lib/bd-util.cjs');
 
-test('loadRegistry reads 10 countries and 21 categories', () => {
+// Copies the real countries/categories into a temp root so integrity failures
+// can be provoked without touching the repository.
+function fixture(byCountry = {}, options = {}) {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'bd-reg-'));
+  fs.copyFileSync(path.join(PATHS.dataRoot, 'countries.json'), path.join(root, 'countries.json'));
+  fs.copyFileSync(path.join(PATHS.dataRoot, 'categories.json'), path.join(root, 'categories.json'));
+  fs.mkdirSync(path.join(root, 'directories'));
+  const countries = JSON.parse(fs.readFileSync(path.join(root, 'countries.json'), 'utf8'));
+  for (const country of countries) {
+    if (options.omit === country.slug) continue;
+    fs.writeFileSync(path.join(root, 'directories', `${country.slug}.json`),
+      `${JSON.stringify(byCountry[country.slug] || [], null, 2)}\n`);
+  }
+  return root;
+}
+
+const record = (over = {}) => ({
+  id: 'us-example', name: 'Example Directory', slug: 'example-directory',
+  country: 'united-states', category: 'saas', website: 'https://example.com',
+  description: 'A directory.', tier: 'tier1', petroHrysScore: null, domainRating: null,
+  authorityScore: null, estimatedTraffic: null, referringDomains: null, free: null,
+  paid: null, verificationRequired: null, manualReview: null, acceptsCompanies: null,
+  acceptsProducts: null, acceptsSaaS: null, acceptsApps: null, acceptsStartups: null,
+  acceptsAI: null, backlinkType: null, robots: null, sitemap: null, indexed: null,
+  ssl: null, lastVerified: null, nextVerification: null, httpStatus: null,
+  recommendedIndustries: [], pros: [], cons: [], editorNotes: '', metricsProvenance: {},
+  ...over,
+});
+
+test('loads the current empty registry', () => {
   const registry = loadRegistry();
   assert.strictEqual(registry.countries.length, 10);
   assert.strictEqual(registry.categories.length, 21);
+  assert.strictEqual(registry.directories.length, 0);
 });
 
-test('loadRegistry starts with zero directories', () => {
-  assert.strictEqual(loadRegistry().directories.length, 0);
+test('country and category ordering follows declaration order and is stable', () => {
+  const a = loadRegistry();
+  const b = loadRegistry();
+  assert.deepStrictEqual(a.countries.map((c) => c.slug), b.countries.map((c) => c.slug));
+  assert.deepStrictEqual(a.categories.map((c) => c.slug), b.categories.map((c) => c.slug));
+  assert.strictEqual(a.countries[0].slug, 'united-states', 'declaration order must be preserved');
+  assert.strictEqual(a.categories[0].slug, 'general-business');
 });
 
-test('every country has a matching directories file', () => {
-  const registry = loadRegistry();
-  for (const country of registry.countries) {
-    assert.doesNotThrow(() => directoriesFor(registry, country.slug));
+test('directory ordering follows country declaration order, not readdir order', () => {
+  const root = fixture({
+    poland: [record({ id: 'pl-1', slug: 'pl-one', country: 'poland', website: 'https://pl.example' })],
+    canada: [record({ id: 'ca-1', slug: 'ca-one', country: 'canada', website: 'https://ca.example' })],
+  });
+  const registry = loadRegistry(root);
+  const order = registry.directories.map((d) => d.country);
+  assert.deepStrictEqual(order, ['canada', 'poland'], 'canada is declared before poland');
+});
+
+test('a missing country file is an error naming the expected path', () => {
+  const root = fixture({}, { omit: 'germany' });
+  assert.throws(() => loadRegistry(root), (err) => {
+    assert.ok(err instanceof RegistryError);
+    assert.ok(err.message.includes('germany.json'), err.message);
+    return true;
+  });
+});
+
+test('an orphan directory file is rejected and named', () => {
+  const root = fixture();
+  fs.writeFileSync(path.join(root, 'directories', 'atlantis.json'), '[]\n');
+  assert.throws(() => loadRegistry(root), (err) => {
+    assert.ok(err.message.includes('atlantis'), err.message);
+    assert.ok(/orphan/i.test(err.message), err.message);
+    return true;
+  });
+});
+
+test('malformed JSON reports the exact source file', () => {
+  const root = fixture();
+  const broken = path.join(root, 'directories', 'france.json');
+  fs.writeFileSync(broken, '[{ oops');
+  assert.throws(() => loadRegistry(root), (err) => {
+    assert.ok(err.message.includes(broken), err.message);
+    assert.ok(/malformed json/i.test(err.message), err.message);
+    return true;
+  });
+});
+
+test('a duplicate directory id is rejected', () => {
+  const root = fixture({
+    'united-states': [record(), record({ slug: 'other', website: 'https://other.example' })],
+  });
+  assert.throws(() => loadRegistry(root), /Duplicate directory id/i);
+});
+
+test('a duplicate slug within one country is rejected', () => {
+  const root = fixture({
+    'united-states': [record(), record({ id: 'us-two', website: 'https://other.example' })],
+  });
+  assert.throws(() => loadRegistry(root), /Duplicate directory slug/i);
+});
+
+test('a duplicate canonical domain within one country is rejected', () => {
+  const root = fixture({
+    'united-states': [record(), record({ id: 'us-two', slug: 'other', website: 'https://www.example.com/listings' })],
+  });
+  assert.throws(() => loadRegistry(root), /Duplicate canonical domain/i);
+});
+
+test('the same domain is allowed in two different countries', () => {
+  const root = fixture({
+    'united-states': [record()],
+    germany: [record({ id: 'de-1', country: 'germany' })],
+  });
+  const registry = loadRegistry(root);
+  assert.strictEqual(registry.directories.length, 2);
+});
+
+test('an undeclared category reference is rejected', () => {
+  const root = fixture({ 'united-states': [record({ category: 'blockchain' })] });
+  assert.throws(() => loadRegistry(root), /undeclared category "blockchain"/i);
+});
+
+test('an undeclared country reference is rejected', () => {
+  const root = fixture({ 'united-states': [record({ country: 'atlantis' })] });
+  assert.throws(() => loadRegistry(root), /undeclared country "atlantis"/i);
+});
+
+test('a record stored in the wrong country file is rejected', () => {
+  const root = fixture({ 'united-states': [record({ country: 'germany' })] });
+  assert.throws(() => loadRegistry(root), /stored in "united-states\.json"/i);
+});
+
+test('null metrics are preserved exactly and never coerced', () => {
+  const root = fixture({ 'united-states': [record()] });
+  const [entry] = loadRegistry(root).directories;
+  for (const field of ['petroHrysScore', 'domainRating', 'authorityScore',
+    'estimatedTraffic', 'referringDomains', 'httpStatus', 'lastVerified', 'free']) {
+    assert.strictEqual(entry[field], null, `${field} must stay null`);
+    assert.notStrictEqual(entry[field], 0, `${field} must not become 0`);
   }
+  assert.ok(Object.hasOwn(entry, 'petroHrysScore'));
+});
+
+test('a traversal slug in countries.json is rejected', () => {
+  const root = fixture();
+  const countries = JSON.parse(fs.readFileSync(path.join(root, 'countries.json'), 'utf8'));
+  countries[0].slug = '../../etc/passwd';
+  fs.writeFileSync(path.join(root, 'countries.json'), JSON.stringify(countries, null, 2));
+  assert.throws(() => loadRegistry(root), (err) => {
+    assert.ok(/unsafe|malformed/i.test(err.message), err.message);
+    return true;
+  });
+});
+
+test('a traversal slug on a directory record is rejected', () => {
+  const root = fixture({ 'united-states': [record({ slug: '../escape' })] });
+  assert.throws(() => loadRegistry(root), /unsafe|malformed/i);
+});
+
+test('getCountry and getCategory look records up by slug', () => {
+  const registry = loadRegistry();
+  assert.strictEqual(getCountry(registry, 'germany').name, 'Germany');
+  assert.strictEqual(getCategory(registry, 'saas').name, 'SaaS');
+  assert.strictEqual(getCountry(registry, 'atlantis'), undefined);
+});
+
+test('groupByCategory returns every category in declaration order', () => {
+  const root = fixture({ 'united-states': [record()] });
+  const registry = loadRegistry(root);
+  const grouped = groupByCategory(registry, 'united-states');
+  assert.strictEqual(grouped.size, 21);
+  assert.deepStrictEqual([...grouped.keys()], registry.categories.map((c) => c.slug));
+  assert.strictEqual(grouped.get('saas').length, 1);
+  assert.strictEqual(grouped.get('legal').length, 0);
+});
+
+test('directoriesFor filters by country and optionally category', () => {
+  const root = fixture({ 'united-states': [record()] });
+  const registry = loadRegistry(root);
+  assert.strictEqual(directoriesFor(registry, 'united-states').length, 1);
+  assert.strictEqual(directoriesFor(registry, 'united-states', 'saas').length, 1);
+  assert.strictEqual(directoriesFor(registry, 'united-states', 'legal').length, 0);
+  assert.strictEqual(directoriesFor(registry, 'germany').length, 0);
 });
 
 test('reservedSlugs contains every category slug plus structural words', () => {
-  const registry = loadRegistry();
-  const reserved = reservedSlugs(registry.categories);
+  const reserved = reservedSlugs(loadRegistry().categories);
   assert.ok(reserved.has('saas'));
   assert.ok(reserved.has('app-directories'));
   assert.ok(reserved.has('categories'));
@@ -289,7 +475,7 @@ test('isIndexable is false for an empty list and true for a populated one', () =
 
 - [ ] **Step 2: Run test to verify it fails**
 
-Run: `node --test scripts/tests/bd-registry.test.cjs`
+Run: `node --test "scripts/tests/bd-registry.test.cjs"`
 Expected: FAIL — `Cannot find module '../lib/bd-registry.cjs'`
 
 - [ ] **Step 3: Write minimal implementation**
@@ -302,29 +488,188 @@ const path = require('node:path');
 const { PATHS } = require('./bd-util.cjs');
 
 const STRUCTURAL_RESERVED = ['categories', 'page', 'feed.xml', 'index'];
+const SLUG_RE = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
+
+class RegistryError extends Error {
+  constructor(message) {
+    super(message);
+    this.name = 'RegistryError';
+  }
+}
 
 function readJson(filePath) {
-  return JSON.parse(fs.readFileSync(filePath, 'utf8'));
+  let raw;
+  try {
+    raw = fs.readFileSync(filePath, 'utf8');
+  } catch (cause) {
+    throw new RegistryError(`Cannot read registry file ${filePath}: ${cause.code || cause.message}`);
+  }
+  try {
+    return JSON.parse(raw);
+  } catch (cause) {
+    throw new RegistryError(`Malformed JSON in ${filePath}: ${cause.message}`);
+  }
+}
+
+function requireArray(value, filePath) {
+  if (!Array.isArray(value)) throw new RegistryError(`${filePath} must contain a JSON array.`);
+  return value;
+}
+
+// Defence in depth: registry slugs become path segments, so anything outside a
+// strict kebab-case shape is refused before it can reach the filesystem.
+function assertSafeSlug(slug, label, filePath) {
+  if (typeof slug !== 'string' || !SLUG_RE.test(slug)) {
+    throw new RegistryError(
+      `Unsafe or malformed ${label} slug ${JSON.stringify(slug)} in ${filePath}. ` +
+      'Slugs must be lowercase alphanumeric words separated by single hyphens.');
+  }
+}
+
+function resolveInside(rootDir, ...segments) {
+  const root = path.resolve(rootDir);
+  const target = path.resolve(root, ...segments);
+  if (target !== root && !target.startsWith(root + path.sep)) {
+    throw new RegistryError(`Refusing to read outside the registry root ${root}: ${target}`);
+  }
+  return target;
+}
+
+function canonicalDomain(website) {
+  try {
+    return new URL(website).hostname.replace(/^www\./, '').toLowerCase();
+  } catch {
+    return null; // shape of `website` is the validator's concern, not the loader's
+  }
+}
+
+function assertUniqueSlugs(items, label, filePath) {
+  const seen = new Set();
+  for (const item of items) {
+    if (seen.has(item.slug)) {
+      throw new RegistryError(`Duplicate ${label} slug "${item.slug}" in ${filePath}.`);
+    }
+    seen.add(item.slug);
+  }
 }
 
 function loadRegistry(dataRoot = PATHS.dataRoot) {
-  const countries = readJson(path.join(dataRoot, 'countries.json'));
-  const categories = readJson(path.join(dataRoot, 'categories.json'));
-  const directories = [];
-  for (const country of countries) {
-    const file = path.join(dataRoot, 'directories', `${country.slug}.json`);
-    if (!fs.existsSync(file)) {
-      throw new Error(`Missing directories file for country "${country.slug}": ${file}`);
-    }
-    for (const entry of readJson(file)) directories.push(entry);
+  const root = path.resolve(dataRoot);
+  const countriesFile = resolveInside(root, 'countries.json');
+  const categoriesFile = resolveInside(root, 'categories.json');
+
+  const countries = requireArray(readJson(countriesFile), countriesFile);
+  const categories = requireArray(readJson(categoriesFile), categoriesFile);
+
+  for (const country of countries) assertSafeSlug(country.slug, 'country', countriesFile);
+  for (const category of categories) assertSafeSlug(category.slug, 'category', categoriesFile);
+  assertUniqueSlugs(countries, 'country', countriesFile);
+  assertUniqueSlugs(categories, 'category', categoriesFile);
+
+  const dirsRoot = resolveInside(root, 'directories');
+  if (!fs.existsSync(dirsRoot)) {
+    throw new RegistryError(`Missing directories folder: ${dirsRoot}`);
   }
+
+  // Orphan detection. readdir order is not stable across platforms, so sort it.
+  const declared = new Set(countries.map((c) => `${c.slug}.json`));
+  const present = fs.readdirSync(dirsRoot).filter((f) => f.endsWith('.json')).sort();
+  for (const file of present) {
+    if (!declared.has(file)) {
+      throw new RegistryError(
+        `Orphan directory file ${path.join(dirsRoot, file)}: country ` +
+        `"${file.replace(/\.json$/, '')}" is not declared in ${countriesFile}.`);
+    }
+  }
+
+  const countrySlugs = new Set(countries.map((c) => c.slug));
+  const categorySlugs = new Set(categories.map((c) => c.slug));
+
+  const directories = [];
+  const seenId = new Map();
+  const seenSlug = new Map();
+  const seenDomain = new Map();
+
+  // Iterate declaration order, never readdir order, so output is deterministic.
+  for (const country of countries) {
+    const file = resolveInside(dirsRoot, `${country.slug}.json`);
+    if (!fs.existsSync(file)) {
+      throw new RegistryError(
+        `Missing directories file for declared country "${country.slug}": ${file}. ` +
+        'Create it containing [].');
+    }
+
+    for (const entry of requireArray(readJson(file), file)) {
+      const label = entry && entry.id ? entry.id : JSON.stringify(entry && entry.slug);
+      assertSafeSlug(entry.slug, 'directory', file);
+
+      if (!countrySlugs.has(entry.country)) {
+        throw new RegistryError(
+          `Directory "${label}" in ${file} references undeclared country "${entry.country}".`);
+      }
+      if (entry.country !== country.slug) {
+        throw new RegistryError(
+          `Directory "${label}" declares country "${entry.country}" but is stored in ` +
+          `"${country.slug}.json" (${file}).`);
+      }
+      if (!categorySlugs.has(entry.category)) {
+        throw new RegistryError(
+          `Directory "${label}" in ${file} references undeclared category "${entry.category}".`);
+      }
+
+      if (seenId.has(entry.id)) {
+        throw new RegistryError(
+          `Duplicate directory id "${entry.id}" in ${file}; first seen in ${seenId.get(entry.id)}.`);
+      }
+      seenId.set(entry.id, file);
+
+      const slugKey = `${entry.country}/${entry.slug}`;
+      if (seenSlug.has(slugKey)) {
+        throw new RegistryError(
+          `Duplicate directory slug "${entry.slug}" for country "${entry.country}" in ${file}.`);
+      }
+      seenSlug.set(slugKey, file);
+
+      // Per country, not global: one service may legitimately be listed for
+      // several countries as separate records sharing a domain.
+      const domain = canonicalDomain(entry.website);
+      if (domain) {
+        const domainKey = `${entry.country}/${domain}`;
+        if (seenDomain.has(domainKey)) {
+          throw new RegistryError(
+            `Duplicate canonical domain "${domain}" for country "${entry.country}" in ${file}; ` +
+            `first seen in ${seenDomain.get(domainKey)}.`);
+        }
+        seenDomain.set(domainKey, file);
+      }
+
+      directories.push(entry); // stored verbatim — nulls preserved, nothing normalised
+    }
+  }
+
   return { countries, categories, directories };
+}
+
+function getCountry(registry, slug) {
+  return registry.countries.find((c) => c.slug === slug);
+}
+
+function getCategory(registry, slug) {
+  return registry.categories.find((c) => c.slug === slug);
 }
 
 function directoriesFor(registry, countrySlug, categorySlug) {
   return registry.directories.filter(
     (d) => d.country === countrySlug && (categorySlug === undefined || d.category === categorySlug),
   );
+}
+
+function groupByCategory(registry, countrySlug) {
+  const grouped = new Map();
+  for (const category of registry.categories) {
+    grouped.set(category.slug, directoriesFor(registry, countrySlug, category.slug));
+  }
+  return grouped;
 }
 
 function reservedSlugs(categories) {
@@ -337,12 +682,15 @@ function isIndexable(entries) {
   return entries.length > 0;
 }
 
-module.exports = { loadRegistry, directoriesFor, reservedSlugs, isIndexable, STRUCTURAL_RESERVED };
+module.exports = {
+  RegistryError, loadRegistry, getCountry, getCategory, directoriesFor,
+  groupByCategory, reservedSlugs, isIndexable, STRUCTURAL_RESERVED,
+};
 ```
 
 - [ ] **Step 4: Run test to verify it passes**
 
-Run: `node --test scripts/tests/bd-registry.test.cjs`
+Run: `node --test "scripts/tests/bd-registry.test.cjs"`
 Expected: PASS, 5 tests
 
 - [ ] **Step 5: Commit**
