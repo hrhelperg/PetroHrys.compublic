@@ -1,0 +1,207 @@
+// scripts/lib/bd-render.cjs
+'use strict';
+const { escapeHtml } = require('./bd-util.cjs');
+const { renderJsonLd } = require('./bd-seo.cjs');
+const { breadcrumbs } = require('./bd-components.cjs');
+
+// Copied verbatim from the existing editorial pages so the new section is
+// byte-comparable with the rest of the site. The msvalidate.01 meta is
+// deliberately omitted: on existing pages it still holds an unfilled
+// PASTE_YOUR_... placeholder, and replicating that would be a defect.
+const ANALYTICS = `  <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/af075fab2c66644b181224ee/script.js"></script>
+  <!-- WebmasterID analytics — consent-gated via CookieYes (analytics category); fires only after consent -->
+  <script id="webmasterid-tracker" type="text/plain" data-cookieyes="cookieyes-analytics" defer src="https://webmasterid.com/tracker.iife.min.js" data-wmid="wm_bktqqtd7heom5nkl" data-endpoint="https://webmasterid-ingest-api.vercel.app/api/events"></script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4RE6YCJZBD"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-4RE6YCJZBD');
+  </script>`;
+
+const FONTS = `  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=JetBrains+Mono:wght@500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&display=swap" rel="stylesheet">`;
+
+const ECO_HEAD = `<!-- helperg-eco:head:start -->
+  <link rel="stylesheet" href="/css/ecosystem-banner.css">
+  <script src="/js/ecosystem-registry.js" defer></script>
+  <script src="/js/ecosystem-config.js" defer></script>
+  <script src="/js/ecosystem-banner.js" defer></script>
+<!-- helperg-eco:head:end -->`;
+
+const ECO_BODY = `<!-- helperg-eco:body:start -->
+<nav class="helperg-eco" aria-label="HELPERG Ecosystem" data-helperg-eco>
+  <div class="eco-bar">
+    <a class="eco-brand" href="https://helperg.com">
+      <span class="eco-brand-mark" aria-hidden="true"></span>
+      <span class="eco-brand-text">HELPERG Ecosystem</span>
+    </a>
+    <ul class="eco-timeline">
+        <li><a class="eco-item" href="https://helperg.com">HELPERG</a></li>
+        <li><a class="eco-item eco-item--self" href="/" aria-current="page">Petro Hrys<span class="eco-vh"> — Current site</span></a></li>
+        <li><a class="eco-item" href="https://www.webmasterid.com">WebmasterID</a></li>
+        <li><a class="eco-item" href="https://www.cashworkspace.com">Cash Workspace</a></li>
+        <li><a class="eco-item" href="https://geobusinessiq.com">GeoBusinessIQ</a></li>
+        <li><a class="eco-item" href="https://globalcityintelligence.com">Global City Intelligence</a></li>
+    </ul>
+    <a class="eco-explore" href="https://helperg.com">Explore all products</a>
+  </div>
+</nav>
+<!-- helperg-eco:body:end -->`;
+
+// Existing items are reproduced exactly; Research Center is the single addition.
+const NAV_ITEMS = (indent) => [
+  '<li><a href="/work/">Work</a></li>',
+  '<li><a href="/research/" aria-current="page">Research Center</a></li>',
+  '<li><a href="/writing/">Research &amp; Writing</a></li>',
+  '<li><a href="/about/">About</a></li>',
+].map((item) => `${indent}${item}`).join('\n');
+
+const LANGS = (indent) => [
+  '<li><a href="/">EN</a></li>',
+  '<li><a href="/es/">ES</a></li>',
+  '<li><a href="/fr/">FR</a></li>',
+  '<li><a href="/de/">DE</a></li>',
+].map((item) => `${indent}${item}`).join('\n');
+
+const HEADER = `  <header role="banner">
+    <nav aria-label="Primary">
+      <a href="/" class="wordmark">Petro Hrys</a>
+      <ul class="nav-primary">
+${NAV_ITEMS('        ')}
+      </ul>
+      <ul class="nav-lang" aria-label="Language">
+${LANGS('        ')}
+      </ul>
+      <details class="nav-mobile">
+        <summary>Menu</summary>
+        <div class="nav-mobile-panel">
+          <ul class="nav-primary">
+${NAV_ITEMS('            ')}
+          </ul>
+          <ul class="nav-lang" aria-label="Language">
+${LANGS('            ')}
+          </ul>
+        </div>
+      </details>
+    </nav>
+  </header>`;
+
+const FOOTER = `  <footer role="contentinfo">
+    <div class="footer-grid">
+      <section id="footer-tools">
+        <h3>Products</h3>
+        <ul>
+          <li><a href="/webmasterid/">WebmasterID</a></li>
+          <li><a href="/pdf-editor/">PDF Editor</a></li>
+          <li><a href="/unzip/">Unzip</a></li>
+          <li><a href="/smart-printer/">Smart Printer</a></li>
+          <li><a href="/invoice-maker/">Invoice Maker</a></li>
+          <li><a href="/pocket-manager/">Pocket Manager</a></li>
+          <li><a href="/fax/">FAX</a></li>
+          <li><a href="/twinphone/">TwinPhone</a></li>
+          <li><a href="/cv-builder/">CV Builder</a></li>
+          <li><a href="/tcg-scanner/">TCG Scanner</a></li>
+        </ul>
+      </section>
+      <section>
+        <h3>Research &amp; Writing</h3>
+        <ul>
+          <li><a href="/essays/">Essays</a></li>
+          <li><a href="/research/">Research</a></li>
+          <li><a href="/research/business-directories/">Business Directories</a></li>
+          <li><a href="/infrastructure/">Infrastructure</a></li>
+          <li><a href="/ai-systems/">AI Systems</a></li>
+          <li><a href="/artificial-intelligence/">Artificial Intelligence</a></li>
+        </ul>
+      </section>
+      <section>
+        <h3>Index</h3>
+        <ul>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/articles/">Articles</a></li>
+          <li><a href="/sitemap.xml">Sitemap</a></li>
+        </ul>
+      </section>
+      <section>
+        <h3>Legal</h3>
+        <ul>
+          <li><a href="/privacy/">Privacy</a></li>
+          <li><a href="/terms/">Terms</a></li>
+        </ul>
+      </section>
+    </div>
+    <p class="footer-bottom">&copy; 2026 Petro Hrys</p>
+  </footer>`;
+
+function metaTag(property, content, kind = 'property') {
+  return `  <meta ${kind}="${escapeHtml(property)}" content="${escapeHtml(content)}">`;
+}
+
+// Takes a builder result from bd-seo verbatim, so indexability, canonical, and
+// structured data are decided in exactly one place.
+function renderPage({ meta, main }) {
+  const robotsTag = meta.robots
+    ? `\n  <meta name="robots" content="${escapeHtml(meta.robots)}">`
+    : '';
+
+  const social = [
+    metaTag('og:title', meta.openGraph.title),
+    metaTag('og:description', meta.openGraph.description),
+    metaTag('og:url', meta.openGraph.url),
+    metaTag('og:type', meta.openGraph.type),
+    metaTag('og:site_name', meta.openGraph.siteName),
+    metaTag('og:image', meta.openGraph.image),
+    metaTag('twitter:card', meta.twitter.card, 'name'),
+    metaTag('twitter:site', meta.twitter.site, 'name'),
+    metaTag('twitter:title', meta.twitter.title, 'name'),
+    metaTag('twitter:description', meta.twitter.description, 'name'),
+    metaTag('twitter:image', meta.twitter.image, 'name'),
+  ].join('\n');
+
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+${ANALYTICS}
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>${escapeHtml(meta.fullTitle)}</title>
+  <meta name="description" content="${escapeHtml(meta.description)}">${robotsTag}
+
+${social}
+
+  <link rel="canonical" href="${escapeHtml(meta.canonical)}">
+  <link rel="sitemap" type="application/xml" href="https://www.petrohrys.com/sitemap.xml">
+  <link rel="alternate" type="application/rss+xml" title="Business Directories — Petro Hrys" href="https://www.petrohrys.com/research/business-directories/feed.xml">
+  <link rel="icon" href="/images/logo-red.svg">
+
+${FONTS}
+  <link rel="stylesheet" href="/css/petrohrys.css">
+  <link rel="stylesheet" href="/css/business-directories.css">
+
+${renderJsonLd(meta.jsonLd)}
+${ECO_HEAD}
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+${ECO_BODY}
+
+${HEADER}
+
+  <main id="main">
+${breadcrumbs(meta.breadcrumbTrail)}
+
+${main}
+  </main>
+
+${FOOTER}
+  <script src="/js/business-directories.js" defer></script>
+</body>
+</html>
+`;
+}
+
+module.exports = { renderPage, HEADER, FOOTER, ECO_HEAD, ECO_BODY };
