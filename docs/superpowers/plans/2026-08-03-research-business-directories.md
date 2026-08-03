@@ -2924,10 +2924,14 @@ git commit -m "feat(bd): add accessible bd- component library"
 - Read for reference: `research/index.html` (copy the head/header/footer markup verbatim)
 
 **Interfaces:**
-- Consumes: `bd-seo.cjs`, `bd-util.cjs`
-- Produces: `renderPage({title, description, canonicalPath, robots, jsonLd, breadcrumbTrail, main}): string`
+- Consumes: `bd-util.cjs` → `escapeHtml`; `bd-seo.cjs` → `renderJsonLd`; `bd-components.cjs` → `breadcrumbs`
+- Produces: `renderPage({ meta, main }): string`, plus `HEADER`, `FOOTER`, `ECO_HEAD`, `ECO_BODY` for tests.
 
-**Important:** open `research/index.html` and copy the analytics block, font links, ecosystem-banner markers, `<header>`, and `<footer>` **exactly**. Do not retype from memory. Omit only the `msvalidate.01` placeholder meta.
+**Renderer contract:**
+- **`meta` is a bd-seo builder result, consumed verbatim.** Title, description, canonical, robots, Open Graph, Twitter, breadcrumb trail and JSON-LD all come from one place, so indexability can never drift between the metadata and the page.
+- **Shell markup is copied from the live editorial pages** — analytics, fonts, ecosystem-banner markers, header, nav, language switcher and footer. A test reads `research/index.html` and asserts the fragments still match, so upstream drift fails loudly.
+- **`msvalidate.01` is deliberately omitted.** On existing pages it still holds an unfilled `PASTE_YOUR_...` placeholder; replicating it across generated pages would be a defect.
+- **Breadcrumb comes from the component**, giving `nav > ol` with `aria-label` and one `aria-current="page"`.
 
 - [ ] **Step 1: Write the failing test**
 
@@ -2936,85 +2940,234 @@ git commit -m "feat(bd): add accessible bd- component library"
 'use strict';
 const test = require('node:test');
 const assert = require('node:assert');
+const fs = require('node:fs');
+const path = require('node:path');
 const { renderPage } = require('../lib/bd-render.cjs');
+const seo = require('../lib/bd-seo.cjs');
 
-const page = () => renderPage({
-  title: 'Business Directories',
-  description: 'A research index of business directories.',
-  canonicalPath: '/research/business-directories/',
-  robots: 'noindex,follow',
-  jsonLd: [{ '@type': 'WebPage', name: 'Business Directories' }],
-  breadcrumbTrail: [
-    { name: 'Home', path: '/' },
-    { name: 'Research', path: '/research/' },
-    { name: 'Business Directories', path: '/research/business-directories/' },
-  ],
+const COUNTRY = { slug: 'united-states', name: 'United States', titleName: 'the United States' };
+const CATEGORY = { slug: 'saas', name: 'SaaS', description: 'Listing sites for subscription software.' };
+const DIRECTORY = {
+  id: 'us-example', slug: 'example', name: 'Example Directory',
+  website: 'https://example.com', description: 'A directory.',
+};
+
+const hub = () => renderPage({
+  meta: seo.buildHubMeta({
+    countries: [{ name: 'United States', path: '/research/business-directories/united-states/' }],
+    faqs: [{ q: 'Why?', a: 'Because.' }],
+  }),
   main: '<p>Body</p>',
 });
 
+const emptyCountry = () => renderPage({
+  meta: seo.buildCountryMeta({ country: COUNTRY, categories: [], directories: [] }),
+  main: '<p>Body</p>',
+});
+
+const VOID = new Set(['area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input',
+  'link', 'meta', 'param', 'source', 'track', 'wbr']);
+function tagBalance(html) {
+  // Strips script contents first: their text is not markup.
+  const stripped = html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, '<script></script>');
+  const stack = [];
+  const re = /<(\/?)([a-zA-Z][a-zA-Z0-9-]*)([^>]*?)(\/?)>/g;
+  let m;
+  while ((m = re.exec(stripped)) !== null) {
+    const [, closing, rawName, , selfClose] = m;
+    const name = rawName.toLowerCase();
+    if (VOID.has(name) || selfClose || name === '!doctype') continue;
+    if (closing) {
+      const open = stack.pop();
+      assert.strictEqual(open, name, `</${name}> closes <${open}>`);
+    } else {
+      stack.push(name);
+    }
+  }
+  return stack;
+}
+
 test('emits a complete html document', () => {
-  const html = page();
+  const html = hub();
   assert.ok(html.startsWith('<!DOCTYPE html>'));
+  assert.ok(html.includes('<html lang="en">'));
   assert.ok(html.trimEnd().endsWith('</html>'));
 });
 
-test('canonical uses the www origin', () => {
-  assert.ok(page().includes('<link rel="canonical" href="https://www.petrohrys.com/research/business-directories/">'));
+test('the document is tag-balanced', () => {
+  assert.deepStrictEqual(tagBalance(hub()), []);
+  assert.deepStrictEqual(tagBalance(emptyCountry()), []);
 });
 
-test('robots directive is emitted when supplied', () => {
-  assert.ok(page().includes('<meta name="robots" content="noindex,follow">'));
+test('canonical comes from the seo builder and uses the www origin', () => {
+  assert.ok(hub().includes('<link rel="canonical" href="https://www.petrohrys.com/research/business-directories/">'));
 });
 
-test('robots directive is omitted when not supplied', () => {
-  const html = renderPage({
-    title: 'T', description: 'D', canonicalPath: '/x/', jsonLd: [],
-    breadcrumbTrail: [{ name: 'Home', path: '/' }], main: '<p>x</p>',
-  });
-  assert.ok(!html.includes('name="robots"'));
+test('no apex-domain url appears anywhere in the document', () => {
+  for (const html of [hub(), emptyCountry()]) {
+    assert.ok(!/https:\/\/petrohrys\.com/.test(html), 'apex url leaked');
+  }
 });
 
-test('loads both the site stylesheet and the section stylesheet', () => {
-  const html = page();
-  assert.ok(html.includes('href="/css/petrohrys.css"'));
-  assert.ok(html.includes('href="/css/business-directories.css"'));
+test('robots is emitted only when the builder marks the page noindex', () => {
+  assert.ok(!hub().includes('name="robots"'), 'hub must be indexable');
+  assert.ok(emptyCountry().includes('<meta name="robots" content="noindex,follow">'));
+});
+
+test('title and description come from the builder', () => {
+  const html = hub();
+  assert.ok(html.includes('<title>Business Directories — Petro Hrys</title>'));
+  assert.ok(/<meta name="description" content="A country-by-country research index/.test(html));
+});
+
+test('all Open Graph and Twitter tags are present', () => {
+  const html = hub();
+  for (const tag of ['og:title', 'og:description', 'og:url', 'og:type', 'og:site_name', 'og:image',
+    'twitter:card', 'twitter:site', 'twitter:title', 'twitter:description', 'twitter:image']) {
+    assert.ok(html.includes(`"${tag}"`), `missing ${tag}`);
+  }
+});
+
+test('loads the site stylesheet and the section stylesheet, in that order', () => {
+  const html = hub();
+  const site = html.indexOf('/css/petrohrys.css');
+  const section = html.indexOf('/css/business-directories.css');
+  assert.ok(site > -1 && section > -1);
+  assert.ok(site < section, 'section styles must come after the site styles');
 });
 
 test('never contains the unfilled bing verification placeholder', () => {
-  assert.ok(!page().includes('PASTE_YOUR_BING_VERIFICATION_CODE_HERE'));
+  assert.ok(!hub().includes('PASTE_YOUR_BING_VERIFICATION_CODE_HERE'));
+  assert.ok(!hub().includes('msvalidate.01'));
 });
 
-test('reuses the site nav and includes the Research Center item', () => {
-  const html = page();
-  assert.ok(html.includes('class="nav-primary"'));
-  assert.ok(html.includes('>Research Center<'));
-  assert.ok(html.includes('href="/work/"'));
+test('reuses the site nav and adds exactly one Research Center item per list', () => {
+  const html = hub();
+  assert.strictEqual((html.match(/class="nav-primary"/g) || []).length, 2, 'desktop + mobile');
+  assert.strictEqual((html.match(/>Research Center</g) || []).length, 2);
+  assert.ok(html.includes('href="/work/">Work<'));
   assert.ok(html.includes('>Research &amp; Writing<'));
+  assert.ok(html.includes('href="/about/">About<'));
 });
 
-test('includes the ecosystem banner markers', () => {
-  const html = page();
+test('the language switcher is reproduced unchanged', () => {
+  const html = hub();
+  assert.strictEqual((html.match(/class="nav-lang"/g) || []).length, 2);
+  for (const lang of ['>EN<', '>ES<', '>FR<', '>DE<']) {
+    assert.ok(html.includes(lang), `missing ${lang}`);
+  }
+});
+
+test('includes the ecosystem banner markers and markup', () => {
+  const html = hub();
   assert.ok(html.includes('helperg-eco:head:start'));
+  assert.ok(html.includes('helperg-eco:head:end'));
   assert.ok(html.includes('helperg-eco:body:start'));
+  assert.ok(html.includes('helperg-eco:body:end'));
+  assert.ok(html.includes('data-helperg-eco'));
 });
 
-test('renders the breadcrumb trail with the site breadcrumb class', () => {
-  const html = page();
-  assert.ok(html.includes('class="breadcrumb"'));
-  assert.ok(html.includes('aria-current="page">Business Directories</span>'));
+test('includes the skip link and a main landmark', () => {
+  const html = hub();
+  assert.ok(html.includes('<a class="skip" href="#main">Skip to content</a>'));
+  assert.ok(html.includes('<main id="main">'));
 });
 
-test('all four social/meta tags are present', () => {
-  const html = page();
-  for (const tag of ['og:title', 'og:description', 'og:url', 'twitter:card']) {
-    assert.ok(html.includes(tag), `missing ${tag}`);
+test('renders the breadcrumb component with a labelled nav', () => {
+  const html = hub();
+  assert.ok(html.includes('aria-label="Breadcrumb"'));
+  assert.ok(html.includes('<ol class="bd-crumbs">'));
+  assert.ok(html.includes('aria-current="page">Business Directories<'));
+});
+
+test('the breadcrumb trail matches the page depth', () => {
+  const html = renderPage({
+    meta: seo.buildCategoryMeta({ country: COUNTRY, category: CATEGORY, directories: [DIRECTORY] }),
+    main: '<p>x</p>',
+  });
+  const crumbs = html.match(/<li class="bd-crumb">/g) || [];
+  assert.strictEqual(crumbs.length, 5);
+  assert.ok(html.includes('aria-current="page">SaaS<'));
+});
+
+test('JSON-LD is embedded and parses', () => {
+  const html = hub();
+  const match = html.match(/<script type="application\/ld\+json">\n([\s\S]*?)\n  <\/script>/);
+  assert.ok(match, 'no ld+json block found');
+  const raw = match[1].replace(/\\u003c/g, '<').replace(/\\u003e/g, '>');
+  const parsed = JSON.parse(raw);
+  assert.strictEqual(parsed['@context'], 'https://schema.org');
+  assert.ok(Array.isArray(parsed['@graph']));
+});
+
+test('a script breakout in page data cannot escape the JSON-LD block', () => {
+  const html = renderPage({
+    meta: seo.buildDirectoryMeta({
+      country: COUNTRY, category: CATEGORY,
+      directory: { ...DIRECTORY, name: '</script><img src=x onerror=alert(1)>' },
+    }),
+    main: '<p>x</p>',
+  });
+  assert.ok(!html.includes('</script><img'));
+  assert.deepStrictEqual(tagBalance(html), []);
+});
+
+test('the client script is deferred and loaded once', () => {
+  const html = hub();
+  assert.strictEqual((html.match(/business-directories\.js/g) || []).length, 1);
+  assert.ok(html.includes('<script src="/js/business-directories.js" defer></script>'));
+});
+
+test('the RSS feed is advertised', () => {
+  assert.ok(hub().includes('rel="alternate" type="application/rss+xml"'));
+});
+
+test('the main content is inserted verbatim', () => {
+  const html = renderPage({
+    meta: seo.buildHubMeta({ countries: [] }),
+    main: '<section class="bd-section"><h2>Marker</h2></section>',
+  });
+  assert.ok(html.includes('<section class="bd-section"><h2>Marker</h2></section>'));
+});
+
+test('rendering is deterministic', () => {
+  const runs = new Set(Array.from({ length: 20 }, hub));
+  assert.strictEqual(runs.size, 1);
+});
+
+test('no build-time timestamp is embedded', () => {
+  const html = hub();
+  const withoutAnalytics = html.replace(/new Date\(\)/g, '');
+  assert.ok(!/\d{4}-\d{2}-\d{2}T\d{2}:\d{2}/.test(withoutAnalytics));
+});
+
+test('exactly one h1 is present, from the page main', () => {
+  const html = renderPage({
+    meta: seo.buildHubMeta({ countries: [] }),
+    main: '<article class="page-hero"><h1>Business Directories</h1></article>',
+  });
+  assert.strictEqual((html.match(/<h1[ >]/g) || []).length, 1);
+});
+
+test('the shell markup matches the live editorial pages', () => {
+  const live = fs.readFileSync(path.join(__dirname, '..', '..', 'research', 'index.html'), 'utf8');
+  const html = hub();
+  for (const fragment of [
+    '<a href="/" class="wordmark">Petro Hrys</a>',
+    '<ul class="nav-lang" aria-label="Language">',
+    '<details class="nav-mobile">',
+    '<p class="footer-bottom">&copy; 2026 Petro Hrys</p>',
+    '<link rel="stylesheet" href="/css/petrohrys.css">',
+  ]) {
+    assert.ok(live.includes(fragment), `fixture drift: live page lacks ${fragment}`);
+    assert.ok(html.includes(fragment), `rendered page lacks ${fragment}`);
   }
 });
 ```
 
 - [ ] **Step 2: Run test to verify it fails**
 
-Run: `node --test scripts/tests/bd-render.test.cjs`
+Run: `node --test "scripts/tests/bd-render.test.cjs"`
 Expected: FAIL — `Cannot find module '../lib/bd-render.cjs'`
 
 - [ ] **Step 3: Write minimal implementation**
@@ -3023,8 +3176,13 @@ Expected: FAIL — `Cannot find module '../lib/bd-render.cjs'`
 // scripts/lib/bd-render.cjs
 'use strict';
 const { escapeHtml } = require('./bd-util.cjs');
-const { absoluteUrl, renderJsonLd, breadcrumbList } = require('./bd-seo.cjs');
+const { renderJsonLd } = require('./bd-seo.cjs');
+const { breadcrumbs } = require('./bd-components.cjs');
 
+// Copied verbatim from the existing editorial pages so the new section is
+// byte-comparable with the rest of the site. The msvalidate.01 meta is
+// deliberately omitted: on existing pages it still holds an unfilled
+// PASTE_YOUR_... placeholder, and replicating that would be a defect.
 const ANALYTICS = `  <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/af075fab2c66644b181224ee/script.js"></script>
   <!-- WebmasterID analytics — consent-gated via CookieYes (analytics category); fires only after consent -->
   <script id="webmasterid-tracker" type="text/plain" data-cookieyes="cookieyes-analytics" defer src="https://webmasterid.com/tracker.iife.min.js" data-wmid="wm_bktqqtd7heom5nkl" data-endpoint="https://webmasterid-ingest-api.vercel.app/api/events"></script>
@@ -3036,6 +3194,10 @@ const ANALYTICS = `  <script id="cookieyes" type="text/javascript" src="https://
     gtag('js', new Date());
     gtag('config', 'G-4RE6YCJZBD');
   </script>`;
+
+const FONTS = `  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=JetBrains+Mono:wght@500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&display=swap" rel="stylesheet">`;
 
 const ECO_HEAD = `<!-- helperg-eco:head:start -->
   <link rel="stylesheet" href="/css/ecosystem-banner.css">
@@ -3064,33 +3226,38 @@ const ECO_BODY = `<!-- helperg-eco:body:start -->
 </nav>
 <!-- helperg-eco:body:end -->`;
 
-const NAV_ITEMS = `            <li><a href="/work/">Work</a></li>
-            <li><a href="/research/">Research Center</a></li>
-            <li><a href="/writing/">Research &amp; Writing</a></li>
-            <li><a href="/about/">About</a></li>`;
+// Existing items are reproduced exactly; Research Center is the single addition.
+const NAV_ITEMS = (indent) => [
+  '<li><a href="/work/">Work</a></li>',
+  '<li><a href="/research/" aria-current="page">Research Center</a></li>',
+  '<li><a href="/writing/">Research &amp; Writing</a></li>',
+  '<li><a href="/about/">About</a></li>',
+].map((item) => `${indent}${item}`).join('\n');
 
-const LANGS = `            <li><a href="/">EN</a></li>
-            <li><a href="/es/">ES</a></li>
-            <li><a href="/fr/">FR</a></li>
-            <li><a href="/de/">DE</a></li>`;
+const LANGS = (indent) => [
+  '<li><a href="/">EN</a></li>',
+  '<li><a href="/es/">ES</a></li>',
+  '<li><a href="/fr/">FR</a></li>',
+  '<li><a href="/de/">DE</a></li>',
+].map((item) => `${indent}${item}`).join('\n');
 
 const HEADER = `  <header role="banner">
     <nav aria-label="Primary">
       <a href="/" class="wordmark">Petro Hrys</a>
       <ul class="nav-primary">
-${NAV_ITEMS}
+${NAV_ITEMS('        ')}
       </ul>
       <ul class="nav-lang" aria-label="Language">
-${LANGS}
+${LANGS('        ')}
       </ul>
       <details class="nav-mobile">
         <summary>Menu</summary>
         <div class="nav-mobile-panel">
           <ul class="nav-primary">
-${NAV_ITEMS}
+${NAV_ITEMS('            ')}
           </ul>
           <ul class="nav-lang" aria-label="Language">
-${LANGS}
+${LANGS('            ')}
           </ul>
         </div>
       </details>
@@ -3144,21 +3311,30 @@ const FOOTER = `  <footer role="contentinfo">
     <p class="footer-bottom">&copy; 2026 Petro Hrys</p>
   </footer>`;
 
-function renderBreadcrumb(trail) {
-  const parts = trail.map((entry, index) => {
-    const last = index === trail.length - 1;
-    return last
-      ? `<span aria-current="page">${escapeHtml(entry.name)}</span>`
-      : `<a href="${escapeHtml(entry.path)}">${escapeHtml(entry.name)}</a>`;
-  });
-  return `    <p class="breadcrumb">\n      ${parts.join('<span class="sep">/</span>')}\n    </p>`;
+function metaTag(property, content, kind = 'property') {
+  return `  <meta ${kind}="${escapeHtml(property)}" content="${escapeHtml(content)}">`;
 }
 
-function renderPage({ title, description, canonicalPath, robots, jsonLd, breadcrumbTrail, main }) {
-  const canonical = absoluteUrl(canonicalPath);
-  const fullTitle = `${title} — Petro Hrys`;
-  const graph = [...jsonLd, breadcrumbList(breadcrumbTrail)];
-  const robotsTag = robots ? `\n  <meta name="robots" content="${escapeHtml(robots)}">` : '';
+// Takes a builder result from bd-seo verbatim, so indexability, canonical, and
+// structured data are decided in exactly one place.
+function renderPage({ meta, main }) {
+  const robotsTag = meta.robots
+    ? `\n  <meta name="robots" content="${escapeHtml(meta.robots)}">`
+    : '';
+
+  const social = [
+    metaTag('og:title', meta.openGraph.title),
+    metaTag('og:description', meta.openGraph.description),
+    metaTag('og:url', meta.openGraph.url),
+    metaTag('og:type', meta.openGraph.type),
+    metaTag('og:site_name', meta.openGraph.siteName),
+    metaTag('og:image', meta.openGraph.image),
+    metaTag('twitter:card', meta.twitter.card, 'name'),
+    metaTag('twitter:site', meta.twitter.site, 'name'),
+    metaTag('twitter:title', meta.twitter.title, 'name'),
+    metaTag('twitter:description', meta.twitter.description, 'name'),
+    metaTag('twitter:image', meta.twitter.image, 'name'),
+  ].join('\n');
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -3167,32 +3343,21 @@ function renderPage({ title, description, canonicalPath, robots, jsonLd, breadcr
 ${ANALYTICS}
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>${escapeHtml(fullTitle)}</title>
-  <meta name="description" content="${escapeHtml(description)}">${robotsTag}
+  <title>${escapeHtml(meta.fullTitle)}</title>
+  <meta name="description" content="${escapeHtml(meta.description)}">${robotsTag}
 
-  <meta property="og:title" content="${escapeHtml(fullTitle)}">
-  <meta property="og:description" content="${escapeHtml(description)}">
-  <meta property="og:url" content="${escapeHtml(canonical)}">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Petro Hrys">
-  <meta property="og:image" content="https://www.petrohrys.com/images/og-default.png">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:site" content="@petrohrys">
-  <meta name="twitter:title" content="${escapeHtml(fullTitle)}">
-  <meta name="twitter:description" content="${escapeHtml(description)}">
-  <meta name="twitter:image" content="https://www.petrohrys.com/images/og-default.png">
+${social}
 
-  <link rel="canonical" href="${escapeHtml(canonical)}">
+  <link rel="canonical" href="${escapeHtml(meta.canonical)}">
   <link rel="sitemap" type="application/xml" href="https://www.petrohrys.com/sitemap.xml">
+  <link rel="alternate" type="application/rss+xml" title="Business Directories — Petro Hrys" href="https://www.petrohrys.com/research/business-directories/feed.xml">
   <link rel="icon" href="/images/logo-red.svg">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=JetBrains+Mono:wght@500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&display=swap" rel="stylesheet">
+${FONTS}
   <link rel="stylesheet" href="/css/petrohrys.css">
   <link rel="stylesheet" href="/css/business-directories.css">
 
-${renderJsonLd(graph)}
+${renderJsonLd(meta.jsonLd)}
 ${ECO_HEAD}
 </head>
 <body>
@@ -3202,7 +3367,7 @@ ${ECO_BODY}
 ${HEADER}
 
   <main id="main">
-${renderBreadcrumb(breadcrumbTrail)}
+${breadcrumbs(meta.breadcrumbTrail)}
 
 ${main}
   </main>
@@ -3214,19 +3379,19 @@ ${FOOTER}
 `;
 }
 
-module.exports = { renderPage };
+module.exports = { renderPage, HEADER, FOOTER, ECO_HEAD, ECO_BODY };
 ```
 
 - [ ] **Step 4: Run test to verify it passes**
 
-Run: `node --test scripts/tests/bd-render.test.cjs`
-Expected: PASS, 10 tests
+Run: `node --test "scripts/tests/bd-render.test.cjs"`
+Expected: PASS, 24 tests
 
 - [ ] **Step 5: Commit**
 
 ```bash
 git add scripts/lib/bd-render.cjs scripts/tests/bd-render.test.cjs
-git commit -m "feat(bd): add page shell renderer matching the editorial system"
+git commit -m "feat(bd): add page shell renderer driven by SEO metadata"
 ```
 
 ---
@@ -3363,7 +3528,13 @@ git commit -m "feat(bd): add sitemap and RSS emitters"
 - Test: `scripts/tests/bd-assets.test.cjs`
 
 **Interfaces:**
-- Produces: `.bd-*` styles and a progressive-enhancement script. No module exports.
+- Produces `css/business-directories.css` and `js/business-directories.js`. No module exports.
+
+**Asset contract:**
+- The stylesheet consumes **only** existing custom properties, declares no raw colour or font literal, redefines no existing site selector, and styles every `bd-` class the components emit — enforced by a test that renders all components and diffs the class sets.
+- The client script performs **no** network request, writes **no** markup (`textContent` only), binds handlers with `addEventListener`, and mirrors `bd-sort`'s comparator exactly — including avoiding `localeCompare`, so client order matches server order on every platform.
+- Tests cross-check that every `data-bd-*` attribute the script reads is actually emitted by a component, and that the wrappers it reveals are the ones rendered `hidden`.
+- The script adds an `aria-live` status region announcing the visible count, because filtering silently changes what is on screen.
 
 - [ ] **Step 1: Write the failing test**
 
@@ -3374,14 +3545,41 @@ const test = require('node:test');
 const assert = require('node:assert');
 const fs = require('node:fs');
 const path = require('node:path');
+const components = require('../lib/bd-components.cjs');
 
 const root = path.resolve(__dirname, '..', '..');
 const css = () => fs.readFileSync(path.join(root, 'css', 'business-directories.css'), 'utf8');
+const js = () => fs.readFileSync(path.join(root, 'js', 'business-directories.js'), 'utf8');
+const stripComments = (text) => text.replace(/\/\*[\s\S]*?\*\//g, '');
+
+const DIR = {
+  id: 'a', slug: 'a', name: 'A', description: 'd', website: 'https://a.example',
+  petroHrysScore: null, domainRating: null, authorityScore: null, estimatedTraffic: null,
+  free: true, paid: null, verificationRequired: null, acceptsSaaS: null,
+  acceptsStartups: null, acceptsAI: null, lastVerified: null, nextVerification: null,
+  recommendedIndustries: [], pros: [], cons: [], metricsProvenance: {},
+};
+
+const RENDERED = () => [
+  components.breadcrumbs([{ name: 'H', path: '/' }, { name: 'X', path: '/x/' }]),
+  components.cardGrid([components.countryCard({ name: 'A', path: '/a/' }),
+    components.countryCard({ name: 'B', path: '/b/', pending: true })]),
+  components.cardGrid([components.categoryCard({ name: 'C', path: '/c/', description: 'd' })]),
+  components.directoryTable({ directories: [DIR] }),
+  components.directoryCard({ directory: DIR }),
+  components.metricsBlock(DIR), components.statusBadges(DIR),
+  components.prosCons({ pros: ['p'], cons: ['c'] }), components.bestForTags(['x']),
+  components.emptyState('e'), components.searchControls({}), components.filterControls({}),
+  components.sortControls({}), components.pagination({ current: 1, total: 2, basePath: '/x/' }),
+  components.methodologyNote(), components.provenanceBlock(DIR),
+  components.externalLinkCta({ url: 'https://a.example' }),
+  '<p class="bd-status"></p>',
+].join('\n');
+
+// --- stylesheet -------------------------------------------------------------
 
 test('every selector in the section stylesheet is bd- namespaced', () => {
-  const withoutComments = css().replace(/\/\*[\s\S]*?\*\//g, '');
-  const blocks = withoutComments.split('}');
-  for (const block of blocks) {
+  for (const block of stripComments(css()).split('}')) {
     const selector = block.split('{')[0].trim();
     if (!selector || selector.startsWith('@')) continue;
     for (const part of selector.split(',')) {
@@ -3392,43 +3590,153 @@ test('every selector in the section stylesheet is bd- namespaced', () => {
   }
 });
 
-test('the stylesheet declares no raw hex colors', () => {
+test('the stylesheet declares no raw hex colour', () => {
   assert.strictEqual(css().match(/#[0-9a-fA-F]{3,8}\b/g), null);
 });
 
-test('the stylesheet declares no font-family or font-size literals', () => {
-  const withoutComments = css().replace(/\/\*[\s\S]*?\*\//g, '');
-  for (const decl of withoutComments.match(/font-(family|size)\s*:[^;]+;/g) || []) {
+test('the stylesheet declares no rgb/hsl colour literal', () => {
+  assert.strictEqual(stripComments(css()).match(/\b(rgb|rgba|hsl|hsla)\s*\(/g), null);
+});
+
+test('every font declaration uses an existing token', () => {
+  for (const decl of stripComments(css()).match(/font-(family|size)\s*:[^;]+;/g) || []) {
     assert.ok(decl.includes('var(--'), `font declaration must use a token: ${decl}`);
   }
 });
 
+// Matches only class tokens in selector position. A bare /\.[\w-]+/ also picks
+// up file extensions inside comments and url() values, which is how ".css"
+// previously showed up as a "class".
+const CLASS_RE = /(?:^|[\s,>+~(])\.([a-zA-Z][a-zA-Z0-9_-]*)/g;
+const classesIn = (text) => new Set(
+  [...stripComments(text).matchAll(CLASS_RE)].map((m) => m[1]));
+
 test('the stylesheet never redefines an existing site selector', () => {
-  const site = fs.readFileSync(path.join(root, 'css', 'petrohrys.css'), 'utf8');
-  const existing = new Set((site.match(/\.[a-zA-Z0-9_-]+/g) || []).map((s) => s.slice(1)));
-  for (const cls of (css().match(/\.[a-zA-Z0-9_-]+/g) || []).map((s) => s.slice(1))) {
-    if (existing.has(cls)) assert.fail(`section CSS reuses existing site class: .${cls}`);
+  const existing = classesIn(fs.readFileSync(path.join(root, 'css', 'petrohrys.css'), 'utf8'));
+  for (const cls of classesIn(css())) {
+    assert.ok(!existing.has(cls), `section CSS reuses existing site class: .${cls}`);
   }
 });
 
-test('the client script performs no network requests', () => {
-  const js = fs.readFileSync(path.join(root, 'js', 'business-directories.js'), 'utf8');
-  for (const forbidden of ['fetch(', 'XMLHttpRequest', 'import(', 'WebSocket']) {
-    assert.ok(!js.includes(forbidden), `client script must not use ${forbidden}`);
+test('every bd- class the components emit is styled', () => {
+  const emitted = new Set();
+  for (const match of RENDERED().matchAll(/class="([^"]+)"/g)) {
+    for (const cls of match[1].split(/\s+/)) if (cls.startsWith('bd-')) emitted.add(cls);
   }
+  const styled = new Set((css().match(/\.bd-[a-zA-Z0-9_-]+/g) || []).map((s) => s.slice(1)));
+  const missing = [...emitted].filter((cls) => !styled.has(cls));
+  assert.deepStrictEqual(missing, [], `unstyled classes: ${missing.join(', ')}`);
+});
+
+test('the visually hidden helper is defined', () => {
+  assert.ok(/\.bd-vh\s*\{/.test(css()));
+  assert.ok(css().includes('position: absolute'));
+});
+
+// --- client script ----------------------------------------------------------
+
+test('the client script performs no network request', () => {
+  const source = js();
+  for (const forbidden of ['fetch(', 'XMLHttpRequest', 'import(', 'WebSocket',
+    'navigator.sendBeacon', 'EventSource']) {
+    assert.ok(!source.includes(forbidden), `client script must not use ${forbidden}`);
+  }
+});
+
+test('the client script writes no markup and uses no eval', () => {
+  const source = js();
+  for (const forbidden of ['innerHTML', 'outerHTML', 'insertAdjacentHTML',
+    'document.write', 'eval(', 'new Function']) {
+    assert.ok(!source.includes(forbidden), `client script must not use ${forbidden}`);
+  }
+  assert.ok(source.includes('textContent'), 'text updates must go through textContent');
+});
+
+test('the client script binds handlers with addEventListener only', () => {
+  const source = stripComments(js());
+  assert.ok(source.includes('addEventListener'));
+  assert.ok(!/\.on(click|change|input|load)\s*=/.test(source), 'no on* property assignment');
+});
+
+test('the client script avoids locale-dependent ordering', () => {
+  const source = stripComments(js());
+  assert.ok(!/\.localeCompare\s*\(/.test(source));
+  assert.ok(!/toLocale(Lower|Upper)Case\s*\(/.test(source));
+});
+
+test('the client sort keys match the server sort keys exactly', () => {
+  const { SORT_KEYS } = require('../lib/bd-sort.cjs');
+  const source = js();
+  for (const key of SORT_KEYS) {
+    assert.ok(source.includes(`'${key}'`), `client script is missing sort key ${key}`);
+  }
+});
+
+test('every data attribute the client reads is emitted by the components', () => {
+  const html = components.directoryTable({ directories: [DIR] })
+    + components.searchControls({}) + components.filterControls({}) + components.sortControls({});
+  const read = new Set();
+  for (const m of js().matchAll(/'(data-bd-[a-z-]+)'/g)) read.add(m[1]);
+  for (const m of js().matchAll(/\[(data-bd-[a-z-]+)\]/g)) read.add(m[1]);
+  // Dynamic reads are built as 'data-bd-' + suffix, so resolve the suffix from
+  // the call site rather than scraping the concatenation itself.
+  for (const m of js().matchAll(/num\([a-z.]+, '([a-z]+)'\)/g)) read.add(`data-bd-${m[1]}`);
+  const missing = [...read].filter((attr) => !html.includes(attr));
+  assert.deepStrictEqual(missing, [], `client reads attributes the components never emit: ${missing.join(', ')}`);
+});
+
+test('the filter fields the client reads are all rendered as row attributes', () => {
+  const row = components.directoryTable({ directories: [DIR] });
+  for (const filter of components.FILTERS) {
+    assert.ok(row.includes(`data-bd-${filter.field.toLowerCase()}=`), `row lacks ${filter.field}`);
+  }
+});
+
+test('the script reveals the control wrappers the components render hidden', () => {
+  const source = js();
+  for (const wrap of ['data-bd-sort-wrap', 'data-bd-filter-wrap', 'data-bd-search-wrap']) {
+    assert.ok(source.includes(wrap), `script never reveals ${wrap}`);
+    assert.ok(RENDERED().includes(wrap), `components never render ${wrap}`);
+  }
+});
+
+test('the script exits cleanly when there is no table', () => {
+  const source = js();
+  assert.ok(/if \(!tbody\) return;/.test(source), 'must no-op without a directory table');
+  assert.ok(/if \(!rows\.length\) return;/.test(source), 'must no-op with zero rows');
+});
+
+test('filtering announces the visible count for assistive technology', () => {
+  const source = js();
+  assert.ok(source.includes("setAttribute('role', 'status')"));
+  assert.ok(source.includes("aria-live"));
+  assert.ok(source.includes('directories shown'));
 });
 ```
 
 - [ ] **Step 2: Run test to verify it fails**
 
-Run: `node --test scripts/tests/bd-assets.test.cjs`
+Run: `node --test "scripts/tests/bd-assets.test.cjs"`
 Expected: FAIL — `ENOENT ... css/business-directories.css`
 
 - [ ] **Step 3: Write `css/business-directories.css`**
 
 ```css
 /* Business Directories — Research Center.
-   Consumes tokens from petrohrys.css only. Declares no raw colors, fonts, or spacing. */
+   Consumes design tokens from petrohrys.css only. Declares no raw colour,
+   font, or spacing literal, and redefines no existing site selector. */
+
+.bd-vh {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
 
 .bd-section { margin-top: var(--s-6); }
 
@@ -3448,17 +3756,48 @@ Expected: FAIL — `ENOENT ... css/business-directories.css`
   padding: var(--s-4);
 }
 
+/* Breadcrumb: inherits colour and size from the site's .breadcrumb class,
+   so this only resets the list semantics. */
+.bd-breadcrumb .bd-crumbs {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.bd-breadcrumb .bd-crumb { display: inline-flex; align-items: center; }
+
 .bd-grid {
   list-style: none;
   padding: 0;
   margin: var(--s-4) 0 0;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
-  gap: var(--s-2);
+  gap: var(--s-3);
 }
 
-.bd-grid a { color: var(--blue); }
-.bd-grid a:hover { color: var(--blue-strong); }
+.bd-card {
+  border-top: var(--rule-w) solid var(--rule);
+  padding-top: var(--s-2);
+}
+
+.bd-card-title {
+  font-family: var(--ff-sans);
+  font-size: var(--fs-md);
+  margin: 0;
+}
+
+.bd-card-title a { color: var(--blue); }
+.bd-card-title a:hover { color: var(--blue-strong); }
+
+.bd-card-body {
+  color: var(--text-2);
+  font-size: var(--fs-sm);
+  margin: var(--s-1) 0 0;
+}
+
+.bd-pending { color: var(--text-3); }
 
 .bd-tag {
   color: var(--text-3);
@@ -3466,30 +3805,18 @@ Expected: FAIL — `ENOENT ... css/business-directories.css`
   font-family: var(--ff-mono);
 }
 
-.bd-pending { color: var(--text-3); }
-
-.bd-detail { margin-top: var(--s-4); }
-
-.bd-detail-site { font-family: var(--ff-mono); font-size: var(--fs-sm); }
-
-.bd-defs {
-  margin: var(--s-4) 0 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
-  gap: var(--s-3);
+.bd-summary {
+  border-top: var(--rule-w) solid var(--rule);
+  padding-top: var(--s-3);
+  margin-top: var(--s-4);
 }
 
-.bd-def { border-top: var(--rule-w) solid var(--rule); padding-top: var(--s-1); }
-.bd-def-t { color: var(--text-3); font-size: var(--fs-xs); }
-.bd-def-d { margin: 0; color: var(--text); }
+.bd-controls { display: flex; flex-wrap: wrap; gap: var(--s-3); }
 
-.bd-list { color: var(--text-2); margin: var(--s-3) 0 0; padding-left: var(--s-4); }
-
-.bd-controls {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--s-3);
+.bd-control {
   margin-top: var(--s-4);
+  border: 0;
+  padding: 0;
 }
 
 .bd-label {
@@ -3497,6 +3824,7 @@ Expected: FAIL — `ENOENT ... css/business-directories.css`
   color: var(--text-2);
   font-size: var(--fs-sm);
   margin-bottom: var(--s-0);
+  padding: 0;
 }
 
 .bd-select,
@@ -3511,16 +3839,26 @@ Expected: FAIL — `ENOENT ... css/business-directories.css`
 }
 
 .bd-select:focus-visible,
-.bd-input:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+.bd-input:focus-visible,
+.bd-checks input:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
 
-.bd-checks { display: flex; flex-wrap: wrap; gap: var(--s-2); }
+.bd-checks { display: flex; flex-wrap: wrap; gap: var(--s-3); }
 
 .bd-check {
-  color: var(--text-2);
-  font-size: var(--fs-sm);
   display: inline-flex;
   align-items: center;
   gap: var(--s-0);
+  color: var(--text-2);
+  font-size: var(--fs-sm);
+}
+
+.bd-status {
+  color: var(--text-3);
+  font-size: var(--fs-sm);
+  margin-top: var(--s-2);
 }
 
 .bd-table {
@@ -3530,11 +3868,19 @@ Expected: FAIL — `ENOENT ... css/business-directories.css`
   font-size: var(--fs-sm);
 }
 
+.bd-caption {
+  text-align: left;
+  color: var(--text-3);
+  font-size: var(--fs-xs);
+  padding-bottom: var(--s-1);
+}
+
 .bd-cell {
   text-align: left;
   padding: var(--s-2);
   border-bottom: var(--rule-w) solid var(--rule);
   vertical-align: top;
+  font-weight: 400;
 }
 
 .bd-row:hover { background: var(--hover-tint); }
@@ -3549,14 +3895,88 @@ Expected: FAIL — `ENOENT ... css/business-directories.css`
   font-family: var(--ff-mono);
 }
 
-.bd-faq { margin-top: var(--s-4); }
-.bd-faq-item + .bd-faq-item { margin-top: var(--s-4); }
-.bd-faq-q { font-size: var(--fs-md); margin: 0 0 var(--s-1); }
-.bd-faq-a { color: var(--text-2); margin: 0; }
+.bd-defs {
+  margin: var(--s-4) 0 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+  gap: var(--s-3);
+}
 
-.bd-pagination { display: flex; gap: var(--s-1); margin-top: var(--s-5); }
+.bd-def {
+  border-top: var(--rule-w) solid var(--rule);
+  padding-top: var(--s-1);
+}
+
+.bd-def-t { color: var(--text-3); font-size: var(--fs-xs); }
+.bd-def-d { margin: 0; color: var(--text); }
+
+/* Status is always spelled out in the badge text; the border and tint are
+   decoration only and never the sole carrier of meaning. */
+.bd-badges {
+  list-style: none;
+  margin: var(--s-3) 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-1);
+}
+
+.bd-badge {
+  border: var(--rule-w) solid var(--rule);
+  border-radius: var(--s-0);
+  padding: var(--s-0) var(--s-2);
+  font-size: var(--fs-xs);
+  color: var(--text-2);
+  background: var(--surface);
+}
+
+.bd-badge[data-bd-state="verified"] { background: var(--surface-green); color: var(--green); }
+.bd-badge[data-bd-state="unknown"] { color: var(--text-3); }
+
+.bd-chips {
+  list-style: none;
+  margin: var(--s-3) 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-1);
+}
+
+.bd-chip {
+  border: var(--rule-w) solid var(--rule);
+  border-radius: var(--s-0);
+  padding: var(--s-0) var(--s-2);
+  font-size: var(--fs-xs);
+  color: var(--text-2);
+}
+
+.bd-list {
+  color: var(--text-2);
+  margin: var(--s-3) 0 0;
+  padding-left: var(--s-4);
+}
+
+.bd-proscons { margin-top: var(--s-4); }
+
+.bd-subhead {
+  font-family: var(--ff-sans);
+  font-size: var(--fs-md);
+  margin: var(--s-4) 0 0;
+}
+
+.bd-pagination { margin-top: var(--s-5); }
+
+.bd-pages {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-1);
+  margin: 0;
+  padding: 0;
+}
 
 .bd-page {
+  display: inline-block;
   color: var(--blue);
   border: var(--rule-w) solid var(--rule);
   border-radius: var(--s-0);
@@ -3564,14 +3984,36 @@ Expected: FAIL — `ENOENT ... css/business-directories.css`
   font-size: var(--fs-sm);
 }
 
-.bd-page--current { color: var(--text-3); background: var(--bg-soft); }
+.bd-page--current {
+  color: var(--text-3);
+  background: var(--bg-soft);
+}
+
+.bd-cta { margin-top: var(--s-4); }
+
+.bd-cta-link {
+  color: var(--blue);
+  font-family: var(--ff-mono);
+  font-size: var(--fs-sm);
+}
+
+.bd-cta-link:hover { color: var(--blue-strong); }
+
+.bd-cta--unavailable { color: var(--text-3); font-size: var(--fs-sm); }
+
+.bd-provenance { margin-top: var(--s-4); }
+
+@media (max-width: 40rem) {
+  .bd-table { display: block; overflow-x: auto; }
+}
 ```
 
 - [ ] **Step 4: Write `js/business-directories.js`**
 
 ```js
 /* Business Directories — progressive enhancement only.
-   Reorders and hides DOM that is already prerendered. Performs no network requests. */
+   Reorders and hides table rows that are already prerendered. Performs no
+   network request of any kind, and writes only textContent, never markup. */
 (function () {
   'use strict';
 
@@ -3581,10 +4023,24 @@ Expected: FAIL — `ENOENT ... css/business-directories.css`
   var rows = Array.prototype.slice.call(tbody.querySelectorAll('.bd-row'));
   if (!rows.length) return;
 
+  var sortSelect = document.querySelector('[data-bd-sort]');
+  var searchInput = document.querySelector('[data-bd-search]');
+  var filters = Array.prototype.slice.call(document.querySelectorAll('[data-bd-filter]'));
+
+  // Reveal the controls only once the behaviour behind them exists. Without
+  // JavaScript they stay hidden and the prerendered table is complete.
   ['[data-bd-sort-wrap]', '[data-bd-filter-wrap]', '[data-bd-search-wrap]'].forEach(function (sel) {
     var el = document.querySelector(sel);
     if (el) el.hidden = false;
   });
+
+  // Filtering changes what is visible, so announce the result count.
+  var status = document.createElement('p');
+  status.className = 'bd-status';
+  status.setAttribute('role', 'status');
+  status.setAttribute('aria-live', 'polite');
+  var table = tbody.closest ? tbody.closest('table') : null;
+  if (table && table.parentNode) table.parentNode.insertBefore(status, table);
 
   function num(row, key) {
     var raw = row.getAttribute('data-bd-' + key);
@@ -3598,14 +4054,22 @@ Expected: FAIL — `ENOENT ... css/business-directories.css`
     return b - a;
   }
 
+  // Mirrors bd-sort.cjs exactly: case-folded compare with a code-unit tiebreak.
+  // localeCompare is avoided so the client order matches the server order on
+  // every platform.
   function byName(a, b) {
-    return a.getAttribute('data-bd-name').localeCompare(b.getAttribute('data-bd-name'), 'en');
+    var an = a.getAttribute('data-bd-name') || '';
+    var bn = b.getAttribute('data-bd-name') || '';
+    if (an < bn) return -1;
+    if (an > bn) return 1;
+    return 0;
   }
 
   var COMPARATORS = {
     'default': function (a, b) {
       return nullLastDesc(num(a, 'score'), num(b, 'score'))
-        || nullLastDesc(num(a, 'dr'), num(b, 'dr')) || byName(a, b);
+        || nullLastDesc(num(a, 'dr'), num(b, 'dr'))
+        || byName(a, b);
     },
     'domain-rating': function (a, b) { return nullLastDesc(num(a, 'dr'), num(b, 'dr')) || byName(a, b); },
     'authority-score': function (a, b) { return nullLastDesc(num(a, 'as'), num(b, 'as')) || byName(a, b); },
@@ -3613,39 +4077,47 @@ Expected: FAIL — `ENOENT ... css/business-directories.css`
     'alphabetical': byName
   };
 
-  var sortSelect = document.querySelector('[data-bd-sort]');
-  var searchInput = document.querySelector('[data-bd-search]');
-  var filters = Array.prototype.slice.call(document.querySelectorAll('[data-bd-filter]'));
-
   function apply() {
     var key = sortSelect ? sortSelect.value : 'default';
-    var ordered = rows.slice().sort(COMPARATORS[key] || COMPARATORS['default']);
-    ordered.forEach(function (row) { tbody.appendChild(row); });
+    var compare = COMPARATORS[key] || COMPARATORS['default'];
+
+    // Stability by explicit index tiebreak, matching the server comparator.
+    var decorated = rows.map(function (row, index) { return { row: row, index: index }; });
+    decorated.sort(function (a, b) { return compare(a.row, b.row) || (a.index - b.index); });
+    decorated.forEach(function (entry) { tbody.appendChild(entry.row); });
 
     var query = searchInput ? searchInput.value.trim().toLowerCase() : '';
     var active = filters.filter(function (f) { return f.checked; });
+    var shown = 0;
 
     rows.forEach(function (row) {
       var visible = true;
-      if (query && row.getAttribute('data-bd-haystack').indexOf(query) === -1) visible = false;
+      if (query && (row.getAttribute('data-bd-haystack') || '').indexOf(query) === -1) visible = false;
       active.forEach(function (f) {
-        var attr = 'data-bd-' + f.getAttribute('data-bd-filter').toLowerCase();
+        var attr = 'data-bd-' + String(f.getAttribute('data-bd-filter')).toLowerCase();
         if (row.getAttribute(attr) !== '1') visible = false;
       });
       row.hidden = !visible;
+      if (visible) shown += 1;
     });
+
+    status.textContent = shown === rows.length
+      ? String(rows.length) + ' directories shown'
+      : String(shown) + ' of ' + String(rows.length) + ' directories shown';
   }
 
   if (sortSelect) sortSelect.addEventListener('change', apply);
   if (searchInput) searchInput.addEventListener('input', apply);
   filters.forEach(function (f) { f.addEventListener('change', apply); });
+
+  apply();
 })();
 ```
 
 - [ ] **Step 5: Run test to verify it passes**
 
-Run: `node --test scripts/tests/bd-assets.test.cjs`
-Expected: PASS, 5 tests
+Run: `node --test "scripts/tests/bd-assets.test.cjs"`
+Expected: PASS, 17 tests
 
 - [ ] **Step 6: Commit**
 
