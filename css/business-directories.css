@@ -234,6 +234,17 @@
 
 .bd-proscons { margin-top: var(--s-4); }
 
+.bd-faq { margin-top: var(--s-4); }
+.bd-faq-item + .bd-faq-item { margin-top: var(--s-4); }
+
+.bd-faq-q {
+  font-family: var(--ff-sans);
+  font-size: var(--fs-md);
+  margin: 0 0 var(--s-1);
+}
+
+.bd-faq-a { color: var(--text-2); margin: 0; }
+
 .bd-subhead {
   font-family: var(--ff-sans);
   font-size: var(--fs-md);

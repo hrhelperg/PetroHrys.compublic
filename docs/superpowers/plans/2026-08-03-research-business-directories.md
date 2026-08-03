@@ -4149,10 +4149,25 @@ git commit -m "feat(bd): add section stylesheet and progressive-enhancement scri
 - Test: `scripts/tests/bd-build.test.cjs`
 
 **Interfaces:**
-- Consumes: every `bd-*` library module
-- Produces: `pageModel(registry): Page[]` where each `Page` has `kind` (`'hub'|'country'|'category'|'directory'`), `outPath`, `title`, `description`, `canonicalPath`, `robots`, `lastmod?`, `jsonLd`, `breadcrumbTrail`, `main`; and `buildAll({dataRoot?, outRoot?}): { written: string[], removed: string[], pages: number }`. Runs as CLI when invoked directly.
-- **No `--country=` subset flag.** A filtered build combined with pruning would delete every route it did not regenerate. Incremental behaviour comes from `writeIfChanged`, not from partial builds.
-- `dataRoot`/`outRoot` exist so tests build into temp directories and never touch the real site.
+- Consumes: every `bd-*` library module plus `validateRegistry`/`formatReport`.
+- Produces: `buildAll({dataRoot?, outRoot?, dryRun?}) -> { written, removed, pages, staged }`, `pageModel(registry)`, `stageBuild`, `validateStage`, `buildManifest`, `BuildError`, `MANIFEST_FILE`, `SECTION_DIR`.
+- CLI: `node scripts/build-business-directories.cjs` builds; `--dry-run` stages and validates without writing.
+
+**Build architecture** — see `docs/superpowers/reviews/2026-08-03-build-architecture-review.md` for the full review and evidence.
+
+Phases, ordered so that every failure mode precedes every mutation:
+
+1. load registry — may throw `RegistryError`
+2. `validateRegistry` — the single build gate; `BuildError` if not `ok`
+3. page model
+4. render every artefact into memory
+5. validate the staged output — containment, duplicate paths, duplicate canonicals, duplicate owners, sitemap ⊆ generated, no noindex page in the sitemap
+6. materialise into a throwaway temp dir and verify each file round-trips
+7. reconcile into the site: write only changed files, delete only previously-manifested files
+
+**Ownership manifest** at `data/business-directories/.build-manifest.json` maps every generated path to the one registry fact that produced it. Pruning deletes a file only if it was in the previous manifest and is absent from the new one, so a hand-authored file inside the section is never touched. A staged path that already exists but is **not** in the manifest aborts the build rather than overwriting it.
+
+**Containment:** any generated path outside `research/business-directories/**` or `sitemap-business-directories.xml` throws.
 
 - [ ] **Step 1: Write the failing test**
 
@@ -4164,42 +4179,42 @@ const assert = require('node:assert');
 const fs = require('node:fs');
 const os = require('node:os');
 const path = require('node:path');
-const { buildAll, pageModel } = require('../build-business-directories.cjs');
+const crypto = require('node:crypto');
+const { buildAll, pageModel, BuildError, MANIFEST_FILE, SECTION_DIR } = require('../build-business-directories.cjs');
 const { loadRegistry } = require('../lib/bd-registry.cjs');
 const { PATHS } = require('../lib/bd-util.cjs');
 
-const HUB = 'research/business-directories/index.html';
-const REF_COUNTRY = 'research/business-directories/united-states/index.html';
-const REF_CATEGORY = 'research/business-directories/united-states/categories/general-business/index.html';
-const SAAS_CATEGORY = 'research/business-directories/united-states/categories/saas/index.html';
-const DETAIL = 'research/business-directories/united-states/example-directory/index.html';
-const GERMANY = 'research/business-directories/germany/index.html';
+const HUB = path.join(SECTION_DIR, 'index.html');
+const REF_COUNTRY = path.join(SECTION_DIR, 'united-states', 'index.html');
+const REF_CATEGORY = path.join(SECTION_DIR, 'united-states', 'categories', 'general-business', 'index.html');
+const SAAS = path.join(SECTION_DIR, 'united-states', 'categories', 'saas', 'index.html');
+const DETAIL = path.join(SECTION_DIR, 'united-states', 'ok-dir', 'index.html');
+const GERMANY = path.join(SECTION_DIR, 'germany', 'index.html');
+const SITEMAP = 'sitemap-business-directories.xml';
 
-// Builds an isolated data root + output root so tests never touch the real site.
 function fixture(byCountry = {}) {
-  const dataRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'bd-data-'));
-  const outRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'bd-out-'));
+  const dataRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'bd-d-'));
+  const outRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'bd-o-'));
   fs.copyFileSync(path.join(PATHS.dataRoot, 'countries.json'), path.join(dataRoot, 'countries.json'));
   fs.copyFileSync(path.join(PATHS.dataRoot, 'categories.json'), path.join(dataRoot, 'categories.json'));
   fs.mkdirSync(path.join(dataRoot, 'directories'));
-  const countries = JSON.parse(fs.readFileSync(path.join(dataRoot, 'countries.json'), 'utf8'));
-  for (const country of countries) {
+  fs.mkdirSync(path.join(outRoot, 'data', 'business-directories'), { recursive: true });
+  for (const country of JSON.parse(fs.readFileSync(path.join(dataRoot, 'countries.json'), 'utf8'))) {
     writeDirs(dataRoot, country.slug, byCountry[country.slug] || []);
   }
   return { dataRoot, outRoot };
 }
 
-function writeDirs(dataRoot, countrySlug, entries) {
-  fs.writeFileSync(path.join(dataRoot, 'directories', `${countrySlug}.json`),
-    `${JSON.stringify(entries, null, 2)}\n`);
+function writeDirs(dataRoot, slug, entries) {
+  fs.writeFileSync(path.join(dataRoot, 'directories', `${slug}.json`), `${JSON.stringify(entries, null, 2)}\n`);
 }
 
-const record = (over = {}) => ({
-  id: 'us-example', name: 'Example Directory', slug: 'example-directory',
-  country: 'united-states', category: 'saas', website: 'https://example.com',
-  description: 'A directory.', tier: 'tier1', petroHrysScore: null, domainRating: null,
-  authorityScore: null, estimatedTraffic: null, referringDomains: null, free: null,
-  paid: null, verificationRequired: null, manualReview: null, acceptsCompanies: null,
+const rec = (over = {}) => ({
+  id: 'us-ok', name: 'Ok Directory', slug: 'ok-dir', country: 'united-states',
+  category: 'saas', website: 'https://ok.example', description: 'A directory.',
+  tier: 'tier1', petroHrysScore: null, domainRating: null, authorityScore: null,
+  estimatedTraffic: null, referringDomains: null, free: null, paid: null,
+  verificationRequired: null, manualReview: null, acceptsCompanies: null,
   acceptsProducts: null, acceptsSaaS: null, acceptsApps: null, acceptsStartups: null,
   acceptsAI: null, backlinkType: null, robots: null, sitemap: null, indexed: null,
   ssl: null, lastVerified: null, nextVerification: null, httpStatus: null,
@@ -4210,161 +4225,282 @@ const record = (over = {}) => ({
 const has = (outRoot, rel) => fs.existsSync(path.join(outRoot, rel));
 const read = (outRoot, rel) => fs.readFileSync(path.join(outRoot, rel), 'utf8');
 
-test('the hub is always emitted and is indexable', () => {
-  const { dataRoot, outRoot } = fixture();
-  buildAll({ dataRoot, outRoot });
-  assert.ok(has(outRoot, HUB));
-  assert.ok(!read(outRoot, HUB).includes('name="robots"'));
-});
+function walk(dir, acc = []) {
+  if (!fs.existsSync(dir)) return acc;
+  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    const full = path.join(dir, entry.name);
+    if (entry.isDirectory()) walk(full, acc);
+    else acc.push(full);
+  }
+  return acc;
+}
 
-test('the reference country and category are emitted even with no data', () => {
+const fingerprint = (outRoot) => walk(path.join(outRoot, SECTION_DIR))
+  .sort()
+  .map((f) => `${path.relative(outRoot, f)}:${crypto.createHash('sha256').update(fs.readFileSync(f)).digest('hex')}`)
+  .join('|');
+
+// --- emission policy --------------------------------------------------------
+
+test('the lean scaffold is exactly three pages when there is no data', () => {
   const { dataRoot, outRoot } = fixture();
-  buildAll({ dataRoot, outRoot });
+  const result = buildAll({ dataRoot, outRoot });
+  assert.strictEqual(result.pages, 3);
+  assert.ok(has(outRoot, HUB));
   assert.ok(has(outRoot, REF_COUNTRY));
   assert.ok(has(outRoot, REF_CATEGORY));
+  assert.ok(!has(outRoot, GERMANY), 'empty non-reference country must not be emitted');
+  assert.ok(!has(outRoot, SAAS), 'empty non-reference category must not be emitted');
+});
+
+test('the hub is indexable and the empty reference pages are not', () => {
+  const { dataRoot, outRoot } = fixture();
+  buildAll({ dataRoot, outRoot });
+  assert.ok(!read(outRoot, HUB).includes('name="robots"'));
   assert.ok(read(outRoot, REF_COUNTRY).includes('noindex,follow'));
   assert.ok(read(outRoot, REF_CATEGORY).includes('noindex,follow'));
 });
 
-test('an empty non-reference country is not emitted', () => {
-  const { dataRoot, outRoot } = fixture();
+test('adding a record emits its country, category and detail pages', () => {
+  const { dataRoot, outRoot } = fixture({ 'united-states': [rec()] });
   buildAll({ dataRoot, outRoot });
-  assert.ok(!has(outRoot, GERMANY));
+  assert.ok(has(outRoot, SAAS));
+  assert.ok(has(outRoot, DETAIL));
+  assert.ok(!read(outRoot, SAAS).includes('noindex'));
 });
 
-test('an empty non-reference category is not emitted', () => {
-  const { dataRoot, outRoot } = fixture();
-  buildAll({ dataRoot, outRoot });
-  assert.ok(!has(outRoot, SAAS_CATEGORY));
-});
-
-test('only the lean scaffold is written when there is no data', () => {
-  const { dataRoot, outRoot } = fixture();
-  buildAll({ dataRoot, outRoot });
-  const count = countPages(path.join(outRoot, 'research', 'business-directories'));
-  assert.strictEqual(count, 3, 'expected hub + reference country + reference category');
-});
-
-function countPages(dir) {
-  let total = 0;
-  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
-    if (entry.isDirectory()) total += countPages(path.join(dir, entry.name));
-    else if (entry.name === 'index.html') total += 1;
-  }
-  return total;
-}
-
-test('adding the first real directory emits its country, category and detail pages', () => {
-  const { dataRoot, outRoot } = fixture({ 'united-states': [record()] });
-  buildAll({ dataRoot, outRoot });
-  assert.ok(has(outRoot, SAAS_CATEGORY), 'category page missing');
-  assert.ok(has(outRoot, DETAIL), 'detail page missing');
-  assert.ok(!read(outRoot, SAAS_CATEGORY).includes('noindex'), 'populated category must be indexable');
-  assert.ok(!read(outRoot, REF_COUNTRY).includes('noindex'), 'populated country must be indexable');
-});
-
-test('a directory in a new country emits that country page', () => {
-  const { dataRoot, outRoot } = fixture({
-    germany: [record({ id: 'de-example', country: 'germany' })],
-  });
+test('a record in a new country emits that country page', () => {
+  const { dataRoot, outRoot } = fixture({ germany: [rec({ id: 'de', country: 'germany' })] });
   buildAll({ dataRoot, outRoot });
   assert.ok(has(outRoot, GERMANY));
 });
 
-test('removing the last directory prunes the now-empty dependent pages', () => {
-  const { dataRoot, outRoot } = fixture({ 'united-states': [record()] });
+// --- 1, 2: byte stability ---------------------------------------------------
+
+test('1-2 repeated builds are byte-identical and write nothing', () => {
+  const { dataRoot, outRoot } = fixture({ 'united-states': [rec()] });
   buildAll({ dataRoot, outRoot });
-  assert.ok(has(outRoot, SAAS_CATEGORY));
-  assert.ok(has(outRoot, DETAIL));
+  const before = fingerprint(outRoot);
+  const second = buildAll({ dataRoot, outRoot });
+  assert.deepStrictEqual(second.written, []);
+  assert.deepStrictEqual(second.removed, []);
+  assert.strictEqual(fingerprint(outRoot), before);
+});
+
+// --- 3, 4: minimal rewrites -------------------------------------------------
+
+test('3-4 only changed pages are rewritten; unchanged files keep their mtime', () => {
+  const { dataRoot, outRoot } = fixture();
+  buildAll({ dataRoot, outRoot });
+  const times = Object.fromEntries(walk(path.join(outRoot, SECTION_DIR))
+    .map((f) => [f, fs.statSync(f).mtimeMs]));
+  writeDirs(dataRoot, 'united-states', [rec()]);
+  const result = buildAll({ dataRoot, outRoot });
+  const untouched = Object.keys(times).filter((f) => fs.existsSync(f) && fs.statSync(f).mtimeMs === times[f]);
+  assert.ok(result.written.length > 0);
+  assert.ok(untouched.length > 0, 'at least one unchanged file must be left alone');
+});
+
+// --- 5, 7: pruning safety ---------------------------------------------------
+
+test('5 pruning never deletes a file the generator did not create', () => {
+  const { dataRoot, outRoot } = fixture({ 'united-states': [rec()] });
+  buildAll({ dataRoot, outRoot });
+  const manual = path.join(outRoot, SECTION_DIR, 'manual-note.txt');
+  fs.writeFileSync(manual, 'hand authored');
+  writeDirs(dataRoot, 'united-states', []);
+  buildAll({ dataRoot, outRoot });
+  assert.ok(fs.existsSync(manual), 'hand-authored file was deleted');
+});
+
+test('7 refuses to overwrite a file it does not own', () => {
+  const { dataRoot, outRoot } = fixture();
+  fs.mkdirSync(path.join(outRoot, SECTION_DIR), { recursive: true });
+  fs.writeFileSync(path.join(outRoot, HUB), '<p>hand authored hub</p>');
+  assert.throws(() => buildAll({ dataRoot, outRoot }), (err) => {
+    assert.ok(err instanceof BuildError);
+    assert.ok(/Refusing to overwrite/.test(err.message), err.message);
+    return true;
+  });
+  assert.strictEqual(read(outRoot, HUB), '<p>hand authored hub</p>', 'the file must survive untouched');
+});
+
+// --- 6: isolation -----------------------------------------------------------
+
+test('6 every generated path is inside the section or is the section sitemap', () => {
+  const { dataRoot, outRoot } = fixture({ 'united-states': [rec()] });
+  buildAll({ dataRoot, outRoot });
+  const manifest = JSON.parse(read(outRoot, MANIFEST_FILE));
+  for (const rel of Object.keys(manifest.files)) {
+    const inside = rel.startsWith(`${SECTION_DIR}${path.sep}`) || rel === SITEMAP;
+    assert.ok(inside, `generated path escapes the section: ${rel}`);
+  }
+});
+
+// --- 8, 9, 11: identity -----------------------------------------------------
+
+test('8-9 canonicals and output paths are unique', () => {
+  const { dataRoot } = fixture({ 'united-states': [rec()] });
+  const pages = pageModel(loadRegistry(dataRoot));
+  const canonicals = pages.map((p) => p.meta.canonical);
+  const outPaths = pages.map((p) => p.outPath);
+  assert.strictEqual(new Set(canonicals).size, canonicals.length);
+  assert.strictEqual(new Set(outPaths).size, outPaths.length);
+});
+
+test('11 every emitted file maps to exactly one owner', () => {
+  const { dataRoot, outRoot } = fixture({ 'united-states': [rec()] });
+  buildAll({ dataRoot, outRoot });
+  const owners = Object.values(JSON.parse(read(outRoot, MANIFEST_FILE)).files);
+  assert.strictEqual(new Set(owners).size, owners.length, `duplicate owner: ${owners}`);
+  assert.ok(owners.includes('directory:us-ok'));
+});
+
+// --- 10: sitemap integrity --------------------------------------------------
+
+test('10 the sitemap only references pages that were generated', () => {
+  const { dataRoot, outRoot } = fixture({ 'united-states': [rec({ lastVerified: '2026-08-01' })] });
+  buildAll({ dataRoot, outRoot });
+  const canonicals = new Set(pageModel(loadRegistry(dataRoot)).map((p) => p.meta.canonical));
+  const locs = [...read(outRoot, SITEMAP).matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
+  assert.ok(locs.length > 0);
+  for (const loc of locs) assert.ok(canonicals.has(loc), `sitemap references ungenerated ${loc}`);
+});
+
+test('10 the sitemap never lists a noindex page', () => {
+  const { dataRoot, outRoot } = fixture();
+  buildAll({ dataRoot, outRoot });
+  const xml = read(outRoot, SITEMAP);
+  assert.ok(!xml.includes('/united-states/'), 'empty reference pages must stay out of the sitemap');
+  assert.strictEqual((xml.match(/<loc>/g) || []).length, 1);
+});
+
+// --- 12, 13: pruning correctness --------------------------------------------
+
+test('12-13 removing the last record prunes only its dependents', () => {
+  const { dataRoot, outRoot } = fixture({ 'united-states': [rec()] });
+  buildAll({ dataRoot, outRoot });
+  assert.ok(has(outRoot, SAAS) && has(outRoot, DETAIL));
 
   writeDirs(dataRoot, 'united-states', []);
   const result = buildAll({ dataRoot, outRoot });
 
-  assert.ok(!has(outRoot, SAAS_CATEGORY), 'stale category page was not pruned');
-  assert.ok(!has(outRoot, DETAIL), 'stale detail page was not pruned');
-  assert.ok(result.removed.length >= 2);
-  assert.ok(has(outRoot, REF_COUNTRY), 'reference country must survive pruning');
-  assert.ok(has(outRoot, HUB), 'hub must survive pruning');
+  assert.ok(!has(outRoot, SAAS), 'stale category page survived');
+  assert.ok(!has(outRoot, DETAIL), 'stale detail page survived');
+  assert.ok(has(outRoot, HUB), 'hub must survive');
+  assert.ok(has(outRoot, REF_COUNTRY), 'reference country must survive');
+  assert.ok(has(outRoot, REF_CATEGORY), 'reference category must survive');
+  assert.strictEqual(result.removed.length, 2);
 });
 
-test('no empty route enters the sitemap', () => {
-  const { dataRoot, outRoot } = fixture();
+test('13 no orphan page survives a full data removal', () => {
+  const { dataRoot, outRoot } = fixture({ 'united-states': [rec()], germany: [rec({ id: 'de', country: 'germany', slug: 'de-dir' })] });
   buildAll({ dataRoot, outRoot });
-  const xml = read(outRoot, 'sitemap-business-directories.xml');
-  assert.ok(xml.includes('<loc>https://www.petrohrys.com/research/business-directories/</loc>'));
-  assert.ok(!xml.includes('/united-states/'), 'empty reference routes must stay out of the sitemap');
+  writeDirs(dataRoot, 'united-states', []);
+  writeDirs(dataRoot, 'germany', []);
+  buildAll({ dataRoot, outRoot });
+  const remaining = walk(path.join(outRoot, SECTION_DIR)).map((f) => path.relative(outRoot, f)).sort();
+  assert.deepStrictEqual(remaining, [
+    path.join(SECTION_DIR, 'feed.xml'),
+    HUB,
+    REF_COUNTRY,
+    REF_CATEGORY,
+  ].sort());
 });
 
-test('RSS has no items while no verified directory exists', () => {
+// --- 14: fail before writing ------------------------------------------------
+
+test('14 a validator failure aborts the build with nothing written', () => {
   const { dataRoot, outRoot } = fixture();
   buildAll({ dataRoot, outRoot });
-  const xml = read(outRoot, 'research/business-directories/feed.xml');
+  const before = fingerprint(outRoot);
+  // Passes the loader (real country/category, safe slug, https) but fails the
+  // validator: out of range and populated while unverified.
+  writeDirs(dataRoot, 'united-states', [rec({ petroHrysScore: 900 })]);
+  assert.throws(() => buildAll({ dataRoot, outRoot }), (err) => {
+    assert.ok(err instanceof BuildError);
+    assert.ok(/refusing to build/i.test(err.message), err.message);
+    return true;
+  });
+  assert.strictEqual(fingerprint(outRoot), before, 'the site changed despite a failed build');
+});
+
+test('14 a loader failure also aborts before any write', () => {
+  const { dataRoot, outRoot } = fixture();
+  buildAll({ dataRoot, outRoot });
+  const before = fingerprint(outRoot);
+  writeDirs(dataRoot, 'united-states', [rec({ category: 'not-a-category' })]);
+  assert.throws(() => buildAll({ dataRoot, outRoot }));
+  assert.strictEqual(fingerprint(outRoot), before);
+});
+
+// --- 15: transactional ------------------------------------------------------
+
+test('15 a dry run stages and validates a full tree without writing', () => {
+  const { dataRoot, outRoot } = fixture({ 'united-states': [rec()] });
+  const result = buildAll({ dataRoot, outRoot, dryRun: true });
+  assert.ok(result.staged > 0);
+  assert.deepStrictEqual(result.written, []);
+  assert.strictEqual(walk(path.join(outRoot, SECTION_DIR)).length, 0, 'dry run must write nothing');
+});
+
+test('15 staging directories are always cleaned up', () => {
+  const before = fs.readdirSync(os.tmpdir()).filter((n) => n.startsWith('bd-stage-')).length;
+  const { dataRoot, outRoot } = fixture();
+  buildAll({ dataRoot, outRoot });
+  buildAll({ dataRoot, outRoot, dryRun: true });
+  const after = fs.readdirSync(os.tmpdir()).filter((n) => n.startsWith('bd-stage-')).length;
+  assert.strictEqual(after, before, 'a staging directory leaked');
+});
+
+// --- content correctness ----------------------------------------------------
+
+test('every FAQ question in the JSON-LD is visible on the page', () => {
+  const { dataRoot, outRoot } = fixture();
+  buildAll({ dataRoot, outRoot });
+  for (const rel of [HUB, REF_COUNTRY]) {
+    const html = read(outRoot, rel);
+    const block = html.match(/<script type="application\/ld\+json">\n([\s\S]*?)\n  <\/script>/);
+    const graph = JSON.parse(block[1].replace(/\\u003c/g, '<').replace(/\\u003e/g, '>'))['@graph'];
+    const faq = graph.find((n) => n['@type'] === 'FAQPage');
+    assert.ok(faq, `${rel} has no FAQPage`);
+    const body = html.slice(html.indexOf('<main'), html.indexOf('</main>'));
+    for (const entry of faq.mainEntity) {
+      const question = entry.name.replace(/&/g, '&amp;');
+      assert.ok(body.includes(question), `${rel}: FAQ question not visible: ${entry.name}`);
+    }
+  }
+});
+
+test('no generated page contains the bing placeholder or an apex url', () => {
+  const { dataRoot, outRoot } = fixture({ 'united-states': [rec()] });
+  buildAll({ dataRoot, outRoot });
+  for (const file of walk(path.join(outRoot, SECTION_DIR))) {
+    const text = fs.readFileSync(file, 'utf8');
+    assert.ok(!text.includes('PASTE_YOUR_BING'), `${file} carries the placeholder`);
+    assert.ok(!/https:\/\/petrohrys\.com/.test(text), `${file} carries an apex url`);
+  }
+});
+
+test('the RSS feed is a valid empty channel until a record is verified', () => {
+  const { dataRoot, outRoot } = fixture();
+  buildAll({ dataRoot, outRoot });
+  const xml = read(outRoot, path.join(SECTION_DIR, 'feed.xml'));
   assert.ok(xml.includes('<channel>'));
   assert.ok(!xml.includes('<item>'));
 });
 
-test('a verified directory appears in RSS and the sitemap', () => {
-  const { dataRoot, outRoot } = fixture({
-    'united-states': [record({ lastVerified: '2026-08-01' })],
-  });
+test('a verified record appears in both the feed and the sitemap', () => {
+  const { dataRoot, outRoot } = fixture({ 'united-states': [rec({ lastVerified: '2026-08-01' })] });
   buildAll({ dataRoot, outRoot });
-  assert.ok(read(outRoot, 'research/business-directories/feed.xml').includes('<item>'));
-  assert.ok(read(outRoot, 'sitemap-business-directories.xml').includes('/united-states/example-directory/'));
-});
-
-test('the hub never links an un-emitted country', () => {
-  const { dataRoot, outRoot } = fixture();
-  const hub = read(outRoot, HUB) || '';
-  buildAll({ dataRoot, outRoot });
-  const html = read(outRoot, HUB);
-  assert.ok(!html.includes('href="/research/business-directories/germany/"'),
-    'hub must not link a page that was never written');
-  assert.ok(html.includes('coming soon'));
-  assert.ok(html.includes('href="/research/business-directories/united-states/"'));
-  void hub;
-});
-
-test('a second build writes nothing — output is byte-stable', () => {
-  const { dataRoot, outRoot } = fixture();
-  buildAll({ dataRoot, outRoot });
-  const second = buildAll({ dataRoot, outRoot });
-  assert.deepStrictEqual(second.written, []);
-  assert.deepStrictEqual(second.removed, []);
-});
-
-test('no generated page contains the bing placeholder', () => {
-  const { dataRoot, outRoot } = fixture();
-  buildAll({ dataRoot, outRoot });
-  assert.ok(!read(outRoot, HUB).includes('PASTE_YOUR_BING'));
-});
-
-test('the route builder still supports the complete 10x21 matrix', () => {
-  const registry = loadRegistry();
-  const byCountry = {};
-  let n = 0;
-  for (const country of registry.countries) {
-    byCountry[country.slug] = registry.categories.map((category) => {
-      n += 1;
-      return record({
-        id: `id-${n}`, slug: `dir-${n}`, country: country.slug, category: category.slug,
-      });
-    });
-  }
-  const { dataRoot } = fixture(byCountry);
-  const pages = pageModel(loadRegistry(dataRoot));
-  const countries = pages.filter((p) => p.kind === 'country').length;
-  const categories = pages.filter((p) => p.kind === 'category').length;
-  const details = pages.filter((p) => p.kind === 'directory').length;
-  assert.strictEqual(countries, 10);
-  assert.strictEqual(categories, 210);
-  assert.strictEqual(details, 210);
-  assert.strictEqual(pages.length, 431);
+  assert.ok(read(outRoot, path.join(SECTION_DIR, 'feed.xml')).includes('<item>'));
+  assert.ok(read(outRoot, SITEMAP).includes('/united-states/ok-dir/'));
 });
 ```
 
 - [ ] **Step 2: Run test to verify it fails**
 
-Run: `node --test scripts/tests/bd-build.test.cjs`
+Run: `node --test "scripts/tests/bd-build.test.cjs"`
 Expected: FAIL — `Cannot find module '../build-business-directories.cjs'`
 
 - [ ] **Step 3: Write minimal implementation**
@@ -4372,6 +4508,8 @@ Expected: FAIL — `Cannot find module '../build-business-directories.cjs'`
 ```js
 // scripts/build-business-directories.cjs
 'use strict';
+const fs = require('node:fs');
+const os = require('node:os');
 const path = require('node:path');
 const { PATHS, writeIfChanged } = require('./lib/bd-util.cjs');
 const { loadRegistry, directoriesFor, isIndexable } = require('./lib/bd-registry.cjs');
@@ -4383,6 +4521,33 @@ const { renderSitemap, renderRss } = require('./lib/bd-feeds.cjs');
 const { validateRegistry, formatReport } = require('./validate-business-directories.cjs');
 
 const BASE = '/research/business-directories/';
+const SECTION_DIR = path.join('research', 'business-directories');
+const SITEMAP_FILE = 'sitemap-business-directories.xml';
+const FEED_FILE = path.join(SECTION_DIR, 'feed.xml');
+const MANIFEST_FILE = path.join('data', 'business-directories', '.build-manifest.json');
+const REFERENCE_COUNTRY = 'united-states';
+const REFERENCE_CATEGORY = 'general-business';
+
+class BuildError extends Error {
+  constructor(message) {
+    super(message);
+    this.name = 'BuildError';
+  }
+}
+
+// --- emission policy --------------------------------------------------------
+
+function countryEmitted(registry, country) {
+  return country.slug === REFERENCE_COUNTRY
+    || directoriesFor(registry, country.slug).length > 0;
+}
+
+function categoryEmitted(registry, country, category) {
+  if (directoriesFor(registry, country.slug, category.slug).length > 0) return true;
+  return country.slug === REFERENCE_COUNTRY && category.slug === REFERENCE_CATEGORY;
+}
+
+// --- approved static copy ---------------------------------------------------
 
 const HUB_FAQS = [
   { q: 'What is this section?',
@@ -4413,217 +4578,121 @@ ${body}
     </section>`;
 }
 
-const REFERENCE_COUNTRY = 'united-states';
-const REFERENCE_CATEGORY = 'general-business';
-const SECTION_DIR = path.join('research', 'business-directories');
-
-// A country page is written when it is the reference country or has real data.
-function countryEmitted(registry, country) {
-  return country.slug === REFERENCE_COUNTRY
-    || directoriesFor(registry, country.slug).length > 0;
-}
-
-// A category page is written when it has real data, or is the single reference category.
-function categoryEmitted(registry, country, category) {
-  if (directoriesFor(registry, country.slug, category.slug).length > 0) return true;
-  return country.slug === REFERENCE_COUNTRY && category.slug === REFERENCE_CATEGORY;
-}
-
-function toPubDate(isoDate) {
-  return new Date(`${isoDate}T00:00:00Z`).toUTCString();
-}
-
-// Deletes generated index.html files that the current registry no longer produces,
-// then removes any directory left empty. Confined to the section root; never
-// touches feed.xml.
-function pruneStale(sectionRoot, expected) {
-  if (!fs.existsSync(sectionRoot)) return [];
-  const removed = [];
-  const walk = (dir) => {
-    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
-      const full = path.join(dir, entry.name);
-      if (entry.isDirectory()) walk(full);
-      else if (entry.name === 'index.html' && !expected.has(full)) {
-        fs.unlinkSync(full);
-        removed.push(full);
-      }
-    }
-    if (dir !== sectionRoot && fs.readdirSync(dir).length === 0) fs.rmdirSync(dir);
-  };
-  walk(sectionRoot);
-  return removed;
-}
+// --- page model -------------------------------------------------------------
+// Every page declares an `owner`: the single registry fact responsible for it.
+// Pruning and ownership checks rely on this being one-to-one.
 
 function pageModel(registry) {
   const pages = [];
+
   const countryLinks = registry.countries.map((country) => ({
     name: country.name,
     path: `${BASE}${country.slug}/`,
     pending: !countryEmitted(registry, country),
   }));
 
-  const hubMain = [
-    `    <article class="page-hero">
-      <h1>Business Directories</h1>
-      <p class="lede">A country-by-country research index of business directories, recording what each one accepts, how it links, and when it was last verified.</p>
-    </article>`,
-    section('methodology', 'Methodology',
-      `      <p class="bd-note">Every directory is checked by hand before publication. Each record stores what the directory accepts, whether listing is free or paid, whether verification or manual review is required, how it links out, and the date it was verified. Nothing is published from an automated crawl, and no value is estimated or inferred.</p>
-${c.metricNote()}`),
-    section('countries', 'Countries', c.linkGrid(countryLinks)),
-    section('faq', 'Questions', c.faqSection(HUB_FAQS)),
-  ].join('\n\n');
+  const hubMeta = seo.buildHubMeta({
+    countries: countryLinks.filter((l) => !l.pending),
+    faqs: HUB_FAQS,
+  });
 
   pages.push({
     kind: 'hub',
+    owner: 'hub',
     outPath: path.join(SECTION_DIR, 'index.html'),
-    title: 'Business Directories',
-    description: 'A country-by-country research index of business directories, with verification dates and sourcing for every metric.',
-    canonicalPath: BASE,
-    robots: undefined,
-    jsonLd: [
-      seo.collectionPage({
-        name: 'Business Directories',
-        description: 'A country-by-country research index of business directories.',
-        url: seo.absoluteUrl(BASE),
-      }),
-      // Only emitted routes may appear in ItemList; listing an unwritten page
-      // would point structured data at a 404.
-      seo.itemList(countryLinks.filter((l) => !l.pending).map((l) => ({ name: l.name, path: l.path }))),
-      seo.faqPage(HUB_FAQS),
-    ],
-    breadcrumbTrail: [
-      { name: 'Home', path: '/' },
-      { name: 'Research', path: '/research/' },
-      { name: 'Business Directories', path: BASE },
-    ],
-    main: hubMain,
+    meta: hubMeta,
+    main: [
+      c.pageIntro({ title: 'Business Directories', lede: hubMeta.description }),
+      section('methodology', 'Methodology', `${c.methodologyNote()}\n${c.metricNote()}`),
+      section('countries', 'Countries',
+        c.cardGrid(countryLinks.map((l) => c.countryCard({ ...l, headingLevel: 3 })),
+          { label: 'Countries' })),
+      section('faq', 'Questions', c.faqSection(HUB_FAQS)),
+    ].join('\n\n'),
   });
 
   for (const country of registry.countries) {
     if (!countryEmitted(registry, country)) continue;
 
     const countryPath = `${BASE}${country.slug}/`;
-    const countryEntries = directoriesFor(registry, country.slug);
+    const countryEntries = sortDirectories(directoriesFor(registry, country.slug));
     const categoryLinks = registry.categories.map((category) => ({
       name: category.name,
       path: `${countryPath}categories/${category.slug}/`,
+      description: category.description,
       pending: !categoryEmitted(registry, country, category),
     }));
     const faqs = countryFaqs(country, countryEntries.length);
-
-    const countryMain = [
-      `    <article class="page-hero">
-      <h1>Business Directories in ${country.name}</h1>
-      <p class="lede">Directories relevant to companies operating in ${country.titleName}, grouped by category.</p>
-    </article>`,
-      section('overview', 'Overview',
-        `      <p class="bd-note">This page indexes directories for ${country.titleName}. ${countryEntries.length === 0
-          ? 'No entries have completed manual verification yet, so no directories are listed.'
-          : `${countryEntries.length} verified ${countryEntries.length === 1 ? 'entry is' : 'entries are'} published.`}</p>`),
-      section('categories', 'Directory categories', c.linkGrid(categoryLinks)),
-      section('directories', 'All directories',
-        [c.searchBox(), c.filterBar(), c.sortControl(),
-          c.directoryTable(sortDirectories(countryEntries)), c.metricNote()].join('\n')),
-      section('faq', 'Questions', c.faqSection(faqs)),
-    ].join('\n\n');
+    const meta = seo.buildCountryMeta({
+      country,
+      categories: categoryLinks.filter((l) => !l.pending),
+      directories: countryEntries,
+      faqs,
+    });
 
     pages.push({
       kind: 'country',
+      owner: `country:${country.slug}`,
       outPath: path.join(SECTION_DIR, country.slug, 'index.html'),
-      title: `Business Directories in ${country.name}`,
-      description: `Business directories relevant to companies operating in ${country.titleName}, organised by category and verified by hand.`,
-      canonicalPath: countryPath,
-      robots: isIndexable(countryEntries) ? undefined : 'noindex,follow',
-      jsonLd: [
-        seo.collectionPage({
-          name: `Business Directories in ${country.name}`,
-          description: `Business directories for ${country.titleName}.`,
-          url: seo.absoluteUrl(countryPath),
-        }),
-        seo.itemList(categoryLinks.filter((l) => !l.pending).map((l) => ({ name: l.name, path: l.path }))),
-        seo.faqPage(faqs),
-      ],
-      breadcrumbTrail: [
-        { name: 'Home', path: '/' },
-        { name: 'Research', path: '/research/' },
-        { name: 'Business Directories', path: BASE },
-        { name: country.name, path: countryPath },
-      ],
-      main: countryMain,
+      meta,
+      main: [
+        c.pageIntro({ title: meta.title, lede: meta.description }),
+        section('categories', 'Directory categories',
+          c.cardGrid(categoryLinks.map((l) => c.categoryCard({ ...l, headingLevel: 3 })),
+            { label: 'Directory categories' })),
+        section('directories', 'All directories', [
+          c.searchControls({ idPrefix: country.slug }),
+          c.filterControls({ idPrefix: country.slug }),
+          c.sortControls({ idPrefix: country.slug }),
+          c.directoryTable({ directories: countryEntries, caption: `Directories in ${country.name}` }),
+          c.metricNote(),
+        ].join('\n')),
+        section('faq', 'Questions', c.faqSection(faqs)),
+      ].join('\n\n'),
     });
 
     for (const category of registry.categories) {
       if (!categoryEmitted(registry, country, category)) continue;
 
-      const catPath = `${countryPath}categories/${category.slug}/`;
       const entries = sortDirectories(directoriesFor(registry, country.slug, category.slug));
-
-      const catMain = [
-        `    <article class="page-hero">
-      <h1>${category.name} directories in ${country.name}</h1>
-      <p class="lede">${category.description}</p>
-    </article>`,
-        section('directories', 'Directories',
-          [c.searchBox(), c.filterBar(), c.sortControl(),
-            c.directoryTable(entries), c.metricNote()].join('\n')),
-      ].join('\n\n');
+      const catMeta = seo.buildCategoryMeta({ country, category, directories: entries });
 
       pages.push({
         kind: 'category',
+        owner: `category:${country.slug}/${category.slug}`,
         outPath: path.join(SECTION_DIR, country.slug, 'categories', category.slug, 'index.html'),
-        title: `${category.name} directories in ${country.name}`,
-        description: `${category.description} This page covers ${country.titleName}.`,
-        canonicalPath: catPath,
-        robots: isIndexable(entries) ? undefined : 'noindex,follow',
-        jsonLd: [
-          seo.collectionPage({
-            name: `${category.name} directories in ${country.name}`,
-            description: category.description,
-            url: seo.absoluteUrl(catPath),
-          }),
-          seo.itemList(entries.map((d) => ({ name: d.name, path: `${countryPath}${d.slug}/` }))),
-        ],
-        breadcrumbTrail: [
-          { name: 'Home', path: '/' },
-          { name: 'Research', path: '/research/' },
-          { name: 'Business Directories', path: BASE },
-          { name: country.name, path: countryPath },
-          { name: category.name, path: catPath },
-        ],
-        main: catMain,
+        meta: catMeta,
+        main: [
+          c.pageIntro({ title: catMeta.title, lede: category.description }),
+          section('directories', 'Directories', [
+            c.searchControls({ idPrefix: `${country.slug}-${category.slug}` }),
+            c.filterControls({ idPrefix: `${country.slug}-${category.slug}` }),
+            c.sortControls({ idPrefix: `${country.slug}-${category.slug}` }),
+            c.directoryTable({ directories: entries, caption: `${category.name} directories in ${country.name}` }),
+            c.metricNote(),
+          ].join('\n')),
+        ].join('\n\n'),
       });
     }
 
-    // Detail pages exist only for real records, so nothing is emitted in this phase.
     for (const directory of countryEntries) {
-      const detailPath = `${countryPath}${directory.slug}/`;
       const category = registry.categories.find((cat) => cat.slug === directory.category);
+      const dirMeta = seo.buildDirectoryMeta({ country, category, directory });
 
       pages.push({
         kind: 'directory',
+        owner: `directory:${directory.id}`,
         outPath: path.join(SECTION_DIR, country.slug, directory.slug, 'index.html'),
-        title: `${directory.name} — ${country.name}`,
-        description: directory.description,
-        canonicalPath: detailPath,
-        robots: undefined,
         lastmod: directory.lastVerified || undefined,
-        jsonLd: [seo.directoryWebPage(directory, seo.absoluteUrl(detailPath))],
-        breadcrumbTrail: [
-          { name: 'Home', path: '/' },
-          { name: 'Research', path: '/research/' },
-          { name: 'Business Directories', path: BASE },
-          { name: country.name, path: countryPath },
-          { name: category ? category.name : directory.category,
-            path: `${countryPath}categories/${directory.category}/` },
-          { name: directory.name, path: detailPath },
-        ],
+        meta: dirMeta,
         main: [
-          `    <article class="page-hero">
-      <h1>${directory.name}</h1>
-      <p class="lede">${directory.description}</p>
-    </article>`,
-          c.directoryDetail(directory),
+          c.pageIntro({ title: directory.name, lede: directory.description }),
+          c.externalLinkCta({ url: directory.website }),
+          c.statusBadges(directory),
+          section('metrics', 'Metrics', `${c.metricsBlock(directory)}\n${c.metricNote()}`),
+          section('verification', 'Verification', c.provenanceBlock(directory)),
+          section('industries', 'Recommended industries', c.bestForTags(directory.recommendedIndustries)),
+          section('assessment', 'Assessment', c.prosCons({ pros: directory.pros, cons: directory.cons, headingLevel: 3 })),
         ].join('\n\n'),
       });
     }
@@ -4632,94 +4701,278 @@ ${c.metricNote()}`),
   return pages;
 }
 
-function buildAll(options = {}) {
-  const dataRoot = options.dataRoot || PATHS.dataRoot;
-  const outRoot = options.outRoot || PATHS.siteRoot;
+// --- staging ----------------------------------------------------------------
 
-  const registry = loadRegistry(dataRoot);
+function toPubDate(isoDate) {
+  return new Date(`${isoDate}T00:00:00Z`).toUTCString();
+}
 
-  // The validator is the single source of truth for build gating: nothing is
-  // written unless it reports ok.
-  const validation = validateRegistry(registry);
-  if (!validation.ok) {
-    throw new Error(`Registry is invalid; refusing to build.\n${formatReport(validation)}`);
-  }
-
-  const pages = pageModel(registry);
-  const written = [];
-  const expected = new Set();
+// Renders every artefact into memory, then materialises it into a throwaway
+// directory. Nothing in the site tree is touched by this phase.
+function stageBuild(registry, pages) {
+  const files = new Map();
 
   for (const page of pages) {
-    const file = path.join(outRoot, page.outPath);
-    expected.add(file);
-    if (writeIfChanged(file, renderPage(page))) written.push(page.outPath);
+    files.set(page.outPath, renderPage({ meta: page.meta, main: page.main }));
   }
-
-  const removed = pruneStale(path.join(outRoot, SECTION_DIR), expected)
-    .map((file) => path.relative(outRoot, file));
 
   const indexable = pages
-    .filter((page) => page.robots === undefined)
-    .map((page) => ({ path: page.canonicalPath, lastmod: page.lastmod }));
-  if (writeIfChanged(path.join(outRoot, 'sitemap-business-directories.xml'), renderSitemap(indexable))) {
-    written.push('sitemap-business-directories.xml');
-  }
+    .filter((page) => page.meta.robots === undefined)
+    .map((page) => ({ path: page.meta.canonicalPath, lastmod: page.lastmod }));
+  files.set(SITEMAP_FILE, renderSitemap(indexable));
 
   const feedItems = registry.directories
     .filter((d) => d.lastVerified)
-    .sort((a, b) => b.lastVerified.localeCompare(a.lastVerified))
+    .slice()
+    .sort((a, b) => (a.lastVerified < b.lastVerified ? 1 : a.lastVerified > b.lastVerified ? -1 : 0))
     .map((d) => ({
       title: d.name,
       path: `${BASE}${d.country}/${d.slug}/`,
       description: d.description,
       pubDate: toPubDate(d.lastVerified),
     }));
-  const feedFile = path.join(outRoot, SECTION_DIR, 'feed.xml');
-  if (writeIfChanged(feedFile, renderRss(feedItems))) {
-    written.push(path.join(SECTION_DIR, 'feed.xml'));
+  files.set(FEED_FILE, renderRss(feedItems));
+
+  return files;
+}
+
+// --- pre-write validation ---------------------------------------------------
+
+function assertContained(relPath) {
+  const normalised = path.normalize(relPath);
+  if (path.isAbsolute(normalised) || normalised.split(path.sep).includes('..')) {
+    throw new BuildError(`Refusing to write outside the site root: ${relPath}`);
+  }
+  const inSection = normalised === SITEMAP_FILE
+    || normalised.startsWith(SECTION_DIR + path.sep);
+  if (!inSection) {
+    throw new BuildError(
+      `Generated path is outside the section: ${relPath}. `
+      + `Only ${SECTION_DIR}/** and ${SITEMAP_FILE} may be written.`);
+  }
+}
+
+function validateStage(files, pages) {
+  const errors = [];
+
+  for (const relPath of files.keys()) assertContained(relPath);
+
+  const byPath = new Map();
+  const byCanonical = new Map();
+  for (const page of pages) {
+    if (byPath.has(page.outPath)) {
+      errors.push(`Duplicate output path ${page.outPath} claimed by `
+        + `"${byPath.get(page.outPath)}" and "${page.owner}".`);
+    }
+    byPath.set(page.outPath, page.owner);
+
+    const canonical = page.meta.canonical;
+    if (byCanonical.has(canonical)) {
+      errors.push(`Duplicate canonical ${canonical} on ${byCanonical.get(canonical)} and ${page.outPath}.`);
+    }
+    byCanonical.set(canonical, page.outPath);
   }
 
-  return { written, removed, pages: pages.length };
+  const owners = new Set();
+  for (const page of pages) {
+    if (owners.has(page.owner)) errors.push(`Duplicate owner key "${page.owner}".`);
+    owners.add(page.owner);
+  }
+
+  // The sitemap may only reference pages that were actually staged.
+  const staged = new Set(pages.map((page) => page.meta.canonical));
+  const sitemap = files.get(SITEMAP_FILE) || '';
+  for (const match of sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)) {
+    if (!staged.has(match[1])) {
+      errors.push(`Sitemap references a URL that was not generated: ${match[1]}`);
+    }
+  }
+
+  // RSS may only reference generated directory pages.
+  const feed = files.get(FEED_FILE) || '';
+  for (const match of feed.matchAll(/<link>([^<]+)<\/link>/g)) {
+    const url = match[1];
+    if (url === `${seo.ORIGIN}${BASE}`) continue;
+    if (!staged.has(url)) errors.push(`RSS references a URL that was not generated: ${url}`);
+  }
+
+  const noindex = new Set(pages.filter((p) => p.meta.robots).map((p) => p.meta.canonical));
+  for (const match of sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)) {
+    if (noindex.has(match[1])) errors.push(`Sitemap lists a noindex page: ${match[1]}`);
+  }
+
+  return errors;
+}
+
+// --- manifest ---------------------------------------------------------------
+
+function readManifest(outRoot) {
+  const file = path.join(outRoot, MANIFEST_FILE);
+  if (!fs.existsSync(file)) return { files: {} };
+  try {
+    return JSON.parse(fs.readFileSync(file, 'utf8'));
+  } catch (cause) {
+    throw new BuildError(`Corrupt build manifest ${file}: ${cause.message}`);
+  }
+}
+
+function buildManifest(files, pages) {
+  const owners = { [SITEMAP_FILE]: 'sitemap', [FEED_FILE]: 'feed' };
+  for (const page of pages) owners[page.outPath] = page.owner;
+  const sorted = {};
+  for (const key of [...files.keys()].sort()) sorted[key] = owners[key];
+  return { version: 1, files: sorted };
+}
+
+// --- commit -----------------------------------------------------------------
+
+// Runs only after staging and validation both succeed. Writes only files whose
+// contents changed, and deletes only files this generator previously created.
+function commit(files, manifest, previous, outRoot) {
+  const written = [];
+  const removed = [];
+
+  const previousFiles = new Set(Object.keys(previous.files || {}));
+
+  for (const [relPath, contents] of files) {
+    const target = path.join(outRoot, relPath);
+    if (fs.existsSync(target) && !previousFiles.has(relPath)) {
+      throw new BuildError(
+        `Refusing to overwrite ${relPath}: it exists but was not created by this `
+        + 'generator. Remove it by hand or add it to the manifest first.');
+    }
+    if (writeIfChanged(target, contents)) written.push(relPath);
+  }
+
+  for (const relPath of previousFiles) {
+    if (files.has(relPath)) continue;
+    const target = path.join(outRoot, relPath);
+    if (!fs.existsSync(target)) continue;
+    assertContained(relPath);
+    fs.unlinkSync(target);
+    removed.push(relPath);
+  }
+
+  pruneEmptyDirs(path.join(outRoot, SECTION_DIR));
+  writeIfChanged(path.join(outRoot, MANIFEST_FILE), `${JSON.stringify(manifest, null, 2)}\n`);
+
+  return { written: written.sort(), removed: removed.sort() };
+}
+
+function pruneEmptyDirs(root) {
+  if (!fs.existsSync(root)) return;
+  for (const entry of fs.readdirSync(root, { withFileTypes: true })) {
+    if (entry.isDirectory()) pruneEmptyDirs(path.join(root, entry.name));
+  }
+  if (fs.readdirSync(root).length === 0) fs.rmdirSync(root);
+}
+
+// --- orchestration ----------------------------------------------------------
+
+function buildAll(options = {}) {
+  const dataRoot = options.dataRoot || PATHS.dataRoot;
+  const outRoot = options.outRoot || PATHS.siteRoot;
+
+  // 1. Load. A structural fault throws before anything else happens.
+  const registry = loadRegistry(dataRoot);
+
+  // 2. Validate. The single build gate — nothing is rendered, staged or
+  //    written unless the registry is clean.
+  const validation = validateRegistry(registry);
+  if (!validation.ok) {
+    throw new BuildError(`Registry is invalid; refusing to build.\n${formatReport(validation)}`);
+  }
+
+  // 3. Model and 4. stage, entirely in memory.
+  const pages = pageModel(registry);
+  const files = stageBuild(registry, pages);
+
+  // 5. Validate the staged output before any disk write.
+  const stageErrors = validateStage(files, pages);
+  if (stageErrors.length) {
+    throw new BuildError(`Staged output failed validation; nothing written.\n  ${stageErrors.join('\n  ')}`);
+  }
+
+  // 6. Materialise into a throwaway directory so the full tree exists and can
+  //    be inspected before the site is touched at all.
+  const stageDir = fs.mkdtempSync(path.join(os.tmpdir(), 'bd-stage-'));
+  try {
+    for (const [relPath, contents] of files) {
+      const target = path.join(stageDir, relPath);
+      fs.mkdirSync(path.dirname(target), { recursive: true });
+      fs.writeFileSync(target, contents, 'utf8');
+    }
+    for (const [relPath, contents] of files) {
+      const roundTrip = fs.readFileSync(path.join(stageDir, relPath), 'utf8');
+      if (roundTrip !== contents) {
+        throw new BuildError(`Staged file did not round-trip: ${relPath}`);
+      }
+    }
+
+    if (options.dryRun) {
+      return { written: [], removed: [], pages: pages.length, staged: files.size, stageDir };
+    }
+
+    // 7. Reconcile into the site tree.
+    const previous = readManifest(outRoot);
+    const manifest = buildManifest(files, pages);
+    const result = commit(files, manifest, previous, outRoot);
+    return { ...result, pages: pages.length, staged: files.size };
+  } finally {
+    fs.rmSync(stageDir, { recursive: true, force: true });
+  }
 }
 
 if (require.main === module) {
-  const result = buildAll();
-  console.log(`Generated ${result.pages} page(s); ` +
-    `${result.written.length} written, ${result.removed.length} pruned.`);
+  const dryRun = process.argv.includes('--dry-run');
+  const result = buildAll({ dryRun });
+  if (dryRun) {
+    console.log(`Dry run: ${result.pages} page(s), ${result.staged} file(s) staged and validated. Nothing written.`);
+  } else {
+    console.log(`Generated ${result.pages} page(s); `
+      + `${result.written.length} written, ${result.removed.length} pruned.`);
+  }
 }
 
-module.exports = { buildAll, pageModel, pruneStale, REFERENCE_COUNTRY, REFERENCE_CATEGORY };
+module.exports = {
+  buildAll, pageModel, stageBuild, validateStage, buildManifest,
+  BuildError, REFERENCE_COUNTRY, REFERENCE_CATEGORY, MANIFEST_FILE, SECTION_DIR,
+};
 ```
 
 - [ ] **Step 4: Run test to verify it passes**
 
-Run: `node --test scripts/tests/bd-build.test.cjs`
-Expected: PASS, 8 tests
+Run: `node --test "scripts/tests/bd-build.test.cjs"`
+Expected: PASS, 23 tests
 
-- [ ] **Step 5: Verify the generated tree by hand**
+- [ ] **Step 5: Dry run against the real site, writing nothing**
 
 ```bash
-cd ~/PetroHrys.com
-node scripts/build-business-directories.cjs
-# expect "Generated 3 page(s); 3 written, 0 pruned."
-
-find research/business-directories -name index.html | sort
-# expect exactly:
-#   research/business-directories/index.html
-#   research/business-directories/united-states/categories/general-business/index.html
-#   research/business-directories/united-states/index.html
-
-node scripts/build-business-directories.cjs   # expect "0 written, 0 pruned"
-grep -c '<loc>' sitemap-business-directories.xml               # expect 1
-grep -L 'noindex,follow' $(find research/business-directories -name index.html)  # expect only the hub
-grep -c '<item>' research/business-directories/feed.xml || true # expect 0
+node scripts/build-business-directories.cjs --dry-run
+# expect: Dry run: 3 page(s), 5 file(s) staged and validated. Nothing written.
+git status --short   # expect: clean
 ```
 
-- [ ] **Step 6: Commit**
+- [ ] **Step 6: Build for real, then verify**
 
 ```bash
-git add scripts/build-business-directories.cjs scripts/tests/bd-build.test.cjs research/business-directories sitemap-business-directories.xml
-git commit -m "feat(bd): generate the 221-page business directories section"
+node scripts/build-business-directories.cjs
+# expect: Generated 3 page(s); 5 written, 0 pruned.
+node scripts/build-business-directories.cjs
+# expect: 0 written, 0 pruned
+
+find research/business-directories -name index.html | sort
+grep -c '<loc>' sitemap-business-directories.xml          # expect 1
+grep -L 'noindex,follow' $(find research/business-directories -name index.html)  # expect only the hub
+```
+
+- [ ] **Step 7: Commit**
+
+```bash
+git add scripts/build-business-directories.cjs scripts/tests/bd-build.test.cjs \
+        research/business-directories sitemap-business-directories.xml \
+        data/business-directories/.build-manifest.json
+git commit -m "feat(bd): add transactional generator and the lean scaffold"
 ```
 
 ---

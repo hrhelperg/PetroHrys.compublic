@@ -57,6 +57,7 @@ const ALL = () => [
   c.sortControls({}),
   c.pagination({ current: 1, total: 3, basePath: '/x/' }),
   c.methodologyNote(),
+  c.faqSection([{ q: 'Q?', a: 'A.' }]),
   c.provenanceBlock(DIR),
   c.externalLinkCta({ url: 'https://example.com' }),
 ];
@@ -369,4 +370,24 @@ test('the methodology note makes no claim about entry counts', () => {
   const html = c.methodologyNote();
   assert.ok(!/\d/.test(html), 'methodology copy must not assert numbers');
   assert.ok(html.includes('checked by hand'));
+});
+
+test('faqSection renders each question and answer visibly', () => {
+  const html = c.faqSection([{ q: 'Why?', a: 'Because.' }, { q: 'How?', a: 'Carefully.' }]);
+  assert.ok(html.includes('Why?'));
+  assert.ok(html.includes('Because.'));
+  assert.ok(html.includes('How?'));
+  assert.ok(html.includes('Carefully.'));
+  assert.strictEqual((html.match(/bd-faq-item/g) || []).length, 2);
+});
+
+test('faqSection is empty when there is no approved content', () => {
+  assert.strictEqual(c.faqSection([]), '');
+  assert.strictEqual(c.faqSection(undefined), '');
+});
+
+test('faqSection escapes question and answer text', () => {
+  const html = c.faqSection([{ q: XSS, a: XSS }]);
+  assert.ok(!html.includes('<script>'));
+  assert.ok(html.includes('&lt;script&gt;'));
 });

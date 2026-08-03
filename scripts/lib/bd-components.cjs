@@ -215,6 +215,21 @@ ${bulletList(cons, 'No limitations recorded yet.')}
       </div>`;
 }
 
+// Rendered visibly on the page. FAQPage structured data must mirror content the
+// reader can actually see, so this and the JSON-LD are always built from the
+// same approved array.
+function faqSection(faqs, { headingLevel = 3 } = {}) {
+  if (!Array.isArray(faqs) || faqs.length === 0) return '';
+  const h = headingTag(headingLevel);
+  const items = faqs.map(({ q, a }) => `        <div class="bd-faq-item">
+          <${h} class="bd-faq-q">${escapeHtml(q)}</${h}>
+          <p class="bd-faq-a">${escapeHtml(a)}</p>
+        </div>`).join('\n');
+  return `      <div class="bd-faq">
+${items}
+      </div>`;
+}
+
 function bestForTags(industries) {
   if (!Array.isArray(industries) || industries.length === 0) {
     return `      <p class="bd-empty">No recommended industries recorded yet.</p>`;
@@ -442,7 +457,7 @@ function externalLinkCta({ url, label = 'Visit directory' }) {
 module.exports = {
   breadcrumbs, pageIntro, countryCard, categoryCard, cardGrid,
   directoryTable, directoryRow, directoryCard, metric, metricsBlock, metricNote,
-  statusBadges, prosCons, bestForTags, bulletList, emptyState,
+  statusBadges, prosCons, bestForTags, bulletList, emptyState, faqSection,
   searchControls, filterControls, sortControls, pagination,
   methodologyNote, provenanceBlock, externalLinkCta,
   FILTERS, VERIFICATION_NOTE, REL_EXTERNAL,
