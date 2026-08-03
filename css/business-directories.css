@@ -1,0 +1,284 @@
+/* Business Directories — Research Center.
+   Consumes design tokens from petrohrys.css only. Declares no raw colour,
+   font, or spacing literal, and redefines no existing site selector. */
+
+.bd-vh {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.bd-section { margin-top: var(--s-6); }
+
+.bd-note {
+  color: var(--text-3);
+  font-size: var(--fs-sm);
+  border-left: var(--rule-w) solid var(--rule);
+  padding-left: var(--s-3);
+  margin-top: var(--s-4);
+}
+
+.bd-empty {
+  color: var(--text-2);
+  background: var(--surface-blue);
+  border: var(--rule-w) solid var(--rule);
+  border-radius: var(--s-0);
+  padding: var(--s-4);
+}
+
+/* Breadcrumb: inherits colour and size from the site's .breadcrumb class,
+   so this only resets the list semantics. */
+.bd-breadcrumb .bd-crumbs {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.bd-breadcrumb .bd-crumb { display: inline-flex; align-items: center; }
+
+.bd-grid {
+  list-style: none;
+  padding: 0;
+  margin: var(--s-4) 0 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+  gap: var(--s-3);
+}
+
+.bd-card {
+  border-top: var(--rule-w) solid var(--rule);
+  padding-top: var(--s-2);
+}
+
+.bd-card-title {
+  font-family: var(--ff-sans);
+  font-size: var(--fs-md);
+  margin: 0;
+}
+
+.bd-card-title a { color: var(--blue); }
+.bd-card-title a:hover { color: var(--blue-strong); }
+
+.bd-card-body {
+  color: var(--text-2);
+  font-size: var(--fs-sm);
+  margin: var(--s-1) 0 0;
+}
+
+.bd-pending { color: var(--text-3); }
+
+.bd-tag {
+  color: var(--text-3);
+  font-size: var(--fs-xs);
+  font-family: var(--ff-mono);
+}
+
+.bd-summary {
+  border-top: var(--rule-w) solid var(--rule);
+  padding-top: var(--s-3);
+  margin-top: var(--s-4);
+}
+
+.bd-controls { display: flex; flex-wrap: wrap; gap: var(--s-3); }
+
+.bd-control {
+  margin-top: var(--s-4);
+  border: 0;
+  padding: 0;
+}
+
+.bd-label {
+  display: block;
+  color: var(--text-2);
+  font-size: var(--fs-sm);
+  margin-bottom: var(--s-0);
+  padding: 0;
+}
+
+.bd-select,
+.bd-input {
+  font-family: var(--ff-sans);
+  font-size: var(--fs-sm);
+  color: var(--text);
+  background: var(--surface);
+  border: var(--rule-w) solid var(--rule);
+  border-radius: var(--s-0);
+  padding: var(--s-1) var(--s-2);
+}
+
+.bd-select:focus-visible,
+.bd-input:focus-visible,
+.bd-checks input:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.bd-checks { display: flex; flex-wrap: wrap; gap: var(--s-3); }
+
+.bd-check {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-0);
+  color: var(--text-2);
+  font-size: var(--fs-sm);
+}
+
+.bd-status {
+  color: var(--text-3);
+  font-size: var(--fs-sm);
+  margin-top: var(--s-2);
+}
+
+.bd-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: var(--s-4);
+  font-size: var(--fs-sm);
+}
+
+.bd-caption {
+  text-align: left;
+  color: var(--text-3);
+  font-size: var(--fs-xs);
+  padding-bottom: var(--s-1);
+}
+
+.bd-cell {
+  text-align: left;
+  padding: var(--s-2);
+  border-bottom: var(--rule-w) solid var(--rule);
+  vertical-align: top;
+  font-weight: 400;
+}
+
+.bd-row:hover { background: var(--hover-tint); }
+
+.bd-metric { color: var(--text); display: block; }
+.bd-metric--empty { color: var(--text-3); }
+
+.bd-metric-source {
+  display: block;
+  color: var(--text-3);
+  font-size: var(--fs-xs);
+  font-family: var(--ff-mono);
+}
+
+.bd-defs {
+  margin: var(--s-4) 0 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+  gap: var(--s-3);
+}
+
+.bd-def {
+  border-top: var(--rule-w) solid var(--rule);
+  padding-top: var(--s-1);
+}
+
+.bd-def-t { color: var(--text-3); font-size: var(--fs-xs); }
+.bd-def-d { margin: 0; color: var(--text); }
+
+/* Status is always spelled out in the badge text; the border and tint are
+   decoration only and never the sole carrier of meaning. */
+.bd-badges {
+  list-style: none;
+  margin: var(--s-3) 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-1);
+}
+
+.bd-badge {
+  border: var(--rule-w) solid var(--rule);
+  border-radius: var(--s-0);
+  padding: var(--s-0) var(--s-2);
+  font-size: var(--fs-xs);
+  color: var(--text-2);
+  background: var(--surface);
+}
+
+.bd-badge[data-bd-state="verified"] { background: var(--surface-green); color: var(--green); }
+.bd-badge[data-bd-state="unknown"] { color: var(--text-3); }
+
+.bd-chips {
+  list-style: none;
+  margin: var(--s-3) 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-1);
+}
+
+.bd-chip {
+  border: var(--rule-w) solid var(--rule);
+  border-radius: var(--s-0);
+  padding: var(--s-0) var(--s-2);
+  font-size: var(--fs-xs);
+  color: var(--text-2);
+}
+
+.bd-list {
+  color: var(--text-2);
+  margin: var(--s-3) 0 0;
+  padding-left: var(--s-4);
+}
+
+.bd-proscons { margin-top: var(--s-4); }
+
+.bd-subhead {
+  font-family: var(--ff-sans);
+  font-size: var(--fs-md);
+  margin: var(--s-4) 0 0;
+}
+
+.bd-pagination { margin-top: var(--s-5); }
+
+.bd-pages {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-1);
+  margin: 0;
+  padding: 0;
+}
+
+.bd-page {
+  display: inline-block;
+  color: var(--blue);
+  border: var(--rule-w) solid var(--rule);
+  border-radius: var(--s-0);
+  padding: var(--s-0) var(--s-2);
+  font-size: var(--fs-sm);
+}
+
+.bd-page--current {
+  color: var(--text-3);
+  background: var(--bg-soft);
+}
+
+.bd-cta { margin-top: var(--s-4); }
+
+.bd-cta-link {
+  color: var(--blue);
+  font-family: var(--ff-mono);
+  font-size: var(--fs-sm);
+}
+
+.bd-cta-link:hover { color: var(--blue-strong); }
+
+.bd-cta--unavailable { color: var(--text-3); font-size: var(--fs-sm); }
+
+.bd-provenance { margin-top: var(--s-4); }
+
+@media (max-width: 40rem) {
+  .bd-table { display: block; overflow-x: auto; }
+}
