@@ -2068,8 +2068,17 @@ git commit -m "feat(bd): add SEO metadata and structured-data builders"
 - Test: `scripts/tests/bd-components.test.cjs`
 
 **Interfaces:**
-- Consumes: `bd-util.cjs` → `escapeHtml`; `bd-sort.cjs` → `SORTS`, `SORT_KEYS`
-- Produces: `emptyState(message): string`, `metric(value, provenance?): string`, `linkGrid(items): string` (items are `{name, path, pending?}`; `pending` renders unlinked text), `sortControl(): string`, `filterBar(): string`, `searchBox(): string`, `directoryRow(directory): string`, `directoryTable(directories): string`, `directoryDetail(directory): string`, `faqSection(faqs): string`, `pagination({current, total, basePath}): string`, `metricNote(): string`
+- Consumes: `bd-util.cjs` → `escapeHtml`; `bd-seo.cjs` → `safeExternalUrl`; `bd-sort.cjs` → `sortDirectories`, `SORTS`, `SORT_KEYS`
+- Produces 17 component builders: `breadcrumbs`, `pageIntro`, `countryCard`, `categoryCard`, `cardGrid`, `directoryTable`, `directoryCard`, `metricsBlock`, `statusBadges`, `prosCons`, `bestForTags`, `emptyState`, `searchControls`, `filterControls`, `sortControls`, `pagination`, `methodologyNote`, `provenanceBlock`, `externalLinkCta`, plus helpers `metric`, `metricNote`, `bulletList`, `directoryRow`, and constants `FILTERS`, `VERIFICATION_NOTE`, `REL_EXTERNAL`.
+
+**Component contract:**
+- **Existing classes are reused in markup, never redefined in CSS.** The hero uses `page-hero`/`lede` and the breadcrumb reuses `breadcrumb`, so the section inherits the site's look without a single new design token. Only genuinely new UI (table, badges, chips, controls, pagination) gets `bd-*` classes.
+- **Security.** Every string is escaped for both text and attribute positions. Outbound URLs pass through `safeExternalUrl`; `javascript:`, `data:`, `file:`, and malformed values are never rendered as links — the CTA says "no usable address recorded" instead. No inline styles, no inline event handlers, no `<script>`, no raw JSON.
+- **Honesty.** A null metric renders an em dash with a visually hidden "Not recorded", never `0`. An unknown field never implies verification: badges read "Not yet verified", "Listing cost not recorded", "Verification requirement not recorded".
+- **Accessibility.** Breadcrumb is `nav > ol` with `aria-label` and a single `aria-current="page"`. Pagination is `nav > ol`; the current page is a `<span>`, so it cannot be focused or activated. Every control has a `<label for>`, and `idPrefix` namespaces ids so two shells never collide. Status is always words, never colour alone. Headings are configurable and clamped to h2–h6. Cards link only their title, so no anchor ever wraps a block containing another anchor.
+- **No JavaScript required.** Controls render `hidden` and are revealed by Task 9. The table is fully sorted server-side by `bd-sort` and completely readable without scripting.
+- **Long values are rendered in full.** Nothing is truncated in content; any clamping is CSS's job, so source data is never silently lost.
+- **Deterministic and non-mutating.** No dates, no randomness, inputs untouched.
 
 - [ ] **Step 1: Write the failing test**
 
@@ -2080,103 +2089,369 @@ const test = require('node:test');
 const assert = require('node:assert');
 const c = require('../lib/bd-components.cjs');
 
-test('metric renders an em dash for null', () => {
-  assert.strictEqual(c.metric(null), '<span class="bd-metric bd-metric--empty">&mdash;</span>');
-});
+const DIR = {
+  id: 'us-example', slug: 'example-directory', name: 'Example Directory',
+  country: 'united-states', category: 'saas', website: 'https://example.com',
+  description: 'A directory of things.', tier: 'tier1',
+  petroHrysScore: null, domainRating: null, authorityScore: null,
+  estimatedTraffic: null, referringDomains: null, free: null, paid: null,
+  verificationRequired: null, manualReview: null, acceptsSaaS: null,
+  acceptsStartups: null, acceptsAI: null, lastVerified: null, nextVerification: null,
+  recommendedIndustries: [], pros: [], cons: [], editorNotes: '', metricsProvenance: {},
+};
 
-test('metric renders a value with provenance when supplied', () => {
-  const html = c.metric(78, { provider: 'Ahrefs', measuredAt: '2026-08-01' });
-  assert.ok(html.includes('78'));
-  assert.ok(html.includes('Ahrefs'));
-  assert.ok(html.includes('2026-08-01'));
-});
+const XSS = '<script>alert(1)</script>';
+const LONG = 'Ω'.repeat(5000);
+const UNICODE = 'Česká republika — 東京 — Ünïcodé — ĄŻŚ';
 
-test('metric never renders zero for a null value', () => {
-  assert.ok(!c.metric(null).includes('0'));
-});
+// Minimal well-formedness checker: tokenises tags and asserts the stack balances.
+const VOID = new Set(['area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input',
+  'link', 'meta', 'param', 'source', 'track', 'wbr']);
+function assertWellFormed(html, label) {
+  const stack = [];
+  const re = /<(\/?)([a-zA-Z][a-zA-Z0-9-]*)([^>]*?)(\/?)>/g;
+  let m;
+  while ((m = re.exec(html)) !== null) {
+    const [, closing, rawName, , selfClose] = m;
+    const name = rawName.toLowerCase();
+    if (VOID.has(name) || selfClose) continue;
+    if (closing) {
+      const open = stack.pop();
+      assert.strictEqual(open, name, `${label}: </${name}> closes <${open}>`);
+    } else {
+      stack.push(name);
+    }
+  }
+  assert.deepStrictEqual(stack, [], `${label}: unclosed tags ${stack.join(', ')}`);
+}
 
-test('emptyState states that entries are published only after verification', () => {
-  const html = c.emptyState('No directories published yet.');
-  assert.ok(html.includes('manual verification') || html.includes('manually verified'));
-  assert.ok(html.includes('bd-empty'));
-});
+const ALL = () => [
+  c.breadcrumbs([{ name: 'Home', path: '/' }, { name: 'Here', path: '/here/' }]),
+  c.pageIntro({ title: 'T', lede: 'L' }),
+  c.cardGrid([c.countryCard({ name: 'A', path: '/a/' }), c.countryCard({ name: 'B', path: '/b/', pending: true })]),
+  c.cardGrid([c.categoryCard({ name: 'C', path: '/c/', description: 'd' })]),
+  c.directoryTable({ directories: [DIR] }),
+  c.directoryCard({ directory: DIR }),
+  c.metricsBlock(DIR),
+  c.statusBadges(DIR),
+  c.prosCons({ pros: ['p'], cons: [] }),
+  c.bestForTags(['legal']),
+  c.emptyState('Nothing here.'),
+  c.searchControls({}),
+  c.filterControls({}),
+  c.sortControls({}),
+  c.pagination({ current: 1, total: 3, basePath: '/x/' }),
+  c.methodologyNote(),
+  c.provenanceBlock(DIR),
+  c.externalLinkCta({ url: 'https://example.com' }),
+];
 
-test('linkGrid escapes item names', () => {
-  const html = c.linkGrid([{ name: '<script>', path: '/x/' }]);
-  assert.ok(!html.includes('<script>'));
+// --- escaping and injection -------------------------------------------------
+
+test('script payloads in text are escaped everywhere', () => {
+  const evil = { ...DIR, name: XSS, description: XSS, recommendedIndustries: [XSS], pros: [XSS], cons: [XSS] };
+  const html = [
+    c.directoryTable({ directories: [evil] }), c.directoryCard({ directory: evil }),
+    c.bestForTags([XSS]), c.prosCons({ pros: [XSS], cons: [XSS] }),
+    c.pageIntro({ title: XSS, lede: XSS }), c.emptyState(XSS),
+    c.countryCard({ name: XSS, path: '/x/' }), c.categoryCard({ name: XSS, path: '/x/', description: XSS }),
+  ].join('\n');
+  assert.ok(!html.includes('<script>'), 'raw script tag leaked');
   assert.ok(html.includes('&lt;script&gt;'));
 });
 
-test('linkGrid renders a pending item as text, never as a link', () => {
-  const html = c.linkGrid([{ name: 'Germany', path: '/germany/', pending: true }]);
-  assert.ok(!html.includes('<a '), 'pending item must not be a link');
+// A raw double quote may only ever appear as an attribute delimiter. If one is
+// followed by something shaped like an on* attribute, a real breakout happened.
+// Stripping &quot; before scanning would re-create the pattern from inert text,
+// so the entity is deliberately left in place.
+function assertNoAttributeInjection(html, label) {
+  assert.ok(!/"\s*on[a-z]+\s*=/i.test(html), `${label}: event handler injected via double quote`);
+  assert.ok(!/'\s*on[a-z]+\s*=/i.test(html), `${label}: event handler injected via single quote`);
+}
+
+test('quotes in attribute positions cannot break out', () => {
+  const evil = { ...DIR, name: '" onmouseover="alert(1)', slug: '" onfocus="alert(1)' };
+  const html = c.directoryTable({ directories: [evil] });
+  assertNoAttributeInjection(html, 'directoryTable');
+  assert.ok(html.includes('&quot;'), 'the quote must survive as an escaped entity');
+  assert.ok(html.includes('onmouseover'), 'the payload text itself is kept, just inert');
+});
+
+test('breadcrumb paths are escaped', () => {
+  const html = c.breadcrumbs([{ name: 'A', path: '/a"onclick="x/' }, { name: 'B', path: '/b/' }]);
+  assert.ok(html.includes('&quot;'));
+  assertNoAttributeInjection(html, 'breadcrumbs');
+});
+
+// --- unsafe URLs ------------------------------------------------------------
+
+test('unsafe url schemes are never rendered as links', () => {
+  for (const bad of ['javascript:alert(1)', 'data:text/html;base64,PHN2Zz4=', 'file:///etc/passwd', 'not a url', '']) {
+    const html = c.externalLinkCta({ url: bad });
+    assert.ok(!html.includes('<a '), `scheme rendered as link: ${bad}`);
+    assert.ok(html.includes('no usable address recorded'));
+  }
+});
+
+test('a valid https url renders with the required rel attributes', () => {
+  const html = c.externalLinkCta({ url: 'https://example.com/list' });
+  assert.ok(html.includes('<a '));
+  assert.ok(html.includes('rel="nofollow noopener noreferrer"'));
+  assert.ok(/noopener/.test(html) && /noreferrer/.test(html));
+});
+
+test('external cta announces that it opens a new tab', () => {
+  const html = c.externalLinkCta({ url: 'https://example.com' });
+  assert.ok(html.includes('target="_blank"'));
+  assert.ok(html.includes('opens in a new tab'));
+});
+
+// --- null handling ----------------------------------------------------------
+
+test('null metrics render an em dash with a spoken equivalent, never zero', () => {
+  const html = c.metricsBlock(DIR);
+  assert.ok(html.includes('&mdash;'));
+  assert.ok(html.includes('Not recorded'));
+  assert.ok(!/>0</.test(html), 'must never render 0 for an unknown value');
+});
+
+test('unknown fields never imply verification', () => {
+  const html = c.statusBadges(DIR);
+  assert.ok(html.includes('Not yet verified'));
+  assert.ok(html.includes('Listing cost not recorded'));
+  assert.ok(html.includes('Verification requirement not recorded'));
+  assert.ok(!/>Verified</.test(html));
+});
+
+test('a verified record reports its date in a time element', () => {
+  const html = c.provenanceBlock({ ...DIR, lastVerified: '2026-08-01' });
+  assert.ok(html.includes('<time datetime="2026-08-01">2026-08-01</time>'));
+});
+
+test('an unverified record says so rather than showing a date', () => {
+  assert.ok(c.provenanceBlock(DIR).includes('Not yet verified'));
+});
+
+test('third-party metrics always show provider and measurement date', () => {
+  const html = c.metricsBlock({
+    ...DIR, domainRating: 78, lastVerified: '2026-08-01',
+    metricsProvenance: { domainRating: { provider: 'Ahrefs', measuredAt: '2026-08-01' } },
+  });
+  assert.ok(html.includes('78'));
+  assert.ok(html.includes('Ahrefs'));
+  assert.ok(html.includes('<time datetime="2026-08-01">'));
+});
+
+// --- empty and populated states --------------------------------------------
+
+test('an empty directory table renders the empty state', () => {
+  const html = c.directoryTable({ directories: [] });
+  assert.ok(html.includes('bd-empty'));
+  assert.ok(html.includes('manual verification'));
+  assert.ok(!html.includes('<table'));
+});
+
+test('a populated table renders one row per directory with no cap', () => {
+  const many = Array.from({ length: 137 }, (_, i) => ({ ...DIR, id: `i${i}`, slug: `s${i}`, name: `N${i}` }));
+  const html = c.directoryTable({ directories: many });
+  assert.strictEqual((html.match(/<tr class="bd-row"/g) || []).length, 137);
+});
+
+test('empty arrays produce factual empty copy, not blanks', () => {
+  assert.ok(c.bestForTags([]).includes('No recommended industries recorded yet.'));
+  assert.ok(c.prosCons({ pros: [], cons: [] }).includes('No strengths recorded yet.'));
+  assert.ok(c.prosCons({ pros: [], cons: [] }).includes('No limitations recorded yet.'));
+});
+
+// --- semantics and accessibility -------------------------------------------
+
+test('the table is semantic and readable without JavaScript', () => {
+  const html = c.directoryTable({ directories: [DIR] });
+  assert.ok(html.includes('<caption'));
+  assert.ok(html.includes('<thead>'));
+  assert.ok(html.includes('<tbody'));
+  assert.ok((html.match(/scope="col"/g) || []).length >= 5);
+  assert.ok(html.includes('scope="row"'));
+});
+
+test('breadcrumb is a labelled nav whose last item is aria-current', () => {
+  const html = c.breadcrumbs([
+    { name: 'Home', path: '/' }, { name: 'Research', path: '/research/' }, { name: 'Now', path: '/now/' },
+  ]);
+  assert.ok(html.includes('<nav'));
+  assert.ok(html.includes('aria-label="Breadcrumb"'));
+  assert.ok(html.includes('<ol'));
+  assert.ok(html.includes('aria-current="page">Now<'));
+  assert.strictEqual((html.match(/aria-current/g) || []).length, 1);
+});
+
+test('pagination is a labelled nav and the current page is not a link', () => {
+  const html = c.pagination({ current: 2, total: 3, basePath: '/x/' });
+  assert.ok(html.includes('aria-label="Directory pages"'));
+  assert.ok(html.includes('aria-current="page"'));
+  const current = html.split('\n').find((l) => l.includes('aria-current'));
+  assert.ok(!current.includes('<a '), 'the current page must not be clickable');
+});
+
+test('pagination is omitted for a single page', () => {
+  assert.strictEqual(c.pagination({ current: 1, total: 1, basePath: '/x/' }), '');
+});
+
+test('every form control has an associated label', () => {
+  for (const html of [c.searchControls({}), c.filterControls({}), c.sortControls({})]) {
+    const ids = [...html.matchAll(/id="([^"]+)"/g)].map((m) => m[1]);
+    const fors = [...html.matchAll(/for="([^"]+)"/g)].map((m) => m[1]);
+    for (const id of ids) assert.ok(fors.includes(id), `control ${id} has no label`);
+    assert.ok(ids.length > 0);
+  }
+});
+
+test('control ids can be namespaced so two shells never collide', () => {
+  const a = c.searchControls({ idPrefix: 'alpha' });
+  const b = c.searchControls({ idPrefix: 'beta' });
+  assert.ok(a.includes('id="alpha-search"'));
+  assert.ok(b.includes('id="beta-search"'));
+  assert.ok(!a.includes('beta-'));
+});
+
+test('status is conveyed in words, never by colour alone', () => {
+  const html = c.statusBadges({ ...DIR, free: true, verificationRequired: true, lastVerified: '2026-08-01' });
+  for (const words of ['Verified', 'Free listing', 'Verification required']) {
+    assert.ok(html.includes(words), `missing text for ${words}`);
+  }
+});
+
+test('cards link only their title, never wrapping the whole block', () => {
+  const html = c.directoryCard({ directory: DIR });
+  const anchors = (html.match(/<a /g) || []).length;
+  assert.strictEqual(anchors, 1);
+  assert.ok(/<h3 class="bd-card-title"><a /.test(html));
+});
+
+test('heading level is configurable and clamped to a valid range', () => {
+  assert.ok(c.directoryCard({ directory: DIR, headingLevel: 2 }).includes('<h2'));
+  assert.ok(c.directoryCard({ directory: DIR, headingLevel: 99 }).includes('<h6'));
+  assert.ok(c.directoryCard({ directory: DIR, headingLevel: 1 }).includes('<h2'));
+});
+
+test('a pending route is rendered as text, never as a link', () => {
+  const html = c.countryCard({ name: 'Germany', path: '/germany/', pending: true });
+  assert.ok(!html.includes('<a '));
   assert.ok(html.includes('coming soon'));
   assert.ok(html.includes('Germany'));
 });
 
-test('linkGrid still links a non-pending item', () => {
-  const html = c.linkGrid([{ name: 'United States', path: '/united-states/' }]);
-  assert.ok(html.includes('<a href="/united-states/">'));
-  assert.ok(!html.includes('coming soon'));
+// --- markup hygiene ---------------------------------------------------------
+
+test('no component emits an inline style or event handler', () => {
+  const html = ALL().join('\n');
+  assert.ok(!/\sstyle="/.test(html), 'inline style found');
+  assert.ok(!/\son[a-z]+\s*=/i.test(html), 'inline event handler found');
+  assertNoAttributeInjection(html, 'all components');
+  assert.ok(!html.includes('javascript:'));
 });
 
-test('directoryDetail renders every unknown field as an em dash, never zero', () => {
-  const html = c.directoryDetail({
-    name: 'Example', slug: 'example', website: 'https://example.com',
-    description: 'A directory.', tier: null, petroHrysScore: null, domainRating: null,
-    authorityScore: null, estimatedTraffic: null, referringDomains: null, free: null,
-    paid: null, verificationRequired: null, manualReview: null, acceptsCompanies: null,
-    acceptsProducts: null, acceptsSaaS: null, acceptsApps: null, acceptsStartups: null,
-    acceptsAI: null, backlinkType: null, robots: null, sitemap: null, indexed: null,
-    ssl: null, lastVerified: null, nextVerification: null, httpStatus: null,
-    recommendedIndustries: [], pros: [], cons: [], editorNotes: '', metricsProvenance: {},
-  });
-  assert.ok(html.includes('&mdash;'));
-  assert.ok(!/>0</.test(html), 'must never render 0 for an unknown value');
+test('no component emits a script tag or raw JSON', () => {
+  const html = ALL().join('\n');
+  assert.ok(!/<script/i.test(html));
+  assert.ok(!/application\/ld\+json/.test(html));
 });
 
-test('directoryDetail marks the outbound website link as external and nofollow', () => {
-  const html = c.directoryDetail({
-    name: 'Example', slug: 'example', website: 'https://example.com', description: 'D',
-    recommendedIndustries: [], pros: [], cons: [], editorNotes: '', metricsProvenance: {},
-  });
-  assert.ok(html.includes('rel="nofollow noopener"'));
+test('every fragment is well-formed', () => {
+  ALL().forEach((html, i) => assertWellFormed(html, `fragment ${i}`));
 });
 
-test('sortControl lists every sort key', () => {
-  const html = c.sortControl();
-  for (const key of ['default', 'domain-rating', 'authority-score', 'traffic', 'alphabetical']) {
-    assert.ok(html.includes(`value="${key}"`), `missing ${key}`);
+test('no fake buttons and no interactive nesting', () => {
+  const html = ALL().join('\n');
+  assert.ok(!/<div[^>]*role="button"/.test(html));
+  assert.ok(!/<a[^>]*>[^<]*<a /.test(html), 'nested anchors');
+  assert.ok(!/<button[^>]*>[\s\S]*?<a /.test(html), 'anchor inside button');
+});
+
+// --- unicode, long values, determinism, immutability ------------------------
+
+test('unicode survives intact in every text position', () => {
+  const rec = { ...DIR, name: UNICODE, description: UNICODE, recommendedIndustries: [UNICODE] };
+  const html = [c.directoryTable({ directories: [rec] }), c.directoryCard({ directory: rec }),
+    c.bestForTags([UNICODE])].join('\n');
+  for (const part of ['Česká republika', '東京', 'Ünïcodé', 'ĄŻŚ']) {
+    assert.ok(html.includes(part), `lost ${part}`);
   }
 });
 
-test('directoryTable returns an empty state when there are no rows', () => {
-  assert.ok(c.directoryTable([]).includes('bd-empty'));
+test('very long values are rendered in full, never silently truncated', () => {
+  const rec = { ...DIR, name: LONG, description: LONG };
+  const html = c.directoryCard({ directory: rec });
+  assert.ok(html.includes(LONG), 'source data was truncated');
+  assert.ok(!html.includes('…'));
 });
 
-test('every generated class name is bd- prefixed', () => {
-  const html = [c.sortControl(), c.filterBar(), c.searchBox(), c.directoryTable([]),
-    c.emptyState('x'), c.metricNote()].join('\n');
-  for (const match of html.matchAll(/class="([^"]+)"/g)) {
-    for (const cls of match[1].split(/\s+/)) {
-      assert.ok(cls.startsWith('bd-'), `non-bd class leaked: ${cls}`);
-    }
+test('duplicate names and ids in the data do not break markup', () => {
+  const dup = [{ ...DIR }, { ...DIR, slug: 'other' }];
+  const html = c.directoryTable({ directories: dup });
+  assertWellFormed(html, 'duplicate rows');
+  assert.strictEqual((html.match(/<tr class="bd-row"/g) || []).length, 2);
+});
+
+test('repeated rendering is byte-identical', () => {
+  const runs = new Set(Array.from({ length: 25 }, () => ALL().join('\n')));
+  assert.strictEqual(runs.size, 1);
+});
+
+test('components never mutate their inputs', () => {
+  const rec = { ...DIR, pros: ['a'], cons: ['b'], recommendedIndustries: ['c'] };
+  const list = [rec];
+  const snapshot = JSON.stringify({ rec, list });
+  c.directoryTable({ directories: list });
+  c.directoryCard({ directory: rec });
+  c.metricsBlock(rec);
+  c.statusBadges(rec);
+  c.prosCons({ pros: rec.pros, cons: rec.cons });
+  c.bestForTags(rec.recommendedIndustries);
+  assert.strictEqual(JSON.stringify({ rec, list }), snapshot);
+});
+
+test('the table is ordered by bd-sort, not by input order', () => {
+  const rows = [
+    { ...DIR, id: 'a', slug: 'low', name: 'Low', petroHrysScore: 10, lastVerified: '2026-01-01' },
+    { ...DIR, id: 'b', slug: 'high', name: 'High', petroHrysScore: 90, lastVerified: '2026-01-01' },
+  ];
+  const html = c.directoryTable({ directories: rows });
+  assert.ok(html.indexOf('>High<') < html.indexOf('>Low<'), 'server order must come from bd-sort');
+});
+
+test('rows carry the data attributes the client script needs', () => {
+  const html = c.directoryTable({ directories: [{ ...DIR, free: true }] });
+  for (const attribute of ['data-bd-name', 'data-bd-haystack', 'data-bd-score',
+    'data-bd-dr', 'data-bd-as', 'data-bd-traffic', 'data-bd-free']) {
+    assert.ok(html.includes(attribute), `missing ${attribute}`);
+  }
+  assert.ok(html.includes('data-bd-free="1"'));
+  assert.ok(html.includes('data-bd-paid="0"'));
+});
+
+test('null metrics produce empty data attributes rather than zero', () => {
+  const html = c.directoryTable({ directories: [DIR] });
+  assert.ok(html.includes('data-bd-score=""'));
+  assert.ok(!html.includes('data-bd-score="0"'));
+});
+
+test('controls start hidden so the prerendered table stands alone', () => {
+  for (const html of [c.searchControls({}), c.filterControls({}), c.sortControls({})]) {
+    assert.ok(html.includes('hidden'), 'controls must be hidden until enhanced');
   }
 });
 
-test('pagination returns empty string for a single page', () => {
-  assert.strictEqual(c.pagination({ current: 1, total: 1, basePath: '/x/' }), '');
-});
-
-test('pagination links to page/2/ when there are two pages', () => {
-  const html = c.pagination({ current: 1, total: 2, basePath: '/x/' });
-  assert.ok(html.includes('/x/page/2/'));
+test('the methodology note makes no claim about entry counts', () => {
+  const html = c.methodologyNote();
+  assert.ok(!/\d/.test(html), 'methodology copy must not assert numbers');
+  assert.ok(html.includes('checked by hand'));
 });
 ```
 
 - [ ] **Step 2: Run test to verify it fails**
 
-Run: `node --test scripts/tests/bd-components.test.cjs`
+Run: `node --test "scripts/tests/bd-components.test.cjs"`
 Expected: FAIL — `Cannot find module '../lib/bd-components.cjs'`
 
 - [ ] **Step 3: Write minimal implementation**
@@ -2185,139 +2460,239 @@ Expected: FAIL — `Cannot find module '../lib/bd-components.cjs'`
 // scripts/lib/bd-components.cjs
 'use strict';
 const { escapeHtml } = require('./bd-util.cjs');
-const { SORTS, SORT_KEYS } = require('./bd-sort.cjs');
+const { safeExternalUrl } = require('./bd-seo.cjs');
+const { sortDirectories, SORTS, SORT_KEYS } = require('./bd-sort.cjs');
 
-const VERIFICATION_NOTE =
-  'Entries are published only after manual verification, so this list stays empty until real, checked directories are added.';
+// ---------------------------------------------------------------------------
+// Helpers
+// ---------------------------------------------------------------------------
 
-function emptyState(message) {
-  return `<p class="bd-empty">${escapeHtml(message)} ${escapeHtml(VERIFICATION_NOTE)}</p>`;
+const NOT_RECORDED = 'Not recorded';
+const REL_EXTERNAL = 'nofollow noopener noreferrer';
+
+const isNullish = (v) => v === null || v === undefined;
+
+// Visually hidden text. Status and metrics must never be conveyed by colour or
+// a bare glyph alone, so an em dash always carries a spoken equivalent.
+function vh(text) {
+  return `<span class="bd-vh">${escapeHtml(text)}</span>`;
 }
 
+function headingTag(level) {
+  const n = Number.isInteger(level) ? Math.min(Math.max(level, 2), 6) : 3;
+  return `h${n}`;
+}
+
+// Returns a safe href or null. Anything that is not http(s) — javascript:,
+// data:, file:, malformed — is refused, and callers render plain text instead.
+function safeHref(value) {
+  return safeExternalUrl(value);
+}
+
+function dash() {
+  return `<span class="bd-metric bd-metric--empty"><span aria-hidden="true">&mdash;</span>${vh(NOT_RECORDED)}</span>`;
+}
+
+// ---------------------------------------------------------------------------
+// 1. Breadcrumbs
+// ---------------------------------------------------------------------------
+
+function breadcrumbs(trail) {
+  if (!Array.isArray(trail) || trail.length === 0) return '';
+  const items = trail.map((entry, index) => {
+    const last = index === trail.length - 1;
+    const inner = last
+      ? `<span aria-current="page">${escapeHtml(entry.name)}</span>`
+      : `<a href="${escapeHtml(entry.path)}">${escapeHtml(entry.name)}</a>`;
+    const sep = last ? '' : '<span class="sep" aria-hidden="true">/</span>';
+    return `      <li class="bd-crumb">${inner}${sep}</li>`;
+  }).join('\n');
+  return `    <nav class="breadcrumb bd-breadcrumb" aria-label="Breadcrumb">
+      <ol class="bd-crumbs">
+${items}
+      </ol>
+    </nav>`;
+}
+
+// ---------------------------------------------------------------------------
+// 2. Page intro / hero
+// ---------------------------------------------------------------------------
+
+function pageIntro({ title, lede }) {
+  const ledeHtml = lede ? `\n      <p class="lede">${escapeHtml(lede)}</p>` : '';
+  return `    <article class="page-hero">
+      <h1>${escapeHtml(title)}</h1>${ledeHtml}
+    </article>`;
+}
+
+// ---------------------------------------------------------------------------
+// 3 & 4. Country and category cards
+// ---------------------------------------------------------------------------
+
+// A pending route has not been written to disk, so it is rendered as text and
+// never as a link — linking it would advertise a 404.
+function countryCard({ name, path, pending = false, headingLevel = 3 }) {
+  const h = headingTag(headingLevel);
+  const title = pending
+    ? `<span class="bd-pending">${escapeHtml(name)}</span> <span class="bd-tag">coming soon</span>`
+    : `<a href="${escapeHtml(path)}">${escapeHtml(name)}</a>`;
+  return `        <li class="bd-card">
+          <${h} class="bd-card-title">${title}</${h}>
+        </li>`;
+}
+
+function categoryCard({ name, path, description, pending = false, headingLevel = 3 }) {
+  const h = headingTag(headingLevel);
+  const title = pending
+    ? `<span class="bd-pending">${escapeHtml(name)}</span> <span class="bd-tag">coming soon</span>`
+    : `<a href="${escapeHtml(path)}">${escapeHtml(name)}</a>`;
+  const body = description ? `\n          <p class="bd-card-body">${escapeHtml(description)}</p>` : '';
+  return `        <li class="bd-card">
+          <${h} class="bd-card-title">${title}</${h}>${body}
+        </li>`;
+}
+
+function cardGrid(cards, { label } = {}) {
+  if (!cards.length) return '';
+  const labelAttr = label ? ` aria-label="${escapeHtml(label)}"` : '';
+  return `      <ul class="bd-grid"${labelAttr}>
+${cards.join('\n')}
+      </ul>`;
+}
+
+// ---------------------------------------------------------------------------
+// 7. Metrics
+// ---------------------------------------------------------------------------
+
+// Third-party metrics always render their provider and measurement date, so a
+// reader never mistakes them for a PetroHrys measurement.
 function metric(value, provenance) {
-  if (value === null || value === undefined) {
-    return '<span class="bd-metric bd-metric--empty">&mdash;</span>';
-  }
+  if (isNullish(value)) return dash();
   const shown = escapeHtml(value);
   if (provenance && provenance.provider && provenance.measuredAt) {
-    return `<span class="bd-metric">${shown}<span class="bd-metric-source">` +
-      `${escapeHtml(provenance.provider)}, measured ${escapeHtml(provenance.measuredAt)}` +
-      `</span></span>`;
+    return `<span class="bd-metric">${shown}<span class="bd-metric-source">`
+      + `${escapeHtml(provenance.provider)}, measured `
+      + `<time datetime="${escapeHtml(provenance.measuredAt)}">${escapeHtml(provenance.measuredAt)}</time>`
+      + `</span></span>`;
   }
   return `<span class="bd-metric">${shown}</span>`;
 }
 
-function metricNote() {
-  return '<p class="bd-note">Domain Rating, Authority Score, estimated traffic and referring domains are ' +
-    'third-party metrics produced by their respective providers, not by PetroHrys.com. ' +
-    'The PetroHrys Score is a first-party editorial assessment.</p>';
-}
+const METRIC_ROWS = [
+  ['petroHrysScore', 'PetroHrys Score', false],
+  ['domainRating', 'Domain Rating', true],
+  ['authorityScore', 'Authority Score', true],
+  ['estimatedTraffic', 'Estimated traffic', true],
+  ['referringDomains', 'Referring domains', true],
+];
 
-// A pending route has not been written to disk. It must never be linked, or the
-// page would advertise a 404.
-function linkGrid(items) {
-  if (!items.length) return '';
-  const rows = items.map((item) => {
-    if (item.pending) {
-      return `      <li><span class="bd-pending">${escapeHtml(item.name)}</span> ` +
-        `<span class="bd-tag">coming soon</span></li>`;
-    }
-    return `      <li><a href="${escapeHtml(item.path)}">${escapeHtml(item.name)}</a></li>`;
+function metricsBlock(directory) {
+  const provenance = directory.metricsProvenance || {};
+  const rows = METRIC_ROWS.map(([field, label, thirdParty]) => {
+    const value = metric(directory[field], thirdParty ? provenance[field] : undefined);
+    return `        <div class="bd-def">
+          <dt class="bd-def-t">${escapeHtml(label)}</dt>
+          <dd class="bd-def-d">${value}</dd>
+        </div>`;
   }).join('\n');
-  return `    <ul class="bd-grid">\n${rows}\n    </ul>`;
+  return `      <dl class="bd-defs">
+${rows}
+      </dl>`;
 }
 
-const BOOLEAN_FIELDS = [
-  ['free', 'Free listing'], ['paid', 'Paid listing'],
-  ['verificationRequired', 'Verification required'], ['manualReview', 'Manual review'],
-  ['acceptsCompanies', 'Accepts companies'], ['acceptsProducts', 'Accepts products'],
-  ['acceptsSaaS', 'Accepts SaaS'], ['acceptsApps', 'Accepts apps'],
-  ['acceptsStartups', 'Accepts startups'], ['acceptsAI', 'Accepts AI products'],
-  ['sitemap', 'Publishes a sitemap'], ['indexed', 'Listings indexed'], ['ssl', 'HTTPS'],
-];
-
-const PLAIN_FIELDS = [
-  ['tier', 'Tier'], ['backlinkType', 'Backlink type'], ['robots', 'Crawlability'],
-  ['httpStatus', 'HTTP status'], ['lastVerified', 'Last verified'],
-  ['nextVerification', 'Next verification'],
-];
-
-function unknown() {
-  return '<span class="bd-metric bd-metric--empty">&mdash;</span>';
+function metricNote() {
+  return '      <p class="bd-note">Domain Rating, Authority Score, estimated traffic and referring '
+    + 'domains are third-party metrics produced by their respective providers, not by '
+    + 'PetroHrys.com. The PetroHrys Score is a first-party editorial assessment.</p>';
 }
 
-function boolCell(value) {
-  if (value === null || value === undefined) return unknown();
-  return `<span class="bd-metric">${value ? 'Yes' : 'No'}</span>`;
+// ---------------------------------------------------------------------------
+// 8. Status badges
+// ---------------------------------------------------------------------------
+
+// Every badge carries its own words. Nothing is signalled by colour alone, and
+// an unknown field never renders as a claim.
+function statusBadges(directory) {
+  const badges = [];
+
+  badges.push(directory.lastVerified
+    ? { state: 'verified', text: 'Verified' }
+    : { state: 'unverified', text: 'Not yet verified' });
+
+  if (directory.free === true && directory.paid === true) {
+    badges.push({ state: 'mixed', text: 'Free and paid tiers' });
+  } else if (directory.free === true) {
+    badges.push({ state: 'free', text: 'Free listing' });
+  } else if (directory.paid === true) {
+    badges.push({ state: 'paid', text: 'Paid listing' });
+  } else {
+    badges.push({ state: 'unknown', text: 'Listing cost not recorded' });
+  }
+
+  if (directory.verificationRequired === true) {
+    badges.push({ state: 'gated', text: 'Verification required' });
+  } else if (directory.verificationRequired === false) {
+    badges.push({ state: 'open', text: 'No verification required' });
+  } else {
+    badges.push({ state: 'unknown', text: 'Verification requirement not recorded' });
+  }
+
+  const items = badges.map((b) =>
+    `        <li class="bd-badge" data-bd-state="${escapeHtml(b.state)}">${escapeHtml(b.text)}</li>`).join('\n');
+  return `      <ul class="bd-badges" aria-label="Listing status">
+${items}
+      </ul>`;
 }
 
-function plainCell(value) {
-  if (value === null || value === undefined || value === '') return unknown();
-  return `<span class="bd-metric">${escapeHtml(value)}</span>`;
-}
-
-function defRow(label, valueHtml) {
-  return `        <div class="bd-def"><dt class="bd-def-t">${escapeHtml(label)}</dt>` +
-    `<dd class="bd-def-d">${valueHtml}</dd></div>`;
-}
+// ---------------------------------------------------------------------------
+// 9 & 10. Pros / cons and best-for tags
+// ---------------------------------------------------------------------------
 
 function bulletList(items, emptyMessage) {
-  if (!items || !items.length) return `      <p class="bd-empty">${escapeHtml(emptyMessage)}</p>`;
-  return `      <ul class="bd-list">\n` +
-    items.map((i) => `        <li>${escapeHtml(i)}</li>`).join('\n') + `\n      </ul>`;
-}
-
-function directoryDetail(d) {
-  const p = d.metricsProvenance || {};
-  const rows = [
-    defRow('PetroHrys Score', metric(d.petroHrysScore)),
-    defRow('Domain Rating', metric(d.domainRating, p.domainRating)),
-    defRow('Authority Score', metric(d.authorityScore, p.authorityScore)),
-    defRow('Estimated traffic', metric(d.estimatedTraffic, p.estimatedTraffic)),
-    defRow('Referring domains', metric(d.referringDomains, p.referringDomains)),
-    ...PLAIN_FIELDS.map(([field, label]) => defRow(label, plainCell(d[field]))),
-    ...BOOLEAN_FIELDS.map(([field, label]) => defRow(label, boolCell(d[field]))),
-  ].join('\n');
-
-  return `    <div class="bd-detail">
-      <p class="bd-detail-site"><a href="${escapeHtml(d.website)}" rel="nofollow noopener" target="_blank">${escapeHtml(d.website)}</a></p>
-      <dl class="bd-defs">
+  if (!Array.isArray(items) || items.length === 0) {
+    return `      <p class="bd-empty">${escapeHtml(emptyMessage)}</p>`;
+  }
+  const rows = items.map((item) => `        <li>${escapeHtml(item)}</li>`).join('\n');
+  return `      <ul class="bd-list">
 ${rows}
-      </dl>
-${metricNote()}
-    </div>
-
-    <section class="bd-section" aria-labelledby="industries">
-      <h2 id="industries">Recommended industries</h2>
-${bulletList(d.recommendedIndustries, 'No recommended industries recorded yet.')}
-    </section>
-
-    <section class="bd-section" aria-labelledby="pros">
-      <h2 id="pros">Strengths</h2>
-${bulletList(d.pros, 'No strengths recorded yet.')}
-    </section>
-
-    <section class="bd-section" aria-labelledby="cons">
-      <h2 id="cons">Limitations</h2>
-${bulletList(d.cons, 'No limitations recorded yet.')}
-    </section>
-
-    <section class="bd-section" aria-labelledby="notes">
-      <h2 id="notes">Editor notes</h2>
-      ${d.editorNotes ? `<p class="bd-note">${escapeHtml(d.editorNotes)}</p>` : '<p class="bd-empty">No editor notes recorded yet.</p>'}
-    </section>`;
+      </ul>`;
 }
 
-function sortControl() {
-  const options = SORT_KEYS.map((key) =>
-    `        <option value="${key}">${escapeHtml(SORTS[key].label)}</option>`).join('\n');
-  return `    <div class="bd-control" data-bd-sort-wrap hidden>
-      <label class="bd-label" for="bd-sort">Sort by</label>
-      <select class="bd-select" id="bd-sort" data-bd-sort>
-${options}
-      </select>
-    </div>`;
+function prosCons({ pros, cons, headingLevel = 3 }) {
+  const h = headingTag(headingLevel);
+  return `      <div class="bd-proscons">
+        <${h} class="bd-subhead">Strengths</${h}>
+${bulletList(pros, 'No strengths recorded yet.')}
+        <${h} class="bd-subhead">Limitations</${h}>
+${bulletList(cons, 'No limitations recorded yet.')}
+      </div>`;
 }
+
+function bestForTags(industries) {
+  if (!Array.isArray(industries) || industries.length === 0) {
+    return `      <p class="bd-empty">No recommended industries recorded yet.</p>`;
+  }
+  const rows = industries.map((item) =>
+    `        <li class="bd-chip">${escapeHtml(item)}</li>`).join('\n');
+  return `      <ul class="bd-chips" aria-label="Recommended industries">
+${rows}
+      </ul>`;
+}
+
+// ---------------------------------------------------------------------------
+// 11. Empty state
+// ---------------------------------------------------------------------------
+
+const VERIFICATION_NOTE = 'Entries are published only after manual verification, so this list '
+  + 'stays empty until real, checked directories are added.';
+
+function emptyState(message) {
+  return `      <p class="bd-empty">${escapeHtml(message)} ${escapeHtml(VERIFICATION_NOTE)}</p>`;
+}
+
+// ---------------------------------------------------------------------------
+// 12 & 13. Search / filter and sort shells
+// ---------------------------------------------------------------------------
 
 const FILTERS = [
   { field: 'free', label: 'Free listing' },
@@ -2328,103 +2703,215 @@ const FILTERS = [
   { field: 'acceptsAI', label: 'Accepts AI products' },
 ];
 
-function filterBar() {
-  const boxes = FILTERS.map((f) =>
-    `        <label class="bd-check"><input type="checkbox" data-bd-filter="${f.field}"> ` +
-    `${escapeHtml(f.label)}</label>`).join('\n');
-  return `    <div class="bd-control" data-bd-filter-wrap hidden>
-      <span class="bd-label">Filter</span>
-      <div class="bd-checks">
+const dataKey = (field) => `data-bd-${field.toLowerCase()}`;
+
+// Controls start hidden and are revealed by Task 9's script. Without
+// JavaScript the prerendered table is still complete and fully readable.
+function searchControls({ idPrefix = 'bd' } = {}) {
+  const id = `${escapeHtml(idPrefix)}-search`;
+  return `      <div class="bd-control" data-bd-search-wrap hidden>
+        <label class="bd-label" for="${id}">Search directories</label>
+        <input class="bd-input" id="${id}" type="search" data-bd-search
+               placeholder="Filter by name, description or industry" autocomplete="off">
+      </div>`;
+}
+
+function filterControls({ idPrefix = 'bd' } = {}) {
+  const boxes = FILTERS.map((f) => {
+    const id = `${escapeHtml(idPrefix)}-filter-${escapeHtml(f.field)}`;
+    return `          <div class="bd-check">
+            <input type="checkbox" id="${id}" data-bd-filter="${escapeHtml(f.field)}">
+            <label for="${id}">${escapeHtml(f.label)}</label>
+          </div>`;
+  }).join('\n');
+  return `      <fieldset class="bd-control" data-bd-filter-wrap hidden>
+        <legend class="bd-label">Filter</legend>
+        <div class="bd-checks">
 ${boxes}
-      </div>
-    </div>`;
+        </div>
+      </fieldset>`;
 }
 
-function searchBox() {
-  return `    <div class="bd-control" data-bd-search-wrap hidden>
-      <label class="bd-label" for="bd-search">Search</label>
-      <input class="bd-input" id="bd-search" type="search" data-bd-search
-             placeholder="Filter by name, description or industry" autocomplete="off">
-    </div>`;
+function sortControls({ idPrefix = 'bd' } = {}) {
+  const id = `${escapeHtml(idPrefix)}-sort`;
+  const options = SORT_KEYS.map((key) =>
+    `          <option value="${escapeHtml(key)}">${escapeHtml(SORTS[key].label)}</option>`).join('\n');
+  return `      <div class="bd-control" data-bd-sort-wrap hidden>
+        <label class="bd-label" for="${id}">Sort by</label>
+        <select class="bd-select" id="${id}" data-bd-sort>
+${options}
+        </select>
+      </div>`;
 }
 
-function directoryRow(d) {
-  const p = d.metricsProvenance || {};
-  const data = [
-    `data-bd-name="${escapeHtml((d.name || '').toLowerCase())}"`,
-    `data-bd-haystack="${escapeHtml([d.name, d.description, ...(d.recommendedIndustries || [])].join(' ').toLowerCase())}"`,
-    `data-bd-score="${d.petroHrysScore === null ? '' : escapeHtml(d.petroHrysScore)}"`,
-    `data-bd-dr="${d.domainRating === null ? '' : escapeHtml(d.domainRating)}"`,
-    `data-bd-as="${d.authorityScore === null ? '' : escapeHtml(d.authorityScore)}"`,
-    `data-bd-traffic="${d.estimatedTraffic === null ? '' : escapeHtml(d.estimatedTraffic)}"`,
-    ...FILTERS.map((f) => `data-bd-${f.field.toLowerCase()}="${d[f.field] === true ? '1' : '0'}"`),
+// ---------------------------------------------------------------------------
+// 5. Directory table
+// ---------------------------------------------------------------------------
+
+function haystack(directory) {
+  return [directory.name, directory.description, ...(directory.recommendedIndustries || [])]
+    .filter((part) => typeof part === 'string')
+    .join(' ')
+    .toLowerCase();
+}
+
+function numAttr(value) {
+  return isNullish(value) ? '' : String(value);
+}
+
+function directoryRow(directory) {
+  const provenance = directory.metricsProvenance || {};
+  const attrs = [
+    `data-bd-name="${escapeHtml(String(directory.name || '').toLowerCase())}"`,
+    `data-bd-haystack="${escapeHtml(haystack(directory))}"`,
+    `data-bd-score="${escapeHtml(numAttr(directory.petroHrysScore))}"`,
+    `data-bd-dr="${escapeHtml(numAttr(directory.domainRating))}"`,
+    `data-bd-as="${escapeHtml(numAttr(directory.authorityScore))}"`,
+    `data-bd-traffic="${escapeHtml(numAttr(directory.estimatedTraffic))}"`,
+    ...FILTERS.map((f) => `${dataKey(f.field)}="${directory[f.field] === true ? '1' : '0'}"`),
   ].join(' ');
-  return `        <tr class="bd-row" ${data}>
-          <td class="bd-cell"><a href="${escapeHtml(d.slug)}/">${escapeHtml(d.name)}</a></td>
-          <td class="bd-cell">${metric(d.petroHrysScore)}</td>
-          <td class="bd-cell">${metric(d.domainRating, p.domainRating)}</td>
-          <td class="bd-cell">${metric(d.authorityScore, p.authorityScore)}</td>
-          <td class="bd-cell">${metric(d.estimatedTraffic, p.estimatedTraffic)}</td>
-        </tr>`;
+  return `          <tr class="bd-row" ${attrs}>
+            <th class="bd-cell" scope="row"><a href="${escapeHtml(directory.slug)}/">${escapeHtml(directory.name)}</a></th>
+            <td class="bd-cell">${metric(directory.petroHrysScore)}</td>
+            <td class="bd-cell">${metric(directory.domainRating, provenance.domainRating)}</td>
+            <td class="bd-cell">${metric(directory.authorityScore, provenance.authorityScore)}</td>
+            <td class="bd-cell">${metric(directory.estimatedTraffic, provenance.estimatedTraffic)}</td>
+          </tr>`;
 }
 
-function directoryTable(directories) {
-  if (!directories.length) return emptyState('No directories are published here yet.');
-  return `    <table class="bd-table">
-      <thead>
-        <tr>
-          <th class="bd-cell" scope="col">Directory</th>
-          <th class="bd-cell" scope="col">PetroHrys Score</th>
-          <th class="bd-cell" scope="col">Domain Rating</th>
-          <th class="bd-cell" scope="col">Authority Score</th>
-          <th class="bd-cell" scope="col">Estimated Traffic</th>
-        </tr>
-      </thead>
-      <tbody data-bd-rows>
-${directories.map(directoryRow).join('\n')}
-      </tbody>
-    </table>`;
+// Server order always comes from bd-sort, so the table is correct before any
+// JavaScript runs. No row cap and no pagination logic lives here.
+function directoryTable({ directories, caption = 'Directories' }) {
+  if (!Array.isArray(directories) || directories.length === 0) {
+    return emptyState('No directories are published here yet.');
+  }
+  const rows = sortDirectories(directories).map(directoryRow).join('\n');
+  return `      <table class="bd-table">
+        <caption class="bd-caption">${escapeHtml(caption)}</caption>
+        <thead>
+          <tr>
+            <th class="bd-cell" scope="col">Directory</th>
+            <th class="bd-cell" scope="col">PetroHrys Score</th>
+            <th class="bd-cell" scope="col">Domain Rating</th>
+            <th class="bd-cell" scope="col">Authority Score</th>
+            <th class="bd-cell" scope="col">Estimated traffic</th>
+          </tr>
+        </thead>
+        <tbody data-bd-rows>
+${rows}
+        </tbody>
+      </table>`;
 }
 
-function faqSection(faqs) {
-  const items = faqs.map(({ q, a }) =>
-    `      <div class="bd-faq-item">
-        <h3 class="bd-faq-q">${escapeHtml(q)}</h3>
-        <p class="bd-faq-a">${escapeHtml(a)}</p>
-      </div>`).join('\n');
-  return `    <div class="bd-faq">\n${items}\n    </div>`;
+// ---------------------------------------------------------------------------
+// 6. Directory summary card
+// ---------------------------------------------------------------------------
+
+// Only the title is a link. The card is never wrapped in a single anchor, which
+// would swallow the nested link and badges.
+function directoryCard({ directory, headingLevel = 3 }) {
+  const h = headingTag(headingLevel);
+  return `      <article class="bd-summary">
+        <${h} class="bd-card-title"><a href="${escapeHtml(directory.slug)}/">${escapeHtml(directory.name)}</a></${h}>
+        <p class="bd-card-body">${escapeHtml(directory.description)}</p>
+${statusBadges(directory)}
+      </article>`;
 }
 
+// ---------------------------------------------------------------------------
+// 14. Pagination
+// ---------------------------------------------------------------------------
+
+// A disabled page is a span, never an anchor, so it cannot be focused or
+// activated by keyboard.
 function pagination({ current, total, basePath }) {
-  if (total <= 1) return '';
-  const link = (n, label) => {
-    const href = n === 1 ? basePath : `${basePath}page/${n}/`;
-    return n === current
-      ? `        <span class="bd-page bd-page--current" aria-current="page">${escapeHtml(label)}</span>`
-      : `        <a class="bd-page" href="${escapeHtml(href)}">${escapeHtml(label)}</a>`;
-  };
+  if (!Number.isInteger(total) || total <= 1) return '';
   const pages = [];
-  for (let n = 1; n <= total; n += 1) pages.push(link(n, String(n)));
-  return `    <nav class="bd-pagination" aria-label="Pagination">\n${pages.join('\n')}\n    </nav>`;
+  for (let n = 1; n <= total; n += 1) {
+    const href = n === 1 ? basePath : `${basePath}page/${n}/`;
+    pages.push(n === current
+      ? `        <li><span class="bd-page bd-page--current" aria-current="page">${vh('Page ')}${n}</span></li>`
+      : `        <li><a class="bd-page" href="${escapeHtml(href)}">${vh('Page ')}${n}</a></li>`);
+  }
+  return `      <nav class="bd-pagination" aria-label="Directory pages">
+        <ol class="bd-pages">
+${pages.join('\n')}
+        </ol>
+      </nav>`;
+}
+
+// ---------------------------------------------------------------------------
+// 15. Methodology note
+// ---------------------------------------------------------------------------
+
+function methodologyNote() {
+  return '      <p class="bd-note">Every directory is checked by hand before publication. Each '
+    + 'record stores what the directory accepts, whether listing is free or paid, whether '
+    + 'verification or manual review is required, how it links out, and the date it was '
+    + 'verified. Nothing is published from an automated crawl, and no value is estimated '
+    + 'or inferred.</p>';
+}
+
+// ---------------------------------------------------------------------------
+// 16. Last-verified / provenance block
+// ---------------------------------------------------------------------------
+
+function provenanceBlock(directory) {
+  const verified = directory.lastVerified
+    ? `<time datetime="${escapeHtml(directory.lastVerified)}">${escapeHtml(directory.lastVerified)}</time>`
+    : `<span class="bd-metric bd-metric--empty">Not yet verified</span>`;
+  const next = directory.nextVerification
+    ? `<time datetime="${escapeHtml(directory.nextVerification)}">${escapeHtml(directory.nextVerification)}</time>`
+    : dash();
+  return `      <dl class="bd-defs bd-provenance">
+        <div class="bd-def">
+          <dt class="bd-def-t">Last verified</dt>
+          <dd class="bd-def-d">${verified}</dd>
+        </div>
+        <div class="bd-def">
+          <dt class="bd-def-t">Next verification due</dt>
+          <dd class="bd-def-d">${next}</dd>
+        </div>
+      </dl>`;
+}
+
+// ---------------------------------------------------------------------------
+// 17. External-link CTA
+// ---------------------------------------------------------------------------
+
+// An unusable scheme (javascript:, data:, file:, malformed) is never rendered
+// as a link. The raw value is shown as text so nothing is silently dropped.
+function externalLinkCta({ url, label = 'Visit directory' }) {
+  const href = safeHref(url);
+  if (!href) {
+    return `      <p class="bd-cta bd-cta--unavailable">${escapeHtml(label)}: `
+      + `<span class="bd-metric bd-metric--empty">no usable address recorded</span></p>`;
+  }
+  return `      <p class="bd-cta"><a class="bd-cta-link" href="${escapeHtml(href)}" `
+    + `rel="${REL_EXTERNAL}" target="_blank">${escapeHtml(label)}`
+    + `${vh(' (opens in a new tab)')}</a></p>`;
 }
 
 module.exports = {
-  emptyState, metric, metricNote, linkGrid, sortControl, filterBar,
-  searchBox, directoryRow, directoryTable, directoryDetail, faqSection,
-  pagination, VERIFICATION_NOTE, FILTERS,
+  breadcrumbs, pageIntro, countryCard, categoryCard, cardGrid,
+  directoryTable, directoryRow, directoryCard, metric, metricsBlock, metricNote,
+  statusBadges, prosCons, bestForTags, bulletList, emptyState,
+  searchControls, filterControls, sortControls, pagination,
+  methodologyNote, provenanceBlock, externalLinkCta,
+  FILTERS, VERIFICATION_NOTE, REL_EXTERNAL,
 };
 ```
 
 - [ ] **Step 4: Run test to verify it passes**
 
-Run: `node --test scripts/tests/bd-components.test.cjs`
-Expected: PASS, 10 tests
+Run: `node --test "scripts/tests/bd-components.test.cjs"`
+Expected: PASS, 38 tests
 
 - [ ] **Step 5: Commit**
 
 ```bash
 git add scripts/lib/bd-components.cjs scripts/tests/bd-components.test.cjs
-git commit -m "feat(bd): add reusable bd- prefixed HTML components"
+git commit -m "feat(bd): add accessible bd- component library"
 ```
 
 ---
