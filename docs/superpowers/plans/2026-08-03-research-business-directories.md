@@ -14,7 +14,7 @@
 
 Every task's requirements implicitly include this section.
 
-- **No `package.json`** anywhere in the repo. Adding one makes Netlify auto-detect a build and can break deploys.
+- **Never add a `package.json` at the repository root.** A root manifest makes Netlify auto-detect a build command and can break deploys of a site that ships raw files. (Note: `startups-app/package.json` already exists — a pre-existing Next.js 14 + Prisma app in a subdirectory, committed in `9aacd8f`. It does not affect root build detection and is entirely out of scope. Do not touch it, and do not treat it as precedent for adding manifests.)
 - **Never modify** `css/petrohrys.css`, `sitemap.xml`, `index.html` content, the homepage layout, existing colors, typography, spacing, layouts, or components.
 - **Only permitted edits to existing files:** one nav `<li>` on the 8 English editorial pages, one added section in `/research/index.html`, one added `Sitemap:` line in `robots.txt`.
 - **The 8 English editorial pages** are exactly: `index.html`, `work/index.html`, `writing/index.html`, `research/index.html`, `essays/index.html`, `ai-systems/index.html`, `infrastructure/index.html`, `about/index.html`.
@@ -38,7 +38,8 @@ Every task's requirements implicitly include this section.
 - **No real directory data in this phase** unless separately verified and explicitly approved.
 - **Branch:** `feat/research-business-directories` (already created, spec committed as `f64c4a3`, this plan as `9718139`).
 - **Stacked branch.** This branch forks from `feat/helperg-ecosystem-banner`, which is itself unmerged and already modifies `sitemap.xml` and `css/petrohrys.css` relative to `main`. **Never verify scope with `git diff main`** — always diff against `$(git merge-base HEAD feat/helperg-ecosystem-banner)`.
-- **Run tests with:** `node --test scripts/tests/`
+- **Run the full suite with:** `node --test "scripts/tests/*.test.cjs"` — quoted, so Node expands the glob.
+  **Do not use `node --test scripts/tests/`**: on Node 24 a bare directory argument is resolved as a module path and dies with `Cannot find module`. Verified on this machine.
 
 ---
 
@@ -2873,10 +2874,10 @@ cd ~/PetroHrys.com
 node scripts/validate-business-directories.cjs
 node scripts/build-business-directories.cjs
 node scripts/inject-research-nav.cjs
-node --test scripts/tests/
+node --test "scripts/tests/*.test.cjs"
 ```
 
-Expected: validator prints `Business directories registry is valid.`; build reports `0 file(s) changed`; nav reports `0 page(s)`; all tests pass.
+Expected: validator prints `Business directories registry is valid.`; build reports `0 written, 0 pruned`; nav reports `0 page(s)`; all tests pass.
 
 - [ ] **Step 5: Confirm the diff against main is exactly what the spec allows**
 

@@ -71,7 +71,9 @@ css/business-directories.css   NEW. Consumes existing tokens only.
 js/business-directories.js     NEW. Progressive enhancement only.
 ```
 
-**No `package.json` at any level.** A root manifest would make Netlify auto-detect a build command and could break deploys of a site that currently ships raw files. Node's built-in test runner needs no manifest.
+**No `package.json` at the repository root.** A root manifest would make Netlify auto-detect a build command and could break deploys of a site that currently ships raw files. Node's built-in test runner needs no manifest.
+
+One already exists at `startups-app/package.json` — a pre-existing Next.js 14 + Prisma app in a subdirectory, committed in `9aacd8f`. It does not affect root build detection, is untouched by this work, and is not precedent for adding manifests elsewhere.
 
 **Determinism.** Given unchanged JSON, the generator produces byte-identical HTML. No timestamps are emitted except `lastmod` values that come from the data itself. The writer compares existing file contents before writing, so a no-op rebuild produces an empty git diff. This is the "incremental updates supported" requirement.
 
@@ -282,7 +284,7 @@ Tests under `scripts/tests/`, run with `node --test scripts/tests/`, cover: regi
 | 221 near-empty pages read as thin content | `noindex,follow`, excluded from sitemap/RSS, never promoted in navigation |
 | Third-party metrics mistaken for first-party claims | `metricsProvenance` required; provider and date rendered inline; validator enforces |
 | Directory/category slug collision | `/categories/` segment + reserved-word validator |
-| Netlify detecting a build from a stray manifest | No `package.json` anywhere |
+| Netlify detecting a build from a stray manifest | No `package.json` at the repository root |
 | Visual drift from the rest of the site | Shell markup copied verbatim; CSS restricted to existing tokens and `.bd-*` namespace |
 | Stacking on an unmerged banner branch | Documented; both branches land together, or the banner lands first |
 | "Coming soon" wording implying listings exist | Copy reviewed against the data-integrity rules; empty states say entries are published only after manual verification |
