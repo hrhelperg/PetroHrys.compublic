@@ -709,7 +709,13 @@ git commit -m "feat(bd): add registry loader"
 - Test: `scripts/tests/bd-sort.test.cjs`
 
 **Interfaces:**
-- Produces: `SORTS: Record<string, {key, label, compare}>`, `sortDirectories(list, key?): object[]`, `SORT_KEYS: string[]`
+- Produces: `SORTS: Record<string, {key, label, compare}>`, `SORT_KEYS: string[]`, `sortDirectories(list, key?): readonly object[]`, `compareByName(a, b): number`
+
+**Ordering contract:**
+- **No locale-dependent comparison.** `localeCompare` is banned — its result depends on the platform's ICU version, so two machines could order identical data differently. Names compare via `toLowerCase()` (Unicode default case folding, which is *not* locale-sensitive) with a UTF-16 code-unit tiebreak, giving a total, platform-stable order.
+- **Stability is explicit, not inherited.** Ties break on original index rather than relying on the engine's stable-sort guarantee, so equal-key records always keep input order.
+- **Nulls last** in every sort, regardless of direction.
+- **No mutation.** The input array is never reordered and element objects are never touched. The returned array is frozen; its **elements are deliberately not frozen**, because freezing them would mutate the caller's registry objects.
 
 - [ ] **Step 1: Write the failing test**
 
@@ -718,7 +724,9 @@ git commit -m "feat(bd): add registry loader"
 'use strict';
 const test = require('node:test');
 const assert = require('node:assert');
-const { SORTS, sortDirectories, SORT_KEYS } = require('../lib/bd-sort.cjs');
+const fs = require('node:fs');
+const path = require('node:path');
+const { SORTS, SORT_KEYS, sortDirectories, compareByName } = require('../lib/bd-sort.cjs');
 
 const make = (name, over = {}) => ({
   name, petroHrysScore: null, domainRating: null, authorityScore: null,
@@ -735,18 +743,109 @@ test('default sort orders by PetroHrys Score descending', () => {
   assert.deepStrictEqual(out.map((d) => d.name), ['B', 'A']);
 });
 
-test('default sort breaks ties on domainRating then name', () => {
+test('identical scores fall through to domainRating descending', () => {
   const out = sortDirectories([
     make('C', { petroHrysScore: 50, domainRating: 10 }),
     make('A', { petroHrysScore: 50, domainRating: 80 }),
-    make('B', { petroHrysScore: 50, domainRating: 80 }),
   ]);
-  assert.deepStrictEqual(out.map((d) => d.name), ['A', 'B', 'C']);
+  assert.deepStrictEqual(out.map((d) => d.name), ['A', 'C']);
+});
+
+test('identical score and domainRating fall through to name ascending', () => {
+  const out = sortDirectories([
+    make('Charlie', { petroHrysScore: 50, domainRating: 80 }),
+    make('Alpha', { petroHrysScore: 50, domainRating: 80 }),
+    make('Bravo', { petroHrysScore: 50, domainRating: 80 }),
+  ]);
+  assert.deepStrictEqual(out.map((d) => d.name), ['Alpha', 'Bravo', 'Charlie']);
 });
 
 test('null metrics always sort last', () => {
   const out = sortDirectories([make('A'), make('B', { petroHrysScore: 1 })]);
   assert.deepStrictEqual(out.map((d) => d.name), ['B', 'A']);
+});
+
+test('nulls sort last in every one of the metric sorts', () => {
+  for (const key of ['default', 'domain-rating', 'authority-score', 'traffic']) {
+    const field = { 'default': 'petroHrysScore', 'domain-rating': 'domainRating',
+      'authority-score': 'authorityScore', 'traffic': 'estimatedTraffic' }[key];
+    const out = sortDirectories([make('Null'), make('Real', { [field]: 5 })], key);
+    assert.deepStrictEqual(out.map((d) => d.name), ['Real', 'Null'], `sort ${key}`);
+  }
+});
+
+test('an all-null list falls back to name order', () => {
+  const out = sortDirectories([make('Zeta'), make('Alpha'), make('Mike')]);
+  assert.deepStrictEqual(out.map((d) => d.name), ['Alpha', 'Mike', 'Zeta']);
+});
+
+test('mixed-case names order case-insensitively then by code unit', () => {
+  const out = sortDirectories([make('beta'), make('Alpha'), make('alpha'), make('Beta')], 'alphabetical');
+  // 'alpha' pair before 'beta' pair; within each pair uppercase first by code unit.
+  assert.deepStrictEqual(out.map((d) => d.name), ['Alpha', 'alpha', 'Beta', 'beta']);
+});
+
+test('name ordering is not locale-dependent', () => {
+  // Under an ICU 'en' collation localeCompare puts lowercase first, so this
+  // ordering fails if localeCompare is ever reintroduced.
+  assert.ok(compareByName({ name: 'Alpha' }, { name: 'alpha' }) < 0);
+  assert.strictEqual(compareByName({ name: 'same' }, { name: 'same' }), 0);
+});
+
+test('the implementation never calls localeCompare', () => {
+  const source = fs.readFileSync(path.join(__dirname, '..', 'lib', 'bd-sort.cjs'), 'utf8');
+  assert.ok(!source.includes('localeCompare'), 'localeCompare is platform-dependent and banned');
+  assert.ok(!source.includes('toLocaleLowerCase'), 'toLocaleLowerCase is locale-sensitive and banned');
+});
+
+test('sorting is stable for fully tied records', () => {
+  const input = [make('Same'), make('Same'), make('Same')];
+  input.forEach((d, i) => { d.marker = i; });
+  const out = sortDirectories(input);
+  assert.deepStrictEqual(out.map((d) => d.marker), [0, 1, 2]);
+});
+
+test('repeated runs on the same input give identical output', () => {
+  const input = [
+    make('Delta', { petroHrysScore: 10 }), make('Alpha'), make('Bravo', { petroHrysScore: 10 }),
+    make('Charlie', { domainRating: 3 }), make('echo', { petroHrysScore: 10, domainRating: 1 }),
+  ];
+  const runs = Array.from({ length: 25 }, () => sortDirectories(input).map((d) => d.name).join(','));
+  assert.strictEqual(new Set(runs).size, 1, 'output must not vary between runs');
+});
+
+test('an empty array returns an empty frozen array', () => {
+  const out = sortDirectories([]);
+  assert.deepStrictEqual([...out], []);
+  assert.ok(Object.isFrozen(out));
+});
+
+test('a single-element array is returned unchanged', () => {
+  const only = make('Solo', { petroHrysScore: 7 });
+  const out = sortDirectories([only]);
+  assert.strictEqual(out.length, 1);
+  assert.strictEqual(out[0], only);
+});
+
+test('sortDirectories does not mutate its input array', () => {
+  const input = [make('B', { petroHrysScore: 1 }), make('A', { petroHrysScore: 9 })];
+  sortDirectories(input);
+  assert.deepStrictEqual(input.map((d) => d.name), ['B', 'A']);
+});
+
+test('sortDirectories does not freeze or modify the element objects', () => {
+  const input = [make('B', { petroHrysScore: 1 }), make('A', { petroHrysScore: 9 })];
+  const out = sortDirectories(input);
+  assert.ok(!Object.isFrozen(out[0]), 'elements must stay mutable — they are the caller\'s objects');
+  assert.strictEqual(out[0].petroHrysScore, 9);
+  out[0].petroHrysScore = 11; // proves the element was not frozen
+  assert.strictEqual(input[1].petroHrysScore, 11);
+});
+
+test('the returned array is frozen', () => {
+  const out = sortDirectories([make('A'), make('B')]);
+  assert.ok(Object.isFrozen(out));
+  assert.throws(() => { out.push(make('C')); }, TypeError);
 });
 
 test('alphabetical sort ignores metrics entirely', () => {
@@ -755,21 +854,22 @@ test('alphabetical sort ignores metrics entirely', () => {
   assert.deepStrictEqual(out.map((d) => d.name), ['Alpha', 'Zeta']);
 });
 
-test('sortDirectories does not mutate its input', () => {
-  const input = [make('B', { petroHrysScore: 1 }), make('A', { petroHrysScore: 9 })];
-  sortDirectories(input);
-  assert.deepStrictEqual(input.map((d) => d.name), ['B', 'A']);
-});
-
 test('an unknown sort key falls back to the default comparator', () => {
   const out = sortDirectories([make('A', { petroHrysScore: 1 }), make('B', { petroHrysScore: 9 })], 'nope');
   assert.deepStrictEqual(out.map((d) => d.name), ['B', 'A']);
+});
+
+test('every sort exposes a human label', () => {
+  for (const key of SORT_KEYS) {
+    assert.strictEqual(typeof SORTS[key].label, 'string');
+    assert.ok(SORTS[key].label.length > 0);
+  }
 });
 ```
 
 - [ ] **Step 2: Run test to verify it fails**
 
-Run: `node --test scripts/tests/bd-sort.test.cjs`
+Run: `node --test "scripts/tests/bd-sort.test.cjs"`
 Expected: FAIL — `Cannot find module '../lib/bd-sort.cjs'`
 
 - [ ] **Step 3: Write minimal implementation**
@@ -787,8 +887,20 @@ function nullLastDesc(a, b) {
   return b - a;
 }
 
-function byName(a, b) {
-  return a.name.localeCompare(b.name, 'en');
+// Deliberately avoids localeCompare: its ordering depends on the platform's ICU
+// build, so identical data could sort differently on two machines. toLowerCase()
+// uses Unicode default case folding and is not locale-sensitive; the code-unit
+// tiebreak then makes the order total.
+function compareByName(a, b) {
+  const an = String(a.name ?? '');
+  const bn = String(b.name ?? '');
+  const af = an.toLowerCase();
+  const bf = bn.toLowerCase();
+  if (af < bf) return -1;
+  if (af > bf) return 1;
+  if (an < bn) return -1;
+  if (an > bn) return 1;
+  return 0;
 }
 
 const SORTS = {
@@ -798,40 +910,45 @@ const SORTS = {
     compare: (a, b) =>
       nullLastDesc(a.petroHrysScore, b.petroHrysScore) ||
       nullLastDesc(a.domainRating, b.domainRating) ||
-      byName(a, b),
+      compareByName(a, b),
   },
   'domain-rating': {
     key: 'domain-rating',
     label: 'Domain Rating',
-    compare: (a, b) => nullLastDesc(a.domainRating, b.domainRating) || byName(a, b),
+    compare: (a, b) => nullLastDesc(a.domainRating, b.domainRating) || compareByName(a, b),
   },
   'authority-score': {
     key: 'authority-score',
     label: 'Authority Score',
-    compare: (a, b) => nullLastDesc(a.authorityScore, b.authorityScore) || byName(a, b),
+    compare: (a, b) => nullLastDesc(a.authorityScore, b.authorityScore) || compareByName(a, b),
   },
   traffic: {
     key: 'traffic',
     label: 'Estimated Traffic',
-    compare: (a, b) => nullLastDesc(a.estimatedTraffic, b.estimatedTraffic) || byName(a, b),
+    compare: (a, b) => nullLastDesc(a.estimatedTraffic, b.estimatedTraffic) || compareByName(a, b),
   },
-  alphabetical: { key: 'alphabetical', label: 'Alphabetical', compare: byName },
+  alphabetical: { key: 'alphabetical', label: 'Alphabetical', compare: compareByName },
 };
 
 const SORT_KEYS = ['default', 'domain-rating', 'authority-score', 'traffic', 'alphabetical'];
 
+// Stability is guaranteed here by the explicit index tiebreak rather than by
+// relying on the engine's sort being stable.
 function sortDirectories(list, key = 'default') {
-  const sort = SORTS[key] || SORTS.default;
-  return [...list].sort(sort.compare);
+  const compare = (SORTS[key] || SORTS.default).compare;
+  const decorated = Array.from(list, (item, index) => ({ item, index }));
+  decorated.sort((a, b) => compare(a.item, b.item) || (a.index - b.index));
+  // Freeze the array only. Freezing elements would mutate the caller's records.
+  return Object.freeze(decorated.map(({ item }) => item));
 }
 
-module.exports = { SORTS, SORT_KEYS, sortDirectories };
+module.exports = { SORTS, SORT_KEYS, sortDirectories, compareByName };
 ```
 
 - [ ] **Step 4: Run test to verify it passes**
 
-Run: `node --test scripts/tests/bd-sort.test.cjs`
-Expected: PASS, 7 tests
+Run: `node --test "scripts/tests/bd-sort.test.cjs"`
+Expected: PASS, 20 tests
 
 - [ ] **Step 5: Commit**
 
