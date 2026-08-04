@@ -252,46 +252,34 @@ Build first, then test, then confirm `git status` is clean — in that order.
 
 ## Domain Rating measurement
 
-Domain Rating is recorded by a **separate editorial utility**, never by the site
-build. Generation stays offline and deterministic; it makes no network calls.
+**Domain Rating collection is frozen. There is nothing to run and no key to
+configure.**
 
-```
-node scripts/measure-business-directory-dr.cjs --dry-run --all-unmeasured
-node scripts/measure-business-directory-dr.cjs --id=global-g2
-node scripts/measure-business-directory-dr.cjs --country=global
-node scripts/measure-business-directory-dr.cjs --category=software
-node scripts/measure-business-directory-dr.cjs --all-unmeasured
-node scripts/measure-business-directory-dr.cjs --id=global-g2 --force
-```
+Under the open-source data policy the Research Center collects no metric that
+requires a paid account, an API subscription or a mandatory credential. The
+Ahrefs endpoint that produced the existing snapshots becomes key-mandatory on
+2026-08-10, so collection stopped on 2026-08-04.
 
-**Endpoint** (verified against official documentation 2026-08-04):
-`GET https://api.ahrefs.com/v3/public/domain-rating-free?target=<domain>`.
-Free — consumes no API units.
+What this means day to day:
 
-**Authentication becomes mandatory on 2026-08-10.** Full setup instructions:
-`docs/ahrefs-domain-rating-key.md`. Until then the utility works
-unauthenticated. After that date, create a free key at
-<https://app.ahrefs.com/account/api-keys> and export it:
+- The 64 Domain Ratings already in the registry stay exactly as measured. They
+  are dated historical snapshots and are never refreshed.
+- **New records carry `domainRating: null`.** That is the correct value, not a
+  gap to fill. The site renders it as "Not measured" — never as 0.
+- A record without a Domain Rating is fully publishable and fully visible. It
+  sorts after measured records in the Domain Rating view only.
+- `scripts/measure-business-directory-dr.cjs` is retired. It refuses to run
+  without `--run-retired-utility`, which exists solely to reproduce the
+  provenance of the snapshots already committed. Do not use it to add values.
+- **Do not obtain, export or configure `AHREFS_API_KEY`.** No build, validator
+  or test reads it. `scripts/tests/bd-open-source-policy.test.cjs` fails if any
+  of that changes.
 
-```
-export AHREFS_API_KEY='…'
-```
-
-The key is read from that variable only. It is never printed, never written to a
-file, and never stored in a record — the utility reports only whether a key is
-*present*. A 401/403 aborts the run before anything is written.
-
-**Guarantees.** A failed reading never overwrites a valid snapshot with null.
-Only a successful measurement writes, and it writes value, provider,
-measurement date, snapshot status and the measured domain together. Outcomes are
-reported as measured / unavailable / blocked / invalid domain / API error / rate
-limited / skipped. `--dry-run` writes nothing.
-
-**Which domain is measured.** `normaliseDomain()` in `bd-schema.cjs` is the one
-policy: scheme and `www.` are stripped, the host is lowercased, and the result is
-stored as `measuredDomain`. A rating describes *that* domain — for a marketplace
-on a parent domain (for example `appsource.microsoft.com`) the number describes
-the measured host, not the marketplace path, and the page says so.
+**Which domain was measured.** `normaliseDomain()` in `bd-schema.cjs` remains the
+one policy for reading the existing snapshots: scheme and `www.` are stripped,
+the host is lowercased, and the result is stored as `measuredDomain`. A rating
+describes *that* domain — for a marketplace on a parent domain the number
+describes the measured host, not the marketplace path, and the page says so.
 
 **Attribution** is required by the Ahrefs licence: "Domain Rating by Ahrefs",
 linked to <https://ahrefs.com/>, is rendered wherever a value appears. A test

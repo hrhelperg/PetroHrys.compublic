@@ -359,7 +359,7 @@ If a claim could not be confirmed from an official source, the corresponding fie
       ])),
       section('limits', 'Known limits of this method', paras(`Roughly a third of high-authority directories block automated fetching outright, returning HTTP 403 or a consent wall. Those directories are not published here. They are recorded as pending manual verification rather than added on the strength of general knowledge.
 
-Some facts cannot be established by reading a homepage at all. Typical approval times and review processes require actually submitting to each directory, so they are null across the entire dataset rather than estimated.`)),
+Some facts cannot be established by reading a homepage at all. Typical approval times and review processes require actually submitting to each directory, {{PROCESS_FIELDS}}.`)),
       section('rejected', 'What gets rejected', bullets([
         'Dead projects. One candidate was rejected because its domain no longer resolves.',
         'Directories winding down. One package registry was rejected because its submission trunk is moving to read-only.',
@@ -839,10 +839,26 @@ function buildArticles(registry) {
   const cadenceSentence = `set between ${intervals[0]} and ${intervals[intervals.length - 1]} months later, `
     + 'depending on how fast the directory changes — statutory registers are revisited least often, '
     + 'continuously-submittable platforms most often';
+  // Approval time and review process cannot be read off a homepage, so they are
+  // null unless a directory's own documentation states them. That was true of
+  // every record when the guide was written; it stops being true the moment one
+  // documents its process, so the sentence is derived rather than asserted.
+  const documentsProcess = D.filter((d) => d.typicalApprovalTime !== null || d.reviewProcess !== null);
+  const nameList = (names) => (names.length === 1
+    ? names[0]
+    : `${names.slice(0, -1).join(', ')} and ${names[names.length - 1]}`);
+  const processSentence = documentsProcess.length === 0
+    ? 'so they are null across the entire dataset rather than estimated'
+    : `so they are null on ${D.length - documentsProcess.length} of ${D.length} records rather than `
+      + `estimated. ${documentsProcess.length === 1 ? 'The one exception is' : 'The exceptions are'} `
+      + `${nameList(documentsProcess.map((d) => d.name))}, whose own documentation states `
+      + `${documentsProcess.length === 1 ? 'it' : 'them'}`;
+
   const TOKENS = {
     '{{METRICS}}': metricsSentence,
     '{{FREE_COUNT}}': freeCount,
     '{{CADENCE}}': cadenceSentence,
+    '{{PROCESS_FIELDS}}': processSentence,
   };
   const resolveTokens = (value) => (typeof value === 'string'
     ? Object.entries(TOKENS).reduce((out, [token, text_]) => out.split(token).join(text_), value)

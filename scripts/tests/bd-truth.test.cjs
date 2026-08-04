@@ -92,14 +92,29 @@ test('A8 the derived metric sentence reports the real counts', () => {
     'the methodology guide states the measured Domain Rating count from the registry');
 });
 
-test('A17 the verification guide keeps its still-true statement', () => {
-  // typicalApprovalTime and reviewProcess really are null on every record, so
-  // this sentence must survive the sweep that removed the false ones.
+test('A17 the verification guide states the true position on process fields', () => {
+  // typicalApprovalTime and reviewProcess were null on every record when this
+  // guide was written. They are populated only where a directory's own
+  // documentation states them, so the sentence is derived from the registry and
+  // must track it in both directions rather than being asserted once.
   const guide = ALL.find((p) => p.file.includes('guides/how-directories-are-verified'));
   assert.ok(guide, 'the verification guide is emitted');
-  assert.ok(D.every((d) => d.typicalApprovalTime === null && d.reviewProcess === null));
-  assert.ok(textOf(guide.html).includes('null across the entire dataset'),
-    'a true statement about genuinely empty fields must not be removed');
+  const text = textOf(guide.html);
+  const documented = D.filter((d) => d.typicalApprovalTime !== null || d.reviewProcess !== null);
+
+  if (documented.length === 0) {
+    assert.ok(text.includes('null across the entire dataset'),
+      'a true statement about genuinely empty fields must not be removed');
+    return;
+  }
+  assert.ok(!text.includes('null across the entire dataset'),
+    `the guide claims these fields are null everywhere, but ${documented.length} record(s) populate them`);
+  assert.ok(text.includes(`null on ${D.length - documented.length} of ${D.length} records`),
+    'the guide does not state how many records leave the process fields null');
+  for (const d of documented) {
+    assert.ok(text.includes(d.name),
+      `${d.id} documents its process but the guide does not name it as an exception`);
+  }
 });
 
 // --- A9: no reference to a score factor that does not exist -----------------
