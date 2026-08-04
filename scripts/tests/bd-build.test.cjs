@@ -331,13 +331,14 @@ test('every FAQ question in the JSON-LD is visible on the page', () => {
   }
 });
 
-test('no generated page contains the bing placeholder or an apex url', () => {
+test('no generated page contains the bing placeholder or a www url', () => {
   const { dataRoot, outRoot } = fixture({ 'united-states': [rec()] });
   buildAll({ dataRoot, outRoot });
   for (const file of walk(path.join(outRoot, SECTION_DIR))) {
     const text = fs.readFileSync(file, 'utf8');
     assert.ok(!text.includes('PASTE_YOUR_BING'), `${file} carries the placeholder`);
-    assert.ok(!/https:\/\/petrohrys\.com/.test(text), `${file} carries an apex url`);
+    assert.ok(!/https:\/\/www\.petrohrys\.com/.test(text),
+      `${file} carries a www url; production 301-redirects www to the apex`);
   }
 });
 

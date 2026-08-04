@@ -11,10 +11,11 @@ test('sitemap emits a valid xml declaration and urlset', () => {
   assert.ok(xml.trimEnd().endsWith('</urlset>'));
 });
 
-test('sitemap urls use the www origin', () => {
+test('sitemap urls use the apex origin', () => {
   const xml = renderSitemap([{ path: '/research/business-directories/' }]);
-  assert.ok(xml.includes('<loc>https://www.petrohrys.com/research/business-directories/</loc>'));
-  assert.ok(!xml.includes('<loc>https://petrohrys.com/'));
+  assert.ok(xml.includes('<loc>https://petrohrys.com/research/business-directories/</loc>'));
+  assert.ok(!xml.includes('<loc>https://www.petrohrys.com/'),
+    'www would make every sitemap entry redirect');
 });
 
 test('sitemap with no entries is still valid and contains no url elements', () => {

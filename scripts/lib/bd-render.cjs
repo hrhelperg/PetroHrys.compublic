@@ -4,6 +4,9 @@ const { escapeHtml } = require('./bd-util.cjs');
 const { renderJsonLd } = require('./bd-seo.cjs');
 const { breadcrumbs } = require('./bd-components.cjs');
 const routes = require('./bd-routes.cjs');
+// The canonical host comes from bd-seo, which is its single source. Hard-coding
+// it here is what let the sitemap and RSS links drift onto a redirecting host.
+const { ORIGIN } = require('./bd-seo.cjs');
 
 // Copied verbatim from the existing editorial pages so the new section is
 // byte-comparable with the rest of the site. The msvalidate.01 meta is
@@ -178,8 +181,8 @@ ${ANALYTICS}
 ${social}
 
   <link rel="canonical" href="${escapeHtml(meta.canonical)}">
-  <link rel="sitemap" type="application/xml" href="https://www.petrohrys.com/sitemap.xml">
-  <link rel="alternate" type="application/rss+xml" title="Business Directories — Petro Hrys" href="https://www.petrohrys.com${routes.feedPath()}">
+  <link rel="sitemap" type="application/xml" href="${ORIGIN}/sitemap.xml">
+  <link rel="alternate" type="application/rss+xml" title="Business Directories — Petro Hrys" href="${ORIGIN}${routes.feedPath()}">
   <link rel="icon" href="/images/logo-red.svg">
 
 ${FONTS}

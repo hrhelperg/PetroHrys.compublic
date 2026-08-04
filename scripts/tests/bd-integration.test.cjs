@@ -15,7 +15,7 @@ const git = (...args) => execFileSync('git', args, { cwd: root, encoding: 'utf8'
 const SECTION = path.join('research', 'business-directories');
 const SITEMAP = 'sitemap-business-directories.xml';
 const FEED = path.join(SECTION, 'feed.xml');
-const ORIGIN = 'https://www.petrohrys.com';
+const ORIGIN = 'https://petrohrys.com';
 
 // This branch is STACKED on feat/helperg-ecosystem-banner, which already
 // modifies sitemap.xml and css/petrohrys.css relative to main. Diffing against
@@ -38,7 +38,7 @@ const locs = () => [...read(SITEMAP).matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) =
 
 // --- robots.txt -------------------------------------------------------------
 
-test('robots.txt advertises the section sitemap on the www host', () => {
+test('robots.txt advertises the section sitemap on the apex host', () => {
   assert.ok(read('robots.txt').includes(`Sitemap: ${ORIGIN}/${SITEMAP}`));
 });
 
@@ -104,11 +104,11 @@ test('the section sitemap is valid, namespaced XML', () => {
   assert.strictEqual((xml.match(/<loc>/g) || []).length, (xml.match(/<\/loc>/g) || []).length);
 });
 
-test('every sitemap URL uses the www origin', () => {
+test('every sitemap URL uses the apex origin', () => {
   for (const loc of locs()) {
-    assert.ok(loc.startsWith(`${ORIGIN}/`), `non-www or foreign origin: ${loc}`);
+    assert.ok(loc.startsWith(`${ORIGIN}/`), `non-apex or foreign origin: ${loc}`);
   }
-  assert.ok(!/https:\/\/petrohrys\.com/.test(read(SITEMAP)), 'apex URL in section sitemap');
+  assert.ok(!/https:\/\/www\.petrohrys\.com/.test(read(SITEMAP)), 'www URL in section sitemap');
 });
 
 test('the sitemap contains no duplicates', () => {
@@ -165,10 +165,10 @@ test('the feed is valid, well-formed RSS', () => {
   assert.ok(xml.trimEnd().endsWith('</rss>'));
 });
 
-test('the feed uses www URLs only', () => {
+test('the feed uses apex URLs only', () => {
   const xml = read(FEED);
   assert.ok(xml.includes(`${ORIGIN}/research/business-directories/`));
-  assert.ok(!/https:\/\/petrohrys\.com/.test(xml), 'apex URL in feed');
+  assert.ok(!/https:\/\/www\.petrohrys\.com/.test(xml), 'www URL in feed');
 });
 
 test('the feed carries one item per verified directory', () => {
@@ -246,13 +246,13 @@ test('every generated page is UTF-8, balanced, and has exactly one h1', () => {
   }
 });
 
-test('every generated page has a www canonical and no placeholder', () => {
+test('every generated page has an apex canonical and no placeholder', () => {
   for (const page of generatedPages()) {
     const doc = read(page);
     const canonical = (doc.match(/rel="canonical" href="([^"]+)"/) || [])[1];
     assert.ok(canonical && canonical.startsWith(`${ORIGIN}/`), `${page}: bad canonical ${canonical}`);
     assert.ok(!doc.includes('PASTE_YOUR_BING_VERIFICATION_CODE_HERE'), `${page}: bing placeholder`);
-    assert.ok(!/https:\/\/petrohrys\.com/.test(doc), `${page}: apex URL`);
+    assert.ok(!/https:\/\/www\.petrohrys\.com/.test(doc), `${page}: www URL`);
   }
 });
 

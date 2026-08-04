@@ -53,7 +53,10 @@ Registry-driven static generation. No framework, no dependencies, no build serve
 - No `AggregateRating`, `Review`, `Product`, or `SearchAction` structured data.
 - Outbound links carry `rel="noopener noreferrer"` and **no `nofollow`** — these are editorial citations, not paid placements.
 - Empty pages are `noindex,follow` and excluded from sitemap, RSS and internal promotion; un-emitted routes are shown as unlinked "coming soon" text rather than advertised 404s.
-- All URLs use `https://www.petrohrys.com`.
+- All URLs use `https://petrohrys.com` (apex). Production serves the apex and
+  301-redirects `www` to it; an earlier draft of this section canonicalised to
+  `www`, which made every canonical and sitemap entry point at a redirect.
+  Corrected in `hotfix/business-directories-apex-canonical`.
 
 ---
 
