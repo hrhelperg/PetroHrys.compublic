@@ -113,6 +113,45 @@ Curated relations and guide links are valuable but explicitly optional. All 64
 records satisfy the contract. Records that fail become `noindex,follow`, keeping
 the page and every link on it while leaving the sitemap.
 
+## Release closed
+
+| | |
+|---|---|
+| v1 PR | **#16** — merge commit `b4b4074` |
+| Canonical hotfix PR | **#17** — merge commit `51517be` (fix commit `f5a6e60`) |
+| Final production `main` | **`51517be`** |
+| Canonical host | **`https://petrohrys.com`** (apex) |
+| Production verified | 2026-08-04 |
+
+Production verification swept **all 129 URLs** in
+`sitemap-business-directories.xml`: every one returned HTTP 200 with **zero
+redirect hops**, contained **zero `www` absolute URLs**, and carried a canonical
+identical to its own URL. Sitemap 129 `<loc>`, RSS 64 items, `robots.txt`
+advertising both sitemaps on the apex. Canonical, Open Graph, JSON-LD and
+BreadcrumbList URLs are apex on every page checked.
+
+Why the hotfix was needed: production serves the apex and 301-redirects
+`www.petrohrys.com` to it, but the section had been built to canonicalise to
+`www`. Every page self-referenced a URL that does not serve and every sitemap
+entry redirected. The host now lives in exactly one place — `ORIGIN` in
+`scripts/lib/bd-seo.cjs` — and five tests fail if it moves back.
+
+### Site-wide legacy canonical follow-up (open)
+
+The `www` canonical is **not** specific to this section, and the rest of the site
+was deliberately left alone rather than mixed into a hotfix:
+
+| Scope | State |
+|---|---|
+| Non-BD editorial pages | 192 `www` canonicals, 1 apex |
+| Root `sitemap.xml` | 56 locs already apex — disagrees with the pages it lists |
+| Open Graph outside BD | 175 `www` |
+| JSON-LD outside BD | 166 `www` |
+| hreflang | 198 of 200 tags on `www` |
+
+Those pages are hand-written with no central URL source, so normalising them is
+its own change with its own verification.
+
 ## Deferred work
 
 - **Verification backlog** — 31 candidates blocked by bot walls, consent gates or
