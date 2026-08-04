@@ -57,7 +57,19 @@
           || compareByName(a, b);
       }
     },
-    'domain-rating': { key: 'domain-rating', label: 'Domain Rating', compare: byMetric('domainRating') },
+    // The two rankings are independent and each names its own tiebreak, so a
+    // reader sorting by authority still sees editorial value separating equal
+    // Domain Ratings, and vice versa. Nulls sort last in both: a record with no
+    // measurement is not a record with a low one.
+    'domain-rating': {
+      key: 'domain-rating',
+      label: 'Domain Rating',
+      compare: function (a, b) {
+        return nullLastDesc(a.domainRating, b.domainRating)
+          || nullLastDesc(a.petroHrysScore, b.petroHrysScore)
+          || compareByName(a, b);
+      }
+    },
     'authority-score': { key: 'authority-score', label: 'Authority Score', compare: byMetric('authorityScore') },
     'traffic': { key: 'traffic', label: 'Estimated Traffic', compare: byMetric('estimatedTraffic') },
     'alphabetical': { key: 'alphabetical', label: 'Alphabetical', compare: compareByName }

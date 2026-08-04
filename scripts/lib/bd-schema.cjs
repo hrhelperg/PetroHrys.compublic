@@ -66,6 +66,38 @@ const ACCEPTS_LABELS = {
 
 // --- metrics ----------------------------------------------------------------
 
+// --- third-party metric provenance ------------------------------------------
+// A metric value is meaningless without knowing who produced it and when. This
+// site is statically generated and never calls an API at request time, so every
+// value it shows is a dated historical snapshot, never a live reading. The
+// status is stored explicitly so the page can say so rather than implying
+// currency by omission.
+const METRIC_SNAPSHOT_STATUS = 'historicalSnapshot';
+const METRIC_PROVIDERS = ['Ahrefs'];
+// Ahrefs Domain Rating is a 0-100 logarithmic scale.
+const DOMAIN_RATING_RANGE = { min: 0, max: 100 };
+// Required by the Ahrefs Domain Rating licence wherever a value is displayed.
+const AHREFS_ATTRIBUTION = { text: 'Domain Rating by Ahrefs', href: 'https://ahrefs.com/' };
+
+// One deterministic domain policy. A Domain Rating describes the registrable
+// domain that was measured, not a path or subdomain on it: measuring
+// appsource.microsoft.com and labelling the result as "AppSource's rating" would
+// claim something the number does not say. Callers record the normalised domain
+// alongside the value so the page can name exactly what was measured.
+function normaliseDomain(input) {
+  if (typeof input !== 'string' || !input.trim()) return null;
+  let host;
+  try {
+    host = new URL(input.includes('://') ? input : `https://${input.trim()}`).hostname;
+  } catch {
+    return null;
+  }
+  host = host.toLowerCase().replace(/\.$/, '');
+  if (host.startsWith('www.')) host = host.slice(4);
+  if (!host.includes('.') || /\s/.test(host)) return null;
+  return host;
+}
+
 const SCORE_FIELDS = ['domainRating', 'authorityScore'];
 const COUNT_FIELDS = ['estimatedTraffic', 'referringDomains', 'httpStatus'];
 const THIRD_PARTY_METRICS = ['domainRating', 'authorityScore', 'estimatedTraffic', 'referringDomains'];
@@ -257,6 +289,8 @@ function nextVerificationFor(record) {
 module.exports = {
   TIERS, BACKLINK_TYPES, ROBOTS_STATES, SUBMISSION_MODELS, METRIC_STATUSES,
   SUBMISSION_MODEL_LABELS, SUBMISSION_NOT_APPLICABLE_NOTE, SUBMITTABLE_MODELS,
+  METRIC_SNAPSHOT_STATUS, METRIC_PROVIDERS, DOMAIN_RATING_RANGE, AHREFS_ATTRIBUTION,
+  normaliseDomain,
   SCORE_METHOD_NOTE, INDEXABILITY_CLAUSES, indexability,
   REVIEW_INTERVAL_MONTHS, SPREAD_DAYS, reviewBucket, stableHash, nextVerificationFor,
   VERIFICATION_STATUSES, VERIFICATION_SOURCES,

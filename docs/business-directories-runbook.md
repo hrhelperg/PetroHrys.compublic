@@ -249,3 +249,64 @@ scheduler.
 
 `bd-integration.test.cjs` runs the real generator against the repository root.
 Build first, then test, then confirm `git status` is clean — in that order.
+
+## Domain Rating measurement
+
+Domain Rating is recorded by a **separate editorial utility**, never by the site
+build. Generation stays offline and deterministic; it makes no network calls.
+
+```
+node scripts/measure-business-directory-dr.cjs --dry-run --all-unmeasured
+node scripts/measure-business-directory-dr.cjs --id=global-g2
+node scripts/measure-business-directory-dr.cjs --country=global
+node scripts/measure-business-directory-dr.cjs --category=software
+node scripts/measure-business-directory-dr.cjs --all-unmeasured
+node scripts/measure-business-directory-dr.cjs --id=global-g2 --force
+```
+
+**Endpoint** (verified against official documentation 2026-08-04):
+`GET https://api.ahrefs.com/v3/public/domain-rating-free?target=<domain>`.
+Free — consumes no API units.
+
+**Authentication becomes mandatory on 2026-08-10.** Full setup instructions:
+`docs/ahrefs-domain-rating-key.md`. Until then the utility works
+unauthenticated. After that date, create a free key at
+<https://app.ahrefs.com/account/api-keys> and export it:
+
+```
+export AHREFS_API_KEY='…'
+```
+
+The key is read from that variable only. It is never printed, never written to a
+file, and never stored in a record — the utility reports only whether a key is
+*present*. A 401/403 aborts the run before anything is written.
+
+**Guarantees.** A failed reading never overwrites a valid snapshot with null.
+Only a successful measurement writes, and it writes value, provider,
+measurement date, snapshot status and the measured domain together. Outcomes are
+reported as measured / unavailable / blocked / invalid domain / API error / rate
+limited / skipped. `--dry-run` writes nothing.
+
+**Which domain is measured.** `normaliseDomain()` in `bd-schema.cjs` is the one
+policy: scheme and `www.` are stripped, the host is lowercased, and the result is
+stored as `measuredDomain`. A rating describes *that* domain — for a marketplace
+on a parent domain (for example `appsource.microsoft.com`) the number describes
+the measured host, not the marketplace path, and the page says so.
+
+**Attribution** is required by the Ahrefs licence: "Domain Rating by Ahrefs",
+linked to <https://ahrefs.com/>, is rendered wherever a value appears. A test
+fails if it is missing.
+
+## The two rankings
+
+`Domain Rating` and `PetroHrys Score` are **independent** and must never be
+combined. DR is a dated third-party measurement of a *domain*; the score is a
+first-party editorial assessment of a *directory*. Tests assert that no score
+factor is named after a third-party metric and that every score reproduces from
+its factors alone.
+
+Sort keys live in `js/bd-order.js` (shared by server and browser):
+`domain-rating` is DR desc → score desc → name; `default` is score desc → DR desc
+→ name. Nulls sort **last** in both and are never hidden or rendered as 0.
+`directoryTable()` takes an explicit `sortKey` — a caller that pre-sorts must pass
+the matching key or the table re-sorts to the default.

@@ -142,10 +142,14 @@ function pageModel(registry) {
     + `Most recently verified <time datetime="${escapeHtml(lastVerifiedAt || '')}">`
     + `${escapeHtml(lastVerifiedAt || 'not yet')}</time>.</p>`;
 
-  // The strongest records the dataset holds, named on the first screen. Columns
-  // are computed from these rows, so no empty column appears here either.
-  const topEntries = sortDirectories(allDirectories).slice(0, HUB_TOP_COUNT);
-  const topColumns = c.tableColumnsFor(topEntries);
+  // Two independent rankings, never blended. `default` is the editorial score;
+  // `domain-rating` is the third-party authority snapshot. Each is truncated to
+  // HUB_TOP_COUNT and titled from what the dataset actually holds.
+  const bestEntries = sortDirectories(allDirectories, 'default').slice(0, HUB_TOP_COUNT);
+  const bestColumns = c.tableColumnsFor(bestEntries);
+  const measured = allDirectories.filter((d) => d.domainRating !== null && d.domainRating !== undefined);
+  const authorityEntries = sortDirectories(measured, 'domain-rating').slice(0, HUB_TOP_COUNT);
+  const authorityColumns = c.tableColumnsFor(authorityEntries);
 
   const globalBody = globalEntries.length ? [
     `      <p>${escapeHtml(`${globalEntries.length} directories are global in scope: they accept `
@@ -167,11 +171,30 @@ function pageModel(registry) {
     main: [
       c.pageIntro({ title: 'Business Directories', lede: hubMeta.description }),
       statLine,
-      section('highest-scored', 'Highest-scored directories', [
-        `      <p>${escapeHtml('Ranked by PetroHrys Score, a first-party editorial assessment. '
-          + 'It is not a Domain Rating, an authority metric, or a review rating.')}</p>`,
+      // A. Authority — the domain, measured by a third party.
+      ...(authorityEntries.length ? [section('highest-authority', 'Highest authority business directories', [
+        `      <p>${escapeHtml(`Ranked by Domain Rating, a dated Ahrefs snapshot of the measured `
+          + `domain's authority. ${measured.length} of ${allDirectories.length} records carry a `
+          + 'measurement. A high Domain Rating describes the domain; it does not guarantee that a '
+          + 'listing there is valuable, indexed, followed, or that a profile page inherits the '
+          + "domain's authority.")}</p>`,
         c.directoryTable({
-          directories: topEntries, caption: 'Highest-scored directories', columns: topColumns,
+          directories: authorityEntries,
+          caption: 'Highest authority business directories in the verified dataset',
+          columns: authorityColumns,
+          sortKey: 'domain-rating',
+        }),
+      ].join('\n'))] : []),
+      // B. Value — the directory, assessed editorially.
+      section('best-directories', 'Best business directories', [
+        `      <p>${escapeHtml('Ranked by PetroHrys Score, a first-party editorial assessment of how '
+          + 'useful, trustworthy and relevant a directory is for businesses. It is not a Domain '
+          + 'Rating, an SEO or authority metric, or a review rating.')} `
+          + `<a href="${routes.articlePath('how-petrohrys-score-works')}">How the score is produced</a>.</p>`,
+        c.directoryTable({
+          directories: bestEntries,
+          caption: 'Best business directories in the verified dataset',
+          columns: bestColumns,
         }),
         c.metricNote(activeMetrics),
       ].join('\n')),

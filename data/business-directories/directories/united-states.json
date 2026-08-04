@@ -23,13 +23,20 @@
       "transparency": 6,
       "moderationQuality": 7
     },
-    "domainRating": null,
+    "domainRating": 93,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-04",
+        "status": "historicalSnapshot",
+        "measuredDomain": "bbb.org"
+      }
+    },
     "submissionModel": "freemium",
     "registrationRequired": false,
     "reviewSystem": true,
@@ -133,13 +140,20 @@
       "transparency": 9,
       "moderationQuality": 9
     },
-    "domainRating": null,
+    "domainRating": 91,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-04",
+        "status": "historicalSnapshot",
+        "measuredDomain": "uspto.gov"
+      }
+    },
     "submissionModel": "notApplicable",
     "registrationRequired": false,
     "reviewSystem": false,

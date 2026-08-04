@@ -32,7 +32,9 @@
     "metricsProvenance": {
       "domainRating": {
         "provider": "Ahrefs",
-        "measuredAt": "2026-08-04"
+        "measuredAt": "2026-08-04",
+        "status": "historicalSnapshot",
+        "measuredDomain": "find-and-update.company-information.service.gov.uk"
       }
     },
     "submissionModel": "notApplicable",
@@ -142,13 +144,20 @@
       "transparency": 9,
       "moderationQuality": 10
     },
-    "domainRating": null,
+    "domainRating": 90,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-04",
+        "status": "historicalSnapshot",
+        "measuredDomain": "cqc.org.uk"
+      }
+    },
     "submissionModel": "notApplicable",
     "registrationRequired": true,
     "reviewSystem": false,
