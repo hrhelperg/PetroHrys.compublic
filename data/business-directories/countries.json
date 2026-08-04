@@ -1,12 +1,81 @@
 [
-  { "id": "united-states",  "slug": "united-states",  "name": "United States",  "titleName": "the United States",  "iso2": "US" },
-  { "id": "germany",        "slug": "germany",        "name": "Germany",        "titleName": "Germany",            "iso2": "DE" },
-  { "id": "united-kingdom", "slug": "united-kingdom", "name": "United Kingdom", "titleName": "the United Kingdom", "iso2": "GB" },
-  { "id": "france",         "slug": "france",         "name": "France",         "titleName": "France",             "iso2": "FR" },
-  { "id": "spain",          "slug": "spain",          "name": "Spain",          "titleName": "Spain",              "iso2": "ES" },
-  { "id": "italy",          "slug": "italy",          "name": "Italy",          "titleName": "Italy",              "iso2": "IT" },
-  { "id": "canada",         "slug": "canada",         "name": "Canada",         "titleName": "Canada",             "iso2": "CA" },
-  { "id": "australia",      "slug": "australia",      "name": "Australia",      "titleName": "Australia",          "iso2": "AU" },
-  { "id": "czech-republic", "slug": "czech-republic", "name": "Czech Republic", "titleName": "the Czech Republic", "iso2": "CZ" },
-  { "id": "poland",         "slug": "poland",         "name": "Poland",         "titleName": "Poland",             "iso2": "PL" }
+  {
+    "id": "global",
+    "slug": "global",
+    "name": "Global",
+    "titleName": "any market",
+    "pageTitle": "Global Business Directories",
+    "iso2": null,
+    "scope": "global"
+  },
+  {
+    "id": "united-states",
+    "slug": "united-states",
+    "name": "United States",
+    "titleName": "the United States",
+    "iso2": "US"
+  },
+  {
+    "id": "germany",
+    "slug": "germany",
+    "name": "Germany",
+    "titleName": "Germany",
+    "iso2": "DE"
+  },
+  {
+    "id": "united-kingdom",
+    "slug": "united-kingdom",
+    "name": "United Kingdom",
+    "titleName": "the United Kingdom",
+    "iso2": "GB"
+  },
+  {
+    "id": "france",
+    "slug": "france",
+    "name": "France",
+    "titleName": "France",
+    "iso2": "FR"
+  },
+  {
+    "id": "spain",
+    "slug": "spain",
+    "name": "Spain",
+    "titleName": "Spain",
+    "iso2": "ES"
+  },
+  {
+    "id": "italy",
+    "slug": "italy",
+    "name": "Italy",
+    "titleName": "Italy",
+    "iso2": "IT"
+  },
+  {
+    "id": "canada",
+    "slug": "canada",
+    "name": "Canada",
+    "titleName": "Canada",
+    "iso2": "CA"
+  },
+  {
+    "id": "australia",
+    "slug": "australia",
+    "name": "Australia",
+    "titleName": "Australia",
+    "iso2": "AU"
+  },
+  {
+    "id": "czech-republic",
+    "slug": "czech-republic",
+    "name": "Czech Republic",
+    "titleName": "the Czech Republic",
+    "iso2": "CZ"
+  },
+  {
+    "id": "poland",
+    "slug": "poland",
+    "name": "Poland",
+    "titleName": "Poland",
+    "iso2": "PL"
+  }
 ]

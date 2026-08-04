@@ -186,7 +186,9 @@ function buildHubMeta({ countries = [], faqs = [] } = {}) {
 
 function buildCountryMeta({ country, categories = [], directories = [], faqs = [] }) {
   const canonicalPath = routes.countryPath(country.slug);
-  const title = `Business Directories in ${country.name}`;
+  // A country may override the generated title. "Business Directories in
+  // Global" is not English; the Global scope needs its own phrasing.
+  const title = country.pageTitle || `Business Directories in ${country.name}`;
   const description = `Business directories relevant to companies operating in ${country.titleName}, `
     + 'organised by category and verified by hand.';
   const trail = [...ROOT_TRAIL, { name: country.name, path: canonicalPath }];

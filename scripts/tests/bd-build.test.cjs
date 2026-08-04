@@ -9,6 +9,7 @@ const crypto = require('node:crypto');
 const { buildAll, pageModel, BuildError, MANIFEST_FILE, SECTION_DIR } = require('../build-business-directories.cjs');
 const { loadRegistry } = require('../lib/bd-registry.cjs');
 const { PATHS } = require('../lib/bd-util.cjs');
+const { verifiedRecord } = require('./helpers/fixtures.cjs');
 
 const HUB = path.join(SECTION_DIR, 'index.html');
 const REF_COUNTRY = path.join(SECTION_DIR, 'united-states', 'index.html');
@@ -35,18 +36,10 @@ function writeDirs(dataRoot, slug, entries) {
   fs.writeFileSync(path.join(dataRoot, 'directories', `${slug}.json`), `${JSON.stringify(entries, null, 2)}\n`);
 }
 
-const rec = (over = {}) => ({
-  id: 'us-ok', name: 'Ok Directory', slug: 'ok-dir', country: 'united-states',
-  category: 'saas', website: 'https://ok.example', description: 'A directory.',
-  tier: 'tier1', petroHrysScore: null, domainRating: null, authorityScore: null,
-  estimatedTraffic: null, referringDomains: null, free: null, paid: null,
-  verificationRequired: null, manualReview: null, acceptsCompanies: null,
-  acceptsProducts: null, acceptsSaaS: null, acceptsApps: null, acceptsStartups: null,
-  acceptsAI: null, backlinkType: null, robots: null, sitemap: null, indexed: null,
-  ssl: null, lastVerified: null, nextVerification: null, httpStatus: null,
-  recommendedIndustries: [], pros: [], cons: [], editorNotes: '', metricsProvenance: {},
-  ...over,
-});
+const rec = (over = {}) => verifiedRecord({ id: 'us-ok', name: 'Ok Directory', slug: 'ok-dir',
+  website: 'https://ok.example', lastVerified: null, nextVerification: null,
+  scoreFactors: null, petroHrysScore: null,
+  verification: { status: 'unverified', source: null, reviewers: [] }, ...over });
 
 const has = (outRoot, rel) => fs.existsSync(path.join(outRoot, rel));
 const read = (outRoot, rel) => fs.readFileSync(path.join(outRoot, rel), 'utf8');
@@ -185,7 +178,10 @@ test('11 every emitted file maps to exactly one owner', () => {
 // --- 10: sitemap integrity --------------------------------------------------
 
 test('10 the sitemap only references pages that were generated', () => {
-  const { dataRoot, outRoot } = fixture({ 'united-states': [rec({ lastVerified: '2026-08-01' })] });
+  const { dataRoot, outRoot } = fixture({ 'united-states': [rec({ lastVerified: '2026-08-01',
+    nextVerification: '2027-08-01',
+    verification: { status: 'verified', source: 'official-website',
+      reviewers: [{ id: 'p', name: 'P', role: 'editor' }] } })] });
   buildAll({ dataRoot, outRoot });
   const canonicals = new Set(pageModel(loadRegistry(dataRoot)).map((p) => p.meta.canonical));
   const locs = [...read(outRoot, SITEMAP).matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
@@ -242,7 +238,9 @@ test('14 a validator failure aborts the build with nothing written', () => {
   const before = fingerprint(outRoot);
   // Passes the loader (real country/category, safe slug, https) but fails the
   // validator: out of range and populated while unverified.
-  writeDirs(dataRoot, 'united-states', [rec({ petroHrysScore: 900 })]);
+  writeDirs(dataRoot, 'united-states', [rec({ domainRating: 900, lastVerified: '2026-08-01',
+    metricStatus: 'measured',
+    metricsProvenance: { domainRating: { provider: 'Ahrefs', measuredAt: '2026-08-01' } } })]);
   assert.throws(() => buildAll({ dataRoot, outRoot }), (err) => {
     assert.ok(err instanceof BuildError);
     assert.ok(/refusing to build/i.test(err.message), err.message);

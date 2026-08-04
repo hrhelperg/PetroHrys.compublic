@@ -4,6 +4,7 @@ const { escapeHtml } = require('./bd-util.cjs');
 const { safeExternalUrl } = require('./bd-seo.cjs');
 const { sortDirectories, SORTS, SORT_KEYS } = require('./bd-sort.cjs');
 const { directoryPathFor } = require('./bd-routes.cjs');
+const S = require('./bd-schema.cjs');
 
 // ---------------------------------------------------------------------------
 // Helpers
@@ -114,8 +115,14 @@ ${cards.join('\n')}
 
 // Third-party metrics always render their provider and measurement date, so a
 // reader never mistakes them for a PetroHrys measurement.
-function metric(value, provenance) {
-  if (isNullish(value)) return dash();
+// `status` lets an unmeasured metric say "Unknown" rather than showing a bare
+// dash with no explanation. It never substitutes a number.
+function metric(value, provenance, status) {
+  if (isNullish(value)) {
+    return status === 'unknown'
+      ? `<span class="bd-metric bd-metric--empty">Unknown</span>`
+      : dash();
+  }
   const shown = escapeHtml(value);
   if (provenance && provenance.provider && provenance.measuredAt) {
     return `<span class="bd-metric">${shown}<span class="bd-metric-source">`
@@ -137,7 +144,8 @@ const METRIC_ROWS = [
 function metricsBlock(directory) {
   const provenance = directory.metricsProvenance || {};
   const rows = METRIC_ROWS.map(([field, label, thirdParty]) => {
-    const value = metric(directory[field], thirdParty ? provenance[field] : undefined);
+    const value = metric(directory[field], thirdParty ? provenance[field] : undefined,
+      thirdParty ? directory.metricStatus : undefined);
     return `        <div class="bd-def">
           <dt class="bd-def-t">${escapeHtml(label)}</dt>
           <dd class="bd-def-d">${value}</dd>
@@ -167,22 +175,35 @@ function statusBadges(directory) {
     ? { state: 'verified', text: 'Verified' }
     : { state: 'unverified', text: 'Not yet verified' });
 
-  if (directory.free === true && directory.paid === true) {
-    badges.push({ state: 'mixed', text: 'Free and paid tiers' });
-  } else if (directory.free === true) {
-    badges.push({ state: 'free', text: 'Free listing' });
-  } else if (directory.paid === true) {
-    badges.push({ state: 'paid', text: 'Paid listing' });
-  } else {
-    badges.push({ state: 'unknown', text: 'Listing cost not recorded' });
-  }
+  const SUBMISSION_TEXT = {
+    free: 'Free to submit', paid: 'Paid submission', freemium: 'Free and paid tiers',
+  };
+  badges.push(SUBMISSION_TEXT[directory.submissionModel]
+    ? { state: directory.submissionModel, text: SUBMISSION_TEXT[directory.submissionModel] }
+    : { state: 'unknown', text: 'Submission model unknown' });
 
   if (directory.verificationRequired === true) {
     badges.push({ state: 'gated', text: 'Verification required' });
   } else if (directory.verificationRequired === false) {
     badges.push({ state: 'open', text: 'No verification required' });
   } else {
-    badges.push({ state: 'unknown', text: 'Verification requirement not recorded' });
+    badges.push({ state: 'unknown', text: 'Verification requirement unknown' });
+  }
+
+  if (directory.registrationRequired === true) {
+    badges.push({ state: 'gated', text: 'Registration required' });
+  } else if (directory.registrationRequired === false) {
+    badges.push({ state: 'open', text: 'No registration required' });
+  } else {
+    badges.push({ state: 'unknown', text: 'Registration requirement unknown' });
+  }
+
+  if (directory.reviewSystem === true) {
+    badges.push({ state: 'reviews', text: 'Has a review system' });
+  } else if (directory.reviewSystem === false) {
+    badges.push({ state: 'no-reviews', text: 'No review system' });
+  } else {
+    badges.push({ state: 'unknown', text: 'Review system unknown' });
   }
 
   const items = badges.map((b) =>
@@ -257,14 +278,27 @@ function emptyState(message) {
 // 12 & 13. Search / filter and sort shells
 // ---------------------------------------------------------------------------
 
+// Filter keys double as data-attribute suffixes: data-bd-<field>. Keeping them
+// lowercase-hyphenated means the client script needs no special casing.
 const FILTERS = [
-  { field: 'free', label: 'Free listing' },
-  { field: 'paid', label: 'Paid listing' },
-  { field: 'verificationRequired', label: 'Verification required' },
-  { field: 'acceptsSaaS', label: 'Accepts SaaS' },
-  { field: 'acceptsStartups', label: 'Accepts startups' },
-  { field: 'acceptsAI', label: 'Accepts AI products' },
+  { field: 'free-submission', label: 'Free to submit' },
+  { field: 'accepts-startup', label: 'Accepts startups' },
+  { field: 'accepts-saas', label: 'Accepts SaaS' },
+  { field: 'accepts-localbusiness', label: 'Accepts local businesses' },
+  { field: 'accepts-developer', label: 'Accepts developer tools' },
+  { field: 'accepts-ai', label: 'Accepts AI products' },
 ];
+
+// Resolves a filter key against a record, so the row attributes and the filter
+// list can never drift apart.
+function filterValue(directory, field) {
+  if (field === 'free-submission') {
+    return directory.submissionModel === 'free' || directory.submissionModel === 'freemium';
+  }
+  const key = field.replace(/^accepts-/, '');
+  const match = S.ACCEPTS_KEYS.find((k) => k.toLowerCase() === key);
+  return match ? (directory.accepts || {})[match] === true : false;
+}
 
 const dataKey = (field) => `data-bd-${field.toLowerCase()}`;
 
@@ -331,7 +365,7 @@ function directoryRow(directory) {
     `data-bd-dr="${escapeHtml(numAttr(directory.domainRating))}"`,
     `data-bd-as="${escapeHtml(numAttr(directory.authorityScore))}"`,
     `data-bd-traffic="${escapeHtml(numAttr(directory.estimatedTraffic))}"`,
-    ...FILTERS.map((f) => `${dataKey(f.field)}="${directory[f.field] === true ? '1' : '0'}"`),
+    ...FILTERS.map((f) => `${dataKey(f.field)}="${filterValue(directory, f.field) ? '1' : '0'}"`),
   ].join(' ');
   return `          <tr class="bd-row" ${attrs}>
             <th class="bd-cell" scope="row"><a href="${escapeHtml(directoryPathFor(directory))}">${escapeHtml(directory.name)}</a></th>
@@ -439,6 +473,112 @@ function provenanceBlock(directory) {
 }
 
 // ---------------------------------------------------------------------------
+// 18. Verification block
+// ---------------------------------------------------------------------------
+
+const VERIFICATION_SOURCE_LABELS = {
+  'official-website': 'Official website',
+  'official-documentation': 'Official documentation',
+  'government-register': 'Government register',
+  'manual-verification': 'Manual verification',
+  other: 'Other',
+};
+
+const VERIFICATION_STATUS_LABELS = {
+  verified: 'Verified',
+  unverified: 'Not yet verified',
+  pending: 'Verification pending',
+};
+
+// Exposes who checked the record, how, and when. The reviewers array is
+// rendered as a list so a second reviewer needs no markup change.
+function verificationBlock(directory) {
+  const v = directory.verification || {};
+  const status = VERIFICATION_STATUS_LABELS[v.status] || 'Not yet verified';
+  const source = v.source ? VERIFICATION_SOURCE_LABELS[v.source] || v.source : null;
+  const reviewers = Array.isArray(v.reviewers) ? v.reviewers : [];
+
+  const date = directory.lastVerified
+    ? `<time datetime="${escapeHtml(directory.lastVerified)}">${escapeHtml(directory.lastVerified)}</time>`
+    : dash();
+  const next = directory.nextVerification
+    ? `<time datetime="${escapeHtml(directory.nextVerification)}">${escapeHtml(directory.nextVerification)}</time>`
+    : dash();
+  const by = reviewers.length
+    ? reviewers.map((r) => escapeHtml(r.name)).join(', ')
+    : `<span class="bd-metric bd-metric--empty">Unknown</span>`;
+
+  return `      <dl class="bd-defs bd-provenance">
+        <div class="bd-def">
+          <dt class="bd-def-t">Verification status</dt>
+          <dd class="bd-def-d"><span class="bd-metric">${escapeHtml(status)}</span></dd>
+        </div>
+        <div class="bd-def">
+          <dt class="bd-def-t">Verification source</dt>
+          <dd class="bd-def-d">${source ? `<span class="bd-metric">${escapeHtml(source)}</span>` : dash()}</dd>
+        </div>
+        <div class="bd-def">
+          <dt class="bd-def-t">Last verified</dt>
+          <dd class="bd-def-d">${date}</dd>
+        </div>
+        <div class="bd-def">
+          <dt class="bd-def-t">Next verification due</dt>
+          <dd class="bd-def-d">${next}</dd>
+        </div>
+        <div class="bd-def">
+          <dt class="bd-def-t">Editorial reviewer</dt>
+          <dd class="bd-def-d"><span class="bd-metric">${by}</span></dd>
+        </div>
+      </dl>`;
+}
+
+// ---------------------------------------------------------------------------
+// 19. Accepted audiences
+// ---------------------------------------------------------------------------
+
+// All twelve flags are listed, including the ones that are false or unknown:
+// knowing a directory does NOT accept freelancers is as useful as knowing it
+// does, and hiding unknowns would imply an answer that was never established.
+function acceptsList(directory) {
+  const accepts = directory.accepts || {};
+  const rows = S.ACCEPTS_KEYS.map((key) => {
+    const value = accepts[key];
+    const text = value === true ? 'Yes' : value === false ? 'No' : 'Unknown';
+    const state = value === true ? 'yes' : value === false ? 'no' : 'unknown';
+    return `        <div class="bd-def">
+          <dt class="bd-def-t">${escapeHtml(S.ACCEPTS_LABELS[key])}</dt>
+          <dd class="bd-def-d"><span class="bd-metric" data-bd-state="${state}">${text}</span></dd>
+        </div>`;
+  }).join('\n');
+  return `      <dl class="bd-defs">
+${rows}
+      </dl>`;
+}
+
+// ---------------------------------------------------------------------------
+// 20. Score breakdown
+// ---------------------------------------------------------------------------
+
+// Publishes the factors behind the score so the number is auditable rather
+// than asserted.
+function scoreBreakdown(directory) {
+  if (!directory.scoreFactors) return '';
+  const rows = S.SCORE_FACTORS.map(({ key, weight, label }) => {
+    const value = directory.scoreFactors[key];
+    return `        <div class="bd-def">
+          <dt class="bd-def-t">${escapeHtml(label)} <span class="bd-tag">${weight}%</span></dt>
+          <dd class="bd-def-d"><span class="bd-metric">${escapeHtml(value)} / 10</span></dd>
+        </div>`;
+  }).join('\n');
+  return `      <dl class="bd-defs">
+${rows}
+      </dl>
+      <p class="bd-note">The PetroHrys Score is a first-party editorial assessment, not a third-party
+      authority metric. It is the weighted sum of the ten factors above, each scored from 0 to 10 by a
+      human reviewer, with weights totalling 100%.</p>`;
+}
+
+// ---------------------------------------------------------------------------
 // 17. External-link CTA
 // ---------------------------------------------------------------------------
 
@@ -460,6 +600,7 @@ module.exports = {
   directoryTable, directoryRow, directoryCard, metric, metricsBlock, metricNote,
   statusBadges, prosCons, bestForTags, bulletList, emptyState, faqSection,
   searchControls, filterControls, sortControls, pagination,
+  verificationBlock, acceptsList, scoreBreakdown, filterValue,
   methodologyNote, provenanceBlock, externalLinkCta,
   FILTERS, VERIFICATION_NOTE, REL_EXTERNAL,
 };

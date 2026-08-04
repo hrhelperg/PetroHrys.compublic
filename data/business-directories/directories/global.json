@@ -1,0 +1,1485 @@
+[
+  {
+    "id": "global-opencorporates",
+    "name": "OpenCorporates",
+    "slug": "opencorporates",
+    "country": "global",
+    "category": "general-business",
+    "website": "https://opencorporates.com/",
+    "description": "Open legal-entity database aggregating company records sourced from more than 140 official government registries.",
+    "tier": "tier1",
+    "scope": "global",
+    "petroHrysScore": 85,
+    "scoreFactors": {
+      "editorialTrust": 9,
+      "businessUsefulness": 9,
+      "verificationQuality": 8,
+      "platformReputation": 8,
+      "spamResistance": 9,
+      "industryImportance": 8,
+      "longTermStability": 8,
+      "submissionQuality": 8,
+      "transparency": 9,
+      "moderationQuality": 8
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "freemium",
+    "registrationRequired": false,
+    "reviewSystem": false,
+    "verificationRequired": false,
+    "manualReview": false,
+    "accepts": {
+      "startup": true,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": true,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-04",
+    "nextVerification": "2027-02-04",
+    "verification": {
+      "status": "verified",
+      "source": "official-website",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "recommendedIndustries": [
+      "Compliance",
+      "Due diligence",
+      "Investigative research"
+    ],
+    "editorialTags": [
+      "aggregator",
+      "open-data",
+      "primary-source-derived"
+    ],
+    "pros": [
+      "Sources from official registers rather than resellers",
+      "Covers 140+ jurisdictions"
+    ],
+    "cons": [
+      "Records are only as current as the upstream register",
+      "Bulk and API access are commercial"
+    ],
+    "editorNotes": "Verified 2026-08-04. Global scope; filed under united-states pending a scope-aware country model."
+  },
+  {
+    "id": "global-trustpilot",
+    "name": "Trustpilot",
+    "slug": "trustpilot",
+    "country": "global",
+    "category": "review-sites",
+    "website": "https://business.trustpilot.com/",
+    "description": "Open consumer review platform where any customer can publish a rating of a business, with a free tier for collecting reviews.",
+    "tier": "tier1",
+    "scope": "global",
+    "petroHrysScore": 76,
+    "scoreFactors": {
+      "editorialTrust": 7,
+      "businessUsefulness": 9,
+      "verificationQuality": 6,
+      "platformReputation": 9,
+      "spamResistance": 5,
+      "industryImportance": 9,
+      "longTermStability": 9,
+      "submissionQuality": 8,
+      "transparency": 7,
+      "moderationQuality": 6
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "freemium",
+    "registrationRequired": true,
+    "reviewSystem": true,
+    "verificationRequired": false,
+    "manualReview": false,
+    "accepts": {
+      "startup": null,
+      "saas": true,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": true
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-04",
+    "nextVerification": "2027-02-04",
+    "verification": {
+      "status": "verified",
+      "source": "official-website",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "recommendedIndustries": [
+      "Ecommerce",
+      "Consumer services",
+      "Financial services"
+    ],
+    "editorialTags": [
+      "reviews",
+      "trust-signal",
+      "open-review"
+    ],
+    "pros": [
+      "Free account tier confirmed on the business site",
+      "Widely recognised consumer trust signal"
+    ],
+    "cons": [
+      "Open review model is susceptible to review manipulation",
+      "Advanced features are paid"
+    ],
+    "editorNotes": "Verified 2026-08-04 via business.trustpilot.com; the consumer domain returned HTTP 403 to automated fetch."
+  },
+  {
+    "id": "global-yelp",
+    "name": "Yelp for Business",
+    "slug": "yelp-for-business",
+    "country": "global",
+    "category": "local-business",
+    "website": "https://business.yelp.com/",
+    "description": "Local business listing and consumer review platform; claiming a basic business page is free, with paid advertising available.",
+    "tier": "tier1",
+    "scope": "global",
+    "petroHrysScore": 79,
+    "scoreFactors": {
+      "editorialTrust": 7,
+      "businessUsefulness": 9,
+      "verificationQuality": 7,
+      "platformReputation": 9,
+      "spamResistance": 6,
+      "industryImportance": 9,
+      "longTermStability": 9,
+      "submissionQuality": 8,
+      "transparency": 7,
+      "moderationQuality": 7
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "freemium",
+    "registrationRequired": true,
+    "reviewSystem": true,
+    "verificationRequired": true,
+    "manualReview": false,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": null,
+      "agency": null,
+      "freelancer": true,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-04",
+    "nextVerification": "2027-02-04",
+    "verification": {
+      "status": "verified",
+      "source": "official-website",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "recommendedIndustries": [
+      "Restaurants",
+      "Home services",
+      "Local retail",
+      "Health and beauty"
+    ],
+    "editorialTags": [
+      "local-seo",
+      "reviews",
+      "maps"
+    ],
+    "pros": [
+      "Explicitly free to claim a business page",
+      "Strong local discovery signal"
+    ],
+    "cons": [
+      "Review recommendation software filters some reviews",
+      "Advertising pressure is a common complaint"
+    ],
+    "editorNotes": "Verified 2026-08-04 at business.yelp.com after two redirects from yelp.com/business."
+  },
+  {
+    "id": "global-capterra",
+    "name": "Capterra",
+    "slug": "capterra",
+    "country": "global",
+    "category": "software",
+    "website": "https://www.capterra.com/",
+    "description": "Software comparison directory listing business applications by category with verified user reviews and feature breakdowns.",
+    "tier": "tier1",
+    "scope": "global",
+    "petroHrysScore": 83,
+    "scoreFactors": {
+      "editorialTrust": 8,
+      "businessUsefulness": 9,
+      "verificationQuality": 8,
+      "platformReputation": 9,
+      "spamResistance": 7,
+      "industryImportance": 9,
+      "longTermStability": 9,
+      "submissionQuality": 8,
+      "transparency": 6,
+      "moderationQuality": 8
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "unknown",
+    "registrationRequired": true,
+    "reviewSystem": true,
+    "verificationRequired": true,
+    "manualReview": true,
+    "accepts": {
+      "startup": null,
+      "saas": true,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": true,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-04",
+    "nextVerification": "2027-02-04",
+    "verification": {
+      "status": "verified",
+      "source": "official-website",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "recommendedIndustries": [
+      "Project management",
+      "CRM",
+      "Accounting",
+      "HR",
+      "Healthcare"
+    ],
+    "editorialTags": [
+      "software-reviews",
+      "buyer-intent",
+      "gartner-owned"
+    ],
+    "pros": [
+      "Large verified review corpus",
+      "Category structure aids comparison"
+    ],
+    "cons": [
+      "Vendor listing pricing is not disclosed on the homepage",
+      "Ranking is influenced by paid placement"
+    ],
+    "editorNotes": "Verified 2026-08-04. Listing cost not stated publicly, so free and paid remain null."
+  },
+  {
+    "id": "global-software-advice",
+    "name": "Software Advice",
+    "slug": "software-advice",
+    "country": "global",
+    "category": "software",
+    "website": "https://www.softwareadvice.com/",
+    "description": "Software advisory and comparison directory pairing category listings with verified user reviews and a free recommendation service.",
+    "tier": "tier2",
+    "scope": "global",
+    "petroHrysScore": 74,
+    "scoreFactors": {
+      "editorialTrust": 7,
+      "businessUsefulness": 8,
+      "verificationQuality": 7,
+      "platformReputation": 8,
+      "spamResistance": 7,
+      "industryImportance": 8,
+      "longTermStability": 8,
+      "submissionQuality": 7,
+      "transparency": 6,
+      "moderationQuality": 7
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "unknown",
+    "registrationRequired": true,
+    "reviewSystem": true,
+    "verificationRequired": true,
+    "manualReview": true,
+    "accepts": {
+      "startup": null,
+      "saas": true,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-04",
+    "nextVerification": "2027-02-04",
+    "verification": {
+      "status": "verified",
+      "source": "official-website",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "recommendedIndustries": [
+      "Accounting",
+      "CRM",
+      "Construction",
+      "Medical",
+      "Legal"
+    ],
+    "editorialTags": [
+      "software-reviews",
+      "advisory",
+      "gartner-owned"
+    ],
+    "pros": [
+      "Advisory service is free to buyers",
+      "Covers 150+ industry verticals"
+    ],
+    "cons": [
+      "Buyer-side advice is monetised through vendor referrals",
+      "Ownership is not stated on the homepage"
+    ],
+    "editorNotes": "Verified 2026-08-04. Homepage claims 2.5M+ verified reviews. Vendor pricing not disclosed."
+  },
+  {
+    "id": "global-alternativeto",
+    "name": "AlternativeTo",
+    "slug": "alternativeto",
+    "country": "global",
+    "category": "software",
+    "website": "https://alternativeto.net/",
+    "description": "Crowd-sourced catalogue of software alternatives, ranking roughly 150,000 applications by user opinion.",
+    "tier": "tier2",
+    "scope": "global",
+    "petroHrysScore": 69,
+    "scoreFactors": {
+      "editorialTrust": 7,
+      "businessUsefulness": 7,
+      "verificationQuality": 6,
+      "platformReputation": 7,
+      "spamResistance": 6,
+      "industryImportance": 7,
+      "longTermStability": 7,
+      "submissionQuality": 8,
+      "transparency": 8,
+      "moderationQuality": 6
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "free",
+    "registrationRequired": true,
+    "reviewSystem": true,
+    "verificationRequired": false,
+    "manualReview": true,
+    "accepts": {
+      "startup": null,
+      "saas": true,
+      "enterprise": null,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": true,
+      "nonprofit": null,
+      "ai": true,
+      "mobileApp": true,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-04",
+    "nextVerification": "2027-02-04",
+    "verification": {
+      "status": "verified",
+      "source": "official-website",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "recommendedIndustries": [
+      "Consumer software",
+      "Developer tools",
+      "Open source"
+    ],
+    "editorialTags": [
+      "crowd-sourced",
+      "alternatives",
+      "community"
+    ],
+    "pros": [
+      "Free community submission",
+      "Strong coverage of open-source alternatives"
+    ],
+    "cons": [
+      "Rankings reflect community opinion rather than structured testing"
+    ],
+    "editorNotes": "Verified 2026-08-04. Homepage states 149,612 applications and 2,021,528 user opinions."
+  },
+  {
+    "id": "global-clutch",
+    "name": "Clutch",
+    "slug": "clutch",
+    "country": "global",
+    "category": "marketing",
+    "website": "https://clutch.co/",
+    "description": "B2B service-provider directory covering development, design and marketing firms, built around verified client interviews.",
+    "tier": "tier1",
+    "scope": "global",
+    "petroHrysScore": 81,
+    "scoreFactors": {
+      "editorialTrust": 8,
+      "businessUsefulness": 9,
+      "verificationQuality": 9,
+      "platformReputation": 8,
+      "spamResistance": 8,
+      "industryImportance": 8,
+      "longTermStability": 8,
+      "submissionQuality": 7,
+      "transparency": 7,
+      "moderationQuality": 8
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "unknown",
+    "registrationRequired": true,
+    "reviewSystem": true,
+    "verificationRequired": true,
+    "manualReview": true,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": true,
+      "freelancer": true,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-04",
+    "nextVerification": "2027-02-04",
+    "verification": {
+      "status": "verified",
+      "source": "official-website",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "recommendedIndustries": [
+      "Software development",
+      "Digital marketing",
+      "IT services",
+      "Design"
+    ],
+    "editorialTags": [
+      "agency-directory",
+      "verified-reviews",
+      "b2b"
+    ],
+    "pros": [
+      "Reviews are verified rather than open submission",
+      "2,000+ service categories"
+    ],
+    "cons": [
+      "Listing pricing is not disclosed publicly",
+      "Leaderboard position is influenced by paid sponsorship"
+    ],
+    "editorNotes": "Verified 2026-08-04. Describes itself as a marketplace for finding business services."
+  },
+  {
+    "id": "global-designrush",
+    "name": "DesignRush",
+    "slug": "designrush",
+    "country": "global",
+    "category": "marketing",
+    "website": "https://www.designrush.com/",
+    "description": "Agency directory and awards platform listing design, development and marketing firms with star-rated client feedback.",
+    "tier": "tier2",
+    "scope": "global",
+    "petroHrysScore": 60,
+    "scoreFactors": {
+      "editorialTrust": 6,
+      "businessUsefulness": 7,
+      "verificationQuality": 6,
+      "platformReputation": 6,
+      "spamResistance": 5,
+      "industryImportance": 6,
+      "longTermStability": 6,
+      "submissionQuality": 6,
+      "transparency": 5,
+      "moderationQuality": 6
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "unknown",
+    "registrationRequired": true,
+    "reviewSystem": true,
+    "verificationRequired": true,
+    "manualReview": true,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": null,
+      "agency": true,
+      "freelancer": true,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-04",
+    "nextVerification": "2027-02-04",
+    "verification": {
+      "status": "verified",
+      "source": "official-website",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "recommendedIndustries": [
+      "Web design",
+      "Branding",
+      "SEO",
+      "Video production"
+    ],
+    "editorialTags": [
+      "agency-directory",
+      "awards",
+      "b2b"
+    ],
+    "pros": [
+      "Broad agency category coverage",
+      "Displays client star ratings"
+    ],
+    "cons": [
+      "Listing pricing not disclosed",
+      "Awards and rankings model is commercially driven"
+    ],
+    "editorNotes": "Verified 2026-08-04. Listing cost not stated on the homepage."
+  },
+  {
+    "id": "global-crunchbase",
+    "name": "Crunchbase",
+    "slug": "crunchbase",
+    "country": "global",
+    "category": "startup",
+    "website": "https://www.crunchbase.com/",
+    "description": "Private-market intelligence platform profiling companies, investors and people, with a public company-profile submission route.",
+    "tier": "tier1",
+    "scope": "global",
+    "petroHrysScore": 82,
+    "scoreFactors": {
+      "editorialTrust": 8,
+      "businessUsefulness": 9,
+      "verificationQuality": 7,
+      "platformReputation": 9,
+      "spamResistance": 8,
+      "industryImportance": 9,
+      "longTermStability": 9,
+      "submissionQuality": 8,
+      "transparency": 7,
+      "moderationQuality": 7
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "freemium",
+    "registrationRequired": true,
+    "reviewSystem": false,
+    "verificationRequired": true,
+    "manualReview": true,
+    "accepts": {
+      "startup": true,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": true,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-04",
+    "nextVerification": "2027-02-04",
+    "verification": {
+      "status": "verified",
+      "source": "official-website",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "recommendedIndustries": [
+      "Venture capital",
+      "Startups",
+      "Private markets"
+    ],
+    "editorialTags": [
+      "funding-data",
+      "company-profiles",
+      "investor-data"
+    ],
+    "pros": [
+      "Widely cited funding and investor dataset",
+      "Free profile creation route exists"
+    ],
+    "cons": [
+      "Most analytical depth sits behind a paid plan",
+      "No public review system"
+    ],
+    "editorNotes": "Verified 2026-08-04 on the homepage; the organisation profile URL returned HTTP 403 to automated fetch."
+  },
+  {
+    "id": "global-product-hunt",
+    "name": "Product Hunt",
+    "slug": "product-hunt",
+    "country": "global",
+    "category": "startup",
+    "website": "https://www.producthunt.com/",
+    "description": "Daily launch platform where new software products are posted and ranked by community upvotes and comments.",
+    "tier": "tier1",
+    "scope": "global",
+    "petroHrysScore": 74,
+    "scoreFactors": {
+      "editorialTrust": 7,
+      "businessUsefulness": 8,
+      "verificationQuality": 6,
+      "platformReputation": 9,
+      "spamResistance": 6,
+      "industryImportance": 8,
+      "longTermStability": 8,
+      "submissionQuality": 8,
+      "transparency": 7,
+      "moderationQuality": 7
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "unknown",
+    "registrationRequired": true,
+    "reviewSystem": true,
+    "verificationRequired": true,
+    "manualReview": false,
+    "accepts": {
+      "startup": true,
+      "saas": true,
+      "enterprise": null,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": true,
+      "mobileApp": true,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-04",
+    "nextVerification": "2027-02-04",
+    "verification": {
+      "status": "verified",
+      "source": "official-website",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "recommendedIndustries": [
+      "AI tools",
+      "Developer tools",
+      "Design tools",
+      "Productivity"
+    ],
+    "editorialTags": [
+      "launch-platform",
+      "community-voted",
+      "startup-visibility"
+    ],
+    "pros": [
+      "High-visibility launch moment for new products",
+      "Active comment and upvote community"
+    ],
+    "cons": [
+      "Promoted placements exist, so ranking is not purely organic",
+      "Submission pricing not stated on the homepage"
+    ],
+    "editorNotes": "Verified 2026-08-04. Promoted badges observed on the homepage."
+  },
+  {
+    "id": "global-wellfound",
+    "name": "Wellfound",
+    "slug": "wellfound",
+    "country": "global",
+    "category": "startup",
+    "website": "https://wellfound.com/",
+    "description": "Startup talent marketplace hosting company profiles for more than 27,000 startups, with free unlimited job posting.",
+    "tier": "tier1",
+    "scope": "global",
+    "petroHrysScore": 75,
+    "scoreFactors": {
+      "editorialTrust": 7,
+      "businessUsefulness": 8,
+      "verificationQuality": 7,
+      "platformReputation": 8,
+      "spamResistance": 8,
+      "industryImportance": 7,
+      "longTermStability": 8,
+      "submissionQuality": 8,
+      "transparency": 7,
+      "moderationQuality": 7
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "freemium",
+    "registrationRequired": true,
+    "reviewSystem": false,
+    "verificationRequired": true,
+    "manualReview": false,
+    "accepts": {
+      "startup": true,
+      "saas": null,
+      "enterprise": null,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": true,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-04",
+    "nextVerification": "2027-02-04",
+    "verification": {
+      "status": "verified",
+      "source": "official-website",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "recommendedIndustries": [
+      "Startups",
+      "AI",
+      "Fintech",
+      "Robotics"
+    ],
+    "editorialTags": [
+      "startup-profiles",
+      "hiring",
+      "talent-marketplace"
+    ],
+    "pros": [
+      "Company profiles and job posting are free",
+      "Concentrated startup audience"
+    ],
+    "cons": [
+      "Oriented to hiring rather than general company discovery"
+    ],
+    "editorNotes": "Verified 2026-08-04. Site states unlimited jobs and applicants are $0 forever."
+  },
+  {
+    "id": "global-shopify-app-store",
+    "name": "Shopify App Store",
+    "slug": "shopify-app-store",
+    "country": "global",
+    "category": "app-directories",
+    "website": "https://apps.shopify.com/",
+    "description": "Official marketplace of applications extending Shopify stores, with merchant star ratings and review counts on every listing.",
+    "tier": "tier1",
+    "scope": "global",
+    "petroHrysScore": 88,
+    "scoreFactors": {
+      "editorialTrust": 9,
+      "businessUsefulness": 9,
+      "verificationQuality": 9,
+      "platformReputation": 9,
+      "spamResistance": 9,
+      "industryImportance": 8,
+      "longTermStability": 9,
+      "submissionQuality": 8,
+      "transparency": 8,
+      "moderationQuality": 9
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "unknown",
+    "registrationRequired": true,
+    "reviewSystem": true,
+    "verificationRequired": true,
+    "manualReview": true,
+    "accepts": {
+      "startup": null,
+      "saas": true,
+      "enterprise": null,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": true,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": true,
+      "ecommerce": true
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-04",
+    "nextVerification": "2027-02-04",
+    "verification": {
+      "status": "verified",
+      "source": "official-website",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "recommendedIndustries": [
+      "Ecommerce",
+      "Retail operations",
+      "Marketing automation"
+    ],
+    "editorialTags": [
+      "platform-marketplace",
+      "ecommerce",
+      "verified-reviews"
+    ],
+    "pros": [
+      "Over 16,000 apps with merchant reviews",
+      "Direct distribution to Shopify merchants"
+    ],
+    "cons": [
+      "Restricted to the Shopify ecosystem",
+      "App review process is gated by platform policy"
+    ],
+    "editorNotes": "Verified 2026-08-04. Listing fees not stated on the storefront."
+  },
+  {
+    "id": "global-salesforce-appexchange",
+    "name": "Salesforce AppExchange (AgentExchange)",
+    "slug": "salesforce-appexchange",
+    "country": "global",
+    "category": "app-directories",
+    "website": "https://appexchange.salesforce.com/",
+    "description": "Salesforce enterprise application marketplace; the storefront now presents itself under the AgentExchange name.",
+    "tier": "tier1",
+    "scope": "global",
+    "petroHrysScore": 85,
+    "scoreFactors": {
+      "editorialTrust": 9,
+      "businessUsefulness": 8,
+      "verificationQuality": 9,
+      "platformReputation": 9,
+      "spamResistance": 9,
+      "industryImportance": 8,
+      "longTermStability": 9,
+      "submissionQuality": 7,
+      "transparency": 7,
+      "moderationQuality": 9
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "unknown",
+    "registrationRequired": true,
+    "reviewSystem": null,
+    "verificationRequired": true,
+    "manualReview": true,
+    "accepts": {
+      "startup": null,
+      "saas": true,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": true,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": true,
+      "mobileApp": true,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-04",
+    "nextVerification": "2027-02-04",
+    "verification": {
+      "status": "verified",
+      "source": "official-website",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "recommendedIndustries": [
+      "Enterprise CRM",
+      "Sales operations",
+      "Service management"
+    ],
+    "editorialTags": [
+      "platform-marketplace",
+      "enterprise",
+      "salesforce"
+    ],
+    "pros": [
+      "Direct reach into Salesforce enterprise customers"
+    ],
+    "cons": [
+      "Storefront is mid-rebrand, so naming is currently ambiguous",
+      "Listing requires Salesforce partner processes"
+    ],
+    "editorNotes": "Verified 2026-08-04. The page states \"Salesforce AppExchange is now AgentExchange\". Review system could not be confirmed from the landing page, so reviewSystem is null."
+  },
+  {
+    "id": "global-hubspot-marketplace",
+    "name": "HubSpot App Marketplace",
+    "slug": "hubspot-app-marketplace",
+    "country": "global",
+    "category": "app-directories",
+    "website": "https://ecosystem.hubspot.com/marketplace/apps",
+    "description": "Official HubSpot marketplace listing integrations, workflows and templates that connect to the HubSpot platform.",
+    "tier": "tier2",
+    "scope": "global",
+    "petroHrysScore": 77,
+    "scoreFactors": {
+      "editorialTrust": 8,
+      "businessUsefulness": 7,
+      "verificationQuality": 8,
+      "platformReputation": 8,
+      "spamResistance": 9,
+      "industryImportance": 7,
+      "longTermStability": 8,
+      "submissionQuality": 7,
+      "transparency": 7,
+      "moderationQuality": 8
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "unknown",
+    "registrationRequired": true,
+    "reviewSystem": null,
+    "verificationRequired": true,
+    "manualReview": true,
+    "accepts": {
+      "startup": null,
+      "saas": true,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": true,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": true,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-04",
+    "nextVerification": "2027-02-04",
+    "verification": {
+      "status": "verified",
+      "source": "official-website",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "recommendedIndustries": [
+      "Marketing automation",
+      "Sales operations",
+      "Customer service"
+    ],
+    "editorialTags": [
+      "platform-marketplace",
+      "integrations",
+      "hubspot"
+    ],
+    "pros": [
+      "Direct distribution to HubSpot customers",
+      "Shows installation counts"
+    ],
+    "cons": [
+      "Review functionality not evident from the marketplace index"
+    ],
+    "editorNotes": "Verified 2026-08-04. Review and rating system not visible on the index page, so reviewSystem is null."
+  },
+  {
+    "id": "global-github-marketplace",
+    "name": "GitHub Marketplace",
+    "slug": "github-marketplace",
+    "country": "global",
+    "category": "developer",
+    "website": "https://github.com/marketplace",
+    "description": "GitHub marketplace cataloguing Apps and Actions across continuous integration, code quality, deployment and security.",
+    "tier": "tier1",
+    "scope": "global",
+    "petroHrysScore": 86,
+    "scoreFactors": {
+      "editorialTrust": 9,
+      "businessUsefulness": 8,
+      "verificationQuality": 8,
+      "platformReputation": 10,
+      "spamResistance": 9,
+      "industryImportance": 8,
+      "longTermStability": 9,
+      "submissionQuality": 8,
+      "transparency": 8,
+      "moderationQuality": 8
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "unknown",
+    "registrationRequired": true,
+    "reviewSystem": null,
+    "verificationRequired": true,
+    "manualReview": true,
+    "accepts": {
+      "startup": null,
+      "saas": true,
+      "enterprise": null,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": true,
+      "openSource": true,
+      "nonprofit": null,
+      "ai": true,
+      "mobileApp": true,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-04",
+    "nextVerification": "2027-02-04",
+    "verification": {
+      "status": "verified",
+      "source": "official-website",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "recommendedIndustries": [
+      "DevOps",
+      "Software engineering",
+      "Security tooling"
+    ],
+    "editorialTags": [
+      "developer-ecosystem",
+      "ci-cd",
+      "github"
+    ],
+    "pros": [
+      "Direct reach into developer workflows",
+      "Covers both Apps and Actions"
+    ],
+    "cons": [
+      "No rating or review mechanism visible on the index"
+    ],
+    "editorNotes": "Verified 2026-08-04. No star ratings or review counts observed on the marketplace index."
+  },
+  {
+    "id": "global-wordpress-plugins",
+    "name": "WordPress Plugin Directory",
+    "slug": "wordpress-plugin-directory",
+    "country": "global",
+    "category": "developer",
+    "website": "https://wordpress.org/plugins/",
+    "description": "Official directory of free and open-source WordPress plugins, with user ratings and install counts on every entry.",
+    "tier": "tier1",
+    "scope": "global",
+    "petroHrysScore": 87,
+    "scoreFactors": {
+      "editorialTrust": 9,
+      "businessUsefulness": 9,
+      "verificationQuality": 8,
+      "platformReputation": 9,
+      "spamResistance": 8,
+      "industryImportance": 9,
+      "longTermStability": 9,
+      "submissionQuality": 9,
+      "transparency": 9,
+      "moderationQuality": 8
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "free",
+    "registrationRequired": true,
+    "reviewSystem": true,
+    "verificationRequired": true,
+    "manualReview": true,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": null,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": true,
+      "openSource": true,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": true,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-04",
+    "nextVerification": "2027-02-04",
+    "verification": {
+      "status": "verified",
+      "source": "official-website",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "recommendedIndustries": [
+      "Web publishing",
+      "Ecommerce",
+      "Open source"
+    ],
+    "editorialTags": [
+      "open-source",
+      "developer-ecosystem",
+      "free-submission"
+    ],
+    "pros": [
+      "Free hosting and submission for plugins",
+      "Ratings and install counts are public"
+    ],
+    "cons": [
+      "Plugins must be GPL-compatible",
+      "Manual review can delay publication"
+    ],
+    "editorNotes": "Verified 2026-08-04. Described on the site as the largest directory of free and open-source WordPress plugins."
+  },
+  {
+    "id": "global-firefox-addons",
+    "name": "Add-ons for Firefox",
+    "slug": "firefox-add-ons",
+    "country": "global",
+    "category": "app-directories",
+    "website": "https://addons.mozilla.org/en-US/firefox/",
+    "description": "Mozilla-operated catalogue distributing Firefox extensions, themes, dictionaries and language packs with user star ratings.",
+    "tier": "tier1",
+    "scope": "global",
+    "petroHrysScore": 83,
+    "scoreFactors": {
+      "editorialTrust": 9,
+      "businessUsefulness": 7,
+      "verificationQuality": 9,
+      "platformReputation": 9,
+      "spamResistance": 9,
+      "industryImportance": 7,
+      "longTermStability": 8,
+      "submissionQuality": 8,
+      "transparency": 9,
+      "moderationQuality": 9
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "unknown",
+    "registrationRequired": true,
+    "reviewSystem": true,
+    "verificationRequired": true,
+    "manualReview": true,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": null,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": true,
+      "openSource": true,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": true,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-04",
+    "nextVerification": "2027-02-04",
+    "verification": {
+      "status": "verified",
+      "source": "official-website",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "recommendedIndustries": [
+      "Browser extensions",
+      "Privacy tooling",
+      "Developer tools"
+    ],
+    "editorialTags": [
+      "browser-ecosystem",
+      "open-source-friendly",
+      "mozilla"
+    ],
+    "pros": [
+      "Star ratings and user counts on every listing",
+      "Operated by a non-profit foundation"
+    ],
+    "cons": [
+      "Submission cost not stated on the landing page",
+      "Restricted to the Firefox ecosystem"
+    ],
+    "editorNotes": "Verified 2026-08-04. Official title on the page is \"Add-ons for Firefox\"."
+  }
+]

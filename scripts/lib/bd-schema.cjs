@@ -1,0 +1,108 @@
+// scripts/lib/bd-schema.cjs
+'use strict';
+
+// The single declaration of what a directory record is. The validator, the
+// migration, the renderer and the tests all read this file, so a field can
+// never be added in one place and forgotten in another.
+
+// --- enumerations -----------------------------------------------------------
+
+const TIERS = ['tier1', 'tier2', 'tier3'];
+const BACKLINK_TYPES = ['dofollow', 'nofollow', 'sponsored', 'ugc', 'mixed', 'none'];
+const ROBOTS_STATES = ['allowed', 'disallowed', 'partial', 'unknown'];
+const SUBMISSION_MODELS = ['free', 'paid', 'freemium', 'unknown'];
+const METRIC_STATUSES = ['unknown', 'verified', 'measured'];
+const VERIFICATION_STATUSES = ['verified', 'unverified', 'pending'];
+const VERIFICATION_SOURCES = [
+  'official-website',
+  'official-documentation',
+  'government-register',
+  'manual-verification',
+  'other',
+];
+
+// --- accepts ----------------------------------------------------------------
+// One object, twelve tri-state flags. Replaces the six loose acceptsX columns.
+// `null` means "not established" and renders as Unknown; it is never inferred.
+
+const ACCEPTS_KEYS = [
+  'startup', 'saas', 'enterprise', 'agency', 'freelancer', 'localBusiness',
+  'developer', 'openSource', 'nonprofit', 'ai', 'mobileApp', 'ecommerce',
+];
+
+const ACCEPTS_LABELS = {
+  startup: 'Startups',
+  saas: 'SaaS products',
+  enterprise: 'Enterprises',
+  agency: 'Agencies',
+  freelancer: 'Freelancers',
+  localBusiness: 'Local businesses',
+  developer: 'Developer tools',
+  openSource: 'Open-source projects',
+  nonprofit: 'Non-profits',
+  ai: 'AI products',
+  mobileApp: 'Mobile apps',
+  ecommerce: 'Ecommerce stores',
+};
+
+// --- metrics ----------------------------------------------------------------
+
+const SCORE_FIELDS = ['domainRating', 'authorityScore'];
+const COUNT_FIELDS = ['estimatedTraffic', 'referringDomains', 'httpStatus'];
+const THIRD_PARTY_METRICS = ['domainRating', 'authorityScore', 'estimatedTraffic', 'referringDomains'];
+const NUMERIC_METRICS = [...SCORE_FIELDS, ...COUNT_FIELDS];
+
+// --- PetroHrys Score --------------------------------------------------------
+// Ten editorial factors, each scored 0-10 by a human reviewer. Weights total
+// exactly 100. The published score is the weighted sum, so it is reproducible
+// and the validator re-computes it rather than trusting the stored number.
+
+const SCORE_FACTORS = [
+  { key: 'editorialTrust', weight: 15, label: 'Editorial trust' },
+  { key: 'businessUsefulness', weight: 15, label: 'Business usefulness' },
+  { key: 'verificationQuality', weight: 12, label: 'Verification quality' },
+  { key: 'platformReputation', weight: 10, label: 'Platform reputation' },
+  { key: 'spamResistance', weight: 10, label: 'Spam resistance' },
+  { key: 'industryImportance', weight: 10, label: 'Industry importance' },
+  { key: 'longTermStability', weight: 10, label: 'Long-term stability' },
+  { key: 'submissionQuality', weight: 8, label: 'Submission quality' },
+  { key: 'transparency', weight: 5, label: 'Transparency' },
+  { key: 'moderationQuality', weight: 5, label: 'Moderation quality' },
+];
+
+const SCORE_WEIGHT_TOTAL = SCORE_FACTORS.reduce((sum, f) => sum + f.weight, 0);
+
+// Guards the invariant at require time: a bad edit fails immediately rather
+// than silently skewing every score in the dataset.
+if (SCORE_WEIGHT_TOTAL !== 100) {
+  throw new Error(`PetroHrys Score weights must total 100, got ${SCORE_WEIGHT_TOTAL}.`);
+}
+
+// factors are 0-10, weights total 100 => raw total is 0-1000 => /10 gives 0-100
+function computeScore(factors) {
+  if (!factors || typeof factors !== 'object') return null;
+  let total = 0;
+  for (const { key, weight } of SCORE_FACTORS) {
+    const value = factors[key];
+    if (typeof value !== 'number' || !Number.isFinite(value)) return null;
+    total += value * weight;
+  }
+  return Math.round(total / 10);
+}
+
+// --- required shape ---------------------------------------------------------
+
+const REQUIRED_STRINGS = ['id', 'name', 'slug', 'country', 'category', 'website', 'description'];
+const ARRAY_FIELDS = ['recommendedIndustries', 'pros', 'cons', 'editorialTags'];
+const NULLABLE_BOOLEANS = ['registrationRequired', 'reviewSystem', 'verificationRequired',
+  'manualReview', 'sitemap', 'indexed', 'ssl'];
+const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
+
+module.exports = {
+  TIERS, BACKLINK_TYPES, ROBOTS_STATES, SUBMISSION_MODELS, METRIC_STATUSES,
+  VERIFICATION_STATUSES, VERIFICATION_SOURCES,
+  ACCEPTS_KEYS, ACCEPTS_LABELS,
+  SCORE_FIELDS, COUNT_FIELDS, THIRD_PARTY_METRICS, NUMERIC_METRICS,
+  SCORE_FACTORS, SCORE_WEIGHT_TOTAL, computeScore,
+  REQUIRED_STRINGS, ARRAY_FIELDS, NULLABLE_BOOLEANS, DATE_RE,
+};

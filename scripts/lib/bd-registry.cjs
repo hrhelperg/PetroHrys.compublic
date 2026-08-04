@@ -2,6 +2,7 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const { PATHS } = require('./bd-util.cjs');
+const { migrateRecord } = require('./bd-migrate.cjs');
 
 const STRUCTURAL_RESERVED = ['categories', 'page', 'feed.xml', 'index'];
 const SLUG_RE = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
@@ -159,7 +160,9 @@ function loadRegistry(dataRoot = PATHS.dataRoot) {
         seenDomain.set(domainKey, file);
       }
 
-      directories.push(entry); // stored verbatim — nulls preserved, nothing normalised
+      // Migrated on load, so a record still written in the pre-expansion shape
+      // keeps working. The migration only moves data; it never invents a value.
+      directories.push(migrateRecord(entry));
     }
   }
 

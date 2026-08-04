@@ -8,32 +8,46 @@
     "website": "https://www.handelsregister.de/rp_web/welcome.xhtml",
     "description": "Joint German register portal aggregating the commercial, cooperative, partnership and association registers of all federal states.",
     "tier": "tier1",
-    "petroHrysScore": 93,
+    "scope": "national",
+    "petroHrysScore": 90,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 9,
+      "verificationQuality": 9,
+      "platformReputation": 8,
+      "spamResistance": 10,
+      "industryImportance": 9,
+      "longTermStability": 10,
+      "submissionQuality": 7,
+      "transparency": 8,
+      "moderationQuality": 9
+    },
     "domainRating": null,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
+    "metricStatus": "unknown",
     "metricsProvenance": {},
-    "free": true,
-    "paid": null,
+    "submissionModel": "unknown",
+    "registrationRequired": true,
+    "reviewSystem": false,
     "verificationRequired": true,
     "manualReview": false,
-    "acceptsCompanies": true,
-    "acceptsProducts": null,
-    "acceptsSaaS": null,
-    "acceptsApps": null,
-    "acceptsStartups": true,
-    "acceptsAI": null,
-    "acceptsLocalBusiness": null,
-    "acceptsEnterprise": true,
-    "acceptsEcommerce": null,
-    "acceptsAgency": null,
-    "acceptsFreelancer": null,
-    "acceptsNonprofit": true,
-    "acceptsDeveloper": null,
-    "acceptsMobileApp": null,
-    "acceptsOpenSource": null,
+    "accepts": {
+      "startup": true,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": true,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
     "backlinkType": null,
     "robots": null,
     "sitemap": null,
@@ -41,8 +55,23 @@
     "ssl": true,
     "lastVerified": "2026-08-04",
     "nextVerification": "2027-02-04",
+    "verification": {
+      "status": "verified",
+      "source": "official-website",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
     "recommendedIndustries": [
       "Any German-registered legal entity"
+    ],
+    "editorialTags": [
+      "statutory",
+      "primary-source"
     ],
     "pros": [
       "Covers every Bundesland from one portal",
@@ -51,15 +80,6 @@
     "cons": [
       "Structured retrieval is described by the operator as a non-binding service"
     ],
-    "editorNotes": "Verified 2026-08-04. Operated by the state justice administrations; copyright held by the Ministry of Justice of North Rhine-Westphalia. Whether every retrieval is free was not established, so paid is null.",
-    "submissionModel": "unknown",
-    "registration": "required",
-    "reviewSystem": false,
-    "editorialTags": [
-      "statutory",
-      "primary-source"
-    ],
-    "scope": "national",
-    "verificationMethod": "official-url-fetch"
+    "editorNotes": "Verified 2026-08-04. Operated by the state justice administrations; copyright held by the Ministry of Justice of North Rhine-Westphalia. Whether every retrieval is free was not established, so paid is null."
   }
 ]

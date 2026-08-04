@@ -8,32 +8,46 @@
     "website": "https://find-and-update.company-information.service.gov.uk/",
     "description": "Statutory register of UK companies operated by Companies House, holding filed accounts, officers and registered office data.",
     "tier": "tier1",
-    "petroHrysScore": 96,
+    "scope": "national",
+    "petroHrysScore": 95,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 10,
+      "verificationQuality": 9,
+      "platformReputation": 9,
+      "spamResistance": 10,
+      "industryImportance": 10,
+      "longTermStability": 10,
+      "submissionQuality": 8,
+      "transparency": 9,
+      "moderationQuality": 9
+    },
     "domainRating": null,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
+    "metricStatus": "unknown",
     "metricsProvenance": {},
-    "free": true,
-    "paid": false,
+    "submissionModel": "free",
+    "registrationRequired": true,
+    "reviewSystem": false,
     "verificationRequired": true,
     "manualReview": false,
-    "acceptsCompanies": true,
-    "acceptsProducts": null,
-    "acceptsSaaS": null,
-    "acceptsApps": null,
-    "acceptsStartups": true,
-    "acceptsAI": null,
-    "acceptsLocalBusiness": null,
-    "acceptsEnterprise": true,
-    "acceptsEcommerce": null,
-    "acceptsAgency": null,
-    "acceptsFreelancer": null,
-    "acceptsNonprofit": true,
-    "acceptsDeveloper": null,
-    "acceptsMobileApp": null,
-    "acceptsOpenSource": null,
+    "accepts": {
+      "startup": true,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": true,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
     "backlinkType": null,
     "robots": null,
     "sitemap": null,
@@ -41,8 +55,24 @@
     "ssl": true,
     "lastVerified": "2026-08-04",
     "nextVerification": "2027-02-04",
+    "verification": {
+      "status": "verified",
+      "source": "official-website",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
     "recommendedIndustries": [
       "Any UK-incorporated entity"
+    ],
+    "editorialTags": [
+      "statutory",
+      "primary-source",
+      "open-data"
     ],
     "pros": [
       "Primary legal source for UK company data",
@@ -51,16 +81,6 @@
     "cons": [
       "Companies House states it does not verify the accuracy of filed information"
     ],
-    "editorNotes": "Verified 2026-08-04 by fetching the official GOV.UK service. Incorporation is a legal process, not a discretionary listing.",
-    "submissionModel": "free",
-    "registration": "required",
-    "reviewSystem": false,
-    "editorialTags": [
-      "statutory",
-      "primary-source",
-      "open-data"
-    ],
-    "scope": "national",
-    "verificationMethod": "official-url-fetch"
+    "editorNotes": "Verified 2026-08-04 by fetching the official GOV.UK service. Incorporation is a legal process, not a discretionary listing."
   }
 ]

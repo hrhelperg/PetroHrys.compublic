@@ -8,19 +8,31 @@ It is deliberately *not* a popularity or traffic measure. A directory can be eno
 
 ## Scale
 
-0–100, expressed as the sum of five independently-judged dimensions worth 20 points each.
+0–100. Ten editorial factors, each scored **0–10** by a human reviewer, combined by fixed weights that total **exactly 100%**. The published score is the weighted sum, not a separate judgement:
 
-| # | Dimension | What earns points |
+```
+petroHrysScore = round( Σ (factor × weight) / 10 )
+```
+
+Weights live in `scripts/lib/bd-schema.cjs` and are guarded at require time: if they no longer total 100, the module throws rather than silently skewing every score in the dataset.
+
+## The ten factors
+
+| Factor | Weight | What earns points |
 |---|---|---|
-| 1 | **Authority and permanence** | Statutory or official standing; long operating history; unlikely to disappear or be sold for parts. A national company register scores at the top; a three-year-old aggregator does not. |
-| 2 | **Editorial usefulness** | Does appearing there genuinely help a real business be discovered or evaluated by the right audience? Reach into a specific, relevant audience beats raw size. |
-| 3 | **Data quality and verification rigour** | Are entries checked? Are reviews verified against real engagements? Is stale data corrected? Open, unverified submission scores lower. |
-| 4 | **Accessibility** | Can a legitimate business appear without paying? Free and open scores highest; freemium mid; pay-to-appear lowest. Paid *enhancement* is treated far more leniently than paid *inclusion*. |
-| 5 | **Transparency** | Is ownership clear? Are ranking and monetisation disclosed? Are the rules of inclusion published? Undisclosed pay-for-placement is penalised heavily. |
+| **Editorial trust** | 15% | Is the operator credible, and is the listing itself trustworthy to a reader? |
+| **Business usefulness** | 15% | Does appearing there genuinely help a real business be found or evaluated? |
+| **Verification quality** | 12% | Are entries and reviews checked against reality, or accepted on assertion? |
+| **Platform reputation** | 10% | How the platform is regarded by the audience it serves. |
+| **Spam resistance** | 10% | How hard it is to game, flood, or buy position. |
+| **Industry importance** | 10% | How central the directory is to its sector. |
+| **Long-term stability** | 10% | Likelihood it still exists, unchanged in character, in five years. |
+| **Submission quality** | 8% | How workable the listing process is for a legitimate business. |
+| **Transparency** | 5% | Is ownership, ranking and monetisation disclosed? |
+| **Moderation quality** | 5% | Are bad entries and abusive reviews actually dealt with? |
 
-## How a score is arrived at
 
-Each dimension is scored 0, 5, 10, 15 or 20 — deliberately coarse, because finer granularity would imply precision the assessment does not have. The five are summed. No weighting, no normalisation, no rounding.
+Every record stores its `scoreFactors`, and **the validator recomputes the score and rejects any record whose stored number does not match its factors.** A score cannot be asserted; it can only be derived. Each directory page publishes the full breakdown, so any reader can check the arithmetic.
 
 ## What the bands mean
 
@@ -31,8 +43,6 @@ Each dimension is scored 0, 5, 10, 15 or 20 — deliberately coarse, because fin
 | 70–79 | Worth doing for the right business, with caveats. |
 | 60–69 | Situational. Useful in a specific niche or geography only. |
 | Below 60 | Not currently represented in this dataset. |
-
-The dataset holds nothing below 60 because directories that would score lower are rejected rather than recorded. The score is a ranking tool among directories worth considering, not a pass/fail gate.
 
 ## What the score explicitly is not
 
@@ -48,6 +58,8 @@ The dataset holds nothing below 60 because directories that would score lower ar
 
 ## Worked examples
 
-**Companies House Register — 96.** Authority 20 (statutory UK register). Usefulness 20 (legally required; the primary source everyone checks). Rigour 18 (structured filings, though Companies House states it does not verify accuracy). Accessibility 20 (free, no login). Transparency 18 (government-operated, published rules).
+Both are reproducible from the stored `scoreFactors`.
 
-**DesignRush — 68.** Authority 12 (established but commercial and replaceable). Usefulness 14 (real agency-buyer audience). Rigour 14 (star ratings, but weaker verification than Clutch). Accessibility 14 (listing cost not disclosed). Transparency 14 (awards and ranking model is commercially driven and not fully documented).
+**Companies House Register — 95.** Editorial trust 10, business usefulness 10, verification quality 9, platform reputation 9, spam resistance 10, industry importance 10, long-term stability 10, submission quality 8, transparency 9, moderation quality 9. Verification quality is 9 rather than 10 because Companies House states it does not check the accuracy of what is filed.
+
+**DesignRush — 60.** Editorial trust 6, business usefulness 7, verification quality 6, platform reputation 6, spam resistance 5, industry importance 6, long-term stability 6, submission quality 6, transparency 5, moderation quality 6. Spam resistance and transparency are the weakest dimensions: listing cost is undisclosed and the awards model is commercially driven.

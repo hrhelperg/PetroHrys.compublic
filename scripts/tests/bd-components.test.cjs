@@ -3,17 +3,10 @@
 const test = require('node:test');
 const assert = require('node:assert');
 const c = require('../lib/bd-components.cjs');
+const { verifiedRecord } = require('./helpers/fixtures.cjs');
 
-const DIR = {
-  id: 'us-example', slug: 'example-directory', name: 'Example Directory',
-  country: 'united-states', category: 'saas', website: 'https://example.com',
-  description: 'A directory of things.', tier: 'tier1',
-  petroHrysScore: null, domainRating: null, authorityScore: null,
-  estimatedTraffic: null, referringDomains: null, free: null, paid: null,
-  verificationRequired: null, manualReview: null, acceptsSaaS: null,
-  acceptsStartups: null, acceptsAI: null, lastVerified: null, nextVerification: null,
-  recommendedIndustries: [], pros: [], cons: [], editorNotes: '', metricsProvenance: {},
-};
+const DIR = verifiedRecord({ slug: 'example-directory', name: 'Example Directory',
+  description: 'A directory of things.' });
 
 const XSS = '<script>alert(1)</script>';
 const LONG = 'Ω'.repeat(5000);
@@ -153,18 +146,26 @@ test('external cta announces that it opens a new tab', () => {
 // --- null handling ----------------------------------------------------------
 
 test('null metrics render an em dash with a spoken equivalent, never zero', () => {
-  const html = c.metricsBlock(DIR);
+  // A first-party score with no value shows the dash; a third-party metric
+  // whose status is "unknown" says so in words instead.
+  const html = c.metricsBlock(verifiedRecord({ scoreFactors: null, petroHrysScore: null }));
   assert.ok(html.includes('&mdash;'));
   assert.ok(html.includes('Not recorded'));
+  assert.ok(html.includes('Unknown'));
   assert.ok(!/>0</.test(html), 'must never render 0 for an unknown value');
 });
 
 test('unknown fields never imply verification', () => {
-  const html = c.statusBadges(DIR);
+  const html = c.statusBadges(verifiedRecord({
+    lastVerified: null, nextVerification: null,
+    verification: { status: 'unverified', source: null, reviewers: [] },
+    scoreFactors: null, petroHrysScore: null,
+  }));
   assert.ok(html.includes('Not yet verified'));
-  assert.ok(html.includes('Listing cost not recorded'));
-  assert.ok(html.includes('Verification requirement not recorded'));
-  assert.ok(!/>Verified</.test(html));
+  assert.ok(html.includes('Submission model unknown'));
+  assert.ok(html.includes('Verification requirement unknown'));
+  assert.ok(html.includes('Registration requirement unknown'));
+  assert.ok(html.includes('Review system unknown'));
 });
 
 test('a verified record reports its date in a time element', () => {
@@ -173,7 +174,12 @@ test('a verified record reports its date in a time element', () => {
 });
 
 test('an unverified record says so rather than showing a date', () => {
-  assert.ok(c.provenanceBlock(DIR).includes('Not yet verified'));
+  const unverified = verifiedRecord({
+    lastVerified: null, nextVerification: null, scoreFactors: null, petroHrysScore: null,
+    verification: { status: 'unverified', source: null, reviewers: [] },
+  });
+  assert.ok(c.provenanceBlock(unverified).includes('Not yet verified'));
+  assert.ok(c.verificationBlock(unverified).includes('Not yet verified'));
 });
 
 test('third-party metrics always show provider and measurement date', () => {
@@ -259,8 +265,12 @@ test('control ids can be namespaced so two shells never collide', () => {
 });
 
 test('status is conveyed in words, never by colour alone', () => {
-  const html = c.statusBadges({ ...DIR, free: true, verificationRequired: true, lastVerified: '2026-08-01' });
-  for (const words of ['Verified', 'Free listing', 'Verification required']) {
+  const html = c.statusBadges(verifiedRecord({
+    submissionModel: 'free', verificationRequired: true,
+    registrationRequired: true, reviewSystem: true,
+  }));
+  for (const words of ['Verified', 'Free to submit', 'Verification required',
+    'Registration required', 'Has a review system']) {
     assert.ok(html.includes(words), `missing text for ${words}`);
   }
 });
@@ -365,17 +375,50 @@ test('the table is ordered by bd-sort, not by input order', () => {
 });
 
 test('rows carry the data attributes the client script needs', () => {
-  const html = c.directoryTable({ directories: [{ ...DIR, free: true }] });
+  const html = c.directoryTable({ directories: [verifiedRecord({
+    submissionModel: 'free', accepts: { saas: true },
+  })] });
   for (const attribute of ['data-bd-name', 'data-bd-haystack', 'data-bd-score',
-    'data-bd-dr', 'data-bd-as', 'data-bd-traffic', 'data-bd-free']) {
+    'data-bd-dr', 'data-bd-as', 'data-bd-traffic', 'data-bd-free-submission']) {
     assert.ok(html.includes(attribute), `missing ${attribute}`);
   }
-  assert.ok(html.includes('data-bd-free="1"'));
-  assert.ok(html.includes('data-bd-paid="0"'));
+  assert.ok(html.includes('data-bd-free-submission="1"'));
+  assert.ok(html.includes('data-bd-accepts-saas="1"'));
+  assert.ok(html.includes('data-bd-accepts-ai="0"'), 'null flags render as 0, not omitted');
+});
+
+test('the accepts list shows all twelve audiences including unknowns', () => {
+  const html = c.acceptsList(verifiedRecord({ accepts: { saas: true, freelancer: false } }));
+  assert.strictEqual((html.match(/bd-def-t/g) || []).length, 12);
+  assert.ok(html.includes('>Yes<'));
+  assert.ok(html.includes('>No<'));
+  assert.ok(html.includes('>Unknown<'), 'an unestablished flag must say Unknown');
+});
+
+test('the verification block names the reviewer and the source', () => {
+  const html = c.verificationBlock(verifiedRecord());
+  assert.ok(html.includes('Petro Hrys'));
+  assert.ok(html.includes('Official website'));
+  assert.ok(html.includes('<time datetime="2026-08-01">'));
+  assert.ok(html.includes('Verification status'));
+});
+
+test('the score breakdown publishes every weighted factor', () => {
+  const html = c.scoreBreakdown(verifiedRecord());
+  const { SCORE_FACTORS } = require('../lib/bd-schema.cjs');
+  for (const factor of SCORE_FACTORS) {
+    assert.ok(html.includes(factor.label), `missing factor ${factor.label}`);
+    assert.ok(html.includes(`${factor.weight}%`), `missing weight for ${factor.label}`);
+  }
+  assert.ok(html.includes('first-party editorial assessment'));
+});
+
+test('an unmeasured metric says Unknown rather than showing a bare dash', () => {
+  assert.ok(c.metricsBlock(verifiedRecord({ metricStatus: 'unknown' })).includes('Unknown'));
 });
 
 test('null metrics produce empty data attributes rather than zero', () => {
-  const html = c.directoryTable({ directories: [DIR] });
+  const html = c.directoryTable({ directories: [verifiedRecord({ scoreFactors: null, petroHrysScore: null })] });
   assert.ok(html.includes('data-bd-score=""'));
   assert.ok(!html.includes('data-bd-score="0"'));
 });
