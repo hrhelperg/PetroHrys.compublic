@@ -126,6 +126,181 @@
       <pubDate>Tue, 04 Aug 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
+      <title>Python Package Index (PyPI)</title>
+      <link>https://www.petrohrys.com/research/business-directories/global/pypi/</link>
+      <guid isPermaLink="true">https://www.petrohrys.com/research/business-directories/global/pypi/</guid>
+      <description>Official package repository for the Python language, maintained by the Python Software Foundation.</description>
+      <pubDate>Tue, 04 Aug 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>RubyGems.org</title>
+      <link>https://www.petrohrys.com/research/business-directories/global/rubygems/</link>
+      <guid isPermaLink="true">https://www.petrohrys.com/research/business-directories/global/rubygems/</guid>
+      <description>Package host for the Ruby language, operated by Ruby Central and the RubyGems team.</description>
+      <pubDate>Tue, 04 Aug 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Packagist.org</title>
+      <link>https://www.petrohrys.com/research/business-directories/global/packagist/</link>
+      <guid isPermaLink="true">https://www.petrohrys.com/research/business-directories/global/packagist/</guid>
+      <description>Main Composer repository, aggregating public PHP packages for dependency installation.</description>
+      <pubDate>Tue, 04 Aug 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>crates.io</title>
+      <link>https://www.petrohrys.com/research/business-directories/global/crates-io/</link>
+      <guid isPermaLink="true">https://www.petrohrys.com/research/business-directories/global/crates-io/</guid>
+      <description>Official package registry for the Rust language, operated by the Rust Foundation.</description>
+      <pubDate>Tue, 04 Aug 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>NuGet Gallery</title>
+      <link>https://www.petrohrys.com/research/business-directories/global/nuget/</link>
+      <guid isPermaLink="true">https://www.petrohrys.com/research/business-directories/global/nuget/</guid>
+      <description>Central package repository for the .NET ecosystem, operated by Microsoft.</description>
+      <pubDate>Tue, 04 Aug 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Maven Central</title>
+      <link>https://www.petrohrys.com/research/business-directories/global/maven-central/</link>
+      <guid isPermaLink="true">https://www.petrohrys.com/research/business-directories/global/maven-central/</guid>
+      <description>Central repository of open-source components for the Java and JVM ecosystem, operated by Sonatype.</description>
+      <pubDate>Tue, 04 Aug 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>pub.dev</title>
+      <link>https://www.petrohrys.com/research/business-directories/global/pub-dev/</link>
+      <guid isPermaLink="true">https://www.petrohrys.com/research/business-directories/global/pub-dev/</guid>
+      <description>Official package repository for Dart and Flutter applications, supported by Google.</description>
+      <pubDate>Tue, 04 Aug 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Hex</title>
+      <link>https://www.petrohrys.com/research/business-directories/global/hex/</link>
+      <guid isPermaLink="true">https://www.petrohrys.com/research/business-directories/global/hex/</guid>
+      <description>Package manager for the Erlang ecosystem, serving Elixir, Erlang and Gleam projects.</description>
+      <pubDate>Tue, 04 Aug 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Docker Hub</title>
+      <link>https://www.petrohrys.com/research/business-directories/global/docker-hub/</link>
+      <guid isPermaLink="true">https://www.petrohrys.com/research/business-directories/global/docker-hub/</guid>
+      <description>Container image library for discovering and publishing containerised applications.</description>
+      <pubDate>Tue, 04 Aug 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Flathub</title>
+      <link>https://www.petrohrys.com/research/business-directories/global/flathub/</link>
+      <guid isPermaLink="true">https://www.petrohrys.com/research/business-directories/global/flathub/</guid>
+      <description>Cross-distribution application store for Linux, distributing software as Flatpak packages.</description>
+      <pubDate>Tue, 04 Aug 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Snap Store</title>
+      <link>https://www.petrohrys.com/research/business-directories/global/snap-store/</link>
+      <guid isPermaLink="true">https://www.petrohrys.com/research/business-directories/global/snap-store/</guid>
+      <description>Application store for Linux operated by Canonical, distributing software packaged as snaps.</description>
+      <pubDate>Tue, 04 Aug 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>F-Droid</title>
+      <link>https://www.petrohrys.com/research/business-directories/global/f-droid/</link>
+      <guid isPermaLink="true">https://www.petrohrys.com/research/business-directories/global/f-droid/</guid>
+      <description>Android application catalogue restricted to free and open-source software.</description>
+      <pubDate>Tue, 04 Aug 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Visual Studio Marketplace</title>
+      <link>https://www.petrohrys.com/research/business-directories/global/visual-studio-marketplace/</link>
+      <guid isPermaLink="true">https://www.petrohrys.com/research/business-directories/global/visual-studio-marketplace/</guid>
+      <description>Microsoft marketplace distributing extensions for the Visual Studio family of products.</description>
+      <pubDate>Tue, 04 Aug 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>JetBrains Marketplace</title>
+      <link>https://www.petrohrys.com/research/business-directories/global/jetbrains-marketplace/</link>
+      <guid isPermaLink="true">https://www.petrohrys.com/research/business-directories/global/jetbrains-marketplace/</guid>
+      <description>Plugin marketplace for JetBrains integrated development environments.</description>
+      <pubDate>Tue, 04 Aug 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Atlassian Marketplace</title>
+      <link>https://www.petrohrys.com/research/business-directories/global/atlassian-marketplace/</link>
+      <guid isPermaLink="true">https://www.petrohrys.com/research/business-directories/global/atlassian-marketplace/</guid>
+      <description>Marketplace of applications extending Atlassian products, with user ratings on each listing.</description>
+      <pubDate>Tue, 04 Aug 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>WooCommerce extensions</title>
+      <link>https://www.petrohrys.com/research/business-directories/global/woocommerce-extensions/</link>
+      <guid isPermaLink="true">https://www.petrohrys.com/research/business-directories/global/woocommerce-extensions/</guid>
+      <description>Marketplace of extensions, themes and services for the WooCommerce ecommerce platform, operated by Automattic.</description>
+      <pubDate>Tue, 04 Aug 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Drupal Modules</title>
+      <link>https://www.petrohrys.com/research/business-directories/global/drupal-modules/</link>
+      <guid isPermaLink="true">https://www.petrohrys.com/research/business-directories/global/drupal-modules/</guid>
+      <description>Directory of contributed modules extending Drupal, governed by the non-profit Drupal Association.</description>
+      <pubDate>Tue, 04 Aug 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Joomla! Extensions Directory</title>
+      <link>https://www.petrohrys.com/research/business-directories/global/joomla-extensions/</link>
+      <guid isPermaLink="true">https://www.petrohrys.com/research/business-directories/global/joomla-extensions/</guid>
+      <description>Official catalogue of Joomla extensions, organised by category with user ratings and reviews.</description>
+      <pubDate>Tue, 04 Aug 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>GetApp</title>
+      <link>https://www.petrohrys.com/research/business-directories/global/getapp/</link>
+      <guid isPermaLink="true">https://www.petrohrys.com/research/business-directories/global/getapp/</guid>
+      <description>Business software comparison directory with verified user reviews, operated by Nubera eBusiness.</description>
+      <pubDate>Tue, 04 Aug 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>PeerSpot</title>
+      <link>https://www.petrohrys.com/research/business-directories/global/peerspot/</link>
+      <guid isPermaLink="true">https://www.petrohrys.com/research/business-directories/global/peerspot/</guid>
+      <description>Enterprise technology review platform that verifies every reviewer as a recent user of the product.</description>
+      <pubDate>Tue, 04 Aug 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Slashdot Software Directory</title>
+      <link>https://www.petrohrys.com/research/business-directories/global/slashdot-software/</link>
+      <guid isPermaLink="true">https://www.petrohrys.com/research/business-directories/global/slashdot-software/</guid>
+      <description>Business software comparison directory organised by category, with user ratings on each product.</description>
+      <pubDate>Tue, 04 Aug 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>SourceForge</title>
+      <link>https://www.petrohrys.com/research/business-directories/global/sourceforge/</link>
+      <guid isPermaLink="true">https://www.petrohrys.com/research/business-directories/global/sourceforge/</guid>
+      <description>Open-source project host and business software comparison platform with user reviews.</description>
+      <pubDate>Tue, 04 Aug 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>SaaSHub</title>
+      <link>https://www.petrohrys.com/research/business-directories/global/saashub/</link>
+      <guid isPermaLink="true">https://www.petrohrys.com/research/business-directories/global/saashub/</guid>
+      <description>Independent software marketplace for discovering and comparing alternatives, with community-run expert assessments.</description>
+      <pubDate>Tue, 04 Aug 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>LibHunt</title>
+      <link>https://www.petrohrys.com/research/business-directories/global/libhunt/</link>
+      <guid isPermaLink="true">https://www.petrohrys.com/research/business-directories/global/libhunt/</guid>
+      <description>Catalogue of open-source projects ranked by mentions across developer communities.</description>
+      <pubDate>Tue, 04 Aug 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Foursquare Places</title>
+      <link>https://www.petrohrys.com/research/business-directories/global/foursquare-places/</link>
+      <guid isPermaLink="true">https://www.petrohrys.com/research/business-directories/global/foursquare-places/</guid>
+      <description>Point-of-interest dataset covering business locations across more than 200 countries, with an open-source tier.</description>
+      <pubDate>Tue, 04 Aug 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
       <title>Better Business Bureau</title>
       <link>https://www.petrohrys.com/research/business-directories/united-states/better-business-bureau/</link>
       <guid isPermaLink="true">https://www.petrohrys.com/research/business-directories/united-states/better-business-bureau/</guid>
@@ -147,10 +322,38 @@
       <pubDate>Tue, 04 Aug 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
+      <title>L&apos;Annuaire des Entreprises</title>
+      <link>https://www.petrohrys.com/research/business-directories/france/annuaire-des-entreprises/</link>
+      <guid isPermaLink="true">https://www.petrohrys.com/research/business-directories/france/annuaire-des-entreprises/</guid>
+      <description>French government directory publishing official legal information on companies, associations and public administrations.</description>
+      <pubDate>Tue, 04 Aug 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Institut National de la Propriété Industrielle</title>
+      <link>https://www.petrohrys.com/research/business-directories/france/inpi/</link>
+      <guid isPermaLink="true">https://www.petrohrys.com/research/business-directories/france/inpi/</guid>
+      <description>French state institute maintaining the national business register alongside trademark, patent and design registers.</description>
+      <pubDate>Tue, 04 Aug 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Colegio de Registradores de España</title>
+      <link>https://www.petrohrys.com/research/business-directories/spain/colegio-de-registradores/</link>
+      <guid isPermaLink="true">https://www.petrohrys.com/research/business-directories/spain/colegio-de-registradores/</guid>
+      <description>Spanish association of registrars operating the commercial, property, movable-property and insolvency registries.</description>
+      <pubDate>Tue, 04 Aug 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
       <title>Registro Imprese</title>
       <link>https://www.petrohrys.com/research/business-directories/italy/registro-imprese/</link>
       <guid isPermaLink="true">https://www.petrohrys.com/research/business-directories/italy/registro-imprese/</guid>
       <description>Italian Business Register run by InfoCamere with the Chambers of Commerce, holding company data, officers, shareholdings and filed financial statements.</description>
+      <pubDate>Tue, 04 Aug 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Search for a Federal Corporation</title>
+      <link>https://www.petrohrys.com/research/business-directories/canada/corporations-canada/</link>
+      <guid isPermaLink="true">https://www.petrohrys.com/research/business-directories/canada/corporations-canada/</guid>
+      <description>Federal corporation search operated by Corporations Canada, confirming the existence of federally incorporated bodies.</description>
       <pubDate>Tue, 04 Aug 2026 00:00:00 GMT</pubDate>
     </item>
     <item>

@@ -81,6 +81,13 @@
     "cons": [
       "Companies House states it does not verify the accuracy of filed information"
     ],
-    "editorNotes": "Verified 2026-08-04 by fetching the official GOV.UK service. Incorporation is a legal process, not a discretionary listing."
+    "editorNotes": "Verified 2026-08-04 by fetching the official GOV.UK service. Incorporation is a legal process, not a discretionary listing.",
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [
+        "global-opencorporates"
+      ]
+    }
   }
 ]

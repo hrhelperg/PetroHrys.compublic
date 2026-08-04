@@ -595,12 +595,48 @@ function externalLinkCta({ url, label = 'Visit directory' }) {
     + `${vh(' (opens in a new tab)')}</a></p>`;
 }
 
+// ---------------------------------------------------------------------------
+// 21. Editorial relations
+// ---------------------------------------------------------------------------
+
+// Groups are supplied already resolved to names and paths by the generator,
+// which owns the registry. Relations are curated, never computed by similarity.
+function relatedDirectories(groups) {
+  const sections = groups.filter((g) => g.items.length).map((group) => {
+    const items = group.items.map((item) =>
+      `          <li><a href="${escapeHtml(item.path)}">${escapeHtml(item.name)}</a></li>`).join('\n');
+    return `        <div class="bd-relation">
+          <h3 class="bd-subhead">${escapeHtml(group.label)}</h3>
+          <ul class="bd-list">
+${items}
+          </ul>
+        </div>`;
+  });
+  if (!sections.length) {
+    return '      <p class="bd-empty">No editorial relationships recorded yet.</p>';
+  }
+  return `      <div class="bd-relations">\n${sections.join('\n')}\n      </div>`;
+}
+
+// The official submission route, where one was verified. A null is stated
+// rather than hidden, so a reader knows it was not confirmed.
+function submissionLink(directory) {
+  const href = safeHref(directory.submissionUrl);
+  if (!href) {
+    return '      <p class="bd-cta bd-cta--unavailable">Official submission page not verified.</p>';
+  }
+  return `      <p class="bd-cta"><a class="bd-cta-link" href="${escapeHtml(href)}" `
+    + `rel="${REL_EXTERNAL}" target="_blank">Official submission page`
+    + `${vh(' (opens in a new tab)')}</a></p>`;
+}
+
 module.exports = {
   breadcrumbs, pageIntro, countryCard, categoryCard, cardGrid,
   directoryTable, directoryRow, directoryCard, metric, metricsBlock, metricNote,
   statusBadges, prosCons, bestForTags, bulletList, emptyState, faqSection,
   searchControls, filterControls, sortControls, pagination,
   verificationBlock, acceptsList, scoreBreakdown, filterValue,
+  relatedDirectories, submissionLink,
   methodologyNote, provenanceBlock, externalLinkCta,
   FILTERS, VERIFICATION_NOTE, REL_EXTERNAL,
 };

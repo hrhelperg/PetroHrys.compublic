@@ -1,6 +1,6 @@
 // scripts/lib/bd-migrate.cjs
 'use strict';
-const { ACCEPTS_KEYS } = require('./bd-schema.cjs');
+const { ACCEPTS_KEYS, RELATION_KINDS } = require('./bd-schema.cjs');
 
 // Forward-only migration from the pre-expansion record shape. It is applied by
 // the registry loader, so a record written in the old shape keeps working
@@ -34,6 +34,15 @@ const LEGACY_SOURCE = {
 };
 
 const isNullish = (v) => v === null || v === undefined;
+
+function migrateRelated(record) {
+  const out = {};
+  const source = record.related && typeof record.related === 'object' ? record.related : {};
+  for (const kind of RELATION_KINDS) {
+    out[kind] = Array.isArray(source[kind]) ? [...source[kind]] : [];
+  }
+  return out;
+}
 
 function migrateAccepts(record) {
   if (record.accepts && typeof record.accepts === 'object' && !Array.isArray(record.accepts)) {
@@ -96,6 +105,9 @@ function migrateRecord(record) {
     country: record.country,
     category: record.category,
     website: record.website,
+    // Official submission page where one exists and was verified. Null is not
+    // "no submission route" — it means the route was not confirmed.
+    submissionUrl: record.submissionUrl ?? null,
     description: record.description,
     tier: record.tier ?? null,
     scope: record.scope ?? 'unknown',
@@ -129,6 +141,7 @@ function migrateRecord(record) {
     nextVerification: record.nextVerification ?? null,
     verification: migrateVerification(record),
 
+    related: migrateRelated(record),
     recommendedIndustries: record.recommendedIndustries ?? [],
     editorialTags: record.editorialTags ?? record.tags ?? [],
     pros: record.pros ?? [],
@@ -145,7 +158,9 @@ function isMigrated(record) {
     && typeof record.accepts === 'object' && !Array.isArray(record.accepts)
     && typeof record.verification === 'object'
     && 'metricStatus' in record
-    && 'registrationRequired' in record;
+    && 'registrationRequired' in record
+    && typeof record.related === 'object'
+    && 'submissionUrl' in record;
 }
 
 module.exports = { migrateRecord, isMigrated, LEGACY_ACCEPTS, LEGACY_SOURCE };

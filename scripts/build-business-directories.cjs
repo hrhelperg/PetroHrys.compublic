@@ -11,6 +11,7 @@ const c = require('./lib/bd-components.cjs');
 const { renderPage } = require('./lib/bd-render.cjs');
 const { renderSitemap, renderRss } = require('./lib/bd-feeds.cjs');
 const routes = require('./lib/bd-routes.cjs');
+const SCHEMA = require('./lib/bd-schema.cjs');
 const { validateRegistry, formatReport } = require('./validate-business-directories.cjs');
 
 const BASE = routes.BASE;
@@ -181,6 +182,7 @@ function pageModel(registry) {
         main: [
           c.pageIntro({ title: directory.name, lede: directory.description }),
           c.externalLinkCta({ url: directory.website }),
+          c.submissionLink(directory),
           c.statusBadges(directory),
           section('audiences', 'What this directory accepts', c.acceptsList(directory)),
           section('metrics', 'Metrics', `${c.metricsBlock(directory)}\n${c.metricNote()}`),
@@ -188,6 +190,14 @@ function pageModel(registry) {
           section('verification', 'Verification', c.verificationBlock(directory)),
           section('industries', 'Recommended industries', c.bestForTags(directory.recommendedIndustries)),
           section('assessment', 'Assessment', c.prosCons({ pros: directory.pros, cons: directory.cons, headingLevel: 3 })),
+          section('related', 'Related directories', c.relatedDirectories(
+            SCHEMA.RELATION_KINDS.map((kind) => ({
+              label: SCHEMA.RELATION_LABELS[kind],
+              items: (directory.related[kind] || [])
+                .map((targetId) => registry.directories.find((d) => d.id === targetId))
+                .filter(Boolean)
+                .map((target) => ({ name: target.name, path: routes.directoryPathFor(target) })),
+            })))),
         ].join('\n\n'),
       });
     }

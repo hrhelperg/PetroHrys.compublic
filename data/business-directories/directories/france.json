@@ -1,1 +1,188 @@
-[]
+[
+  {
+    "id": "fr-annuaire-entreprises",
+    "name": "L'Annuaire des Entreprises",
+    "slug": "annuaire-des-entreprises",
+    "country": "france",
+    "category": "government",
+    "website": "https://annuaire-entreprises.data.gouv.fr/",
+    "submissionUrl": null,
+    "description": "French government directory publishing official legal information on companies, associations and public administrations.",
+    "tier": "tier1",
+    "scope": "national",
+    "petroHrysScore": 91,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 9,
+      "verificationQuality": 9,
+      "platformReputation": 8,
+      "spamResistance": 10,
+      "industryImportance": 9,
+      "longTermStability": 10,
+      "submissionQuality": 7,
+      "transparency": 9,
+      "moderationQuality": 9
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "free",
+    "registrationRequired": true,
+    "reviewSystem": false,
+    "verificationRequired": true,
+    "manualReview": null,
+    "accepts": {
+      "startup": true,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": true,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-04",
+    "nextVerification": "2027-02-04",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [
+        "fr-inpi",
+        "global-opencorporates"
+      ]
+    },
+    "recommendedIndustries": [
+      "Any French-registered entity"
+    ],
+    "editorialTags": [
+      "statutory",
+      "primary-source",
+      "open-data"
+    ],
+    "pros": [
+      "Free access to official administrative data",
+      "Operated by the interministerial digital authority"
+    ],
+    "cons": [
+      "Interface is French-language"
+    ],
+    "editorNotes": "Verified 2026-08-04. Operated by the Direction Interministérielle du Numérique."
+  },
+  {
+    "id": "fr-inpi",
+    "name": "Institut National de la Propriété Industrielle",
+    "slug": "inpi",
+    "country": "france",
+    "category": "government",
+    "website": "https://www.inpi.fr/",
+    "submissionUrl": null,
+    "description": "French state institute maintaining the national business register alongside trademark, patent and design registers.",
+    "tier": "tier1",
+    "scope": "national",
+    "petroHrysScore": 89,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 8,
+      "verificationQuality": 9,
+      "platformReputation": 8,
+      "spamResistance": 10,
+      "industryImportance": 9,
+      "longTermStability": 10,
+      "submissionQuality": 7,
+      "transparency": 9,
+      "moderationQuality": 9
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "unknown",
+    "registrationRequired": true,
+    "reviewSystem": false,
+    "verificationRequired": true,
+    "manualReview": null,
+    "accepts": {
+      "startup": true,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": true,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-04",
+    "nextVerification": "2027-02-04",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [
+        "fr-annuaire-entreprises"
+      ]
+    },
+    "recommendedIndustries": [
+      "Any French-registered business",
+      "Intellectual property"
+    ],
+    "editorialTags": [
+      "statutory",
+      "primary-source",
+      "intellectual-property"
+    ],
+    "pros": [
+      "Operates the Registre national des entreprises",
+      "Single-window system for business formalities"
+    ],
+    "cons": [
+      "Fees apply to some filings; pricing not established from the homepage"
+    ],
+    "editorNotes": "Verified 2026-08-04. The RNE has replaced the traditional Kbis system."
+  }
+]

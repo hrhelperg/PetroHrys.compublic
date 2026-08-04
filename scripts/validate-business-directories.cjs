@@ -55,6 +55,11 @@ function validateRegistry(registry) {
     if (typeof entry.website === 'string' && !entry.website.startsWith('https://')) {
       add('website', 'Website must use https.');
     }
+    if (!isNullish(entry.submissionUrl)) {
+      if (typeof entry.submissionUrl !== 'string' || !entry.submissionUrl.startsWith('https://')) {
+        add('submissionUrl', 'Submission URL must be an https URL, or null when it was not verified.');
+      }
+    }
     if (typeof entry.slug === 'string' && reserved.has(entry.slug)) {
       add('slug', `Slug "${entry.slug}" is a reserved slug and cannot be used.`);
     }
@@ -225,6 +230,36 @@ function validateRegistry(registry) {
           add('website', `Duplicate canonical domain "${domain}" within country "${entry.country}".`);
         }
         seenDomain.add(domainKey);
+      }
+    }
+  }
+
+  // Relations are checked once every id is known, so a forward reference to a
+  // record defined in a later file is still valid.
+  const allIds = new Set(directories.map((d) => d.id).filter(Boolean));
+  for (const entry of directories) {
+    const file = fileFor(entry);
+    const id = typeof entry.id === 'string' && entry.id ? entry.id : null;
+    const add = (field, reason) => errors.push({ file, id, field, reason });
+    const related = entry.related;
+    if (!related || typeof related !== 'object' || Array.isArray(related)) {
+      add('related', 'Field "related" must be an object of editorial relation lists.');
+      continue;
+    }
+    for (const kind of Object.keys(related)) {
+      if (!S.RELATION_KINDS.includes(kind)) add('related', `Unknown relation kind "${kind}".`);
+    }
+    for (const kind of S.RELATION_KINDS) {
+      const list = related[kind];
+      if (!Array.isArray(list)) {
+        add('related', `Relation "${kind}" must be an array of directory ids.`);
+        continue;
+      }
+      if (new Set(list).size !== list.length) add('related', `Relation "${kind}" repeats an id.`);
+      for (const target of list) {
+        if (typeof target !== 'string') { add('related', `Relation "${kind}" must contain ids.`); continue; }
+        if (target === id) add('related', `Relation "${kind}" points at the record itself.`);
+        else if (!allIds.has(target)) add('related', `Relation "${kind}" points at unknown id "${target}".`);
       }
     }
   }

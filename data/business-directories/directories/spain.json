@@ -1,1 +1,92 @@
-[]
+[
+  {
+    "id": "es-registradores",
+    "name": "Colegio de Registradores de España",
+    "slug": "colegio-de-registradores",
+    "country": "spain",
+    "category": "government",
+    "website": "https://www.registradores.org/",
+    "submissionUrl": null,
+    "description": "Spanish association of registrars operating the commercial, property, movable-property and insolvency registries.",
+    "tier": "tier1",
+    "scope": "national",
+    "petroHrysScore": 88,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 8,
+      "verificationQuality": 9,
+      "platformReputation": 8,
+      "spamResistance": 10,
+      "industryImportance": 9,
+      "longTermStability": 10,
+      "submissionQuality": 6,
+      "transparency": 8,
+      "moderationQuality": 9
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "unknown",
+    "registrationRequired": true,
+    "reviewSystem": false,
+    "verificationRequired": true,
+    "manualReview": null,
+    "accepts": {
+      "startup": true,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-04",
+    "nextVerification": "2027-02-04",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [
+        "global-opencorporates"
+      ]
+    },
+    "recommendedIndustries": [
+      "Any Spanish-registered business"
+    ],
+    "editorialTags": [
+      "statutory",
+      "primary-source"
+    ],
+    "pros": [
+      "Covers commercial, property and insolvency registries from one body"
+    ],
+    "cons": [
+      "Certified extracts are chargeable; pricing not established"
+    ],
+    "editorNotes": "Verified 2026-08-04. Also operates the beneficial-ownership registry."
+  }
+]

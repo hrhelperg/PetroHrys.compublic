@@ -84,7 +84,16 @@
       "Records are only as current as the upstream register",
       "Bulk and API access are commercial"
     ],
-    "editorNotes": "Verified 2026-08-04. Global scope; filed under united-states pending a scope-aware country model."
+    "editorNotes": "Verified 2026-08-04. Global scope; filed under united-states pending a scope-aware country model.",
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [
+        "gb-companies-house",
+        "fr-annuaire-entreprises",
+        "ca-corporations-canada"
+      ]
+    }
   },
   {
     "id": "global-trustpilot",
@@ -348,7 +357,16 @@
       "Vendor listing pricing is not disclosed on the homepage",
       "Ranking is influenced by paid placement"
     ],
-    "editorNotes": "Verified 2026-08-04. Listing cost not stated publicly, so free and paid remain null."
+    "editorNotes": "Verified 2026-08-04. Listing cost not stated publicly, so free and paid remain null.",
+    "related": {
+      "alternatives": [
+        "global-getapp",
+        "global-software-advice",
+        "global-peerspot"
+      ],
+      "similar": [],
+      "usedWith": []
+    }
   },
   {
     "id": "global-software-advice",
@@ -437,7 +455,15 @@
       "Buyer-side advice is monetised through vendor referrals",
       "Ownership is not stated on the homepage"
     ],
-    "editorNotes": "Verified 2026-08-04. Homepage claims 2.5M+ verified reviews. Vendor pricing not disclosed."
+    "editorNotes": "Verified 2026-08-04. Homepage claims 2.5M+ verified reviews. Vendor pricing not disclosed.",
+    "related": {
+      "alternatives": [
+        "global-capterra",
+        "global-getapp"
+      ],
+      "similar": [],
+      "usedWith": []
+    }
   },
   {
     "id": "global-alternativeto",
@@ -523,7 +549,16 @@
     "cons": [
       "Rankings reflect community opinion rather than structured testing"
     ],
-    "editorNotes": "Verified 2026-08-04. Homepage states 149,612 applications and 2,021,528 user opinions."
+    "editorNotes": "Verified 2026-08-04. Homepage states 149,612 applications and 2,021,528 user opinions.",
+    "related": {
+      "alternatives": [
+        "global-saashub"
+      ],
+      "similar": [
+        "global-libhunt"
+      ],
+      "usedWith": []
+    }
   },
   {
     "id": "global-clutch",
@@ -874,7 +909,13 @@
       "Promoted placements exist, so ranking is not purely organic",
       "Submission pricing not stated on the homepage"
     ],
-    "editorNotes": "Verified 2026-08-04. Promoted badges observed on the homepage."
+    "editorNotes": "Verified 2026-08-04. Promoted badges observed on the homepage.",
+    "submissionUrl": "https://www.producthunt.com/launch",
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": []
+    }
   },
   {
     "id": "global-wellfound",
@@ -1048,7 +1089,14 @@
       "Restricted to the Shopify ecosystem",
       "App review process is gated by platform policy"
     ],
-    "editorNotes": "Verified 2026-08-04. Listing fees not stated on the storefront."
+    "editorNotes": "Verified 2026-08-04. Listing fees not stated on the storefront.",
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "global-woocommerce-marketplace"
+      ],
+      "usedWith": []
+    }
   },
   {
     "id": "global-salesforce-appexchange",
@@ -1134,7 +1182,14 @@
       "Storefront is mid-rebrand, so naming is currently ambiguous",
       "Listing requires Salesforce partner processes"
     ],
-    "editorNotes": "Verified 2026-08-04. The page states \"Salesforce AppExchange is now AgentExchange\". Review system could not be confirmed from the landing page, so reviewSystem is null."
+    "editorNotes": "Verified 2026-08-04. The page states \"Salesforce AppExchange is now AgentExchange\". Review system could not be confirmed from the landing page, so reviewSystem is null.",
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "global-atlassian-marketplace"
+      ],
+      "usedWith": []
+    }
   },
   {
     "id": "global-hubspot-marketplace",
@@ -1306,7 +1361,15 @@
     "cons": [
       "No rating or review mechanism visible on the index"
     ],
-    "editorNotes": "Verified 2026-08-04. No star ratings or review counts observed on the marketplace index."
+    "editorNotes": "Verified 2026-08-04. No star ratings or review counts observed on the marketplace index.",
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "global-vs-marketplace",
+        "global-docker-hub"
+      ],
+      "usedWith": []
+    }
   },
   {
     "id": "global-wordpress-plugins",
@@ -1481,5 +1544,2332 @@
       "Restricted to the Firefox ecosystem"
     ],
     "editorNotes": "Verified 2026-08-04. Official title on the page is \"Add-ons for Firefox\"."
+  },
+  {
+    "id": "global-pypi",
+    "name": "Python Package Index (PyPI)",
+    "slug": "pypi",
+    "country": "global",
+    "category": "developer",
+    "website": "https://pypi.org/",
+    "submissionUrl": "https://pypi.org/account/register/",
+    "description": "Official package repository for the Python language, maintained by the Python Software Foundation.",
+    "tier": "tier1",
+    "scope": "global",
+    "petroHrysScore": 88,
+    "scoreFactors": {
+      "editorialTrust": 9,
+      "businessUsefulness": 9,
+      "verificationQuality": 8,
+      "platformReputation": 9,
+      "spamResistance": 8,
+      "industryImportance": 10,
+      "longTermStability": 9,
+      "submissionQuality": 9,
+      "transparency": 9,
+      "moderationQuality": 8
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "free",
+    "registrationRequired": true,
+    "reviewSystem": false,
+    "verificationRequired": true,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": false,
+      "enterprise": null,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": true,
+      "openSource": true,
+      "nonprofit": null,
+      "ai": true,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-04",
+    "nextVerification": "2027-02-04",
+    "verification": {
+      "status": "verified",
+      "source": "official-website",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "global-rubygems",
+        "global-packagist",
+        "global-crates-io"
+      ],
+      "usedWith": []
+    },
+    "recommendedIndustries": [
+      "Python development",
+      "Data science",
+      "Machine learning"
+    ],
+    "editorialTags": [
+      "package-registry",
+      "developer-ecosystem",
+      "open-source"
+    ],
+    "pros": [
+      "Free publishing",
+      "Operated by a non-profit foundation"
+    ],
+    "cons": [
+      "No editorial review of package quality"
+    ],
+    "editorNotes": "Verified 2026-08-04 at pypi.org."
+  },
+  {
+    "id": "global-rubygems",
+    "name": "RubyGems.org",
+    "slug": "rubygems",
+    "country": "global",
+    "category": "developer",
+    "website": "https://rubygems.org/",
+    "submissionUrl": null,
+    "description": "Package host for the Ruby language, operated by Ruby Central and the RubyGems team.",
+    "tier": "tier1",
+    "scope": "global",
+    "petroHrysScore": 85,
+    "scoreFactors": {
+      "editorialTrust": 9,
+      "businessUsefulness": 8,
+      "verificationQuality": 8,
+      "platformReputation": 8,
+      "spamResistance": 8,
+      "industryImportance": 9,
+      "longTermStability": 9,
+      "submissionQuality": 9,
+      "transparency": 9,
+      "moderationQuality": 8
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "unknown",
+    "registrationRequired": true,
+    "reviewSystem": false,
+    "verificationRequired": true,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": null,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": true,
+      "openSource": true,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-04",
+    "nextVerification": "2027-02-04",
+    "verification": {
+      "status": "verified",
+      "source": "official-website",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "global-pypi",
+        "global-packagist"
+      ],
+      "usedWith": []
+    },
+    "recommendedIndustries": [
+      "Ruby development"
+    ],
+    "editorialTags": [
+      "package-registry",
+      "developer-ecosystem",
+      "open-source"
+    ],
+    "pros": [
+      "Community-operated",
+      "Central registry for the Ruby ecosystem"
+    ],
+    "cons": [
+      "Publishing cost is not stated on the homepage"
+    ],
+    "editorNotes": "Verified 2026-08-04. Publishing cost not stated, so submissionModel is unknown."
+  },
+  {
+    "id": "global-packagist",
+    "name": "Packagist.org",
+    "slug": "packagist",
+    "country": "global",
+    "category": "developer",
+    "website": "https://packagist.org/",
+    "submissionUrl": "https://packagist.org/packages/submit",
+    "description": "Main Composer repository, aggregating public PHP packages for dependency installation.",
+    "tier": "tier1",
+    "scope": "global",
+    "petroHrysScore": 85,
+    "scoreFactors": {
+      "editorialTrust": 9,
+      "businessUsefulness": 8,
+      "verificationQuality": 8,
+      "platformReputation": 8,
+      "spamResistance": 8,
+      "industryImportance": 9,
+      "longTermStability": 9,
+      "submissionQuality": 9,
+      "transparency": 9,
+      "moderationQuality": 8
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "free",
+    "registrationRequired": true,
+    "reviewSystem": false,
+    "verificationRequired": true,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": null,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": true,
+      "openSource": true,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-04",
+    "nextVerification": "2027-02-04",
+    "verification": {
+      "status": "verified",
+      "source": "official-website",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "global-pypi",
+        "global-rubygems"
+      ],
+      "usedWith": []
+    },
+    "recommendedIndustries": [
+      "PHP development"
+    ],
+    "editorialTags": [
+      "package-registry",
+      "developer-ecosystem",
+      "open-source"
+    ],
+    "pros": [
+      "Free submission confirmed on the site",
+      "Central to the Composer workflow"
+    ],
+    "cons": [
+      "Private packages require a paid separate product"
+    ],
+    "editorNotes": "Verified 2026-08-04. Site states: log in or register, then hit the submit button."
+  },
+  {
+    "id": "global-crates-io",
+    "name": "crates.io",
+    "slug": "crates-io",
+    "country": "global",
+    "category": "developer",
+    "website": "https://crates.io/",
+    "submissionUrl": null,
+    "description": "Official package registry for the Rust language, operated by the Rust Foundation.",
+    "tier": "tier1",
+    "scope": "global",
+    "petroHrysScore": 86,
+    "scoreFactors": {
+      "editorialTrust": 9,
+      "businessUsefulness": 8,
+      "verificationQuality": 8,
+      "platformReputation": 9,
+      "spamResistance": 8,
+      "industryImportance": 9,
+      "longTermStability": 9,
+      "submissionQuality": 9,
+      "transparency": 9,
+      "moderationQuality": 8
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "free",
+    "registrationRequired": true,
+    "reviewSystem": false,
+    "verificationRequired": true,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": null,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": true,
+      "openSource": true,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-04",
+    "nextVerification": "2027-02-04",
+    "verification": {
+      "status": "verified",
+      "source": "official-website",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "global-pypi",
+        "global-hex"
+      ],
+      "usedWith": []
+    },
+    "recommendedIndustries": [
+      "Rust development",
+      "Systems programming"
+    ],
+    "editorialTags": [
+      "package-registry",
+      "developer-ecosystem",
+      "open-source"
+    ],
+    "pros": [
+      "Free publishing",
+      "Operated by the Rust Foundation"
+    ],
+    "cons": [
+      "No quality review of published crates"
+    ],
+    "editorNotes": "Verified 2026-08-04 at crates.io."
+  },
+  {
+    "id": "global-nuget",
+    "name": "NuGet Gallery",
+    "slug": "nuget",
+    "country": "global",
+    "category": "developer",
+    "website": "https://www.nuget.org/",
+    "submissionUrl": null,
+    "description": "Central package repository for the .NET ecosystem, operated by Microsoft.",
+    "tier": "tier1",
+    "scope": "global",
+    "petroHrysScore": 85,
+    "scoreFactors": {
+      "editorialTrust": 9,
+      "businessUsefulness": 8,
+      "verificationQuality": 8,
+      "platformReputation": 9,
+      "spamResistance": 8,
+      "industryImportance": 9,
+      "longTermStability": 9,
+      "submissionQuality": 9,
+      "transparency": 8,
+      "moderationQuality": 8
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "free",
+    "registrationRequired": true,
+    "reviewSystem": false,
+    "verificationRequired": true,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": true,
+      "openSource": true,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-04",
+    "nextVerification": "2027-02-04",
+    "verification": {
+      "status": "verified",
+      "source": "official-website",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "global-maven-central",
+        "global-pypi"
+      ],
+      "usedWith": []
+    },
+    "recommendedIndustries": [
+      ".NET development"
+    ],
+    "editorialTags": [
+      "package-registry",
+      "developer-ecosystem",
+      "open-source"
+    ],
+    "pros": [
+      "Free publishing",
+      "Central to .NET tooling"
+    ],
+    "cons": [
+      "Vendor-operated rather than foundation-governed"
+    ],
+    "editorNotes": "Verified 2026-08-04 at nuget.org."
+  },
+  {
+    "id": "global-maven-central",
+    "name": "Maven Central",
+    "slug": "maven-central",
+    "country": "global",
+    "category": "developer",
+    "website": "https://central.sonatype.com/",
+    "submissionUrl": null,
+    "description": "Central repository of open-source components for the Java and JVM ecosystem, operated by Sonatype.",
+    "tier": "tier1",
+    "scope": "global",
+    "petroHrysScore": 84,
+    "scoreFactors": {
+      "editorialTrust": 9,
+      "businessUsefulness": 8,
+      "verificationQuality": 8,
+      "platformReputation": 9,
+      "spamResistance": 8,
+      "industryImportance": 9,
+      "longTermStability": 9,
+      "submissionQuality": 7,
+      "transparency": 8,
+      "moderationQuality": 8
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "free",
+    "registrationRequired": true,
+    "reviewSystem": false,
+    "verificationRequired": true,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": true,
+      "openSource": true,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-04",
+    "nextVerification": "2027-02-04",
+    "verification": {
+      "status": "verified",
+      "source": "official-website",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "global-nuget",
+        "global-pypi"
+      ],
+      "usedWith": []
+    },
+    "recommendedIndustries": [
+      "Java development",
+      "JVM ecosystem"
+    ],
+    "editorialTags": [
+      "package-registry",
+      "developer-ecosystem",
+      "open-source"
+    ],
+    "pros": [
+      "Default dependency source for most JVM builds"
+    ],
+    "cons": [
+      "Publishing requires namespace verification, which is slower than peer registries"
+    ],
+    "editorNotes": "Verified 2026-08-04. Sonatype describes itself as steward of Central for nearly 20 years."
+  },
+  {
+    "id": "global-pub-dev",
+    "name": "pub.dev",
+    "slug": "pub-dev",
+    "country": "global",
+    "category": "developer",
+    "website": "https://pub.dev/",
+    "submissionUrl": null,
+    "description": "Official package repository for Dart and Flutter applications, supported by Google.",
+    "tier": "tier1",
+    "scope": "global",
+    "petroHrysScore": 80,
+    "scoreFactors": {
+      "editorialTrust": 8,
+      "businessUsefulness": 8,
+      "verificationQuality": 8,
+      "platformReputation": 8,
+      "spamResistance": 8,
+      "industryImportance": 8,
+      "longTermStability": 8,
+      "submissionQuality": 8,
+      "transparency": 7,
+      "moderationQuality": 8
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "unknown",
+    "registrationRequired": true,
+    "reviewSystem": false,
+    "verificationRequired": true,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": null,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": true,
+      "openSource": true,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": true,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-04",
+    "nextVerification": "2027-02-04",
+    "verification": {
+      "status": "verified",
+      "source": "official-website",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "global-hex",
+        "global-crates-io"
+      ],
+      "usedWith": []
+    },
+    "recommendedIndustries": [
+      "Dart development",
+      "Flutter apps"
+    ],
+    "editorialTags": [
+      "package-registry",
+      "developer-ecosystem",
+      "open-source"
+    ],
+    "pros": [
+      "Official registry for the Flutter ecosystem"
+    ],
+    "cons": [
+      "Publishing cost not stated on the homepage",
+      "Single-vendor governance"
+    ],
+    "editorNotes": "Verified 2026-08-04. Pricing not stated, so submissionModel is unknown."
+  },
+  {
+    "id": "global-hex",
+    "name": "Hex",
+    "slug": "hex",
+    "country": "global",
+    "category": "developer",
+    "website": "https://hex.pm/",
+    "submissionUrl": null,
+    "description": "Package manager for the Erlang ecosystem, serving Elixir, Erlang and Gleam projects.",
+    "tier": "tier2",
+    "scope": "global",
+    "petroHrysScore": 79,
+    "scoreFactors": {
+      "editorialTrust": 8,
+      "businessUsefulness": 7,
+      "verificationQuality": 8,
+      "platformReputation": 8,
+      "spamResistance": 8,
+      "industryImportance": 7,
+      "longTermStability": 8,
+      "submissionQuality": 9,
+      "transparency": 9,
+      "moderationQuality": 8
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "freemium",
+    "registrationRequired": true,
+    "reviewSystem": false,
+    "verificationRequired": true,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": null,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": true,
+      "openSource": true,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-04",
+    "nextVerification": "2027-02-04",
+    "verification": {
+      "status": "verified",
+      "source": "official-website",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "global-crates-io",
+        "global-pub-dev"
+      ],
+      "usedWith": []
+    },
+    "recommendedIndustries": [
+      "Elixir development",
+      "Erlang development"
+    ],
+    "editorialTags": [
+      "package-registry",
+      "developer-ecosystem",
+      "open-source"
+    ],
+    "pros": [
+      "Public packages are free to publish",
+      "Dependencies fetchable without an account"
+    ],
+    "cons": [
+      "Private packages require a paid organisation tier"
+    ],
+    "editorNotes": "Verified 2026-08-04. Site states 26,309 packages available."
+  },
+  {
+    "id": "global-docker-hub",
+    "name": "Docker Hub",
+    "slug": "docker-hub",
+    "country": "global",
+    "category": "developer",
+    "website": "https://hub.docker.com/",
+    "submissionUrl": null,
+    "description": "Container image library for discovering and publishing containerised applications.",
+    "tier": "tier1",
+    "scope": "global",
+    "petroHrysScore": 82,
+    "scoreFactors": {
+      "editorialTrust": 8,
+      "businessUsefulness": 9,
+      "verificationQuality": 7,
+      "platformReputation": 9,
+      "spamResistance": 7,
+      "industryImportance": 9,
+      "longTermStability": 9,
+      "submissionQuality": 9,
+      "transparency": 7,
+      "moderationQuality": 7
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "freemium",
+    "registrationRequired": true,
+    "reviewSystem": null,
+    "verificationRequired": true,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": true,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": true,
+      "openSource": true,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-04",
+    "nextVerification": "2027-02-04",
+    "verification": {
+      "status": "verified",
+      "source": "official-website",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "global-github-marketplace"
+      ],
+      "usedWith": []
+    },
+    "recommendedIndustries": [
+      "DevOps",
+      "Cloud infrastructure"
+    ],
+    "editorialTags": [
+      "container-registry",
+      "developer-ecosystem"
+    ],
+    "pros": [
+      "Default registry for container tooling",
+      "Free publishing tier"
+    ],
+    "cons": [
+      "Pull-rate limits apply to unauthenticated users",
+      "Review system not evident on the index"
+    ],
+    "editorNotes": "Verified 2026-08-04. Star counts are visible; a review system was not confirmed."
+  },
+  {
+    "id": "global-flathub",
+    "name": "Flathub",
+    "slug": "flathub",
+    "country": "global",
+    "category": "app-directories",
+    "website": "https://flathub.org/",
+    "submissionUrl": null,
+    "description": "Cross-distribution application store for Linux, distributing software as Flatpak packages.",
+    "tier": "tier1",
+    "scope": "global",
+    "petroHrysScore": 83,
+    "scoreFactors": {
+      "editorialTrust": 9,
+      "businessUsefulness": 8,
+      "verificationQuality": 8,
+      "platformReputation": 8,
+      "spamResistance": 8,
+      "industryImportance": 8,
+      "longTermStability": 8,
+      "submissionQuality": 9,
+      "transparency": 9,
+      "moderationQuality": 8
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "free",
+    "registrationRequired": true,
+    "reviewSystem": null,
+    "verificationRequired": true,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": null,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": true,
+      "openSource": true,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": false,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-04",
+    "nextVerification": "2027-02-04",
+    "verification": {
+      "status": "verified",
+      "source": "official-website",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [
+        "global-snap-store"
+      ],
+      "similar": [
+        "global-f-droid"
+      ],
+      "usedWith": []
+    },
+    "recommendedIndustries": [
+      "Desktop Linux"
+    ],
+    "editorialTags": [
+      "linux",
+      "app-store",
+      "open-source"
+    ],
+    "pros": [
+      "Distribution-independent",
+      "Free publishing route documented"
+    ],
+    "cons": [
+      "Review system not confirmed from the storefront"
+    ],
+    "editorNotes": "Verified 2026-08-04. Publishing documented at docs.flathub.org."
+  },
+  {
+    "id": "global-snap-store",
+    "name": "Snap Store",
+    "slug": "snap-store",
+    "country": "global",
+    "category": "app-directories",
+    "website": "https://snapcraft.io/store",
+    "submissionUrl": null,
+    "description": "Application store for Linux operated by Canonical, distributing software packaged as snaps.",
+    "tier": "tier2",
+    "scope": "global",
+    "petroHrysScore": 77,
+    "scoreFactors": {
+      "editorialTrust": 8,
+      "businessUsefulness": 7,
+      "verificationQuality": 8,
+      "platformReputation": 8,
+      "spamResistance": 8,
+      "industryImportance": 7,
+      "longTermStability": 8,
+      "submissionQuality": 8,
+      "transparency": 7,
+      "moderationQuality": 8
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "free",
+    "registrationRequired": true,
+    "reviewSystem": null,
+    "verificationRequired": true,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": true,
+      "openSource": true,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-04",
+    "nextVerification": "2027-02-04",
+    "verification": {
+      "status": "verified",
+      "source": "official-website",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [
+        "global-flathub"
+      ],
+      "similar": [],
+      "usedWith": []
+    },
+    "recommendedIndustries": [
+      "Desktop Linux",
+      "Ubuntu ecosystem"
+    ],
+    "editorialTags": [
+      "linux",
+      "app-store"
+    ],
+    "pros": [
+      "Verified publisher accounts for major vendors",
+      "Accepts proprietary as well as open-source software"
+    ],
+    "cons": [
+      "Backend is single-vendor and not open source"
+    ],
+    "editorNotes": "Verified 2026-08-04. Operated by Canonical Ltd."
+  },
+  {
+    "id": "global-f-droid",
+    "name": "F-Droid",
+    "slug": "f-droid",
+    "country": "global",
+    "category": "app-directories",
+    "website": "https://f-droid.org/",
+    "submissionUrl": null,
+    "description": "Android application catalogue restricted to free and open-source software.",
+    "tier": "tier2",
+    "scope": "global",
+    "petroHrysScore": 77,
+    "scoreFactors": {
+      "editorialTrust": 9,
+      "businessUsefulness": 6,
+      "verificationQuality": 9,
+      "platformReputation": 7,
+      "spamResistance": 9,
+      "industryImportance": 6,
+      "longTermStability": 8,
+      "submissionQuality": 7,
+      "transparency": 9,
+      "moderationQuality": 8
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "free",
+    "registrationRequired": true,
+    "reviewSystem": null,
+    "verificationRequired": true,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": false,
+      "enterprise": null,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": true,
+      "openSource": true,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": true,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-04",
+    "nextVerification": "2027-02-04",
+    "verification": {
+      "status": "verified",
+      "source": "official-website",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "global-flathub"
+      ],
+      "usedWith": []
+    },
+    "recommendedIndustries": [
+      "Android development",
+      "Privacy tooling"
+    ],
+    "editorialTags": [
+      "android",
+      "open-source",
+      "app-store"
+    ],
+    "pros": [
+      "Strict free-software inclusion policy",
+      "Builds from source"
+    ],
+    "cons": [
+      "Excludes proprietary applications by design",
+      "Small audience relative to mainstream stores"
+    ],
+    "editorNotes": "Verified 2026-08-04. Community-powered and donation-funded."
+  },
+  {
+    "id": "global-vs-marketplace",
+    "name": "Visual Studio Marketplace",
+    "slug": "visual-studio-marketplace",
+    "country": "global",
+    "category": "developer",
+    "website": "https://marketplace.visualstudio.com/",
+    "submissionUrl": null,
+    "description": "Microsoft marketplace distributing extensions for the Visual Studio family of products.",
+    "tier": "tier1",
+    "scope": "global",
+    "petroHrysScore": 83,
+    "scoreFactors": {
+      "editorialTrust": 8,
+      "businessUsefulness": 8,
+      "verificationQuality": 8,
+      "platformReputation": 9,
+      "spamResistance": 8,
+      "industryImportance": 9,
+      "longTermStability": 9,
+      "submissionQuality": 8,
+      "transparency": 7,
+      "moderationQuality": 8
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "unknown",
+    "registrationRequired": true,
+    "reviewSystem": null,
+    "verificationRequired": true,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": true,
+      "openSource": true,
+      "nonprofit": null,
+      "ai": true,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-04",
+    "nextVerification": "2027-02-04",
+    "verification": {
+      "status": "verified",
+      "source": "official-website",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "global-jetbrains-marketplace",
+        "global-github-marketplace"
+      ],
+      "usedWith": []
+    },
+    "recommendedIndustries": [
+      "Software engineering"
+    ],
+    "editorialTags": [
+      "ide-ecosystem",
+      "developer-tools"
+    ],
+    "pros": [
+      "Direct distribution to Visual Studio and VS Code users"
+    ],
+    "cons": [
+      "Ratings and review functionality not confirmed from the landing page"
+    ],
+    "editorNotes": "Verified 2026-08-04. Operated by Microsoft."
+  },
+  {
+    "id": "global-jetbrains-marketplace",
+    "name": "JetBrains Marketplace",
+    "slug": "jetbrains-marketplace",
+    "country": "global",
+    "category": "developer",
+    "website": "https://plugins.jetbrains.com/",
+    "submissionUrl": null,
+    "description": "Plugin marketplace for JetBrains integrated development environments.",
+    "tier": "tier2",
+    "scope": "global",
+    "petroHrysScore": 74,
+    "scoreFactors": {
+      "editorialTrust": 8,
+      "businessUsefulness": 7,
+      "verificationQuality": 7,
+      "platformReputation": 8,
+      "spamResistance": 8,
+      "industryImportance": 7,
+      "longTermStability": 8,
+      "submissionQuality": 7,
+      "transparency": 6,
+      "moderationQuality": 7
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "unknown",
+    "registrationRequired": true,
+    "reviewSystem": null,
+    "verificationRequired": true,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": true,
+      "openSource": true,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-04",
+    "nextVerification": "2027-02-04",
+    "verification": {
+      "status": "verified",
+      "source": "official-website",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "global-vs-marketplace"
+      ],
+      "usedWith": []
+    },
+    "recommendedIndustries": [
+      "Software engineering"
+    ],
+    "editorialTags": [
+      "ide-ecosystem",
+      "developer-tools"
+    ],
+    "pros": [
+      "Direct reach into JetBrains IDE users"
+    ],
+    "cons": [
+      "Only the marketplace name could be confirmed from the landing page; other fields are unverified"
+    ],
+    "editorNotes": "Verified 2026-08-04. Only the official name was confirmable; remaining fields stay null."
+  },
+  {
+    "id": "global-atlassian-marketplace",
+    "name": "Atlassian Marketplace",
+    "slug": "atlassian-marketplace",
+    "country": "global",
+    "category": "app-directories",
+    "website": "https://marketplace.atlassian.com/",
+    "submissionUrl": null,
+    "description": "Marketplace of applications extending Atlassian products, with user ratings on each listing.",
+    "tier": "tier1",
+    "scope": "global",
+    "petroHrysScore": 85,
+    "scoreFactors": {
+      "editorialTrust": 8,
+      "businessUsefulness": 9,
+      "verificationQuality": 8,
+      "platformReputation": 9,
+      "spamResistance": 9,
+      "industryImportance": 8,
+      "longTermStability": 9,
+      "submissionQuality": 8,
+      "transparency": 8,
+      "moderationQuality": 9
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "unknown",
+    "registrationRequired": true,
+    "reviewSystem": true,
+    "verificationRequired": true,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": true,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": true,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": true,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-04",
+    "nextVerification": "2027-02-04",
+    "verification": {
+      "status": "verified",
+      "source": "official-website",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "global-salesforce-appexchange",
+        "global-hubspot-marketplace"
+      ],
+      "usedWith": []
+    },
+    "recommendedIndustries": [
+      "Project management",
+      "Software development",
+      "IT service management"
+    ],
+    "editorialTags": [
+      "platform-marketplace",
+      "enterprise",
+      "verified-reviews"
+    ],
+    "pros": [
+      "Over 7,000 listings with visible ratings",
+      "Strong enterprise buyer audience"
+    ],
+    "cons": [
+      "Listing pricing not disclosed publicly"
+    ],
+    "editorNotes": "Verified 2026-08-04. Ratings such as 4.8/5 (1203) are shown on listings."
+  },
+  {
+    "id": "global-woocommerce-marketplace",
+    "name": "WooCommerce extensions",
+    "slug": "woocommerce-extensions",
+    "country": "global",
+    "category": "app-directories",
+    "website": "https://woocommerce.com/marketplace/",
+    "submissionUrl": null,
+    "description": "Marketplace of extensions, themes and services for the WooCommerce ecommerce platform, operated by Automattic.",
+    "tier": "tier2",
+    "scope": "global",
+    "petroHrysScore": 75,
+    "scoreFactors": {
+      "editorialTrust": 8,
+      "businessUsefulness": 7,
+      "verificationQuality": 7,
+      "platformReputation": 8,
+      "spamResistance": 8,
+      "industryImportance": 7,
+      "longTermStability": 8,
+      "submissionQuality": 7,
+      "transparency": 7,
+      "moderationQuality": 7
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "unknown",
+    "registrationRequired": true,
+    "reviewSystem": null,
+    "verificationRequired": true,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": true,
+      "enterprise": null,
+      "agency": true,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": true,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": true
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-04",
+    "nextVerification": "2027-02-04",
+    "verification": {
+      "status": "verified",
+      "source": "official-website",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "global-shopify-app-store",
+        "global-wordpress-plugins"
+      ],
+      "usedWith": []
+    },
+    "recommendedIndustries": [
+      "Ecommerce",
+      "WordPress development"
+    ],
+    "editorialTags": [
+      "ecommerce",
+      "platform-marketplace"
+    ],
+    "pros": [
+      "Curated marketplace with a stated 30-day money-back guarantee"
+    ],
+    "cons": [
+      "Review functionality not confirmed",
+      "Restricted to the WooCommerce ecosystem"
+    ],
+    "editorNotes": "Verified 2026-08-04. Operated by Automattic."
+  },
+  {
+    "id": "global-drupal-modules",
+    "name": "Drupal Modules",
+    "slug": "drupal-modules",
+    "country": "global",
+    "category": "developer",
+    "website": "https://www.drupal.org/project/project_module",
+    "submissionUrl": null,
+    "description": "Directory of contributed modules extending Drupal, governed by the non-profit Drupal Association.",
+    "tier": "tier2",
+    "scope": "global",
+    "petroHrysScore": 80,
+    "scoreFactors": {
+      "editorialTrust": 9,
+      "businessUsefulness": 7,
+      "verificationQuality": 8,
+      "platformReputation": 8,
+      "spamResistance": 8,
+      "industryImportance": 7,
+      "longTermStability": 8,
+      "submissionQuality": 8,
+      "transparency": 9,
+      "moderationQuality": 8
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "free",
+    "registrationRequired": true,
+    "reviewSystem": null,
+    "verificationRequired": true,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": null,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": true,
+      "openSource": true,
+      "nonprofit": true,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-04",
+    "nextVerification": "2027-02-04",
+    "verification": {
+      "status": "verified",
+      "source": "official-website",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "global-wordpress-plugins",
+        "global-joomla-extensions"
+      ],
+      "usedWith": []
+    },
+    "recommendedIndustries": [
+      "Web publishing",
+      "Public sector web"
+    ],
+    "editorialTags": [
+      "cms-ecosystem",
+      "open-source"
+    ],
+    "pros": [
+      "Over 56,000 modules",
+      "Governed by a non-profit association"
+    ],
+    "cons": [
+      "Restricted to the Drupal ecosystem"
+    ],
+    "editorNotes": "Verified 2026-08-04. Drupal.org is overseen by the Drupal Association."
+  },
+  {
+    "id": "global-joomla-extensions",
+    "name": "Joomla! Extensions Directory",
+    "slug": "joomla-extensions",
+    "country": "global",
+    "category": "developer",
+    "website": "https://extensions.joomla.org/",
+    "submissionUrl": null,
+    "description": "Official catalogue of Joomla extensions, organised by category with user ratings and reviews.",
+    "tier": "tier3",
+    "scope": "global",
+    "petroHrysScore": 69,
+    "scoreFactors": {
+      "editorialTrust": 8,
+      "businessUsefulness": 6,
+      "verificationQuality": 7,
+      "platformReputation": 6,
+      "spamResistance": 7,
+      "industryImportance": 6,
+      "longTermStability": 7,
+      "submissionQuality": 7,
+      "transparency": 8,
+      "moderationQuality": 7
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "unknown",
+    "registrationRequired": true,
+    "reviewSystem": true,
+    "verificationRequired": true,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": null,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": true,
+      "openSource": true,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-04",
+    "nextVerification": "2027-02-04",
+    "verification": {
+      "status": "verified",
+      "source": "official-website",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "global-drupal-modules"
+      ],
+      "usedWith": []
+    },
+    "recommendedIndustries": [
+      "Web publishing"
+    ],
+    "editorialTags": [
+      "cms-ecosystem",
+      "open-source"
+    ],
+    "pros": [
+      "Official directory with top-rated and most-reviewed browsing"
+    ],
+    "cons": [
+      "Smaller ecosystem than WordPress or Drupal",
+      "Submission cost not stated"
+    ],
+    "editorNotes": "Verified 2026-08-04. Site reports 4,847 extensions across 30+ categories."
+  },
+  {
+    "id": "global-getapp",
+    "name": "GetApp",
+    "slug": "getapp",
+    "country": "global",
+    "category": "software",
+    "website": "https://www.getapp.com/",
+    "submissionUrl": null,
+    "description": "Business software comparison directory with verified user reviews, operated by Nubera eBusiness.",
+    "tier": "tier2",
+    "scope": "global",
+    "petroHrysScore": 76,
+    "scoreFactors": {
+      "editorialTrust": 7,
+      "businessUsefulness": 8,
+      "verificationQuality": 8,
+      "platformReputation": 8,
+      "spamResistance": 7,
+      "industryImportance": 8,
+      "longTermStability": 8,
+      "submissionQuality": 7,
+      "transparency": 7,
+      "moderationQuality": 8
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "unknown",
+    "registrationRequired": true,
+    "reviewSystem": true,
+    "verificationRequired": true,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": true,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": true,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-04",
+    "nextVerification": "2027-02-04",
+    "verification": {
+      "status": "verified",
+      "source": "official-website",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [
+        "global-capterra",
+        "global-software-advice"
+      ],
+      "similar": [],
+      "usedWith": []
+    },
+    "recommendedIndustries": [
+      "CRM",
+      "Project management",
+      "Accounting",
+      "HR"
+    ],
+    "editorialTags": [
+      "software-reviews",
+      "buyer-intent"
+    ],
+    "pros": [
+      "Verified review corpus",
+      "45,000+ listed solutions"
+    ],
+    "cons": [
+      "Vendor listing pricing not disclosed",
+      "Rankings influenced by paid placement"
+    ],
+    "editorNotes": "Verified 2026-08-04. Trademark held by Nubera eBusiness S.L. since 2010."
+  },
+  {
+    "id": "global-peerspot",
+    "name": "PeerSpot",
+    "slug": "peerspot",
+    "country": "global",
+    "category": "software",
+    "website": "https://www.peerspot.com/",
+    "submissionUrl": null,
+    "description": "Enterprise technology review platform that verifies every reviewer as a recent user of the product.",
+    "tier": "tier1",
+    "scope": "global",
+    "petroHrysScore": 82,
+    "scoreFactors": {
+      "editorialTrust": 8,
+      "businessUsefulness": 8,
+      "verificationQuality": 9,
+      "platformReputation": 8,
+      "spamResistance": 9,
+      "industryImportance": 8,
+      "longTermStability": 8,
+      "submissionQuality": 7,
+      "transparency": 8,
+      "moderationQuality": 9
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "unknown",
+    "registrationRequired": true,
+    "reviewSystem": true,
+    "verificationRequired": true,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": true,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": true,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-04",
+    "nextVerification": "2027-02-04",
+    "verification": {
+      "status": "verified",
+      "source": "official-website",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [
+        "global-capterra"
+      ],
+      "similar": [
+        "global-getapp"
+      ],
+      "usedWith": []
+    },
+    "recommendedIndustries": [
+      "Cybersecurity",
+      "Cloud computing",
+      "IT operations",
+      "Data management"
+    ],
+    "editorialTags": [
+      "software-reviews",
+      "enterprise",
+      "verified-reviews"
+    ],
+    "pros": [
+      "Reviewers verified as real users within the last 12 months",
+      "Long-form reviews covering weaknesses as well as strengths"
+    ],
+    "cons": [
+      "Vendor listing pricing not disclosed"
+    ],
+    "editorNotes": "Verified 2026-08-04. Site states it will not publish a review it cannot confirm is real."
+  },
+  {
+    "id": "global-slashdot-software",
+    "name": "Slashdot Software Directory",
+    "slug": "slashdot-software",
+    "country": "global",
+    "category": "software",
+    "website": "https://slashdot.org/software/",
+    "submissionUrl": null,
+    "description": "Business software comparison directory organised by category, with user ratings on each product.",
+    "tier": "tier3",
+    "scope": "global",
+    "petroHrysScore": 63,
+    "scoreFactors": {
+      "editorialTrust": 6,
+      "businessUsefulness": 6,
+      "verificationQuality": 6,
+      "platformReputation": 7,
+      "spamResistance": 6,
+      "industryImportance": 6,
+      "longTermStability": 7,
+      "submissionQuality": 7,
+      "transparency": 6,
+      "moderationQuality": 6
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "unknown",
+    "registrationRequired": true,
+    "reviewSystem": true,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": true,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-04",
+    "nextVerification": "2027-02-04",
+    "verification": {
+      "status": "verified",
+      "source": "official-website",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "global-sourceforge"
+      ],
+      "usedWith": []
+    },
+    "recommendedIndustries": [
+      "Business software"
+    ],
+    "editorialTags": [
+      "software-reviews",
+      "comparison"
+    ],
+    "pros": [
+      "Very broad category coverage",
+      "Visible rating counts"
+    ],
+    "cons": [
+      "Shares its review corpus with SourceForge, so listings overlap heavily"
+    ],
+    "editorNotes": "Verified 2026-08-04. Presented as \"Best Business Software of 2026\"."
+  },
+  {
+    "id": "global-sourceforge",
+    "name": "SourceForge",
+    "slug": "sourceforge",
+    "country": "global",
+    "category": "software",
+    "website": "https://sourceforge.net/",
+    "submissionUrl": null,
+    "description": "Open-source project host and business software comparison platform with user reviews.",
+    "tier": "tier3",
+    "scope": "global",
+    "petroHrysScore": 62,
+    "scoreFactors": {
+      "editorialTrust": 6,
+      "businessUsefulness": 6,
+      "verificationQuality": 6,
+      "platformReputation": 6,
+      "spamResistance": 6,
+      "industryImportance": 6,
+      "longTermStability": 7,
+      "submissionQuality": 7,
+      "transparency": 6,
+      "moderationQuality": 6
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "free",
+    "registrationRequired": true,
+    "reviewSystem": true,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": true,
+      "enterprise": null,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": true,
+      "openSource": true,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-04",
+    "nextVerification": "2027-02-04",
+    "verification": {
+      "status": "verified",
+      "source": "official-website",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "global-slashdot-software"
+      ],
+      "usedWith": []
+    },
+    "recommendedIndustries": [
+      "Business software",
+      "Open source"
+    ],
+    "editorialTags": [
+      "software-reviews",
+      "open-source-hosting"
+    ],
+    "pros": [
+      "Free project creation",
+      "Large review corpus"
+    ],
+    "cons": [
+      "Reputation was damaged by past bundled-installer practices under previous ownership"
+    ],
+    "editorNotes": "Verified 2026-08-04. Now describes itself as a business software comparison platform as well as a project host."
+  },
+  {
+    "id": "global-saashub",
+    "name": "SaaSHub",
+    "slug": "saashub",
+    "country": "global",
+    "category": "software",
+    "website": "https://www.saashub.com/",
+    "submissionUrl": null,
+    "description": "Independent software marketplace for discovering and comparing alternatives, with community-run expert assessments.",
+    "tier": "tier3",
+    "scope": "global",
+    "petroHrysScore": 62,
+    "scoreFactors": {
+      "editorialTrust": 6,
+      "businessUsefulness": 6,
+      "verificationQuality": 6,
+      "platformReputation": 6,
+      "spamResistance": 6,
+      "industryImportance": 6,
+      "longTermStability": 6,
+      "submissionQuality": 8,
+      "transparency": 7,
+      "moderationQuality": 6
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "free",
+    "registrationRequired": true,
+    "reviewSystem": true,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": true,
+      "saas": true,
+      "enterprise": null,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": true,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-04",
+    "nextVerification": "2027-02-04",
+    "verification": {
+      "status": "verified",
+      "source": "official-website",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [
+        "global-alternativeto"
+      ],
+      "similar": [],
+      "usedWith": []
+    },
+    "recommendedIndustries": [
+      "Business software"
+    ],
+    "editorialTags": [
+      "software-alternatives",
+      "community"
+    ],
+    "pros": [
+      "Free submission tool",
+      "Community expert programme"
+    ],
+    "cons": [
+      "Very large catalogue with correspondingly light curation"
+    ],
+    "editorNotes": "Verified 2026-08-04. Site reports 235,264 products."
+  },
+  {
+    "id": "global-libhunt",
+    "name": "LibHunt",
+    "slug": "libhunt",
+    "country": "global",
+    "category": "developer",
+    "website": "https://www.libhunt.com/",
+    "submissionUrl": null,
+    "description": "Catalogue of open-source projects ranked by mentions across developer communities.",
+    "tier": "tier3",
+    "scope": "global",
+    "petroHrysScore": 60,
+    "scoreFactors": {
+      "editorialTrust": 6,
+      "businessUsefulness": 6,
+      "verificationQuality": 5,
+      "platformReputation": 6,
+      "spamResistance": 6,
+      "industryImportance": 6,
+      "longTermStability": 6,
+      "submissionQuality": 8,
+      "transparency": 6,
+      "moderationQuality": 5
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "free",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": null,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": true,
+      "openSource": true,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-04",
+    "nextVerification": "2027-02-04",
+    "verification": {
+      "status": "verified",
+      "source": "official-website",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "global-alternativeto"
+      ],
+      "usedWith": []
+    },
+    "recommendedIndustries": [
+      "Software engineering"
+    ],
+    "editorialTags": [
+      "open-source",
+      "discovery"
+    ],
+    "pros": [
+      "Free submission",
+      "Useful for finding alternatives to a known library"
+    ],
+    "cons": [
+      "Rankings derive from social mentions rather than assessment",
+      "Ad-funded"
+    ],
+    "editorNotes": "Verified 2026-08-04. Site reports over 545,000 projects."
+  },
+  {
+    "id": "global-foursquare-places",
+    "name": "Foursquare Places",
+    "slug": "foursquare-places",
+    "country": "global",
+    "category": "local-business",
+    "website": "https://foursquare.com/products/places/",
+    "submissionUrl": null,
+    "description": "Point-of-interest dataset covering business locations across more than 200 countries, with an open-source tier.",
+    "tier": "tier2",
+    "scope": "global",
+    "petroHrysScore": 74,
+    "scoreFactors": {
+      "editorialTrust": 8,
+      "businessUsefulness": 7,
+      "verificationQuality": 7,
+      "platformReputation": 8,
+      "spamResistance": 8,
+      "industryImportance": 7,
+      "longTermStability": 8,
+      "submissionQuality": 6,
+      "transparency": 8,
+      "moderationQuality": 7
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "unknown",
+    "registrationRequired": true,
+    "reviewSystem": false,
+    "verificationRequired": true,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": true,
+      "developer": true,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-04",
+    "nextVerification": "2027-02-04",
+    "verification": {
+      "status": "verified",
+      "source": "official-website",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": []
+    },
+    "recommendedIndustries": [
+      "Retail",
+      "Location intelligence",
+      "Mapping"
+    ],
+    "editorialTags": [
+      "location-data",
+      "poi",
+      "open-data"
+    ],
+    "pros": [
+      "Open-source access tier for core attributes",
+      "Coverage across 200+ countries"
+    ],
+    "cons": [
+      "Primarily a data product rather than a self-service listing directory"
+    ],
+    "editorNotes": "Verified 2026-08-04. FSQ OS Places provides open-source access to POI data."
   }
 ]
