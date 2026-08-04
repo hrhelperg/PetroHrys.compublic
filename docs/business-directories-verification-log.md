@@ -6,17 +6,22 @@ Every published record must carry a verification status, a source, a date and at
 least one named reviewer; the validator refuses a `verified` record that is
 missing any of them.
 
-**56 records.**
+**64 records.**
 
 | Directory | Country | Status | Source | Last verified | Next due | Reviewer |
 |---|---|---|---|---|---|---|
 | Companies House Register | united-kingdom | verified | Official website | 2026-08-04 | 2027-02-04 | Petro Hrys |
 | ABN Lookup | australia | verified | Official website | 2026-08-04 | 2027-02-04 | Petro Hrys |
+| Search ASIC registers | australia | verified | Government register | 2026-08-04 | 2027-02-04 | Petro Hrys |
+| Baza Internetowa REGON | poland | verified | Government register | 2026-08-04 | 2027-02-04 | Petro Hrys |
 | L'Annuaire des Entreprises | france | verified | Government register | 2026-08-04 | 2027-02-04 | Petro Hrys |
 | Veřejný rejstřík a Sbírka listin | czech-republic | verified | Official website | 2026-08-04 | 2027-02-04 | Petro Hrys |
+| Bundesanzeiger | germany | verified | Government register | 2026-08-04 | 2027-02-04 | Petro Hrys |
 | Gemeinsames Registerportal der Länder | germany | verified | Official website | 2026-08-04 | 2027-02-04 | Petro Hrys |
 | Registro Imprese | italy | verified | Official website | 2026-08-04 | 2027-02-04 | Petro Hrys |
+| Care Quality Commission | united-kingdom | verified | Government register | 2026-08-04 | 2027-02-04 | Petro Hrys |
 | Institut National de la Propriété Industrielle | france | verified | Government register | 2026-08-04 | 2027-02-04 | Petro Hrys |
+| USPTO Trademark Search | united-states | verified | Government register | 2026-08-04 | 2027-02-04 | Petro Hrys |
 | Colegio de Registradores de España | spain | verified | Government register | 2026-08-04 | 2027-02-04 | Petro Hrys |
 | Python Package Index (PyPI) | global | verified | Official website | 2026-08-04 | 2027-02-04 | Petro Hrys |
 | Search for a Federal Corporation | canada | verified | Government register | 2026-08-04 | 2027-02-04 | Petro Hrys |
@@ -32,14 +37,16 @@ missing any of them.
 | Salesforce AppExchange (AgentExchange) | global | verified | Official website | 2026-08-04 | 2027-02-04 | Petro Hrys |
 | Hugging Face | global | verified | Official website | 2026-08-04 | 2027-02-04 | Petro Hrys |
 | Maven Central | global | verified | Official website | 2026-08-04 | 2027-02-04 | Petro Hrys |
-| Add-ons for Firefox | global | verified | Official website | 2026-08-04 | 2027-02-04 | Petro Hrys |
 | Capterra | global | verified | Official website | 2026-08-04 | 2027-02-04 | Petro Hrys |
+| Add-ons for Firefox | global | verified | Official website | 2026-08-04 | 2027-02-04 | Petro Hrys |
+| Chambers and Partners | global | verified | Official website | 2026-08-04 | 2027-02-04 | Petro Hrys |
 | Flathub | global | verified | Official website | 2026-08-04 | 2027-02-04 | Petro Hrys |
 | Visual Studio Marketplace | global | verified | Official website | 2026-08-04 | 2027-02-04 | Petro Hrys |
 | Crunchbase | global | verified | Official website | 2026-08-04 | 2027-02-04 | Petro Hrys |
 | Docker Hub | global | verified | Official website | 2026-08-04 | 2027-02-04 | Petro Hrys |
 | PeerSpot | global | verified | Official website | 2026-08-04 | 2027-02-04 | Petro Hrys |
 | Clutch | global | verified | Official website | 2026-08-04 | 2027-02-04 | Petro Hrys |
+| The Legal 500 | global | verified | Official website | 2026-08-04 | 2027-02-04 | Petro Hrys |
 | Drupal Modules | global | verified | Official website | 2026-08-04 | 2027-02-04 | Petro Hrys |
 | pub.dev | global | verified | Official website | 2026-08-04 | 2027-02-04 | Petro Hrys |
 | Hex | global | verified | Official website | 2026-08-04 | 2027-02-04 | Petro Hrys |
@@ -48,19 +55,20 @@ missing any of them.
 | HubSpot App Marketplace | global | verified | Official website | 2026-08-04 | 2027-02-04 | Petro Hrys |
 | Open Collective | global | verified | Official website | 2026-08-04 | 2027-02-04 | Petro Hrys |
 | Snap Store | global | verified | Official website | 2026-08-04 | 2027-02-04 | Petro Hrys |
-| GetApp | global | verified | Official website | 2026-08-04 | 2027-02-04 | Petro Hrys |
 | Trustpilot | global | verified | Official website | 2026-08-04 | 2027-02-04 | Petro Hrys |
+| GetApp | global | verified | Official website | 2026-08-04 | 2027-02-04 | Petro Hrys |
 | Kaggle Datasets | global | verified | Official website | 2026-08-04 | 2027-02-04 | Petro Hrys |
 | Wellfound | global | verified | Official website | 2026-08-04 | 2027-02-04 | Petro Hrys |
 | WooCommerce extensions | global | verified | Official website | 2026-08-04 | 2027-02-04 | Petro Hrys |
+| Product Hunt | global | verified | Official website | 2026-08-04 | 2027-02-04 | Petro Hrys |
 | Better Business Bureau | united-states | verified | Official website | 2026-08-04 | 2027-02-04 | Petro Hrys |
 | Foursquare Places | global | verified | Official website | 2026-08-04 | 2027-02-04 | Petro Hrys |
 | JetBrains Marketplace | global | verified | Official website | 2026-08-04 | 2027-02-04 | Petro Hrys |
-| Product Hunt | global | verified | Official website | 2026-08-04 | 2027-02-04 | Petro Hrys |
 | Software Advice | global | verified | Official website | 2026-08-04 | 2027-02-04 | Petro Hrys |
 | AlternativeTo | global | verified | Official website | 2026-08-04 | 2027-02-04 | Petro Hrys |
 | Joomla! Extensions Directory | global | verified | Official website | 2026-08-04 | 2027-02-04 | Petro Hrys |
 | Ollama Library | global | verified | Official website | 2026-08-04 | 2027-02-04 | Petro Hrys |
+| PR Newswire | global | verified | Official website | 2026-08-04 | 2027-02-04 | Petro Hrys |
 | Slashdot Software Directory | global | verified | Official website | 2026-08-04 | 2027-02-04 | Petro Hrys |
 | SaaSHub | global | verified | Official website | 2026-08-04 | 2027-02-04 | Petro Hrys |
 | SourceForge | global | verified | Official website | 2026-08-04 | 2027-02-04 | Petro Hrys |

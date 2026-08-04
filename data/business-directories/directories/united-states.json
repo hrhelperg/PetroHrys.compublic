@@ -84,5 +84,121 @@
       "Accreditation is a paid programme, which draws recurring criticism of the rating model"
     ],
     "editorNotes": "Verified 2026-08-04. Whether an unaccredited profile is free was not established from the homepage, so free is null."
+  },
+  {
+    "id": "us-uspto-trademark-search",
+    "name": "USPTO Trademark Search",
+    "slug": "uspto-trademark-search",
+    "country": "united-states",
+    "category": "government",
+    "website": "https://www.uspto.gov/trademarks/search",
+    "submissionUrl": null,
+    "description": "Federal trademark database of United States registrations and applications, searchable free of charge.",
+    "tier": "tier1",
+    "scope": "national",
+    "petroHrysScore": 89,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 8,
+      "verificationQuality": 9,
+      "platformReputation": 9,
+      "spamResistance": 10,
+      "industryImportance": 8,
+      "longTermStability": 10,
+      "submissionQuality": 7,
+      "transparency": 9,
+      "moderationQuality": 9
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "free",
+    "registrationRequired": false,
+    "reviewSystem": false,
+    "verificationRequired": true,
+    "manualReview": null,
+    "accepts": {
+      "startup": true,
+      "saas": true,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": true,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": true
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-04",
+    "nextVerification": "2027-02-04",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "bestFor": [
+      "Clearance searches before filing a mark",
+      "Confirming a competitor’s registered marks"
+    ],
+    "notRecommendedFor": [
+      "Company discovery",
+      "Businesses with no US trademark interest"
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [
+        "fr-inpi"
+      ],
+      "competitors": []
+    },
+    "recommendedIndustries": [
+      "Any business holding or seeking a US trademark"
+    ],
+    "editorialTags": [
+      "statutory",
+      "primary-source",
+      "intellectual-property"
+    ],
+    "pros": [
+      "Free to search, no account required",
+      "Authoritative federal record"
+    ],
+    "cons": [
+      "Covers marks rather than companies"
+    ],
+    "editorNotes": "Verified 2026-08-04. Operated by the United States Patent and Trademark Office."
   }
 ]
