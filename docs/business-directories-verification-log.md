@@ -6,7 +6,7 @@ Every published record must carry a verification status, a source, a date and at
 least one named reviewer; the validator refuses a `verified` record that is
 missing any of them.
 
-**52 records.**
+**56 records.**
 
 | Directory | Country | Status | Source | Last verified | Next due | Reviewer |
 |---|---|---|---|---|---|---|
@@ -30,6 +30,7 @@ missing any of them.
 | Packagist.org | global | verified | Official website | 2026-08-04 | 2027-02-04 | Petro Hrys |
 | RubyGems.org | global | verified | Official website | 2026-08-04 | 2027-02-04 | Petro Hrys |
 | Salesforce AppExchange (AgentExchange) | global | verified | Official website | 2026-08-04 | 2027-02-04 | Petro Hrys |
+| Hugging Face | global | verified | Official website | 2026-08-04 | 2027-02-04 | Petro Hrys |
 | Maven Central | global | verified | Official website | 2026-08-04 | 2027-02-04 | Petro Hrys |
 | Add-ons for Firefox | global | verified | Official website | 2026-08-04 | 2027-02-04 | Petro Hrys |
 | Capterra | global | verified | Official website | 2026-08-04 | 2027-02-04 | Petro Hrys |
@@ -45,9 +46,11 @@ missing any of them.
 | Yelp for Business | global | verified | Official website | 2026-08-04 | 2027-02-04 | Petro Hrys |
 | F-Droid | global | verified | Official website | 2026-08-04 | 2027-02-04 | Petro Hrys |
 | HubSpot App Marketplace | global | verified | Official website | 2026-08-04 | 2027-02-04 | Petro Hrys |
+| Open Collective | global | verified | Official website | 2026-08-04 | 2027-02-04 | Petro Hrys |
 | Snap Store | global | verified | Official website | 2026-08-04 | 2027-02-04 | Petro Hrys |
 | GetApp | global | verified | Official website | 2026-08-04 | 2027-02-04 | Petro Hrys |
 | Trustpilot | global | verified | Official website | 2026-08-04 | 2027-02-04 | Petro Hrys |
+| Kaggle Datasets | global | verified | Official website | 2026-08-04 | 2027-02-04 | Petro Hrys |
 | Wellfound | global | verified | Official website | 2026-08-04 | 2027-02-04 | Petro Hrys |
 | WooCommerce extensions | global | verified | Official website | 2026-08-04 | 2027-02-04 | Petro Hrys |
 | Better Business Bureau | united-states | verified | Official website | 2026-08-04 | 2027-02-04 | Petro Hrys |
@@ -57,6 +60,7 @@ missing any of them.
 | Software Advice | global | verified | Official website | 2026-08-04 | 2027-02-04 | Petro Hrys |
 | AlternativeTo | global | verified | Official website | 2026-08-04 | 2027-02-04 | Petro Hrys |
 | Joomla! Extensions Directory | global | verified | Official website | 2026-08-04 | 2027-02-04 | Petro Hrys |
+| Ollama Library | global | verified | Official website | 2026-08-04 | 2027-02-04 | Petro Hrys |
 | Slashdot Software Directory | global | verified | Official website | 2026-08-04 | 2027-02-04 | Petro Hrys |
 | SaaSHub | global | verified | Official website | 2026-08-04 | 2027-02-04 | Petro Hrys |
 | SourceForge | global | verified | Official website | 2026-08-04 | 2027-02-04 | Petro Hrys |

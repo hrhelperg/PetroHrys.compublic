@@ -88,6 +88,14 @@
       "usedWith": [
         "global-opencorporates"
       ]
-    }
+    },
+    "difficulty": "moderate",
+    "quality": "high",
+    "bestFor": [
+      "Any entity incorporating in the United Kingdom"
+    ],
+    "notRecommendedFor": [
+      "Businesses not registered in the UK"
+    ]
   }
 ]

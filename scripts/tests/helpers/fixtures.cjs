@@ -1,6 +1,7 @@
 // scripts/tests/helpers/fixtures.cjs
 'use strict';
-const { ACCEPTS_KEYS, SCORE_FACTORS, RELATION_KINDS, computeScore } = require('../../lib/bd-schema.cjs');
+const { ACCEPTS_KEYS, SCORE_FACTORS, RELATION_KINDS, REQUIRED_ASSET_KEYS, computeScore } =
+  require('../../lib/bd-schema.cjs');
 
 // The single definition of a valid directory record for tests. Every suite
 // builds from here, so a schema change is a one-file edit rather than a hunt
@@ -59,6 +60,16 @@ function directoryRecord(overrides = {}) {
     lastVerified: null,
     nextVerification: null,
     verification: { status: 'unverified', source: null, reviewers: [] },
+
+    bestFor: [],
+    notRecommendedFor: [],
+    submissionDifficulty: null,
+    listingQuality: null,
+    typicalApprovalTime: null,
+    reviewProcess: null,
+    commonMistakes: [],
+    preparationChecklist: [],
+    requiredAssets: Object.fromEntries(REQUIRED_ASSET_KEYS.map((k) => [k, null])),
 
     related: Object.fromEntries(RELATION_KINDS.map((k) => [k, []])),
     recommendedIndustries: [],

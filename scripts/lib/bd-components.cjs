@@ -630,13 +630,74 @@ function submissionLink(directory) {
     + `${vh(' (opens in a new tab)')}</a></p>`;
 }
 
+// ---------------------------------------------------------------------------
+// 22. Editorial guidance
+// ---------------------------------------------------------------------------
+
+const DIFFICULTY_LABELS = { 'very-easy': 'Very easy', easy: 'Easy', moderate: 'Moderate', hard: 'Hard' };
+const QUALITY_LABELS = { high: 'High', mixed: 'Mixed', low: 'Low' };
+const ASSET_LABELS = {
+  logo: 'Logo', website: 'Website', description: 'Description', categories: 'Categories',
+  contact: 'Contact information', screenshots: 'Screenshots', businessVerification: 'Business verification',
+};
+
+// Editorial judgement and verified fact are shown side by side, each labelled,
+// so a reader can tell which is which. Anything unestablished says Unknown.
+function editorialGuidance(directory) {
+  const defs = [
+    ['Submission difficulty', DIFFICULTY_LABELS[directory.submissionDifficulty]],
+    ['Typical listing quality', QUALITY_LABELS[directory.listingQuality]],
+    ['Typical approval time', directory.typicalApprovalTime],
+    ['Review process', directory.reviewProcess],
+  ].map(([label, value]) => `        <div class="bd-def">
+          <dt class="bd-def-t">${escapeHtml(label)}</dt>
+          <dd class="bd-def-d">${value ? `<span class="bd-metric">${escapeHtml(value)}</span>`
+    : '<span class="bd-metric bd-metric--empty">Unknown</span>'}</dd>
+        </div>`).join('\n');
+
+  const assets = S.REQUIRED_ASSET_KEYS.map((key) => {
+    const value = (directory.requiredAssets || {})[key];
+    const text = value === true ? 'Required' : value === false ? 'Not required' : 'Unknown';
+    return `        <div class="bd-def">
+          <dt class="bd-def-t">${escapeHtml(ASSET_LABELS[key])}</dt>
+          <dd class="bd-def-d"><span class="bd-metric">${text}</span></dd>
+        </div>`;
+  }).join('\n');
+
+  const list = (items, empty) => (items && items.length
+    ? `      <ul class="bd-list">\n${items.map((i) => `        <li>${escapeHtml(i)}</li>`).join('\n')}\n      </ul>`
+    : `      <p class="bd-empty">${escapeHtml(empty)}</p>`);
+
+  return `      <dl class="bd-defs">
+${defs}
+      </dl>
+
+      <h3 class="bd-subhead">Best for</h3>
+${list(directory.bestFor, 'No editorial guidance recorded yet.')}
+
+      <h3 class="bd-subhead">Not recommended for</h3>
+${list(directory.notRecommendedFor, 'No editorial guidance recorded yet.')}
+
+      <h3 class="bd-subhead">Preparation checklist</h3>
+${list(directory.preparationChecklist, 'No checklist recorded yet.')}
+
+      <h3 class="bd-subhead">Common mistakes</h3>
+${list(directory.commonMistakes, 'No common mistakes recorded yet.')}
+
+      <h3 class="bd-subhead">Required assets</h3>
+      <p class="bd-note">Marked Unknown unless the official submission form was read.</p>
+      <dl class="bd-defs">
+${assets}
+      </dl>`;
+}
+
 module.exports = {
   breadcrumbs, pageIntro, countryCard, categoryCard, cardGrid,
   directoryTable, directoryRow, directoryCard, metric, metricsBlock, metricNote,
   statusBadges, prosCons, bestForTags, bulletList, emptyState, faqSection,
   searchControls, filterControls, sortControls, pagination,
   verificationBlock, acceptsList, scoreBreakdown, filterValue,
-  relatedDirectories, submissionLink,
+  relatedDirectories, submissionLink, editorialGuidance,
   methodologyNote, provenanceBlock, externalLinkCta,
   FILTERS, VERIFICATION_NOTE, REL_EXTERNAL,
 };

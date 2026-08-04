@@ -190,6 +190,7 @@ function pageModel(registry) {
           section('verification', 'Verification', c.verificationBlock(directory)),
           section('industries', 'Recommended industries', c.bestForTags(directory.recommendedIndustries)),
           section('assessment', 'Assessment', c.prosCons({ pros: directory.pros, cons: directory.cons, headingLevel: 3 })),
+          section('guidance', 'Submission guidance', c.editorialGuidance(directory)),
           section('related', 'Related directories', c.relatedDirectories(
             SCHEMA.RELATION_KINDS.map((kind) => ({
               label: SCHEMA.RELATION_LABELS[kind],

@@ -6,7 +6,7 @@ Entries are grouped by verification date, newest first.
 
 ## 2026-08-04
 
-52 directories added or re-verified.
+56 directories added or re-verified.
 
 - **Companies House Register** — united-kingdom / government — PetroHrys Score 95
 - **ABN Lookup** — australia / government — PetroHrys Score 93
@@ -28,6 +28,7 @@ Entries are grouped by verification date, newest first.
 - **Packagist.org** — global / developer — PetroHrys Score 85
 - **RubyGems.org** — global / developer — PetroHrys Score 85
 - **Salesforce AppExchange (AgentExchange)** — global / app-directories — PetroHrys Score 85
+- **Hugging Face** — global / developer — PetroHrys Score 84
 - **Maven Central** — global / developer — PetroHrys Score 84
 - **Add-ons for Firefox** — global / app-directories — PetroHrys Score 83
 - **Capterra** — global / software — PetroHrys Score 83
@@ -43,9 +44,11 @@ Entries are grouped by verification date, newest first.
 - **Yelp for Business** — global / local-business — PetroHrys Score 79
 - **F-Droid** — global / app-directories — PetroHrys Score 77
 - **HubSpot App Marketplace** — global / app-directories — PetroHrys Score 77
+- **Open Collective** — global / general-business — PetroHrys Score 77
 - **Snap Store** — global / app-directories — PetroHrys Score 77
 - **GetApp** — global / software — PetroHrys Score 76
 - **Trustpilot** — global / review-sites — PetroHrys Score 76
+- **Kaggle Datasets** — global / developer — PetroHrys Score 75
 - **Wellfound** — global / startup — PetroHrys Score 75
 - **WooCommerce extensions** — global / app-directories — PetroHrys Score 75
 - **Better Business Bureau** — united-states / review-sites — PetroHrys Score 74
@@ -55,6 +58,7 @@ Entries are grouped by verification date, newest first.
 - **Software Advice** — global / software — PetroHrys Score 74
 - **AlternativeTo** — global / software — PetroHrys Score 69
 - **Joomla! Extensions Directory** — global / developer — PetroHrys Score 69
+- **Ollama Library** — global / developer — PetroHrys Score 67
 - **Slashdot Software Directory** — global / software — PetroHrys Score 63
 - **SaaSHub** — global / software — PetroHrys Score 62
 - **SourceForge** — global / software — PetroHrys Score 62

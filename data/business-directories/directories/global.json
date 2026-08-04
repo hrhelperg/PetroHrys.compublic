@@ -180,7 +180,20 @@
       "Open review model is susceptible to review manipulation",
       "Advanced features are paid"
     ],
-    "editorNotes": "Verified 2026-08-04 via business.trustpilot.com; the consumer domain returned HTTP 403 to automated fetch."
+    "editorNotes": "Verified 2026-08-04 via business.trustpilot.com; the consumer domain returned HTTP 403 to automated fetch.",
+    "submissionUrl": "https://signup.business.trustpilot.com/create-account",
+    "difficulty": "very-easy",
+    "quality": "mixed",
+    "bestFor": [
+      "Consumer-facing businesses collecting public reviews"
+    ],
+    "notRecommendedFor": [
+      "B2B vendors with few end customers",
+      "Businesses unable to service review volume"
+    ],
+    "mistakes": [
+      "Inviting reviews only from satisfied customers, which breaches platform guidelines"
+    ]
   },
   {
     "id": "global-yelp",
@@ -347,7 +360,7 @@
     "editorialTags": [
       "software-reviews",
       "buyer-intent",
-      "gartner-owned"
+      "g2-digital-markets"
     ],
     "pros": [
       "Large verified review corpus",
@@ -365,8 +378,23 @@
         "global-peerspot"
       ],
       "similar": [],
-      "usedWith": []
-    }
+      "usedWith": [],
+      "competitors": [
+        "global-getapp",
+        "global-peerspot"
+      ]
+    },
+    "submissionUrl": "https://www.capterra.com/vendors/",
+    "notes": "Verified 2026-08-04. Vendor page states Capterra is powered by G2 Digital Markets. An earlier note in this dataset described it as Gartner-owned; digitalmarkets.gartner.com now redirects to app.g2digitalmarkets.com, so that description was corrected.",
+    "difficulty": "moderate",
+    "quality": "high",
+    "bestFor": [
+      "SaaS vendors selling to SMB and mid-market buyers"
+    ],
+    "notRecommendedFor": [
+      "Local service businesses",
+      "Open-source projects with no commercial listing"
+    ]
   },
   {
     "id": "global-software-advice",
@@ -445,7 +473,7 @@
     "editorialTags": [
       "software-reviews",
       "advisory",
-      "gartner-owned"
+      "g2-digital-markets"
     ],
     "pros": [
       "Advisory service is free to buyers",
@@ -462,8 +490,22 @@
         "global-getapp"
       ],
       "similar": [],
-      "usedWith": []
-    }
+      "usedWith": [],
+      "competitors": [
+        "global-capterra",
+        "global-getapp"
+      ]
+    },
+    "submissionUrl": "https://www.softwareadvice.com/vendors/",
+    "notes": "Verified 2026-08-04. Vendor page states Software Advice is part of G2 Digital Markets. An earlier note described it as Gartner-owned; that was corrected after digitalmarkets.gartner.com was found to redirect to app.g2digitalmarkets.com.",
+    "difficulty": "moderate",
+    "quality": "high",
+    "bestFor": [
+      "SaaS vendors wanting advisor-driven lead flow"
+    ],
+    "notRecommendedFor": [
+      "Businesses outside business software"
+    ]
   },
   {
     "id": "global-alternativeto",
@@ -915,7 +957,19 @@
       "alternatives": [],
       "similar": [],
       "usedWith": []
-    }
+    },
+    "difficulty": "easy",
+    "quality": "mixed",
+    "bestFor": [
+      "New software products seeking a launch moment"
+    ],
+    "notRecommendedFor": [
+      "Established products with no new release",
+      "Local businesses"
+    ],
+    "mistakes": [
+      "Launching without preparing assets and a maker comment in advance"
+    ]
   },
   {
     "id": "global-wellfound",
@@ -3295,7 +3349,11 @@
         "global-software-advice"
       ],
       "similar": [],
-      "usedWith": []
+      "usedWith": [],
+      "competitors": [
+        "global-capterra",
+        "global-software-advice"
+      ]
     },
     "recommendedIndustries": [
       "CRM",
@@ -3315,7 +3373,15 @@
       "Vendor listing pricing not disclosed",
       "Rankings influenced by paid placement"
     ],
-    "editorNotes": "Verified 2026-08-04. Trademark held by Nubera eBusiness S.L. since 2010."
+    "editorNotes": "Verified 2026-08-04. Trademark held by Nubera eBusiness S.L. since 2010.",
+    "difficulty": "moderate",
+    "quality": "high",
+    "bestFor": [
+      "SaaS vendors comparing against category peers"
+    ],
+    "notRecommendedFor": [
+      "Non-software businesses"
+    ]
   },
   {
     "id": "global-peerspot",
@@ -3871,5 +3937,487 @@
       "Primarily a data product rather than a self-service listing directory"
     ],
     "editorNotes": "Verified 2026-08-04. FSQ OS Places provides open-source access to POI data."
+  },
+  {
+    "id": "global-hugging-face",
+    "name": "Hugging Face",
+    "slug": "hugging-face",
+    "country": "global",
+    "category": "developer",
+    "website": "https://huggingface.co/",
+    "submissionUrl": "https://huggingface.co/join",
+    "description": "Collaboration platform hosting machine-learning models, datasets and demo applications.",
+    "tier": "tier1",
+    "scope": "global",
+    "petroHrysScore": 84,
+    "scoreFactors": {
+      "editorialTrust": 9,
+      "businessUsefulness": 9,
+      "verificationQuality": 7,
+      "platformReputation": 9,
+      "spamResistance": 7,
+      "industryImportance": 10,
+      "longTermStability": 8,
+      "submissionQuality": 9,
+      "transparency": 8,
+      "moderationQuality": 7
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "freemium",
+    "registrationRequired": true,
+    "reviewSystem": false,
+    "verificationRequired": true,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": true,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": true,
+      "openSource": true,
+      "nonprofit": null,
+      "ai": true,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-04",
+    "nextVerification": "2027-02-04",
+    "verification": {
+      "status": "verified",
+      "source": "official-website",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "bestFor": [
+      "Teams publishing open models or datasets",
+      "AI products wanting developer distribution"
+    ],
+    "notRecommendedFor": [
+      "Non-technical businesses",
+      "Companies with no ML artefact to publish"
+    ],
+    "submissionDifficulty": "easy",
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [
+      "Publishing without a model card, which leaves the artefact undiscoverable and unusable"
+    ],
+    "preparationChecklist": [
+      "Model or dataset card written",
+      "Licence chosen",
+      "Organisation account created"
+    ],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "global-kaggle-datasets",
+        "global-ollama-library"
+      ],
+      "usedWith": [],
+      "competitors": []
+    },
+    "recommendedIndustries": [
+      "Machine learning",
+      "AI research",
+      "Data science"
+    ],
+    "editorialTags": [
+      "ai",
+      "machine-learning",
+      "model-hub"
+    ],
+    "pros": [
+      "Unlimited free public models, datasets and applications",
+      "Central to the open ML ecosystem"
+    ],
+    "cons": [
+      "Publishing is unmoderated, so quality varies widely"
+    ],
+    "editorNotes": "Verified 2026-08-04. Site reports 2M+ models and 500k+ datasets."
+  },
+  {
+    "id": "global-kaggle-datasets",
+    "name": "Kaggle Datasets",
+    "slug": "kaggle-datasets",
+    "country": "global",
+    "category": "developer",
+    "website": "https://www.kaggle.com/datasets",
+    "submissionUrl": null,
+    "description": "Catalogue of open datasets for artificial-intelligence and research use, operated by Kaggle under Google.",
+    "tier": "tier2",
+    "scope": "global",
+    "petroHrysScore": 75,
+    "scoreFactors": {
+      "editorialTrust": 8,
+      "businessUsefulness": 7,
+      "verificationQuality": 7,
+      "platformReputation": 8,
+      "spamResistance": 7,
+      "industryImportance": 8,
+      "longTermStability": 8,
+      "submissionQuality": 8,
+      "transparency": 7,
+      "moderationQuality": 7
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "free",
+    "registrationRequired": true,
+    "reviewSystem": null,
+    "verificationRequired": true,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": null,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": true,
+      "openSource": true,
+      "nonprofit": null,
+      "ai": true,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-04",
+    "nextVerification": "2027-02-04",
+    "verification": {
+      "status": "verified",
+      "source": "official-website",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "bestFor": [
+      "Organisations releasing open datasets",
+      "Research teams seeking dataset visibility"
+    ],
+    "notRecommendedFor": [
+      "Companies with no publishable dataset",
+      "Commercial product promotion"
+    ],
+    "submissionDifficulty": "easy",
+    "listingQuality": "mixed",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [
+      "Dataset licence confirmed",
+      "Column documentation prepared"
+    ],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "global-hugging-face"
+      ],
+      "usedWith": [],
+      "competitors": []
+    },
+    "recommendedIndustries": [
+      "Data science",
+      "Machine learning",
+      "Research"
+    ],
+    "editorialTags": [
+      "ai",
+      "datasets",
+      "open-data"
+    ],
+    "pros": [
+      "Free dataset publishing",
+      "Large data-science audience"
+    ],
+    "cons": [
+      "Review system not confirmed from the catalogue page"
+    ],
+    "editorNotes": "Verified 2026-08-04. Owned by Google."
+  },
+  {
+    "id": "global-ollama-library",
+    "name": "Ollama Library",
+    "slug": "ollama-library",
+    "country": "global",
+    "category": "developer",
+    "website": "https://ollama.com/library",
+    "submissionUrl": null,
+    "description": "Public catalogue of large language models packaged for local execution through Ollama.",
+    "tier": "tier2",
+    "scope": "global",
+    "petroHrysScore": 67,
+    "scoreFactors": {
+      "editorialTrust": 7,
+      "businessUsefulness": 7,
+      "verificationQuality": 6,
+      "platformReputation": 7,
+      "spamResistance": 7,
+      "industryImportance": 7,
+      "longTermStability": 6,
+      "submissionQuality": 7,
+      "transparency": 6,
+      "moderationQuality": 6
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "unknown",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": null,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": true,
+      "openSource": true,
+      "nonprofit": null,
+      "ai": true,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-04",
+    "nextVerification": "2027-02-04",
+    "verification": {
+      "status": "verified",
+      "source": "official-website",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "bestFor": [
+      "Model publishers targeting local-first deployment"
+    ],
+    "notRecommendedFor": [
+      "Non-model products",
+      "Businesses outside the AI tooling space"
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "mixed",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "global-hugging-face"
+      ],
+      "usedWith": [],
+      "competitors": []
+    },
+    "recommendedIndustries": [
+      "Machine learning",
+      "Local AI deployment"
+    ],
+    "editorialTags": [
+      "ai",
+      "model-catalogue",
+      "local-inference"
+    ],
+    "pros": [
+      "Curated catalogue of runnable models",
+      "Clear packaging conventions"
+    ],
+    "cons": [
+      "Operated by a single commercial entity",
+      "Submission route not documented on the library page"
+    ],
+    "editorNotes": "Verified 2026-08-04. Operated by Ollama Inc."
+  },
+  {
+    "id": "global-open-collective",
+    "name": "Open Collective",
+    "slug": "open-collective",
+    "country": "global",
+    "category": "general-business",
+    "website": "https://opencollective.com/",
+    "submissionUrl": null,
+    "description": "Transparent fund-management platform where collectives and organisations publish their finances publicly.",
+    "tier": "tier2",
+    "scope": "global",
+    "petroHrysScore": 77,
+    "scoreFactors": {
+      "editorialTrust": 9,
+      "businessUsefulness": 7,
+      "verificationQuality": 8,
+      "platformReputation": 7,
+      "spamResistance": 8,
+      "industryImportance": 6,
+      "longTermStability": 8,
+      "submissionQuality": 7,
+      "transparency": 10,
+      "moderationQuality": 8
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "unknown",
+    "registrationRequired": true,
+    "reviewSystem": false,
+    "verificationRequired": true,
+    "manualReview": null,
+    "accepts": {
+      "startup": true,
+      "saas": null,
+      "enterprise": null,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": true,
+      "openSource": true,
+      "nonprofit": true,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-04",
+    "nextVerification": "2027-02-04",
+    "verification": {
+      "status": "verified",
+      "source": "official-website",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "bestFor": [
+      "Open-source projects needing transparent finances",
+      "Unincorporated community groups"
+    ],
+    "notRecommendedFor": [
+      "Businesses seeking marketing exposure",
+      "Companies unwilling to publish finances"
+    ],
+    "submissionDifficulty": "moderate",
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [
+      "Fiscal host chosen",
+      "Collective purpose documented"
+    ],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [],
+      "competitors": []
+    },
+    "recommendedIndustries": [
+      "Open source",
+      "Non-profits",
+      "Community projects"
+    ],
+    "editorialTags": [
+      "transparency",
+      "open-source-funding",
+      "nonprofit"
+    ],
+    "pros": [
+      "Full public expense transparency",
+      "Stewarded by a non-profit consortium"
+    ],
+    "cons": [
+      "Pricing for creating a collective is not stated on the homepage"
+    ],
+    "editorNotes": "Verified 2026-08-04. Stewarded by the Open Finance Consortium, a 501(c)(6) non-profit."
   }
 ]

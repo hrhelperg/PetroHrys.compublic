@@ -1,6 +1,6 @@
 // scripts/lib/bd-migrate.cjs
 'use strict';
-const { ACCEPTS_KEYS, RELATION_KINDS } = require('./bd-schema.cjs');
+const { ACCEPTS_KEYS, RELATION_KINDS, REQUIRED_ASSET_KEYS } = require('./bd-schema.cjs');
 
 // Forward-only migration from the pre-expansion record shape. It is applied by
 // the registry loader, so a record written in the old shape keeps working
@@ -34,6 +34,16 @@ const LEGACY_SOURCE = {
 };
 
 const isNullish = (v) => v === null || v === undefined;
+
+function migrateAssets(record) {
+  const out = {};
+  const source = record.requiredAssets && typeof record.requiredAssets === 'object'
+    ? record.requiredAssets : {};
+  for (const key of REQUIRED_ASSET_KEYS) {
+    out[key] = key in source && source[key] !== undefined ? source[key] : null;
+  }
+  return out;
+}
 
 function migrateRelated(record) {
   const out = {};
@@ -142,6 +152,18 @@ function migrateRecord(record) {
     verification: migrateVerification(record),
 
     related: migrateRelated(record),
+    // Editorial depth. Judgements (bestFor, difficulty, quality) are the
+    // reviewer's; facts (approval time, review process, required assets) stay
+    // null unless a submission page was actually read.
+    bestFor: record.bestFor ?? [],
+    notRecommendedFor: record.notRecommendedFor ?? [],
+    submissionDifficulty: record.submissionDifficulty ?? null,
+    listingQuality: record.listingQuality ?? null,
+    typicalApprovalTime: record.typicalApprovalTime ?? null,
+    reviewProcess: record.reviewProcess ?? null,
+    commonMistakes: record.commonMistakes ?? [],
+    preparationChecklist: record.preparationChecklist ?? [],
+    requiredAssets: migrateAssets(record),
     recommendedIndustries: record.recommendedIndustries ?? [],
     editorialTags: record.editorialTags ?? record.tags ?? [],
     pros: record.pros ?? [],
@@ -160,7 +182,8 @@ function isMigrated(record) {
     && 'metricStatus' in record
     && 'registrationRequired' in record
     && typeof record.related === 'object'
-    && 'submissionUrl' in record;
+    && 'submissionUrl' in record
+    && 'requiredAssets' in record;
 }
 
 module.exports = { migrateRecord, isMigrated, LEGACY_ACCEPTS, LEGACY_SOURCE };

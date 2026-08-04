@@ -80,6 +80,22 @@ function validateRegistry(registry) {
     if (!S.SUBMISSION_MODELS.includes(entry.submissionModel)) {
       add('submissionModel', `Must be one of: ${S.SUBMISSION_MODELS.join(', ')}.`);
     }
+    for (const [field, allowed] of [['submissionDifficulty', S.SUBMISSION_DIFFICULTY],
+      ['listingQuality', S.LISTING_QUALITY]]) {
+      if (!isNullish(entry[field]) && !allowed.includes(entry[field])) {
+        add(field, `Field "${field}" has invalid value "${entry[field]}". Allowed: ${allowed.join(', ')}.`);
+      }
+    }
+    if (!entry.requiredAssets || typeof entry.requiredAssets !== 'object') {
+      add('requiredAssets', 'Field "requiredAssets" must be an object.');
+    } else {
+      for (const key of S.REQUIRED_ASSET_KEYS) {
+        if (!(key in entry.requiredAssets)) add('requiredAssets', `Missing asset flag "${key}".`);
+        else if (!isNullish(entry.requiredAssets[key]) && typeof entry.requiredAssets[key] !== 'boolean') {
+          add('requiredAssets', `Asset flag "${key}" must be true, false, or null.`);
+        }
+      }
+    }
     if (!S.METRIC_STATUSES.includes(entry.metricStatus)) {
       add('metricStatus', `Must be one of: ${S.METRIC_STATUSES.join(', ')}.`);
     }
