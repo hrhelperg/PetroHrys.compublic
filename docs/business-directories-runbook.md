@@ -173,3 +173,79 @@ Both abort before any write.
 ## If you change the site header or footer
 
 `scripts/lib/bd-render.cjs` contains its own copy of the site shell. If you edit the header, nav, or footer of the hand-authored pages, update that file too, or the generated pages will silently diverge. See `docs/superpowers/reviews/2026-08-03-shell-duplication-proposal.md`.
+
+## Release v1 additions
+
+### Verification cadence
+
+`nextVerification` is **derived, never hand-set**. Editing it by hand will fail
+the test suite: the stored value must equal `nextVerificationFor(record)`.
+
+| Bucket | Interval | What lands here |
+|---|---|---|
+| statutory | 12 months | `submissionModel: notApplicable`, or `category: government` |
+| fast | 6 months | review-sites, app-directories, press-release-platforms |
+| standard | 9 months | everything else |
+
+The due date is `lastVerified` plus the interval, plus a 0–27 day offset from an
+FNV-1a hash of the record id. That spread is what stops the dataset expiring on a
+single day. It uses no `Date.now()`, no `Math.random()` and no locale-dependent
+comparison, so a rebuild is byte-identical.
+
+**After re-verifying a record**, update `lastVerified` only, then run
+`node scripts/migrate-business-directories.cjs` — no, that does not reschedule.
+Run the reschedule snippet:
+
+```
+node -e "const fs=require('fs'),S=require('./scripts/lib/bd-schema.cjs');const d='data/business-directories/directories';
+for(const f of fs.readdirSync(d).filter(x=>x.endsWith('.json'))){const p=d+'/'+f;const r=JSON.parse(fs.readFileSync(p,'utf8'));
+let t=false;for(const rec of r){const n=S.nextVerificationFor(rec);if(rec.nextVerification!==n){rec.nextVerification=n;t=true}}
+if(t)fs.writeFileSync(p,JSON.stringify(r,null,2)+'\n')}"
+```
+
+then `node scripts/generate-bd-logs.cjs` and rebuild.
+
+### Indexability contract
+
+A detail page is indexed when the record carries **all** of: a name, a non-empty
+description, a country/scope, a category, an official **HTTPS** destination, a
+PetroHrys Score, the complete ten-factor breakdown, a verification date, a
+verification source, a named reviewer, and at least one pro or con.
+
+Curated relations and guide links are **optional** — a record with none stays
+indexable. A missing relation is a gap in cross-referencing, not a thin page.
+
+Description **uniqueness** is enforced registry-wide by a test, not by a length
+threshold. Never introduce a word-count rule.
+
+A failing record becomes `noindex,follow`: the page and all its links survive, and
+it drops out of the sitemap automatically because the sitemap is built from the
+non-noindex page set. Never hand-edit the sitemap.
+
+### The orphan-key trap
+
+`migrateRecord()` rebuilds every record from a fixed key list, so **any key not on
+that list is silently dropped on load**. A patch that writes `tags` instead of
+`editorialTags`, or `notes` instead of `editorNotes`, will validate, persist, and
+never render. After any scripted edit to the registry, sweep for unknown keys:
+
+```
+node -e "const fs=require('fs'),{migrateRecord}=require('./scripts/lib/bd-migrate.cjs');
+const K=new Set(Object.keys(migrateRecord({id:'x',accepts:{},verification:{}})));const d='data/business-directories/directories';
+for(const f of fs.readdirSync(d).filter(x=>x.endsWith('.json')))for(const r of JSON.parse(fs.readFileSync(d+'/'+f,'utf8')))
+for(const k of Object.keys(r))if(!K.has(k))console.log(f,r.id,k)"
+```
+
+### Prose must never state a count
+
+Any number about the dataset in guide prose must be a build-time token resolved
+from the registry (`{{METRICS}}`, `{{FREE_COUNT}}`, `{{CADENCE}}`). A literal — or
+worse, a spelled-out numeral like "Twenty" — goes stale invisibly. Tests fail the
+build if a published submission-model count disagrees with the registry, if prose
+spells out a dataset count, or if the documented cadence disagrees with the
+scheduler.
+
+### Running the tests rewrites the tree
+
+`bd-integration.test.cjs` runs the real generator against the repository root.
+Build first, then test, then confirm `git status` is clean — in that order.
