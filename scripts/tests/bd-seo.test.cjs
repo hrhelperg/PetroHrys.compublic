@@ -17,22 +17,22 @@ const COUNTRY_LINKS = [{ name: 'United States', path: '/research/business-direct
 const types = (meta) => meta.jsonLd.map((node) => node['@type']);
 const node = (meta, type) => meta.jsonLd.find((n) => n['@type'] === type);
 
-test('ORIGIN is the canonical www host', () => {
-  assert.strictEqual(seo.ORIGIN, 'https://www.petrohrys.com');
+test('ORIGIN is the canonical apex host', () => {
+  assert.strictEqual(seo.ORIGIN, 'https://petrohrys.com');
 });
 
 test('absoluteUrl joins paths without doubling slashes', () => {
   assert.strictEqual(seo.absoluteUrl('/research/business-directories/'),
-    'https://www.petrohrys.com/research/business-directories/');
-  assert.strictEqual(seo.absoluteUrl('research/x/'), 'https://www.petrohrys.com/research/x/');
+    'https://petrohrys.com/research/business-directories/');
+  assert.strictEqual(seo.absoluteUrl('research/x/'), 'https://petrohrys.com/research/x/');
 });
 
 test('absoluteUrl collapses duplicate slashes', () => {
-  assert.strictEqual(seo.absoluteUrl('//research///x//'), 'https://www.petrohrys.com/research/x/');
+  assert.strictEqual(seo.absoluteUrl('//research///x//'), 'https://petrohrys.com/research/x/');
 });
 
 test('absoluteUrl strips query strings and fragments', () => {
-  assert.strictEqual(seo.absoluteUrl('/a/?utm_source=x#frag'), 'https://www.petrohrys.com/a/');
+  assert.strictEqual(seo.absoluteUrl('/a/?utm_source=x#frag'), 'https://petrohrys.com/a/');
 });
 
 test('absoluteUrl rejects traversal segments', () => {
@@ -41,7 +41,8 @@ test('absoluteUrl rejects traversal segments', () => {
 
 test('absoluteUrl rejects a URL on any other origin', () => {
   assert.throws(() => seo.absoluteUrl('https://evil.example/x'), seo.SeoError);
-  assert.throws(() => seo.absoluteUrl('https://petrohrys.com/x'), seo.SeoError);
+  // www is a foreign origin now: production 301-redirects it to the apex.
+  assert.throws(() => seo.absoluteUrl('https://www.petrohrys.com/x'), seo.SeoError);
 });
 
 test('absoluteUrl rejects empty and non-string input', () => {
@@ -49,7 +50,7 @@ test('absoluteUrl rejects empty and non-string input', () => {
   assert.throws(() => seo.absoluteUrl(null), seo.SeoError);
 });
 
-test('no builder ever emits an apex-domain URL', () => {
+test('no builder ever emits a www-domain URL', () => {
   const metas = [
     seo.buildHubMeta({ countries: COUNTRY_LINKS }),
     seo.buildCountryMeta({ country: COUNTRY, categories: CAT_LINKS, directories: [DIRECTORY] }),
@@ -58,8 +59,8 @@ test('no builder ever emits an apex-domain URL', () => {
   ];
   for (const meta of metas) {
     const blob = JSON.stringify(meta);
-    assert.ok(!/https:\/\/petrohrys\.com/.test(blob), 'apex URL leaked');
-    assert.ok(meta.canonical.startsWith('https://www.petrohrys.com/'));
+    assert.ok(!/https:\/\/www\.petrohrys\.com/.test(blob), 'www URL leaked');
+    assert.ok(meta.canonical.startsWith('https://petrohrys.com/'));
   }
 });
 
@@ -101,7 +102,7 @@ test('safeExternalUrl rejects non-string input', () => {
 
 test('hub metadata is complete and indexable', () => {
   const meta = seo.buildHubMeta({ countries: COUNTRY_LINKS, faqs: [{ q: 'Why?', a: 'Because.' }] });
-  assert.strictEqual(meta.canonical, 'https://www.petrohrys.com/research/business-directories/');
+  assert.strictEqual(meta.canonical, 'https://petrohrys.com/research/business-directories/');
   assert.strictEqual(meta.robots, undefined, 'hub must be indexable');
   assert.strictEqual(meta.fullTitle, 'Business Directories — Petro Hrys');
   assert.strictEqual(meta.openGraph.url, meta.canonical);
@@ -131,7 +132,7 @@ test('populated country metadata is indexable with an ItemList', () => {
     faqs: [{ q: 'Q', a: 'A' }],
   });
   assert.strictEqual(meta.robots, undefined);
-  assert.strictEqual(meta.canonical, 'https://www.petrohrys.com/research/business-directories/united-states/');
+  assert.strictEqual(meta.canonical, 'https://petrohrys.com/research/business-directories/united-states/');
   assert.ok(types(meta).includes('ItemList'));
   assert.ok(types(meta).includes('FAQPage'));
   assert.strictEqual(meta.title, 'Business Directories in United States');
@@ -149,7 +150,7 @@ test('populated category metadata is indexable with an ItemList', () => {
   const meta = seo.buildCategoryMeta({ country: COUNTRY, category: CATEGORY, directories: [DIRECTORY] });
   assert.strictEqual(meta.robots, undefined);
   assert.strictEqual(meta.canonical,
-    'https://www.petrohrys.com/research/business-directories/united-states/categories/saas/');
+    'https://petrohrys.com/research/business-directories/united-states/categories/saas/');
   assert.ok(types(meta).includes('ItemList'));
 });
 
@@ -168,7 +169,7 @@ test('directory detail emits WebPage with an Organization about', () => {
   const meta = seo.buildDirectoryMeta({ country: COUNTRY, category: CATEGORY, directory: DIRECTORY });
   assert.strictEqual(meta.robots, undefined);
   assert.strictEqual(meta.canonical,
-    'https://www.petrohrys.com/research/business-directories/united-states/example/');
+    'https://petrohrys.com/research/business-directories/united-states/example/');
   const page = node(meta, 'WebPage');
   assert.strictEqual(page.about['@type'], 'Organization');
   assert.strictEqual(page.about.name, 'Example Directory');
@@ -207,7 +208,7 @@ test('BreadcrumbList positions start at 1 and use absolute urls', () => {
   const meta = seo.buildCategoryMeta({ country: COUNTRY, category: CATEGORY, directories: [] });
   const crumbs = node(meta, 'BreadcrumbList').itemListElement;
   assert.deepStrictEqual(crumbs.map((c) => c.position), [1, 2, 3, 4, 5]);
-  assert.strictEqual(crumbs[1].item, 'https://www.petrohrys.com/research/');
+  assert.strictEqual(crumbs[1].item, 'https://petrohrys.com/research/');
 });
 
 test('ItemList preserves input order and numbers from 1', () => {
@@ -221,7 +222,7 @@ test('ItemList preserves input order and numbers from 1', () => {
   assert.deepStrictEqual(list.itemListElement.map((i) => i.name), ['Aaa', 'Bbb', 'Ccc']);
   assert.deepStrictEqual(list.itemListElement.map((i) => i.position), [1, 2, 3]);
   assert.strictEqual(list.itemListElement[0].url,
-    'https://www.petrohrys.com/research/business-directories/united-states/aaa/');
+    'https://petrohrys.com/research/business-directories/united-states/aaa/');
 });
 
 test('itemList returns null for an empty array', () => {

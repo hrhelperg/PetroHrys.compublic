@@ -3,7 +3,14 @@
 
 const routes = require('./bd-routes.cjs');
 
-const ORIGIN = 'https://www.petrohrys.com';
+// The canonical public host. Production serves the apex and 301-redirects
+// www.petrohrys.com to it, so every absolute URL this section emits — canonical,
+// Open Graph, JSON-LD, breadcrumbs, sitemap and RSS — must use the apex. A
+// canonical pointing at a redirecting hostname makes every page self-reference a
+// URL that does not serve, and fills the sitemap with URLs that redirect.
+//
+// This is the ONLY place the host is written. Nothing else may hard-code it.
+const ORIGIN = 'https://petrohrys.com';
 const SITE_NAME = 'Petro Hrys';
 const TWITTER_SITE = '@petrohrys';
 const OG_IMAGE = `${ORIGIN}/images/og-default.png`;

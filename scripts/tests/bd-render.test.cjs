@@ -62,13 +62,13 @@ test('the document is tag-balanced', () => {
   assert.deepStrictEqual(tagBalance(emptyCountry()), []);
 });
 
-test('canonical comes from the seo builder and uses the www origin', () => {
-  assert.ok(hub().includes('<link rel="canonical" href="https://www.petrohrys.com/research/business-directories/">'));
+test('canonical comes from the seo builder and uses the apex origin', () => {
+  assert.ok(hub().includes('<link rel="canonical" href="https://petrohrys.com/research/business-directories/">'));
 });
 
 test('no apex-domain url appears anywhere in the document', () => {
   for (const html of [hub(), emptyCountry()]) {
-    assert.ok(!/https:\/\/petrohrys\.com/.test(html), 'apex url leaked');
+    assert.ok(!/https:\/\/www\.petrohrys\.com/.test(html), 'www url leaked');
   }
 });
 

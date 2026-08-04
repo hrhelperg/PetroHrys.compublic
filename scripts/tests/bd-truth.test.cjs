@@ -567,3 +567,65 @@ test('the indexability predicate still rejects a genuinely thin record', () => {
   assert.ok(!S.indexability({ ...base, verification: { status: 'unverified', source: null, reviewers: [] } }).indexable);
   assert.ok(!S.indexability({ ...base, description: '  ' }).indexable, 'an empty description is thin');
 });
+
+// --- canonical host -----------------------------------------------------------
+// Production serves the apex and 301-redirects www to it. A canonical, sitemap
+// entry or feed link on the www host points at a URL that does not serve.
+
+test('the apex is the only absolute host in generated output', () => {
+  const seo = require('../lib/bd-seo.cjs');
+  assert.equal(seo.ORIGIN, 'https://petrohrys.com');
+  const targets = [
+    ...ALL.map((p) => ({ file: p.file, text: p.html })),
+    { file: 'sitemap-business-directories.xml', text: fs.readFileSync(path.join(ROOT, 'sitemap-business-directories.xml'), 'utf8') },
+    { file: 'feed.xml', text: fs.readFileSync(path.join(SECTION, 'feed.xml'), 'utf8') },
+  ];
+  for (const { file, text } of targets) {
+    assert.ok(!/https:\/\/www\.petrohrys\.com/.test(text),
+      `${file} emits a www URL; production 301-redirects www to the apex`);
+  }
+});
+
+test('every canonical is self-referential on the apex', () => {
+  for (const { file, html } of ALL) {
+    const canonical = (html.match(/<link rel="canonical" href="([^"]+)"/) || [])[1];
+    assert.ok(canonical, `${file} has no canonical`);
+    assert.ok(canonical.startsWith('https://petrohrys.com/'), `${file} canonical is not on the apex: ${canonical}`);
+    const expected = `https://petrohrys.com/${path.relative(ROOT, path.join(ROOT, file)).replace(/index\.html$/, '')}`;
+    assert.equal(canonical, expected, `${file} canonical does not match its own URL`);
+  }
+});
+
+test('sitemap and feed URLs resolve directly, without a host redirect', () => {
+  const sitemap = fs.readFileSync(path.join(ROOT, 'sitemap-business-directories.xml'), 'utf8');
+  const feed = fs.readFileSync(path.join(SECTION, 'feed.xml'), 'utf8');
+  const urls = [
+    ...[...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]),
+    ...[...feed.matchAll(/<link>([^<]+)<\/link>/g)].map((m) => m[1]),
+  ];
+  assert.ok(urls.length > 0);
+  for (const url of urls) {
+    assert.ok(url.startsWith('https://petrohrys.com/'), `${url} is not on the apex`);
+    // and it must correspond to a file we actually generated
+    const rel = url.replace('https://petrohrys.com/', '');
+    const asFile = path.join(ROOT, rel);
+    assert.ok(fs.existsSync(asFile) || fs.existsSync(path.join(asFile, 'index.html')),
+      `${url} does not map to a generated file`);
+  }
+});
+
+test('robots.txt advertises the section sitemap on the apex', () => {
+  const robots = fs.readFileSync(path.join(ROOT, 'robots.txt'), 'utf8');
+  assert.ok(robots.includes('Sitemap: https://petrohrys.com/sitemap-business-directories.xml'),
+    'robots.txt must point at the apex sitemap URL');
+  assert.ok(!/Sitemap:\s*https:\/\/www\./.test(robots), 'robots.txt still advertises a www sitemap');
+});
+
+test('no JSON-LD node carries a www URL', () => {
+  for (const { file, html } of ALL) {
+    for (const m of html.matchAll(/<script[^>]+application\/ld\+json[^>]*>([\s\S]*?)<\/script>/g)) {
+      const data = JSON.parse(m[1]);
+      assert.ok(!/https:\/\/www\.petrohrys\.com/.test(JSON.stringify(data)), `${file} JSON-LD carries a www URL`);
+    }
+  }
+});
