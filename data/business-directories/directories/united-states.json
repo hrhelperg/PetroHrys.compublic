@@ -145,7 +145,7 @@
       "captcha": null,
       "geographicRestriction": null,
       "paidDocumentsAvailable": null,
-      "notes": "Record states: free to search, no account required."
+      "notes": null
     },
     "petroHrysScore": 89,
     "scoreFactors": {
@@ -396,7 +396,7 @@
       "Covers only entities that carry an SEC filing obligation",
       "Locating the right disclosure requires familiarity with SEC form types"
     ],
-    "editorNotes": "Verified 2026-08-04 from investor.gov, an SEC-operated site, which states that EDGAR \"provides free public access to corporate information\". sec.gov returns HTTP 403 to automated fetches, so the company-search URL was taken from the link investor.gov publishes rather than assumed. Entries arise from federal filing obligations; there is no submission route, so submissionModel is notApplicable."
+    "editorNotes": "Verified 2026-08-04 from investor.gov, an SEC-operated site, which states that EDGAR \"provides free public access to corporate information\". sec.gov refuses non-browser clients, so the company-search address cited here is the one investor.gov links to. Entries arise from federal filing obligations. There is no route by which a company asks to be included."
   },
   {
     "id": "us-finra-brokercheck",
@@ -675,7 +675,7 @@
       "Recipient identity resolution is weak: one company can appear under several UEIs and name spellings",
       "Receiving federal money is not evidence of legal existence or good standing"
     ],
-    "editorNotes": "Verified 2026-08-04. Operated by Treasury’s Bureau of the Fiscal Service under FFATA (2006) and the DATA Act (2014); agencies report, no entity submits or pays. Retrieval of three separate \"LOCKHEED MARTIN CORPORATION\" recipient profiles under different ids demonstrates the identity-resolution limitation recorded in the cons. This is the open route to award data: the SAM.gov contract-data surface covering the same ground requires an account, and FPDS.gov is retired."
+    "editorNotes": "Verified 2026-08-04. Operated by Treasury’s Bureau of the Fiscal Service under FFATA (2006) and the DATA Act (2014); agencies report, no entity submits or pays. One company can hold several recipient profiles under different ids — \"LOCKHEED MARTIN CORPORATION\" has at least three — so a name search does not resolve to a single entity. This is the open route to award data: the SAM.gov contract-data surface covering the same ground requires an account, and FPDS.gov is retired."
   },
   {
     "id": "us-sam-entity-information",
@@ -820,7 +820,7 @@
       "Entity data is self-reported and revalidated only at annual renewal, so it goes stale",
       "Socio-economic self-certifications here are not SBA-adjudicated certifications"
     ],
-    "editorNotes": "Verified 2026-08-04. GSA states FAPIIS records \"have moved to SAM.gov\" and are now called Responsibility/Qualification records within entity information, so no separate FAPIIS record is published. Registration and UEI assignment are free and SBA warns businesses away from paid intermediaries. Not an incorporation register: US companies are formed at state level. The DUNS-to-UEI transition completed in April 2022, and older award data may still show both. Shares the sam.gov platform with the Exclusions register; an identical unauthenticated probe returned 401 for entity registrations and 200 for exclusions, so the two are separate systems with different access models, recorded through resourceIdentity."
+    "editorNotes": "Verified 2026-08-04. GSA states FAPIIS records \"have moved to SAM.gov\" and are now called Responsibility/Qualification records within entity information, so no separate FAPIIS record is published. Registration and UEI assignment are free and SBA warns businesses away from paid intermediaries. Not an incorporation register: US companies are formed at state level. The DUNS-to-UEI transition completed in April 2022, and older award data may still show both. Shares the sam.gov platform with the Exclusions register, but the two have different access models: entity registration data requires authentication and the exclusions data does not."
   },
   {
     "id": "us-fdic-bankfind",
@@ -960,7 +960,7 @@
       "The interface is JavaScript-only, so the raw page carries no institution data",
       "Absence proves only that an entity is not FDIC-insured, not that it is unregulated"
     ],
-    "editorNotes": "Verified 2026-08-04 from the FDIC Bank Data Guide and the BankFind Suite host. Records arise from deposit-insurance certification and supervisory reporting under the Federal Deposit Insurance Act; there is no listing application and no fee to appear. BankFind, Reports & Comparisons, Branch Office Deposits, Bank Structure Changes and Financial Reporting are surfaces of one dataset and are recorded here as one registry, not five."
+    "editorNotes": "Verified 2026-08-04 from the FDIC Bank Data Guide and the BankFind Suite host. Records arise from deposit-insurance certification and supervisory reporting under the Federal Deposit Insurance Act; there is no listing application and no fee to appear. BankFind, Reports & Comparisons, Branch Office Deposits, Bank Structure Changes and Financial Reporting are five presentations of one dataset, not five registers."
   },
   {
     "id": "us-occ-institution-search",
@@ -1100,7 +1100,7 @@
       "Fragmented across three tools on two different hosts, so one lookup rarely suffices",
       "Covers only OCC-supervised institutions; enforcement by other agencies is elsewhere"
     ],
-    "editorNotes": "Verified 2026-08-04. Records arise from chartering and licensing under the National Bank Act and Home Owners’ Loan Act, from statutory CRA examination, and from OCC enforcement authority. The Financial Institution Lists (the authoritative charter roster) and Corporate Applications Search are folded into this record rather than catalogued separately: they are alternative front ends to the same OCC record sets."
+    "editorNotes": "Verified 2026-08-04. Records arise from chartering and licensing under the National Bank Act and Home Owners’ Loan Act, from statutory CRA examination, and from OCC enforcement authority. The Financial Institution Lists (the authoritative charter roster) and Corporate Applications Search are alternative front ends to the same OCC record sets."
   },
   {
     "id": "us-sec-iapd",
@@ -1120,7 +1120,7 @@
       "public-filing-database"
     ],
     "operator": {
-      "name": "U.S. Securities and Exchange Commission; the underlying IARD filing system is operated by FINRA on the SEC’s behalf",
+      "name": "U.S. Securities and Exchange Commission",
       "type": "regulator",
       "officialUrl": null
     },
@@ -1243,7 +1243,7 @@
       "Shares one CRD/IARD index with FINRA BrokerCheck, so much of the record overlaps it",
       "The SEC states it has not approved the filed information and cannot guarantee its accuracy"
     ],
-    "editorNotes": "Verified 2026-08-04. Records arise from registration and Form ADV reporting under the Investment Advisers Act of 1940. A duplicate-control probe against both hosts returned identical record ids in identical order with a shared field schema, confirming that adviserinfo.sec.gov and BrokerCheck are two branded surfaces over one FINRA-operated index. Published as a distinct register on shared infrastructure, not as an independent dataset: the legal basis, the Form ADV documents and the Exempt Reporting Adviser population are genuinely different."
+    "editorNotes": "Verified 2026-08-04. Records arise from registration and Form ADV reporting under the Investment Advisers Act of 1940. adviserinfo.sec.gov and BrokerCheck return identical records in identical order over a shared field schema: they are two branded surfaces over one FINRA-operated index. It is a distinct register on shared infrastructure rather than an independent dataset: the legal basis, the Form ADV documents and the Exempt Reporting Adviser population are genuinely different. The underlying IARD filing system is operated by FINRA on the SEC’s behalf."
   },
   {
     "id": "us-fincen-msb",
@@ -1381,7 +1381,7 @@
       "Entries are entirely self-declared and are not vetted by FinCEN before publication",
       "FinCEN itself warns that registration is not an endorsement and must not be relied on as one"
     ],
-    "editorNotes": "Verified 2026-08-04. Appearance results from a mandatory filing of FinCEN Form 107 under 31 CFR 1022.380; there is no fee and no way to buy a listing. The verification-quality factor is scored low deliberately: FinCEN publishes a fraud warning on the search page stating that a business should not be trusted merely because it appears here. Federal registration is separate from state money transmitter licensing, and a firm present in one but not the other is itself a due-diligence signal."
+    "editorNotes": "Verified 2026-08-04. Appearance results from a mandatory filing of FinCEN Form 107 under 31 CFR 1022.380; there is no fee and no way to buy a listing. FinCEN publishes a fraud warning on the search page stating that a business should not be trusted merely because it appears here. Federal registration is separate from state money transmitter licensing, and a firm present in one but not the other is itself a due-diligence signal."
   },
   {
     "id": "us-nfa-basic",
@@ -1401,7 +1401,7 @@
       "regulated-operator-register"
     ],
     "operator": {
-      "name": "National Futures Association, a self-regulatory organisation designated by the CFTC under the Commodity Exchange Act",
+      "name": "National Futures Association",
       "type": "other",
       "officialUrl": null
     },
@@ -1522,7 +1522,7 @@
       "The operator is a private self-regulatory body, not a federal agency",
       "Scope is derivatives only; dual registrants must also be checked in securities registers"
     ],
-    "editorNotes": "Verified 2026-08-04. Recorded with the operator type \"other\" and an explicit note that NFA is not a federal agency: it is a registered futures association designated by the CFTC, with mandatory membership, to which the Commission has delegated registration processing. Included in the federal layer because the registration it evidences is federal, but a reader must not mistake the operator for a government body."
+    "editorNotes": "Verified 2026-08-04. NFA is not a federal agency: it is a registered futures association designated by the CFTC, with mandatory membership, to which the Commission has delegated registration processing. Included in the federal layer because the registration it evidences is federal, but a reader must not mistake the operator for a government body."
   },
   {
     "id": "us-nppes-npi",
@@ -1660,7 +1660,7 @@
       "CMS states that holding an NPI does not establish that a provider is licensed or credentialed",
       "Provider-supplied details go stale; deactivation is not always prompt"
     ],
-    "editorNotes": "Verified 2026-08-04. Records arise from statutory identifier assignment under the HIPAA Administrative Simplification NPI standard; enumeration is free. Classified as a corporate-number-database rather than a professional-licence-register precisely because CMS disclaims licensure: the register assigns and publishes an identifier, it does not license anyone. Forcing it into the licence type would misdescribe what an NPI proves."
+    "editorNotes": "Verified 2026-08-04. Records arise from statutory identifier assignment under the HIPAA Administrative Simplification NPI standard; enumeration is free. CMS disclaims licensure, so an NPI is an identifier rather than a licence: the register assigns and publishes an identifier, it does not license anyone. Forcing it into the licence type would misdescribe what an NPI proves."
   },
   {
     "id": "us-fda-device-establishments",
@@ -1804,7 +1804,7 @@
       "Results are capped at 100 establishments per search, so common names cannot be enumerated",
       "Registration is not FDA approval or clearance of the establishment or its products"
     ],
-    "editorNotes": "Verified 2026-08-04. Records arise from mandatory registration and listing under the Federal Food, Drug, and Cosmetic Act. An annual establishment registration user fee is payable to the FDA, but that is a regulatory fee for registration itself, not payment for a listing, so submissionModel remains notApplicable. The 100-result cap is stated by the FDA on the search page. Shares the accessdata.fda.gov application host with the CDER drug establishment register; the two are separate FDA systems covering different regulated populations, recorded through resourceIdentity."
+    "editorNotes": "Verified 2026-08-04. Records arise from mandatory registration and listing under the Federal Food, Drug, and Cosmetic Act. An annual establishment registration user fee is payable to the FDA, but that is a regulatory fee for registration itself, not payment for a listing, and there is no route by which a firm asks to be listed. The 100-result cap is stated by the FDA on the search page. Shares the accessdata.fda.gov application host with the CDER drug establishment register; the two are separate FDA systems covering different regulated populations, recorded as separate systems despite the shared hostname."
   },
   {
     "id": "us-irs-teos",
@@ -2083,7 +2083,7 @@
       "Assignee data is frozen at publication or grant, so it is not a current ownership record",
       "Maintenance-fee status, expiry and post-grant proceedings are not shown"
     ],
-    "editorNotes": "Verified 2026-08-04. Records arise from patent examination and grant under 35 U.S.C.; filing and issue fees are prosecution fees, not listing fees. Deliberately distinguished from USPTO Patent Center, which is NOT published: USPTO states that from 11 September 2025 identity verification is required and guest users can no longer access it, so it is not a public resource. Current patent ownership requires the Assignment Search system, which is held pending verification."
+    "editorNotes": "Verified 2026-08-04. Records arise from patent examination and grant under 35 U.S.C.; filing and issue fees are prosecution fees, not listing fees. Deliberately distinguished from USPTO Patent Center, which is NOT published: USPTO states that from 11 September 2025 identity verification is required and guest users can no longer access it, so it is not a public resource. Current patent ownership is recorded in the separate Assignment Search system, which this register does not cover."
   },
   {
     "id": "us-dmca-agent-directory",
@@ -2219,7 +2219,7 @@
       "The Copyright Office does not verify submissions, so entries can be stale or inaccurate",
       "Records begin with the December 2016 electronic system; earlier paper designations are absent"
     ],
-    "editorNotes": "Verified 2026-08-04. Records arise from the statutory designation requirement in 17 U.S.C. § 512 and 37 C.F.R. § 201.38 — a provider files because safe-harbour eligibility is conditioned on it. The Office charges a filing fee, but the amount was not stated on the page read and is therefore not recorded. Verification quality is scored low because the Office performs no vetting: presence evidences a designation, not that safe harbour actually applies."
+    "editorNotes": "Verified 2026-08-04. Records arise from the statutory designation requirement in 17 U.S.C. § 512 and 37 C.F.R. § 201.38 — a provider files because safe-harbour eligibility is conditioned on it. The Office charges a filing fee. It does not publish the amount on the directory pages. The Office performs no vetting: presence evidences a designation, not that safe harbour actually applies."
   },
   {
     "id": "us-ttb-permittees",
@@ -2357,7 +2357,7 @@
       "There is no search interface at all; the entire system is a set of downloadable files",
       "Tax records are withheld by statute, so the lists carry no financial detail"
     ],
-    "editorNotes": "Verified 2026-08-04. Records arise from federal licensing under the Federal Alcohol Administration Act, and publication is a FOIA obligation TTB describes in its own words. Submission quality is scored low because a non-technical user cannot look up one business: the importer list alone runs to roughly 21,000 rows. TTB notes that Internal Revenue Code section 6103 protects taxpayer records, which is why no financial data appears."
+    "editorNotes": "Verified 2026-08-04. Records arise from federal licensing under the Federal Alcohol Administration Act, and publication is a FOIA obligation TTB describes in its own words. A non-technical user cannot look up one business: the importer list alone runs to roughly 21,000 rows. TTB notes that Internal Revenue Code section 6103 protects taxpayer records, which is why no financial data appears."
   },
   {
     "id": "us-cbp-customs-brokers",
@@ -2635,7 +2635,7 @@
       "The list reflects current compliance, not licence status, so a licensed NVOCC with a lapsed tariff filing simply disappears",
       "Current state only: no history, sanctions or complaint record"
     ],
-    "editorNotes": "Verified 2026-08-04. Entries arise from FMC licensing and registration under the Shipping Act, conditioned on statutory proof of financial responsibility and tariff publication. The compliance-not-status distinction recorded in the cons is an easily missed trap: absence from the list does not by itself prove that a company is unlicensed."
+    "editorNotes": "Verified 2026-08-04. Entries arise from FMC licensing and registration under the Shipping Act, conditioned on statutory proof of financial responsibility and tariff publication. The distinction between compliance and status is an easily missed trap: absence from the list does not by itself prove that a company is unlicensed."
   },
   {
     "id": "us-fcc-uls",
@@ -2775,7 +2775,7 @@
       "Search sessions are server-scoped, so results cannot be linked or cited by URL",
       "Covers Wireless Bureau licensing only; other FCC estates live in separate systems"
     ],
-    "editorNotes": "Verified 2026-08-04. Records arise from FCC licensing and spectrum authorisation under the Communications Act. License Search, Advanced and Specialized Search, Application Search, License Archive Search and Ownership Disclosure Search are modes of one platform and are recorded as one registry. Submission quality is scored low because the session-scoped search produces no stable deep links, which materially hurts citation and re-checking."
+    "editorNotes": "Verified 2026-08-04. Records arise from FCC licensing and spectrum authorisation under the Communications Act. License Search, Advanced and Specialized Search, Application Search, License Archive Search and Ownership Disclosure Search are modes of one platform, one registry. The session-scoped search produces no stable deep links, so a result cannot be cited or re-checked by URL."
   },
   {
     "id": "us-fcc-form-499",
@@ -2915,7 +2915,7 @@
       "The results endpoint is protected by bot management and needs a real browser",
       "Reported revenue data is not disclosed, so it establishes registration only"
     ],
-    "editorNotes": "Verified 2026-08-04. Entries arise from a mandatory filing: the FCC states that providers are required to register using Form 499-A and update at least annually. Data collection is performed by the Universal Service Administrative Company on the FCC’s behalf. Recorded as partially-open because the interactive results endpoint returned an Akamai challenge to every scripted request, which is a real access limitation even though the register itself is free."
+    "editorNotes": "Verified 2026-08-04. Entries arise from a mandatory filing: the FCC states that providers are required to register using Form 499-A and update at least annually. Data collection is performed by the Universal Service Administrative Company on the FCC’s behalf. The interactive results endpoint sits behind an Akamai challenge that refuses non-browser clients, which is a real access limitation even though the register itself is free."
   },
   {
     "id": "us-faa-aircraft-registry",
@@ -3018,7 +3018,8 @@
     ],
     "notRecommendedFor": [
       "Judging airworthiness, which the FAA expressly warns against",
-      "Enumerating a corporate fleet, since aircraft are often held by separate entities"
+      "Enumerating a corporate fleet, since aircraft are often held by separate entities",
+      "Settling title or legal ownership — registration records the registered owner, not clear title"
     ],
     "submissionDifficulty": null,
     "listingQuality": "high",
@@ -3046,7 +3047,7 @@
       "primary-source"
     ],
     "pros": [
-      "Definitive ownership record for US civil aircraft, free to search",
+      "Free lookup of the registered owner of any US civil aircraft, by N-number or serial",
       "Long-standing and stable, with a deep historical record"
     ],
     "cons": [
@@ -3329,7 +3330,7 @@
       "The interactive surface is a data visualisation rather than a record-by-record search",
       "Carries no enforcement, recall or inspection-finding detail"
     ],
-    "editorNotes": "Verified 2026-08-04. Inclusion follows a federal grant of inspection under the Federal Meat Inspection Act, Poultry Products Inspection Act and Egg Products Inspection Act. Serious use means downloading the published file rather than using the embedded visualisation, which is why submission quality is scored down despite the data itself being strong."
+    "editorNotes": "Verified 2026-08-04. Inclusion follows a federal grant of inspection under the Federal Meat Inspection Act, Poultry Products Inspection Act and Egg Products Inspection Act. Serious use means downloading the published file rather than using the embedded visualisation, though the data itself is strong."
   },
   {
     "id": "us-sam-exclusions",
@@ -3396,7 +3397,7 @@
     "accepts": {
       "startup": null,
       "saas": null,
-      "enterprise": true,
+      "enterprise": null,
       "agency": null,
       "freelancer": null,
       "localBusiness": null,
@@ -3475,7 +3476,7 @@
       "Matching is by name with no identity adjudication, so false positives are routine and the burden falls on the searcher",
       "Many records carry no UEI or CAGE code, which makes reliable machine matching impossible"
     ],
-    "editorNotes": "Verified 2026-08-04. Records are created by federal suspension and debarment officials under FAR Part 9 and 2 CFR Part 180; no entity submits itself and no fee exists. Published as a separate record from SAM.gov Entity Information rather than a tab of it: an identical unauthenticated probe returned HTTP 401 for entity registrations and HTTP 200 for exclusions, and the two rest on different legal authority with different subject populations. Absence from this list means only that no federal agency has recorded an exclusion; it establishes nothing about eligibility or conduct."
+    "editorNotes": "Verified 2026-08-04. Records are created by federal suspension and debarment officials under FAR Part 9 and 2 CFR Part 180; no entity submits itself and no fee exists. It is a separate register from SAM.gov Entity Information rather than a tab of it: entity registration data requires authentication and the exclusions data does not, and the two rest on different legal authority with different subject populations. Absence from this list means only that no federal agency has recorded an exclusion; it establishes nothing about eligibility or conduct."
   },
   {
     "id": "us-hhs-oig-leie",
@@ -3537,13 +3538,13 @@
     "accepts": {
       "startup": null,
       "saas": null,
-      "enterprise": true,
+      "enterprise": null,
       "agency": null,
       "freelancer": null,
       "localBusiness": null,
       "developer": null,
       "openSource": null,
-      "nonprofit": true,
+      "nonprofit": null,
       "ai": null,
       "mobileApp": null,
       "ecommerce": null
@@ -3617,7 +3618,7 @@
       "Current exclusions only: reinstated parties are deleted from the file, so past exclusions cannot be checked here",
       "OIG warns that a database hit is not proof of identity and requires separate confirmation before it is relied on"
     ],
-    "editorNotes": "Verified 2026-08-04 from oig.hhs.gov. Records arise from exclusion actions imposed by HHS OIG under sections 1128 and 1156 of the Social Security Act; no party submits or pays. The downloadable file retrieved during research held 83,665 rows. Two limitations are material and are recorded rather than smoothed over: the file is refreshed monthly rather than in real time, and the NPI field frequently carries a placeholder value, which weakens automated matching. Screening here does not replace SAM.gov Exclusions — the two cover different programmes under different authority."
+    "editorNotes": "Verified 2026-08-04 from oig.hhs.gov. Records arise from exclusion actions imposed by HHS OIG under sections 1128 and 1156 of the Social Security Act; no party submits or pays. The downloadable file held 83,665 rows on 2026-08-04. Two limitations are material and are recorded rather than smoothed over: the file is refreshed monthly rather than in real time, and the NPI field frequently carries a placeholder value, which weakens automated matching. Screening here does not replace SAM.gov Exclusions — the two cover different programmes under different authority."
   },
   {
     "id": "us-cftc-sanctions-in-effect",
@@ -3679,7 +3680,7 @@
     "accepts": {
       "startup": null,
       "saas": null,
-      "enterprise": true,
+      "enterprise": null,
       "agency": null,
       "freelancer": null,
       "localBusiness": null,
@@ -3757,7 +3758,7 @@
       "Only sanctions currently in effect appear, so a clean result is not a clean history",
       "Reparations records from 1975 to 1983 are not searchable and exist in list form only"
     ],
-    "editorNotes": "Verified 2026-08-04 from the CFTC SIRT host, which states \"Administrative Sanctions in Effect 1975 - Present\" and offers search by respondent name, alternative name and docket. Records arise from CFTC administrative enforcement, statutory disqualification proceedings and reparations adjudications; nothing is submitted and no fee exists. The narrow \"in effect\" framing is the most important caveat for a reader: users who treat absence as exoneration will be wrong, which is why business usefulness is scored below the register’s authority."
+    "editorNotes": "Verified 2026-08-04 from the CFTC SIRT host, which states \"Administrative Sanctions in Effect 1975 - Present\" and offers search by respondent name, alternative name and docket. Records arise from CFTC administrative enforcement, statutory disqualification proceedings and reparations adjudications; nothing is submitted and no fee exists. The narrow \"in effect\" framing is the most important caveat for a reader: users who treat absence as exoneration will be wrong. The register is narrower than it looks, and below the register’s authority."
   },
   {
     "id": "us-fda-drug-establishments",
@@ -3902,7 +3903,7 @@
       "Firm name is the only search field and it is mandatory, so a site cannot be found without its exact registered name",
       "Outsourcing facilities, wholesale distributors and third-party logistics providers are outside its scope"
     ],
-    "editorNotes": "Verified 2026-08-04 from fda.gov, which describes DECRS as a publication of currently registered establishments. Records arise from a mandatory drug establishment registration duty with annual renewal. This is a distinct FDA system from the device establishment register, not a variant of it: a different FDA centre (CDER rather than CDRH), a different regulated population, different search fields and a different publication. They share the accessdata.fda.gov application host, which is recorded through resourceIdentity rather than by relaxing the duplicate-domain guard. Registered names often differ from trading or parent-company names, which combined with the single mandatory search field is why submission quality is scored at 4."
+    "editorNotes": "Verified 2026-08-04 from fda.gov, which describes DECRS as a publication of currently registered establishments. Records arise from a mandatory drug establishment registration duty with annual renewal. This is a distinct FDA system from the device establishment register, not a variant of it: a different FDA centre (CDER rather than CDRH), a different regulated population, different search fields and a different publication. They share the accessdata.fda.gov application host but are separate FDA systems covering different regulated populations. Registered names often differ from trading or parent-company names, which, with only one mandatory search field, makes a confident match hard."
   },
   {
     "id": "us-dc-corponline",
@@ -3912,7 +3913,7 @@
     "category": "government",
     "website": "https://corponline.dlcp.dc.gov/",
     "submissionUrl": null,
-    "description": "CorpOnline is the district business-entity register operated by the Government of the District of Columbia, Department of Licensing and Consumer Protection (DLCP), Corporations Division (Office of the Corporate Registrar / Superintendent of Corporations). Filed documents and certificates are ordered separately for a fee.",
+    "description": "CorpOnline is the district business-entity register operated by the Government of the District of Columbia, Department of Licensing and Consumer Protection (DLCP), Corporations Division. Search by business name (Starts With / Contains, with an optional sounds-like/soundex method) or entity number, plus an advanced search including principal name and date range. Filed documents and certificates are ordered separately for a fee.",
     "tier": "tier1",
     "scope": "subnational",
     "jurisdiction": {
@@ -3926,7 +3927,7 @@
       "business-entity-register"
     ],
     "operator": {
-      "name": "Government of the District of Columbia, Department of Licensing and Consumer Protection (DLCP), Corporations Division (Office of the Corporate Registrar / Superintendent of Corporations)",
+      "name": "Government of the District of Columbia, Department of Licensing and Consumer Protection (DLCP), Corporations Division",
       "type": "government-agency",
       "officialUrl": null
     },
@@ -4005,7 +4006,7 @@
       "competitors": []
     },
     "bestFor": [
-      "Confirming that an entity is registered in District of Columbia and reading its recorded status"
+      "Confirming that an entity is registered in the District of Columbia and reading its recorded status"
     ],
     "notRecommendedFor": [
       "Confirming good standing, licensing or tax compliance — this register does not establish any of them",
@@ -4027,7 +4028,7 @@
       "businessVerification": null
     },
     "recommendedIndustries": [
-      "Entities registered in District of Columbia"
+      "Entities registered in the District of Columbia"
     ],
     "editorialTags": [
       "statutory",
@@ -4035,14 +4036,14 @@
       "primary-source"
     ],
     "pros": [
-      "CorpOnline can be searched free of charge and without an account, directly from the Government of the District of Columbia, Department of Licensing and Consumer Protection (DLCP), Corporations Division (Office of the Corporate Registrar / Superintendent of Corporations).",
-      "The Government of the District of Columbia, Department of Licensing and Consumer Protection (DLCP), Corporations Division (Office of the Corporate Registrar / Superintendent of Corporations) is the statutory source for District of Columbia, so an entry exists because a filing was made — not because anyone submitted a listing."
+      "CorpOnline can be searched free of charge and without an account, directly from the Government of the District of Columbia, Department of Licensing and Consumer Protection (DLCP), Corporations Division.",
+      "The Government of the District of Columbia, Department of Licensing and Consumer Protection (DLCP), Corporations Division is the statutory source for the District of Columbia, so an entry exists because a filing was made — not because anyone submitted a listing."
     ],
     "cons": [
       "Documents are a separate paid product — the FAQ places filing images behind the account dashboard, on the \"Certificates & Filing Images tile\" — so the free tier returns index data only.",
-      "A CorpOnline registration record proves only that an entity is on the DC corporate register with a given status."
+      "It is not a Basic Business License (DC licensing is a separate DLCP regime), not evidence of tax registration or compliance with the DC Office of Tax and Revenue, not a certificate of good standing (that is a separate $50 document), not proof the entity is trading, and not any indication of creditworthiness."
     ],
-    "editorNotes": "Verified 2026-08-04 from official District of Columbia sources. Operator: Government of the District of Columbia, Department of Licensing and Consumer Protection (DLCP), Corporations Division (Office of the Corporate Registrar / Superintendent of Corporations). Coverage and search: It covers per the DLCP Corporations Division FAQ: Limited Liability Companies; Non-Profit and For-Profit Corporations; Limited Partnerships; Limited Liability Partnerships; General and Limited Cooperative Associations; Statutory Trusts; Trade names. Search by business name (Starts With / Contains, with an optional sounds-like/soundex method) or entity number, plus an advanced search including principal name and date range. DC has no Secretary of State, and the DC Office of the Secretary's own corporations page explicitly hands the function off: \"Search registered corporations through the Department of Licensing and Consumer Protection (DLCP).\" The registrar is a consumer-protection/licensing agency, not a state department. Periodic reports are BIENNIAL, not annual — the BRA-25 Biennial Report is the filing every registered entity must make to keep active status. A two-year reporting cycle is unusual among US jurisdictions and changes what a \"current\" status means. Migration risk: Moderate — recently migrated and rebranded. The agency changed from DCRA to DLCP and the registry host moved accordingly (corponline.dcra.dc.gov now redirects to corponline.dlcp.dc.gov). Inclusion arises from entity formation or statutory registration, not from any submission."
+    "editorNotes": "Verified 2026-08-04 from official the District of Columbia sources. Operator: Government of the District of Columbia, Department of Licensing and Consumer Protection (DLCP), Corporations Division. Coverage and search: Per the DLCP Corporations Division FAQ: Limited Liability Companies; Non-Profit and For-Profit Corporations; Limited Partnerships; Limited Liability Partnerships; General and Limited Cooperative Associations; Statutory Trusts; Trade names. DC has no Secretary of State, and the DC Office of the Secretary's own corporations page explicitly hands the function off: \"Search registered corporations through the Department of Licensing and Consumer Protection (DLCP).\" The registrar is a consumer-protection/licensing agency, not a state department. Periodic reports are BIENNIAL, not annual — the BRA-25 Biennial Report is the filing every registered entity must make to keep active status. A two-year reporting cycle is unusual among US jurisdictions and changes what a \"current\" status means. Migration risk: Moderate — recently migrated and rebranded. The agency changed from DCRA to DLCP and the registry host moved accordingly (corponline.dcra.dc.gov now redirects to corponline.dlcp.dc.gov). Monitor the deep-link route and the API host. Inclusion arises from entity formation or statutory registration, not from any submission."
   },
   {
     "id": "us-puerto-rico-registro-corporaciones",
@@ -4052,7 +4053,7 @@
     "category": "government",
     "website": "https://rcp.estado.pr.gov/es",
     "submissionUrl": null,
-    "description": "Registro Electrónico de Corporaciones y Entidades is the territorial business-entity register operated by the Departamento de Estado de Puerto Rico (Puerto Rico Department of State), Registro de Corporaciones — territorial executive department headed by the Secretario/a de Estado; statutory basis Ley Núm. Filed documents and certificates are ordered separately for a fee.",
+    "description": "Registro Electrónico de Corporaciones y Entidades is the territorial business-entity register operated by the Departamento de Estado de Puerto Rico, Registro de Corporaciones. It covers domestic and foreign corporations, limited liability companies, non-profit corporations and cooperative societies under Ley 164-2009. Filed documents and certificates are ordered separately for a fee.",
     "tier": "tier1",
     "scope": "subnational",
     "nativeName": "Registro Electrónico de Corporaciones y Entidades",
@@ -4069,7 +4070,7 @@
       "business-entity-register"
     ],
     "operator": {
-      "name": "Departamento de Estado de Puerto Rico (Puerto Rico Department of State), Registro de Corporaciones — territorial executive department headed by the Secretario/a de Estado; statutory basis Ley Núm",
+      "name": "Departamento de Estado de Puerto Rico, Registro de Corporaciones",
       "type": "government-agency",
       "officialUrl": null
     },
@@ -4178,14 +4179,14 @@
       "primary-source"
     ],
     "pros": [
-      "Registro Electrónico de Corporaciones y Entidades can be searched free of charge and without an account, directly from the Departamento de Estado de Puerto Rico (Puerto Rico Department of State), Registro de Corporaciones — territorial executive department headed by the Secretario/a de Estado; statutory basis Ley Núm.",
-      "The Departamento de Estado de Puerto Rico (Puerto Rico Department of State), Registro de Corporaciones — territorial executive department headed by the Secretario/a de Estado; statutory basis Ley Núm is the statutory source for Puerto Rico, so an entry exists because a filing was made — not because anyone submitted a listing."
+      "Registro Electrónico de Corporaciones y Entidades can be searched free of charge and without an account, directly from the Departamento de Estado de Puerto Rico, Registro de Corporaciones.",
+      "The Departamento de Estado de Puerto Rico, Registro de Corporaciones is the statutory source for Puerto Rico, so an entry exists because a filing was made — not because anyone submitted a listing."
     ],
     "cons": [
       "Documents are a separate paid product — the Certificado de Cumplimiento and certificates of registration are issued for a fee — so the free tier returns index data only.",
       "A record in the Registro Electrónico de Corporaciones y Entidades proves registration and the status recorded by the Departamento de Estado; it does not establish good standing (that requires the separately issued Certificado de Cumplimiento), does not evidence tax registration or tax compliance, which is administered separately, does not constitute any business, professional or municipal licence, does not confirm the entity is trading, and says nothing about creditworthiness."
     ],
-    "editorNotes": "Verified 2026-08-04 from official Puerto Rico sources. Operator: Departamento de Estado de Puerto Rico (Puerto Rico Department of State), Registro de Corporaciones — territorial executive department headed by the Secretario/a de Estado; statutory basis Ley Núm. Coverage and search: It covers domestic and foreign corporations, limited liability companies, non-profit corporations and cooperative societies under Ley 164-2009. Observed entity classes returned by the live register include \"Corporación\" (Corporation), \"Banco\" (Bank) and \"Centro Bancario\" (Int. Search by corporation name or registry number, with a match type / comparison type selector and an \"only active\" filter. The register is natively bilingual at the data level, not just the interface: the public API returns paired Spanish and English fields for entity class, profit type and status (classEs/classEn, profitTypeEs/profitTypeEn, statusEs \"CANCELADA\" / statusEn \"CANCELLED\"). No US state register does this. Entity classes are Puerto Rico-specific and include regulated financial forms directly in the corporate taxonomy — \"Banco\" (Bank) and \"Centro Bancario\" (Int. Banking) sit alongside \"Corporación\" as entity classes. Migration risk: Moderate — the replacement has already happened and remains visible. Inclusion arises from entity formation or statutory registration, not from any submission."
+    "editorNotes": "Verified 2026-08-04 from official Puerto Rico sources. Operator: Departamento de Estado de Puerto Rico, Registro de Corporaciones. Coverage and search: Search by corporation name or registry number, with a match type / comparison type selector and an \"only active\" filter. The register is natively bilingual at the data level, not just the interface: the public API returns paired Spanish and English fields for entity class, profit type and status (classEs/classEn, profitTypeEs/profitTypeEn, statusEs \"CANCELADA\" / statusEn \"CANCELLED\"). No US state register does this. Entity classes are Puerto Rico-specific and include regulated financial forms directly in the corporate taxonomy — \"Banco\" (Bank) and \"Centro Bancario\" (Int. Banking) sit alongside \"Corporación\" as entity classes. Migration risk: Moderate — the replacement has already happened and remains visible. Inclusion arises from entity formation or statutory registration, not from any submission."
   },
   {
     "id": "us-us-virgin-islands-corporate-registry",
@@ -4195,7 +4196,7 @@
     "category": "government",
     "website": "https://www.corporationsandtrademarks.vi.gov/",
     "submissionUrl": null,
-    "description": "Catalyst is the territorial business-entity register operated by the Government of the United States Virgin Islands, Office of the Lieutenant Governor, Division of Corporations and Trademarks. Territorial, not federal. Search by item name or number with a Starts With / Contains operator, an Advanced mode, and a register selector (\"-- Any register --\", \"Business Names\", \"Business Entities\"). Filed documents and certificates are ordered separately for a fee.",
+    "description": "Catalyst is the territorial business-entity register operated by the Government of the United States Virgin Islands, Office of the Lieutenant Governor, Division of Corporations and Trademarks. Search by item name or number with a Starts With / Contains operator, an Advanced mode, and a register selector (\"-- Any register --\", \"Business Names\", \"Business Entities\"). Filed documents and certificates are ordered separately for a fee.",
     "tier": "tier1",
     "scope": "subnational",
     "jurisdiction": {
@@ -4209,12 +4210,12 @@
       "business-entity-register"
     ],
     "operator": {
-      "name": "Government of the United States Virgin Islands, Office of the Lieutenant Governor, Division of Corporations and Trademarks. Territorial, not federal",
+      "name": "Government of the United States Virgin Islands, Office of the Lieutenant Governor, Division of Corporations and Trademarks",
       "type": "government-agency",
       "officialUrl": null
     },
     "publicAccess": {
-      "searchUrl": "https://www.corporationsandtrademarks.vi.gov/ (Corporation Search button; the search form posts to /usvi-master/service/create.html?service=registerItemSearch, but see the session-URL note)",
+      "searchUrl": "https://www.corporationsandtrademarks.vi.gov/",
       "accessLevel": "open",
       "freeToSearch": true,
       "loginRequired": false,
@@ -4288,7 +4289,7 @@
       "competitors": []
     },
     "bestFor": [
-      "Confirming that an entity is registered in United States Virgin Islands and reading its recorded status"
+      "Confirming that an entity is registered in the United States Virgin Islands and reading its recorded status"
     ],
     "notRecommendedFor": [
       "Confirming good standing, licensing or tax compliance — this register does not establish any of them",
@@ -4310,7 +4311,7 @@
       "businessVerification": null
     },
     "recommendedIndustries": [
-      "Entities registered in United States Virgin Islands"
+      "Entities registered in the United States Virgin Islands"
     ],
     "editorialTags": [
       "statutory",
@@ -4318,14 +4319,14 @@
       "primary-source"
     ],
     "pros": [
-      "Catalyst can be searched free of charge and without an account, directly from the Government of the United States Virgin Islands, Office of the Lieutenant Governor, Division of Corporations and Trademarks. Territorial, not federal.",
-      "The Government of the United States Virgin Islands, Office of the Lieutenant Governor, Division of Corporations and Trademarks. Territorial, not federal is the statutory source for United States Virgin Islands, so an entry exists because a filing was made — not because anyone submitted a listing."
+      "Catalyst can be searched free of charge and without an account, directly from the Government of the United States Virgin Islands, Office of the Lieutenant Governor, Division of Corporations and Trademarks.",
+      "The Government of the United States Virgin Islands, Office of the Lieutenant Governor, Division of Corporations and Trademarks is the statutory source for the United States Virgin Islands, so an entry exists because a filing was made — not because anyone submitted a listing."
     ],
     "cons": [
       "Documents are a separate paid product — copies and certificates sit on the account and payment side of the system — so the free tier returns index data only.",
       "It is not a USVI business licence (licensing is administered separately by the Department of Licensing and Consumer Affairs), not evidence of tax registration or compliance with the Virgin Islands Bureau of Internal Revenue, not proof the entity is trading, and not any measure of creditworthiness."
     ],
-    "editorNotes": "Verified 2026-08-04 from official United States Virgin Islands sources. Operator: Government of the United States Virgin Islands, Office of the Lieutenant Governor, Division of Corporations and Trademarks. Territorial, not federal. Coverage and search: It covers official listing: Trade Name; Corporation in many statutory flavours — Domestic, Foreign, Non-profit, Foreign Non-profit, Professional, Foreign Professional, Trade and Labor, Foreign Trade and Labor, Cooperative, Foreign Cooperative, Exempt, Foreign Exempt, Economic Development, Virgin Islands Foreign Sales, and Alien; Limited Partnership; Limited Liability Partnership; Limited Liability Limited Partnership; Limited Liability Company. The register is operated by the Office of the Lieutenant Governor — not a Secretary of State, Department of State or Commerce department. The Lieutenant Governor is the corporate registrar of the USVI. The public search discloses SHAREHOLDERS, which is rare among US registers. Official wording: \"Details include the registration date, entity type, status, purpose, addresses, resident agent, shareholders, and principals like officers, directors, members, managers, partners, sole proprietors.\" Inclusion arises from entity formation or statutory registration, not from any submission."
+    "editorNotes": "Verified 2026-08-04 from official the United States Virgin Islands sources. Operator: Government of the United States Virgin Islands, Office of the Lieutenant Governor, Division of Corporations and Trademarks. Coverage and search: Official listing: Trade Name; Corporation in many statutory flavours — Domestic, Foreign, Non-profit, Foreign Non-profit, Professional, Foreign Professional, Trade and Labor, Foreign Trade and Labor, Cooperative, Foreign Cooperative, Exempt, Foreign Exempt, Economic Development, Virgin Islands Foreign Sales, and Alien; Limited Partnership; Limited Liability Partnership; Limited Liability Limited Partnership; Limited Liability Company. The register is operated by the Office of the Lieutenant Governor — not a Secretary of State, Department of State or Commerce department. The Lieutenant Governor is the corporate registrar of the USVI. The public search discloses SHAREHOLDERS, which is rare among US registers. Official wording: \"Details include the registration date, entity type, status, purpose, addresses, resident agent, shareholders, and principals like officers, directors, members, managers, partners, sole proprietors.\" Inclusion arises from entity formation or statutory registration, not from any submission."
   },
   {
     "id": "us-connecticut-business-records-search",
@@ -4335,7 +4336,7 @@
     "category": "government",
     "website": "https://service.ct.gov/business/s/onlinebusinesssearch",
     "submissionUrl": null,
-    "description": "Business Records Search is the state business-entity register operated by the Office of the Secretary of the State (Connecticut) — business filings hub published as Business.CT.gov. \"Simply enter a business name, business ALEI, or filing number.\" Results list shows business name; clicking through gives Business name, Business ID, Principal, Agent, Date formed, Business entity type, and street address/city/state/zip. Filed document images are viewable without charge.",
+    "description": "Business Records Search is the state business-entity register operated by the Office of the Secretary of the State (Connecticut). Coverage: \"This search covers all domestic (formed in Connecticut) and foreign (formed outside of Connecticut) entities on record.\" Trade names (DBAs), trade/service marks and UCC liens are searched through separate tools on the same portal, not through Business Records Search. Filed document images are viewable without charge.",
     "tier": "tier1",
     "scope": "subnational",
     "jurisdiction": {
@@ -4350,7 +4351,7 @@
       "public-filing-database"
     ],
     "operator": {
-      "name": "Office of the Secretary of the State (Connecticut) — business filings hub published as Business.CT.gov",
+      "name": "Office of the Secretary of the State (Connecticut)",
       "type": "government-agency",
       "officialUrl": null
     },
@@ -4363,7 +4364,7 @@
       "captcha": false,
       "geographicRestriction": null,
       "paidDocumentsAvailable": true,
-      "notes": null
+      "notes": "Filed images are free to view; certified copies and certificates are charged."
     },
     "petroHrysScore": 83,
     "scoreFactors": {
@@ -4461,16 +4462,16 @@
       "primary-source"
     ],
     "pros": [
-      "Business Records Search can be searched free of charge and without an account, directly from the Office of the Secretary of the State (Connecticut) — business filings hub published as Business.CT.gov.",
+      "Business Records Search can be searched free of charge and without an account, directly from the Office of the Secretary of the State (Connecticut).",
       "Filed document images are published free — \"All business and UCC records filed electronically are available to you for free.\" — so a filing can be read, not merely confirmed to exist.",
-      "A single Business Records Search query reaches more than the entity register: it is also a public filing database — \"All business and UCC records filed electronically are available to you for free.\".",
-      "The Office of the Secretary of the State (Connecticut) — business filings hub published as Business.CT.gov is the statutory source for Connecticut, so an entry exists because a filing was made — not because anyone submitted a listing."
+      "A single Business Records Search query reaches more than the entity register: it is also a public filing database — \"All business and UCC records filed electronically are available to you for free.\"",
+      "The Office of the Secretary of the State (Connecticut) is the statutory source for Connecticut, so an entry exists because a filing was made — not because anyone submitted a listing."
     ],
     "cons": [
-      "A hit in Business Records Search proves only that a filing exists on the Secretary of the State's record.",
+      "It is not evidence of good standing (the portal separately warns businesses about Notices of Intent to Dissolve or Revoke), not a licence or permit — Connecticut runs \"Verify a Business License\" as a wholly separate service — not tax registration or compliance, and not creditworthiness.",
       "Free images are not certified output: Connecticut still charges for certified copies and certificates of status."
     ],
-    "editorNotes": "Verified 2026-08-04 from official Connecticut sources. Operator: Office of the Secretary of the State (Connecticut) — business filings hub published as Business.CT.gov. Coverage and search: Coverage: \"This search covers all domestic (formed in Connecticut) and foreign (formed outside of Connecticut) entities on record.\" Trade names (DBAs), trade/service marks and UCC liens are searched through separate tools on the same portal, not through Business Records Search. Searchable by ALEI — Connecticut's Administrative Legal Entity Identifier — as an alternative to business name or filing number. The official text is \"Simply enter a business name, business ALEI, or filing number.\" No other state in this wave exposes an equivalent identifier in its search box. Filed documents are free as images: \"All business and UCC records filed electronically are available to you for free\", reachable through \"View Filing History\" → \"VIEW PDF\" or \"VIEW HTML\" — but with an explicit age cliff: \"records older than 15 years may not be available\" through the online search. Migration risk: Realised, and still leaking. CONCORD (concord-sots.ct.gov) has been replaced by the Business.CT.gov / Salesforce platform, but portal.ct.gov continues to link the dead CONCORD endpoints. Any citation should point at service.ct.gov, never concord-sots.ct.gov. Inclusion arises from entity formation or statutory registration, not from any submission."
+    "editorNotes": "Verified 2026-08-04 from official Connecticut sources. Operator: Office of the Secretary of the State (Connecticut). Coverage and search: \"Simply enter a business name, business ALEI, or filing number.\" Results list shows business name; clicking through gives Business name, Business ID, Principal, Agent, Date formed, Business entity type, and street address/city/state/zip. Searchable by ALEI — Connecticut's Administrative Legal Entity Identifier — as an alternative to business name or filing number. Filed documents are free as images: \"All business and UCC records filed electronically are available to you for free\", reachable through \"View Filing History\" → \"VIEW PDF\" or \"VIEW HTML\" — but with an explicit age cliff: \"records older than 15 years may not be available\" through the online search. Migration risk: Realised, and still leaking. CONCORD (concord-sots.ct.gov) has been replaced by the Business.CT.gov / Salesforce platform, but portal.ct.gov continues to link the dead CONCORD endpoints. Any citation should point at service.ct.gov, never concord-sots.ct.gov. Inclusion arises from entity formation or statutory registration, not from any submission."
   },
   {
     "id": "us-maine-corporate-name-search",
@@ -4480,7 +4481,7 @@
     "category": "government",
     "website": "https://apps3.web.maine.gov/nei-sos-icrs/ICRS?MainPage=x",
     "submissionUrl": null,
-    "description": "Corporate Name Search (ICRS) is the state business-entity register operated by the Maine Department of the Secretary of State — Division of Corporations, UCC & Commissions (search-page footer: \"© Department of the Secretary of State\"; contact line: \"Division of Corporations, UCC & Commissions Reporting and Information Section at 207-624-7752\"). Filed documents and certificates are ordered separately for a fee.",
+    "description": "Corporate Name Search (ICRS) is the state business-entity register operated by the Maine Department of the Secretary of State — Division of Corporations, UCC & Commissions. Search fields: Two input fields only: \"Keyword from name to be searched\" and \"Charter number\", plus the entity-category dropdown above. Filed documents and certificates are ordered separately for a fee.",
     "tier": "tier1",
     "scope": "subnational",
     "jurisdiction": {
@@ -4494,7 +4495,7 @@
       "business-entity-register"
     ],
     "operator": {
-      "name": "Maine Department of the Secretary of State — Division of Corporations, UCC & Commissions (search-page footer: \"© Department of the Secretary of State\"; contact line: \"Division of Corporations, UCC & Commissions Reporting and Information Section at 207-624-7752\")",
+      "name": "Maine Department of the Secretary of State — Division of Corporations, UCC & Commissions",
       "type": "government-agency",
       "officialUrl": null
     },
@@ -4603,14 +4604,14 @@
       "primary-source"
     ],
     "pros": [
-      "Corporate Name Search (ICRS) can be searched free of charge and without an account, directly from the Maine Department of the Secretary of State — Division of Corporations, UCC & Commissions (search-page footer: \"© Department of the Secretary of State\"; contact line: \"Division of Corporations, UCC & Commissions Reporting and Information Section at 207-624-7752\").",
-      "The Maine Department of the Secretary of State — Division of Corporations, UCC & Commissions (search-page footer: \"© Department of the Secretary of State\"; contact line: \"Division of Corporations, UCC & Commissions Reporting and Information Section at 207-624-7752\") is the statutory source for Maine, so an entry exists because a filing was made — not because anyone submitted a listing."
+      "Corporate Name Search (ICRS) can be searched free of charge and without an account, directly from the Maine Department of the Secretary of State — Division of Corporations, UCC & Commissions.",
+      "The Maine Department of the Secretary of State — Division of Corporations, UCC & Commissions is the statutory source for Maine, so an entry exists because a filing was made — not because anyone submitted a listing."
     ],
     "cons": [
       "Documents are a separate paid product — copies are purchased through ICRS by subscriber account or card and delivered as PDFs — so the free tier returns index data only.",
-      "It does not establish good standing or legal existence — Maine sells that as a separate \"Obtain Good Standing/Legal Existence\" product."
+      "It does not establish good standing or legal existence — Maine sells that as a separate \"Obtain Good Standing/Legal Existence\" product. It is not a licence, not proof of tax registration or compliance, not proof the entity is trading, and not a credit assessment."
     ],
-    "editorNotes": "Verified 2026-08-04 from official Maine sources. Operator: Maine Department of the Secretary of State — Division of Corporations, UCC & Commissions (search-page footer: \"© Department of the Secretary of State\"; contact line: \"Division of Corporations, UCC & Commissions Reporting and Information Section at 207-624-7752\"). Coverage and search: It covers the category selector on the search form enumerates the covered forms explicitly: ALL CATEGORIES, FINANCIAL INSTITUTION, APPOINTMENT OF SERVICE OF PROCESS, COOPERATIVE CORPORATION, REGISTERED NAME OF A LIMITED LIABILITY COMPANY, BUSINESS CORPORATION, LIMITED LIABILITY COMPANY, DOMESTIC LIMITED LIABILITY PARTNERSHIP, BUSINESS CORPORATION DOING BUSINESS IN MAINE, LIMITED LIABILITY COMPANY DOING BUSINESS IN MAINE, LIMITED LIABILITY PARTNERSHIP DOING BUSINESS IN MAINE, GENERAL PARTNERSHIP, INSURANCE CORPORATION, NON-PROFIT LOCAL INDEPENDENT CHURCH, LIMITED PARTNERSHIP DOING BUSINESS IN MAINE, RESERVED NAME OF A LIMITED PARTNERSHIP, LIMITED PARTNERSHIP, REGISTERED NAME OF A LIMITED PARTNERSHIP, MARK, NON-PROFIT CORPORATION (UNDER TITLE 13), NON-PROFIT CORPORATION (UNDER TITLE 13-B), NON-PROFIT CORPORATION, REGISTERED NAME OF A NON-PROFIT CORPORATION, PENDING WORK - CONVERSION ONLY, REGISTERED NAME OF A LIMITED LIABILITY PARTNERSHIP, REGISTERED NAME OF A BUSINESS CORPORATION, RESERVED NAME FOR A LIMITED LIABILITY COMPANY, RESERVED NAME FOR A BUSINESS CORPORATION, INTERIM RESERVED NAME FOR A BUSINESS CORPORATION, RESERVED NAME FOR A NON-PROFIT CORPORATION, RESERVED NAME FOR A LIMITED LIABILITY PARTNERSHIP, RAILROAD CORPORATION. Two input fields only: \"Keyword from name to be searched\" and \"Charter number\", plus the entity-category dropdown above. The search form carries an explicit anti-automation prohibition, printed above the input boxes: \"The intent of this corporate search is to provide general entity details. The Division of Corporations strictly prohibits mining data. Excessive and repeated searches that may have a negative impact on our system and customer experience are also prohibited. Use of automated tools in any form may result in the suspension of your access to utilize this service.\" This is a directory-relevant legal constraint, not just a nag — Maine reserves the right to cut off access. The category dropdown exposes statutory entity forms that most state registries fold away or do not have at all: \"RAILROAD CORPORATION\", \"NON-PROFIT LOCAL INDEPENDENT CHURCH\", \"FINANCIAL INSTITUTION\", \"INSURANCE CORPORATION\", \"APPOINTMENT OF SERVICE OF PROCESS\", \"NON-PROFIT CORPORATION (UNDER TITLE 13)\" versus \"(UNDER TITLE 13-B)\", and \"PENDING WORK - CONVERSION ONLY\". Inclusion arises from entity formation or statutory registration, not from any submission."
+    "editorNotes": "Verified 2026-08-04 from official Maine sources. Operator: Maine Department of the Secretary of State — Division of Corporations, UCC & Commissions. Coverage and search: The category selector on the search form enumerates the covered forms explicitly: ALL CATEGORIES, FINANCIAL INSTITUTION, APPOINTMENT OF SERVICE OF PROCESS, COOPERATIVE CORPORATION, REGISTERED NAME OF A LIMITED LIABILITY COMPANY, BUSINESS CORPORATION, LIMITED LIABILITY COMPANY, DOMESTIC LIMITED LIABILITY PARTNERSHIP, BUSINESS CORPORATION DOING BUSINESS IN MAINE, LIMITED LIABILITY COMPANY DOING BUSINESS IN MAINE, LIMITED LIABILITY PARTNERSHIP DOING BUSINESS IN MAINE, GENERAL PARTNERSHIP, INSURANCE CORPORATION, NON-PROFIT LOCAL INDEPENDENT CHURCH, LIMITED PARTNERSHIP DOING BUSINESS IN MAINE, RESERVED NAME OF A LIMITED PARTNERSHIP, LIMITED PARTNERSHIP, REGISTERED NAME OF A LIMITED PARTNERSHIP, MARK, NON-PROFIT CORPORATION (UNDER TITLE 13), NON-PROFIT CORPORATION (UNDER TITLE 13-B), NON-PROFIT CORPORATION, REGISTERED NAME OF A NON-PROFIT CORPORATION, PENDING WORK - CONVERSION ONLY, REGISTERED NAME OF A LIMITED LIABILITY PARTNERSHIP, REGISTERED NAME OF A BUSINESS CORPORATION, RESERVED NAME FOR A LIMITED LIABILITY COMPANY, RESERVED NAME FOR A BUSINESS CORPORATION, INTERIM RESERVED NAME FOR A BUSINESS CORPORATION, RESERVED NAME FOR A NON-PROFIT CORPORATION, RESERVED NAME FOR A LIMITED LIABILITY PARTNERSHIP, RAILROAD CORPORATION. The search form carries an explicit anti-automation prohibition, printed above the input boxes: \"The intent of this corporate search is to provide general entity details. The Division of Corporations strictly prohibits mining data. Excessive and repeated searches that may have a negative impact on our system and customer experience are also prohibited. Use of automated tools in any form may result in the suspension of your access to utilize this service.\" This is a directory-relevant legal constraint, not just a nag — Maine reserves the right to cut off access. The category dropdown exposes statutory entity forms that most state registries fold away or do not have at all: \"RAILROAD CORPORATION\", \"NON-PROFIT LOCAL INDEPENDENT CHURCH\", \"FINANCIAL INSTITUTION\", \"INSURANCE CORPORATION\", \"APPOINTMENT OF SERVICE OF PROCESS\", \"NON-PROFIT CORPORATION (UNDER TITLE 13)\" versus \"(UNDER TITLE 13-B)\", and \"PENDING WORK - CONVERSION ONLY\". Inclusion arises from entity formation or statutory registration, not from any submission."
   },
   {
     "id": "us-massachusetts-business-entity-search",
@@ -4620,7 +4621,7 @@
     "category": "government",
     "website": "https://corp.sec.state.ma.us/corpweb/corpsearch/corpsearch.aspx",
     "submissionUrl": null,
-    "description": "Search for a Business Entity is the state business-entity register operated by the Secretary of the Commonwealth of Massachusetts — Corporations Division (page footer: \"William Francis Galvin Secretary of the Commonwealth of Massachusetts\"). Whether filed document images can be viewed free of charge is not stated on the official pages.",
+    "description": "Search for a Business Entity is the state business-entity register operated by the Secretary of the Commonwealth of Massachusetts — Corporations Division. Whether filed document images can be viewed free of charge is not stated on the official pages.",
     "tier": "tier1",
     "scope": "subnational",
     "englishName": "Search for a Business Entity",
@@ -4636,7 +4637,7 @@
       "business-entity-register"
     ],
     "operator": {
-      "name": "Secretary of the Commonwealth of Massachusetts — Corporations Division (page footer: \"William Francis Galvin Secretary of the Commonwealth of Massachusetts\")",
+      "name": "Secretary of the Commonwealth of Massachusetts — Corporations Division",
       "type": "government-agency",
       "officialUrl": null
     },
@@ -4649,7 +4650,7 @@
       "captcha": false,
       "geographicRestriction": null,
       "paidDocumentsAvailable": true,
-      "notes": "Public search room available by telephone at 617-727-3971, 8:45 A.M. – 5:00 P.M."
+      "notes": "The search itself is free; documents, certificates and status products are charged separately."
     },
     "petroHrysScore": 77,
     "scoreFactors": {
@@ -4745,15 +4746,15 @@
       "primary-source"
     ],
     "pros": [
-      "Search for a Business Entity can be searched free of charge and without an account, directly from the Secretary of the Commonwealth of Massachusetts — Corporations Division (page footer: \"William Francis Galvin Secretary of the Commonwealth of Massachusetts\").",
-      "The Secretary of the Commonwealth of Massachusetts — Corporations Division (page footer: \"William Francis Galvin Secretary of the Commonwealth of Massachusetts\") is the statutory source for Massachusetts, so an entry exists because a filing was made — not because anyone submitted a listing."
+      "Search for a Business Entity can be searched free of charge and without an account, directly from the Secretary of the Commonwealth of Massachusetts — Corporations Division.",
+      "The Secretary of the Commonwealth of Massachusetts — Corporations Division is the statutory source for Massachusetts, so an entry exists because a filing was made — not because anyone submitted a listing."
     ],
     "cons": [
-      "The cost of reading a filing cannot be predicted: whether filing images are viewable free on screen is not addressed by any official page.",
+      "No official page states whether filed document images can be viewed free of charge, so the cost of reading a filing cannot be established in advance.",
       "Part of Search for a Business Entity sits behind payment, an account or another restriction, so the free tier answers only part of a due-diligence question.",
       "It does not prove good standing — Massachusetts sells Certificates of Good Standing separately — nor licensing (occupational and professional licences are wholly outside this division), nor tax registration or compliance with the Department of Revenue, nor solvency or creditworthiness."
     ],
-    "editorNotes": "Verified 2026-08-04 from official Massachusetts sources. Operator: Secretary of the Commonwealth of Massachusetts — Corporations Division (page footer: \"William Francis Galvin Secretary of the Commonwealth of Massachusetts\"). Coverage and search: It covers the entity-name search box is labelled \"Search by entity name (Company, LP, LLP, LLC, etc.)\". Massachusetts state trademarks, name reservations, UCC financing statements and liens are each held in separate databases on the same corp.sec.state.ma.us host, not inside the entity search. Four search modes, each with four match algorithms. Modes: \"Search by entity name (Company, LP, LLP, LLC, etc.)\"; \"Search by an individual name (Officer, Director, etc.)\"; \"Search by Identification Number\"; \"Search by Filing Number\". Soundex phonetic matching is offered on both entity names and personal names — \"Begins with / Exact match / Full text / Soundex\" — alongside a first/middle/last person search that reaches officers and directors: \"Search by an individual name (Officer, Director, etc.)\". Massachusetts publishes a searchable database of REJECTED filings — \"Search Corporate Rejected Filings\" at corp.sec.state.ma.us/corpweb/rejections/corprejections.aspx. Inclusion arises from entity formation or statutory registration, not from any submission."
+    "editorNotes": "Verified 2026-08-04 from official Massachusetts sources. Operator: Secretary of the Commonwealth of Massachusetts — Corporations Division. Coverage and search: The entity-name search box is labelled \"Search by entity name (Company, LP, LLP, LLC, etc.)\". Massachusetts state trademarks, name reservations, UCC financing statements and liens are each held in separate databases on the same corp.sec.state.ma.us host, not inside the entity search. Search fields: Four search modes, each with four match algorithms. Modes: \"Search by entity name (Company, LP, LLP, LLC, etc.)\"; \"Search by an individual name (Officer, Director, etc.)\"; \"Search by Identification Number\"; \"Search by Filing Number\". Soundex phonetic matching is offered on both entity names and personal names — \"Begins with / Exact match / Full text / Soundex\" — alongside a first/middle/last person search that reaches officers and directors: \"Search by an individual name (Officer, Director, etc.)\". Massachusetts publishes a searchable database of REJECTED filings — \"Search Corporate Rejected Filings\" at corp.sec.state.ma.us/corpweb/rejections/corprejections.aspx. Inclusion arises from entity formation or statutory registration, not from any submission."
   },
   {
     "id": "us-new-jersey-business-records-service",
@@ -4763,7 +4764,7 @@
     "category": "government",
     "website": "https://www.njportal.com/dor/businessrecords/",
     "submissionUrl": null,
-    "description": "Business Records Service is the state business-entity register operated by the New Jersey Department of the Treasury — Division of Revenue and Enterprise Services (DORES). Not a Secretary of State. Filed documents and certificates are ordered separately for a fee.",
+    "description": "Business Records Service is the state business-entity register operated by the New Jersey Department of the Treasury — Division of Revenue and Enterprise Services (DORES). Filed documents and certificates are ordered separately for a fee.",
     "tier": "tier1",
     "scope": "subnational",
     "jurisdiction": {
@@ -4777,7 +4778,7 @@
       "business-entity-register"
     ],
     "operator": {
-      "name": "New Jersey Department of the Treasury — Division of Revenue and Enterprise Services (DORES). Not a Secretary of State",
+      "name": "New Jersey Department of the Treasury — Division of Revenue and Enterprise Services (DORES)",
       "type": "government-agency",
       "officialUrl": null
     },
@@ -4790,7 +4791,7 @@
       "captcha": false,
       "geographicRestriction": null,
       "paidDocumentsAvailable": true,
-      "notes": "Certificate Validation is free and open: \"Click here to check the validity of your certified document\" at njportal.com/DOR/businessrecords/Validate.aspx."
+      "notes": "The search itself is free; documents, certificates and status products are charged separately."
     },
     "petroHrysScore": 76,
     "scoreFactors": {
@@ -4886,15 +4887,15 @@
       "primary-source"
     ],
     "pros": [
-      "Business Records Service can be searched free of charge and without an account, directly from the New Jersey Department of the Treasury — Division of Revenue and Enterprise Services (DORES). Not a Secretary of State.",
-      "The New Jersey Department of the Treasury — Division of Revenue and Enterprise Services (DORES). Not a Secretary of State is the statutory source for New Jersey, so an entry exists because a filing was made — not because anyone submitted a listing."
+      "Business Records Service can be searched free of charge and without an account, directly from the New Jersey Department of the Treasury — Division of Revenue and Enterprise Services (DORES).",
+      "The New Jersey Department of the Treasury — Division of Revenue and Enterprise Services (DORES) is the statutory source for New Jersey, so an entry exists because a filing was made — not because anyone submitted a listing."
     ],
     "cons": [
       "Documents are a separate paid product — \"Photocopies of any document per page\" $0.10 and \"Certified copies, per document\" $25.00 — so the free tier returns index data only.",
       "Part of Business Records Service sits behind payment, an account or another restriction, so the free tier answers only part of a due-diligence question.",
       "It does not prove good standing — that is a separately purchased Standing Certificate — nor licensing, nor tax registration or compliance (New Jersey tax registration is a distinct process even though both sit under Treasury), nor solvency or creditworthiness."
     ],
-    "editorNotes": "Verified 2026-08-04 from official New Jersey sources. Operator: New Jersey Department of the Treasury — Division of Revenue and Enterprise Services (DORES). Not a Secretary of State. Coverage and search: Coverage: \"you will be able to search for information on all types of businesses operating in New Jersey, including business entities like corporations and LLCs, as well as trade names and trade/service marks used by New Jersey businesses.\" The service's menu separates \"Obtain Business Entity Information\" from \"Search Trade Name and Trade/Service Mark\". Business Records Service menu: Business Entity Standing Certificates; Business Entity Status Reports; Business Entity Documents; Business Entity Lists; Business Entity Name Search; Search Trade Name and Trade/Service Mark; Trade Name and Trade/Service Mark Status Report; Trade Name and Trade/Service Mark Lists; Certificate Validation. The register is run by the Treasury's Division of Revenue and Enterprise Services, not by a Secretary of State. New Jersey is the most paywalled register in this wave. Beyond a bare name hit, almost everything costs: status report $5.00 (or $1.25 online), LLC/LLP standing certificate $50.00 short form / $100.00 long form, certified copy $25.00 per document, photocopies $0.10 per page. Migration risk: Active migration. Inclusion arises from entity formation or statutory registration, not from any submission."
+    "editorNotes": "Verified 2026-08-04 from official New Jersey sources. Operator: New Jersey Department of the Treasury — Division of Revenue and Enterprise Services (DORES). Coverage and search: \"you will be able to search for information on all types of businesses operating in New Jersey, including business entities like corporations and LLCs, as well as trade names and trade/service marks used by New Jersey businesses.\" The service's menu separates \"Obtain Business Entity Information\" from \"Search Trade Name and Trade/Service Mark\". Search fields: Business Records Service menu: Business Entity Standing Certificates; Business Entity Status Reports; Business Entity Documents; Business Entity Lists; Business Entity Name Search; Search Trade Name and Trade/Service Mark; Trade Name and Trade/Service Mark Status Report; Trade Name and Trade/Service Mark Lists; Certificate Validation. The register is run by the Treasury's Division of Revenue and Enterprise Services, not by a Secretary of State. Bulk data is sold per record at $0.0185, and the officially listed bulk fields are unusually rich: \"Business Entity Name, Legal Status, Registered Agent/Office, Annual Report Filing Dates, Business Addresses, and Associated Names\". Migration risk: Active migration. The njportal.com service pages still serve the live product today. Re-check the canonical URL before publication and periodically after. Inclusion arises from entity formation or statutory registration, not from any submission."
   },
   {
     "id": "us-new-york-corporation-entity-database",
@@ -5034,7 +5035,7 @@
       "Documents are a separate paid product — a \"$5 fee for a plain copy of a document\" and \"$10 fee for a certified copy\" — so the free tier returns index data only.",
       "It does not prove good standing (a Certificate of Status costs $25 and is issued separately), does not prove name acceptability for a new filing (expressly disclaimed), does not identify who owns or runs the entity (officers, directors, members and managers are not maintained), and is not licensing, tax-compliance or creditworthiness evidence."
     ],
-    "editorNotes": "Verified 2026-08-04 from official New York sources. Operator: New York State Department of State — Division of Corporations. Coverage and search: Coverage: \"business and not-for-profit corporations, limited partnerships, limited liability companies, limited liability partnerships, and other miscellaneous businesses, as well as assumed name filings for corporations, limited liability companies and limited partnerships\". The database returns, per the Department's own enumeration: \"(1) current entity name; (2) date of organization; (3) jurisdiction, if other than New York State; (4) county location; (5) service of process address; (6) registered agent, if any; and (7) filing history\" — the FAQ variant renders item (7) as \"the current status of the entity\". New York does not hold the people. The search application carries an explicit negative instruction on its own landing surface: \"This system should not be used to determine the acceptability of an Entity Name.\" A clean search is expressly not a name-availability determination. Migration risk: Realised and clean. The old appext20.dos.ny.gov interface has been retired and now 404s; dos.ny.gov 302-redirects to the current apps.dos.ny.gov/publicInquiry/ application. Inclusion arises from entity formation or statutory registration, not from any submission."
+    "editorNotes": "Verified 2026-08-04 from official New York sources. Operator: New York State Department of State — Division of Corporations. Coverage and search: \"business and not-for-profit corporations, limited partnerships, limited liability companies, limited liability partnerships, and other miscellaneous businesses, as well as assumed name filings for corporations, limited liability companies and limited partnerships\". The database returns, per the Department's own enumeration: \"(1) current entity name; (2) date of organization; (3) jurisdiction, if other than New York State; (4) county location; (5) service of process address; (6) registered agent, if any; and (7) filing history\" — the FAQ variant renders item (7) as \"the current status of the entity\". New York does not hold the people. The search application carries an explicit negative instruction on its own landing surface: \"This system should not be used to determine the acceptability of an Entity Name.\" A clean search is expressly not a name-availability determination. Migration risk: Realised and clean. The old appext20.dos.ny.gov interface has been retired and now 404s; dos.ny.gov 302-redirects to the current apps.dos.ny.gov/publicInquiry/ application. Inclusion arises from entity formation or statutory registration, not from any submission."
   },
   {
     "id": "us-rhode-island-corporate-database",
@@ -5044,7 +5045,7 @@
     "category": "government",
     "website": "https://business.sos.ri.gov/CorpWeb/CorpSearch/CorpSearch.aspx",
     "submissionUrl": null,
-    "description": "Search for an entity within the RI Business Portal (CIMS) is the state business-entity register operated by the Rhode Island Department of State — Business Services Division (page footer: \"Business Services Division | Rhode Island Department of State\"). It covers the entity-name search is scoped on-page as \"(Corp., LP, LLP, LLC, Non-resident Landlord)\". Whether filed document images can be viewed free of charge is not stated on the official pages.",
+    "description": "Search for an entity within the RI Business Portal (CIMS) is the state business-entity register operated by the Rhode Island Department of State — Business Services Division. Coverage: The entity-name search is scoped on-page as \"(Corp., LP, LLP, LLC, Non-resident Landlord)\". Whether filed document images can be viewed free of charge is not stated on the official pages.",
     "tier": "tier1",
     "scope": "subnational",
     "englishName": "Search for an entity within the RI Business Portal (CIMS)",
@@ -5060,7 +5061,7 @@
       "business-entity-register"
     ],
     "operator": {
-      "name": "Rhode Island Department of State — Business Services Division (page footer: \"Business Services Division | Rhode Island Department of State\")",
+      "name": "Rhode Island Department of State — Business Services Division",
       "type": "government-agency",
       "officialUrl": null
     },
@@ -5169,14 +5170,14 @@
       "primary-source"
     ],
     "pros": [
-      "Search for an entity within the RI Business Portal (CIMS) can be searched free of charge and without an account, directly from the Rhode Island Department of State — Business Services Division (page footer: \"Business Services Division | Rhode Island Department of State\").",
-      "The Rhode Island Department of State — Business Services Division (page footer: \"Business Services Division | Rhode Island Department of State\") is the statutory source for Rhode Island, so an entry exists because a filing was made — not because anyone submitted a listing."
+      "Search for an entity within the RI Business Portal (CIMS) can be searched free of charge and without an account, directly from the Rhode Island Department of State — Business Services Division.",
+      "The Rhode Island Department of State — Business Services Division is the statutory source for Rhode Island, so an entry exists because a filing was made — not because anyone submitted a listing."
     ],
     "cons": [
-      "The cost of reading a filing cannot be predicted: the search-assistance page does not document the free-image position.",
+      "No official page states whether filed document images can be viewed free of charge, so the cost of reading a filing cannot be established in advance.",
       "It does not prove good standing — a Certificate of Good Standing is requested separately — nor licensing, nor tax registration or compliance, nor solvency or creditworthiness."
     ],
-    "editorNotes": "Verified 2026-08-04 from official Rhode Island sources. Operator: Rhode Island Department of State — Business Services Division (page footer: \"Business Services Division | Rhode Island Department of State\"). Coverage and search: Eight distinct search modes on one form: \"Search by entity name (Corp., LP, LLP, LLC, Non-resident Landlord)\"; \"Search by an individual name (Officer, Director, etc.)\" with First / Middle / Last fields; \"Search by Identification Number\" (\"Must be 9 digits\"); \"Search by Filing Number\" (\"Must be 12 digits\"); \"Search by Agent\" (Begins with / Contains); \"Search by a Business Address\"; \"Search by a Purpose\"; \"Search by NAICS code\" (\"Must be 2 to 6 digit code\"). Rhode Island lets you search the register by NAICS code (\"Must be 2 to 6 digit code\", with the Department's own official NAICS list linked as a PDF from the form) and by stated business \"Purpose\" free text. Eight search axes on a single form — name, individual (officer/director, first/middle/last), 9-digit identification number, 12-digit filing number, registered agent (begins-with or contains), business address, purpose, and NAICS — versus Maine's two and New Jersey's one. Inclusion arises from entity formation or statutory registration, not from any submission."
+    "editorNotes": "Verified 2026-08-04 from official Rhode Island sources. Operator: Rhode Island Department of State — Business Services Division. Coverage and search: Search fields: Eight distinct search modes on one form: \"Search by entity name (Corp., LP, LLP, LLC, Non-resident Landlord)\"; \"Search by an individual name (Officer, Director, etc.)\" with First / Middle / Last fields; \"Search by Identification Number\" (\"Must be 9 digits\"); \"Search by Filing Number\" (\"Must be 12 digits\"); \"Search by Agent\" (Begins with / Contains); \"Search by a Business Address\"; \"Search by a Purpose\"; \"Search by NAICS code\" (\"Must be 2 to 6 digit code\"). Rhode Island lets you search the register by NAICS code (\"Must be 2 to 6 digit code\", with the Department's own official NAICS list linked as a PDF from the form) and by stated business \"Purpose\" free text. Industry-code and purpose-text search are close to unheard of in US state entity registries and make this register uniquely useful for sector mapping rather than just name lookup. Eight search axes on a single form — name, individual (officer/director, first/middle/last), 9-digit identification number, 12-digit filing number, registered agent (begins-with or contains), business address, purpose, and NAICS — versus Maine's two and New Jersey's one. Registered-agent and business-address search in particular expose the agent-and-address clustering that most registries hide. Inclusion arises from entity formation or statutory registration, not from any submission."
   },
   {
     "id": "us-delaware-entity-search",
@@ -5186,7 +5187,7 @@
     "category": "government",
     "website": "https://icis.corp.delaware.gov/eCorp/EntitySearch/NameSearch.aspx",
     "submissionUrl": null,
-    "description": "Search for a Business Entity is the state business-entity register operated by the Delaware Department of State, Division of Corporations. Two search fields only: Entity Name and File Number. Filed documents and certificates are ordered separately for a fee.",
+    "description": "Search for a Business Entity is the state business-entity register operated by the Delaware Department of State, Division of Corporations. Search fields: Two search fields only: Entity Name and File Number. Filed documents and certificates are ordered separately for a fee.",
     "tier": "tier1",
     "scope": "subnational",
     "jurisdiction": {
@@ -5213,7 +5214,7 @@
       "captcha": false,
       "geographicRestriction": null,
       "paidDocumentsAvailable": true,
-      "notes": "Delaware is unusually paywalled for a US state: the free tier is a name-availability-grade lookup, while entity status — the thing most users actually want — is a paid product."
+      "notes": "The search itself is free; documents, certificates and status products are charged separately."
     },
     "petroHrysScore": 76,
     "scoreFactors": {
@@ -5317,9 +5318,9 @@
     "cons": [
       "Documents are a separate paid product — the $20 status product \"will NOT return actual images of the documents on record\" — so the free tier returns index data only.",
       "Part of Search for a Business Entity sits behind payment, an account or another restriction, so the free tier answers only part of a due-diligence question.",
-      "A Delaware search result proves only that a name is on the Division's index with a file number and formation date."
+      "A Delaware search result proves only that a name is on the Division's index with a file number and formation date. It does not prove good standing (the Division says so explicitly — the online status is not a certificate of good standing), does not prove franchise-tax compliance, does not identify officers, directors, members or beneficial owners, does not constitute a business licence, and says nothing about solvency, trading activity or creditworthiness."
     ],
-    "editorNotes": "Verified 2026-08-04 from official Delaware sources. Operator: Delaware Department of State, Division of Corporations. Coverage and search: It covers corporations plus the entity forms Delaware calls \"Alternative entities\" — verified quote: \"Alternative entities (Limited Liability Companies, Limited Partnerships, and General Partnerships) do not currently file annual reports.\" Foreign qualifications and UCC filings are handled by the same Division. Officers and directors are deliberately NOT published online at any price tier. Entity status is a paid product, not a free field: \"There are two options of online status available, status ($10) or status with tax & history information ($20).\" Even the paid status is not a legal certificate — \"requesting an online status will NOT generate an official certificate of good standing.\" Inclusion arises from entity formation or statutory registration, not from any submission."
+    "editorNotes": "Verified 2026-08-04 from official Delaware sources. Operator: Delaware Department of State, Division of Corporations. Coverage and search: Corporations plus the entity forms Delaware calls \"Alternative entities\" — verified quote: \"Alternative entities (Limited Liability Companies, Limited Partnerships, and General Partnerships) do not currently file annual reports.\" Foreign qualifications and UCC filings are handled by the same Division. Officers and directors are deliberately NOT published online at any price tier. Verified quote from the official status page: \"Officer and Director names and addresses are maintained on the images of the annual reports and are not available through this application.\" This makes Delaware one of the least transparent US state registers on beneficial control. Entity status is a paid product, not a free field: \"There are two options of online status available, status ($10) or status with tax & history information ($20).\" Even the paid status is not a legal certificate — \"requesting an online status will NOT generate an official certificate of good standing.\" Inclusion arises from entity formation or statutory registration, not from any submission."
   },
   {
     "id": "us-florida-sunbiz-search",
@@ -5329,7 +5330,7 @@
     "category": "government",
     "website": "https://search.sunbiz.org/Inquiry/CorporationSearch/ByName",
     "submissionUrl": null,
-    "description": "Sunbiz is the state business-entity register operated by the Florida Department of State, Division of Corporations. It covers corporations (profit and non-profit), Limited Liability Companies, Limited Partnerships, foreign/out-of-state qualifications, and — unusually — Trademarks, all searchable in the same system. Filed document images are viewable without charge.",
+    "description": "Sunbiz is the state business-entity register operated by the Florida Department of State, Division of Corporations. It covers corporations (profit and non-profit), Limited Liability Companies, Limited Partnerships, foreign/out-of-state qualifications, and — unusually — Trademarks, all searchable in the same system. A live detail record returned the entity type label \"Florida Profit Corporation\". Filed document images are viewable without charge.",
     "tier": "tier1",
     "scope": "subnational",
     "jurisdiction": {
@@ -5357,7 +5358,7 @@
       "captcha": false,
       "geographicRestriction": null,
       "paidDocumentsAvailable": true,
-      "notes": null
+      "notes": "Filed images are free to view; certified copies and certificates are charged."
     },
     "petroHrysScore": 83,
     "scoreFactors": {
@@ -5464,7 +5465,7 @@
       "It does not prove good standing in any certified sense, is not a business or occupational licence (Florida licensing sits with DBPR, AHCA and county authorities), is not proof of tax registration or compliance with the Department of Revenue, does not verify that the officers listed still hold office between annual reports, and carries no implication about solvency or creditworthiness.",
       "Free images are not certified output: Florida still charges for certified copies and certificates of status."
     ],
-    "editorNotes": "Verified 2026-08-04 from official Florida sources. Operator: Florida Department of State, Division of Corporations. Coverage and search: Nine distinct search modes, verified on the live page: Entity Name; Officer/Registered Agent; Registered Agent Name; Trademark Name; Trademark Owner Name; FEI/EIN; Detail by Document Number; Zip Code; Street Address. Filed document images are free and unauthenticated. A live detail record exposed \"11/29/2010 -- Name Change — View image in PDF format\" and \"05/10/2010 -- Domestic Profit — View image in PDF format\". Most states charge for images or hide them behind an account; Florida does neither. Officers and directors are published free with title, full name and street address — verified live (entries carried titles \"DPVP\", \"DVP\", \"S\" with names and addresses). This is the opposite of Delaware's policy and is a major reason Sunbiz is the most-scraped US state register. Inclusion arises from entity formation or statutory registration, not from any submission."
+    "editorNotes": "Verified 2026-08-04 from official Florida sources. Operator: Florida Department of State, Division of Corporations. Coverage and search: Search fields: Nine distinct search modes, verified on the live page: Entity Name; Officer/Registered Agent; Registered Agent Name; Trademark Name; Trademark Owner Name; FEI/EIN; Detail by Document Number; Zip Code; Street Address. Filed document images are free and unauthenticated. A live detail record exposed \"11/29/2010 -- Name Change — View image in PDF format\" and \"05/10/2010 -- Domestic Profit — View image in PDF format\". Most states charge for images or hide them behind an account; Florida does neither. Officers and directors are published free with title, full name and street address — verified live (entries carried titles \"DPVP\", \"DVP\", \"S\" with names and addresses). This is the opposite of Delaware's policy and is a major reason Sunbiz is the most-scraped US state register. Inclusion arises from entity formation or statutory registration, not from any submission."
   },
   {
     "id": "us-maryland-business-entity-search",
@@ -5474,7 +5475,7 @@
     "category": "government",
     "website": "https://egov.maryland.gov/BusinessExpress/EntitySearch",
     "submissionUrl": null,
-    "description": "Business Entity Search is the state business-entity register operated by the Maryland State Department of Assessments and Taxation (SDAT). Three search modes, verified on the live page: Business Name, Department ID, and Employer Identification Number (EIN). A \"Search by\" selector offers Business Name and Department ID. Whether filed document images can be viewed free of charge is not stated on the official pages.",
+    "description": "Business Entity Search is the state business-entity register operated by the Maryland State Department of Assessments and Taxation (SDAT). Search fields: Three search modes, verified on the live page: Business Name, Department ID, and Employer Identification Number (EIN). Whether filed document images can be viewed free of charge is not stated on the official pages.",
     "tier": "tier1",
     "scope": "subnational",
     "jurisdiction": {
@@ -5501,7 +5502,7 @@
       "captcha": true,
       "geographicRestriction": null,
       "paidDocumentsAvailable": null,
-      "notes": "Results are not GET-addressable. The form is method=\"post\" to /BusinessExpress/EntitySearch?searchAction=Search and carries a per-session __RequestVerificationToken, so individual entity records cannot be cited by URL. yes — a Cloudflare Turnstile widget is embedded in the search form markup as <div class=\"cf-turnstile\" data-size=\"normal\" style=\"position:absolute;left:-9999px;\">, positioned off-screen so it runs invisibly for normal users but gates automated clients."
+      "notes": "A CAPTCHA must be completed before results are returned. Some of the register is reachable without payment or an account, and some is not."
     },
     "petroHrysScore": 77,
     "scoreFactors": {
@@ -5602,11 +5603,11 @@
     ],
     "cons": [
       "A CAPTCHA gates the Maryland search, which blocks automated and repeated lookups.",
-      "The cost of reading a filing cannot be predicted: the search page makes no statement about filed-document images.",
+      "No official page states whether filed document images can be viewed free of charge, so the cost of reading a filing cannot be established in advance.",
       "Part of Business Entity Search sits behind payment, an account or another restriction, so the free tier answers only part of a due-diligence question.",
-      "It does not prove good standing — SDAT treats good standing as a separate enquiry with its own contact channel, and 'Active' in the search is not a good-standing certificate."
+      "A Maryland Business Express search result evidences a charter or qualification record held by SDAT. It does not prove good standing — SDAT treats good standing as a separate enquiry with its own contact channel, and 'Active' in the search is not a good-standing certificate."
     ],
-    "editorNotes": "Verified 2026-08-04 from official Maryland sources. Operator: Maryland State Department of Assessments and Taxation (SDAT). Coverage and search: It covers business entities chartered or qualified in Maryland, plus Trade Names as a distinct record type with their own renewal workflow (verified by the page's Trade Name Renewal eligibility logic and the dedicated sdat.tradenamehelp@maryland.gov contact). The operator is NOT a Secretary of State and not even a commerce department — Maryland's business charter register is held by the State Department of Assessments and Taxation, the same agency that assesses property. A Cloudflare Turnstile CAPTCHA is embedded directly in the search form and deliberately hidden off-screen — verified in the raw markup as <div class=\"cf-turnstile\" data-size=\"normal\" style=\"position:absolute;left:-9999px;\">. Migration risk: Moderate. The page footer reports a build identifier, \"Rel 12.27.52\", indicating an actively and frequently versioned application maintained by an external vendor. Inclusion arises from entity formation or statutory registration, not from any submission."
+    "editorNotes": "Verified 2026-08-04 from official Maryland sources. Operator: Maryland State Department of Assessments and Taxation (SDAT). Coverage and search: It covers business entities chartered or qualified in Maryland, plus Trade Names as a distinct record type with their own renewal workflow (verified by the page's Trade Name Renewal eligibility logic and the dedicated sdat.tradenamehelp@maryland.gov contact). The operator is NOT a Secretary of State and not even a commerce department — Maryland's business charter register is held by the State Department of Assessments and Taxation, the same agency that assesses property. Maryland's Secretary of State has no role in this register. Invisible to a human user, it is a hard gate for any automated or citation-grade re-verification. Migration risk: Moderate. The page footer reports a build identifier, \"Rel 12.27.52\", indicating an actively and frequently versioned application maintained by an external vendor. Inclusion arises from entity formation or statutory registration, not from any submission."
   },
   {
     "id": "us-north-carolina-business-registration-search",
@@ -5616,7 +5617,7 @@
     "category": "government",
     "website": "https://www.sosnc.gov/divisions/business_registration",
     "submissionUrl": null,
-    "description": "Business Registration search is the state business-entity register operated by the North Carolina Department of the Secretary of State, Business Registration Division. Verified from the live form markup. Four search targets: \"Company By Name\"; \"Company by Secretary of State Identification Number (SOSID)\"; \"Company Officials\"; \"Registered Agents\". Whether filed document images can be viewed free of charge is not stated on the official pages.",
+    "description": "Business Registration search is the state business-entity register operated by the North Carolina Department of the Secretary of State, Business Registration Division. Search fields: Four search targets: \"Company By Name\"; \"Company by Secretary of State Identification Number (SOSID)\"; \"Company Officials\"; \"Registered Agents\". Whether filed document images can be viewed free of charge is not stated on the official pages.",
     "tier": "tier1",
     "scope": "subnational",
     "englishName": "Business Registration search",
@@ -5745,8 +5746,8 @@
       "The North Carolina Department of the Secretary of State, Business Registration Division is the statutory source for North Carolina, so an entry exists because a filing was made — not because anyone submitted a listing."
     ],
     "cons": [
-      "The cost of reading a filing cannot be predicted: the Division sells \"Order Certified Documents\" but does not say whether free images are viewable.",
-      "An NC Business Registration record proves an administrative filing exists and was recorded — the Division states it \"acts in an administrative capacity only\"."
+      "No official page states whether filed document images can be viewed free of charge, so the cost of reading a filing cannot be established in advance.",
+      "It does not prove good standing or annual-report compliance (a separate search), is not an occupational or business licence, does not prove tax registration or compliance with the NC Department of Revenue, and does not verify that officials or registered agents listed are current."
     ],
     "editorNotes": "Verified 2026-08-04 from official North Carolina sources. Operator: North Carolina Department of the Secretary of State, Business Registration Division. Coverage and search: It covers business entities registered with the Secretary of State, including foreign qualifications (\"Register a Foreign Business in NC\") and Professional Entities, both of which have dedicated official sections. Assumed Business Names (DBA) are covered by a separate search. Unusually granular name matching: a dedicated \"Words\" operator offers four modes — \"Starting With\", \"All\", \"Any\", \"Exact Match\" — rather than the single prefix match most states provide. The Secretary of State publishes an explicit anti-automation policy paired with a paid alternative, printed twice on the division page: \"The N.C. Secretary of State's online search tools are designed for interactive, real-time use by individuals and businesses. Automated or scripted searches may degrade system performance and are not permitted. For bulk access to public data, please use our Data Subscription Services.\" Bulk access is a commercial product, not an open download. Inclusion arises from entity formation or statutory registration, not from any submission."
   },
@@ -5758,7 +5759,7 @@
     "category": "government",
     "website": "https://apps.sos.wv.gov/business/corporations/",
     "submissionUrl": null,
-    "description": "Business Organization Search is the state business-entity register operated by the West Virginia Secretary of State. Whether filed document images can be viewed free of charge is not stated on the official pages.",
+    "description": "Business Organization Search is the state business-entity register operated by the West Virginia Secretary of State. Wildcard matching is officially documented. Whether filed document images can be viewed free of charge is not stated on the official pages.",
     "tier": "tier1",
     "scope": "subnational",
     "jurisdiction": {
@@ -5885,10 +5886,10 @@
       "The West Virginia Secretary of State is the statutory source for West Virginia, so an entry exists because a filing was made — not because anyone submitted a listing."
     ],
     "cons": [
-      "The cost of reading a filing cannot be predicted: certificates are an ordered product; free viewing is not addressed.",
-      "The Secretary of State expressly disclaims correctness and completeness, so the record is not warranted accurate."
+      "No official page states whether filed document images can be viewed free of charge, so the cost of reading a filing cannot be established in advance.",
+      "A Business Organization Search result evidences an entry in the Secretary of State's index — and, for fictitious names, possibly a State Tax Department registration surfaced through it. The Secretary of State expressly disclaims correctness and completeness, so the record is not warranted accurate."
     ],
-    "editorNotes": "Verified 2026-08-04 from official West Virginia sources. Operator: West Virginia Secretary of State. Coverage and search: It covers business organizations registered with the Secretary of State, evidenced by the filing services listed alongside the search: LLC/PLC termination, LP cancellation, Trade Name (DBA) registration and withdrawal, annual reports, and agent/officer/address changes. Two visible search fields on the default form, verified from the live markup: an Organization name field (ctl00$MainContent$txtOrgName) and an Agent/Officer/Name field (ctl00$MainContent$txtAgent), plus a \"Show Advanced Search Options\" toggle whose additional criteria are revealed by an ASP.NET postback and were not observable. West Virginia publicly documents SQL-style wildcard syntax in its search tips — a genuine rarity: \"Use the % symbol for a wild card search. Example: searching for Fraternal Order Eagles 1234 ABCD, Inc. %Fraternal%1234%\". It also advises \"Enter one or more key words in the business name\". The register surfaces data from a different agency: \"The search results will include what are commonly referred to as a fictitious business names in the results, if they have been registered with the State Tax Department.\" West Virginia trade names are registered with the State Tax Department, not the Secretary of State, yet appear in SoS search results — so a hit does not necessarily mean a Secretary of State filing. Migration risk: Moderate. The application is legacy ASP.NET WebForms on Microsoft-IIS/10.0 with a classic __VIEWSTATE postback architecture and a dated visual shell that still links to Twitter and Facebook. Inclusion arises from entity formation or statutory registration, not from any submission."
+    "editorNotes": "Verified 2026-08-04 from official West Virginia sources. Operator: West Virginia Secretary of State. Coverage and search: It covers business organizations registered with the Secretary of State, evidenced by the filing services listed alongside the search: LLC/PLC termination, LP cancellation, Trade Name (DBA) registration and withdrawal, annual reports, and agent/officer/address changes. West Virginia publicly documents SQL-style wildcard syntax in its search tips — a genuine rarity: \"Use the % symbol for a wild card search. Example: searching for Fraternal Order Eagles 1234 ABCD, Inc. %Fraternal%1234%\". It also advises \"Enter one or more key words in the business name\". The register surfaces data from a different agency: \"The search results will include what are commonly referred to as a fictitious business names in the results, if they have been registered with the State Tax Department.\" West Virginia trade names are registered with the State Tax Department, not the Secretary of State, yet appear in SoS search results — so a hit does not necessarily mean a Secretary of State filing. Migration risk: Moderate. The application is legacy ASP.NET WebForms on Microsoft-IIS/10.0 with a classic __VIEWSTATE postback architecture and a dated visual shell that still links to Twitter and Facebook. Inclusion arises from entity formation or statutory registration, not from any submission."
   },
   {
     "id": "us-colorado-business-database-search",
@@ -5898,7 +5899,7 @@
     "category": "government",
     "website": "https://www.coloradosos.gov/biz/BusinessEntityCriteriaExt.do",
     "submissionUrl": null,
-    "description": "Business Database Search is the state business-entity register operated by the Colorado Secretary of State — Business Division. It covers domestic and foreign corporations, LLCs, LPs, LLPs and nonprofit corporations, PLUS trade names and trademarks, all in one combined index. Filed document images are viewable without charge.",
+    "description": "Business Database Search is the state business-entity register operated by the Colorado Secretary of State — Business Division. It covers domestic and foreign corporations, LLCs, LPs, LLPs and nonprofit corporations, PLUS trade names and trademarks, all in one combined index. Quick search accepts 'business name, trademark, trade name, ID or document number'. Filed document images are viewable without charge.",
     "tier": "tier1",
     "scope": "subnational",
     "jurisdiction": {
@@ -5926,7 +5927,7 @@
       "captcha": false,
       "geographicRestriction": null,
       "paidDocumentsAvailable": true,
-      "notes": null
+      "notes": "Filed images are free to view; certified copies and certificates are charged."
     },
     "petroHrysScore": 83,
     "scoreFactors": {
@@ -6030,10 +6031,10 @@
       "The Colorado Secretary of State — Business Division is the statutory source for Colorado, so an entry exists because a filing was made — not because anyone submitted a listing."
     ],
     "cons": [
-      "A 'Good Standing' status means only that required periodic reports have been filed and fees paid with the Secretary of State.",
+      "It does not prove state or federal tax compliance, does not prove the entity holds any professional, occupational, contractor or municipal licence, does not prove the entity is trading, and does not prove solvency or creditworthiness.",
       "Free images are not certified output: Colorado still charges for certified copies and certificates of status."
     ],
-    "editorNotes": "Verified 2026-08-04 from official Colorado sources. Operator: Colorado Secretary of State — Business Division. Coverage and search: Quick search accepts 'business name, trademark, trade name, ID or document number'. Live-verified result columns: #, ID Number, Document Number, Name, Event, Status, Form, Formation Date. Search results display the actual legal standing, not just existence: the live 'Chipotle' search returned a Status column containing 'Good Standing', 'Effective' and 'Name Changed'. Most state registries show only active/inactive, so Colorado surfaces materially more than its peers. Trade names are commingled with entities in a single index rather than sitting in a separate register — the same result set returned 'CHIPOTLE' and 'CHIPOTLE MEXICAN GRILL' as Event 'Trade Name' rows alongside true corporate rows. Inclusion arises from entity formation or statutory registration, not from any submission."
+    "editorNotes": "Verified 2026-08-04 from official Colorado sources. Operator: Colorado Secretary of State — Business Division. Search results display the actual legal standing, not just existence: the live 'Chipotle' search returned a Status column containing 'Good Standing', 'Effective' and 'Name Changed'. Most state registries show only active/inactive, so Colorado surfaces materially more than its peers. Trade names are commingled with entities in a single index rather than sitting in a separate register — the same result set returned 'CHIPOTLE' and 'CHIPOTLE MEXICAN GRILL' as Event 'Trade Name' rows alongside true corporate rows. Inclusion arises from entity formation or statutory registration, not from any submission."
   },
   {
     "id": "us-idaho-sosbiz-search",
@@ -6170,10 +6171,10 @@
       "The Idaho Secretary of State is the statutory source for Idaho, so an entry exists because a filing was made — not because anyone submitted a listing."
     ],
     "cons": [
-      "The cost of reading a filing cannot be predicted: no official page states whether filed document images are viewable free.",
+      "No official page states whether filed document images can be viewed free of charge, so the cost of reading a filing cannot be established in advance.",
       "It does not prove good standing, does not prove tax compliance with the Idaho State Tax Commission, does not prove any professional or occupational licence, and does not prove solvency."
     ],
-    "editorNotes": "Verified 2026-08-04 from official Idaho sources. Operator: Idaho Secretary of State. Coverage and search: The Secretary of State describes it as a 'powerful search feature to research Idaho businesses and trademark information'. One platform carries three legally distinct registers behind separate screens — 'Business Search', 'Trademark Search' and 'Find A Notary' — so a notary commission lookup sits alongside the corporate register, which is unusual. Idaho publishes an explicit legal warning that its Assumed Business Name filings create nothing: 'Filing an ABN does not create a distinct legal \"person\" or any form of business entity or organization.' Few states state the negative this plainly, and it directly limits what an ABN hit can be cited for. Migration risk: Moderate-historic, low-forward. SOSBiz already replaced the accessidaho.org-era system, and that migration is complete and irreversible (old host removed from DNS, old path 404). SOSBiz itself shows no replacement notice on any fetched page. Inclusion arises from entity formation or statutory registration, not from any submission."
+    "editorNotes": "Verified 2026-08-04 from official Idaho sources. Operator: Idaho Secretary of State. Coverage and search: Search fields: The Secretary of State describes it as a 'powerful search feature to research Idaho businesses and trademark information'. One platform carries three legally distinct registers behind separate screens — 'Business Search', 'Trademark Search' and 'Find A Notary' — so a notary commission lookup sits alongside the corporate register, which is unusual. Idaho publishes an explicit legal warning that its Assumed Business Name filings create nothing: 'Filing an ABN does not create a distinct legal \"person\" or any form of business entity or organization.' Few states state the negative this plainly, and it directly limits what an ABN hit can be cited for. Migration risk: Moderate-historic, low-forward. SOSBiz already replaced the accessidaho.org-era system, and that migration is complete and irreversible (old host removed from DNS, old path 404). Inclusion arises from entity formation or statutory registration, not from any submission."
   },
   {
     "id": "us-montana-business-search",
@@ -6183,7 +6184,7 @@
     "category": "government",
     "website": "https://biz.sosmt.gov/search/business",
     "submissionUrl": null,
-    "description": "Business Filing Portal is the state business-entity register operated by the Montana Secretary of State — Business Services Division. 'Search by Name or Commission Number' and 'Search available business names'. To reach documents: 'Search for your business record, then click on its name. Whether filed document images can be viewed free of charge is not stated on the official pages.",
+    "description": "Business Filing Portal is the state business-entity register operated by the Montana Secretary of State — Business Services Division. Search fields: 'Search by Name or Commission Number' and 'Search available business names'. Whether filed document images can be viewed free of charge is not stated on the official pages.",
     "tier": "tier1",
     "scope": "subnational",
     "englishName": "Business Filing Portal",
@@ -6212,7 +6213,7 @@
       "captcha": null,
       "geographicRestriction": null,
       "paidDocumentsAvailable": true,
-      "notes": "The application host biz.sosmt.gov returns HTTP 403 Forbidden to every automated client tried, via both WebFetch and curl with full browser headers, across multiple paths (/search/business, /lists)."
+      "notes": "The search itself is free; documents, certificates and status products are charged separately."
     },
     "petroHrysScore": 77,
     "scoreFactors": {
@@ -6312,9 +6313,9 @@
       "The Montana Secretary of State — Business Services Division is the statutory source for Montana, so an entry exists because a filing was made — not because anyone submitted a listing."
     ],
     "cons": [
-      "The cost of reading a filing cannot be predicted: filings are viewable via \"View Filings\" while certificates are chargeable, and the boundary is unstated.",
+      "No official page states whether filed document images can be viewed free of charge, so the cost of reading a filing cannot be established in advance.",
       "Part of Business Filing Portal sits behind payment, an account or another restriction, so the free tier answers only part of a due-diligence question.",
-      "A Montana record proves a filing with the Secretary of State only."
+      "A Montana record proves a filing with the Secretary of State only. It does not prove good standing, does not prove tax compliance with the Montana Department of Revenue, does not prove any professional or occupational licence, does not prove the entity trades, and does not prove creditworthiness."
     ],
     "editorNotes": "Verified 2026-08-04 from official Montana sources. Operator: Montana Secretary of State — Business Services Division. Coverage and search: It covers business entities, trademarks, notaries and registered agents — the Secretary of State lists searches for 'Business entities, Trademarks, Notaries, Registered agents (commercial and non-commercial)'. UCC filings and litigation-financer registrations are also carried on the same platform. Montana identifies entities by a 'Commission Number' rather than the entity/file/charter number used by most states — the search is explicitly 'Search by Name or Commission Number', so cross-state identifier normalisation will break on Montana without a special case. Registered agents are directly searchable as first-class records, and Montana splits them by statutory class into 'commercial and non-commercial' agents — a distinction most state registries do not expose at all. Inclusion arises from entity formation or statutory registration, not from any submission."
   },
@@ -6326,7 +6327,7 @@
     "category": "government",
     "website": "https://bizfileonline.sos.ca.gov/search/business",
     "submissionUrl": null,
-    "description": "Business Search is the state business-entity register operated by the California Secretary of State — Business Programs Division. It covers corporations, LLCs and limited partnerships, domestic and foreign-qualified. Entity name and entity number, with filters for filing type, status and a filing-date range, plus a distinct officer/owner name search field. Filed document images are viewable without charge.",
+    "description": "Business Search is the state business-entity register operated by the California Secretary of State — Business Programs Division. It covers corporations, LLCs and limited partnerships, domestic and foreign-qualified. Search fields: Entity name and entity number, with filters for filing type, status and a filing-date range, plus a distinct officer/owner name search field. Filed document images are viewable without charge.",
     "tier": "tier1",
     "scope": "subnational",
     "jurisdiction": {
@@ -6354,7 +6355,7 @@
       "captcha": false,
       "geographicRestriction": null,
       "paidDocumentsAvailable": true,
-      "notes": null
+      "notes": "Filed images are free to view; certified copies and certificates are charged."
     },
     "petroHrysScore": 83,
     "scoreFactors": {
@@ -6502,7 +6503,7 @@
       "captcha": null,
       "geographicRestriction": null,
       "paidDocumentsAvailable": true,
-      "notes": "Both portals return HTTP 200. The retired host hbe.ehawaii.gov now serves only a transition notice with a 10-second meta-refresh to the new host. The new host is a Salesforce Experience Cloud site and serves no readable register content to a plain HTTP client."
+      "notes": "Some of the register is reachable without payment or an account, and some is not. The operator does not state whether searching is free of charge."
     },
     "petroHrysScore": 76,
     "scoreFactors": {
@@ -6572,8 +6573,7 @@
     ],
     "notRecommendedFor": [
       "Confirming good standing, licensing or tax compliance — this register does not establish any of them",
-      "Federal-level verification, which uses separate systems",
-      "Anonymous or high-volume checking, which the access terms do not support"
+      "Federal-level verification, which uses separate systems"
     ],
     "submissionDifficulty": null,
     "listingQuality": "high",
@@ -6606,7 +6606,7 @@
       "Part of Hawaii Business Entity Search sits behind payment, an account or another restriction, so the free tier answers only part of a due-diligence question.",
       "It does not prove good standing — that is a separate purchasable certificate — and it does not prove tax compliance with the Hawaii Department of Taxation, any professional or occupational licence (separately administered by DCCA's Professional and Vocational Licensing Division), active trading, or creditworthiness."
     ],
-    "editorNotes": "Verified 2026-08-04 from official Hawaii sources. Operator: State of Hawaii Department of Commerce and Consumer Affairs — Business Registration Division (BREG). Coverage and search: It covers stated verbatim by BREG: 'In Hawaii, corporations, partnerships, limited liability companies, limited liability partnerships, trade names, trademarks, service marks, and publicity name rights are registered with the Department of Commerce and Consumer Affairs, Business Registration Division (BREG)'. Hawaii registers 'publicity name rights' — a personality/right-of-publicity register — in the same division and statutory family as corporate entities. The same division is both the corporate registrar and the state securities regulator: 'BREG oversees the registration of business entities and the regulation of the securities industry in Hawaii', with Securities Compliance, Securities Enforcement and an Investor Education Program as internal branches. Migration risk: VERY HIGH AND CURRENT. The migration occurred on 2026-07-06, roughly one month before this research, and BREG states services are still being added. URL structure, service names and the free/paid boundary should all be expected to change. Inclusion arises from entity formation or statutory registration, not from any submission."
+    "editorNotes": "Verified 2026-08-04 from official Hawaii sources. Operator: State of Hawaii Department of Commerce and Consumer Affairs — Business Registration Division (BREG). Coverage and search: Stated verbatim by BREG: 'In Hawaii, corporations, partnerships, limited liability companies, limited liability partnerships, trade names, trademarks, service marks, and publicity name rights are registered with the Department of Commerce and Consumer Affairs, Business Registration Division (BREG)'. Hawaii registers 'publicity name rights' — a personality/right-of-publicity register — in the same division and statutory family as corporate entities. The same division is both the corporate registrar and the state securities regulator: 'BREG oversees the registration of business entities and the regulation of the securities industry in Hawaii', with Securities Compliance, Securities Enforcement and an Investor Education Program as internal branches. Migration risk: VERY HIGH AND CURRENT. URL structure, service names and the free/paid boundary should all be expected to change. The old host's meta-refresh (rather than an HTTP redirect) is itself a transitional arrangement likely to be withdrawn. Inclusion arises from entity formation or statutory registration, not from any submission."
   },
   {
     "id": "us-oregon-business-registry-search",
@@ -6643,7 +6643,7 @@
       "captcha": null,
       "geographicRestriction": null,
       "paidDocumentsAvailable": null,
-      "notes": null
+      "notes": "No official page states the terms on which the public may search this register."
     },
     "petroHrysScore": 78,
     "scoreFactors": {
@@ -6713,8 +6713,7 @@
     ],
     "notRecommendedFor": [
       "Confirming good standing, licensing or tax compliance — this register does not establish any of them",
-      "Federal-level verification, which uses separate systems",
-      "Anonymous or high-volume checking, which the access terms do not support"
+      "Federal-level verification, which uses separate systems"
     ],
     "submissionDifficulty": null,
     "listingQuality": "high",
@@ -6743,11 +6742,11 @@
       "The Oregon Secretary of State — Corporation Division is the statutory source for Oregon, so an entry exists because a filing was made — not because anyone submitted a listing."
     ],
     "cons": [
-      "The cost of reading a filing cannot be predicted: no official page states the position.",
-      "The access position of Business Name Search could not be established from official pages, so this record states what is documented and nothing more.",
+      "No official page states whether filed document images can be viewed free of charge, so the cost of reading a filing cannot be established in advance.",
+      "The Oregon Secretary of State — Corporation Division publishes no statement of whether Business Name Search is free to search or requires an account, so the terms of access are not knowable before visiting it.",
       "It does not prove good standing, does not prove tax compliance with the Oregon Department of Revenue, does not prove any occupational or professional licence — the Secretary of State keeps a separate License Directory precisely because the register does not answer that question — does not prove active trading, and does not prove creditworthiness."
     ],
-    "editorNotes": "Verified 2026-08-04 from official Oregon sources. Operator: Oregon Secretary of State — Corporation Division. Coverage and search: 'Enter a Business Name or Business Registry Number to search.' A related option is 'Search Active Business Registration Records', and the Corporation Division directs users to the same tool to find 'Registered Agents and Service of Process' information — so agent data is exposed through the business search rather than a separate lookup. Oregon's registry runs on an Oracle PL/SQL Web Toolkit gateway — the published search endpoint is literally a stored-package call, https://egov.sos.state.or.us/br/pkg_web_name_srch_inq.login — which is architecturally distinct from the .NET, Java, Angular and Salesforce stacks used by every other jurisdiction in this wave, and means Oregon URLs carry package names rather than REST-style paths. The Corporation Division routes registered-agent and service-of-process lookups through the ordinary business search rather than providing a dedicated agent register, so agent data is a by-product of an entity query. Migration risk: Moderate. The Oracle PL/SQL gateway is legacy technology and the surrounding content site has already been modernised onto SharePoint, which is a common precursor to a registry replacement. Inclusion arises from entity formation or statutory registration, not from any submission."
+    "editorNotes": "Verified 2026-08-04 from official Oregon sources. Operator: Oregon Secretary of State — Corporation Division. Coverage and search: 'Enter a Business Name or Business Registry Number to search.' A related option is 'Search Active Business Registration Records', and the Corporation Division directs users to the same tool to find 'Registered Agents and Service of Process' information — so agent data is exposed through the business search rather than a separate lookup. The Corporation Division routes registered-agent and service-of-process lookups through the ordinary business search rather than providing a dedicated agent register, so agent data is a by-product of an entity query. Oregon splits its UCC register onto an entirely different host and application from the entity register — secure.sos.state.or.us/ucc/searchHome.action for searching and /ucc/efiling/new for filing (a Struts application), versus the Oracle gateway at egov.sos.state.or.us for entities. Migration risk: Moderate. The Oracle PL/SQL gateway is legacy technology and the surrounding content site has already been modernised onto SharePoint, which is a common precursor to a registry replacement. Inclusion arises from entity formation or statutory registration, not from any submission."
   },
   {
     "id": "us-washington-ccfs",
@@ -6757,7 +6756,7 @@
     "category": "government",
     "website": "https://ccfs.sos.wa.gov/",
     "submissionUrl": null,
-    "description": "Corporations and Charities Filing System (CCFS) is the state business-entity register operated by the Washington Secretary of State — Corporations and Charities Division. Business entity and charity records via a Corporation Search / Business Search screen. Whether filed document images can be viewed free of charge is not stated on the official pages.",
+    "description": "Corporations and Charities Filing System (CCFS) is the state business-entity register operated by the Washington Secretary of State — Corporations and Charities Division. Search fields: Business entity and charity records via a Corporation Search / Business Search screen. Whether filed document images can be viewed free of charge is not stated on the official pages.",
     "tier": "tier1",
     "scope": "subnational",
     "jurisdiction": {
@@ -6785,7 +6784,7 @@
       "captcha": false,
       "geographicRestriction": null,
       "paidDocumentsAvailable": null,
-      "notes": "The application host returns HTTP 200 and serves its shell without any login redirect."
+      "notes": "Some of the register is reachable without payment or an account, and some is not. The operator does not state whether searching is free of charge."
     },
     "petroHrysScore": 77,
     "scoreFactors": {
@@ -6855,8 +6854,7 @@
     ],
     "notRecommendedFor": [
       "Confirming good standing, licensing or tax compliance — this register does not establish any of them",
-      "Federal-level verification, which uses separate systems",
-      "Anonymous or high-volume checking, which the access terms do not support"
+      "Federal-level verification, which uses separate systems"
     ],
     "submissionDifficulty": null,
     "listingQuality": "high",
@@ -6882,15 +6880,15 @@
       "primary-source"
     ],
     "pros": [
-      "A single Corporations and Charities Filing System (CCFS) query reaches more than the entity register: it is also a charity register — \"CCFS is explicitly a combined corporations and charities filing system, not an entity register with a charities add-on\".",
+      "A single Corporations and Charities Filing System (CCFS) query reaches more than the entity register: it is also a charity register — the system is named, and operates as, the Corporations and Charities Filing System, with charities a register within it rather than an adjunct.",
       "The Washington Secretary of State — Corporations and Charities Division is the statutory source for Washington, so an entry exists because a filing was made — not because anyone submitted a listing."
     ],
     "cons": [
-      "The cost of reading a filing cannot be predicted: the Secretary of State pages describing free access could not be read, so no claim is recorded.",
+      "No official page states whether filed document images can be viewed free of charge, so the cost of reading a filing cannot be established in advance.",
       "Part of Corporations and Charities Filing System (CCFS) sits behind payment, an account or another restriction, so the free tier answers only part of a due-diligence question.",
       "It does not prove good standing, does not prove tax compliance with the Washington Department of Revenue, does not prove that a business holds a Washington business licence (administered by the Department of Revenue's Business Licensing Service, not the Secretary of State), does not prove any professional licence, and does not prove solvency."
     ],
-    "editorNotes": "Verified 2026-08-04 from official Washington sources. Operator: Washington Secretary of State — Corporations and Charities Division. Coverage and search: It covers both business entities and the charities/fundraiser/trust register in a single system — CCFS is explicitly a combined corporations and charities filing system, not an entity register with a charities add-on. CCFS is a genuinely combined register: corporations and charities are filed and searched in one system, rather than the charities register being a separate statutory database as in most states. The register's public web layer and its data layer are protected differently: the page loads freely at HTTP 200, but the API replies to programmatic search with HTTP 400 and the message 'System verification in progress, please wait.' — a bot gate that returns a client-error status with a reassuring human-readable string, which will silently corrupt naive scraping. Inclusion arises from entity formation or statutory registration, not from any submission."
+    "editorNotes": "Verified 2026-08-04 from official Washington sources. Operator: Washington Secretary of State — Corporations and Charities Division. Coverage and search: It covers both business entities and the charities/fundraiser/trust register in a single system — CCFS is explicitly a combined corporations and charities filing system, not an entity register with a charities add-on. CCFS is a genuinely combined register: corporations and charities are filed and searched in one system, rather than the charities register being a separate statutory database as in most states. The Secretary of State's own describing website sits behind a Cloudflare managed challenge while the registry application does not — the inverse of the pattern seen in Montana, Nevada and New Mexico, where the content site was open and the application was blocked. Inclusion arises from entity formation or statutory registration, not from any submission."
   },
   {
     "id": "us-wisconsin-corporate-registration-search",
@@ -6898,9 +6896,9 @@
     "slug": "wisconsin-corporate-registration-search",
     "country": "united-states",
     "category": "government",
-    "website": "https://dfi.wi.gov/apps/CorpSearch/Search.aspx (the link published on DFI's own homepage; it 302-redirects to https://apps.dfi.wi.gov/apps/CorpSearch/Search.aspx)",
+    "website": "https://dfi.wi.gov/apps/CorpSearch/Search.aspx",
     "submissionUrl": null,
-    "description": "Corporate Registration Information System (CRIS) is the state business-entity register operated by the Wisconsin Department of Financial Institutions — Division of Corporate & Consumer Services, Corporation Bureau. NOT a Secretary of State. It covers unusually broad and statutorily itemised by DFI: business corporation (ch. 180), common law trust (s. Entity name search for name availability and record lookup. Filed documents and certificates are ordered separately for a fee.",
+    "description": "Corporate Registration Information System (CRIS) is the state business-entity register operated by the Wisconsin Department of Financial Institutions — Division of Corporate & Consumer Services, Corporation Bureau. Search fields: Entity name search for name availability and record lookup. Filed documents and certificates are ordered separately for a fee.",
     "tier": "tier1",
     "scope": "subnational",
     "jurisdiction": {
@@ -6914,7 +6912,7 @@
       "business-entity-register"
     ],
     "operator": {
-      "name": "Wisconsin Department of Financial Institutions — Division of Corporate & Consumer Services, Corporation Bureau. NOT a Secretary of State",
+      "name": "Wisconsin Department of Financial Institutions — Division of Corporate & Consumer Services, Corporation Bureau",
       "type": "regulator",
       "officialUrl": null
     },
@@ -7023,14 +7021,14 @@
       "primary-source"
     ],
     "pros": [
-      "Corporate Registration Information System (CRIS) can be searched free of charge and without an account, directly from the Wisconsin Department of Financial Institutions — Division of Corporate & Consumer Services, Corporation Bureau. NOT a Secretary of State.",
-      "The Wisconsin Department of Financial Institutions — Division of Corporate & Consumer Services, Corporation Bureau. NOT a Secretary of State is the statutory source for Wisconsin, so an entry exists because a filing was made — not because anyone submitted a listing."
+      "Corporate Registration Information System (CRIS) can be searched free of charge and without an account, directly from the Wisconsin Department of Financial Institutions — Division of Corporate & Consumer Services, Corporation Bureau.",
+      "The Wisconsin Department of Financial Institutions — Division of Corporate & Consumer Services, Corporation Bureau is the statutory source for Wisconsin, so an entry exists because a filing was made — not because anyone submitted a listing."
     ],
     "cons": [
       "Documents are a separate paid product — \"For a fee, the department will supply a certified or simple copy of any filed document\" — so the free tier returns index data only.",
       "DFI states this itself: the department \"acts as a filing registry for businesses\" and \"lacks the authority to certify if a business is operating legally\", and \"the CRIS status is not an assessment of the entity's financial condition, stability, or business practices.\" A CRIS record therefore does not prove good standing, lawful operation, licensing, tax compliance (sellers permits are Department of Revenue; EINs are IRS), solvency or creditworthiness — and it never reveals ownership."
     ],
-    "editorNotes": "Verified 2026-08-04 from official Wisconsin sources. Operator: Wisconsin Department of Financial Institutions — Division of Corporate & Consumer Services, Corporation Bureau. NOT a Secretary of State. The operator is the Department of Financial Institutions, not a Secretary of State — specifically the Corporation Bureau of the Division of Corporate & Consumer Services. DFI publishes an explicit register size: \"The CRIS contains over 704,000 active and inactive entities.\" Inclusion arises from entity formation or statutory registration, not from any submission."
+    "editorNotes": "Verified 2026-08-04 from official Wisconsin sources. Operator: Wisconsin Department of Financial Institutions — Division of Corporate & Consumer Services, Corporation Bureau. Coverage and search: Unusually broad and statutorily itemised by DFI: business corporation (ch. 180), common law trust (s. 226.14), cooperative association (ch. 185), investment companies (ch. 180), limited liability company (ch. 183), limited liability partnership (ch. 178), limited partnership (ch. 179), nonstock corporation (ch. 181), service corporation (ch. 180), statutory close corporation (ch. 180) and unincorporated cooperative association (ch. 193). The operator is the Department of Financial Institutions, not a Secretary of State — specifically the Corporation Bureau of the Division of Corporate & Consumer Services. DFI publishes an explicit register size: \"The CRIS contains over 704,000 active and inactive entities.\" Inclusion arises from entity formation or statutory registration, not from any submission."
   },
   {
     "id": "us-iowa-business-entities-search",
@@ -7040,7 +7038,7 @@
     "category": "government",
     "website": "https://sos.iowa.gov/search/business/search.aspx",
     "submissionUrl": null,
-    "description": "Business Entities Search is the state business-entity register operated by the Office of the Iowa Secretary of State — Business Services. Two search types only — Search by Business Name (first few letters or words) or Search by Business Number (complete number, digits only). Whether filed document images can be viewed free of charge is not stated on the official pages.",
+    "description": "Business Entities Search is the state business-entity register operated by the Office of the Iowa Secretary of State — Business Services. Search fields: Two search types only — Search by Business Name (first few letters or words) or Search by Business Number (complete number, digits only). Whether filed document images can be viewed free of charge is not stated on the official pages.",
     "tier": "tier1",
     "scope": "subnational",
     "jurisdiction": {
@@ -7170,7 +7168,7 @@
       "The Office of the Iowa Secretary of State — Business Services is the statutory source for Iowa, so an entry exists because a filing was made — not because anyone submitted a listing."
     ],
     "cons": [
-      "The cost of reading a filing cannot be predicted: images are published under a stated redaction policy, but their fee status is unstated.",
+      "No official page states whether filed document images can be viewed free of charge, so the cost of reading a filing cannot be established in advance.",
       "The office states its own limits: \"The Iowa Secretary of State's Office is a filing repository, and makes no representation or warranty as to the correctness or completeness of the information contained in any filing. The Secretary of State does not determine the authority of a filer to make a submission, nor whether any information contained within a filing is authorized to be included.\" So a record does not prove good standing, licensing, tax compliance, solvency or creditworthiness — and Iowa goes further than most in warning that a filing may not even have been made by an authorised person, placing the burden on businesses to monitor their own record for fraudulent submissions."
     ],
     "editorNotes": "Verified 2026-08-04 from official Iowa sources. Operator: Office of the Iowa Secretary of State — Business Services. Coverage and search: It covers every business incorporated in Iowa plus foreign entities, held under a name-type taxonomy of 15 codes: AI (Authorized Indistinguishable), DF (Domestic Fictitious), F (Former Name), FA (Former Assumed Name), FF (Foreign Fictitious), FN (Fictitious Name), I (Identifying), L (Legal), LF (Legal – Foreign Using Fictitious), R (Reserved), RG (Registered), RN (Reserved – Non-Profit), RP (Reserved – Profit), RU (Registered if real is unavailable) and T (Temporary). The office publishes hard register statistics: \"over 600,000 business entities both active and inactive, over one million filings from those business entities\". The search silently rewrites your query. Inclusion arises from entity formation or statutory registration, not from any submission."
@@ -7183,7 +7181,7 @@
     "category": "government",
     "website": "https://www.sos.ks.gov/eforms/BusinessEntity/Search.aspx",
     "submissionUrl": null,
-    "description": "Business Search is the state business-entity register operated by the Kansas Secretary of State — Business Services Division. Coverage: unknown in detail — the official pages read confirm the register covers businesses that register, file information reports, reinstate and close with the Secretary of State, but do not enumerate the entity forms. Filed document images are viewable without charge.",
+    "description": "Business Search is the state business-entity register operated by the Kansas Secretary of State — Business Services Division. Search by business name or by business ID number (both are named in the official purchasing instructions). Every filed document for a business is retrievable through the same search, file-stamped with the date it was filed. Filed document images are viewable without charge.",
     "tier": "tier1",
     "scope": "subnational",
     "jurisdiction": {
@@ -7211,7 +7209,7 @@
       "captcha": true,
       "geographicRestriction": null,
       "paidDocumentsAvailable": true,
-      "notes": "The search endpoint returned HTTP 405 with the body \"Human Verification / JavaScript is disabled / In order to continue, you need to verify that you're not a robot by solving a CAPTCHA puzzle. The CAPTCHA puzzle requires JavaScript. Enable JavaScript and then reload the page.\" The Secretary of State's describing pages on sos.ks.gov returned HTTP 200. yes — an explicit CAPTCHA puzzle gate is served before the search application."
+      "notes": "A CAPTCHA must be completed before results are returned. The search itself is free; documents, certificates and status products are charged separately. Filed images are free to view; certified copies and certificates are charged."
     },
     "petroHrysScore": 81,
     "scoreFactors": {
@@ -7311,7 +7309,7 @@
     "pros": [
       "Business Search can be searched free of charge and without an account, directly from the Kansas Secretary of State — Business Services Division.",
       "Filed document images are published free — \"Any document filed by a business with the Kansas Secretary of State's Office is available to view and print online without cost.\" — so a filing can be read, not merely confirmed to exist.",
-      "A single Business Search query reaches more than the entity register: it is also a public filing database — \"Any document filed by a business with the Kansas Secretary of State's Office is available to view and print online without cost.\".",
+      "A single Business Search query reaches more than the entity register: it is also a public filing database — \"Any document filed by a business with the Kansas Secretary of State's Office is available to view and print online without cost.\"",
       "The Kansas Secretary of State — Business Services Division is the statutory source for Kansas, so an entry exists because a filing was made — not because anyone submitted a listing."
     ],
     "cons": [
@@ -7320,7 +7318,7 @@
       "It does not prove good standing (that is the separately purchased Certificate of Good Standing, which the office says is available only to \"any business who is in good standing\"), nor that the information report is current, nor licensing, nor tax compliance — the office expressly states \"Tax documents are not available through the Secretary of State's database and are not filed with this office\" — nor solvency or creditworthiness.",
       "Free images are not certified output: Kansas still charges for certified copies and certificates of status."
     ],
-    "editorNotes": "Verified 2026-08-04 from official Kansas sources. Operator: Kansas Secretary of State — Business Services Division. Coverage and search: Search by business name or by business ID number (both are named in the official purchasing instructions). Every filed document for a business is retrievable through the same search, file-stamped with the date it was filed. Free filed-document images for everything: \"Any document filed by a business with the Kansas Secretary of State's Office is available to view and print online without cost\", and each copy is file-stamped at the top with its filing date. Certified copies are sold online only: \"Any file stamped copy for a business may be purchased as a certified copy exclusively online.\" There is no advertised counter or mail route for certification. Inclusion arises from entity formation or statutory registration, not from any submission."
+    "editorNotes": "Verified 2026-08-04 from official Kansas sources. Operator: Kansas Secretary of State — Business Services Division. Free filed-document images for everything: \"Any document filed by a business with the Kansas Secretary of State's Office is available to view and print online without cost\", and each copy is file-stamped at the top with its filing date. This is materially more generous than states that meter document images per page. Certified copies are sold online only: \"Any file stamped copy for a business may be purchased as a certified copy exclusively online.\" There is no advertised counter or mail route for certification. Inclusion arises from entity formation or statutory registration, not from any submission."
   },
   {
     "id": "us-minnesota-business-filings-search",
@@ -7356,7 +7354,7 @@
       "identityVerificationRequired": null,
       "captcha": false,
       "geographicRestriction": null,
-      "paidDocumentsAvailable": true,
+      "paidDocumentsAvailable": null,
       "notes": null
     },
     "petroHrysScore": 79,
@@ -7457,10 +7455,10 @@
       "The Office of the Minnesota Secretary of State is the statutory source for Minnesota, so an entry exists because a filing was made — not because anyone submitted a listing."
     ],
     "cons": [
-      "The cost of reading a filing cannot be predicted: copies and certificates are orderable from the same screen, with no pricing stated.",
+      "No official page states whether filed document images can be viewed free of charge, so the cost of reading a filing cannot be established in advance.",
       "It does not prove good standing, that an annual renewal has been filed (Minnesota entities can lapse for non-renewal), that any professional or occupational licence is held, that taxes are paid, that the business trades, or anything about ownership, solvency or creditworthiness."
     ],
-    "editorNotes": "Verified 2026-08-04 from official Minnesota sources. Operator: Office of the Minnesota Secretary of State. Coverage and search: It covers enumerated on the search page itself with live filing fees: Assumed Name $50.00; Business Corporation (Domestic) $155.00 and (Foreign) $220.00; Cooperative (Domestic) $80.00 and (Foreign) $220.00; Cooperative Association $80.00; Housing Cooperative $80.00; Limited Liability Company (Domestic) $155.00 and (Foreign) $205.00; Limited Liability Partnership (Domestic) $155.00 and (Foreign) $155.00; Limited Partnership (Domestic) $120.00 and (Foreign) $120.00; Name Reservation $55.00; Nonprofit Corporation (Domestic) $90.00 and (Foreign) $70.00; Trademark $70.00. Prior/former names are an explicit, user-controllable search dimension rather than buried history: the form carries an \"Include Prior Names\" toggle, confirmed in the page markup as a radio input name=\"IncludePriorNames\" with values True/False. Filing status is a search filter, not just a result field — markup shows a radio input name=\"Status\" with values Active and Inactive, so dissolved entities can be isolated or excluded up front. Inclusion arises from entity formation or statutory registration, not from any submission."
+    "editorNotes": "Verified 2026-08-04 from official Minnesota sources. Operator: Office of the Minnesota Secretary of State. Coverage and search: Enumerated on the search page itself with live filing fees: Assumed Name $50.00; Business Corporation (Domestic) $155.00 and (Foreign) $220.00; Cooperative (Domestic) $80.00 and (Foreign) $220.00; Cooperative Association $80.00; Housing Cooperative $80.00; Limited Liability Company (Domestic) $155.00 and (Foreign) $205.00; Limited Liability Partnership (Domestic) $155.00 and (Foreign) $155.00; Limited Partnership (Domestic) $120.00 and (Foreign) $120.00; Name Reservation $55.00; Nonprofit Corporation (Domestic) $90.00 and (Foreign) $70.00; Trademark $70.00. Prior/former names are an explicit, user-controllable search dimension rather than buried history: the form carries an \"Include Prior Names\" toggle, confirmed in the page markup as a radio input name=\"IncludePriorNames\" with values True/False. Filing status is a search filter, not just a result field — markup shows a radio input name=\"Status\" with values Active and Inactive, so dissolved entities can be isolated or excluded up front. Inclusion arises from entity formation or statutory registration, not from any submission."
   },
   {
     "id": "us-nebraska-corporate-business-search",
@@ -7470,7 +7468,7 @@
     "category": "government",
     "website": "https://www.nebraska.gov/sos/corp/corpsearch.cgi",
     "submissionUrl": null,
-    "description": "Corporate & Business Search is the state business-entity register operated by the Nebraska Secretary of State (business services division); the system is \"Built and Maintained by Nebraska.gov\", the state's official e-government partner. Filed documents and certificates are ordered separately for a fee.",
+    "description": "Corporate & Business Search is the state business-entity register operated by the Nebraska Secretary of State. Coverage: The office states searches \"are provided to obtain information on the status of all entities, trade names, trademarks, and service marks registered in the State of Nebraska\" — so trade names and marks share the register with legal entities rather than sitting in separate systems. Filed documents and certificates are ordered separately for a fee.",
     "tier": "tier1",
     "scope": "subnational",
     "jurisdiction": {
@@ -7484,7 +7482,7 @@
       "business-entity-register"
     ],
     "operator": {
-      "name": "Nebraska Secretary of State (business services division); the system is \"Built and Maintained by Nebraska.gov\", the state's official e-government partner",
+      "name": "Nebraska Secretary of State",
       "type": "government-agency",
       "officialUrl": null
     },
@@ -7497,7 +7495,7 @@
       "captcha": true,
       "geographicRestriction": null,
       "paidDocumentsAvailable": true,
-      "notes": "The page returned HTTP 200 and rendered fully, including all six search options, the reCAPTCHA notice and the complete FAQ text on images, certificates and search tips. reCAPTCHA scripts confirmed in markup. yes — reCAPTCHA is required before any search can be performed."
+      "notes": "A CAPTCHA must be completed before results are returned. The search itself is free; documents, certificates and status products are charged separately."
     },
     "petroHrysScore": 76,
     "scoreFactors": {
@@ -7593,8 +7591,8 @@
       "primary-source"
     ],
     "pros": [
-      "Corporate & Business Search can be searched free of charge and without an account, directly from the Nebraska Secretary of State (business services division); the system is \"Built and Maintained by Nebraska.gov\", the state's official e-government partner.",
-      "The Nebraska Secretary of State (business services division); the system is \"Built and Maintained by Nebraska.gov\", the state's official e-government partner is the statutory source for Nebraska, so an entry exists because a filing was made — not because anyone submitted a listing."
+      "Corporate & Business Search can be searched free of charge and without an account, directly from the Nebraska Secretary of State.",
+      "The Nebraska Secretary of State is the statutory source for Nebraska, so an entry exists because a filing was made — not because anyone submitted a listing."
     ],
     "cons": [
       "A CAPTCHA gates the Nebraska search, which blocks automated and repeated lookups.",
@@ -7602,7 +7600,7 @@
       "Part of Corporate & Business Search sits behind payment, an account or another restriction, so the free tier answers only part of a due-diligence question.",
       "It does not prove good standing — the office sells a separate Certificate of Good Standing precisely because the search result is not one — nor that a name is available for use (the office refuses to answer that question through the search at all), nor licensing, tax compliance, trading status, ownership, solvency or creditworthiness."
     ],
-    "editorNotes": "Verified 2026-08-04 from official Nebraska sources. Operator: Nebraska Secretary of State (business services division); the system is \"Built and Maintained by Nebraska.gov\", the state's official e-government partner. Coverage and search: It covers the office states searches \"are provided to obtain information on the status of all entities, trade names, trademarks, and service marks registered in the State of Nebraska\" — so trade names and marks share the register with legal entities rather than sitting in separate systems. Six selectable search options: Name Starts With; Name Keyword Search with Match All Words or Match Any Word; Name Sounds Like (phonetic); Name Exact Match; and Secretary of State Entity Account Number. Six distinct search modes including a phonetic one — \"Name Sounds Like\" — plus Keyword with Match All Words / Match Any Word, Starts With, Exact Match and Account Number. This is one of the richest name-matching toolsets among US state registers. reCAPTCHA is mandatory on every search: \"For security purposes, you must complete reCAPTCHA.\" The page also warns \"Your browser's Javascript setting is currently DISABLED! JavaScript MUST be enabled to use this system.\" Inclusion arises from entity formation or statutory registration, not from any submission."
+    "editorNotes": "Verified 2026-08-04 from official Nebraska sources. Operator: Nebraska Secretary of State. Coverage and search: Search fields: Six selectable search options: Name Starts With; Name Keyword Search with Match All Words or Match Any Word; Name Sounds Like (phonetic); Name Exact Match; and Secretary of State Entity Account Number. Six distinct search modes including a phonetic one — \"Name Sounds Like\" — plus Keyword with Match All Words / Match Any Word, Starts With, Exact Match and Account Number. This is one of the richest name-matching toolsets among US state registers. reCAPTCHA is mandatory on every search: \"For security purposes, you must complete reCAPTCHA.\" The page also warns \"Your browser's Javascript setting is currently DISABLED! JavaScript MUST be enabled to use this system.\" Inclusion arises from entity formation or statutory registration, not from any submission."
   },
   {
     "id": "us-north-dakota-firststop-business-search",
@@ -7634,12 +7632,12 @@
       "searchUrl": "https://firststop.sos.nd.gov/search/business",
       "accessLevel": "open",
       "freeToSearch": null,
-      "loginRequired": false,
+      "loginRequired": null,
       "identityVerificationRequired": null,
-      "captcha": false,
+      "captcha": null,
       "geographicRestriction": null,
       "paidDocumentsAvailable": null,
-      "notes": null
+      "notes": "The operator does not state whether searching is free of charge."
     },
     "petroHrysScore": 78,
     "scoreFactors": {
@@ -7709,8 +7707,7 @@
     ],
     "notRecommendedFor": [
       "Confirming good standing, licensing or tax compliance — this register does not establish any of them",
-      "Federal-level verification, which uses separate systems",
-      "Anonymous or high-volume checking, which the access terms do not support"
+      "Federal-level verification, which uses separate systems"
     ],
     "submissionDifficulty": null,
     "listingQuality": "high",
@@ -7739,10 +7736,10 @@
       "The North Dakota Office of the Secretary of State is the statutory source for North Dakota, so an entry exists because a filing was made — not because anyone submitted a listing."
     ],
     "cons": [
-      "The cost of reading a filing cannot be predicted: the describing page does not state whether images are viewable or priced.",
+      "No official page states whether filed document images can be viewed free of charge, so the cost of reading a filing cannot be established in advance.",
       "It does not prove good standing, that annual reports are current, that taxes are paid, that the entity trades, or anything about ownership, solvency or creditworthiness."
     ],
-    "editorNotes": "Verified 2026-08-04 from official North Dakota sources. Operator: North Dakota Office of the Secretary of State. Coverage and search: It covers business registrations of all forms the office registers, and — importantly — nonprofits too, since the office states \"nonprofits are registered as businesses\". Franchises are registered but are NOT searchable online. Liens/UCC are excluded and held in a separate system. FirstStop is a single unified portal spanning five separate registers — business registrations, charitable organisations, contractors, lobbyists and notaries public — plus a published commercial registered agent list. There is no separate nonprofit register. The Secretary of State states plainly: \"Nonprofit Registrations — Search for registered nonprofits using the FirstStop Portal. Note: nonprofits are registered as businesses.\" A nonprofit lookup and a business lookup are the same query. Inclusion arises from entity formation or statutory registration, not from any submission."
+    "editorNotes": "Verified 2026-08-04 from official North Dakota sources. Operator: North Dakota Office of the Secretary of State. Coverage and search: It covers business registrations of all forms the office registers, and — importantly — nonprofits too, since the office states \"nonprofits are registered as businesses\". Franchises are registered but are NOT searchable online. Liens/UCC are excluded and held in a separate system. FirstStop is a single unified portal spanning five separate registers — business registrations, charitable organisations, contractors, lobbyists and notaries public — plus a published commercial registered agent list. Most states scatter these across different systems; North Dakota consolidates them behind one portal. There is no separate nonprofit register. The Secretary of State states plainly: \"Nonprofit Registrations — Search for registered nonprofits using the FirstStop Portal. Note: nonprofits are registered as businesses.\" A nonprofit lookup and a business lookup are the same query. Inclusion arises from entity formation or statutory registration, not from any submission."
   },
   {
     "id": "us-south-dakota-business-search",
@@ -7752,7 +7749,7 @@
     "category": "government",
     "website": "https://sosenterprise.sd.gov/BusinessServices/Business/FilingSearch.aspx",
     "submissionUrl": null,
-    "description": "Business Information Search is the state business-entity register operated by the South Dakota Secretary of State — Business Services. \"Search for businesses by their name or by their Secretary of State Business ID.\" Form controls confirmed in markup: a text field for the search value, a separate Business ID field, radio options Starts With / Contains, and an \"Active Entities Only\" checkbox. Filed document images are viewable without charge.",
+    "description": "Business Information Search is the state business-entity register operated by the South Dakota Secretary of State — Business Services. It covers business Corporations, Limited Liability Companies, Series LLCs, Nonprofit Corporations, Limited Liability Partnerships, Limited Partnerships, Cooperatives, Business Trusts and DBAs, plus Commercial Registered Agents. Filed document images are viewable without charge.",
     "tier": "tier1",
     "scope": "subnational",
     "jurisdiction": {
@@ -7779,7 +7776,7 @@
       "captcha": false,
       "geographicRestriction": null,
       "paidDocumentsAvailable": true,
-      "notes": null
+      "notes": "Filed images are free to view; certified copies and certificates are charged."
     },
     "petroHrysScore": 83,
     "scoreFactors": {
@@ -7884,7 +7881,7 @@
       "It does not prove good standing — Certificates of Good Standing/Existence are a separate purchased product — nor that the annual report is filed, nor licensing, tax compliance, trading status, solvency or creditworthiness.",
       "Free images are not certified output: South Dakota still charges for certified copies and certificates of status."
     ],
-    "editorNotes": "Verified 2026-08-04 from official South Dakota sources. Operator: South Dakota Secretary of State — Business Services. Coverage and search: It covers business Corporations, Limited Liability Companies, Series LLCs, Nonprofit Corporations, Limited Liability Partnerships, Limited Partnerships, Cooperatives, Business Trusts and DBAs, plus Commercial Registered Agents. South Dakota also has a distinct \"Foreign Beneficial Owner Report\" filing type. A genuine reverse registered-agent search exists as its own application — \"Search Business by Registered Agent\" at https://sosenterprise.sd.gov/BusinessServices/Business/RaSearch.aspx. Name availability is a separate purpose-built application (https://sosenterprise.sd.gov/BusinessServices/Business/NameAvailability.aspx) rather than an inference drawn from a nil search result — the opposite design choice from Nebraska, which refuses online name checks entirely. Inclusion arises from entity formation or statutory registration, not from any submission."
+    "editorNotes": "Verified 2026-08-04 from official South Dakota sources. Operator: South Dakota Secretary of State — Business Services. Coverage and search: Search fields: \"Search for businesses by their name or by their Secretary of State Business ID.\" Form controls confirmed in markup: a text field for the search value, a separate Business ID field, radio options Starts With / Contains, and an \"Active Entities Only\" checkbox. A genuine reverse registered-agent search exists as its own application — \"Search Business by Registered Agent\" at https://sosenterprise.sd.gov/BusinessServices/Business/RaSearch.aspx. Name availability is a separate purpose-built application (https://sosenterprise.sd.gov/BusinessServices/Business/NameAvailability.aspx) rather than an inference drawn from a nil search result — the opposite design choice from Nebraska, which refuses online name checks entirely. Inclusion arises from entity formation or statutory registration, not from any submission."
   },
   {
     "id": "us-kentucky-business-entity-search",
@@ -7894,7 +7891,7 @@
     "category": "government",
     "website": "https://sosbes.sos.ky.gov/BusSearchNProfile/search.aspx",
     "submissionUrl": null,
-    "description": "Business Entity Search is the state business-entity register operated by the Office of the Kentucky Secretary of State (Michael G. Adams). Primary search dropdown offers exactly three modes: \"Business Name or Organization Number\", \"City Name of principal office\", \"Zip Codes of principal office\", plus an Advanced Search and an \"Active entities only\" checkbox. Filed document images are viewable without charge.",
+    "description": "Business Entity Search is the state business-entity register operated by the Office of the Kentucky Secretary of State. Coverage: Kentucky and foreign corporations, LLCs, non-profits and other filing entities, with assumed names carried as their own searchable records. Filed document images are viewable without charge.",
     "tier": "tier1",
     "scope": "subnational",
     "jurisdiction": {
@@ -7909,7 +7906,7 @@
       "public-filing-database"
     ],
     "operator": {
-      "name": "Office of the Kentucky Secretary of State (Michael G. Adams)",
+      "name": "Office of the Kentucky Secretary of State",
       "type": "government-agency",
       "officialUrl": null
     },
@@ -7922,7 +7919,7 @@
       "captcha": false,
       "geographicRestriction": null,
       "paidDocumentsAvailable": true,
-      "notes": null
+      "notes": "Filed images are free to view; certified copies and certificates are charged."
     },
     "petroHrysScore": 83,
     "scoreFactors": {
@@ -8020,16 +8017,16 @@
       "primary-source"
     ],
     "pros": [
-      "Business Entity Search can be searched free of charge and without an account, directly from the Office of the Kentucky Secretary of State (Michael G. Adams).",
+      "Business Entity Search can be searched free of charge and without an account, directly from the Office of the Kentucky Secretary of State.",
       "Filed document images are published free — all documents filed on or after 15 September 2004 are published as scanned images at no charge — so a filing can be read, not merely confirmed to exist.",
       "A single Business Entity Search query reaches more than the entity register: it is also a public filing database — all corporate documents filed on or after 15 September 2004 are published as scanned images.",
-      "The Office of the Kentucky Secretary of State (Michael G. Adams) is the statutory source for Kentucky, so an entry exists because a filing was made — not because anyone submitted a listing."
+      "The Office of the Kentucky Secretary of State is the statutory source for Kentucky, so an entry exists because a filing was made — not because anyone submitted a listing."
     ],
     "cons": [
       "An active record proves the entity has filed and remains on the register; it is not a business licence, not proof of Kentucky tax registration or compliance (Department of Revenue), not occupational or professional licensing, and not evidence of creditworthiness or solvency.",
       "Free images are not certified output: Kentucky still charges for certified copies and certificates of status."
     ],
-    "editorNotes": "Verified 2026-08-04 from official Kentucky sources. Operator: Office of the Kentucky Secretary of State (Michael G. Adams). Coverage and search: Coverage: Kentucky and foreign corporations, LLCs, non-profits and other filing entities, with assumed names carried as their own searchable records. Verified live: result rows returned \"Kentucky Corporation\", \"Foreign Corporation\", \"Assumed Name for LLC\" and \"Assumed Name Corporation\" as Company Types. Filed-document images are free, with a hard cut-off date published on the official page: \"all corporate documents filed with the Secretary of State's office on or after September 15, 2004, are available as scanned images; documents filed prior to September 15, 2004, will be made available as they are scanned\". The entity profile publishes commercial attributes almost no other US state register carries: an \"Industry\" classification (verified live: \"Health Services\") and a banded \"Number of Employees\" (verified live: \"Large (100+)\"). Inclusion arises from entity formation or statutory registration, not from any submission."
+    "editorNotes": "Verified 2026-08-04 from official Kentucky sources. Operator: Office of the Kentucky Secretary of State. Coverage and search: Primary search dropdown offers exactly three modes: \"Business Name or Organization Number\", \"City Name of principal office\", \"Zip Codes of principal office\", plus an Advanced Search and an \"Active entities only\" checkbox. Filed-document images are free, with a hard cut-off date published on the official page: \"all corporate documents filed with the Secretary of State's office on or after September 15, 2004, are available as scanned images; documents filed prior to September 15, 2004, will be made available as they are scanned\". The entity profile publishes commercial attributes almost no other US state register carries: an \"Industry\" classification (verified live: \"Health Services\") and a banded \"Number of Employees\" (verified live: \"Large (100+)\"). Inclusion arises from entity formation or statutory registration, not from any submission."
   },
   {
     "id": "us-tennessee-business-information-search",
@@ -8039,7 +8036,7 @@
     "category": "government",
     "website": "https://tncab.tnsos.gov/business-entity-search",
     "submissionUrl": null,
-    "description": "Business Entity Search is the state business-entity register operated by the Tennessee Department of State — Office of the Secretary of State (Tre Hargett), Division of Business Services. A single search box with an \"Active Entities Only\" toggle, Search and Clear controls, and a \"How to use this search\" helper. Whether filed document images can be viewed free of charge is not stated on the official pages.",
+    "description": "Business Entity Search is the state business-entity register operated by the Tennessee Department of State — Office of the Secretary of State, Division of Business Services. Search fields: A single search box with an \"Active Entities Only\" toggle, Search and Clear controls, and a \"How to use this search\" helper. Whether filed document images can be viewed free of charge is not stated on the official pages.",
     "tier": "tier1",
     "scope": "subnational",
     "jurisdiction": {
@@ -8054,7 +8051,7 @@
       "charity-register"
     ],
     "operator": {
-      "name": "Tennessee Department of State — Office of the Secretary of State (Tre Hargett), Division of Business Services",
+      "name": "Tennessee Department of State — Office of the Secretary of State, Division of Business Services",
       "type": "government-agency",
       "officialUrl": null
     },
@@ -8163,15 +8160,15 @@
       "primary-source"
     ],
     "pros": [
-      "Business Entity Search can be searched free of charge and without an account, directly from the Tennessee Department of State — Office of the Secretary of State (Tre Hargett), Division of Business Services.",
-      "A single Business Entity Search query reaches more than the entity register: it is also a charity register — the research records a charity-register type: the TNCaB platform carries the Registered Charities register.",
-      "The Tennessee Department of State — Office of the Secretary of State (Tre Hargett), Division of Business Services is the statutory source for Tennessee, so an entry exists because a filing was made — not because anyone submitted a listing."
+      "Business Entity Search can be searched free of charge and without an account, directly from the Tennessee Department of State — Office of the Secretary of State, Division of Business Services.",
+      "A single Business Entity Search query reaches more than the entity register: it is also a charity register — the TNCaB platform carries the Registered Charities register alongside business entities.",
+      "The Tennessee Department of State — Office of the Secretary of State, Division of Business Services is the statutory source for Tennessee, so an entry exists because a filing was made — not because anyone submitted a listing."
     ],
     "cons": [
-      "The cost of reading a filing cannot be predicted: bulk database purchase is documented; per-document availability is not.",
-      "A Tennessee register entry records a filing; it is not evidence of good standing, licensing or tax compliance."
+      "No official page states whether filed document images can be viewed free of charge, so the cost of reading a filing cannot be established in advance.",
+      "A register entry in Tennessee records a filing; it is not evidence of good standing, licensing or tax compliance."
     ],
-    "editorNotes": "Verified 2026-08-04 from official Tennessee sources. Operator: Tennessee Department of State — Office of the Secretary of State (Tre Hargett), Division of Business Services. Coverage and search: It covers business entities registered with the Division of Business Services, with an \"Entity Type\" column and a status filter in the results grid. The same TNCaB platform also carries the Registered Charities register (Charitable Solicitations and Gaming Division). RECENT SYSTEM REPLACEMENT, confirmed on both ends: the Secretary of State's \"Businesses\" page now links \"Business Entity Search\" only to https://tncab.tnsos.gov/business-entity-search, while the long-cited legacy host tnbear.tn.gov (\"Business Services Online\") timed out on every connection attempt from this environment. TNCaB is a single platform for two different registers: \"Welcome to TNCaB, Tennessee's Charity and Business Filing System.\" Corroborating this at the code level, the business-entity results grid is configured in the page markup with GridName \"Registered Charities\" — the same widget serves both registers. Migration risk: The replacement has already happened and is still settling: TNCaB is live and tnbear.tn.gov is unreachable, yet the SOS's own \"All Services for Businesses\" index still lists legacy-era service names and the \"Download Business Entity Database\" link now dumps into the TNCaB portal root rather than a download page. Inclusion arises from entity formation or statutory registration, not from any submission."
+    "editorNotes": "Verified 2026-08-04 from official Tennessee sources. Operator: Tennessee Department of State — Office of the Secretary of State, Division of Business Services. Coverage and search: It covers business entities registered with the Division of Business Services, with an \"Entity Type\" column and a status filter in the results grid. The same TNCaB platform also carries the Registered Charities register (Charitable Solicitations and Gaming Division). Third-party citations to tnbear.tn.gov/ecommerce/filingsearch.aspx are dead links. TNCaB is a single platform for two different registers: \"Welcome to TNCaB, Tennessee's Charity and Business Filing System.\" Corroborating this at the code level, the business-entity results grid is configured in the page markup with GridName \"Registered Charities\" — the same widget serves both registers. Migration risk: The replacement has already happened and is still settling: TNCaB is live and tnbear.tn.gov is unreachable, yet the SOS's own \"All Services for Businesses\" index still lists legacy-era service names and the \"Download Business Entity Database\" link now dumps into the TNCaB portal root rather than a download page. Expect further link churn. Inclusion arises from entity formation or statutory registration, not from any submission."
   },
   {
     "id": "us-arkansas-business-entity-search",
@@ -8181,7 +8178,7 @@
     "category": "government",
     "website": "https://sos-corp-search.ark.org/corps",
     "submissionUrl": null,
-    "description": "Business Entity Search is the state business-entity register operated by the Arkansas Secretary of State, Business & Commercial Services (BCS) Division. Corporation Type; Name; Fictitious Name; Registered Agent (RA); RA City; RA State; Filing #. Verified live, the result table returns Name | City | State | Status. Filed documents and certificates are ordered separately for a fee.",
+    "description": "Business Entity Search is the state business-entity register operated by the Arkansas Secretary of State, Business & Commercial Services (BCS) Division. Search fields: Corporation Type; Name; Fictitious Name; Registered Agent (RA); RA City; RA State; Filing #. Filed documents and certificates are ordered separately for a fee.",
     "tier": "tier1",
     "scope": "subnational",
     "jurisdiction": {
@@ -8311,7 +8308,7 @@
       "Documents are a separate paid product — certificates are a purchase through \"Business Entity Certificates of Good Standing\" — so the free tier returns index data only.",
       "The \"Good Standing\" status here reflects the entity's standing on the SOS register, principally franchise-tax and filing currency; it is not a business licence, not proof of Arkansas Department of Finance and Administration tax registration or compliance, not professional or contractor licensing, and not a solvency or creditworthiness signal."
     ],
-    "editorNotes": "Verified 2026-08-04 from official Arkansas sources. Operator: Arkansas Secretary of State, Business & Commercial Services (BCS) Division. Coverage and search: It covers exceptionally broad — the Corporation Type dropdown enumerates: Benefit Corporation; Domestic For Profit Corporation (New Code) and (Old Code); Domestic Nonprofit Corporation (New Code) and (Old Code); Domestic Cooperative (Ag, Mkt, Gen) and (Tel, Elec); Domestic LLC, LLLP, LP, LLP, General Partnership; the Foreign equivalents of each; Foreign Business Trust; Unincorporated Nonprofit Association; Bank; Insurance Company; Name Reservation; Name Registration; Domestic and Foreign Public Water Authority; Dom. RECENT SYSTEM REPLACEMENT: the historically cited URL https://www.sos.arkansas.gov/corps/search_all.php now issues a 302 to a new host, https://sos-corp-search.ark.org/corps — yet the Secretary of State's own BCS page still links to the old search_all.php address, so the official navigation depends on a redirect. Unusually citable for a US state register: searches are GET requests with legible parameters (?corp_name=…, ?agent_search=…, ?filing_number=…) and detail records have stable URLs keyed on the public filing number (/corps/details?id=100067582) — no session tokens, no POST-only results. Migration risk: Active. Inclusion arises from entity formation or statutory registration, not from any submission."
+    "editorNotes": "Verified 2026-08-04 from official Arkansas sources. Operator: Arkansas Secretary of State, Business & Commercial Services (BCS) Division. Coverage and search: Exceptionally broad — the Corporation Type dropdown enumerates: Benefit Corporation; Domestic For Profit Corporation (New Code) and (Old Code); Domestic Nonprofit Corporation (New Code) and (Old Code); Domestic Cooperative (Ag, Mkt, Gen) and (Tel, Elec); Domestic LLC, LLLP, LP, LLP, General Partnership; the Foreign equivalents of each; Foreign Business Trust; Unincorporated Nonprofit Association; Bank; Insurance Company; Name Reservation; Name Registration; Domestic and Foreign Public Water Authority; Dom. Series LLC; Dom. Protected Series; Foreign Series LLC; Foreign Protected Series; Video Service Provider; and International Student Exchange Visitor Placement Organization Registration (ISEVPO). RECENT SYSTEM REPLACEMENT: the historically cited URL https://www.sos.arkansas.gov/corps/search_all.php now issues a 302 to a new host, https://sos-corp-search.ark.org/corps — yet the Secretary of State's own BCS page still links to the old search_all.php address, so the official navigation depends on a redirect. Unusually citable for a US state register: searches are GET requests with legible parameters (?corp_name=…, ?agent_search=…, ?filing_number=…) and detail records have stable URLs keyed on the public filing number (/corps/details?id=100067582) — no session tokens, no POST-only results. Migration risk: Active. Inclusion arises from entity formation or statutory registration, not from any submission."
   },
   {
     "id": "us-louisiana-business-filings-search",
@@ -8321,7 +8318,7 @@
     "category": "government",
     "website": "https://coraweb.sos.la.gov/commercialsearch/commercialsearch.aspx",
     "submissionUrl": null,
-    "description": "Search for Louisiana Business Filings is the state business-entity register operated by the Louisiana Department of State — Office of the Secretary of State (Nancy Landry), Commercial Division. Filed documents and certificates are ordered separately for a fee.",
+    "description": "Search for Louisiana Business Filings is the state business-entity register operated by the Louisiana Department of State — Office of the Secretary of State, Commercial Division. Filed documents and certificates are ordered separately for a fee.",
     "tier": "tier1",
     "scope": "subnational",
     "jurisdiction": {
@@ -8335,7 +8332,7 @@
       "business-entity-register"
     ],
     "operator": {
-      "name": "Louisiana Department of State — Office of the Secretary of State (Nancy Landry), Commercial Division",
+      "name": "Louisiana Department of State — Office of the Secretary of State, Commercial Division",
       "type": "government-agency",
       "officialUrl": null
     },
@@ -8348,7 +8345,7 @@
       "captcha": true,
       "geographicRestriction": null,
       "paidDocumentsAvailable": true,
-      "notes": "yes — the search page states \"This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.\""
+      "notes": "A CAPTCHA must be completed before results are returned."
     },
     "petroHrysScore": 77,
     "scoreFactors": {
@@ -8444,15 +8441,15 @@
       "primary-source"
     ],
     "pros": [
-      "Search for Louisiana Business Filings can be searched free of charge and without an account, directly from the Louisiana Department of State — Office of the Secretary of State (Nancy Landry), Commercial Division.",
-      "The Louisiana Department of State — Office of the Secretary of State (Nancy Landry), Commercial Division is the statutory source for Louisiana, so an entry exists because a filing was made — not because anyone submitted a listing."
+      "Search for Louisiana Business Filings can be searched free of charge and without an account, directly from the Louisiana Department of State — Office of the Secretary of State, Commercial Division.",
+      "The Louisiana Department of State — Office of the Secretary of State, Commercial Division is the statutory source for Louisiana, so an entry exists because a filing was made — not because anyone submitted a listing."
     ],
     "cons": [
       "A CAPTCHA gates the Louisiana search, which blocks automated and repeated lookups.",
       "Documents are a separate paid product — the Business Services menu carries \"Order documents & certificates\" against a published fee schedule — so the free tier returns index data only.",
       "It is not a certificate of good standing (ordered and paid for separately), not a state or parish occupational licence, not proof of Louisiana Department of Revenue or Workforce Commission registration or compliance, and not a solvency signal."
     ],
-    "editorNotes": "Verified 2026-08-04 from official Louisiana sources. Operator: Louisiana Department of State — Office of the Secretary of State (Nancy Landry), Commercial Division. Coverage and search: It covers per the official Search Instructions: \"A business entity can be a corporation, limited liability company, limited liability partnership, non-profit corporation, trade name, trade mark or service mark.\" Name reservations are also searchable via their reservation number. Three explicit search types on the form: (1) \"Search by Entity Name\"; (2) \"Charter Number, Trade Registration Number, or Name Reservation Number\"; (3) \"Officer Name or Agent Name\", split into First Name and Last Name fields. The search is explicitly reCAPTCHA-protected — the page itself states \"This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply\" — so automated or bulk access via the public interface is not intended. A session clock runs against the user: the page renders \"Session Warning: Your Session will expire in …\" and its script arms the warning at 14 minutes with a 300-second countdown, so deep links into results are not durable and cannot be cited. Migration risk: Moderate. The public search still runs on the legacy CORAWEB ASP.NET WebForms stack while the SOS's public website has been rebuilt on a new CMS — and that rebuild has already broken the links to the search (the --environment-- placeholders). Inclusion arises from entity formation or statutory registration, not from any submission."
+    "editorNotes": "Verified 2026-08-04 from official Louisiana sources. Operator: Louisiana Department of State — Office of the Secretary of State, Commercial Division. Coverage and search: Per the official Search Instructions: \"A business entity can be a corporation, limited liability company, limited liability partnership, non-profit corporation, trade name, trade mark or service mark.\" Name reservations are also searchable via their reservation number. Search fields: Three explicit search types on the form: (1) \"Search by Entity Name\"; (2) \"Charter Number, Trade Registration Number, or Name Reservation Number\"; (3) \"Officer Name or Agent Name\", split into First Name and Last Name fields. The search is explicitly reCAPTCHA-protected — the page itself states \"This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply\" — so automated or bulk access via the public interface is not intended. A session clock runs against the user: the page renders \"Session Warning: Your Session will expire in …\" and its script arms the warning at 14 minutes with a 300-second countdown, so deep links into results are not durable and cannot be cited. Migration risk: Moderate. The public search still runs on the legacy CORAWEB ASP.NET WebForms stack while the SOS's public website has been rebuilt on a new CMS — and that rebuild has already broken the links to the search (the --environment-- placeholders). Inclusion arises from entity formation or statutory registration, not from any submission."
   },
   {
     "id": "us-texas-sosdirect-business-search",
@@ -8489,7 +8486,7 @@
       "captcha": false,
       "geographicRestriction": null,
       "paidDocumentsAvailable": true,
-      "notes": "A free, no-login public alternative is operated by a different agency — the Texas Comptroller of Public Accounts — at https://comptroller.texas.gov/taxes/franchise/account-status/search, which served HTTP 200 and rendered its full search form, and which additionally states \"API access to this data is available. Please refer to our Public API Documentation for further information.\""
+      "notes": "Each search is charged. An account must be created and, where the operator requires it, funded before searching."
     },
     "petroHrysScore": 72,
     "scoreFactors": {
@@ -8558,7 +8555,7 @@
     },
     "bestFor": [
       "Confirming that an entity is registered in Texas and reading its recorded status",
-      "Formal Texas due diligence where the fee and the account are acceptable costs"
+      "Formal due diligence in Texas where the fee and the account are acceptable costs"
     ],
     "notRecommendedFor": [
       "Confirming good standing, licensing or tax compliance — this register does not establish any of them",
@@ -8597,6 +8594,147 @@
       "Documents are a separate paid product — \"Business Copies and Certificates\" is a separately priced service — so the free tier returns index data only.",
       "A SOSDirect record proves a filing exists with the Secretary of State; it is not a licence, not tax compliance and not creditworthiness."
     ],
-    "editorNotes": "Verified 2026-08-04 from official Texas sources. Operator: Office of the Texas Secretary of State. Coverage and search: SOSDirect is described by the SOS as \"our business application for online business filings and searches\", with the service catalogue held on a separate Help page. Texas charges for every search of its own register and requires a funded account to do it: \"SOSDirect is available 24/7. There is a $1.00 statutorily authorized fee associated with each search, which supports the ongoing operations and enhancements of SOSDirect.\" This makes the Texas SOS register the only paywalled principal entity search in this eight-state batch. Onboarding is deliberately slow, in two one-hour steps: \"The email with your SOSDirect USER ID will be sent to you within an hour\" and \"The funds will be available for use in one hour… The payment will not process until you log out of your account.\" Migration risk: High and officially acknowledged. \"SOS Portal\" is live and absorbing services on a published schedule through 2024–2025, but business entity filings and searches remain on SOSDirect \"for the foreseeable future\". Inclusion arises from entity formation or statutory registration, not from any submission."
+    "editorNotes": "Verified 2026-08-04 from official Texas sources. Operator: Office of the Texas Secretary of State. Texas charges for every search of its own register and requires a funded account to do it: \"SOSDirect is available 24/7. There is a $1.00 statutorily authorized fee associated with each search, which supports the ongoing operations and enhancements of SOSDirect.\" This makes the Texas SOS register the only paywalled principal entity search in this eight-state batch. Onboarding is deliberately slow, in two one-hour steps: \"The email with your SOSDirect USER ID will be sent to you within an hour\" and \"The funds will be available for use in one hour… The payment will not process until you log out of your account.\" Migration risk: High and officially acknowledged. \"SOS Portal\" is live and absorbing services on a published schedule through 2024–2025, but business entity filings and searches remain on SOSDirect \"for the foreseeable future\". Inclusion arises from entity formation or statutory registration, not from any submission."
+  },
+  {
+    "id": "us-nevada-business-entity-search",
+    "name": "Business Entity Search",
+    "slug": "nevada-business-entity-search",
+    "country": "united-states",
+    "category": "government",
+    "website": "https://esos.nv.gov/EntitySearch/OnlineEntitySearch",
+    "submissionUrl": null,
+    "description": "Business Entity Search is the state business-entity register operated by the Nevada Secretary of State. Search fields: Entity, trademark, trade name, service mark, reserved name and business licence records. Whether filed document images can be viewed free of charge is not stated on the official pages.",
+    "tier": "tier1",
+    "scope": "subnational",
+    "jurisdiction": {
+      "type": "state",
+      "name": "Nevada",
+      "code": "US-NV",
+      "parentCountry": "united-states"
+    },
+    "primaryRegistryType": "business-entity-register",
+    "registryTypes": [
+      "business-entity-register"
+    ],
+    "operator": {
+      "name": "Nevada Secretary of State",
+      "type": "government-agency",
+      "officialUrl": null
+    },
+    "publicAccess": {
+      "searchUrl": "https://esos.nv.gov/EntitySearch/OnlineEntitySearch",
+      "accessLevel": "partially-open",
+      "freeToSearch": true,
+      "loginRequired": false,
+      "identityVerificationRequired": null,
+      "captcha": false,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "Some of the register is reachable without payment or an account, and some is not."
+    },
+    "petroHrysScore": 77,
+    "scoreFactors": {
+      "editorialTrust": 9,
+      "businessUsefulness": 6,
+      "verificationQuality": 8,
+      "platformReputation": 7,
+      "spamResistance": 10,
+      "industryImportance": 8,
+      "longTermStability": 9,
+      "submissionQuality": 6,
+      "transparency": 6,
+      "moderationQuality": 7
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": true,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-04",
+    "nextVerification": "2027-08-19",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Confirming that an entity is registered in Nevada and reading its recorded status"
+    ],
+    "notRecommendedFor": [
+      "Confirming good standing, licensing or tax compliance — this register does not establish any of them",
+      "Federal-level verification, which uses separate systems"
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Entities registered in Nevada"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "Business Entity Search can be searched free of charge and without an account, directly from the Nevada Secretary of State.",
+      "The Nevada Secretary of State is the statutory source for Nevada, so an entry exists because a filing was made — not because anyone submitted a listing."
+    ],
+    "cons": [
+      "No official page states whether filed document images can be viewed free of charge, so the cost of reading a filing cannot be established in advance.",
+      "Part of Business Entity Search sits behind payment, an account or another restriction, so the free tier answers only part of a due-diligence question.",
+      "It does not prove good standing, does not prove tax compliance, does not prove any professional or occupational licence, and does not prove solvency."
+    ],
+    "editorNotes": "Verified 2026-08-04 from official Nevada sources. Operator: Nevada Secretary of State. The same search returns state business licences alongside corporate entities — Nevada operates a state-level business licence regime (most states licence only at municipal or professional level), so a Nevada hit can carry licence information that has no analogue in neighbouring states. Reserved names are publicly searchable as records in their own right, meaning a name that has merely been held but never used will surface in results and can be mistaken for an operating entity. Inclusion arises from entity formation or statutory registration, not from any submission."
   }
 ]

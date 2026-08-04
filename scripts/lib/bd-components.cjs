@@ -742,6 +742,29 @@ function registryCount(count) {
   return `${count} ${count === 1 ? 'registry' : 'registries'}`;
 }
 
+// The coverage sentence, computed from the jurisdiction manifest and the
+// records actually published — never from a record total. 34 subnational
+// records could be 34 states, or 31 states plus a district plus two
+// territories, or two records for one state. Only the manifest knows which.
+//
+// This exists to stop the page implying nationwide coverage it does not have.
+// It says what is covered and what is not, in one line, and the numbers move
+// on their own when a jurisdiction is published.
+function coverageStatement(manifest, publishedCodes) {
+  if (!manifest || !Array.isArray(manifest.jurisdictions)) return '';
+  const states = manifest.jurisdictions.filter((j) => j.kind === 'state');
+  if (!states.length) return '';
+  const covered = states.filter((j) => publishedCodes.has(j.code)).length;
+  const pending = states.length - covered;
+  if (!pending) {
+    return `      <p class="bd-coverage">${escapeHtml(`Official business registry coverage is `
+      + `available for all ${states.length} states.`)}</p>`;
+  }
+  return `      <p class="bd-coverage">${escapeHtml(`Official business registry coverage is `
+    + `available for ${covered} of ${states.length} states; ${pending} `
+    + `${pending === 1 ? 'state remains' : 'states remain'} pending verification.`)}</p>`;
+}
+
 // One control per group present. Counts are derived, never written down twice.
 function jurisdictionFilter(groups, { idPrefix = 'jurisdiction' } = {}) {
   if (!groups || groups.length < 2) return '';
@@ -1162,5 +1185,6 @@ module.exports = {
   methodologyNote, provenanceBlock, externalLinkCta,
   activeMetricFields, activeGuidanceFields, tableColumnsFor, countLabel,
   jurisdictionGroups, jurisdictionFilter, byJurisdictionThenName, registryCount,
+  coverageStatement,
   FILTERS, VERIFICATION_NOTE, REL_EXTERNAL, FILTER_DISCLOSURE,
 };

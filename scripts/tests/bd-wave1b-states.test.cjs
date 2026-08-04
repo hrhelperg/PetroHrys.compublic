@@ -491,7 +491,13 @@ test('a description stays a lede rather than becoming an essay', () => {
 test('no record claims access its own access block does not carry', () => {
   for (const r of SUBNATIONAL) {
     const pa = r.publicAccess;
-    const prose = PROSE_FIELDS(r).map(([, v]) => v).join(' ');
+    // Test assertions, not the words. "The operator does not state whether
+    // searching is free of charge" contains the phrase and claims the opposite,
+    // so sentences that hedge or negate are excluded before matching.
+    const assertions = PROSE_FIELDS(r)
+      .flatMap(([, v]) => v.split(/(?<=[.!?])\s+/))
+      .filter((x) => !/\b(?:whether|not state|no official page|unknown|cannot be established)\b/i.test(x));
+    const prose = assertions.join(' ');
     if (/can be searched free of charge|is free of charge|freely searchable/i.test(prose)) {
       assert.strictEqual(pa.freeToSearch, true,
         `${r.id} prose claims free searching while freeToSearch is ${pa.freeToSearch}`);
@@ -521,8 +527,12 @@ test('an unknown is recorded as null, never as a confident false', () => {
   for (const r of withUnknowns) {
     // A record that does not know its access position must not advertise one.
     if (r.publicAccess.accessLevel === 'unknown') {
-      assert.ok(r.cons.some((c) => /could not be established|not stated|cannot be predicted/i.test(c)),
+      // The reader must be told, in a fact about the register rather than
+      // about our research: "the operator publishes no statement of whether…".
+      assert.ok(r.cons.some((c) => /publishes no statement|no official page states|not stated/i.test(c)),
         `${r.id} has an unknown access level but says nothing about it to the reader`);
+      assert.ok(!r.cons.some((c) => /could not be (?:read|reached|established) from|no claim is recorded|this record states/i.test(c)),
+        `${r.id} reports our research difficulty to the reader instead of a fact about the register`);
     }
   }
 });

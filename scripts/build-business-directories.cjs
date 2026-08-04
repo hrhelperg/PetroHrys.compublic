@@ -75,6 +75,27 @@ const HUB_FAQS = [
 // Each group is a real table with its own caption rather than one long list
 // with headings inside it, so a screen reader announces which jurisdiction set
 // it is in and a narrow viewport scrolls each table independently.
+// Jurisdiction coverage manifests, one per country that has one. Absent means
+// "no coverage claim is made for this country", which is the correct default:
+// a country with no manifest simply renders no coverage sentence.
+function loadCoverageManifests() {
+  const out = new Map();
+  const dir = PATHS.dataRoot;
+  for (const name of fs.readdirSync(dir)) {
+    const m = /^([a-z-]+)-jurisdiction-coverage\.json$/.exec(name);
+    if (!m) continue;
+    const parsed = JSON.parse(fs.readFileSync(path.join(dir, name), 'utf8'));
+    // The filename and the declared country must agree, or the page would
+    // quote another country's coverage.
+    if (parsed.country !== m[1]) {
+      throw new Error(`${name} declares country "${parsed.country}"`);
+    }
+    out.set(parsed.country, parsed);
+  }
+  return out;
+}
+const coverageManifests = loadCoverageManifests();
+
 function jurisdictionSections(country, entries, columns) {
   const groups = c.jurisdictionGroups(entries, country.slug);
   if (!groups) return null;
@@ -316,6 +337,11 @@ function pageModel(registry) {
         `      <p class="bd-stat">${escapeHtml(`${countryEntries.length} verified `
           + `${countryEntries.length === 1 ? 'directory' : 'directories'} in `
           + `${categoryLinks.length} ${categoryLinks.length === 1 ? 'category' : 'categories'}.`)}</p>`,
+        // A directory count is not a coverage claim. Where a jurisdiction
+        // manifest exists for this country, say plainly how much of it is
+        // actually covered, so 31 state registries never read as 50.
+        c.coverageStatement(coverageManifests.get(country.slug),
+          new Set(countryEntries.filter((d) => d.jurisdiction).map((d) => d.jurisdiction.code))),
         ...(categoryLinks.length ? [section('categories', 'Directory categories',
           c.cardGrid(categoryLinks.map((l) => c.categoryCard({ ...l, headingLevel: 3 })),
             { label: 'Directory categories' }))] : []),

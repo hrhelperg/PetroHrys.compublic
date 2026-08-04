@@ -421,3 +421,12 @@
   .bd-jfilter-list { flex-direction: column; }
   .bd-jfilter-link { min-height: 44px; align-items: center; }
 }
+
+/* The coverage sentence under a country's directory count. It exists to
+   contradict an optimistic reading of that count, so it must not look like
+   fine print — same weight as the count it qualifies. */
+.bd-coverage {
+  color: var(--text-2);
+  font-size: var(--fs-sm);
+  margin-top: var(--s-1);
+}

@@ -43,6 +43,8 @@ const RENDERED = () => [
   // rules at all while this test still passed. Anything the build can render
   // has to be represented here or the guard is decorative.
   components.jurisdictionFilter([{ key: 'state', label: 'States', count: 2 }]),
+  components.coverageStatement(
+    { country: 'x', jurisdictions: [{ code: 'US-XX', kind: 'state' }] }, new Set()),
   JGROUP,
   '<p class="bd-status"></p>',
 ].join('\n');
