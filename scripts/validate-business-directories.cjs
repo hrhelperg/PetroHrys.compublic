@@ -102,8 +102,10 @@ function validateRegistry(registry) {
     // Read from the symbol the migration attaches, so this catches keys the
     // normalisation would otherwise have dropped on the floor. An improvised
     // field fails here rather than disappearing.
-    for (const key of entry[UNKNOWN_KEYS] || []) {
-      add(key, `Unknown field "${key}". Records may only carry declared schema fields.`);
+    // Full dotted paths, so "operator.agencyTyp" names the exact field rather
+    // than just the object that contained it. Sorted upstream for determinism.
+    for (const problem of entry[UNKNOWN_KEYS] || []) {
+      add(problem.path, problem.reason);
     }
 
     // --- scope, jurisdiction and supranational coupling ---------------------
@@ -161,6 +163,15 @@ function validateRegistry(registry) {
         if (entry.scope !== 'subnational') {
           add('scope', 'A record carrying a jurisdiction must use scope "subnational".');
         }
+        // The country must have a word for this kind of jurisdiction. Without
+        // this the page would either throw at render or, worse, borrow another
+        // country's vocabulary — "Prefectures" in Spain, "Federal" in Italy.
+        const allowedTypes = S.allowedJurisdictionTypes(entry.country);
+        if (allowedTypes && j.type && !allowedTypes.includes(j.type)) {
+          add('jurisdiction.type', `Country "${entry.country}" declares no grouping label for `
+            + `"${j.type}". It supports: ${allowedTypes.length ? allowedTypes.join(', ') : '(none)'}. `
+            + 'Either the record is misfiled or JURISDICTION_VOCABULARY needs extending.');
+        }
       }
     } else if (entry.scope === 'subnational') {
       add('jurisdiction', 'Scope "subnational" requires a jurisdiction object.');
@@ -205,6 +216,46 @@ function validateRegistry(registry) {
       }
     } else if (Array.isArray(entry.registryTypes) && entry.registryTypes.length) {
       add('primaryRegistryType', 'Registry types are recorded but none is marked primary.');
+    }
+
+    // --- classification invariants ------------------------------------------
+    // Structural only. Which of company-register or business-entity-register
+    // fits a given system is an editorial reading of its official scope
+    // statement, and the glossary in bd-registry-types.cjs is where that
+    // judgement is argued — not something a validator can decide. What CAN be
+    // checked mechanically are the couplings that would be self-contradictory.
+    const types = Array.isArray(entry.registryTypes) ? entry.registryTypes : [];
+
+    // A federated search layer is not usually a single jurisdiction's system.
+    // Documented exceptions are allowed, but must be argued in editorNotes so
+    // the exception is visible rather than silent.
+    if (types.includes('cross-border-registry-interface')
+      && !['supranational', 'regional', 'global'].includes(entry.scope)
+      && !/cross-border/i.test(entry.editorNotes || '')) {
+      add('registryTypes', 'A cross-border-registry-interface normally carries supranational, '
+        + 'regional or global scope. Keep the narrower scope only if editorNotes explains why.');
+    }
+    // An identifier lookup is not thereby the legal register of the entity.
+    // Claiming both needs the evidence to say so.
+    if (types.includes('corporate-number-database') && types.includes('company-register')
+      && !/register of record|legal register|company register/i.test(entry.editorNotes || '')) {
+      add('registryTypes', 'A corporate-number-database is not automatically a company-register. '
+        + 'Record both only where editorNotes cites evidence for the constitutive function.');
+    }
+    // Filing plus constitutive function is common and legitimate — Companies
+    // House is both — but it should be a considered call, not a default.
+    if (types.includes('public-filing-database') && types.includes('company-register')
+      && !/filing|filed|accounts|disclosur/i.test(entry.editorNotes || '')
+      && !/filing|filed|accounts|disclosur/i.test(entry.description || '')) {
+      add('registryTypes', 'company-register with public-filing-database requires evidence of the '
+        + 'filing function in the description or editorNotes.');
+    }
+    // Government and regulator records are the point of this wave; publishing
+    // one unclassified leaves the taxonomy hollow.
+    if (['government', 'finance'].includes(entry.category)
+      && entry.verification && entry.verification.status === 'verified'
+      && types.length === 0) {
+      add('registryTypes', `A verified ${entry.category} record must record at least one registry type.`);
     }
 
     // --- operator -----------------------------------------------------------

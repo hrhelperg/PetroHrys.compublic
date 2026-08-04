@@ -51,7 +51,7 @@ test('KNOWN_RECORD_KEYS matches exactly what the migration emits', () => {
 test('an unknown field is rejected, not silently dropped', () => {
   const raw = { ...verifiedRecord(), improvisedStateField: 'California' };
   const migrated = migrateRecord(raw);
-  assert.deepStrictEqual(migrated[UNKNOWN_KEYS], ['improvisedStateField'],
+  assert.deepStrictEqual(migrated[UNKNOWN_KEYS].map((p) => p.path), ['improvisedStateField'],
     'the migration did not record the unknown key');
   assert.ok(!('improvisedStateField' in migrated), 'the unknown key leaked into the record');
   rejects(migrated, /Unknown field "improvisedStateField"/, 'orphan key');
@@ -388,7 +388,7 @@ test('a non-https search URL is rejected', () => {
 // --- US grouping -------------------------------------------------------------
 
 test('a country with no subnational record is not grouped at all', () => {
-  assert.strictEqual(c.jurisdictionGroups([verifiedRecord()]), null,
+  assert.strictEqual(c.jurisdictionGroups([verifiedRecord()], 'united-states'), null,
     'grouping switched on for a purely national country');
 });
 
@@ -405,7 +405,7 @@ test('US records group as Federal, States A-Z, federal district, territories', (
     mk('Fed', null),
     mk('DC', 'federal-district', 'District of Columbia', 'US-DC'),
     mk('Alabama', 'state', 'Alabama', 'US-AL'),
-  ]);
+  ], 'united-states');
   assert.deepStrictEqual(groups.map((g) => g.label),
     ['Federal', 'States', 'Federal district', 'Territories']);
   assert.deepStrictEqual(groups[1].items.map((r) => r.jurisdiction.name), ['Alabama', 'Wyoming'],
@@ -422,8 +422,8 @@ test('grouping is deterministic across repeated calls with shuffled input', () =
     jurisdiction: { type: 'state', name: jn, code, parentCountry: 'united-states' },
   });
   const set = [mk('a', 'Texas', 'US-TX'), mk('b', 'Alaska', 'US-AK'), mk('c', 'Maine', 'US-ME')];
-  const first = c.jurisdictionGroups(set)[0].items.map((r) => r.jurisdiction.name);
-  const second = c.jurisdictionGroups([...set].reverse())[0].items.map((r) => r.jurisdiction.name);
+  const first = c.jurisdictionGroups(set, 'united-states')[0].items.map((r) => r.jurisdiction.name);
+  const second = c.jurisdictionGroups([...set].reverse(), 'united-states')[0].items.map((r) => r.jurisdiction.name);
   assert.deepStrictEqual(first, second, 'ordering depends on input order');
   assert.deepStrictEqual(first, ['Alaska', 'Maine', 'Texas']);
 });
@@ -435,12 +435,12 @@ test('the jurisdiction filter lists every group with a derived count', () => {
     scope: type ? 'subnational' : 'national',
     jurisdiction: type ? { type, name: jn, code, parentCountry: 'united-states' } : null,
   });
-  const groups = c.jurisdictionGroups([mk('f', null), mk('s', 'state', 'Ohio', 'US-OH')]);
+  const groups = c.jurisdictionGroups([mk('f', null), mk('s', 'state', 'Ohio', 'US-OH')], 'united-states');
   const html = c.jurisdictionFilter(groups, { idPrefix: 'united-states-jurisdiction' });
   assert.match(html, /Federal/);
   assert.match(html, /States/);
   assert.match(html, /aria-label="Jump to jurisdiction"/);
-  assert.match(html, /href="#united-states-jurisdiction-states"/);
+  assert.match(html, /href="#united-states-jurisdiction-state"/);
   // A single group needs no filter.
   assert.strictEqual(c.jurisdictionFilter([groups[0]]), '', 'a filter was rendered for one group');
 });
@@ -571,9 +571,9 @@ test('C1: grouping survives records that share a jurisdiction name', () => {
     website: `https://${n}.example.gov/`, scope: jn ? 'subnational' : 'national',
     jurisdiction: jn ? { type: 'state', name: jn, code: null, parentCountry: 'united-states' } : null,
   });
-  const groups = c.jurisdictionGroups([mk('b', 'Ohio'), mk('a', 'Ohio'), mk('d', null), mk('cc', null)]);
-  assert.deepStrictEqual(groups.find((g) => g.key === 'states').items.map((r) => r.name), ['a', 'b']);
-  assert.deepStrictEqual(groups.find((g) => g.key === 'federal').items.map((r) => r.name), ['cc', 'd']);
+  const groups = c.jurisdictionGroups([mk('b', 'Ohio'), mk('a', 'Ohio'), mk('d', null), mk('cc', null)], 'united-states');
+  assert.deepStrictEqual(groups.find((g) => g.key === 'state').items.map((r) => r.name), ['a', 'b']);
+  assert.deepStrictEqual(groups.find((g) => g.key === 'national').items.map((r) => r.name), ['cc', 'd']);
 });
 
 test('C4: the comparator orders by the same string the row advertises', () => {

@@ -1,9 +1,10 @@
 // scripts/lib/bd-migrate.cjs
 'use strict';
+const SCHEMA = require('./bd-schema.cjs');
 const {
   ACCEPTS_KEYS, RELATION_KINDS, REQUIRED_ASSET_KEYS,
   KNOWN_RECORD_KEYS, PUBLIC_ACCESS_BOOLEANS,
-} = require('./bd-schema.cjs');
+} = SCHEMA;
 
 // Forward-only migration from the pre-expansion record shape. It is applied by
 // the registry loader, so a record written in the old shape keeps working
@@ -160,11 +161,70 @@ const LEGACY_KEY_SET = new Set([
 // of JSON.stringify, Object.keys and every rendered surface. Without this the
 // migration would silently swallow a typo — the object literal below simply
 // would not copy it — and an improvised field would vanish instead of failing.
+const isPlainObject = (v) => !!v && typeof v === 'object' && !Array.isArray(v);
+
+// Every schema problem the migration would otherwise absorb, as
+// { path, reason } with a full dotted field path. Sorted by path so two runs
+// report identically.
+//
+// Three classes are caught:
+//   1. an unknown key at the top level;
+//   2. an unknown key inside a structured object — the picker would drop it;
+//   3. a value of the wrong container type — the picker would coerce it away,
+//      turning `registryTypes: "company-register"` into `[]` with no complaint.
 function unknownKeysOf(record) {
-  if (!record || typeof record !== 'object') return [];
-  return Object.keys(record)
-    .filter((k) => !KNOWN_KEY_SET.has(k) && !LEGACY_KEY_SET.has(k))
-    .sort();
+  if (!isPlainObject(record)) return [];
+  const out = [];
+  const add = (path, reason) => out.push({ path, reason });
+
+  for (const key of Object.keys(record)) {
+    if (!KNOWN_KEY_SET.has(key) && !LEGACY_KEY_SET.has(key)) {
+      add(key, `Unknown field "${key}". Records may only carry declared schema fields.`);
+    }
+  }
+
+  for (const field of SCHEMA.OBJECT_VALUED_FIELDS) {
+    const value = record[field];
+    if (isNullish(value)) continue;
+    if (!isPlainObject(value)) {
+      add(field, `Field "${field}" must be an object, got ${Array.isArray(value) ? 'an array' : typeof value}.`);
+      continue;
+    }
+    if (field === 'metricsProvenance') {
+      for (const [metric, entry] of Object.entries(value)) {
+        if (!isPlainObject(entry)) {
+          add(`metricsProvenance.${metric}`, 'Each provenance entry must be an object.');
+          continue;
+        }
+        for (const key of Object.keys(entry)) {
+          if (!SCHEMA.METRIC_PROVENANCE_KEYS.includes(key)) {
+            add(`metricsProvenance.${metric}.${key}`,
+              `Unknown provenance field "${key}". Allowed: ${SCHEMA.METRIC_PROVENANCE_KEYS.join(', ')}.`);
+          }
+        }
+      }
+      continue;
+    }
+    const allowed = SCHEMA.NESTED_RECORD_KEYS[field];
+    if (!allowed) continue;
+    for (const key of Object.keys(value)) {
+      if (!allowed.includes(key)) {
+        add(`${field}.${key}`,
+          `Unknown field "${field}.${key}". Allowed: ${allowed.join(', ')}.`);
+      }
+    }
+  }
+
+  for (const field of SCHEMA.ARRAY_VALUED_FIELDS) {
+    const value = record[field];
+    if (isNullish(value)) continue;
+    if (!Array.isArray(value)) {
+      add(field, `Field "${field}" must be an array, got ${typeof value}.`);
+    }
+  }
+
+  out.sort((a, b) => (a.path < b.path ? -1 : a.path > b.path ? 1 : 0));
+  return out;
 }
 
 // Returns a record in the current shape. Idempotent: migrating an already

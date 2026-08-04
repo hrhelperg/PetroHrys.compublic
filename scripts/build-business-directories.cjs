@@ -76,18 +76,20 @@ const HUB_FAQS = [
 // with headings inside it, so a screen reader announces which jurisdiction set
 // it is in and a narrow viewport scrolls each table independently.
 function jurisdictionSections(country, entries, columns) {
-  const groups = c.jurisdictionGroups(entries);
+  const groups = c.jurisdictionGroups(entries, country.slug);
   if (!groups) return null;
   const out = [c.jurisdictionFilter(groups, { idPrefix: `${country.slug}-jurisdiction` })];
   for (const group of groups) {
     const id = `${country.slug}-jurisdiction-${group.key}`;
     out.push(`      <div class="bd-jgroup" id="${escapeHtml(id)}">
       <h3 class="bd-jgroup-title">${escapeHtml(group.label)} `
-      + `<span class="bd-jgroup-count">${group.count}</span></h3>
+      + `<span class="bd-jgroup-count">${escapeHtml(c.registryCount(group.count))}</span></h3>
 ${c.directoryTable({
     directories: group.items,
     caption: `${group.label} registries in ${country.name}`,
     columns,
+    // Already ordered by jurisdiction; the table must not re-sort it.
+    sortKey: null,
   })}
       </div>`);
   }
@@ -394,6 +396,11 @@ ${category ? `        <li><a href="${routes.categoryPath(country.slug, category.
           c.statusBadges(directory),
           section('score', 'PetroHrys Score', `${c.metricsBlock(directory, activeMetrics)}\n${c.metricNote(activeMetrics)}`),
           section('verification', 'Verification', c.verificationBlock(directory)),
+          // Conditional: renders nothing at all for a record that carries none
+          // of the structured registry fields, so pre-Wave-1 pages are unchanged.
+          ...(c.registryInformation(directory)
+            ? [section('registry-information', 'Registry information', c.registryInformation(directory))]
+            : []),
           section('assessment', 'Assessment', c.prosCons({ pros: directory.pros, cons: directory.cons, headingLevel: 3 })),
           section('guidance', 'Submission guidance',
             `${c.submissionLink(directory)}\n${c.editorialGuidance(directory, activeGuidance)}`),

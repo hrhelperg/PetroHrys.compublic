@@ -13,8 +13,7 @@
     "nativeName": "Gemeinsames Registerportal der Länder",
     "primaryRegistryType": "company-register",
     "registryTypes": [
-      "company-register",
-      "public-filing-database"
+      "company-register"
     ],
     "operator": {
       "name": "Justizverwaltungen der Länder (German state justice administrations)",
@@ -122,7 +121,7 @@
     "cons": [
       "Structured retrieval is described by the operator as a non-binding service"
     ],
-    "editorNotes": "Verified 2026-08-04. Operated by the state justice administrations; copyright held by the Ministry of Justice of North Rhine-Westphalia. Whether every retrieval is free was not established, so paid is null."
+    "editorNotes": "Verified 2026-08-04. Operated by the state justice administrations; copyright held by the Ministry of Justice of North Rhine-Westphalia. Whether every retrieval is free was not established, so paid is null. Classified company-register only: the evidence establishes register aggregation, not a filed-document database."
   },
   {
     "id": "de-bundesanzeiger",

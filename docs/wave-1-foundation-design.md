@@ -145,3 +145,128 @@ Generated output changed on five pages only, all of them `pl-ceidg` and its
 parents: that record gained the official English name its evidence already
 cited, so the display resolver now returns it in place of the 60-character
 Polish string. Every other page is byte-identical.
+
+---
+
+# Hardening phase
+
+Closes the C8–C10 defects the adversarial review found, defines the registry
+taxonomy, and surfaces the structured fields. Still no Wave 1 records.
+
+## Definitions
+
+**Scope.** `national` — one sovereign state. `subnational` — an administrative
+jurisdiction within a state. `supranational` — an authority above several
+sovereign states. `regional` — a multi-country or functional region that is *not*
+a subnational jurisdiction. `global` — worldwide or broadly international.
+
+`subnational` and `regional` are the pair most easily confused and are held
+apart by validation: a record carrying a jurisdiction must be `subnational`, and
+a `subnational` record must carry one.
+
+**entityType.** `country` — a sovereign state, which must carry an ISO 3166-1
+alpha-2 code. `supranational` — an authority above several states, which must
+not. The European Union is `supranational` and is excluded from the country
+grid, the country counter and the hub's ItemList.
+
+**Jurisdiction.** `{type, name, code, parentCountry}`. `code` is ISO 3166-2 or
+null. A code identifies a *place*, not a record: several registries may share
+`US-CA`, but two records may not disagree about what `US-CA` names, and a code
+whose prefix contradicts its parent country is rejected.
+
+## Country grouping vocabulary (C9)
+
+Presentation labels only — `jurisdiction.type` stays canonical and nothing is
+stored per record. It is per-country because the wrong word is a factual error:
+Spain and Italy have no federal tier, so heading their national registers
+"Federal" would misdescribe their constitution.
+
+| Country | Labels, in group order |
+|---|---|
+| United States | Federal · States · Federal district · Territories |
+| Canada | Federal · Provinces · Territories |
+| Australia | Federal · States · Territories |
+| Germany | Federal · Länder |
+| Spain | National · Autonomous communities |
+| Italy | National · Regions |
+| Japan | National · Prefectures |
+| China | National · Provinces · Autonomous regions · Municipalities |
+| France, UK, Poland, Czech Republic | National only |
+
+Countries with no subnational record yet declare a neutral national label and
+nothing else, so a subnational record filed under them fails until someone
+writes the correct vocabulary rather than silently borrowing American terms. An
+undeclared country/type pair throws, and the validator rejects it first.
+
+**Adding a country or supranational entity:** add the `countries.json` entry with
+its `entityType` and ISO code (or null), create the empty directories file, and
+add a `JURISDICTION_VOCABULARY` entry. Skipping the vocabulary is safe — it fails
+loudly the moment a subnational record needs it.
+
+**Special administrative regions** are deliberately absent from China's
+vocabulary. Hong Kong and Macao are separate legal systems and must be modelled
+as their own entries if ever added, never folded into a mainland grouping.
+
+## Ordering contract (C8)
+
+`directoryTable` sorts with the shared comparator by default. `sortKey: null` is
+the explicit opt-out meaning "already ordered, render as given". Grouped pages
+use it, because sorting must happen **once, before grouping** — a silent re-sort
+inside the table discarded the A–Z jurisdiction order and rendered States in
+PetroHrys Score order instead.
+
+## Nested orphan rejection (C10)
+
+Rejection applies at every level, with dotted paths: `operator.agencyTyp`,
+`jurisdiction.typoCode`, `publicAccess.requiresLogn`,
+`metricsProvenance.domainRating.measuredDomian`. Wrongly typed containers are
+rejected too — `registryTypes: "company-register"` used to be coerced to `[]`
+with no complaint. Problems are collected before the migration's pickers can
+discard them, and sorted by path so two runs report identically.
+
+## Registry classification
+
+The glossary lives in `scripts/lib/bd-registry-types.cjs`: 18 types, each with an
+operational definition, an inclusion test, and the boundary against the type it
+is most often confused with. These are operational descriptions of what a system
+*does*, never claims about legal effect in any jurisdiction.
+
+Validation is structural only. Which of `company-register` or
+`business-entity-register` fits is an editorial reading of an official scope
+statement, and the glossary is where that argument is recorded — a validator
+cannot settle it. What is enforced: the primary type must be in the list, types
+must be unique, a verified government or finance record must carry at least one,
+a `cross-border-registry-interface` normally needs supranational/regional/global
+scope, and `corporate-number-database` + `company-register` or
+`public-filing-database` + `company-register` need the evidence to say so.
+
+**Multifunction registries:** record every function the evidence supports. Do not
+force one label. Mark as primary the function the system chiefly exists to
+perform, and argue any contested pairing in `editorNotes`.
+
+## publicAccess semantics
+
+`accessLevel` is recorded, never derived. `unknown` with every boolean null is
+the honest default for a register nobody has tested, and `unknown` alongside an
+established boolean is **not** a contradiction — knowing a register is free to
+search says nothing about whether it also demands a login. What is rejected is a
+level contradicting a stated boolean: `open` with `loginRequired: true`,
+`login-required` with `loginRequired: false`.
+
+A `searchUrl` is a route, not a permission. It is never used to imply openness.
+
+## Display-name resolution
+
+One resolver, `S.displayName()`: `englishName` → `officialName` → `nativeName` →
+`name`. Every title, breadcrumb, H1, CTA, card, table cell, RSS title, search
+index entry and JSON-LD name goes through it, and the ordering comparator
+resolves the same way so the prerendered order and the browser's re-sort agree.
+Where `englishNameSource` is `editorial-translation`, the page discloses it.
+
+## The standing rule
+
+**A schema field is not an invitation to populate it.** Every one of these
+fields is nullable, and null means "not established from an official source".
+Unknown stays null; the UI renders only what is supported, so a gap costs
+nothing on the page; and official evidence — not plausibility, not the shape of
+the schema — decides every classification.

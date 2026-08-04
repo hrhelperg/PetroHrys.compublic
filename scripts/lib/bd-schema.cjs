@@ -206,6 +206,83 @@ const SCOPE_DEFINITIONS = {
 const JURISDICTION_TYPES = ['state', 'province', 'territory', 'federal-district',
   'region', 'autonomous-community', 'prefecture', 'municipality'];
 
+// --- grouping vocabulary -----------------------------------------------------
+// Presentation labels only. `jurisdiction.type` stays the canonical machine
+// value; nothing here is stored on a record.
+//
+// It is per-country because the same machine type is called different things in
+// different states, and because the wrong word is a factual error rather than a
+// style choice: Spain and Italy have no federal tier, so heading their national
+// registers "Federal" would misdescribe their constitution. `region` is the
+// clearest case — Länder in Germany, Regions in Italy, Autonomous regions in
+// China.
+//
+// NATIONAL_KEY is the bucket for records with no jurisdiction. It is not a
+// jurisdiction type, so it is keyed separately.
+const NATIONAL_KEY = 'national';
+
+const JURISDICTION_VOCABULARY = {
+  'united-states': {
+    national: 'Federal',
+    state: 'States',
+    'federal-district': 'Federal district',
+    territory: 'Territories',
+  },
+  canada: { national: 'Federal', province: 'Provinces', territory: 'Territories' },
+  australia: { national: 'Federal', state: 'States', territory: 'Territories' },
+  germany: { national: 'Federal', region: 'Länder' },
+  spain: { national: 'National', 'autonomous-community': 'Autonomous communities' },
+  italy: { national: 'National', region: 'Regions' },
+  japan: { national: 'National', prefecture: 'Prefectures' },
+  // Special administrative regions are deliberately absent: none is modelled,
+  // and Hong Kong and Macao are separate legal systems that must not be folded
+  // into a mainland grouping if they are ever added.
+  china: {
+    national: 'National',
+    province: 'Provinces',
+    region: 'Autonomous regions',
+    municipality: 'Municipalities',
+  },
+  // Countries with no subnational record yet get a neutral national label and
+  // nothing else. A subnational record filed under them fails loudly until
+  // someone writes the correct vocabulary, rather than silently borrowing
+  // American terminology.
+  france: { national: 'National' },
+  'united-kingdom': { national: 'National' },
+  poland: { national: 'National' },
+  'czech-republic': { national: 'National' },
+  'european-union': { national: 'Union-wide' },
+  global: { national: 'Global' },
+};
+
+const DEFAULT_NATIONAL_LABEL = 'National';
+
+// Throws rather than guessing. An unsupported country/type pair means either
+// the record is misfiled or the vocabulary is incomplete, and both are editorial
+// decisions a person must make — inventing "Prefectures in Spain" is not one.
+function jurisdictionLabel(countrySlug, typeKey) {
+  const vocabulary = JURISDICTION_VOCABULARY[countrySlug];
+  if (!vocabulary) {
+    throw new Error(`No jurisdiction vocabulary is declared for country "${countrySlug}". `
+      + 'Add one to JURISDICTION_VOCABULARY before publishing records for it.');
+  }
+  const label = vocabulary[typeKey];
+  if (!label) {
+    const known = Object.keys(vocabulary).filter((k) => k !== NATIONAL_KEY);
+    throw new Error(`Country "${countrySlug}" has no label for jurisdiction type "${typeKey}". `
+      + `It declares: ${known.length ? known.join(', ') : '(no subnational types)'}. `
+      + 'Either the record is misfiled or the vocabulary needs extending.');
+  }
+  return label;
+}
+
+// The subnational types a country is allowed to use, for the validator.
+function allowedJurisdictionTypes(countrySlug) {
+  const vocabulary = JURISDICTION_VOCABULARY[countrySlug];
+  if (!vocabulary) return null;
+  return Object.keys(vocabulary).filter((k) => k !== NATIONAL_KEY);
+}
+
 // ISO 3166-2: two-letter country, hyphen, 1-3 alphanumerics.
 const ISO_3166_2_RE = /^[A-Z]{2}-[A-Z0-9]{1,3}$/;
 
@@ -260,6 +337,42 @@ const ACCESS_LEVELS = ['open', 'partially-open', 'login-required',
 
 const PUBLIC_ACCESS_BOOLEANS = ['freeToSearch', 'loginRequired', 'identityVerificationRequired',
   'captcha', 'geographicRestriction', 'paidDocumentsAvailable'];
+
+// Human wording for every enum a reader can see. Derived from the enums
+// themselves at require time, so a new value cannot be added without a label —
+// the alternative is a page that prints "identity-verification-required".
+const ACCESS_LEVEL_LABELS = {
+  open: 'Open',
+  'partially-open': 'Partly open',
+  'login-required': 'Login required',
+  'identity-verification-required': 'Identity verification required',
+  restricted: 'Restricted',
+  unknown: 'Not established',
+};
+
+const OPERATOR_TYPE_LABELS = {
+  'government-agency': 'Government agency',
+  regulator: 'Regulator',
+  court: 'Court',
+  'public-law-body': 'Public-law body',
+  'supranational-institution': 'Supranational institution',
+  ministry: 'Ministry',
+  'local-authority': 'Local authority',
+  other: 'Other',
+};
+
+const SCOPE_LABELS = {
+  global: 'Global',
+  supranational: 'Supranational',
+  national: 'National',
+  subnational: 'Subnational',
+  regional: 'Regional',
+};
+
+// Stated once, next to the enum it explains, so the page can say what a
+// missing access level means instead of leaving a reader to guess.
+const ACCESS_UNKNOWN_NOTE = 'The overall access position has not been established from an official '
+  + 'source. It is recorded as unknown rather than assumed to be open.';
 
 // Returns the reasons an access block contradicts itself. A stated level and a
 // stated boolean disagreeing means one of them is wrong, and publishing either
@@ -414,6 +527,18 @@ function nextVerificationFor(record) {
   return shifted.toISOString().slice(0, 10);
 }
 
+// Enforced at require time. A new enum value without a label would otherwise
+// surface as a raw machine string on a published page.
+for (const [name, values, labels] of [
+  ['ACCESS_LEVELS', ACCESS_LEVELS, ACCESS_LEVEL_LABELS],
+  ['OPERATOR_TYPES', OPERATOR_TYPES, OPERATOR_TYPE_LABELS],
+  ['SCOPES', SCOPES, SCOPE_LABELS],
+]) {
+  for (const value of values) {
+    if (!labels[value]) throw new Error(`${name} value "${value}" has no display label.`);
+  }
+}
+
 // --- the canonical record key set -------------------------------------------
 // Every key a normalised record may carry. The validator rejects anything else,
 // so a typo or an improvised per-country field fails loudly instead of being
@@ -438,10 +563,42 @@ const KNOWN_RECORD_KEYS = [
   'requiredAssets', 'recommendedIndustries', 'editorialTags', 'pros', 'cons', 'editorNotes',
 ];
 
+// --- nested key sets --------------------------------------------------------
+// Top-level rejection is not enough. `jurisdiction: { typoCode: 'US-CA' }` was
+// accepted and then silently emptied by the migration's fixed-key picker, so a
+// misspelled nested field produced neither an error nor any data. Each
+// structured object therefore declares its own key set, and the same rejection
+// applies at every level with a dotted path in the message.
+const NESTED_RECORD_KEYS = {
+  jurisdiction: ['type', 'name', 'code', 'parentCountry'],
+  operator: ['name', 'type', 'officialUrl'],
+  publicAccess: ['searchUrl', 'accessLevel', ...PUBLIC_ACCESS_BOOLEANS, 'notes'],
+  verification: ['status', 'source', 'reviewers'],
+  requiredAssets: REQUIRED_ASSET_KEYS,
+  accepts: ACCEPTS_KEYS,
+  related: RELATION_KINDS,
+  scoreFactors: SCORE_FACTORS.map((f) => f.key),
+};
+
+// Provenance is keyed by metric name, so its own keys are dynamic; only the
+// shape of each entry is fixed.
+const METRIC_PROVENANCE_KEYS = ['provider', 'measuredAt', 'status', 'measuredDomain'];
+
+// Fields whose stored value must be an object, and those that must be an array.
+// A wrongly typed value used to be coerced away by the migration — a string
+// `registryTypes` became `[]` — which lost the author's intent silently.
+const OBJECT_VALUED_FIELDS = ['jurisdiction', 'operator', 'publicAccess', 'verification',
+  'requiredAssets', 'accepts', 'related', 'scoreFactors', 'metricsProvenance'];
+const ARRAY_VALUED_FIELDS = ['registryTypes', ...ARRAY_FIELDS];
+
 module.exports = {
+  NESTED_RECORD_KEYS, METRIC_PROVENANCE_KEYS, OBJECT_VALUED_FIELDS, ARRAY_VALUED_FIELDS,
   ENTITY_TYPES, SCOPES, SCOPE_DEFINITIONS, JURISDICTION_TYPES, ISO_3166_2_RE,
+  JURISDICTION_VOCABULARY, NATIONAL_KEY, DEFAULT_NATIONAL_LABEL,
+  jurisdictionLabel, allowedJurisdictionTypes,
   ENGLISH_NAME_SOURCES, displayName, isEditorialTranslation,
   REGISTRY_TYPES, OPERATOR_TYPES, ACCESS_LEVELS, PUBLIC_ACCESS_BOOLEANS, accessContradictions,
+  ACCESS_LEVEL_LABELS, OPERATOR_TYPE_LABELS, SCOPE_LABELS, ACCESS_UNKNOWN_NOTE,
   KNOWN_RECORD_KEYS,
   TIERS, BACKLINK_TYPES, ROBOTS_STATES, SUBMISSION_MODELS, METRIC_STATUSES,
   SUBMISSION_MODEL_LABELS, SUBMISSION_NOT_APPLICABLE_NOTE, SUBMITTABLE_MODELS,

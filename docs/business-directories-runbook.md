@@ -298,3 +298,39 @@ Sort keys live in `js/bd-order.js` (shared by server and browser):
 → name. Nulls sort **last** in both and are never hidden or rendered as 0.
 `directoryTable()` takes an explicit `sortKey` — a caller that pre-sorts must pass
 the matching key or the table re-sorts to the default.
+
+## Government registry records (Wave 1)
+
+Full model and rationale: `docs/wave-1-foundation-design.md`. Working rules:
+
+- **Scope.** `national` = one state · `subnational` = a jurisdiction within one ·
+  `supranational` = above several · `regional` = multi-country or functional, not
+  subnational · `global` = worldwide. A jurisdiction requires `subnational`, and
+  `subnational` requires a jurisdiction.
+- **Jurisdiction codes** are ISO 3166-2 or null. The code names a place, so two
+  records may share `US-CA` but may not disagree about what it is.
+- **Grouping labels** come from `JURISDICTION_VOCABULARY` per country. Never
+  write "Federal" for Spain, Italy or Japan. An undeclared country/type pair
+  fails the validator — extend the vocabulary, do not work around it.
+- **Registry types** come from the glossary in `scripts/lib/bd-registry-types.cjs`.
+  Read the boundary note before choosing. Record every function the evidence
+  supports; mark one primary. A verified government or finance record must carry
+  at least one.
+- **`corporate-number-database` is not a `company-register`.** An identifier
+  lookup is not the entity's legal register unless the evidence says so.
+- **`cross-border-registry-interface` is not the source of record.** The
+  underlying national registers usually remain authoritative; say so in the record.
+- **publicAccess.** Record what the source establishes. `accessLevel: "unknown"`
+  with `freeToSearch: true` is a normal, honest state. Never infer `open` from
+  the absence of stated restrictions, and never from a search URL existing.
+- **Names.** Keep the native official name in `nativeName`. If you add an
+  `englishName`, set `englishNameSource` — `official` if the operator publishes
+  it, `editorial-translation` if we wrote it. The page discloses translations.
+- **Nothing is required to be filled.** Every new field is nullable and null means
+  "not established". A sparse, sourced record beats a complete, guessed one.
+
+### Ordering
+
+Sort once, before grouping. A caller that has already ordered rows passes
+`sortKey: null` to `directoryTable`; anything else gets re-sorted by the shared
+comparator.

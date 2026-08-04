@@ -5,6 +5,7 @@ const { safeExternalUrl } = require('./bd-seo.cjs');
 const { sortDirectories, SORTS, SORT_KEYS, compareByName } = require('./bd-sort.cjs');
 const { directoryPathFor } = require('./bd-routes.cjs');
 const S = require('./bd-schema.cjs');
+const { registryTypeLabel } = require('./bd-registry-types.cjs');
 
 // ---------------------------------------------------------------------------
 // Helpers
@@ -227,6 +228,107 @@ function metricNote(active) {
     + `rel="${REL_EXTERNAL}" target="_blank">${escapeHtml(S.AHREFS_ATTRIBUTION.text)}`
     + `${vh(' (opens in a new tab)')}</a></p>`;
   return `      <p class="bd-note">${escapeHtml(parts.join(' '))}</p>\n${attribution}`;
+}
+
+// ---------------------------------------------------------------------------
+// 7b. Registry information
+// ---------------------------------------------------------------------------
+
+// The structured facts Wave 1 captures — who runs the register, what kind it is,
+// which jurisdiction it covers, and whether a reader can actually use it.
+//
+// Every row is conditional. A record with none of these fields renders nothing
+// at all, not an empty section and not a column of "Unknown": listing the
+// schema's gaps back at a reader tells them about our data model rather than
+// about the register. `accessLevel: "unknown"` IS shown, because there the
+// absence is the finding — it says we looked and could not establish it.
+function registryInformation(directory) {
+  if (!directory) return '';
+  // Scope alone does not earn the section. Every record has one, so triggering
+  // on it would put a "Registry information" heading on a SaaS listing whose
+  // only content is "Scope: Global" — a heading that promises registry facts
+  // and delivers none. At least one genuinely registry-specific field must be
+  // present; scope is then shown as context alongside it.
+  const hasRegistryFact = !!(
+    (directory.operator && directory.operator.name)
+    || (Array.isArray(directory.registryTypes) && directory.registryTypes.length)
+    || (directory.jurisdiction && directory.jurisdiction.name)
+    || (directory.publicAccess && directory.publicAccess.accessLevel)
+    || (directory.nativeName && directory.nativeName !== S.displayName(directory))
+    || S.isEditorialTranslation(directory)
+  );
+  if (!hasRegistryFact) return '';
+
+  const rows = [];
+  const row = (label, value) => rows.push(
+    `        <div class="bd-def">
+          <dt class="bd-def-t">${escapeHtml(label)}</dt>
+          <dd class="bd-def-d">${value}</dd>
+        </div>`,
+  );
+
+  const operator = directory.operator;
+  if (operator && operator.name) {
+    const typeLabel = operator.type ? S.OPERATOR_TYPE_LABELS[operator.type] : null;
+    const href = safeHref(operator.officialUrl);
+    const name = href
+      ? `<a href="${escapeHtml(href)}" rel="${REL_EXTERNAL}" target="_blank">`
+        + `${escapeHtml(operator.name)}${vh(' (opens in a new tab)')}</a>`
+      : escapeHtml(operator.name);
+    row('Operator', typeLabel
+      ? `${name} <span class="bd-def-note">${escapeHtml(typeLabel)}</span>`
+      : name);
+  }
+
+  const types = Array.isArray(directory.registryTypes) ? directory.registryTypes : [];
+  if (types.length) {
+    // Primary first, then the rest in their declared order, so the lead
+    // classification is the one a reader meets first.
+    const ordered = [directory.primaryRegistryType, ...types.filter((t) => t !== directory.primaryRegistryType)]
+      .filter(Boolean);
+    row(ordered.length === 1 ? 'Registry type' : 'Registry types',
+      ordered.map((t) => `<span class="bd-tag">${escapeHtml(registryTypeLabel(t))}</span>`).join(' '));
+  }
+
+  const j = directory.jurisdiction;
+  if (j && j.name) {
+    row('Jurisdiction', j.code
+      ? `${escapeHtml(j.name)} <span class="bd-def-note">${escapeHtml(j.code)}</span>`
+      : escapeHtml(j.name));
+  }
+  if (directory.scope && S.SCOPE_LABELS[directory.scope]) {
+    row('Scope', escapeHtml(S.SCOPE_LABELS[directory.scope]));
+  }
+
+  const access = directory.publicAccess;
+  if (access && access.accessLevel) {
+    const label = S.ACCESS_LEVEL_LABELS[access.accessLevel] || access.accessLevel;
+    const note = access.accessLevel === 'unknown' ? S.ACCESS_UNKNOWN_NOTE : access.notes;
+    row('Public access', note
+      ? `${escapeHtml(label)} <span class="bd-def-note">${escapeHtml(note)}</span>`
+      : escapeHtml(label));
+  }
+  // A search URL is a route, not a permission. It is shown as a link and never
+  // used to imply that the register is openly accessible.
+  const searchHref = access ? safeHref(access.searchUrl) : null;
+  if (searchHref) {
+    row('Official search',
+      `<a href="${escapeHtml(searchHref)}" rel="${REL_EXTERNAL}" target="_blank">`
+      + `${escapeHtml(searchHref)}${vh(' (opens in a new tab)')}</a>`);
+  }
+
+  // Shown only when it adds something the title does not already say.
+  if (directory.nativeName && directory.nativeName !== S.displayName(directory)) {
+    row('Official name', `<span lang="" translate="no">${escapeHtml(directory.nativeName)}</span>`);
+  }
+  if (S.isEditorialTranslation(directory)) {
+    row('English title', 'Editorial translation');
+  }
+
+  if (!rows.length) return '';
+  return `      <dl class="bd-defs bd-registry-info">
+${rows.join('\n')}
+      </dl>`;
 }
 
 // ---------------------------------------------------------------------------
@@ -549,24 +651,6 @@ ${cells}
 // they apply everywhere, then states A-Z, then the federal district, then
 // territories — so two builds of the same data agree.
 
-const JURISDICTION_GROUPS = [
-  { key: 'federal', label: 'Federal', match: (d) => !d.jurisdiction },
-  { key: 'states', label: 'States', match: (d) => d.jurisdiction && d.jurisdiction.type === 'state' },
-  { key: 'provinces', label: 'Provinces', match: (d) => d.jurisdiction && d.jurisdiction.type === 'province' },
-  {
-    key: 'federal-district',
-    label: 'Federal district',
-    match: (d) => d.jurisdiction && d.jurisdiction.type === 'federal-district',
-  },
-  { key: 'territories', label: 'Territories', match: (d) => d.jurisdiction && d.jurisdiction.type === 'territory' },
-  {
-    key: 'other-jurisdictions',
-    label: 'Other jurisdictions',
-    match: (d) => d.jurisdiction
-      && !['state', 'province', 'federal-district', 'territory'].includes(d.jurisdiction.type),
-  },
-];
-
 // Within a group, order by jurisdiction name so a reader scans A-Z, then fall
 // back to the shared name comparator for two registries in one jurisdiction.
 function byJurisdictionThenName(a, b) {
@@ -578,16 +662,59 @@ function byJurisdictionThenName(a, b) {
 }
 
 // Returns null when the country has no subnational record — the signal to the
-// caller that nothing needs grouping.
-function jurisdictionGroups(entries) {
+// caller that nothing needs grouping and the flat table stands.
+//
+// Group ORDER is the country's declared vocabulary order, not a hard-coded
+// list: the United States reads Federal → States → Federal district →
+// Territories because that is how its vocabulary is written, and Spain reads
+// National → Autonomous communities because that is how Spain's is. No American
+// term can reach a Spanish page, because the label is resolved per country and
+// an undeclared pair throws.
+function jurisdictionGroups(entries, countrySlug) {
   const list = Array.isArray(entries) ? entries : [];
   if (!list.some((d) => d && d.jurisdiction)) return null;
-  return JURISDICTION_GROUPS
-    .map((group) => {
-      const items = [...list.filter(group.match)].sort(byJurisdictionThenName);
-      return { key: group.key, label: group.label, items, count: items.length };
-    })
-    .filter((group) => group.count > 0);
+  if (!countrySlug) {
+    throw new Error('jurisdictionGroups needs a country slug to resolve grouping labels.');
+  }
+
+  const groups = [];
+  const national = list.filter((d) => !d.jurisdiction).sort(byJurisdictionThenName);
+  if (national.length) {
+    groups.push({
+      key: S.NATIONAL_KEY,
+      label: S.jurisdictionLabel(countrySlug, S.NATIONAL_KEY),
+      items: national,
+      count: national.length,
+    });
+  }
+  for (const type of S.allowedJurisdictionTypes(countrySlug) || []) {
+    const items = list.filter((d) => d.jurisdiction && d.jurisdiction.type === type)
+      .sort(byJurisdictionThenName);
+    if (!items.length) continue;
+    groups.push({
+      key: type,
+      label: S.jurisdictionLabel(countrySlug, type),
+      items,
+      count: items.length,
+    });
+  }
+
+  // Conservation. A record whose type the country does not declare would
+  // otherwise vanish from its own country page — the quietest possible failure.
+  const placed = new Set(groups.flatMap((g) => g.items));
+  const orphans = list.filter((d) => !placed.has(d));
+  if (orphans.length) {
+    const types = [...new Set(orphans.map((d) => (d.jurisdiction || {}).type))].join(', ');
+    throw new Error(`${orphans.length} record(s) in "${countrySlug}" use jurisdiction type(s) `
+      + `[${types}] that its vocabulary does not declare: ${orphans.map((d) => d.id).join(', ')}.`);
+  }
+  return groups;
+}
+
+// "1 registry" / "4 registries". Derived from the group, never written twice,
+// and never a bare number: a lone "1" beside a heading reads as an index.
+function registryCount(count) {
+  return `${count} ${count === 1 ? 'registry' : 'registries'}`;
 }
 
 // One control per group present. Counts are derived, never written down twice.
@@ -595,7 +722,8 @@ function jurisdictionFilter(groups, { idPrefix = 'jurisdiction' } = {}) {
   if (!groups || groups.length < 2) return '';
   const options = groups.map((g) => `        <li><a class="bd-jfilter-link" `
     + `href="#${escapeHtml(`${idPrefix}-${g.key}`)}" data-bd-jurisdiction-filter="${escapeHtml(g.key)}">`
-    + `${escapeHtml(g.label)} <span class="bd-jfilter-count">${g.count}</span></a></li>`).join('\n');
+    + `${escapeHtml(g.label)} <span class="bd-jfilter-count">${escapeHtml(registryCount(g.count))}`
+    + `</span></a></li>`).join('\n');
   return `      <nav class="bd-jfilter" aria-label="Jump to jurisdiction">
       <ul class="bd-jfilter-list">
 ${options}
@@ -611,10 +739,17 @@ function directoryTable({ directories, caption = 'Directories', columns, sortKey
   }
   const cols = Array.isArray(columns) ? columns : tableColumnsFor(directories);
   const shown = new Set(cols);
-  // Sorting happens HERE, from the shared comparator, so the server order is
-  // always a comparator result and never an accident of the caller's array.
-  // A caller that pre-sorts must pass the matching key or it will be re-sorted.
-  const rows = sortDirectories(directories, sortKey).map((d) => directoryRow(d, cols)).join('\n');
+  // Ordering contract. By default the table sorts with the shared comparator, so
+  // a careless caller still gets a deterministic order rather than an accident
+  // of its array. `sortKey: null` is the explicit opt-out: it means "I have
+  // already ordered these rows, render them as given."
+  //
+  // The opt-out exists because jurisdiction grouping orders each group by
+  // jurisdiction name, and a silent re-sort here threw that away — States came
+  // out in PetroHrys Score order while the comparator's A-Z result was
+  // discarded. Sorting now happens once, before grouping.
+  const ordered = sortKey === null ? [...directories] : sortDirectories(directories, sortKey);
+  const rows = ordered.map((d) => directoryRow(d, cols)).join('\n');
   const heads = TABLE_METRIC_COLUMNS
     .filter((col) => shown.has(col.field))
     .map((col) => `            <th class="bd-cell" scope="col">${escapeHtml(col.label)}</th>`)
@@ -995,11 +1130,12 @@ module.exports = {
   breadcrumbs, pageIntro, countryCard, categoryCard, cardGrid,
   directoryTable, directoryRow, directoryCard, metric, metricsBlock, metricNote,
   statusBadges, prosCons, bestForTags, bulletList, emptyState, faqSection,
+  registryInformation,
   searchControls, filterControls, sortControls, pagination,
   verificationBlock, acceptsList, scoreBreakdown, filterValue, filterAttr,
   relatedDirectories, submissionLink, editorialGuidance,
   methodologyNote, provenanceBlock, externalLinkCta,
   activeMetricFields, activeGuidanceFields, tableColumnsFor, countLabel,
-  jurisdictionGroups, jurisdictionFilter, byJurisdictionThenName, JURISDICTION_GROUPS,
+  jurisdictionGroups, jurisdictionFilter, byJurisdictionThenName, registryCount,
   FILTERS, VERIFICATION_NOTE, REL_EXTERNAL, FILTER_DISCLOSURE,
 };
