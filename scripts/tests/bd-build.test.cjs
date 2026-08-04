@@ -9,6 +9,7 @@ const crypto = require('node:crypto');
 const { buildAll, pageModel, BuildError, MANIFEST_FILE, SECTION_DIR } = require('../build-business-directories.cjs');
 const { loadRegistry } = require('../lib/bd-registry.cjs');
 const { PATHS } = require('../lib/bd-util.cjs');
+const { verifiedRecord } = require('./helpers/fixtures.cjs');
 
 const HUB = path.join(SECTION_DIR, 'index.html');
 const REF_COUNTRY = path.join(SECTION_DIR, 'united-states', 'index.html');
@@ -35,18 +36,10 @@ function writeDirs(dataRoot, slug, entries) {
   fs.writeFileSync(path.join(dataRoot, 'directories', `${slug}.json`), `${JSON.stringify(entries, null, 2)}\n`);
 }
 
-const rec = (over = {}) => ({
-  id: 'us-ok', name: 'Ok Directory', slug: 'ok-dir', country: 'united-states',
-  category: 'saas', website: 'https://ok.example', description: 'A directory.',
-  tier: 'tier1', petroHrysScore: null, domainRating: null, authorityScore: null,
-  estimatedTraffic: null, referringDomains: null, free: null, paid: null,
-  verificationRequired: null, manualReview: null, acceptsCompanies: null,
-  acceptsProducts: null, acceptsSaaS: null, acceptsApps: null, acceptsStartups: null,
-  acceptsAI: null, backlinkType: null, robots: null, sitemap: null, indexed: null,
-  ssl: null, lastVerified: null, nextVerification: null, httpStatus: null,
-  recommendedIndustries: [], pros: [], cons: [], editorNotes: '', metricsProvenance: {},
-  ...over,
-});
+const rec = (over = {}) => verifiedRecord({ id: 'us-ok', name: 'Ok Directory', slug: 'ok-dir',
+  website: 'https://ok.example', lastVerified: null, nextVerification: null,
+  scoreFactors: null, petroHrysScore: null,
+  verification: { status: 'unverified', source: null, reviewers: [] }, ...over });
 
 const has = (outRoot, rel) => fs.existsSync(path.join(outRoot, rel));
 const read = (outRoot, rel) => fs.readFileSync(path.join(outRoot, rel), 'utf8');
@@ -71,7 +64,11 @@ const fingerprint = (outRoot) => walk(path.join(outRoot, SECTION_DIR))
 test('the lean scaffold is exactly three pages when there is no data', () => {
   const { dataRoot, outRoot } = fixture();
   const result = buildAll({ dataRoot, outRoot });
-  assert.strictEqual(result.pages, 3);
+  // Three directory pages, plus the guides index and the methodology guides,
+  // which stand on their own and do not depend on any directory record.
+  const guides = walk(path.join(outRoot, SECTION_DIR, 'guides')).filter((f) => f.endsWith('.html'));
+  assert.strictEqual(result.pages - guides.length, 3);
+  assert.ok(guides.length > 0, 'methodology guides should still be emitted');
   assert.ok(has(outRoot, HUB));
   assert.ok(has(outRoot, REF_COUNTRY));
   assert.ok(has(outRoot, REF_CATEGORY));
@@ -185,7 +182,10 @@ test('11 every emitted file maps to exactly one owner', () => {
 // --- 10: sitemap integrity --------------------------------------------------
 
 test('10 the sitemap only references pages that were generated', () => {
-  const { dataRoot, outRoot } = fixture({ 'united-states': [rec({ lastVerified: '2026-08-01' })] });
+  const { dataRoot, outRoot } = fixture({ 'united-states': [rec({ lastVerified: '2026-08-01',
+    nextVerification: '2027-08-01',
+    verification: { status: 'verified', source: 'official-website',
+      reviewers: [{ id: 'p', name: 'P', role: 'editor' }] } })] });
   buildAll({ dataRoot, outRoot });
   const canonicals = new Set(pageModel(loadRegistry(dataRoot)).map((p) => p.meta.canonical));
   const locs = [...read(outRoot, SITEMAP).matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
@@ -198,7 +198,9 @@ test('10 the sitemap never lists a noindex page', () => {
   buildAll({ dataRoot, outRoot });
   const xml = read(outRoot, SITEMAP);
   assert.ok(!xml.includes('/united-states/'), 'empty reference pages must stay out of the sitemap');
-  assert.strictEqual((xml.match(/<loc>/g) || []).length, 1);
+  const locs = (xml.match(/<loc>/g) || []).length;
+  const guides = walk(path.join(outRoot, SECTION_DIR, 'guides')).filter((f) => f.endsWith('.html'));
+  assert.strictEqual(locs - guides.length, 1, 'only the hub, beyond the guides');
 });
 
 // --- 12, 13: pruning correctness --------------------------------------------
@@ -216,7 +218,12 @@ test('12-13 removing the last record prunes only its dependents', () => {
   assert.ok(has(outRoot, HUB), 'hub must survive');
   assert.ok(has(outRoot, REF_COUNTRY), 'reference country must survive');
   assert.ok(has(outRoot, REF_CATEGORY), 'reference category must survive');
-  assert.strictEqual(result.removed.length, 2);
+  // The two directory pages, plus any list guide that no longer has records to
+  // list. A guide with nothing in it is correctly pruned rather than published
+  // empty, so the count is asserted as a floor and by membership.
+  assert.ok(result.removed.includes(SAAS), 'stale category page not reported');
+  assert.ok(result.removed.includes(DETAIL), 'stale detail page not reported');
+  assert.ok(result.removed.every((f) => f !== HUB && f !== REF_COUNTRY));
 });
 
 test('13 no orphan page survives a full data removal', () => {
@@ -225,7 +232,12 @@ test('13 no orphan page survives a full data removal', () => {
   writeDirs(dataRoot, 'united-states', []);
   writeDirs(dataRoot, 'germany', []);
   buildAll({ dataRoot, outRoot });
-  const remaining = walk(path.join(outRoot, SECTION_DIR)).map((f) => path.relative(outRoot, f)).sort();
+  // Guides are excluded: the methodology guides stand alone and are correctly
+  // still present after every directory record is removed.
+  const remaining = walk(path.join(outRoot, SECTION_DIR))
+    .map((f) => path.relative(outRoot, f))
+    .filter((f) => !f.split(path.sep).includes('guides'))
+    .sort();
   assert.deepStrictEqual(remaining, [
     path.join(SECTION_DIR, 'feed.xml'),
     HUB,
@@ -242,7 +254,9 @@ test('14 a validator failure aborts the build with nothing written', () => {
   const before = fingerprint(outRoot);
   // Passes the loader (real country/category, safe slug, https) but fails the
   // validator: out of range and populated while unverified.
-  writeDirs(dataRoot, 'united-states', [rec({ petroHrysScore: 900 })]);
+  writeDirs(dataRoot, 'united-states', [rec({ domainRating: 900, lastVerified: '2026-08-01',
+    metricStatus: 'measured',
+    metricsProvenance: { domainRating: { provider: 'Ahrefs', measuredAt: '2026-08-01' } } })]);
   assert.throws(() => buildAll({ dataRoot, outRoot }), (err) => {
     assert.ok(err instanceof BuildError);
     assert.ok(/refusing to build/i.test(err.message), err.message);
@@ -271,12 +285,15 @@ test('15 a dry run stages and validates a full tree without writing', () => {
 });
 
 test('15 staging directories are always cleaned up', () => {
-  const before = fs.readdirSync(os.tmpdir()).filter((n) => n.startsWith('bd-stage-')).length;
+  // Asserts on the specific directory this build created, not on a count of
+  // bd-stage-* in the shared tmpdir: node --test runs files in parallel, so a
+  // concurrent build's staging directory would make a global count flaky.
   const { dataRoot, outRoot } = fixture();
+  const dry = buildAll({ dataRoot, outRoot, dryRun: true });
+  assert.ok(dry.stageDir, 'a dry run should report the directory it staged into');
+  assert.ok(!fs.existsSync(dry.stageDir), 'the staging directory it created was not removed');
   buildAll({ dataRoot, outRoot });
-  buildAll({ dataRoot, outRoot, dryRun: true });
-  const after = fs.readdirSync(os.tmpdir()).filter((n) => n.startsWith('bd-stage-')).length;
-  assert.strictEqual(after, before, 'a staging directory leaked');
+  assert.ok(!fs.existsSync(dry.stageDir));
 });
 
 // --- content correctness ----------------------------------------------------

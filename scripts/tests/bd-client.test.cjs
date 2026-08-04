@@ -8,20 +8,14 @@ const vm = require('node:vm');
 const { createDocument } = require('./helpers/mini-dom.cjs');
 const components = require('../lib/bd-components.cjs');
 const { sortDirectories } = require('../lib/bd-sort.cjs');
+const { verifiedRecord } = require('./helpers/fixtures.cjs');
 
 const root = path.resolve(__dirname, '..', '..');
 const ORDER_SRC = fs.readFileSync(path.join(root, 'js', 'bd-order.js'), 'utf8');
 const CLIENT_SRC = fs.readFileSync(path.join(root, 'js', 'business-directories.js'), 'utf8');
 
-const dir = (over = {}) => ({
-  id: over.slug || 'x', name: 'X', slug: 'x', country: 'united-states', category: 'saas',
-  website: 'https://x.example', description: 'a directory', tier: 'tier1',
-  petroHrysScore: null, domainRating: null, authorityScore: null, estimatedTraffic: null,
-  referringDomains: null, free: null, paid: null, verificationRequired: null,
-  manualReview: null, acceptsSaaS: null, acceptsStartups: null, acceptsAI: null,
-  lastVerified: null, nextVerification: null, recommendedIndustries: [],
-  pros: [], cons: [], editorNotes: '', metricsProvenance: {}, ...over,
-});
+const dir = (over = {}) => verifiedRecord({ id: over.slug || 'x', name: 'X', slug: 'x',
+  description: 'a directory', ...over });
 
 // Renders the real components, parses the real markup, then executes the real
 // client script against it. Nothing here is a stub except the DOM itself.
@@ -57,11 +51,18 @@ function boot(directories) {
   };
 }
 
+const metric = (over) => ({ metricStatus: 'measured',
+  metricsProvenance: { domainRating: { provider: 'Ahrefs', measuredAt: '2026-08-01' },
+    estimatedTraffic: { provider: 'Ahrefs', measuredAt: '2026-08-01' } }, ...over });
+
 const ROWS = [
-  dir({ slug: 'delta', name: 'Delta', petroHrysScore: 40, domainRating: 10, free: true }),
-  dir({ slug: 'bravo', name: 'bravo', petroHrysScore: 90, domainRating: 50 }),
-  dir({ slug: 'alpha', name: 'Alpha', petroHrysScore: 90, domainRating: 50, acceptsSaaS: true }),
-  dir({ slug: 'echo', name: 'Echo', petroHrysScore: null, estimatedTraffic: 900, free: true }),
+  dir(metric({ slug: 'delta', name: 'Delta', petroHrysScore: 40, domainRating: 10,
+    submissionModel: 'free', scoreFactors: null })),
+  dir(metric({ slug: 'bravo', name: 'bravo', petroHrysScore: 90, domainRating: 50, scoreFactors: null })),
+  dir(metric({ slug: 'alpha', name: 'Alpha', petroHrysScore: 90, domainRating: 50,
+    accepts: { saas: true }, scoreFactors: null })),
+  dir(metric({ slug: 'echo', name: 'Echo', petroHrysScore: null, estimatedTraffic: 900,
+    submissionModel: 'freemium', scoreFactors: null })),
 ];
 
 test('the ordering module and the client script both execute', () => {
@@ -137,7 +138,7 @@ test('clearing the search restores every row', () => {
 
 test('a filter hides rows that lack the flag', () => {
   const app = boot(ROWS);
-  const free = app.filters.find((f) => f.getAttribute('data-bd-filter') === 'free');
+  const free = app.filters.find((f) => f.getAttribute('data-bd-filter') === 'free-submission');
   free.checked = true;
   free.dispatch('change');
   assert.deepStrictEqual(app.visibleNames().sort(), ['Delta', 'Echo']);
@@ -145,16 +146,16 @@ test('a filter hides rows that lack the flag', () => {
 
 test('two filters combine as AND', () => {
   const app = boot(ROWS);
-  const free = app.filters.find((f) => f.getAttribute('data-bd-filter') === 'free');
-  const saas = app.filters.find((f) => f.getAttribute('data-bd-filter') === 'acceptsSaaS');
+  const free = app.filters.find((f) => f.getAttribute('data-bd-filter') === 'free-submission');
+  const saas = app.filters.find((f) => f.getAttribute('data-bd-filter') === 'accepts-saas');
   free.checked = true; free.dispatch('change');
   saas.checked = true; saas.dispatch('change');
-  assert.deepStrictEqual(app.visibleNames(), [], 'no row is both free and SaaS-accepting');
+  assert.deepStrictEqual(app.visibleNames(), [], 'no row is both free-to-submit and SaaS-accepting');
 });
 
 test('filter and search combine', () => {
   const app = boot(ROWS);
-  const free = app.filters.find((f) => f.getAttribute('data-bd-filter') === 'free');
+  const free = app.filters.find((f) => f.getAttribute('data-bd-filter') === 'free-submission');
   free.checked = true; free.dispatch('change');
   app.searchInput.value = 'echo';
   app.searchInput.dispatch('input');
@@ -178,7 +179,7 @@ test('the live region is a polite status region', () => {
 
 test('sorting after filtering keeps the filter applied', () => {
   const app = boot(ROWS);
-  const free = app.filters.find((f) => f.getAttribute('data-bd-filter') === 'free');
+  const free = app.filters.find((f) => f.getAttribute('data-bd-filter') === 'free-submission');
   free.checked = true; free.dispatch('change');
   app.sortSelect.value = 'alphabetical';
   app.sortSelect.dispatch('change');

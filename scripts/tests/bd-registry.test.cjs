@@ -9,6 +9,7 @@ const {
   groupByCategory, reservedSlugs, isIndexable, RegistryError,
 } = require('../lib/bd-registry.cjs');
 const { PATHS } = require('../lib/bd-util.cjs');
+const { verifiedRecord } = require('./helpers/fixtures.cjs');
 
 // Copies the real countries/categories into a temp root so integrity failures
 // can be provoked without touching the repository.
@@ -26,24 +27,16 @@ function fixture(byCountry = {}, options = {}) {
   return root;
 }
 
-const record = (over = {}) => ({
-  id: 'us-example', name: 'Example Directory', slug: 'example-directory',
-  country: 'united-states', category: 'saas', website: 'https://example.com',
-  description: 'A directory.', tier: 'tier1', petroHrysScore: null, domainRating: null,
-  authorityScore: null, estimatedTraffic: null, referringDomains: null, free: null,
-  paid: null, verificationRequired: null, manualReview: null, acceptsCompanies: null,
-  acceptsProducts: null, acceptsSaaS: null, acceptsApps: null, acceptsStartups: null,
-  acceptsAI: null, backlinkType: null, robots: null, sitemap: null, indexed: null,
-  ssl: null, lastVerified: null, nextVerification: null, httpStatus: null,
-  recommendedIndustries: [], pros: [], cons: [], editorNotes: '', metricsProvenance: {},
-  ...over,
-});
+const record = (over = {}) => verifiedRecord(over);
 
-test('loads the current empty registry', () => {
+test('loads the current registry', () => {
   const registry = loadRegistry();
-  assert.strictEqual(registry.countries.length, 10);
+  assert.strictEqual(registry.countries.length, 11);
   assert.strictEqual(registry.categories.length, 21);
-  assert.strictEqual(registry.directories.length, 0);
+  assert.ok(registry.directories.length > 0, 'the registry now holds verified records');
+  for (const entry of registry.directories) {
+    assert.ok(entry.lastVerified, `${entry.id} has no verification date`);
+  }
 });
 
 test('country and category ordering follows declaration order and is stable', () => {
@@ -51,7 +44,7 @@ test('country and category ordering follows declaration order and is stable', ()
   const b = loadRegistry();
   assert.deepStrictEqual(a.countries.map((c) => c.slug), b.countries.map((c) => c.slug));
   assert.deepStrictEqual(a.categories.map((c) => c.slug), b.categories.map((c) => c.slug));
-  assert.strictEqual(a.countries[0].slug, 'united-states', 'declaration order must be preserved');
+  assert.strictEqual(a.countries[0].slug, 'global', 'declaration order must be preserved');
   assert.strictEqual(a.categories[0].slug, 'general-business');
 });
 
@@ -141,14 +134,41 @@ test('a record stored in the wrong country file is rejected', () => {
 });
 
 test('null metrics are preserved exactly and never coerced', () => {
-  const root = fixture({ 'united-states': [record()] });
+  const root = fixture({ 'united-states': [record({ scoreFactors: null, petroHrysScore: null })] });
   const [entry] = loadRegistry(root).directories;
   for (const field of ['petroHrysScore', 'domainRating', 'authorityScore',
-    'estimatedTraffic', 'referringDomains', 'httpStatus', 'lastVerified', 'free']) {
+    'estimatedTraffic', 'referringDomains', 'httpStatus']) {
     assert.strictEqual(entry[field], null, `${field} must stay null`);
     assert.notStrictEqual(entry[field], 0, `${field} must not become 0`);
   }
+  for (const key of Object.keys(entry.accepts)) {
+    assert.strictEqual(entry.accepts[key], null, `accepts.${key} must stay null`);
+  }
   assert.ok(Object.hasOwn(entry, 'petroHrysScore'));
+});
+
+test('a record in the pre-expansion shape migrates on load', () => {
+  const legacy = {
+    id: 'legacy-1', name: 'Legacy', slug: 'legacy', country: 'united-states',
+    category: 'saas', website: 'https://legacy.example', description: 'd', tier: 'tier1',
+    free: true, paid: true, acceptsSaaS: true, acceptsStartups: false,
+    verificationRequired: true, registration: 'required',
+    lastVerified: '2026-08-01', nextVerification: '2027-08-01',
+    verificationMethod: 'official-url-fetch',
+    recommendedIndustries: [], pros: [], cons: [], editorNotes: '', metricsProvenance: {},
+  };
+  const root = fixture({ 'united-states': [legacy] });
+  const [entry] = loadRegistry(root).directories;
+  assert.strictEqual(entry.submissionModel, 'freemium', 'free+paid becomes freemium');
+  assert.strictEqual(entry.registrationRequired, true);
+  assert.strictEqual(entry.accepts.saas, true);
+  assert.strictEqual(entry.accepts.startup, false);
+  assert.strictEqual(entry.accepts.ai, null, 'unknown flags stay null, never invented');
+  assert.strictEqual(entry.verification.status, 'verified');
+  assert.strictEqual(entry.verification.source, 'official-website');
+  assert.strictEqual(entry.metricStatus, 'unknown');
+  assert.ok(!('free' in entry), 'legacy columns are not left behind as orphans');
+  assert.ok(!('acceptsSaaS' in entry));
 });
 
 test('a traversal slug in countries.json is rejected', () => {

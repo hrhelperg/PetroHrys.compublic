@@ -293,3 +293,6 @@
 @media (max-width: 40rem) {
   .bd-table { display: block; overflow-x: auto; }
 }
+
+.bd-relations { margin-top: var(--s-4); }
+.bd-relation + .bd-relation { margin-top: var(--s-4); }

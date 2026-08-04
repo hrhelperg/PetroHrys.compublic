@@ -1,1 +1,238 @@
-[]
+[
+  {
+    "id": "gb-companies-house",
+    "name": "Companies House Register",
+    "slug": "companies-house",
+    "country": "united-kingdom",
+    "category": "government",
+    "website": "https://find-and-update.company-information.service.gov.uk/",
+    "submissionUrl": null,
+    "description": "Statutory register of UK companies operated by Companies House, holding filed accounts, officers and registered office data.",
+    "tier": "tier1",
+    "scope": "national",
+    "petroHrysScore": 95,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 10,
+      "verificationQuality": 9,
+      "platformReputation": 9,
+      "spamResistance": 10,
+      "industryImportance": 10,
+      "longTermStability": 10,
+      "submissionQuality": 8,
+      "transparency": 9,
+      "moderationQuality": 9
+    },
+    "domainRating": 92,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-04"
+      }
+    },
+    "submissionModel": "free",
+    "registrationRequired": true,
+    "reviewSystem": false,
+    "verificationRequired": true,
+    "manualReview": false,
+    "accepts": {
+      "startup": true,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": true,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-04",
+    "nextVerification": "2027-02-04",
+    "verification": {
+      "status": "verified",
+      "source": "official-website",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [
+        "global-opencorporates"
+      ],
+      "competitors": []
+    },
+    "bestFor": [
+      "Any entity incorporating in the United Kingdom"
+    ],
+    "notRecommendedFor": [
+      "Businesses not registered in the UK"
+    ],
+    "submissionDifficulty": "moderate",
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Any UK-incorporated entity"
+    ],
+    "editorialTags": [
+      "statutory",
+      "primary-source",
+      "open-data"
+    ],
+    "pros": [
+      "Primary legal source for UK company data",
+      "Free public access to filings"
+    ],
+    "cons": [
+      "Companies House states it does not verify the accuracy of filed information"
+    ],
+    "editorNotes": "Verified 2026-08-04 by fetching the official GOV.UK service. Incorporation is a legal process, not a discretionary listing."
+  },
+  {
+    "id": "gb-cqc",
+    "name": "Care Quality Commission",
+    "slug": "care-quality-commission",
+    "country": "united-kingdom",
+    "category": "healthcare",
+    "website": "https://www.cqc.org.uk/",
+    "submissionUrl": null,
+    "description": "Statutory regulator of health and social care in England, publishing a searchable directory of registered providers with inspection ratings.",
+    "tier": "tier1",
+    "scope": "national",
+    "petroHrysScore": 89,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 8,
+      "verificationQuality": 10,
+      "platformReputation": 8,
+      "spamResistance": 10,
+      "industryImportance": 8,
+      "longTermStability": 10,
+      "submissionQuality": 6,
+      "transparency": 9,
+      "moderationQuality": 10
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "unknown",
+    "registrationRequired": true,
+    "reviewSystem": false,
+    "verificationRequired": true,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": true,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-04",
+    "nextVerification": "2027-02-04",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Checking whether a care provider is registered and how it was rated"
+    ],
+    "notRecommendedFor": [
+      "Providers outside England",
+      "Marketing exposure"
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Care homes",
+      "Hospitals",
+      "GP practices",
+      "Dental services"
+    ],
+    "editorialTags": [
+      "statutory",
+      "regulator",
+      "healthcare"
+    ],
+    "pros": [
+      "Independent statutory inspection ratings",
+      "Free public directory"
+    ],
+    "cons": [
+      "England only",
+      "Registration is a legal requirement rather than an opt-in listing"
+    ],
+    "editorNotes": "Verified 2026-08-04. Ratings run Outstanding, Good, Requires Improvement, Inadequate."
+  }
+]

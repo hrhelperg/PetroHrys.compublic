@@ -186,7 +186,9 @@ function buildHubMeta({ countries = [], faqs = [] } = {}) {
 
 function buildCountryMeta({ country, categories = [], directories = [], faqs = [] }) {
   const canonicalPath = routes.countryPath(country.slug);
-  const title = `Business Directories in ${country.name}`;
+  // A country may override the generated title. "Business Directories in
+  // Global" is not English; the Global scope needs its own phrasing.
+  const title = country.pageTitle || `Business Directories in ${country.name}`;
   const description = `Business directories relevant to companies operating in ${country.titleName}, `
     + 'organised by category and verified by hand.';
   const trail = [...ROOT_TRAIL, { name: country.name, path: canonicalPath }];
@@ -230,6 +232,52 @@ function buildCategoryMeta({ country, category, directories = [] }) {
   });
 }
 
+// Editorial articles. Article schema, never FAQPage unless the caller supplies
+// FAQ content that is actually rendered on the page.
+function buildArticleMeta({ article, faqs = [] }) {
+  const canonicalPath = routes.articlePath(article.slug);
+  const trail = [
+    ...ROOT_TRAIL,
+    { name: 'Guides', path: routes.articlesPath() },
+    { name: article.title, path: canonicalPath },
+  ];
+  const node = {
+    '@type': 'Article',
+    headline: article.title,
+    description: article.description,
+    url: absoluteUrl(canonicalPath),
+    inLanguage: 'en',
+    isPartOf: { '@type': 'WebSite', name: SITE_NAME, url: `${ORIGIN}/` },
+    author: { '@type': 'Person', name: SITE_NAME, url: `${ORIGIN}/` },
+    publisher: { '@type': 'Person', name: SITE_NAME, url: `${ORIGIN}/` },
+  };
+  if (article.dateModified) node.dateModified = article.dateModified;
+  return meta({
+    title: article.title,
+    description: article.description,
+    canonicalPath,
+    robots: undefined,
+    breadcrumbTrail: trail,
+    graph: [node, faqPage(faqs), breadcrumbList(trail)],
+  });
+}
+
+function buildArticleIndexMeta({ articles = [] }) {
+  const canonicalPath = routes.articlesPath();
+  const title = 'Business Directory Guides';
+  const description = 'Editorial guides to business directories, drawn from the verified '
+    + 'PetroHrys directory dataset.';
+  const trail = [...ROOT_TRAIL, { name: 'Guides', path: canonicalPath }];
+  return meta({
+    title, description, canonicalPath, robots: undefined, breadcrumbTrail: trail,
+    graph: [
+      collectionPage({ name: title, description, url: absoluteUrl(canonicalPath) }),
+      itemList(articles.map((a) => ({ name: a.title, path: routes.articlePath(a.slug) }))),
+      breadcrumbList(trail),
+    ],
+  });
+}
+
 function buildDirectoryMeta({ country, category, directory }) {
   const countryPath = routes.countryPath(country.slug);
   const canonicalPath = routes.directoryPath(country.slug, directory.slug);
@@ -268,4 +316,5 @@ module.exports = {
   ORIGIN, SeoError, absoluteUrl, safeExternalUrl, renderJsonLd,
   breadcrumbList, collectionPage, webPage, itemList, faqPage, organisationAbout,
   buildHubMeta, buildCountryMeta, buildCategoryMeta, buildDirectoryMeta,
+  buildArticleMeta, buildArticleIndexMeta,
 };

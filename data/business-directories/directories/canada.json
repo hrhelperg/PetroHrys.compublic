@@ -1,1 +1,111 @@
-[]
+[
+  {
+    "id": "ca-corporations-canada",
+    "name": "Search for a Federal Corporation",
+    "slug": "corporations-canada",
+    "country": "canada",
+    "category": "government",
+    "website": "https://ised-isde.canada.ca/cc/lgcy/fdrlCrpSrch.html",
+    "submissionUrl": null,
+    "description": "Federal corporation search operated by Corporations Canada, confirming the existence of federally incorporated bodies.",
+    "tier": "tier1",
+    "scope": "national",
+    "petroHrysScore": 88,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 8,
+      "verificationQuality": 9,
+      "platformReputation": 8,
+      "spamResistance": 10,
+      "industryImportance": 8,
+      "longTermStability": 10,
+      "submissionQuality": 7,
+      "transparency": 9,
+      "moderationQuality": 9
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "free",
+    "registrationRequired": true,
+    "reviewSystem": false,
+    "verificationRequired": true,
+    "manualReview": null,
+    "accepts": {
+      "startup": true,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": true,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-04",
+    "nextVerification": "2027-02-04",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [
+        "global-opencorporates"
+      ],
+      "competitors": []
+    },
+    "bestFor": [],
+    "notRecommendedFor": [],
+    "submissionDifficulty": null,
+    "listingQuality": null,
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Federally incorporated Canadian bodies"
+    ],
+    "editorialTags": [
+      "statutory",
+      "primary-source"
+    ],
+    "pros": [
+      "Authoritative source for federal incorporation status",
+      "Free to search"
+    ],
+    "cons": [
+      "Excludes provincially incorporated companies and financial-law corporations"
+    ],
+    "editorNotes": "Verified 2026-08-04. Operated by Innovation, Science and Economic Development Canada. Provincial companies are covered elsewhere."
+  }
+]

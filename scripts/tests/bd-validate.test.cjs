@@ -3,18 +3,9 @@ const test = require('node:test');
 const assert = require('node:assert');
 const { validateRegistry, formatReport } = require('../validate-business-directories.cjs');
 const { loadRegistry } = require('../lib/bd-registry.cjs');
+const { verifiedRecord, factors } = require('./helpers/fixtures.cjs');
 
-const base = {
-  id: 'us-example', name: 'Example', slug: 'example', country: 'united-states',
-  category: 'saas', website: 'https://example.com', description: 'A directory.',
-  tier: 'tier1', petroHrysScore: null, domainRating: null, authorityScore: null,
-  estimatedTraffic: null, referringDomains: null, free: null, paid: null,
-  verificationRequired: null, manualReview: null, acceptsCompanies: null,
-  acceptsProducts: null, acceptsSaaS: null, acceptsApps: null, acceptsStartups: null,
-  acceptsAI: null, backlinkType: null, robots: null, sitemap: null, indexed: null,
-  ssl: null, lastVerified: null, nextVerification: null, httpStatus: null,
-  recommendedIndustries: [], pros: [], cons: [], editorNotes: '', metricsProvenance: {},
-};
+const base = verifiedRecord();
 
 const withDirs = (dirs) => ({ ...loadRegistry(), directories: dirs });
 const reasons = (result) => result.errors.map((e) => e.reason);
@@ -144,9 +135,11 @@ test('rejects a non-https website', () => {
   assert.ok(reasons(result).some((r) => /https/i.test(r)));
 });
 
-test('rejects a score outside 0-100', () => {
+test('rejects a metric outside 0-100', () => {
   const result = validateRegistry(withDirs([
-    { ...base, petroHrysScore: 140, lastVerified: '2026-08-01' },
+    { ...base, domainRating: 140,
+      metricStatus: 'measured',
+      metricsProvenance: { domainRating: { provider: 'Ahrefs', measuredAt: '2026-08-01' } } },
   ]));
   assert.ok(reasons(result).some((r) => /out of range/i.test(r)));
 });
@@ -157,20 +150,47 @@ test('rejects an invalid enum value', () => {
 });
 
 test('honesty gate rejects a metric on an unverified record', () => {
-  const result = validateRegistry(withDirs([{ ...base, petroHrysScore: 80 }]));
+  const result = validateRegistry(withDirs([
+    { ...base, lastVerified: null, nextVerification: null, domainRating: 80 },
+  ]));
   assert.ok(reasons(result).some((r) => /lastVerified is null/i.test(r)));
 });
 
+test('a published score must match its weighted factors', () => {
+  const result = validateRegistry(withDirs([{ ...base, petroHrysScore: 99 }]));
+  assert.ok(reasons(result).some((r) => /does not match its weighted factors/i.test(r)));
+});
+
+test('a published score must record its factors', () => {
+  const result = validateRegistry(withDirs([{ ...base, scoreFactors: null }]));
+  assert.ok(reasons(result).some((r) => /ten editorial factors/i.test(r)));
+});
+
+test('every audience flag must be present', () => {
+  const bad = verifiedRecord();
+  delete bad.accepts.ai;
+  assert.ok(reasons(validateRegistry(withDirs([bad]))).some((r) => /Missing audience flag/i.test(r)));
+});
+
+test('a verified record must name a reviewer', () => {
+  const bad = verifiedRecord();
+  bad.verification.reviewers = [];
+  assert.ok(reasons(validateRegistry(withDirs([bad]))).some((r) => /at least one reviewer/i.test(r)));
+});
+
+test('submissionModel must be one of the four allowed values', () => {
+  const result = validateRegistry(withDirs([{ ...base, submissionModel: 'sometimes' }]));
+  assert.ok(reasons(result).some((r) => /free, paid, freemium, unknown/i.test(r)));
+});
+
 test('rejects a third-party metric without provenance', () => {
-  const result = validateRegistry(withDirs([
-    { ...base, lastVerified: '2026-08-01', domainRating: 70 },
-  ]));
+  const result = validateRegistry(withDirs([{ ...base, domainRating: 70 }]));
   assert.ok(reasons(result).some((r) => /provenance/i.test(r)));
 });
 
 test('accepts a third-party metric with full provenance', () => {
   const result = validateRegistry(withDirs([{
-    ...base, lastVerified: '2026-08-01', domainRating: 70,
+    ...base, domainRating: 70, metricStatus: 'measured',
     metricsProvenance: { domainRating: { provider: 'Ahrefs', measuredAt: '2026-08-01' } },
   }]));
   assert.deepStrictEqual(result.errors, []);

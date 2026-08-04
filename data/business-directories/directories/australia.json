@@ -1,1 +1,226 @@
-[]
+[
+  {
+    "id": "au-abn-lookup",
+    "name": "ABN Lookup",
+    "slug": "abn-lookup",
+    "country": "australia",
+    "category": "government",
+    "website": "https://abr.business.gov.au/",
+    "submissionUrl": null,
+    "description": "Australian Government service exposing public Australian Business Number records, including entity status, type and GST registration.",
+    "tier": "tier1",
+    "scope": "national",
+    "petroHrysScore": 93,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 9,
+      "verificationQuality": 9,
+      "platformReputation": 9,
+      "spamResistance": 10,
+      "industryImportance": 9,
+      "longTermStability": 10,
+      "submissionQuality": 8,
+      "transparency": 9,
+      "moderationQuality": 9
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "free",
+    "registrationRequired": true,
+    "reviewSystem": false,
+    "verificationRequired": true,
+    "manualReview": false,
+    "accepts": {
+      "startup": true,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": true,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-04",
+    "nextVerification": "2027-02-04",
+    "verification": {
+      "status": "verified",
+      "source": "official-website",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [],
+    "notRecommendedFor": [],
+    "submissionDifficulty": null,
+    "listingQuality": null,
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Any Australian business with an ABN"
+    ],
+    "editorialTags": [
+      "statutory",
+      "primary-source",
+      "open-data"
+    ],
+    "pros": [
+      "Free, no login required",
+      "Authoritative ABN status and GST data"
+    ],
+    "cons": [
+      "Limited to publicly disclosable ABR fields"
+    ],
+    "editorNotes": "Verified 2026-08-04 by fetching abr.business.gov.au. Operated by the Australian Business Register."
+  },
+  {
+    "id": "au-asic-registers",
+    "name": "Search ASIC registers",
+    "slug": "asic-registers",
+    "country": "australia",
+    "category": "government",
+    "website": "https://asic.gov.au/online-services/search-asic-registers/",
+    "submissionUrl": null,
+    "description": "Australian regulator search covering company, business name, financial adviser and banned-person registers.",
+    "tier": "tier1",
+    "scope": "national",
+    "petroHrysScore": 92,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 9,
+      "verificationQuality": 9,
+      "platformReputation": 9,
+      "spamResistance": 10,
+      "industryImportance": 9,
+      "longTermStability": 10,
+      "submissionQuality": 7,
+      "transparency": 9,
+      "moderationQuality": 9
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "free",
+    "registrationRequired": true,
+    "reviewSystem": false,
+    "verificationRequired": true,
+    "manualReview": null,
+    "accepts": {
+      "startup": true,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": true,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-04",
+    "nextVerification": "2027-02-04",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [
+        "au-abn-lookup",
+        "global-opencorporates"
+      ],
+      "competitors": []
+    },
+    "bestFor": [
+      "Checking an Australian counterparty",
+      "Confirming a financial adviser is licensed"
+    ],
+    "notRecommendedFor": [
+      "Marketing exposure"
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Any Australian company or business name"
+    ],
+    "editorialTags": [
+      "statutory",
+      "primary-source",
+      "regulator"
+    ],
+    "pros": [
+      "Free across every register",
+      "Includes banned and disqualified registers, which most registries omit"
+    ],
+    "cons": [
+      "Split across many separate register searches"
+    ],
+    "editorNotes": "Verified 2026-08-04. Operated by the Australian Securities and Investments Commission."
+  }
+]
