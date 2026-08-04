@@ -1,78 +1,68 @@
-# Ahrefs API key — operational requirement
+# Ahrefs API key — WITHDRAWN
 
-> **Time-sensitive.** From **2026-08-10** the free Ahrefs Domain Rating endpoint
-> requires a bearer token. Until then it answers unauthenticated. After that
-> date, Domain Rating measurement stops working without a key — **the site build
-> is unaffected either way.**
+> **Do not follow this document.** It is kept only to explain the provenance of
+> the 64 Domain Rating snapshots already in the registry, and why no more were
+> taken. **Nothing in this repository needs an Ahrefs key. Do not create one, do
+> not export `AHREFS_API_KEY`, do not configure it in CI.**
 
-## What needs the key
+## What changed
 
-Only one thing: `scripts/measure-business-directory-dr.cjs`, the editorial
-utility that records Domain Rating snapshots into the registry.
+This document previously instructed maintainers to obtain a free Ahrefs key
+before **2026-08-10**, the date the endpoint became key-mandatory.
 
-**Ordinary builds do not need it.** `node scripts/build-business-directories.cjs`
-makes no network calls at all — page generation is offline and deterministic, and
-a test fails if any build library gains a `fetch`. Deployment, CI and local
-previews never read the variable.
+On **2026-08-04** the Research Center adopted an open-source data policy: it
+collects no metric that requires a paid account, an API subscription, a
+mandatory API key, a bearer token or any other private credential. A metric that
+cannot be verified from an openly accessible source is recorded as `null`, never
+estimated and never sourced from an unofficial mirror.
 
-If the key is absent after 2026-08-10, the utility reports the authentication
-failure and **writes nothing**. New records simply keep `domainRating: null`,
-which renders as an honest "Not recorded" rather than a zero. Nothing breaks; the
-dataset just stops gaining new measurements until a key is supplied.
+The instruction to obtain a key was therefore withdrawn before the deadline it
+was written for. It was never acted on in an active workflow.
 
-## Creating the key
+## Where that leaves Domain Rating
 
-1. Sign in to Ahrefs (a free account is sufficient for this endpoint).
-2. Go to **Account settings → API keys**: <https://app.ahrefs.com/account/api-keys>
-3. Generate a key.
+- The **64 existing snapshots are preserved unchanged**, each with its provider,
+  value, measurement date, measured domain and `historicalSnapshot` status. They
+  are dated historical readings and are never refreshed.
+- **No new Domain Rating values are collected.** Records added from Batch 1
+  onward carry `domainRating: null`, which the site renders as "Not measured" —
+  never as 0, and never as a live figure.
+- Records without a Domain Rating are fully publishable and fully visible. They
+  sort after measured records in the Domain Rating view only. The PetroHrys
+  Score, which never incorporated Domain Rating, remains available for every
+  qualified record and is the primary maintained ranking.
+- `scripts/measure-business-directory-dr.cjs` is retired and refuses to run
+  without `--run-retired-utility`. That flag exists only to reproduce the
+  provenance of the values already committed.
 
-The endpoint is free and consumes no API units.
+## Why the file is kept
 
-## Using it locally
+Deleting it would erase the audit trail for how the 64 snapshots were produced
+and under which endpoint terms. `scripts/tests/bd-open-source-policy.test.cjs`
+enforces that this document tells no one to obtain a key, and that no build,
+validator or test reads `AHREFS_API_KEY`.
 
-Export it in the shell that runs the utility:
+## Provenance of the existing snapshots
 
-```sh
-export AHREFS_API_KEY='<paste-your-free-ahrefs-key>'
-node scripts/measure-business-directory-dr.cjs --dry-run --all-unmeasured
-```
+Recorded for audit only. The contract below is the one the 64 committed
+snapshots were measured under, verified against official documentation on
+2026-08-04:
 
-To persist it for your own machine, add the export to your shell profile
-(`~/.zshrc`), **not** to anything inside the repository.
+    GET https://api.ahrefs.com/v3/public/domain-rating-free?target=<domain>
+    Authorization: Bearer <token>        (became mandatory 2026-08-10)
+    -> { "domain_rating": { "domain_rating": <number>, "license": <url>, "warning": <string|null> } }
 
-## Never commit it
+Each stored value carries its provider, measurement date, measured domain and
+`historicalSnapshot` status, so any reader can see exactly what was measured
+and when.
 
-- Do **not** add the key to any file in this repository.
-- Do **not** create a committed `.env`. There is no `.env` loader in this project
-  and adding one would only create a place for the key to leak from.
-- The utility reads `process.env.AHREFS_API_KEY` and nothing else. It reports
-  only whether a key is *present*, never its value, and never writes it to disk
-  or into a record.
+## Standing rules
 
-Tests assert that no tracked file contains a literal key or bearer token, and
-that no record contains credential-like text.
+These outlast the withdrawal and apply to every metric, not just this one:
 
-## Verifying the setup
-
-```sh
-node scripts/measure-business-directory-dr.cjs --dry-run --all-unmeasured
-```
-
-The first lines report the selection and `API key: present` or `API key: absent`.
-A dry run never writes, so this is safe to run at any time.
-
-## If the endpoint changes again
-
-The current contract, verified against official documentation on 2026-08-04:
-
-```
-GET https://api.ahrefs.com/v3/public/domain-rating-free?target=<domain>
-Authorization: Bearer <token>        (mandatory from 2026-08-10)
-→ { "domain_rating": { "domain_rating": <number>, "license": <url>, "warning": <string|null> } }
-```
-
-The response carries a `warning` field that Ahrefs uses to announce changes. The
-utility surfaces it verbatim in its summary, so a future deprecation shows up in
-the run output rather than silently degrading. Do not scrape Ahrefs HTML, use
-third-party Domain Rating mirrors, or copy a value from memory: a rating without
-a verifiable source and date does not belong in the registry.
+- Do not scrape Ahrefs HTML, use third-party Domain Rating mirrors, or copy a
+  value from memory. A rating without a verifiable source and date does not
+  belong in the registry.
+- Do not add a key to any file in this repository, and do not create a committed
+  `.env`. There is no `.env` loader in this project.
+- Never substitute 0 for a missing metric, and never estimate one.

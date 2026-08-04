@@ -243,5 +243,127 @@
       "Registration is a legal requirement rather than an opt-in listing"
     ],
     "editorNotes": "Verified 2026-08-04. Ratings run Outstanding, Good, Requires Improvement, Inadequate."
+  },
+  {
+    "id": "gb-fca-register",
+    "name": "Financial Services Register",
+    "slug": "fca-financial-services-register",
+    "country": "united-kingdom",
+    "category": "finance",
+    "website": "https://register.fca.org.uk/",
+    "submissionUrl": null,
+    "description": "Public record of the firms and individuals authorised by the Financial Conduct Authority or the Prudential Regulation Authority, which also carries warnings about unauthorised firms and clone-firm impersonations.",
+    "tier": "tier1",
+    "scope": "national",
+    "petroHrysScore": 88,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 8,
+      "verificationQuality": 10,
+      "platformReputation": 9,
+      "spamResistance": 10,
+      "industryImportance": 9,
+      "longTermStability": 10,
+      "submissionQuality": 4,
+      "transparency": 8,
+      "moderationQuality": 8
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": true,
+    "reviewSystem": false,
+    "verificationRequired": true,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-04",
+    "nextVerification": "2027-08-27",
+    "verification": {
+      "status": "verified",
+      "source": "official-website",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "us-finra-brokercheck"
+      ],
+      "usedWith": [
+        "gb-companies-house"
+      ],
+      "competitors": []
+    },
+    "bestFor": [
+      "Checking whether a firm or individual holds FCA or PRA authorisation",
+      "Identifying clone-firm warnings before dealing with a UK financial firm"
+    ],
+    "notRecommendedFor": [
+      "Firms outside UK financial regulation",
+      "Marketing exposure"
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Banking",
+      "Insurance",
+      "Consumer credit",
+      "Investment management"
+    ],
+    "editorialTags": [
+      "statutory",
+      "regulator",
+      "finance"
+    ],
+    "pros": [
+      "Free to search",
+      "Records unauthorised-firm and clone-firm warnings alongside authorised entries"
+    ],
+    "cons": [
+      "Covers only activity regulated in the United Kingdom",
+      "Bulk data extracts are sold through the Register Extract Service rather than published"
+    ],
+    "editorNotes": "Verified 2026-08-04 from fca.org.uk, which describes the register as \"a public record of firms, individuals and other bodies that are, or have been, authorised by us or the PRA\". The page does not name the statutory instrument that creates the register, so no legal basis is recorded rather than one being inferred. Searching is free; bulk extracts are a paid service, and a free API developer portal is offered without service-level guarantees."
   }
 ]

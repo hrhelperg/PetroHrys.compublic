@@ -126,8 +126,12 @@ ${cards.join('\n')}
 // reader never mistakes them for a PetroHrys measurement.
 // `status` lets an unmeasured metric say "Unknown" rather than showing a bare
 // dash with no explanation. It never substitutes a number.
-function metric(value, provenance, status) {
+// `emptyLabel` overrides that wording for a metric whose absence has a specific
+// meaning. Domain Rating uses it: collection is frozen, so a missing value means
+// "never measured", not "unknown to us" — and either way never 0.
+function metric(value, provenance, status, emptyLabel) {
   if (isNullish(value)) {
+    if (emptyLabel) return `<span class="bd-metric bd-metric--empty">${escapeHtml(emptyLabel)}</span>`;
     return status === 'unknown'
       ? `<span class="bd-metric bd-metric--empty">Unknown</span>`
       : dash();
@@ -146,7 +150,7 @@ function metric(value, provenance, status) {
 
 const METRIC_ROWS = [
   ['petroHrysScore', 'PetroHrys Score', false],
-  ['domainRating', 'Domain Rating', true],
+  ['domainRating', 'Domain Rating', true, S.DR_NOT_MEASURED_LABEL],
   ['authorityScore', 'Authority Score', true],
   ['estimatedTraffic', 'Estimated traffic', true],
   ['referringDomains', 'Referring domains', true],
@@ -169,9 +173,9 @@ function metricsBlock(directory, active) {
   const allowed = Array.isArray(active) ? new Set(active) : null;
   const rows = METRIC_ROWS
     .filter(([field]) => !allowed || allowed.has(field))
-    .map(([field, label, thirdParty]) => {
+    .map(([field, label, thirdParty, emptyLabel]) => {
       const value = metric(directory[field], thirdParty ? provenance[field] : undefined,
-        thirdParty ? directory.metricStatus : undefined);
+        thirdParty ? directory.metricStatus : undefined, emptyLabel);
       return `        <div class="bd-def">
           <dt class="bd-def-t">${escapeHtml(label)}</dt>
           <dd class="bd-def-d">${value}</dd>
@@ -205,6 +209,9 @@ function metricNote(active) {
   parts.push('Domain Rating is a dated Ahrefs snapshot of domain authority. '
     + 'PetroHrys Score is an independent editorial assessment of the directory\u2019s '
     + 'practical business value. They are separate measurements and are never combined.');
+  // Stated wherever the column appears, so "Not measured" is never read as a
+  // gap we intend to fill, and no reader can take a snapshot for a live reading.
+  if (allowed.has('domainRating')) parts.push(S.DR_SNAPSHOT_POLICY_NOTE);
   if (shown.length) {
     parts.push(`${names(shown)} ${shown.length === 1 ? 'is a third-party metric' : 'are third-party metrics'} `
       + 'produced by their respective providers, not by PetroHrys.com. Each recorded value carries '
@@ -474,7 +481,7 @@ function numAttr(value) {
 // dated third-party measurement of the DOMAIN, the score is a first-party
 // editorial assessment of the DIRECTORY.
 const TABLE_METRIC_COLUMNS = [
-  { field: 'domainRating', label: 'Domain Rating' },
+  { field: 'domainRating', label: 'Domain Rating', emptyLabel: S.DR_NOT_MEASURED_LABEL },
   { field: 'petroHrysScore', label: 'PetroHrys Score', always: true },
 ];
 
@@ -503,7 +510,7 @@ function directoryRow(directory, columns) {
   const cells = TABLE_METRIC_COLUMNS
     .filter((col) => !shown || shown.has(col.field))
     .map((col) => `            <td class="bd-cell" data-bd-label="${escapeHtml(col.label)}">`
-      + `${metric(directory[col.field], provenance[col.field])}</td>`)
+      + `${metric(directory[col.field], provenance[col.field], undefined, col.emptyLabel)}</td>`)
     .join('\n');
   return `          <tr class="bd-row" ${attrs}>
             <th class="bd-cell" scope="row" data-bd-label="Directory"><a href="${escapeHtml(directoryPathFor(directory))}">${escapeHtml(directory.name)}</a></th>

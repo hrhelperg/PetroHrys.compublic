@@ -2,10 +2,20 @@
 // scripts/measure-business-directory-dr.cjs
 'use strict';
 
-// Editorial utility for recording Ahrefs Domain Rating snapshots into the
-// registry. It is deliberately NOT part of the site build: generation stays
-// offline, deterministic and independent of any external API. Run this by hand,
-// commit the resulting data change, then rebuild.
+// RETIRED — NOT PART OF ANY ACTIVE WORKFLOW.
+//
+// This utility recorded Ahrefs Domain Rating snapshots into the registry. As of
+// the open-source data policy (2026-08-04) the Research Center collects no
+// metric that requires a paid account, an API subscription or a mandatory
+// credential, and the Ahrefs endpoint below becomes key-mandatory on 2026-08-10.
+// Collection is therefore frozen: the 64 snapshots already in the dataset stay
+// exactly as measured, as dated historical values, and no new ones are taken.
+//
+// The file is kept, not deleted, so the provenance of those 64 values remains
+// reproducible and auditable. It refuses to run without an explicit override
+// flag, so no maintainer can reach for it out of habit and no runbook needs to
+// tell anyone to configure a key. Nothing in the build, the validator or the
+// test suite invokes it or reads AHREFS_API_KEY.
 //
 // Endpoint (verified against official documentation on 2026-08-04):
 //   GET https://api.ahrefs.com/v3/public/domain-rating-free?target=<domain>
@@ -143,10 +153,13 @@ async function fetchDomainRating(domain, apiKey) {
     }
 
     if (response.status === 401 || response.status === 403) {
+      // Expected outcome now that the endpoint is key-mandatory. The policy is
+      // to stop here, not to acquire a credential: no key is to be created or
+      // configured for this repository. Nothing was written.
       throw new MeasureError(
-        `Authentication rejected (HTTP ${response.status}). Set ${KEY_VAR} to a valid free Ahrefs API key.\n`
-        + 'Create one at https://app.ahrefs.com/account/api-keys — authentication is mandatory from 2026-08-10.\n'
-        + 'Nothing was written.',
+        `Authentication rejected (HTTP ${response.status}). This utility is retired and the\n`
+        + 'endpoint now requires a credential, which the open-source data policy forbids.\n'
+        + 'Do not create or configure a key. Leave the metric null. Nothing was written.',
       );
     }
     if (response.status === 429) {
@@ -208,9 +221,28 @@ function writeRegistryFiles(updatesByFile) {
   return written;
 }
 
+// The retirement gate. Collection is frozen by policy, so the default path is
+// to refuse and explain. The override exists only for reproducing the
+// provenance of the snapshots already committed, and it names itself plainly so
+// it cannot be typed by accident or pasted from a runbook.
+const RETIREMENT_OVERRIDE = '--run-retired-utility';
+const RETIREMENT_NOTICE = `${path.basename(__filename)} is retired.\n\n`
+  + 'The Research Center collects no metric that requires a paid account, an API\n'
+  + 'subscription or a mandatory credential. Domain Rating collection is frozen:\n'
+  + 'the snapshots already in the registry stay as dated historical values and no\n'
+  + 'new ones are taken. New records carry domainRating: null, which the site\n'
+  + `renders as "${S.DR_NOT_MEASURED_LABEL}" — never as 0.\n\n`
+  + `Pass ${RETIREMENT_OVERRIDE} only to reproduce the provenance of existing\n`
+  + 'snapshots. Do not use it to add new values.\n';
+
 async function main() {
   const opts = parseArgs(process.argv.slice(2));
   if (opts.help) { process.stdout.write(USAGE); return 0; }
+
+  if (!process.argv.slice(2).includes(RETIREMENT_OVERRIDE)) {
+    process.stdout.write(RETIREMENT_NOTICE);
+    return 0;
+  }
 
   const apiKey = process.env[KEY_VAR] || null;
   const registry = loadRegistry();

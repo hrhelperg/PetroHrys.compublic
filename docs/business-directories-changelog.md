@@ -6,7 +6,7 @@ Entries are grouped by verification date, newest first.
 
 ## 2026-08-04
 
-64 directories added or re-verified.
+72 directories added or re-verified.
 
 - **Companies House Register** — united-kingdom / government — PetroHrys Score 95
 - **ABN Lookup** — australia / government — PetroHrys Score 93
@@ -17,6 +17,8 @@ Entries are grouped by verification date, newest first.
 - **Bundesanzeiger** — germany / government — PetroHrys Score 90
 - **Gemeinsames Registerportal der Länder** — germany / government — PetroHrys Score 90
 - **Registro Imprese** — italy / government — PetroHrys Score 90
+- **Centralna Ewidencja i Informacja o Działalności Gospodarczej** — poland / government — PetroHrys Score 90
+- **EDGAR** — united-states / government — PetroHrys Score 90
 - **USPTO Trademark Search** — united-states / government — PetroHrys Score 89
 - **Care Quality Commission** — united-kingdom / healthcare — PetroHrys Score 89
 - **Institut National de la Propriété Industrielle** — france / government — PetroHrys Score 89
@@ -24,9 +26,11 @@ Entries are grouped by verification date, newest first.
 - **Search for a Federal Corporation** — canada / government — PetroHrys Score 88
 - **Python Package Index (PyPI)** — global / developer — PetroHrys Score 88
 - **Colegio de Registradores de España** — spain / government — PetroHrys Score 88
+- **Financial Services Register** — united-kingdom / finance — PetroHrys Score 88
 - **WordPress Plugin Directory** — global / developer — PetroHrys Score 87
 - **GitHub Marketplace** — global / developer — PetroHrys Score 86
 - **crates.io** — global / developer — PetroHrys Score 86
+- **BrokerCheck** — united-states / finance — PetroHrys Score 86
 - **Atlassian Marketplace** — global / app-directories — PetroHrys Score 85
 - **Salesforce AppExchange (AgentExchange)** — global / app-directories — PetroHrys Score 85
 - **NuGet Gallery** — global / developer — PetroHrys Score 85
@@ -45,10 +49,12 @@ Entries are grouped by verification date, newest first.
 - **PeerSpot** — global / software — PetroHrys Score 82
 - **Clutch** — global / marketing — PetroHrys Score 81
 - **The Legal 500** — global / legal — PetroHrys Score 81
+- **Google Business Profile** — global / local-business — PetroHrys Score 81
 - **Drupal Modules** — global / developer — PetroHrys Score 80
 - **pub.dev** — global / developer — PetroHrys Score 80
 - **Yelp for Business** — global / local-business — PetroHrys Score 79
 - **Hex** — global / developer — PetroHrys Score 79
+- **G2** — global / software — PetroHrys Score 79
 - **HubSpot App Marketplace** — global / app-directories — PetroHrys Score 77
 - **Open Collective** — global / general-business — PetroHrys Score 77
 - **F-Droid** — global / app-directories — PetroHrys Score 77
@@ -63,9 +69,11 @@ Entries are grouped by verification date, newest first.
 - **JetBrains Marketplace** — global / developer — PetroHrys Score 74
 - **Product Hunt** — global / startup — PetroHrys Score 74
 - **Software Advice** — global / software — PetroHrys Score 74
+- **npm** — global / developer — PetroHrys Score 70
 - **Joomla! Extensions Directory** — global / developer — PetroHrys Score 69
 - **AlternativeTo** — global / software — PetroHrys Score 69
 - **Ollama Library** — global / developer — PetroHrys Score 67
+- **Swift Package Index** — global / developer — PetroHrys Score 67
 - **PR Newswire** — global / press-release-platforms — PetroHrys Score 65
 - **Slashdot Software Directory** — global / software — PetroHrys Score 63
 - **SourceForge** — global / software — PetroHrys Score 62

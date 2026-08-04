@@ -20,7 +20,14 @@ const ORIGIN = 'https://petrohrys.com';
 // This branch is STACKED on feat/helperg-ecosystem-banner, which already
 // modifies sitemap.xml and css/petrohrys.css relative to main. Diffing against
 // main would report that branch's changes as ours.
-const BASELINE = git('merge-base', 'HEAD', 'feat/helperg-ecosystem-banner').trim();
+//
+// The baseline is resolved from a local branch OR its remote-tracking ref, so a
+// fresh clone runs this file without anyone creating a branch by hand. It throws
+// with an actionable message rather than falling back to main, because a wrong
+// baseline would silently turn the scope guard below into a false pass.
+const { resolveBaseline } = require('./helpers/baseline-ref.cjs');
+
+const BASELINE = resolveBaseline({ cwd: root }).mergeBase;
 
 function walk(dir, acc = []) {
   const full = path.join(root, dir);

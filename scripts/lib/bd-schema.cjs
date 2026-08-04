@@ -79,6 +79,19 @@ const DOMAIN_RATING_RANGE = { min: 0, max: 100 };
 // Required by the Ahrefs Domain Rating licence wherever a value is displayed.
 const AHREFS_ATTRIBUTION = { text: 'Domain Rating by Ahrefs', href: 'https://ahrefs.com/' };
 
+// --- open-source data policy ------------------------------------------------
+// The Research Center collects no metric that needs a paid account, an API
+// subscription or a mandatory credential. The Domain Ratings already in the
+// dataset stay exactly as they were measured, as dated historical snapshots; no
+// new ones are collected. A record without one is therefore not a record with a
+// low rating, and must never render as 0 — hence an explicit label rather than a
+// bare dash, and an explicit sentence on every page that shows the column.
+const DR_COLLECTION_FROZEN = true;
+const DR_NOT_MEASURED_LABEL = 'Not measured';
+const DR_SNAPSHOT_POLICY_NOTE = 'Domain Rating values are dated historical Ahrefs snapshots. '
+  + 'New measurements are not collected because the Research Center does not depend on mandatory '
+  + 'authenticated APIs.';
+
 // One deterministic domain policy. A Domain Rating describes the registrable
 // domain that was measured, not a path or subdomain on it: measuring
 // appsource.microsoft.com and labelling the result as "AppSource's rating" would
@@ -290,6 +303,7 @@ module.exports = {
   TIERS, BACKLINK_TYPES, ROBOTS_STATES, SUBMISSION_MODELS, METRIC_STATUSES,
   SUBMISSION_MODEL_LABELS, SUBMISSION_NOT_APPLICABLE_NOTE, SUBMITTABLE_MODELS,
   METRIC_SNAPSHOT_STATUS, METRIC_PROVIDERS, DOMAIN_RATING_RANGE, AHREFS_ATTRIBUTION,
+  DR_COLLECTION_FROZEN, DR_NOT_MEASURED_LABEL, DR_SNAPSHOT_POLICY_NOTE,
   normaliseDomain,
   SCORE_METHOD_NOTE, INDEXABILITY_CLAUSES, indexability,
   REVIEW_INTERVAL_MONTHS, SPREAD_DAYS, reviewBucket, stableHash, nextVerificationFor,
