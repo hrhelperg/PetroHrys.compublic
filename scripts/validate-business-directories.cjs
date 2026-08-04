@@ -1,6 +1,7 @@
 'use strict';
 const { loadRegistry, reservedSlugs } = require('./lib/bd-registry.cjs');
 const S = require('./lib/bd-schema.cjs');
+const { UNKNOWN_KEYS } = require('./lib/bd-migrate.cjs');
 
 const isNullish = (v) => v === null || v === undefined;
 
@@ -39,7 +40,60 @@ function validateRegistry(registry) {
 
   const seenId = new Set();
   const seenSlug = new Set();
-  const seenDomain = new Set();
+  const seenDomain = new Map();
+
+  // --- geographic registry ----------------------------------------------------
+  // Checked once, before records, because every jurisdiction and scope rule
+  // below resolves against it.
+  const countryBySlug = new Map(countries.map((c) => [c.slug, c]));
+  for (const country of countries) {
+    const where = { file: 'data/business-directories/countries.json', id: country.slug };
+    const addC = (field, reason) => errors.push({ ...where, field, reason });
+    if (!S.ENTITY_TYPES.includes(country.entityType)) {
+      addC('entityType', `Must be one of: ${S.ENTITY_TYPES.join(', ')}.`);
+    }
+    // Structural only — no ISO dataset is embedded, so this checks shape, not
+    // whether the code names a real country.
+    if (country.entityType === 'supranational') {
+      if (!isNullish(country.iso2)) {
+        addC('iso2', `A supranational entry must not claim a country code, got `
+          + `${JSON.stringify(country.iso2)}.`);
+      }
+      if (country.scope !== 'supranational' && country.slug !== 'global') {
+        addC('scope', `A supranational entry must declare scope "supranational", got `
+          + `${JSON.stringify(country.scope)}.`);
+      }
+    }
+    if (country.entityType === 'country') {
+      if (typeof country.iso2 !== 'string' || !S.ISO_3166_1_RE.test(country.iso2)) {
+        addC('iso2', `${JSON.stringify(country.iso2)} is not an ISO 3166-1 alpha-2 code: `
+          + 'exactly two uppercase ASCII letters are required.');
+      }
+    }
+    // The EU is stored here for routing. It must never be modelled as a country.
+    if (country.slug === 'european-union' && country.entityType !== 'supranational') {
+      addC('entityType', 'The European Union must be modelled as supranational, never as a country.');
+    }
+  }
+
+  const seenIso2 = new Map();
+  for (const country of countries) {
+    if (country.entityType !== 'country' || typeof country.iso2 !== 'string') continue;
+    if (seenIso2.has(country.iso2)) {
+      errors.push({
+        file: 'data/business-directories/countries.json', id: country.slug, field: 'iso2',
+        reason: `Country code "${country.iso2}" is already used by `
+          + `"${seenIso2.get(country.iso2)}".`,
+      });
+    } else seenIso2.set(country.iso2, country.slug);
+  }
+
+  // Jurisdiction IDENTITY, not record uniqueness. Several registries may belong
+  // to California; what may not differ is what California IS. Two maps, so a
+  // conflict is caught from either direction: one code claiming two names, and
+  // one name claiming two codes.
+  const jurisdictionByCode = new Map();
+  const jurisdictionByName = new Map();
 
   for (const entry of directories) {
     const file = fileFor(entry);
@@ -68,6 +122,264 @@ function validateRegistry(registry) {
     }
     if (typeof entry.category === 'string' && !categorySlugs.has(entry.category)) {
       add('category', `References unknown category "${entry.category}".`);
+    }
+
+    // --- orphan keys --------------------------------------------------------
+    // Read from the symbol the migration attaches, so this catches keys the
+    // normalisation would otherwise have dropped on the floor. An improvised
+    // field fails here rather than disappearing.
+    // Full dotted paths, so "operator.agencyTyp" names the exact field rather
+    // than just the object that contained it. Sorted upstream for determinism.
+    for (const problem of entry[UNKNOWN_KEYS] || []) {
+      add(problem.path, problem.reason);
+    }
+
+    // --- scope, jurisdiction and supranational coupling ---------------------
+    const country = countryBySlug.get(entry.country);
+    if (!S.SCOPES.includes(entry.scope)) {
+      add('scope', `Must be one of: ${S.SCOPES.join(', ')}.`);
+    }
+    if (country && country.entityType === 'supranational' && country.slug !== 'global'
+      && entry.scope !== 'supranational') {
+      add('scope', `A record filed under "${country.slug}" must use scope "supranational", not `
+        + `"${entry.scope}".`);
+    }
+    if (entry.scope === 'supranational' && country && country.entityType !== 'supranational') {
+      add('scope', `Scope "supranational" requires a supranational jurisdiction, but `
+        + `"${entry.country}" is a country.`);
+    }
+
+    const j = entry.jurisdiction;
+    if (!isNullish(j)) {
+      if (typeof j !== 'object' || Array.isArray(j)) {
+        add('jurisdiction', 'Field "jurisdiction" must be an object or null.');
+      } else {
+        if (!S.JURISDICTION_TYPES.includes(j.type)) {
+          add('jurisdiction.type', `Must be one of: ${S.JURISDICTION_TYPES.join(', ')}.`);
+        }
+        if (typeof j.name !== 'string' || !j.name.trim()) {
+          add('jurisdiction.name', 'A jurisdiction must be named.');
+        }
+        if (!isNullish(j.code)) {
+          const problem = S.iso3166_2Problem(j.code);
+          if (problem) {
+            add('jurisdiction.code', `${JSON.stringify(j.code)} ${problem}.`);
+          } else {
+            const prefix = j.code.slice(0, 2);
+            const parent = countryBySlug.get(j.parentCountry);
+            // The prefix check needs a usable parent code. Without one it is not
+            // "passed" — it is unperformed, and saying so beats a silent skip.
+            if (!parent) {
+              add('jurisdiction.code', `Cannot check the prefix of "${j.code}": parent country `
+                + `"${j.parentCountry}" is not declared.`);
+            } else if (!S.ISO_3166_1_RE.test(String(parent.iso2))) {
+              add('jurisdiction.code', `Cannot check the prefix of "${j.code}": parent `
+                + `"${parent.slug}" has no usable ISO 3166-1 code (${JSON.stringify(parent.iso2)}).`);
+            } else if (parent.iso2 !== prefix) {
+              add('jurisdiction.code',
+                `Code "${j.code}" has prefix "${prefix}" but ${parent.name} is "${parent.iso2}".`);
+            }
+          }
+        }
+        if (!countryBySlug.has(j.parentCountry)) {
+          add('jurisdiction.parentCountry', `References unknown country "${j.parentCountry}".`);
+        } else if (j.parentCountry !== entry.country) {
+          add('jurisdiction.parentCountry',
+            `Is "${j.parentCountry}" but the record is filed under "${entry.country}".`);
+        }
+        if (entry.scope !== 'subnational') {
+          add('scope', 'A record carrying a jurisdiction must use scope "subnational".');
+        }
+        // --- jurisdiction identity (C13) ---------------------------------
+        // Compares DEFINITIONS of places, never records. Two California
+        // registries are correct and must both pass; what may not differ is
+        // what "California" is.
+        const identity = S.jurisdictionIdentity(j);
+        const nameKey = S.jurisdictionNameKey(j);
+        if (identity && j.name) {
+          const priorByCode = jurisdictionByCode.get(identity.key);
+          if (priorByCode && S.normaliseJurisdictionName(priorByCode.name)
+            !== S.normaliseJurisdictionName(j.name)) {
+            add('jurisdiction.name', `This jurisdiction is already defined as `
+              + `"${priorByCode.name}" (by ${id === priorByCode.id ? 'this record' : priorByCode.id}); `
+              + `"${j.name}" conflicts. One jurisdiction cannot have two names.`);
+          } else if (!priorByCode) {
+            jurisdictionByCode.set(identity.key, { name: j.name, id });
+          }
+
+          const priorByName = jurisdictionByName.get(nameKey);
+          const thisCode = j.code || null;
+          if (priorByName && priorByName.code !== thisCode) {
+            add('jurisdiction.code', `"${j.name}" is already defined with code `
+              + `${JSON.stringify(priorByName.code)} (by ${priorByName.id}); this record uses `
+              + `${JSON.stringify(thisCode)}. One jurisdiction cannot have two codes.`);
+          } else if (!priorByName) {
+            jurisdictionByName.set(nameKey, { code: thisCode, id });
+          }
+        }
+
+        // The country must have a word for this kind of jurisdiction. Without
+        // this the page would either throw at render or, worse, borrow another
+        // country's vocabulary — "Prefectures" in Spain, "Federal" in Italy.
+        const allowedTypes = S.allowedJurisdictionTypes(entry.country);
+        if (allowedTypes && j.type && !allowedTypes.includes(j.type)) {
+          add('jurisdiction.type', `Country "${entry.country}" declares no grouping label for `
+            + `"${j.type}". It supports: ${allowedTypes.length ? allowedTypes.join(', ') : '(none)'}. `
+            + 'Either the record is misfiled or JURISDICTION_VOCABULARY needs extending.');
+        }
+      }
+    } else if (entry.scope === 'subnational') {
+      add('jurisdiction', 'Scope "subnational" requires a jurisdiction object.');
+    }
+
+    // --- names --------------------------------------------------------------
+    for (const field of ['officialName', 'nativeName', 'englishName']) {
+      if (!isNullish(entry[field]) && typeof entry[field] !== 'string') {
+        add(field, `Field "${field}" must be a string or null.`);
+      }
+    }
+    if (!isNullish(entry.englishNameSource)
+      && !S.ENGLISH_NAME_SOURCES.includes(entry.englishNameSource)) {
+      add('englishNameSource', `Must be one of: ${S.ENGLISH_NAME_SOURCES.join(', ')}.`);
+    }
+    // An English title whose provenance is unstated could be the operator's own
+    // name or ours. The reader cannot tell, so the record must.
+    if (entry.englishName && !entry.englishNameSource) {
+      add('englishNameSource',
+        'An englishName must declare whether it is the official name or an editorial translation.');
+    }
+    if (!entry.englishName && entry.englishNameSource) {
+      add('englishNameSource', 'Set without an englishName to describe.');
+    }
+
+    // --- registry classification --------------------------------------------
+    if (!Array.isArray(entry.registryTypes)) {
+      add('registryTypes', 'Field "registryTypes" must be an array.');
+    } else {
+      for (const t of entry.registryTypes) {
+        if (!S.REGISTRY_TYPES.includes(t)) add('registryTypes', `Unknown registry type "${t}".`);
+      }
+      if (new Set(entry.registryTypes).size !== entry.registryTypes.length) {
+        add('registryTypes', 'Contains a duplicate registry type.');
+      }
+    }
+    if (!isNullish(entry.primaryRegistryType)) {
+      if (!S.REGISTRY_TYPES.includes(entry.primaryRegistryType)) {
+        add('primaryRegistryType', `Unknown registry type "${entry.primaryRegistryType}".`);
+      } else if (!(entry.registryTypes || []).includes(entry.primaryRegistryType)) {
+        add('primaryRegistryType', 'Must also appear in registryTypes.');
+      }
+    } else if (Array.isArray(entry.registryTypes) && entry.registryTypes.length) {
+      add('primaryRegistryType', 'Registry types are recorded but none is marked primary.');
+    }
+
+    // --- classification invariants ------------------------------------------
+    // Structural only. Which of company-register or business-entity-register
+    // fits a given system is an editorial reading of its official scope
+    // statement, and the glossary in bd-registry-types.cjs is where that
+    // judgement is argued — not something a validator can decide. What CAN be
+    // checked mechanically are the couplings that would be self-contradictory.
+    const types = Array.isArray(entry.registryTypes) ? entry.registryTypes : [];
+
+    // A federated search layer is not usually a single jurisdiction's system.
+    // Documented exceptions are allowed, but must be argued in editorNotes so
+    // the exception is visible rather than silent.
+    if (types.includes('cross-border-registry-interface')
+      && !['supranational', 'regional', 'global'].includes(entry.scope)
+      && !/cross-border/i.test(entry.editorNotes || '')) {
+      add('registryTypes', 'A cross-border-registry-interface normally carries supranational, '
+        + 'regional or global scope. Keep the narrower scope only if editorNotes explains why.');
+    }
+    // An identifier lookup is not thereby the legal register of the entity.
+    // Claiming both needs the evidence to say so.
+    if (types.includes('corporate-number-database') && types.includes('company-register')
+      && !/register of record|legal register|company register/i.test(entry.editorNotes || '')) {
+      add('registryTypes', 'A corporate-number-database is not automatically a company-register. '
+        + 'Record both only where editorNotes cites evidence for the constitutive function.');
+    }
+    // Filing plus constitutive function is common and legitimate — Companies
+    // House is both — but it should be a considered call, not a default.
+    if (types.includes('public-filing-database') && types.includes('company-register')
+      && !/filing|filed|accounts|disclosur/i.test(entry.editorNotes || '')
+      && !/filing|filed|accounts|disclosur/i.test(entry.description || '')) {
+      add('registryTypes', 'company-register with public-filing-database requires evidence of the '
+        + 'filing function in the description or editorNotes.');
+    }
+    // Government and regulator records are the point of this wave; publishing
+    // one unclassified leaves the taxonomy hollow.
+    if (['government', 'finance'].includes(entry.category)
+      && entry.verification && entry.verification.status === 'verified'
+      && types.length === 0) {
+      add('registryTypes', `A verified ${entry.category} record must record at least one registry type.`);
+    }
+
+    // --- resourceIdentity ---------------------------------------------------
+    if (!isNullish(entry.resourceIdentity)) {
+      const ri = entry.resourceIdentity;
+      if (typeof ri !== 'object' || Array.isArray(ri)) {
+        add('resourceIdentity', 'Field "resourceIdentity" must be an object or null.');
+      } else {
+        const problem = S.canonicalDomainProblem(ri.canonicalDomain);
+        if (problem) {
+          add('resourceIdentity.canonicalDomain', `${JSON.stringify(ri.canonicalDomain)} ${problem}.`);
+        } else {
+          const actual = canonicalDomain(entry.website);
+          if (actual && actual !== ri.canonicalDomain) {
+            add('resourceIdentity.canonicalDomain', `Declared "${ri.canonicalDomain}" but the `
+              + `website resolves to "${actual}".`);
+          }
+        }
+        if (typeof ri.systemKey !== 'string' || !ri.systemKey.trim()) {
+          add('resourceIdentity.systemKey', 'A systemKey is required and must be a non-empty string.');
+        }
+        if (!isNullish(ri.sharedHostGroup)
+          && (typeof ri.sharedHostGroup !== 'string' || !ri.sharedHostGroup.trim())) {
+          add('resourceIdentity.sharedHostGroup', 'Must be a non-empty string, or null.');
+        }
+      }
+    }
+
+    // --- operator -----------------------------------------------------------
+    if (!isNullish(entry.operator)) {
+      const o = entry.operator;
+      if (typeof o !== 'object' || Array.isArray(o)) {
+        add('operator', 'Field "operator" must be an object or null.');
+      } else {
+        if (typeof o.name !== 'string' || !o.name.trim()) {
+          add('operator.name', 'An operator must be named.');
+        }
+        if (!S.OPERATOR_TYPES.includes(o.type)) {
+          add('operator.type', `Must be one of: ${S.OPERATOR_TYPES.join(', ')}.`);
+        }
+        if (!isNullish(o.officialUrl)
+          && (typeof o.officialUrl !== 'string' || !o.officialUrl.startsWith('https://'))) {
+          add('operator.officialUrl', 'Must be an https URL, or null when not verified.');
+        }
+      }
+    }
+
+    // --- public access ------------------------------------------------------
+    if (!isNullish(entry.publicAccess)) {
+      const a = entry.publicAccess;
+      if (typeof a !== 'object' || Array.isArray(a)) {
+        add('publicAccess', 'Field "publicAccess" must be an object or null.');
+      } else {
+        if (!S.ACCESS_LEVELS.includes(a.accessLevel)) {
+          add('publicAccess.accessLevel', `Must be one of: ${S.ACCESS_LEVELS.join(', ')}.`);
+        }
+        if (!isNullish(a.searchUrl)
+          && (typeof a.searchUrl !== 'string' || !a.searchUrl.startsWith('https://'))) {
+          add('publicAccess.searchUrl', 'Must be an https URL, or null when not verified.');
+        }
+        for (const key of S.PUBLIC_ACCESS_BOOLEANS) {
+          if (!isNullish(a[key]) && typeof a[key] !== 'boolean') {
+            add(`publicAccess.${key}`, 'Must be true, false, or null for unknown.');
+          }
+        }
+        for (const reason of S.accessContradictions(a)) {
+          add('publicAccess', `Contradictory access description: ${reason}.`);
+        }
+      }
     }
 
     // --- enumerations -------------------------------------------------------
@@ -239,14 +551,80 @@ function validateRegistry(registry) {
       seenSlug.add(slugKey);
 
       // Per country only: one service may legitimately serve several countries.
+      //
+      // Sharing a domain is allowed ONLY through resourceIdentity, and only when
+      // every record on that domain declares the same sharedHostGroup, carries
+      // its own systemKey, and points somewhere materially different. Anything
+      // short of that is the ordinary duplicate this guard exists to catch.
       const domain = canonicalDomain(entry.website);
       if (domain) {
         const domainKey = `${entry.country}/${domain}`;
-        if (seenDomain.has(domainKey)) {
-          add('website', `Duplicate canonical domain "${domain}" within country "${entry.country}".`);
+        const prior = seenDomain.get(domainKey);
+        const ri = entry.resourceIdentity;
+        if (prior) {
+          const priorRi = prior.resourceIdentity;
+          if (!ri || !ri.sharedHostGroup) {
+            add('website', `Duplicate canonical domain "${domain}" within country `
+              + `"${entry.country}" (first seen on "${prior.id}"). Two records may share an `
+              + 'official host only when both declare resourceIdentity with a sharedHostGroup.');
+          } else if (!priorRi || !priorRi.sharedHostGroup) {
+            add('website', `Shares domain "${domain}" with "${prior.id}", which declares no `
+              + 'sharedHostGroup. Every record on a shared host must declare one.');
+          } else if (priorRi.sharedHostGroup !== ri.sharedHostGroup) {
+            add('resourceIdentity.sharedHostGroup', `Is "${ri.sharedHostGroup}" but "${prior.id}" on `
+              + `the same domain "${domain}" declares "${priorRi.sharedHostGroup}". Records sharing a `
+              + 'host must share one group.');
+          } else {
+            // Same group: the systems must genuinely differ.
+            if (priorRi.systemKey === (ri.systemKey || null)) {
+              add('resourceIdentity.systemKey', `Duplicates the systemKey of "${prior.id}".`);
+            }
+            const priorSearch = (prior.publicAccess || {}).searchUrl || prior.website;
+            const thisSearch = (entry.publicAccess || {}).searchUrl || entry.website;
+            if (!S.urlsAreMateriallyDifferent(prior.website, entry.website)
+              && !S.urlsAreMateriallyDifferent(priorSearch, thisSearch)) {
+              add('website', `Is not materially different from "${prior.id}" on the same host. A `
+                + 'landing page, a language variant, a query-parameter variant or a search mode of '
+                + 'one registry is not a separate system.');
+            }
+          }
         }
-        seenDomain.add(domainKey);
+        if (!prior) seenDomain.set(domainKey, entry);
       }
+    }
+  }
+
+  // systemKey is a global identifier, and a sharedHostGroup names ONE host.
+  // Both are checked across the whole registry rather than per country, so a
+  // key cannot be reused in another file and a group cannot be stretched over
+  // unrelated domains to smuggle two duplicates past the guard.
+  const seenSystemKey = new Map();
+  const groupDomains = new Map();
+  for (const entry of directories) {
+    const ri = entry.resourceIdentity;
+    if (!ri || !ri.systemKey) continue;
+    const where = { file: fileFor(entry), id: entry.id };
+    if (seenSystemKey.has(ri.systemKey)) {
+      errors.push({
+        ...where,
+        field: 'resourceIdentity.systemKey',
+        reason: `systemKey "${ri.systemKey}" is already used by "${seenSystemKey.get(ri.systemKey)}". `
+          + 'Every systemKey must be globally unique.',
+      });
+    } else seenSystemKey.set(ri.systemKey, entry.id);
+
+    if (!ri.sharedHostGroup) continue;
+    const known = groupDomains.get(ri.sharedHostGroup);
+    if (known && known.domain !== ri.canonicalDomain) {
+      errors.push({
+        ...where,
+        field: 'resourceIdentity.sharedHostGroup',
+        reason: `Group "${ri.sharedHostGroup}" already covers domain "${known.domain}" (on `
+          + `"${known.id}"); this record declares "${ri.canonicalDomain}". A shared-host group names `
+          + 'one host and may not span unrelated domains.',
+      });
+    } else if (!known) {
+      groupDomains.set(ri.sharedHostGroup, { domain: ri.canonicalDomain, id: entry.id });
     }
   }
 

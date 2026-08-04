@@ -6,7 +6,7 @@ Entries are grouped by verification date, newest first.
 
 ## 2026-08-04
 
-72 directories added or re-verified.
+96 directories added or re-verified.
 
 - **Companies House Register** — united-kingdom / government — PetroHrys Score 95
 - **ABN Lookup** — australia / government — PetroHrys Score 93
@@ -14,6 +14,7 @@ Entries are grouped by verification date, newest first.
 - **L'Annuaire des Entreprises** — france / government — PetroHrys Score 91
 - **Veřejný rejstřík a Sbírka listin** — czech-republic / government — PetroHrys Score 91
 - **Baza Internetowa REGON** — poland / government — PetroHrys Score 91
+- **FDIC BankFind Suite** — united-states / finance — PetroHrys Score 91
 - **Bundesanzeiger** — germany / government — PetroHrys Score 90
 - **Gemeinsames Registerportal der Länder** — germany / government — PetroHrys Score 90
 - **Registro Imprese** — italy / government — PetroHrys Score 90
@@ -28,33 +29,52 @@ Entries are grouped by verification date, newest first.
 - **Colegio de Registradores de España** — spain / government — PetroHrys Score 88
 - **Financial Services Register** — united-kingdom / finance — PetroHrys Score 88
 - **WordPress Plugin Directory** — global / developer — PetroHrys Score 87
+- **Tax Exempt Organization Search** — united-states / government — PetroHrys Score 87
 - **GitHub Marketplace** — global / developer — PetroHrys Score 86
 - **crates.io** — global / developer — PetroHrys Score 86
 - **BrokerCheck** — united-states / finance — PetroHrys Score 86
+- **OCC Financial Institution Search** — united-states / finance — PetroHrys Score 86
 - **Atlassian Marketplace** — global / app-directories — PetroHrys Score 85
 - **Salesforce AppExchange (AgentExchange)** — global / app-directories — PetroHrys Score 85
 - **NuGet Gallery** — global / developer — PetroHrys Score 85
 - **Packagist.org** — global / developer — PetroHrys Score 85
 - **RubyGems.org** — global / developer — PetroHrys Score 85
 - **OpenCorporates** — global / general-business — PetroHrys Score 85
+- **Patent Public Search** — united-states / government — PetroHrys Score 85
+- **SAM.gov Exclusions** — united-states / government — PetroHrys Score 85
+- **USAspending.gov** — united-states / government — PetroHrys Score 85
 - **Hugging Face** — global / developer — PetroHrys Score 84
 - **Maven Central** — global / developer — PetroHrys Score 84
+- **HHS OIG List of Excluded Individuals and Entities** — united-states / healthcare — PetroHrys Score 84
+- **NFA BASIC** — united-states / finance — PetroHrys Score 84
 - **Add-ons for Firefox** — global / app-directories — PetroHrys Score 83
 - **Visual Studio Marketplace** — global / developer — PetroHrys Score 83
 - **Capterra** — global / software — PetroHrys Score 83
 - **Flathub** — global / app-directories — PetroHrys Score 83
 - **Chambers and Partners** — global / legal — PetroHrys Score 83
+- **FDA Establishment Registration and Device Listing** — united-states / healthcare — PetroHrys Score 83
+- **SAM.gov Entity Information** — united-states / government — PetroHrys Score 83
 - **Docker Hub** — global / developer — PetroHrys Score 82
 - **Crunchbase** — global / startup — PetroHrys Score 82
 - **PeerSpot** — global / software — PetroHrys Score 82
+- **FCC Form 499 Filer Database** — united-states / telecommunications — PetroHrys Score 82
+- **Federal Maritime Commission Ocean Transportation Intermediary List** — united-states / government — PetroHrys Score 82
+- **FSIS Meat, Poultry and Egg Product Inspection Directory** — united-states / government — PetroHrys Score 82
 - **Clutch** — global / marketing — PetroHrys Score 81
 - **The Legal 500** — global / legal — PetroHrys Score 81
+- **FCC Universal Licensing System** — united-states / telecommunications — PetroHrys Score 81
 - **Google Business Profile** — global / local-business — PetroHrys Score 81
+- **Investment Adviser Public Disclosure** — united-states / finance — PetroHrys Score 81
 - **Drupal Modules** — global / developer — PetroHrys Score 80
 - **pub.dev** — global / developer — PetroHrys Score 80
+- **CFTC Sanctions in Effect** — united-states / finance — PetroHrys Score 80
 - **Yelp for Business** — global / local-business — PetroHrys Score 79
 - **Hex** — global / developer — PetroHrys Score 79
+- **FAA Aircraft Registry** — united-states / government — PetroHrys Score 79
 - **G2** — global / software — PetroHrys Score 79
+- **MSHA Mine Data Retrieval System** — united-states / government — PetroHrys Score 79
+- **TTB List of Permittees** — united-states / government — PetroHrys Score 79
+- **Drug Establishments Current Registration Site** — united-states / healthcare — PetroHrys Score 78
 - **HubSpot App Marketplace** — global / app-directories — PetroHrys Score 77
 - **Open Collective** — global / general-business — PetroHrys Score 77
 - **F-Droid** — global / app-directories — PetroHrys Score 77
@@ -64,17 +84,21 @@ Entries are grouped by verification date, newest first.
 - **WooCommerce extensions** — global / app-directories — PetroHrys Score 75
 - **Kaggle Datasets** — global / developer — PetroHrys Score 75
 - **Wellfound** — global / startup — PetroHrys Score 75
+- **NPPES NPI Registry** — united-states / healthcare — PetroHrys Score 75
 - **Better Business Bureau** — united-states / review-sites — PetroHrys Score 74
 - **Foursquare Places** — global / local-business — PetroHrys Score 74
 - **JetBrains Marketplace** — global / developer — PetroHrys Score 74
 - **Product Hunt** — global / startup — PetroHrys Score 74
 - **Software Advice** — global / software — PetroHrys Score 74
+- **Permitted Customs Brokers Listing** — united-states / government — PetroHrys Score 73
 - **npm** — global / developer — PetroHrys Score 70
 - **Joomla! Extensions Directory** — global / developer — PetroHrys Score 69
 - **AlternativeTo** — global / software — PetroHrys Score 69
 - **Ollama Library** — global / developer — PetroHrys Score 67
+- **FinCEN MSB Registrant Search** — united-states / finance — PetroHrys Score 67
 - **Swift Package Index** — global / developer — PetroHrys Score 67
 - **PR Newswire** — global / press-release-platforms — PetroHrys Score 65
+- **DMCA Designated Agent Directory** — united-states / government — PetroHrys Score 64
 - **Slashdot Software Directory** — global / software — PetroHrys Score 63
 - **SourceForge** — global / software — PetroHrys Score 62
 - **SaaSHub** — global / software — PetroHrys Score 62

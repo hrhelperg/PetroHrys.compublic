@@ -12,6 +12,10 @@ const js = () => fs.readFileSync(path.join(root, 'js', 'business-directories.js'
 const orderJs = () => fs.readFileSync(path.join(root, 'js', 'bd-order.js'), 'utf8');
 const stripComments = (text) => text.replace(/\/\*[\s\S]*?\*\//g, '');
 
+// Mirrors the group box the builder emits around each jurisdiction table.
+const JGROUP = '<div class="bd-jgroup" id="x">'
+  + '<h3 class="bd-jgroup-title">States <span class="bd-jgroup-count">2 registries</span></h3></div>';
+
 const DIR = {
   id: 'a', slug: 'a', name: 'A', description: 'd', website: 'https://a.example',
   country: 'united-states', category: 'saas',
@@ -34,6 +38,14 @@ const RENDERED = () => [
   components.sortControls({}), components.pagination({ current: 1, total: 2, basePath: '/x/' }),
   components.methodologyNote(), components.provenanceBlock(DIR),
   components.externalLinkCta({ url: 'https://a.example' }),
+  // The grouped-country UI. It was absent from this list once, and seven class
+  // names — the whole jurisdiction grouping and its jump nav — shipped with no
+  // rules at all while this test still passed. Anything the build can render
+  // has to be represented here or the guard is decorative.
+  components.jurisdictionFilter([{ key: 'state', label: 'States', count: 2 }]),
+  components.coverageStatement(
+    { country: 'x', jurisdictions: [{ code: 'US-XX', kind: 'state' }] }, new Set()),
+  JGROUP,
   '<p class="bd-status"></p>',
 ].join('\n');
 
@@ -174,9 +186,12 @@ test('the script reveals the control wrappers the components render hidden', () 
 });
 
 test('the script exits cleanly when there is no table', () => {
+  // Shape check only. The BEHAVIOUR — that an empty or table-less page is left
+  // exactly as the server rendered it, with no status region injected — is
+  // executed against real markup in bd-grouped-dom.test.cjs.
   const source = js();
-  assert.ok(/if \(!tbody\) return;/.test(source), 'must no-op without a directory table');
-  assert.ok(/if \(!rows\.length\) return;/.test(source), 'must no-op with zero rows');
+  assert.ok(/if \(!bodies\.length\) return;/.test(source), 'must no-op without a directory table');
+  assert.ok(/if \(!groups\.length\) return;/.test(source), 'must no-op with zero rows');
 });
 
 test('filtering announces the visible count for assistive technology', () => {

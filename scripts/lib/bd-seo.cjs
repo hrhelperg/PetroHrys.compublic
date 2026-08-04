@@ -2,6 +2,9 @@
 'use strict';
 
 const routes = require('./bd-routes.cjs');
+// Titles, breadcrumbs and JSON-LD all name a record through the one display
+// resolver, so a page cannot show a different name from its structured data.
+const S = require('./bd-schema.cjs');
 
 // The canonical public host. Production serves the apex and 301-redirects
 // www.petrohrys.com to it, so every absolute URL this section emits — canonical,
@@ -129,7 +132,7 @@ function faqPage(faqs) {
 }
 
 function organisationAbout(directory) {
-  const about = { '@type': 'Organization', name: directory.name };
+  const about = { '@type': 'Organization', name: S.displayName(directory) };
   const url = safeExternalUrl(directory.website);
   if (url) about.url = url;
   return about;
@@ -233,7 +236,7 @@ function buildCategoryMeta({ country, category, directories = [] }) {
     breadcrumbTrail: trail,
     graph: [
       collectionPage({ name: title, description, url: absoluteUrl(canonicalPath) }),
-      itemList(directories.map((d) => ({ name: d.name, path: routes.directoryPathFor(d) }))),
+      itemList(directories.map((d) => ({ name: S.displayName(d), path: routes.directoryPathFor(d) }))),
       breadcrumbList(trail),
     ],
   });
@@ -288,15 +291,22 @@ function buildArticleIndexMeta({ articles = [] }) {
 function buildDirectoryMeta({ country, category, directory, indexable = true }) {
   const countryPath = routes.countryPath(country.slug);
   const canonicalPath = routes.directoryPath(country.slug, directory.slug);
-  const title = `${directory.name} — ${country.name}`;
+  // A subnational record is titled by its jurisdiction, not its country. Four
+  // states publish a register officially called "Business Entity Search", so
+  // titling them all "… — United States" produces duplicate titles across
+  // distinct pages — a real defect for both readers and search engines.
+  const place = directory.jurisdiction && directory.jurisdiction.name
+    ? directory.jurisdiction.name
+    : country.name;
+  const title = `${S.displayName(directory)} — ${place}`;
   const description = directory.description;
   const trail = [
     ...ROOT_TRAIL,
     { name: country.name, path: countryPath },
     { name: category.name, path: routes.categoryPath(country.slug, category.slug) },
-    { name: directory.name, path: canonicalPath },
+    { name: S.displayName(directory), path: canonicalPath },
   ];
-  const page = webPage({ name: directory.name, description, url: absoluteUrl(canonicalPath) });
+  const page = webPage({ name: S.displayName(directory), description, url: absoluteUrl(canonicalPath) });
   page.about = organisationAbout(directory);
   return meta({
     title,

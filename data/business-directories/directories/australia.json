@@ -10,6 +10,27 @@
     "description": "Australian Government service exposing public Australian Business Number records, including entity status, type and GST registration.",
     "tier": "tier1",
     "scope": "national",
+    "primaryRegistryType": "business-entity-register",
+    "registryTypes": [
+      "business-entity-register",
+      "tax-verification-system"
+    ],
+    "operator": {
+      "name": "Australian Business Register",
+      "type": "government-agency",
+      "officialUrl": null
+    },
+    "publicAccess": {
+      "searchUrl": null,
+      "accessLevel": "open",
+      "freeToSearch": true,
+      "loginRequired": false,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "Record states: free, no login required."
+    },
     "petroHrysScore": 93,
     "scoreFactors": {
       "editorialTrust": 10,
@@ -125,6 +146,28 @@
     "description": "Australian regulator search covering company, business name, financial adviser and banned-person registers.",
     "tier": "tier1",
     "scope": "national",
+    "primaryRegistryType": "company-register",
+    "registryTypes": [
+      "company-register",
+      "business-entity-register",
+      "financial-services-register"
+    ],
+    "operator": {
+      "name": "Australian Securities and Investments Commission",
+      "type": "regulator",
+      "officialUrl": null
+    },
+    "publicAccess": {
+      "searchUrl": null,
+      "accessLevel": "unknown",
+      "freeToSearch": true,
+      "loginRequired": null,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "Record states: free across every register. The overall access posture is not established, so the level stays unknown."
+    },
     "petroHrysScore": 92,
     "scoreFactors": {
       "editorialTrust": 10,

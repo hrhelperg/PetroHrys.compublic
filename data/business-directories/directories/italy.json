@@ -10,6 +10,17 @@
     "description": "Italian Business Register run by InfoCamere with the Chambers of Commerce, holding company data, officers, shareholdings and filed financial statements.",
     "tier": "tier1",
     "scope": "national",
+    "nativeName": "Registro Imprese",
+    "primaryRegistryType": "company-register",
+    "registryTypes": [
+      "company-register",
+      "public-filing-database"
+    ],
+    "operator": {
+      "name": "InfoCamere, with the Italian Chambers of Commerce",
+      "type": "other",
+      "officialUrl": null
+    },
     "petroHrysScore": 90,
     "scoreFactors": {
       "editorialTrust": 10,

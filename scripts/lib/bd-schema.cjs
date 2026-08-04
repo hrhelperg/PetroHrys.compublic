@@ -180,6 +180,354 @@ function computeScore(factors) {
   return Math.round(total / 10);
 }
 
+// --- Wave 1 foundation: geography, jurisdiction, names, registry type -------
+// Added for the government & statutory registries wave. Every field below is
+// nullable and normalised in memory by bd-migrate, so the 72 records written
+// before this wave keep their bytes and their rendered output unchanged.
+
+// A geographic registry entry is either a sovereign country or an authority
+// above several of them. The distinction is explicit because the EU is stored
+// in the same file for routing convenience and must never be *presented* as a
+// country — not in prose, breadcrumbs or structured data.
+const ENTITY_TYPES = ['country', 'supranational'];
+
+// Scope answers "how far does this system's authority reach", which is not the
+// same question as "where is it filed". `subnational` and `regional` are the
+// pair most easily confused, so both carry a definition and a test.
+const SCOPES = ['global', 'supranational', 'national', 'subnational', 'regional'];
+const SCOPE_DEFINITIONS = {
+  global: 'Worldwide or broadly international scope.',
+  supranational: 'An authority or system above multiple sovereign states.',
+  national: 'One sovereign state.',
+  subnational: 'An administrative jurisdiction within a state.',
+  regional: 'A multi-country or functional region that is not a subnational jurisdiction.',
+};
+
+const JURISDICTION_TYPES = ['state', 'province', 'territory', 'federal-district',
+  'region', 'autonomous-community', 'prefecture', 'municipality'];
+
+// --- grouping vocabulary -----------------------------------------------------
+// Presentation labels only. `jurisdiction.type` stays the canonical machine
+// value; nothing here is stored on a record.
+//
+// It is per-country because the same machine type is called different things in
+// different states, and because the wrong word is a factual error rather than a
+// style choice: Spain and Italy have no federal tier, so heading their national
+// registers "Federal" would misdescribe their constitution. `region` is the
+// clearest case — Länder in Germany, Regions in Italy, Autonomous regions in
+// China.
+//
+// NATIONAL_KEY is the bucket for records with no jurisdiction that are national
+// in scope. It is not a jurisdiction type, so it is keyed separately.
+//
+// OTHER_KEY catches the rest: a record with no jurisdiction whose scope is not
+// national — a regional or global body filed under one country. Without it the
+// Better Business Bureau, a private nonprofit with regional scope, would render
+// under a heading reading "Federal", which is a factual error about what it is.
+// The bucket renders only when such a record exists, so a country whose records
+// are all federal or subnational never sees it.
+const NATIONAL_KEY = 'national';
+const OTHER_KEY = 'other';
+
+const JURISDICTION_VOCABULARY = {
+  'united-states': {
+    national: 'Federal',
+    other: 'Other nationwide listings',
+    state: 'States',
+    'federal-district': 'Federal district',
+    territory: 'Territories',
+  },
+  canada: { national: 'Federal', other: 'Other nationwide listings', province: 'Provinces', territory: 'Territories' },
+  australia: { national: 'Federal', other: 'Other nationwide listings', state: 'States', territory: 'Territories' },
+  germany: { national: 'Federal', other: 'Other nationwide listings', region: 'Länder' },
+  spain: { national: 'National', other: 'Other nationwide listings', 'autonomous-community': 'Autonomous communities' },
+  italy: { national: 'National', other: 'Other nationwide listings', region: 'Regions' },
+  japan: { national: 'National', other: 'Other nationwide listings', prefecture: 'Prefectures' },
+  // Special administrative regions are deliberately absent: none is modelled,
+  // and Hong Kong and Macao are separate legal systems that must not be folded
+  // into a mainland grouping if they are ever added.
+  china: {
+    national: 'National',
+    province: 'Provinces',
+    region: 'Autonomous regions',
+    municipality: 'Municipalities',
+  },
+  // Countries with no subnational record yet get a neutral national label and
+  // nothing else. A subnational record filed under them fails loudly until
+  // someone writes the correct vocabulary, rather than silently borrowing
+  // American terminology.
+  france: { national: 'National', other: 'Other nationwide listings' },
+  'united-kingdom': { national: 'National', other: 'Other nationwide listings' },
+  poland: { national: 'National', other: 'Other nationwide listings' },
+  'czech-republic': { national: 'National', other: 'Other nationwide listings' },
+  'european-union': { national: 'Union-wide', other: 'Other Union-wide listings' },
+  global: { national: 'Global', other: 'Other global listings' },
+};
+
+const DEFAULT_NATIONAL_LABEL = 'National';
+
+// Throws rather than guessing. An unsupported country/type pair means either
+// the record is misfiled or the vocabulary is incomplete, and both are editorial
+// decisions a person must make — inventing "Prefectures in Spain" is not one.
+function jurisdictionLabel(countrySlug, typeKey) {
+  const vocabulary = JURISDICTION_VOCABULARY[countrySlug];
+  if (!vocabulary) {
+    throw new Error(`No jurisdiction vocabulary is declared for country "${countrySlug}". `
+      + 'Add one to JURISDICTION_VOCABULARY before publishing records for it.');
+  }
+  const label = vocabulary[typeKey];
+  if (!label) {
+    const known = Object.keys(vocabulary).filter((k) => k !== NATIONAL_KEY && k !== OTHER_KEY);
+    throw new Error(`Country "${countrySlug}" has no label for jurisdiction type "${typeKey}". `
+      + `It declares: ${known.length ? known.join(', ') : '(no subnational types)'}. `
+      + 'Either the record is misfiled or the vocabulary needs extending.');
+  }
+  return label;
+}
+
+// The subnational types a country is allowed to use, for the validator.
+function allowedJurisdictionTypes(countrySlug) {
+  const vocabulary = JURISDICTION_VOCABULARY[countrySlug];
+  if (!vocabulary) return null;
+  return Object.keys(vocabulary).filter((k) => k !== NATIONAL_KEY && k !== OTHER_KEY);
+}
+
+// --- geographic codes -------------------------------------------------------
+// STRUCTURAL validation only. No ISO 3166 dataset is embedded, so nothing here
+// asserts that a well-formed code is a real subdivision — only that it has the
+// right shape and belongs to the country it claims. Claiming more would be a
+// promise this repository cannot keep without maintaining the list.
+//
+// ISO 3166-1 alpha-2: exactly two uppercase ASCII letters. Anchored, so "usa",
+// "Us", "U5", " US " and "" are all refused.
+const ISO_3166_1_RE = /^[A-Z]{2}$/;
+// ISO 3166-2: the alpha-2 country, one hyphen, then 1-3 uppercase alphanumerics.
+const ISO_3166_2_RE = /^[A-Z]{2}-[A-Z0-9]{1,3}$/;
+
+// Why a code is malformed, in words a maintainer can act on. Returns null when
+// the shape is acceptable.
+function iso3166_2Problem(code) {
+  if (typeof code !== 'string') return `must be a string, got ${typeof code}`;
+  if (code !== code.trim()) return 'has leading or trailing whitespace';
+  if (code === '') return 'is empty; use null when no official code exists';
+  // The underscore case is checked first: "DE_US" has no hyphen either, and
+  // "uses the wrong separator" is the actionable message, not "has none".
+  if (/_/.test(code)) return 'uses "_" instead of "-"';
+  if (!code.includes('-')) return 'has no "-" separator (expected e.g. US-CA)';
+  if (code !== code.toUpperCase()) return 'must be uppercase';
+  const [country, subdivision, ...rest] = code.split('-');
+  if (rest.length) return 'has more than one "-" separator';
+  if (!ISO_3166_1_RE.test(country)) return `country part "${country}" is not two uppercase letters`;
+  if (!subdivision) return 'has an empty subdivision part';
+  if (!/^[A-Z0-9]{1,3}$/.test(subdivision)) {
+    return `subdivision part "${subdivision}" must be 1-3 uppercase letters or digits`;
+  }
+  return ISO_3166_2_RE.test(code) ? null : 'is not a well-formed ISO 3166-2 code';
+}
+
+// --- jurisdiction identity ---------------------------------------------------
+// Several registry records may legitimately belong to one jurisdiction —
+// California has more than one. What must be consistent is the DEFINITION of
+// the jurisdiction those records point at. This resolver produces the key that
+// definition is compared under, so the validator checks places, not records.
+//
+// Names are normalised for comparison only; the stored name is untouched.
+// Case, surrounding and internal whitespace, and punctuation used decoratively
+// are folded, so "District of Columbia" and "district of  columbia" are one
+// place rather than two.
+function normaliseJurisdictionName(name) {
+  if (typeof name !== 'string') return '';
+  return name.trim().toLowerCase().replace(/[\s ]+/g, ' ').replace(/[.,]/g, '');
+}
+
+// A code, where present, is the strongest identity: it is meant to be the
+// jurisdiction's canonical handle. Where none is recorded, the normalised name
+// carries the identity instead.
+function jurisdictionIdentity(jurisdiction) {
+  if (!jurisdiction || typeof jurisdiction !== 'object') return null;
+  const parent = jurisdiction.parentCountry || '';
+  const type = jurisdiction.type || '';
+  return jurisdiction.code
+    ? { key: `${parent}|${type}|code:${jurisdiction.code}`, by: 'code' }
+    : { key: `${parent}|${type}|name:${normaliseJurisdictionName(jurisdiction.name)}`, by: 'name' };
+}
+
+// The reverse view: one place, keyed by name, so two codes claiming the same
+// place can be caught as well as two names claiming the same code.
+function jurisdictionNameKey(jurisdiction) {
+  if (!jurisdiction || typeof jurisdiction !== 'object') return null;
+  return `${jurisdiction.parentCountry || ''}|${jurisdiction.type || ''}|`
+    + `${normaliseJurisdictionName(jurisdiction.name)}`;
+}
+
+// --- names ------------------------------------------------------------------
+// Four fields, ONE resolver. Overlapping name fields are only safe if exactly
+// one function decides what a reader sees, so `displayName` is the single
+// answer and every renderer goes through it.
+//
+// `officialName` normalises to `name` for records written before this wave, so
+// the resolver returns the same string it always did and their pages do not
+// change by a byte.
+const ENGLISH_NAME_SOURCES = ['official', 'editorial-translation'];
+
+function displayName(record) {
+  if (!record) return '';
+  return record.englishName || record.officialName || record.nativeName || record.name || '';
+}
+
+// True when the English title shown is our translation rather than a name the
+// operator publishes. Pages must say so: presenting an editorial rendering as
+// the institution's own name misattributes it.
+function isEditorialTranslation(record) {
+  return !!record
+    && !!record.englishName
+    && record.englishNameSource === 'editorial-translation';
+}
+
+// --- registry classification ------------------------------------------------
+// A registry may genuinely perform several official functions; flattening it to
+// one would misdescribe it. `primaryRegistryType` is what it is chiefly for,
+// and must also appear in `registryTypes`.
+const REGISTRY_TYPES = [
+  'company-register', 'business-entity-register', 'sole-trader-register',
+  'beneficial-ownership-register', 'securities-filing-database',
+  'financial-services-register', 'professional-licence-register', 'charity-register',
+  'procurement-supplier-register', 'tax-verification-system', 'corporate-number-database',
+  'trademark-register', 'patent-register', 'insolvency-register',
+  'regulated-operator-register', 'contractor-accreditation-register',
+  'public-filing-database', 'cross-border-registry-interface',
+  // Added for Wave 1A completion. Three verified federal registers had no
+  // honest fit: labelling a debarment list a "procurement-supplier-register"
+  // states the opposite of what it is, since a supplier register records who
+  // MAY bid and an exclusion register records who may not.
+  'exclusion-and-debarment-register',
+];
+
+// --- operator ---------------------------------------------------------------
+const OPERATOR_TYPES = ['government-agency', 'regulator', 'court', 'public-law-body',
+  'supranational-institution', 'ministry', 'local-authority', 'other'];
+
+// --- public access ----------------------------------------------------------
+// accessLevel is recorded, never derived: absent booleans mean "not
+// established", and inferring "open" from silence would manufacture a claim
+// about accessibility that no source made.
+const ACCESS_LEVELS = ['open', 'partially-open', 'login-required',
+  'identity-verification-required', 'restricted', 'unknown'];
+
+const PUBLIC_ACCESS_BOOLEANS = ['freeToSearch', 'loginRequired', 'identityVerificationRequired',
+  'captcha', 'geographicRestriction', 'paidDocumentsAvailable'];
+
+// Human wording for every enum a reader can see. Derived from the enums
+// themselves at require time, so a new value cannot be added without a label —
+// the alternative is a page that prints "identity-verification-required".
+const ACCESS_LEVEL_LABELS = {
+  open: 'Open',
+  'partially-open': 'Partly open',
+  'login-required': 'Login required',
+  'identity-verification-required': 'Identity verification required',
+  restricted: 'Restricted',
+  unknown: 'Not established',
+};
+
+const OPERATOR_TYPE_LABELS = {
+  'government-agency': 'Government agency',
+  regulator: 'Regulator',
+  court: 'Court',
+  'public-law-body': 'Public-law body',
+  'supranational-institution': 'Supranational institution',
+  ministry: 'Ministry',
+  'local-authority': 'Local authority',
+  other: 'Other',
+};
+
+const SCOPE_LABELS = {
+  global: 'Global',
+  supranational: 'Supranational',
+  national: 'National',
+  subnational: 'Subnational',
+  regional: 'Regional',
+};
+
+// Stated once, next to the enum it explains, so the page can say what a
+// missing access level means instead of leaving a reader to guess.
+const ACCESS_UNKNOWN_NOTE = 'The overall access position has not been established from an official '
+  + 'source. It is recorded as unknown rather than assumed to be open.';
+
+// Returns the reasons an access block contradicts itself. A stated level and a
+// stated boolean disagreeing means one of them is wrong, and publishing either
+// would tell a reader something untrue about whether they can use the register.
+// What each level asserts. Published in the runbook and used by the UI, so a
+// reviewer choosing a level and a reader interpreting one work from the same
+// sentence.
+const ACCESS_LEVEL_DEFINITIONS = {
+  open: 'Public search and core result access require neither login nor identity verification.',
+  'partially-open': 'Some useful public search or data is available, but fuller documents, '
+    + 'extended data or operations require payment, login, identity verification or another '
+    + 'restriction.',
+  'login-required': 'Search or meaningful result access requires an account.',
+  'identity-verification-required': 'Access requires confirmed identity, a domestic credential, '
+    + 'a verified phone number or comparable identity control.',
+  restricted: 'General public access is materially unavailable or limited to authorised users.',
+  unknown: 'Evidence is insufficient to establish the access position.',
+};
+
+// A restriction that `partially-open` can point at. Free-to-search alone is not
+// a limitation, so it is not in this list.
+const ACCESS_LIMITATION_FLAGS = ['loginRequired', 'identityVerificationRequired', 'captcha',
+  'geographicRestriction', 'paidDocumentsAvailable'];
+
+function accessContradictions(access) {
+  if (!access || typeof access !== 'object') return [];
+  const out = [];
+  const { accessLevel: level } = access;
+  const hasNote = typeof access.notes === 'string' && access.notes.trim().length > 0;
+
+  if (level === 'open') {
+    if (access.loginRequired === true) out.push('accessLevel "open" with loginRequired true');
+    if (access.identityVerificationRequired === true) {
+      out.push('accessLevel "open" with identityVerificationRequired true');
+    }
+    if (access.freeToSearch === false) out.push('accessLevel "open" with freeToSearch false');
+    // A geographic restriction may be something other than an access barrier —
+    // a register whose CONTENT covers one region is not gated. That reading has
+    // to be written down, though, or "open" silently overrides the flag.
+    if (access.geographicRestriction === true && !hasNote) {
+      out.push('accessLevel "open" with geographicRestriction true and no note explaining '
+        + 'why the restriction is not an access barrier');
+    }
+    // captcha with "open" is deliberately allowed: a challenge is friction, not
+    // an account or an identity check.
+  }
+  if (level === 'login-required' && access.loginRequired === false) {
+    out.push('accessLevel "login-required" with loginRequired false');
+  }
+  if (level === 'identity-verification-required' && access.identityVerificationRequired === false) {
+    out.push('accessLevel "identity-verification-required" with identityVerificationRequired false');
+  }
+  if (level === 'restricted') {
+    const anyRestriction = ACCESS_LIMITATION_FLAGS.some((k) => access[k] === true);
+    const allDenied = ACCESS_LIMITATION_FLAGS.every((k) => access[k] === false);
+    if (!anyRestriction && allDenied && !hasNote) {
+      out.push('accessLevel "restricted" with every restriction flag false and no note '
+        + 'explaining what restricts access');
+    }
+  }
+  // The level exists to say "usable, but not fully". Something has to be the
+  // "not fully", or it is indistinguishable from open.
+  if (level === 'partially-open') {
+    const anyLimitation = ACCESS_LIMITATION_FLAGS.some((k) => access[k] === true);
+    if (!anyLimitation && !hasNote) {
+      out.push('accessLevel "partially-open" with no limitation flag set and no note '
+        + 'describing what is limited');
+    }
+  }
+  // Note what is NOT a contradiction: accessLevel "unknown" alongside an
+  // established boolean. Knowing a register is free to search says nothing
+  // about whether it also demands a login, and requiring a level to be asserted
+  // would force exactly the inference this model exists to prevent.
+  return out;
+}
+
 // --- required shape ---------------------------------------------------------
 
 const REQUIRED_STRINGS = ['id', 'name', 'slug', 'country', 'category', 'website', 'description'];
@@ -299,7 +647,145 @@ function nextVerificationFor(record) {
   return shifted.toISOString().slice(0, 10);
 }
 
+// Enforced at require time. A new enum value without a label would otherwise
+// surface as a raw machine string on a published page.
+for (const [name, values, labels] of [
+  ['ACCESS_LEVELS', ACCESS_LEVELS, ACCESS_LEVEL_LABELS],
+  ['OPERATOR_TYPES', OPERATOR_TYPES, OPERATOR_TYPE_LABELS],
+  ['SCOPES', SCOPES, SCOPE_LABELS],
+  ['ACCESS_LEVELS (definitions)', ACCESS_LEVELS, ACCESS_LEVEL_DEFINITIONS],
+]) {
+  for (const value of values) {
+    if (!labels[value]) throw new Error(`${name} value "${value}" has no display label.`);
+  }
+}
+
+// --- the canonical record key set -------------------------------------------
+// Every key a normalised record may carry. The validator rejects anything else,
+// so a typo or an improvised per-country field fails loudly instead of being
+// silently dropped by the migration. A test asserts this list matches exactly
+// what bd-migrate emits, so the two cannot drift apart.
+const KNOWN_RECORD_KEYS = [
+  'id', 'name', 'slug', 'country', 'category', 'website', 'submissionUrl', 'description',
+  'tier', 'scope',
+  'officialName', 'nativeName', 'englishName', 'englishNameSource',
+  'jurisdiction', 'resourceIdentity',
+  'primaryRegistryType', 'registryTypes',
+  'operator', 'publicAccess',
+  'petroHrysScore', 'scoreFactors',
+  'domainRating', 'authorityScore', 'estimatedTraffic', 'referringDomains', 'httpStatus',
+  'metricStatus', 'metricsProvenance',
+  'submissionModel', 'registrationRequired', 'reviewSystem', 'verificationRequired',
+  'manualReview', 'accepts',
+  'backlinkType', 'robots', 'sitemap', 'indexed', 'ssl',
+  'lastVerified', 'nextVerification', 'verification', 'related',
+  'bestFor', 'notRecommendedFor', 'submissionDifficulty', 'listingQuality',
+  'typicalApprovalTime', 'reviewProcess', 'commonMistakes', 'preparationChecklist',
+  'requiredAssets', 'recommendedIndustries', 'editorialTags', 'pros', 'cons', 'editorNotes',
+];
+
+// --- shared official hosts ---------------------------------------------------
+// One canonical domain per country is the right default: two records on one
+// host are almost always the same service listed twice. But a government
+// application host breaks that assumption. accessdata.fda.gov carries dozens of
+// separate FDA databases with different centres, statutes and populations, and
+// treating the hostname as the identity would force us to publish one of them
+// and silently drop the rest.
+//
+// `resourceIdentity` makes the exception explicit and evidenced rather than
+// hard-coding a list of blessed domains. Sharing a domain is allowed ONLY when
+// every record on it declares the same sharedHostGroup, carries its own unique
+// systemKey, and points at a materially different URL. A landing page and its
+// own search page still do not qualify — they are one system.
+const RESOURCE_IDENTITY_KEYS = ['canonicalDomain', 'systemKey', 'sharedHostGroup'];
+
+// A hostname and nothing else: no scheme, no path, no query, no port, no
+// credentials. Those all indicate the author pasted a URL.
+const CANONICAL_DOMAIN_RE = /^[a-z0-9](?:[a-z0-9-]*[a-z0-9])?(?:\.[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)+$/;
+
+function canonicalDomainProblem(value) {
+  if (typeof value !== 'string') return `must be a string, got ${typeof value}`;
+  if (value !== value.trim()) return 'has leading or trailing whitespace';
+  if (!value) return 'is empty';
+  if (/^[a-z]+:\/\//i.test(value)) return 'contains a URL scheme; store the hostname only';
+  if (value.includes('/')) return 'contains a path; store the hostname only';
+  if (value.includes('?') || value.includes('#')) return 'contains a query or fragment';
+  if (value.includes('@')) return 'contains credentials';
+  if (value.includes(':')) return 'contains a port';
+  if (value !== value.toLowerCase()) return 'must be lowercase';
+  if (value.startsWith('www.')) return 'includes a "www." prefix; store the registrable host';
+  if (!CANONICAL_DOMAIN_RE.test(value)) return 'is not a well-formed hostname';
+  return null;
+}
+
+// Two official URLs count as materially different only if they differ by more
+// than case, a trailing slash, a query string or a language segment. This is
+// what stops "the same registry, twice" from being dressed up as two systems.
+const LANGUAGE_SEGMENT_RE = /\/(?:[a-z]{2}|[a-z]{2}-[a-z]{2})(?=\/|$)/gi;
+
+function normaliseForComparison(url) {
+  if (typeof url !== 'string' || !url) return '';
+  let out;
+  try {
+    const parsed = new URL(url);
+    out = `${parsed.hostname.replace(/^www\./, '')}${parsed.pathname}`.toLowerCase();
+  } catch {
+    out = url.toLowerCase();
+  }
+  out = out.replace(LANGUAGE_SEGMENT_RE, '');
+  return out.replace(/\/+$/, '');
+}
+
+function urlsAreMateriallyDifferent(a, b) {
+  const na = normaliseForComparison(a);
+  const nb = normaliseForComparison(b);
+  if (!na || !nb) return true;
+  return na !== nb;
+}
+
+// --- nested key sets --------------------------------------------------------
+// Top-level rejection is not enough. `jurisdiction: { typoCode: 'US-CA' }` was
+// accepted and then silently emptied by the migration's fixed-key picker, so a
+// misspelled nested field produced neither an error nor any data. Each
+// structured object therefore declares its own key set, and the same rejection
+// applies at every level with a dotted path in the message.
+const NESTED_RECORD_KEYS = {
+  resourceIdentity: RESOURCE_IDENTITY_KEYS,
+  jurisdiction: ['type', 'name', 'code', 'parentCountry'],
+  operator: ['name', 'type', 'officialUrl'],
+  publicAccess: ['searchUrl', 'accessLevel', ...PUBLIC_ACCESS_BOOLEANS, 'notes'],
+  verification: ['status', 'source', 'reviewers'],
+  requiredAssets: REQUIRED_ASSET_KEYS,
+  accepts: ACCEPTS_KEYS,
+  related: RELATION_KINDS,
+  scoreFactors: SCORE_FACTORS.map((f) => f.key),
+};
+
+// Provenance is keyed by metric name, so its own keys are dynamic; only the
+// shape of each entry is fixed.
+const METRIC_PROVENANCE_KEYS = ['provider', 'measuredAt', 'status', 'measuredDomain'];
+
+// Fields whose stored value must be an object, and those that must be an array.
+// A wrongly typed value used to be coerced away by the migration — a string
+// `registryTypes` became `[]` — which lost the author's intent silently.
+const OBJECT_VALUED_FIELDS = ['resourceIdentity', 'jurisdiction', 'operator', 'publicAccess', 'verification',
+  'requiredAssets', 'accepts', 'related', 'scoreFactors', 'metricsProvenance'];
+const ARRAY_VALUED_FIELDS = ['registryTypes', ...ARRAY_FIELDS];
+
 module.exports = {
+  NESTED_RECORD_KEYS, METRIC_PROVENANCE_KEYS, OBJECT_VALUED_FIELDS, ARRAY_VALUED_FIELDS,
+  RESOURCE_IDENTITY_KEYS, CANONICAL_DOMAIN_RE, canonicalDomainProblem,
+  normaliseForComparison, urlsAreMateriallyDifferent,
+  ENTITY_TYPES, SCOPES, SCOPE_DEFINITIONS, JURISDICTION_TYPES,
+  ISO_3166_1_RE, ISO_3166_2_RE, iso3166_2Problem,
+  normaliseJurisdictionName, jurisdictionIdentity, jurisdictionNameKey,
+  JURISDICTION_VOCABULARY, NATIONAL_KEY, OTHER_KEY, DEFAULT_NATIONAL_LABEL,
+  jurisdictionLabel, allowedJurisdictionTypes,
+  ENGLISH_NAME_SOURCES, displayName, isEditorialTranslation,
+  REGISTRY_TYPES, OPERATOR_TYPES, ACCESS_LEVELS, PUBLIC_ACCESS_BOOLEANS, accessContradictions,
+  ACCESS_LEVEL_LABELS, OPERATOR_TYPE_LABELS, SCOPE_LABELS, ACCESS_UNKNOWN_NOTE,
+  ACCESS_LEVEL_DEFINITIONS, ACCESS_LIMITATION_FLAGS,
+  KNOWN_RECORD_KEYS,
   TIERS, BACKLINK_TYPES, ROBOTS_STATES, SUBMISSION_MODELS, METRIC_STATUSES,
   SUBMISSION_MODEL_LABELS, SUBMISSION_NOT_APPLICABLE_NOTE, SUBMITTABLE_MODELS,
   METRIC_SNAPSHOT_STATUS, METRIC_PROVIDERS, DOMAIN_RATING_RANGE, AHREFS_ATTRIBUTION,

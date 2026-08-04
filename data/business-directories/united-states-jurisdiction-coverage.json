@@ -1,0 +1,1132 @@
+{
+  "country": "united-states",
+  "note": "The complete set of United States jurisdictions this section is measured against. Coverage is counted from this file and from the registry, never from a record total.",
+  "lastReviewed": "2026-08-04",
+  "totals": {
+    "states": 50,
+    "statesPublished": 31,
+    "statesPending": 19,
+    "statesNotResearched": 0,
+    "federalDistricts": 1,
+    "federalDistrictsPublished": 1,
+    "territories": 5,
+    "territoriesPublished": 2,
+    "territoriesPending": 3
+  },
+  "jurisdictions": [
+    {
+      "code": "US-AL",
+      "name": "Alabama",
+      "kind": "state",
+      "status": "pending-manual-verification",
+      "recordId": null,
+      "registry": "Government Records Inquiry System",
+      "operator": "Office of the Alabama Secretary of State, Business Entity Division (Business Entities Division)",
+      "url": "https://arc-sos.state.al.us/CGI/CORPNAME.MBR/INPUT",
+      "unverifiedLead": null,
+      "blocker": "But the search application itself (arc-sos.state.al.us) refused or timed out every connection from two independent network paths, so I cannot honestly record whether it is open, free, CAPTCHA-protected, or what its result fields contain.",
+      "confirmed": [
+        "official product name",
+        "operator",
+        "official URL",
+        "entity types covered",
+        "paid documents",
+        "document images free"
+      ],
+      "unknown": [
+        "search fields",
+        "free to search",
+        "login required",
+        "CAPTCHA",
+        "access level"
+      ],
+      "manualSteps": [
+        "Open https://arc-sos.state.al.us/CGI/CORPNAME.MBR/INPUT in an ordinary desktop browser.",
+        "Record the on-screen product name exactly as the operator writes it.",
+        "Run one real entity search and record every result field returned.",
+        "Record whether a fee, an account, a session or a CAPTCHA is imposed before results appear.",
+        "Record whether filed document images can be viewed, and at what price.",
+        "Capture the official page that describes the register as the statutory source."
+      ]
+    },
+    {
+      "code": "US-AK",
+      "name": "Alaska",
+      "kind": "state",
+      "status": "pending-manual-verification",
+      "recordId": null,
+      "registry": "Corporations Database",
+      "operator": "Alaska Department of Commerce, Community and Economic Development — Division of Corporations, Business and Professional Licensing",
+      "url": "https://www.commerce.alaska.gov/cbp/main/search/entities",
+      "unverifiedLead": null,
+      "blocker": "But no Division of Corporations surface could be read: one host WAF-403s and the other serves an F5/Shape JavaScript challenge. The product name, searchable fields, fees, document availability and the CSV bulk-download claim all remain unverified.",
+      "confirmed": [
+        "official product name",
+        "operator",
+        "official URL",
+        "CAPTCHA"
+      ],
+      "unknown": [
+        "entity types covered",
+        "search fields",
+        "free to search",
+        "login required",
+        "paid documents",
+        "document images free",
+        "access level"
+      ],
+      "manualSteps": [
+        "Open https://www.commerce.alaska.gov/cbp/main/search/entities in an ordinary desktop browser.",
+        "Record the on-screen product name exactly as the operator writes it.",
+        "Run one real entity search and record every result field returned.",
+        "Record whether a fee, an account, a session or a CAPTCHA is imposed before results appear.",
+        "Record whether filed document images can be viewed, and at what price.",
+        "Capture the official page that describes the register as the statutory source."
+      ]
+    },
+    {
+      "code": "US-AZ",
+      "name": "Arizona",
+      "kind": "state",
+      "status": "pending-manual-verification",
+      "recordId": null,
+      "registry": "Arizona Business Center",
+      "operator": "Arizona Corporation Commission — Corporations Division",
+      "url": "https://arizonabusinesscenter.azcc.gov/EntitySearch/Index",
+      "unverifiedLead": null,
+      "blocker": "But the exact official product name, the searchable fields, the entity types covered, and whether the search is free and login-free could not be read from any official page: the search app is JS-only and the ACC's describing website refuses connections from this network. Publishing now would require guessing. Needs a manual visit in a real browser.",
+      "confirmed": [
+        "operator",
+        "official URL"
+      ],
+      "unknown": [
+        "official product name",
+        "entity types covered",
+        "search fields",
+        "free to search",
+        "login required",
+        "CAPTCHA",
+        "paid documents",
+        "document images free",
+        "access level"
+      ],
+      "manualSteps": [
+        "Open https://arizonabusinesscenter.azcc.gov/EntitySearch/Index in an ordinary desktop browser.",
+        "Record the on-screen product name exactly as the operator writes it.",
+        "Run one real entity search and record every result field returned.",
+        "Record whether a fee, an account, a session or a CAPTCHA is imposed before results appear.",
+        "Record whether filed document images can be viewed, and at what price.",
+        "Capture the official page that describes the register as the statutory source."
+      ]
+    },
+    {
+      "code": "US-AR",
+      "name": "Arkansas",
+      "kind": "state",
+      "status": "published",
+      "recordId": "us-arkansas-business-entity-search",
+      "registry": "Business Entity Search",
+      "operator": "Arkansas Secretary of State, Business & Commercial Services (BCS) Division",
+      "url": "https://sos-corp-search.ark.org/corps"
+    },
+    {
+      "code": "US-CA",
+      "name": "California",
+      "kind": "state",
+      "status": "published",
+      "recordId": "us-california-business-search",
+      "registry": "Business Search",
+      "operator": "California Secretary of State — Business Programs Division",
+      "url": "https://bizfileonline.sos.ca.gov/search/business"
+    },
+    {
+      "code": "US-CO",
+      "name": "Colorado",
+      "kind": "state",
+      "status": "published",
+      "recordId": "us-colorado-business-database-search",
+      "registry": "Business Database Search",
+      "operator": "Colorado Secretary of State — Business Division",
+      "url": "https://www.coloradosos.gov/biz/BusinessEntityCriteriaExt.do"
+    },
+    {
+      "code": "US-CT",
+      "name": "Connecticut",
+      "kind": "state",
+      "status": "published",
+      "recordId": "us-connecticut-business-records-search",
+      "registry": "Business Records Search",
+      "operator": "Office of the Secretary of the State (Connecticut)",
+      "url": "https://service.ct.gov/business/s/onlinebusinesssearch"
+    },
+    {
+      "code": "US-DE",
+      "name": "Delaware",
+      "kind": "state",
+      "status": "published",
+      "recordId": "us-delaware-entity-search",
+      "registry": "Search for a Business Entity",
+      "operator": "Delaware Department of State, Division of Corporations",
+      "url": "https://icis.corp.delaware.gov/eCorp/EntitySearch/NameSearch.aspx"
+    },
+    {
+      "code": "US-FL",
+      "name": "Florida",
+      "kind": "state",
+      "status": "published",
+      "recordId": "us-florida-sunbiz-search",
+      "registry": "Sunbiz",
+      "operator": "Florida Department of State, Division of Corporations",
+      "url": "https://search.sunbiz.org/Inquiry/CorporationSearch/ByName"
+    },
+    {
+      "code": "US-GA",
+      "name": "Georgia",
+      "kind": "state",
+      "status": "pending-manual-verification",
+      "recordId": null,
+      "registry": null,
+      "operator": "Corporations Division of the Georgia Secretary of State",
+      "url": "https://ecorp.sos.ga.gov/BusinessSearch",
+      "unverifiedLead": null,
+      "blocker": "BLOCKER: the search application at https://ecorp.sos.ga.gov/BusinessSearch is gated by a Cloudflare JavaScript/cookie interstitial that returns HTTP 403 to every non-browser client, including robots.txt.",
+      "confirmed": [
+        "operator",
+        "official URL",
+        "entity types covered",
+        "CAPTCHA"
+      ],
+      "unknown": [
+        "official product name",
+        "search fields",
+        "free to search",
+        "login required",
+        "paid documents",
+        "document images free",
+        "access level"
+      ],
+      "manualSteps": [
+        "Open https://ecorp.sos.ga.gov/BusinessSearch in an ordinary desktop browser.",
+        "Record the on-screen product name exactly as the operator writes it.",
+        "Run one real entity search and record every result field returned.",
+        "Record whether a fee, an account, a session or a CAPTCHA is imposed before results appear.",
+        "Record whether filed document images can be viewed, and at what price.",
+        "Capture the official page that describes the register as the statutory source."
+      ]
+    },
+    {
+      "code": "US-HI",
+      "name": "Hawaii",
+      "kind": "state",
+      "status": "published",
+      "recordId": "us-hawaii-business-name-search",
+      "registry": "Hawaii Business Entity Search",
+      "operator": "State of Hawaii Department of Commerce and Consumer Affairs — Business Registration Division (BREG)",
+      "url": "https://hbe.dcca.hawaii.gov/search-and-buy"
+    },
+    {
+      "code": "US-ID",
+      "name": "Idaho",
+      "kind": "state",
+      "status": "published",
+      "recordId": "us-idaho-sosbiz-search",
+      "registry": "SOSBiz",
+      "operator": "Idaho Secretary of State",
+      "url": "https://sosbiz.idaho.gov/search/business"
+    },
+    {
+      "code": "US-IL",
+      "name": "Illinois",
+      "kind": "state",
+      "status": "pending-manual-verification",
+      "recordId": null,
+      "registry": "Illinois Secretary of State Business Entity Search",
+      "operator": "Office of the Secretary of State (Illinois)",
+      "url": "https://apps.ilsos.gov/businessentitysearch/",
+      "unverifiedLead": null,
+      "blocker": "Operator and canonical search URL are confirmed on an official State of Illinois page, but the search application itself returned HTTP 403 from Akamai on every attempt and every user agent, so the exact product name, search fields, result fields, document availability and access conditions are all unverified.",
+      "confirmed": [
+        "official product name",
+        "operator",
+        "official URL"
+      ],
+      "unknown": [
+        "entity types covered",
+        "search fields",
+        "free to search",
+        "login required",
+        "CAPTCHA",
+        "paid documents",
+        "document images free",
+        "access level"
+      ],
+      "manualSteps": [
+        "Open https://apps.ilsos.gov/businessentitysearch/ in an ordinary desktop browser.",
+        "Record the on-screen product name exactly as the operator writes it.",
+        "Run one real entity search and record every result field returned.",
+        "Record whether a fee, an account, a session or a CAPTCHA is imposed before results appear.",
+        "Record whether filed document images can be viewed, and at what price.",
+        "Capture the official page that describes the register as the statutory source."
+      ]
+    },
+    {
+      "code": "US-IN",
+      "name": "Indiana",
+      "kind": "state",
+      "status": "pending-manual-verification",
+      "recordId": null,
+      "registry": "Business Search",
+      "operator": "Indiana Secretary of State, Business Services Division",
+      "url": "https://bsd.sos.in.gov/publicbusinesssearch",
+      "unverifiedLead": null,
+      "blocker": "Operator, division and canonical search URL are confirmed from the Secretary of State's own official pages, and the AWS WAF blocker is precisely characterised. But the search application never returned a body, so the on-screen product name, search fields, result fields, registered-agent and officer visibility, and document/fee model are unverified.",
+      "confirmed": [
+        "official product name",
+        "operator",
+        "official URL",
+        "CAPTCHA"
+      ],
+      "unknown": [
+        "entity types covered",
+        "search fields",
+        "free to search",
+        "login required",
+        "paid documents",
+        "document images free",
+        "access level"
+      ],
+      "manualSteps": [
+        "Open https://bsd.sos.in.gov/publicbusinesssearch in an ordinary desktop browser.",
+        "Record the on-screen product name exactly as the operator writes it.",
+        "Run one real entity search and record every result field returned.",
+        "Record whether a fee, an account, a session or a CAPTCHA is imposed before results appear.",
+        "Record whether filed document images can be viewed, and at what price.",
+        "Capture the official page that describes the register as the statutory source."
+      ]
+    },
+    {
+      "code": "US-IA",
+      "name": "Iowa",
+      "kind": "state",
+      "status": "published",
+      "recordId": "us-iowa-business-entities-search",
+      "registry": "Business Entities Search",
+      "operator": "Office of the Iowa Secretary of State — Business Services",
+      "url": "https://sos.iowa.gov/search/business/search.aspx"
+    },
+    {
+      "code": "US-KS",
+      "name": "Kansas",
+      "kind": "state",
+      "status": "published",
+      "recordId": "us-kansas-business-search",
+      "registry": "Business Search",
+      "operator": "Kansas Secretary of State — Business Services Division",
+      "url": "https://www.sos.ks.gov/eforms/BusinessEntity/Search.aspx"
+    },
+    {
+      "code": "US-KY",
+      "name": "Kentucky",
+      "kind": "state",
+      "status": "published",
+      "recordId": "us-kentucky-business-entity-search",
+      "registry": "Business Entity Search",
+      "operator": "Office of the Kentucky Secretary of State",
+      "url": "https://sosbes.sos.ky.gov/BusSearchNProfile/search.aspx"
+    },
+    {
+      "code": "US-LA",
+      "name": "Louisiana",
+      "kind": "state",
+      "status": "published",
+      "recordId": "us-louisiana-business-filings-search",
+      "registry": "Search for Louisiana Business Filings",
+      "operator": "Louisiana Department of State — Office of the Secretary of State, Commercial Division",
+      "url": "https://coraweb.sos.la.gov/commercialsearch/commercialsearch.aspx"
+    },
+    {
+      "code": "US-ME",
+      "name": "Maine",
+      "kind": "state",
+      "status": "published",
+      "recordId": "us-maine-corporate-name-search",
+      "registry": "Corporate Name Search (ICRS)",
+      "operator": "Maine Department of the Secretary of State — Division of Corporations, UCC & Commissions",
+      "url": "https://apps3.web.maine.gov/nei-sos-icrs/ICRS?MainPage=x"
+    },
+    {
+      "code": "US-MD",
+      "name": "Maryland",
+      "kind": "state",
+      "status": "published",
+      "recordId": "us-maryland-business-entity-search",
+      "registry": "Business Entity Search",
+      "operator": "Maryland State Department of Assessments and Taxation (SDAT)",
+      "url": "https://egov.maryland.gov/BusinessExpress/EntitySearch"
+    },
+    {
+      "code": "US-MA",
+      "name": "Massachusetts",
+      "kind": "state",
+      "status": "published",
+      "recordId": "us-massachusetts-business-entity-search",
+      "registry": "Search for a Business Entity",
+      "operator": "Secretary of the Commonwealth of Massachusetts — Corporations Division",
+      "url": "https://corp.sec.state.ma.us/corpweb/corpsearch/corpsearch.aspx"
+    },
+    {
+      "code": "US-MI",
+      "name": "Michigan",
+      "kind": "state",
+      "status": "pending-manual-verification",
+      "recordId": null,
+      "registry": "MiBusiness Registry Portal",
+      "operator": "Michigan Department of Licensing and Regulatory Affairs (LARA)",
+      "url": "https://mibusinessregistry.lara.state.mi.us/",
+      "unverifiedLead": null,
+      "blocker": "But no search interface was ever reachable, so entity coverage, search fields, result fields, document availability and fees are all unverified, and the exact bureau/division within LARA could not be confirmed from a readable official page. A human should open https://mibusinessregistry.lara.state.mi.us/ in a browser, clear the challenge, and record the search product name, the bureau attribution, and the field set.",
+      "confirmed": [
+        "official product name",
+        "operator",
+        "official URL",
+        "CAPTCHA"
+      ],
+      "unknown": [
+        "entity types covered",
+        "search fields",
+        "free to search",
+        "login required",
+        "paid documents",
+        "document images free",
+        "access level"
+      ],
+      "manualSteps": [
+        "Open https://mibusinessregistry.lara.state.mi.us/ in an ordinary desktop browser.",
+        "Record the on-screen product name exactly as the operator writes it.",
+        "Run one real entity search and record every result field returned.",
+        "Record whether a fee, an account, a session or a CAPTCHA is imposed before results appear.",
+        "Record whether filed document images can be viewed, and at what price.",
+        "Capture the official page that describes the register as the statutory source."
+      ]
+    },
+    {
+      "code": "US-MN",
+      "name": "Minnesota",
+      "kind": "state",
+      "status": "published",
+      "recordId": "us-minnesota-business-filings-search",
+      "registry": "Search Business Filings",
+      "operator": "Office of the Minnesota Secretary of State",
+      "url": "https://mblsportal.sos.mn.gov/Business/Search"
+    },
+    {
+      "code": "US-MS",
+      "name": "Mississippi",
+      "kind": "state",
+      "status": "pending-manual-verification",
+      "recordId": null,
+      "registry": "Business Search",
+      "operator": "Mississippi Secretary of State, Business Services Division",
+      "url": "https://corp.sos.ms.gov/corp/portal/c/page/corpBusinessIdSearch/portal.aspx",
+      "unverifiedLead": null,
+      "blocker": "But the principal search screen returned HTTP 403 from an Akamai WAF on every attempt across two independent fetch paths, so its exact heading, its official product name, its search fields, whether it charges, and what a result record displays are all unread.",
+      "confirmed": [
+        "official product name",
+        "operator",
+        "official URL",
+        "search fields",
+        "login required",
+        "CAPTCHA",
+        "paid documents",
+        "access level"
+      ],
+      "unknown": [
+        "entity types covered",
+        "free to search",
+        "document images free"
+      ],
+      "manualSteps": [
+        "Open https://corp.sos.ms.gov/corp/portal/c/page/corpBusinessIdSearch/portal.aspx in an ordinary desktop browser.",
+        "Record the on-screen product name exactly as the operator writes it.",
+        "Run one real entity search and record every result field returned.",
+        "Record whether a fee, an account, a session or a CAPTCHA is imposed before results appear.",
+        "Record whether filed document images can be viewed, and at what price.",
+        "Capture the official page that describes the register as the statutory source."
+      ]
+    },
+    {
+      "code": "US-MO",
+      "name": "Missouri",
+      "kind": "state",
+      "status": "pending-manual-verification",
+      "recordId": null,
+      "registry": "Business Search",
+      "operator": "Missouri Secretary of State — Corporations Unit",
+      "url": "https://bsd.sos.mo.gov/BusinessEntity/BESearch.aspx?SearchType=0",
+      "unverifiedLead": null,
+      "blocker": "Operator, unit, entity coverage and the office-cited search URL are confirmed from an official Secretary of State page, but the search application itself never rendered and the office's own hostnames returned intermittent HTTP 522 origin errors, so nothing about the search interface, result fields, document availability or fees is verified, and the distinctive facts available are thin and mostly structural.",
+      "confirmed": [
+        "official product name",
+        "operator",
+        "official URL",
+        "entity types covered",
+        "CAPTCHA"
+      ],
+      "unknown": [
+        "search fields",
+        "free to search",
+        "login required",
+        "paid documents",
+        "document images free",
+        "access level"
+      ],
+      "manualSteps": [
+        "Open https://bsd.sos.mo.gov/BusinessEntity/BESearch.aspx?SearchType=0 in an ordinary desktop browser.",
+        "Record the on-screen product name exactly as the operator writes it.",
+        "Run one real entity search and record every result field returned.",
+        "Record whether a fee, an account, a session or a CAPTCHA is imposed before results appear.",
+        "Record whether filed document images can be viewed, and at what price.",
+        "Capture the official page that describes the register as the statutory source."
+      ]
+    },
+    {
+      "code": "US-MT",
+      "name": "Montana",
+      "kind": "state",
+      "status": "published",
+      "recordId": "us-montana-business-search",
+      "registry": "Business Filing Portal",
+      "operator": "Montana Secretary of State — Business Services Division",
+      "url": "https://biz.sosmt.gov/search/business"
+    },
+    {
+      "code": "US-NE",
+      "name": "Nebraska",
+      "kind": "state",
+      "status": "published",
+      "recordId": "us-nebraska-corporate-business-search",
+      "registry": "Corporate & Business Search",
+      "operator": "Nebraska Secretary of State",
+      "url": "https://www.nebraska.gov/sos/corp/corpsearch.cgi"
+    },
+    {
+      "code": "US-NV",
+      "name": "Nevada",
+      "kind": "state",
+      "status": "published",
+      "recordId": "us-nevada-business-entity-search",
+      "registry": "Business Entity Search",
+      "operator": "Nevada Secretary of State",
+      "url": "https://esos.nv.gov/EntitySearch/OnlineEntitySearch"
+    },
+    {
+      "code": "US-NH",
+      "name": "New Hampshire",
+      "kind": "state",
+      "status": "pending-manual-verification",
+      "recordId": null,
+      "registry": null,
+      "operator": "New Hampshire Secretary of State (official page header: \"New Hampshire Secretary of State / David M",
+      "url": "https://quickstart.sos.nh.gov/online/BusinessInquire",
+      "unverifiedLead": null,
+      "blocker": "Precise blocker: every New Hampshire official surface carrying substantive description returns HTTP 403 (Akamai on www.sos.nh.gov and www.nh.gov; the state edge on quickstart.sos.nh.gov) or HTTP 503 (sos.nh.gov), to curl with full browser headers and cookies and to WebFetch alike. What IS established from official surfaces: the operating office (Secretary of State, David M.",
+      "confirmed": [
+        "official URL"
+      ],
+      "unknown": [
+        "official product name",
+        "operator",
+        "entity types covered",
+        "search fields",
+        "free to search",
+        "login required",
+        "CAPTCHA",
+        "paid documents",
+        "document images free",
+        "access level"
+      ],
+      "manualSteps": [
+        "Open https://quickstart.sos.nh.gov/online/BusinessInquire in an ordinary desktop browser.",
+        "Record the on-screen product name exactly as the operator writes it.",
+        "Run one real entity search and record every result field returned.",
+        "Record whether a fee, an account, a session or a CAPTCHA is imposed before results appear.",
+        "Record whether filed document images can be viewed, and at what price.",
+        "Capture the official page that describes the register as the statutory source."
+      ]
+    },
+    {
+      "code": "US-NJ",
+      "name": "New Jersey",
+      "kind": "state",
+      "status": "published",
+      "recordId": "us-new-jersey-business-records-service",
+      "registry": "Business Records Service",
+      "operator": "New Jersey Department of the Treasury — Division of Revenue and Enterprise Services (DORES)",
+      "url": "https://www.njportal.com/dor/businessrecords/"
+    },
+    {
+      "code": "US-NM",
+      "name": "New Mexico",
+      "kind": "state",
+      "status": "pending-manual-verification",
+      "recordId": null,
+      "registry": "Business Services Online Filings Portal",
+      "operator": "New Mexico Secretary of State — Business Services Division",
+      "url": "https://enterprise.sos.nm.gov/",
+      "unverifiedLead": null,
+      "blocker": "But the register's public accessibility is genuinely unresolved: every portal path returns an edge-level 403, so it cannot be confirmed whether searching is free, login-free or CAPTCHA-free, nor what the search product is actually called on screen. Recording it as open would be a guess.",
+      "confirmed": [
+        "official product name",
+        "operator",
+        "official URL"
+      ],
+      "unknown": [
+        "entity types covered",
+        "search fields",
+        "free to search",
+        "login required",
+        "CAPTCHA",
+        "paid documents",
+        "document images free",
+        "access level"
+      ],
+      "manualSteps": [
+        "Open https://enterprise.sos.nm.gov/ in an ordinary desktop browser.",
+        "Record the on-screen product name exactly as the operator writes it.",
+        "Run one real entity search and record every result field returned.",
+        "Record whether a fee, an account, a session or a CAPTCHA is imposed before results appear.",
+        "Record whether filed document images can be viewed, and at what price.",
+        "Capture the official page that describes the register as the statutory source."
+      ]
+    },
+    {
+      "code": "US-NY",
+      "name": "New York",
+      "kind": "state",
+      "status": "published",
+      "recordId": "us-new-york-corporation-entity-database",
+      "registry": "Corporation and Business Entity Database",
+      "operator": "New York State Department of State — Division of Corporations",
+      "url": "https://apps.dos.ny.gov/publicInquiry/"
+    },
+    {
+      "code": "US-NC",
+      "name": "North Carolina",
+      "kind": "state",
+      "status": "published",
+      "recordId": "us-north-carolina-business-registration-search",
+      "registry": "Business Registration search",
+      "operator": "North Carolina Department of the Secretary of State, Business Registration Division",
+      "url": "https://www.sosnc.gov/divisions/business_registration"
+    },
+    {
+      "code": "US-ND",
+      "name": "North Dakota",
+      "kind": "state",
+      "status": "published",
+      "recordId": "us-north-dakota-firststop-business-search",
+      "registry": "FirstStop",
+      "operator": "North Dakota Office of the Secretary of State",
+      "url": "https://firststop.sos.nd.gov/search/business"
+    },
+    {
+      "code": "US-OH",
+      "name": "Ohio",
+      "kind": "state",
+      "status": "pending-manual-verification",
+      "recordId": null,
+      "registry": "Ohio Secretary of State Business Search",
+      "operator": "Ohio Secretary of State's Office",
+      "url": "https://businesssearch.ohiosos.gov/",
+      "unverifiedLead": null,
+      "blocker": "Only the operator and the canonical hostname are verified, both from the office's own branded challenge page. Every substantive official surface — the search app, the business services pages, and even the open-data portal — is behind a Cloudflare interactive challenge, so the product name, entity coverage, search fields, result fields, document images and fees are entirely unverified.",
+      "confirmed": [
+        "operator",
+        "official URL",
+        "CAPTCHA"
+      ],
+      "unknown": [
+        "official product name",
+        "entity types covered",
+        "search fields",
+        "free to search",
+        "login required",
+        "paid documents",
+        "document images free",
+        "access level"
+      ],
+      "manualSteps": [
+        "Open https://businesssearch.ohiosos.gov/ in an ordinary desktop browser.",
+        "Record the on-screen product name exactly as the operator writes it.",
+        "Run one real entity search and record every result field returned.",
+        "Record whether a fee, an account, a session or a CAPTCHA is imposed before results appear.",
+        "Record whether filed document images can be viewed, and at what price.",
+        "Capture the official page that describes the register as the statutory source."
+      ]
+    },
+    {
+      "code": "US-OK",
+      "name": "Oklahoma",
+      "kind": "state",
+      "status": "pending-manual-verification",
+      "recordId": null,
+      "registry": "Business Entities Search",
+      "operator": "Oklahoma Secretary of State — Business Records Department (filings are processed by the Business Filing Department)",
+      "url": "https://www.sos.ok.gov/corp/corpInquiryFind.aspx",
+      "unverifiedLead": null,
+      "blocker": "I could not resolve which is true because Turnstile prevented me from reaching a result. A human should complete one search in a browser and record exactly which fields appear free on the click-through detail screen (in particular registered agent, officers, authorized shares and filing history) versus which require the $5.00 order.",
+      "confirmed": [
+        "official product name",
+        "operator",
+        "official URL",
+        "entity types covered",
+        "search fields",
+        "login required",
+        "CAPTCHA",
+        "paid documents",
+        "document images free",
+        "access level"
+      ],
+      "unknown": [
+        "free to search"
+      ],
+      "manualSteps": [
+        "Open https://www.sos.ok.gov/corp/corpInquiryFind.aspx in an ordinary desktop browser.",
+        "Record the on-screen product name exactly as the operator writes it.",
+        "Run one real entity search and record every result field returned.",
+        "Record whether a fee, an account, a session or a CAPTCHA is imposed before results appear.",
+        "Record whether filed document images can be viewed, and at what price.",
+        "Capture the official page that describes the register as the statutory source."
+      ]
+    },
+    {
+      "code": "US-OR",
+      "name": "Oregon",
+      "kind": "state",
+      "status": "published",
+      "recordId": "us-oregon-business-registry-search",
+      "registry": "Business Name Search",
+      "operator": "Oregon Secretary of State — Corporation Division",
+      "url": "https://egov.sos.state.or.us/br/pkg_web_name_srch_inq.login"
+    },
+    {
+      "code": "US-PA",
+      "name": "Pennsylvania",
+      "kind": "state",
+      "status": "pending-manual-verification",
+      "recordId": null,
+      "registry": "Business Entity Search",
+      "operator": "Pennsylvania Department of State — Bureau of Corporations and Charitable Organizations",
+      "url": "https://file.dos.pa.gov/search/business",
+      "unverifiedLead": null,
+      "blocker": "Precise blocker: file.dos.pa.gov serves a Cloudflare interactive challenge (HTTP 403, \"Just a moment...",
+      "confirmed": [
+        "official product name",
+        "operator",
+        "official URL",
+        "entity types covered",
+        "free to search",
+        "login required",
+        "CAPTCHA",
+        "paid documents",
+        "document images free",
+        "access level"
+      ],
+      "unknown": [
+        "search fields"
+      ],
+      "manualSteps": [
+        "Open https://file.dos.pa.gov/search/business in an ordinary desktop browser.",
+        "Record the on-screen product name exactly as the operator writes it.",
+        "Run one real entity search and record every result field returned.",
+        "Record whether a fee, an account, a session or a CAPTCHA is imposed before results appear.",
+        "Record whether filed document images can be viewed, and at what price.",
+        "Capture the official page that describes the register as the statutory source."
+      ]
+    },
+    {
+      "code": "US-RI",
+      "name": "Rhode Island",
+      "kind": "state",
+      "status": "published",
+      "recordId": "us-rhode-island-corporate-database",
+      "registry": "Search for an entity within the RI Business Portal (CIMS)",
+      "operator": "Rhode Island Department of State — Business Services Division",
+      "url": "https://business.sos.ri.gov/CorpWeb/CorpSearch/CorpSearch.aspx"
+    },
+    {
+      "code": "US-SC",
+      "name": "South Carolina",
+      "kind": "state",
+      "status": "pending-manual-verification",
+      "recordId": null,
+      "registry": null,
+      "operator": "South Carolina Secretary of State — verified statutorily, not from an agency web page",
+      "url": null,
+      "unverifiedLead": "https://businessfilings.sc.gov/BusinessFiling/Entity/Search",
+      "urlNote": "unknown. The address https://businessfilings.sc.gov/BusinessFiling/Entity/Search was probed but originates from a search-engine discovery lead, NOT from an official page, and it did not respond. It must not be published as verified.",
+      "blocker": "BLOCKER: two independent access failures. (1) All South Carolina Secretary of State and state-portal pages are served through an Amazon CloudFront distribution that explicitly geo-blocks this vantage — verified by the CloudFront error text itself, not inferred. (2) The candidate search host businessfilings.sc.gov accepts no TCP connection at all on 443 or 80.",
+      "confirmed": [
+        "operator",
+        "entity types covered"
+      ],
+      "unknown": [
+        "official product name",
+        "official URL",
+        "search fields",
+        "free to search",
+        "login required",
+        "CAPTCHA",
+        "paid documents",
+        "document images free",
+        "access level"
+      ],
+      "manualSteps": [
+        "Open https://businessfilings.sc.gov/BusinessFiling/Entity/Search in an ordinary desktop browser — this address is an unverified lead, so first confirm it is linked from an official page before trusting it.",
+        "Record the on-screen product name exactly as the operator writes it.",
+        "Run one real entity search and record every result field returned.",
+        "Record whether a fee, an account, a session or a CAPTCHA is imposed before results appear.",
+        "Record whether filed document images can be viewed, and at what price.",
+        "Capture the official page that describes the register as the statutory source."
+      ]
+    },
+    {
+      "code": "US-SD",
+      "name": "South Dakota",
+      "kind": "state",
+      "status": "published",
+      "recordId": "us-south-dakota-business-search",
+      "registry": "Business Information Search",
+      "operator": "South Dakota Secretary of State — Business Services",
+      "url": "https://sosenterprise.sd.gov/BusinessServices/Business/FilingSearch.aspx"
+    },
+    {
+      "code": "US-TN",
+      "name": "Tennessee",
+      "kind": "state",
+      "status": "published",
+      "recordId": "us-tennessee-business-information-search",
+      "registry": "Business Entity Search",
+      "operator": "Tennessee Department of State — Office of the Secretary of State, Division of Business Services",
+      "url": "https://tncab.tnsos.gov/business-entity-search"
+    },
+    {
+      "code": "US-TX",
+      "name": "Texas",
+      "kind": "state",
+      "status": "published",
+      "recordId": "us-texas-sosdirect-business-search",
+      "registry": "SOSDirect",
+      "operator": "Office of the Texas Secretary of State",
+      "url": "https://www.sos.state.tx.us/corp/sosda/index.shtml"
+    },
+    {
+      "code": "US-UT",
+      "name": "Utah",
+      "kind": "state",
+      "status": "pending-manual-verification",
+      "recordId": null,
+      "registry": null,
+      "operator": "Utah Department of Commerce — Division of Corporations and Commercial Code",
+      "url": null,
+      "unverifiedLead": "https://businessregistration.utah.gov/",
+      "urlNote": "https://businessregistration.utah.gov/ (redirect target of the retired search URL; the specific search path within it is unknown and was deliberately not guessed)",
+      "blocker": "Blocked on every readable surface. The one solid finding is negative but valuable — the classic secure.utah.gov/bes search URL is retired and 301s to a Cloudflare-protected registration portal.",
+      "confirmed": [
+        "official URL"
+      ],
+      "unknown": [
+        "official product name",
+        "operator",
+        "entity types covered",
+        "search fields",
+        "free to search",
+        "login required",
+        "CAPTCHA",
+        "paid documents",
+        "document images free",
+        "access level"
+      ],
+      "manualSteps": [
+        "Open https://businessregistration.utah.gov/ in an ordinary desktop browser — this address is an unverified lead, so first confirm it is linked from an official page before trusting it.",
+        "Record the on-screen product name exactly as the operator writes it.",
+        "Run one real entity search and record every result field returned.",
+        "Record whether a fee, an account, a session or a CAPTCHA is imposed before results appear.",
+        "Record whether filed document images can be viewed, and at what price.",
+        "Capture the official page that describes the register as the statutory source."
+      ]
+    },
+    {
+      "code": "US-VT",
+      "name": "Vermont",
+      "kind": "state",
+      "status": "pending-manual-verification",
+      "recordId": null,
+      "registry": null,
+      "operator": "Vermont Secretary of State — Business Services Division (Director: David P",
+      "url": "https://bizfilings.vermont.gov/business/businesssearch",
+      "unverifiedLead": null,
+      "blocker": "Precise blocker: bizfilings.vermont.gov is a pure Angular SPA that serves an identical 4,574-byte shell on every route, so the search form's fields, the result layout, the entity types covered and whether filing images are free could not be read on any surface — and the Secretary of State publishes no describing page that documents them.",
+      "confirmed": [
+        "operator",
+        "official URL",
+        "free to search",
+        "login required",
+        "CAPTCHA",
+        "paid documents",
+        "access level"
+      ],
+      "unknown": [
+        "official product name",
+        "entity types covered",
+        "search fields",
+        "document images free"
+      ],
+      "manualSteps": [
+        "Open https://bizfilings.vermont.gov/business/businesssearch in an ordinary desktop browser.",
+        "Record the on-screen product name exactly as the operator writes it.",
+        "Run one real entity search and record every result field returned.",
+        "Record whether a fee, an account, a session or a CAPTCHA is imposed before results appear.",
+        "Record whether filed document images can be viewed, and at what price.",
+        "Capture the official page that describes the register as the statutory source."
+      ]
+    },
+    {
+      "code": "US-VA",
+      "name": "Virginia",
+      "kind": "state",
+      "status": "pending-manual-verification",
+      "recordId": null,
+      "registry": null,
+      "operator": "State Corporation Commission of Virginia — specifically the clerk of the Commission, who by statute holds custody of the records",
+      "url": null,
+      "unverifiedLead": "https://cis.scc.virginia.gov/EntitySearch/Index",
+      "urlNote": "unknown. The address https://cis.scc.virginia.gov/EntitySearch/Index was probed but originates from a search-engine discovery lead, NOT from an official page, and it did not complete a connection. It must not be published as verified.",
+      "blocker": "BLOCKER: two independent access failures. (1) The Commission's web estate is served through an Amazon CloudFront distribution that explicitly geo-blocks this vantage — verified from the CloudFront error text itself — and the apex redirects into it. (2) The candidate search host cis.scc.virginia.gov establishes TCP but never completes a TLS handshake, as does apps.scc.virginia.gov.",
+      "confirmed": [
+        "operator",
+        "entity types covered",
+        "paid documents"
+      ],
+      "unknown": [
+        "official product name",
+        "official URL",
+        "search fields",
+        "free to search",
+        "login required",
+        "CAPTCHA",
+        "document images free",
+        "access level"
+      ],
+      "manualSteps": [
+        "Open https://cis.scc.virginia.gov/EntitySearch/Index in an ordinary desktop browser — this address is an unverified lead, so first confirm it is linked from an official page before trusting it.",
+        "Record the on-screen product name exactly as the operator writes it.",
+        "Run one real entity search and record every result field returned.",
+        "Record whether a fee, an account, a session or a CAPTCHA is imposed before results appear.",
+        "Record whether filed document images can be viewed, and at what price.",
+        "Capture the official page that describes the register as the statutory source."
+      ]
+    },
+    {
+      "code": "US-WA",
+      "name": "Washington",
+      "kind": "state",
+      "status": "published",
+      "recordId": "us-washington-ccfs",
+      "registry": "Corporations and Charities Filing System (CCFS)",
+      "operator": "Washington Secretary of State — Corporations and Charities Division",
+      "url": "https://ccfs.sos.wa.gov/"
+    },
+    {
+      "code": "US-WV",
+      "name": "West Virginia",
+      "kind": "state",
+      "status": "published",
+      "recordId": "us-west-virginia-business-organization-search",
+      "registry": "Business Organization Search",
+      "operator": "West Virginia Secretary of State",
+      "url": "https://apps.sos.wv.gov/business/corporations/"
+    },
+    {
+      "code": "US-WI",
+      "name": "Wisconsin",
+      "kind": "state",
+      "status": "published",
+      "recordId": "us-wisconsin-corporate-registration-search",
+      "registry": "Corporate Registration Information System (CRIS)",
+      "operator": "Wisconsin Department of Financial Institutions — Division of Corporate & Consumer Services, Corporation Bureau",
+      "url": "https://dfi.wi.gov/apps/CorpSearch/Search.aspx"
+    },
+    {
+      "code": "US-WY",
+      "name": "Wyoming",
+      "kind": "state",
+      "status": "pending-manual-verification",
+      "recordId": null,
+      "registry": null,
+      "operator": "Wyoming Secretary of State — Business Division",
+      "url": null,
+      "unverifiedLead": "https://wyobiz.wyo.gov/business/filingsearch.aspx",
+      "urlNote": "https://wyobiz.wyo.gov/business/filingsearch.aspx (UNVERIFIED — this host could not be reached; recorded as a lead only)",
+      "blocker": "Complete network unreachability from this environment across both egress paths, multiple user agents and repeated retries. No official Wyoming page was read, so the product name, operator, scope, access model and document policy are all recorded as unknown rather than filled in from neighbouring-state patterns. The blocker is precise and the fix is simple: one manual browser session on wyobiz.wyo.gov and sos.wyo.gov.",
+      "confirmed": [],
+      "unknown": [
+        "official product name",
+        "operator",
+        "official URL",
+        "entity types covered",
+        "search fields",
+        "free to search",
+        "login required",
+        "CAPTCHA",
+        "paid documents",
+        "document images free",
+        "access level"
+      ],
+      "manualSteps": [
+        "Open https://wyobiz.wyo.gov/business/filingsearch.aspx in an ordinary desktop browser — this address is an unverified lead, so first confirm it is linked from an official page before trusting it.",
+        "Record the on-screen product name exactly as the operator writes it.",
+        "Run one real entity search and record every result field returned.",
+        "Record whether a fee, an account, a session or a CAPTCHA is imposed before results appear.",
+        "Record whether filed document images can be viewed, and at what price.",
+        "Capture the official page that describes the register as the statutory source."
+      ]
+    },
+    {
+      "code": "US-DC",
+      "name": "District of Columbia",
+      "kind": "federal-district",
+      "status": "published",
+      "recordId": "us-dc-corponline",
+      "registry": "CorpOnline",
+      "operator": "Government of the District of Columbia, Department of Licensing and Consumer Protection (DLCP), Corporations Division",
+      "url": "https://corponline.dlcp.dc.gov/"
+    },
+    {
+      "code": "US-PR",
+      "name": "Puerto Rico",
+      "kind": "territory",
+      "status": "published",
+      "recordId": "us-puerto-rico-registro-corporaciones",
+      "registry": "Registro Electrónico de Corporaciones y Entidades",
+      "operator": "Departamento de Estado de Puerto Rico, Registro de Corporaciones",
+      "url": "https://rcp.estado.pr.gov/es"
+    },
+    {
+      "code": "US-GU",
+      "name": "Guam",
+      "kind": "territory",
+      "status": "pending-manual-verification",
+      "recordId": null,
+      "registry": null,
+      "operator": "Government of Guam, Department of Revenue and Taxation (DRT) — Regulatory Division, General Licensing and Registration Branch / Business License Branch",
+      "url": "https://www.guamtax.com/",
+      "unverifiedLead": null,
+      "blocker": "The responsible operator is verified from official guam.gov sources (Department of Revenue and Taxation, General Licensing and Registration / Business License Branch), but the registry's own surface could not be reached because guamtax.com enforces a GEO-IP block, so the existence, name and openness of any public entity search remain unverified.",
+      "confirmed": [
+        "official product name",
+        "operator",
+        "official URL"
+      ],
+      "unknown": [
+        "entity types covered",
+        "search fields",
+        "free to search",
+        "login required",
+        "CAPTCHA",
+        "paid documents",
+        "document images free",
+        "access level"
+      ],
+      "manualSteps": [
+        "Open https://www.guamtax.com/ in an ordinary desktop browser.",
+        "Record the on-screen product name exactly as the operator writes it.",
+        "Run one real entity search and record every result field returned.",
+        "Record whether a fee, an account, a session or a CAPTCHA is imposed before results appear.",
+        "Record whether filed document images can be viewed, and at what price.",
+        "Capture the official page that describes the register as the statutory source."
+      ]
+    },
+    {
+      "code": "US-VI",
+      "name": "United States Virgin Islands",
+      "kind": "territory",
+      "status": "published",
+      "recordId": "us-us-virgin-islands-corporate-registry",
+      "registry": "Catalyst",
+      "operator": "Government of the United States Virgin Islands, Office of the Lieutenant Governor, Division of Corporations and Trademarks",
+      "url": "https://www.corporationsandtrademarks.vi.gov/"
+    },
+    {
+      "code": "US-MP",
+      "name": "Northern Mariana Islands",
+      "kind": "territory",
+      "status": "pending-manual-verification",
+      "recordId": null,
+      "registry": "Office of the Registrar of Corporations",
+      "operator": "Commonwealth of the Northern Mariana Islands, Department of Commerce, Office of the Registrar of Corporations (Registrar of Corporations: John David A",
+      "url": "https://registrar.cnmi.gov/",
+      "unverifiedLead": null,
+      "blocker": "The statutory register and the responsible operator are both verified from an official CNMI government surface, but there is no public online entity search in existence — the official roadmap places a searchable database at Phase 6 while the project sits at Phase 2.",
+      "confirmed": [
+        "official product name",
+        "operator",
+        "official URL",
+        "entity types covered",
+        "search fields",
+        "free to search",
+        "login required",
+        "CAPTCHA",
+        "paid documents",
+        "document images free",
+        "access level"
+      ],
+      "unknown": [
+        "the blocker recorded below remains unresolved"
+      ],
+      "manualSteps": [
+        "Open https://registrar.cnmi.gov/ in an ordinary desktop browser.",
+        "Record the on-screen product name exactly as the operator writes it.",
+        "Run one real entity search and record every result field returned.",
+        "Record whether a fee, an account, a session or a CAPTCHA is imposed before results appear.",
+        "Record whether filed document images can be viewed, and at what price.",
+        "Capture the official page that describes the register as the statutory source."
+      ]
+    },
+    {
+      "code": "US-AS",
+      "name": "American Samoa",
+      "kind": "territory",
+      "status": "pending-manual-verification",
+      "recordId": null,
+      "registry": null,
+      "operator": "American Samoa Government",
+      "url": "https://legalaffairs.as.gov/",
+      "unverifiedLead": null,
+      "blocker": "The responsible offices are verified — the Territorial Registrar within the Department of Legal Affairs records articles of incorporation under ASCA 30.0202, and the Department of Commerce administers business licences — but no public online business-entity register exists on any official surface, and the sole online business system is a login-walled licence portal on a third-party domain.",
+      "confirmed": [
+        "official product name",
+        "operator",
+        "official URL",
+        "search fields",
+        "free to search",
+        "login required",
+        "CAPTCHA",
+        "document images free",
+        "access level"
+      ],
+      "unknown": [
+        "entity types covered",
+        "paid documents"
+      ],
+      "manualSteps": [
+        "Open https://legalaffairs.as.gov/ in an ordinary desktop browser.",
+        "Record the on-screen product name exactly as the operator writes it.",
+        "Run one real entity search and record every result field returned.",
+        "Record whether a fee, an account, a session or a CAPTCHA is imposed before results appear.",
+        "Record whether filed document images can be viewed, and at what price.",
+        "Capture the official page that describes the register as the statutory source."
+      ]
+    }
+  ]
+}

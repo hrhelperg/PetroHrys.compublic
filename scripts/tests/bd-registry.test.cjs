@@ -31,7 +31,12 @@ const record = (over = {}) => verifiedRecord(over);
 
 test('loads the current registry', () => {
   const registry = loadRegistry();
-  assert.strictEqual(registry.countries.length, 11);
+  // Derived, not pinned: the geographic registry grows as waves add
+  // jurisdictions, and a hard-coded count would fail on every legitimate
+  // addition while proving nothing about correctness.
+  assert.ok(registry.countries.length >= 11, 'the geographic registry lost entries');
+  assert.strictEqual(registry.countries.length,
+    require('../../data/business-directories/countries.json').length);
   assert.strictEqual(registry.categories.length, 21);
   assert.ok(registry.directories.length > 0, 'the registry now holds verified records');
   for (const entry of registry.directories) {

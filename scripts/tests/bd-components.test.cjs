@@ -58,7 +58,9 @@ const ALL = () => [
 // --- escaping and injection -------------------------------------------------
 
 test('script payloads in text are escaped everywhere', () => {
-  const evil = { ...DIR, name: XSS, description: XSS, recommendedIndustries: [XSS], pros: [XSS], cons: [XSS] };
+  // Through the factory, so officialName mirrors the hostile name and the
+  // escaping guard actually covers the string the renderer resolves.
+  const evil = verifiedRecord({ name: XSS, description: XSS, recommendedIndustries: [XSS], pros: [XSS], cons: [XSS] });
   const html = [
     c.directoryTable({ directories: [evil] }), c.directoryCard({ directory: evil }),
     c.bestForTags([XSS]), c.prosCons({ pros: [XSS], cons: [XSS] }),
@@ -79,7 +81,10 @@ function assertNoAttributeInjection(html, label) {
 }
 
 test('quotes in attribute positions cannot break out', () => {
-  const evil = { ...DIR, name: '" onmouseover="alert(1)' };
+  // name AND officialName: the display resolver reads officialName first, so a
+  // hostile string must be escaped on the path the renderer actually takes.
+  const hostile = '" onmouseover="alert(1)';
+  const evil = verifiedRecord({ name: hostile });
   const html = c.directoryTable({ directories: [evil] });
   assertNoAttributeInjection(html, 'directoryTable');
   assert.ok(html.includes('&quot;'), 'the quote must survive as an escaped entity');
@@ -334,7 +339,7 @@ test('no fake buttons and no interactive nesting', () => {
 // --- unicode, long values, determinism, immutability ------------------------
 
 test('unicode survives intact in every text position', () => {
-  const rec = { ...DIR, name: UNICODE, description: UNICODE, recommendedIndustries: [UNICODE] };
+  const rec = verifiedRecord({ name: UNICODE, description: UNICODE, recommendedIndustries: [UNICODE] });
   const html = [c.directoryTable({ directories: [rec] }), c.directoryCard({ directory: rec }),
     c.bestForTags([UNICODE])].join('\n');
   for (const part of ['Česká republika', '東京', 'Ünïcodé', 'ĄŻŚ']) {
@@ -343,7 +348,7 @@ test('unicode survives intact in every text position', () => {
 });
 
 test('very long values are rendered in full, never silently truncated', () => {
-  const rec = { ...DIR, name: LONG, description: LONG };
+  const rec = verifiedRecord({ name: LONG, description: LONG });
   const html = c.directoryCard({ directory: rec });
   assert.ok(html.includes(LONG), 'source data was truncated');
   assert.ok(!html.includes('…'));
@@ -376,8 +381,8 @@ test('components never mutate their inputs', () => {
 
 test('the table is ordered by bd-sort, not by input order', () => {
   const rows = [
-    { ...DIR, id: 'a', slug: 'low', name: 'Low', petroHrysScore: 10, lastVerified: '2026-01-01' },
-    { ...DIR, id: 'b', slug: 'high', name: 'High', petroHrysScore: 90, lastVerified: '2026-01-01' },
+    { ...DIR, id: 'a', slug: 'low', name: 'Low', officialName: 'Low', petroHrysScore: 10, lastVerified: '2026-01-01' },
+    { ...DIR, id: 'b', slug: 'high', name: 'High', officialName: 'High', petroHrysScore: 90, lastVerified: '2026-01-01' },
   ];
   const html = c.directoryTable({ directories: rows });
   assert.ok(html.indexOf('>High<') < html.indexOf('>Low<'), 'server order must come from bd-sort');

@@ -3,6 +3,7 @@
     "id": "global",
     "slug": "global",
     "name": "Global",
+    "entityType": "supranational",
     "titleName": "any market",
     "pageTitle": "Global Business Directories",
     "iso2": null,
@@ -12,6 +13,7 @@
     "id": "united-states",
     "slug": "united-states",
     "name": "United States",
+    "entityType": "country",
     "titleName": "the United States",
     "iso2": "US"
   },
@@ -19,6 +21,7 @@
     "id": "germany",
     "slug": "germany",
     "name": "Germany",
+    "entityType": "country",
     "titleName": "Germany",
     "iso2": "DE"
   },
@@ -26,6 +29,7 @@
     "id": "united-kingdom",
     "slug": "united-kingdom",
     "name": "United Kingdom",
+    "entityType": "country",
     "titleName": "the United Kingdom",
     "iso2": "GB"
   },
@@ -33,6 +37,7 @@
     "id": "france",
     "slug": "france",
     "name": "France",
+    "entityType": "country",
     "titleName": "France",
     "iso2": "FR"
   },
@@ -40,6 +45,7 @@
     "id": "spain",
     "slug": "spain",
     "name": "Spain",
+    "entityType": "country",
     "titleName": "Spain",
     "iso2": "ES"
   },
@@ -47,6 +53,7 @@
     "id": "italy",
     "slug": "italy",
     "name": "Italy",
+    "entityType": "country",
     "titleName": "Italy",
     "iso2": "IT"
   },
@@ -54,6 +61,7 @@
     "id": "canada",
     "slug": "canada",
     "name": "Canada",
+    "entityType": "country",
     "titleName": "Canada",
     "iso2": "CA"
   },
@@ -61,6 +69,7 @@
     "id": "australia",
     "slug": "australia",
     "name": "Australia",
+    "entityType": "country",
     "titleName": "Australia",
     "iso2": "AU"
   },
@@ -68,6 +77,7 @@
     "id": "czech-republic",
     "slug": "czech-republic",
     "name": "Czech Republic",
+    "entityType": "country",
     "titleName": "the Czech Republic",
     "iso2": "CZ"
   },
@@ -75,7 +85,34 @@
     "id": "poland",
     "slug": "poland",
     "name": "Poland",
+    "entityType": "country",
     "titleName": "Poland",
     "iso2": "PL"
+  },
+  {
+    "id": "european-union",
+    "slug": "european-union",
+    "name": "European Union",
+    "entityType": "supranational",
+    "titleName": "the European Union",
+    "pageTitle": "European Union Business Registries",
+    "iso2": null,
+    "scope": "supranational"
+  },
+  {
+    "id": "china",
+    "slug": "china",
+    "name": "China",
+    "entityType": "country",
+    "titleName": "China",
+    "iso2": "CN"
+  },
+  {
+    "id": "japan",
+    "slug": "japan",
+    "name": "Japan",
+    "entityType": "country",
+    "titleName": "Japan",
+    "iso2": "JP"
   }
 ]

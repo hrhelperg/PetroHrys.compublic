@@ -1,6 +1,10 @@
 // scripts/lib/bd-migrate.cjs
 'use strict';
-const { ACCEPTS_KEYS, RELATION_KINDS, REQUIRED_ASSET_KEYS } = require('./bd-schema.cjs');
+const SCHEMA = require('./bd-schema.cjs');
+const {
+  ACCEPTS_KEYS, RELATION_KINDS, REQUIRED_ASSET_KEYS,
+  KNOWN_RECORD_KEYS, PUBLIC_ACCESS_BOOLEANS,
+} = SCHEMA;
 
 // Forward-only migration from the pre-expansion record shape. It is applied by
 // the registry loader, so a record written in the old shape keeps working
@@ -34,6 +38,10 @@ const LEGACY_SOURCE = {
 };
 
 const isNullish = (v) => v === null || v === undefined;
+
+// Symbol, not a string key, so it cannot collide with a record field and cannot
+// be reached by anything that walks the record's own enumerable properties.
+const UNKNOWN_KEYS = Symbol.for('bd.unknownKeys');
 
 function migrateAssets(record) {
   const out = {};
@@ -105,6 +113,130 @@ function migrateRegistration(record) {
   return null;
 }
 
+// --- Wave 1 foundation normalisation ----------------------------------------
+// These fields are normalised IN MEMORY only. A record that does not carry them
+// gets nulls here and keeps its bytes on disk, so adding the wave does not
+// produce a 72-record null diff. They serialise only when a record is
+// intentionally edited to populate them.
+
+function migrateJurisdiction(record) {
+  const j = record.jurisdiction;
+  if (!j || typeof j !== 'object' || Array.isArray(j)) return null;
+  return {
+    type: j.type ?? null,
+    name: j.name ?? null,
+    code: j.code ?? null,
+    parentCountry: j.parentCountry ?? record.country ?? null,
+  };
+}
+
+function migrateOperator(record) {
+  const o = record.operator;
+  if (!o || typeof o !== 'object' || Array.isArray(o)) return null;
+  return { name: o.name ?? null, type: o.type ?? null, officialUrl: o.officialUrl ?? null };
+}
+
+function migratePublicAccess(record) {
+  const a = record.publicAccess;
+  if (!a || typeof a !== 'object' || Array.isArray(a)) return null;
+  const out = { searchUrl: a.searchUrl ?? null, accessLevel: a.accessLevel ?? 'unknown' };
+  for (const key of PUBLIC_ACCESS_BOOLEANS) out[key] = isNullish(a[key]) ? null : a[key];
+  out.notes = a.notes ?? null;
+  return out;
+}
+
+function migrateResourceIdentity(record) {
+  const r = record.resourceIdentity;
+  if (!r || typeof r !== 'object' || Array.isArray(r)) return null;
+  return {
+    canonicalDomain: r.canonicalDomain ?? null,
+    systemKey: r.systemKey ?? null,
+    sharedHostGroup: r.sharedHostGroup ?? null,
+  };
+}
+
+function migrateRegistryTypes(record) {
+  if (!Array.isArray(record.registryTypes)) return [];
+  return [...record.registryTypes];
+}
+
+const KNOWN_KEY_SET = new Set(KNOWN_RECORD_KEYS);
+const LEGACY_KEY_SET = new Set([
+  ...Object.keys(LEGACY_ACCEPTS), 'verificationMethod', 'free', 'paid', 'registration', 'tags',
+  'acceptsCompanies', 'acceptsProducts',
+]);
+
+// Keys the source record carried that this migration does not recognise.
+// Attached NON-ENUMERABLY so the validator can reject them while they stay out
+// of JSON.stringify, Object.keys and every rendered surface. Without this the
+// migration would silently swallow a typo — the object literal below simply
+// would not copy it — and an improvised field would vanish instead of failing.
+const isPlainObject = (v) => !!v && typeof v === 'object' && !Array.isArray(v);
+
+// Every schema problem the migration would otherwise absorb, as
+// { path, reason } with a full dotted field path. Sorted by path so two runs
+// report identically.
+//
+// Three classes are caught:
+//   1. an unknown key at the top level;
+//   2. an unknown key inside a structured object — the picker would drop it;
+//   3. a value of the wrong container type — the picker would coerce it away,
+//      turning `registryTypes: "company-register"` into `[]` with no complaint.
+function unknownKeysOf(record) {
+  if (!isPlainObject(record)) return [];
+  const out = [];
+  const add = (path, reason) => out.push({ path, reason });
+
+  for (const key of Object.keys(record)) {
+    if (!KNOWN_KEY_SET.has(key) && !LEGACY_KEY_SET.has(key)) {
+      add(key, `Unknown field "${key}". Records may only carry declared schema fields.`);
+    }
+  }
+
+  for (const field of SCHEMA.OBJECT_VALUED_FIELDS) {
+    const value = record[field];
+    if (isNullish(value)) continue;
+    if (!isPlainObject(value)) {
+      add(field, `Field "${field}" must be an object, got ${Array.isArray(value) ? 'an array' : typeof value}.`);
+      continue;
+    }
+    if (field === 'metricsProvenance') {
+      for (const [metric, entry] of Object.entries(value)) {
+        if (!isPlainObject(entry)) {
+          add(`metricsProvenance.${metric}`, 'Each provenance entry must be an object.');
+          continue;
+        }
+        for (const key of Object.keys(entry)) {
+          if (!SCHEMA.METRIC_PROVENANCE_KEYS.includes(key)) {
+            add(`metricsProvenance.${metric}.${key}`,
+              `Unknown provenance field "${key}". Allowed: ${SCHEMA.METRIC_PROVENANCE_KEYS.join(', ')}.`);
+          }
+        }
+      }
+      continue;
+    }
+    const allowed = SCHEMA.NESTED_RECORD_KEYS[field];
+    if (!allowed) continue;
+    for (const key of Object.keys(value)) {
+      if (!allowed.includes(key)) {
+        add(`${field}.${key}`,
+          `Unknown field "${field}.${key}". Allowed: ${allowed.join(', ')}.`);
+      }
+    }
+  }
+
+  for (const field of SCHEMA.ARRAY_VALUED_FIELDS) {
+    const value = record[field];
+    if (isNullish(value)) continue;
+    if (!Array.isArray(value)) {
+      add(field, `Field "${field}" must be an array, got ${typeof value}.`);
+    }
+  }
+
+  out.sort((a, b) => (a.path < b.path ? -1 : a.path > b.path ? 1 : 0));
+  return out;
+}
+
 // Returns a record in the current shape. Idempotent: migrating an already
 // migrated record returns an equivalent record.
 function migrateRecord(record) {
@@ -121,6 +253,20 @@ function migrateRecord(record) {
     description: record.description,
     tier: record.tier ?? null,
     scope: record.scope ?? 'unknown',
+
+    // Names. `officialName` falls back to `name`, so the display resolver
+    // returns exactly the string it returned before this wave existed.
+    officialName: record.officialName ?? record.name ?? null,
+    nativeName: record.nativeName ?? null,
+    englishName: record.englishName ?? null,
+    englishNameSource: record.englishNameSource ?? null,
+
+    jurisdiction: migrateJurisdiction(record),
+    resourceIdentity: migrateResourceIdentity(record),
+    primaryRegistryType: record.primaryRegistryType ?? null,
+    registryTypes: migrateRegistryTypes(record),
+    operator: migrateOperator(record),
+    publicAccess: migratePublicAccess(record),
 
     petroHrysScore: isNullish(record.petroHrysScore) ? null : record.petroHrysScore,
     scoreFactors: record.scoreFactors ?? null,
@@ -170,7 +316,45 @@ function migrateRecord(record) {
     cons: record.cons ?? [],
     editorNotes: record.editorNotes ?? '',
   };
+  Object.defineProperty(migrated, UNKNOWN_KEYS, {
+    value: unknownKeysOf(record), enumerable: false, writable: false, configurable: false,
+  });
   return migrated;
+}
+
+// --- serialisation ----------------------------------------------------------
+// migrateRecord() returns the FULL normalised shape, which is what the renderer
+// and validator want in memory. Writing that shape to disk would stamp a block
+// of nulls onto all 72 records that predate the Wave 1 foundation — a
+// repository-wide diff that says nothing and buries the records a reviewer
+// actually changed.
+//
+// So a field added by that wave is written only when it carries information.
+// `officialName` is the special case: it normalises to `name`, so storing it
+// would duplicate a string already on the record.
+const WAVE1_DEFAULTED = {
+  officialName: (v, rec) => v === null || v === rec.name,
+  nativeName: (v) => v === null,
+  englishName: (v) => v === null,
+  englishNameSource: (v) => v === null,
+  jurisdiction: (v) => v === null,
+  resourceIdentity: (v) => v === null,
+  primaryRegistryType: (v) => v === null,
+  registryTypes: (v) => Array.isArray(v) && v.length === 0,
+  operator: (v) => v === null,
+  publicAccess: (v) => v === null,
+};
+
+// The on-disk projection of a normalised record. Round-trips: migrating the
+// output of this function reproduces the same normalised record.
+function serialisableRecord(record) {
+  const out = {};
+  for (const [key, value] of Object.entries(record)) {
+    const isDefaulted = WAVE1_DEFAULTED[key];
+    if (isDefaulted && isDefaulted(value, record)) continue;
+    out[key] = value;
+  }
+  return out;
 }
 
 // True when the record is already in the current shape, so callers can report
@@ -186,4 +370,7 @@ function isMigrated(record) {
     && 'requiredAssets' in record;
 }
 
-module.exports = { migrateRecord, isMigrated, LEGACY_ACCEPTS, LEGACY_SOURCE };
+module.exports = {
+  migrateRecord, isMigrated, LEGACY_ACCEPTS, LEGACY_SOURCE,
+  UNKNOWN_KEYS, unknownKeysOf, serialisableRecord, WAVE1_DEFAULTED,
+};

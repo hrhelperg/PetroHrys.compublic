@@ -10,6 +10,18 @@
     "description": "Spanish association of registrars operating the commercial, property, movable-property and insolvency registries.",
     "tier": "tier1",
     "scope": "national",
+    "nativeName": "Colegio de Registradores de España",
+    "primaryRegistryType": "company-register",
+    "registryTypes": [
+      "company-register",
+      "insolvency-register",
+      "beneficial-ownership-register"
+    ],
+    "operator": {
+      "name": "Colegio de Registradores de España",
+      "type": "public-law-body",
+      "officialUrl": null
+    },
     "petroHrysScore": 88,
     "scoreFactors": {
       "editorialTrust": 10,

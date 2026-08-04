@@ -11,6 +11,8 @@ const c = require('./lib/bd-components.cjs');
 const { renderPage } = require('./lib/bd-render.cjs');
 const { renderSitemap, renderRss } = require('./lib/bd-feeds.cjs');
 const routes = require('./lib/bd-routes.cjs');
+// One resolver for every surface that names a record.
+const { displayName } = require('./lib/bd-schema.cjs');
 const SCHEMA = require('./lib/bd-schema.cjs');
 const { buildArticles, guidesFor } = require('./lib/bd-articles.cjs');
 const { validateRegistry, formatReport } = require('./validate-business-directories.cjs');
@@ -65,6 +67,61 @@ const HUB_FAQS = [
     a: 'Directories are published only after manual verification. Pages with no verified entries are left empty and excluded from search indexing rather than filled with placeholder data.' },
 ];
 
+// Renders a country's records grouped by jurisdiction — Federal, then States
+// A-Z, then the federal district, then territories — with a jump filter and
+// derived counts. Returns null when the country holds no subnational record, so
+// the caller falls back to the single flat table it has always emitted.
+//
+// Each group is a real table with its own caption rather than one long list
+// with headings inside it, so a screen reader announces which jurisdiction set
+// it is in and a narrow viewport scrolls each table independently.
+// Jurisdiction coverage manifests, one per country that has one. Absent means
+// "no coverage claim is made for this country", which is the correct default:
+// a country with no manifest simply renders no coverage sentence.
+function loadCoverageManifests() {
+  const out = new Map();
+  const dir = PATHS.dataRoot;
+  for (const name of fs.readdirSync(dir)) {
+    const m = /^([a-z-]+)-jurisdiction-coverage\.json$/.exec(name);
+    if (!m) continue;
+    const parsed = JSON.parse(fs.readFileSync(path.join(dir, name), 'utf8'));
+    // The filename and the declared country must agree, or the page would
+    // quote another country's coverage.
+    if (parsed.country !== m[1]) {
+      throw new Error(`${name} declares country "${parsed.country}"`);
+    }
+    out.set(parsed.country, parsed);
+  }
+  return out;
+}
+const coverageManifests = loadCoverageManifests();
+
+function jurisdictionSections(country, entries, columns) {
+  const groups = c.jurisdictionGroups(entries, country.slug);
+  if (!groups) return null;
+  void columns;
+  const out = [c.jurisdictionFilter(groups, { idPrefix: `${country.slug}-jurisdiction` })];
+  for (const group of groups) {
+    const id = `${country.slug}-jurisdiction-${group.key}`;
+    out.push(`      <div class="bd-jgroup" id="${escapeHtml(id)}">
+      <h3 class="bd-jgroup-title">${escapeHtml(group.label)} `
+      + `<span class="bd-jgroup-count">${escapeHtml(c.registryCount(group.count))}</span></h3>
+${c.directoryTable({
+    directories: group.items,
+    caption: `${group.label} registries in ${country.name}`,
+    // Columns are derived PER GROUP, not once for the country. A Domain Rating
+    // column computed across all US records renders in the States table too,
+    // where no row has a rating — a column of nothing, which is exactly what
+    // the metric-column rule exists to prevent.
+    columns: c.tableColumnsFor(group.items),
+    // Already ordered by jurisdiction; the table must not re-sort it.
+    sortKey: null,
+  })}
+      </div>`);
+  }
+  return out;
+}
+
 function countryFaqs(country, count) {
   return [
     { q: `Which directories are listed for ${country.titleName}?`,
@@ -104,7 +161,7 @@ function pageModel(registry) {
     ? sortDirectories(directoriesFor(registry, GLOBAL_SCOPE)) : [];
 
   const countryLinks = registry.countries
-    .filter((country) => country.slug !== GLOBAL_SCOPE)
+    .filter((country) => country.slug !== GLOBAL_SCOPE && country.entityType !== 'supranational')
     .map((country) => ({
       name: country.name,
       path: routes.countryPath(country.slug),
@@ -280,6 +337,11 @@ function pageModel(registry) {
         `      <p class="bd-stat">${escapeHtml(`${countryEntries.length} verified `
           + `${countryEntries.length === 1 ? 'directory' : 'directories'} in `
           + `${categoryLinks.length} ${categoryLinks.length === 1 ? 'category' : 'categories'}.`)}</p>`,
+        // A directory count is not a coverage claim. Where a jurisdiction
+        // manifest exists for this country, say plainly how much of it is
+        // actually covered, so 31 state registries never read as 50.
+        c.coverageStatement(coverageManifests.get(country.slug),
+          new Set(countryEntries.filter((d) => d.jurisdiction).map((d) => d.jurisdiction.code))),
         ...(categoryLinks.length ? [section('categories', 'Directory categories',
           c.cardGrid(categoryLinks.map((l) => c.categoryCard({ ...l, headingLevel: 3 })),
             { label: 'Directory categories' }))] : []),
@@ -287,11 +349,16 @@ function pageModel(registry) {
           c.searchControls({ idPrefix: country.slug }),
           c.filterControls({ idPrefix: country.slug, directories: countryEntries }),
           c.sortControls({ idPrefix: country.slug, columns: countryColumns }),
-          c.directoryTable({
-            directories: countryEntries,
-            caption: `Directories in ${country.name}`,
-            columns: countryColumns,
-          }),
+          // A country with no subnational record renders exactly one table, as
+          // it always has. Grouping appears only once the coverage exists, so
+          // the United States does not carry an empty "States" heading before
+          // any state registry is published.
+          ...(jurisdictionSections(country, countryEntries, countryColumns)
+            || [c.directoryTable({
+              directories: countryEntries,
+              caption: `Directories in ${country.name}`,
+              columns: countryColumns,
+            })]),
           c.metricNote(activeMetrics),
         ].join('\n')),
         section('faq', 'Questions', c.faqSection(faqs)),
@@ -355,11 +422,16 @@ ${category ? `        <li><a href="${routes.categoryPath(country.slug, category.
         // what we think of it and why, then the evidence, then everything else.
         // Nothing populated sits below a block that is mostly empty.
         main: [
-          c.pageIntro({ title: directory.name, lede: directory.description }),
-          c.externalLinkCta({ url: directory.website, name: directory.name }),
+          c.pageIntro({ title: displayName(directory), lede: directory.description }),
+          c.externalLinkCta({ url: directory.website, name: displayName(directory) }),
           c.statusBadges(directory),
           section('score', 'PetroHrys Score', `${c.metricsBlock(directory, activeMetrics)}\n${c.metricNote(activeMetrics)}`),
           section('verification', 'Verification', c.verificationBlock(directory)),
+          // Conditional: renders nothing at all for a record that carries none
+          // of the structured registry fields, so pre-Wave-1 pages are unchanged.
+          ...(c.registryInformation(directory)
+            ? [section('registry-information', 'Registry information', c.registryInformation(directory))]
+            : []),
           section('assessment', 'Assessment', c.prosCons({ pros: directory.pros, cons: directory.cons, headingLevel: 3 })),
           section('guidance', 'Submission guidance',
             `${c.submissionLink(directory)}\n${c.editorialGuidance(directory, activeGuidance)}`),
@@ -409,7 +481,7 @@ function stageBuild(registry, pages) {
     .slice()
     .sort((a, b) => (a.lastVerified < b.lastVerified ? 1 : a.lastVerified > b.lastVerified ? -1 : 0))
     .map((d) => ({
-      title: d.name,
+      title: displayName(d),
       path: routes.directoryPathFor(d),
       description: d.description,
       pubDate: toPubDate(d.lastVerified),

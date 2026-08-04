@@ -10,6 +10,27 @@
     "description": "French government directory publishing official legal information on companies, associations and public administrations.",
     "tier": "tier1",
     "scope": "national",
+    "nativeName": "L'Annuaire des Entreprises",
+    "primaryRegistryType": "business-entity-register",
+    "registryTypes": [
+      "business-entity-register"
+    ],
+    "operator": {
+      "name": "Direction Interministérielle du Numérique (DINUM)",
+      "type": "government-agency",
+      "officialUrl": null
+    },
+    "publicAccess": {
+      "searchUrl": null,
+      "accessLevel": "unknown",
+      "freeToSearch": true,
+      "loginRequired": null,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "Record states: free access to official administrative data. The overall access posture is not established, so the level stays unknown."
+    },
     "petroHrysScore": 91,
     "scoreFactors": {
       "editorialTrust": 10,
@@ -128,6 +149,18 @@
     "description": "French state institute maintaining the national business register alongside trademark, patent and design registers.",
     "tier": "tier1",
     "scope": "national",
+    "nativeName": "Institut National de la Propriété Industrielle",
+    "primaryRegistryType": "company-register",
+    "registryTypes": [
+      "company-register",
+      "trademark-register",
+      "patent-register"
+    ],
+    "operator": {
+      "name": "Institut National de la Propriété Industrielle (INPI)",
+      "type": "government-agency",
+      "officialUrl": null
+    },
     "petroHrysScore": 89,
     "scoreFactors": {
       "editorialTrust": 10,

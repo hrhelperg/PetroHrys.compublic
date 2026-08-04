@@ -14,11 +14,23 @@
     : (typeof window !== 'undefined' ? window.BDOrder : null);
   if (!order) return; // ordering model unavailable: leave the server order alone
 
-  var tbody = document.querySelector('[data-bd-rows]');
-  if (!tbody) return;
+  // Every group's tbody. Once a country page groups by jurisdiction there is
+  // one per group, and a singular query would leave search, filter and sort
+  // touching only the first — with a status count for the whole page.
+  var bodies = Array.prototype.slice.call(document.querySelectorAll('[data-bd-rows]'));
+  if (!bodies.length) return;
 
-  var rows = Array.prototype.slice.call(tbody.querySelectorAll('.bd-row'));
-  if (!rows.length) return;
+  // The enclosing group box, so a group whose rows all filter out can be hidden
+  // rather than left as a caption and a heading above nothing.
+  function groupBoxOf(node) {
+    var el = node;
+    while (el && el.parentNode) {
+      el = el.parentNode;
+      var cls = el.getAttribute ? el.getAttribute('class') : null;
+      if (cls && (' ' + cls + ' ').indexOf(' bd-jgroup ') !== -1) return el;
+    }
+    return null;
+  }
 
   var sortSelect = document.querySelector('[data-bd-sort]');
   var searchInput = document.querySelector('[data-bd-search]');
@@ -30,14 +42,6 @@
     var el = document.querySelector(sel);
     if (el) el.hidden = false;
   });
-
-  // Filtering changes what is visible, so announce the resulting count.
-  var status = document.createElement('p');
-  status.className = 'bd-status';
-  status.setAttribute('role', 'status');
-  status.setAttribute('aria-live', 'polite');
-  var table = tbody.parentNode;
-  if (table && table.parentNode) table.parentNode.insertBefore(status, table);
 
   function num(row, key) {
     var raw = row.getAttribute('data-bd-' + key);
@@ -57,12 +61,36 @@
     };
   }
 
-  var records = rows.map(recordOf);
+  // One entry per tbody. Sorting happens WITHIN a group, never across groups,
+  // so re-sorting cannot move a Californian registry into the Federal table.
+  var groups = bodies.map(function (body) {
+    return {
+      body: body,
+      box: groupBoxOf(body),
+      records: Array.prototype.slice.call(body.querySelectorAll('.bd-row')).map(recordOf)
+    };
+  }).filter(function (g) { return g.records.length > 0; });
+  if (!groups.length) return;
+
+  var records = groups.reduce(function (all, g) { return all.concat(g.records); }, []);
+
+  // Created only once we know there is something to count. An empty table must
+  // be left exactly as the server rendered it — announcing "0 directories
+  // shown" over a page the script is not managing would be a lie about state.
+  var status = document.createElement('p');
+  status.className = 'bd-status';
+  status.setAttribute('role', 'status');
+  status.setAttribute('aria-live', 'polite');
+  var firstBox = groups[0].box;
+  var anchor = firstBox || groups[0].body.parentNode;
+  if (anchor && anchor.parentNode) anchor.parentNode.insertBefore(status, anchor);
 
   function apply() {
     var key = sortSelect ? sortSelect.value : 'default';
-    order.sortRecords(records, key).forEach(function (record) {
-      tbody.appendChild(record.row);
+    groups.forEach(function (g) {
+      order.sortRecords(g.records, key).forEach(function (record) {
+        g.body.appendChild(record.row);
+      });
     });
 
     var query = searchInput ? searchInput.value.trim().toLowerCase() : '';
@@ -90,6 +118,14 @@
       row.hidden = !visible;
       if (visible) shown += 1;
       if (!visible && hiddenUnknown > 0) unknownHidden += 1;
+    });
+
+    // A group with nothing left to show is hidden entirely, so a screen reader
+    // is not walked through a heading and a caption over an empty table.
+    groups.forEach(function (g) {
+      if (!g.box) return;
+      var anyVisible = g.records.some(function (r) { return !r.row.hidden; });
+      g.box.hidden = !anyVisible;
     });
 
     // The noun agrees with the total, not the subset: "1 of 4 directories".

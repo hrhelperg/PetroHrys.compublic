@@ -32,6 +32,19 @@ function directoryRecord(overrides = {}) {
     tier: 'tier1',
     scope: 'national',
 
+    // Wave 1 foundation fields, in their normalised "not established" state.
+    // The fixture mirrors what bd-migrate produces, so a test that validates a
+    // fixture directly exercises the same shape the loader hands the validator.
+    officialName: 'Example Directory',
+    nativeName: null,
+    englishName: null,
+    englishNameSource: null,
+    jurisdiction: null,
+    primaryRegistryType: null,
+    registryTypes: [],
+    operator: null,
+    publicAccess: null,
+
     petroHrysScore: null,
     scoreFactors: null,
 
@@ -81,6 +94,10 @@ function directoryRecord(overrides = {}) {
 
   const record = { ...base, ...overrides };
   if (overrides.accepts) record.accepts = accepts(overrides.accepts);
+  // Mirror bd-migrate: officialName follows name unless a test sets it
+  // explicitly. Pinning it to the base name would make every fixture display
+  // the same title and silently defeat any ordering test.
+  if (!('officialName' in overrides)) record.officialName = record.name;
   return record;
 }
 

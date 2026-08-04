@@ -27,11 +27,21 @@
     return b - a;
   }
 
+  // The name a reader actually sees. The server holds the full record; the
+  // browser rebuilds one from data-bd-name, which already carries the resolved
+  // display name. Resolving in the same order on both sides is what keeps the
+  // prerendered order and the re-sorted order identical — comparing raw `name`
+  // here while the row advertises the resolved name made them disagree.
+  function displayNameOf(r) {
+    if (!r) return '';
+    return String(r.englishName || r.officialName || r.nativeName || r.name || '');
+  }
+
   // Unicode default case folding, then a UTF-16 code-unit tiebreak so the order
   // is total and identical on every platform.
   function compareByName(a, b) {
-    var an = String(a && a.name != null ? a.name : '');
-    var bn = String(b && b.name != null ? b.name : '');
+    var an = displayNameOf(a);
+    var bn = displayNameOf(b);
     var af = an.toLowerCase();
     var bf = bn.toLowerCase();
     if (af < bf) return -1;
@@ -96,6 +106,7 @@
 
   return {
     nullLastDesc: nullLastDesc,
+    displayNameOf: displayNameOf,
     compareByName: compareByName,
     SORTS: SORTS,
     SORT_KEYS: SORT_KEYS,
