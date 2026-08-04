@@ -357,10 +357,12 @@ test('a verified record appears in both the feed and the sitemap', () => {
 });
 
 test('a record failing the meaningful-content contract is noindex and off the sitemap', () => {
-  // Thin here means it carries no editorial guidance and no curated relation —
-  // nothing a reader could not already get from the country page. It keeps its
-  // page and every link on it; it just leaves the index.
-  const thin = indexableRec({ bestFor: [], notRecommendedFor: [], related: undefined });
+  // Thin means the evidence package itself is incomplete — here, no pros and no
+  // cons, so the page asserts nothing a reader could not get from the country
+  // table. Curated relations are deliberately NOT part of this test: a record
+  // with none is a gap in cross-referencing, not a thin page. The page and all
+  // its links survive; it just leaves the index.
+  const thin = indexableRec({ pros: [], cons: [] });
   const { dataRoot, outRoot } = fixture({ 'united-states': [thin] });
   buildAll({ dataRoot, outRoot });
   assert.ok(has(outRoot, DETAIL), 'the page is still published');

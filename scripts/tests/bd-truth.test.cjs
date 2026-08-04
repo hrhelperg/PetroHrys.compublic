@@ -10,6 +10,7 @@ const c = require('../lib/bd-components.cjs');
 const { buildArticles } = require('../lib/bd-articles.cjs');
 const { loadRegistry } = require('../lib/bd-registry.cjs');
 const routes = require('../lib/bd-routes.cjs');
+const { RELATION_KINDS } = require('../lib/bd-schema.cjs');
 
 // Guards for the "Say What Is True, Show What Exists" phase. Each test here
 // exists because the corresponding claim was once published and was false, or
@@ -523,4 +524,46 @@ test('every sort option key is a real shared sort key', () => {
       assert.ok(SORT_KEYS.includes(m[1]), `${file} offers sort option "${m[1]}" which bd-sort does not define`);
     }
   }
+});
+
+// --- indexability contract ----------------------------------------------------
+
+test('every published record carries a unique name and description', () => {
+  // The contract asks for a UNIQUE editorial description. Uniqueness is a
+  // registry-wide property, so it is checked here rather than inside the
+  // per-record predicate, and without any length threshold.
+  const names = new Map();
+  const descriptions = new Map();
+  for (const record of D) {
+    const name = record.name.trim().toLowerCase();
+    const description = record.description.trim().toLowerCase();
+    assert.ok(!names.has(name), `${record.id} repeats the name of ${names.get(name)}`);
+    assert.ok(!descriptions.has(description),
+      `${record.id} repeats the description of ${descriptions.get(description)}`);
+    names.set(name, record.id);
+    descriptions.set(description, record.id);
+  }
+});
+
+test('curated relations are not required for indexing', () => {
+  // Relations and guide links are valuable but optional. A record with a full
+  // evidence package and no relation must stay indexable: the missing relation
+  // is a gap in our cross-referencing, not thinness in the page.
+  const withoutRelations = D.filter((r) => !RELATION_KINDS.some((k) => ((r.related || {})[k] || []).length));
+  assert.ok(withoutRelations.length > 0, 'precondition: some records carry no relation');
+  for (const record of withoutRelations) {
+    const { indexable, missing } = S.indexability(record);
+    assert.ok(indexable, `${record.id} was demoted for: ${missing.join(', ')}`);
+  }
+});
+
+test('the indexability predicate still rejects a genuinely thin record', () => {
+  // Non-vacuity: the relaxation must not have made the predicate unfailable.
+  const base = D[0];
+  assert.ok(S.indexability(base).indexable);
+  assert.ok(!S.indexability({ ...base, pros: [], cons: [] }).indexable, 'no pros and no cons is thin');
+  assert.ok(!S.indexability({ ...base, scoreFactors: null }).indexable, 'no factor breakdown is thin');
+  assert.ok(!S.indexability({ ...base, website: 'http://insecure.example' }).indexable, 'non-HTTPS is rejected');
+  assert.ok(!S.indexability({ ...base, verification: { status: 'unverified', source: null, reviewers: [] } }).indexable);
+  assert.ok(!S.indexability({ ...base, description: '  ' }).indexable, 'an empty description is thin');
 });

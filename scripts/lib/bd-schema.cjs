@@ -170,27 +170,36 @@ const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
 // country page. A record that fails is still published and still linked — it
 // becomes noindex,follow, so its links keep flowing and it leaves the sitemap.
 
+// Curated relations and guide links are valuable but deliberately NOT required.
+// A record can carry a complete, verified evidence package a reader cannot get
+// anywhere else and still have no editorial relation recorded — that is a gap in
+// our curation, not thinness in the page, and demoting it would hide verified
+// research to punish an unfinished cross-reference.
 const INDEXABILITY_CLAUSES = [
-  { key: 'description', label: 'a description',
+  { key: 'name', label: 'an official name',
+    test: (r) => typeof r.name === 'string' && r.name.trim().length > 0 },
+  // Non-empty, not "long enough": a length threshold is exactly the arbitrary
+  // word-count rule this contract exists to replace. Description UNIQUENESS is
+  // enforced registry-wide instead, where it can actually be checked.
+  { key: 'description', label: 'an editorial description',
     test: (r) => typeof r.description === 'string' && r.description.trim().length > 0 },
   { key: 'scope', label: 'a country or editorial scope',
     test: (r) => !!r.country && !!r.scope && r.scope !== 'unknown' },
   { key: 'category', label: 'a category', test: (r) => !!r.category },
-  { key: 'score', label: 'a score with a full factor breakdown',
-    test: (r) => typeof r.petroHrysScore === 'number'
-      && !!r.scoreFactors
+  { key: 'destination', label: 'an official HTTPS destination',
+    test: (r) => typeof r.website === 'string' && /^https:\/\//i.test(r.website) },
+  { key: 'score', label: 'a PetroHrys Score',
+    test: (r) => typeof r.petroHrysScore === 'number' },
+  { key: 'factors', label: 'a complete ten-factor breakdown',
+    test: (r) => !!r.scoreFactors
       && SCORE_FACTORS.every((f) => typeof r.scoreFactors[f.key] === 'number') },
-  { key: 'verification', label: 'verification provenance',
-    test: (r) => !!r.lastVerified && !!r.verification && r.verification.status === 'verified'
-      && !!r.verification.source },
-  { key: 'prosCons', label: 'pros or cons',
+  { key: 'verificationDate', label: 'a verification date', test: (r) => !!r.lastVerified },
+  { key: 'verificationSource', label: 'a verification source',
+    test: (r) => !!r.verification && r.verification.status === 'verified' && !!r.verification.source },
+  { key: 'reviewer', label: 'a named reviewer',
+    test: (r) => ((r.verification || {}).reviewers || []).length > 0 },
+  { key: 'prosCons', label: 'meaningful pros or cons',
     test: (r) => (r.pros || []).length > 0 || (r.cons || []).length > 0 },
-  { key: 'guidance', label: 'editorial guidance or curated relations',
-    test: (r) => (r.bestFor || []).length > 0
-      || (r.notRecommendedFor || []).length > 0
-      || RELATION_KINDS.some((k) => ((r.related || {})[k] || []).length > 0) },
-  { key: 'destination', label: 'an official external destination',
-    test: (r) => typeof r.website === 'string' && /^https?:\/\//i.test(r.website) },
 ];
 
 // Returns { indexable, missing[] } so a caller can report exactly why a record
