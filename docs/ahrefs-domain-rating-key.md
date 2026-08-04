@@ -33,7 +33,7 @@ The endpoint is free and consumes no API units.
 Export it in the shell that runs the utility:
 
 ```sh
-export AHREFS_API_KEY='your-key-here'
+export AHREFS_API_KEY='<paste-your-free-ahrefs-key>'
 node scripts/measure-business-directory-dr.cjs --dry-run --all-unmeasured
 ```
 
