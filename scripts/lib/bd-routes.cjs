@@ -11,6 +11,7 @@ const SECTION_DIR = path.join('research', 'business-directories');
 const SITEMAP_FILE = 'sitemap-business-directories.xml';
 const CATEGORY_SEGMENT = 'categories';
 const PAGE_SEGMENT = 'page';
+const GUIDES_SEGMENT = 'guides';
 
 class RouteError extends Error {
   constructor(message) {
@@ -39,6 +40,9 @@ const categoryPath = (country, category) =>
 
 const directoryPath = (country, directory) =>
   `${countryPath(country)}${requireSlug(directory, 'directory')}/`;
+
+const articlesPath = () => `${BASE}${GUIDES_SEGMENT}/`;
+const articlePath = (slug) => `${articlesPath()}${requireSlug(slug, 'article')}/`;
 
 const feedPath = () => `${BASE}feed.xml`;
 
@@ -70,12 +74,14 @@ const hubOut = () => path.join(SECTION_DIR, 'index.html');
 const countryOut = (country) => toOutPath(countryPath(country));
 const categoryOut = (country, category) => toOutPath(categoryPath(country, category));
 const directoryOut = (country, directory) => toOutPath(directoryPath(country, directory));
+const articlesOut = () => path.join(SECTION_DIR, GUIDES_SEGMENT, 'index.html');
+const articleOut = (slug) => toOutPath(articlePath(slug));
 const feedOut = () => path.join(SECTION_DIR, 'feed.xml');
 const sitemapOut = () => SITEMAP_FILE;
 
 module.exports = {
-  BASE, SECTION_DIR, SITEMAP_FILE, CATEGORY_SEGMENT, PAGE_SEGMENT, RouteError,
+  BASE, SECTION_DIR, SITEMAP_FILE, CATEGORY_SEGMENT, PAGE_SEGMENT, GUIDES_SEGMENT, RouteError,
   hubPath, countryPath, categoryPath, directoryPath, directoryPathFor,
-  feedPath, sitemapPath, pagePath,
-  hubOut, countryOut, categoryOut, directoryOut, feedOut, sitemapOut,
+  feedPath, sitemapPath, pagePath, articlesPath, articlePath,
+  hubOut, countryOut, categoryOut, directoryOut, feedOut, sitemapOut, articlesOut, articleOut,
 };

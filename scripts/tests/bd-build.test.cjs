@@ -64,7 +64,11 @@ const fingerprint = (outRoot) => walk(path.join(outRoot, SECTION_DIR))
 test('the lean scaffold is exactly three pages when there is no data', () => {
   const { dataRoot, outRoot } = fixture();
   const result = buildAll({ dataRoot, outRoot });
-  assert.strictEqual(result.pages, 3);
+  // Three directory pages, plus the guides index and the methodology guides,
+  // which stand on their own and do not depend on any directory record.
+  const guides = walk(path.join(outRoot, SECTION_DIR, 'guides')).filter((f) => f.endsWith('.html'));
+  assert.strictEqual(result.pages - guides.length, 3);
+  assert.ok(guides.length > 0, 'methodology guides should still be emitted');
   assert.ok(has(outRoot, HUB));
   assert.ok(has(outRoot, REF_COUNTRY));
   assert.ok(has(outRoot, REF_CATEGORY));
@@ -194,7 +198,9 @@ test('10 the sitemap never lists a noindex page', () => {
   buildAll({ dataRoot, outRoot });
   const xml = read(outRoot, SITEMAP);
   assert.ok(!xml.includes('/united-states/'), 'empty reference pages must stay out of the sitemap');
-  assert.strictEqual((xml.match(/<loc>/g) || []).length, 1);
+  const locs = (xml.match(/<loc>/g) || []).length;
+  const guides = walk(path.join(outRoot, SECTION_DIR, 'guides')).filter((f) => f.endsWith('.html'));
+  assert.strictEqual(locs - guides.length, 1, 'only the hub, beyond the guides');
 });
 
 // --- 12, 13: pruning correctness --------------------------------------------
@@ -212,7 +218,12 @@ test('12-13 removing the last record prunes only its dependents', () => {
   assert.ok(has(outRoot, HUB), 'hub must survive');
   assert.ok(has(outRoot, REF_COUNTRY), 'reference country must survive');
   assert.ok(has(outRoot, REF_CATEGORY), 'reference category must survive');
-  assert.strictEqual(result.removed.length, 2);
+  // The two directory pages, plus any list guide that no longer has records to
+  // list. A guide with nothing in it is correctly pruned rather than published
+  // empty, so the count is asserted as a floor and by membership.
+  assert.ok(result.removed.includes(SAAS), 'stale category page not reported');
+  assert.ok(result.removed.includes(DETAIL), 'stale detail page not reported');
+  assert.ok(result.removed.every((f) => f !== HUB && f !== REF_COUNTRY));
 });
 
 test('13 no orphan page survives a full data removal', () => {
@@ -221,7 +232,12 @@ test('13 no orphan page survives a full data removal', () => {
   writeDirs(dataRoot, 'united-states', []);
   writeDirs(dataRoot, 'germany', []);
   buildAll({ dataRoot, outRoot });
-  const remaining = walk(path.join(outRoot, SECTION_DIR)).map((f) => path.relative(outRoot, f)).sort();
+  // Guides are excluded: the methodology guides stand alone and are correctly
+  // still present after every directory record is removed.
+  const remaining = walk(path.join(outRoot, SECTION_DIR))
+    .map((f) => path.relative(outRoot, f))
+    .filter((f) => !f.split(path.sep).includes('guides'))
+    .sort();
   assert.deepStrictEqual(remaining, [
     path.join(SECTION_DIR, 'feed.xml'),
     HUB,

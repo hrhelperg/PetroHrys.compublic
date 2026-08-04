@@ -4,7 +4,7 @@ const path = require('node:path');
 const { PATHS } = require('./bd-util.cjs');
 const { migrateRecord } = require('./bd-migrate.cjs');
 
-const STRUCTURAL_RESERVED = ['categories', 'page', 'feed.xml', 'index'];
+const STRUCTURAL_RESERVED = ['categories', 'page', 'feed.xml', 'index', 'guides'];
 const SLUG_RE = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 
 class RegistryError extends Error {

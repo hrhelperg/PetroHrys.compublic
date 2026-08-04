@@ -12,6 +12,7 @@ const { renderPage } = require('./lib/bd-render.cjs');
 const { renderSitemap, renderRss } = require('./lib/bd-feeds.cjs');
 const routes = require('./lib/bd-routes.cjs');
 const SCHEMA = require('./lib/bd-schema.cjs');
+const { buildArticles } = require('./lib/bd-articles.cjs');
 const { validateRegistry, formatReport } = require('./validate-business-directories.cjs');
 
 const BASE = routes.BASE;
@@ -98,12 +99,48 @@ function pageModel(registry) {
     main: [
       c.pageIntro({ title: 'Business Directories', lede: hubMeta.description }),
       section('methodology', 'Methodology', `${c.methodologyNote()}\n${c.metricNote()}`),
+      section('guides', 'Editorial guides',
+        `      <p>Guides drawn from this dataset explain how directories are chosen, scored and verified.</p>\n`
+        + `      <p class="bd-cta"><a href="${routes.articlesPath()}">Browse the editorial guides</a></p>`),
       section('countries', 'Countries',
         c.cardGrid(countryLinks.map((l) => c.countryCard({ ...l, headingLevel: 3 })),
           { label: 'Countries' })),
       section('faq', 'Questions', c.faqSection(HUB_FAQS)),
     ].join('\n\n'),
   });
+
+  // --- editorial guides ----------------------------------------------------
+  const articles = buildArticles(registry);
+  const articleLinks = articles.map((a) => ({ title: a.title, slug: a.slug }));
+
+  pages.push({
+    kind: 'article-index',
+    owner: 'articles',
+    outPath: routes.articlesOut(),
+    meta: seo.buildArticleIndexMeta({ articles: articleLinks }),
+    main: [
+      c.pageIntro({
+        title: 'Business Directory Guides',
+        lede: 'Editorial guides drawn from the verified directory dataset. Every list and table is generated from those records at build time.',
+      }),
+      section('guides', 'Guides', c.cardGrid(articles.map((a) => c.categoryCard({
+        name: a.title, path: routes.articlePath(a.slug), description: a.description, headingLevel: 3,
+      })), { label: 'Guides' })),
+    ].join('\n\n'),
+  });
+
+  for (const article of articles) {
+    pages.push({
+      kind: 'article',
+      owner: `article:${article.slug}`,
+      outPath: routes.articleOut(article.slug),
+      meta: seo.buildArticleMeta({ article, faqs: article.faqs || [] }),
+      main: [
+        c.pageIntro({ title: article.title, lede: article.description }),
+        article.main,
+      ].join('\n\n'),
+    });
+  }
 
   for (const country of registry.countries) {
     if (!countryEmitted(registry, country)) continue;
