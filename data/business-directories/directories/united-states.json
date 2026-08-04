@@ -536,5 +536,2786 @@
       "Not a marketing listing: entries cannot be created on request"
     ],
     "editorNotes": "Verified 2026-08-04 from finra.org, which states BrokerCheck \"is a free tool from FINRA\". Data originates in the Central Registration Depository (CRD) and the SEC’s Investment Adviser Registration Depository (IARD), populated through mandatory registration forms, so entries arise from licensing rather than submission. FINRA is a self-regulatory organisation, not a government agency, and the record is categorised finance rather than government for that reason."
+  },
+  {
+    "id": "us-usaspending",
+    "name": "USAspending.gov",
+    "slug": "usaspending",
+    "country": "united-states",
+    "category": "government",
+    "website": "https://www.usaspending.gov/",
+    "submissionUrl": null,
+    "description": "Federal award transparency database operated by the Treasury Bureau of the Fiscal Service, publishing transaction-level contracts, grants, loans and direct payments reported by agencies under the DATA Act, with recipient profiles keyed by UEI.",
+    "tier": "tier1",
+    "scope": "national",
+    "primaryRegistryType": "public-filing-database",
+    "registryTypes": [
+      "public-filing-database",
+      "corporate-number-database"
+    ],
+    "operator": {
+      "name": "U.S. Department of the Treasury, Bureau of the Fiscal Service",
+      "type": "government-agency",
+      "officialUrl": null
+    },
+    "publicAccess": {
+      "searchUrl": "https://www.usaspending.gov/search",
+      "accessLevel": "open",
+      "freeToSearch": true,
+      "loginRequired": false,
+      "identityVerificationRequired": false,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "Search and bulk downloads are free; no account is required."
+    },
+    "petroHrysScore": 85,
+    "scoreFactors": {
+      "editorialTrust": 9,
+      "businessUsefulness": 9,
+      "verificationQuality": 7,
+      "platformReputation": 9,
+      "spamResistance": 10,
+      "industryImportance": 9,
+      "longTermStability": 9,
+      "submissionQuality": 6,
+      "transparency": 9,
+      "moderationQuality": 7
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": true,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-04",
+    "nextVerification": "2027-08-27",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [
+        "us-sam-entity-information"
+      ],
+      "competitors": []
+    },
+    "bestFor": [
+      "Establishing whether an organisation has received federal money, and how much",
+      "Tracing a recipient across awards by UEI rather than by name"
+    ],
+    "notRecommendedFor": [
+      "Confirming that a company legally exists",
+      "Checking good standing or licensing"
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Federal contractors",
+      "Grant recipients",
+      "Research institutions"
+    ],
+    "editorialTags": [
+      "statutory",
+      "open-data",
+      "primary-source"
+    ],
+    "pros": [
+      "Transaction-level detail with free bulk download and no account",
+      "Recipient profiles expose UEI, address and corporate parent openly"
+    ],
+    "cons": [
+      "Recipient identity resolution is weak: one company can appear under several UEIs and name spellings",
+      "Receiving federal money is not evidence of legal existence or good standing"
+    ],
+    "editorNotes": "Verified 2026-08-04. Operated by Treasury’s Bureau of the Fiscal Service under FFATA (2006) and the DATA Act (2014); agencies report, no entity submits or pays. Retrieval of three separate \"LOCKHEED MARTIN CORPORATION\" recipient profiles under different ids demonstrates the identity-resolution limitation recorded in the cons. This is the open route to award data: the SAM.gov contract-data surface covering the same ground requires an account, and FPDS.gov is retired."
+  },
+  {
+    "id": "us-sam-entity-information",
+    "name": "SAM.gov Entity Information",
+    "slug": "sam-entity-information",
+    "country": "united-states",
+    "category": "government",
+    "website": "https://sam.gov/entity-information",
+    "submissionUrl": null,
+    "description": "Federal award registration record operated by GSA, holding the registrations organisations must complete to bid for federal contracts or receive federal assistance, including the Unique Entity ID and the Responsibility/Qualification records formerly published as FAPIIS.",
+    "tier": "tier1",
+    "scope": "national",
+    "primaryRegistryType": "procurement-supplier-register",
+    "registryTypes": [
+      "procurement-supplier-register",
+      "corporate-number-database"
+    ],
+    "operator": {
+      "name": "U.S. General Services Administration, Integrated Award Environment",
+      "type": "government-agency",
+      "officialUrl": null
+    },
+    "publicAccess": {
+      "searchUrl": "https://sam.gov/search/?index=ei",
+      "accessLevel": "partially-open",
+      "freeToSearch": true,
+      "loginRequired": null,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "Public entity data is free to search. GSA states that sensitive and for-official-use-only entity data requires federal CAC or PIV sign-in, so part of the record is not public."
+    },
+    "petroHrysScore": 83,
+    "scoreFactors": {
+      "editorialTrust": 8,
+      "businessUsefulness": 9,
+      "verificationQuality": 6,
+      "platformReputation": 9,
+      "spamResistance": 10,
+      "industryImportance": 10,
+      "longTermStability": 9,
+      "submissionQuality": 6,
+      "transparency": 8,
+      "moderationQuality": 6
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": true,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": true,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-04",
+    "nextVerification": "2027-08-18",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [
+        "us-usaspending"
+      ],
+      "competitors": []
+    },
+    "bestFor": [
+      "Checking whether an organisation is registered to receive federal awards",
+      "Resolving a Unique Entity ID before searching award data"
+    ],
+    "notRecommendedFor": [
+      "Confirming incorporation, which happens at state level",
+      "Establishing ownership, share capital or financial position"
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Federal contractors",
+      "Grant applicants"
+    ],
+    "editorialTags": [
+      "statutory",
+      "procurement",
+      "primary-source"
+    ],
+    "pros": [
+      "The controlling record for federal award eligibility, including the UEI",
+      "Absorbs the former FAPIIS responsibility and qualification records in one place"
+    ],
+    "cons": [
+      "Entity data is self-reported and revalidated only at annual renewal, so it goes stale",
+      "Socio-economic self-certifications here are not SBA-adjudicated certifications"
+    ],
+    "editorNotes": "Verified 2026-08-04. GSA states FAPIIS records \"have moved to SAM.gov\" and are now called Responsibility/Qualification records within entity information, so no separate FAPIIS record is published. Registration and UEI assignment are free and SBA warns businesses away from paid intermediaries. Not an incorporation register: US companies are formed at state level. The DUNS-to-UEI transition completed in April 2022, and older award data may still show both."
+  },
+  {
+    "id": "us-fdic-bankfind",
+    "name": "FDIC BankFind Suite",
+    "slug": "fdic-bankfind",
+    "country": "united-states",
+    "category": "finance",
+    "website": "https://banks.data.fdic.gov/bankfind-suite/bankfind",
+    "submissionUrl": null,
+    "description": "Authoritative record of every FDIC-insured depository institution, keyed by FDIC certificate number, covering insurance status, branch offices, structure changes and filed financial reports.",
+    "tier": "tier1",
+    "scope": "national",
+    "primaryRegistryType": "financial-services-register",
+    "registryTypes": [
+      "financial-services-register",
+      "regulated-operator-register",
+      "public-filing-database"
+    ],
+    "operator": {
+      "name": "Federal Deposit Insurance Corporation",
+      "type": "regulator",
+      "officialUrl": null
+    },
+    "publicAccess": {
+      "searchUrl": "https://banks.data.fdic.gov/bankfind-suite/bankfind",
+      "accessLevel": "open",
+      "freeToSearch": true,
+      "loginRequired": false,
+      "identityVerificationRequired": false,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "Free with no account; an open API serves the same data."
+    },
+    "petroHrysScore": 91,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 9,
+      "verificationQuality": 9,
+      "platformReputation": 9,
+      "spamResistance": 10,
+      "industryImportance": 9,
+      "longTermStability": 10,
+      "submissionQuality": 6,
+      "transparency": 9,
+      "moderationQuality": 9
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-04",
+    "nextVerification": "2027-08-08",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "us-occ-institution-search"
+      ],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Confirming that a bank is FDIC-insured and reading its certificate record",
+      "Tracing mergers, acquisitions and branch structure over time"
+    ],
+    "notRecommendedFor": [
+      "Credit unions, which are insured and supervised separately",
+      "Holding companies as such, which are not the unit of record here"
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Banking",
+      "Financial services"
+    ],
+    "editorialTags": [
+      "statutory",
+      "regulator",
+      "primary-source"
+    ],
+    "pros": [
+      "The definitive answer on deposit-insurance status, with the Summary of Deposits",
+      "Free API and bulk data alongside the search interface"
+    ],
+    "cons": [
+      "The interface is JavaScript-only, so the raw page carries no institution data",
+      "Absence proves only that an entity is not FDIC-insured, not that it is unregulated"
+    ],
+    "editorNotes": "Verified 2026-08-04 from the FDIC Bank Data Guide and the BankFind Suite host. Records arise from deposit-insurance certification and supervisory reporting under the Federal Deposit Insurance Act; there is no listing application and no fee to appear. BankFind, Reports & Comparisons, Branch Office Deposits, Bank Structure Changes and Financial Reporting are surfaces of one dataset and are recorded here as one registry, not five."
+  },
+  {
+    "id": "us-occ-institution-search",
+    "name": "OCC Financial Institution Search",
+    "slug": "occ-institution-search",
+    "country": "united-states",
+    "category": "finance",
+    "website": "https://www.occ.gov/publications-and-resources/tools/occ-financial-institution-search/index-occ-financial-institution-search.html",
+    "submissionUrl": null,
+    "description": "Search over the national banks and federal savings associations chartered by the Office of the Comptroller of the Currency, covering the charter roster, Community Reinvestment Act evaluations, enforcement actions and corporate applications.",
+    "tier": "tier1",
+    "scope": "national",
+    "primaryRegistryType": "financial-services-register",
+    "registryTypes": [
+      "financial-services-register",
+      "regulated-operator-register",
+      "public-filing-database"
+    ],
+    "operator": {
+      "name": "Office of the Comptroller of the Currency",
+      "type": "regulator",
+      "officialUrl": null
+    },
+    "publicAccess": {
+      "searchUrl": "https://www.occ.treas.gov/institution-search/active",
+      "accessLevel": "open",
+      "freeToSearch": true,
+      "loginRequired": false,
+      "identityVerificationRequired": false,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "Free with no account across all three surfaces."
+    },
+    "petroHrysScore": 86,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 8,
+      "verificationQuality": 9,
+      "platformReputation": 8,
+      "spamResistance": 10,
+      "industryImportance": 8,
+      "longTermStability": 10,
+      "submissionQuality": 5,
+      "transparency": 8,
+      "moderationQuality": 8
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-04",
+    "nextVerification": "2027-08-11",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "us-fdic-bankfind"
+      ],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Confirming a national bank charter and reading OCC enforcement history",
+      "Checking a pending corporate application such as a merger or new charter"
+    ],
+    "notRecommendedFor": [
+      "State-chartered banks and credit unions",
+      "Non-bank financial firms"
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Banking",
+      "Financial services"
+    ],
+    "editorialTags": [
+      "statutory",
+      "regulator",
+      "primary-source"
+    ],
+    "pros": [
+      "Charter numbers, CRA evaluations and enforcement actions from the chartering regulator",
+      "The corporate applications pipeline is public, which few registers expose"
+    ],
+    "cons": [
+      "Fragmented across three tools on two different hosts, so one lookup rarely suffices",
+      "Covers only OCC-supervised institutions; enforcement by other agencies is elsewhere"
+    ],
+    "editorNotes": "Verified 2026-08-04. Records arise from chartering and licensing under the National Bank Act and Home Owners’ Loan Act, from statutory CRA examination, and from OCC enforcement authority. The Financial Institution Lists (the authoritative charter roster) and Corporate Applications Search are folded into this record rather than catalogued separately: they are alternative front ends to the same OCC record sets."
+  },
+  {
+    "id": "us-sec-iapd",
+    "name": "Investment Adviser Public Disclosure",
+    "slug": "sec-iapd",
+    "country": "united-states",
+    "category": "finance",
+    "website": "https://adviserinfo.sec.gov/",
+    "submissionUrl": null,
+    "description": "SEC disclosure system for investment advisers, publishing Form ADV filings by SEC- and state-registered adviser firms, their representatives, and Exempt Reporting Advisers including private fund managers.",
+    "tier": "tier1",
+    "scope": "national",
+    "primaryRegistryType": "financial-services-register",
+    "registryTypes": [
+      "financial-services-register",
+      "professional-licence-register",
+      "public-filing-database"
+    ],
+    "operator": {
+      "name": "U.S. Securities and Exchange Commission; the underlying IARD filing system is operated by FINRA on the SEC’s behalf",
+      "type": "regulator",
+      "officialUrl": null
+    },
+    "publicAccess": {
+      "searchUrl": "https://adviserinfo.sec.gov/",
+      "accessLevel": "open",
+      "freeToSearch": true,
+      "loginRequired": false,
+      "identityVerificationRequired": false,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "Free with no account; Form ADV documents and bulk files download without charge."
+    },
+    "petroHrysScore": 81,
+    "scoreFactors": {
+      "editorialTrust": 8,
+      "businessUsefulness": 8,
+      "verificationQuality": 8,
+      "platformReputation": 8,
+      "spamResistance": 10,
+      "industryImportance": 8,
+      "longTermStability": 9,
+      "submissionQuality": 6,
+      "transparency": 8,
+      "moderationQuality": 7
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-04",
+    "nextVerification": "2027-08-14",
+    "verification": {
+      "status": "verified",
+      "source": "official-website",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "us-finra-brokercheck"
+      ],
+      "usedWith": [
+        "us-sec-edgar"
+      ],
+      "competitors": []
+    },
+    "bestFor": [
+      "Reading an adviser’s Form ADV brochure for fees, conflicts and assets under management",
+      "Checking Exempt Reporting Advisers, including private fund and venture managers"
+    ],
+    "notRecommendedFor": [
+      "Broker-dealers, whose record is BrokerCheck",
+      "Corporate securities filings such as 10-K or S-1, which are in EDGAR"
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Investment advisory",
+      "Private funds",
+      "Wealth management"
+    ],
+    "editorialTags": [
+      "statutory",
+      "regulator",
+      "finance"
+    ],
+    "pros": [
+      "Form ADV Parts 2 and 3 brochures are published in full, which BrokerCheck does not present",
+      "Covers Exempt Reporting Advisers that appear in no broker-dealer register"
+    ],
+    "cons": [
+      "Shares one CRD/IARD index with FINRA BrokerCheck, so much of the record overlaps it",
+      "The SEC states it has not approved the filed information and cannot guarantee its accuracy"
+    ],
+    "editorNotes": "Verified 2026-08-04. Records arise from registration and Form ADV reporting under the Investment Advisers Act of 1940. A duplicate-control probe against both hosts returned identical record ids in identical order with a shared field schema, confirming that adviserinfo.sec.gov and BrokerCheck are two branded surfaces over one FINRA-operated index. Published as a distinct register on shared infrastructure, not as an independent dataset: the legal basis, the Form ADV documents and the Exempt Reporting Adviser population are genuinely different."
+  },
+  {
+    "id": "us-fincen-msb",
+    "name": "FinCEN MSB Registrant Search",
+    "slug": "fincen-msb-registrant-search",
+    "country": "united-states",
+    "category": "finance",
+    "website": "https://msb.fincen.gov/",
+    "submissionUrl": null,
+    "description": "List of businesses that have filed a Registration of Money Services Business with FinCEN under the Bank Secrecy Act, covering money transmitters, cheque cashers, currency dealers and comparable providers.",
+    "tier": "tier1",
+    "scope": "national",
+    "primaryRegistryType": "financial-services-register",
+    "registryTypes": [
+      "financial-services-register",
+      "regulated-operator-register",
+      "public-filing-database"
+    ],
+    "operator": {
+      "name": "Financial Crimes Enforcement Network, U.S. Department of the Treasury",
+      "type": "government-agency",
+      "officialUrl": null
+    },
+    "publicAccess": {
+      "searchUrl": "https://msb.fincen.gov/",
+      "accessLevel": "open",
+      "freeToSearch": true,
+      "loginRequired": false,
+      "identityVerificationRequired": false,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "Free with no account."
+    },
+    "petroHrysScore": 67,
+    "scoreFactors": {
+      "editorialTrust": 6,
+      "businessUsefulness": 7,
+      "verificationQuality": 3,
+      "platformReputation": 8,
+      "spamResistance": 8,
+      "industryImportance": 8,
+      "longTermStability": 9,
+      "submissionQuality": 6,
+      "transparency": 9,
+      "moderationQuality": 4
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-04",
+    "nextVerification": "2027-08-06",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Checking whether a money services business has filed its federal BSA registration"
+    ],
+    "notRecommendedFor": [
+      "Treating registration as evidence that a business is legitimate or supervised",
+      "State money transmitter licensing, which is a separate regime"
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Money services",
+      "Payments",
+      "Currency exchange"
+    ],
+    "editorialTags": [
+      "statutory",
+      "finance",
+      "self-declared"
+    ],
+    "pros": [
+      "Free, immediate confirmation that a federal BSA registration was filed",
+      "The only public federal list of money services business registrants"
+    ],
+    "cons": [
+      "Entries are entirely self-declared and are not vetted by FinCEN before publication",
+      "FinCEN itself warns that registration is not an endorsement and must not be relied on as one"
+    ],
+    "editorNotes": "Verified 2026-08-04. Appearance results from a mandatory filing of FinCEN Form 107 under 31 CFR 1022.380; there is no fee and no way to buy a listing. The verification-quality factor is scored low deliberately: FinCEN publishes a fraud warning on the search page stating that a business should not be trusted merely because it appears here. Federal registration is separate from state money transmitter licensing, and a firm present in one but not the other is itself a due-diligence signal."
+  },
+  {
+    "id": "us-nfa-basic",
+    "name": "NFA BASIC",
+    "slug": "nfa-basic",
+    "country": "united-states",
+    "category": "finance",
+    "website": "https://www.nfa.futures.org/basicnet/",
+    "submissionUrl": null,
+    "description": "Background Affiliation Status Information Center published by the National Futures Association, showing CFTC registration status, NFA membership and regulatory actions for derivatives firms, commodity pool operators, trading advisers and associated individuals.",
+    "tier": "tier1",
+    "scope": "national",
+    "primaryRegistryType": "financial-services-register",
+    "registryTypes": [
+      "financial-services-register",
+      "professional-licence-register",
+      "regulated-operator-register"
+    ],
+    "operator": {
+      "name": "National Futures Association, a self-regulatory organisation designated by the CFTC under the Commodity Exchange Act",
+      "type": "other",
+      "officialUrl": null
+    },
+    "publicAccess": {
+      "searchUrl": "https://www.nfa.futures.org/basicnet/",
+      "accessLevel": "open",
+      "freeToSearch": true,
+      "loginRequired": false,
+      "identityVerificationRequired": false,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "Free with no account."
+    },
+    "petroHrysScore": 84,
+    "scoreFactors": {
+      "editorialTrust": 9,
+      "businessUsefulness": 8,
+      "verificationQuality": 9,
+      "platformReputation": 8,
+      "spamResistance": 10,
+      "industryImportance": 8,
+      "longTermStability": 9,
+      "submissionQuality": 6,
+      "transparency": 8,
+      "moderationQuality": 8
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-04",
+    "nextVerification": "2027-08-04",
+    "verification": {
+      "status": "verified",
+      "source": "official-website",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "us-sec-iapd",
+        "us-finra-brokercheck"
+      ],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Checking CFTC registration and NFA membership for a futures or derivatives firm",
+      "Reading regulatory and arbitration actions against a commodity trading adviser or pool operator"
+    ],
+    "notRecommendedFor": [
+      "Securities broker-dealers and investment advisers, which have their own registers"
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Futures and derivatives",
+      "Commodity trading",
+      "Managed futures"
+    ],
+    "editorialTags": [
+      "regulator",
+      "finance",
+      "self-regulatory"
+    ],
+    "pros": [
+      "Single lookup for CFTC registration status, NFA membership and disciplinary history",
+      "Mandatory membership means the population is comprehensive for regulated derivatives firms"
+    ],
+    "cons": [
+      "The operator is a private self-regulatory body, not a federal agency",
+      "Scope is derivatives only; dual registrants must also be checked in securities registers"
+    ],
+    "editorNotes": "Verified 2026-08-04. Recorded with the operator type \"other\" and an explicit note that NFA is not a federal agency: it is a registered futures association designated by the CFTC, with mandatory membership, to which the Commission has delegated registration processing. Included in the federal layer because the registration it evidences is federal, but a reader must not mistake the operator for a government body."
+  },
+  {
+    "id": "us-nppes-npi",
+    "name": "NPPES NPI Registry",
+    "slug": "nppes-npi-registry",
+    "country": "united-states",
+    "category": "healthcare",
+    "website": "https://npiregistry.cms.hhs.gov/",
+    "submissionUrl": null,
+    "description": "Public enumeration of every assigned National Provider Identifier, covering individual practitioners and organisational healthcare providers, with taxonomy codes and practice addresses as supplied by the provider.",
+    "tier": "tier1",
+    "scope": "national",
+    "primaryRegistryType": "corporate-number-database",
+    "registryTypes": [
+      "corporate-number-database",
+      "public-filing-database"
+    ],
+    "operator": {
+      "name": "Centers for Medicare & Medicaid Services, U.S. Department of Health and Human Services",
+      "type": "government-agency",
+      "officialUrl": null
+    },
+    "publicAccess": {
+      "searchUrl": "https://npiregistry.cms.hhs.gov/search",
+      "accessLevel": "open",
+      "freeToSearch": true,
+      "loginRequired": false,
+      "identityVerificationRequired": false,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "Free to search and to download in bulk; no account required."
+    },
+    "petroHrysScore": 75,
+    "scoreFactors": {
+      "editorialTrust": 7,
+      "businessUsefulness": 8,
+      "verificationQuality": 4,
+      "platformReputation": 8,
+      "spamResistance": 9,
+      "industryImportance": 9,
+      "longTermStability": 9,
+      "submissionQuality": 7,
+      "transparency": 9,
+      "moderationQuality": 5
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-04",
+    "nextVerification": "2027-08-10",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Resolving a healthcare provider or organisation to its National Provider Identifier",
+      "Confirming the taxonomy and practice address a provider has reported"
+    ],
+    "notRecommendedFor": [
+      "Verifying a professional licence, which CMS expressly disclaims",
+      "Establishing Medicare enrolment or billing approval"
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Healthcare providers",
+      "Medical billing",
+      "Health technology"
+    ],
+    "editorialTags": [
+      "statutory",
+      "identifier",
+      "healthcare"
+    ],
+    "pros": [
+      "Complete, free and downloadable enumeration of US healthcare providers",
+      "The join key that connects most other federal healthcare datasets"
+    ],
+    "cons": [
+      "CMS states that holding an NPI does not establish that a provider is licensed or credentialed",
+      "Provider-supplied details go stale; deactivation is not always prompt"
+    ],
+    "editorNotes": "Verified 2026-08-04. Records arise from statutory identifier assignment under the HIPAA Administrative Simplification NPI standard; enumeration is free. Classified as a corporate-number-database rather than a professional-licence-register precisely because CMS disclaims licensure: the register assigns and publishes an identifier, it does not license anyone. Forcing it into the licence type would misdescribe what an NPI proves."
+  },
+  {
+    "id": "us-fda-device-establishments",
+    "name": "FDA Establishment Registration and Device Listing",
+    "slug": "fda-device-establishment-registration",
+    "country": "united-states",
+    "category": "healthcare",
+    "website": "https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfRL/rl.cfm",
+    "submissionUrl": null,
+    "description": "Registry of medical device establishments registered with the FDA Center for Devices and Radiological Health, together with the devices each has listed, searchable by establishment, owner or operator, product code or proprietary name.",
+    "tier": "tier1",
+    "scope": "national",
+    "primaryRegistryType": "regulated-operator-register",
+    "registryTypes": [
+      "regulated-operator-register",
+      "public-filing-database"
+    ],
+    "operator": {
+      "name": "U.S. Food and Drug Administration, Center for Devices and Radiological Health",
+      "type": "regulator",
+      "officialUrl": null
+    },
+    "publicAccess": {
+      "searchUrl": "https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfRL/rl.cfm",
+      "accessLevel": "open",
+      "freeToSearch": true,
+      "loginRequired": false,
+      "identityVerificationRequired": false,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "Search results and bulk download files are free."
+    },
+    "petroHrysScore": 83,
+    "scoreFactors": {
+      "editorialTrust": 9,
+      "businessUsefulness": 7,
+      "verificationQuality": 8,
+      "platformReputation": 9,
+      "spamResistance": 10,
+      "industryImportance": 9,
+      "longTermStability": 9,
+      "submissionQuality": 5,
+      "transparency": 8,
+      "moderationQuality": 8
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-04",
+    "nextVerification": "2027-08-05",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Confirming that a medical device manufacturer or importer is registered with the FDA",
+      "Finding which devices an establishment has listed"
+    ],
+    "notRecommendedFor": [
+      "Reading registration as FDA approval or clearance, which the FDA expressly denies"
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Medical devices",
+      "Contract manufacturing",
+      "Medical device importers"
+    ],
+    "editorialTags": [
+      "statutory",
+      "regulator",
+      "healthcare"
+    ],
+    "pros": [
+      "Establishment and device listing in one searchable federal register",
+      "Free bulk files alongside the interface"
+    ],
+    "cons": [
+      "Results are capped at 100 establishments per search, so common names cannot be enumerated",
+      "Registration is not FDA approval or clearance of the establishment or its products"
+    ],
+    "editorNotes": "Verified 2026-08-04. Records arise from mandatory registration and listing under the Federal Food, Drug, and Cosmetic Act. An annual establishment registration user fee is payable to the FDA, but that is a regulatory fee for registration itself, not payment for a listing, so submissionModel remains notApplicable. The 100-result cap is stated by the FDA on the search page."
+  },
+  {
+    "id": "us-irs-teos",
+    "name": "Tax Exempt Organization Search",
+    "slug": "irs-tax-exempt-organization-search",
+    "country": "united-states",
+    "category": "government",
+    "website": "https://apps.irs.gov/app/eos/",
+    "submissionUrl": null,
+    "description": "IRS search over five tax-exemption datasets, covering organisations eligible to receive deductible contributions, automatic revocations, filed Form 990 series returns, Form 990-N filings and determination letters.",
+    "tier": "tier1",
+    "scope": "national",
+    "primaryRegistryType": "charity-register",
+    "registryTypes": [
+      "charity-register",
+      "tax-verification-system",
+      "public-filing-database"
+    ],
+    "operator": {
+      "name": "Internal Revenue Service, Tax Exempt and Government Entities Division",
+      "type": "government-agency",
+      "officialUrl": null
+    },
+    "publicAccess": {
+      "searchUrl": "https://apps.irs.gov/app/eos/",
+      "accessLevel": "open",
+      "freeToSearch": true,
+      "loginRequired": false,
+      "identityVerificationRequired": false,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "Free with no account; the host applies bot mitigation to automated clients but presents no user-facing challenge."
+    },
+    "petroHrysScore": 87,
+    "scoreFactors": {
+      "editorialTrust": 9,
+      "businessUsefulness": 9,
+      "verificationQuality": 8,
+      "platformReputation": 9,
+      "spamResistance": 10,
+      "industryImportance": 9,
+      "longTermStability": 10,
+      "submissionQuality": 6,
+      "transparency": 8,
+      "moderationQuality": 7
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": null,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": true,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-04",
+    "nextVerification": "2027-08-06",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Confirming federal tax-exempt status and whether contributions are deductible",
+      "Reading a nonprofit’s filed Form 990 series returns"
+    ],
+    "notRecommendedFor": [
+      "State charity registration or solicitation licensing, which is entirely absent",
+      "Real-time status checks, given the staggered dataset refresh"
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Nonprofits",
+      "Foundations",
+      "Grantmakers"
+    ],
+    "editorialTags": [
+      "statutory",
+      "nonprofit",
+      "primary-source"
+    ],
+    "pros": [
+      "Five IRS datasets, including automatic revocations, in one free search",
+      "Determination letters and Form 990 returns are published directly"
+    ],
+    "cons": [
+      "Datasets are posted on staggered dates, so a status check can be weeks out of date",
+      "Federal exemption says nothing about state-level registration to solicit donations"
+    ],
+    "editorNotes": "Verified 2026-08-04 from the IRS TEOS FAQ. Records arise from statutory exemption recognition and mandatory annual information-return filing. The IRS charges a user fee for a determination letter application, but that is a statutory application fee rather than a directory listing fee. Dataset posting dates observed on the FAQ ranged across early June 2026, which is why data currency is called out in the cons."
+  },
+  {
+    "id": "us-uspto-patent-public-search",
+    "name": "Patent Public Search",
+    "slug": "uspto-patent-public-search",
+    "country": "united-states",
+    "category": "government",
+    "website": "https://ppubs.uspto.gov/pubwebapp/",
+    "submissionUrl": null,
+    "description": "USPTO search over granted US patents and published applications, providing full document text and images for the public patent record.",
+    "tier": "tier1",
+    "scope": "national",
+    "primaryRegistryType": "patent-register",
+    "registryTypes": [
+      "patent-register",
+      "public-filing-database"
+    ],
+    "operator": {
+      "name": "United States Patent and Trademark Office, U.S. Department of Commerce",
+      "type": "government-agency",
+      "officialUrl": null
+    },
+    "publicAccess": {
+      "searchUrl": "https://ppubs.uspto.gov/pubwebapp/",
+      "accessLevel": "open",
+      "freeToSearch": true,
+      "loginRequired": false,
+      "identityVerificationRequired": false,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "Free with no account; certified copies are a separate paid USPTO service."
+    },
+    "petroHrysScore": 85,
+    "scoreFactors": {
+      "editorialTrust": 9,
+      "businessUsefulness": 8,
+      "verificationQuality": 9,
+      "platformReputation": 9,
+      "spamResistance": 10,
+      "industryImportance": 9,
+      "longTermStability": 9,
+      "submissionQuality": 5,
+      "transparency": 8,
+      "moderationQuality": 8
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": true,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-04",
+    "nextVerification": "2027-08-27",
+    "verification": {
+      "status": "verified",
+      "source": "official-website",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "us-uspto-trademark-search"
+      ],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Searching the full text of granted US patents and published applications",
+      "Establishing that a patent was issued and reading the document as granted"
+    ],
+    "notRecommendedFor": [
+      "Determining current patent ownership, which is frozen at grant here",
+      "Checking whether a patent is still in force"
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Technology",
+      "Manufacturing",
+      "Research and development"
+    ],
+    "editorialTags": [
+      "statutory",
+      "intellectual-property",
+      "primary-source"
+    ],
+    "pros": [
+      "Full-text and image access to the US patent corpus at no charge",
+      "The public replacement for the retired legacy USPTO search tools"
+    ],
+    "cons": [
+      "Assignee data is frozen at publication or grant, so it is not a current ownership record",
+      "Maintenance-fee status, expiry and post-grant proceedings are not shown"
+    ],
+    "editorNotes": "Verified 2026-08-04. Records arise from patent examination and grant under 35 U.S.C.; filing and issue fees are prosecution fees, not listing fees. Deliberately distinguished from USPTO Patent Center, which is NOT published: USPTO states that from 11 September 2025 identity verification is required and guest users can no longer access it, so it is not a public resource. Current patent ownership requires the Assignment Search system, which is held pending verification."
+  },
+  {
+    "id": "us-dmca-agent-directory",
+    "name": "DMCA Designated Agent Directory",
+    "slug": "dmca-designated-agent-directory",
+    "country": "united-states",
+    "category": "government",
+    "website": "https://dmca.copyright.gov/osp/",
+    "submissionUrl": null,
+    "description": "Copyright Office directory of agents designated by online service providers to receive copyright infringement notifications, resolving a platform to a legal entity name and a service-of-process address.",
+    "tier": "tier1",
+    "scope": "national",
+    "primaryRegistryType": "public-filing-database",
+    "registryTypes": [
+      "public-filing-database",
+      "regulated-operator-register"
+    ],
+    "operator": {
+      "name": "U.S. Copyright Office, Library of Congress",
+      "type": "public-law-body",
+      "officialUrl": null
+    },
+    "publicAccess": {
+      "searchUrl": "https://dmca.copyright.gov/osp/",
+      "accessLevel": "open",
+      "freeToSearch": true,
+      "loginRequired": false,
+      "identityVerificationRequired": false,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "Free to search with no account."
+    },
+    "petroHrysScore": 64,
+    "scoreFactors": {
+      "editorialTrust": 6,
+      "businessUsefulness": 7,
+      "verificationQuality": 3,
+      "platformReputation": 7,
+      "spamResistance": 8,
+      "industryImportance": 6,
+      "longTermStability": 8,
+      "submissionQuality": 7,
+      "transparency": 8,
+      "moderationQuality": 4
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": true,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-04",
+    "nextVerification": "2027-08-29",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Resolving a consumer-facing platform brand to its legal entity and contact address",
+      "Finding where to send a copyright notice for a US online service"
+    ],
+    "notRecommendedFor": [
+      "Treating a designation as proof that safe harbour applies"
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Online platforms",
+      "Hosting",
+      "Software"
+    ],
+    "editorialTags": [
+      "statutory",
+      "intellectual-property"
+    ],
+    "pros": [
+      "Often the quickest route from a brand name to a legal entity and address",
+      "Free and directly searchable"
+    ],
+    "cons": [
+      "The Copyright Office does not verify submissions, so entries can be stale or inaccurate",
+      "Records begin with the December 2016 electronic system; earlier paper designations are absent"
+    ],
+    "editorNotes": "Verified 2026-08-04. Records arise from the statutory designation requirement in 17 U.S.C. § 512 and 37 C.F.R. § 201.38 — a provider files because safe-harbour eligibility is conditioned on it. The Office charges a filing fee, but the amount was not stated on the page read and is therefore not recorded. Verification quality is scored low because the Office performs no vetting: presence evidences a designation, not that safe harbour actually applies."
+  },
+  {
+    "id": "us-ttb-permittees",
+    "name": "TTB List of Permittees",
+    "slug": "ttb-list-of-permittees",
+    "country": "united-states",
+    "category": "government",
+    "website": "https://www.ttb.gov/public-information/foia/list-of-permittees",
+    "submissionUrl": null,
+    "description": "Published lists of holders of federal alcohol basic permits, released by the Alcohol and Tobacco Tax and Trade Bureau as frequently requested FOIA records covering producers, wholesalers and importers.",
+    "tier": "tier1",
+    "scope": "national",
+    "primaryRegistryType": "regulated-operator-register",
+    "registryTypes": [
+      "regulated-operator-register",
+      "public-filing-database"
+    ],
+    "operator": {
+      "name": "Alcohol and Tobacco Tax and Trade Bureau, U.S. Department of the Treasury",
+      "type": "regulator",
+      "officialUrl": null
+    },
+    "publicAccess": {
+      "searchUrl": "https://www.ttb.gov/public-information/foia/list-of-permittees",
+      "accessLevel": "open",
+      "freeToSearch": true,
+      "loginRequired": false,
+      "identityVerificationRequired": false,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "Files download freely with no account or challenge."
+    },
+    "petroHrysScore": 79,
+    "scoreFactors": {
+      "editorialTrust": 9,
+      "businessUsefulness": 7,
+      "verificationQuality": 8,
+      "platformReputation": 8,
+      "spamResistance": 10,
+      "industryImportance": 8,
+      "longTermStability": 9,
+      "submissionQuality": 4,
+      "transparency": 8,
+      "moderationQuality": 7
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-04",
+    "nextVerification": "2027-08-17",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Confirming that a business holds a federal alcohol basic permit",
+      "Enumerating permitted importers or wholesalers in bulk"
+    ],
+    "notRecommendedFor": [
+      "Looking up a single business quickly, since there is no search interface",
+      "State alcohol licensing, which is separate"
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Alcohol production",
+      "Beverage importing",
+      "Wholesale distribution"
+    ],
+    "editorialTags": [
+      "statutory",
+      "regulator",
+      "open-data"
+    ],
+    "pros": [
+      "Bulk downloadable permit lists published as a standing FOIA release",
+      "Served without the bot challenge that blocks the TTB label-approval search"
+    ],
+    "cons": [
+      "There is no search interface at all; the entire system is a set of downloadable files",
+      "Tax records are withheld by statute, so the lists carry no financial detail"
+    ],
+    "editorNotes": "Verified 2026-08-04. Records arise from federal licensing under the Federal Alcohol Administration Act, and publication is a FOIA obligation TTB describes in its own words. Submission quality is scored low because a non-technical user cannot look up one business: the importer list alone runs to roughly 21,000 rows. TTB notes that Internal Revenue Code section 6103 protects taxpayer records, which is why no financial data appears."
+  },
+  {
+    "id": "us-cbp-customs-brokers",
+    "name": "Permitted Customs Brokers Listing",
+    "slug": "cbp-permitted-customs-brokers",
+    "country": "united-states",
+    "category": "government",
+    "website": "https://www.cbp.gov/about/contact/brokers-listing",
+    "submissionUrl": null,
+    "description": "Customs and Border Protection list of customs brokers holding a federal permit to transact customs business, published by port with company contact details.",
+    "tier": "tier1",
+    "scope": "national",
+    "primaryRegistryType": "regulated-operator-register",
+    "registryTypes": [
+      "regulated-operator-register",
+      "professional-licence-register"
+    ],
+    "operator": {
+      "name": "U.S. Customs and Border Protection, Office of Trade, U.S. Department of Homeland Security",
+      "type": "government-agency",
+      "officialUrl": null
+    },
+    "publicAccess": {
+      "searchUrl": "https://www.cbp.gov/about/contact/brokers-listing",
+      "accessLevel": "open",
+      "freeToSearch": true,
+      "loginRequired": false,
+      "identityVerificationRequired": false,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "Free to read with no account."
+    },
+    "petroHrysScore": 73,
+    "scoreFactors": {
+      "editorialTrust": 8,
+      "businessUsefulness": 6,
+      "verificationQuality": 7,
+      "platformReputation": 8,
+      "spamResistance": 10,
+      "industryImportance": 7,
+      "longTermStability": 9,
+      "submissionQuality": 5,
+      "transparency": 6,
+      "moderationQuality": 5
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-04",
+    "nextVerification": "2027-08-29",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "us-fmc-oti-list"
+      ],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Confirming that a customs broker holds a CBP permit before engaging one"
+    ],
+    "notRecommendedFor": [
+      "Freight forwarding and NVOCC services, which are licensed by a different agency",
+      "Any check needing licence dates, status history or disciplinary record"
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Customs brokerage",
+      "Import and export",
+      "Trade compliance"
+    ],
+    "editorialTags": [
+      "statutory",
+      "trade",
+      "licence"
+    ],
+    "pros": [
+      "Direct confirmation that a broker is permitted, from the permitting agency",
+      "Organised by port, which matches how importers actually choose a broker"
+    ],
+    "cons": [
+      "Seven columns and no licence number, issue date, expiry or status history",
+      "Lists permitted broker entities, not individually licensed broker employees"
+    ],
+    "editorNotes": "Verified 2026-08-04 by reading the published table. Records arise from federal licensing and permitting under 19 CFR part 111; brokers pay statutory application and permit fees, and nothing is paid to appear. This is the thinnest approved record set in the wave, which the transparency and moderation factors reflect: presence or absence is all it establishes."
+  },
+  {
+    "id": "us-fmc-oti-list",
+    "name": "Federal Maritime Commission Ocean Transportation Intermediary List",
+    "slug": "fmc-ocean-transportation-intermediary-list",
+    "country": "united-states",
+    "category": "government",
+    "website": "https://www2.fmc.gov/oti/",
+    "submissionUrl": null,
+    "description": "Federal Maritime Commission lists of licensed ocean freight forwarders and non-vessel-operating common carriers that have met the Commission’s licensing, financial responsibility and tariff requirements.",
+    "tier": "tier1",
+    "scope": "national",
+    "primaryRegistryType": "regulated-operator-register",
+    "registryTypes": [
+      "regulated-operator-register",
+      "professional-licence-register"
+    ],
+    "operator": {
+      "name": "Federal Maritime Commission, Bureau of Certification and Licensing",
+      "type": "regulator",
+      "officialUrl": null
+    },
+    "publicAccess": {
+      "searchUrl": "https://www2.fmc.gov/oti/NVOCC.aspx",
+      "accessLevel": "open",
+      "freeToSearch": true,
+      "loginRequired": false,
+      "identityVerificationRequired": false,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "Free to search with no account."
+    },
+    "petroHrysScore": 82,
+    "scoreFactors": {
+      "editorialTrust": 9,
+      "businessUsefulness": 7,
+      "verificationQuality": 9,
+      "platformReputation": 8,
+      "spamResistance": 10,
+      "industryImportance": 8,
+      "longTermStability": 9,
+      "submissionQuality": 6,
+      "transparency": 7,
+      "moderationQuality": 7
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-04",
+    "nextVerification": "2027-08-24",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "us-cbp-customs-brokers"
+      ],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Confirming that a freight forwarder or NVOCC is compliant with FMC requirements"
+    ],
+    "notRecommendedFor": [
+      "Customs brokerage, which is permitted by a different agency",
+      "Any history of sanctions or complaints, which the list does not carry"
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Ocean freight",
+      "Freight forwarding",
+      "Logistics"
+    ],
+    "editorialTags": [
+      "statutory",
+      "regulator",
+      "trade"
+    ],
+    "pros": [
+      "Confirms licensing plus proof of financial responsibility and tariff publication together",
+      "Distinguishes freight forwarders from NVOCCs, which are different licences"
+    ],
+    "cons": [
+      "The list reflects current compliance, not licence status, so a licensed NVOCC with a lapsed tariff filing simply disappears",
+      "Current state only: no history, sanctions or complaint record"
+    ],
+    "editorNotes": "Verified 2026-08-04. Entries arise from FMC licensing and registration under the Shipping Act, conditioned on statutory proof of financial responsibility and tariff publication. The compliance-not-status distinction recorded in the cons is an easily missed trap: absence from the list does not by itself prove that a company is unlicensed."
+  },
+  {
+    "id": "us-fcc-uls",
+    "name": "FCC Universal Licensing System",
+    "slug": "fcc-universal-licensing-system",
+    "country": "united-states",
+    "category": "telecommunications",
+    "website": "https://wireless2.fcc.gov/UlsApp/UlsSearch/searchLicense.jsp",
+    "submissionUrl": null,
+    "description": "Federal Communications Commission register of wireless radio licences and the applications behind them, keyed by call sign and FCC Registration Number, covering licensee name, radio service, status and expiry.",
+    "tier": "tier1",
+    "scope": "national",
+    "primaryRegistryType": "regulated-operator-register",
+    "registryTypes": [
+      "regulated-operator-register",
+      "public-filing-database",
+      "professional-licence-register"
+    ],
+    "operator": {
+      "name": "Federal Communications Commission, Wireless Telecommunications Bureau",
+      "type": "regulator",
+      "officialUrl": null
+    },
+    "publicAccess": {
+      "searchUrl": "https://wireless2.fcc.gov/UlsApp/UlsSearch/searchLicense.jsp",
+      "accessLevel": "open",
+      "freeToSearch": true,
+      "loginRequired": false,
+      "identityVerificationRequired": false,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "Free to search with no account."
+    },
+    "petroHrysScore": 81,
+    "scoreFactors": {
+      "editorialTrust": 9,
+      "businessUsefulness": 7,
+      "verificationQuality": 9,
+      "platformReputation": 8,
+      "spamResistance": 10,
+      "industryImportance": 8,
+      "longTermStability": 9,
+      "submissionQuality": 4,
+      "transparency": 8,
+      "moderationQuality": 8
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-04",
+    "nextVerification": "2027-08-07",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [
+        "us-fcc-form-499"
+      ],
+      "competitors": []
+    },
+    "bestFor": [
+      "Confirming that a company holds an FCC wireless licence and reading its status and expiry",
+      "Tracing licence applications and ownership disclosures for spectrum holders"
+    ],
+    "notRecommendedFor": [
+      "Broadcast, cable, satellite or equipment authorisation, which use separate FCC systems"
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Wireless carriers",
+      "Private radio",
+      "Utilities"
+    ],
+    "editorialTags": [
+      "statutory",
+      "regulator",
+      "telecommunications"
+    ],
+    "pros": [
+      "Authoritative licence status, expiry and licensee identity direct from the regulator",
+      "Ownership disclosure filings are searchable alongside the licences"
+    ],
+    "cons": [
+      "Search sessions are server-scoped, so results cannot be linked or cited by URL",
+      "Covers Wireless Bureau licensing only; other FCC estates live in separate systems"
+    ],
+    "editorNotes": "Verified 2026-08-04. Records arise from FCC licensing and spectrum authorisation under the Communications Act. License Search, Advanced and Specialized Search, Application Search, License Archive Search and Ownership Disclosure Search are modes of one platform and are recorded as one registry. Submission quality is scored low because the session-scoped search produces no stable deep links, which materially hurts citation and re-checking."
+  },
+  {
+    "id": "us-fcc-form-499",
+    "name": "FCC Form 499 Filer Database",
+    "slug": "fcc-form-499-filer-database",
+    "country": "united-states",
+    "category": "telecommunications",
+    "website": "https://apps.fcc.gov/cgb/form499/499a.cfm",
+    "submissionUrl": null,
+    "description": "Registration records for providers required to file the Telecommunications Reporting Worksheet, giving the 499 Filer ID, the carrier’s legal name, its holding company and its designated agent for service of process.",
+    "tier": "tier1",
+    "scope": "national",
+    "primaryRegistryType": "regulated-operator-register",
+    "registryTypes": [
+      "regulated-operator-register",
+      "public-filing-database",
+      "corporate-number-database"
+    ],
+    "operator": {
+      "name": "Federal Communications Commission, Consumer and Governmental Affairs Bureau",
+      "type": "regulator",
+      "officialUrl": null
+    },
+    "publicAccess": {
+      "searchUrl": "https://apps.fcc.gov/cgb/form499/499a.cfm",
+      "accessLevel": "partially-open",
+      "freeToSearch": true,
+      "loginRequired": null,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "The search form is public and free, but the results endpoint sits behind bot management that refuses automated clients; a browser is needed to retrieve results."
+    },
+    "petroHrysScore": 82,
+    "scoreFactors": {
+      "editorialTrust": 9,
+      "businessUsefulness": 8,
+      "verificationQuality": 8,
+      "platformReputation": 8,
+      "spamResistance": 10,
+      "industryImportance": 8,
+      "longTermStability": 9,
+      "submissionQuality": 5,
+      "transparency": 7,
+      "moderationQuality": 8
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-04",
+    "nextVerification": "2027-08-22",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [
+        "us-fcc-uls"
+      ],
+      "competitors": []
+    },
+    "bestFor": [
+      "Confirming that a telecoms or VoIP provider has registered with the FCC",
+      "Finding a carrier’s holding company and agent for service of process"
+    ],
+    "notRecommendedFor": [
+      "Financial analysis: the revenue data behind the worksheet is not published"
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Telecommunications carriers",
+      "VoIP providers",
+      "Interconnected services"
+    ],
+    "editorialTags": [
+      "statutory",
+      "regulator",
+      "telecommunications"
+    ],
+    "pros": [
+      "One of the few federal registers that publishes a holding company and an agent for service of process",
+      "Mandatory annual filing keeps the registrant population current"
+    ],
+    "cons": [
+      "The results endpoint is protected by bot management and needs a real browser",
+      "Reported revenue data is not disclosed, so it establishes registration only"
+    ],
+    "editorNotes": "Verified 2026-08-04. Entries arise from a mandatory filing: the FCC states that providers are required to register using Form 499-A and update at least annually. Data collection is performed by the Universal Service Administrative Company on the FCC’s behalf. Recorded as partially-open because the interactive results endpoint returned an Akamai challenge to every scripted request, which is a real access limitation even though the register itself is free."
+  },
+  {
+    "id": "us-faa-aircraft-registry",
+    "name": "FAA Aircraft Registry",
+    "slug": "faa-aircraft-registry",
+    "country": "united-states",
+    "category": "government",
+    "website": "https://registry.faa.gov/aircraftinquiry/",
+    "submissionUrl": null,
+    "description": "The US civil aircraft register, published by the FAA Civil Aviation Registry, giving registration status, registered owner, manufacturer, model and airworthiness classification for each N-numbered aircraft.",
+    "tier": "tier1",
+    "scope": "national",
+    "primaryRegistryType": "public-filing-database",
+    "registryTypes": [
+      "public-filing-database",
+      "regulated-operator-register"
+    ],
+    "operator": {
+      "name": "Federal Aviation Administration, Civil Aviation Registry",
+      "type": "government-agency",
+      "officialUrl": null
+    },
+    "publicAccess": {
+      "searchUrl": "https://registry.faa.gov/aircraftinquiry/",
+      "accessLevel": "partially-open",
+      "freeToSearch": true,
+      "loginRequired": null,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": true,
+      "notes": "Search is free; complete aircraft records must be ordered separately through the FAA records request service."
+    },
+    "petroHrysScore": 79,
+    "scoreFactors": {
+      "editorialTrust": 9,
+      "businessUsefulness": 6,
+      "verificationQuality": 8,
+      "platformReputation": 8,
+      "spamResistance": 10,
+      "industryImportance": 7,
+      "longTermStability": 10,
+      "submissionQuality": 5,
+      "transparency": 8,
+      "moderationQuality": 7
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-04",
+    "nextVerification": "2027-08-07",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Confirming the registered owner of a specific US-registered aircraft",
+      "Establishing aircraft registration status from the N-number"
+    ],
+    "notRecommendedFor": [
+      "Judging airworthiness, which the FAA expressly warns against",
+      "Enumerating a corporate fleet, since aircraft are often held by separate entities"
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Aviation",
+      "Aircraft finance",
+      "Asset verification"
+    ],
+    "editorialTags": [
+      "statutory",
+      "asset-register",
+      "primary-source"
+    ],
+    "pros": [
+      "Definitive ownership record for US civil aircraft, free to search",
+      "Long-standing and stable, with a deep historical record"
+    ],
+    "cons": [
+      "Owner-name search is literal, so fleets held through subsidiaries are effectively invisible",
+      "Complete records are a separate paid request; the free search returns a summary"
+    ],
+    "editorNotes": "Verified 2026-08-04. Aircraft registration is a federal statutory requirement under 49 U.S.C. chapter 441. The literal-match limitation is concrete: a search for a well-known operator’s name returned nothing because its aircraft are registered to a differently named holding entity. This is an asset and title record rather than a corporate register, and it should be read as evidence about an aircraft, not about a company."
+  },
+  {
+    "id": "us-msha-mdrs",
+    "name": "MSHA Mine Data Retrieval System",
+    "slug": "msha-mine-data-retrieval-system",
+    "country": "united-states",
+    "category": "government",
+    "website": "https://www.msha.gov/data-and-reports/mine-data-retrieval-system",
+    "submissionUrl": null,
+    "description": "Mine Safety and Health Administration register of every coal and metal or non-metal mine under its jurisdiction since 1970, keyed by Mine ID and linking each mine to its operator and controlling entity alongside inspection and enforcement records.",
+    "tier": "tier1",
+    "scope": "national",
+    "primaryRegistryType": "regulated-operator-register",
+    "registryTypes": [
+      "regulated-operator-register",
+      "public-filing-database"
+    ],
+    "operator": {
+      "name": "Mine Safety and Health Administration, U.S. Department of Labor",
+      "type": "government-agency",
+      "officialUrl": null
+    },
+    "publicAccess": {
+      "searchUrl": "https://www.msha.gov/data-and-reports/mine-data-retrieval-system",
+      "accessLevel": "open",
+      "freeToSearch": true,
+      "loginRequired": false,
+      "identityVerificationRequired": false,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "Free with no account; bulk data files are published openly."
+    },
+    "petroHrysScore": 79,
+    "scoreFactors": {
+      "editorialTrust": 9,
+      "businessUsefulness": 7,
+      "verificationQuality": 9,
+      "platformReputation": 7,
+      "spamResistance": 10,
+      "industryImportance": 7,
+      "longTermStability": 9,
+      "submissionQuality": 4,
+      "transparency": 8,
+      "moderationQuality": 8
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-04",
+    "nextVerification": "2027-08-24",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Linking a mine to its operator and controlling entity",
+      "Reading inspection and enforcement history for a mining operation"
+    ],
+    "notRecommendedFor": [
+      "Mineral title, permits or royalties, which are outside MSHA jurisdiction",
+      "Beneficial ownership: the controller chain records legal control, not natural persons"
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Mining",
+      "Quarrying",
+      "Industrial minerals"
+    ],
+    "editorialTags": [
+      "statutory",
+      "regulator",
+      "enforcement"
+    ],
+    "pros": [
+      "The controller-to-operator-to-mine chain is the closest thing in the federal layer to a corporate control map",
+      "Complete back to 1970 with open bulk data"
+    ],
+    "cons": [
+      "The interactive system is an embedded business-intelligence report rather than a web application",
+      "Jurisdiction is safety and health only, so it says nothing about a company’s wider standing"
+    ],
+    "editorNotes": "Verified 2026-08-04. Mine IDs, operator and controller records and enforcement records arise from mandatory registration, inspection and reporting under the Federal Mine Safety and Health Act. The controller chain must be described as legal control, not beneficial ownership: there is no publicly searchable US federal beneficial-ownership register, and this must not be presented as a substitute for one."
+  },
+  {
+    "id": "us-fsis-mpi-directory",
+    "name": "FSIS Meat, Poultry and Egg Product Inspection Directory",
+    "slug": "fsis-mpi-directory",
+    "country": "united-states",
+    "category": "government",
+    "website": "https://www.fsis.usda.gov/inspection/establishments/meat-poultry-and-egg-product-inspection-directory",
+    "submissionUrl": null,
+    "description": "Directory of establishments holding a USDA Food Safety and Inspection Service grant of inspection, listing establishment number, activities carried out and the establishment’s commercial identifier.",
+    "tier": "tier1",
+    "scope": "national",
+    "primaryRegistryType": "regulated-operator-register",
+    "registryTypes": [
+      "regulated-operator-register",
+      "public-filing-database"
+    ],
+    "operator": {
+      "name": "Food Safety and Inspection Service, U.S. Department of Agriculture",
+      "type": "government-agency",
+      "officialUrl": null
+    },
+    "publicAccess": {
+      "searchUrl": "https://www.fsis.usda.gov/inspection/establishments/meat-poultry-and-egg-product-inspection-directory",
+      "accessLevel": "open",
+      "freeToSearch": true,
+      "loginRequired": false,
+      "identityVerificationRequired": false,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "Free to view and download; further detail requires a FOIA request rather than payment."
+    },
+    "petroHrysScore": 82,
+    "scoreFactors": {
+      "editorialTrust": 9,
+      "businessUsefulness": 7,
+      "verificationQuality": 9,
+      "platformReputation": 8,
+      "spamResistance": 10,
+      "industryImportance": 8,
+      "longTermStability": 9,
+      "submissionQuality": 5,
+      "transparency": 8,
+      "moderationQuality": 8
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-04",
+    "nextVerification": "2027-08-20",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Confirming that a meat, poultry or egg establishment holds a federal grant of inspection",
+      "Identifying what activities an establishment is approved to carry out"
+    ],
+    "notRecommendedFor": [
+      "Enforcement history and recalls, which FSIS publishes separately",
+      "State-inspected establishments, which are outside federal jurisdiction"
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Meat and poultry processing",
+      "Food manufacturing",
+      "Food supply chain"
+    ],
+    "editorialTags": [
+      "statutory",
+      "regulator",
+      "food-safety"
+    ],
+    "pros": [
+      "Authoritative confirmation of federal inspection status with the establishment number",
+      "Publishes a commercial identifier, which makes supply-chain matching practical"
+    ],
+    "cons": [
+      "The interactive surface is a data visualisation rather than a record-by-record search",
+      "Carries no enforcement, recall or inspection-finding detail"
+    ],
+    "editorNotes": "Verified 2026-08-04. Inclusion follows a federal grant of inspection under the Federal Meat Inspection Act, Poultry Products Inspection Act and Egg Products Inspection Act. Serious use means downloading the published file rather than using the embedded visualisation, which is why submission quality is scored down despite the data itself being strong."
   }
 ]
