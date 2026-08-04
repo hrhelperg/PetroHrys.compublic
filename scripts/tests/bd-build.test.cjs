@@ -9,7 +9,8 @@ const crypto = require('node:crypto');
 const { buildAll, pageModel, BuildError, MANIFEST_FILE, SECTION_DIR } = require('../build-business-directories.cjs');
 const { loadRegistry } = require('../lib/bd-registry.cjs');
 const { PATHS } = require('../lib/bd-util.cjs');
-const { verifiedRecord } = require('./helpers/fixtures.cjs');
+const { verifiedRecord, factors } = require('./helpers/fixtures.cjs');
+const { computeScore } = require('../lib/bd-schema.cjs');
 
 const HUB = path.join(SECTION_DIR, 'index.html');
 const REF_COUNTRY = path.join(SECTION_DIR, 'united-states', 'index.html');
@@ -41,6 +42,19 @@ const rec = (over = {}) => verifiedRecord({ id: 'us-ok', name: 'Ok Directory', s
   scoreFactors: null, petroHrysScore: null,
   verification: { status: 'unverified', source: null, reviewers: [] }, ...over });
 
+// A record that satisfies every clause of the meaningful-content contract, so
+// its page is indexable and therefore reaches the sitemap.
+const indexableRec = (over = {}) => rec({
+  lastVerified: '2026-08-01',
+  nextVerification: '2027-05-01',
+  scoreFactors: factors(8),
+  petroHrysScore: computeScore(factors(8)),
+  verification: { status: 'verified', source: 'official-website', reviewers: [{ id: 'p', name: 'P', role: 'editor' }] },
+  pros: ['Useful'],
+  bestFor: ['Software vendors'],
+  ...over,
+});
+
 const has = (outRoot, rel) => fs.existsSync(path.join(outRoot, rel));
 const read = (outRoot, rel) => fs.readFileSync(path.join(outRoot, rel), 'utf8');
 
@@ -61,17 +75,20 @@ const fingerprint = (outRoot) => walk(path.join(outRoot, SECTION_DIR))
 
 // --- emission policy --------------------------------------------------------
 
-test('the lean scaffold is exactly three pages when there is no data', () => {
+test('the lean scaffold is exactly two pages when there is no data', () => {
   const { dataRoot, outRoot } = fixture();
   const result = buildAll({ dataRoot, outRoot });
-  // Three directory pages, plus the guides index and the methodology guides,
-  // which stand on their own and do not depend on any directory record.
+  // The hub and the reference country, plus the guides index and the
+  // methodology guides, which stand on their own and depend on no record.
+  // The reference CATEGORY is no longer force-emitted: a category with zero
+  // verified records must not be published at all, so an empty dataset now
+  // yields two directory pages rather than three.
   const guides = walk(path.join(outRoot, SECTION_DIR, 'guides')).filter((f) => f.endsWith('.html'));
-  assert.strictEqual(result.pages - guides.length, 3);
+  assert.strictEqual(result.pages - guides.length, 2);
   assert.ok(guides.length > 0, 'methodology guides should still be emitted');
   assert.ok(has(outRoot, HUB));
   assert.ok(has(outRoot, REF_COUNTRY));
-  assert.ok(has(outRoot, REF_CATEGORY));
+  assert.ok(!has(outRoot, REF_CATEGORY), 'an empty category is never published');
   assert.ok(!has(outRoot, GERMANY), 'empty non-reference country must not be emitted');
   assert.ok(!has(outRoot, SAAS), 'empty non-reference category must not be emitted');
 });
@@ -81,7 +98,7 @@ test('the hub is indexable and the empty reference pages are not', () => {
   buildAll({ dataRoot, outRoot });
   assert.ok(!read(outRoot, HUB).includes('name="robots"'));
   assert.ok(read(outRoot, REF_COUNTRY).includes('noindex,follow'));
-  assert.ok(read(outRoot, REF_CATEGORY).includes('noindex,follow'));
+  assert.ok(!has(outRoot, REF_CATEGORY), 'the empty reference category is not emitted at all');
 });
 
 test('adding a record emits its country, category and detail pages', () => {
@@ -217,7 +234,7 @@ test('12-13 removing the last record prunes only its dependents', () => {
   assert.ok(!has(outRoot, DETAIL), 'stale detail page survived');
   assert.ok(has(outRoot, HUB), 'hub must survive');
   assert.ok(has(outRoot, REF_COUNTRY), 'reference country must survive');
-  assert.ok(has(outRoot, REF_CATEGORY), 'reference category must survive');
+  assert.ok(!has(outRoot, REF_CATEGORY), 'an emptied category is pruned, not kept as a scaffold');
   // The two directory pages, plus any list guide that no longer has records to
   // list. A guide with nothing in it is correctly pruned rather than published
   // empty, so the count is asserted as a floor and by membership.
@@ -242,7 +259,6 @@ test('13 no orphan page survives a full data removal', () => {
     path.join(SECTION_DIR, 'feed.xml'),
     HUB,
     REF_COUNTRY,
-    REF_CATEGORY,
   ].sort());
 });
 
@@ -334,8 +350,21 @@ test('the RSS feed is a valid empty channel until a record is verified', () => {
 });
 
 test('a verified record appears in both the feed and the sitemap', () => {
-  const { dataRoot, outRoot } = fixture({ 'united-states': [rec({ lastVerified: '2026-08-01' })] });
+  const { dataRoot, outRoot } = fixture({ 'united-states': [indexableRec()] });
   buildAll({ dataRoot, outRoot });
   assert.ok(read(outRoot, path.join(SECTION_DIR, 'feed.xml')).includes('<item>'));
   assert.ok(read(outRoot, SITEMAP).includes('/united-states/ok-dir/'));
+});
+
+test('a record failing the meaningful-content contract is noindex and off the sitemap', () => {
+  // Thin here means it carries no editorial guidance and no curated relation —
+  // nothing a reader could not already get from the country page. It keeps its
+  // page and every link on it; it just leaves the index.
+  const thin = indexableRec({ bestFor: [], notRecommendedFor: [], related: undefined });
+  const { dataRoot, outRoot } = fixture({ 'united-states': [thin] });
+  buildAll({ dataRoot, outRoot });
+  assert.ok(has(outRoot, DETAIL), 'the page is still published');
+  assert.ok(read(outRoot, DETAIL).includes('noindex,follow'));
+  assert.ok(!read(outRoot, SITEMAP).includes('/united-states/ok-dir/'),
+    'the sitemap must equal the indexable set');
 });

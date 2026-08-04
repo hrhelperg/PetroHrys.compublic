@@ -68,22 +68,38 @@
     var query = searchInput ? searchInput.value.trim().toLowerCase() : '';
     var active = filters.filter(function (f) { return f.checked; });
     var shown = 0;
+    var unknownHidden = 0;
 
     records.forEach(function (record) {
       var row = record.row;
       var visible = true;
       if (query && (row.getAttribute('data-bd-haystack') || '').indexOf(query) === -1) visible = false;
+      // Attributes are tri-state: 'yes', 'no' or 'unknown'. A positive filter
+      // matches only 'yes'. 'unknown' is hidden because it is not a confirmed
+      // match, NOT because it is a confirmed miss — the fieldset says so in
+      // words, and the unknown tally is printed next to each filter label.
+      var hiddenUnknown = 0;
       active.forEach(function (f) {
         var attr = 'data-bd-' + String(f.getAttribute('data-bd-filter')).toLowerCase();
-        if (row.getAttribute(attr) !== '1') visible = false;
+        var value = row.getAttribute(attr);
+        if (value !== 'yes') {
+          if (value === 'unknown') hiddenUnknown += 1;
+          visible = false;
+        }
       });
       row.hidden = !visible;
       if (visible) shown += 1;
+      if (!visible && hiddenUnknown > 0) unknownHidden += 1;
     });
 
-    status.textContent = shown === records.length
-      ? String(records.length) + ' directories shown'
-      : String(shown) + ' of ' + String(records.length) + ' directories shown';
+    // The noun agrees with the total, not the subset: "1 of 4 directories".
+    var noun = records.length === 1 ? ' directory shown' : ' directories shown';
+    var base = shown === records.length
+      ? String(records.length) + noun
+      : String(shown) + ' of ' + String(records.length) + noun;
+    status.textContent = unknownHidden > 0
+      ? base + ' (' + String(unknownHidden) + ' with unknown eligibility not shown)'
+      : base;
   }
 
   if (sortSelect) sortSelect.addEventListener('change', apply);

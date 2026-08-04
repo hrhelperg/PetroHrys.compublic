@@ -167,7 +167,7 @@ const ROOT_TRAIL = [
 function buildHubMeta({ countries = [], faqs = [] } = {}) {
   const title = 'Business Directories';
   const description = 'A country-by-country research index of business directories, '
-    + 'recording what each one accepts, how it links, and when it was last verified.';
+    + 'recording what each one accepts, how listing works, and when it was last verified.';
   const trail = ROOT_TRAIL;
   return meta({
     title,
@@ -278,7 +278,7 @@ function buildArticleIndexMeta({ articles = [] }) {
   });
 }
 
-function buildDirectoryMeta({ country, category, directory }) {
+function buildDirectoryMeta({ country, category, directory, indexable = true }) {
   const countryPath = routes.countryPath(country.slug);
   const canonicalPath = routes.directoryPath(country.slug, directory.slug);
   const title = `${directory.name} — ${country.name}`;
@@ -295,7 +295,9 @@ function buildDirectoryMeta({ country, category, directory }) {
     title,
     description,
     canonicalPath,
-    robots: undefined,
+    // A record that fails the meaningful-content contract keeps its page and
+    // every link on it, but leaves the index and the sitemap.
+    robots: indexable ? undefined : NOINDEX,
     breadcrumbTrail: trail,
     graph: [page, breadcrumbList(trail)],
   });

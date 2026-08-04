@@ -100,7 +100,7 @@ test('directory links are site-absolute so they resolve from any page depth', ()
   // /country/categories/<cat>/<slug>/ from a category page, which is never
   // generated, so every link on every category page was a 404.
   const html = c.directoryTable({ directories: [DIR] });
-  const href = html.match(/scope="row"><a href="([^"]+)"/)[1];
+  const href = html.match(/scope="row"[^>]*><a href="([^"]+)"/)[1];
   assert.strictEqual(href, '/research/business-directories/united-states/example-directory/');
   assert.ok(href.startsWith('/'), 'directory hrefs must never be relative');
 });
@@ -220,7 +220,14 @@ test('the table is semantic and readable without JavaScript', () => {
   assert.ok(html.includes('<caption'));
   assert.ok(html.includes('<thead>'));
   assert.ok(html.includes('<tbody'));
-  assert.ok((html.match(/scope="col"/g) || []).length >= 5);
+  // Directory and PetroHrys Score always render. A metric column appears only
+  // when a row in THIS set carries a value for it, so a table of records with
+  // no measured metric is two columns, not five of which three are em dashes.
+  assert.ok((html.match(/scope="col"/g) || []).length >= 2);
+  assert.ok(html.includes('Domain Rating') === false, 'no column for an unmeasured metric');
+  const withDr = c.directoryTable({ directories: [{ ...DIR, domainRating: 80,
+    metricsProvenance: { domainRating: { provider: 'Ahrefs', measuredAt: '2026-08-04' } } }] });
+  assert.ok(withDr.includes('Domain Rating'), 'the column returns when a row has a value');
   assert.ok(html.includes('scope="row"'));
 });
 
@@ -291,7 +298,9 @@ test('heading level is configurable and clamped to a valid range', () => {
 test('a pending route is rendered as text, never as a link', () => {
   const html = c.countryCard({ name: 'Germany', path: '/germany/', pending: true });
   assert.ok(!html.includes('<a '));
-  assert.ok(html.includes('coming soon'));
+  // A pending place is named but never advertised with a promise the registry
+  // does not back, so no 'coming soon' text is emitted any more.
+  assert.ok(!html.includes('coming soon'));
   assert.ok(html.includes('Germany'));
 });
 
@@ -382,9 +391,14 @@ test('rows carry the data attributes the client script needs', () => {
     'data-bd-dr', 'data-bd-as', 'data-bd-traffic', 'data-bd-free-submission']) {
     assert.ok(html.includes(attribute), `missing ${attribute}`);
   }
-  assert.ok(html.includes('data-bd-free-submission="1"'));
-  assert.ok(html.includes('data-bd-accepts-saas="1"'));
-  assert.ok(html.includes('data-bd-accepts-ai="0"'), 'null flags render as 0, not omitted');
+  // Tri-state. A never-established flag must stay distinguishable from a
+  // confirmed no, or a positive filter publishes 42 fabricated negatives.
+  assert.ok(html.includes('data-bd-free-submission="yes"'));
+  assert.ok(html.includes('data-bd-accepts-saas="yes"'));
+  assert.ok(html.includes('data-bd-accepts-ai="unknown"'), 'null flags are unknown, never no');
+  const statutory = c.directoryTable({ directories: [verifiedRecord({ submissionModel: 'notApplicable' })] });
+  assert.ok(statutory.includes('data-bd-free-submission="unknown"'),
+    'a register you cannot submit to is not a confirmed "not free"');
 });
 
 test('the accepts list shows all twelve audiences including unknowns', () => {

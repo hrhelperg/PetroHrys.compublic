@@ -55,7 +55,7 @@
     "indexed": null,
     "ssl": true,
     "lastVerified": "2026-08-04",
-    "nextVerification": "2027-02-04",
+    "nextVerification": "2027-02-18",
     "verification": {
       "status": "verified",
       "source": "official-website",
@@ -140,7 +140,7 @@
     "httpStatus": null,
     "metricStatus": "unknown",
     "metricsProvenance": {},
-    "submissionModel": "free",
+    "submissionModel": "notApplicable",
     "registrationRequired": false,
     "reviewSystem": false,
     "verificationRequired": true,
@@ -165,7 +165,7 @@
     "indexed": null,
     "ssl": true,
     "lastVerified": "2026-08-04",
-    "nextVerification": "2027-02-04",
+    "nextVerification": "2027-08-22",
     "verification": {
       "status": "verified",
       "source": "government-register",

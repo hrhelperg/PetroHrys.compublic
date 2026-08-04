@@ -3,7 +3,7 @@
 const fs = require('node:fs');
 const os = require('node:os');
 const path = require('node:path');
-const { PATHS, writeIfChanged } = require('./lib/bd-util.cjs');
+const { PATHS, writeIfChanged, escapeHtml } = require('./lib/bd-util.cjs');
 const { loadRegistry, directoriesFor } = require('./lib/bd-registry.cjs');
 const { sortDirectories } = require('./lib/bd-sort.cjs');
 const seo = require('./lib/bd-seo.cjs');
@@ -12,7 +12,7 @@ const { renderPage } = require('./lib/bd-render.cjs');
 const { renderSitemap, renderRss } = require('./lib/bd-feeds.cjs');
 const routes = require('./lib/bd-routes.cjs');
 const SCHEMA = require('./lib/bd-schema.cjs');
-const { buildArticles } = require('./lib/bd-articles.cjs');
+const { buildArticles, guidesFor } = require('./lib/bd-articles.cjs');
 const { validateRegistry, formatReport } = require('./validate-business-directories.cjs');
 
 const BASE = routes.BASE;
@@ -22,6 +22,12 @@ const FEED_FILE = routes.feedOut();
 const MANIFEST_FILE = path.join('data', 'business-directories', '.build-manifest.json');
 const REFERENCE_COUNTRY = 'united-states';
 const REFERENCE_CATEGORY = 'general-business';
+// `global` is an editorial scope, not a place: it is stored as a country so a
+// record has exactly one home, but it is presented apart from the national grid.
+const GLOBAL_SCOPE = 'global';
+// How many rows the hub's two lead tables show. Enough to name real directories
+// on the first screen without reprinting the whole dataset.
+const HUB_TOP_COUNT = 12;
 
 class BuildError extends Error {
   constructor(message) {
@@ -37,16 +43,20 @@ function countryEmitted(registry, country) {
     || directoriesFor(registry, country.slug).length > 0;
 }
 
+// A category earns a page by having a verified record in it. The reference
+// scaffold that used to force `general-business` into existence is gone: a
+// declared category is a plan, and publishing a plan as a page advertises
+// coverage the dataset does not have. The country-level scaffold is kept, so the
+// section always has a hub and at least one country page.
 function categoryEmitted(registry, country, category) {
-  if (directoriesFor(registry, country.slug, category.slug).length > 0) return true;
-  return country.slug === REFERENCE_COUNTRY && category.slug === REFERENCE_CATEGORY;
+  return directoriesFor(registry, country.slug, category.slug).length > 0;
 }
 
 // --- approved static copy ---------------------------------------------------
 
 const HUB_FAQS = [
   { q: 'What is this section?',
-    a: 'A research index of business directories, organised by country and category. Each entry records what a directory accepts, how it links out, and how it was verified.' },
+    a: 'A research index of business directories, organised by country and category. Each entry records what a directory accepts, whether listing is free or paid, and how it was verified.' },
   { q: 'How is the PetroHrys Score produced?',
     a: 'It is a first-party editorial assessment made by Petro Hrys. It is not supplied by any third party and is not a review rating.' },
   { q: 'Are Domain Rating and Authority Score your own numbers?',
@@ -79,17 +89,75 @@ ${body}
 
 function pageModel(registry) {
   const pages = [];
+  // Records demoted to noindex,follow, with the clause each one failed, so the
+  // build can report exactly why rather than just how many.
+  const noindexReport = [];
 
-  const countryLinks = registry.countries.map((country) => ({
-    name: country.name,
-    path: routes.countryPath(country.slug),
-    pending: !countryEmitted(registry, country),
-  }));
+  const allDirectories = registry.directories;
+  const activeMetrics = c.activeMetricFields(allDirectories);
+  const activeGuidance = c.activeGuidanceFields(allDirectories);
+
+  // Global is an editorial scope, not a country, so it is lifted out of the
+  // national grid rather than sorted among it.
+  const globalCountry = registry.countries.find((country) => country.slug === GLOBAL_SCOPE);
+  const globalEntries = globalCountry
+    ? sortDirectories(directoriesFor(registry, GLOBAL_SCOPE)) : [];
+
+  const countryLinks = registry.countries
+    .filter((country) => country.slug !== GLOBAL_SCOPE)
+    .map((country) => ({
+      name: country.name,
+      path: routes.countryPath(country.slug),
+      count: directoriesFor(registry, country.slug).length,
+      pending: !countryEmitted(registry, country),
+    }))
+    // Most-covered first, then a stable name order, so the grid tells the reader
+    // where the research actually is instead of where the registry file happens
+    // to list it.
+    .sort((a, b) => (b.count - a.count) || (a.name < b.name ? -1 : a.name > b.name ? 1 : 0));
+
+  const publishedCountries = countryLinks.filter((l) => !l.pending && l.count > 0);
+
+  // Global is presented apart from the national grid, but it is still a
+  // first-class destination: leaving it out of the hub's ItemList would drop the
+  // scope holding most of the dataset from the page's structured data.
+  const globalLink = globalCountry && globalEntries.length
+    ? [{ name: globalCountry.name, path: routes.countryPath(GLOBAL_SCOPE), count: globalEntries.length }]
+    : [];
 
   const hubMeta = seo.buildHubMeta({
-    countries: countryLinks.filter((l) => !l.pending),
+    countries: [...globalLink, ...countryLinks.filter((l) => !l.pending)],
     faqs: HUB_FAQS,
   });
+
+  // Every number is derived. Counts must not reach a meta description — the SEO
+  // tests forbid digits there precisely so a count can never be fabricated into
+  // one — so the scale is stated in body copy.
+  const scopeCount = publishedCountries.length + (globalEntries.length ? 1 : 0);
+  const lastVerifiedAt = allDirectories
+    .map((d) => d.lastVerified).filter(Boolean).sort().slice(-1)[0];
+  const statLine = `      <p class="bd-stat">${escapeHtml(String(allDirectories.length))} verified `
+    + `${allDirectories.length === 1 ? 'directory' : 'directories'} across `
+    + `${escapeHtml(String(scopeCount))} ${scopeCount === 1 ? 'country and scope' : 'countries and scopes'}. `
+    + `Most recently verified <time datetime="${escapeHtml(lastVerifiedAt || '')}">`
+    + `${escapeHtml(lastVerifiedAt || 'not yet')}</time>.</p>`;
+
+  // The strongest records the dataset holds, named on the first screen. Columns
+  // are computed from these rows, so no empty column appears here either.
+  const topEntries = sortDirectories(allDirectories).slice(0, HUB_TOP_COUNT);
+  const topColumns = c.tableColumnsFor(topEntries);
+
+  const globalBody = globalEntries.length ? [
+    `      <p>${escapeHtml(`${globalEntries.length} directories are global in scope: they accept `
+      + 'businesses regardless of country. They are listed separately because a scope is not a place.')}</p>`,
+    c.directoryTable({
+      directories: globalEntries.slice(0, HUB_TOP_COUNT),
+      caption: 'Global directories',
+      columns: c.tableColumnsFor(globalEntries.slice(0, HUB_TOP_COUNT)),
+    }),
+    `      <p class="bd-cta"><a href="${routes.countryPath(GLOBAL_SCOPE)}">`
+      + `See all ${escapeHtml(String(globalEntries.length))} global directories</a></p>`,
+  ].join('\n') : '';
 
   pages.push({
     kind: 'hub',
@@ -98,13 +166,23 @@ function pageModel(registry) {
     meta: hubMeta,
     main: [
       c.pageIntro({ title: 'Business Directories', lede: hubMeta.description }),
-      section('methodology', 'Methodology', `${c.methodologyNote()}\n${c.metricNote()}`),
+      statLine,
+      section('highest-scored', 'Highest-scored directories', [
+        `      <p>${escapeHtml('Ranked by PetroHrys Score, a first-party editorial assessment. '
+          + 'It is not a Domain Rating, an authority metric, or a review rating.')}</p>`,
+        c.directoryTable({
+          directories: topEntries, caption: 'Highest-scored directories', columns: topColumns,
+        }),
+        c.metricNote(activeMetrics),
+      ].join('\n')),
+      ...(globalBody ? [section('global', 'Global directories', globalBody)] : []),
+      section('countries', 'Directories by country',
+        c.cardGrid(publishedCountries.map((l) => c.countryCard({ ...l, headingLevel: 3 })),
+          { label: 'Directories by country' })),
       section('guides', 'Editorial guides',
         `      <p>Guides drawn from this dataset explain how directories are chosen, scored and verified.</p>\n`
         + `      <p class="bd-cta"><a href="${routes.articlesPath()}">Browse the editorial guides</a></p>`),
-      section('countries', 'Countries',
-        c.cardGrid(countryLinks.map((l) => c.countryCard({ ...l, headingLevel: 3 })),
-          { label: 'Countries' })),
+      section('methodology', 'Methodology', `${c.methodologyNote()}\n${c.metricNote(activeMetrics)}`),
       section('faq', 'Questions', c.faqSection(HUB_FAQS)),
     ].join('\n\n'),
   });
@@ -147,12 +225,20 @@ function pageModel(registry) {
 
     const countryPath = routes.countryPath(country.slug);
     const countryEntries = sortDirectories(directoriesFor(registry, country.slug));
-    const categoryLinks = registry.categories.map((category) => ({
-      name: category.name,
-      path: routes.categoryPath(country.slug, category.slug),
-      description: category.description,
-      pending: !categoryEmitted(registry, country, category),
-    }));
+    // Only categories that actually hold a verified record here. A category with
+    // nothing in it is not rendered at all — not as a card, not as "coming
+    // soon", not as a zero. Ordered by coverage so the reader meets the
+    // best-covered category first.
+    const categoryLinks = registry.categories
+      .filter((category) => categoryEmitted(registry, country, category))
+      .map((category) => ({
+        name: category.name,
+        path: routes.categoryPath(country.slug, category.slug),
+        description: category.description,
+        count: directoriesFor(registry, country.slug, category.slug).length,
+      }))
+      .sort((a, b) => (b.count - a.count) || (a.name < b.name ? -1 : a.name > b.name ? 1 : 0));
+    const countryColumns = c.tableColumnsFor(countryEntries);
     const faqs = countryFaqs(country, countryEntries.length);
     const meta = seo.buildCountryMeta({
       country,
@@ -168,15 +254,22 @@ function pageModel(registry) {
       meta,
       main: [
         c.pageIntro({ title: meta.title, lede: meta.description }),
-        section('categories', 'Directory categories',
+        `      <p class="bd-stat">${escapeHtml(`${countryEntries.length} verified `
+          + `${countryEntries.length === 1 ? 'directory' : 'directories'} in `
+          + `${categoryLinks.length} ${categoryLinks.length === 1 ? 'category' : 'categories'}.`)}</p>`,
+        ...(categoryLinks.length ? [section('categories', 'Directory categories',
           c.cardGrid(categoryLinks.map((l) => c.categoryCard({ ...l, headingLevel: 3 })),
-            { label: 'Directory categories' })),
+            { label: 'Directory categories' }))] : []),
         section('directories', 'All directories', [
           c.searchControls({ idPrefix: country.slug }),
-          c.filterControls({ idPrefix: country.slug }),
-          c.sortControls({ idPrefix: country.slug }),
-          c.directoryTable({ directories: countryEntries, caption: `Directories in ${country.name}` }),
-          c.metricNote(),
+          c.filterControls({ idPrefix: country.slug, directories: countryEntries }),
+          c.sortControls({ idPrefix: country.slug, columns: countryColumns }),
+          c.directoryTable({
+            directories: countryEntries,
+            caption: `Directories in ${country.name}`,
+            columns: countryColumns,
+          }),
+          c.metricNote(activeMetrics),
         ].join('\n')),
         section('faq', 'Questions', c.faqSection(faqs)),
       ].join('\n\n'),
@@ -197,10 +290,14 @@ function pageModel(registry) {
           c.pageIntro({ title: catMeta.title, lede: category.description }),
           section('directories', 'Directories', [
             c.searchControls({ idPrefix: `${country.slug}-${category.slug}` }),
-            c.filterControls({ idPrefix: `${country.slug}-${category.slug}` }),
-            c.sortControls({ idPrefix: `${country.slug}-${category.slug}` }),
-            c.directoryTable({ directories: entries, caption: `${category.name} directories in ${country.name}` }),
-            c.metricNote(),
+            c.filterControls({ idPrefix: `${country.slug}-${category.slug}`, directories: entries }),
+            c.sortControls({ idPrefix: `${country.slug}-${category.slug}`, columns: c.tableColumnsFor(entries) }),
+            c.directoryTable({
+              directories: entries,
+              caption: `${category.name} directories in ${country.name}`,
+              columns: c.tableColumnsFor(entries),
+            }),
+            c.metricNote(activeMetrics),
           ].join('\n')),
         ].join('\n\n'),
       });
@@ -208,7 +305,22 @@ function pageModel(registry) {
 
     for (const directory of countryEntries) {
       const category = registry.categories.find((cat) => cat.slug === directory.category);
-      const dirMeta = seo.buildDirectoryMeta({ country, category, directory });
+      const { indexable, missing } = SCHEMA.indexability(directory);
+      const dirMeta = seo.buildDirectoryMeta({ country, category, directory, indexable });
+      if (!indexable) noindexReport.push({ id: directory.id, missing });
+
+      const guides = guidesFor(articles, directory);
+      const guideLinks = guides.length ? [
+        `      <ul class="bd-list">\n${guides.map((g) =>
+          `        <li><a href="${routes.articlePath(g.slug)}">${escapeHtml(g.title)}</a></li>`).join('\n')}\n      </ul>`,
+      ].join('\n') : '      <p class="bd-empty">No guide covers this directory yet.</p>';
+
+      // Where this record sits, in words rather than slugs, so the reader can
+      // climb back out without using the breadcrumb.
+      const context = `      <ul class="bd-list">
+        <li><a href="${routes.countryPath(country.slug)}">All directories in ${escapeHtml(country.name)}</a></li>
+${category ? `        <li><a href="${routes.categoryPath(country.slug, category.slug)}">${escapeHtml(category.name)} directories in ${escapeHtml(country.name)}</a></li>\n` : ''}        <li><a href="${routes.hubPath()}">Business Directories index</a></li>
+      </ul>`;
 
       pages.push({
         kind: 'directory',
@@ -216,18 +328,21 @@ function pageModel(registry) {
         outPath: routes.directoryOut(country.slug, directory.slug),
         lastmod: directory.lastVerified || undefined,
         meta: dirMeta,
+        // Order follows what a reader came for: what it is, how to reach it,
+        // what we think of it and why, then the evidence, then everything else.
+        // Nothing populated sits below a block that is mostly empty.
         main: [
           c.pageIntro({ title: directory.name, lede: directory.description }),
-          c.externalLinkCta({ url: directory.website }),
-          c.submissionLink(directory),
+          c.externalLinkCta({ url: directory.website, name: directory.name }),
           c.statusBadges(directory),
-          section('audiences', 'What this directory accepts', c.acceptsList(directory)),
-          section('metrics', 'Metrics', `${c.metricsBlock(directory)}\n${c.metricNote()}`),
-          section('score', 'How the PetroHrys Score was reached', c.scoreBreakdown(directory)),
+          section('score', 'PetroHrys Score', `${c.metricsBlock(directory, activeMetrics)}\n${c.metricNote(activeMetrics)}`),
           section('verification', 'Verification', c.verificationBlock(directory)),
-          section('industries', 'Recommended industries', c.bestForTags(directory.recommendedIndustries)),
           section('assessment', 'Assessment', c.prosCons({ pros: directory.pros, cons: directory.cons, headingLevel: 3 })),
-          section('guidance', 'Submission guidance', c.editorialGuidance(directory)),
+          section('guidance', 'Submission guidance',
+            `${c.submissionLink(directory)}\n${c.editorialGuidance(directory, activeGuidance)}`),
+          section('audiences', 'What this directory accepts', c.acceptsList(directory)),
+          section('industries', 'Recommended industries', c.bestForTags(directory.recommendedIndustries)),
+          section('breakdown', 'How the PetroHrys Score was reached', c.scoreBreakdown(directory)),
           section('related', 'Related directories', c.relatedDirectories(
             SCHEMA.RELATION_KINDS.map((kind) => ({
               label: SCHEMA.RELATION_LABELS[kind],
@@ -236,6 +351,8 @@ function pageModel(registry) {
                 .filter(Boolean)
                 .map((target) => ({ name: target.name, path: routes.directoryPathFor(target) })),
             })))),
+          section('guides', 'Guides covering this directory', guideLinks),
+          section('context', 'Where this sits', context),
         ].join('\n\n'),
       });
     }
