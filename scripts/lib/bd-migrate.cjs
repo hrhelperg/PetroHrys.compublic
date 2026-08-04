@@ -145,6 +145,16 @@ function migratePublicAccess(record) {
   return out;
 }
 
+function migrateResourceIdentity(record) {
+  const r = record.resourceIdentity;
+  if (!r || typeof r !== 'object' || Array.isArray(r)) return null;
+  return {
+    canonicalDomain: r.canonicalDomain ?? null,
+    systemKey: r.systemKey ?? null,
+    sharedHostGroup: r.sharedHostGroup ?? null,
+  };
+}
+
 function migrateRegistryTypes(record) {
   if (!Array.isArray(record.registryTypes)) return [];
   return [...record.registryTypes];
@@ -252,6 +262,7 @@ function migrateRecord(record) {
     englishNameSource: record.englishNameSource ?? null,
 
     jurisdiction: migrateJurisdiction(record),
+    resourceIdentity: migrateResourceIdentity(record),
     primaryRegistryType: record.primaryRegistryType ?? null,
     registryTypes: migrateRegistryTypes(record),
     operator: migrateOperator(record),
@@ -327,6 +338,7 @@ const WAVE1_DEFAULTED = {
   englishName: (v) => v === null,
   englishNameSource: (v) => v === null,
   jurisdiction: (v) => v === null,
+  resourceIdentity: (v) => v === null,
   primaryRegistryType: (v) => v === null,
   registryTypes: (v) => Array.isArray(v) && v.length === 0,
   operator: (v) => v === null,

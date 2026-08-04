@@ -356,3 +356,36 @@ limited, or it is indistinguishable from open. `unknown` is correct whenever the
 evidence does not settle the position, and may sit alongside facts you *do* know:
 `accessLevel: "unknown"` with `freeToSearch: true` is a normal record. Never
 derive the level from the booleans.
+
+### Exclusion and debarment registers
+
+Use `exclusion-and-debarment-register` for a system recording who is excluded,
+debarred, sanctioned, suspended or restricted. Not `procurement-supplier-register`
+— that records who is eligible, which is the opposite. Never describe inclusion
+as a submission, and always state in the record that **absence proves nothing**:
+these lists are current-state, name-matched, and a clean result is not a clean
+history.
+
+### Two registries on one official host
+
+Default: one canonical domain per country, enforced by both the loader and the
+validator. To publish two systems on one official host, every record on that
+host needs:
+
+```json
+"resourceIdentity": {
+  "canonicalDomain": "accessdata.fda.gov",
+  "systemKey": "fda-cder-decrs",
+  "sharedHostGroup": "fda-accessdata"
+}
+```
+
+- `canonicalDomain` is a bare hostname and must match the record's website.
+- `systemKey` is globally unique.
+- All records on the host share one `sharedHostGroup`, and a group covers one host.
+- The URLs must differ by more than case, a trailing slash, a query string or a
+  language segment.
+
+If the systems are not genuinely distinct — different operator, population,
+statute or official function — do not reach for this. It exists for shared
+government platforms, not for listing one registry twice.

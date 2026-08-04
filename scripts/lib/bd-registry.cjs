@@ -149,15 +149,25 @@ function loadRegistry(dataRoot = PATHS.dataRoot) {
 
       // Per country, not global: one service may legitimately be listed for
       // several countries as separate records sharing a domain.
+      //
+      // An official application host can also carry several genuinely distinct
+      // registries — accessdata.fda.gov and sam.gov both do. That is permitted
+      // only when every record on the host declares resourceIdentity with a
+      // sharedHostGroup. The loader checks the shape; the validator checks that
+      // the groups agree, the systemKeys differ and the URLs are materially
+      // different, and reports those as errors rather than throwing.
       const domain = canonicalDomain(entry.website);
       if (domain) {
         const domainKey = `${entry.country}/${domain}`;
-        if (seenDomain.has(domainKey)) {
+        const prior = seenDomain.get(domainKey);
+        const group = entry.resourceIdentity && entry.resourceIdentity.sharedHostGroup;
+        if (prior && !(prior.group && group)) {
           throw new RegistryError(
             `Duplicate canonical domain "${domain}" for country "${entry.country}" in ${file}; ` +
-            `first seen in ${seenDomain.get(domainKey)}.`);
+            `first seen in ${prior.file}. Records may share an official host only when each ` +
+            'declares resourceIdentity.sharedHostGroup.');
         }
-        seenDomain.set(domainKey, file);
+        if (!prior) seenDomain.set(domainKey, { file, group });
       }
 
       // Migrated on load, so a record still written in the pre-expansion shape

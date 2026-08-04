@@ -6,7 +6,7 @@ Entries are grouped by verification date, newest first.
 
 ## 2026-08-04
 
-92 directories added or re-verified.
+96 directories added or re-verified.
 
 - **Companies House Register** — united-kingdom / government — PetroHrys Score 95
 - **ABN Lookup** — australia / government — PetroHrys Score 93
@@ -41,9 +41,11 @@ Entries are grouped by verification date, newest first.
 - **RubyGems.org** — global / developer — PetroHrys Score 85
 - **OpenCorporates** — global / general-business — PetroHrys Score 85
 - **Patent Public Search** — united-states / government — PetroHrys Score 85
+- **SAM.gov Exclusions** — united-states / government — PetroHrys Score 85
 - **USAspending.gov** — united-states / government — PetroHrys Score 85
 - **Hugging Face** — global / developer — PetroHrys Score 84
 - **Maven Central** — global / developer — PetroHrys Score 84
+- **HHS OIG List of Excluded Individuals and Entities** — united-states / healthcare — PetroHrys Score 84
 - **NFA BASIC** — united-states / finance — PetroHrys Score 84
 - **Add-ons for Firefox** — global / app-directories — PetroHrys Score 83
 - **Visual Studio Marketplace** — global / developer — PetroHrys Score 83
@@ -65,12 +67,14 @@ Entries are grouped by verification date, newest first.
 - **Investment Adviser Public Disclosure** — united-states / finance — PetroHrys Score 81
 - **Drupal Modules** — global / developer — PetroHrys Score 80
 - **pub.dev** — global / developer — PetroHrys Score 80
+- **CFTC Sanctions in Effect** — united-states / finance — PetroHrys Score 80
 - **Yelp for Business** — global / local-business — PetroHrys Score 79
 - **Hex** — global / developer — PetroHrys Score 79
 - **FAA Aircraft Registry** — united-states / government — PetroHrys Score 79
 - **G2** — global / software — PetroHrys Score 79
 - **MSHA Mine Data Retrieval System** — united-states / government — PetroHrys Score 79
 - **TTB List of Permittees** — united-states / government — PetroHrys Score 79
+- **Drug Establishments Current Registration Site** — united-states / healthcare — PetroHrys Score 78
 - **HubSpot App Marketplace** — global / app-directories — PetroHrys Score 77
 - **Open Collective** — global / general-business — PetroHrys Score 77
 - **F-Droid** — global / app-directories — PetroHrys Score 77

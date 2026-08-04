@@ -40,7 +40,7 @@ function validateRegistry(registry) {
 
   const seenId = new Set();
   const seenSlug = new Set();
-  const seenDomain = new Set();
+  const seenDomain = new Map();
 
   // --- geographic registry ----------------------------------------------------
   // Checked once, before records, because every jurisdiction and scope rule
@@ -313,6 +313,32 @@ function validateRegistry(registry) {
       add('registryTypes', `A verified ${entry.category} record must record at least one registry type.`);
     }
 
+    // --- resourceIdentity ---------------------------------------------------
+    if (!isNullish(entry.resourceIdentity)) {
+      const ri = entry.resourceIdentity;
+      if (typeof ri !== 'object' || Array.isArray(ri)) {
+        add('resourceIdentity', 'Field "resourceIdentity" must be an object or null.');
+      } else {
+        const problem = S.canonicalDomainProblem(ri.canonicalDomain);
+        if (problem) {
+          add('resourceIdentity.canonicalDomain', `${JSON.stringify(ri.canonicalDomain)} ${problem}.`);
+        } else {
+          const actual = canonicalDomain(entry.website);
+          if (actual && actual !== ri.canonicalDomain) {
+            add('resourceIdentity.canonicalDomain', `Declared "${ri.canonicalDomain}" but the `
+              + `website resolves to "${actual}".`);
+          }
+        }
+        if (typeof ri.systemKey !== 'string' || !ri.systemKey.trim()) {
+          add('resourceIdentity.systemKey', 'A systemKey is required and must be a non-empty string.');
+        }
+        if (!isNullish(ri.sharedHostGroup)
+          && (typeof ri.sharedHostGroup !== 'string' || !ri.sharedHostGroup.trim())) {
+          add('resourceIdentity.sharedHostGroup', 'Must be a non-empty string, or null.');
+        }
+      }
+    }
+
     // --- operator -----------------------------------------------------------
     if (!isNullish(entry.operator)) {
       const o = entry.operator;
@@ -525,14 +551,80 @@ function validateRegistry(registry) {
       seenSlug.add(slugKey);
 
       // Per country only: one service may legitimately serve several countries.
+      //
+      // Sharing a domain is allowed ONLY through resourceIdentity, and only when
+      // every record on that domain declares the same sharedHostGroup, carries
+      // its own systemKey, and points somewhere materially different. Anything
+      // short of that is the ordinary duplicate this guard exists to catch.
       const domain = canonicalDomain(entry.website);
       if (domain) {
         const domainKey = `${entry.country}/${domain}`;
-        if (seenDomain.has(domainKey)) {
-          add('website', `Duplicate canonical domain "${domain}" within country "${entry.country}".`);
+        const prior = seenDomain.get(domainKey);
+        const ri = entry.resourceIdentity;
+        if (prior) {
+          const priorRi = prior.resourceIdentity;
+          if (!ri || !ri.sharedHostGroup) {
+            add('website', `Duplicate canonical domain "${domain}" within country `
+              + `"${entry.country}" (first seen on "${prior.id}"). Two records may share an `
+              + 'official host only when both declare resourceIdentity with a sharedHostGroup.');
+          } else if (!priorRi || !priorRi.sharedHostGroup) {
+            add('website', `Shares domain "${domain}" with "${prior.id}", which declares no `
+              + 'sharedHostGroup. Every record on a shared host must declare one.');
+          } else if (priorRi.sharedHostGroup !== ri.sharedHostGroup) {
+            add('resourceIdentity.sharedHostGroup', `Is "${ri.sharedHostGroup}" but "${prior.id}" on `
+              + `the same domain "${domain}" declares "${priorRi.sharedHostGroup}". Records sharing a `
+              + 'host must share one group.');
+          } else {
+            // Same group: the systems must genuinely differ.
+            if (priorRi.systemKey === (ri.systemKey || null)) {
+              add('resourceIdentity.systemKey', `Duplicates the systemKey of "${prior.id}".`);
+            }
+            const priorSearch = (prior.publicAccess || {}).searchUrl || prior.website;
+            const thisSearch = (entry.publicAccess || {}).searchUrl || entry.website;
+            if (!S.urlsAreMateriallyDifferent(prior.website, entry.website)
+              && !S.urlsAreMateriallyDifferent(priorSearch, thisSearch)) {
+              add('website', `Is not materially different from "${prior.id}" on the same host. A `
+                + 'landing page, a language variant, a query-parameter variant or a search mode of '
+                + 'one registry is not a separate system.');
+            }
+          }
         }
-        seenDomain.add(domainKey);
+        if (!prior) seenDomain.set(domainKey, entry);
       }
+    }
+  }
+
+  // systemKey is a global identifier, and a sharedHostGroup names ONE host.
+  // Both are checked across the whole registry rather than per country, so a
+  // key cannot be reused in another file and a group cannot be stretched over
+  // unrelated domains to smuggle two duplicates past the guard.
+  const seenSystemKey = new Map();
+  const groupDomains = new Map();
+  for (const entry of directories) {
+    const ri = entry.resourceIdentity;
+    if (!ri || !ri.systemKey) continue;
+    const where = { file: fileFor(entry), id: entry.id };
+    if (seenSystemKey.has(ri.systemKey)) {
+      errors.push({
+        ...where,
+        field: 'resourceIdentity.systemKey',
+        reason: `systemKey "${ri.systemKey}" is already used by "${seenSystemKey.get(ri.systemKey)}". `
+          + 'Every systemKey must be globally unique.',
+      });
+    } else seenSystemKey.set(ri.systemKey, entry.id);
+
+    if (!ri.sharedHostGroup) continue;
+    const known = groupDomains.get(ri.sharedHostGroup);
+    if (known && known.domain !== ri.canonicalDomain) {
+      errors.push({
+        ...where,
+        field: 'resourceIdentity.sharedHostGroup',
+        reason: `Group "${ri.sharedHostGroup}" already covers domain "${known.domain}" (on `
+          + `"${known.id}"); this record declares "${ri.canonicalDomain}". A shared-host group names `
+          + 'one host and may not span unrelated domains.',
+      });
+    } else if (!known) {
+      groupDomains.set(ri.sharedHostGroup, { domain: ri.canonicalDomain, id: entry.id });
     }
   }
 

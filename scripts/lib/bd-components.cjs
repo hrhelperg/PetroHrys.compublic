@@ -324,6 +324,14 @@ function registryInformation(directory) {
   if (S.isEditorialTranslation(directory)) {
     row('English title', 'Editorial translation');
   }
+  // Shown only where a reader would otherwise assume two records on one host are
+  // the same thing. The internal identifiers (systemKey, sharedHostGroup) are
+  // never exposed — only the fact a shared platform explains, in plain words.
+  const ri = directory.resourceIdentity;
+  if (ri && ri.sharedHostGroup && ri.canonicalDomain) {
+    row('Hosting', `This registry is a distinct system hosted on the shared `
+      + `${escapeHtml(ri.canonicalDomain)} platform.`);
+  }
 
   if (!rows.length) return '';
   return `      <dl class="bd-defs bd-registry-info">

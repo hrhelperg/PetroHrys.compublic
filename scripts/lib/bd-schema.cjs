@@ -387,6 +387,11 @@ const REGISTRY_TYPES = [
   'trademark-register', 'patent-register', 'insolvency-register',
   'regulated-operator-register', 'contractor-accreditation-register',
   'public-filing-database', 'cross-border-registry-interface',
+  // Added for Wave 1A completion. Three verified federal registers had no
+  // honest fit: labelling a debarment list a "procurement-supplier-register"
+  // states the opposite of what it is, since a supplier register records who
+  // MAY bid and an exclusion register records who may not.
+  'exclusion-and-debarment-register',
 ];
 
 // --- operator ---------------------------------------------------------------
@@ -655,7 +660,7 @@ const KNOWN_RECORD_KEYS = [
   'id', 'name', 'slug', 'country', 'category', 'website', 'submissionUrl', 'description',
   'tier', 'scope',
   'officialName', 'nativeName', 'englishName', 'englishNameSource',
-  'jurisdiction',
+  'jurisdiction', 'resourceIdentity',
   'primaryRegistryType', 'registryTypes',
   'operator', 'publicAccess',
   'petroHrysScore', 'scoreFactors',
@@ -670,6 +675,65 @@ const KNOWN_RECORD_KEYS = [
   'requiredAssets', 'recommendedIndustries', 'editorialTags', 'pros', 'cons', 'editorNotes',
 ];
 
+// --- shared official hosts ---------------------------------------------------
+// One canonical domain per country is the right default: two records on one
+// host are almost always the same service listed twice. But a government
+// application host breaks that assumption. accessdata.fda.gov carries dozens of
+// separate FDA databases with different centres, statutes and populations, and
+// treating the hostname as the identity would force us to publish one of them
+// and silently drop the rest.
+//
+// `resourceIdentity` makes the exception explicit and evidenced rather than
+// hard-coding a list of blessed domains. Sharing a domain is allowed ONLY when
+// every record on it declares the same sharedHostGroup, carries its own unique
+// systemKey, and points at a materially different URL. A landing page and its
+// own search page still do not qualify — they are one system.
+const RESOURCE_IDENTITY_KEYS = ['canonicalDomain', 'systemKey', 'sharedHostGroup'];
+
+// A hostname and nothing else: no scheme, no path, no query, no port, no
+// credentials. Those all indicate the author pasted a URL.
+const CANONICAL_DOMAIN_RE = /^[a-z0-9](?:[a-z0-9-]*[a-z0-9])?(?:\.[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)+$/;
+
+function canonicalDomainProblem(value) {
+  if (typeof value !== 'string') return `must be a string, got ${typeof value}`;
+  if (value !== value.trim()) return 'has leading or trailing whitespace';
+  if (!value) return 'is empty';
+  if (/^[a-z]+:\/\//i.test(value)) return 'contains a URL scheme; store the hostname only';
+  if (value.includes('/')) return 'contains a path; store the hostname only';
+  if (value.includes('?') || value.includes('#')) return 'contains a query or fragment';
+  if (value.includes('@')) return 'contains credentials';
+  if (value.includes(':')) return 'contains a port';
+  if (value !== value.toLowerCase()) return 'must be lowercase';
+  if (value.startsWith('www.')) return 'includes a "www." prefix; store the registrable host';
+  if (!CANONICAL_DOMAIN_RE.test(value)) return 'is not a well-formed hostname';
+  return null;
+}
+
+// Two official URLs count as materially different only if they differ by more
+// than case, a trailing slash, a query string or a language segment. This is
+// what stops "the same registry, twice" from being dressed up as two systems.
+const LANGUAGE_SEGMENT_RE = /\/(?:[a-z]{2}|[a-z]{2}-[a-z]{2})(?=\/|$)/gi;
+
+function normaliseForComparison(url) {
+  if (typeof url !== 'string' || !url) return '';
+  let out;
+  try {
+    const parsed = new URL(url);
+    out = `${parsed.hostname.replace(/^www\./, '')}${parsed.pathname}`.toLowerCase();
+  } catch {
+    out = url.toLowerCase();
+  }
+  out = out.replace(LANGUAGE_SEGMENT_RE, '');
+  return out.replace(/\/+$/, '');
+}
+
+function urlsAreMateriallyDifferent(a, b) {
+  const na = normaliseForComparison(a);
+  const nb = normaliseForComparison(b);
+  if (!na || !nb) return true;
+  return na !== nb;
+}
+
 // --- nested key sets --------------------------------------------------------
 // Top-level rejection is not enough. `jurisdiction: { typoCode: 'US-CA' }` was
 // accepted and then silently emptied by the migration's fixed-key picker, so a
@@ -677,6 +741,7 @@ const KNOWN_RECORD_KEYS = [
 // structured object therefore declares its own key set, and the same rejection
 // applies at every level with a dotted path in the message.
 const NESTED_RECORD_KEYS = {
+  resourceIdentity: RESOURCE_IDENTITY_KEYS,
   jurisdiction: ['type', 'name', 'code', 'parentCountry'],
   operator: ['name', 'type', 'officialUrl'],
   publicAccess: ['searchUrl', 'accessLevel', ...PUBLIC_ACCESS_BOOLEANS, 'notes'],
@@ -694,12 +759,14 @@ const METRIC_PROVENANCE_KEYS = ['provider', 'measuredAt', 'status', 'measuredDom
 // Fields whose stored value must be an object, and those that must be an array.
 // A wrongly typed value used to be coerced away by the migration — a string
 // `registryTypes` became `[]` — which lost the author's intent silently.
-const OBJECT_VALUED_FIELDS = ['jurisdiction', 'operator', 'publicAccess', 'verification',
+const OBJECT_VALUED_FIELDS = ['resourceIdentity', 'jurisdiction', 'operator', 'publicAccess', 'verification',
   'requiredAssets', 'accepts', 'related', 'scoreFactors', 'metricsProvenance'];
 const ARRAY_VALUED_FIELDS = ['registryTypes', ...ARRAY_FIELDS];
 
 module.exports = {
   NESTED_RECORD_KEYS, METRIC_PROVENANCE_KEYS, OBJECT_VALUED_FIELDS, ARRAY_VALUED_FIELDS,
+  RESOURCE_IDENTITY_KEYS, CANONICAL_DOMAIN_RE, canonicalDomainProblem,
+  normaliseForComparison, urlsAreMateriallyDifferent,
   ENTITY_TYPES, SCOPES, SCOPE_DEFINITIONS, JURISDICTION_TYPES,
   ISO_3166_1_RE, ISO_3166_2_RE, iso3166_2Problem,
   normaliseJurisdictionName, jurisdictionIdentity, jurisdictionNameKey,

@@ -190,6 +190,23 @@ const REGISTRY_TYPE_DEFINITIONS = [
     examples: ['Bundesanzeiger (Germany)', 'Filed accounts within Companies House (United Kingdom)'],
   },
   {
+    id: 'exclusion-and-debarment-register',
+    label: 'Exclusion and debarment register',
+    definition: 'An official system identifying persons, entities, providers, contractors or '
+      + 'regulated participants that are excluded, debarred, sanctioned, suspended or otherwise '
+      + 'restricted from specified government programmes, procurement, regulated activity or public '
+      + 'participation.',
+    inclusion: 'An official operator publishes entity- or person-level searchable or structured data '
+      + 'recording an exclusion, debarment, sanction, suspension or restriction, with current or '
+      + 'explicitly historical status semantics, and the record has practical verification value.',
+    boundary: 'Not a procurement-supplier-register, which records eligible or registered suppliers — '
+      + 'this type records the opposite. Not a generic enforcement-news archive, not a court '
+      + 'database, and not automatically a financial-services-register merely because the sector is '
+      + 'financial. Not every page listing sanctions qualifies: there must be a searchable or '
+      + 'structured register, not a narrative announcement.',
+    examples: ['SAM.gov Exclusions (United States)', 'HHS OIG List of Excluded Individuals and Entities'],
+  },
+  {
     id: 'cross-border-registry-interface',
     label: 'Cross-border registry interface',
     definition: 'A supranational or federated access layer that searches across registers held by '

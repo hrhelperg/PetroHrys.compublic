@@ -6,7 +6,7 @@ Every published record must carry a verification status, a source, a date and at
 least one named reviewer; the validator refuses a `verified` record that is
 missing any of them.
 
-**92 records.**
+**96 records.**
 
 | Directory | Country | Status | Source | Last verified | Next due | Reviewer |
 |---|---|---|---|---|---|---|
@@ -43,9 +43,11 @@ missing any of them.
 | RubyGems.org | global | verified | Official website | 2026-08-04 | 2027-05-09 | Petro Hrys |
 | OpenCorporates | global | verified | Official website | 2026-08-04 | 2027-05-25 | Petro Hrys |
 | Patent Public Search | united-states | verified | Official website | 2026-08-04 | 2027-08-27 | Petro Hrys |
+| SAM.gov Exclusions | united-states | verified | Government register | 2026-08-04 | 2027-08-07 | Petro Hrys |
 | USAspending.gov | united-states | verified | Government register | 2026-08-04 | 2027-08-27 | Petro Hrys |
 | Hugging Face | global | verified | Official website | 2026-08-04 | 2027-05-18 | Petro Hrys |
 | Maven Central | global | verified | Official website | 2026-08-04 | 2027-05-28 | Petro Hrys |
+| HHS OIG List of Excluded Individuals and Entities | united-states | verified | Government register | 2026-08-04 | 2027-08-17 | Petro Hrys |
 | NFA BASIC | united-states | verified | Official website | 2026-08-04 | 2027-08-04 | Petro Hrys |
 | Add-ons for Firefox | global | verified | Official website | 2026-08-04 | 2027-02-18 | Petro Hrys |
 | Visual Studio Marketplace | global | verified | Official website | 2026-08-04 | 2027-05-12 | Petro Hrys |
@@ -67,12 +69,14 @@ missing any of them.
 | Investment Adviser Public Disclosure | united-states | verified | Official website | 2026-08-04 | 2027-08-14 | Petro Hrys |
 | Drupal Modules | global | verified | Official website | 2026-08-04 | 2027-05-23 | Petro Hrys |
 | pub.dev | global | verified | Official website | 2026-08-04 | 2027-05-26 | Petro Hrys |
+| CFTC Sanctions in Effect | united-states | verified | Government register | 2026-08-04 | 2027-08-29 | Petro Hrys |
 | Yelp for Business | global | verified | Official website | 2026-08-04 | 2027-05-27 | Petro Hrys |
 | Hex | global | verified | Official website | 2026-08-04 | 2027-05-10 | Petro Hrys |
 | FAA Aircraft Registry | united-states | verified | Government register | 2026-08-04 | 2027-08-07 | Petro Hrys |
 | G2 | global | verified | Official documentation | 2026-08-04 | 2027-05-08 | Petro Hrys |
 | MSHA Mine Data Retrieval System | united-states | verified | Government register | 2026-08-04 | 2027-08-24 | Petro Hrys |
 | TTB List of Permittees | united-states | verified | Government register | 2026-08-04 | 2027-08-17 | Petro Hrys |
+| Drug Establishments Current Registration Site | united-states | verified | Government register | 2026-08-04 | 2027-08-13 | Petro Hrys |
 | HubSpot App Marketplace | global | verified | Official website | 2026-08-04 | 2027-02-26 | Petro Hrys |
 | Open Collective | global | verified | Official website | 2026-08-04 | 2027-05-28 | Petro Hrys |
 | F-Droid | global | verified | Official website | 2026-08-04 | 2027-02-22 | Petro Hrys |

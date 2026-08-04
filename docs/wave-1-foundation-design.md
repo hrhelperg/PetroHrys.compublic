@@ -372,3 +372,60 @@ Unknown and wrongly typed values are captured on the way through the migration,
 before its fixed-key pickers can drop or coerce them, and surfaced to the
 validator through a non-enumerable symbol. Errors are sorted by path, so two
 runs report identically. Nothing invalid is silently repaired.
+
+---
+
+# Wave 1A completion — exclusions and shared official hosts
+
+## The exclusion and debarment type
+
+Three verified federal registers had no honest fit in the 18-type glossary.
+Labelling a debarment list `procurement-supplier-register` states the opposite
+of what it is: a supplier register records who **may** bid, an exclusion
+register records who may not. `exclusion-and-debarment-register` closes that
+gap, with the boundary written against the four types it is most likely to be
+confused with — supplier registers, enforcement-news archives, court databases
+and financial-services registers.
+
+## Shared official hosts
+
+One canonical domain per country is the right default: two records on one host
+are almost always the same service listed twice. A government application host
+breaks that assumption. `accessdata.fda.gov` carries dozens of separate FDA
+databases, and `sam.gov` carries entity registration and exclusions — systems
+with different legal bases and, in SAM's case, different access models (an
+identical unauthenticated probe returns 401 for registrations and 200 for
+exclusions).
+
+`resourceIdentity` makes that exception explicit and evidenced rather than
+hard-coding blessed domains:
+
+| Field | Meaning |
+|---|---|
+| `canonicalDomain` | The normalised hostname. Bare host only — a scheme, path, port, query or `www.` prefix is rejected, and it must match the record's own website |
+| `systemKey` | Stable identifier for the distinct system. **Globally unique**, checked across the whole registry, not per country |
+| `sharedHostGroup` | Names one shared host. Null for an ordinary record |
+
+Sharing a domain is permitted **only** when every record on it declares the same
+group, carries its own systemKey, and points somewhere materially different.
+"Materially different" ignores case, trailing slashes, query strings and
+language segments, so a landing page, a search mode, a language variant or a
+renamed copy still fails.
+
+The check runs in two places. The **loader** throws if a domain repeats without
+both records declaring a group — a structural failure that must stop the build.
+The **validator** then checks that the groups agree, the keys differ and the URLs
+diverge, reporting those as ordinary errors with the conflicting record named.
+
+A group may not span unrelated domains. Without that rule, two genuine
+duplicates could be smuggled past the guard by inventing a group name.
+
+`systemKey` and `sharedHostGroup` are internal. The public page says only:
+*"This registry is a distinct system hosted on the shared accessdata.fda.gov
+platform."* — rendered only on records that actually share a host.
+
+## What this does not relax
+
+Ordinary commercial directories are unaffected. Two records on one host without
+`resourceIdentity` are rejected exactly as before, and a test proves the guard is
+what rejects them by weakening it in memory and confirming the duplicate passes.
