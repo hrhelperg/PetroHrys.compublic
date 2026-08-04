@@ -23,13 +23,20 @@
       "transparency": 9,
       "moderationQuality": 8
     },
-    "domainRating": null,
+    "domainRating": 79,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-04",
+        "status": "historicalSnapshot",
+        "measuredDomain": "opencorporates.com"
+      }
+    },
     "submissionModel": "freemium",
     "registrationRequired": false,
     "reviewSystem": false,
@@ -147,7 +154,9 @@
     "metricsProvenance": {
       "domainRating": {
         "provider": "Ahrefs",
-        "measuredAt": "2026-08-04"
+        "measuredAt": "2026-08-04",
+        "status": "historicalSnapshot",
+        "measuredDomain": "business.trustpilot.com"
       }
     },
     "submissionModel": "freemium",
@@ -261,13 +270,20 @@
       "transparency": 7,
       "moderationQuality": 7
     },
-    "domainRating": null,
+    "domainRating": 94,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-04",
+        "status": "historicalSnapshot",
+        "measuredDomain": "business.yelp.com"
+      }
+    },
     "submissionModel": "freemium",
     "registrationRequired": true,
     "reviewSystem": true,
@@ -382,7 +398,9 @@
     "metricsProvenance": {
       "domainRating": {
         "provider": "Ahrefs",
-        "measuredAt": "2026-08-04"
+        "measuredAt": "2026-08-04",
+        "status": "historicalSnapshot",
+        "measuredDomain": "capterra.com"
       }
     },
     "submissionModel": "unknown",
@@ -503,13 +521,20 @@
       "transparency": 6,
       "moderationQuality": 7
     },
-    "domainRating": null,
+    "domainRating": 87,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-04",
+        "status": "historicalSnapshot",
+        "measuredDomain": "softwareadvice.com"
+      }
+    },
     "submissionModel": "unknown",
     "registrationRequired": true,
     "reviewSystem": true,
@@ -626,13 +651,20 @@
       "transparency": 8,
       "moderationQuality": 6
     },
-    "domainRating": null,
+    "domainRating": 79,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-04",
+        "status": "historicalSnapshot",
+        "measuredDomain": "alternativeto.net"
+      }
+    },
     "submissionModel": "free",
     "registrationRequired": true,
     "reviewSystem": true,
@@ -740,13 +772,20 @@
       "transparency": 7,
       "moderationQuality": 8
     },
-    "domainRating": null,
+    "domainRating": 91,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-04",
+        "status": "historicalSnapshot",
+        "measuredDomain": "clutch.co"
+      }
+    },
     "submissionModel": "unknown",
     "registrationRequired": true,
     "reviewSystem": true,
@@ -852,13 +891,20 @@
       "transparency": 5,
       "moderationQuality": 6
     },
-    "domainRating": null,
+    "domainRating": 90,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-04",
+        "status": "historicalSnapshot",
+        "measuredDomain": "designrush.com"
+      }
+    },
     "submissionModel": "unknown",
     "registrationRequired": true,
     "reviewSystem": true,
@@ -973,7 +1019,9 @@
     "metricsProvenance": {
       "domainRating": {
         "provider": "Ahrefs",
-        "measuredAt": "2026-08-04"
+        "measuredAt": "2026-08-04",
+        "status": "historicalSnapshot",
+        "measuredDomain": "crunchbase.com"
       }
     },
     "submissionModel": "freemium",
@@ -1089,7 +1137,9 @@
     "metricsProvenance": {
       "domainRating": {
         "provider": "Ahrefs",
-        "measuredAt": "2026-08-04"
+        "measuredAt": "2026-08-04",
+        "status": "historicalSnapshot",
+        "measuredDomain": "producthunt.com"
       }
     },
     "submissionModel": "unknown",
@@ -1204,13 +1254,20 @@
       "transparency": 7,
       "moderationQuality": 7
     },
-    "domainRating": null,
+    "domainRating": 87,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-04",
+        "status": "historicalSnapshot",
+        "measuredDomain": "wellfound.com"
+      }
+    },
     "submissionModel": "freemium",
     "registrationRequired": true,
     "reviewSystem": false,
@@ -1315,13 +1372,20 @@
       "transparency": 8,
       "moderationQuality": 9
     },
-    "domainRating": null,
+    "domainRating": 96,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-04",
+        "status": "historicalSnapshot",
+        "measuredDomain": "apps.shopify.com"
+      }
+    },
     "submissionModel": "unknown",
     "registrationRequired": true,
     "reviewSystem": true,
@@ -1428,13 +1492,20 @@
       "transparency": 7,
       "moderationQuality": 9
     },
-    "domainRating": null,
+    "domainRating": 92,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-04",
+        "status": "historicalSnapshot",
+        "measuredDomain": "appexchange.salesforce.com"
+      }
+    },
     "submissionModel": "unknown",
     "registrationRequired": true,
     "reviewSystem": null,
@@ -1540,13 +1611,20 @@
       "transparency": 7,
       "moderationQuality": 8
     },
-    "domainRating": null,
+    "domainRating": 93,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-04",
+        "status": "historicalSnapshot",
+        "measuredDomain": "ecosystem.hubspot.com"
+      }
+    },
     "submissionModel": "unknown",
     "registrationRequired": true,
     "reviewSystem": null,
@@ -1650,13 +1728,20 @@
       "transparency": 8,
       "moderationQuality": 8
     },
-    "domainRating": null,
+    "domainRating": 97,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-04",
+        "status": "historicalSnapshot",
+        "measuredDomain": "github.com"
+      }
+    },
     "submissionModel": "unknown",
     "registrationRequired": true,
     "reviewSystem": null,
@@ -1772,7 +1857,9 @@
     "metricsProvenance": {
       "domainRating": {
         "provider": "Ahrefs",
-        "measuredAt": "2026-08-04"
+        "measuredAt": "2026-08-04",
+        "status": "historicalSnapshot",
+        "measuredDomain": "wordpress.org"
       }
     },
     "submissionModel": "free",
@@ -1879,13 +1966,20 @@
       "transparency": 9,
       "moderationQuality": 9
     },
-    "domainRating": null,
+    "domainRating": 96,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-04",
+        "status": "historicalSnapshot",
+        "measuredDomain": "addons.mozilla.org"
+      }
+    },
     "submissionModel": "unknown",
     "registrationRequired": true,
     "reviewSystem": true,
@@ -1990,13 +2084,20 @@
       "transparency": 9,
       "moderationQuality": 8
     },
-    "domainRating": null,
+    "domainRating": 91,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-04",
+        "status": "historicalSnapshot",
+        "measuredDomain": "pypi.org"
+      }
+    },
     "submissionModel": "free",
     "registrationRequired": true,
     "reviewSystem": false,
@@ -2104,13 +2205,20 @@
       "transparency": 9,
       "moderationQuality": 8
     },
-    "domainRating": null,
+    "domainRating": 87,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-04",
+        "status": "historicalSnapshot",
+        "measuredDomain": "rubygems.org"
+      }
+    },
     "submissionModel": "unknown",
     "registrationRequired": true,
     "reviewSystem": false,
@@ -2215,13 +2323,20 @@
       "transparency": 9,
       "moderationQuality": 8
     },
-    "domainRating": null,
+    "domainRating": 88,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-04",
+        "status": "historicalSnapshot",
+        "measuredDomain": "packagist.org"
+      }
+    },
     "submissionModel": "free",
     "registrationRequired": true,
     "reviewSystem": false,
@@ -2326,13 +2441,20 @@
       "transparency": 9,
       "moderationQuality": 8
     },
-    "domainRating": null,
+    "domainRating": 87,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-04",
+        "status": "historicalSnapshot",
+        "measuredDomain": "crates.io"
+      }
+    },
     "submissionModel": "free",
     "registrationRequired": true,
     "reviewSystem": false,
@@ -2438,13 +2560,20 @@
       "transparency": 8,
       "moderationQuality": 8
     },
-    "domainRating": null,
+    "domainRating": 89,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-04",
+        "status": "historicalSnapshot",
+        "measuredDomain": "nuget.org"
+      }
+    },
     "submissionModel": "free",
     "registrationRequired": true,
     "reviewSystem": false,
@@ -2549,13 +2678,20 @@
       "transparency": 8,
       "moderationQuality": 8
     },
-    "domainRating": null,
+    "domainRating": 86,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-04",
+        "status": "historicalSnapshot",
+        "measuredDomain": "central.sonatype.com"
+      }
+    },
     "submissionModel": "free",
     "registrationRequired": true,
     "reviewSystem": false,
@@ -2660,13 +2796,20 @@
       "transparency": 7,
       "moderationQuality": 8
     },
-    "domainRating": null,
+    "domainRating": 86,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-04",
+        "status": "historicalSnapshot",
+        "measuredDomain": "pub.dev"
+      }
+    },
     "submissionModel": "unknown",
     "registrationRequired": true,
     "reviewSystem": false,
@@ -2772,13 +2915,20 @@
       "transparency": 9,
       "moderationQuality": 8
     },
-    "domainRating": null,
+    "domainRating": 78,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-04",
+        "status": "historicalSnapshot",
+        "measuredDomain": "hex.pm"
+      }
+    },
     "submissionModel": "freemium",
     "registrationRequired": true,
     "reviewSystem": false,
@@ -2884,13 +3034,20 @@
       "transparency": 7,
       "moderationQuality": 7
     },
-    "domainRating": null,
+    "domainRating": 92,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-04",
+        "status": "historicalSnapshot",
+        "measuredDomain": "hub.docker.com"
+      }
+    },
     "submissionModel": "freemium",
     "registrationRequired": true,
     "reviewSystem": null,
@@ -2995,13 +3152,20 @@
       "transparency": 9,
       "moderationQuality": 8
     },
-    "domainRating": null,
+    "domainRating": 83,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-04",
+        "status": "historicalSnapshot",
+        "measuredDomain": "flathub.org"
+      }
+    },
     "submissionModel": "free",
     "registrationRequired": true,
     "reviewSystem": null,
@@ -3107,13 +3271,20 @@
       "transparency": 7,
       "moderationQuality": 8
     },
-    "domainRating": null,
+    "domainRating": 84,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-04",
+        "status": "historicalSnapshot",
+        "measuredDomain": "snapcraft.io"
+      }
+    },
     "submissionModel": "free",
     "registrationRequired": true,
     "reviewSystem": null,
@@ -3217,13 +3388,20 @@
       "transparency": 9,
       "moderationQuality": 8
     },
-    "domainRating": null,
+    "domainRating": 85,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-04",
+        "status": "historicalSnapshot",
+        "measuredDomain": "f-droid.org"
+      }
+    },
     "submissionModel": "free",
     "registrationRequired": true,
     "reviewSystem": null,
@@ -3329,13 +3507,20 @@
       "transparency": 7,
       "moderationQuality": 8
     },
-    "domainRating": null,
+    "domainRating": 92,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-04",
+        "status": "historicalSnapshot",
+        "measuredDomain": "marketplace.visualstudio.com"
+      }
+    },
     "submissionModel": "unknown",
     "registrationRequired": true,
     "reviewSystem": null,
@@ -3438,13 +3623,20 @@
       "transparency": 6,
       "moderationQuality": 7
     },
-    "domainRating": null,
+    "domainRating": 91,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-04",
+        "status": "historicalSnapshot",
+        "measuredDomain": "plugins.jetbrains.com"
+      }
+    },
     "submissionModel": "unknown",
     "registrationRequired": true,
     "reviewSystem": null,
@@ -3546,13 +3738,20 @@
       "transparency": 8,
       "moderationQuality": 9
     },
-    "domainRating": null,
+    "domainRating": 92,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-04",
+        "status": "historicalSnapshot",
+        "measuredDomain": "marketplace.atlassian.com"
+      }
+    },
     "submissionModel": "unknown",
     "registrationRequired": true,
     "reviewSystem": true,
@@ -3659,13 +3858,20 @@
       "transparency": 7,
       "moderationQuality": 7
     },
-    "domainRating": null,
+    "domainRating": 92,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-04",
+        "status": "historicalSnapshot",
+        "measuredDomain": "woocommerce.com"
+      }
+    },
     "submissionModel": "unknown",
     "registrationRequired": true,
     "reviewSystem": null,
@@ -3770,13 +3976,20 @@
       "transparency": 9,
       "moderationQuality": 8
     },
-    "domainRating": null,
+    "domainRating": 91,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-04",
+        "status": "historicalSnapshot",
+        "measuredDomain": "drupal.org"
+      }
+    },
     "submissionModel": "free",
     "registrationRequired": true,
     "reviewSystem": null,
@@ -3881,13 +4094,20 @@
       "transparency": 8,
       "moderationQuality": 7
     },
-    "domainRating": null,
+    "domainRating": 91,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-04",
+        "status": "historicalSnapshot",
+        "measuredDomain": "extensions.joomla.org"
+      }
+    },
     "submissionModel": "unknown",
     "registrationRequired": true,
     "reviewSystem": true,
@@ -3990,13 +4210,20 @@
       "transparency": 7,
       "moderationQuality": 8
     },
-    "domainRating": null,
+    "domainRating": 85,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-04",
+        "status": "historicalSnapshot",
+        "measuredDomain": "getapp.com"
+      }
+    },
     "submissionModel": "unknown",
     "registrationRequired": true,
     "reviewSystem": true,
@@ -4111,13 +4338,20 @@
       "transparency": 8,
       "moderationQuality": 9
     },
-    "domainRating": null,
+    "domainRating": 74,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-04",
+        "status": "historicalSnapshot",
+        "measuredDomain": "peerspot.com"
+      }
+    },
     "submissionModel": "unknown",
     "registrationRequired": true,
     "reviewSystem": true,
@@ -4226,13 +4460,20 @@
       "transparency": 6,
       "moderationQuality": 6
     },
-    "domainRating": null,
+    "domainRating": 87,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-04",
+        "status": "historicalSnapshot",
+        "measuredDomain": "slashdot.org"
+      }
+    },
     "submissionModel": "unknown",
     "registrationRequired": true,
     "reviewSystem": true,
@@ -4335,13 +4576,20 @@
       "transparency": 6,
       "moderationQuality": 6
     },
-    "domainRating": null,
+    "domainRating": 92,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-04",
+        "status": "historicalSnapshot",
+        "measuredDomain": "sourceforge.net"
+      }
+    },
     "submissionModel": "free",
     "registrationRequired": true,
     "reviewSystem": true,
@@ -4445,13 +4693,20 @@
       "transparency": 7,
       "moderationQuality": 6
     },
-    "domainRating": null,
+    "domainRating": 79,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-04",
+        "status": "historicalSnapshot",
+        "measuredDomain": "saashub.com"
+      }
+    },
     "submissionModel": "free",
     "registrationRequired": true,
     "reviewSystem": true,
@@ -4554,13 +4809,20 @@
       "transparency": 6,
       "moderationQuality": 5
     },
-    "domainRating": null,
+    "domainRating": 61,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-04",
+        "status": "historicalSnapshot",
+        "measuredDomain": "libhunt.com"
+      }
+    },
     "submissionModel": "free",
     "registrationRequired": null,
     "reviewSystem": false,
@@ -4664,13 +4926,20 @@
       "transparency": 8,
       "moderationQuality": 7
     },
-    "domainRating": null,
+    "domainRating": 91,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-04",
+        "status": "historicalSnapshot",
+        "measuredDomain": "foursquare.com"
+      }
+    },
     "submissionModel": "unknown",
     "registrationRequired": true,
     "reviewSystem": false,
@@ -4774,13 +5043,20 @@
       "transparency": 8,
       "moderationQuality": 7
     },
-    "domainRating": null,
+    "domainRating": 91,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-04",
+        "status": "historicalSnapshot",
+        "measuredDomain": "huggingface.co"
+      }
+    },
     "submissionModel": "freemium",
     "registrationRequired": true,
     "reviewSystem": false,
@@ -4899,13 +5175,20 @@
       "transparency": 7,
       "moderationQuality": 7
     },
-    "domainRating": null,
+    "domainRating": 90,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-04",
+        "status": "historicalSnapshot",
+        "measuredDomain": "kaggle.com"
+      }
+    },
     "submissionModel": "free",
     "registrationRequired": true,
     "reviewSystem": null,
@@ -5020,13 +5303,20 @@
       "transparency": 6,
       "moderationQuality": 6
     },
-    "domainRating": null,
+    "domainRating": 87,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-04",
+        "status": "historicalSnapshot",
+        "measuredDomain": "ollama.com"
+      }
+    },
     "submissionModel": "unknown",
     "registrationRequired": null,
     "reviewSystem": false,
@@ -5137,13 +5427,20 @@
       "transparency": 10,
       "moderationQuality": 8
     },
-    "domainRating": null,
+    "domainRating": 89,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-04",
+        "status": "historicalSnapshot",
+        "measuredDomain": "opencollective.com"
+      }
+    },
     "submissionModel": "unknown",
     "registrationRequired": true,
     "reviewSystem": false,
@@ -5256,13 +5553,20 @@
       "transparency": 7,
       "moderationQuality": 8
     },
-    "domainRating": null,
+    "domainRating": 81,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-04",
+        "status": "historicalSnapshot",
+        "measuredDomain": "legal500.com"
+      }
+    },
     "submissionModel": "unknown",
     "registrationRequired": true,
     "reviewSystem": false,
@@ -5373,13 +5677,20 @@
       "transparency": 7,
       "moderationQuality": 9
     },
-    "domainRating": null,
+    "domainRating": 82,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-04",
+        "status": "historicalSnapshot",
+        "measuredDomain": "chambers.com"
+      }
+    },
     "submissionModel": "unknown",
     "registrationRequired": true,
     "reviewSystem": false,
@@ -5490,13 +5801,20 @@
       "transparency": 7,
       "moderationQuality": 6
     },
-    "domainRating": null,
+    "domainRating": 92,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-04",
+        "status": "historicalSnapshot",
+        "measuredDomain": "prnewswire.com"
+      }
+    },
     "submissionModel": "paid",
     "registrationRequired": true,
     "reviewSystem": false,

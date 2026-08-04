@@ -23,13 +23,20 @@
       "transparency": 9,
       "moderationQuality": 9
     },
-    "domainRating": null,
+    "domainRating": 90,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-04",
+        "status": "historicalSnapshot",
+        "measuredDomain": "abr.business.gov.au"
+      }
+    },
     "submissionModel": "notApplicable",
     "registrationRequired": true,
     "reviewSystem": false,
@@ -131,13 +138,20 @@
       "transparency": 9,
       "moderationQuality": 9
     },
-    "domainRating": null,
+    "domainRating": 87,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-04",
+        "status": "historicalSnapshot",
+        "measuredDomain": "asic.gov.au"
+      }
+    },
     "submissionModel": "notApplicable",
     "registrationRequired": true,
     "reviewSystem": false,

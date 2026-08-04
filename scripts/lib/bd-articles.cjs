@@ -127,7 +127,15 @@ function metricStatusSentence(D) {
     parts.push(`No measurement source has been consulted for ${joinNames(absent.map((k) => METRIC_LABELS[k]))}, `
       + `so ${absent.length === 1 ? 'it is' : 'they are'} null across the dataset.`);
   }
-  parts.push('None of them is a PetroHrys measurement, and ranking never uses them.');
+  parts.push('None of them is a PetroHrys measurement. Domain Rating and the PetroHrys Score are '
+    + 'ranked separately and are never combined into one number: Domain Rating measures the domain '
+    + 'as Ahrefs sees it on the measurement date, while the PetroHrys Score assesses the '
+    + 'directory\u2019s practical value to a business. A Domain Rating is a dated historical '
+    + 'snapshot that may change, and it does not guarantee a dofollow link, indexing, referral '
+    + 'traffic or any ranking improvement, nor does it show that a particular profile page inherits '
+    + 'the authority of the domain it sits on. The value describes the domain that was measured, '
+    + 'which for a marketplace hosted on a parent domain is that parent domain rather than the '
+    + 'marketplace path.');
   return parts.join(' ');
 }
 

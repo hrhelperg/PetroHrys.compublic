@@ -13,64 +13,64 @@ missing any of them.
 | Companies House Register | united-kingdom | verified | Official website | 2026-08-04 | 2027-08-15 | Petro Hrys |
 | ABN Lookup | australia | verified | Official website | 2026-08-04 | 2027-08-18 | Petro Hrys |
 | Search ASIC registers | australia | verified | Government register | 2026-08-04 | 2027-08-05 | Petro Hrys |
-| Baza Internetowa REGON | poland | verified | Government register | 2026-08-04 | 2027-08-27 | Petro Hrys |
 | L'Annuaire des Entreprises | france | verified | Government register | 2026-08-04 | 2027-08-26 | Petro Hrys |
 | Veřejný rejstřík a Sbírka listin | czech-republic | verified | Official website | 2026-08-04 | 2027-08-29 | Petro Hrys |
+| Baza Internetowa REGON | poland | verified | Government register | 2026-08-04 | 2027-08-27 | Petro Hrys |
 | Bundesanzeiger | germany | verified | Government register | 2026-08-04 | 2027-08-31 | Petro Hrys |
 | Gemeinsames Registerportal der Länder | germany | verified | Official website | 2026-08-04 | 2027-08-10 | Petro Hrys |
 | Registro Imprese | italy | verified | Official website | 2026-08-04 | 2027-08-04 | Petro Hrys |
+| USPTO Trademark Search | united-states | verified | Government register | 2026-08-04 | 2027-08-22 | Petro Hrys |
 | Care Quality Commission | united-kingdom | verified | Government register | 2026-08-04 | 2027-08-08 | Petro Hrys |
 | Institut National de la Propriété Industrielle | france | verified | Government register | 2026-08-04 | 2027-08-24 | Petro Hrys |
-| USPTO Trademark Search | united-states | verified | Government register | 2026-08-04 | 2027-08-22 | Petro Hrys |
-| Colegio de Registradores de España | spain | verified | Government register | 2026-08-04 | 2027-08-08 | Petro Hrys |
-| Python Package Index (PyPI) | global | verified | Official website | 2026-08-04 | 2027-05-29 | Petro Hrys |
-| Search for a Federal Corporation | canada | verified | Government register | 2026-08-04 | 2027-08-20 | Petro Hrys |
 | Shopify App Store | global | verified | Official website | 2026-08-04 | 2027-03-03 | Petro Hrys |
+| Search for a Federal Corporation | canada | verified | Government register | 2026-08-04 | 2027-08-20 | Petro Hrys |
+| Python Package Index (PyPI) | global | verified | Official website | 2026-08-04 | 2027-05-29 | Petro Hrys |
+| Colegio de Registradores de España | spain | verified | Government register | 2026-08-04 | 2027-08-08 | Petro Hrys |
 | WordPress Plugin Directory | global | verified | Official website | 2026-08-04 | 2027-05-29 | Petro Hrys |
-| crates.io | global | verified | Official website | 2026-08-04 | 2027-05-12 | Petro Hrys |
 | GitHub Marketplace | global | verified | Official website | 2026-08-04 | 2027-05-28 | Petro Hrys |
+| crates.io | global | verified | Official website | 2026-08-04 | 2027-05-12 | Petro Hrys |
 | Atlassian Marketplace | global | verified | Official website | 2026-08-04 | 2027-02-09 | Petro Hrys |
+| Salesforce AppExchange (AgentExchange) | global | verified | Official website | 2026-08-04 | 2027-02-05 | Petro Hrys |
 | NuGet Gallery | global | verified | Official website | 2026-08-04 | 2027-05-04 | Petro Hrys |
-| OpenCorporates | global | verified | Official website | 2026-08-04 | 2027-05-25 | Petro Hrys |
 | Packagist.org | global | verified | Official website | 2026-08-04 | 2027-05-20 | Petro Hrys |
 | RubyGems.org | global | verified | Official website | 2026-08-04 | 2027-05-09 | Petro Hrys |
-| Salesforce AppExchange (AgentExchange) | global | verified | Official website | 2026-08-04 | 2027-02-05 | Petro Hrys |
+| OpenCorporates | global | verified | Official website | 2026-08-04 | 2027-05-25 | Petro Hrys |
 | Hugging Face | global | verified | Official website | 2026-08-04 | 2027-05-18 | Petro Hrys |
 | Maven Central | global | verified | Official website | 2026-08-04 | 2027-05-28 | Petro Hrys |
-| Capterra | global | verified | Official website | 2026-08-04 | 2027-05-19 | Petro Hrys |
 | Add-ons for Firefox | global | verified | Official website | 2026-08-04 | 2027-02-18 | Petro Hrys |
-| Chambers and Partners | global | verified | Official website | 2026-08-04 | 2027-05-10 | Petro Hrys |
-| Flathub | global | verified | Official website | 2026-08-04 | 2027-02-21 | Petro Hrys |
 | Visual Studio Marketplace | global | verified | Official website | 2026-08-04 | 2027-05-12 | Petro Hrys |
-| Crunchbase | global | verified | Official website | 2026-08-04 | 2027-05-25 | Petro Hrys |
+| Capterra | global | verified | Official website | 2026-08-04 | 2027-05-19 | Petro Hrys |
+| Flathub | global | verified | Official website | 2026-08-04 | 2027-02-21 | Petro Hrys |
+| Chambers and Partners | global | verified | Official website | 2026-08-04 | 2027-05-10 | Petro Hrys |
 | Docker Hub | global | verified | Official website | 2026-08-04 | 2027-05-31 | Petro Hrys |
+| Crunchbase | global | verified | Official website | 2026-08-04 | 2027-05-25 | Petro Hrys |
 | PeerSpot | global | verified | Official website | 2026-08-04 | 2027-05-25 | Petro Hrys |
 | Clutch | global | verified | Official website | 2026-08-04 | 2027-05-16 | Petro Hrys |
 | The Legal 500 | global | verified | Official website | 2026-08-04 | 2027-05-04 | Petro Hrys |
 | Drupal Modules | global | verified | Official website | 2026-08-04 | 2027-05-23 | Petro Hrys |
 | pub.dev | global | verified | Official website | 2026-08-04 | 2027-05-26 | Petro Hrys |
-| Hex | global | verified | Official website | 2026-08-04 | 2027-05-10 | Petro Hrys |
 | Yelp for Business | global | verified | Official website | 2026-08-04 | 2027-05-27 | Petro Hrys |
-| F-Droid | global | verified | Official website | 2026-08-04 | 2027-02-22 | Petro Hrys |
+| Hex | global | verified | Official website | 2026-08-04 | 2027-05-10 | Petro Hrys |
 | HubSpot App Marketplace | global | verified | Official website | 2026-08-04 | 2027-02-26 | Petro Hrys |
 | Open Collective | global | verified | Official website | 2026-08-04 | 2027-05-28 | Petro Hrys |
+| F-Droid | global | verified | Official website | 2026-08-04 | 2027-02-22 | Petro Hrys |
 | Snap Store | global | verified | Official website | 2026-08-04 | 2027-02-25 | Petro Hrys |
 | Trustpilot | global | verified | Official website | 2026-08-04 | 2027-02-13 | Petro Hrys |
 | GetApp | global | verified | Official website | 2026-08-04 | 2027-05-26 | Petro Hrys |
+| WooCommerce extensions | global | verified | Official website | 2026-08-04 | 2027-02-21 | Petro Hrys |
 | Kaggle Datasets | global | verified | Official website | 2026-08-04 | 2027-05-10 | Petro Hrys |
 | Wellfound | global | verified | Official website | 2026-08-04 | 2027-05-15 | Petro Hrys |
-| WooCommerce extensions | global | verified | Official website | 2026-08-04 | 2027-02-21 | Petro Hrys |
-| Product Hunt | global | verified | Official website | 2026-08-04 | 2027-05-06 | Petro Hrys |
 | Better Business Bureau | united-states | verified | Official website | 2026-08-04 | 2027-02-18 | Petro Hrys |
 | Foursquare Places | global | verified | Official website | 2026-08-04 | 2027-05-25 | Petro Hrys |
 | JetBrains Marketplace | global | verified | Official website | 2026-08-04 | 2027-05-15 | Petro Hrys |
+| Product Hunt | global | verified | Official website | 2026-08-04 | 2027-05-06 | Petro Hrys |
 | Software Advice | global | verified | Official website | 2026-08-04 | 2027-05-27 | Petro Hrys |
-| AlternativeTo | global | verified | Official website | 2026-08-04 | 2027-05-21 | Petro Hrys |
 | Joomla! Extensions Directory | global | verified | Official website | 2026-08-04 | 2027-05-30 | Petro Hrys |
+| AlternativeTo | global | verified | Official website | 2026-08-04 | 2027-05-21 | Petro Hrys |
 | Ollama Library | global | verified | Official website | 2026-08-04 | 2027-05-05 | Petro Hrys |
 | PR Newswire | global | verified | Official website | 2026-08-04 | 2027-02-12 | Petro Hrys |
 | Slashdot Software Directory | global | verified | Official website | 2026-08-04 | 2027-05-17 | Petro Hrys |
-| SaaSHub | global | verified | Official website | 2026-08-04 | 2027-05-08 | Petro Hrys |
 | SourceForge | global | verified | Official website | 2026-08-04 | 2027-05-27 | Petro Hrys |
+| SaaSHub | global | verified | Official website | 2026-08-04 | 2027-05-08 | Petro Hrys |
 | DesignRush | global | verified | Official website | 2026-08-04 | 2027-05-29 | Petro Hrys |
 | LibHunt | global | verified | Official website | 2026-08-04 | 2027-05-21 | Petro Hrys |

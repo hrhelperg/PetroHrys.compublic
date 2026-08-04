@@ -225,7 +225,7 @@ test('A5 no page renders a mis-pluralised count', () => {
 });
 
 test('A6 the hub states the derived scale and names real directories', () => {
-  const hub = ALL.find((p) => p.file.endsWith('business-directories/index.html'));
+  const hub = ALL.find((p) => p.file === path.join('research', 'business-directories', 'index.html'));
   assert.ok(hub, 'the hub is emitted');
   const text = textOf(hub.html);
   assert.ok(text.includes(`${D.length} verified directories`),
@@ -627,5 +627,190 @@ test('no JSON-LD node carries a www URL', () => {
       const data = JSON.parse(m[1]);
       assert.ok(!/https:\/\/www\.petrohrys\.com/.test(JSON.stringify(data)), `${file} JSON-LD carries a www URL`);
     }
+  }
+});
+
+// --- dual ranking: Domain Rating and PetroHrys Score --------------------------
+// The two must stay independent. A blended number would let a high-authority
+// domain launder a weak directory, and would make the editorial score
+// unauditable.
+
+const order = require('../../js/bd-order.js');
+
+test('a Domain Rating never exists without provider, date and snapshot status', () => {
+  for (const record of D) {
+    if (record.domainRating === null || record.domainRating === undefined) continue;
+    const p = (record.metricsProvenance || {}).domainRating;
+    assert.ok(p, `${record.id} has a Domain Rating with no provenance`);
+    assert.ok(S.METRIC_PROVIDERS.includes(p.provider), `${record.id} provider "${p.provider}" is not approved`);
+    assert.ok(/^\d{4}-\d{2}-\d{2}$/.test(p.measuredAt), `${record.id} measuredAt is not an ISO date`);
+    assert.equal(p.status, S.METRIC_SNAPSHOT_STATUS, `${record.id} is not labelled a historical snapshot`);
+    assert.ok(p.measuredDomain, `${record.id} does not record which domain was measured`);
+    assert.ok(Number.isInteger(record.domainRating), `${record.id} Domain Rating is not an integer`);
+    assert.ok(record.domainRating >= S.DOMAIN_RATING_RANGE.min
+      && record.domainRating <= S.DOMAIN_RATING_RANGE.max, `${record.id} Domain Rating out of range`);
+  }
+});
+
+test('an unmeasured Domain Rating is null, never 0', () => {
+  for (const record of D) {
+    assert.notEqual(record.domainRating, 0,
+      `${record.id} stores 0 — an unmeasured metric must be null, not a floor value`);
+  }
+  // And the renderer must not print 0 for a null either.
+  const html = c.metric(null, undefined, 'unknown');
+  assert.ok(!/>0</.test(html), 'a null metric rendered as 0');
+});
+
+test('Domain Rating is not part of the PetroHrys Score arithmetic', () => {
+  const factorKeys = S.SCORE_FACTORS.map((f) => f.key);
+  assert.ok(!factorKeys.some((k) => /domain|rating|authority|ahrefs/i.test(k)),
+    'a score factor is named after a third-party metric');
+  for (const record of D) {
+    if (!record.scoreFactors) continue;
+    // Recompute from factors alone; the stored score must match without DR.
+    assert.equal(S.computeScore(record.scoreFactors), record.petroHrysScore,
+      `${record.id} score does not reproduce from its factors alone`);
+    // Changing DR must not change the score.
+    const moved = { ...record, domainRating: 1 };
+    assert.equal(S.computeScore(moved.scoreFactors), record.petroHrysScore,
+      `${record.id} score responds to Domain Rating`);
+  }
+});
+
+test('DR sorting places nulls last and tiebreaks on score', () => {
+  const sample = [
+    { name: 'A', domainRating: 90, petroHrysScore: 70 },
+    { name: 'B', domainRating: 90, petroHrysScore: 85 },
+    { name: 'C', domainRating: null, petroHrysScore: 99 },
+    { name: 'D', domainRating: 95, petroHrysScore: 50 },
+  ];
+  const byDr = order.sortRecords(sample.slice(), 'domain-rating').map((r) => r.name);
+  assert.deepEqual(byDr, ['D', 'B', 'A', 'C'], 'DR desc, score tiebreak, null last');
+  const byScore = order.sortRecords(sample.slice(), 'default').map((r) => r.name);
+  assert.deepEqual(byScore, ['C', 'B', 'A', 'D'], 'score desc, DR tiebreak');
+  // A null-DR record is ordered last, never dropped.
+  assert.equal(order.sortRecords(sample.slice(), 'domain-rating').length, sample.length);
+});
+
+test('server and client ordering come from one implementation', () => {
+  const sort = require('../lib/bd-sort.cjs');
+  assert.equal(sort.SORTS, order.SORTS, 'the server must not hold its own comparator table');
+  const sample = D.slice(0, 20);
+  for (const key of order.SORT_KEYS) {
+    assert.deepEqual(
+      sort.sortDirectories(sample.slice(), key).map((r) => r.id),
+      order.sortRecords(sample.slice(), key).map((r) => r.id),
+      `server and client disagree on "${key}"`,
+    );
+  }
+});
+
+test('domain normalisation is deterministic and rejects nonsense', () => {
+  const cases = [
+    ['https://www.g2.com/', 'g2.com'],
+    ['g2.com', 'g2.com'],
+    ['HTTPS://G2.COM/products/x', 'g2.com'],
+    ['https://appsource.microsoft.com/en-us/', 'appsource.microsoft.com'],
+    ['wordpress.org/plugins/', 'wordpress.org'],
+    ['not a domain', null],
+    ['', null],
+    [null, null],
+    ['https://localhost', null],
+  ];
+  for (const [input, expected] of cases) {
+    assert.equal(S.normaliseDomain(input), expected, `normaliseDomain(${JSON.stringify(input)})`);
+    assert.equal(S.normaliseDomain(input), S.normaliseDomain(input), 'not deterministic');
+  }
+});
+
+test('no two records share a measured domain without it being visible', () => {
+  const seen = new Map();
+  for (const record of D) {
+    const domain = S.normaliseDomain(record.website);
+    if (!domain) continue;
+    if (seen.has(domain)) {
+      // Allowed, but both must then carry the same measurement — one domain has
+      // one rating, and showing two different numbers for it would be incoherent.
+      const other = D.find((r) => r.id === seen.get(domain));
+      assert.equal(record.domainRating, other.domainRating,
+        `${record.id} and ${other.id} share ${domain} but report different Domain Ratings`);
+    }
+    seen.set(domain, record.id);
+  }
+});
+
+test('every rendered Domain Rating names its provider and date', () => {
+  for (const { file, html } of ALL) {
+    for (const m of html.matchAll(/data-bd-label="Domain Rating">([\s\S]*?)<\/td>/g)) {
+      const cell = m[1];
+      if (/bd-metric--empty/.test(cell)) continue; // unmeasured, correctly neutral
+      assert.ok(/Ahrefs snapshot, measured/.test(cell), `${file} shows a Domain Rating without provider`);
+      assert.ok(/<time datetime="\d{4}-\d{2}-\d{2}"/.test(cell), `${file} shows a Domain Rating without a date`);
+    }
+  }
+});
+
+test('no page claims a Domain Rating brings ranking or SEO benefit', () => {
+  const BANNED = [
+    /domain rating[^.]{0,80}(improve|boost|increase)[^.]{0,40}rank/i,
+    /domain rating[^.]{0,60}google (ranking|trust)/i,
+    /petrohrys score[^.]{0,40}(domain authority|seo authority|backlink value)/i,
+    // Only a positive claim. "does not guarantee ..." is the disclaimer we require.
+    /(?<!not )(?<!never )guarantees?\s+(a\s+)?(dofollow|indexing|ranking improvement)/i,
+  ];
+  for (const { file, html } of ALL) {
+    const text = textOf(html);
+    for (const pattern of BANNED) {
+      assert.ok(!pattern.test(text), `${file} makes an unsupported SEO claim: ${pattern}`);
+    }
+  }
+});
+
+test('the Ahrefs attribution appears wherever a Domain Rating is shown', () => {
+  for (const { file, html } of ALL) {
+    if (!/data-bd-label="Domain Rating"/.test(html)) continue;
+    if (!/Ahrefs snapshot, measured/.test(html)) continue;
+    // The literal is pinned, not read from the constant: asserting against the
+    // same value the renderer uses would pass even if the constant were emptied.
+    assert.equal(S.AHREFS_ATTRIBUTION.text, 'Domain Rating by Ahrefs');
+    assert.equal(S.AHREFS_ATTRIBUTION.href, 'https://ahrefs.com/');
+    assert.ok(html.includes('Domain Rating by Ahrefs'),
+      `${file} displays a Domain Rating without the required Ahrefs attribution`);
+    assert.ok(html.includes('https://ahrefs.com/'), `${file} attribution is not linked`);
+  }
+});
+
+test('ranking views claim no quantity the dataset does not support', () => {
+  const hub = ALL.find((p) => p.file === path.join('research', 'business-directories', 'index.html'));
+  const text = textOf(hub.html);
+  assert.ok(!/Top\s+\d+/.test(text), 'the hub claims a fixed "Top N"');
+  const measured = D.filter((r) => r.domainRating !== null && r.domainRating !== undefined).length;
+  assert.ok(text.includes(`${measured} of ${D.length} records carry a measurement`),
+    'the authority view does not state how much of the dataset is measured');
+});
+
+test('the measurement utility never runs during a build', () => {
+  const build = fs.readFileSync(path.join(ROOT, 'scripts', 'build-business-directories.cjs'), 'utf8');
+  assert.ok(!/measure-business-directory-dr/.test(build), 'the build references the measurement utility');
+  for (const lib of ['bd-seo.cjs', 'bd-components.cjs', 'bd-articles.cjs', 'bd-feeds.cjs', 'bd-render.cjs']) {
+    const src = fs.readFileSync(path.join(ROOT, 'scripts', 'lib', lib), 'utf8');
+    assert.ok(!/fetch\(|api\.ahrefs\.com/.test(src), `${lib} performs a network call during generation`);
+  }
+});
+
+test('the measurement utility never stores or prints a credential', () => {
+  const src = fs.readFileSync(path.join(ROOT, 'scripts', 'measure-business-directory-dr.cjs'), 'utf8');
+  assert.ok(src.includes('AHREFS_API_KEY'), 'the key variable is not referenced');
+  // The key may be read and sent, but never logged or written.
+  // Reporting that a key is PRESENT is required; emitting its value is not.
+  const emitsValue = /(console\.log|process\.(stdout|stderr)\.write)\([^)]*\$\{apiKey\}/;
+  assert.ok(!emitsValue.test(src), 'the key value could be printed');
+  assert.ok(!/writeFileSync\([^)]*apiKey/i.test(src), 'the key could be written to disk');
+  assert.ok(!/apiKey[^;]{0,40}JSON\.stringify/.test(src), 'the key could be serialised');
+  assert.ok(/apiKey \? 'present' : 'absent'/.test(src), 'presence should be reported without the value');
+  // And no record may carry anything resembling one.
+  for (const record of D) {
+    assert.ok(!/AHREFS_API_KEY|Bearer /.test(JSON.stringify(record)), `${record.id} contains credential-like text`);
   }
 });

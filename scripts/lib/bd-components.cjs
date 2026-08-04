@@ -134,8 +134,10 @@ function metric(value, provenance, status) {
   }
   const shown = escapeHtml(value);
   if (provenance && provenance.provider && provenance.measuredAt) {
+    // "snapshot" is load-bearing: this site is generated offline and never reads
+    // the provider at request time, so the number is always historical.
     return `<span class="bd-metric">${shown}<span class="bd-metric-source">`
-      + `${escapeHtml(provenance.provider)}, measured `
+      + `${escapeHtml(provenance.provider)} snapshot, measured `
       + `<time datetime="${escapeHtml(provenance.measuredAt)}">${escapeHtml(provenance.measuredAt)}</time>`
       + `</span></span>`;
   }
@@ -198,18 +200,26 @@ function metricNote(active) {
   };
 
   const parts = [];
+  // The distinction the whole two-ranking model rests on. Stated wherever either
+  // number appears, so neither can be read as the other.
+  parts.push('Domain Rating is a dated Ahrefs snapshot of domain authority. '
+    + 'PetroHrys Score is an independent editorial assessment of the directory\u2019s '
+    + 'practical business value. They are separate measurements and are never combined.');
   if (shown.length) {
     parts.push(`${names(shown)} ${shown.length === 1 ? 'is a third-party metric' : 'are third-party metrics'} `
       + 'produced by their respective providers, not by PetroHrys.com. Each recorded value carries '
-      + 'its provider and the date it was measured.');
+      + 'its provider and the date it was measured, and describes the domain that was measured '
+      + 'rather than one page on it.');
   }
   if (absent.length) {
     parts.push(`No source has been consulted for ${names(absent).toLowerCase()}, so ${absent.length === 1
       ? 'it is'
       : 'they are'} not published for any record.`);
   }
-  parts.push('The PetroHrys Score is a first-party editorial assessment.');
-  return `      <p class="bd-note">${escapeHtml(parts.join(' '))}</p>`;
+  const attribution = `      <p class="bd-note"><a href="${escapeHtml(S.AHREFS_ATTRIBUTION.href)}" `
+    + `rel="${REL_EXTERNAL}" target="_blank">${escapeHtml(S.AHREFS_ATTRIBUTION.text)}`
+    + `${vh(' (opens in a new tab)')}</a></p>`;
+  return `      <p class="bd-note">${escapeHtml(parts.join(' '))}</p>\n${attribution}`;
 }
 
 // ---------------------------------------------------------------------------
@@ -459,11 +469,13 @@ function numAttr(value) {
 // only when at least one row in THIS set carries a value for it — a column of
 // nothing but em dashes tells the reader less than no column at all, and makes
 // the two columns that do carry data harder to read.
+// Domain Rating and PetroHrys Score sit beside each other because they answer
+// different questions and must never be read as one blended number: DR is a
+// dated third-party measurement of the DOMAIN, the score is a first-party
+// editorial assessment of the DIRECTORY.
 const TABLE_METRIC_COLUMNS = [
-  { field: 'petroHrysScore', label: 'PetroHrys Score', always: true },
   { field: 'domainRating', label: 'Domain Rating' },
-  { field: 'authorityScore', label: 'Authority Score' },
-  { field: 'estimatedTraffic', label: 'Estimated traffic' },
+  { field: 'petroHrysScore', label: 'PetroHrys Score', always: true },
 ];
 
 function tableColumnsFor(directories) {
@@ -501,13 +513,16 @@ ${cells}
 
 // Server order always comes from bd-sort, so the table is correct before any
 // JavaScript runs. No row cap and no pagination logic lives here.
-function directoryTable({ directories, caption = 'Directories', columns }) {
+function directoryTable({ directories, caption = 'Directories', columns, sortKey = 'default' }) {
   if (!Array.isArray(directories) || directories.length === 0) {
     return emptyState('No directories are published here yet.');
   }
   const cols = Array.isArray(columns) ? columns : tableColumnsFor(directories);
   const shown = new Set(cols);
-  const rows = sortDirectories(directories).map((d) => directoryRow(d, cols)).join('\n');
+  // Sorting happens HERE, from the shared comparator, so the server order is
+  // always a comparator result and never an accident of the caller's array.
+  // A caller that pre-sorts must pass the matching key or it will be re-sorted.
+  const rows = sortDirectories(directories, sortKey).map((d) => directoryRow(d, cols)).join('\n');
   const heads = TABLE_METRIC_COLUMNS
     .filter((col) => shown.has(col.field))
     .map((col) => `            <th class="bd-cell" scope="col">${escapeHtml(col.label)}</th>`)
