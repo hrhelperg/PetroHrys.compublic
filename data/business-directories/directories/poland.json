@@ -10,6 +10,28 @@
     "description": "Polish national business entity register operated by the Central Statistical Office, holding REGON, NIP and KRS identifiers.",
     "tier": "tier1",
     "scope": "national",
+    "nativeName": "Baza Internetowa REGON",
+    "primaryRegistryType": "business-entity-register",
+    "registryTypes": [
+      "business-entity-register",
+      "corporate-number-database"
+    ],
+    "operator": {
+      "name": "Główny Urząd Statystyczny (Central Statistical Office)",
+      "type": "government-agency",
+      "officialUrl": null
+    },
+    "publicAccess": {
+      "searchUrl": null,
+      "accessLevel": "unknown",
+      "freeToSearch": true,
+      "loginRequired": null,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "Record states: free public access and an API. The overall access posture is not established, so the level stays unknown."
+    },
     "petroHrysScore": 91,
     "scoreFactors": {
       "editorialTrust": 10,
@@ -133,6 +155,29 @@
     "description": "Polish register of sole traders and the self-employed, supervised by the Ministry of Development and Technology, offering a free public search that returns entrepreneur records and downloadable certificates.",
     "tier": "tier1",
     "scope": "national",
+    "nativeName": "Centralna Ewidencja i Informacja o Działalności Gospodarczej",
+    "englishName": "Central Registration and Information on Economic Activity",
+    "englishNameSource": "official",
+    "primaryRegistryType": "sole-trader-register",
+    "registryTypes": [
+      "sole-trader-register"
+    ],
+    "operator": {
+      "name": "Ministry of Development and Technology (supervising authority)",
+      "type": "ministry",
+      "officialUrl": null
+    },
+    "publicAccess": {
+      "searchUrl": null,
+      "accessLevel": "unknown",
+      "freeToSearch": true,
+      "loginRequired": null,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "Record states: free public search that issues downloadable certificates. The overall access posture is not established, so the level stays unknown."
+    },
     "petroHrysScore": 90,
     "scoreFactors": {
       "editorialTrust": 10,

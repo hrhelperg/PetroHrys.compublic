@@ -180,6 +180,121 @@ function computeScore(factors) {
   return Math.round(total / 10);
 }
 
+// --- Wave 1 foundation: geography, jurisdiction, names, registry type -------
+// Added for the government & statutory registries wave. Every field below is
+// nullable and normalised in memory by bd-migrate, so the 72 records written
+// before this wave keep their bytes and their rendered output unchanged.
+
+// A geographic registry entry is either a sovereign country or an authority
+// above several of them. The distinction is explicit because the EU is stored
+// in the same file for routing convenience and must never be *presented* as a
+// country — not in prose, breadcrumbs or structured data.
+const ENTITY_TYPES = ['country', 'supranational'];
+
+// Scope answers "how far does this system's authority reach", which is not the
+// same question as "where is it filed". `subnational` and `regional` are the
+// pair most easily confused, so both carry a definition and a test.
+const SCOPES = ['global', 'supranational', 'national', 'subnational', 'regional'];
+const SCOPE_DEFINITIONS = {
+  global: 'Worldwide or broadly international scope.',
+  supranational: 'An authority or system above multiple sovereign states.',
+  national: 'One sovereign state.',
+  subnational: 'An administrative jurisdiction within a state.',
+  regional: 'A multi-country or functional region that is not a subnational jurisdiction.',
+};
+
+const JURISDICTION_TYPES = ['state', 'province', 'territory', 'federal-district',
+  'region', 'autonomous-community', 'prefecture', 'municipality'];
+
+// ISO 3166-2: two-letter country, hyphen, 1-3 alphanumerics.
+const ISO_3166_2_RE = /^[A-Z]{2}-[A-Z0-9]{1,3}$/;
+
+// --- names ------------------------------------------------------------------
+// Four fields, ONE resolver. Overlapping name fields are only safe if exactly
+// one function decides what a reader sees, so `displayName` is the single
+// answer and every renderer goes through it.
+//
+// `officialName` normalises to `name` for records written before this wave, so
+// the resolver returns the same string it always did and their pages do not
+// change by a byte.
+const ENGLISH_NAME_SOURCES = ['official', 'editorial-translation'];
+
+function displayName(record) {
+  if (!record) return '';
+  return record.englishName || record.officialName || record.nativeName || record.name || '';
+}
+
+// True when the English title shown is our translation rather than a name the
+// operator publishes. Pages must say so: presenting an editorial rendering as
+// the institution's own name misattributes it.
+function isEditorialTranslation(record) {
+  return !!record
+    && !!record.englishName
+    && record.englishNameSource === 'editorial-translation';
+}
+
+// --- registry classification ------------------------------------------------
+// A registry may genuinely perform several official functions; flattening it to
+// one would misdescribe it. `primaryRegistryType` is what it is chiefly for,
+// and must also appear in `registryTypes`.
+const REGISTRY_TYPES = [
+  'company-register', 'business-entity-register', 'sole-trader-register',
+  'beneficial-ownership-register', 'securities-filing-database',
+  'financial-services-register', 'professional-licence-register', 'charity-register',
+  'procurement-supplier-register', 'tax-verification-system', 'corporate-number-database',
+  'trademark-register', 'patent-register', 'insolvency-register',
+  'regulated-operator-register', 'contractor-accreditation-register',
+  'public-filing-database', 'cross-border-registry-interface',
+];
+
+// --- operator ---------------------------------------------------------------
+const OPERATOR_TYPES = ['government-agency', 'regulator', 'court', 'public-law-body',
+  'supranational-institution', 'ministry', 'local-authority', 'other'];
+
+// --- public access ----------------------------------------------------------
+// accessLevel is recorded, never derived: absent booleans mean "not
+// established", and inferring "open" from silence would manufacture a claim
+// about accessibility that no source made.
+const ACCESS_LEVELS = ['open', 'partially-open', 'login-required',
+  'identity-verification-required', 'restricted', 'unknown'];
+
+const PUBLIC_ACCESS_BOOLEANS = ['freeToSearch', 'loginRequired', 'identityVerificationRequired',
+  'captcha', 'geographicRestriction', 'paidDocumentsAvailable'];
+
+// Returns the reasons an access block contradicts itself. A stated level and a
+// stated boolean disagreeing means one of them is wrong, and publishing either
+// would tell a reader something untrue about whether they can use the register.
+function accessContradictions(access) {
+  if (!access || typeof access !== 'object') return [];
+  const out = [];
+  const { accessLevel: level } = access;
+  if (level === 'open') {
+    if (access.loginRequired === true) out.push('accessLevel "open" with loginRequired true');
+    if (access.identityVerificationRequired === true) {
+      out.push('accessLevel "open" with identityVerificationRequired true');
+    }
+    if (access.freeToSearch === false) out.push('accessLevel "open" with freeToSearch false');
+    if (access.geographicRestriction === true) {
+      out.push('accessLevel "open" with geographicRestriction true');
+    }
+  }
+  if (level === 'login-required' && access.loginRequired === false) {
+    out.push('accessLevel "login-required" with loginRequired false');
+  }
+  if (level === 'identity-verification-required' && access.identityVerificationRequired === false) {
+    out.push('accessLevel "identity-verification-required" with identityVerificationRequired false');
+  }
+  if (level === 'restricted' && access.loginRequired === false
+    && access.identityVerificationRequired === false && access.geographicRestriction === false) {
+    out.push('accessLevel "restricted" with every restriction flag false');
+  }
+  // Note what is NOT a contradiction: accessLevel "unknown" alongside an
+  // established boolean. Knowing a register is free to search says nothing
+  // about whether it also demands a login, and requiring a level to be asserted
+  // would force exactly the inference this model exists to prevent.
+  return out;
+}
+
 // --- required shape ---------------------------------------------------------
 
 const REQUIRED_STRINGS = ['id', 'name', 'slug', 'country', 'category', 'website', 'description'];
@@ -299,7 +414,35 @@ function nextVerificationFor(record) {
   return shifted.toISOString().slice(0, 10);
 }
 
+// --- the canonical record key set -------------------------------------------
+// Every key a normalised record may carry. The validator rejects anything else,
+// so a typo or an improvised per-country field fails loudly instead of being
+// silently dropped by the migration. A test asserts this list matches exactly
+// what bd-migrate emits, so the two cannot drift apart.
+const KNOWN_RECORD_KEYS = [
+  'id', 'name', 'slug', 'country', 'category', 'website', 'submissionUrl', 'description',
+  'tier', 'scope',
+  'officialName', 'nativeName', 'englishName', 'englishNameSource',
+  'jurisdiction',
+  'primaryRegistryType', 'registryTypes',
+  'operator', 'publicAccess',
+  'petroHrysScore', 'scoreFactors',
+  'domainRating', 'authorityScore', 'estimatedTraffic', 'referringDomains', 'httpStatus',
+  'metricStatus', 'metricsProvenance',
+  'submissionModel', 'registrationRequired', 'reviewSystem', 'verificationRequired',
+  'manualReview', 'accepts',
+  'backlinkType', 'robots', 'sitemap', 'indexed', 'ssl',
+  'lastVerified', 'nextVerification', 'verification', 'related',
+  'bestFor', 'notRecommendedFor', 'submissionDifficulty', 'listingQuality',
+  'typicalApprovalTime', 'reviewProcess', 'commonMistakes', 'preparationChecklist',
+  'requiredAssets', 'recommendedIndustries', 'editorialTags', 'pros', 'cons', 'editorNotes',
+];
+
 module.exports = {
+  ENTITY_TYPES, SCOPES, SCOPE_DEFINITIONS, JURISDICTION_TYPES, ISO_3166_2_RE,
+  ENGLISH_NAME_SOURCES, displayName, isEditorialTranslation,
+  REGISTRY_TYPES, OPERATOR_TYPES, ACCESS_LEVELS, PUBLIC_ACCESS_BOOLEANS, accessContradictions,
+  KNOWN_RECORD_KEYS,
   TIERS, BACKLINK_TYPES, ROBOTS_STATES, SUBMISSION_MODELS, METRIC_STATUSES,
   SUBMISSION_MODEL_LABELS, SUBMISSION_NOT_APPLICABLE_NOTE, SUBMITTABLE_MODELS,
   METRIC_SNAPSHOT_STATUS, METRIC_PROVIDERS, DOMAIN_RATING_RANGE, AHREFS_ATTRIBUTION,

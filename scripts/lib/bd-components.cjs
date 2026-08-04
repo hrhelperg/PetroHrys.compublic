@@ -2,7 +2,7 @@
 'use strict';
 const { escapeHtml } = require('./bd-util.cjs');
 const { safeExternalUrl } = require('./bd-seo.cjs');
-const { sortDirectories, SORTS, SORT_KEYS } = require('./bd-sort.cjs');
+const { sortDirectories, SORTS, SORT_KEYS, compareByName } = require('./bd-sort.cjs');
 const { directoryPathFor } = require('./bd-routes.cjs');
 const S = require('./bd-schema.cjs');
 
@@ -462,10 +462,22 @@ ${options}
 // ---------------------------------------------------------------------------
 
 function haystack(directory) {
-  return [directory.name, directory.description, ...(directory.recommendedIndustries || [])]
-    .filter((part) => typeof part === 'string')
-    .join(' ')
-    .toLowerCase();
+  // Every name a reader might type: the displayed one plus the native and
+  // official forms, so a Japanese or Chinese register is findable in either
+  // script. Deduplicated case-insensitively — for a record whose officialName
+  // simply mirrors its name, repeating the string would change the search index
+  // without adding a term.
+  const parts = [S.displayName(directory), directory.nativeName, directory.officialName,
+    directory.description, ...(directory.recommendedIndustries || [])]
+    .filter((part) => typeof part === 'string' && part.length);
+  const seen = new Set();
+  const unique = parts.filter((part) => {
+    const key = part.toLowerCase();
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+  return unique.join(' ').toLowerCase();
 }
 
 function numAttr(value) {
@@ -499,12 +511,19 @@ function directoryRow(directory, columns) {
   const provenance = directory.metricsProvenance || {};
   const shown = Array.isArray(columns) ? new Set(columns) : null;
   const attrs = [
-    `data-bd-name="${escapeHtml(String(directory.name || ''))}"`,
+    `data-bd-name="${escapeHtml(String(S.displayName(directory) || ''))}"`,
     `data-bd-haystack="${escapeHtml(haystack(directory))}"`,
     `data-bd-score="${escapeHtml(numAttr(directory.petroHrysScore))}"`,
     `data-bd-dr="${escapeHtml(numAttr(directory.domainRating))}"`,
     `data-bd-as="${escapeHtml(numAttr(directory.authorityScore))}"`,
     `data-bd-traffic="${escapeHtml(numAttr(directory.estimatedTraffic))}"`,
+    // Emitted only for a record that HAS a jurisdiction. A national record adds
+    // no attribute at all, so pages that predate subnational coverage keep
+    // their exact markup.
+    ...(directory.jurisdiction
+      ? [`data-bd-jurisdiction="${escapeHtml(String(directory.jurisdiction.name || ''))}"`,
+        `data-bd-jurisdiction-code="${escapeHtml(String(directory.jurisdiction.code || ''))}"`]
+      : []),
     ...FILTERS.map((f) => `${dataKey(f.field)}="${filterAttr(directory, f.field)}"`),
   ].join(' ');
   const cells = TABLE_METRIC_COLUMNS
@@ -513,9 +532,75 @@ function directoryRow(directory, columns) {
       + `${metric(directory[col.field], provenance[col.field], undefined, col.emptyLabel)}</td>`)
     .join('\n');
   return `          <tr class="bd-row" ${attrs}>
-            <th class="bd-cell" scope="row" data-bd-label="Directory"><a href="${escapeHtml(directoryPathFor(directory))}">${escapeHtml(directory.name)}</a></th>
+            <th class="bd-cell" scope="row" data-bd-label="Directory"><a href="${escapeHtml(directoryPathFor(directory))}">${escapeHtml(S.displayName(directory))}</a></th>
 ${cells}
           </tr>`;
+}
+
+// ---------------------------------------------------------------------------
+// Jurisdiction grouping
+// ---------------------------------------------------------------------------
+// A country whose records are all national renders exactly as it always has:
+// grouping returns null and the caller emits one table. It switches on only
+// when the country actually holds subnational records, so no page ever shows an
+// empty "States" heading for coverage that does not exist.
+//
+// Order is fixed and content-independent — federal instruments first because
+// they apply everywhere, then states A-Z, then the federal district, then
+// territories — so two builds of the same data agree.
+
+const JURISDICTION_GROUPS = [
+  { key: 'federal', label: 'Federal', match: (d) => !d.jurisdiction },
+  { key: 'states', label: 'States', match: (d) => d.jurisdiction && d.jurisdiction.type === 'state' },
+  { key: 'provinces', label: 'Provinces', match: (d) => d.jurisdiction && d.jurisdiction.type === 'province' },
+  {
+    key: 'federal-district',
+    label: 'Federal district',
+    match: (d) => d.jurisdiction && d.jurisdiction.type === 'federal-district',
+  },
+  { key: 'territories', label: 'Territories', match: (d) => d.jurisdiction && d.jurisdiction.type === 'territory' },
+  {
+    key: 'other-jurisdictions',
+    label: 'Other jurisdictions',
+    match: (d) => d.jurisdiction
+      && !['state', 'province', 'federal-district', 'territory'].includes(d.jurisdiction.type),
+  },
+];
+
+// Within a group, order by jurisdiction name so a reader scans A-Z, then fall
+// back to the shared name comparator for two registries in one jurisdiction.
+function byJurisdictionThenName(a, b) {
+  const an = (a.jurisdiction && a.jurisdiction.name) || '';
+  const bn = (b.jurisdiction && b.jurisdiction.name) || '';
+  if (an < bn) return -1;
+  if (an > bn) return 1;
+  return compareByName(a, b);
+}
+
+// Returns null when the country has no subnational record — the signal to the
+// caller that nothing needs grouping.
+function jurisdictionGroups(entries) {
+  const list = Array.isArray(entries) ? entries : [];
+  if (!list.some((d) => d && d.jurisdiction)) return null;
+  return JURISDICTION_GROUPS
+    .map((group) => {
+      const items = [...list.filter(group.match)].sort(byJurisdictionThenName);
+      return { key: group.key, label: group.label, items, count: items.length };
+    })
+    .filter((group) => group.count > 0);
+}
+
+// One control per group present. Counts are derived, never written down twice.
+function jurisdictionFilter(groups, { idPrefix = 'jurisdiction' } = {}) {
+  if (!groups || groups.length < 2) return '';
+  const options = groups.map((g) => `        <li><a class="bd-jfilter-link" `
+    + `href="#${escapeHtml(`${idPrefix}-${g.key}`)}" data-bd-jurisdiction-filter="${escapeHtml(g.key)}">`
+    + `${escapeHtml(g.label)} <span class="bd-jfilter-count">${g.count}</span></a></li>`).join('\n');
+  return `      <nav class="bd-jfilter" aria-label="Jump to jurisdiction">
+      <ul class="bd-jfilter-list">
+${options}
+      </ul>
+      </nav>`;
 }
 
 // Server order always comes from bd-sort, so the table is correct before any
@@ -557,7 +642,7 @@ ${rows}
 function directoryCard({ directory, headingLevel = 3 }) {
   const h = headingTag(headingLevel);
   return `      <article class="bd-summary">
-        <${h} class="bd-card-title"><a href="${escapeHtml(directoryPathFor(directory))}">${escapeHtml(directory.name)}</a></${h}>
+        <${h} class="bd-card-title"><a href="${escapeHtml(directoryPathFor(directory))}">${escapeHtml(S.displayName(directory))}</a></${h}>
         <p class="bd-card-body">${escapeHtml(directory.description)}</p>
 ${statusBadges(directory)}
       </article>`;
@@ -915,5 +1000,6 @@ module.exports = {
   relatedDirectories, submissionLink, editorialGuidance,
   methodologyNote, provenanceBlock, externalLinkCta,
   activeMetricFields, activeGuidanceFields, tableColumnsFor, countLabel,
+  jurisdictionGroups, jurisdictionFilter, byJurisdictionThenName, JURISDICTION_GROUPS,
   FILTERS, VERIFICATION_NOTE, REL_EXTERNAL, FILTER_DISCLOSURE,
 };

@@ -127,6 +127,26 @@
     "description": "Federal trademark database of United States registrations and applications, searchable free of charge.",
     "tier": "tier1",
     "scope": "national",
+    "primaryRegistryType": "trademark-register",
+    "registryTypes": [
+      "trademark-register"
+    ],
+    "operator": {
+      "name": "United States Patent and Trademark Office",
+      "type": "government-agency",
+      "officialUrl": null
+    },
+    "publicAccess": {
+      "searchUrl": null,
+      "accessLevel": "open",
+      "freeToSearch": true,
+      "loginRequired": false,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "Record states: free to search, no account required."
+    },
     "petroHrysScore": 89,
     "scoreFactors": {
       "editorialTrust": 10,
@@ -250,6 +270,27 @@
     "description": "Public filing system operated by the US Securities and Exchange Commission, holding registration statements, prospectuses and the periodic reports filed by companies that carry a federal disclosure obligation.",
     "tier": "tier1",
     "scope": "national",
+    "primaryRegistryType": "securities-filing-database",
+    "registryTypes": [
+      "securities-filing-database",
+      "public-filing-database"
+    ],
+    "operator": {
+      "name": "U.S. Securities and Exchange Commission",
+      "type": "regulator",
+      "officialUrl": null
+    },
+    "publicAccess": {
+      "searchUrl": null,
+      "accessLevel": "unknown",
+      "freeToSearch": true,
+      "loginRequired": null,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "investor.gov states EDGAR \"provides free public access to corporate information\". The overall access posture is not established, so the level stays unknown."
+    },
     "petroHrysScore": 90,
     "scoreFactors": {
       "editorialTrust": 10,
@@ -368,6 +409,27 @@
     "description": "Free FINRA tool for researching the registration history, qualifications and disclosure events of US brokerage firms, investment adviser firms and the individuals registered with them.",
     "tier": "tier1",
     "scope": "national",
+    "primaryRegistryType": "financial-services-register",
+    "registryTypes": [
+      "financial-services-register",
+      "professional-licence-register"
+    ],
+    "operator": {
+      "name": "Financial Industry Regulatory Authority (FINRA)",
+      "type": "regulator",
+      "officialUrl": null
+    },
+    "publicAccess": {
+      "searchUrl": null,
+      "accessLevel": "open",
+      "freeToSearch": true,
+      "loginRequired": false,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "finra.org states BrokerCheck \"is a free tool from FINRA\"."
+    },
     "petroHrysScore": 86,
     "scoreFactors": {
       "editorialTrust": 10,

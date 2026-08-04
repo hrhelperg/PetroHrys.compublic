@@ -14,7 +14,11 @@
     : (typeof window !== 'undefined' ? window.BDOrder : null);
   if (!order) return; // ordering model unavailable: leave the server order alone
 
-  var tbody = document.querySelector('[data-bd-rows]');
+  // Every group's tbody. Once a country page groups by jurisdiction there is
+  // one per group, and a singular query would leave search, filter and sort
+  // touching only the first — with a status count for the whole page.
+  var bodies = Array.prototype.slice.call(document.querySelectorAll('[data-bd-rows]'));
+  var tbody = bodies[0];
   if (!tbody) return;
 
   var rows = Array.prototype.slice.call(tbody.querySelectorAll('.bd-row'));

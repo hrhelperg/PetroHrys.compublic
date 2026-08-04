@@ -386,7 +386,9 @@ test('A11 every detail page has one specific, accessible outbound CTA', () => {
     if (!page) continue;
     const cta = page.html.match(/<a class="bd-cta-primary"[^>]*>[\s\S]*?<\/a>/);
     assert.ok(cta, `${page.file} has no primary outbound CTA`);
-    const escaped = record.name.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    // The CTA names the record through the display resolver, so a record with an
+    // English title advertises that title rather than its native name.
+    const escaped = S.displayName(record).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
       .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
     assert.ok(cta[0].includes(`Visit ${escaped}`), `${page.file} CTA does not name its destination`);
     assert.ok(cta[0].includes('rel="noopener noreferrer"'), `${page.file} CTA is missing rel`);

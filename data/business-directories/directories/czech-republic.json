@@ -10,6 +10,29 @@
     "description": "Czech public register operated by the Ministry of Justice, covering the commercial register, insolvency register and beneficial-owner records.",
     "tier": "tier1",
     "scope": "national",
+    "nativeName": "Veřejný rejstřík a Sbírka listin",
+    "primaryRegistryType": "company-register",
+    "registryTypes": [
+      "company-register",
+      "insolvency-register",
+      "beneficial-ownership-register"
+    ],
+    "operator": {
+      "name": "Ministerstvo spravedlnosti ČR (Ministry of Justice of the Czech Republic)",
+      "type": "ministry",
+      "officialUrl": null
+    },
+    "publicAccess": {
+      "searchUrl": null,
+      "accessLevel": "open",
+      "freeToSearch": true,
+      "loginRequired": false,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "Record states: free search without registration."
+    },
     "petroHrysScore": 91,
     "scoreFactors": {
       "editorialTrust": 10,

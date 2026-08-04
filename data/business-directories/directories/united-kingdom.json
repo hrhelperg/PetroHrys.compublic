@@ -10,6 +10,27 @@
     "description": "Statutory register of UK companies operated by Companies House, holding filed accounts, officers and registered office data.",
     "tier": "tier1",
     "scope": "national",
+    "primaryRegistryType": "company-register",
+    "registryTypes": [
+      "company-register",
+      "public-filing-database"
+    ],
+    "operator": {
+      "name": "Companies House",
+      "type": "government-agency",
+      "officialUrl": null
+    },
+    "publicAccess": {
+      "searchUrl": null,
+      "accessLevel": "unknown",
+      "freeToSearch": true,
+      "loginRequired": null,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "Record states: free public access to filings. The overall access posture is not established, so the level stays unknown."
+    },
     "petroHrysScore": 95,
     "scoreFactors": {
       "editorialTrust": 10,
@@ -131,6 +152,26 @@
     "description": "Statutory regulator of health and social care in England, publishing a searchable directory of registered providers with inspection ratings.",
     "tier": "tier1",
     "scope": "national",
+    "primaryRegistryType": "regulated-operator-register",
+    "registryTypes": [
+      "regulated-operator-register"
+    ],
+    "operator": {
+      "name": "Care Quality Commission",
+      "type": "regulator",
+      "officialUrl": null
+    },
+    "publicAccess": {
+      "searchUrl": null,
+      "accessLevel": "unknown",
+      "freeToSearch": true,
+      "loginRequired": null,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "Record states: free public directory. The overall access posture is not established, so the level stays unknown."
+    },
     "petroHrysScore": 89,
     "scoreFactors": {
       "editorialTrust": 10,
@@ -255,6 +296,26 @@
     "description": "Public record of the firms and individuals authorised by the Financial Conduct Authority or the Prudential Regulation Authority, which also carries warnings about unauthorised firms and clone-firm impersonations.",
     "tier": "tier1",
     "scope": "national",
+    "primaryRegistryType": "financial-services-register",
+    "registryTypes": [
+      "financial-services-register"
+    ],
+    "operator": {
+      "name": "Financial Conduct Authority",
+      "type": "regulator",
+      "officialUrl": null
+    },
+    "publicAccess": {
+      "searchUrl": null,
+      "accessLevel": "partially-open",
+      "freeToSearch": true,
+      "loginRequired": null,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": true,
+      "notes": "Searching is free; bulk data extracts are sold through the Register Extract Service."
+    },
     "petroHrysScore": 88,
     "scoreFactors": {
       "editorialTrust": 10,

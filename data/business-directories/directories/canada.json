@@ -10,6 +10,26 @@
     "description": "Federal corporation search operated by Corporations Canada, confirming the existence of federally incorporated bodies.",
     "tier": "tier1",
     "scope": "national",
+    "primaryRegistryType": "company-register",
+    "registryTypes": [
+      "company-register"
+    ],
+    "operator": {
+      "name": "Corporations Canada",
+      "type": "government-agency",
+      "officialUrl": null
+    },
+    "publicAccess": {
+      "searchUrl": null,
+      "accessLevel": "unknown",
+      "freeToSearch": true,
+      "loginRequired": null,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "Record states: free to search. The overall access posture is not established, so the level stays unknown."
+    },
     "petroHrysScore": 88,
     "scoreFactors": {
       "editorialTrust": 10,

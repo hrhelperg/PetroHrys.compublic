@@ -11,6 +11,8 @@ const c = require('./lib/bd-components.cjs');
 const { renderPage } = require('./lib/bd-render.cjs');
 const { renderSitemap, renderRss } = require('./lib/bd-feeds.cjs');
 const routes = require('./lib/bd-routes.cjs');
+// One resolver for every surface that names a record.
+const { displayName } = require('./lib/bd-schema.cjs');
 const SCHEMA = require('./lib/bd-schema.cjs');
 const { buildArticles, guidesFor } = require('./lib/bd-articles.cjs');
 const { validateRegistry, formatReport } = require('./validate-business-directories.cjs');
@@ -65,6 +67,33 @@ const HUB_FAQS = [
     a: 'Directories are published only after manual verification. Pages with no verified entries are left empty and excluded from search indexing rather than filled with placeholder data.' },
 ];
 
+// Renders a country's records grouped by jurisdiction — Federal, then States
+// A-Z, then the federal district, then territories — with a jump filter and
+// derived counts. Returns null when the country holds no subnational record, so
+// the caller falls back to the single flat table it has always emitted.
+//
+// Each group is a real table with its own caption rather than one long list
+// with headings inside it, so a screen reader announces which jurisdiction set
+// it is in and a narrow viewport scrolls each table independently.
+function jurisdictionSections(country, entries, columns) {
+  const groups = c.jurisdictionGroups(entries);
+  if (!groups) return null;
+  const out = [c.jurisdictionFilter(groups, { idPrefix: `${country.slug}-jurisdiction` })];
+  for (const group of groups) {
+    const id = `${country.slug}-jurisdiction-${group.key}`;
+    out.push(`      <div class="bd-jgroup" id="${escapeHtml(id)}">
+      <h3 class="bd-jgroup-title">${escapeHtml(group.label)} `
+      + `<span class="bd-jgroup-count">${group.count}</span></h3>
+${c.directoryTable({
+    directories: group.items,
+    caption: `${group.label} registries in ${country.name}`,
+    columns,
+  })}
+      </div>`);
+  }
+  return out;
+}
+
 function countryFaqs(country, count) {
   return [
     { q: `Which directories are listed for ${country.titleName}?`,
@@ -104,7 +133,7 @@ function pageModel(registry) {
     ? sortDirectories(directoriesFor(registry, GLOBAL_SCOPE)) : [];
 
   const countryLinks = registry.countries
-    .filter((country) => country.slug !== GLOBAL_SCOPE)
+    .filter((country) => country.slug !== GLOBAL_SCOPE && country.entityType !== 'supranational')
     .map((country) => ({
       name: country.name,
       path: routes.countryPath(country.slug),
@@ -287,11 +316,16 @@ function pageModel(registry) {
           c.searchControls({ idPrefix: country.slug }),
           c.filterControls({ idPrefix: country.slug, directories: countryEntries }),
           c.sortControls({ idPrefix: country.slug, columns: countryColumns }),
-          c.directoryTable({
-            directories: countryEntries,
-            caption: `Directories in ${country.name}`,
-            columns: countryColumns,
-          }),
+          // A country with no subnational record renders exactly one table, as
+          // it always has. Grouping appears only once the coverage exists, so
+          // the United States does not carry an empty "States" heading before
+          // any state registry is published.
+          ...(jurisdictionSections(country, countryEntries, countryColumns)
+            || [c.directoryTable({
+              directories: countryEntries,
+              caption: `Directories in ${country.name}`,
+              columns: countryColumns,
+            })]),
           c.metricNote(activeMetrics),
         ].join('\n')),
         section('faq', 'Questions', c.faqSection(faqs)),
@@ -355,8 +389,8 @@ ${category ? `        <li><a href="${routes.categoryPath(country.slug, category.
         // what we think of it and why, then the evidence, then everything else.
         // Nothing populated sits below a block that is mostly empty.
         main: [
-          c.pageIntro({ title: directory.name, lede: directory.description }),
-          c.externalLinkCta({ url: directory.website, name: directory.name }),
+          c.pageIntro({ title: displayName(directory), lede: directory.description }),
+          c.externalLinkCta({ url: directory.website, name: displayName(directory) }),
           c.statusBadges(directory),
           section('score', 'PetroHrys Score', `${c.metricsBlock(directory, activeMetrics)}\n${c.metricNote(activeMetrics)}`),
           section('verification', 'Verification', c.verificationBlock(directory)),
@@ -409,7 +443,7 @@ function stageBuild(registry, pages) {
     .slice()
     .sort((a, b) => (a.lastVerified < b.lastVerified ? 1 : a.lastVerified > b.lastVerified ? -1 : 0))
     .map((d) => ({
-      title: d.name,
+      title: displayName(d),
       path: routes.directoryPathFor(d),
       description: d.description,
       pubDate: toPubDate(d.lastVerified),

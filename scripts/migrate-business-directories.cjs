@@ -3,7 +3,7 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const { PATHS, writeIfChanged } = require('./lib/bd-util.cjs');
-const { migrateRecord } = require('./lib/bd-migrate.cjs');
+const { migrateRecord, serialisableRecord } = require('./lib/bd-migrate.cjs');
 const { computeScore, SCORE_FACTORS } = require('./lib/bd-schema.cjs');
 
 // One-time migration to the expanded schema. Idempotent: re-running on already
@@ -121,7 +121,10 @@ function run() {
   for (const country of countries) {
     const records = byCountry[country.slug] || [];
     const file = path.join(DIR, `${country.slug}.json`);
-    if (writeIfChanged(file, `${JSON.stringify(records, null, 2)}\n`)) written.push(`${country.slug}.json`);
+    // Written through the on-disk projection: a Wave 1 field that carries no
+    // information is omitted rather than stamped across every record as a null.
+    const onDisk = records.map(serialisableRecord);
+    if (writeIfChanged(file, `${JSON.stringify(onDisk, null, 2)}\n`)) written.push(`${country.slug}.json`);
   }
 
   return { total: migrated.length, moves, written, byCountry };

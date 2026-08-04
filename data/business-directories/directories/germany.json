@@ -10,6 +10,17 @@
     "description": "Joint German register portal aggregating the commercial, cooperative, partnership and association registers of all federal states.",
     "tier": "tier1",
     "scope": "national",
+    "nativeName": "Gemeinsames Registerportal der Länder",
+    "primaryRegistryType": "company-register",
+    "registryTypes": [
+      "company-register",
+      "public-filing-database"
+    ],
+    "operator": {
+      "name": "Justizverwaltungen der Länder (German state justice administrations)",
+      "type": "public-law-body",
+      "officialUrl": null
+    },
     "petroHrysScore": 90,
     "scoreFactors": {
       "editorialTrust": 10,
@@ -124,6 +135,16 @@
     "description": "German federal gazette publishing statutory corporate announcements and filed annual financial statements.",
     "tier": "tier1",
     "scope": "national",
+    "nativeName": "Bundesanzeiger",
+    "primaryRegistryType": "public-filing-database",
+    "registryTypes": [
+      "public-filing-database"
+    ],
+    "operator": {
+      "name": "Bundesanzeiger Verlag, on behalf of the Federal Ministry of Justice",
+      "type": "other",
+      "officialUrl": null
+    },
     "petroHrysScore": 90,
     "scoreFactors": {
       "editorialTrust": 10,
