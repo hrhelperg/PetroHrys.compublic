@@ -334,3 +334,25 @@ Full model and rationale: `docs/wave-1-foundation-design.md`. Working rules:
 Sort once, before grouping. A caller that has already ordered rows passes
 `sortKey: null` to `directoryTable`; anything else gets re-sorted by the shared
 comparator.
+
+### Jurisdiction codes and identity
+
+- `iso2`: exactly two uppercase letters, unique. Supranational entries use null.
+- `jurisdiction.code`: ISO 3166-2 shaped (`US-CA`, `CA-ON`, `DE-BY`, `ES-CT`,
+  `JP-13`) or null. **Shape is validated, membership is not** — no ISO dataset is
+  embedded, so a well-formed code is not thereby a real subdivision.
+- The code's prefix must match the parent country's `iso2`.
+- Identity is the PLACE, not the record. Two California registries are correct.
+  What fails: one code with two names, one place with two codes, a code under the
+  wrong country, or the same place recorded once with a code and once without.
+- Null-code places deduplicate by normalised name, so casing and spacing
+  differences are one jurisdiction rather than two.
+
+### Choosing an access level
+
+`open` needs no login and no identity check. `partially-open` means usable but
+limited — it must point at a limitation flag or carry a note saying what is
+limited, or it is indistinguishable from open. `unknown` is correct whenever the
+evidence does not settle the position, and may sit alongside facts you *do* know:
+`accessLevel: "unknown"` with `freeToSearch: true` is a normal record. Never
+derive the level from the booleans.

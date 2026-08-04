@@ -270,3 +270,105 @@ fields is nullable, and null means "not established from an official source".
 Unknown stays null; the UI renders only what is supported, so a gap costs
 nothing on the page; and official evidence — not plausibility, not the shape of
 the schema — decides every classification.
+
+---
+
+# Jurisdiction integrity gate
+
+Closes C11–C13 and replaces source-shaped assertions about the client with tests
+that execute it. Still no Wave 1 records.
+
+## Geographic codes (C11)
+
+**Structural validation only.** No ISO 3166 dataset is embedded, so nothing here
+asserts that a well-formed code names a real subdivision — only that it has the
+right shape and belongs to the country it claims. Claiming more would be a
+promise this repository cannot keep without maintaining the list.
+
+`iso2` on a country entry must be exactly two uppercase ASCII letters, and must
+be unique across the geographic registry. `""`, `"usa"`, `"Us"`, `"U5"`, `" US"`
+and non-strings are all rejected. A supranational entry must have `iso2: null`
+and `scope: "supranational"`.
+
+`jurisdiction.code` is ISO 3166-2 shaped — two-letter country, one hyphen, 1–3
+uppercase alphanumerics — or null where no official code is recorded. Each
+rejection names what is wrong: wrong separator, wrong case, empty subdivision,
+too many hyphens, whitespace, subdivision too long.
+
+| Valid | Rejected, and why |
+|---|---|
+| `US-CA` `CA-ON` `DE-BY` `ES-CT` `JP-13` | `CA` no separator · `us-ca` not uppercase · `USA-CA` country part not two letters · `DE_US` wrong separator · `JP-` empty subdivision · `US-CALIF` subdivision too long · `" US-CA"` whitespace · `CN-BJ` under Japan, prefix mismatch |
+
+If a parent country has no usable `iso2`, the prefix check reports that it
+**cannot be performed** rather than passing silently.
+
+## Jurisdiction identity (C13)
+
+The validator compares **definitions of places**, never records. Several
+registries may belong to California and all must pass; what may not differ is
+what California *is*.
+
+Identity is resolved centrally. With a code: `parentCountry | type | code`.
+Without one: `parentCountry | type | normalised name`, where normalisation folds
+case, collapses whitespace and drops decorative punctuation — so "District of
+Columbia" and "district of  columbia" are one place, not two. A second map keyed
+on the name catches the reverse case, one place claiming two codes.
+
+| Case | Result |
+|---|---|
+| Two California registries, both `US-CA` | valid |
+| `US-CA` named "California" and "Kalifornia" | rejected — one jurisdiction, two names |
+| "California" as `US-CA` and `US-CAL` | rejected — one jurisdiction, two codes |
+| Ontario as `US-ON` under Canada | rejected — prefix mismatch |
+| Same null-code place, different spacing/case | valid, deduplicated to one identity |
+| Same name with and without a code | rejected — pick one |
+
+Type is part of identity, so a state and a territory of the same name remain
+distinct.
+
+## Access levels (C12)
+
+| Level | Meaning |
+|---|---|
+| `open` | Public search and core result access need neither login nor identity verification. |
+| `partially-open` | Some useful public search or data is available, but fuller documents, extended data or operations require payment, login, identity verification or another restriction. |
+| `login-required` | Search or meaningful result access requires an account. |
+| `identity-verification-required` | Access requires confirmed identity, a domestic credential, a verified phone or comparable control. |
+| `restricted` | General public access is materially unavailable or limited to authorised users. |
+| `unknown` | Evidence is insufficient. |
+
+**Rejected:** `open` with `loginRequired` or `identityVerificationRequired`
+true · `open` with `freeToSearch: false` · `open` with `geographicRestriction:
+true` and no note · `login-required` with `loginRequired: false` ·
+`identity-verification-required` with its flag false · `restricted` with every
+restriction flag false and no note · `partially-open` with no limitation flag
+and no note.
+
+**Allowed:** `partially-open` + `freeToSearch` + `paidDocumentsAvailable` ·
+`partially-open` + `loginRequired` · `open` + `captcha` (friction is not an
+account) · `open` + `geographicRestriction` *with* a note explaining it is a
+coverage limit rather than an access barrier · `unknown` with any booleans still
+null, and `unknown` alongside an established boolean.
+
+The level is never derived from the booleans. Partial knowledge is normal.
+
+## Grouped search and filter
+
+The client binds **every** `[data-bd-rows]` tbody. Sorting happens within a
+group, so re-sorting can never move a Californian registry into the Federal
+table. Search and filters apply across all groups, the status count covers the
+whole page, a group whose rows all filter out is hidden rather than left as a
+heading over an empty table, and clearing the search restores everything.
+
+This is proven by executing the real client against real grouped markup in
+`bd-grouped-dom.test.cjs`, with two mutation probes: reintroducing
+first-tbody-only selection, and making sorting group-destructive. Both must fail
+the suite. The previous guard asserted that `querySelectorAll` appeared in the
+source and passed while the script still used only `bodies[0]`.
+
+## Validation order
+
+Unknown and wrongly typed values are captured on the way through the migration,
+before its fixed-key pickers can drop or coerce them, and surfaced to the
+validator through a non-enumerable symbol. Errors are sorted by path, so two
+runs report identically. Nothing invalid is silently repaired.

@@ -129,7 +129,7 @@ test('province, territory and federal-district models all validate', () => {
 
 test('a malformed ISO 3166-2 code is rejected', () => {
   rejects(stateRecord({ jurisdiction: { type: 'state', name: 'California', code: 'California', parentCountry: 'united-states' } }),
-    /is not an ISO 3166-2 code/, 'non-ISO code');
+    /has no "-" separator/, 'non-ISO code');
   // Null is the honest value where no code exists, and must stay legal.
   assert.strictEqual(okOf([stateRecord({
     jurisdiction: { type: 'state', name: 'Somewhere', code: null, parentCountry: 'united-states' },
@@ -138,7 +138,7 @@ test('a malformed ISO 3166-2 code is rejected', () => {
 
 test('a code from the wrong country is rejected', () => {
   rejects(stateRecord({ jurisdiction: { type: 'state', name: 'California', code: 'CA-ON', parentCountry: 'united-states' } }),
-    /does not belong to United States/, 'mismatched code prefix');
+    /has prefix "CA" but United States is "US"/, 'mismatched code prefix');
 });
 
 test('one jurisdiction code cannot name two different places', () => {
@@ -149,7 +149,7 @@ test('one jurisdiction code cannot name two different places', () => {
   });
   const res = okOf([a, b]);
   assert.strictEqual(res.ok, false, 'a contradictory code pair was accepted');
-  assert.match(reasons(res), /one code cannot name two places/);
+  assert.match(reasons(res), /One jurisdiction cannot have two names/);
 });
 
 test('two registries in the SAME jurisdiction are allowed', () => {

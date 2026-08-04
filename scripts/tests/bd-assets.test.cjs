@@ -174,9 +174,12 @@ test('the script reveals the control wrappers the components render hidden', () 
 });
 
 test('the script exits cleanly when there is no table', () => {
+  // Shape check only. The BEHAVIOUR — that an empty or table-less page is left
+  // exactly as the server rendered it, with no status region injected — is
+  // executed against real markup in bd-grouped-dom.test.cjs.
   const source = js();
-  assert.ok(/if \(!tbody\) return;/.test(source), 'must no-op without a directory table');
-  assert.ok(/if \(!rows\.length\) return;/.test(source), 'must no-op with zero rows');
+  assert.ok(/if \(!bodies\.length\) return;/.test(source), 'must no-op without a directory table');
+  assert.ok(/if \(!groups\.length\) return;/.test(source), 'must no-op with zero rows');
 });
 
 test('filtering announces the visible count for assistive technology', () => {

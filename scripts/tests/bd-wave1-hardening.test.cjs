@@ -410,3 +410,233 @@ test('grouped tables stay readable with no JavaScript', () => {
   assert.match(html, /<tbody data-bd-rows>/);
   assert.ok(!/<script/.test(html), 'the table depends on inline script');
 });
+
+// --- C11: geographic code validation -------------------------------------------
+
+test('C11: iso2 must be exactly two uppercase ASCII letters', () => {
+  const withCountry = (patch) => validateRegistry({
+    ...REGISTRY,
+    countries: REGISTRY.countries.map((x) => (x.slug === 'united-states' ? { ...x, ...patch } : x)),
+    directories: [],
+  });
+  for (const bad of ['', 'usa', 'Us', 'U', ' US', 'US ', 'U5', '12', null, undefined, 7]) {
+    const r = withCountry({ iso2: bad });
+    assert.strictEqual(r.ok, false, `iso2 ${JSON.stringify(bad)} was accepted`);
+    assert.ok(r.errors.some((e) => e.field === 'iso2'), `iso2 ${JSON.stringify(bad)} failed elsewhere`);
+  }
+  assert.strictEqual(withCountry({ iso2: 'US' }).ok, true, 'a valid code was rejected');
+});
+
+test('C11: a supranational entry must have null iso2 and supranational scope', () => {
+  const withEu = (patch) => validateRegistry({
+    ...REGISTRY,
+    countries: REGISTRY.countries.map((x) => (x.slug === 'european-union' ? { ...x, ...patch } : x)),
+    directories: [],
+  });
+  assert.strictEqual(withEu({ iso2: 'EU' }).ok, false, 'a supranational entry claimed a country code');
+  assert.strictEqual(withEu({ scope: 'national' }).ok, false, 'a supranational entry claimed national scope');
+  assert.strictEqual(withEu({}).ok, true, 'the shipped EU entry is invalid');
+});
+
+test('C11: country codes are unique across the geographic registry', () => {
+  const r = validateRegistry({
+    ...REGISTRY,
+    countries: REGISTRY.countries.map((x) => (x.slug === 'canada' ? { ...x, iso2: 'US' } : x)),
+    directories: [],
+  });
+  assert.strictEqual(r.ok, false, 'two countries shared one ISO code');
+  assert.match(r.errors.map((e) => e.reason).join(' '), /already used by/);
+});
+
+test('C11: jurisdiction.code shape is checked with an actionable reason', () => {
+  const bad = {
+    CA: /has no "-" separator/,
+    'us-ca': /must be uppercase/,
+    'USA-CA': /country part "USA" is not two uppercase letters/,
+    DE_US: /uses "_" instead of "-"/,
+    'JP-': /empty subdivision part/,
+    '': /is empty; use null/,
+    ' US-CA': /leading or trailing whitespace/,
+    'US-CALIF': /must be 1-3 uppercase letters or digits/,
+    'US-CA-X': /more than one "-" separator/,
+  };
+  for (const [code, matcher] of Object.entries(bad)) {
+    const problem = S.iso3166_2Problem(code);
+    assert.ok(problem, `${JSON.stringify(code)} was accepted`);
+    assert.match(problem, matcher, `${JSON.stringify(code)} gave the wrong reason: ${problem}`);
+  }
+  for (const good of ['US-CA', 'CA-ON', 'DE-BY', 'ES-CT', 'JP-13']) {
+    assert.strictEqual(S.iso3166_2Problem(good), null, `${good} was rejected`);
+  }
+});
+
+test('C11: an unusable parent code disables nothing silently', () => {
+  const r = validateRegistry({
+    ...REGISTRY,
+    countries: REGISTRY.countries.map((x) => (x.slug === 'united-states' ? { ...x, iso2: '' } : x)),
+    directories: [verifiedRecord({
+      id: 'h-p', slug: 'h-p', country: 'united-states', website: 'https://p.example.gov/',
+      scope: 'subnational',
+      jurisdiction: { type: 'state', name: 'Anywhere', code: 'ZZ-99', parentCountry: 'united-states' },
+    })],
+  });
+  assert.strictEqual(r.ok, false, 'a bogus code passed because the parent code was unusable');
+  assert.match(r.errors.map((e) => e.reason).join(' '), /Cannot check the prefix/);
+});
+
+// --- C12: access semantics -----------------------------------------------------
+
+const access = (over) => ({
+  searchUrl: null, accessLevel: 'open', freeToSearch: null, loginRequired: null,
+  identityVerificationRequired: null, captcha: null, geographicRestriction: null,
+  paidDocumentsAvailable: null, notes: null, ...over,
+});
+
+test('C12: every access level carries a published definition', () => {
+  for (const level of S.ACCESS_LEVELS) {
+    assert.ok(S.ACCESS_LEVEL_DEFINITIONS[level] && S.ACCESS_LEVEL_DEFINITIONS[level].length > 30,
+      `${level} has no usable definition`);
+    assert.ok(S.ACCESS_LEVEL_LABELS[level], `${level} has no display label`);
+  }
+  assert.match(S.ACCESS_LEVEL_DEFINITIONS['partially-open'], /fuller documents|extended data/);
+});
+
+test('C12: contradictory combinations are rejected', () => {
+  const reject = [
+    ['open + login', { loginRequired: true }],
+    ['open + identity', { identityVerificationRequired: true }],
+    ['open + geo without a note', { geographicRestriction: true }],
+    ['login-required + loginRequired false', { accessLevel: 'login-required', loginRequired: false }],
+    ['identity level + flag false', { accessLevel: 'identity-verification-required', identityVerificationRequired: false }],
+    ['restricted + everything false, no note', {
+      accessLevel: 'restricted', loginRequired: false, identityVerificationRequired: false,
+      captcha: false, geographicRestriction: false, paidDocumentsAvailable: false,
+    }],
+    ['partially-open with nothing limited', { accessLevel: 'partially-open', freeToSearch: true }],
+  ];
+  for (const [label, over] of reject) {
+    assert.ok(S.accessContradictions(access(over)).length > 0, `${label} was accepted`);
+  }
+});
+
+test('C12: legitimate combinations are allowed', () => {
+  const allow = [
+    ['partially-open + free + paid documents', { accessLevel: 'partially-open', freeToSearch: true, paidDocumentsAvailable: true }],
+    ['partially-open + login', { accessLevel: 'partially-open', loginRequired: true }],
+    ['partially-open + explanatory note', { accessLevel: 'partially-open', notes: 'Bulk extracts are sold separately.' }],
+    ['open + captcha', { captcha: true }],
+    ['open + geo WITH a note', { geographicRestriction: true, notes: 'Coverage is national; not an access barrier.' }],
+    ['unknown + everything null', { accessLevel: 'unknown' }],
+    ['unknown + freeToSearch true', { accessLevel: 'unknown', freeToSearch: true }],
+  ];
+  for (const [label, over] of allow) {
+    assert.deepStrictEqual(S.accessContradictions(access(over)), [], `${label} was rejected`);
+  }
+});
+
+// --- C13: jurisdiction identity ------------------------------------------------
+
+const jrec = (id, j, country = 'united-states') => verifiedRecord({
+  id, slug: id, country, website: `https://${id}.example.gov/`, scope: 'subnational', jurisdiction: j,
+});
+const J2 = (type, name, code, parentCountry = 'united-states') => ({ type, name, code, parentCountry });
+
+test('C13: two registries in one jurisdiction are valid', () => {
+  const r = okOf([
+    jrec('h-ca1', J2('state', 'California', 'US-CA')),
+    jrec('h-ca2', J2('state', 'California', 'US-CA')),
+  ]);
+  assert.strictEqual(r.ok, true, `two California registries were rejected: ${reasons(r)}`);
+});
+
+test('C13: one code cannot name two places', () => {
+  const r = okOf([
+    jrec('h-a', J2('state', 'California', 'US-CA')),
+    jrec('h-b', J2('state', 'Kalifornia', 'US-CA')),
+  ]);
+  assert.strictEqual(r.ok, false);
+  assert.match(reasons(r), /cannot have two names/);
+});
+
+test('C13: one place cannot have two codes', () => {
+  const r = okOf([
+    jrec('h-a', J2('state', 'California', 'US-CA')),
+    jrec('h-b', J2('state', 'California', 'US-CAL')),
+  ]);
+  assert.strictEqual(r.ok, false);
+  assert.match(reasons(r), /cannot have two codes/);
+});
+
+test('C13: a code cannot be used under the wrong parent country', () => {
+  const r = okOf([jrec('h-on', J2('province', 'Ontario', 'US-ON', 'canada'), 'canada')]);
+  assert.strictEqual(r.ok, false);
+  assert.match(reasons(r), /has prefix "US" but Canada is "CA"/);
+});
+
+test('C13: null-code jurisdictions deduplicate by normalised name', () => {
+  // Same place, written with different case and spacing: one identity, valid.
+  const same = okOf([
+    jrec('h-a', J2('state', 'District of Columbia', null)),
+    jrec('h-b', J2('state', 'district of  columbia', null)),
+  ]);
+  assert.strictEqual(same.ok, true, `normalisation did not merge the two spellings: ${reasons(same)}`);
+  assert.strictEqual(
+    S.jurisdictionIdentity(J2('state', 'District of Columbia', null)).key,
+    S.jurisdictionIdentity(J2('state', 'district of  columbia', null)).key,
+    'identity keys differ for the same place',
+  );
+  // Genuinely different places still separate.
+  assert.notStrictEqual(
+    S.jurisdictionIdentity(J2('state', 'Alabama', null)).key,
+    S.jurisdictionIdentity(J2('state', 'Alaska', null)).key,
+  );
+  // Adding a code to one of them is then a conflict, not a second place.
+  const conflict = okOf([
+    jrec('h-a', J2('state', 'District of Columbia', null)),
+    jrec('h-b', J2('state', 'District of Columbia', 'US-DC')),
+  ]);
+  assert.strictEqual(conflict.ok, false, 'one place carried both a code and no code silently');
+});
+
+test('C13: identity is keyed on the place, not the record', () => {
+  const a = S.jurisdictionIdentity(J2('state', 'California', 'US-CA'));
+  const b = S.jurisdictionIdentity(J2('state', 'California', 'US-CA'));
+  assert.strictEqual(a.key, b.key, 'two records in one place produced different identities');
+  assert.strictEqual(a.by, 'code');
+  assert.strictEqual(S.jurisdictionIdentity(J2('state', 'X', null)).by, 'name');
+  // Type is part of identity: a state and a territory of the same name differ.
+  assert.notStrictEqual(
+    S.jurisdictionIdentity(J2('state', 'Guam', null)).key,
+    S.jurisdictionIdentity(J2('territory', 'Guam', null)).key,
+  );
+});
+
+// --- Part 6: validation runs before normalisation can hide anything ------------
+
+test('raw problems are captured before the migration normalises them away', () => {
+  const raw = {
+    ...verifiedRecord(),
+    jurisdiction: { type: 'state', name: 'California', code: 'US-CA', parentCountry: 'united-states', typoCode: 'X' },
+    registryTypes: 'company-register',
+  };
+  const migrated = migrateRecord(raw);
+  // The normalisation HAS cleaned both — that is precisely why the problems
+  // must be captured on the way through rather than inspected afterwards.
+  assert.ok(!('typoCode' in migrated.jurisdiction), 'the nested typo survived normalisation');
+  assert.deepStrictEqual(migrated.registryTypes, [], 'the bad container survived normalisation');
+  const paths = migrated[UNKNOWN_KEYS].map((p) => p.path);
+  assert.ok(paths.includes('jurisdiction.typoCode'), 'the nested typo was lost');
+  assert.ok(paths.includes('registryTypes'), 'the container type violation was lost');
+  assert.strictEqual(okOf([migrated]).ok, false, 'the validator did not see the captured problems');
+});
+
+test('validator errors are deterministically ordered across runs', () => {
+  const messy = migrateRecord({
+    ...verifiedRecord(), zzz: 1, aaa: 2,
+    operator: { name: 'X', type: 'nope', officialUrl: 'http://x/', zz: 1, aa: 2 },
+  });
+  const once = okOf([messy]).errors.map((e) => `${e.field}|${e.reason}`);
+  const twice = okOf([messy]).errors.map((e) => `${e.field}|${e.reason}`);
+  assert.deepStrictEqual(once, twice, 'two runs reported errors in different orders');
+  assert.ok(once.length >= 4, 'too few errors to prove ordering');
+});

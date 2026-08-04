@@ -52,11 +52,23 @@ function validateRegistry(registry) {
     if (!S.ENTITY_TYPES.includes(country.entityType)) {
       addC('entityType', `Must be one of: ${S.ENTITY_TYPES.join(', ')}.`);
     }
-    if (country.entityType === 'supranational' && country.iso2 !== null) {
-      addC('iso2', 'A supranational entry must not claim a country code.');
+    // Structural only — no ISO dataset is embedded, so this checks shape, not
+    // whether the code names a real country.
+    if (country.entityType === 'supranational') {
+      if (!isNullish(country.iso2)) {
+        addC('iso2', `A supranational entry must not claim a country code, got `
+          + `${JSON.stringify(country.iso2)}.`);
+      }
+      if (country.scope !== 'supranational' && country.slug !== 'global') {
+        addC('scope', `A supranational entry must declare scope "supranational", got `
+          + `${JSON.stringify(country.scope)}.`);
+      }
     }
-    if (country.entityType === 'country' && typeof country.iso2 !== 'string') {
-      addC('iso2', 'A country entry must carry its ISO 3166-1 alpha-2 code.');
+    if (country.entityType === 'country') {
+      if (typeof country.iso2 !== 'string' || !S.ISO_3166_1_RE.test(country.iso2)) {
+        addC('iso2', `${JSON.stringify(country.iso2)} is not an ISO 3166-1 alpha-2 code: `
+          + 'exactly two uppercase ASCII letters are required.');
+      }
     }
     // The EU is stored here for routing. It must never be modelled as a country.
     if (country.slug === 'european-union' && country.entityType !== 'supranational') {
@@ -64,10 +76,24 @@ function validateRegistry(registry) {
     }
   }
 
-  // A jurisdiction code must name exactly one jurisdiction, in exactly one
-  // parent country. Two records may share US-CA — several California registries
-  // is normal — but they may not disagree about what US-CA is.
+  const seenIso2 = new Map();
+  for (const country of countries) {
+    if (country.entityType !== 'country' || typeof country.iso2 !== 'string') continue;
+    if (seenIso2.has(country.iso2)) {
+      errors.push({
+        file: 'data/business-directories/countries.json', id: country.slug, field: 'iso2',
+        reason: `Country code "${country.iso2}" is already used by `
+          + `"${seenIso2.get(country.iso2)}".`,
+      });
+    } else seenIso2.set(country.iso2, country.slug);
+  }
+
+  // Jurisdiction IDENTITY, not record uniqueness. Several registries may belong
+  // to California; what may not differ is what California IS. Two maps, so a
+  // conflict is caught from either direction: one code claiming two names, and
+  // one name claiming two codes.
   const jurisdictionByCode = new Map();
+  const jurisdictionByName = new Map();
 
   for (const entry of directories) {
     const file = fileFor(entry);
@@ -135,22 +161,23 @@ function validateRegistry(registry) {
           add('jurisdiction.name', 'A jurisdiction must be named.');
         }
         if (!isNullish(j.code)) {
-          if (typeof j.code !== 'string' || !S.ISO_3166_2_RE.test(j.code)) {
-            add('jurisdiction.code',
-              `"${j.code}" is not an ISO 3166-2 code (e.g. US-CA). Use null when none exists.`);
+          const problem = S.iso3166_2Problem(j.code);
+          if (problem) {
+            add('jurisdiction.code', `${JSON.stringify(j.code)} ${problem}.`);
           } else {
             const prefix = j.code.slice(0, 2);
             const parent = countryBySlug.get(j.parentCountry);
-            if (parent && parent.iso2 && parent.iso2 !== prefix) {
+            // The prefix check needs a usable parent code. Without one it is not
+            // "passed" — it is unperformed, and saying so beats a silent skip.
+            if (!parent) {
+              add('jurisdiction.code', `Cannot check the prefix of "${j.code}": parent country `
+                + `"${j.parentCountry}" is not declared.`);
+            } else if (!S.ISO_3166_1_RE.test(String(parent.iso2))) {
+              add('jurisdiction.code', `Cannot check the prefix of "${j.code}": parent `
+                + `"${parent.slug}" has no usable ISO 3166-1 code (${JSON.stringify(parent.iso2)}).`);
+            } else if (parent.iso2 !== prefix) {
               add('jurisdiction.code',
-                `Code "${j.code}" does not belong to ${parent.name} (${parent.iso2}).`);
-            }
-            const prior = jurisdictionByCode.get(j.code);
-            if (prior && (prior.name !== j.name || prior.parentCountry !== j.parentCountry)) {
-              add('jurisdiction.code', `Code "${j.code}" is already used for `
-                + `"${prior.name}" in "${prior.parentCountry}"; one code cannot name two places.`);
-            } else if (!prior) {
-              jurisdictionByCode.set(j.code, { name: j.name, parentCountry: j.parentCountry });
+                `Code "${j.code}" has prefix "${prefix}" but ${parent.name} is "${parent.iso2}".`);
             }
           }
         }
@@ -163,6 +190,34 @@ function validateRegistry(registry) {
         if (entry.scope !== 'subnational') {
           add('scope', 'A record carrying a jurisdiction must use scope "subnational".');
         }
+        // --- jurisdiction identity (C13) ---------------------------------
+        // Compares DEFINITIONS of places, never records. Two California
+        // registries are correct and must both pass; what may not differ is
+        // what "California" is.
+        const identity = S.jurisdictionIdentity(j);
+        const nameKey = S.jurisdictionNameKey(j);
+        if (identity && j.name) {
+          const priorByCode = jurisdictionByCode.get(identity.key);
+          if (priorByCode && S.normaliseJurisdictionName(priorByCode.name)
+            !== S.normaliseJurisdictionName(j.name)) {
+            add('jurisdiction.name', `This jurisdiction is already defined as `
+              + `"${priorByCode.name}" (by ${id === priorByCode.id ? 'this record' : priorByCode.id}); `
+              + `"${j.name}" conflicts. One jurisdiction cannot have two names.`);
+          } else if (!priorByCode) {
+            jurisdictionByCode.set(identity.key, { name: j.name, id });
+          }
+
+          const priorByName = jurisdictionByName.get(nameKey);
+          const thisCode = j.code || null;
+          if (priorByName && priorByName.code !== thisCode) {
+            add('jurisdiction.code', `"${j.name}" is already defined with code `
+              + `${JSON.stringify(priorByName.code)} (by ${priorByName.id}); this record uses `
+              + `${JSON.stringify(thisCode)}. One jurisdiction cannot have two codes.`);
+          } else if (!priorByName) {
+            jurisdictionByName.set(nameKey, { code: thisCode, id });
+          }
+        }
+
         // The country must have a word for this kind of jurisdiction. Without
         // this the page would either throw at render or, worse, borrow another
         // country's vocabulary — "Prefectures" in Spain, "Federal" in Italy.

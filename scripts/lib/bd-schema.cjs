@@ -283,8 +283,73 @@ function allowedJurisdictionTypes(countrySlug) {
   return Object.keys(vocabulary).filter((k) => k !== NATIONAL_KEY);
 }
 
-// ISO 3166-2: two-letter country, hyphen, 1-3 alphanumerics.
+// --- geographic codes -------------------------------------------------------
+// STRUCTURAL validation only. No ISO 3166 dataset is embedded, so nothing here
+// asserts that a well-formed code is a real subdivision — only that it has the
+// right shape and belongs to the country it claims. Claiming more would be a
+// promise this repository cannot keep without maintaining the list.
+//
+// ISO 3166-1 alpha-2: exactly two uppercase ASCII letters. Anchored, so "usa",
+// "Us", "U5", " US " and "" are all refused.
+const ISO_3166_1_RE = /^[A-Z]{2}$/;
+// ISO 3166-2: the alpha-2 country, one hyphen, then 1-3 uppercase alphanumerics.
 const ISO_3166_2_RE = /^[A-Z]{2}-[A-Z0-9]{1,3}$/;
+
+// Why a code is malformed, in words a maintainer can act on. Returns null when
+// the shape is acceptable.
+function iso3166_2Problem(code) {
+  if (typeof code !== 'string') return `must be a string, got ${typeof code}`;
+  if (code !== code.trim()) return 'has leading or trailing whitespace';
+  if (code === '') return 'is empty; use null when no official code exists';
+  // The underscore case is checked first: "DE_US" has no hyphen either, and
+  // "uses the wrong separator" is the actionable message, not "has none".
+  if (/_/.test(code)) return 'uses "_" instead of "-"';
+  if (!code.includes('-')) return 'has no "-" separator (expected e.g. US-CA)';
+  if (code !== code.toUpperCase()) return 'must be uppercase';
+  const [country, subdivision, ...rest] = code.split('-');
+  if (rest.length) return 'has more than one "-" separator';
+  if (!ISO_3166_1_RE.test(country)) return `country part "${country}" is not two uppercase letters`;
+  if (!subdivision) return 'has an empty subdivision part';
+  if (!/^[A-Z0-9]{1,3}$/.test(subdivision)) {
+    return `subdivision part "${subdivision}" must be 1-3 uppercase letters or digits`;
+  }
+  return ISO_3166_2_RE.test(code) ? null : 'is not a well-formed ISO 3166-2 code';
+}
+
+// --- jurisdiction identity ---------------------------------------------------
+// Several registry records may legitimately belong to one jurisdiction —
+// California has more than one. What must be consistent is the DEFINITION of
+// the jurisdiction those records point at. This resolver produces the key that
+// definition is compared under, so the validator checks places, not records.
+//
+// Names are normalised for comparison only; the stored name is untouched.
+// Case, surrounding and internal whitespace, and punctuation used decoratively
+// are folded, so "District of Columbia" and "district of  columbia" are one
+// place rather than two.
+function normaliseJurisdictionName(name) {
+  if (typeof name !== 'string') return '';
+  return name.trim().toLowerCase().replace(/[\s ]+/g, ' ').replace(/[.,]/g, '');
+}
+
+// A code, where present, is the strongest identity: it is meant to be the
+// jurisdiction's canonical handle. Where none is recorded, the normalised name
+// carries the identity instead.
+function jurisdictionIdentity(jurisdiction) {
+  if (!jurisdiction || typeof jurisdiction !== 'object') return null;
+  const parent = jurisdiction.parentCountry || '';
+  const type = jurisdiction.type || '';
+  return jurisdiction.code
+    ? { key: `${parent}|${type}|code:${jurisdiction.code}`, by: 'code' }
+    : { key: `${parent}|${type}|name:${normaliseJurisdictionName(jurisdiction.name)}`, by: 'name' };
+}
+
+// The reverse view: one place, keyed by name, so two codes claiming the same
+// place can be caught as well as two names claiming the same code.
+function jurisdictionNameKey(jurisdiction) {
+  if (!jurisdiction || typeof jurisdiction !== 'object') return null;
+  return `${jurisdiction.parentCountry || ''}|${jurisdiction.type || ''}|`
+    + `${normaliseJurisdictionName(jurisdiction.name)}`;
+}
 
 // --- names ------------------------------------------------------------------
 // Four fields, ONE resolver. Overlapping name fields are only safe if exactly
@@ -377,19 +442,47 @@ const ACCESS_UNKNOWN_NOTE = 'The overall access position has not been establishe
 // Returns the reasons an access block contradicts itself. A stated level and a
 // stated boolean disagreeing means one of them is wrong, and publishing either
 // would tell a reader something untrue about whether they can use the register.
+// What each level asserts. Published in the runbook and used by the UI, so a
+// reviewer choosing a level and a reader interpreting one work from the same
+// sentence.
+const ACCESS_LEVEL_DEFINITIONS = {
+  open: 'Public search and core result access require neither login nor identity verification.',
+  'partially-open': 'Some useful public search or data is available, but fuller documents, '
+    + 'extended data or operations require payment, login, identity verification or another '
+    + 'restriction.',
+  'login-required': 'Search or meaningful result access requires an account.',
+  'identity-verification-required': 'Access requires confirmed identity, a domestic credential, '
+    + 'a verified phone number or comparable identity control.',
+  restricted: 'General public access is materially unavailable or limited to authorised users.',
+  unknown: 'Evidence is insufficient to establish the access position.',
+};
+
+// A restriction that `partially-open` can point at. Free-to-search alone is not
+// a limitation, so it is not in this list.
+const ACCESS_LIMITATION_FLAGS = ['loginRequired', 'identityVerificationRequired', 'captcha',
+  'geographicRestriction', 'paidDocumentsAvailable'];
+
 function accessContradictions(access) {
   if (!access || typeof access !== 'object') return [];
   const out = [];
   const { accessLevel: level } = access;
+  const hasNote = typeof access.notes === 'string' && access.notes.trim().length > 0;
+
   if (level === 'open') {
     if (access.loginRequired === true) out.push('accessLevel "open" with loginRequired true');
     if (access.identityVerificationRequired === true) {
       out.push('accessLevel "open" with identityVerificationRequired true');
     }
     if (access.freeToSearch === false) out.push('accessLevel "open" with freeToSearch false');
-    if (access.geographicRestriction === true) {
-      out.push('accessLevel "open" with geographicRestriction true');
+    // A geographic restriction may be something other than an access barrier —
+    // a register whose CONTENT covers one region is not gated. That reading has
+    // to be written down, though, or "open" silently overrides the flag.
+    if (access.geographicRestriction === true && !hasNote) {
+      out.push('accessLevel "open" with geographicRestriction true and no note explaining '
+        + 'why the restriction is not an access barrier');
     }
+    // captcha with "open" is deliberately allowed: a challenge is friction, not
+    // an account or an identity check.
   }
   if (level === 'login-required' && access.loginRequired === false) {
     out.push('accessLevel "login-required" with loginRequired false');
@@ -397,9 +490,22 @@ function accessContradictions(access) {
   if (level === 'identity-verification-required' && access.identityVerificationRequired === false) {
     out.push('accessLevel "identity-verification-required" with identityVerificationRequired false');
   }
-  if (level === 'restricted' && access.loginRequired === false
-    && access.identityVerificationRequired === false && access.geographicRestriction === false) {
-    out.push('accessLevel "restricted" with every restriction flag false');
+  if (level === 'restricted') {
+    const anyRestriction = ACCESS_LIMITATION_FLAGS.some((k) => access[k] === true);
+    const allDenied = ACCESS_LIMITATION_FLAGS.every((k) => access[k] === false);
+    if (!anyRestriction && allDenied && !hasNote) {
+      out.push('accessLevel "restricted" with every restriction flag false and no note '
+        + 'explaining what restricts access');
+    }
+  }
+  // The level exists to say "usable, but not fully". Something has to be the
+  // "not fully", or it is indistinguishable from open.
+  if (level === 'partially-open') {
+    const anyLimitation = ACCESS_LIMITATION_FLAGS.some((k) => access[k] === true);
+    if (!anyLimitation && !hasNote) {
+      out.push('accessLevel "partially-open" with no limitation flag set and no note '
+        + 'describing what is limited');
+    }
   }
   // Note what is NOT a contradiction: accessLevel "unknown" alongside an
   // established boolean. Knowing a register is free to search says nothing
@@ -533,6 +639,7 @@ for (const [name, values, labels] of [
   ['ACCESS_LEVELS', ACCESS_LEVELS, ACCESS_LEVEL_LABELS],
   ['OPERATOR_TYPES', OPERATOR_TYPES, OPERATOR_TYPE_LABELS],
   ['SCOPES', SCOPES, SCOPE_LABELS],
+  ['ACCESS_LEVELS (definitions)', ACCESS_LEVELS, ACCESS_LEVEL_DEFINITIONS],
 ]) {
   for (const value of values) {
     if (!labels[value]) throw new Error(`${name} value "${value}" has no display label.`);
@@ -593,12 +700,15 @@ const ARRAY_VALUED_FIELDS = ['registryTypes', ...ARRAY_FIELDS];
 
 module.exports = {
   NESTED_RECORD_KEYS, METRIC_PROVENANCE_KEYS, OBJECT_VALUED_FIELDS, ARRAY_VALUED_FIELDS,
-  ENTITY_TYPES, SCOPES, SCOPE_DEFINITIONS, JURISDICTION_TYPES, ISO_3166_2_RE,
+  ENTITY_TYPES, SCOPES, SCOPE_DEFINITIONS, JURISDICTION_TYPES,
+  ISO_3166_1_RE, ISO_3166_2_RE, iso3166_2Problem,
+  normaliseJurisdictionName, jurisdictionIdentity, jurisdictionNameKey,
   JURISDICTION_VOCABULARY, NATIONAL_KEY, DEFAULT_NATIONAL_LABEL,
   jurisdictionLabel, allowedJurisdictionTypes,
   ENGLISH_NAME_SOURCES, displayName, isEditorialTranslation,
   REGISTRY_TYPES, OPERATOR_TYPES, ACCESS_LEVELS, PUBLIC_ACCESS_BOOLEANS, accessContradictions,
   ACCESS_LEVEL_LABELS, OPERATOR_TYPE_LABELS, SCOPE_LABELS, ACCESS_UNKNOWN_NOTE,
+  ACCESS_LEVEL_DEFINITIONS, ACCESS_LIMITATION_FLAGS,
   KNOWN_RECORD_KEYS,
   TIERS, BACKLINK_TYPES, ROBOTS_STATES, SUBMISSION_MODELS, METRIC_STATUSES,
   SUBMISSION_MODEL_LABELS, SUBMISSION_NOT_APPLICABLE_NOTE, SUBMITTABLE_MODELS,
