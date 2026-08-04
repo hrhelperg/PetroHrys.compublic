@@ -67,6 +67,14 @@
         }
       ]
     },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [
+        "global-opencorporates"
+      ],
+      "competitors": []
+    },
     "bestFor": [
       "Verifying a Polish counterparty",
       "Confirming REGON, NIP or KRS identifiers"
@@ -89,14 +97,6 @@
       "contact": null,
       "screenshots": null,
       "businessVerification": null
-    },
-    "related": {
-      "alternatives": [],
-      "similar": [],
-      "usedWith": [
-        "global-opencorporates"
-      ],
-      "competitors": []
     },
     "recommendedIndustries": [
       "Any Polish-registered entity"

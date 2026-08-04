@@ -6,6 +6,7 @@
     "country": "australia",
     "category": "government",
     "website": "https://abr.business.gov.au/",
+    "submissionUrl": null,
     "description": "Australian Government service exposing public Australian Business Number records, including entity status, type and GST registration.",
     "tier": "tier1",
     "scope": "national",
@@ -65,6 +66,29 @@
           "role": "editor"
         }
       ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [],
+    "notRecommendedFor": [],
+    "submissionDifficulty": null,
+    "listingQuality": null,
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
     },
     "recommendedIndustries": [
       "Any Australian business with an ABN"
@@ -151,6 +175,15 @@
         }
       ]
     },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [
+        "au-abn-lookup",
+        "global-opencorporates"
+      ],
+      "competitors": []
+    },
     "bestFor": [
       "Checking an Australian counterparty",
       "Confirming a financial adviser is licensed"
@@ -172,15 +205,6 @@
       "contact": null,
       "screenshots": null,
       "businessVerification": null
-    },
-    "related": {
-      "alternatives": [],
-      "similar": [],
-      "usedWith": [
-        "au-abn-lookup",
-        "global-opencorporates"
-      ],
-      "competitors": []
     },
     "recommendedIndustries": [
       "Any Australian company or business name"
