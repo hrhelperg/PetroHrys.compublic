@@ -268,7 +268,8 @@ node scripts/measure-business-directory-dr.cjs --id=global-g2 --force
 `GET https://api.ahrefs.com/v3/public/domain-rating-free?target=<domain>`.
 Free — consumes no API units.
 
-**Authentication becomes mandatory on 2026-08-10.** Until then the utility works
+**Authentication becomes mandatory on 2026-08-10.** Full setup instructions:
+`docs/ahrefs-domain-rating-key.md`. Until then the utility works
 unauthenticated. After that date, create a free key at
 <https://app.ahrefs.com/account/api-keys> and export it:
 
