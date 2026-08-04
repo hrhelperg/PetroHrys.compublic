@@ -35,7 +35,7 @@
         "measuredAt": "2026-08-04"
       }
     },
-    "submissionModel": "free",
+    "submissionModel": "notApplicable",
     "registrationRequired": true,
     "reviewSystem": false,
     "verificationRequired": true,
@@ -60,7 +60,7 @@
     "indexed": null,
     "ssl": true,
     "lastVerified": "2026-08-04",
-    "nextVerification": "2027-02-04",
+    "nextVerification": "2027-08-15",
     "verification": {
       "status": "verified",
       "source": "official-website",
@@ -149,7 +149,7 @@
     "httpStatus": null,
     "metricStatus": "unknown",
     "metricsProvenance": {},
-    "submissionModel": "unknown",
+    "submissionModel": "notApplicable",
     "registrationRequired": true,
     "reviewSystem": false,
     "verificationRequired": true,
@@ -174,7 +174,7 @@
     "indexed": null,
     "ssl": true,
     "lastVerified": "2026-08-04",
-    "nextVerification": "2027-02-04",
+    "nextVerification": "2027-08-08",
     "verification": {
       "status": "verified",
       "source": "government-register",

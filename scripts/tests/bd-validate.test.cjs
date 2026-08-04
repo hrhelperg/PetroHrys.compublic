@@ -178,9 +178,9 @@ test('a verified record must name a reviewer', () => {
   assert.ok(reasons(validateRegistry(withDirs([bad]))).some((r) => /at least one reviewer/i.test(r)));
 });
 
-test('submissionModel must be one of the four allowed values', () => {
+test('submissionModel must be one of the allowed values', () => {
   const result = validateRegistry(withDirs([{ ...base, submissionModel: 'sometimes' }]));
-  assert.ok(reasons(result).some((r) => /free, paid, freemium, unknown/i.test(r)));
+  assert.ok(reasons(result).some((r) => /free, paid, freemium, notApplicable, unknown/i.test(r)));
 });
 
 test('rejects a third-party metric without provenance', () => {

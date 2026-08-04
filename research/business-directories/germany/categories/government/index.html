@@ -201,30 +201,31 @@
       </div>
       <fieldset class="bd-control" data-bd-filter-wrap hidden>
         <legend class="bd-label">Filter</legend>
+        <p class="bd-note">Filters show confirmed matches only. Records with unknown eligibility are not treated as negative.</p>
         <div class="bd-checks">
           <div class="bd-check">
             <input type="checkbox" id="germany-government-filter-free-submission" data-bd-filter="free-submission">
-            <label for="germany-government-filter-free-submission">Free to submit</label>
+            <label for="germany-government-filter-free-submission">Free to submit <span class="bd-count">0 confirmed, 2 unknown</span></label>
           </div>
           <div class="bd-check">
             <input type="checkbox" id="germany-government-filter-accepts-startup" data-bd-filter="accepts-startup">
-            <label for="germany-government-filter-accepts-startup">Accepts startups</label>
+            <label for="germany-government-filter-accepts-startup">Accepts startups <span class="bd-count">2 confirmed</span></label>
           </div>
           <div class="bd-check">
             <input type="checkbox" id="germany-government-filter-accepts-saas" data-bd-filter="accepts-saas">
-            <label for="germany-government-filter-accepts-saas">Accepts SaaS</label>
+            <label for="germany-government-filter-accepts-saas">Accepts SaaS <span class="bd-count">0 confirmed, 2 unknown</span></label>
           </div>
           <div class="bd-check">
             <input type="checkbox" id="germany-government-filter-accepts-localbusiness" data-bd-filter="accepts-localbusiness">
-            <label for="germany-government-filter-accepts-localbusiness">Accepts local businesses</label>
+            <label for="germany-government-filter-accepts-localbusiness">Accepts local businesses <span class="bd-count">0 confirmed, 2 unknown</span></label>
           </div>
           <div class="bd-check">
             <input type="checkbox" id="germany-government-filter-accepts-developer" data-bd-filter="accepts-developer">
-            <label for="germany-government-filter-accepts-developer">Accepts developer tools</label>
+            <label for="germany-government-filter-accepts-developer">Accepts developer tools <span class="bd-count">0 confirmed, 2 unknown</span></label>
           </div>
           <div class="bd-check">
             <input type="checkbox" id="germany-government-filter-accepts-ai" data-bd-filter="accepts-ai">
-            <label for="germany-government-filter-accepts-ai">Accepts AI products</label>
+            <label for="germany-government-filter-accepts-ai">Accepts AI products <span class="bd-count">0 confirmed, 2 unknown</span></label>
           </div>
         </div>
       </fieldset>
@@ -232,9 +233,6 @@
         <label class="bd-label" for="germany-government-sort">Sort by</label>
         <select class="bd-select" id="germany-government-sort" data-bd-sort>
           <option value="default">PetroHrys Score</option>
-          <option value="domain-rating">Domain Rating</option>
-          <option value="authority-score">Authority Score</option>
-          <option value="traffic">Estimated Traffic</option>
           <option value="alphabetical">Alphabetical</option>
         </select>
       </div>
@@ -244,29 +242,20 @@
           <tr>
             <th class="bd-cell" scope="col">Directory</th>
             <th class="bd-cell" scope="col">PetroHrys Score</th>
-            <th class="bd-cell" scope="col">Domain Rating</th>
-            <th class="bd-cell" scope="col">Authority Score</th>
-            <th class="bd-cell" scope="col">Estimated traffic</th>
           </tr>
         </thead>
         <tbody data-bd-rows>
-          <tr class="bd-row" data-bd-name="Bundesanzeiger" data-bd-haystack="bundesanzeiger german federal gazette publishing statutory corporate announcements and filed annual financial statements. any german company with disclosure obligations" data-bd-score="90" data-bd-dr="" data-bd-as="" data-bd-traffic="" data-bd-free-submission="0" data-bd-accepts-startup="1" data-bd-accepts-saas="0" data-bd-accepts-localbusiness="0" data-bd-accepts-developer="0" data-bd-accepts-ai="0">
-            <th class="bd-cell" scope="row"><a href="/research/business-directories/germany/bundesanzeiger/">Bundesanzeiger</a></th>
-            <td class="bd-cell"><span class="bd-metric">90</span></td>
-            <td class="bd-cell"><span class="bd-metric bd-metric--empty"><span aria-hidden="true">&mdash;</span><span class="bd-vh">Not recorded</span></span></td>
-            <td class="bd-cell"><span class="bd-metric bd-metric--empty"><span aria-hidden="true">&mdash;</span><span class="bd-vh">Not recorded</span></span></td>
-            <td class="bd-cell"><span class="bd-metric bd-metric--empty"><span aria-hidden="true">&mdash;</span><span class="bd-vh">Not recorded</span></span></td>
+          <tr class="bd-row" data-bd-name="Bundesanzeiger" data-bd-haystack="bundesanzeiger german federal gazette publishing statutory corporate announcements and filed annual financial statements. any german company with disclosure obligations" data-bd-score="90" data-bd-dr="" data-bd-as="" data-bd-traffic="" data-bd-free-submission="unknown" data-bd-accepts-startup="yes" data-bd-accepts-saas="unknown" data-bd-accepts-localbusiness="unknown" data-bd-accepts-developer="unknown" data-bd-accepts-ai="unknown">
+            <th class="bd-cell" scope="row" data-bd-label="Directory"><a href="/research/business-directories/germany/bundesanzeiger/">Bundesanzeiger</a></th>
+            <td class="bd-cell" data-bd-label="PetroHrys Score"><span class="bd-metric">90</span></td>
           </tr>
-          <tr class="bd-row" data-bd-name="Gemeinsames Registerportal der Länder" data-bd-haystack="gemeinsames registerportal der länder joint german register portal aggregating the commercial, cooperative, partnership and association registers of all federal states. any german-registered legal entity" data-bd-score="90" data-bd-dr="" data-bd-as="" data-bd-traffic="" data-bd-free-submission="0" data-bd-accepts-startup="1" data-bd-accepts-saas="0" data-bd-accepts-localbusiness="0" data-bd-accepts-developer="0" data-bd-accepts-ai="0">
-            <th class="bd-cell" scope="row"><a href="/research/business-directories/germany/registerportal/">Gemeinsames Registerportal der Länder</a></th>
-            <td class="bd-cell"><span class="bd-metric">90</span></td>
-            <td class="bd-cell"><span class="bd-metric bd-metric--empty"><span aria-hidden="true">&mdash;</span><span class="bd-vh">Not recorded</span></span></td>
-            <td class="bd-cell"><span class="bd-metric bd-metric--empty"><span aria-hidden="true">&mdash;</span><span class="bd-vh">Not recorded</span></span></td>
-            <td class="bd-cell"><span class="bd-metric bd-metric--empty"><span aria-hidden="true">&mdash;</span><span class="bd-vh">Not recorded</span></span></td>
+          <tr class="bd-row" data-bd-name="Gemeinsames Registerportal der Länder" data-bd-haystack="gemeinsames registerportal der länder joint german register portal aggregating the commercial, cooperative, partnership and association registers of all federal states. any german-registered legal entity" data-bd-score="90" data-bd-dr="" data-bd-as="" data-bd-traffic="" data-bd-free-submission="unknown" data-bd-accepts-startup="yes" data-bd-accepts-saas="unknown" data-bd-accepts-localbusiness="unknown" data-bd-accepts-developer="unknown" data-bd-accepts-ai="unknown">
+            <th class="bd-cell" scope="row" data-bd-label="Directory"><a href="/research/business-directories/germany/registerportal/">Gemeinsames Registerportal der Länder</a></th>
+            <td class="bd-cell" data-bd-label="PetroHrys Score"><span class="bd-metric">90</span></td>
           </tr>
         </tbody>
       </table>
-      <p class="bd-note">Domain Rating, Authority Score, estimated traffic and referring domains are third-party metrics produced by their respective providers, not by PetroHrys.com. The PetroHrys Score is a first-party editorial assessment.</p>
+      <p class="bd-note">Domain Rating is a third-party metric produced by their respective providers, not by PetroHrys.com. Each recorded value carries its provider and the date it was measured. No source has been consulted for authority score, estimated traffic and referring domains, so they are not published for any record. The PetroHrys Score is a first-party editorial assessment.</p>
     </section>
   </main>
 

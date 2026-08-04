@@ -13,7 +13,12 @@ const S = require('./bd-schema.cjs');
 const UNKNOWN = '<span class="bd-metric bd-metric--empty">Unknown</span>';
 
 const DIFFICULTY = { 'very-easy': 'Very easy', easy: 'Easy', moderate: 'Moderate', hard: 'Hard' };
-const SUBMISSION = { free: 'Free', paid: 'Paid', freemium: 'Freemium', unknown: 'Unknown' };
+// Sourced from the schema so a new submission model can never render as
+// "undefined" in a guide table.
+const SUBMISSION = {
+  free: 'Free', paid: 'Paid', freemium: 'Freemium',
+  notApplicable: 'Not a submission target', unknown: 'Unknown',
+};
 
 const bool = (v) => (v === true ? 'Yes' : v === false ? 'No' : UNKNOWN);
 const text = (v) => (v ? escapeHtml(v) : UNKNOWN);
@@ -88,6 +93,44 @@ function coverage(count, total, what) {
     + `than filled in.</p>`;
 }
 
+// The state of the third-party metrics, stated from the registry rather than
+// asserted in prose. These sentences were written when nothing had been
+// measured; six Domain Ratings were recorded later and the prose silently went
+// stale. Deriving it means the page cannot claim a field is empty while a record
+// populates it. Articles write {{METRICS}} and it is resolved at build time.
+const METRIC_LABELS = {
+  domainRating: 'Domain Rating',
+  authorityScore: 'Authority Score',
+  estimatedTraffic: 'estimated traffic',
+  referringDomains: 'referring-domain counts',
+};
+
+function joinNames(list) {
+  if (list.length === 1) return list[0];
+  return `${list.slice(0, -1).join(', ')} and ${list[list.length - 1]}`;
+}
+
+function metricStatusSentence(D) {
+  const keys = Object.keys(METRIC_LABELS);
+  const measured = keys.filter((k) => D.some((d) => d[k] !== null && d[k] !== undefined));
+  const absent = keys.filter((k) => !measured.includes(k));
+  const parts = [];
+  if (measured.length) {
+    const counts = measured.map((k) => {
+      const n = D.filter((d) => d[k] !== null && d[k] !== undefined).length;
+      return `${METRIC_LABELS[k]} is recorded on ${n} of ${D.length} records`;
+    });
+    parts.push(`${joinNames(counts)}, `
+      + 'each value carrying the provider that produced it and the date it was measured.');
+  }
+  if (absent.length) {
+    parts.push(`No measurement source has been consulted for ${joinNames(absent.map((k) => METRIC_LABELS[k]))}, `
+      + `so ${absent.length === 1 ? 'it is' : 'they are'} null across the dataset.`);
+  }
+  parts.push('None of them is a PetroHrys measurement, and ranking never uses them.');
+  return parts.join(' ');
+}
+
 // --- selectors ---------------------------------------------------------------
 
 const sel = {
@@ -115,7 +158,7 @@ Global directories are usually the first ones worth considering, because a listi
     guidance: `Score reflects editorial usefulness, not popularity. A directory can be very large and still score modestly if a listing there is worth little. Read the score alongside the submission model: a free listing on a moderately scored directory is often a better use of an afternoon than a paid listing on a higher-scoring one.`,
     faqs: [
       { q: 'Does a high PetroHrys Score mean a directory sends more traffic?', a: 'No. The score measures editorial usefulness — trust, verification rigour, spam resistance, stability and transparency. It is not a traffic or authority metric, and no traffic figures are recorded in this dataset.' },
-      { q: 'Are these ranked by domain authority?', a: 'No. Domain Rating, Authority Score, traffic and referring-domain counts are all null across this dataset because no measurement source was consulted. Ranking is by the first-party editorial score only.' },
+      { q: 'Are these ranked by domain authority?', a: 'No. {{METRICS}} Ranking is by the first-party editorial score only.' },
     ],
   },
   {
@@ -214,7 +257,7 @@ They are also the most reliable data source available on any company, which is w
     audience: `Anyone performing due diligence, compliance checks or counterparty verification, and companies confirming their own public record is accurate.`,
     guidance: `Check the register of the country of incorporation first, and treat aggregators as a convenience layer over it rather than a substitute. Note that some registers explicitly do not verify what is filed with them.`,
     faqs: [
-      { q: 'Are these registers free to search?', a: 'Several are, and the dataset records which. Where the official page did not state whether access or certified extracts are chargeable, the field is Unknown rather than assumed.' },
+      { q: 'Are these registers free to search?', a: 'This dataset does not record search or extract fees. Every register here is marked "Not a submission target", which records only that there is no optional listing to submit — it says nothing about what access costs. Check the official register for current fees.' },
       { q: 'Does a register entry mean a company is legitimate?', a: 'Not necessarily. Companies House, for example, states that it does not check the accuracy of the information filed with it. A register confirms existence and filings, not conduct.' },
     ],
   },
@@ -236,7 +279,7 @@ The cost is lock-in to the host platform's rules, review process and commercial 
     slug: 'global-vs-national-business-directories',
     title: 'Global vs National Business Directories',
     description: 'How globally scoped directories differ from national registers, and when each is the right choice.',
-    select: sel.national, what: 'are national in scope',
+    select: sel.national, what: 'are scoped to a single country rather than globally',
     intro: `The distinction this dataset draws is editorial scope, not company headquarters. A directory is national when its coverage is tied to one jurisdiction — almost always because it is a statutory register — and global when a business anywhere can use it identically.
 
 That rule produces a result some readers find surprising: Crunchbase and Trustpilot are recorded as global rather than United States entries, because a German company's relationship with them is the same as an American one's. Conversely, a national register is national no matter how large the country.`,
@@ -259,7 +302,7 @@ Where that is the case the submission model is recorded as Unknown. That is deli
     guidance: `Start with everything genuinely free, since it costs only time. Treat paid listings as advertising and evaluate them as such — with a defined objective — rather than as a checkbox. Where pricing is Unknown, ask the directory directly before committing.`,
     faqs: [
       { q: 'Why is pricing Unknown for so many directories?', a: 'Because it is not published on the pages that were verified. The dataset records what an official source stated; it does not infer pricing from the presence of a signup button.' },
-      { q: 'Are paid listings worse than free ones?', a: 'Not inherently. Paid inclusion is penalised in the editorial score under accessibility, but paid enhancement of an otherwise free listing is treated far more leniently.' },
+      { q: 'Are paid listings worse than free ones?', a: 'Not inherently. Paid inclusion weighs against a directory in the editorial score, while paid enhancement of an otherwise free listing is treated far more leniently.' },
     ],
   },
 ];
@@ -288,8 +331,8 @@ Each directory page publishes its own breakdown, so any reader can check the ari
       ])),
     ].join('\n\n'),
     faqs: [
-      { q: 'Can a directory pay to raise its score?', a: 'No. Nothing in this dataset is sold, sponsored, or accepted in exchange for payment, and paid inclusion is penalised rather than rewarded under the accessibility factor.' },
-      { q: 'How often are scores reviewed?', a: 'Scores are revisited when a record is re-verified. Each record carries a next-verification date, set six months after its last verification.' },
+      { q: 'Can a directory pay to raise its score?', a: 'No. Nothing in this dataset is sold, sponsored, or accepted in exchange for payment, and paid inclusion weighs against a directory rather than for it.' },
+      { q: 'How often are scores reviewed?', a: 'Scores are revisited when a record is re-verified. Each record carries a next-verification date, {{CADENCE}} after its last verification.' },
     ],
   },
   {
@@ -303,7 +346,7 @@ If a claim could not be confirmed from an official source, the corresponding fie
       section('recorded', 'What each record carries', bullets([
         'A verification status, which the validator refuses to accept as <em>verified</em> without the rest of this list.',
         'A verification source: official website, official documentation, government register, manual verification, or other.',
-        'A verification date, and a next-verification date six months later.',
+        'A verification date, and a next-verification date {{CADENCE}}.',
         'At least one named editorial reviewer. The field is an array, so a record can carry several.',
       ])),
       section('limits', 'Known limits of this method', paras(`Roughly a third of high-authority directories block automated fetching outright, returning HTTP 403 or a consent wall. Those directories are not published here. They are recorded as pending manual verification rather than added on the strength of general knowledge.
@@ -338,7 +381,7 @@ Quality is prioritised over count throughout. The dataset is smaller than it cou
 
 This is why several US-registered platforms are filed under Global. Filing them under the United States would mislead every reader outside it.`)),
       section('relations', 'Editorial relationships', paras(`Relationships between directories — alternatives, similar, often used together, competitors — are curated by a reviewer. None is generated by a similarity heuristic. The validator checks that every relationship points at a real record and never at itself.`)),
-      section('metrics', 'Third-party metrics', paras(`Domain Rating, Authority Score, estimated traffic and referring-domain counts are null across the entire dataset, because no measurement source was consulted. Where such a metric is ever recorded, it must carry its provider and measurement date, and it is labelled as third-party rather than presented as a PetroHrys figure.`)),
+      section('metrics', 'Third-party metrics', paras(`{{METRICS}} A recorded metric is always labelled as third-party rather than presented as a PetroHrys figure.`)),
     ].join('\n\n'),
     faqs: [
       { q: 'Can a directory pay to be included?', a: 'No. There is no paid inclusion and no submission route for directories.' },
@@ -396,7 +439,7 @@ Each directory page in this dataset records which audiences the directory accept
       { q: 'Are listings on this site paid or sponsored?', a: 'No. Nothing is sold, sponsored, or accepted in exchange for payment, and there is no route for a directory to request inclusion.' },
       { q: 'Why do outbound links not use nofollow?', a: 'Because they are editorial citations from pages carrying original analysis, not paid placements. Blanket-nofollowing them would misrepresent a curated knowledge base as a link directory.' },
       { q: 'Why is the dataset smaller than other directory lists?', a: 'Because unverifiable candidates are rejected rather than published. Roughly a third of high-authority directories block automated verification, and those are recorded as pending rather than added on assumption.' },
-      { q: 'Do you record Domain Rating or traffic?', a: 'Not currently. Every third-party metric is null across the dataset because no measurement source was consulted. If one is ever added it will carry its provider and measurement date.' },
+      { q: 'Do you record Domain Rating or traffic?', a: '{{METRICS}}' },
       { q: 'Can I suggest a directory?', a: 'There is no submission route. Directories are included on editorial merit after verification against their official source.' },
     ],
   },
@@ -419,7 +462,7 @@ The failure mode this framework is designed to prevent is treating directory wor
     framework: [
       '<strong>Fix the record you already have.</strong> If the company is incorporated, a statutory register entry exists and will be read during diligence. Confirming it is accurate costs nothing.',
       '<strong>List where your buyer already looks.</strong> One or two directories your actual buyers consult beat ten they do not. Each directory page here records which audiences it accepts.',
-      '<strong>Take the free tier everywhere it is genuinely free.</strong> Twenty of the verified directories state a free submission model. These cost only time.',
+      '<strong>Take the free tier everywhere it is genuinely free.</strong> {{FREE_COUNT}} of the verified directories state a free submission model. These cost only time.',
       '<strong>Stop.</strong> Set a number of listings in advance and stop at it. Add more only when a specific listing has a specific purpose.',
       '<strong>Assign an owner.</strong> An unowned listing goes stale, and a stale profile reads worse than no profile.',
     ],
@@ -690,6 +733,12 @@ Where the two scores differ, the gap reflects the ten editorial factors document
 
   return {
     slug: entry.slug,
+    // The two records this page is about. Carried on the emitted object so
+    // reciprocal linking reads them from what was actually generated rather
+    // than from the COMPARISONS constant, which may contain pages that were
+    // dropped because a subject is missing from the dataset.
+    a: entry.a,
+    b: entry.b,
     title: `${a.name} vs ${b.name}`,
     description: `A field-by-field comparison of ${a.name} and ${b.name} using only verified data, including where the evidence is insufficient.`,
     main,
@@ -771,13 +820,41 @@ function buildArticles(registry) {
   const emitted = all.filter((a) => !a.select || a.select(D).length > 0);
   const siblings = [...emitted, ...comparisons];
 
+  const metricsSentence = metricStatusSentence(D);
+  // Every published count is derived. A spelled-out numeral in prose goes stale
+  // silently the moment a record changes — "Twenty of the verified directories"
+  // survived a reclassification that moved the real figure to 15.
+  const freeCount = String(D.filter((d) => d.submissionModel === 'free').length);
+  // The cadence sentence is generated from the scheduler itself, so documentation
+  // and behaviour cannot drift apart.
+  const intervals = [...new Set(Object.values(S.REVIEW_INTERVAL_MONTHS))].sort((a, b) => a - b);
+  const cadenceSentence = `set between ${intervals[0]} and ${intervals[intervals.length - 1]} months later, `
+    + 'depending on how fast the directory changes — statutory registers are revisited least often, '
+    + 'continuously-submittable platforms most often';
+  const TOKENS = {
+    '{{METRICS}}': metricsSentence,
+    '{{FREE_COUNT}}': freeCount,
+    '{{CADENCE}}': cadenceSentence,
+  };
+  const resolveTokens = (value) => (typeof value === 'string'
+    ? Object.entries(TOKENS).reduce((out, [token, text_]) => out.split(token).join(text_), value)
+    : value);
+
   const built = emitted.map((article) => {
     let main;
+    // Which records this guide actually names on the page. A guide that selected
+    // a record but truncated it out of its top rows does not discuss it, so it
+    // must not be linked from that record as though it did.
+    let features = [];
     if (article.framework || article.steps) {
       main = decisionMain(article, D, total, siblings);
+      // Decision guides draw on the same top-12 selection, so they name records
+      // too and must be reciprocally linked from them.
+      if (article.select) features = sortDirectories(article.select(D)).slice(0, 12).map((r) => r.slug);
     } else if (article.select) {
       const records = sortDirectories(article.select(D));
       const top = records.slice(0, 12);
+      features = top.map((r) => r.slug);
       main = [
         section('introduction', 'Introduction', paras(article.intro)),
         section('evidence', 'Evidence base', coverage(records.length, total, article.what)
@@ -797,14 +874,33 @@ function buildArticles(registry) {
         section('related-reading', 'Related reading', relatedArticleLinks(article, emitted)),
       ].join('\n\n');
     }
-    return { ...article, main, faqs: article.faqs };
+    return {
+      ...article,
+      main: resolveTokens(main),
+      // FAQs are resolved separately because they are also emitted as FAQPage
+      // JSON-LD: an unresolved token there would publish a placeholder as a
+      // machine-readable answer.
+      faqs: (article.faqs || []).map((f) => ({ ...f, a: resolveTokens(f.a) })),
+      features,
+    };
   });
 
   // Comparisons carry their own fully-rendered main, so they join at the end.
   return [...built, ...comparisons.map((c) => ({
     ...c,
+    features: [c.a, c.b],
     main: [c.main, section('related-reading', 'Related guides', relatedArticleLinks(c, siblings))].join('\n\n'),
   }))];
 }
 
-module.exports = { buildArticles, ARTICLES, STATIC_ARTICLES, DECISION_ARTICLES, DECISION_GUIDES, COMPARISONS, comparisonTable, section, paras, bullets };
+// Inverts the guide selectors. Derived from the EMITTED guides and the rows each
+// one actually rendered, never from the raw article constants: a comparison
+// whose subjects are missing from the dataset is dropped before emission, and
+// linking it from a record page would advertise a page that was never written.
+function guidesFor(articles, record) {
+  return (articles || [])
+    .filter((a) => Array.isArray(a.features) && a.features.includes(record.slug))
+    .map((a) => ({ title: a.title, slug: a.slug }));
+}
+
+module.exports = { buildArticles, guidesFor, ARTICLES, STATIC_ARTICLES, DECISION_ARTICLES, DECISION_GUIDES, COMPARISONS, comparisonTable, section, paras, bullets };

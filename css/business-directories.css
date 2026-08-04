@@ -290,8 +290,78 @@
 
 .bd-provenance { margin-top: var(--s-4); }
 
+/* The page's primary action. Its own class: .bd-cta-link is shared with the
+   quieter submission link, and restyling that would produce two competing
+   primary buttons on the same page. */
+.bd-cta-primary {
+  display: inline-flex;
+  flex-direction: column;
+  gap: var(--s-0);
+  min-height: 44px;
+  justify-content: center;
+  padding: var(--s-2) var(--s-3);
+  border: var(--rule-w) solid var(--blue);
+  border-radius: var(--s-0);
+  color: var(--blue);
+  font-size: var(--fs-md);
+}
+
+.bd-cta-primary:hover,
+.bd-cta-primary:focus-visible {
+  background: var(--surface-blue);
+  color: var(--blue-strong);
+}
+
+/* The destination host, so a reader sees where the link goes before following
+   it. --text-2 rather than --text-3: this is information, not an aside. */
+.bd-cta-host { font-size: var(--fs-xs); color: var(--text-2); }
+
+/* Derived record counts on cards and filter labels. */
+.bd-count { font-size: var(--fs-xs); color: var(--text-2); font-weight: 400; }
+
+/* Scale line under a page title. */
+.bd-stat { color: var(--text-2); font-size: var(--fs-sm); margin-top: var(--s-2); }
+
+/* A factor's definition, under its value in the score breakdown. */
+.bd-def-note { display: block; font-size: var(--fs-xs); color: var(--text-2); margin-top: var(--s-0); }
+
 @media (max-width: 40rem) {
-  .bd-table { display: block; overflow-x: auto; }
+  /* Below 40rem the table becomes a stack of cards, one block per directory,
+     each cell labelled from data-bd-label. A five-column table cannot be read on
+     a phone by scrolling it sideways, and that scroll hid precisely the columns
+     carrying data. Every selector here is namespaced deliberately: the asset
+     test cannot inspect the first selector inside an at-rule. */
+  .bd-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .bd-table { display: block; width: 100%; }
+  .bd-table tbody { display: block; width: 100%; }
+  .bd-table .bd-row {
+    display: block;
+    width: 100%;
+    border: var(--rule-w) solid var(--rule);
+    border-radius: var(--s-0);
+    padding: var(--s-2);
+    margin-bottom: var(--s-2);
+  }
+  .bd-table .bd-cell {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--s-2);
+    padding: var(--s-1) 0;
+    text-align: left;
+  }
+  .bd-table .bd-cell[data-bd-label]::before {
+    content: attr(data-bd-label);
+    color: var(--text-2);
+    font-size: var(--fs-xs);
+    flex: 0 0 auto;
+  }
+  /* The name leads the card, so it does not repeat its own label. */
+  .bd-table th.bd-cell[data-bd-label="Directory"] { display: block; font-size: var(--fs-md); }
+  .bd-table th.bd-cell[data-bd-label="Directory"]::before { content: none; }
+  /* Comfortable targets for the controls above the table. */
+  .bd-check input { min-width: 24px; min-height: 24px; }
+  .bd-select { min-height: 44px; }
+  .bd-input { min-height: 44px; }
 }
 
 .bd-relations { margin-top: var(--s-4); }

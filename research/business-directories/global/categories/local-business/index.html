@@ -201,30 +201,31 @@
       </div>
       <fieldset class="bd-control" data-bd-filter-wrap hidden>
         <legend class="bd-label">Filter</legend>
+        <p class="bd-note">Filters show confirmed matches only. Records with unknown eligibility are not treated as negative.</p>
         <div class="bd-checks">
           <div class="bd-check">
             <input type="checkbox" id="global-local-business-filter-free-submission" data-bd-filter="free-submission">
-            <label for="global-local-business-filter-free-submission">Free to submit</label>
+            <label for="global-local-business-filter-free-submission">Free to submit <span class="bd-count">1 confirmed, 1 unknown</span></label>
           </div>
           <div class="bd-check">
             <input type="checkbox" id="global-local-business-filter-accepts-startup" data-bd-filter="accepts-startup">
-            <label for="global-local-business-filter-accepts-startup">Accepts startups</label>
+            <label for="global-local-business-filter-accepts-startup">Accepts startups <span class="bd-count">0 confirmed, 2 unknown</span></label>
           </div>
           <div class="bd-check">
             <input type="checkbox" id="global-local-business-filter-accepts-saas" data-bd-filter="accepts-saas">
-            <label for="global-local-business-filter-accepts-saas">Accepts SaaS</label>
+            <label for="global-local-business-filter-accepts-saas">Accepts SaaS <span class="bd-count">0 confirmed, 2 unknown</span></label>
           </div>
           <div class="bd-check">
             <input type="checkbox" id="global-local-business-filter-accepts-localbusiness" data-bd-filter="accepts-localbusiness">
-            <label for="global-local-business-filter-accepts-localbusiness">Accepts local businesses</label>
+            <label for="global-local-business-filter-accepts-localbusiness">Accepts local businesses <span class="bd-count">2 confirmed</span></label>
           </div>
           <div class="bd-check">
             <input type="checkbox" id="global-local-business-filter-accepts-developer" data-bd-filter="accepts-developer">
-            <label for="global-local-business-filter-accepts-developer">Accepts developer tools</label>
+            <label for="global-local-business-filter-accepts-developer">Accepts developer tools <span class="bd-count">1 confirmed, 1 unknown</span></label>
           </div>
           <div class="bd-check">
             <input type="checkbox" id="global-local-business-filter-accepts-ai" data-bd-filter="accepts-ai">
-            <label for="global-local-business-filter-accepts-ai">Accepts AI products</label>
+            <label for="global-local-business-filter-accepts-ai">Accepts AI products <span class="bd-count">0 confirmed, 2 unknown</span></label>
           </div>
         </div>
       </fieldset>
@@ -232,9 +233,6 @@
         <label class="bd-label" for="global-local-business-sort">Sort by</label>
         <select class="bd-select" id="global-local-business-sort" data-bd-sort>
           <option value="default">PetroHrys Score</option>
-          <option value="domain-rating">Domain Rating</option>
-          <option value="authority-score">Authority Score</option>
-          <option value="traffic">Estimated Traffic</option>
           <option value="alphabetical">Alphabetical</option>
         </select>
       </div>
@@ -244,29 +242,20 @@
           <tr>
             <th class="bd-cell" scope="col">Directory</th>
             <th class="bd-cell" scope="col">PetroHrys Score</th>
-            <th class="bd-cell" scope="col">Domain Rating</th>
-            <th class="bd-cell" scope="col">Authority Score</th>
-            <th class="bd-cell" scope="col">Estimated traffic</th>
           </tr>
         </thead>
         <tbody data-bd-rows>
-          <tr class="bd-row" data-bd-name="Yelp for Business" data-bd-haystack="yelp for business local business listing and consumer review platform; claiming a basic business page is free, with paid advertising available. restaurants home services local retail health and beauty" data-bd-score="79" data-bd-dr="" data-bd-as="" data-bd-traffic="" data-bd-free-submission="1" data-bd-accepts-startup="0" data-bd-accepts-saas="0" data-bd-accepts-localbusiness="1" data-bd-accepts-developer="0" data-bd-accepts-ai="0">
-            <th class="bd-cell" scope="row"><a href="/research/business-directories/global/yelp-for-business/">Yelp for Business</a></th>
-            <td class="bd-cell"><span class="bd-metric">79</span></td>
-            <td class="bd-cell"><span class="bd-metric bd-metric--empty"><span aria-hidden="true">&mdash;</span><span class="bd-vh">Not recorded</span></span></td>
-            <td class="bd-cell"><span class="bd-metric bd-metric--empty"><span aria-hidden="true">&mdash;</span><span class="bd-vh">Not recorded</span></span></td>
-            <td class="bd-cell"><span class="bd-metric bd-metric--empty"><span aria-hidden="true">&mdash;</span><span class="bd-vh">Not recorded</span></span></td>
+          <tr class="bd-row" data-bd-name="Yelp for Business" data-bd-haystack="yelp for business local business listing and consumer review platform; claiming a basic business page is free, with paid advertising available. restaurants home services local retail health and beauty" data-bd-score="79" data-bd-dr="" data-bd-as="" data-bd-traffic="" data-bd-free-submission="yes" data-bd-accepts-startup="unknown" data-bd-accepts-saas="unknown" data-bd-accepts-localbusiness="yes" data-bd-accepts-developer="unknown" data-bd-accepts-ai="unknown">
+            <th class="bd-cell" scope="row" data-bd-label="Directory"><a href="/research/business-directories/global/yelp-for-business/">Yelp for Business</a></th>
+            <td class="bd-cell" data-bd-label="PetroHrys Score"><span class="bd-metric">79</span></td>
           </tr>
-          <tr class="bd-row" data-bd-name="Foursquare Places" data-bd-haystack="foursquare places point-of-interest dataset covering business locations across more than 200 countries, with an open-source tier. retail location intelligence mapping" data-bd-score="74" data-bd-dr="" data-bd-as="" data-bd-traffic="" data-bd-free-submission="0" data-bd-accepts-startup="0" data-bd-accepts-saas="0" data-bd-accepts-localbusiness="1" data-bd-accepts-developer="1" data-bd-accepts-ai="0">
-            <th class="bd-cell" scope="row"><a href="/research/business-directories/global/foursquare-places/">Foursquare Places</a></th>
-            <td class="bd-cell"><span class="bd-metric">74</span></td>
-            <td class="bd-cell"><span class="bd-metric bd-metric--empty"><span aria-hidden="true">&mdash;</span><span class="bd-vh">Not recorded</span></span></td>
-            <td class="bd-cell"><span class="bd-metric bd-metric--empty"><span aria-hidden="true">&mdash;</span><span class="bd-vh">Not recorded</span></span></td>
-            <td class="bd-cell"><span class="bd-metric bd-metric--empty"><span aria-hidden="true">&mdash;</span><span class="bd-vh">Not recorded</span></span></td>
+          <tr class="bd-row" data-bd-name="Foursquare Places" data-bd-haystack="foursquare places point-of-interest dataset covering business locations across more than 200 countries, with an open-source tier. retail location intelligence mapping" data-bd-score="74" data-bd-dr="" data-bd-as="" data-bd-traffic="" data-bd-free-submission="unknown" data-bd-accepts-startup="unknown" data-bd-accepts-saas="unknown" data-bd-accepts-localbusiness="yes" data-bd-accepts-developer="yes" data-bd-accepts-ai="unknown">
+            <th class="bd-cell" scope="row" data-bd-label="Directory"><a href="/research/business-directories/global/foursquare-places/">Foursquare Places</a></th>
+            <td class="bd-cell" data-bd-label="PetroHrys Score"><span class="bd-metric">74</span></td>
           </tr>
         </tbody>
       </table>
-      <p class="bd-note">Domain Rating, Authority Score, estimated traffic and referring domains are third-party metrics produced by their respective providers, not by PetroHrys.com. The PetroHrys Score is a first-party editorial assessment.</p>
+      <p class="bd-note">Domain Rating is a third-party metric produced by their respective providers, not by PetroHrys.com. Each recorded value carries its provider and the date it was measured. No source has been consulted for authority score, estimated traffic and referring domains, so they are not published for any record. The PetroHrys Score is a first-party editorial assessment.</p>
     </section>
   </main>
 

@@ -80,24 +80,33 @@ function pageIntro({ title, lede }) {
 
 // A pending route has not been written to disk, so it is rendered as text and
 // never as a link — linking it would advertise a 404.
-function countryCard({ name, path, pending = false, headingLevel = 3 }) {
+// "3 directories" / "1 directory". A count is only ever rendered when it is
+// greater than zero: a card for an empty place is not published at all, so a
+// zero here would mean the caller made a mistake rather than that the place is
+// empty.
+function countLabel(count) {
+  if (!Number.isInteger(count) || count <= 0) return '';
+  return ` <span class="bd-count">${count} ${count === 1 ? 'directory' : 'directories'}</span>`;
+}
+
+function countryCard({ name, path, count, pending = false, headingLevel = 3 }) {
   const h = headingTag(headingLevel);
   const title = pending
-    ? `<span class="bd-pending">${escapeHtml(name)}</span> <span class="bd-tag">coming soon</span>`
+    ? `<span class="bd-pending">${escapeHtml(name)}</span>`
     : `<a href="${escapeHtml(path)}">${escapeHtml(name)}</a>`;
   return `        <li class="bd-card">
-          <${h} class="bd-card-title">${title}</${h}>
+          <${h} class="bd-card-title">${title}${pending ? '' : countLabel(count)}</${h}>
         </li>`;
 }
 
-function categoryCard({ name, path, description, pending = false, headingLevel = 3 }) {
+function categoryCard({ name, path, description, count, pending = false, headingLevel = 3 }) {
   const h = headingTag(headingLevel);
   const title = pending
-    ? `<span class="bd-pending">${escapeHtml(name)}</span> <span class="bd-tag">coming soon</span>`
+    ? `<span class="bd-pending">${escapeHtml(name)}</span>`
     : `<a href="${escapeHtml(path)}">${escapeHtml(name)}</a>`;
   const body = description ? `\n          <p class="bd-card-body">${escapeHtml(description)}</p>` : '';
   return `        <li class="bd-card">
-          <${h} class="bd-card-title">${title}</${h}>${body}
+          <${h} class="bd-card-title">${title}${pending ? '' : countLabel(count)}</${h}>${body}
         </li>`;
 }
 
@@ -141,25 +150,66 @@ const METRIC_ROWS = [
   ['referringDomains', 'Referring domains', true],
 ];
 
-function metricsBlock(directory) {
+// A metric nobody has measured is not a per-record gap, it is a metric the
+// dataset does not carry. Rendering 64 identical "Unknown" tiles for it states
+// nothing and buries the values that do exist, so the row is dropped and the
+// absence is stated once in metricNote(). The moment any record records a
+// value the row returns on its own — this is derived, never a hard-coded list.
+function activeMetricFields(records) {
+  const list = Array.isArray(records) ? records : [];
+  return METRIC_ROWS
+    .filter(([field, , thirdParty]) => !thirdParty || list.some((r) => !isNullish(r[field])))
+    .map(([field]) => field);
+}
+
+function metricsBlock(directory, active) {
   const provenance = directory.metricsProvenance || {};
-  const rows = METRIC_ROWS.map(([field, label, thirdParty]) => {
-    const value = metric(directory[field], thirdParty ? provenance[field] : undefined,
-      thirdParty ? directory.metricStatus : undefined);
-    return `        <div class="bd-def">
+  const allowed = Array.isArray(active) ? new Set(active) : null;
+  const rows = METRIC_ROWS
+    .filter(([field]) => !allowed || allowed.has(field))
+    .map(([field, label, thirdParty]) => {
+      const value = metric(directory[field], thirdParty ? provenance[field] : undefined,
+        thirdParty ? directory.metricStatus : undefined);
+      return `        <div class="bd-def">
           <dt class="bd-def-t">${escapeHtml(label)}</dt>
           <dd class="bd-def-d">${value}</dd>
         </div>`;
-  }).join('\n');
+    }).join('\n');
   return `      <dl class="bd-defs">
 ${rows}
       </dl>`;
 }
 
-function metricNote() {
-  return '      <p class="bd-note">Domain Rating, Authority Score, estimated traffic and referring '
-    + 'domains are third-party metrics produced by their respective providers, not by '
-    + 'PetroHrys.com. The PetroHrys Score is a first-party editorial assessment.</p>';
+const METRIC_LABELS = new Map(METRIC_ROWS.map(([field, label]) => [field, label]));
+
+// Names exactly the third-party metrics still on the page, then states which of
+// them the dataset does not carry at all. Both halves are derived, so the note
+// can never describe a field that is no longer shown or claim a field is empty
+// when a record populates it.
+function metricNote(active) {
+  const thirdParty = METRIC_ROWS.filter(([, , tp]) => tp).map(([field]) => field);
+  const allowed = Array.isArray(active) ? new Set(active) : new Set(thirdParty);
+  const shown = thirdParty.filter((f) => allowed.has(f));
+  const absent = thirdParty.filter((f) => !allowed.has(f));
+  const names = (fields) => {
+    const labels = fields.map((f) => METRIC_LABELS.get(f));
+    if (labels.length === 1) return labels[0];
+    return `${labels.slice(0, -1).join(', ')} and ${labels[labels.length - 1]}`;
+  };
+
+  const parts = [];
+  if (shown.length) {
+    parts.push(`${names(shown)} ${shown.length === 1 ? 'is a third-party metric' : 'are third-party metrics'} `
+      + 'produced by their respective providers, not by PetroHrys.com. Each recorded value carries '
+      + 'its provider and the date it was measured.');
+  }
+  if (absent.length) {
+    parts.push(`No source has been consulted for ${names(absent).toLowerCase()}, so ${absent.length === 1
+      ? 'it is'
+      : 'they are'} not published for any record.`);
+  }
+  parts.push('The PetroHrys Score is a first-party editorial assessment.');
+  return `      <p class="bd-note">${escapeHtml(parts.join(' '))}</p>`;
 }
 
 // ---------------------------------------------------------------------------
@@ -175,12 +225,12 @@ function statusBadges(directory) {
     ? { state: 'verified', text: 'Verified' }
     : { state: 'unverified', text: 'Not yet verified' });
 
-  const SUBMISSION_TEXT = {
-    free: 'Free to submit', paid: 'Paid submission', freemium: 'Free and paid tiers',
-  };
-  badges.push(SUBMISSION_TEXT[directory.submissionModel]
-    ? { state: directory.submissionModel, text: SUBMISSION_TEXT[directory.submissionModel] }
-    : { state: 'unknown', text: 'Submission model unknown' });
+  // Labels come from the schema so a new submission model can never render as
+  // "undefined" or silently fall through to "unknown".
+  const submissionText = S.SUBMISSION_MODEL_LABELS[directory.submissionModel];
+  badges.push(submissionText
+    ? { state: directory.submissionModel, text: submissionText }
+    : { state: 'unknown', text: S.SUBMISSION_MODEL_LABELS.unknown });
 
   if (directory.verificationRequired === true) {
     badges.push({ state: 'gated', text: 'Verification required' });
@@ -291,13 +341,31 @@ const FILTERS = [
 
 // Resolves a filter key against a record, so the row attributes and the filter
 // list can never drift apart.
+//
+// Returns true / false / null, never a coerced boolean. `null` means the answer
+// was never established, and it must stay distinguishable from a confirmed "no":
+// collapsing the two would publish 42 records as "does not accept SaaS" when
+// nobody ever checked. A statutory register is `null` for free-submission too —
+// "you cannot submit at all" is not the same claim as "submission is not free".
 function filterValue(directory, field) {
   if (field === 'free-submission') {
-    return directory.submissionModel === 'free' || directory.submissionModel === 'freemium';
+    const model = directory.submissionModel;
+    if (model === 'free' || model === 'freemium') return true;
+    if (model === 'paid') return false;
+    return null; // unknown, and notApplicable: there is nothing to submit
   }
   const key = field.replace(/^accepts-/, '');
   const match = S.ACCEPTS_KEYS.find((k) => k.toLowerCase() === key);
-  return match ? (directory.accepts || {})[match] === true : false;
+  if (!match) return null;
+  const value = (directory.accepts || {})[match];
+  return value === true ? true : value === false ? false : null;
+}
+
+// yes / no / unknown, so the client never has to infer a third state from a
+// two-state attribute.
+function filterAttr(directory, field) {
+  const value = filterValue(directory, field);
+  return value === true ? 'yes' : value === false ? 'no' : 'unknown';
 }
 
 const dataKey = (field) => `data-bd-${field.toLowerCase()}`;
@@ -313,25 +381,56 @@ function searchControls({ idPrefix = 'bd' } = {}) {
       </div>`;
 }
 
-function filterControls({ idPrefix = 'bd' } = {}) {
+const FILTER_DISCLOSURE = 'Filters show confirmed matches only. Records with unknown '
+  + 'eligibility are not treated as negative.';
+
+function filterControls({ idPrefix = 'bd', directories = [] } = {}) {
   const boxes = FILTERS.map((f) => {
     const id = `${escapeHtml(idPrefix)}-filter-${escapeHtml(f.field)}`;
+    // Counted from the same resolver the row attributes use, so the number a
+    // reader sees is exactly what ticking the box will show.
+    const confirmed = directories.filter((d) => filterValue(d, f.field) === true).length;
+    const unknown = directories.filter((d) => filterValue(d, f.field) === null).length;
+    const tally = directories.length
+      ? ` <span class="bd-count">${confirmed} confirmed`
+        + `${unknown ? `, ${unknown} unknown` : ''}</span>`
+      : '';
     return `          <div class="bd-check">
             <input type="checkbox" id="${id}" data-bd-filter="${escapeHtml(f.field)}">
-            <label for="${id}">${escapeHtml(f.label)}</label>
+            <label for="${id}">${escapeHtml(f.label)}${tally}</label>
           </div>`;
   }).join('\n');
   return `      <fieldset class="bd-control" data-bd-filter-wrap hidden>
         <legend class="bd-label">Filter</legend>
+        <p class="bd-note">${escapeHtml(FILTER_DISCLOSURE)}</p>
         <div class="bd-checks">
 ${boxes}
         </div>
       </fieldset>`;
 }
 
-function sortControls({ idPrefix = 'bd' } = {}) {
+// Which sort key each metric column drives. A sort option whose column is not
+// rendered would silently fall through to name order, so options are emitted
+// only for columns the reader can actually see.
+// Keys must match js/bd-order.js SORT_KEYS exactly — that module is the shared
+// server/browser contract. A key that does not appear there silently disables
+// this filter, leaving the dead options it was written to remove.
+const SORT_FIELD_FOR_KEY = {
+  default: 'petroHrysScore',
+  'domain-rating': 'domainRating',
+  'authority-score': 'authorityScore',
+  traffic: 'estimatedTraffic',
+  // 'alphabetical' drives no metric column, so it is always offered.
+};
+
+function sortControls({ idPrefix = 'bd', columns } = {}) {
   const id = `${escapeHtml(idPrefix)}-sort`;
-  const options = SORT_KEYS.map((key) =>
+  const shown = Array.isArray(columns) ? new Set(columns) : null;
+  const keys = SORT_KEYS.filter((key) => {
+    const field = SORT_FIELD_FOR_KEY[key];
+    return !shown || !field || shown.has(field);
+  });
+  const options = keys.map((key) =>
     `          <option value="${escapeHtml(key)}">${escapeHtml(SORTS[key].label)}</option>`).join('\n');
   return `      <div class="bd-control" data-bd-sort-wrap hidden>
         <label class="bd-label" for="${id}">Sort by</label>
@@ -356,8 +455,30 @@ function numAttr(value) {
   return isNullish(value) ? '' : String(value);
 }
 
-function directoryRow(directory) {
+// Directory and PetroHrys Score are always present. A metric column is rendered
+// only when at least one row in THIS set carries a value for it — a column of
+// nothing but em dashes tells the reader less than no column at all, and makes
+// the two columns that do carry data harder to read.
+const TABLE_METRIC_COLUMNS = [
+  { field: 'petroHrysScore', label: 'PetroHrys Score', always: true },
+  { field: 'domainRating', label: 'Domain Rating' },
+  { field: 'authorityScore', label: 'Authority Score' },
+  { field: 'estimatedTraffic', label: 'Estimated traffic' },
+];
+
+function tableColumnsFor(directories) {
+  const list = Array.isArray(directories) ? directories : [];
+  return TABLE_METRIC_COLUMNS
+    .filter((col) => col.always || list.some((d) => !isNullish(d[col.field])))
+    .map((col) => col.field);
+}
+
+// Data attributes stay on every row for all metrics regardless of which columns
+// render, so client-side sorting keeps working and the markup contract the asset
+// tests assert does not change.
+function directoryRow(directory, columns) {
   const provenance = directory.metricsProvenance || {};
+  const shown = Array.isArray(columns) ? new Set(columns) : null;
   const attrs = [
     `data-bd-name="${escapeHtml(String(directory.name || ''))}"`,
     `data-bd-haystack="${escapeHtml(haystack(directory))}"`,
@@ -365,33 +486,38 @@ function directoryRow(directory) {
     `data-bd-dr="${escapeHtml(numAttr(directory.domainRating))}"`,
     `data-bd-as="${escapeHtml(numAttr(directory.authorityScore))}"`,
     `data-bd-traffic="${escapeHtml(numAttr(directory.estimatedTraffic))}"`,
-    ...FILTERS.map((f) => `${dataKey(f.field)}="${filterValue(directory, f.field) ? '1' : '0'}"`),
+    ...FILTERS.map((f) => `${dataKey(f.field)}="${filterAttr(directory, f.field)}"`),
   ].join(' ');
+  const cells = TABLE_METRIC_COLUMNS
+    .filter((col) => !shown || shown.has(col.field))
+    .map((col) => `            <td class="bd-cell" data-bd-label="${escapeHtml(col.label)}">`
+      + `${metric(directory[col.field], provenance[col.field])}</td>`)
+    .join('\n');
   return `          <tr class="bd-row" ${attrs}>
-            <th class="bd-cell" scope="row"><a href="${escapeHtml(directoryPathFor(directory))}">${escapeHtml(directory.name)}</a></th>
-            <td class="bd-cell">${metric(directory.petroHrysScore)}</td>
-            <td class="bd-cell">${metric(directory.domainRating, provenance.domainRating)}</td>
-            <td class="bd-cell">${metric(directory.authorityScore, provenance.authorityScore)}</td>
-            <td class="bd-cell">${metric(directory.estimatedTraffic, provenance.estimatedTraffic)}</td>
+            <th class="bd-cell" scope="row" data-bd-label="Directory"><a href="${escapeHtml(directoryPathFor(directory))}">${escapeHtml(directory.name)}</a></th>
+${cells}
           </tr>`;
 }
 
 // Server order always comes from bd-sort, so the table is correct before any
 // JavaScript runs. No row cap and no pagination logic lives here.
-function directoryTable({ directories, caption = 'Directories' }) {
+function directoryTable({ directories, caption = 'Directories', columns }) {
   if (!Array.isArray(directories) || directories.length === 0) {
     return emptyState('No directories are published here yet.');
   }
-  const rows = sortDirectories(directories).map(directoryRow).join('\n');
+  const cols = Array.isArray(columns) ? columns : tableColumnsFor(directories);
+  const shown = new Set(cols);
+  const rows = sortDirectories(directories).map((d) => directoryRow(d, cols)).join('\n');
+  const heads = TABLE_METRIC_COLUMNS
+    .filter((col) => shown.has(col.field))
+    .map((col) => `            <th class="bd-cell" scope="col">${escapeHtml(col.label)}</th>`)
+    .join('\n');
   return `      <table class="bd-table">
         <caption class="bd-caption">${escapeHtml(caption)}</caption>
         <thead>
           <tr>
             <th class="bd-cell" scope="col">Directory</th>
-            <th class="bd-cell" scope="col">PetroHrys Score</th>
-            <th class="bd-cell" scope="col">Domain Rating</th>
-            <th class="bd-cell" scope="col">Authority Score</th>
-            <th class="bd-cell" scope="col">Estimated traffic</th>
+${heads}
           </tr>
         </thead>
         <tbody data-bd-rows>
@@ -441,10 +567,13 @@ ${pages.join('\n')}
 // 15. Methodology note
 // ---------------------------------------------------------------------------
 
+// "how it links out" was removed: backlinkType is null on every record and is
+// read by no renderer, so the claim described a field the dataset does not
+// carry. Every remaining clause names something a record actually stores.
 function methodologyNote() {
   return '      <p class="bd-note">Every directory is checked by hand before publication. Each '
     + 'record stores what the directory accepts, whether listing is free or paid, whether '
-    + 'verification or manual review is required, how it links out, and the date it was '
+    + 'verification or manual review is required, and the date it was '
     + 'verified. Nothing is published from an automated crawl, and no value is estimated '
     + 'or inferred.</p>';
 }
@@ -561,21 +690,25 @@ ${rows}
 
 // Publishes the factors behind the score so the number is auditable rather
 // than asserted.
+// Every factor renders its definition from the schema, so the reader can check
+// the number against what was actually being judged, and no page can describe a
+// factor that does not exist.
 function scoreBreakdown(directory) {
   if (!directory.scoreFactors) return '';
-  const rows = S.SCORE_FACTORS.map(({ key, weight, label }) => {
+  const rows = S.SCORE_FACTORS.map(({ key, weight, label, definition }) => {
     const value = directory.scoreFactors[key];
     return `        <div class="bd-def">
           <dt class="bd-def-t">${escapeHtml(label)} <span class="bd-tag">${weight}%</span></dt>
-          <dd class="bd-def-d"><span class="bd-metric">${escapeHtml(value)} / 10</span></dd>
+          <dd class="bd-def-d"><span class="bd-metric">${escapeHtml(value)} / 10</span>
+            <span class="bd-def-note">${escapeHtml(definition)}</span></dd>
         </div>`;
   }).join('\n');
   return `      <dl class="bd-defs">
 ${rows}
       </dl>
       <p class="bd-note">The PetroHrys Score is a first-party editorial assessment, not a third-party
-      authority metric. It is the weighted sum of the ten factors above, each scored from 0 to 10 by a
-      human reviewer, with weights totalling 100%.</p>`;
+      authority metric. It is the weighted sum of the ten factors above, divided by ten, so the number
+      on this page is reproducible from the values shown. ${escapeHtml(S.SCORE_METHOD_NOTE)}</p>`;
 }
 
 // ---------------------------------------------------------------------------
@@ -584,15 +717,25 @@ ${rows}
 
 // An unusable scheme (javascript:, data:, file:, malformed) is never rendered
 // as a link. The raw value is shown as text so nothing is silently dropped.
-function externalLinkCta({ url, label = 'Visit directory' }) {
+// The page's primary action. `name` makes the anchor text say where the link
+// goes — "Visit directory" is identical on all 64 pages and tells a screen
+// reader working through a link list nothing at all. The destination host is
+// shown so the reader can see where they are being sent before clicking.
+// Uses its own class: .bd-cta-link is shared with the quieter submission link,
+// and restyling that would produce two competing primary buttons.
+function externalLinkCta({ url, name, label }) {
   const href = safeHref(url);
+  const text = label || (name ? `Visit ${name}` : 'Visit directory');
   if (!href) {
-    return `      <p class="bd-cta bd-cta--unavailable">${escapeHtml(label)}: `
+    return `      <p class="bd-cta bd-cta--unavailable">${escapeHtml(text)}: `
       + `<span class="bd-metric bd-metric--empty">no usable address recorded</span></p>`;
   }
-  return `      <p class="bd-cta"><a class="bd-cta-link" href="${escapeHtml(href)}" `
-    + `rel="${REL_EXTERNAL}" target="_blank">${escapeHtml(label)}`
-    + `${vh(' (opens in a new tab)')}</a></p>`;
+  let host = '';
+  try { host = new URL(href).host.replace(/^www\./, ''); } catch { host = ''; }
+  const hostHtml = host ? `<span class="bd-cta-host">${escapeHtml(host)}</span>` : '';
+  return `      <p class="bd-cta"><a class="bd-cta-primary" href="${escapeHtml(href)}" `
+    + `rel="${REL_EXTERNAL}" target="_blank">${escapeHtml(text)}`
+    + `${vh(' (opens in a new tab)')}${hostHtml}</a></p>`;
 }
 
 // ---------------------------------------------------------------------------
@@ -621,6 +764,11 @@ ${items}
 // The official submission route, where one was verified. A null is stated
 // rather than hidden, so a reader knows it was not confirmed.
 function submissionLink(directory) {
+  // A statutory register has no submission route to verify. Saying "not
+  // verified" would imply one exists and nobody checked.
+  if (directory.submissionModel === 'notApplicable') {
+    return `      <p class="bd-cta bd-cta--unavailable">${escapeHtml(S.SUBMISSION_NOT_APPLICABLE_NOTE)}</p>`;
+  }
   const href = safeHref(directory.submissionUrl);
   if (!href) {
     return '      <p class="bd-cta bd-cta--unavailable">Official submission page not verified.</p>';
@@ -643,52 +791,97 @@ const ASSET_LABELS = {
 
 // Editorial judgement and verified fact are shown side by side, each labelled,
 // so a reader can tell which is which. Anything unestablished says Unknown.
-function editorialGuidance(directory) {
+// Guidance groups that carry a value on at least one record. A group nobody has
+// filled in anywhere is not a per-record gap — it is a question the project has
+// not started answering, and 64 identical "Unknown" rows say that far less
+// clearly than one sentence does. Derived, so a group returns the moment a
+// record populates it.
+const GUIDANCE_GROUPS = [
+  { key: 'submissionDifficulty', has: (r) => !isNullish(r.submissionDifficulty) },
+  { key: 'listingQuality', has: (r) => !isNullish(r.listingQuality) },
+  { key: 'typicalApprovalTime', has: (r) => !isNullish(r.typicalApprovalTime) },
+  { key: 'reviewProcess', has: (r) => !isNullish(r.reviewProcess) },
+  { key: 'preparationChecklist', has: (r) => (r.preparationChecklist || []).length > 0 },
+  { key: 'commonMistakes', has: (r) => (r.commonMistakes || []).length > 0 },
+  { key: 'requiredAssets',
+    has: (r) => Object.values(r.requiredAssets || {}).some((v) => !isNullish(v)) },
+];
+
+function activeGuidanceFields(records) {
+  const list = Array.isArray(records) ? records : [];
+  return GUIDANCE_GROUPS.filter((g) => list.some((r) => g.has(r))).map((g) => g.key);
+}
+
+// Names the suppressed groups in one sentence so their absence is stated rather
+// than silently hidden.
+const GUIDANCE_ABSENCE_LABELS = {
+  submissionDifficulty: 'submission difficulty',
+  listingQuality: 'typical listing quality',
+  typicalApprovalTime: 'typical approval time',
+  reviewProcess: 'review process',
+  preparationChecklist: 'preparation checklists',
+  commonMistakes: 'common mistakes',
+  requiredAssets: 'required submission assets',
+};
+
+function guidanceAbsenceNote(active) {
+  const allowed = new Set(active || []);
+  const absent = GUIDANCE_GROUPS.map((g) => g.key).filter((k) => !allowed.has(k));
+  if (!absent.length) return '';
+  const labels = absent.map((k) => GUIDANCE_ABSENCE_LABELS[k]);
+  const names = labels.length === 1
+    ? labels[0]
+    : `${labels.slice(0, -1).join(', ')} and ${labels[labels.length - 1]}`;
+  return `      <p class="bd-note">${escapeHtml(`Establishing ${names} requires submitting a listing `
+    + 'and observing the result. That has not been done for any directory in this dataset, so '
+    + `${labels.length === 1 ? 'it is' : 'they are'} not published rather than estimated.`)}</p>`;
+}
+
+function editorialGuidance(directory, active) {
+  const allowed = Array.isArray(active) ? new Set(active) : null;
+  const on = (key) => !allowed || allowed.has(key);
+
   const defs = [
-    ['Submission difficulty', DIFFICULTY_LABELS[directory.submissionDifficulty]],
-    ['Typical listing quality', QUALITY_LABELS[directory.listingQuality]],
-    ['Typical approval time', directory.typicalApprovalTime],
-    ['Review process', directory.reviewProcess],
-  ].map(([label, value]) => `        <div class="bd-def">
+    ['submissionDifficulty', 'Submission difficulty', DIFFICULTY_LABELS[directory.submissionDifficulty]],
+    ['listingQuality', 'Typical listing quality', QUALITY_LABELS[directory.listingQuality]],
+    ['typicalApprovalTime', 'Typical approval time', directory.typicalApprovalTime],
+    ['reviewProcess', 'Review process', directory.reviewProcess],
+  ].filter(([key]) => on(key)).map(([, label, value]) => `        <div class="bd-def">
           <dt class="bd-def-t">${escapeHtml(label)}</dt>
           <dd class="bd-def-d">${value ? `<span class="bd-metric">${escapeHtml(value)}</span>`
     : '<span class="bd-metric bd-metric--empty">Unknown</span>'}</dd>
         </div>`).join('\n');
 
-  const assets = S.REQUIRED_ASSET_KEYS.map((key) => {
-    const value = (directory.requiredAssets || {})[key];
-    const text = value === true ? 'Required' : value === false ? 'Not required' : 'Unknown';
-    return `        <div class="bd-def">
-          <dt class="bd-def-t">${escapeHtml(ASSET_LABELS[key])}</dt>
-          <dd class="bd-def-d"><span class="bd-metric">${text}</span></dd>
-        </div>`;
-  }).join('\n');
-
   const list = (items, empty) => (items && items.length
     ? `      <ul class="bd-list">\n${items.map((i) => `        <li>${escapeHtml(i)}</li>`).join('\n')}\n      </ul>`
     : `      <p class="bd-empty">${escapeHtml(empty)}</p>`);
 
-  return `      <dl class="bd-defs">
-${defs}
-      </dl>
-
-      <h3 class="bd-subhead">Best for</h3>
-${list(directory.bestFor, 'No editorial guidance recorded yet.')}
-
-      <h3 class="bd-subhead">Not recommended for</h3>
-${list(directory.notRecommendedFor, 'No editorial guidance recorded yet.')}
-
-      <h3 class="bd-subhead">Preparation checklist</h3>
-${list(directory.preparationChecklist, 'No checklist recorded yet.')}
-
-      <h3 class="bd-subhead">Common mistakes</h3>
-${list(directory.commonMistakes, 'No common mistakes recorded yet.')}
-
-      <h3 class="bd-subhead">Required assets</h3>
+  const parts = [];
+  if (defs) parts.push(`      <dl class="bd-defs">\n${defs}\n      </dl>`);
+  parts.push(`      <h3 class="bd-subhead">Best for</h3>\n${list(directory.bestFor, 'No editorial guidance recorded yet.')}`);
+  parts.push(`      <h3 class="bd-subhead">Not recommended for</h3>\n${list(directory.notRecommendedFor, 'No editorial guidance recorded yet.')}`);
+  if (on('preparationChecklist')) {
+    parts.push(`      <h3 class="bd-subhead">Preparation checklist</h3>\n${list(directory.preparationChecklist, 'No checklist recorded yet.')}`);
+  }
+  if (on('commonMistakes')) {
+    parts.push(`      <h3 class="bd-subhead">Common mistakes</h3>\n${list(directory.commonMistakes, 'No common mistakes recorded yet.')}`);
+  }
+  if (on('requiredAssets')) {
+    const assets = S.REQUIRED_ASSET_KEYS.map((key) => {
+      const value = (directory.requiredAssets || {})[key];
+      const text = value === true ? 'Required' : value === false ? 'Not required' : 'Unknown';
+      return `        <div class="bd-def">
+          <dt class="bd-def-t">${escapeHtml(ASSET_LABELS[key])}</dt>
+          <dd class="bd-def-d"><span class="bd-metric">${text}</span></dd>
+        </div>`;
+    }).join('\n');
+    parts.push(`      <h3 class="bd-subhead">Required assets</h3>
       <p class="bd-note">Marked Unknown unless the official submission form was read.</p>
-      <dl class="bd-defs">
-${assets}
-      </dl>`;
+      <dl class="bd-defs">\n${assets}\n      </dl>`);
+  }
+  const note = guidanceAbsenceNote(active);
+  if (note) parts.push(note);
+  return parts.join('\n\n');
 }
 
 module.exports = {
@@ -696,8 +889,9 @@ module.exports = {
   directoryTable, directoryRow, directoryCard, metric, metricsBlock, metricNote,
   statusBadges, prosCons, bestForTags, bulletList, emptyState, faqSection,
   searchControls, filterControls, sortControls, pagination,
-  verificationBlock, acceptsList, scoreBreakdown, filterValue,
+  verificationBlock, acceptsList, scoreBreakdown, filterValue, filterAttr,
   relatedDirectories, submissionLink, editorialGuidance,
   methodologyNote, provenanceBlock, externalLinkCta,
-  FILTERS, VERIFICATION_NOTE, REL_EXTERNAL,
+  activeMetricFields, activeGuidanceFields, tableColumnsFor, countLabel,
+  FILTERS, VERIFICATION_NOTE, REL_EXTERNAL, FILTER_DISCLOSURE,
 };
