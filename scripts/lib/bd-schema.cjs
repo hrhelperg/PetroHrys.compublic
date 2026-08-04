@@ -217,23 +217,32 @@ const JURISDICTION_TYPES = ['state', 'province', 'territory', 'federal-district'
 // clearest case — Länder in Germany, Regions in Italy, Autonomous regions in
 // China.
 //
-// NATIONAL_KEY is the bucket for records with no jurisdiction. It is not a
-// jurisdiction type, so it is keyed separately.
+// NATIONAL_KEY is the bucket for records with no jurisdiction that are national
+// in scope. It is not a jurisdiction type, so it is keyed separately.
+//
+// OTHER_KEY catches the rest: a record with no jurisdiction whose scope is not
+// national — a regional or global body filed under one country. Without it the
+// Better Business Bureau, a private nonprofit with regional scope, would render
+// under a heading reading "Federal", which is a factual error about what it is.
+// The bucket renders only when such a record exists, so a country whose records
+// are all federal or subnational never sees it.
 const NATIONAL_KEY = 'national';
+const OTHER_KEY = 'other';
 
 const JURISDICTION_VOCABULARY = {
   'united-states': {
     national: 'Federal',
+    other: 'Other nationwide listings',
     state: 'States',
     'federal-district': 'Federal district',
     territory: 'Territories',
   },
-  canada: { national: 'Federal', province: 'Provinces', territory: 'Territories' },
-  australia: { national: 'Federal', state: 'States', territory: 'Territories' },
-  germany: { national: 'Federal', region: 'Länder' },
-  spain: { national: 'National', 'autonomous-community': 'Autonomous communities' },
-  italy: { national: 'National', region: 'Regions' },
-  japan: { national: 'National', prefecture: 'Prefectures' },
+  canada: { national: 'Federal', other: 'Other nationwide listings', province: 'Provinces', territory: 'Territories' },
+  australia: { national: 'Federal', other: 'Other nationwide listings', state: 'States', territory: 'Territories' },
+  germany: { national: 'Federal', other: 'Other nationwide listings', region: 'Länder' },
+  spain: { national: 'National', other: 'Other nationwide listings', 'autonomous-community': 'Autonomous communities' },
+  italy: { national: 'National', other: 'Other nationwide listings', region: 'Regions' },
+  japan: { national: 'National', other: 'Other nationwide listings', prefecture: 'Prefectures' },
   // Special administrative regions are deliberately absent: none is modelled,
   // and Hong Kong and Macao are separate legal systems that must not be folded
   // into a mainland grouping if they are ever added.
@@ -247,12 +256,12 @@ const JURISDICTION_VOCABULARY = {
   // nothing else. A subnational record filed under them fails loudly until
   // someone writes the correct vocabulary, rather than silently borrowing
   // American terminology.
-  france: { national: 'National' },
-  'united-kingdom': { national: 'National' },
-  poland: { national: 'National' },
-  'czech-republic': { national: 'National' },
-  'european-union': { national: 'Union-wide' },
-  global: { national: 'Global' },
+  france: { national: 'National', other: 'Other nationwide listings' },
+  'united-kingdom': { national: 'National', other: 'Other nationwide listings' },
+  poland: { national: 'National', other: 'Other nationwide listings' },
+  'czech-republic': { national: 'National', other: 'Other nationwide listings' },
+  'european-union': { national: 'Union-wide', other: 'Other Union-wide listings' },
+  global: { national: 'Global', other: 'Other global listings' },
 };
 
 const DEFAULT_NATIONAL_LABEL = 'National';
@@ -268,7 +277,7 @@ function jurisdictionLabel(countrySlug, typeKey) {
   }
   const label = vocabulary[typeKey];
   if (!label) {
-    const known = Object.keys(vocabulary).filter((k) => k !== NATIONAL_KEY);
+    const known = Object.keys(vocabulary).filter((k) => k !== NATIONAL_KEY && k !== OTHER_KEY);
     throw new Error(`Country "${countrySlug}" has no label for jurisdiction type "${typeKey}". `
       + `It declares: ${known.length ? known.join(', ') : '(no subnational types)'}. `
       + 'Either the record is misfiled or the vocabulary needs extending.');
@@ -280,7 +289,7 @@ function jurisdictionLabel(countrySlug, typeKey) {
 function allowedJurisdictionTypes(countrySlug) {
   const vocabulary = JURISDICTION_VOCABULARY[countrySlug];
   if (!vocabulary) return null;
-  return Object.keys(vocabulary).filter((k) => k !== NATIONAL_KEY);
+  return Object.keys(vocabulary).filter((k) => k !== NATIONAL_KEY && k !== OTHER_KEY);
 }
 
 // --- geographic codes -------------------------------------------------------
@@ -770,7 +779,7 @@ module.exports = {
   ENTITY_TYPES, SCOPES, SCOPE_DEFINITIONS, JURISDICTION_TYPES,
   ISO_3166_1_RE, ISO_3166_2_RE, iso3166_2Problem,
   normaliseJurisdictionName, jurisdictionIdentity, jurisdictionNameKey,
-  JURISDICTION_VOCABULARY, NATIONAL_KEY, DEFAULT_NATIONAL_LABEL,
+  JURISDICTION_VOCABULARY, NATIONAL_KEY, OTHER_KEY, DEFAULT_NATIONAL_LABEL,
   jurisdictionLabel, allowedJurisdictionTypes,
   ENGLISH_NAME_SOURCES, displayName, isEditorialTranslation,
   REGISTRY_TYPES, OPERATOR_TYPES, ACCESS_LEVELS, PUBLIC_ACCESS_BOOLEANS, accessContradictions,

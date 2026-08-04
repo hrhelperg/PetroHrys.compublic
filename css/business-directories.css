@@ -366,3 +366,58 @@
 
 .bd-relations { margin-top: var(--s-4); }
 .bd-relation + .bd-relation { margin-top: var(--s-4); }
+
+/* --- jurisdiction grouping --------------------------------------------------
+   A country page with 63 rows in five groups needs the groups to read as
+   groups. Without these rules the boxes are invisible: the reader sees five
+   tables in a row and no boundary between "Federal" and "States". */
+.bd-jgroup { margin-top: var(--s-6); }
+.bd-jgroup + .bd-jgroup { border-top: var(--rule-w) solid var(--rule); padding-top: var(--s-5); }
+.bd-jgroup-title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--s-2);
+  font-size: var(--fs-md);
+  margin: 0;
+}
+/* The count is context, not part of the heading, so it must not read at
+   heading weight or size. */
+.bd-jgroup-count {
+  color: var(--text-3);
+  font-size: var(--fs-xs);
+  font-weight: 400;
+  font-family: var(--ff-mono);
+}
+
+/* The jump nav above the groups. Anchors only — the page ships every group in
+   the markup, so this narrows attention without hiding anything. */
+.bd-jfilter { margin-top: var(--s-4); }
+.bd-jfilter-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.bd-jfilter-link {
+  display: inline-flex;
+  align-items: baseline;
+  gap: var(--s-1);
+  padding: var(--s-1) var(--s-2);
+  border: var(--rule-w) solid var(--rule);
+  border-radius: var(--s-0);
+  font-size: var(--fs-sm);
+  text-decoration: none;
+  color: var(--text);
+}
+.bd-jfilter-link:hover { background: var(--hover-tint); }
+.bd-jfilter-link:focus-visible { outline: var(--focus); }
+.bd-jfilter-count { color: var(--text-3); font-size: var(--fs-xs); font-family: var(--ff-mono); }
+
+@media (max-width: 40rem) {
+  /* One tap target per line, at a size a thumb can hit. */
+  .bd-jfilter-list { flex-direction: column; }
+  .bd-jfilter-link { min-height: 44px; align-items: center; }
+}

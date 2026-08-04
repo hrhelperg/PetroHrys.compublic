@@ -686,7 +686,11 @@ function jurisdictionGroups(entries, countrySlug) {
   }
 
   const groups = [];
-  const national = list.filter((d) => !d.jurisdiction).sort(byJurisdictionThenName);
+  // National scope only. A record with no jurisdiction whose scope is regional
+  // or global is not federal, and must not be filed under a heading that says
+  // it is.
+  const national = list.filter((d) => !d.jurisdiction && d.scope === 'national')
+    .sort(byJurisdictionThenName);
   if (national.length) {
     groups.push({
       key: S.NATIONAL_KEY,
@@ -704,6 +708,19 @@ function jurisdictionGroups(entries, countrySlug) {
       label: S.jurisdictionLabel(countrySlug, type),
       items,
       count: items.length,
+    });
+  }
+
+  // Everything left with no jurisdiction: regional or global bodies filed under
+  // this country. Rendered last, under a label that claims nothing about them.
+  const other = list.filter((d) => !d.jurisdiction && d.scope !== 'national')
+    .sort(byJurisdictionThenName);
+  if (other.length) {
+    groups.push({
+      key: S.OTHER_KEY,
+      label: S.jurisdictionLabel(countrySlug, S.OTHER_KEY),
+      items: other,
+      count: other.length,
     });
   }
 

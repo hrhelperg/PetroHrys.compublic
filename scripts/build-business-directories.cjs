@@ -78,6 +78,7 @@ const HUB_FAQS = [
 function jurisdictionSections(country, entries, columns) {
   const groups = c.jurisdictionGroups(entries, country.slug);
   if (!groups) return null;
+  void columns;
   const out = [c.jurisdictionFilter(groups, { idPrefix: `${country.slug}-jurisdiction` })];
   for (const group of groups) {
     const id = `${country.slug}-jurisdiction-${group.key}`;
@@ -87,7 +88,11 @@ function jurisdictionSections(country, entries, columns) {
 ${c.directoryTable({
     directories: group.items,
     caption: `${group.label} registries in ${country.name}`,
-    columns,
+    // Columns are derived PER GROUP, not once for the country. A Domain Rating
+    // column computed across all US records renders in the States table too,
+    // where no row has a rating — a column of nothing, which is exactly what
+    // the metric-column rule exists to prevent.
+    columns: c.tableColumnsFor(group.items),
     // Already ordered by jurisdiction; the table must not re-sort it.
     sortKey: null,
   })}

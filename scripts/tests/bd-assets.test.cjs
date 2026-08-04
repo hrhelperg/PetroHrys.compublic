@@ -12,6 +12,10 @@ const js = () => fs.readFileSync(path.join(root, 'js', 'business-directories.js'
 const orderJs = () => fs.readFileSync(path.join(root, 'js', 'bd-order.js'), 'utf8');
 const stripComments = (text) => text.replace(/\/\*[\s\S]*?\*\//g, '');
 
+// Mirrors the group box the builder emits around each jurisdiction table.
+const JGROUP = '<div class="bd-jgroup" id="x">'
+  + '<h3 class="bd-jgroup-title">States <span class="bd-jgroup-count">2 registries</span></h3></div>';
+
 const DIR = {
   id: 'a', slug: 'a', name: 'A', description: 'd', website: 'https://a.example',
   country: 'united-states', category: 'saas',
@@ -34,6 +38,12 @@ const RENDERED = () => [
   components.sortControls({}), components.pagination({ current: 1, total: 2, basePath: '/x/' }),
   components.methodologyNote(), components.provenanceBlock(DIR),
   components.externalLinkCta({ url: 'https://a.example' }),
+  // The grouped-country UI. It was absent from this list once, and seven class
+  // names — the whole jurisdiction grouping and its jump nav — shipped with no
+  // rules at all while this test still passed. Anything the build can render
+  // has to be represented here or the guard is decorative.
+  components.jurisdictionFilter([{ key: 'state', label: 'States', count: 2 }]),
+  JGROUP,
   '<p class="bd-status"></p>',
 ].join('\n');
 

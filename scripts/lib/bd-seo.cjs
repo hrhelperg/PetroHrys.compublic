@@ -291,7 +291,14 @@ function buildArticleIndexMeta({ articles = [] }) {
 function buildDirectoryMeta({ country, category, directory, indexable = true }) {
   const countryPath = routes.countryPath(country.slug);
   const canonicalPath = routes.directoryPath(country.slug, directory.slug);
-  const title = `${S.displayName(directory)} — ${country.name}`;
+  // A subnational record is titled by its jurisdiction, not its country. Four
+  // states publish a register officially called "Business Entity Search", so
+  // titling them all "… — United States" produces duplicate titles across
+  // distinct pages — a real defect for both readers and search engines.
+  const place = directory.jurisdiction && directory.jurisdiction.name
+    ? directory.jurisdiction.name
+    : country.name;
+  const title = `${S.displayName(directory)} — ${place}`;
   const description = directory.description;
   const trail = [
     ...ROOT_TRAIL,

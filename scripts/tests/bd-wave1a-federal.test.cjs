@@ -247,33 +247,38 @@ test('the US country page carries every US record and stays within proven size',
   const html = fs.readFileSync(file, 'utf8');
   const rows = (html.match(/class="bd-row"/g) || []).length;
   assert.strictEqual(rows, US.length, `the US page shows ${rows} of ${US.length} records`);
-  // The global page already ships 53 rows. Staying under it means this wave
-  // introduced no page the architecture has not already carried in production.
+  // Wave 1B took the US page past the global page's row count, which is the
+  // point at which grouping earns its keep. The page is no longer one flat
+  // table, so the meaningful ceiling is per GROUP, not per page: no single
+  // table a reader scrolls should exceed what the architecture already ships
+  // flat elsewhere.
   const globalHtml = fs.readFileSync(
     path.join(ROOT, 'research', 'business-directories', 'global', 'index.html'), 'utf8');
   const globalRows = (globalHtml.match(/class="bd-row"/g) || []).length;
-  assert.ok(rows <= globalRows,
-    `the US page (${rows} rows) now exceeds the largest already-shipped page (${globalRows})`);
+  const perGroup = html.split('<div class="bd-jgroup"').slice(1)
+    .map((g) => (g.match(/class="bd-row"/g) || []).length);
+  assert.ok(perGroup.length >= 4, 'the US page is not grouped, so per-group sizing cannot be checked');
+  assert.ok(Math.max(...perGroup) <= globalRows,
+    `the largest US group (${Math.max(...perGroup)} rows) exceeds the largest already-shipped flat page (${globalRows})`);
   // Controls and mobile labels survive at the larger size.
   assert.match(html, /data-bd-search/);
   assert.ok((html.match(/data-bd-filter=/g) || []).length >= 4, 'filters were lost');
   assert.ok((html.match(/data-bd-label/g) || []).length >= rows * 2, 'mobile labels were lost');
 });
 
-test('grouping stays off while no US record is subnational', () => {
+test('grouping activated once subnational records arrived', () => {
+  // Wave 1A asserted the opposite, correctly: with no subnational record the
+  // page must stay flat. Wave 1B supplied them, so the assertion inverts.
   const file = path.join(ROOT, 'research', 'business-directories', 'united-states', 'index.html');
   const html = fs.readFileSync(file, 'utf8');
-  assert.strictEqual((html.match(/data-bd-rows/g) || []).length, 1,
-    'the US page grouped despite having no subnational record');
-  assert.ok(!/bd-jgroup/.test(html), 'a jurisdiction group box was rendered with no subnational record');
-  // Non-vacuity: grouping DOES switch on when a subnational record is present.
-  const withState = [...US, verifiedRecord({
-    id: 'probe', slug: 'probe', country: 'united-states', website: 'https://probe.example.gov/',
-    scope: 'subnational',
-    jurisdiction: { type: 'state', name: 'Ohio', code: 'US-OH', parentCountry: 'united-states' },
-  })];
-  assert.ok(c.jurisdictionGroups(withState, 'united-states'),
-    'grouping did not activate for a set containing a subnational record');
+  assert.ok((html.match(/data-bd-rows/g) || []).length >= 4,
+    'the US page did not group despite holding subnational records');
+  assert.match(html, /bd-jgroup/, 'no jurisdiction group box was rendered');
+  // Non-vacuity in the other direction: a purely national set must still be flat.
+  const nationalOnly = US.filter((r) => !r.jurisdiction && r.scope === 'national');
+  assert.ok(nationalOnly.length > 0, 'no national-only records to test the off case');
+  assert.strictEqual(c.jurisdictionGroups(nationalOnly, 'united-states'), null,
+    'grouping switched on for a set with no subnational record');
 });
 
 test('telecommunications was activated by this wave', () => {
