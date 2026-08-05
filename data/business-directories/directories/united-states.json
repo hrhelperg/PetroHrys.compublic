@@ -8754,15 +8754,15 @@
       "code": "US-IN",
       "parentCountry": "united-states"
     },
+    "primaryRegistryType": "business-entity-register",
+    "registryTypes": [
+      "business-entity-register"
+    ],
     "operator": {
       "name": "Indiana Secretary of State, Business Services Division",
       "type": "government-agency",
       "officialUrl": null
     },
-    "primaryRegistryType": "business-entity-register",
-    "registryTypes": [
-      "business-entity-register"
-    ],
     "publicAccess": {
       "searchUrl": "https://bsd.sos.in.gov/publicbusinesssearch",
       "accessLevel": "partially-open",
@@ -8896,15 +8896,15 @@
       "code": "US-MS",
       "parentCountry": "united-states"
     },
+    "primaryRegistryType": "business-entity-register",
+    "registryTypes": [
+      "business-entity-register"
+    ],
     "operator": {
       "name": "Mississippi Secretary of State — Business Services & External Affairs (Business Services Division)",
       "type": "government-agency",
       "officialUrl": null
     },
-    "primaryRegistryType": "business-entity-register",
-    "registryTypes": [
-      "business-entity-register"
-    ],
     "publicAccess": {
       "searchUrl": "https://corp.sos.ms.gov/corp/portal/c/page/corpBusinessIdSearch/portal.aspx",
       "accessLevel": "partially-open",
@@ -9037,15 +9037,15 @@
       "code": "US-AZ",
       "parentCountry": "united-states"
     },
+    "primaryRegistryType": "business-entity-register",
+    "registryTypes": [
+      "business-entity-register"
+    ],
     "operator": {
       "name": "Arizona Corporation Commission",
       "type": "government-agency",
       "officialUrl": null
     },
-    "primaryRegistryType": "business-entity-register",
-    "registryTypes": [
-      "business-entity-register"
-    ],
     "publicAccess": {
       "searchUrl": "https://arizonabusinesscenter.azcc.gov/businesssearch",
       "accessLevel": "partially-open",
@@ -9180,15 +9180,15 @@
       "code": "US-MI",
       "parentCountry": "united-states"
     },
+    "primaryRegistryType": "business-entity-register",
+    "registryTypes": [
+      "business-entity-register"
+    ],
     "operator": {
       "name": "Michigan Department of Licensing and Regulatory Affairs (LARA), Corporations, Securities & Commercial Licensing Bureau, Corporations Division",
       "type": "government-agency",
       "officialUrl": null
     },
-    "primaryRegistryType": "business-entity-register",
-    "registryTypes": [
-      "business-entity-register"
-    ],
     "publicAccess": {
       "searchUrl": "https://mibusinessregistry.lara.state.mi.us/search/business",
       "accessLevel": "partially-open",
@@ -9322,15 +9322,15 @@
       "code": "US-NM",
       "parentCountry": "united-states"
     },
+    "primaryRegistryType": "business-entity-register",
+    "registryTypes": [
+      "business-entity-register"
+    ],
     "operator": {
       "name": "New Mexico Secretary of State, Business Services Division",
       "type": "government-agency",
       "officialUrl": null
     },
-    "primaryRegistryType": "business-entity-register",
-    "registryTypes": [
-      "business-entity-register"
-    ],
     "publicAccess": {
       "searchUrl": "https://enterprise.sos.nm.gov/",
       "accessLevel": "partially-open",
@@ -9465,15 +9465,15 @@
       "code": "US-GA",
       "parentCountry": "united-states"
     },
+    "primaryRegistryType": "business-entity-register",
+    "registryTypes": [
+      "business-entity-register"
+    ],
     "operator": {
       "name": "Corporations Division of the Georgia Secretary of State's Office (Office of the Georgia Secretary of State, Brad Raffensperger)",
       "type": "government-agency",
       "officialUrl": null
     },
-    "primaryRegistryType": "business-entity-register",
-    "registryTypes": [
-      "business-entity-register"
-    ],
     "publicAccess": {
       "searchUrl": "https://ecorp.sos.ga.gov/BusinessSearch",
       "accessLevel": "open",
@@ -9606,15 +9606,15 @@
       "code": "US-MO",
       "parentCountry": "united-states"
     },
+    "primaryRegistryType": "business-entity-register",
+    "registryTypes": [
+      "business-entity-register"
+    ],
     "operator": {
       "name": "Missouri Secretary of State — Corporations Division",
       "type": "government-agency",
       "officialUrl": null
     },
-    "primaryRegistryType": "business-entity-register",
-    "registryTypes": [
-      "business-entity-register"
-    ],
     "publicAccess": {
       "searchUrl": "https://bsd.sos.mo.gov/BusinessEntity/BESearch.aspx?SearchType=0",
       "accessLevel": "partially-open",
@@ -9749,15 +9749,15 @@
       "code": "US-OK",
       "parentCountry": "united-states"
     },
+    "primaryRegistryType": "business-entity-register",
+    "registryTypes": [
+      "business-entity-register"
+    ],
     "operator": {
       "name": "Oklahoma Secretary of State — Business Records Department",
       "type": "government-agency",
       "officialUrl": null
     },
-    "primaryRegistryType": "business-entity-register",
-    "registryTypes": [
-      "business-entity-register"
-    ],
     "publicAccess": {
       "searchUrl": "https://www.sos.ok.gov/corp/corpInquiryFind.aspx",
       "accessLevel": "partially-open",
@@ -9893,15 +9893,15 @@
       "code": "US-PA",
       "parentCountry": "united-states"
     },
+    "primaryRegistryType": "business-entity-register",
+    "registryTypes": [
+      "business-entity-register"
+    ],
     "operator": {
       "name": "Pennsylvania Department of State, Bureau of Corporations and Charitable Organizations",
       "type": "government-agency",
       "officialUrl": null
     },
-    "primaryRegistryType": "business-entity-register",
-    "registryTypes": [
-      "business-entity-register"
-    ],
     "publicAccess": {
       "searchUrl": "https://file.dos.pa.gov/search/business",
       "accessLevel": "unknown",
@@ -10034,15 +10034,15 @@
       "code": "US-VT",
       "parentCountry": "united-states"
     },
+    "primaryRegistryType": "business-entity-register",
+    "registryTypes": [
+      "business-entity-register"
+    ],
     "operator": {
       "name": "Vermont Secretary of State, Business Services Division",
       "type": "government-agency",
       "officialUrl": null
     },
-    "primaryRegistryType": "business-entity-register",
-    "registryTypes": [
-      "business-entity-register"
-    ],
     "publicAccess": {
       "searchUrl": "https://bizfilings.vermont.gov/business/businesssearch",
       "accessLevel": "unknown",
@@ -10175,15 +10175,15 @@
       "code": "US-SC",
       "parentCountry": "united-states"
     },
+    "primaryRegistryType": "business-entity-register",
+    "registryTypes": [
+      "business-entity-register"
+    ],
     "operator": {
       "name": "South Carolina Secretary of State's Office, Business Filings Division",
       "type": "government-agency",
       "officialUrl": null
     },
-    "primaryRegistryType": "business-entity-register",
-    "registryTypes": [
-      "business-entity-register"
-    ],
     "publicAccess": {
       "searchUrl": "https://businessfilings.sc.gov/BusinessFiling/",
       "accessLevel": "unknown",
@@ -10317,15 +10317,15 @@
       "code": "US-AL",
       "parentCountry": "united-states"
     },
+    "primaryRegistryType": "business-entity-register",
+    "registryTypes": [
+      "business-entity-register"
+    ],
     "operator": {
       "name": "Alabama Secretary of State — Business Services, Business Entities Division",
       "type": "government-agency",
       "officialUrl": null
     },
-    "primaryRegistryType": "business-entity-register",
-    "registryTypes": [
-      "business-entity-register"
-    ],
     "publicAccess": {
       "searchUrl": "https://arc-sos.state.al.us/CGI/CORPNAME.MBR/INPUT",
       "accessLevel": "partially-open",
