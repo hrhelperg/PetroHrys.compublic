@@ -126,6 +126,12 @@ function migrateJurisdiction(record) {
     type: j.type ?? null,
     name: j.name ?? null,
     code: j.code ?? null,
+    // Carried through EXACTLY as written, including a wrong order or a repeat.
+    // Migration normalises absent optional fields; it must not make invalid
+    // source data valid. An unsorted covers array that arrived here sorted
+    // would be reported as correct and then silently rewritten on disk, and the
+    // author would never learn their record was wrong.
+    covers: Array.isArray(j.covers) ? [...j.covers] : (j.covers ?? null),
     parentCountry: j.parentCountry ?? record.country ?? null,
   };
 }
@@ -345,6 +351,15 @@ const WAVE1_DEFAULTED = {
   publicAccess: (v) => v === null,
 };
 
+// Defaults NESTED inside an object field. `covers` is null on every
+// single-subdivision jurisdiction, which is all 46 of them: writing it out
+// would add a null to every subnational record on disk for no information at
+// all. Round-trip still holds — migrateJurisdiction reads an absent covers back
+// as null.
+const NESTED_DEFAULTED = {
+  jurisdiction: { covers: (v) => v === null || v === undefined },
+};
+
 // The on-disk projection of a normalised record. Round-trips: migrating the
 // output of this function reproduces the same normalised record.
 function serialisableRecord(record) {
@@ -352,6 +367,17 @@ function serialisableRecord(record) {
   for (const [key, value] of Object.entries(record)) {
     const isDefaulted = WAVE1_DEFAULTED[key];
     if (isDefaulted && isDefaulted(value, record)) continue;
+    const nested = NESTED_DEFAULTED[key];
+    if (nested && value && typeof value === 'object' && !Array.isArray(value)) {
+      const inner = {};
+      for (const [k, v] of Object.entries(value)) {
+        const drop = nested[k];
+        if (drop && drop(v)) continue;
+        inner[k] = v;
+      }
+      out[key] = inner;
+      continue;
+    }
     out[key] = value;
   }
   return out;
