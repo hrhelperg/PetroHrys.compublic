@@ -1,1 +1,1276 @@
-[]
+[
+  {
+    "id": "eu-bris",
+    "name": "Business Registers Interconnection System",
+    "slug": "business-registers-interconnection-system",
+    "country": "european-union",
+    "category": "government",
+    "website": "https://e-justice.europa.eu/topics/registers-business-insolvency-land/business-registers-search-company-eu_en",
+    "submissionUrl": null,
+    "description": "BRIS is the European system that interconnects the business registers of the EU member states, reached through the “Find a company” service on the European e-Justice Portal. It gathers company information from the national registers in real time; the registers themselves remain with the member states.",
+    "tier": "tier1",
+    "scope": "supranational",
+    "officialName": "Business Registers Interconnection System (BRIS)",
+    "primaryRegistryType": "cross-border-registry-interface",
+    "registryTypes": [
+      "cross-border-registry-interface"
+    ],
+    "operator": {
+      "name": "European Commission",
+      "type": "supranational-institution",
+      "officialUrl": "https://commission.europa.eu/"
+    },
+    "publicAccess": {
+      "searchUrl": null,
+      "accessLevel": "unknown",
+      "freeToSearch": null,
+      "loginRequired": null,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "The describing pages were retrieved anonymously, but the search itself runs in an embedded application that could not be exercised, so no search behaviour is asserted and no search URL is published. The portal documents that it currently offers only information the national registers provide free of charge, and that prices shown for paid documents come from those registers and are indicative, with the final price set on the national register’s own site."
+    },
+    "petroHrysScore": 88,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 9,
+      "verificationQuality": 8,
+      "platformReputation": 9,
+      "spamResistance": 10,
+      "industryImportance": 9,
+      "longTermStability": 9,
+      "submissionQuality": 5,
+      "transparency": 9,
+      "moderationQuality": 8
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": true,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": true,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-11",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [
+        "de-registerportal",
+        "fr-rne",
+        "it-registro-imprese"
+      ],
+      "competitors": []
+    },
+    "bestFor": [
+      "Finding a company registered anywhere in the EU from one search, when you do not know which national register holds it.",
+      "Seeing which documents a company has filed with its national business register before going to that register to obtain them."
+    ],
+    "notRecommendedFor": [
+      "Treating the result as the register entry itself. The records are constituted and held by the national business registers, not here.",
+      "Obtaining certified or paid documents. For those the portal sends you to the national register, where the final price is set."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Companies registered in EU, Icelandic, Liechtenstein or Norwegian business registers"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "One search reaches the business registers of every EU member state plus Iceland, Liechtenstein and Norway, which no national register offers.",
+      "Company information is gathered from the national registers in real time rather than copied into a central store, so results reflect the source register rather than a stale snapshot.",
+      "The service is built on EU law rather than a voluntary arrangement, so participation by the national registers is an obligation rather than a courtesy."
+    ],
+    "cons": [
+      "It is an interconnection layer, not a register. It does not constitute company data and it establishes nothing about a company on its own.",
+      "The search runs in an embedded application that refused automated retrieval, so its behaviour, any rate limit and any fee prompt were not observed.",
+      "Only information the national registers supply free of charge is currently available through it; anything else has to be obtained from the national register."
+    ],
+    "editorNotes": "Verified 2026-08-05 from the European e-Justice Portal’s own pages, retrieved directly. FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: The national business registers of the member states. The portal states that company information provided through BRIS is gathered in real time from the business registers of the member states, and that what a user sees is the information filed by the company with the national business register. The EU legislation establishing the interconnection is expressly not aimed at creating a central store of company data. RESPONSIBLE AUTHORITY: European Commission, which runs the European e-Justice Portal and the BRIS helpdesk. TECHNICAL PLATFORM: Not separately established. The search is served from an embedded Commission application; no external supplier is named on any page fetched. PUBLIC ACCESS INTERFACE: The “Find a company” service reached from the European e-Justice Portal. Registry type: cross-border-registry-interface, and deliberately nothing else. company-register and business-entity-register were both rejected: this system links national registers and constitutes no record of its own, which is exactly the distinction the type exists to carry. A note on the legal citation: the live portal page cites Directive 2012/17/EU and Commission Implementing Regulation (EU) 2015/884. The first was codified into Directive (EU) 2017/1132, and the second is no longer in force. The record therefore describes the legal basis in general terms rather than repeating a citation that has been superseded. Coverage extends beyond the EU to Iceland, Liechtenstein and Norway, and the record says so rather than implying EU-only coverage. The portal carries its own warning that letters purporting to come from BRIS and demanding payment are fraudulent."
+  },
+  {
+    "id": "eu-vies",
+    "name": "VIES VAT number validation",
+    "slug": "vies-vat-number-validation",
+    "country": "european-union",
+    "category": "government",
+    "website": "https://ec.europa.eu/taxation_customs/vies/",
+    "submissionUrl": null,
+    "description": "VIES is the European Commission service for checking whether a VAT identification number issued by a member state is valid. Each check is run against that member state’s own national VAT database; there is no EU-level VAT database behind it.",
+    "tier": "tier1",
+    "scope": "supranational",
+    "officialName": "VAT Information Exchange System (VIES)",
+    "primaryRegistryType": "tax-verification-system",
+    "registryTypes": [
+      "tax-verification-system"
+    ],
+    "operator": {
+      "name": "European Commission, Directorate-General for Taxation and Customs Union",
+      "type": "supranational-institution",
+      "officialUrl": "https://taxation-customs.ec.europa.eu/"
+    },
+    "publicAccess": {
+      "searchUrl": "https://ec.europa.eu/taxation_customs/vies/",
+      "accessLevel": "open",
+      "freeToSearch": true,
+      "loginRequired": false,
+      "identityVerificationRequired": false,
+      "captcha": null,
+      "geographicRestriction": false,
+      "paidDocumentsAvailable": false,
+      "notes": "Open access was observed, not inferred: an anonymous request to the service’s published endpoint returned a complete validation result for a test VAT number on the verification date, with no account, key or credential of any kind. The browser interface itself is a client-rendered application and was not exercised, so no claim is made about a CAPTCHA on that surface."
+    },
+    "petroHrysScore": 90,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 9,
+      "verificationQuality": 9,
+      "platformReputation": 9,
+      "spamResistance": 10,
+      "industryImportance": 9,
+      "longTermStability": 10,
+      "submissionQuality": 5,
+      "transparency": 9,
+      "moderationQuality": 8
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": true,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": true,
+      "developer": true,
+      "openSource": null,
+      "nonprofit": true,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-16",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [
+        "eu-bris"
+      ],
+      "competitors": []
+    },
+    "bestFor": [
+      "Checking that a counterparty’s EU VAT identification number is valid before treating a cross-border supply as zero-rated.",
+      "Confirming, where the issuing member state permits it, that a VAT number belongs to the trader you think it does."
+    ],
+    "notRecommendedFor": [
+      "Establishing that a company exists, is incorporated or is solvent. A VAT number is not a company registration and this service does not touch any company register.",
+      "Reading an invalid result as proof of wrongdoing. It can mean the number was mistyped, is not activated for cross-border trade, or that the national system was unavailable."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Businesses trading across EU borders"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "It queries the issuing member state’s own VAT database at the moment of the request, so a positive result reflects national data rather than a cached EU copy.",
+      "Access is genuinely open: an anonymous request returned a full result with no account or key, which makes verification reproducible.",
+      "Where the member state allows it, the response returns the registered name and address, which turns a number check into an identity check."
+    ],
+    "cons": [
+      "Some member states do not permit the name and address to be shown, so a valid number may return no identifying detail at all. That is by design, not a fault.",
+      "It confirms only VAT-number validity. It says nothing about incorporation, solvency, tax compliance generally or the trustworthiness of the trader.",
+      "An invalid answer has several possible causes and is not by itself evidence that the trader is not registered."
+    ],
+    "editorNotes": "Verified 2026-08-05 from the Commission’s own service and its published help text, both retrieved directly, and by exercising the service anonymously. FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: The national VAT databases of the member states. The service’s own help text states that verification is done against the national VAT database corresponding to the selected member state, and that there is no VAT database at Community level. VIES constitutes nothing. RESPONSIBLE AUTHORITY: European Commission, Directorate-General for Taxation and Customs Union, which the Commission’s online-services index names as the manager of the site. TECHNICAL PLATFORM: Not separately established. The application is served from the Commission’s own taxation and customs host; no external supplier is named on any page fetched. PUBLIC ACCESS INTERFACE: The VIES application at ec.europa.eu/taxation_customs/vies/, together with the published validation endpoint the same service exposes. Registry type: tax-verification-system, the only honest fit. corporate-number-database was rejected because the number is a tax identifier rather than a company registration identifier, and because treating a VAT check as a company lookup is precisely the overclaim this record is written to prevent. A URL worth recording: the plausible-looking vies.ec.europa.eu does not resolve at all, and the Commission’s current service index still links the service at its long-standing address. Several legacy help pages under the old .do scheme now return 404 while still being referenced from inside the live application."
+  },
+  {
+    "id": "eu-ted",
+    "name": "Tenders Electronic Daily",
+    "slug": "tenders-electronic-daily",
+    "country": "european-union",
+    "category": "government",
+    "website": "https://ted.europa.eu/en/",
+    "submissionUrl": null,
+    "description": "TED is the online supplement to the Official Journal of the European Union for public procurement. Contracting authorities across the EU and the European Economic Area publish their procurement notices there, and the notices are searchable without charge.",
+    "tier": "tier1",
+    "scope": "supranational",
+    "officialName": "Tenders Electronic Daily (TED)",
+    "primaryRegistryType": "public-procurement-notice-database",
+    "registryTypes": [
+      "public-procurement-notice-database"
+    ],
+    "operator": {
+      "name": "Publications Office of the European Union",
+      "type": "supranational-institution",
+      "officialUrl": "https://op.europa.eu/"
+    },
+    "publicAccess": {
+      "searchUrl": "https://ted.europa.eu/en/search/result",
+      "accessLevel": "open",
+      "freeToSearch": true,
+      "loginRequired": false,
+      "identityVerificationRequired": false,
+      "captcha": null,
+      "geographicRestriction": false,
+      "paidDocumentsAvailable": false,
+      "notes": "The site states plainly that access to TED is free of charge, and the search result surface was retrieved anonymously with no credential. Registration exists but is for personalised features such as saved searches and alerts, not for reading notices. No CAPTCHA was encountered, but absence was not established and none is asserted."
+    },
+    "petroHrysScore": 94,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 10,
+      "verificationQuality": 9,
+      "platformReputation": 9,
+      "spamResistance": 10,
+      "industryImportance": 10,
+      "longTermStability": 10,
+      "submissionQuality": 6,
+      "transparency": 10,
+      "moderationQuality": 8
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": true,
+      "saas": null,
+      "enterprise": true,
+      "agency": true,
+      "freelancer": null,
+      "localBusiness": true,
+      "developer": true,
+      "openSource": null,
+      "nonprofit": true,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-28",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [
+        "gb-find-a-tender",
+        "ca-canadabuys",
+        "it-pubblicita-legale-anac"
+      ],
+      "competitors": []
+    },
+    "bestFor": [
+      "Finding open European public procurement opportunities across all member states in one place.",
+      "Reading the official published notice for a European tender, including who is buying and on what terms."
+    ],
+    "notRecommendedFor": [
+      "Registering as a supplier. TED publishes notices; it does not hold a supplier register and inclusion in it is not a qualification.",
+      "Submitting a bid. Tenders are submitted through the buyer’s own system, not through TED."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Suppliers bidding for European public contracts"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "It is the official publication venue for European procurement notices, so a notice there is the authoritative published text rather than a re-listing.",
+      "Access is free and anonymous, and the site says so in its own words rather than leaving a reader to discover it.",
+      "Coverage spans the European Union and the European Economic Area and beyond, with thousands of notices published every working day."
+    ],
+    "cons": [
+      "It is a notice database, not a supplier register, a tender-submission system or a funding portal, and it should not be used as any of those.",
+      "A published notice records what a buyer announced. It is not a record of who won, unless a separate award notice was also published.",
+      "The site cautions that only electronically signed notices published in the Supplement to the Official Journal are authentic.",
+      "Publication establishes nothing about a supplier’s eligibility or standing. A notice records that a buyer announced a contract, not that any bidder qualifies for it."
+    ],
+    "editorNotes": "Verified 2026-08-05 from the site’s own about, legal-notice and search pages, retrieved directly. FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: The Official Journal of the European Union. TED is the online version of the Supplement to the Official Journal dedicated to European public procurement, and the notice as published there is the official text; the site states that only electronically signed notices published in the Supplement are authentic. The underlying procurement decisions belong to the contracting authorities that publish them. RESPONSIBLE AUTHORITY: Publications Office of the European Union, named on the site as the body that manages it. TECHNICAL PLATFORM: Not separately established. No external supplier is named on any page fetched. PUBLIC ACCESS INTERFACE: The public search at ted.europa.eu, which the site states is free of charge. Registry type: public-procurement-notice-database, the type added in an earlier wave for exactly this function. procurement-supplier-register was considered and firmly rejected: TED records notices published by buyers, not suppliers admitted to a list, and conflating the two would invert what a reader can conclude from a hit. The record also states what TED is not, because the surrounding EU procurement estate contains separate systems for supplier participation and for funding that are easy to mistake for it."
+  },
+  {
+    "id": "eu-transparency-register",
+    "name": "EU Transparency Register",
+    "slug": "eu-transparency-register",
+    "country": "european-union",
+    "category": "government",
+    "website": "https://transparency-register.europa.eu/index_en",
+    "submissionUrl": null,
+    "description": "The Transparency Register lists interest representatives who seek to influence EU policy and decision-making. It is operated jointly by the European Parliament, the Council of the European Union and the European Commission under a 2021 interinstitutional agreement, and registrants publish a profile of their lobbying and advocacy activity.",
+    "tier": "tier1",
+    "scope": "supranational",
+    "officialName": "Transparency Register",
+    "primaryRegistryType": "public-filing-database",
+    "registryTypes": [
+      "public-filing-database"
+    ],
+    "operator": {
+      "name": "European Parliament, Council of the European Union and European Commission",
+      "type": "supranational-institution",
+      "officialUrl": "https://transparency-register.europa.eu/"
+    },
+    "publicAccess": {
+      "searchUrl": "https://transparency-register.europa.eu/search-register-or-update/search-register_en",
+      "accessLevel": "open",
+      "freeToSearch": true,
+      "loginRequired": false,
+      "identityVerificationRequired": false,
+      "captcha": null,
+      "geographicRestriction": false,
+      "paidDocumentsAvailable": false,
+      "notes": "The register’s public pages and its search entry point were retrieved anonymously with no credential and no fee. The result application itself is client-rendered and was not exercised, so nothing is asserted about result formatting, export or any CAPTCHA on that surface."
+    },
+    "petroHrysScore": 87,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 8,
+      "verificationQuality": 8,
+      "platformReputation": 9,
+      "spamResistance": 9,
+      "industryImportance": 9,
+      "longTermStability": 9,
+      "submissionQuality": 7,
+      "transparency": 10,
+      "moderationQuality": 8
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": true,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": true,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-27",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Checking whether an organisation lobbying EU institutions is registered, and reading what it declares about its activity and clients.",
+      "Understanding which interests are represented on a given EU policy file before relying on a submission or position paper."
+    ],
+    "notRecommendedFor": [
+      "Treating registration as accreditation, approval or endorsement by the EU institutions. It is neither, and the register does not vet the truth of a declaration.",
+      "Company verification. It records interest representatives and what they declare, not corporate existence or standing."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Organisations engaging with EU institutions"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "It is operated jointly by the three main EU institutions rather than by one of them, which is what gives it reach across the institutions.",
+      "Registration is backed by conditionality: certain activities in dealings with the institutions are made conditional on being registered, so the incentive to appear is real.",
+      "The register can remove an organisation for up to two years where the code of conduct is breached, so entries carry a sanction behind them."
+    ],
+    "cons": [
+      "Entries are self-declared. Registration does not verify that what an organisation says about its activities, funding or clients is accurate.",
+      "It is not a permission system: being listed is not approval by any EU institution, and absence does not prove an organisation does no advocacy.",
+      "The search runs as a client-rendered application that was not exercised, so its behaviour and any export limits were not observed."
+    ],
+    "editorNotes": "Verified 2026-08-05 from the register’s own governance, legal-references and conditionality pages, retrieved directly. FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: The register is constituted by the Interinstitutional Agreement of 20 May 2021 between the European Parliament, the Council of the European Union and the European Commission on a mandatory transparency register. The entries themselves are declarations made by the registrants. RESPONSIBLE AUTHORITY: The three signatory institutions jointly. The register states that it is governed by a management board made up of the Secretaries-General of the Parliament, the Council and the Commission, supported by a joint secretariat staffed from all three. The operator field names the three institutions rather than any one of them, because naming a single institution would misstate who is answerable. TECHNICAL PLATFORM: Not separately established. No external supplier is named on any page fetched. PUBLIC ACCESS INTERFACE: The public register search at transparency-register.europa.eu. Participation model, determined rather than flattened: the register describes registration as having become de facto mandatory in 2021, delivered through conditionality — certain activities in dealings with the institutions are made conditional on registration, and the register notes for example that only registered stakeholders can access some institutional settings. It is therefore neither purely voluntary nor a legal duty on all organisations, and the record says so in those terms. Registry type: public-filing-database, because the content is declarations filed by registrants. professional-licence-register and regulated-operator-register were both rejected: registration is not an authorisation to operate and confers no permission."
+  },
+  {
+    "id": "eu-esma-credit-rating-agencies",
+    "name": "ESMA list of registered and certified credit rating agencies",
+    "slug": "esma-registered-credit-rating-agencies",
+    "country": "european-union",
+    "category": "government",
+    "website": "https://www.esma.europa.eu/credit-rating-agencies/cra-authorisation",
+    "submissionUrl": null,
+    "description": "ESMA publishes the list of credit rating agencies registered or certified under the Credit Rating Agencies Regulation. ESMA is the direct supervisor of credit rating agencies in the European Union, so the registration decisions behind this list are its own rather than compiled from national authorities.",
+    "tier": "tier1",
+    "scope": "supranational",
+    "officialName": "List of registered or certified credit rating agencies",
+    "primaryRegistryType": "financial-services-register",
+    "registryTypes": [
+      "financial-services-register",
+      "regulated-operator-register"
+    ],
+    "operator": {
+      "name": "European Securities and Markets Authority",
+      "type": "regulator",
+      "officialUrl": "https://www.esma.europa.eu/"
+    },
+    "publicAccess": {
+      "searchUrl": null,
+      "accessLevel": "open",
+      "freeToSearch": true,
+      "loginRequired": false,
+      "identityVerificationRequired": false,
+      "captcha": null,
+      "geographicRestriction": false,
+      "paidDocumentsAvailable": false,
+      "notes": "The list is published as a table on the page itself and was retrieved anonymously with no credential and no fee, showing each agency’s name, country of residence, status, effective date and legal entity identifier. No search URL is published because the page presents the whole list rather than a query interface."
+    },
+    "petroHrysScore": 89,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 8,
+      "verificationQuality": 10,
+      "platformReputation": 9,
+      "spamResistance": 10,
+      "industryImportance": 8,
+      "longTermStability": 9,
+      "submissionQuality": 5,
+      "transparency": 10,
+      "moderationQuality": 9
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-25",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Confirming that a credit rating agency is registered or certified to issue ratings usable for regulatory purposes in the EU.",
+      "Reading an agency’s registration status, effective date and legal entity identifier from the supervisor’s own published list."
+    ],
+    "notRecommendedFor": [
+      "Assessing the quality of an agency’s ratings. The list records regulatory status, not analytical performance.",
+      "General company verification, which is a matter for national business registers."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Credit rating agencies operating in the European Union"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "ESMA supervises credit rating agencies directly, so this list reflects its own registration decisions rather than a compilation of national ones.",
+      "The list is published under a statutory duty and states that it is updated within five working days of a registration or certification decision.",
+      "Each entry carries a legal entity identifier, which makes an agency identifiable across other financial datasets without name matching."
+    ],
+    "cons": [
+      "It covers credit rating agencies only. It is not a general register of financial firms, and other ESMA registers rest on entirely different legal bases.",
+      "The page notes that the Commission republishes the list in the Official Journal within thirty days, so the two can differ for a period.",
+      "Registration records that an agency meets regulatory requirements. It is not an opinion on its ratings or its conduct."
+    ],
+    "editorNotes": "Verified 2026-08-05 from ESMA’s own published list, retrieved directly. FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: ESMA itself. The page states that the agencies listed have been registered or certified in accordance with Regulation (EC) No 1060/2009, and that the list is published by ESMA under Article 18(3) of that regulation. This is deliberately unlike most other EU financial registers, which compile decisions taken by national competent authorities: for credit rating agencies ESMA is the single direct supervisor, so it is the source of record. RESPONSIBLE AUTHORITY: European Securities and Markets Authority. TECHNICAL PLATFORM: Not separately established. The list is served as part of ESMA’s own site; no external supplier is named on any page fetched. PUBLIC ACCESS INTERFACE: The published list on ESMA’s credit rating agencies pages. Scope discipline: ESMA operates a large number of separate registers and databases resting on different regulations, and its common registers portal is a search layer over them rather than one register. That portal was assessed and deliberately not published, because publishing it would merge unrelated databases into a single record. This record covers one register with one legal basis, which is the only honest unit here."
+  },
+  {
+    "id": "eu-eba-credit-institutions-register",
+    "name": "EBA credit institutions register",
+    "slug": "eba-credit-institutions-register",
+    "country": "european-union",
+    "category": "government",
+    "website": "https://www.eba.europa.eu/risk-and-data-analysis/data/registers-and-other-list-institutions/credit-institutions-register",
+    "submissionUrl": null,
+    "description": "The European Banking Authority publishes a register of credit institutions authorised in the European Economic Area. The authorisations themselves are granted by national authorities; the EBA assembles their notifications into one European view.",
+    "tier": "tier1",
+    "scope": "supranational",
+    "officialName": "Credit institutions register",
+    "resourceIdentity": {
+      "canonicalDomain": "eba.europa.eu",
+      "systemKey": "eba-credit-institutions-register",
+      "sharedHostGroup": "eba-europa-eu"
+    },
+    "primaryRegistryType": "financial-services-register",
+    "registryTypes": [
+      "financial-services-register",
+      "regulated-operator-register"
+    ],
+    "operator": {
+      "name": "European Banking Authority",
+      "type": "regulator",
+      "officialUrl": "https://www.eba.europa.eu/"
+    },
+    "publicAccess": {
+      "searchUrl": null,
+      "accessLevel": "unknown",
+      "freeToSearch": null,
+      "loginRequired": null,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "The describing page was retrieved anonymously, but the register application itself sits behind a separate interface that was not exercised, so no search behaviour is asserted and no search URL is published."
+    },
+    "petroHrysScore": 85,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 8,
+      "verificationQuality": 8,
+      "platformReputation": 9,
+      "spamResistance": 10,
+      "industryImportance": 8,
+      "longTermStability": 9,
+      "submissionQuality": 5,
+      "transparency": 9,
+      "moderationQuality": 8
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-09",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "eu-eba-payment-institutions-register"
+      ],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Checking whether a bank is authorised as a credit institution somewhere in the European Economic Area, and by which national authority.",
+      "Getting a single European view of authorised credit institutions rather than querying each national regulator in turn."
+    ],
+    "notRecommendedFor": [
+      "Treating the EBA as the authorising body. Licensing credit institutions remains with the national authorities, and the EBA states this.",
+      "Relying on it as legally definitive. The EBA compiles it from national notifications and does not warrant the underlying data."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Credit institutions authorised in the European Economic Area"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "It gathers authorisation data from every national authority in the European Economic Area into one place, which no single national register does.",
+      "The EBA states plainly that it built the register solely from information supplied by national authorities, so the provenance of every entry is explicit.",
+      "It makes the split between European assembly and national authorisation legible rather than leaving a reader to assume the EBA licenses banks."
+    ],
+    "cons": [
+      "The EBA does not grant the licences. It states that granting licences to credit institutions remains with the national authorities.",
+      "It is a compilation. An entry reflects what a national authority notified, and the EBA does not guarantee that the underlying information is accurate or current.",
+      "The register application was not exercised, so its search behaviour, coverage of historical entries and export options were not observed."
+    ],
+    "editorNotes": "Verified 2026-08-05 from the EBA’s own register pages, retrieved directly. FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: The national competent authorities of the European Economic Area, which grant the authorisations. The EBA states that the register was set up solely on the basis of information supplied by those authorities, and that the granting of licences to credit institutions remains under their remit. The EBA is not the source of record. RESPONSIBLE AUTHORITY: European Banking Authority, which compiles and publishes the register. TECHNICAL PLATFORM: Not separately established. The register application is served from a separate EBA interface; no external supplier is named on any page fetched. PUBLIC ACCESS INTERFACE: The register pages on the EBA site and the register application reached from them. Shared host: this record and the EBA payment and electronic money institutions register are two legally distinct registers published on one official host, so both declare resourceIdentity rather than being merged. They rest on different legislation and cover different populations; collapsing them would be the same error as merging unrelated supervisory databases into one broad record."
+  },
+  {
+    "id": "eu-eba-payment-institutions-register",
+    "name": "EBA register of payment and electronic money institutions",
+    "slug": "eba-payment-institutions-register",
+    "country": "european-union",
+    "category": "government",
+    "website": "https://www.eba.europa.eu/risk-and-data-analysis/data/registers/payment-institutions-register",
+    "submissionUrl": null,
+    "description": "The European Banking Authority publishes a central register of payment institutions and electronic money institutions authorised or registered under the second Payment Services Directive. The authorisations are granted by national authorities, which supply the information the register contains.",
+    "tier": "tier1",
+    "scope": "supranational",
+    "officialName": "Register of payment and electronic money institutions under PSD2",
+    "resourceIdentity": {
+      "canonicalDomain": "eba.europa.eu",
+      "systemKey": "eba-payment-institutions-register",
+      "sharedHostGroup": "eba-europa-eu"
+    },
+    "primaryRegistryType": "financial-services-register",
+    "registryTypes": [
+      "financial-services-register",
+      "regulated-operator-register"
+    ],
+    "operator": {
+      "name": "European Banking Authority",
+      "type": "regulator",
+      "officialUrl": "https://www.eba.europa.eu/"
+    },
+    "publicAccess": {
+      "searchUrl": null,
+      "accessLevel": "partially-open",
+      "freeToSearch": true,
+      "loginRequired": null,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "The EBA documents that public users can search the central register free of charge, which is why free search is recorded. The register application itself was not exercised, so no search URL is published and no claim is made about login, CAPTCHA or export."
+    },
+    "petroHrysScore": 88,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 9,
+      "verificationQuality": 8,
+      "platformReputation": 9,
+      "spamResistance": 10,
+      "industryImportance": 9,
+      "longTermStability": 9,
+      "submissionQuality": 5,
+      "transparency": 9,
+      "moderationQuality": 8
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": true,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": true,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-10",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "eu-eba-credit-institutions-register"
+      ],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Checking whether a payment or e-money firm is authorised or registered under the second Payment Services Directive, and in which member state.",
+      "Verifying a fintech counterparty’s regulatory status across Europe from one register rather than many national ones."
+    ],
+    "notRecommendedFor": [
+      "Treating the EBA as the authorising body. Authorisation is granted by the national authority, and the EBA compiles what it is told.",
+      "Assuming an entry proves a firm is safe or well run. It records an authorisation, not conduct or solvency."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Payment institutions and electronic money institutions in the European Economic Area"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "The EBA documents that public users can search the central register free of charge, so the access position is stated by the operator rather than assumed.",
+      "It gives one European view of payment and e-money authorisations, which matters because these firms passport across borders.",
+      "The provenance is explicit: the EBA states that national competent authorities provide the information the register contains."
+    ],
+    "cons": [
+      "It is a compilation, not the authorisation itself. Under the directive, granting authorisation to payment institutions rests with the national authorities.",
+      "The EBA states that it built the register solely from information supplied by national authorities and does not warrant that information.",
+      "The register application was not exercised, so its search behaviour and export options were not observed and no search URL is published."
+    ],
+    "editorNotes": "Verified 2026-08-05 from the EBA’s own register pages, retrieved directly. FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: The national competent authorities, which authorise and register payment and electronic money institutions. The EBA states that national competent authorities provide the information contained in the register, and that under Article 11 of the second Payment Services Directive the granting of authorisation to payment institutions is theirs. The EBA is not the source of record. RESPONSIBLE AUTHORITY: European Banking Authority, which keeps and publishes the central register under the directive. TECHNICAL PLATFORM: Not separately established. The register application is served from a separate EBA interface; no external supplier is named on any page fetched. PUBLIC ACCESS INTERFACE: The register pages on the EBA site and the register application reached from them. The EBA documents that public users can search it free of charge. Shared host: this record and the EBA credit institutions register are two legally distinct registers on one official host and both declare resourceIdentity. Access level is partially-open rather than open: free public search is documented by the operator, but the application was not exercised, so the remaining access facts stay null instead of being completed by assumption."
+  },
+  {
+    "id": "eu-eiopa-insurance-undertakings",
+    "name": "EIOPA register of insurance undertakings",
+    "slug": "eiopa-register-of-insurance-undertakings",
+    "country": "european-union",
+    "category": "government",
+    "website": "https://register.eiopa.europa.eu/registers/register-of-insurance-undertakings",
+    "submissionUrl": null,
+    "description": "The European Insurance and Occupational Pensions Authority publishes a register of insurance undertakings authorised in the European Economic Area. It represents information supplied by the national supervisory authorities and is updated weekly.",
+    "tier": "tier1",
+    "scope": "supranational",
+    "officialName": "Register of Insurance Undertakings",
+    "primaryRegistryType": "financial-services-register",
+    "registryTypes": [
+      "financial-services-register",
+      "regulated-operator-register"
+    ],
+    "operator": {
+      "name": "European Insurance and Occupational Pensions Authority",
+      "type": "regulator",
+      "officialUrl": "https://www.eiopa.europa.eu/"
+    },
+    "publicAccess": {
+      "searchUrl": null,
+      "accessLevel": "unknown",
+      "freeToSearch": null,
+      "loginRequired": null,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "The register page was retrieved anonymously, but it states that JavaScript is required and the register content is client-rendered, so no search behaviour was observed, no search URL is published and every access boolean stays null."
+    },
+    "petroHrysScore": 84,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 8,
+      "verificationQuality": 8,
+      "platformReputation": 8,
+      "spamResistance": 10,
+      "industryImportance": 8,
+      "longTermStability": 9,
+      "submissionQuality": 5,
+      "transparency": 8,
+      "moderationQuality": 8
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-30",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Checking whether an insurer is authorised in the European Economic Area and which national supervisor authorised it.",
+      "Getting a European view of authorised insurance undertakings without querying each national supervisor separately."
+    ],
+    "notRecommendedFor": [
+      "Treating EIOPA as the authorising supervisor. Authorisation is national, and this register represents information supplied by national authorities.",
+      "Checking insurance intermediaries, which are a different population and are not in this register."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Insurance undertakings authorised in the European Economic Area"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "It assembles authorisation data from the national supervisors of the whole European Economic Area into a single register.",
+      "EIOPA states that the register is updated weekly, so the refresh cadence is published rather than left unstated.",
+      "It is clearly scoped to undertakings, which keeps it distinct from the separate and much weaker position on intermediaries."
+    ],
+    "cons": [
+      "It is a representation of information supplied by national authorities, not an authorisation decision by EIOPA.",
+      "The register page requires JavaScript and its content is client-rendered, so its search behaviour and export options were not observed.",
+      "An entry records authorisation. It is not a statement about an insurer’s solvency, conduct or claims handling."
+    ],
+    "editorNotes": "Verified 2026-08-05 from EIOPA’s own register pages, retrieved directly. FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: The national supervisory authorities of the European Economic Area, which authorise insurance undertakings. EIOPA states that the register is a representation of the information supplied to it, so the constitutive decisions sit nationally. RESPONSIBLE AUTHORITY: European Insurance and Occupational Pensions Authority, which compiles and publishes the register. TECHNICAL PLATFORM: Not separately established. No external supplier is named on any page fetched. PUBLIC ACCESS INTERFACE: The register at register.eiopa.europa.eu, which is a separate host from EIOPA’s main site and carries the registers rather than the institutional content. Scope discipline: EIOPA’s separate page on insurance intermediaries was assessed and deliberately not published. It is a country-by-country table of links to national registers containing no intermediary records of its own, which is a menu rather than a register, and publishing it would imply an EU-wide intermediary register that does not currently exist."
+  },
+  {
+    "id": "eu-edes",
+    "name": "EDES exclusion database",
+    "slug": "edes-exclusion-database",
+    "country": "european-union",
+    "category": "government",
+    "website": "https://commission.europa.eu/strategy-and-policy/eu-budget/how-it-works/annual-lifecycle/implementation/anti-fraud-measures/edes/edes-database_en",
+    "submissionUrl": null,
+    "description": "The European Commission publishes the list of persons and entities excluded from participating in EU-funded award procedures, or subject to a financial penalty, under the Early Detection and Exclusion System. Publication is provided for by the Financial Regulation and is reserved for the most severe cases.",
+    "tier": "tier1",
+    "scope": "supranational",
+    "officialName": "Early Detection and Exclusion System (EDES) database",
+    "primaryRegistryType": "exclusion-and-debarment-register",
+    "registryTypes": [
+      "exclusion-and-debarment-register"
+    ],
+    "operator": {
+      "name": "European Commission",
+      "type": "supranational-institution",
+      "officialUrl": "https://commission.europa.eu/"
+    },
+    "publicAccess": {
+      "searchUrl": null,
+      "accessLevel": "open",
+      "freeToSearch": true,
+      "loginRequired": false,
+      "identityVerificationRequired": false,
+      "captcha": null,
+      "geographicRestriction": false,
+      "paidDocumentsAvailable": false,
+      "notes": "The published list appears on the Commission page itself and was retrieved anonymously with no credential and no fee. It is a published list rather than a query interface, so no search URL is published. Only cases where publication was decided appear; the wider exclusion system is not public."
+    },
+    "petroHrysScore": 86,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 8,
+      "verificationQuality": 9,
+      "platformReputation": 9,
+      "spamResistance": 10,
+      "industryImportance": 8,
+      "longTermStability": 8,
+      "submissionQuality": 5,
+      "transparency": 9,
+      "moderationQuality": 9
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": true,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": true,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-12",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [
+        "eu-ted",
+        "us-sam-exclusions"
+      ],
+      "competitors": []
+    },
+    "bestFor": [
+      "Checking whether a person or entity has been publicly excluded from EU-funded award procedures, and for what period.",
+      "Due diligence on a prospective partner in an EU-funded project, alongside national debarment sources."
+    ],
+    "notRecommendedFor": [
+      "Concluding that an absent party has never been excluded. Only cases where publication was specifically decided appear here.",
+      "Any inference about sanctions or restrictions outside EU-funded procedures, which this list does not cover."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Contractors and beneficiaries of EU-funded procedures"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "It is the Commission’s own published exclusion list, so an entry is the authoritative record of the measure rather than a report of it.",
+      "Each entry states the period of the exclusion, so a reader can tell whether a measure is current.",
+      "It is openly readable with no account, which is unusual for exclusion data and makes it genuinely checkable."
+    ],
+    "cons": [
+      "It is deliberately partial. The Commission states that the list concerns only the cases for which a decision to publish was taken, so absence proves nothing.",
+      "Entries are removed as soon as the exclusion ends, and a financial penalty is removed six months after payment, so the list is not a historical archive.",
+      "It covers exclusion from EU-funded procedures only, and says nothing about restrictions imposed under any other regime."
+    ],
+    "editorNotes": "Verified 2026-08-05 from the Commission’s own EDES pages, retrieved directly. FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: The European Commission, acting under the Financial Regulation. The page states that publication of an EDES measure is done in accordance with the relevant legal framework and points to Article 142 of the Financial Regulation. The exclusion decision is the Commission’s own, so unlike most records in this wave the EU institution is the source of record. RESPONSIBLE AUTHORITY: European Commission. TECHNICAL PLATFORM: Not separately established. The list is published as part of the Commission’s own site; no external supplier is named on any page fetched. PUBLIC ACCESS INTERFACE: The published list on the Commission’s EDES pages. Registry type: exclusion-and-debarment-register, which the vocabulary defines for exactly this function and which the dataset already uses for national equivalents. The record is explicit that the published list is a subset: the Commission states that it covers only cases for which a decision to publish was taken, and that entries are removed when the exclusion ends. A reader who treated absence from this list as proof that a party has never been excluded, or as proof of unrestricted standing anywhere else, would be wrong, and the record says so rather than leaving it implied."
+  }
+]
