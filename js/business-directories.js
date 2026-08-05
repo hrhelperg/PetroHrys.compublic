@@ -20,6 +20,15 @@
   var bodies = Array.prototype.slice.call(document.querySelectorAll('[data-bd-rows]'));
   if (!bodies.length) return;
 
+  // Which jurisdiction group a row sits in, read from the box that encloses it.
+  // The id carries the key: "<country>-jurisdiction-<key>".
+  function groupKeyOf(row) {
+    var box = groupBoxOf(row);
+    var id = box && box.getAttribute ? (box.getAttribute('id') || '') : '';
+    var at = id.indexOf('-jurisdiction-');
+    return at === -1 ? null : id.slice(at + 14);
+  }
+
   // The enclosing group box, so a group whose rows all filter out can be hidden
   // rather than left as a caption and a heading above nothing.
   function groupBoxOf(node) {
@@ -35,10 +44,17 @@
   var sortSelect = document.querySelector('[data-bd-sort]');
   var searchInput = document.querySelector('[data-bd-search]');
   var filters = Array.prototype.slice.call(document.querySelectorAll('[data-bd-filter]'));
+  var jSelect = document.querySelector('[data-bd-jurisdiction-select]');
+  // Every state's card, published or pending. A pending state has a card and no
+  // row, so selecting it must narrow the grid rather than empty the page.
+  var stateCards = Array.prototype.slice.call(document.querySelectorAll('[data-bd-state-code]'));
+  var coverageSummary = document.querySelector('.bd-coverage-summary');
+  var coverageBase = coverageSummary ? coverageSummary.textContent : '';
 
   // Reveal the controls only once the behaviour behind them exists. Without
   // JavaScript they stay hidden and the prerendered table is complete.
-  ['[data-bd-sort-wrap]', '[data-bd-filter-wrap]', '[data-bd-search-wrap]'].forEach(function (sel) {
+  ['[data-bd-sort-wrap]', '[data-bd-filter-wrap]', '[data-bd-search-wrap]',
+    '[data-bd-jselect-wrap]'].forEach(function (sel) {
     var el = document.querySelector(sel);
     if (el) el.hidden = false;
   });
@@ -98,10 +114,20 @@
     var shown = 0;
     var unknownHidden = 0;
 
+    // The jurisdiction selection is either 'all', one group, or one state.
+    var jValue = jSelect ? jSelect.value : 'all';
+    var wantGroup = jValue.indexOf('group:') === 0 ? jValue.slice(6) : null;
+    var wantState = jValue.indexOf('state:') === 0 ? jValue.slice(6) : null;
+
     records.forEach(function (record) {
       var row = record.row;
       var visible = true;
       if (query && (row.getAttribute('data-bd-haystack') || '').indexOf(query) === -1) visible = false;
+      // Selecting one state shows that state's registries and nothing else;
+      // selecting a group shows that group. The two never combine, because the
+      // control offers one value.
+      if (wantState && row.getAttribute('data-bd-jurisdiction-code') !== wantState) visible = false;
+      if (wantGroup && groupKeyOf(row) !== wantGroup) visible = false;
       // Attributes are tri-state: 'yes', 'no' or 'unknown'. A positive filter
       // matches only 'yes'. 'unknown' is hidden because it is not a confirmed
       // match, NOT because it is a confirmed miss — the fieldset says so in
@@ -120,6 +146,39 @@
       if (!visible && hiddenUnknown > 0) unknownHidden += 1;
     });
 
+    // The state grid narrows with the selection. Selecting a PENDING state must
+    // leave its card visible and say so, rather than emptying the page — the
+    // point of asking about a state is to learn where it stands.
+    var statesShown = 0;
+    var selectedPending = null;
+    stateCards.forEach(function (card) {
+      var code = card.getAttribute('data-bd-state-code');
+      var wanted = !wantState || code === wantState;
+      // A group selection other than "state" is about tables, not the grid, so
+      // the grid hides entirely rather than showing an unrelated 50 cards.
+      if (wantGroup) wanted = false;
+      card.hidden = !wanted;
+      if (wanted) statesShown += 1;
+      if (wantState && code === wantState
+        && card.getAttribute('data-bd-state-status') === 'pending') selectedPending = card;
+    });
+    if (coverageSummary) {
+      if (wantState) {
+        var nameEl = null;
+        stateCards.forEach(function (card) {
+          if (card.getAttribute('data-bd-state-code') === wantState) {
+            nameEl = card.querySelector('.bd-state-name');
+          }
+        });
+        var stateName = nameEl ? nameEl.textContent : wantState;
+        coverageSummary.textContent = selectedPending
+          ? stateName + ': pending verification — no registry record is published yet'
+          : stateName + ': 1 verified registry';
+      } else {
+        coverageSummary.textContent = coverageBase;
+      }
+    }
+
     // A group with nothing left to show is hidden entirely, so a screen reader
     // is not walked through a heading and a caption over an empty table.
     groups.forEach(function (g) {
@@ -133,11 +192,20 @@
     var base = shown === records.length
       ? String(records.length) + noun
       : String(shown) + ' of ' + String(records.length) + noun;
-    status.textContent = unknownHidden > 0
+    var text = unknownHidden > 0
       ? base + ' (' + String(unknownHidden) + ' with unknown eligibility not shown)'
       : base;
+    // "31 of 50 states" and "62 directories" count different things. Where a
+    // state selection is active, say which is which in the same breath so the
+    // two can never be read as one number.
+    if (wantState && shown === 0) {
+      text = 'No published directory for this jurisdiction — ' + String(statesShown)
+        + ' state coverage entry shown';
+    }
+    status.textContent = text;
   }
 
+  if (jSelect) jSelect.addEventListener('change', apply);
   if (sortSelect) sortSelect.addEventListener('change', apply);
   if (searchInput) searchInput.addEventListener('input', apply);
   filters.forEach(function (f) { f.addEventListener('change', apply); });

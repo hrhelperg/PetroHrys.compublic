@@ -541,11 +541,45 @@ test('guide reciprocity carries no undefined subject', () => {
 
 test('every sort option key is a real shared sort key', () => {
   const { SORT_KEYS } = require('../lib/bd-sort.cjs');
+  // Scoped to the SORT control. The page carries other selects — the
+  // jurisdiction filter offers "all", "group:national", "state:US-TX" — and
+  // those are not sort keys and were never meant to be.
+  let checked = 0;
   for (const { file, html } of ALL) {
-    for (const m of html.matchAll(/<option value="([^"]+)"/g)) {
-      assert.ok(SORT_KEYS.includes(m[1]), `${file} offers sort option "${m[1]}" which bd-sort does not define`);
+    for (const block of html.matchAll(/<select[^>]*data-bd-sort[^>]*>([\s\S]*?)<\/select>/g)) {
+      for (const m of block[1].matchAll(/<option value="([^"]+)"/g)) {
+        checked += 1;
+        assert.ok(SORT_KEYS.includes(m[1]), `${file} offers sort option "${m[1]}" which bd-sort does not define`);
+      }
     }
   }
+  assert.ok(checked > 0, 'no sort control was found on any page, so this test proved nothing');
+});
+
+test('the jurisdiction selector offers only jurisdictions that exist', () => {
+  const { loadRegistry: load } = require('../lib/bd-registry.cjs');
+  const codes = new Set(load().directories.filter((d) => d.jurisdiction).map((d) => d.jurisdiction.code));
+  const manifests = fs.readdirSync(path.join(ROOT, 'data/business-directories'))
+    .filter((f) => f.endsWith('-jurisdiction-coverage.json'))
+    .flatMap((f) => JSON.parse(fs.readFileSync(path.join(ROOT, 'data/business-directories', f), 'utf8')).jurisdictions)
+    .map((j) => j.jurisdictionCode);
+  const declared = new Set(manifests);
+  let seen = 0;
+  for (const { file, html } of ALL) {
+    for (const block of html.matchAll(/<select[^>]*data-bd-jurisdiction-select[^>]*>([\s\S]*?)<\/select>/g)) {
+      for (const m of block[1].matchAll(/<option value="([^"]+)"/g)) {
+        const v = m[1];
+        seen += 1;
+        if (v === 'all') continue;
+        if (v.startsWith('group:')) continue;
+        assert.ok(v.startsWith('state:'), `${file} offers an unrecognised jurisdiction value "${v}"`);
+        const code = v.slice(6);
+        assert.ok(declared.has(code) || codes.has(code),
+          `${file} offers state "${code}" which no manifest or record declares`);
+      }
+    }
+  }
+  assert.ok(seen === 0 || seen >= 51, `a jurisdiction selector rendered only ${seen} options`);
 });
 
 // --- indexability contract ----------------------------------------------------
