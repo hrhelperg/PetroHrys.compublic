@@ -1,0 +1,33 @@
+# macOS and iCloud artefacts.
+#
+# This repository currently lives under an iCloud-synchronised Desktop path,
+# and iCloud resolves sync conflicts by writing a second copy beside the
+# original: "china 2.json", "index 2.html", "bd-registry-types 2.cjs". A single
+# session produced 72 of them. They are not source, they break the registry
+# loader's orphan-file guard, and one careless `git add -A` would commit them.
+#
+# Two saved HTTP responses did reach a release this way and had to be removed
+# afterwards, so this file exists to make that failure impossible rather than
+# merely unlikely.
+.DS_Store
+._*
+*.icloud
+Icon?
+
+# iCloud conflict copies: "name 2.ext", "name 3.ext", and the bare form.
+* [0-9].*
+* [0-9]
+*conflicted copy*
+* copy.*
+* copy
+
+# Merge and editor debris.
+*.orig
+*.rej
+*~
+.*.swp
+
+# Dependencies and local environment.
+node_modules/
+.env
+.env.*

@@ -8754,15 +8754,15 @@
       "code": "US-IN",
       "parentCountry": "united-states"
     },
-    "primaryRegistryType": "business-entity-register",
-    "registryTypes": [
-      "business-entity-register"
-    ],
     "operator": {
       "name": "Indiana Secretary of State, Business Services Division",
       "type": "government-agency",
       "officialUrl": null
     },
+    "primaryRegistryType": "business-entity-register",
+    "registryTypes": [
+      "business-entity-register"
+    ],
     "publicAccess": {
       "searchUrl": "https://bsd.sos.in.gov/publicbusinesssearch",
       "accessLevel": "partially-open",
@@ -8896,15 +8896,15 @@
       "code": "US-MS",
       "parentCountry": "united-states"
     },
-    "primaryRegistryType": "business-entity-register",
-    "registryTypes": [
-      "business-entity-register"
-    ],
     "operator": {
       "name": "Mississippi Secretary of State — Business Services & External Affairs (Business Services Division)",
       "type": "government-agency",
       "officialUrl": null
     },
+    "primaryRegistryType": "business-entity-register",
+    "registryTypes": [
+      "business-entity-register"
+    ],
     "publicAccess": {
       "searchUrl": "https://corp.sos.ms.gov/corp/portal/c/page/corpBusinessIdSearch/portal.aspx",
       "accessLevel": "partially-open",
@@ -9037,15 +9037,15 @@
       "code": "US-AZ",
       "parentCountry": "united-states"
     },
-    "primaryRegistryType": "business-entity-register",
-    "registryTypes": [
-      "business-entity-register"
-    ],
     "operator": {
       "name": "Arizona Corporation Commission",
       "type": "government-agency",
       "officialUrl": null
     },
+    "primaryRegistryType": "business-entity-register",
+    "registryTypes": [
+      "business-entity-register"
+    ],
     "publicAccess": {
       "searchUrl": "https://arizonabusinesscenter.azcc.gov/businesssearch",
       "accessLevel": "partially-open",
@@ -9158,7 +9158,7 @@
       "A CAPTCHA gates the Arizona search, which blocks automated and repeated lookups.",
       "The Arizona Corporation Commission does not publish the terms on which the public may search Arizona Business Center, so whether a fee or an account applies cannot be established in advance.",
       "No official page states whether filed document images can be viewed free of charge, so the cost of reading a filing cannot be established in advance.",
-      "(3) The search data path is reCAPTCHA-protected and no query could be executed: an unauthenticated request to businesssearch/public-search returned {\"detail\":\"Authentication Failed.\",\"instance\":\"/api/businesssearch/public-search\"}, and the same request carrying a placeholder X-reCAPTCHA-Token header returned the identical rejection, because a genuine reCAPTCHA token cannot be minted outside a browser.",
+      "The search data path is reCAPTCHA-protected and no query could be executed: an unauthenticated request to businesssearch/public-search returned {\"detail\":\"Authentication Failed.\",\"instance\":\"/api/businesssearch/public-search\"}, and the same request carrying a placeholder X-reCAPTCHA-Token header returned the identical rejection, because a genuine reCAPTCHA token cannot be minted outside a browser.",
       "Critically, the rejection observed on the public endpoint does not discriminate between \"a reCAPTCHA token is missing\" and \"a login is required\" — both surfaced the same \"Authentication Failed.\" message — so loginRequired is left null even though the routing structure and the separate public-search endpoint point strongly toward no login."
     ],
     "editorNotes": "Verified 2026-08-05 from official Arizona sources. Operator: Arizona Corporation Commission. Coverage and search: Business-type labels in the live application include \"Domestic Limited Liability Company\", \"Foreign Limited Liability Company\", \"Domestic Nonprofit Corporation\", \"Foreign Nonprofit Corporation\", \"Domestic Professional Corporation\", \"Foreign Professional Corporation\", \"Domestic Benefit Corporation\" and \"Foreign Benefit Corporation\", plus \"Trade Name\". Arizona's business-entity registrar is the Arizona Corporation Commission, a separate constitutional body — NOT the Secretary of State. The register application is served from azcc.gov hosts and titled \"Arizona | Corporation Commission\". The register is the \"Arizona Business Center (ABC)\", which replaced the long-standing eCorp system. Inclusion arises from entity formation or statutory registration, not from any submission."
@@ -9180,15 +9180,15 @@
       "code": "US-MI",
       "parentCountry": "united-states"
     },
-    "primaryRegistryType": "business-entity-register",
-    "registryTypes": [
-      "business-entity-register"
-    ],
     "operator": {
       "name": "Michigan Department of Licensing and Regulatory Affairs (LARA), Corporations, Securities & Commercial Licensing Bureau, Corporations Division",
       "type": "government-agency",
       "officialUrl": null
     },
+    "primaryRegistryType": "business-entity-register",
+    "registryTypes": [
+      "business-entity-register"
+    ],
     "publicAccess": {
       "searchUrl": "https://mibusinessregistry.lara.state.mi.us/search/business",
       "accessLevel": "partially-open",
@@ -9322,15 +9322,15 @@
       "code": "US-NM",
       "parentCountry": "united-states"
     },
-    "primaryRegistryType": "business-entity-register",
-    "registryTypes": [
-      "business-entity-register"
-    ],
     "operator": {
       "name": "New Mexico Secretary of State, Business Services Division",
       "type": "government-agency",
       "officialUrl": null
     },
+    "primaryRegistryType": "business-entity-register",
+    "registryTypes": [
+      "business-entity-register"
+    ],
     "publicAccess": {
       "searchUrl": "https://enterprise.sos.nm.gov/",
       "accessLevel": "partially-open",
@@ -9465,15 +9465,15 @@
       "code": "US-GA",
       "parentCountry": "united-states"
     },
-    "primaryRegistryType": "business-entity-register",
-    "registryTypes": [
-      "business-entity-register"
-    ],
     "operator": {
       "name": "Corporations Division of the Georgia Secretary of State's Office (Office of the Georgia Secretary of State, Brad Raffensperger)",
       "type": "government-agency",
       "officialUrl": null
     },
+    "primaryRegistryType": "business-entity-register",
+    "registryTypes": [
+      "business-entity-register"
+    ],
     "publicAccess": {
       "searchUrl": "https://ecorp.sos.ga.gov/BusinessSearch",
       "accessLevel": "open",
@@ -9606,15 +9606,15 @@
       "code": "US-MO",
       "parentCountry": "united-states"
     },
-    "primaryRegistryType": "business-entity-register",
-    "registryTypes": [
-      "business-entity-register"
-    ],
     "operator": {
       "name": "Missouri Secretary of State — Corporations Division",
       "type": "government-agency",
       "officialUrl": null
     },
+    "primaryRegistryType": "business-entity-register",
+    "registryTypes": [
+      "business-entity-register"
+    ],
     "publicAccess": {
       "searchUrl": "https://bsd.sos.mo.gov/BusinessEntity/BESearch.aspx?SearchType=0",
       "accessLevel": "partially-open",
@@ -9749,15 +9749,15 @@
       "code": "US-OK",
       "parentCountry": "united-states"
     },
-    "primaryRegistryType": "business-entity-register",
-    "registryTypes": [
-      "business-entity-register"
-    ],
     "operator": {
       "name": "Oklahoma Secretary of State — Business Records Department",
       "type": "government-agency",
       "officialUrl": null
     },
+    "primaryRegistryType": "business-entity-register",
+    "registryTypes": [
+      "business-entity-register"
+    ],
     "publicAccess": {
       "searchUrl": "https://www.sos.ok.gov/corp/corpInquiryFind.aspx",
       "accessLevel": "partially-open",
@@ -9893,15 +9893,15 @@
       "code": "US-PA",
       "parentCountry": "united-states"
     },
-    "primaryRegistryType": "business-entity-register",
-    "registryTypes": [
-      "business-entity-register"
-    ],
     "operator": {
       "name": "Pennsylvania Department of State, Bureau of Corporations and Charitable Organizations",
       "type": "government-agency",
       "officialUrl": null
     },
+    "primaryRegistryType": "business-entity-register",
+    "registryTypes": [
+      "business-entity-register"
+    ],
     "publicAccess": {
       "searchUrl": "https://file.dos.pa.gov/search/business",
       "accessLevel": "unknown",
@@ -10025,7 +10025,7 @@
     "category": "government",
     "website": "https://bizfilings.vermont.gov/business/businesssearch",
     "submissionUrl": null,
-    "description": "Business Search is the state business-entity register operated by the Vermont Secretary of State, Business Services Division. It covers business entities registered with the Business Services Division. Not directly observed — the search screen is rendered entirely in the browser, so no form markup was retrievable. Whether filed document images can be viewed free of charge is not stated on the official pages.",
+    "description": "Business Search is the state business-entity register operated by the Vermont Secretary of State, Business Services Division. It covers business entities registered with the Business Services Division. Whether filed document images can be viewed free of charge is not stated on the official pages.",
     "tier": "tier1",
     "scope": "subnational",
     "jurisdiction": {
@@ -10034,15 +10034,15 @@
       "code": "US-VT",
       "parentCountry": "united-states"
     },
-    "primaryRegistryType": "business-entity-register",
-    "registryTypes": [
-      "business-entity-register"
-    ],
     "operator": {
       "name": "Vermont Secretary of State, Business Services Division",
       "type": "government-agency",
       "officialUrl": null
     },
+    "primaryRegistryType": "business-entity-register",
+    "registryTypes": [
+      "business-entity-register"
+    ],
     "publicAccess": {
       "searchUrl": "https://bizfilings.vermont.gov/business/businesssearch",
       "accessLevel": "unknown",
@@ -10154,10 +10154,9 @@
     "cons": [
       "The Vermont Secretary of State, Business Services Division does not publish the terms on which the public may search Business Search, so whether a fee or an account applies cannot be established in advance.",
       "No official page states whether filed document images can be viewed free of charge, so the cost of reading a filing cannot be established in advance.",
-      "(2) bizfilings.vermont.gov is a JavaScript-only single-page application.",
-      "Specifically, it does not prove that the Business Search is free of charge, that it can be used without registering an account or logging in, that it is free of a CAPTCHA challenge, that it is reachable from outside the United States, what search fields it exposes, how results are paginated, whether filing histories or document images are viewable, or whether any of that carries a fee. The absence of a fee notice on the Fees & Statutes page is not treated as evidence that searching is free, and the fact that official pages link to the search is not treated as evidence that it is openly accessible."
+      "bizfilings.vermont.gov is a JavaScript-only single-page application."
     ],
-    "editorNotes": "Verified 2026-08-05 from official Vermont sources. Operator: Vermont Secretary of State, Business Services Division. The register is operated by the Business Services Division of the Vermont Secretary of State — not a 'Corporations Division'. The Division's own page is titled 'Business Services Division | Secretary of State' and names 'David P. Hall, Director'. The search sits inside a wider Secretary of State platform the Division consistently calls the 'Online Business Service Center', hosted at bizfilings.vermont.gov, through which filings are made: 'Most filings can be submitted electronically using our Online Business Service Center.' Inclusion arises from entity formation or statutory registration, not from any submission."
+    "editorNotes": "Verified 2026-08-05 from official Vermont sources. Operator: Vermont Secretary of State, Business Services Division. Coverage and search: Search fields: Official pages indicate lookup by business name and by record number: the Copies & Certificates page says to \"verify your business name and record number using our Online Business Search\", and the May 2026 notice asks callers to supply \"your business name and/or record number\". The register is operated by the Business Services Division of the Vermont Secretary of State — not a 'Corporations Division'. The Division's own page is titled 'Business Services Division | Secretary of State' and names 'David P. Hall, Director'. The search sits inside a wider Secretary of State platform the Division consistently calls the 'Online Business Service Center', hosted at bizfilings.vermont.gov, through which filings are made: 'Most filings can be submitted electronically using our Online Business Service Center.' Inclusion arises from entity formation or statutory registration, not from any submission."
   },
   {
     "id": "us-south-carolina-business-entities-online",
@@ -10176,15 +10175,15 @@
       "code": "US-SC",
       "parentCountry": "united-states"
     },
-    "primaryRegistryType": "business-entity-register",
-    "registryTypes": [
-      "business-entity-register"
-    ],
     "operator": {
       "name": "South Carolina Secretary of State's Office, Business Filings Division",
       "type": "government-agency",
       "officialUrl": null
     },
+    "primaryRegistryType": "business-entity-register",
+    "registryTypes": [
+      "business-entity-register"
+    ],
     "publicAccess": {
       "searchUrl": "https://businessfilings.sc.gov/BusinessFiling/",
       "accessLevel": "unknown",
@@ -10318,15 +10317,15 @@
       "code": "US-AL",
       "parentCountry": "united-states"
     },
-    "primaryRegistryType": "business-entity-register",
-    "registryTypes": [
-      "business-entity-register"
-    ],
     "operator": {
       "name": "Alabama Secretary of State — Business Services, Business Entities Division",
       "type": "government-agency",
       "officialUrl": null
     },
+    "primaryRegistryType": "business-entity-register",
+    "registryTypes": [
+      "business-entity-register"
+    ],
     "publicAccess": {
       "searchUrl": "https://arc-sos.state.al.us/CGI/CORPNAME.MBR/INPUT",
       "accessLevel": "partially-open",
