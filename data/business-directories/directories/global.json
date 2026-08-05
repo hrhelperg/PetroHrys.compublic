@@ -1585,7 +1585,7 @@
       "Storefront is mid-rebrand, so naming is currently ambiguous",
       "Listing requires Salesforce partner processes"
     ],
-    "editorNotes": "Verified 2026-08-04. The page states \"Salesforce AppExchange is now AgentExchange\". Review system could not be confirmed from the landing page, so reviewSystem is null."
+    "editorNotes": "Verified 2026-08-04. The page states \"Salesforce AppExchange is now AgentExchange\". The landing page does not show whether the marketplace carries reviews, so no claim is made either way."
   },
   {
     "id": "global-hubspot-marketplace",
@@ -1702,7 +1702,7 @@
     "cons": [
       "Review functionality not evident from the marketplace index"
     ],
-    "editorNotes": "Verified 2026-08-04. Review and rating system not visible on the index page, so reviewSystem is null."
+    "editorNotes": "Verified 2026-08-04. No review or rating system is visible on the index page, so no claim is made either way."
   },
   {
     "id": "global-github-marketplace",
@@ -2297,7 +2297,7 @@
     "cons": [
       "Publishing cost is not stated on the homepage"
     ],
-    "editorNotes": "Verified 2026-08-04. Publishing cost not stated, so submissionModel is unknown."
+    "editorNotes": "Verified 2026-08-04. RubyGems does not state what, if anything, publishing costs."
   },
   {
     "id": "global-packagist",
@@ -2889,7 +2889,7 @@
       "Publishing cost not stated on the homepage",
       "Single-vendor governance"
     ],
-    "editorNotes": "Verified 2026-08-04. Pricing not stated, so submissionModel is unknown."
+    "editorNotes": "Verified 2026-08-04. pub.dev does not state what, if anything, publishing costs."
   },
   {
     "id": "global-hex",
@@ -5896,7 +5896,7 @@
       "Paid distribution only",
       "Syndicated copies are duplicate content and should not be relied on for search visibility"
     ],
-    "editorNotes": "Verified 2026-08-04. Owned by Cision. Included as a distribution service, not as a link-acquisition route; backlinkType is deliberately null."
+    "editorNotes": "Verified 2026-08-04. Owned by Cision. Included as a distribution service, not as a link-acquisition route, and no claim is made about the links it produces."
   },
   {
     "id": "global-npm",
@@ -6015,7 +6015,7 @@
       "No pre-publication review process is documented",
       "Private packages require a paid account upgrade"
     ],
-    "editorNotes": "Verified 2026-08-04 from docs.npmjs.com, which describes the registry as \"a large public database of JavaScript software and the meta-information surrounding it\" and states \"If you choose to share your packages publicly, there is no cost.\" The terms page names npm, Inc. as the operating entity. No pre-publication review is described anywhere in the documentation, so manualReview is left null rather than asserted as false."
+    "editorNotes": "Verified 2026-08-04 from docs.npmjs.com, which describes the registry as \"a large public database of JavaScript software and the meta-information surrounding it\" and states \"If you choose to share your packages publicly, there is no cost.\" The terms page names npm, Inc. as the operating entity. The documentation describes no pre-publication review, which is not the same as confirming there is none."
   },
   {
     "id": "global-google-business-profile",
@@ -6373,6 +6373,6 @@
       "No accessible official page states what a vendor listing costs",
       "Does not accept business-to-consumer products or alpha and beta software"
     ],
-    "editorNotes": "Verified 2026-08-04. company.g2.com names G2.com, Inc. as the operating entity. documentation.g2.com documents the listing route — submission at g2.com/products/new, a research-team eligibility and categorisation check, then a claim approved \"within 1–3 business days\" — and states \"Every review is reviewed by a member of G2’s moderation team.\" The vendor pricing page documents how vendors publish their own product pricing, not what G2 charges vendors, so submissionModel is recorded as unknown rather than guessed at freemium. www.g2.com returns HTTP 403 to automated fetches."
+    "editorNotes": "Verified 2026-08-04. company.g2.com names G2.com, Inc. as the operating entity. documentation.g2.com documents the listing route — submission at g2.com/products/new, a research-team eligibility and categorisation check, then a claim approved \"within 1–3 business days\" — and states \"Every review is reviewed by a member of G2’s moderation team.\" The vendor pricing page documents how vendors publish their own product pricing, not what G2 charges vendors, and G2 does not publish its own vendor pricing. www.g2.com returns HTTP 403 to automated fetches."
   }
 ]

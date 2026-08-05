@@ -45,6 +45,16 @@ const RENDERED = () => [
   components.jurisdictionFilter([{ key: 'state', label: 'States', count: 2 }]),
   components.coverageStatement(
     { country: 'x', jurisdictions: [{ code: 'US-XX', kind: 'state' }] }, new Set()),
+  // The state coverage surface, in both of its states: a published card is a
+  // link, a pending one is deliberately not.
+  components.stateCoverageSummary([{ code: 'US-AA', name: 'A', record: DIR, path: '/a/' }]),
+  components.stateGrid([
+    { code: 'US-AA', name: 'A', record: DIR, path: '/a/', blockerCode: 'none' },
+    { code: 'US-BB', name: 'B', record: null, path: null, blockerCode: 'waf-blocked' },
+  ]),
+  components.jurisdictionSelect(
+    [{ code: 'US-AA', name: 'A', record: DIR }, { code: 'US-BB', name: 'B', record: null }],
+    [{ key: 'national', label: 'Federal', count: 1 }]),
   JGROUP,
   '<p class="bd-status"></p>',
 ].join('\n');
@@ -158,8 +168,25 @@ test('the shared ordering module loads in both environments', () => {
 });
 
 test('every data attribute the client reads is emitted by the components', () => {
-  const html = components.directoryTable({ directories: [DIR] })
-    + components.searchControls({}) + components.filterControls({}) + components.sortControls({});
+  // A subnational row and the state coverage surface are part of what the
+  // client reads, so both have to be in the sample. Without the subnational
+  // row, data-bd-jurisdiction-code looks like an attribute nothing emits.
+  const SUBNATIONAL = {
+    ...DIR,
+    id: 'b',
+    slug: 'b',
+    name: 'B',
+    scope: 'subnational',
+    jurisdiction: { type: 'state', name: 'A', code: 'US-AA', parentCountry: 'united-states' },
+  };
+  const html = components.directoryTable({ directories: [DIR, SUBNATIONAL] })
+    + components.searchControls({}) + components.filterControls({}) + components.sortControls({})
+    + components.stateGrid([
+      { code: 'US-AA', name: 'A', record: DIR, path: '/a/', blockerCode: 'none' },
+      { code: 'US-BB', name: 'B', record: null, path: null, blockerCode: 'waf-blocked' },
+    ])
+    + components.jurisdictionSelect(
+      [{ code: 'US-AA', name: 'A', record: DIR }], [{ key: 'national', label: 'Federal', count: 1 }]);
   const read = new Set();
   for (const m of js().matchAll(/'(data-bd-[a-z-]+)'/g)) read.add(m[1]);
   for (const m of js().matchAll(/\[(data-bd-[a-z-]+)\]/g)) read.add(m[1]);

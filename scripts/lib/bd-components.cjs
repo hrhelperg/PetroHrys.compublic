@@ -367,12 +367,31 @@ function statusBadges(directory) {
     badges.push({ state: 'unknown', text: 'Verification requirement unknown' });
   }
 
+  // `registrationRequired` answers "must an organisation register in order to
+  // appear here". For a commercial directory that is a sign-up; for a statutory
+  // register it is a matter of law. Rendering both as a bare "Registration
+  // required" invited the opposite reading — that the READER needs an account —
+  // which on a free public register is exactly backwards. FINRA BrokerCheck
+  // carried that badge beside a "free to search with no account required"
+  // strength on the same screen.
+  const statutory = directory.submissionModel === 'notApplicable';
   if (directory.registrationRequired === true) {
-    badges.push({ state: 'gated', text: 'Registration required' });
+    badges.push(statutory
+      ? { state: 'statutory', text: 'Entity registration required by law' }
+      : { state: 'gated', text: 'Registration required to be listed' });
   } else if (directory.registrationRequired === false) {
-    badges.push({ state: 'open', text: 'No registration required' });
+    badges.push({ state: 'open', text: 'No registration required to be listed' });
   } else {
-    badges.push({ state: 'unknown', text: 'Registration requirement unknown' });
+    badges.push({ state: 'unknown', text: 'Listing registration requirement unknown' });
+  }
+
+  // Whether a READER needs an account is a different question answered by a
+  // different field, and on a public register it is the one that matters.
+  const login = directory.publicAccess ? directory.publicAccess.loginRequired : undefined;
+  if (login === true) {
+    badges.push({ state: 'gated', text: 'User account required to search' });
+  } else if (login === false) {
+    badges.push({ state: 'open', text: 'No user account required to search' });
   }
 
   if (directory.reviewSystem === true) {
@@ -754,7 +773,7 @@ function coverageStatement(manifest, publishedCodes) {
   if (!manifest || !Array.isArray(manifest.jurisdictions)) return '';
   const states = manifest.jurisdictions.filter((j) => j.kind === 'state');
   if (!states.length) return '';
-  const covered = states.filter((j) => publishedCodes.has(j.code)).length;
+  const covered = states.filter((j) => publishedCodes.has(j.jurisdictionCode || j.code)).length;
   const pending = states.length - covered;
   if (!pending) {
     return `      <p class="bd-coverage">${escapeHtml(`Official business registry coverage is `
@@ -763,6 +782,109 @@ function coverageStatement(manifest, publishedCodes) {
   return `      <p class="bd-coverage">${escapeHtml(`Official business registry coverage is `
     + `available for ${covered} of ${states.length} states; ${pending} `
     + `${pending === 1 ? 'state remains' : 'states remain'} pending verification.`)}</p>`;
+}
+
+// --- state coverage surface -------------------------------------------------
+//
+// A country page that lists 31 state registries answers "which registries do
+// you have" and leaves "is my state covered" unanswerable without counting.
+// The grid answers the second question directly: every state appears exactly
+// once, whether or not it has a record.
+//
+// A pending state is NOT a directory. It gets no link, no detail page, no
+// sitemap entry and no JSON-LD, because there is nothing to link to — only a
+// truthful statement that the work is not done. Conflating the two is how a
+// coverage grid turns into a claim of coverage.
+
+// Reader-facing wording for each blocker code. The manifest's blockerSummary is
+// an internal note; this is what a visitor sees, and it says what kind of
+// obstacle it is without narrating the investigation.
+const BLOCKER_LABELS = {
+  'none': 'Pending verification',
+  'connection-blocked': 'Official application unreachable',
+  'waf-blocked': 'Official application blocked to automated access',
+  'geo-blocked': 'Official application restricted by region',
+  'login-required-unverified': 'Access behaviour unconfirmed',
+  'js-only-unverified': 'Access behaviour unconfirmed',
+  'official-url-unresolved': 'Official address unresolved',
+  'system-transition': 'System in transition',
+  'manual-browser-check': 'Access behaviour unconfirmed',
+  'other': 'Pending verification',
+};
+
+const ACCESS_BADGE = {
+  open: 'Open',
+  'partially-open': 'Partly open',
+  'login-required': 'Account required',
+  'identity-verification-required': 'Identity check required',
+  restricted: 'Restricted',
+  unknown: 'Access unconfirmed',
+};
+
+// The coverage summary above the grid. Both numbers are counted here and
+// nowhere else, so the sentence and the grid cannot disagree.
+function stateCoverageSummary(entries) {
+  const total = entries.length;
+  const verified = entries.filter((e) => e.record).length;
+  const pending = total - verified;
+  const line = pending === 0
+    ? `All ${total} states verified.`
+    : `${verified} of ${total} states verified · ${pending} pending verification`;
+  return `      <p class="bd-coverage-summary">${escapeHtml(line)}</p>`;
+}
+
+// One card per state, in alphabetical order, published and pending alike.
+function stateGrid(entries, { headingId = 'state-coverage' } = {}) {
+  if (!entries.length) return '';
+  const cards = entries.map((e) => {
+    const name = escapeHtml(e.name);
+    if (e.record) {
+      const r = e.record;
+      const access = ACCESS_BADGE[(r.publicAccess && r.publicAccess.accessLevel) || 'unknown']
+        || ACCESS_BADGE.unknown;
+      const score = r.petroHrysScore === null || r.petroHrysScore === undefined
+        ? '' : `<span class="bd-state-score">${escapeHtml(String(r.petroHrysScore))}</span>`;
+      return `        <li class="bd-state" data-bd-state-code="${escapeHtml(e.code)}" data-bd-state-status="published">
+          <a class="bd-state-link" href="${escapeHtml(e.path)}">
+            <span class="bd-state-name">${name}</span>
+            <span class="bd-state-registry">${escapeHtml(S.displayName(r))}</span>
+          </a>
+          <span class="bd-state-operator">${escapeHtml(r.operator ? r.operator.name : '')}</span>
+          <span class="bd-state-meta"><span class="bd-state-access" data-bd-access="${escapeHtml((r.publicAccess && r.publicAccess.accessLevel) || 'unknown')}">${escapeHtml(access)}</span>${score}</span>
+        </li>`;
+    }
+    // No anchor, no href, nothing to click: there is no page behind it.
+    const label = BLOCKER_LABELS[e.blockerCode] || BLOCKER_LABELS.other;
+    return `        <li class="bd-state" data-bd-state-code="${escapeHtml(e.code)}" data-bd-state-status="pending">
+          <span class="bd-state-name">${name}</span>
+          <span class="bd-state-pending">Pending verification</span>
+          <span class="bd-state-blocker">${escapeHtml(label)}</span>
+        </li>`;
+  }).join('\n');
+  return `      <ul class="bd-states" aria-labelledby="${escapeHtml(headingId)}">
+${cards}
+      </ul>`;
+}
+
+// The jurisdiction selector. Every state is listed whether or not it has a
+// record, because a reader looking for a pending state needs to find out that
+// it is pending — an absent option would read as "no such place".
+function jurisdictionSelect(entries, groups, { idPrefix = 'jurisdiction' } = {}) {
+  if (!entries.length) return '';
+  const id = `${idPrefix}-select`;
+  const groupOptions = (groups || []).filter((g) => g.key !== 'state')
+    .map((g) => `          <option value="group:${escapeHtml(g.key)}">${escapeHtml(g.label)}</option>`)
+    .join('\n');
+  const stateOptions = entries.map((e) => `          <option value="state:${escapeHtml(e.code)}">`
+    + `${escapeHtml(e.name)}${e.record ? '' : ' — pending verification'}</option>`).join('\n');
+  return `      <div class="bd-control" data-bd-jselect-wrap hidden>
+        <label class="bd-label" for="${escapeHtml(id)}">Jurisdiction</label>
+        <select class="bd-select" id="${escapeHtml(id)}" data-bd-jurisdiction-select>
+          <option value="all">All jurisdictions</option>
+${groupOptions}
+${stateOptions}
+        </select>
+      </div>`;
 }
 
 // One control per group present. Counts are derived, never written down twice.
@@ -1185,6 +1307,7 @@ module.exports = {
   methodologyNote, provenanceBlock, externalLinkCta,
   activeMetricFields, activeGuidanceFields, tableColumnsFor, countLabel,
   jurisdictionGroups, jurisdictionFilter, byJurisdictionThenName, registryCount,
+  stateGrid, stateCoverageSummary, jurisdictionSelect, BLOCKER_LABELS, ACCESS_BADGE,
   coverageStatement,
   FILTERS, VERIFICATION_NOTE, REL_EXTERNAL, FILTER_DISCLOSURE,
 };

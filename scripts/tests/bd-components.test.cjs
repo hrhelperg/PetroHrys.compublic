@@ -169,8 +169,45 @@ test('unknown fields never imply verification', () => {
   assert.ok(html.includes('Not yet verified'));
   assert.ok(html.includes('Submission model unknown'));
   assert.ok(html.includes('Verification requirement unknown'));
-  assert.ok(html.includes('Registration requirement unknown'));
+  // The badge is now explicit about WHICH registration it means, because the
+  // bare wording read as "you need an account" on free public registers.
+  assert.ok(html.includes('Listing registration requirement unknown'));
   assert.ok(html.includes('Review system unknown'));
+  // An unknown user-access position produces no access badge at all: silence is
+  // correct where a badge would have to guess.
+  assert.ok(!/user account required/i.test(html), 'an unknown login position rendered an access badge');
+});
+
+test('entity registration and user access are distinct badges', () => {
+  // FINRA BrokerCheck carried "Registration required" beside "free to search
+  // with no account required" on the same screen. The first is a fact about
+  // regulated firms; the second is a fact about the reader.
+  const statutory = c.statusBadges(verifiedRecord({
+    registrationRequired: true,
+    submissionModel: 'notApplicable',
+    publicAccess: { accessLevel: 'open', freeToSearch: true, loginRequired: false, notes: null },
+  }));
+  assert.ok(statutory.includes('Entity registration required by law'), statutory);
+  assert.ok(statutory.includes('No user account required to search'), statutory);
+  assert.ok(!statutory.includes('>Registration required<'), 'the ambiguous wording survived');
+  assert.match(statutory, /data-bd-state="statutory"/, 'a legal obligation borrowed the gated styling');
+
+  // A commercial directory means the other thing, and must not say "by law".
+  const commercial = c.statusBadges(verifiedRecord({
+    registrationRequired: true,
+    submissionModel: 'free',
+    publicAccess: { accessLevel: 'open', freeToSearch: true, loginRequired: false, notes: null },
+  }));
+  assert.ok(commercial.includes('Registration required to be listed'), commercial);
+  assert.ok(!commercial.includes('by law'), 'a sign-up form was described as a legal obligation');
+
+  // A register that really does gate the reader says so.
+  const gated = c.statusBadges(verifiedRecord({
+    registrationRequired: true,
+    submissionModel: 'notApplicable',
+    publicAccess: { accessLevel: 'login-required', freeToSearch: false, loginRequired: true, notes: null },
+  }));
+  assert.ok(gated.includes('User account required to search'), gated);
 });
 
 test('a verified record reports its date in a time element', () => {

@@ -101,7 +101,9 @@ test('no published field carries a punctuation artefact', () => {
       assert.ok(!/\s{2,}/.test(text), `${r.id} ${field} has a doubled space`);
       assert.ok(!/\s[.,;:](?!\w)/.test(text), `${r.id} ${field} has a space before punctuation`);
       assert.ok(!/\.["”]\.\s/.test(text), `${r.id} ${field} has a doubled terminal stop after a quotation`);
-      assert.ok(!/\b(\w+) \1\b/i.test(text), `${r.id} ${field} repeats a word`);
+      // "filings for For-Profit Corporations" is correct English: the second
+      // "For" heads a hyphenated compound and is not a repetition.
+      assert.ok(!/\b(\w+) \1\b(?![-\w])/i.test(text), `${r.id} ${field} repeats a word`);
     }
   }
 });
@@ -246,6 +248,82 @@ test('a restriction is only claimed where one was established', () => {
       assert.ok(pa.freeToSearch === false || pa.loginRequired === true,
         `${r.id} says the access terms do not support anonymous checking, but nothing restricts it `
         + `(freeToSearch ${pa.freeToSearch}, loginRequired ${pa.loginRequired})`);
+    }
+  }
+});
+
+test('a pending state exposes a label, never a research note', () => {
+  // The manifest carries two kinds of field and the page may only render one.
+  // blockerSummary and nextAction are working notes — "the search screen
+  // refuses automated requests", "open it in an ordinary desktop browser" —
+  // and neither is anything a reader asked for.
+  const fs2 = require('node:fs');
+  const path2 = require('node:path');
+  const root = path2.resolve(__dirname, '..', '..');
+  const manifest = JSON.parse(fs2.readFileSync(
+    path2.join(root, 'data/business-directories/united-states-jurisdiction-coverage.json'), 'utf8'));
+  const html = fs2.readFileSync(
+    path2.join(root, 'research/business-directories/united-states/index.html'), 'utf8');
+
+  const CODES = new Set(['none', 'connection-blocked', 'waf-blocked', 'geo-blocked',
+    'login-required-unverified', 'js-only-unverified', 'official-url-unresolved',
+    'system-transition', 'manual-browser-check', 'other']);
+
+  let pending = 0;
+  for (const j of manifest.jurisdictions) {
+    assert.ok(CODES.has(j.blockerCode), `${j.jurisdictionCode} has blockerCode "${j.blockerCode}"`);
+    if (j.publicationStatus === 'published') {
+      assert.strictEqual(j.blockerCode, 'none', `${j.jurisdictionCode} is published but blocked`);
+      assert.strictEqual(j.blockerSummary, null, `${j.jurisdictionCode} is published but carries a blocker note`);
+      continue;
+    }
+    pending += 1;
+    assert.notStrictEqual(j.blockerCode, 'none', `${j.jurisdictionCode} is unpublished with no blocker code`);
+    // The internal note must still be readable prose, even though it does not
+    // ship — a working note is read by a person too.
+    const note = j.blockerSummary || '';
+    assert.ok(note.length > 30, `${j.jurisdictionCode} has no substantive blocker note`);
+    for (const banned of [/HTTP \d{3}/, /\bcurl\b/i, /WebFetch/i, /<[a-z]/i, /\bI \b/, /user-agent/i]) {
+      assert.ok(!banned.test(note), `${j.jurisdictionCode} blocker note leaks tooling: "${note.slice(0, 90)}"`);
+    }
+    // And none of it may reach the page.
+    assert.ok(!html.includes(note.slice(0, 50)),
+      `${j.jurisdictionCode}'s internal blocker note is rendered`);
+    if (j.nextAction) {
+      assert.ok(!html.includes(j.nextAction.slice(0, 40)),
+        `${j.jurisdictionCode}'s internal next action is rendered`);
+    }
+  }
+  assert.ok(pending >= 1, 'no pending jurisdiction, so this test proved nothing');
+});
+
+test('a pending state never appears as a published directory', () => {
+  const fs2 = require('node:fs');
+  const path2 = require('node:path');
+  const root = path2.resolve(__dirname, '..', '..');
+  const manifest = JSON.parse(fs2.readFileSync(
+    path2.join(root, 'data/business-directories/united-states-jurisdiction-coverage.json'), 'utf8'));
+  const sitemap = fs2.readFileSync(path2.join(root, 'sitemap-business-directories.xml'), 'utf8');
+  const feed = fs2.readFileSync(path2.join(root, 'research/business-directories/feed.xml'), 'utf8');
+  const html = fs2.readFileSync(
+    path2.join(root, 'research/business-directories/united-states/index.html'), 'utf8');
+  const codes = new Set(US.filter((r) => r.jurisdiction).map((r) => r.jurisdiction.code));
+
+  for (const j of manifest.jurisdictions.filter((x) => x.publicationStatus !== 'published')) {
+    assert.ok(!codes.has(j.jurisdictionCode), `${j.jurisdictionCode} is pending but has a record`);
+    assert.strictEqual(j.recordId, null, `${j.jurisdictionCode} is pending but names a record`);
+    // A pending candidate URL must not be published as though it were a listing.
+    if (j.officialCandidateUrl) {
+      assert.ok(!sitemap.includes(j.officialCandidateUrl), `${j.jurisdictionCode} candidate URL is in the sitemap`);
+      assert.ok(!feed.includes(j.officialCandidateUrl), `${j.jurisdictionCode} candidate URL is in the feed`);
+      // Nor as a link on the page: a pending card is inert.
+      assert.ok(!html.includes(`href="${j.officialCandidateUrl}"`),
+        `${j.jurisdictionCode} is pending but its candidate URL is linked`);
+    }
+    // No structured data may describe it.
+    for (const block of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
+      assert.ok(!block[1].includes(j.stateName + '"'),
+        `${j.jurisdictionCode} appears in JSON-LD while pending`);
     }
   }
 });

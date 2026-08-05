@@ -8736,5 +8736,1710 @@
       "It does not prove good standing, does not prove tax compliance, does not prove any professional or occupational licence, and does not prove solvency."
     ],
     "editorNotes": "Verified 2026-08-04 from official Nevada sources. Operator: Nevada Secretary of State. The same search returns state business licences alongside corporate entities — Nevada operates a state-level business licence regime (most states licence only at municipal or professional level), so a Nevada hit can carry licence information that has no analogue in neighbouring states. Reserved names are publicly searchable as records in their own right, meaning a name that has merely been held but never used will surface in results and can be mistaken for an operating entity. Inclusion arises from entity formation or statutory registration, not from any submission."
+  },
+  {
+    "id": "us-indiana-business-entity-search",
+    "name": "SOS Business Entity Search",
+    "slug": "indiana-business-entity-search",
+    "country": "united-states",
+    "category": "government",
+    "website": "https://bsd.sos.in.gov/publicbusinesssearch",
+    "submissionUrl": null,
+    "description": "SOS Business Entity Search is the state business-entity register operated by the Indiana Secretary of State, Business Services Division. Search fields: Per the IN.gov mobile services page: a \"Full Name\" or \"Partial Name\" search of a business entity. Filed document images are viewable without charge.",
+    "tier": "tier1",
+    "scope": "subnational",
+    "jurisdiction": {
+      "type": "state",
+      "name": "Indiana",
+      "code": "US-IN",
+      "parentCountry": "united-states"
+    },
+    "primaryRegistryType": "business-entity-register",
+    "registryTypes": [
+      "business-entity-register"
+    ],
+    "operator": {
+      "name": "Indiana Secretary of State, Business Services Division",
+      "type": "government-agency",
+      "officialUrl": null
+    },
+    "publicAccess": {
+      "searchUrl": "https://bsd.sos.in.gov/publicbusinesssearch",
+      "accessLevel": "partially-open",
+      "freeToSearch": null,
+      "loginRequired": null,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": true,
+      "notes": "Some of the register is reachable without payment or an account, and some is not. The operator does not state whether searching is free of charge. Filed images are free to view; certified copies and certificates are charged."
+    },
+    "petroHrysScore": 80,
+    "scoreFactors": {
+      "editorialTrust": 9,
+      "businessUsefulness": 8,
+      "verificationQuality": 7,
+      "platformReputation": 7,
+      "spamResistance": 10,
+      "industryImportance": 8,
+      "longTermStability": 9,
+      "submissionQuality": 6,
+      "transparency": 8,
+      "moderationQuality": 7
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": true,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-13",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Confirming that an entity is registered in Indiana and reading its recorded status"
+    ],
+    "notRecommendedFor": [
+      "Confirming good standing, licensing or tax compliance — this register does not establish any of them",
+      "Federal-level verification, which uses separate systems"
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Entities registered in Indiana"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "Filed document images are published free, so a filing can be read rather than merely confirmed to exist.",
+      "The Indiana Secretary of State, Business Services Division is the statutory source for Indiana, so an entry exists because a filing was made — not because anyone submitted a listing.",
+      "Current and actively published."
+    ],
+    "cons": [
+      "The Indiana Secretary of State, Business Services Division does not publish the terms on which the public may search SOS Business Entity Search, so whether a fee or an account applies cannot be established in advance.",
+      "Every fact recorded here comes from official IN.gov / Secretary of State pages and Division PDFs that were fetched and read in full.",
+      "Finally, on the data itself: HB 1593, effective 01/01/2026, permits certain fully-remote businesses to exclude a residential address from the public record, so an address absent from the register is not evidence that no address was filed."
+    ],
+    "editorNotes": "Verified 2026-08-05 from official Indiana sources. Operator: Indiana Secretary of State, Business Services Division. Coverage and search: The Division's official Business Forms page lists filings for For-Profit Corporations (Domestic and Foreign), Non-Profit Corporations (Domestic and Foreign), Professional Corporations, Limited Liability Companies (Domestic and Foreign), Limited Partnership, Limited Liability Partnership, and Series Limited Liability Company. The Business Services Division home page presents the register under the INBiz banner: \"INBiz - Believe In Yourself. We Do.\" with the subtitle \"Business search, workforce management, taxes & fees, and other online resources for your business.\" (https://www.in.gov/sos/business/) The same portal that serves the public search is also the route to certified copies — the Division links \"Print certified copies of business documents.\" to https://bsd.sos.in.gov/publicbusinesssearch. Inclusion arises from entity formation or statutory registration, not from any submission."
+  },
+  {
+    "id": "us-mississippi-business-search",
+    "name": "Business Search",
+    "slug": "mississippi-business-search",
+    "country": "united-states",
+    "category": "government",
+    "website": "https://corp.sos.ms.gov/corp/portal/c/page/corpBusinessIdSearch/portal.aspx",
+    "submissionUrl": null,
+    "description": "Business Search is the state business-entity register operated by the Mississippi Secretary of State — Business Services & External Affairs (Business Services Division). Coverage: The corporations database covers registered business entities generally. Whether filed document images can be viewed free of charge is not stated on the official pages.",
+    "tier": "tier1",
+    "scope": "subnational",
+    "jurisdiction": {
+      "type": "state",
+      "name": "Mississippi",
+      "code": "US-MS",
+      "parentCountry": "united-states"
+    },
+    "primaryRegistryType": "business-entity-register",
+    "registryTypes": [
+      "business-entity-register"
+    ],
+    "operator": {
+      "name": "Mississippi Secretary of State — Business Services & External Affairs (Business Services Division)",
+      "type": "government-agency",
+      "officialUrl": null
+    },
+    "publicAccess": {
+      "searchUrl": "https://corp.sos.ms.gov/corp/portal/c/page/corpBusinessIdSearch/portal.aspx",
+      "accessLevel": "partially-open",
+      "freeToSearch": null,
+      "loginRequired": null,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "Some of the register is reachable without payment or an account, and some is not. The operator does not state whether searching is free of charge."
+    },
+    "petroHrysScore": 76,
+    "scoreFactors": {
+      "editorialTrust": 9,
+      "businessUsefulness": 6,
+      "verificationQuality": 7,
+      "platformReputation": 7,
+      "spamResistance": 10,
+      "industryImportance": 8,
+      "longTermStability": 9,
+      "submissionQuality": 6,
+      "transparency": 5,
+      "moderationQuality": 7
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": true,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-24",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Confirming that an entity is registered in Mississippi and reading its recorded status"
+    ],
+    "notRecommendedFor": [
+      "Confirming good standing, licensing or tax compliance — this register does not establish any of them",
+      "Federal-level verification, which uses separate systems"
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Entities registered in Mississippi"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "The Mississippi Secretary of State — Business Services & External Affairs (Business Services Division) is the statutory source for Mississippi, so an entry exists because a filing was made — not because anyone submitted a listing.",
+      "Current and in service."
+    ],
+    "cons": [
+      "The Mississippi Secretary of State — Business Services & External Affairs (Business Services Division) does not publish the terms on which the public may search Business Search, so whether a fee or an account applies cannot be established in advance.",
+      "No official page states whether filed document images can be viewed free of charge, so the cost of reading a filing cannot be established in advance.",
+      "It also does not cover UCC filings, which the Secretary of State runs on a separate system (STAR), nor trademarks, which have their own separate search."
+    ],
+    "editorNotes": "Verified 2026-08-05 from official Mississippi sources. Operator: Mississippi Secretary of State — Business Services & External Affairs (Business Services Division). Coverage and search: Search fields: Officially documented search entry points for that screen, per the Secretary of State's Online Services Directory, are business name / business ID (\"Business ID Search\") and officer name (\"Business Search by Officer name\"), both resolving to the same application. Every business operating in Mississippi carries a unique six- or seven-digit Business ID number, which is a directly searchable key — the Secretary of State's official help document states: \"Business ID: all businesses operating in Mississippi have a unique six or seven digit business ID number. You may search by number using this column.\" The Secretary of State's Online Services Directory exposes officer-name lookup as its own named entry point, \"Business Search by Officer name\", alongside \"Business ID Search\" — both resolving to the same corpBusinessIdSearch application. Inclusion arises from entity formation or statutory registration, not from any submission."
+  },
+  {
+    "id": "us-arizona-business-center-search",
+    "name": "Arizona Business Center",
+    "slug": "arizona-business-center-search",
+    "country": "united-states",
+    "category": "government",
+    "website": "https://arizonabusinesscenter.azcc.gov/businesssearch",
+    "submissionUrl": null,
+    "description": "Arizona Business Center is the state business-entity register operated by the Arizona Corporation Commission. Search-form labels present in the live application include \"Business Name\", \"Business ID\", \"Entity Name\", \"Principal Name\", \"Statutory Agent Name\" and \"Trade Name\". Whether filed document images can be viewed free of charge is not stated on the official pages.",
+    "tier": "tier1",
+    "scope": "subnational",
+    "jurisdiction": {
+      "type": "state",
+      "name": "Arizona",
+      "code": "US-AZ",
+      "parentCountry": "united-states"
+    },
+    "primaryRegistryType": "business-entity-register",
+    "registryTypes": [
+      "business-entity-register"
+    ],
+    "operator": {
+      "name": "Arizona Corporation Commission",
+      "type": "government-agency",
+      "officialUrl": null
+    },
+    "publicAccess": {
+      "searchUrl": "https://arizonabusinesscenter.azcc.gov/businesssearch",
+      "accessLevel": "partially-open",
+      "freeToSearch": null,
+      "loginRequired": null,
+      "identityVerificationRequired": null,
+      "captcha": true,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "A CAPTCHA must be completed before results are returned. Some of the register is reachable without payment or an account, and some is not. The operator does not state whether searching is free of charge."
+    },
+    "petroHrysScore": 75,
+    "scoreFactors": {
+      "editorialTrust": 9,
+      "businessUsefulness": 6,
+      "verificationQuality": 7,
+      "platformReputation": 7,
+      "spamResistance": 10,
+      "industryImportance": 8,
+      "longTermStability": 9,
+      "submissionQuality": 5,
+      "transparency": 5,
+      "moderationQuality": 7
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": true,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-17",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Confirming that an entity is registered in Arizona and reading its recorded status"
+    ],
+    "notRecommendedFor": [
+      "Confirming good standing, licensing or tax compliance — this register does not establish any of them",
+      "Federal-level verification, which uses separate systems"
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Entities registered in Arizona"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "The Arizona Corporation Commission is the statutory source for Arizona, so an entry exists because a filing was made — not because anyone submitted a listing.",
+      "Active and current. Arizona Business Center is the Commission's live business filing and records portal; it replaced eCorp, which is retired."
+    ],
+    "cons": [
+      "A CAPTCHA gates the Arizona search, which blocks automated and repeated lookups.",
+      "The Arizona Corporation Commission does not publish the terms on which the public may search Arizona Business Center, so whether a fee or an account applies cannot be established in advance.",
+      "No official page states whether filed document images can be viewed free of charge, so the cost of reading a filing cannot be established in advance.",
+      "The search data path is reCAPTCHA-protected and no query could be executed: an unauthenticated request to businesssearch/public-search returned {\"detail\":\"Authentication Failed.\",\"instance\":\"/api/businesssearch/public-search\"}, and the same request carrying a placeholder X-reCAPTCHA-Token header returned the identical rejection, because a genuine reCAPTCHA token cannot be minted outside a browser.",
+      "Critically, the rejection observed on the public endpoint does not discriminate between \"a reCAPTCHA token is missing\" and \"a login is required\" — both surfaced the same \"Authentication Failed.\" message — so loginRequired is left null even though the routing structure and the separate public-search endpoint point strongly toward no login."
+    ],
+    "editorNotes": "Verified 2026-08-05 from official Arizona sources. Operator: Arizona Corporation Commission. Coverage and search: Business-type labels in the live application include \"Domestic Limited Liability Company\", \"Foreign Limited Liability Company\", \"Domestic Nonprofit Corporation\", \"Foreign Nonprofit Corporation\", \"Domestic Professional Corporation\", \"Foreign Professional Corporation\", \"Domestic Benefit Corporation\" and \"Foreign Benefit Corporation\", plus \"Trade Name\". Arizona's business-entity registrar is the Arizona Corporation Commission, a separate constitutional body — NOT the Secretary of State. The register application is served from azcc.gov hosts and titled \"Arizona | Corporation Commission\". The register is the \"Arizona Business Center (ABC)\", which replaced the long-standing eCorp system. Inclusion arises from entity formation or statutory registration, not from any submission."
+  },
+  {
+    "id": "us-michigan-business-entity-search",
+    "name": "Business Entity Search",
+    "slug": "michigan-business-entity-search",
+    "country": "united-states",
+    "category": "government",
+    "website": "https://mibusinessregistry.lara.state.mi.us/search/business",
+    "submissionUrl": null,
+    "description": "Business Entity Search is the state business-entity register operated by the Michigan Department of Licensing and Regulatory Affairs (LARA), Corporations, Securities & Commercial Licensing Bureau, Corporations Division. Whether filed document images can be viewed free of charge is not stated on the official pages.",
+    "tier": "tier1",
+    "scope": "subnational",
+    "jurisdiction": {
+      "type": "state",
+      "name": "Michigan",
+      "code": "US-MI",
+      "parentCountry": "united-states"
+    },
+    "primaryRegistryType": "business-entity-register",
+    "registryTypes": [
+      "business-entity-register"
+    ],
+    "operator": {
+      "name": "Michigan Department of Licensing and Regulatory Affairs (LARA), Corporations, Securities & Commercial Licensing Bureau, Corporations Division",
+      "type": "government-agency",
+      "officialUrl": null
+    },
+    "publicAccess": {
+      "searchUrl": "https://mibusinessregistry.lara.state.mi.us/search/business",
+      "accessLevel": "partially-open",
+      "freeToSearch": null,
+      "loginRequired": false,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": true,
+      "notes": "Some of the register is reachable without payment or an account, and some is not. The operator does not state whether searching is free of charge."
+    },
+    "petroHrysScore": 76,
+    "scoreFactors": {
+      "editorialTrust": 9,
+      "businessUsefulness": 6,
+      "verificationQuality": 7,
+      "platformReputation": 7,
+      "spamResistance": 10,
+      "industryImportance": 8,
+      "longTermStability": 9,
+      "submissionQuality": 6,
+      "transparency": 5,
+      "moderationQuality": 7
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": true,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-09",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Confirming that an entity is registered in Michigan and reading its recorded status"
+    ],
+    "notRecommendedFor": [
+      "Confirming good standing, licensing or tax compliance — this register does not establish any of them",
+      "Federal-level verification, which uses separate systems"
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Entities registered in Michigan"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "The Michigan Department of Licensing and Regulatory Affairs (LARA), Corporations, Securities & Commercial Licensing Bureau, Corporations Division is the statutory source for Michigan, so an entry exists because a filing was made — not because anyone submitted a listing.",
+      "Current and in service."
+    ],
+    "cons": [
+      "The Michigan Department of Licensing and Regulatory Affairs (LARA), Corporations, Securities & Commercial Licensing Bureau, Corporations Division does not publish the terms on which the public may search Business Entity Search, so whether a fee or an account applies cannot be established in advance.",
+      "No official page states whether filed document images can be viewed free of charge, so the cost of reading a filing cannot be established in advance.",
+      "Two separate access controls prevented direct observation of the running search.",
+      "The record also does not establish the fate of the predecessor system beyond an unanswered TLS handshake."
+    ],
+    "editorNotes": "Verified 2026-08-05 from official Michigan sources. Operator: Michigan Department of Licensing and Regulatory Affairs (LARA), Corporations, Securities & Commercial Licensing Bureau, Corporations Division. Coverage and search: Michigan corporate and limited-liability entities under the \"Business\" tab — LARA's own result screenshots show the entity types \"Domestic Limited Liability Company\", \"Domestic Profit Corporation\", \"Domestic Nonprofit Corporation\" and \"Limited Liability Company\", and LARA's testimony notes enforcement touching \"the Michigan Limited Liability Company Act, Business Corporation Act, and Nonprofit Corporation Act\". The Business Search screen offers a single free-text field labelled \"Search by name or file number\" with a magnifier button, a \"Business Search Info:\" selector dropdown above it, and an \"Advanced\" expander below it. The screen is split into two tabs, \"Business\" and \"Trademark\". The register is delivered through the MiBusiness Registry Portal, which went live on 23 June 2025 and replaced the Corporations Division's previous filing system; LARA states that \"The CID and PIN from the previous system did not transfer to this system.\" The public Business Search screen carries a rolling processing-backlog notice; on 20 November 2025 it read \"As of 11/20/2025 we have processed all business filings received in our office through 11/16/2025.\" Inclusion arises from entity formation or statutory registration, not from any submission."
+  },
+  {
+    "id": "us-new-mexico-business-filings-portal",
+    "name": "Business Services Online Filings Portal",
+    "slug": "new-mexico-business-filings-portal",
+    "country": "united-states",
+    "category": "government",
+    "website": "https://enterprise.sos.nm.gov/",
+    "submissionUrl": null,
+    "description": "Business Services Online Filings Portal is the state business-entity register operated by the New Mexico Secretary of State, Business Services Division. Coverage: The Secretary of State homepage states the portal can be used to \"search for a registered business, fictitious name or trademark\". Whether filed document images can be viewed free of charge is not stated on the official pages.",
+    "tier": "tier1",
+    "scope": "subnational",
+    "jurisdiction": {
+      "type": "state",
+      "name": "New Mexico",
+      "code": "US-NM",
+      "parentCountry": "united-states"
+    },
+    "primaryRegistryType": "business-entity-register",
+    "registryTypes": [
+      "business-entity-register"
+    ],
+    "operator": {
+      "name": "New Mexico Secretary of State, Business Services Division",
+      "type": "government-agency",
+      "officialUrl": null
+    },
+    "publicAccess": {
+      "searchUrl": "https://enterprise.sos.nm.gov/",
+      "accessLevel": "partially-open",
+      "freeToSearch": null,
+      "loginRequired": null,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": true,
+      "paidDocumentsAvailable": null,
+      "notes": "Some of the register is reachable without payment or an account, and some is not. The operator does not state whether searching is free of charge. The operator states that this information is available within the United States and restricts access to it from other countries."
+    },
+    "petroHrysScore": 76,
+    "scoreFactors": {
+      "editorialTrust": 9,
+      "businessUsefulness": 6,
+      "verificationQuality": 7,
+      "platformReputation": 7,
+      "spamResistance": 10,
+      "industryImportance": 8,
+      "longTermStability": 9,
+      "submissionQuality": 6,
+      "transparency": 5,
+      "moderationQuality": 7
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": true,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-14",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Confirming that an entity is registered in New Mexico and reading its recorded status"
+    ],
+    "notRecommendedFor": [
+      "Confirming good standing, licensing or tax compliance — this register does not establish any of them",
+      "Federal-level verification, which uses separate systems"
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Entities registered in New Mexico"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "The New Mexico Secretary of State, Business Services Division is the statutory source for New Mexico, so an entry exists because a filing was made — not because anyone submitted a listing.",
+      "Current and active."
+    ],
+    "cons": [
+      "The New Mexico Secretary of State, Business Services Division does not publish the terms on which the public may search Business Services Online Filings Portal, so whether a fee or an account applies cannot be established in advance.",
+      "No official page states whether filed document images can be viewed free of charge, so the cost of reading a filing cannot be established in advance.",
+      "The New Mexico Secretary of State, Business Services Division restricts access to this register from outside the United States, so it cannot be relied on for checks made from abroad.",
+      "The Secretary of State officially documents geo-blocking of this data: \"In New Mexico, our Business information is public information and is available to anyone within the United States who would like to access it. However, we generally protect this information from foreign countries. If you are in a foreign county and need access to your company's information, please email us at helpdesk@state.nm.us and we will assist you\".",
+      "It does not establish which fields the search accepts, whether searching is free of charge, whether an account or sign-in is required to search, whether a CAPTCHA is presented, how results are paginated, how current the data is, or what an individual entity record contains."
+    ],
+    "editorNotes": "Verified 2026-08-05 from official New Mexico sources. Operator: New Mexico Secretary of State, Business Services Division. New Mexico has eliminated paper business filings entirely: \"All business filings have moved to online process. We will no longer accept paper filings for any business applications.\" The platform is officially named SOS Enterprise: \"The Secretary of State's Office is transitioning to a new online filing system called SOS Enterprise that has an API gateway for XML Bulk Filings.\" It replaced the legacy Business Filing System, referred to in the same release by the abbreviation BFS. Inclusion arises from entity formation or statutory registration, not from any submission."
+  },
+  {
+    "id": "us-georgia-business-search",
+    "name": "Business Search",
+    "slug": "georgia-business-search",
+    "country": "united-states",
+    "category": "government",
+    "website": "https://ecorp.sos.ga.gov/BusinessSearch",
+    "submissionUrl": null,
+    "description": "Business Search is the state business-entity register operated by the Corporations Division of the Georgia Secretary of State's Office (Office of the Georgia Secretary of State, Brad Raffensperger). It covers corporations Division registrations, covering domestic and foreign entities. Filed document images are viewable without charge.",
+    "tier": "tier1",
+    "scope": "subnational",
+    "jurisdiction": {
+      "type": "state",
+      "name": "Georgia",
+      "code": "US-GA",
+      "parentCountry": "united-states"
+    },
+    "primaryRegistryType": "business-entity-register",
+    "registryTypes": [
+      "business-entity-register"
+    ],
+    "operator": {
+      "name": "Corporations Division of the Georgia Secretary of State's Office (Office of the Georgia Secretary of State, Brad Raffensperger)",
+      "type": "government-agency",
+      "officialUrl": null
+    },
+    "publicAccess": {
+      "searchUrl": "https://ecorp.sos.ga.gov/BusinessSearch",
+      "accessLevel": "open",
+      "freeToSearch": true,
+      "loginRequired": false,
+      "identityVerificationRequired": null,
+      "captcha": false,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": true,
+      "notes": "Filed images are free to view; certified copies and certificates are charged."
+    },
+    "petroHrysScore": 82,
+    "scoreFactors": {
+      "editorialTrust": 9,
+      "businessUsefulness": 9,
+      "verificationQuality": 7,
+      "platformReputation": 7,
+      "spamResistance": 10,
+      "industryImportance": 8,
+      "longTermStability": 9,
+      "submissionQuality": 6,
+      "transparency": 9,
+      "moderationQuality": 7
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": true,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-17",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Confirming that an entity is registered in Georgia and reading its recorded status"
+    ],
+    "notRecommendedFor": [
+      "Confirming good standing, licensing or tax compliance — this register does not establish any of them",
+      "Federal-level verification, which uses separate systems"
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Entities registered in Georgia"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "Business Search can be searched free of charge and without an account, directly from the Corporations Division of the Georgia Secretary of State's Office (Office of the Georgia Secretary of State, Brad Raffensperger).",
+      "Filed document images are published free, so a filing can be read rather than merely confirmed to exist.",
+      "The Corporations Division of the Georgia Secretary of State's Office (Office of the Georgia Secretary of State, Brad Raffensperger) is the statutory source for Georgia, so an entry exists because a filing was made — not because anyone submitted a listing."
+    ],
+    "cons": [
+      "This is automated bot management, not a CAPTCHA — no puzzle, image challenge or human input was required, and no CAPTCHA appeared at any point in the search flow. The application itself is JavaScript-dependent (results, filing history and record pages all render client-side via in-page form submission rather than distinct GET URLs), so result pages are not individually linkable.",
+      "A hit or a clear result in this register does not establish name availability — the system itself states \"This search is not intended to serve as a name availability search\", and the State of Georgia portal calls it \"for research purposes only\"."
+    ],
+    "editorNotes": "Verified 2026-08-05 from official Georgia sources. Operator: Corporations Division of the Georgia Secretary of State's Office (Office of the Georgia Secretary of State, Brad Raffensperger). Coverage and search: Search by Business Name, Control Number, Registered Agent Name, Officer Name, or Designated Agent Name. Each supports three match modes: \"Starts With\", \"Contains\" (default), and \"Exact Match\". The application's own Instructions state: \"This search provides access to all the entity's information of record with the Secretary of State.\" The register explicitly disclaims name-availability authority: \"Note: This search is not intended to serve as a name availability search.\" The State of Georgia portal repeats this: \"This is for research purposes only and is not meant to serve as an official name availability search.\" Inclusion arises from entity formation or statutory registration, not from any submission."
+  },
+  {
+    "id": "us-missouri-business-search",
+    "name": "Business Search",
+    "slug": "missouri-business-search",
+    "country": "united-states",
+    "category": "government",
+    "website": "https://bsd.sos.mo.gov/BusinessEntity/BESearch.aspx?SearchType=0",
+    "submissionUrl": null,
+    "description": "Business Search is the state business-entity register operated by the Missouri Secretary of State — Corporations Division. Whether filed document images can be viewed free of charge is not stated on the official pages.",
+    "tier": "tier1",
+    "scope": "subnational",
+    "jurisdiction": {
+      "type": "state",
+      "name": "Missouri",
+      "code": "US-MO",
+      "parentCountry": "united-states"
+    },
+    "primaryRegistryType": "business-entity-register",
+    "registryTypes": [
+      "business-entity-register"
+    ],
+    "operator": {
+      "name": "Missouri Secretary of State — Corporations Division",
+      "type": "government-agency",
+      "officialUrl": null
+    },
+    "publicAccess": {
+      "searchUrl": "https://bsd.sos.mo.gov/BusinessEntity/BESearch.aspx?SearchType=0",
+      "accessLevel": "partially-open",
+      "freeToSearch": true,
+      "loginRequired": null,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": true,
+      "notes": "The search itself is free; documents, certificates and status products are charged separately."
+    },
+    "petroHrysScore": 76,
+    "scoreFactors": {
+      "editorialTrust": 9,
+      "businessUsefulness": 6,
+      "verificationQuality": 7,
+      "platformReputation": 7,
+      "spamResistance": 10,
+      "industryImportance": 8,
+      "longTermStability": 9,
+      "submissionQuality": 6,
+      "transparency": 6,
+      "moderationQuality": 7
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": true,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-14",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Confirming that an entity is registered in Missouri and reading its recorded status"
+    ],
+    "notRecommendedFor": [
+      "Confirming good standing, licensing or tax compliance — this register does not establish any of them",
+      "Federal-level verification, which uses separate systems"
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Entities registered in Missouri"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "Searching Business Search is free of charge.",
+      "The Missouri Secretary of State — Corporations Division is the statutory source for Missouri, so an entry exists because a filing was made — not because anyone submitted a listing.",
+      "Current and active. The Business Services FAQ states: \"We have recently upgraded to a new enhanced filing system. Searching can still be done for free at:\"."
+    ],
+    "cons": [
+      "The Missouri Secretary of State — Corporations Division does not publish the terms on which the public may search Business Search, so whether a fee or an account applies cannot be established in advance.",
+      "No official page states whether filed document images can be viewed free of charge, so the cost of reading a filing cannot be established in advance.",
+      "Because the interstitial was uniform across all paths including the root, it indicates bot filtering of this network, not a dead or wrong URL, and it made it impossible to distinguish valid from invalid paths by response status.",
+      "The officially documented statement that \"Searching can still be done for free\" is documentation of policy, not an observation of free access, and it says nothing about the cost of viewing document images."
+    ],
+    "editorNotes": "Verified 2026-08-05 from official Missouri sources. Operator: Missouri Secretary of State — Corporations Division. Coverage and search: Per the Corporations page, the Corporations Unit handles \"all domestic and out-of-state business entities doing business in Missouri\", which \"include for-profit and nonprofit corporations, specialized business entities such as professional corporations, close corporations, agricultural cooperatives and mutual associations, and limited liability companies, limited partnerships and others.\" The About page adds that foreign corporations, LLCs and limited partnerships must apply for a certificate of authority. Search fields: The Secretary of State publishes a dedicated guide, \"How to Search for an Entity\" (https://www.sos.mo.gov/CMSImages/Business/BRSGuides/SearchingforEntitiy.pdf), but its body is composed of screenshots rather than extractable text, so the selectable search types could not be enumerated from official evidence. The register is maintained by the Corporations Division as statutory custodian: \"As the custodian of statutorily required documents for registered business entities, the Corporations Division maintains a variety of information on all such business entities.\" (sos.mo.gov/business/corporations/about.asp) Free searching is affirmatively documented rather than merely implied: the FAQ answer to \"I am unable to search the site\" reads \"We have recently upgraded to a new enhanced filing system. Searching can still be done for free at: https://bsd.sos.mo.gov\". Inclusion arises from entity formation or statutory registration, not from any submission."
+  },
+  {
+    "id": "us-oklahoma-business-entities-search",
+    "name": "Business Entities Search",
+    "slug": "oklahoma-business-entities-search",
+    "country": "united-states",
+    "category": "government",
+    "website": "https://www.sos.ok.gov/corp/corpInquiryFind.aspx",
+    "submissionUrl": null,
+    "description": "Business Entities Search is the state business-entity register operated by the Oklahoma Secretary of State — Business Records Department. Coverage: Per the Business Records Department page: \"corporations, limited partnerships, limited liability companies, limited liability partnerships, partnership fictitious names, trade names and trademarks.\" Filed documents and certificates are ordered separately for a fee.",
+    "tier": "tier1",
+    "scope": "subnational",
+    "jurisdiction": {
+      "type": "state",
+      "name": "Oklahoma",
+      "code": "US-OK",
+      "parentCountry": "united-states"
+    },
+    "primaryRegistryType": "business-entity-register",
+    "registryTypes": [
+      "business-entity-register"
+    ],
+    "operator": {
+      "name": "Oklahoma Secretary of State — Business Records Department",
+      "type": "government-agency",
+      "officialUrl": null
+    },
+    "publicAccess": {
+      "searchUrl": "https://www.sos.ok.gov/corp/corpInquiryFind.aspx",
+      "accessLevel": "partially-open",
+      "freeToSearch": true,
+      "loginRequired": null,
+      "identityVerificationRequired": null,
+      "captcha": true,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": true,
+      "notes": "A CAPTCHA must be completed before results are returned. The search itself is free; documents, certificates and status products are charged separately."
+    },
+    "petroHrysScore": 74,
+    "scoreFactors": {
+      "editorialTrust": 9,
+      "businessUsefulness": 5,
+      "verificationQuality": 7,
+      "platformReputation": 7,
+      "spamResistance": 10,
+      "industryImportance": 8,
+      "longTermStability": 9,
+      "submissionQuality": 5,
+      "transparency": 7,
+      "moderationQuality": 7
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": true,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-09",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Confirming that an entity is registered in Oklahoma and reading its recorded status"
+    ],
+    "notRecommendedFor": [
+      "Confirming good standing, licensing or tax compliance — this register does not establish any of them",
+      "Federal-level verification, which uses separate systems"
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Entities registered in Oklahoma"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "Searching Business Entities Search is free of charge.",
+      "The Oklahoma Secretary of State — Business Records Department is the statutory source for Oklahoma, so an entry exists because a filing was made — not because anyone submitted a listing.",
+      "Current and active."
+    ],
+    "cons": [
+      "A CAPTCHA gates the Oklahoma search, which blocks automated and repeated lookups.",
+      "The Oklahoma Secretary of State — Business Records Department does not publish the terms on which the public may search Business Entities Search, so whether a fee or an account applies cannot be established in advance.",
+      "Documents are a separate paid product; the free tier returns index data only.",
+      "A form submission carrying a valid ASP.NET __VIEWSTATE but an empty Turnstile token returned the unpopulated search form with no result rows, so no sample result set was ever observed.",
+      "A free search result proves only what the enumerated free fields carry: that a filing number exists in the Secretary of State's index and the entity type, state of incorporation and registered agent name and address recorded against it. It does not prove good standing — the Secretary of State sells that separately and defines it as a distinct instrument: \"A Certificate of Good Standing is a certificate issued by the Secretary of State as evidence that your corporation, limited liability company or limited partnership is in good standing with the Secretary of State's office.\" It does not prove the complete filing history, which the office likewise sells separately: \"A long-form certificate of fact is a certificate which sets out the complete filing history of an entity filed of record with our office.\" It does not establish authorized shares and par value, amendments, name changes, mergers or trade names, since the fee schedule places those outside the free tier and inside the paid Entity Details order."
+    ],
+    "editorNotes": "Verified 2026-08-05 from official Oklahoma sources. Operator: Oklahoma Secretary of State — Business Records Department. Coverage and search: Search fields: A separate Business Entities Name Availability search exists at https://www.sos.ok.gov/corp/corpNameAvailability.aspx. The register is operated by a named subunit, the Business Records Department, which the Secretary of State describes as providing \"searches on corporations, limited partnerships, limited liability companies, limited liability partnerships, partnership fictitious names, trade names and trademarks.\" The fee schedule at https://www.sos.ok.gov/business/fees.aspx carries an explicit, enumerated \"Information free of charge:\" block. Inclusion arises from entity formation or statutory registration, not from any submission."
+  },
+  {
+    "id": "us-pennsylvania-business-name-search",
+    "name": "Business Name Search",
+    "slug": "pennsylvania-business-name-search",
+    "country": "united-states",
+    "category": "government",
+    "website": "https://file.dos.pa.gov/search/business",
+    "submissionUrl": null,
+    "description": "Business Name Search is the state business-entity register operated by the Pennsylvania Department of State, Bureau of Corporations and Charitable Organizations. Search fields: Business name and entity/file number. Whether filed document images can be viewed free of charge is not stated on the official pages.",
+    "tier": "tier1",
+    "scope": "subnational",
+    "jurisdiction": {
+      "type": "state",
+      "name": "Pennsylvania",
+      "code": "US-PA",
+      "parentCountry": "united-states"
+    },
+    "primaryRegistryType": "business-entity-register",
+    "registryTypes": [
+      "business-entity-register"
+    ],
+    "operator": {
+      "name": "Pennsylvania Department of State, Bureau of Corporations and Charitable Organizations",
+      "type": "government-agency",
+      "officialUrl": null
+    },
+    "publicAccess": {
+      "searchUrl": "https://file.dos.pa.gov/search/business",
+      "accessLevel": "unknown",
+      "freeToSearch": null,
+      "loginRequired": null,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": true,
+      "notes": "No official page states the terms on which the public may search this register."
+    },
+    "petroHrysScore": 77,
+    "scoreFactors": {
+      "editorialTrust": 9,
+      "businessUsefulness": 7,
+      "verificationQuality": 7,
+      "platformReputation": 7,
+      "spamResistance": 10,
+      "industryImportance": 8,
+      "longTermStability": 9,
+      "submissionQuality": 6,
+      "transparency": 4,
+      "moderationQuality": 7
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": true,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-31",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Confirming that an entity is registered in Pennsylvania and reading its recorded status"
+    ],
+    "notRecommendedFor": [
+      "Confirming good standing, licensing or tax compliance — this register does not establish any of them",
+      "Federal-level verification, which uses separate systems"
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Entities registered in Pennsylvania"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "The Pennsylvania Department of State, Bureau of Corporations and Charitable Organizations is the statutory source for Pennsylvania, so an entry exists because a filing was made — not because anyone submitted a listing.",
+      "Current and active."
+    ],
+    "cons": [
+      "The Pennsylvania Department of State, Bureau of Corporations and Charitable Organizations does not publish the terms on which the public may search Business Name Search, so whether a fee or an account applies cannot be established in advance.",
+      "No official page states whether filed document images can be viewed free of charge, so the cost of reading a filing cannot be established in advance.",
+      "The search application host file.dos.pa.gov is fronted by a Cloudflare bot challenge."
+    ],
+    "editorNotes": "Verified 2026-08-05 from official Pennsylvania sources. Operator: Pennsylvania Department of State, Bureau of Corporations and Charitable Organizations. Coverage and search: Per the official general-information text: \"every proceeding for the organization of corporations, both for-profit and non-profit, and every ancillary transaction relating to such corporations is required to be filed with the department's Bureau of Corporations and Charitable Organizations. Other businesses registering with the bureau include: professional corporations, municipal authorities, limited partnerships, foreign corporations qualifying to do business in the Commonwealth and individuals and corporations conducting business under an assumed or fictitious name.\" The Record Searches page also references trademarks and fictitious names as record classes held by the bureau. The bureau's own description of scale: \"The bureau is the repository for the records of more than 2,400,000 companies authorized to do business in Pennsylvania. All records maintained in this office are public and may be inspected upon request.\" (pa.gov business program page) Pennsylvania replaced its legacy identifier during the system switch: \"An entity number is a legacy identification number that was issued when the Department of State used the PennFile system to receive and process electronic filings\" and \"When the Department of State switched filing systems from PennFile to Business Filing Services, the entity number was replaced with the 'File Number'.\" (PA Business One-Stop Hub FAQ) Inclusion arises from entity formation or statutory registration, not from any submission."
+  },
+  {
+    "id": "us-vermont-business-search",
+    "name": "Business Search",
+    "slug": "vermont-business-search",
+    "country": "united-states",
+    "category": "government",
+    "website": "https://bizfilings.vermont.gov/business/businesssearch",
+    "submissionUrl": null,
+    "description": "Business Search is the state business-entity register operated by the Vermont Secretary of State, Business Services Division. It covers business entities registered with the Business Services Division. Whether filed document images can be viewed free of charge is not stated on the official pages.",
+    "tier": "tier1",
+    "scope": "subnational",
+    "jurisdiction": {
+      "type": "state",
+      "name": "Vermont",
+      "code": "US-VT",
+      "parentCountry": "united-states"
+    },
+    "primaryRegistryType": "business-entity-register",
+    "registryTypes": [
+      "business-entity-register"
+    ],
+    "operator": {
+      "name": "Vermont Secretary of State, Business Services Division",
+      "type": "government-agency",
+      "officialUrl": null
+    },
+    "publicAccess": {
+      "searchUrl": "https://bizfilings.vermont.gov/business/businesssearch",
+      "accessLevel": "unknown",
+      "freeToSearch": null,
+      "loginRequired": null,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "No official page states the terms on which the public may search this register."
+    },
+    "petroHrysScore": 77,
+    "scoreFactors": {
+      "editorialTrust": 9,
+      "businessUsefulness": 7,
+      "verificationQuality": 7,
+      "platformReputation": 7,
+      "spamResistance": 10,
+      "industryImportance": 8,
+      "longTermStability": 9,
+      "submissionQuality": 6,
+      "transparency": 4,
+      "moderationQuality": 7
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": true,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-08",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Confirming that an entity is registered in Vermont and reading its recorded status"
+    ],
+    "notRecommendedFor": [
+      "Confirming good standing, licensing or tax compliance — this register does not establish any of them",
+      "Federal-level verification, which uses separate systems"
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Entities registered in Vermont"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "The Vermont Secretary of State, Business Services Division is the statutory source for Vermont, so an entry exists because a filing was made — not because anyone submitted a listing.",
+      "Current and in active use. The Division's \"Important Notices for Vermont Businesses\" page carries a notice dated May 6, 2026 telling businesses to \"check your business information at bizfilings.vermont.gov\", and the Division's pages link to that host throughout as the \"Online Business Service Center\"."
+    ],
+    "cons": [
+      "The Vermont Secretary of State, Business Services Division does not publish the terms on which the public may search Business Search, so whether a fee or an account applies cannot be established in advance.",
+      "No official page states whether filed document images can be viewed free of charge, so the cost of reading a filing cannot be established in advance.",
+      "bizfilings.vermont.gov is a JavaScript-only single-page application."
+    ],
+    "editorNotes": "Verified 2026-08-05 from official Vermont sources. Operator: Vermont Secretary of State, Business Services Division. Coverage and search: Search fields: Official pages indicate lookup by business name and by record number: the Copies & Certificates page says to \"verify your business name and record number using our Online Business Search\", and the May 2026 notice asks callers to supply \"your business name and/or record number\". The register is operated by the Business Services Division of the Vermont Secretary of State — not a 'Corporations Division'. The Division's own page is titled 'Business Services Division | Secretary of State' and names 'David P. Hall, Director'. The search sits inside a wider Secretary of State platform the Division consistently calls the 'Online Business Service Center', hosted at bizfilings.vermont.gov, through which filings are made: 'Most filings can be submitted electronically using our Online Business Service Center.' Inclusion arises from entity formation or statutory registration, not from any submission."
+  },
+  {
+    "id": "us-south-carolina-business-entities-online",
+    "name": "Business Entities Online",
+    "slug": "south-carolina-business-entities-online",
+    "country": "united-states",
+    "category": "government",
+    "website": "https://businessfilings.sc.gov/BusinessFiling/",
+    "submissionUrl": null,
+    "description": "Business Entities Online is the state business-entity register operated by the South Carolina Secretary of State's Office, Business Filings Division. Whether filed document images can be viewed free of charge is not stated on the official pages.",
+    "tier": "tier1",
+    "scope": "subnational",
+    "jurisdiction": {
+      "type": "state",
+      "name": "South Carolina",
+      "code": "US-SC",
+      "parentCountry": "united-states"
+    },
+    "primaryRegistryType": "business-entity-register",
+    "registryTypes": [
+      "business-entity-register"
+    ],
+    "operator": {
+      "name": "South Carolina Secretary of State's Office, Business Filings Division",
+      "type": "government-agency",
+      "officialUrl": null
+    },
+    "publicAccess": {
+      "searchUrl": "https://businessfilings.sc.gov/BusinessFiling/",
+      "accessLevel": "unknown",
+      "freeToSearch": null,
+      "loginRequired": null,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": true,
+      "notes": "No official page states the terms on which the public may search this register."
+    },
+    "petroHrysScore": 77,
+    "scoreFactors": {
+      "editorialTrust": 9,
+      "businessUsefulness": 7,
+      "verificationQuality": 7,
+      "platformReputation": 7,
+      "spamResistance": 10,
+      "industryImportance": 8,
+      "longTermStability": 9,
+      "submissionQuality": 6,
+      "transparency": 4,
+      "moderationQuality": 7
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": true,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-19",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Confirming that an entity is registered in South Carolina and reading its recorded status"
+    ],
+    "notRecommendedFor": [
+      "Confirming good standing, licensing or tax compliance — this register does not establish any of them",
+      "Federal-level verification, which uses separate systems"
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Entities registered in South Carolina"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "The South Carolina Secretary of State's Office, Business Filings Division is the statutory source for South Carolina, so an entry exists because a filing was made — not because anyone submitted a listing.",
+      "Current and in active use, not retired."
+    ],
+    "cons": [
+      "The South Carolina Secretary of State's Office, Business Filings Division does not publish the terms on which the public may search Business Entities Online, so whether a fee or an account applies cannot be established in advance.",
+      "No official page states whether filed document images can be viewed free of charge, so the cost of reading a filing cannot be established in advance.",
+      "The register is not reachable from outside the United States.",
+      "The evidence establishes what the register is, who operates it, that it is current, where it lives and that the public may search it. It does not establish how the system behaves for a visitor: whether searching costs anything, whether an account or sign-in is required, whether a CAPTCHA is presented, what result fields or document images are returned, how far back coverage runs, how often data is updated, or whether /BusinessFiling/Entity/Search is the current search entry point."
+    ],
+    "editorNotes": "Verified 2026-08-05 from official South Carolina sources. Operator: South Carolina Secretary of State's Office, Business Filings Division. Coverage and search: Per the FY 2024-25 Accountability Report, Statutory Duties: \"The Office of the Secretary of State is mandated by the South Carolina Code of Laws to serve as the state filing office for business corporations, nonprofit corporations, limited partnerships, limited liability partnerships, and limited liability companies, as well as for all Uniform Commercial Code Article 9 secured transaction filings.\" The same office \"also serves as the agent for service of process for corporations that do not have authority to transact business in South Carolina\", \"examines and files state trademarks\", and \"registers structured settlement purchase companies, business opportunities, and employment agencies\". Search fields: Per the Secretary of State's own 17 January 2020 letter to the House Legislative Oversight Committee (Attachment P, \"categories of information the SoS has on its website in a searchable format\"): \"Business Entities — Name of Business\" and \"Business Entities Registered Agent — Name of Agent\". This latest phase of the comprehensive business filing, search, and document retrieval web-based application provides fast turn-around times for customers. FY 2024-25 volumes reported by the agency itself: 146,834 corporate filings (down 19.5% from 182,424 in FY 2023-24), 122,251 UCC filings (up 9.3%), and 234,955 document requests (up 4.7%). Online filings 'remained steady at nearly 90%'. Inclusion arises from entity formation or statutory registration, not from any submission."
+  },
+  {
+    "id": "us-alabama-business-entity-search",
+    "name": "Government Records Inquiry System",
+    "slug": "alabama-business-entity-search",
+    "country": "united-states",
+    "category": "government",
+    "website": "https://arc-sos.state.al.us/CGI/CORPNAME.MBR/INPUT",
+    "submissionUrl": null,
+    "description": "Government Records Inquiry System is the state business-entity register operated by the Alabama Secretary of State — Business Services, Business Entities Division. Coverage: The Secretary of State states: \"The Business Entity Division operates as a depository for records of domestic entities and foreign entities that have qualified to transact business in Alabama.\" Filed documents and certificates are ordered separately for a fee.",
+    "tier": "tier1",
+    "scope": "subnational",
+    "jurisdiction": {
+      "type": "state",
+      "name": "Alabama",
+      "code": "US-AL",
+      "parentCountry": "united-states"
+    },
+    "primaryRegistryType": "business-entity-register",
+    "registryTypes": [
+      "business-entity-register"
+    ],
+    "operator": {
+      "name": "Alabama Secretary of State — Business Services, Business Entities Division",
+      "type": "government-agency",
+      "officialUrl": null
+    },
+    "publicAccess": {
+      "searchUrl": "https://arc-sos.state.al.us/CGI/CORPNAME.MBR/INPUT",
+      "accessLevel": "partially-open",
+      "freeToSearch": null,
+      "loginRequired": null,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": true,
+      "notes": "Some of the register is reachable without payment or an account, and some is not. The operator does not state whether searching is free of charge."
+    },
+    "petroHrysScore": 75,
+    "scoreFactors": {
+      "editorialTrust": 9,
+      "businessUsefulness": 5,
+      "verificationQuality": 7,
+      "platformReputation": 7,
+      "spamResistance": 10,
+      "industryImportance": 8,
+      "longTermStability": 9,
+      "submissionQuality": 6,
+      "transparency": 6,
+      "moderationQuality": 7
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": true,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-16",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Confirming that an entity is registered in Alabama and reading its recorded status"
+    ],
+    "notRecommendedFor": [
+      "Confirming good standing, licensing or tax compliance — this register does not establish any of them",
+      "Federal-level verification, which uses separate systems"
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Entities registered in Alabama"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "The Alabama Secretary of State — Business Services, Business Entities Division is the statutory source for Alabama, so an entry exists because a filing was made — not because anyone submitted a listing.",
+      "Active and current."
+    ],
+    "cons": [
+      "The Alabama Secretary of State — Business Services, Business Entities Division does not publish the terms on which the public may search Government Records Inquiry System, so whether a fee or an account applies cannot be established in advance.",
+      "Documents are a separate paid product; the free tier returns index data only.",
+      "Historical coverage is incomplete: the describing page directs searchers of 1949–2010 corporation records to the Alabama Department of Archives. Entity identifiers changed from six to nine digits.",
+      "A search result establishes that a filing exists with the Secretary of State and the status recorded against it. It is not a licence, not evidence of tax compliance, not a certificate of existence, and not proof that an entity is trading."
+    ],
+    "editorNotes": "Verified 2026-08-05 from official Alabama sources. Operator: Alabama Secretary of State — Business Services, Business Entities Division. Coverage and search: Four separate search screens are offered: Entity Name, Entity Number, \"Officer | Agent | Incorporator\", and \"Reservation | Registration by ID\". The Entity Name form additionally accepts entity type, status, place and city filters. The Secretary of State brands the whole facility the \"Government Records Inquiry System\" and describes it as: \"This facility provides you easy access to public information maintained by the Secretary of State's office in electronic format.\" The same platform carries non-business registers: a parallel page uses identical wording for \"Notaries Public Search Options\" on the same host, so the entity search is one module of a shared state records system. Inclusion arises from entity formation or statutory registration, not from any submission."
   }
 ]

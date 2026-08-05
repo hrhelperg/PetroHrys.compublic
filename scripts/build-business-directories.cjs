@@ -101,11 +101,39 @@ function jurisdictionSections(country, entries, columns) {
   if (!groups) return null;
   void columns;
   const out = [c.jurisdictionFilter(groups, { idPrefix: `${country.slug}-jurisdiction` })];
+  // The coverage entries for this country, if a manifest declares them. Each is
+  // a jurisdiction the section is measured against, paired with its record
+  // where one exists — the pairing is done here rather than in the manifest, so
+  // a manifest that drifts from the registry cannot make the grid lie.
+  const manifest = coverageManifests.get(country.slug);
+  const byCode = new Map(entries.filter((d) => d.jurisdiction).map((d) => [d.jurisdiction.code, d]));
+  const stateEntries = manifest
+    ? manifest.jurisdictions.filter((j) => j.kind === 'state').map((j) => ({
+      code: j.jurisdictionCode,
+      name: j.stateName,
+      blockerCode: j.blockerCode || 'other',
+      // Pairing is done from the REGISTRY, not from the manifest's own
+      // publicationStatus: if the two ever drift, the grid follows the records
+      // that actually exist rather than the file's claim about them.
+      record: byCode.get(j.jurisdictionCode) || null,
+      path: byCode.has(j.jurisdictionCode) ? routes.directoryPathFor(byCode.get(j.jurisdictionCode)) : null,
+    }))
+    : [];
+  if (stateEntries.length) {
+    out.push(c.jurisdictionSelect(stateEntries, groups, { idPrefix: `${country.slug}-jurisdiction` }));
+  }
+
   for (const group of groups) {
     const id = `${country.slug}-jurisdiction-${group.key}`;
+    const isStates = group.key === 'state' && stateEntries.length > 0;
     out.push(`      <div class="bd-jgroup" id="${escapeHtml(id)}">
-      <h3 class="bd-jgroup-title">${escapeHtml(group.label)} `
-      + `<span class="bd-jgroup-count">${escapeHtml(c.registryCount(group.count))}</span></h3>
+      <h3 class="bd-jgroup-title" id="${escapeHtml(id)}-title">${escapeHtml(group.label)} `
+      + `<span class="bd-jgroup-count">${escapeHtml(c.registryCount(group.count))}</span></h3>`
+      + (isStates
+        ? `\n${c.stateCoverageSummary(stateEntries)}\n`
+          + `${c.stateGrid(stateEntries, { headingId: `${id}-title` })}`
+        : '')
+      + `
 ${c.directoryTable({
     directories: group.items,
     caption: `${group.label} registries in ${country.name}`,
