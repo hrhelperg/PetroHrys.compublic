@@ -134,5 +134,1936 @@
       "Excludes provincially incorporated companies and financial-law corporations"
     ],
     "editorNotes": "Verified 2026-08-04. Operated by Innovation, Science and Economic Development Canada. Provincial companies are covered elsewhere."
+  },
+  {
+    "id": "ca-cipo-patents-database",
+    "name": "Canadian Patents Database",
+    "slug": "cipo-canadian-patents-database",
+    "country": "canada",
+    "category": "government",
+    "website": "https://brevets-patents.ic.gc.ca/opic-cipo/cpd/eng/search/basic.html",
+    "submissionUrl": null,
+    "description": "Canadian Patents Database is the federal patent register published by the Canadian Intellectual Property Office. It exposes Canadian patent applications and granted patents, with bibliographic data, claims and legal status, searchable without an account.",
+    "tier": "tier1",
+    "scope": "national",
+    "primaryRegistryType": "patent-register",
+    "registryTypes": [
+      "patent-register",
+      "public-filing-database"
+    ],
+    "operator": {
+      "name": "Canadian Intellectual Property Office",
+      "type": "government-agency",
+      "officialUrl": "https://ised-isde.canada.ca/site/canadian-intellectual-property-office/en"
+    },
+    "publicAccess": {
+      "searchUrl": "https://brevets-patents.ic.gc.ca/opic-cipo/cpd/eng/search/basic.html",
+      "accessLevel": "open",
+      "freeToSearch": true,
+      "loginRequired": false,
+      "identityVerificationRequired": false,
+      "captcha": false,
+      "geographicRestriction": false,
+      "paidDocumentsAvailable": null,
+      "notes": "The basic search form is reached directly with no account or sign-in step."
+    },
+    "petroHrysScore": 88,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 8,
+      "verificationQuality": 9,
+      "platformReputation": 9,
+      "spamResistance": 10,
+      "industryImportance": 9,
+      "longTermStability": 10,
+      "submissionQuality": 6,
+      "transparency": 8,
+      "moderationQuality": 7
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": true,
+      "saas": true,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": true,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-20",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [
+        "ca-corporations-canada"
+      ],
+      "competitors": []
+    },
+    "bestFor": [
+      "Establishing whether a Canadian patent or application exists for a given invention or applicant.",
+      "Reading the bibliographic record and legal status of a Canadian patent without ordering a file copy."
+    ],
+    "notRecommendedFor": [
+      "Confirming corporate existence, which the patent register does not record.",
+      "Treating an absent result as proof of novelty, because recent applications are not all publicly visible."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Applicants and owners of Canadian patents"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source",
+      "intellectual-property"
+    ],
+    "pros": [
+      "The Canadian Patents Database can be searched free of charge and without an account, directly from the Canadian Intellectual Property Office.",
+      "The database records its own currency on the search page, which was stated as last updated 2026-08-05 when this record was verified.",
+      "It is the federal source of record for Canadian patent applications and grants rather than a commercial republication of them."
+    ],
+    "cons": [
+      "CIPO states that patent applications filed less than 18 months ago are only available if the applicant specifically asks for them, so recent filings can be invisible.",
+      "CIPO warns that \"due to the complexity of claims, vocabulary and different languages, it is practically impossible to find every relevant publication\".",
+      "CIPO published a notice of irregularities in status information for certain applications and patents following its Next Generation Patents migration.",
+      "It records patents, not businesses, so it does not establish that an applicant is a registered entity."
+    ],
+    "editorNotes": "Verified 2026-08-05 from official CIPO sources. Operator: Canadian Intellectual Property Office, Innovation, Science and Economic Development Canada. The 18-month limitation and the search-completeness warning are quoted from CIPO’s \"Search intellectual property databases\" page. The status-irregularity notice was displayed on the search page at verification. Inclusion arises from a patent filing, not from any submission."
+  },
+  {
+    "id": "ca-mras-canadian-business-registry",
+    "name": "MRAS Canadian Business Registry",
+    "slug": "mras-canadian-business-registry",
+    "country": "canada",
+    "category": "government",
+    "website": "https://canadasbusinessregistries.ca/",
+    "submissionUrl": null,
+    "description": "MRAS Canadian Business Registry is a federal search interface that queries participating provincial, territorial and federal corporate registers through the Multi-Jurisdictional Registry Access Service. It is a cross-registry lookup layer operated by Innovation, Science and Economic Development Canada, not itself a register of record.",
+    "tier": "tier1",
+    "scope": "national",
+    "primaryRegistryType": "cross-border-registry-interface",
+    "registryTypes": [
+      "cross-border-registry-interface"
+    ],
+    "operator": {
+      "name": "Innovation, Science and Economic Development Canada",
+      "type": "government-agency",
+      "officialUrl": "https://ised-isde.canada.ca/site/ised/en"
+    },
+    "publicAccess": {
+      "searchUrl": "https://canadasbusinessregistries.ca/",
+      "accessLevel": "unknown",
+      "freeToSearch": null,
+      "loginRequired": null,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "The interface is a client-rendered application whose search behaviour could not be exercised without running scripts, so the access posture is recorded as unknown rather than assumed."
+    },
+    "petroHrysScore": 72,
+    "scoreFactors": {
+      "editorialTrust": 8,
+      "businessUsefulness": 7,
+      "verificationQuality": 6,
+      "platformReputation": 8,
+      "spamResistance": 10,
+      "industryImportance": 7,
+      "longTermStability": 7,
+      "submissionQuality": 5,
+      "transparency": 6,
+      "moderationQuality": 6
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": true,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-25",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "ca-on-business-registry",
+        "ca-bc-registry-services"
+      ],
+      "usedWith": [
+        "ca-corporations-canada"
+      ],
+      "competitors": []
+    },
+    "bestFor": [
+      "Locating which Canadian registry holds a corporation when the jurisdiction of incorporation is not known.",
+      "Moving from a federal starting point to the participating provincial register that actually holds the file."
+    ],
+    "notRecommendedFor": [
+      "Use as the legal source of record, which remains the federal, provincial or territorial register the entity is filed in.",
+      "Establishing coverage across Canada, because only some provinces and territories participate."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": null,
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Corporations registered in participating Canadian jurisdictions"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "registry-interface"
+    ],
+    "pros": [
+      "It is operated by the Government of Canada rather than by a commercial aggregator, and canadasbusinessregistries.ca resolves to ised-isde.canada.ca.",
+      "It gives one federal entry point to corporate records that are otherwise split across separate provincial and territorial systems."
+    ],
+    "cons": [
+      "It is a search interface over participating registers, not the legal source of record for any entity.",
+      "Coverage is limited to the jurisdictions that participate in the Multi-Jurisdictional Registry Access Service, so a Canadian corporation may be absent without being unregistered.",
+      "The interface renders through client-side scripts, so its search and access behaviour could not be established from the served page alone."
+    ],
+    "editorNotes": "Verified 2026-08-05. The public entry point https://canadasbusinessregistries.ca/ was confirmed by request to redirect to https://ised-isde.canada.ca/cbr-rec/en/, whose page title is \"MRAS Canadian Business Registry\". Classified as cross-border-registry-interface: it queries participating registers and is not the statutory register for any entity. The unrelated domain businessregistries.ca was checked and is a commercial domain-sale parking page with no government connection; it must not be cited as this service. Access fields stay null because the application is client-rendered and its behaviour was not exercised."
+  },
+  {
+    "id": "ca-sedar-plus",
+    "name": "SEDAR+",
+    "slug": "sedar-plus",
+    "country": "canada",
+    "category": "government",
+    "website": "https://www.sedarplus.ca/landingpage/",
+    "submissionUrl": null,
+    "description": "SEDAR+ is the national filing and disclosure system of the Canadian Securities Administrators, carrying public securities filings by reporting issuers together with cease trade orders and disciplined lists. It is operated jointly by the provincial and territorial securities regulators rather than by a federal agency.",
+    "tier": "tier1",
+    "scope": "national",
+    "primaryRegistryType": "securities-filing-database",
+    "registryTypes": [
+      "securities-filing-database",
+      "public-filing-database"
+    ],
+    "operator": {
+      "name": "Canadian Securities Administrators",
+      "type": "regulator",
+      "officialUrl": "https://www.securities-administrators.ca/"
+    },
+    "publicAccess": {
+      "searchUrl": null,
+      "accessLevel": "unknown",
+      "freeToSearch": null,
+      "loginRequired": null,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "The landing page was read directly; the filing-search interface returned an access error at verification, so no access behaviour is claimed."
+    },
+    "petroHrysScore": 88,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 8,
+      "verificationQuality": 9,
+      "platformReputation": 9,
+      "spamResistance": 10,
+      "industryImportance": 9,
+      "longTermStability": 9,
+      "submissionQuality": 6,
+      "transparency": 8,
+      "moderationQuality": 8
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": true,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-27",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [
+        "ca-corporations-canada"
+      ],
+      "competitors": []
+    },
+    "bestFor": [
+      "Reading the public securities filings a Canadian reporting issuer is required to make.",
+      "Checking whether an issuer or individual appears on a cease trade order or a disciplined list."
+    ],
+    "notRecommendedFor": [
+      "Confirming corporate registration, which sits with the federal, provincial or territorial corporate registry.",
+      "Finding private Canadian companies, which are not reporting issuers and do not file there."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": null,
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Canadian reporting issuers and registered market participants"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source",
+      "securities-regulation"
+    ],
+    "pros": [
+      "It is the single national system through which Canadian reporting issuers make their required public disclosure.",
+      "It carries cease trade orders and disciplined lists alongside filings, which are the records a counterparty check most often needs.",
+      "It is operated by the provincial and territorial securities regulators themselves, so filings are held by the regulators rather than by an intermediary."
+    ],
+    "cons": [
+      "It covers reporting issuers and market participants only, so the large majority of Canadian businesses never appear.",
+      "Filing fees are set by the provincial and territorial securities regulatory authorities, and the fee structure is not uniform across Canada.",
+      "The filing-search interface returned an access error when this record was verified, so its search behaviour is not established here."
+    ],
+    "editorNotes": "Verified 2026-08-05 from the SEDAR+ landing page. Operator: the Canadian Securities Administrators, whose members include the British Columbia Securities Commission, the Alberta Securities Commission, the Ontario Securities Commission and the Autorité des marchés financiers, as named in the page footer. The landing page describes SEDAR+ as a system to \"File, disclose and search for issuer information in Canada’s capital markets\". The record search endpoint returned HTTP 403 at verification; access fields therefore stay null. Fees referenced are filing fees borne by filers, and no searcher fee is asserted here."
+  },
+  {
+    "id": "ca-on-business-registry",
+    "name": "Ontario Business Registry",
+    "slug": "ontario-business-registry",
+    "country": "canada",
+    "category": "government",
+    "website": "https://www.ontario.ca/page/ontario-business-registry",
+    "submissionUrl": null,
+    "description": "Ontario Business Registry is the provincial register of Ontario corporations, not-for-profit corporations and registered business names, operated by the Ministry of Public and Business Service Delivery and Procurement. Basic entity information is searchable at no charge, while profile reports, certificates and document copies are priced products.",
+    "tier": "tier1",
+    "scope": "subnational",
+    "jurisdiction": {
+      "type": "province",
+      "name": "Ontario",
+      "code": "CA-ON",
+      "parentCountry": "canada"
+    },
+    "primaryRegistryType": "company-register",
+    "registryTypes": [
+      "company-register",
+      "business-entity-register",
+      "public-filing-database"
+    ],
+    "operator": {
+      "name": "Ministry of Public and Business Service Delivery and Procurement",
+      "type": "ministry",
+      "officialUrl": "https://www.ontario.ca/page/ontario-business-registry"
+    },
+    "publicAccess": {
+      "searchUrl": "https://www.appmybizaccount.gov.on.ca/onbis/master/entry.pub?applicationCode=onbis-master&businessService=registerItemSearch",
+      "accessLevel": "partially-open",
+      "freeToSearch": true,
+      "loginRequired": false,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": true,
+      "notes": "Ontario states that anyone can search the registry free of charge for basic information; an Ontario Business Account is required only to file for your own business, not to search."
+    },
+    "petroHrysScore": 90,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 9,
+      "verificationQuality": 9,
+      "platformReputation": 8,
+      "spamResistance": 10,
+      "industryImportance": 9,
+      "longTermStability": 10,
+      "submissionQuality": 7,
+      "transparency": 8,
+      "moderationQuality": 8
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": true,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": true,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-07",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "ca-bc-registry-services",
+        "ca-mb-companies-office"
+      ],
+      "usedWith": [
+        "ca-corporations-canada"
+      ],
+      "competitors": []
+    },
+    "bestFor": [
+      "Confirming that an Ontario corporation, not-for-profit or business name is on the provincial register.",
+      "Establishing basic entity status before deciding whether a priced profile report is worth ordering."
+    ],
+    "notRecommendedFor": [
+      "Confirming federal incorporation, which is recorded by Corporations Canada rather than by Ontario.",
+      "Obtaining directors, officers or filing history at no cost, because those sit behind priced products."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Entities incorporated or registered in Ontario"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "Ontario states that \"Anyone can search the OBR for free to get basic information about a business or not-for-profit organization\".",
+      "No account is needed to run a basic search, so a counterparty check costs nothing.",
+      "It is the single provincial register for Ontario corporations, not-for-profit corporations and registered business names."
+    ],
+    "cons": [
+      "The free tier returns basic information only; a profile report is $8, a document copy is $3 and a certificate of status is $26.",
+      "It records Ontario registrations and does not establish federal incorporation.",
+      "Registrants must report changes within 15 days, so a record can lag a recent change by up to that period."
+    ],
+    "editorNotes": "Verified 2026-08-05 from the official Ontario page. Operator: Ministry of Public and Business Service Delivery and Procurement. Free-search wording, the $8 / $3 / $26 product prices and the 15-day reporting requirement are quoted from that page. Classified as a public-filing-database as well as a company-register because Ontario sells copies of documents filed with the registry as a $3 product, so filed documents are held and released, not merely indexed. The free search entry point is the ONBIS register item search on appmybizaccount.gov.on.ca. Inclusion arises from statutory registration, not from any submission."
+  },
+  {
+    "id": "ca-qc-enterprise-register",
+    "name": "Registraire des entreprises — Enterprise Register",
+    "slug": "quebec-enterprise-register",
+    "country": "canada",
+    "category": "government",
+    "website": "https://www.registreentreprises.gouv.qc.ca/",
+    "submissionUrl": null,
+    "description": "The Quebec enterprise register is the provincial register of enterprises maintained by the Registraire des entreprises, recording enterprises that carry on business in Quebec together with the persons involved in their administration and operation. Québec publishes the register as public information and offers both a simple and an advanced search.",
+    "tier": "tier1",
+    "scope": "subnational",
+    "officialName": "Registre des entreprises",
+    "nativeName": "Registre des entreprises",
+    "englishName": "Enterprise register",
+    "englishNameSource": "official",
+    "jurisdiction": {
+      "type": "province",
+      "name": "Quebec",
+      "code": "CA-QC",
+      "parentCountry": "canada"
+    },
+    "primaryRegistryType": "business-entity-register",
+    "registryTypes": [
+      "business-entity-register",
+      "company-register",
+      "beneficial-ownership-register"
+    ],
+    "operator": {
+      "name": "Registraire des entreprises",
+      "type": "government-agency",
+      "officialUrl": "https://www.quebec.ca/en/businesses-and-self-employed-workers/find-information-about-enterprise/search-enterprise-register"
+    },
+    "publicAccess": {
+      "searchUrl": "https://www.registreentreprises.gouv.qc.ca/",
+      "accessLevel": "open",
+      "freeToSearch": true,
+      "loginRequired": null,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "Québec states the register is consulted free of charge and links the public to the Registraire’s own portal. The portal refused the request at verification, so the fee position is recorded from Québec’s statement and nothing further is claimed."
+    },
+    "petroHrysScore": 90,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 9,
+      "verificationQuality": 9,
+      "platformReputation": 8,
+      "spamResistance": 10,
+      "industryImportance": 9,
+      "longTermStability": 10,
+      "submissionQuality": 7,
+      "transparency": 8,
+      "moderationQuality": 8
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": true,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": true,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-31",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "ca-on-business-registry"
+      ],
+      "usedWith": [
+        "ca-corporations-canada"
+      ],
+      "competitors": []
+    },
+    "bestFor": [
+      "Confirming that an enterprise carrying on business in Quebec is entered in the provincial register.",
+      "Identifying the persons recorded as involved in the administration and operation of a Quebec enterprise."
+    ],
+    "notRecommendedFor": [
+      "Confirming federal incorporation, which is recorded by Corporations Canada rather than by Quebec.",
+      "Treating a register entry as a verification of the facts declared, which Québec places on the enterprise itself."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Enterprises carrying on business in Quebec"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "Québec states that the enterprise register can be consulted free of charge, so a counterparty check costs nothing.",
+      "The free consultation covers the Québec Enterprise Number, the registration status, the names used, the addresses of the institutions, the contact details of officers and directors, and the names of the ultimate beneficiaries.",
+      "Publishing ultimate beneficiaries at no charge puts Quebec ahead of most Canadian registers on beneficial-ownership transparency.",
+      "A natural person can be searched by name, which Québec describes as letting you know who you are dealing with."
+    ],
+    "cons": [
+      "Québec states that service in English \"is reserved for individuals covered by the exceptions stipulated in the Charter of the French language\", so an English-language reader may not be entitled to the English interface.",
+      "The register portal refused the request when this record was verified, so no deep search path is published here and its login behaviour is not established.",
+      "It records Quebec registration and does not establish federal incorporation."
+    ],
+    "editorNotes": "Verified 2026-08-05 from the Gouvernement du Québec pages \"Enterprise register\" and \"Find an Enterprise in the Enterprise Register\" on quebec.ca, last updated by Québec on 2025-09-23. Operator: Registraire des entreprises. The free-of-charge wording, the list of freely consultable fields including \"the names of the ultimate beneficiaries\", and the Charter of the French language condition on English service are all Québec’s own. beneficial-ownership-register is recorded because Québec states ultimate beneficiaries are among the fields consultable free of charge. The search host registreentreprises.gouv.qc.ca returned an access refusal citing excessive use at verification, so access fields stay null and searchUrl is null rather than guessed. English title \"Enterprise register\" is the Gouvernement du Québec’s own English rendering, not an editorial translation."
+  },
+  {
+    "id": "ca-qc-rbq-licence-holders",
+    "name": "Régie du bâtiment du Québec — Licence Holders Register",
+    "slug": "quebec-rbq-licence-holders-register",
+    "country": "canada",
+    "category": "government",
+    "website": "https://www.rbq.gouv.qc.ca/",
+    "submissionUrl": null,
+    "description": "The licence holders register of the Régie du bâtiment du Québec records contractors and owner-builders licensed to carry out construction work in Quebec. The Régie directs the public to the register to check a contractor or a licence number before engaging them.",
+    "tier": "tier1",
+    "scope": "subnational",
+    "officialName": "Registre des détenteurs de licence",
+    "nativeName": "Registre des détenteurs de licence",
+    "englishName": "Licence holders register",
+    "englishNameSource": "editorial-translation",
+    "jurisdiction": {
+      "type": "province",
+      "name": "Quebec",
+      "code": "CA-QC",
+      "parentCountry": "canada"
+    },
+    "primaryRegistryType": "contractor-accreditation-register",
+    "registryTypes": [
+      "contractor-accreditation-register",
+      "professional-licence-register"
+    ],
+    "operator": {
+      "name": "Régie du bâtiment du Québec",
+      "type": "regulator",
+      "officialUrl": "https://www.rbq.gouv.qc.ca/"
+    },
+    "publicAccess": {
+      "searchUrl": null,
+      "accessLevel": "unknown",
+      "freeToSearch": null,
+      "loginRequired": null,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "The Régie’s own site was read directly and points the public to the register; the register application itself was not exercised, so no access behaviour is claimed."
+    },
+    "petroHrysScore": 84,
+    "scoreFactors": {
+      "editorialTrust": 9,
+      "businessUsefulness": 8,
+      "verificationQuality": 9,
+      "platformReputation": 8,
+      "spamResistance": 10,
+      "industryImportance": 8,
+      "longTermStability": 9,
+      "submissionQuality": 6,
+      "transparency": 8,
+      "moderationQuality": 8
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": true,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-23",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "ca-nt-corporate-registries"
+      ],
+      "usedWith": [
+        "ca-qc-enterprise-register"
+      ],
+      "competitors": []
+    },
+    "bestFor": [
+      "Checking that a Quebec construction contractor holds a current Régie du bâtiment licence before engaging them.",
+      "Resolving a Quebec contractor licence number to the entity that holds it."
+    ],
+    "notRecommendedFor": [
+      "Confirming that a contractor is an incorporated or registered enterprise, which is a corporate-registry question.",
+      "Assessing workmanship, which no licence register records."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": null,
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Construction contractors licensed in Quebec"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source",
+      "licensing"
+    ],
+    "pros": [
+      "A Quebec construction licence is a statutory requirement, so the register describes a legal status rather than a voluntary listing.",
+      "The Régie du bâtiment du Québec directs the public to the register to verify a contractor or licence number, and publishes it itself.",
+      "The Régie separately publishes restricted, suspended and cancelled licences, so an adverse status is traceable."
+    ],
+    "cons": [
+      "It covers construction licensing only and says nothing about a contractor’s corporate registration in Quebec.",
+      "The register application was not exercised when this record was verified, so its access and search behaviour is not established here.",
+      "The Régie publishes its site primarily in French, so an English-only reader may find the register harder to use."
+    ],
+    "editorNotes": "Verified 2026-08-05 from the official Régie du bâtiment du Québec site. The Régie states \"Pour rechercher un entrepreneur ou un numéro de licence, consultez le Registre des détenteurs de licence\" and links \"Vérifier la licence d’un entrepreneur\" and \"Licences restreintes, suspendues et annulées\". English title \"Licence holders register\" is an editorial rendering of \"Registre des détenteurs de licence\" and is marked as such. Access fields stay null because the register application was not exercised. Distinct host from the Quebec enterprise register."
+  },
+  {
+    "id": "ca-bc-registry-services",
+    "name": "BC Registry Services",
+    "slug": "bc-registry-services",
+    "country": "canada",
+    "category": "government",
+    "website": "https://www.bcregistry.gov.bc.ca/",
+    "submissionUrl": null,
+    "description": "BC Registry Services administers the British Columbia registers of businesses, not-for-profit societies, cooperative associations and financial institutions, and states that the records it maintains are public records. Searches and certificates are supplied through its search unit and the BC OnLine service.",
+    "tier": "tier1",
+    "scope": "subnational",
+    "jurisdiction": {
+      "type": "province",
+      "name": "British Columbia",
+      "code": "CA-BC",
+      "parentCountry": "canada"
+    },
+    "primaryRegistryType": "company-register",
+    "registryTypes": [
+      "company-register",
+      "business-entity-register",
+      "public-filing-database"
+    ],
+    "operator": {
+      "name": "BC Registry Services, Ministry of Citizens’ Services",
+      "type": "ministry",
+      "officialUrl": "https://www2.gov.bc.ca/gov/content/governments/organizational-structure/ministries-organizations/ministries/citizens-services/bc-registries-online-services"
+    },
+    "publicAccess": {
+      "searchUrl": null,
+      "accessLevel": "unknown",
+      "freeToSearch": null,
+      "loginRequired": null,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": true,
+      "notes": "The Province’s description of the service was read directly; the registry application is client-rendered and was not exercised, so the access posture is recorded as unknown."
+    },
+    "petroHrysScore": 87,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 8,
+      "verificationQuality": 9,
+      "platformReputation": 8,
+      "spamResistance": 10,
+      "industryImportance": 9,
+      "longTermStability": 10,
+      "submissionQuality": 6,
+      "transparency": 7,
+      "moderationQuality": 8
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": true,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": true,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-21",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "ca-on-business-registry",
+        "ca-mb-companies-office"
+      ],
+      "usedWith": [
+        "ca-corporations-canada"
+      ],
+      "competitors": []
+    },
+    "bestFor": [
+      "Confirming that a British Columbia company, society or cooperative association is on the provincial register.",
+      "Obtaining a certificate of status or good standing for a British Columbia entity."
+    ],
+    "notRecommendedFor": [
+      "Confirming federal incorporation, which is recorded by Corporations Canada rather than by British Columbia.",
+      "Expecting a free self-service search, because search products are supplied through the registry search unit and BC OnLine."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": null,
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Entities incorporated or registered in British Columbia"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "The Province states that registrations of businesses, societies and cooperatives are \"maintained as public records\".",
+      "It is the single provincial administrator for British Columbia companies, societies, cooperative associations and provincial financial institutions.",
+      "Certificates of status, certificates of good standing and certified copies of filed documents are available as defined products."
+    ],
+    "cons": [
+      "Search and certificate products are supplied through the registry search unit and the BC OnLine service, and paid products exist.",
+      "The registry application is client-rendered, so its search and access behaviour could not be established from the served page alone.",
+      "The Province published service-level notices at verification, with names and search at five business days and other filings at ten."
+    ],
+    "editorNotes": "Verified 2026-08-05 from the Province of British Columbia’s \"BC Registry Services\" page. The \"maintained as public records\" wording and the five/ten business-day service levels are the Province’s own, as published on 2026-03-20. Classified as a public-filing-database as well as a company-register because the Province lists \"Copies of Filed and Registered Documents\" and their certified variants as defined search products, so filed documents are held and released. The bcregistry.gov.bc.ca application returned no server-rendered content, so access fields stay null and searchUrl is null rather than guessed. OrgBook BC was examined separately and also renders client-side; it is recorded in the backlog rather than published."
+  },
+  {
+    "id": "ca-mb-companies-office",
+    "name": "Manitoba Companies Office",
+    "slug": "manitoba-companies-office",
+    "country": "canada",
+    "category": "government",
+    "website": "https://companiesoffice.gov.mb.ca/",
+    "submissionUrl": null,
+    "description": "The Manitoba Companies Office maintains the provincial registers of corporations, business names, trade names and limited partnerships within the Consumer Protection Division. Manitoba states that the public may search the registry to establish who is behind a trade name and to obtain a list of officers and directors.",
+    "tier": "tier1",
+    "scope": "subnational",
+    "officialName": "Companies Office",
+    "jurisdiction": {
+      "type": "province",
+      "name": "Manitoba",
+      "code": "CA-MB",
+      "parentCountry": "canada"
+    },
+    "primaryRegistryType": "company-register",
+    "registryTypes": [
+      "company-register",
+      "business-entity-register",
+      "sole-trader-register"
+    ],
+    "operator": {
+      "name": "Companies Office, Consumer Protection Division, Government of Manitoba",
+      "type": "government-agency",
+      "officialUrl": "https://companiesoffice.gov.mb.ca/"
+    },
+    "publicAccess": {
+      "searchUrl": null,
+      "accessLevel": "unknown",
+      "freeToSearch": null,
+      "loginRequired": null,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "The Companies Office description was read directly; the online service at companiesonline.gov.mb.ca presents a login portal and was not exercised, so no free-search behaviour is claimed."
+    },
+    "petroHrysScore": 85,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 8,
+      "verificationQuality": 9,
+      "platformReputation": 7,
+      "spamResistance": 10,
+      "industryImportance": 8,
+      "longTermStability": 9,
+      "submissionQuality": 6,
+      "transparency": 8,
+      "moderationQuality": 8
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": true,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": true,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-21",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "ca-on-business-registry",
+        "ca-ns-registry-joint-stock-companies"
+      ],
+      "usedWith": [
+        "ca-corporations-canada"
+      ],
+      "competitors": []
+    },
+    "bestFor": [
+      "Establishing who is doing business behind a Manitoba trade name.",
+      "Confirming that a Manitoba corporation or limited partnership is on the provincial register."
+    ],
+    "notRecommendedFor": [
+      "Confirming federal incorporation, which is recorded by Corporations Canada rather than by Manitoba.",
+      "Expecting the register to cover professional licensing, which the Companies Office does not administer."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": null,
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Entities incorporated or registered in Manitoba"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "Manitoba states that \"The public may search the registry to obtain information (for example, who is doing business under the trade name, where the business is located, and to get a list of officers and directors)\".",
+      "It is the single provincial office for Manitoba corporations, business names, trade names and limited partnerships.",
+      "It also administers Commissioner for Oaths and Notary Public appointments, so those statuses are traceable in the same place."
+    ],
+    "cons": [
+      "The online service presents a login portal, and whether an anonymous free search exists was not established at verification.",
+      "It records Manitoba registration and does not establish federal incorporation.",
+      "The Companies Office publishes fees through a separate forms-and-fees section rather than on the main page."
+    ],
+    "editorNotes": "Verified 2026-08-05 from the official Manitoba Companies Office site. Operator: Companies Office, Consumer Protection Division, Government of Manitoba. The public-search wording is Manitoba’s own. The transactional service at companiesonline.gov.mb.ca presents a sign-in form; because an anonymous search path was not exercised, freeToSearch stays null rather than being asserted either way. Inclusion arises from statutory registration, not from any submission."
+  },
+  {
+    "id": "ca-ns-registry-joint-stock-companies",
+    "name": "Nova Scotia Registry of Joint Stock Companies",
+    "slug": "nova-scotia-registry-joint-stock-companies",
+    "country": "canada",
+    "category": "government",
+    "website": "https://www.novascotia.ca/programs-and-services/registry-joint-stock-companies",
+    "submissionUrl": null,
+    "description": "The Registry of Joint Stock Companies is the Nova Scotia register of sole proprietorships, partnerships, companies, societies, co-operatives and business names. Nova Scotia publishes a search over the information those entities are required by law to file, including addresses, partners, directors and officers.",
+    "tier": "tier1",
+    "scope": "subnational",
+    "officialName": "Registry of Joint Stock Companies",
+    "jurisdiction": {
+      "type": "province",
+      "name": "Nova Scotia",
+      "code": "CA-NS",
+      "parentCountry": "canada"
+    },
+    "primaryRegistryType": "business-entity-register",
+    "registryTypes": [
+      "business-entity-register",
+      "company-register",
+      "sole-trader-register",
+      "public-filing-database"
+    ],
+    "operator": {
+      "name": "Registry of Joint Stock Companies, Government of Nova Scotia",
+      "type": "government-agency",
+      "officialUrl": "https://www.novascotia.ca/programs-and-services/registry-joint-stock-companies"
+    },
+    "publicAccess": {
+      "searchUrl": null,
+      "accessLevel": "unknown",
+      "freeToSearch": null,
+      "loginRequired": null,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": true,
+      "notes": "Nova Scotia’s description of the search was read directly; the RJSC Connect application presented an interstitial challenge at verification and was not exercised."
+    },
+    "petroHrysScore": 85,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 8,
+      "verificationQuality": 9,
+      "platformReputation": 7,
+      "spamResistance": 10,
+      "industryImportance": 8,
+      "longTermStability": 9,
+      "submissionQuality": 6,
+      "transparency": 8,
+      "moderationQuality": 8
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": true,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": true,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-06",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "ca-mb-companies-office",
+        "ca-nl-companies-deeds-online"
+      ],
+      "usedWith": [
+        "ca-corporations-canada"
+      ],
+      "competitors": []
+    },
+    "bestFor": [
+      "Confirming that a Nova Scotia company, society, co-operative or business name is registered.",
+      "Identifying the partners, directors and officers a Nova Scotia entity has filed."
+    ],
+    "notRecommendedFor": [
+      "Confirming federal incorporation, which is recorded by Corporations Canada rather than by Nova Scotia.",
+      "Treating an entry as evidence of solvency or good conduct, which no registration record establishes."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Entities registered in Nova Scotia"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "Nova Scotia states the search covers information \"required by law to be filed\", including names and addresses, partners, directors and officers, and activity history.",
+      "One register covers sole proprietorships, partnerships, companies, societies, co-operatives and operating names.",
+      "Nova Scotia publishes the governing statutes alongside the register, including the Companies Act, the Societies Act and the Partnerships and Business Names Registration Act."
+    ],
+    "cons": [
+      "Standard and certified copies of documents and reports are ordered as priced products.",
+      "The RJSC Connect application presented an interstitial challenge when this record was verified, so its access behaviour is not established here.",
+      "It records Nova Scotia registration and does not establish federal incorporation."
+    ],
+    "editorNotes": "Verified 2026-08-05 from the official Government of Nova Scotia pages for the Registry of Joint Stock Companies and its search. Classified as a public-filing-database as well as a company-register because Nova Scotia states the search covers \"activity history, including filed documents and reports\", and offers standard and certified copies of those filed documents. Governing statutes named by Nova Scotia include the Co-operative Associations Act, Community Interest Companies Act, Companies Act, Corporations Registration Act, Limited Partnerships Act, Partnerships and Business Names Registration Act, Private Investment Holding Companies Act and Societies Act. The transactional host rjsc.novascotia.ca returned an interstitial challenge; access fields therefore stay null and searchUrl is null rather than guessed."
+  },
+  {
+    "id": "ca-nl-companies-deeds-online",
+    "name": "Companies and Deeds Online",
+    "slug": "newfoundland-labrador-companies-deeds-online",
+    "country": "canada",
+    "category": "government",
+    "website": "https://cado.eservices.gov.nl.ca/CADOInternet/Main.aspx",
+    "submissionUrl": null,
+    "description": "Companies and Deeds Online is the Newfoundland and Labrador registry service covering companies, co-operatives, condominiums, deeds, mechanics liens and lobbyists. It is published by the provincial government as a single online entry point to those separate registers.",
+    "tier": "tier1",
+    "scope": "subnational",
+    "jurisdiction": {
+      "type": "province",
+      "name": "Newfoundland and Labrador",
+      "code": "CA-NL",
+      "parentCountry": "canada"
+    },
+    "primaryRegistryType": "company-register",
+    "registryTypes": [
+      "company-register",
+      "business-entity-register"
+    ],
+    "operator": {
+      "name": "Government of Newfoundland and Labrador",
+      "type": "government-agency",
+      "officialUrl": "https://cado.eservices.gov.nl.ca/CADOInternet/Main.aspx"
+    },
+    "publicAccess": {
+      "searchUrl": null,
+      "accessLevel": "unknown",
+      "freeToSearch": null,
+      "loginRequired": null,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "The service and its register sections were confirmed from the served pages; the company search itself returned a processing error at verification and was not completed."
+    },
+    "petroHrysScore": 75,
+    "scoreFactors": {
+      "editorialTrust": 9,
+      "businessUsefulness": 7,
+      "verificationQuality": 8,
+      "platformReputation": 6,
+      "spamResistance": 10,
+      "industryImportance": 7,
+      "longTermStability": 8,
+      "submissionQuality": 5,
+      "transparency": 6,
+      "moderationQuality": 7
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": true,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": true,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-23",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "ca-ns-registry-joint-stock-companies"
+      ],
+      "usedWith": [
+        "ca-corporations-canada"
+      ],
+      "competitors": []
+    },
+    "bestFor": [
+      "Confirming that a Newfoundland and Labrador company or co-operative is on the provincial register.",
+      "Reaching the provincial deeds, mechanics liens and lobbyist registers from one place."
+    ],
+    "notRecommendedFor": [
+      "Confirming federal incorporation, which is recorded by Corporations Canada rather than by the province.",
+      "Relying on uninterrupted availability, because the service returned an error during verification."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": null,
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Entities registered in Newfoundland and Labrador"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "It is published directly by the Government of Newfoundland and Labrador rather than by an intermediary.",
+      "One service covers companies, condominiums, co-operatives, deeds, mechanics liens and lobbyists.",
+      "The registry publishes a direct contact route for reporting problems, including a telephone number and a government email address."
+    ],
+    "cons": [
+      "The service returned a processing error during verification, so its search behaviour and fee model are not established here.",
+      "The interface is dated and splits its registers across separate sections rather than offering one combined search.",
+      "It records provincial registration and does not establish federal incorporation."
+    ],
+    "editorNotes": "Verified 2026-08-05. The served pages identify the service as \"Companies and Deeds Online - CADO\", Government of Newfoundland and Labrador, with sections for Companies, Condominiums, Co-operatives, Deeds, Mechanics Liens and Lobbyists. Direct requests to the company search returned the service’s own error page, so access fields stay null, searchUrl is null and no fee model is asserted. Re-verification of the search path is recorded in the backlog."
+  },
+  {
+    "id": "ca-sk-isc-corporate-registry",
+    "name": "Saskatchewan Corporate Registry",
+    "slug": "saskatchewan-corporate-registry",
+    "country": "canada",
+    "category": "government",
+    "website": "https://corporateregistry.isc.ca/",
+    "submissionUrl": null,
+    "description": "The Saskatchewan Corporate Registry is the provincial register of business entities, delivered under agreement by Information Services Corporation rather than directly by a government office. The registry remains statutory while the service that fronts it is operated commercially and presents a sign-in wall.",
+    "tier": "tier1",
+    "scope": "subnational",
+    "officialName": "Corporate Registry",
+    "jurisdiction": {
+      "type": "province",
+      "name": "Saskatchewan",
+      "code": "CA-SK",
+      "parentCountry": "canada"
+    },
+    "primaryRegistryType": "company-register",
+    "registryTypes": [
+      "company-register",
+      "business-entity-register"
+    ],
+    "operator": {
+      "name": "Information Services Corporation",
+      "type": "other",
+      "officialUrl": "https://www.isc.ca/"
+    },
+    "publicAccess": {
+      "searchUrl": null,
+      "accessLevel": "login-required",
+      "freeToSearch": null,
+      "loginRequired": true,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "The Corporate Registry entry point presents a user name and password form together with a \"Need an account?\" path; no anonymous search was reachable from it at verification."
+    },
+    "petroHrysScore": 73,
+    "scoreFactors": {
+      "editorialTrust": 9,
+      "businessUsefulness": 6,
+      "verificationQuality": 8,
+      "platformReputation": 6,
+      "spamResistance": 10,
+      "industryImportance": 7,
+      "longTermStability": 8,
+      "submissionQuality": 5,
+      "transparency": 5,
+      "moderationQuality": 7
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": true,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-09",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [
+        "ca-corporations-canada",
+        "ca-mras-canadian-business-registry"
+      ],
+      "competitors": []
+    },
+    "bestFor": [
+      "Filing and maintaining Saskatchewan business information required by the province.",
+      "Establishing that Saskatchewan corporate records are held statutorily even though the service is delivered commercially."
+    ],
+    "notRecommendedFor": [
+      "A quick anonymous counterparty check, because the entry point requires an account.",
+      "Confirming federal incorporation, which is recorded by Corporations Canada rather than by Saskatchewan."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": null,
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Entities incorporated or registered in Saskatchewan"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "delegated-operator"
+    ],
+    "pros": [
+      "The registry is the statutory Saskatchewan corporate register, and the service states that information filed there is \"required by the Government of Saskatchewan\".",
+      "Submitted information is checked for completeness at the point of filing.",
+      "Saskatchewan participates in the Multi-Jurisdictional Registry Access Service, so its records are reachable from the federal cross-registry interface."
+    ],
+    "cons": [
+      "The entry point requires a user name and password, so there is no anonymous public search from it.",
+      "The service is delivered by Information Services Corporation, a commercial operator, rather than directly by a government office.",
+      "Scheduled maintenance windows are announced on the sign-in page, so availability is not continuous."
+    ],
+    "editorNotes": "Verified 2026-08-05. The Corporate Registry entry point at corporateregistry.isc.ca is titled \"ISC Customer Portal\" and presents a sign-in form, an account-creation path and a maintenance notice; loginRequired is therefore recorded as true from direct observation. Operator type is \"other\" because Information Services Corporation is a commercial operator delivering a statutory registry, which is materially different from Alberta, where no government-operated public search exists at all. freeToSearch stays null: no anonymous search was reachable, so no fee model is asserted."
+  },
+  {
+    "id": "ca-nt-corporate-registries",
+    "name": "Northwest Territories Corporate Registries",
+    "slug": "northwest-territories-corporate-registries",
+    "country": "canada",
+    "category": "government",
+    "website": "https://www.justice.gov.nt.ca/en/corporate-registries/",
+    "submissionUrl": null,
+    "description": "Corporate Registries is the Northwest Territories register of territorial incorporations, extra-territorial registrations, societies, co-operative associations, partnerships and business names, administered by the territorial Department of Justice. Basic entity information is available at no charge through the Corporate Registries Online System.",
+    "tier": "tier1",
+    "scope": "subnational",
+    "officialName": "Corporate Registries",
+    "jurisdiction": {
+      "type": "territory",
+      "name": "Northwest Territories",
+      "code": "CA-NT",
+      "parentCountry": "canada"
+    },
+    "primaryRegistryType": "business-entity-register",
+    "registryTypes": [
+      "business-entity-register",
+      "company-register",
+      "sole-trader-register"
+    ],
+    "operator": {
+      "name": "Department of Justice, Government of the Northwest Territories",
+      "type": "ministry",
+      "officialUrl": "https://www.justice.gov.nt.ca/en/corporate-registries/"
+    },
+    "publicAccess": {
+      "searchUrl": "https://www.justice.gov.nt.ca/en/corporate-registry-searches/",
+      "accessLevel": "partially-open",
+      "freeToSearch": true,
+      "loginRequired": false,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": true,
+      "notes": "The territory states that basic information such as legal name, status and entity type is available free of charge, and that an account with a card on file is required only for a full entity profile."
+    },
+    "petroHrysScore": 83,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 7,
+      "verificationQuality": 9,
+      "platformReputation": 7,
+      "spamResistance": 10,
+      "industryImportance": 7,
+      "longTermStability": 9,
+      "submissionQuality": 6,
+      "transparency": 9,
+      "moderationQuality": 8
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": true,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": true,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-13",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "ca-nu-legal-registries"
+      ],
+      "usedWith": [
+        "ca-corporations-canada"
+      ],
+      "competitors": []
+    },
+    "bestFor": [
+      "Confirming free of charge that a Northwest Territories entity exists and what its current status is.",
+      "Reaching scanned images of documents a Northwest Territories entity has filed."
+    ],
+    "notRecommendedFor": [
+      "Confirming federal incorporation, which is recorded by Corporations Canada rather than by the territory.",
+      "Obtaining a full entity profile without paying, because that requires an account with a card on file."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Entities incorporated or registered in the Northwest Territories"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "The territory states that \"Basic information such as the legal name, status, and type of entity is available free of charge\".",
+      "Entity profiles link to scanned images of the documents an organisation has filed, so the underlying record is reachable.",
+      "One register covers territorial incorporations, extra-territorial registrations, societies, co-operatives, partnerships and business names.",
+      "The territory publishes its certificate fees openly, at $20.00 for a certificate of compliance or good standing."
+    ],
+    "cons": [
+      "A full entity profile requires an account with a valid Visa or Mastercard on file to pre-authorise funds.",
+      "It records territorial registration and does not establish federal incorporation.",
+      "Some of the published guidance documents are several years old, the oldest dating from 2015."
+    ],
+    "editorNotes": "Verified 2026-08-05 from the official Government of the Northwest Territories Department of Justice pages for Corporate Registries and corporate registry searches. The free-of-charge wording, the card-on-file requirement for full profiles and the $20.00 certificate fee are the territory’s own. The search tool is named the Corporate Registries Online System. Inclusion arises from statutory registration, not from any submission."
+  },
+  {
+    "id": "ca-nu-legal-registries",
+    "name": "Nunavut Legal Registries",
+    "slug": "nunavut-legal-registries",
+    "country": "canada",
+    "category": "government",
+    "website": "https://nunavutlegalregistries.ca/",
+    "submissionUrl": null,
+    "description": "The Legal Registries Division of the Nunavut Department of Justice administers the territory’s corporate registries together with its personal property registry, land titles office and securities office. Nunavut states that almost all records are available to the public to view or obtain copies.",
+    "tier": "tier1",
+    "scope": "subnational",
+    "officialName": "Legal Registries Division",
+    "jurisdiction": {
+      "type": "territory",
+      "name": "Nunavut",
+      "code": "CA-NU",
+      "parentCountry": "canada"
+    },
+    "primaryRegistryType": "business-entity-register",
+    "registryTypes": [
+      "business-entity-register",
+      "company-register",
+      "sole-trader-register"
+    ],
+    "operator": {
+      "name": "Legal Registries Division, Department of Justice, Government of Nunavut",
+      "type": "ministry",
+      "officialUrl": "https://nunavutlegalregistries.ca/"
+    },
+    "publicAccess": {
+      "searchUrl": null,
+      "accessLevel": "unknown",
+      "freeToSearch": null,
+      "loginRequired": null,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "No online search interface was published on the division’s site at verification; the division directs enquiries to its office, so no online access behaviour is claimed."
+    },
+    "petroHrysScore": 70,
+    "scoreFactors": {
+      "editorialTrust": 9,
+      "businessUsefulness": 5,
+      "verificationQuality": 8,
+      "platformReputation": 6,
+      "spamResistance": 10,
+      "industryImportance": 6,
+      "longTermStability": 8,
+      "submissionQuality": 4,
+      "transparency": 6,
+      "moderationQuality": 6
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": true,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": true,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-28",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "ca-nt-corporate-registries"
+      ],
+      "usedWith": [
+        "ca-corporations-canada"
+      ],
+      "competitors": []
+    },
+    "bestFor": [
+      "Identifying the office that holds Nunavut corporate, partnership and business-name records.",
+      "Establishing that Nunavut corporate records are public even where no online search is published."
+    ],
+    "notRecommendedFor": [
+      "Self-service online verification, because the division published no online search interface at verification.",
+      "Confirming federal incorporation, which is recorded by Corporations Canada rather than by the territory."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": null,
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Entities incorporated or registered in Nunavut"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "Nunavut states that \"Almost all records are available to the public to view or obtain copies\".",
+      "One division covers corporate registries, personal property, land titles and the securities office, so the holder of any Nunavut legal record is easy to identify.",
+      "The division publishes direct contact details for enquiries that its website cannot answer."
+    ],
+    "cons": [
+      "No online public search interface for the corporate registry was published on the division’s site at verification, so verification means contacting the office.",
+      "The division published a notice that its website \"is under construction\" and that the public \"should not rely on our website to reflect an up-to-date description of applicable securities law\".",
+      "It records territorial registration and does not establish federal incorporation."
+    ],
+    "editorNotes": "Verified 2026-08-05 from the official Nunavut Legal Registries site, operated by the Department of Justice, Government of Nunavut. The public-records wording and the under-construction notice are Nunavut’s own. No online corporate search endpoint was published; searchUrl is therefore null and access fields stay null rather than being recorded as restricted, which would assert a posture not evidenced. This is a genuine coverage limit of the territory, not a gap in research."
   }
 ]

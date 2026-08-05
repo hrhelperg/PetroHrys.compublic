@@ -6,10 +6,19 @@ Entries are grouped by verification date, newest first.
 
 ## 2026-08-05
 
-23 directories added or re-verified.
+36 directories added or re-verified.
 
+- **Registraire des entreprises — Enterprise Register** — canada / government — PetroHrys Score 90
+- **Ontario Business Registry** — canada / government — PetroHrys Score 90
+- **Canadian Patents Database** — canada / government — PetroHrys Score 88
+- **SEDAR+** — canada / government — PetroHrys Score 88
+- **BC Registry Services** — canada / government — PetroHrys Score 87
 - **Australian Trade Mark Search** — australia / government — PetroHrys Score 85
+- **Manitoba Companies Office** — canada / government — PetroHrys Score 85
+- **Nova Scotia Registry of Joint Stock Companies** — canada / government — PetroHrys Score 85
+- **Régie du bâtiment du Québec — Licence Holders Register** — canada / government — PetroHrys Score 84
 - **APRA Registers** — australia / government — PetroHrys Score 83
+- **Northwest Territories Corporate Registries** — canada / government — PetroHrys Score 83
 - **Business Search** — united-states / government — PetroHrys Score 82
 - **Licensing NT Public Register** — australia / government — PetroHrys Score 82
 - **Incorporated Associations Search** — australia / government — PetroHrys Score 81
@@ -29,8 +38,12 @@ Entries are grouped by verification date, newest first.
 - **Business Search** — united-states / government — PetroHrys Score 76
 - **Business Services Online Filings Portal** — united-states / government — PetroHrys Score 76
 - **Arizona Business Center** — united-states / government — PetroHrys Score 75
+- **Companies and Deeds Online** — canada / government — PetroHrys Score 75
 - **Government Records Inquiry System** — united-states / government — PetroHrys Score 75
 - **Business Entities Search** — united-states / government — PetroHrys Score 74
+- **Saskatchewan Corporate Registry** — canada / government — PetroHrys Score 73
+- **MRAS Canadian Business Registry** — canada / government — PetroHrys Score 72
+- **Nunavut Legal Registries** — canada / government — PetroHrys Score 70
 
 ## 2026-08-04
 
