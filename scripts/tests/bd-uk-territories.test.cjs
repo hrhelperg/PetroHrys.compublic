@@ -322,14 +322,37 @@ test('a single-territory record still shows its code', () => {
 
 // --- data and build stability -----------------------------------------------
 
-test('adding covers changes no record on disk', () => {
-  // The field is null on every existing jurisdiction, and a null that appears
-  // in 46 records on disk is 46 lines of no information.
+test('covers is serialised only where it carries information', () => {
+  // A null covers is dropped on the way to disk: it is null on every
+  // single-subdivision jurisdiction, and writing it out would add a null to
+  // every subnational record for no information. Where a cross-territory
+  // jurisdiction genuinely spans subdivisions the field DOES belong on disk,
+  // sorted, so this asserts the rule rather than the absence of the field.
   const dir = path.join(ROOT, 'data/business-directories/directories');
+  let crossTerritory = 0;
   for (const file of fs.readdirSync(dir)) {
-    const raw = fs.readFileSync(path.join(dir, file), 'utf8');
-    assert.ok(!raw.includes('"covers"'), `${file} serialises covers`);
+    if (!file.endsWith('.json')) continue;
+    const records = JSON.parse(fs.readFileSync(path.join(dir, file), 'utf8'));
+    for (const r of records) {
+      const j = r.jurisdiction;
+      if (!j) continue;
+      const serialised = Object.prototype.hasOwnProperty.call(j, 'covers');
+      if (j.type === 'cross-territory') {
+        crossTerritory += 1;
+        assert.ok(serialised, `${file} [${r.id}] is cross-territory but omits covers`);
+        assert.ok(Array.isArray(j.covers) && j.covers.length >= 2,
+          `${file} [${r.id}] covers must list at least two subdivisions`);
+        assert.deepStrictEqual(j.covers, [...j.covers].sort(),
+          `${file} [${r.id}] covers is not stored sorted`);
+        assert.strictEqual(j.code, null, `${file} [${r.id}] carries both code and covers`);
+      } else {
+        assert.ok(!serialised, `${file} [${r.id}] serialises covers on a ${j.type} jurisdiction`);
+      }
+    }
   }
+  // Guard against the assertion quietly becoming vacuous if the cross-territory
+  // records are ever removed.
+  assert.ok(crossTerritory > 0, 'no cross-territory record exists: this guard is vacuous');
 });
 
 test('migration is idempotent and round-trips covers', () => {

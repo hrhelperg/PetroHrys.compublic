@@ -350,6 +350,72 @@ appearing to have earned it.
 linked to <https://ahrefs.com/>, is rendered wherever a value appears. A test
 fails if it is missing.
 
+## Registry types added in Wave 1C-3 completion
+
+Two types were added because forcing a system into a neighbouring type would
+have stated something false about it. Both were held back as **classification
+blockers** in earlier waves rather than misfiled, which is the behaviour to
+repeat: if no type fits honestly, stop and report it.
+
+### `public-procurement-notice-database`
+
+*Public procurement notice database.* An official system publishing procurement
+opportunities, tender notices, contract award notices, contract data, or other
+formal stages of public procurement.
+
+**The distinction that matters.** A `procurement-supplier-register` records
+**who may bid** — suppliers who are registered, pre-qualified or eligible. A
+`public-procurement-notice-database` records **what is being bought**, and
+afterwards who won. Labelling one as the other inverts the meaning. Publication
+of a notice says nothing whatever about a supplier's eligibility, standing or
+trustworthiness, and every record of this type must say so.
+
+Not a supplier-registration portal, not a submission dashboard without public
+notice access, not a commercial aggregator, not a generic open-data portal.
+
+### `registered-design-register`
+
+*Registered designs register.* An official register of registered industrial
+designs or comparable protected design rights.
+
+A design right protects **appearance**. A trade mark protects a **brand
+indicator**. A patent protects a **technical invention**. They are three
+different rights with three different registers, and `trademark-register` or
+`patent-register` would misdescribe a designs register.
+
+**This type currently has no records, and that is correct.** The UKIPO designs
+search sits behind a captcha and could not be verified. A type with no records
+is not a defect; a record forced into the wrong type would be.
+
+## Two distinct systems on one official host
+
+Governments routinely publish several separate statutory systems on one domain.
+Companies House is the worked example: the company register and the register of
+disqualified company directors share
+`find-and-update.company-information.service.gov.uk` but are different systems
+with different populations, functions and search paths.
+
+Publishing both requires `resourceIdentity` on **every** record on that host:
+
+```jsonc
+"resourceIdentity": {
+  "canonicalDomain": "find-and-update.company-information.service.gov.uk",
+  "systemKey": "companies-house-disqualified-directors-register",
+  "sharedHostGroup": "companies-house-service"
+}
+```
+
+- `sharedHostGroup` must be identical across the records sharing the host;
+- `systemKey` must be globally unique;
+- the destinations must be **materially different** — a language variant, a
+  query-parameter variant, or a landing page and its own search page are one
+  registry, not two;
+- and the shared domain's Domain Rating snapshot must be reused verbatim by all
+  of them, because one domain has one measurement.
+
+`scripts/tests/bd-shared-host.test.cjs` holds ten rejected cases against this;
+none of the identifiers above may ever reach a published page.
+
 ## The two rankings
 
 `Domain Rating` and `PetroHrys Score` are **independent** and must never be

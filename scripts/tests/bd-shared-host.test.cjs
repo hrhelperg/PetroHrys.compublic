@@ -87,10 +87,11 @@ test('two genuinely distinct systems may share one official host', () => {
   assert.strictEqual(res.ok, true, `the allowed shared-host case was rejected: ${reasons(res)}`);
 });
 
-test('the shipped FDA and SAM pairs are the allowed case in production', () => {
+test('the shipped FDA, SAM and Companies House pairs are the allowed case in production', () => {
   for (const [group, ids] of Object.entries({
     'fda-accessdata': ['us-fda-device-establishments', 'us-fda-drug-establishments'],
     'sam-gov': ['us-sam-entity-information', 'us-sam-exclusions'],
+    'companies-house-service': ['gb-companies-house', 'gb-companies-house-disqualified-directors'],
   })) {
     const records = ids.map((id) => REGISTRY.directories.find((r) => r.id === id));
     for (const r of records) {

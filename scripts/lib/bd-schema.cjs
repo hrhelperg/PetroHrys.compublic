@@ -509,6 +509,13 @@ const REGISTRY_TYPES = [
   // states the opposite of what it is, since a supplier register records who
   // MAY bid and an exclusion register records who may not.
   'exclusion-and-debarment-register',
+  // Added for Wave 1C-3 completion, for the same reason and in the same
+  // direction: a system that publishes procurement NOTICES is not a register of
+  // suppliers, and a registered design right is neither a trade mark nor a
+  // patent. Both were held back as classification blockers rather than forced
+  // into a neighbouring type.
+  'public-procurement-notice-database',
+  'registered-design-register',
 ];
 
 // --- operator ---------------------------------------------------------------

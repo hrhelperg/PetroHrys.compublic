@@ -207,6 +207,48 @@ const REGISTRY_TYPE_DEFINITIONS = [
     examples: ['SAM.gov Exclusions (United States)', 'HHS OIG List of Excluded Individuals and Entities'],
   },
   {
+    // Added for Wave 1C-3 completion. Four verified UK systems and one Canadian
+    // one had no honest home: they publish procurement NOTICES — opportunities,
+    // tenders, awards — and calling them a procurement-supplier-register states
+    // the opposite of what they are. A supplier register records who MAY bid;
+    // these record what is being bought and, afterwards, who won.
+    id: 'public-procurement-notice-database',
+    label: 'Public procurement notice database',
+    definition: 'An official system publishing procurement opportunities, tender notices, contract '
+      + 'award notices, contract data, or other formal stages of public procurement.',
+    inclusion: 'An official government or statutory operator publishes structured or searchable '
+      + 'procurement notices in which individual opportunities, notices, contracts or awards are '
+      + 'identifiable, the system carries meaningful public research value, and its coverage is '
+      + 'current or clearly labelled as historical.',
+    boundary: 'NOT a procurement-supplier-register: that type records suppliers who are registered '
+      + 'or eligible, and this type records the procurement itself. Not merely a supplier-'
+      + 'registration portal. Not a tender submission dashboard with no public notice access. Not a '
+      + 'commercial tender aggregator. Not a generic government open-data portal. Not automatically '
+      + 'a contract-management system. Publication of a notice says nothing about any supplier’s '
+      + 'eligibility, standing or suitability.',
+    examples: ['Find a Tender (United Kingdom)', 'Contracts Finder (England)'],
+  },
+  {
+    // Added for Wave 1C-3 completion. A registered design right is neither a
+    // trade mark nor a patent, and forcing one of those types onto a designs
+    // register would misdescribe the right. The type is added on its merits so
+    // future EU, Chinese, Japanese and other official design registers have an
+    // honest home, independently of whether any record uses it today.
+    id: 'registered-design-register',
+    label: 'Registered designs register',
+    definition: 'An official register of registered industrial designs or comparable protected '
+      + 'design rights.',
+    inclusion: 'An official intellectual-property authority records registered design rights, or '
+      + 'applications for them where these are publicly searchable, and an individual right, its '
+      + 'owner or applicant, and its status or filing information are identifiable.',
+    boundary: 'Not a trademark-register and not a patent-register: a design right protects '
+      + 'appearance rather than a brand indicator or a technical invention, and the three are '
+      + 'separate rights with separate registers. Not a copyright database, which generally records '
+      + 'no registration at all. Not a generic public-filing-database. Not a design portfolio, '
+      + 'showcase or marketplace, none of which confers a right.',
+    examples: ['Official national and regional registered-design registers'],
+  },
+  {
     id: 'cross-border-registry-interface',
     label: 'Cross-border registry interface',
     definition: 'A supranational or federated access layer that searches across registers held by '

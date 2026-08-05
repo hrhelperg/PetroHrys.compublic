@@ -10,6 +10,11 @@
     "description": "Statutory register of UK companies operated by Companies House, holding filed accounts, officers and registered office data.",
     "tier": "tier1",
     "scope": "national",
+    "resourceIdentity": {
+      "canonicalDomain": "find-and-update.company-information.service.gov.uk",
+      "systemKey": "companies-house-company-register",
+      "sharedHostGroup": "companies-house-service"
+    },
     "primaryRegistryType": "company-register",
     "registryTypes": [
       "company-register",
@@ -151,7 +156,13 @@
     "submissionUrl": null,
     "description": "Statutory regulator of health and social care in England, publishing a searchable directory of registered providers with inspection ratings.",
     "tier": "tier1",
-    "scope": "national",
+    "scope": "subnational",
+    "jurisdiction": {
+      "type": "country",
+      "name": "England",
+      "code": "GB-ENG",
+      "parentCountry": "united-kingdom"
+    },
     "primaryRegistryType": "regulated-operator-register",
     "registryTypes": [
       "regulated-operator-register"
@@ -283,7 +294,7 @@
       "England only",
       "Registration is a legal requirement rather than an opt-in listing"
     ],
-    "editorNotes": "Verified 2026-08-04. Ratings run Outstanding, Good, Requires Improvement, Inadequate."
+    "editorNotes": "Verified 2026-08-04. Ratings run Outstanding, Good, Requires Improvement, Inadequate. Territorial correction 2026-08-05: this record previously carried scope \"national\" with no jurisdiction, which asserted United Kingdom-wide reach. GOV.UK states that the Care Quality Commission regulates all health and social care services in England. Scotland, Wales and Northern Ireland are regulated by Healthcare Improvement Scotland and the Care Inspectorate, Care Inspectorate Wales, and the Regulation and Quality Improvement Authority respectively, each of which is published separately. Only the territorial fields were changed; the verification date, score and metrics are untouched."
   },
   {
     "id": "gb-fca-register",
@@ -426,5 +437,3132 @@
       "Bulk data extracts are sold through the Register Extract Service rather than published"
     ],
     "editorNotes": "Verified 2026-08-04 from fca.org.uk, which describes the register as \"a public record of firms, individuals and other bodies that are, or have been, authorised by us or the PRA\". The page does not name the statutory instrument that creates the register, so no legal basis is recorded rather than one being inferred. Searching is free; bulk extracts are a paid service, and a free API developer portal is offered without service-level guarantees."
+  },
+  {
+    "id": "gb-nmc-register",
+    "name": "NMC Register",
+    "slug": "nmc-register",
+    "country": "united-kingdom",
+    "category": "government",
+    "website": "https://www.nmc.org.uk/registration/search-the-register/",
+    "submissionUrl": null,
+    "description": "The NMC Register is the statutory register of nurses, midwives and nursing associates maintained by the Nursing and Midwifery Council. A search returns whether a named professional is currently registered, whether their registration carries restrictions, and whether they have been suspended or removed.",
+    "tier": "tier1",
+    "scope": "national",
+    "officialName": "The register of the Nursing and Midwifery Council",
+    "primaryRegistryType": "professional-licence-register",
+    "registryTypes": [
+      "professional-licence-register"
+    ],
+    "operator": {
+      "name": "Nursing and Midwifery Council",
+      "type": "regulator",
+      "officialUrl": "https://www.nmc.org.uk/"
+    },
+    "publicAccess": {
+      "searchUrl": "https://www.nmc.org.uk/registration/search-the-register/",
+      "accessLevel": "open",
+      "freeToSearch": true,
+      "loginRequired": false,
+      "identityVerificationRequired": false,
+      "captcha": false,
+      "geographicRestriction": false,
+      "paidDocumentsAvailable": null,
+      "notes": "The search form is served without an account or sign-in step. The NMC states that cookies must be enabled to use the search, and that a first name alone is not a sufficient search term."
+    },
+    "petroHrysScore": 90,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 8,
+      "verificationQuality": 10,
+      "platformReputation": 9,
+      "spamResistance": 10,
+      "industryImportance": 9,
+      "longTermStability": 10,
+      "submissionQuality": 6,
+      "transparency": 8,
+      "moderationQuality": 9
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": true,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-08",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "gb-gdc-registers",
+        "gb-hcpc-register"
+      ],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Confirming that a nurse, midwife or nursing associate is currently on the statutory register before engaging them.",
+      "Establishing whether a registrant carries a restriction, caution order, suspension or removal."
+    ],
+    "notRecommendedFor": [
+      "Verifying an organisation, because the register records individual professionals rather than employers or care providers.",
+      "Assessing clinical competence, which registration status does not measure."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Nursing, midwifery and nursing associate practice"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source",
+      "professional-regulation"
+    ],
+    "pros": [
+      "The NMC Register can be searched free of charge and without an account.",
+      "It distinguishes active registration from registration carrying restrictions or a caution order, and from suspension or removal, so an adverse status is visible rather than merely absent.",
+      "The NMC publishes the currency of its search results on the page, which read 4 August 2026 when this record was verified."
+    ],
+    "cons": [
+      "It records individuals, not organisations, so it establishes nothing about the employer or care provider a registrant works for.",
+      "Registration is a licence to practise. It is not a statement that a registrant is competent, safe or suitable for any particular engagement.",
+      "The NMC states that a search cannot be run on a first name alone, so a common surname can be hard to resolve without a PIN.",
+      "Coverage of nursing associates is not UK-wide: that part of the register concerns England."
+    ],
+    "editorNotes": "Verified 2026-08-05 from the official NMC search page. Operator: Nursing and Midwifery Council. The page describes registration as a nurse or midwife in the UK and as a nursing associate in England, so the nursing-associate population is narrower than the rest of the register; that nuance is published as a con rather than smoothed into a single \"UK-wide\" claim. Search-result currency and the first-name search limitation were read on the page. Inclusion arises from statutory registration, not from any submission."
+  },
+  {
+    "id": "gb-gdc-registers",
+    "name": "GDC Registers",
+    "slug": "gdc-registers",
+    "country": "united-kingdom",
+    "category": "government",
+    "website": "https://olr.gdc-uk.org/SearchRegister",
+    "submissionUrl": null,
+    "description": "The GDC Registers are the statutory registers of dentists and dental care professionals maintained by the General Dental Council. They cover the dentists register, the dental care professionals register, specialist lists, temporary and visiting practitioners, and are searchable by name, town or registration number.",
+    "tier": "tier1",
+    "scope": "national",
+    "officialName": "The General Dental Council Registers",
+    "primaryRegistryType": "professional-licence-register",
+    "registryTypes": [
+      "professional-licence-register"
+    ],
+    "operator": {
+      "name": "General Dental Council",
+      "type": "regulator",
+      "officialUrl": "https://www.gdc-uk.org/"
+    },
+    "publicAccess": {
+      "searchUrl": "https://olr.gdc-uk.org/SearchRegister",
+      "accessLevel": "open",
+      "freeToSearch": true,
+      "loginRequired": false,
+      "identityVerificationRequired": false,
+      "captcha": false,
+      "geographicRestriction": false,
+      "paidDocumentsAvailable": null,
+      "notes": "The search form is served directly with no account or sign-in step, and offers an option to include erased registrants."
+    },
+    "petroHrysScore": 89,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 8,
+      "verificationQuality": 10,
+      "platformReputation": 9,
+      "spamResistance": 10,
+      "industryImportance": 8,
+      "longTermStability": 10,
+      "submissionQuality": 6,
+      "transparency": 8,
+      "moderationQuality": 9
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": true,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-15",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "gb-nmc-register",
+        "gb-hcpc-register"
+      ],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Confirming that a dentist or dental care professional is currently registered with the General Dental Council.",
+      "Establishing whether a practitioner holds a specialist listing or is a temporary or visiting practitioner."
+    ],
+    "notRecommendedFor": [
+      "Verifying a dental practice as a business, because the registers record individual practitioners.",
+      "Assessing clinical quality, which registration does not measure."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Dentistry and dental care professions"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source",
+      "professional-regulation"
+    ],
+    "pros": [
+      "The GDC Registers can be searched free of charge and without an account.",
+      "Six dental care professional titles are covered alongside dentists, so the whole regulated dental workforce sits in one search.",
+      "The registers are updated daily, and an erased registrant can be included in a search deliberately."
+    ],
+    "cons": [
+      "The registers record individual practitioners, not dental practices, so they establish nothing about a clinic as a business.",
+      "Registration is a licence to practise and is not a statement of clinical quality or of suitability for any particular treatment.",
+      "A search on a common surname without a registration number can return many practitioners."
+    ],
+    "editorNotes": "Verified 2026-08-05 from the official GDC online register search. Operator: General Dental Council. The register names, the six dental care professional titles, the daily update statement and the erased-registrant option were read on the search page. Inclusion arises from statutory registration, not from any submission."
+  },
+  {
+    "id": "gb-hcpc-register",
+    "name": "HCPC Register",
+    "slug": "hcpc-register",
+    "country": "united-kingdom",
+    "category": "government",
+    "website": "https://www.hcpc-uk.org/check-the-register/",
+    "submissionUrl": null,
+    "description": "The HCPC Register is the statutory register of fifteen regulated health and care professions maintained by the Health and Care Professions Council, from paramedics and physiotherapists to practitioner psychologists and radiographers. It is searched by surname or registration number within a chosen profession.",
+    "tier": "tier1",
+    "scope": "national",
+    "officialName": "The Register of the Health and Care Professions Council",
+    "primaryRegistryType": "professional-licence-register",
+    "registryTypes": [
+      "professional-licence-register"
+    ],
+    "operator": {
+      "name": "Health and Care Professions Council",
+      "type": "regulator",
+      "officialUrl": "https://www.hcpc-uk.org/"
+    },
+    "publicAccess": {
+      "searchUrl": "https://www.hcpc-uk.org/check-the-register/",
+      "accessLevel": "open",
+      "freeToSearch": true,
+      "loginRequired": false,
+      "identityVerificationRequired": false,
+      "captcha": false,
+      "geographicRestriction": false,
+      "paidDocumentsAvailable": null,
+      "notes": "The search form is served without an account or sign-in step and asks only for a profession and a surname or registration number."
+    },
+    "petroHrysScore": 89,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 8,
+      "verificationQuality": 10,
+      "platformReputation": 9,
+      "spamResistance": 10,
+      "industryImportance": 8,
+      "longTermStability": 10,
+      "submissionQuality": 6,
+      "transparency": 8,
+      "moderationQuality": 9
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": true,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-24",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "gb-nmc-register",
+        "gb-gdc-registers"
+      ],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Confirming that a paramedic, physiotherapist, radiographer or other HCPC-regulated professional is currently registered.",
+      "Establishing which of the fifteen regulated professions a practitioner is registered in."
+    ],
+    "notRecommendedFor": [
+      "Verifying a clinic or employer, because the register records individual professionals.",
+      "Checking a profession HCPC does not regulate, such as nursing or dentistry, which have their own regulators."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "HCPC-regulated health and care professions"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source",
+      "professional-regulation"
+    ],
+    "pros": [
+      "The HCPC Register can be searched free of charge and without an account.",
+      "Fifteen distinct professions are covered in a single statutory register, several of which have no other public register.",
+      "The protected titles it governs make it the correct place to check a paramedic, physiotherapist or practitioner psychologist."
+    ],
+    "cons": [
+      "It records individuals, not organisations, so it establishes nothing about an employing clinic or agency.",
+      "Registration is a licence to practise and is not a statement of competence or of suitability for a particular engagement.",
+      "It covers only the professions HCPC regulates; nurses, midwives, dentists and doctors are on other registers entirely."
+    ],
+    "editorNotes": "Verified 2026-08-05 from the official HCPC \"Check the Register\" page. Operator: Health and Care Professions Council. The fifteen regulated professions and the search fields were read on that page. Inclusion arises from statutory registration, not from any submission."
+  },
+  {
+    "id": "gb-food-hygiene-ratings",
+    "name": "Food Hygiene Ratings",
+    "slug": "food-hygiene-ratings",
+    "country": "united-kingdom",
+    "category": "government",
+    "website": "https://ratings.food.gov.uk/",
+    "submissionUrl": null,
+    "description": "Food hygiene ratings is the Food Standards Agency service publishing hygiene inspection outcomes for food businesses across the United Kingdom. It carries the 0-to-5 Food Hygiene Rating Scheme results for England, Northern Ireland and Wales alongside the pass or improvement-required outcomes of the separate Scottish scheme.",
+    "tier": "tier1",
+    "scope": "national",
+    "officialName": "Food hygiene ratings",
+    "primaryRegistryType": "regulated-operator-register",
+    "registryTypes": [
+      "regulated-operator-register"
+    ],
+    "operator": {
+      "name": "Food Standards Agency",
+      "type": "government-agency",
+      "officialUrl": "https://www.food.gov.uk/"
+    },
+    "publicAccess": {
+      "searchUrl": "https://ratings.food.gov.uk/",
+      "accessLevel": "open",
+      "freeToSearch": true,
+      "loginRequired": false,
+      "identityVerificationRequired": false,
+      "captcha": false,
+      "geographicRestriction": false,
+      "paidDocumentsAvailable": null,
+      "notes": "The search is served without an account or sign-in step and allows filtering by business name, location, business type and rating."
+    },
+    "petroHrysScore": 84,
+    "scoreFactors": {
+      "editorialTrust": 9,
+      "businessUsefulness": 8,
+      "verificationQuality": 9,
+      "platformReputation": 8,
+      "spamResistance": 10,
+      "industryImportance": 8,
+      "longTermStability": 9,
+      "submissionQuality": 5,
+      "transparency": 9,
+      "moderationQuality": 8
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-23",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "gb-cqc"
+      ],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Checking the most recent hygiene inspection outcome for a named food business anywhere in the United Kingdom.",
+      "Establishing which local authority is responsible for a food business and when it was last inspected."
+    ],
+    "notRecommendedFor": [
+      "Judging food quality, taste or value, none of which the rating measures.",
+      "Treating a rating as current, because it reflects the conditions found on the inspection date and not since."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Food businesses inspected by United Kingdom local authorities"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source",
+      "food-safety"
+    ],
+    "pros": [
+      "Food hygiene ratings can be searched free of charge and without an account.",
+      "One service covers the whole United Kingdom, holding information on behalf of local authorities in England, Northern Ireland, Wales and Scotland.",
+      "Inspections are carried out by local authority food safety officers rather than self-reported by the business.",
+      "The Food Standards Agency states plainly on the search page that the rating is not a guide to food quality."
+    ],
+    "cons": [
+      "Scotland does not use the 0-to-5 scale. Scottish results appear as a pass or improvement-required hygiene status under a separate scheme, so ratings are not comparable across the whole United Kingdom.",
+      "A rating describes the conditions found at one inspection on one date, not the current state of the business.",
+      "It is a hygiene standards rating only. It says nothing about food quality, and nothing about the business as a trading counterparty.",
+      "Display of the rating is not mandatory in every United Kingdom nation, so a high rating on a door is not itself evidence."
+    ],
+    "editorNotes": "Verified 2026-08-05 from the official Food Standards Agency ratings service. Operator: Food Standards Agency, holding the information on behalf of local authorities; inspections are carried out by local authority food safety officers. Filed as scope national because the one service covers all four United Kingdom nations, which the page states directly. Scotland’s separate Food Hygiene Information Scheme surfaces here as a distinct hygiene status rather than a 0-to-5 rating, and that difference is published as a con rather than flattened. The Food Standards Scotland scheme page was examined and is scheme guidance rather than a register search, so it is not published as a separate record. Inclusion arises from statutory food-business registration and inspection, not from any submission."
+  },
+  {
+    "id": "gb-oscr-scottish-charity-register",
+    "name": "Scottish Charity Register",
+    "slug": "scottish-charity-register",
+    "country": "united-kingdom",
+    "category": "government",
+    "website": "https://www.oscr.org.uk/about-charities/search-the-register/",
+    "submissionUrl": null,
+    "description": "The Scottish Charity Register is the statutory register of Scottish charities kept by the Office of the Scottish Charity Regulator. It records each charity’s registered number, purposes, principal contact, accounts and the local authority areas in which it operates.",
+    "tier": "tier1",
+    "scope": "subnational",
+    "jurisdiction": {
+      "type": "country",
+      "name": "Scotland",
+      "code": "GB-SCT",
+      "parentCountry": "united-kingdom"
+    },
+    "primaryRegistryType": "charity-register",
+    "registryTypes": [
+      "charity-register",
+      "public-filing-database"
+    ],
+    "operator": {
+      "name": "Office of the Scottish Charity Regulator",
+      "type": "regulator",
+      "officialUrl": "https://www.oscr.org.uk/"
+    },
+    "publicAccess": {
+      "searchUrl": "https://www.oscr.org.uk/about-charities/search-the-register/",
+      "accessLevel": "open",
+      "freeToSearch": true,
+      "loginRequired": false,
+      "identityVerificationRequired": false,
+      "captcha": false,
+      "geographicRestriction": false,
+      "paidDocumentsAvailable": null,
+      "notes": "The search is served without an account or sign-in step and can be filtered by Scottish local authority area, including options for charities operating overseas only."
+    },
+    "petroHrysScore": 87,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 8,
+      "verificationQuality": 9,
+      "platformReputation": 8,
+      "spamResistance": 10,
+      "industryImportance": 8,
+      "longTermStability": 10,
+      "submissionQuality": 6,
+      "transparency": 9,
+      "moderationQuality": 8
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": true,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-08",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "gb-charity-commission-register",
+        "gb-ccni-register-of-charities"
+      ],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Confirming that a body is a charity registered in Scotland and obtaining its Scottish charity number.",
+      "Establishing which Scottish local authority areas a charity reports operating in."
+    ],
+    "notRecommendedFor": [
+      "Checking charitable status in England, Wales or Northern Ireland, which are separate registers kept by separate regulators.",
+      "Treating registration as evidence that a charity is well run or solvent."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Charities registered in Scotland"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source",
+      "charity-regulation"
+    ],
+    "pros": [
+      "The Scottish Charity Register can be searched free of charge and without an account.",
+      "It is kept by a non-ministerial office independent of the Scottish Government that reports directly to the Scottish Parliament.",
+      "Results can be filtered by Scottish local authority area, which makes locating a local charity straightforward."
+    ],
+    "cons": [
+      "It covers Scotland only. A charity operating across the United Kingdom may need to appear on two or three separate registers.",
+      "Registration establishes charitable status under Scottish charity law, not good governance, solvency or current activity.",
+      "Much of the published detail is self-reported by the charity, so it records what was declared rather than what was audited."
+    ],
+    "editorNotes": "Verified 2026-08-05 from the official OSCR register search and OSCR’s own About page, which describes it as the Scottish Charity Regulator, a non-ministerial office independent of the Scottish Government reporting directly to the Scottish Parliament. Territory is Scotland alone and is deliberately not described as UK-wide. The local-authority filter and the overseas-only option were read on the search page. Inclusion arises from statutory registration, not from any submission."
+  },
+  {
+    "id": "gb-ccni-register-of-charities",
+    "name": "Register of Charities (Northern Ireland)",
+    "slug": "northern-ireland-register-of-charities",
+    "country": "united-kingdom",
+    "category": "government",
+    "website": "https://www.charitycommissionni.org.uk/charity-search/",
+    "submissionUrl": null,
+    "description": "The Register of Charities for Northern Ireland is kept by the Charity Commission for Northern Ireland and records charities registered under Northern Ireland charity law. It is the separate Northern Ireland counterpart to the England and Wales and Scottish charity registers.",
+    "tier": "tier1",
+    "scope": "subnational",
+    "officialName": "Register of Charities",
+    "jurisdiction": {
+      "type": "province",
+      "name": "Northern Ireland",
+      "code": "GB-NIR",
+      "parentCountry": "united-kingdom"
+    },
+    "primaryRegistryType": "charity-register",
+    "registryTypes": [
+      "charity-register",
+      "public-filing-database"
+    ],
+    "operator": {
+      "name": "Charity Commission for Northern Ireland",
+      "type": "regulator",
+      "officialUrl": "https://www.charitycommissionni.org.uk/"
+    },
+    "publicAccess": {
+      "searchUrl": null,
+      "accessLevel": "unknown",
+      "freeToSearch": null,
+      "loginRequired": null,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "The charity search page is served publicly with no sign-in wall, but its results are produced by a client-side application that could not be exercised without running scripts, so no search behaviour is claimed."
+    },
+    "petroHrysScore": 77,
+    "scoreFactors": {
+      "editorialTrust": 9,
+      "businessUsefulness": 7,
+      "verificationQuality": 8,
+      "platformReputation": 7,
+      "spamResistance": 10,
+      "industryImportance": 7,
+      "longTermStability": 8,
+      "submissionQuality": 5,
+      "transparency": 7,
+      "moderationQuality": 7
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": true,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-14",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "gb-charity-commission-register",
+        "gb-oscr-scottish-charity-register"
+      ],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Confirming that a body is a charity registered in Northern Ireland and obtaining its Northern Ireland charity number.",
+      "Identifying the regulator responsible for a Northern Ireland charity."
+    ],
+    "notRecommendedFor": [
+      "Checking charitable status in England, Wales or Scotland, which are separate registers kept by separate regulators.",
+      "Assuming the register lists every charitable organisation active in Northern Ireland."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": null,
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Charities registered in Northern Ireland"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source",
+      "charity-regulation"
+    ],
+    "pros": [
+      "It is the dedicated statutory register for Northern Ireland, kept by the independent regulator of charities there.",
+      "It resolves a Northern Ireland charity to a registered number and a named regulator, which neither the England and Wales nor the Scottish register can do.",
+      "The search page is reachable publicly with no sign-in wall."
+    ],
+    "cons": [
+      "The search results are produced by a client-side application, so the search behaviour and returned fields could not be established from the served page.",
+      "It covers Northern Ireland only, and a charity operating across the United Kingdom may need to appear on more than one register.",
+      "Registration establishes charitable status under Northern Ireland charity law, not good governance, solvency or current activity."
+    ],
+    "editorNotes": "Verified 2026-08-05 from the official Charity Commission for Northern Ireland charity-search and About pages. Operator described on its own site as the independent regulator of charities, regulating Northern Ireland. The search application is client-rendered and was not exercised, so searchUrl is null and every access flag stays null rather than being asserted. Re-verification of the search behaviour is recorded in the backlog."
+  },
+  {
+    "id": "gb-aib-register-of-insolvencies",
+    "name": "Register of Insolvencies (Scotland)",
+    "slug": "scotland-register-of-insolvencies",
+    "country": "united-kingdom",
+    "category": "government",
+    "website": "https://roi.aib.gov.uk/roi/PublicSearches/PublicSearch",
+    "submissionUrl": null,
+    "description": "The Register of Insolvencies is the public record of Scottish personal and corporate insolvency kept by the Accountant in Bankruptcy. It records sequestrations, protected trust deeds, trust deed adverts and moratoriums under Scotland’s own insolvency law.",
+    "tier": "tier1",
+    "scope": "subnational",
+    "officialName": "Register of Insolvencies",
+    "jurisdiction": {
+      "type": "country",
+      "name": "Scotland",
+      "code": "GB-SCT",
+      "parentCountry": "united-kingdom"
+    },
+    "primaryRegistryType": "insolvency-register",
+    "registryTypes": [
+      "insolvency-register"
+    ],
+    "operator": {
+      "name": "Accountant in Bankruptcy",
+      "type": "government-agency",
+      "officialUrl": "https://aib.gov.uk/"
+    },
+    "publicAccess": {
+      "searchUrl": "https://roi.aib.gov.uk/roi/PublicSearches/PublicSearch",
+      "accessLevel": "open",
+      "freeToSearch": true,
+      "loginRequired": false,
+      "identityVerificationRequired": false,
+      "captcha": false,
+      "geographicRestriction": false,
+      "paidDocumentsAvailable": null,
+      "notes": "The public search form is served without an account or sign-in step and offers debtor name, address, case reference, trustee name and date-range fields."
+    },
+    "petroHrysScore": 81,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 7,
+      "verificationQuality": 9,
+      "platformReputation": 7,
+      "spamResistance": 10,
+      "industryImportance": 7,
+      "longTermStability": 9,
+      "submissionQuality": 5,
+      "transparency": 8,
+      "moderationQuality": 8
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": true,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-13",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "gb-individual-insolvency-register",
+        "gb-ni-iva-register"
+      ],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Checking whether a person or business in Scotland is subject to a sequestration, protected trust deed or moratorium.",
+      "Identifying the trustee acting in a Scottish insolvency case."
+    ],
+    "notRecommendedFor": [
+      "Checking insolvency in England, Wales or Northern Ireland, which run separate registers under different law.",
+      "Assuming an entry is permanent, because insolvency entries are removed once the statutory retention period ends."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Parties to Scottish insolvency proceedings"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source",
+      "insolvency"
+    ],
+    "pros": [
+      "The Register of Insolvencies can be searched free of charge and without an account.",
+      "It is kept by the Accountant in Bankruptcy, a Scottish Government executive agency, rather than by a commercial data reseller.",
+      "Search fields include trustee name and case reference, so a case can be traced from either side."
+    ],
+    "cons": [
+      "Scotland has its own insolvency law and its own terminology. Sequestration and protected trust deeds have no exact counterpart elsewhere in the United Kingdom, and this register covers Scotland only.",
+      "Entries are removed after their statutory retention period, so absence does not prove that a person has never been insolvent.",
+      "The register concerns insolvency events. It is not a general assessment of creditworthiness or of business conduct."
+    ],
+    "editorNotes": "Verified 2026-08-05 from the official Accountant in Bankruptcy public search, whose page is titled \"Public Search for Insolvency, Protected Trust Deeds and Trust Deed Adverts\" and identifies the register as the AiB Register of Insolvencies. Territory is Scotland alone. Search fields observed on the page. Inclusion arises from a statutory insolvency event, not from any submission."
+  },
+  {
+    "id": "gb-ni-iva-register",
+    "name": "Individual Voluntary Arrangement Register (Northern Ireland)",
+    "slug": "northern-ireland-iva-register",
+    "country": "united-kingdom",
+    "category": "government",
+    "website": "https://www.online.economy-ni.gov.uk/IVA_Register/IVASearch.aspx",
+    "submissionUrl": null,
+    "description": "The Individual Voluntary Arrangement Register for Northern Ireland is the public record of individual voluntary arrangements maintained by the Insolvency Service within the Department for the Economy. It is the Northern Ireland counterpart to the individual insolvency registers kept separately in Great Britain.",
+    "tier": "tier1",
+    "scope": "subnational",
+    "officialName": "Individual Voluntary Arrangement Register",
+    "jurisdiction": {
+      "type": "province",
+      "name": "Northern Ireland",
+      "code": "GB-NIR",
+      "parentCountry": "united-kingdom"
+    },
+    "primaryRegistryType": "insolvency-register",
+    "registryTypes": [
+      "insolvency-register"
+    ],
+    "operator": {
+      "name": "Insolvency Service, Department for the Economy",
+      "type": "ministry",
+      "officialUrl": "https://www.economy-ni.gov.uk/"
+    },
+    "publicAccess": {
+      "searchUrl": "https://www.online.economy-ni.gov.uk/IVA_Register/IVASearch.aspx",
+      "accessLevel": "open",
+      "freeToSearch": true,
+      "loginRequired": false,
+      "identityVerificationRequired": false,
+      "captcha": false,
+      "geographicRestriction": false,
+      "paidDocumentsAvailable": null,
+      "notes": "The search form is served without an account or sign-in step."
+    },
+    "petroHrysScore": 73,
+    "scoreFactors": {
+      "editorialTrust": 9,
+      "businessUsefulness": 6,
+      "verificationQuality": 8,
+      "platformReputation": 6,
+      "spamResistance": 10,
+      "industryImportance": 6,
+      "longTermStability": 8,
+      "submissionQuality": 5,
+      "transparency": 7,
+      "moderationQuality": 7
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": true,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-10",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "gb-individual-insolvency-register",
+        "gb-aib-register-of-insolvencies"
+      ],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Checking whether an individual in Northern Ireland is subject to an individual voluntary arrangement.",
+      "Identifying the correct Northern Ireland register rather than searching a Great Britain one by mistake."
+    ],
+    "notRecommendedFor": [
+      "Checking bankruptcies or debt relief orders, which Northern Ireland records separately from this register.",
+      "Checking insolvency in England, Wales or Scotland, which run their own registers."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": null,
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Parties to Northern Ireland individual voluntary arrangements"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source",
+      "insolvency"
+    ],
+    "pros": [
+      "It can be searched free of charge and without an account.",
+      "It is published directly by the Department for the Economy rather than by an intermediary.",
+      "It gives Northern Ireland its own searchable insolvency record, which the Great Britain registers do not cover."
+    ],
+    "cons": [
+      "It covers individual voluntary arrangements only. Northern Ireland debt relief orders and bankruptcy restrictions sit on a separate register that was not reachable when this record was verified.",
+      "It covers Northern Ireland only, and the Great Britain registers cover neither Northern Ireland nor each other.",
+      "Entries reflect a statutory insolvency arrangement and are not a general assessment of creditworthiness."
+    ],
+    "editorNotes": "Verified 2026-08-05 from the official Department for the Economy IVA register service. Operator: the Insolvency Service within the Department for the Economy, Northern Ireland Executive. The separate Northern Ireland DRO and BRO register at insolvency.economy-ni.gov.uk serves a client-side shell and was not reachable, so it is recorded in the backlog rather than published, and this record says so in its cons rather than implying full insolvency coverage."
+  },
+  {
+    "id": "gb-his-independent-healthcare",
+    "name": "Healthcare Improvement Scotland independent healthcare register",
+    "slug": "healthcare-improvement-scotland-independent-healthcare",
+    "country": "united-kingdom",
+    "category": "government",
+    "website": "https://www.healthcareimprovementscotland.scot/inspections-reviews-and-regulation/regulation-of-independent-healthcare/find-an-independent-healthcare-provider-or-service/",
+    "submissionUrl": null,
+    "description": "Healthcare Improvement Scotland publishes a searchable directory of the independent healthcare services it regulates in Scotland, covering independent clinics, hospitals, hospices and independent medical agencies. Each service page carries what the service is regulated to provide together with its inspection reports.",
+    "tier": "tier1",
+    "scope": "subnational",
+    "officialName": "Find an independent healthcare provider or service",
+    "jurisdiction": {
+      "type": "country",
+      "name": "Scotland",
+      "code": "GB-SCT",
+      "parentCountry": "united-kingdom"
+    },
+    "primaryRegistryType": "regulated-operator-register",
+    "registryTypes": [
+      "regulated-operator-register"
+    ],
+    "operator": {
+      "name": "Healthcare Improvement Scotland",
+      "type": "regulator",
+      "officialUrl": "https://www.healthcareimprovementscotland.scot/"
+    },
+    "publicAccess": {
+      "searchUrl": "https://www.healthcareimprovementscotland.scot/inspections-reviews-and-regulation/regulation-of-independent-healthcare/find-an-independent-healthcare-provider-or-service/",
+      "accessLevel": "open",
+      "freeToSearch": true,
+      "loginRequired": false,
+      "identityVerificationRequired": false,
+      "captcha": false,
+      "geographicRestriction": false,
+      "paidDocumentsAvailable": null,
+      "notes": "The directory is served without an account or sign-in step and can be searched by service name, location or keyword and filtered by category and distance."
+    },
+    "petroHrysScore": 79,
+    "scoreFactors": {
+      "editorialTrust": 9,
+      "businessUsefulness": 7,
+      "verificationQuality": 9,
+      "platformReputation": 7,
+      "spamResistance": 10,
+      "industryImportance": 7,
+      "longTermStability": 8,
+      "submissionQuality": 5,
+      "transparency": 8,
+      "moderationQuality": 8
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-27",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "gb-cqc",
+        "gb-care-inspectorate-wales",
+        "gb-rqia-register"
+      ],
+      "usedWith": [
+        "gb-care-inspectorate-scotland"
+      ],
+      "competitors": []
+    },
+    "bestFor": [
+      "Checking that an independent clinic, hospital or hospice in Scotland is regulated by Healthcare Improvement Scotland.",
+      "Reading what a Scottish independent healthcare service is actually regulated to provide before booking treatment."
+    ],
+    "notRecommendedFor": [
+      "Checking NHS services or care homes in Scotland, which are not what this register covers.",
+      "Checking independent healthcare in England, Wales or Northern Ireland, each of which has its own regulator."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Independent healthcare services regulated in Scotland"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source",
+      "healthcare-regulation"
+    ],
+    "pros": [
+      "The directory can be searched free of charge and without an account.",
+      "Each service page states what the service is regulated to provide, which is more specific than a bare registration flag.",
+      "Inspection reports are published alongside the registration entry."
+    ],
+    "cons": [
+      "It covers independent healthcare in Scotland only. Care homes and other social care services in Scotland are registered by the Care Inspectorate instead, and the two must not be confused.",
+      "Appearing in the register means the service is registered and subject to inspection. It does not establish that it is currently compliant, safe or well run.",
+      "It does not cover NHS Scotland services, which Healthcare Improvement Scotland scrutinises through a different route."
+    ],
+    "editorNotes": "Verified 2026-08-05 from the official Healthcare Improvement Scotland directory. Operator: Healthcare Improvement Scotland. Regulated categories observed on the page are clinic, hospice, hospital and independent medical agency. Kept deliberately distinct from the Care Inspectorate, which registers care services in Scotland; the two Scottish bodies regulate different populations and are published as separate records with that distinction stated in both. Territory is Scotland alone."
+  },
+  {
+    "id": "gb-care-inspectorate-scotland",
+    "name": "Care Inspectorate register of care services (Scotland)",
+    "slug": "care-inspectorate-scotland-register",
+    "country": "united-kingdom",
+    "category": "government",
+    "website": "https://www.careinspectorate.scot/",
+    "submissionUrl": null,
+    "description": "The Care Inspectorate registers and inspects care services in Scotland and publishes the services it regulates together with their inspection grades. It is the Scottish counterpart for social care that Healthcare Improvement Scotland is for independent healthcare.",
+    "tier": "tier1",
+    "scope": "subnational",
+    "officialName": "Care Inspectorate",
+    "jurisdiction": {
+      "type": "country",
+      "name": "Scotland",
+      "code": "GB-SCT",
+      "parentCountry": "united-kingdom"
+    },
+    "primaryRegistryType": "regulated-operator-register",
+    "registryTypes": [
+      "regulated-operator-register"
+    ],
+    "operator": {
+      "name": "Care Inspectorate (Social Care and Social Work Improvement Scotland)",
+      "type": "regulator",
+      "officialUrl": "https://www.careinspectorate.scot/"
+    },
+    "publicAccess": {
+      "searchUrl": null,
+      "accessLevel": "unknown",
+      "freeToSearch": null,
+      "loginRequired": null,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "The site publishes a find-care service and provider information, but it is a client-rendered application that was not exercised, and it carried a beta notice when this record was verified, so no access behaviour is claimed."
+    },
+    "petroHrysScore": 79,
+    "scoreFactors": {
+      "editorialTrust": 9,
+      "businessUsefulness": 7,
+      "verificationQuality": 9,
+      "platformReputation": 7,
+      "spamResistance": 10,
+      "industryImportance": 8,
+      "longTermStability": 8,
+      "submissionQuality": 5,
+      "transparency": 7,
+      "moderationQuality": 8
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": true,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-18",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "gb-cqc",
+        "gb-care-inspectorate-wales",
+        "gb-rqia-register"
+      ],
+      "usedWith": [
+        "gb-his-independent-healthcare"
+      ],
+      "competitors": []
+    },
+    "bestFor": [
+      "Identifying the regulator that registers care homes, childcare and other care services in Scotland.",
+      "Distinguishing Scottish social care regulation from Scottish independent healthcare regulation."
+    ],
+    "notRecommendedFor": [
+      "Checking independent clinics or private hospitals in Scotland, which Healthcare Improvement Scotland regulates instead.",
+      "Checking care services in England, Wales or Northern Ireland, each of which has its own regulator."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": null,
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Care services registered in Scotland"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source",
+      "care-regulation"
+    ],
+    "pros": [
+      "It is the statutory regulator that registers and inspects care services in Scotland, and publishes provider information and inspection grades.",
+      "It gives Scotland a dedicated care register that no United Kingdom-wide body provides.",
+      "Provider-level information sits alongside individual service entries."
+    ],
+    "cons": [
+      "The service search is a client-rendered application that was not exercised, so its access behaviour, fields and fee position are not established here.",
+      "The site carried a beta notice when this record was verified, so its structure and URLs may still change.",
+      "It covers Scottish care services only, and does not cover independent healthcare in Scotland, which is regulated separately.",
+      "Registration means a service is registered with the Care Inspectorate and subject to inspection. It does not establish that the service is currently compliant, safe or well run."
+    ],
+    "editorNotes": "Verified 2026-08-05 from the official Care Inspectorate site, whose statutory name is Social Care and Social Work Improvement Scotland. The site displayed a banner reading that this is a new service in beta at verification, and its find-care application is client-rendered, so searchUrl is null and every access flag stays null rather than being asserted. Deliberately kept distinct from Healthcare Improvement Scotland: the two Scottish regulators cover different populations and conflating them would misdescribe both."
+  },
+  {
+    "id": "gb-care-inspectorate-wales",
+    "name": "Care Inspectorate Wales service directory",
+    "slug": "care-inspectorate-wales-service-directory",
+    "country": "united-kingdom",
+    "category": "government",
+    "website": "https://www.careinspectorate.wales/",
+    "submissionUrl": null,
+    "description": "Care Inspectorate Wales registers and inspects care and childcare services in Wales on behalf of the Welsh Ministers, and publishes a directory of the registered services it regulates alongside their inspection reports.",
+    "tier": "tier1",
+    "scope": "subnational",
+    "officialName": "Care Inspectorate Wales",
+    "jurisdiction": {
+      "type": "country",
+      "name": "Wales",
+      "code": "GB-WLS",
+      "parentCountry": "united-kingdom"
+    },
+    "primaryRegistryType": "regulated-operator-register",
+    "registryTypes": [
+      "regulated-operator-register"
+    ],
+    "operator": {
+      "name": "Care Inspectorate Wales",
+      "type": "regulator",
+      "officialUrl": "https://www.careinspectorate.wales/"
+    },
+    "publicAccess": {
+      "searchUrl": "https://digital.careinspectorate.wales/directory/search?fromCiwWebsite=1",
+      "accessLevel": "open",
+      "freeToSearch": true,
+      "loginRequired": false,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "Care Inspectorate Wales links the public directly to a directory of all registered care services with no sign-in step; the directory itself is served from a separate digital subdomain."
+    },
+    "petroHrysScore": 79,
+    "scoreFactors": {
+      "editorialTrust": 9,
+      "businessUsefulness": 7,
+      "verificationQuality": 9,
+      "platformReputation": 7,
+      "spamResistance": 10,
+      "industryImportance": 7,
+      "longTermStability": 8,
+      "submissionQuality": 5,
+      "transparency": 8,
+      "moderationQuality": 8
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": true,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-08",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "gb-cqc",
+        "gb-care-inspectorate-scotland",
+        "gb-rqia-register"
+      ],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Checking that a care home, domiciliary support service or childcare setting in Wales is registered.",
+      "Reading the inspection history of a registered Welsh care service."
+    ],
+    "notRecommendedFor": [
+      "Checking care services in England, Scotland or Northern Ireland, each of which has its own regulator and register.",
+      "Treating registration as evidence that a service is currently performing well."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Care and childcare services registered in Wales"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source",
+      "care-regulation"
+    ],
+    "pros": [
+      "Care Inspectorate Wales publishes a directory of all registered care services and links to it directly from its home page.",
+      "It exercises its functions on behalf of the Welsh Ministers, so the directory is a government record rather than a trade listing.",
+      "Adult care, children’s services, care homes, domiciliary support and childcare settings are all covered in one place."
+    ],
+    "cons": [
+      "It covers Wales only. The equivalent registers for England, Scotland and Northern Ireland are kept by different regulators and are not interchangeable.",
+      "Registration means a service is registered and subject to inspection. It does not establish that it is currently compliant or well run.",
+      "The directory is served from a separate digital subdomain, so a bookmark to the main site is not a bookmark to the register."
+    ],
+    "editorNotes": "Verified 2026-08-05 from the official Care Inspectorate Wales site, which describes registering, inspecting and taking action to improve the quality and safety of services in Wales and links to a directory of all registered care services on digital.careinspectorate.wales. Operator exercises functions on behalf of the Welsh Ministers. Territory is Wales alone. Access flags beyond the absence of a sign-in step are left null because the directory application itself was not exercised."
+  },
+  {
+    "id": "gb-rqia-register",
+    "name": "RQIA Register of Services",
+    "slug": "rqia-register-of-services",
+    "country": "united-kingdom",
+    "category": "government",
+    "website": "https://www.rqia.org.uk/register/",
+    "submissionUrl": null,
+    "description": "The Regulation and Quality Improvement Authority publishes the register of health and social care services it regulates in Northern Ireland as downloadable service lists, covering adult placement agencies, day care settings, domiciliary care agencies, independent clinics and other registered service types.",
+    "tier": "tier1",
+    "scope": "subnational",
+    "officialName": "Register",
+    "jurisdiction": {
+      "type": "province",
+      "name": "Northern Ireland",
+      "code": "GB-NIR",
+      "parentCountry": "united-kingdom"
+    },
+    "primaryRegistryType": "regulated-operator-register",
+    "registryTypes": [
+      "regulated-operator-register"
+    ],
+    "operator": {
+      "name": "Regulation and Quality Improvement Authority",
+      "type": "regulator",
+      "officialUrl": "https://www.rqia.org.uk/"
+    },
+    "publicAccess": {
+      "searchUrl": null,
+      "accessLevel": "open",
+      "freeToSearch": true,
+      "loginRequired": false,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "The register is published as downloadable spreadsheets rather than as an interactive query form. The files are served without an account or sign-in step, and there is no search interface to describe."
+    },
+    "petroHrysScore": 77,
+    "scoreFactors": {
+      "editorialTrust": 9,
+      "businessUsefulness": 6,
+      "verificationQuality": 9,
+      "platformReputation": 7,
+      "spamResistance": 10,
+      "industryImportance": 7,
+      "longTermStability": 8,
+      "submissionQuality": 5,
+      "transparency": 8,
+      "moderationQuality": 7
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": true,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-23",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "gb-cqc",
+        "gb-care-inspectorate-scotland",
+        "gb-care-inspectorate-wales"
+      ],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Obtaining the full list of services registered with RQIA in Northern Ireland as a dataset.",
+      "Checking whether a named Northern Ireland care or health service type is registered."
+    ],
+    "notRecommendedFor": [
+      "Looking up a single provider quickly, because the register is published as files to download rather than as a search.",
+      "Checking services in England, Scotland or Wales, each of which has its own regulator."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": null,
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Health and social care services registered in Northern Ireland"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source",
+      "care-regulation"
+    ],
+    "pros": [
+      "The register is published free of charge and without an account, including an all-registered-services file covering every service type at once.",
+      "Publishing the whole register as a downloadable dataset makes bulk checking and record matching straightforward.",
+      "It is the dedicated Northern Ireland register, which no Great Britain regulator covers."
+    ],
+    "cons": [
+      "There is no interactive search. The register is a set of downloadable spreadsheets, so a single-provider lookup means opening a file rather than running a query.",
+      "A downloaded file is a snapshot dated when it was published, so it can be out of date by the time it is read.",
+      "Registration means a service is registered and subject to inspection. It does not establish current compliance or quality."
+    ],
+    "editorNotes": "Verified 2026-08-05 from the official RQIA register page. The register is published as downloadable spreadsheets organised by service type, with an all-registered-services file, and is NOT an interactive search; the record says so plainly and searchUrl is therefore null while freeToSearch remains true because the files are served openly. Operator: Regulation and Quality Improvement Authority, sponsored by the Department of Health in Northern Ireland. Territory is Northern Ireland alone. Row counts published in the files were not relied on, because a file snapshot is not a stable fact."
+  },
+  {
+    "id": "gb-charity-commission-register",
+    "name": "Register of Charities (England and Wales)",
+    "slug": "england-wales-register-of-charities",
+    "country": "united-kingdom",
+    "category": "government",
+    "website": "https://register-of-charities.charitycommission.gov.uk/",
+    "submissionUrl": null,
+    "description": "The Register of Charities for England and Wales is kept by the Charity Commission and records registered charities together with their purposes, trustees, reported income and expenditure, filing history and any regulatory action taken against them. A full register extract is published for download.",
+    "tier": "tier1",
+    "scope": "subnational",
+    "officialName": "Register of Charities",
+    "jurisdiction": {
+      "type": "cross-territory",
+      "name": "England and Wales",
+      "code": null,
+      "covers": [
+        "GB-ENG",
+        "GB-WLS"
+      ],
+      "parentCountry": "united-kingdom"
+    },
+    "primaryRegistryType": "charity-register",
+    "registryTypes": [
+      "charity-register",
+      "public-filing-database"
+    ],
+    "operator": {
+      "name": "Charity Commission for England and Wales",
+      "type": "regulator",
+      "officialUrl": "https://www.gov.uk/government/organisations/charity-commission"
+    },
+    "publicAccess": {
+      "searchUrl": "https://register-of-charities.charitycommission.gov.uk/en/charity-search",
+      "accessLevel": "open",
+      "freeToSearch": true,
+      "loginRequired": false,
+      "identityVerificationRequired": false,
+      "captcha": false,
+      "geographicRestriction": false,
+      "paidDocumentsAvailable": null,
+      "notes": "Both the search and individual charity entries are served without an account or sign-in step. A sign-in link exists, but it is for charities filing with the Commission rather than for public searching."
+    },
+    "petroHrysScore": 92,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 9,
+      "verificationQuality": 9,
+      "platformReputation": 9,
+      "spamResistance": 10,
+      "industryImportance": 9,
+      "longTermStability": 10,
+      "submissionQuality": 7,
+      "transparency": 9,
+      "moderationQuality": 9
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": true,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-30",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "gb-oscr-scottish-charity-register",
+        "gb-ccni-register-of-charities"
+      ],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Confirming that an organisation is a charity registered in England and Wales and obtaining its charity number.",
+      "Reading a charity’s trustees, reported finances and filing history, including whether its annual return is overdue."
+    ],
+    "notRecommendedFor": [
+      "Checking charitable status in Scotland or Northern Ireland, which are separate registers kept by separate regulators.",
+      "Treating registration as evidence that a charity is well governed, solvent or currently active."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Charities registered in England and Wales"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source",
+      "charity-regulation"
+    ],
+    "pros": [
+      "The register can be searched free of charge and without an account, and individual charity entries are equally open.",
+      "Entries carry trustees, reported income and expenditure, financial history, filing status and any regulatory action the Commission has taken.",
+      "A daily full-register extract is published for download, so the whole dataset is reusable rather than only viewable.",
+      "It is kept by an independent, non-ministerial government department accountable to Parliament."
+    ],
+    "cons": [
+      "It covers England and Wales only. Scotland and Northern Ireland keep their own registers, and a charity working across the United Kingdom may appear on two or three.",
+      "It is not a complete list of charitable organisations. Exempt charities, excepted charities and very small charities need not register, so absence does not prove a body is not charitable.",
+      "Much of the published detail is self-reported by the charity, so it records what was declared rather than what was independently audited.",
+      "Export from the search interface is capped, so bulk users are directed to the separate full-register download."
+    ],
+    "editorNotes": "Verified 2026-08-05 from the official Charity Commission register, its search page, a live charity entry, the full-register download page and the Commission’s GOV.UK profile. Filed as a cross-territory jurisdiction covering England and Wales, which is the correct model: it is not UK-wide, and England-and-Wales has no ISO 3166-2 code of its own, so covers carries GB-ENG and GB-WLS rather than the deprecated compound GB-EAW. The incompleteness point reflects the statutory registration exemptions and is published so absence is not read as proof."
+  },
+  {
+    "id": "gb-individual-insolvency-register",
+    "name": "Individual Insolvency Register (England and Wales)",
+    "slug": "england-wales-individual-insolvency-register",
+    "country": "united-kingdom",
+    "category": "government",
+    "website": "https://www.insolvencydirect.bis.gov.uk/eiir/",
+    "submissionUrl": null,
+    "description": "The Individual Insolvency Register is the public record of personal insolvency in England and Wales, published by the Insolvency Service. It combines the individual insolvency, bankruptcy restrictions and debt relief restrictions registers, covering bankruptcy orders, debt relief orders and individual voluntary arrangements.",
+    "tier": "tier1",
+    "scope": "subnational",
+    "officialName": "Individual Insolvency Register",
+    "jurisdiction": {
+      "type": "cross-territory",
+      "name": "England and Wales",
+      "code": null,
+      "covers": [
+        "GB-ENG",
+        "GB-WLS"
+      ],
+      "parentCountry": "united-kingdom"
+    },
+    "primaryRegistryType": "insolvency-register",
+    "registryTypes": [
+      "insolvency-register"
+    ],
+    "operator": {
+      "name": "The Insolvency Service",
+      "type": "government-agency",
+      "officialUrl": "https://www.gov.uk/government/organisations/insolvency-service"
+    },
+    "publicAccess": {
+      "searchUrl": "https://www.insolvencydirect.bis.gov.uk/eiir/",
+      "accessLevel": "open",
+      "freeToSearch": true,
+      "loginRequired": false,
+      "identityVerificationRequired": false,
+      "captcha": false,
+      "geographicRestriction": false,
+      "paidDocumentsAvailable": null,
+      "notes": "The register is searched without an account or sign-in step, by an individual’s name or by a trading name for sole traders."
+    },
+    "petroHrysScore": 85,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 8,
+      "verificationQuality": 9,
+      "platformReputation": 8,
+      "spamResistance": 10,
+      "industryImportance": 8,
+      "longTermStability": 9,
+      "submissionQuality": 5,
+      "transparency": 8,
+      "moderationQuality": 8
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": true,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-16",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "gb-aib-register-of-insolvencies",
+        "gb-ni-iva-register"
+      ],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Checking whether an individual or sole trader in England and Wales is subject to a bankruptcy order, debt relief order or individual voluntary arrangement.",
+      "Establishing whether bankruptcy or debt relief restrictions are recorded against a person."
+    ],
+    "notRecommendedFor": [
+      "Checking insolvency in Scotland or Northern Ireland, which keep their own registers under different law.",
+      "Checking company insolvency, which is recorded through Companies House filings rather than here."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Individuals and sole traders subject to insolvency proceedings in England and Wales"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source",
+      "insolvency"
+    ],
+    "pros": [
+      "The register can be searched free of charge and without an account.",
+      "Three registers are combined in one search: individual insolvency, bankruptcy restrictions and debt relief restrictions.",
+      "Sole traders can be found by trading name, which matters when a business has no corporate identity to look up."
+    ],
+    "cons": [
+      "It covers England and Wales only. Scotland and Northern Ireland keep separate registers, and searching the wrong one produces a false negative.",
+      "It records personal insolvency. Company insolvency is not here, and an entry says nothing about a limited company the person may be connected to.",
+      "Entries are removed once their statutory period ends, so absence does not prove that a person has never been insolvent."
+    ],
+    "editorNotes": "Verified 2026-08-05 from the official Individual Insolvency Register service, which states that it combines the individual insolvency, bankruptcy restrictions and debt relief restrictions registers, and that searches may be run on an individual’s name or a sole trader’s trading name. Operator: the Insolvency Service. Filed as a cross-territory jurisdiction covering England and Wales, using covers rather than the deprecated compound code."
+  },
+  {
+    "id": "gb-sra-solicitors-register",
+    "name": "Solicitors Register",
+    "slug": "sra-solicitors-register",
+    "country": "united-kingdom",
+    "category": "government",
+    "website": "https://www.sra.org.uk/consumers/register/",
+    "submissionUrl": null,
+    "description": "The Solicitors Register is the public record of solicitors and law firms regulated by the Solicitors Regulation Authority in England and Wales. It records where a solicitor works, which firms are regulated, firms that have been closed down, and people prohibited from practising.",
+    "tier": "tier1",
+    "scope": "subnational",
+    "jurisdiction": {
+      "type": "cross-territory",
+      "name": "England and Wales",
+      "code": null,
+      "covers": [
+        "GB-ENG",
+        "GB-WLS"
+      ],
+      "parentCountry": "united-kingdom"
+    },
+    "primaryRegistryType": "professional-licence-register",
+    "registryTypes": [
+      "professional-licence-register"
+    ],
+    "operator": {
+      "name": "Solicitors Regulation Authority",
+      "type": "regulator",
+      "officialUrl": "https://www.sra.org.uk/"
+    },
+    "publicAccess": {
+      "searchUrl": "https://www.sra.org.uk/consumers/register/",
+      "accessLevel": "open",
+      "freeToSearch": true,
+      "loginRequired": false,
+      "identityVerificationRequired": false,
+      "captcha": false,
+      "geographicRestriction": false,
+      "paidDocumentsAvailable": null,
+      "notes": "The register is searched without an account or sign-in step, and separate lookups exist for individual solicitors and for regulated firms."
+    },
+    "petroHrysScore": 89,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 9,
+      "verificationQuality": 9,
+      "platformReputation": 9,
+      "spamResistance": 10,
+      "industryImportance": 8,
+      "longTermStability": 9,
+      "submissionQuality": 6,
+      "transparency": 9,
+      "moderationQuality": 9
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": true,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-08",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "gb-barristers-register"
+      ],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Checking whether a person is a solicitor in England and Wales and where they currently work.",
+      "Checking whether a law firm is regulated, has been closed down, or whether an individual has been prohibited from practising."
+    ],
+    "notRecommendedFor": [
+      "Checking solicitors in Scotland or Northern Ireland, which have entirely separate regulators and rolls.",
+      "Checking barristers, who are regulated by the Bar Standards Board and appear on a different register."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Solicitors and law firms regulated in England and Wales"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source",
+      "professional-regulation"
+    ],
+    "pros": [
+      "The register can be searched free of charge and without an account.",
+      "Unusually for a professional register, it covers both individuals and the firms they work in, so a law firm can be verified as a regulated entity.",
+      "It positively records closed-down firms and prohibited individuals, so an adverse outcome is visible rather than simply absent."
+    ],
+    "cons": [
+      "It covers England and Wales only. Scotland and Northern Ireland regulate solicitors separately, and this register does not reach them.",
+      "It does not cover barristers, legal executives or unregulated legal service providers.",
+      "Regulation establishes that a person or firm is authorised. It is not a statement about the quality of advice or the outcome of any matter."
+    ],
+    "editorNotes": "Verified 2026-08-05 from the official SRA Solicitors Register page, which describes checking whether somebody is a solicitor and where they work, whether the SRA regulates a law firm, and firms closed down and people prohibited from practising. Filed as a cross-territory jurisdiction covering England and Wales, matching the SRA’s regulatory territory, and using covers rather than a compound code."
+  },
+  {
+    "id": "gb-barristers-register",
+    "name": "The Barristers’ Register",
+    "slug": "barristers-register",
+    "country": "united-kingdom",
+    "category": "government",
+    "website": "https://www.barstandardsboard.org.uk/for-the-public/search-a-barristers-record/the-barristers-register.html",
+    "submissionUrl": null,
+    "description": "The Barristers’ Register is the public record kept by the Bar Standards Board of barristers authorised to practise in England and Wales, together with a separate view of disbarred or unregistered barristers carrying a current disciplinary finding.",
+    "tier": "tier1",
+    "scope": "subnational",
+    "jurisdiction": {
+      "type": "cross-territory",
+      "name": "England and Wales",
+      "code": null,
+      "covers": [
+        "GB-ENG",
+        "GB-WLS"
+      ],
+      "parentCountry": "united-kingdom"
+    },
+    "primaryRegistryType": "professional-licence-register",
+    "registryTypes": [
+      "professional-licence-register"
+    ],
+    "operator": {
+      "name": "Bar Standards Board",
+      "type": "regulator",
+      "officialUrl": "https://www.barstandardsboard.org.uk/"
+    },
+    "publicAccess": {
+      "searchUrl": "https://www.barstandardsboard.org.uk/for-the-public/search-a-barristers-record/the-barristers-register.html",
+      "accessLevel": "open",
+      "freeToSearch": true,
+      "loginRequired": false,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "The register is reached without an account or sign-in step and can be searched by barrister name or organisation."
+    },
+    "petroHrysScore": 87,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 8,
+      "verificationQuality": 9,
+      "platformReputation": 8,
+      "spamResistance": 10,
+      "industryImportance": 8,
+      "longTermStability": 9,
+      "submissionQuality": 6,
+      "transparency": 9,
+      "moderationQuality": 9
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": true,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-21",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "gb-sra-solicitors-register"
+      ],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Checking whether a barrister is currently authorised to practise in England and Wales.",
+      "Checking whether a barrister carries a current disciplinary finding, including where they are disbarred or unregistered."
+    ],
+    "notRecommendedFor": [
+      "Checking solicitors, who are regulated by the Solicitors Regulation Authority and appear on a different register.",
+      "Checking advocates in Scotland or barristers in Northern Ireland, which are separate professions under separate bodies."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Barristers authorised to practise in England and Wales"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source",
+      "professional-regulation"
+    ],
+    "pros": [
+      "The register can be searched free of charge and without an account.",
+      "Disciplinary findings are published in a distinct view, including for barristers who are disbarred or no longer registered, so an adverse history does not simply vanish from the record.",
+      "It is kept by the Bar Standards Board, the regulator of the profession, rather than by a representative body."
+    ],
+    "cons": [
+      "It covers England and Wales only, and does not reach advocates in Scotland or the separate Northern Ireland Bar.",
+      "It records authorisation to practise and disciplinary findings. It is not a statement about the quality of representation or the outcome of any case.",
+      "It does not cover solicitors or other legal professionals, who sit on different registers."
+    ],
+    "editorNotes": "Verified 2026-08-05 from the official Bar Standards Board Barristers’ Register page, which presents barristers currently authorised to practise alongside a separate view of disbarred or unregistered barristers with a current disciplinary finding. Operator: Bar Standards Board. Filed as a cross-territory jurisdiction covering England and Wales, using covers rather than a compound code. The register host barristerregister.barstandardsboard.org.uk did not respond directly, so the record points at the Bar Standards Board page that serves the register, which was fetched successfully."
+  },
+  {
+    "id": "gb-find-a-tender",
+    "name": "Find a Tender",
+    "slug": "find-a-tender",
+    "country": "united-kingdom",
+    "category": "government",
+    "website": "https://www.find-tender.service.gov.uk/",
+    "submissionUrl": null,
+    "description": "Find a Tender is the United Kingdom government service publishing public sector procurement notices across the whole procurement lifecycle, from pipeline and planning through tender, award, contract details, change, performance and termination. Notices from one procurement are linked by a shared Open Contracting identifier.",
+    "tier": "tier1",
+    "scope": "national",
+    "officialName": "Find a Tender service",
+    "primaryRegistryType": "public-procurement-notice-database",
+    "registryTypes": [
+      "public-procurement-notice-database"
+    ],
+    "operator": {
+      "name": "Cabinet Office",
+      "type": "ministry",
+      "officialUrl": "https://www.gov.uk/government/organisations/cabinet-office"
+    },
+    "publicAccess": {
+      "searchUrl": "https://www.find-tender.service.gov.uk/Search",
+      "accessLevel": "open",
+      "freeToSearch": true,
+      "loginRequired": false,
+      "identityVerificationRequired": false,
+      "captcha": false,
+      "geographicRestriction": false,
+      "paidDocumentsAvailable": false,
+      "notes": "Notices are searched and read without an account. A GOV.UK One Login account adds saved searches, email notifications and organisation registration, none of which is needed to search or read a notice."
+    },
+    "petroHrysScore": 82,
+    "scoreFactors": {
+      "editorialTrust": 9,
+      "businessUsefulness": 8,
+      "verificationQuality": 8,
+      "platformReputation": 8,
+      "spamResistance": 9,
+      "industryImportance": 8,
+      "longTermStability": 9,
+      "submissionQuality": 6,
+      "transparency": 9,
+      "moderationQuality": 7
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": true,
+      "saas": null,
+      "enterprise": true,
+      "agency": true,
+      "freelancer": null,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-24",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "gb-contracts-finder",
+        "gb-public-contracts-scotland",
+        "gb-sell2wales"
+      ],
+      "usedWith": [
+        "gb-companies-house"
+      ],
+      "competitors": []
+    },
+    "bestFor": [
+      "Finding current United Kingdom public sector tender opportunities and the contracts awarded from them.",
+      "Tracing one procurement through its published stages using the shared Open Contracting identifier."
+    ],
+    "notRecommendedFor": [
+      "Checking whether a supplier exists, is solvent or is eligible to bid, none of which a notice database records.",
+      "Assuming complete coverage of Scottish procurement, which largely runs through Public Contracts Scotland."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Suppliers to United Kingdom public sector bodies"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source",
+      "public-procurement"
+    ],
+    "pros": [
+      "Find a Tender can be searched free of charge and without an account, and individual notices are readable anonymously.",
+      "It publishes the full procurement lifecycle rather than opportunities alone, including award, contract detail, change, performance and termination notices.",
+      "Notices from the same procurement share an Open Contracting identifier, so a contract can be followed from pipeline to termination.",
+      "Bulk data is published under the Open Government Licence in the Open Contracting Data Standard, so the notices are reusable rather than only viewable."
+    ],
+    "cons": [
+      "It is a notice database, not a supplier register. Publication of a notice establishes nothing about any supplier’s eligibility, standing, competence or trustworthiness.",
+      "Coverage is not uniform across the United Kingdom. Scotland sits outside the Procurement Act 2023 regime, so Scottish below-threshold and full-lifecycle notices are not published here and run through Public Contracts Scotland instead.",
+      "The widely repeated description of the service as covering only high-value contracts above a threshold is now out of date, and the GOV.UK guidance page still carries that older framing.",
+      "Notice content is supplied by the publishing authority, so an error in a notice is the authority’s error and is not corrected by the service."
+    ],
+    "editorNotes": "Verified 2026-08-05 from the service’s own pages at find-tender.service.gov.uk and the GOV.UK guidance page. Operator: Cabinet Office. Classified as public-procurement-notice-database, which was added for this wave: the service publishes procurement notices and does not register suppliers, so procurement-supplier-register would state the opposite of what it is. Territorial position established from the service’s own legislation section: the Procurement Act 2023 applies in England, Wales and Northern Ireland to new procurements from 24 February 2025, while Scotland is governed by a separate body of legislation; Scottish above-threshold notices appear here but Scottish below-threshold and full-lifecycle notices do not. Filed as scope national because the service is the United Kingdom-wide publication point, with the Scottish limitation published as a con rather than flattened away. The historical \"usually above £139,688\" framing on the stale GOV.UK page is deliberately not repeated as current."
+  },
+  {
+    "id": "gb-contracts-finder",
+    "name": "Contracts Finder",
+    "slug": "contracts-finder",
+    "country": "united-kingdom",
+    "category": "government",
+    "website": "https://www.contractsfinder.service.gov.uk/",
+    "submissionUrl": null,
+    "description": "Contracts Finder publishes lower-value public sector procurement notices and awarded contract records for contracting authorities within the extent of the Public Contracts Regulations 2015. It covers England together with reserved authorities in Wales and Northern Ireland, and does not extend to Scotland.",
+    "tier": "tier1",
+    "scope": "subnational",
+    "jurisdiction": {
+      "type": "cross-territory",
+      "name": "England, Wales and Northern Ireland",
+      "code": null,
+      "covers": [
+        "GB-ENG",
+        "GB-NIR",
+        "GB-WLS"
+      ],
+      "parentCountry": "united-kingdom"
+    },
+    "primaryRegistryType": "public-procurement-notice-database",
+    "registryTypes": [
+      "public-procurement-notice-database"
+    ],
+    "operator": {
+      "name": "Government Commercial Agency, Cabinet Office",
+      "type": "government-agency",
+      "officialUrl": "https://www.gov.uk/government/organisations/cabinet-office"
+    },
+    "publicAccess": {
+      "searchUrl": "https://www.contractsfinder.service.gov.uk/Search",
+      "accessLevel": "open",
+      "freeToSearch": true,
+      "loginRequired": false,
+      "identityVerificationRequired": false,
+      "captcha": false,
+      "geographicRestriction": false,
+      "paidDocumentsAvailable": false,
+      "notes": "Notices are searched and read without an account. An account adds saved searches and notifications, and is not needed to search."
+    },
+    "petroHrysScore": 78,
+    "scoreFactors": {
+      "editorialTrust": 9,
+      "businessUsefulness": 8,
+      "verificationQuality": 7,
+      "platformReputation": 7,
+      "spamResistance": 9,
+      "industryImportance": 7,
+      "longTermStability": 8,
+      "submissionQuality": 6,
+      "transparency": 9,
+      "moderationQuality": 7
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": true,
+      "saas": null,
+      "enterprise": true,
+      "agency": true,
+      "freelancer": null,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-06",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "gb-find-a-tender",
+        "gb-public-contracts-scotland",
+        "gb-sell2wales"
+      ],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Finding lower-value public sector opportunities that do not reach the Find a Tender thresholds.",
+      "Retrieving awarded contract records, including the buyer-supplied company number of the awarded supplier."
+    ],
+    "notRecommendedFor": [
+      "Scottish procurement, which is outside the extent of the regulations this service implements.",
+      "Establishing that a named supplier won a contract as a matter of fact, rather than that an authority published a notice saying so."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "mixed",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Suppliers to public sector bodies in England, Wales and Northern Ireland"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source",
+      "public-procurement"
+    ],
+    "pros": [
+      "Contracts Finder can be searched free of charge and without an account.",
+      "It carries lower-value opportunities that never appear on Find a Tender, which matters most to smaller suppliers.",
+      "Award records carry a buyer-supplied company number, which can usually be matched to a registered legal entity.",
+      "Notice data is published in the Open Contracting Data Standard for bulk reuse."
+    ],
+    "cons": [
+      "It is a notice database, not a supplier register. Publication establishes nothing about a supplier’s eligibility, standing or trustworthiness.",
+      "Its extent does not include Scotland, and in Wales and Northern Ireland it reaches only authorities whose functions are not wholly or mainly devolved. Scotland, Wales and Northern Ireland each run their own procurement service.",
+      "An award notice records that a contracting authority published a statement that a contract was awarded. It is not independent confirmation that the award happened as described.",
+      "Company numbers are entered by the buying authority and are not validated by the service, so a matching error is possible."
+    ],
+    "editorNotes": "Verified 2026-08-05 from the service and from the GOV.UK guidance page, which states that Scotland, Wales and Northern Ireland have their own dedicated public sector procurement websites and names Public Contracts Scotland, Sell2Wales and the Northern Ireland services. Territorial modelling is taken from the extent of the Public Contracts Regulations 2015 rather than from the signposting alone: the instrument extends to England, Wales and Northern Ireland and not to Scotland, with devolved Welsh and Northern Irish authorities outside its reach. It is therefore filed as a cross-territory jurisdiction covering GB-ENG, GB-NIR and GB-WLS, deliberately NOT as United Kingdom-wide and deliberately not as England alone. Classified as public-procurement-notice-database; it registers no suppliers."
+  },
+  {
+    "id": "gb-public-contracts-scotland",
+    "name": "Public Contracts Scotland",
+    "slug": "public-contracts-scotland",
+    "country": "united-kingdom",
+    "category": "government",
+    "website": "https://www.publiccontractsscotland.gov.uk/",
+    "submissionUrl": null,
+    "description": "Public Contracts Scotland is the national advertising portal for Scottish public sector procurement, publishing contract notices and awards from Scottish public bodies. It is the Scottish counterpart to the procurement notice services operated elsewhere in the United Kingdom.",
+    "tier": "tier1",
+    "scope": "subnational",
+    "jurisdiction": {
+      "type": "country",
+      "name": "Scotland",
+      "code": "GB-SCT",
+      "parentCountry": "united-kingdom"
+    },
+    "primaryRegistryType": "public-procurement-notice-database",
+    "registryTypes": [
+      "public-procurement-notice-database"
+    ],
+    "operator": {
+      "name": "Scottish Government, Scottish Procurement and Property Directorate",
+      "type": "ministry",
+      "officialUrl": "https://www.gov.scot/"
+    },
+    "publicAccess": {
+      "searchUrl": "https://www.publiccontractsscotland.gov.uk/Search/Search_MainPage.aspx",
+      "accessLevel": "open",
+      "freeToSearch": true,
+      "loginRequired": false,
+      "identityVerificationRequired": false,
+      "captcha": false,
+      "geographicRestriction": false,
+      "paidDocumentsAvailable": false,
+      "notes": "Notices are searched without an account. Registration is free and is needed to bid or to receive notifications, not to search."
+    },
+    "petroHrysScore": 77,
+    "scoreFactors": {
+      "editorialTrust": 9,
+      "businessUsefulness": 8,
+      "verificationQuality": 7,
+      "platformReputation": 7,
+      "spamResistance": 9,
+      "industryImportance": 7,
+      "longTermStability": 8,
+      "submissionQuality": 6,
+      "transparency": 8,
+      "moderationQuality": 7
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": true,
+      "saas": null,
+      "enterprise": true,
+      "agency": true,
+      "freelancer": null,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-20",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "gb-find-a-tender",
+        "gb-contracts-finder",
+        "gb-sell2wales"
+      ],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Finding Scottish public sector contract opportunities that do not appear on the United Kingdom services.",
+      "Following Scottish public procurement, which runs under its own body of legislation."
+    ],
+    "notRecommendedFor": [
+      "Procurement outside Scotland, which is published through Find a Tender, Contracts Finder or Sell2Wales.",
+      "Checking a supplier’s standing, which no notice database records."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Suppliers to Scottish public sector bodies"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source",
+      "public-procurement"
+    ],
+    "pros": [
+      "Notices can be searched free of charge and without an account, and registration to bid is itself free.",
+      "It is the national advertising portal for Scottish public procurement, which sits under separate Scottish legislation from the rest of the United Kingdom.",
+      "It carries Scottish below-threshold procurement that the United Kingdom-wide service does not publish."
+    ],
+    "cons": [
+      "It is a notice database, not a supplier register. Publication establishes nothing about a supplier’s eligibility, standing or trustworthiness.",
+      "It covers Scotland only. Procurement elsewhere in the United Kingdom is published through different services.",
+      "Day-to-day operation is provided under contract by a commercial supplier on behalf of the Scottish Ministers, so the service is government-owned rather than government-built."
+    ],
+    "editorNotes": "Verified 2026-08-05 from the service’s own pages. The owning public authority is the Scottish Ministers acting through the Scottish Procurement and Property Directorate; the site’s terms identify a commercial supplier as responsible for providing and managing the website day to day, and both facts are recorded rather than only the first. Operator type is ministry because the accountable body is the Scottish Government, and the commercial delivery arrangement is published as a con. Classified as public-procurement-notice-database; it registers no suppliers. Territory is Scotland alone."
+  },
+  {
+    "id": "gb-sell2wales",
+    "name": "Sell2Wales",
+    "slug": "sell2wales",
+    "country": "united-kingdom",
+    "category": "government",
+    "website": "https://www.sell2wales.gov.wales/",
+    "submissionUrl": null,
+    "description": "Sell2Wales publishes public sector contract opportunities in Wales, together with buyer profiles, contract results and pipeline notices. It is operated by the Welsh Government as the Welsh counterpart to the other United Kingdom procurement notice services.",
+    "tier": "tier1",
+    "scope": "subnational",
+    "jurisdiction": {
+      "type": "country",
+      "name": "Wales",
+      "code": "GB-WLS",
+      "parentCountry": "united-kingdom"
+    },
+    "primaryRegistryType": "public-procurement-notice-database",
+    "registryTypes": [
+      "public-procurement-notice-database"
+    ],
+    "operator": {
+      "name": "Welsh Government",
+      "type": "ministry",
+      "officialUrl": "https://www.gov.wales/"
+    },
+    "publicAccess": {
+      "searchUrl": "https://www.sell2wales.gov.wales/search/search_mainpage.aspx",
+      "accessLevel": "open",
+      "freeToSearch": true,
+      "loginRequired": false,
+      "identityVerificationRequired": false,
+      "captcha": false,
+      "geographicRestriction": false,
+      "paidDocumentsAvailable": false,
+      "notes": "Contracts and buyer profiles are searched without an account. Registration is needed to bid or to receive notifications, not to search."
+    },
+    "petroHrysScore": 76,
+    "scoreFactors": {
+      "editorialTrust": 9,
+      "businessUsefulness": 7,
+      "verificationQuality": 7,
+      "platformReputation": 7,
+      "spamResistance": 9,
+      "industryImportance": 7,
+      "longTermStability": 8,
+      "submissionQuality": 6,
+      "transparency": 8,
+      "moderationQuality": 7
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": true,
+      "saas": null,
+      "enterprise": true,
+      "agency": true,
+      "freelancer": null,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-10",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "gb-find-a-tender",
+        "gb-contracts-finder",
+        "gb-public-contracts-scotland"
+      ],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Finding Welsh public sector contract opportunities, including pipeline and future opportunities.",
+      "Identifying Welsh public sector buyers through their published buyer profiles."
+    ],
+    "notRecommendedFor": [
+      "Procurement outside Wales, which is published through the other United Kingdom services.",
+      "Checking a supplier’s standing, which no notice database records."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Suppliers to Welsh public sector bodies"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source",
+      "public-procurement"
+    ],
+    "pros": [
+      "Contracts and buyer profiles can be searched free of charge and without an account.",
+      "It publishes future and pipeline opportunities alongside current ones and contract results, so forward planning is possible.",
+      "Open contracting transparency data is offered for download in several formats, so the notices are reusable in bulk.",
+      "The service is published bilingually in Welsh and English."
+    ],
+    "cons": [
+      "It is a notice database, not a supplier register. Publication establishes nothing about a supplier’s eligibility, standing or trustworthiness.",
+      "It covers Wales only. Procurement elsewhere in the United Kingdom is published through different services.",
+      "Day-to-day operation is provided under contract by a commercial supplier on behalf of the Welsh Government."
+    ],
+    "editorNotes": "Verified 2026-08-05 from the service’s own pages. The Welsh Government is the owning public authority; the site’s terms identify a commercial supplier as responsible for providing and managing the website day to day, and both are recorded. Classified as public-procurement-notice-database; it registers no suppliers. Territory is Wales alone."
+  },
+  {
+    "id": "gb-companies-house-disqualified-directors",
+    "name": "Disqualified Directors Register",
+    "slug": "companies-house-disqualified-directors",
+    "country": "united-kingdom",
+    "category": "government",
+    "website": "https://find-and-update.company-information.service.gov.uk/search/disqualified-officers",
+    "submissionUrl": null,
+    "description": "The register of disqualified company directors records people who are banned from acting as a company director or being involved in forming or running a company. It is published by Companies House as a search distinct from the company register, and the disqualifications themselves are made by courts and other bodies rather than by Companies House.",
+    "tier": "tier1",
+    "scope": "national",
+    "officialName": "Register of disqualified company directors",
+    "resourceIdentity": {
+      "canonicalDomain": "find-and-update.company-information.service.gov.uk",
+      "systemKey": "companies-house-disqualified-directors-register",
+      "sharedHostGroup": "companies-house-service"
+    },
+    "primaryRegistryType": "exclusion-and-debarment-register",
+    "registryTypes": [
+      "exclusion-and-debarment-register"
+    ],
+    "operator": {
+      "name": "Companies House",
+      "type": "government-agency",
+      "officialUrl": "https://www.gov.uk/government/organisations/companies-house"
+    },
+    "publicAccess": {
+      "searchUrl": "https://find-and-update.company-information.service.gov.uk/search/disqualified-officers",
+      "accessLevel": "open",
+      "freeToSearch": true,
+      "loginRequired": false,
+      "identityVerificationRequired": false,
+      "captcha": false,
+      "geographicRestriction": false,
+      "paidDocumentsAvailable": null,
+      "notes": "The disqualified-officers search is served as its own tab and its own URL path alongside the company and officer searches, and is used without an account."
+    },
+    "petroHrysScore": 89,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 9,
+      "verificationQuality": 9,
+      "platformReputation": 9,
+      "spamResistance": 10,
+      "industryImportance": 8,
+      "longTermStability": 9,
+      "submissionQuality": 6,
+      "transparency": 9,
+      "moderationQuality": 9
+    },
+    "domainRating": 92,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-04",
+        "status": "historicalSnapshot",
+        "measuredDomain": "find-and-update.company-information.service.gov.uk"
+      }
+    },
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": true,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-29",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "gb-individual-insolvency-register"
+      ],
+      "usedWith": [
+        "gb-companies-house"
+      ],
+      "competitors": []
+    },
+    "bestFor": [
+      "Checking whether a named person is currently disqualified from acting as a company director.",
+      "Due diligence on a proposed director, officer or business counterparty before appointment."
+    ],
+    "notRecommendedFor": [
+      "Confirming that a company exists or is in good standing, which is the separate company register.",
+      "Treating an empty result as proof that a person has never been disqualified."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Directors and officers of United Kingdom companies"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source",
+      "director-disqualification"
+    ],
+    "pros": [
+      "The register can be searched free of charge and without an account.",
+      "It is a distinct search with its own tab and its own address alongside the company and officer searches, so a disqualification check is a deliberate query rather than a by-product of a company lookup.",
+      "A disqualification can run for up to fifteen years, and the entry records the period rather than only the fact.",
+      "Disqualifications are made or accepted by courts and other public bodies, so the register reflects an external legal decision rather than an administrative opinion of the publisher."
+    ],
+    "cons": [
+      "Absence from the register does not prove that a person was never disqualified. Entries reflect current disqualifications, and a period that has ended is no longer a live restriction.",
+      "Inclusion records a disqualification. It does not describe every restriction, sanction or legal consequence a person may be subject to, and other registers hold other restrictions.",
+      "Company registration and director disqualification are separate systems that happen to share one Companies House website. A clean company record says nothing about its officers’ disqualification status.",
+      "The Domain Rating shown is a dated measurement of the shared Companies House domain, not of this register."
+    ],
+    "editorNotes": "Verified 2026-08-05. The disqualified-officers search is served at its own path on the Companies House service and appears as a separate tab from \"Search for companies\" and \"Search for Officers\", so it is a distinct system rather than a query-string variant of the company search. GOV.UK states a director can be disqualified for up to 15 years and names the courts, the Insolvency Service, the Competition and Markets Authority, the Foreign, Commonwealth and Development Office and HM Treasury among the bodies whose decisions feed it. Published through the resourceIdentity shared-host mechanism because it shares find-and-update.company-information.service.gov.uk with the company register, with a distinct systemKey and the shared group companies-house-service. It reuses that domain’s existing frozen Domain Rating snapshot verbatim — value 92, provider Ahrefs, measured 2026-08-04, status historicalSnapshot — read off the company-register record. No measurement was made and no API was called."
   }
 ]

@@ -2227,5 +2227,149 @@
       "The Domain Rating shown is a dated measurement of the shared departmental domain ised-isde.canada.ca, not of this database."
     ],
     "editorNotes": "Verified 2026-08-05 from official CIPO sources and revalidated immediately before publication: the search page at ised-isde.canada.ca/cipo/trademark-search/srch served its search form and reported \"The database was last updated on: 2026-08-05\". Operator: Canadian Intellectual Property Office, Innovation, Science and Economic Development Canada. Coverage and volume quoted from CIPO’s \"Introduction to the Canadian Trademarks Database\", which also carries the disclaimer notice. The searchable categories — trademarks, certification marks, distinguishing guise, geographical indications and plant breeders’ rights denominations — were read off the search form itself. The advice to engage a registered agent is CIPO’s, from \"Search intellectual property databases\". This is a distinct statutory system from the federal corporation search: a different register, a different legal function, a different search URL and a different population of subjects. It shares the official host ised-isde.canada.ca with that record, so both declare the ised-isde-canada shared-host group and this record reuses the domain’s existing frozen Domain Rating snapshot verbatim — value 92, provider Ahrefs, measured 2026-08-04, status historicalSnapshot, measuredDomain ised-isde.canada.ca — read directly off ca-corporations-canada. No measurement was made, no API was called and no date was changed. The rating describes the departmental domain, not this database and not any individual page on it. Inclusion arises from a trademark filing, not from any submission."
+  },
+  {
+    "id": "ca-canadabuys",
+    "name": "CanadaBuys",
+    "slug": "canadabuys",
+    "country": "canada",
+    "category": "government",
+    "website": "https://canadabuys.canada.ca/en",
+    "submissionUrl": null,
+    "description": "CanadaBuys is the Government of Canada procurement service publishing federal tender notices, award notices and contract history. It is the single official point of access for doing business with the Government of Canada and the broader Canadian public sector.",
+    "tier": "tier1",
+    "scope": "national",
+    "primaryRegistryType": "public-procurement-notice-database",
+    "registryTypes": [
+      "public-procurement-notice-database"
+    ],
+    "operator": {
+      "name": "Public Services and Procurement Canada",
+      "type": "government-agency",
+      "officialUrl": "https://www.canada.ca/en/public-services-procurement.html"
+    },
+    "publicAccess": {
+      "searchUrl": "https://canadabuys.canada.ca/en/tender-opportunities",
+      "accessLevel": "open",
+      "freeToSearch": true,
+      "loginRequired": false,
+      "identityVerificationRequired": false,
+      "captcha": false,
+      "geographicRestriction": false,
+      "paidDocumentsAvailable": false,
+      "notes": "Tender notices, award notices, contract history and solicitation documents were all retrieved without an account. The service’s own account-access page uses the phrase \"view and bid\", but reading a notice requires no account; an account is used to bid and to receive notifications."
+    },
+    "petroHrysScore": 79,
+    "scoreFactors": {
+      "editorialTrust": 9,
+      "businessUsefulness": 8,
+      "verificationQuality": 7,
+      "platformReputation": 8,
+      "spamResistance": 9,
+      "industryImportance": 8,
+      "longTermStability": 8,
+      "submissionQuality": 6,
+      "transparency": 8,
+      "moderationQuality": 7
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": true,
+      "saas": null,
+      "enterprise": true,
+      "agency": true,
+      "freelancer": null,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-08",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "ca-mras-canadian-business-registry"
+      ],
+      "usedWith": [
+        "ca-corporations-canada"
+      ],
+      "competitors": []
+    },
+    "bestFor": [
+      "Finding current Government of Canada tender opportunities and the contracts awarded from them.",
+      "Researching federal contract history, including which suppliers have been awarded past contracts."
+    ],
+    "notRecommendedFor": [
+      "Checking whether a supplier exists, is registered or is in good standing, which is a corporate-registry question.",
+      "Reading a published notice as evidence that a supplier is eligible, approved or trustworthy."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Suppliers to the Government of Canada and the broader Canadian public sector"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source",
+      "public-procurement"
+    ],
+    "pros": [
+      "CanadaBuys can be searched free of charge and without an account, and solicitation documents are downloadable anonymously.",
+      "It publishes tender notices, award notices and contract history together, so a procurement can be followed past the opportunity stage.",
+      "It is published by Public Services and Procurement Canada as the official point of access rather than by a commercial aggregator.",
+      "Bulk procurement datasets are offered for download through the Government of Canada open data portal."
+    ],
+    "cons": [
+      "It is a notice database, not a supplier register. Publication establishes nothing about a supplier’s eligibility, standing, competence or trustworthiness.",
+      "The account-access page is worded as though an account is needed to view opportunities, which understates what can be read anonymously.",
+      "Notice content is supplied by the contracting authority, so an error in a notice is the authority’s and is not corrected by the service.",
+      "The service intermittently refuses automated requests, so availability to a script is not a guide to availability in a browser."
+    ],
+    "editorNotes": "Verified 2026-08-05 from official Government of Canada pages. Operator: Public Services and Procurement Canada. This record REVERSES a Wave 1C-2 rejection, and only on the classification question: CanadaBuys was previously rejected as \"a tender-opportunity portal, not a register of businesses\", which was correct under the type vocabulary then available. The public-procurement-notice-database type added in this wave describes it honestly, and the editorial standard is unchanged — it is still not a supplier register, and the record says so. Anonymous access was reproduced across notice, award, contract-history and solicitation-document retrieval; one earlier automated request returned an HTTP 403 interstitial, which is recorded as intermittent bot mitigation rather than a login requirement. Filed as scope national. domainRating stays null: canadabuys.canada.ca carries no existing frozen snapshot, so there is nothing to reuse and nothing may be measured."
   }
 ]

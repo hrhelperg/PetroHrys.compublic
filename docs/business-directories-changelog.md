@@ -6,23 +6,35 @@ Entries are grouped by verification date, newest first.
 
 ## 2026-08-05
 
-37 directories added or re-verified.
+59 directories added or re-verified.
 
+- **Register of Charities (England and Wales)** — united-kingdom / government — PetroHrys Score 92
 - **Canadian Trademarks Database** — canada / government — PetroHrys Score 91
 - **Registraire des entreprises — Enterprise Register** — canada / government — PetroHrys Score 90
 - **Ontario Business Registry** — canada / government — PetroHrys Score 90
+- **NMC Register** — united-kingdom / government — PetroHrys Score 90
+- **Disqualified Directors Register** — united-kingdom / government — PetroHrys Score 89
+- **Solicitors Register** — united-kingdom / government — PetroHrys Score 89
+- **GDC Registers** — united-kingdom / government — PetroHrys Score 89
+- **HCPC Register** — united-kingdom / government — PetroHrys Score 89
 - **Canadian Patents Database** — canada / government — PetroHrys Score 88
 - **SEDAR+** — canada / government — PetroHrys Score 88
 - **BC Registry Services** — canada / government — PetroHrys Score 87
+- **Scottish Charity Register** — united-kingdom / government — PetroHrys Score 87
+- **The Barristers’ Register** — united-kingdom / government — PetroHrys Score 87
 - **Australian Trade Mark Search** — australia / government — PetroHrys Score 85
 - **Manitoba Companies Office** — canada / government — PetroHrys Score 85
+- **Individual Insolvency Register (England and Wales)** — united-kingdom / government — PetroHrys Score 85
 - **Nova Scotia Registry of Joint Stock Companies** — canada / government — PetroHrys Score 85
+- **Food Hygiene Ratings** — united-kingdom / government — PetroHrys Score 84
 - **Régie du bâtiment du Québec — Licence Holders Register** — canada / government — PetroHrys Score 84
 - **APRA Registers** — australia / government — PetroHrys Score 83
 - **Northwest Territories Corporate Registries** — canada / government — PetroHrys Score 83
 - **Business Search** — united-states / government — PetroHrys Score 82
+- **Find a Tender** — united-kingdom / government — PetroHrys Score 82
 - **Licensing NT Public Register** — australia / government — PetroHrys Score 82
 - **Incorporated Associations Search** — australia / government — PetroHrys Score 81
+- **Register of Insolvencies (Scotland)** — united-kingdom / government — PetroHrys Score 81
 - **Tasmanian Licensed Occupations Search** — australia / government — PetroHrys Score 81
 - **ACT Incorporated Associations Public Register** — australia / government — PetroHrys Score 80
 - **Check a charity or association** — australia / government — PetroHrys Score 80
@@ -30,19 +42,29 @@ Entries are grouped by verification date, newest first.
 - **SOS Business Entity Search** — united-states / government — PetroHrys Score 80
 - **Victorian Incorporated Associations Public Register** — australia / government — PetroHrys Score 80
 - **WA Online Licence Search** — australia / government — PetroHrys Score 80
+- **CanadaBuys** — canada / government — PetroHrys Score 79
+- **Care Inspectorate register of care services (Scotland)** — united-kingdom / government — PetroHrys Score 79
+- **Care Inspectorate Wales service directory** — united-kingdom / government — PetroHrys Score 79
+- **Healthcare Improvement Scotland independent healthcare register** — united-kingdom / government — PetroHrys Score 79
+- **Contracts Finder** — united-kingdom / government — PetroHrys Score 78
 - **AssociationsOnline** — australia / government — PetroHrys Score 77
 - **Business Entities Online** — united-states / government — PetroHrys Score 77
 - **Business Name Search** — united-states / government — PetroHrys Score 77
 - **Business Search** — united-states / government — PetroHrys Score 77
+- **Public Contracts Scotland** — united-kingdom / government — PetroHrys Score 77
+- **RQIA Register of Services** — united-kingdom / government — PetroHrys Score 77
+- **Register of Charities (Northern Ireland)** — united-kingdom / government — PetroHrys Score 77
 - **Business Entity Search** — united-states / government — PetroHrys Score 76
 - **Business Search** — united-states / government — PetroHrys Score 76
 - **Business Search** — united-states / government — PetroHrys Score 76
 - **Business Services Online Filings Portal** — united-states / government — PetroHrys Score 76
+- **Sell2Wales** — united-kingdom / government — PetroHrys Score 76
 - **Arizona Business Center** — united-states / government — PetroHrys Score 75
 - **Companies and Deeds Online** — canada / government — PetroHrys Score 75
 - **Government Records Inquiry System** — united-states / government — PetroHrys Score 75
 - **Business Entities Search** — united-states / government — PetroHrys Score 74
 - **Saskatchewan Corporate Registry** — canada / government — PetroHrys Score 73
+- **Individual Voluntary Arrangement Register (Northern Ireland)** — united-kingdom / government — PetroHrys Score 73
 - **MRAS Canadian Business Registry** — canada / government — PetroHrys Score 72
 - **Nunavut Legal Registries** — canada / government — PetroHrys Score 70
 
