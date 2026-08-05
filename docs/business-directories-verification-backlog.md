@@ -100,3 +100,34 @@ These were assessed and will not be revisited without new evidence.
 | USPTO Patent Center | Public access barred since 11 September 2025 — USPTO states guest and unregistered users can no longer access it — and duplicative of Patent Public Search. Widely miscited as a public patent-status lookup. |
 | ClinicalTrials.gov | The unit of record is a study protocol; sponsors appear only as unvalidated free-text. A user cannot establish that a company exists or is permitted to do anything. |
 | DOL OFCCP | Every official surface returned 403 or failed DNS, and the data.gov fallbacks were unavailable. No evidence a public registry exists. |
+
+---
+
+## Wave 1C-1 — Australia (attempted 2026-08-05)
+
+Fourteen candidates researched from official Australian sources. Eleven were
+published. The rest are recorded here so the gap is visible rather than silent.
+
+### Pending manual verification
+
+| Candidate | Operator | Official URL | Block reason | Verification steps required |
+|---|---|---|---|---|
+| NSW incorporated associations register | NSW Fair Trading | `applications.fairtrading.nsw.gov.au/assocregister/` | All five publication criteria were established from official NSW pages, but the search application's own behaviour was not observed end to end. | Open the register in a browser, run one association search, and record the result fields and whether any fee or account applies. |
+| ACNC Charity Register | Australian Charities and Not-for-profits Commission | `acnc.gov.au/charity/charities` | acnc.gov.au was unreachable across repeated attempts — connection timeouts at the transport layer, not an access restriction. Identity and legal basis are established from the ACNC Act and ACNC-authored text on data.gov.au. | Open the register in a browser and record the search fields, the published data (charity status, ABN, responsible persons, Annual Information Statements) and the access model. |
+| Personal Property Securities Register (PPSR) | Australian Financial Security Authority | `ppsr.gov.au` | Both ppsr.gov.au and afsa.gov.au were unreachable across repeated attempts over two transports. | Establish the fee model from an official page before publishing — PPSR searches are widely believed to be fee-bearing per search, and that must be observed, never assumed. Post-2012 company charges migrated off the ASIC register to PPSR, which is what would make it non-duplicative. |
+
+No access facts are asserted for any of the three.
+
+### Rejected — do not propose again
+
+| Candidate | Reason |
+|---|---|
+| ASIC Banned and Disqualified Persons | One of the register views already represented by `au-asic-registers`, whose own description covers "company, business name, financial adviser and banned-person registers". A Connect tab is not a distinct register. |
+| ASIC Financial Advisers Register | Same reason: a view behind the same ASIC Connect landing page. |
+| Director Identification Number (ABRS) | No public lookup exists. Director IDs are issued but not published or searchable, so there is nothing for a registry record to point at. |
+
+### Not surveyed
+
+TGA public registers, AFSA insolvency and bankruptcy records, ACMA registers,
+IP Australia patents (AusPat) and designs, and the NSW co-operatives register.
+None was reached in this wave; none is rejected.

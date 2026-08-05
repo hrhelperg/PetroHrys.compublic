@@ -279,5 +279,1608 @@
       "Split across many separate register searches"
     ],
     "editorNotes": "Verified 2026-08-04. Operated by the Australian Securities and Investments Commission."
+  },
+  {
+    "id": "au-apra-registers",
+    "name": "APRA Registers",
+    "slug": "apra-registers",
+    "country": "australia",
+    "category": "government",
+    "website": "https://www.apra.gov.au/registers",
+    "submissionUrl": null,
+    "description": "APRA Registers is the national register operated by the Australian Prudential Regulation Authority. The registers are published as browsable lists rather than a search application.",
+    "tier": "tier1",
+    "scope": "national",
+    "primaryRegistryType": "regulated-operator-register",
+    "registryTypes": [
+      "regulated-operator-register",
+      "financial-services-register",
+      "exclusion-and-debarment-register"
+    ],
+    "operator": {
+      "name": "Australian Prudential Regulation Authority",
+      "type": "government-agency",
+      "officialUrl": null
+    },
+    "publicAccess": {
+      "searchUrl": null,
+      "accessLevel": "open",
+      "freeToSearch": true,
+      "loginRequired": false,
+      "identityVerificationRequired": false,
+      "captcha": false,
+      "geographicRestriction": false,
+      "paidDocumentsAvailable": false,
+      "notes": "A visitor reaches a public index page listing twelve registers under two headings, \"Regulated industry registers\" and \"Other registers\", each a plain link to its own page. Every register page opens directly, with no account, sign-in, fee, payment step, or identity check presented at any point."
+    },
+    "petroHrysScore": 83,
+    "scoreFactors": {
+      "editorialTrust": 9,
+      "businessUsefulness": 8,
+      "verificationQuality": 9,
+      "platformReputation": 8,
+      "spamResistance": 10,
+      "industryImportance": 9,
+      "longTermStability": 9,
+      "submissionQuality": 4,
+      "transparency": 8,
+      "moderationQuality": 7
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-30",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [
+        "au-asic-registers"
+      ],
+      "competitors": []
+    },
+    "bestFor": [
+      "Confirming an Australian authorisation from the responsible national body"
+    ],
+    "notRecommendedFor": [
+      "Confirming company registration, which in Australia is federal and sits with ASIC",
+      "Treating an entry as evidence of solvency, competence or general trustworthiness",
+      "Looking up a single named entity quickly"
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Entities registered or licensed in Australia"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "APRA Registers is published free of charge and without an account, directly by the Australian Prudential Regulation Authority.",
+      "The authoritative federal check on whether a bank, credit union, insurer, private health insurer, friendly society or superannuation trustee actually holds an APRA prudential authorisation — the standard verification when confirming a deposit-taker or insurer is legitimate rather than merely incorporated.",
+      "The hub defines its own scope: \"The registers contain lists of entities authorised and licensed by APRA to operate within each regulated industry.\" (apra.gov.au/registers)"
+    ],
+    "cons": [
+      "It does not establish corporate existence, incorporation, or legal identity.",
+      "Published lists, not a searchable register — no register search form, no query parameters, no per-entity permalink record pages, and no public API was found on any page examined.",
+      "The only search box on the site is APRA's site-wide website search, which queries page content, not register entries; it must not be represented as a register search."
+    ],
+    "editorNotes": "Verified 2026-08-05 from official Australia sources. Operator: Australian Prudential Regulation Authority. APRA's own navigation labels this simply \"Registers\"; the page title is \"Registers | APRA\". Twelve registers are published, split into \"Regulated industry registers\" (seven) and \"Other registers\" (five), the latter including enforceable undertakings and infringement notices as well as disqualified individuals. (apra.gov.au/registers) The superannuation register is published as bulk files rather than a lookup: \"List of RSES and RSE Licensees and MySuper Authorised products 03 August 2026 XLSX 74.26 KB\" and an \"RSE list ZIP 18.42 KB\" XML archive. (apra.gov.au/registers/list-superannuation-institutions) Inclusion arises from statutory registration, licensing or authorisation, not from any submission."
+  },
+  {
+    "id": "au-ip-australia-trade-mark-search",
+    "name": "Australian Trade Mark Search",
+    "slug": "ip-australia-trade-mark-search",
+    "country": "australia",
+    "category": "government",
+    "website": "https://search.ipaustralia.gov.au/trademarks/search/quick",
+    "submissionUrl": null,
+    "description": "Australian Trade Mark Search is the national register operated by IP Australia. It records registered and pending Australian trade marks. The operator lists searchable dimensions as Word, Phrase, Image, Owner, and Goods and services.",
+    "tier": "tier1",
+    "scope": "national",
+    "primaryRegistryType": "trademark-register",
+    "registryTypes": [
+      "trademark-register"
+    ],
+    "operator": {
+      "name": "IP Australia",
+      "type": "government-agency",
+      "officialUrl": null
+    },
+    "publicAccess": {
+      "searchUrl": "https://search.ipaustralia.gov.au/trademarks/search/quick",
+      "accessLevel": "open",
+      "freeToSearch": true,
+      "loginRequired": false,
+      "identityVerificationRequired": false,
+      "captcha": false,
+      "geographicRestriction": false,
+      "paidDocumentsAvailable": false,
+      "notes": "Search is fully public with no account."
+    },
+    "petroHrysScore": 85,
+    "scoreFactors": {
+      "editorialTrust": 9,
+      "businessUsefulness": 9,
+      "verificationQuality": 9,
+      "platformReputation": 8,
+      "spamResistance": 10,
+      "industryImportance": 8,
+      "longTermStability": 9,
+      "submissionQuality": 6,
+      "transparency": 8,
+      "moderationQuality": 7
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-31",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "us-uspto-trademark-search"
+      ],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Confirming an Australian trade mark from the responsible national body"
+    ],
+    "notRecommendedFor": [
+      "Confirming company registration, which in Australia is federal and sits with ASIC",
+      "Treating an entry as evidence of solvency, competence or general trustworthiness"
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Entities registered or licensed in Australia"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "Australian Trade Mark Search can be searched free of charge and without an account, directly from IP Australia.",
+      "The authoritative public search over the Australian trade mark register, and the only free official route to determine whether a sign is already registered or pending in Australia and in which classes of goods and services.",
+      "Actively maintained and updated daily: the system's own About page reported \"Last Trade Mark to be indexed: 2682413 on 31 Jul 2026\", \"Last Trade Mark to be lodged: 2683264 on 04 Aug 2026\", \"Data last updated: 05 Aug 2026\" and \"System version: 2.0.0\" — the update date matching the day of verification."
+    ],
+    "cons": [
+      "A trade mark record establishes rights in a sign for particular classes of goods and services; it does not establish that a business legally exists, is registered, or is trading. It is not company registration (federal, ASIC), business name registration (federal, ASIC), or an ABN (federal, ABR).",
+      "Result sets are capped: \"If your search returns many results, only the first 2,000 will display\", and Excel export is likewise limited to 2,000 records.",
+      "The operator disclaims reliance on results for clearance purposes: any subsequent application \"will still be subject to a search by a trade mark examiner as part of the assessment process.\""
+    ],
+    "editorNotes": "Verified 2026-08-05 from official Australia sources. Operator: IP Australia. Historical depth to 1906: \"Australian Trade Mark Search contains trade mark record data dating back to 1906. The data in Australian Trade Mark Search is updated daily.\" Image-based searching is supported, not just text: \"Quick Search allows you to upload an image for an image comparison search\", and the site banner notes \"We have made improvements to Chinese text recognition in the image-based search feature.\" Inclusion arises from statutory registration, licensing or authorisation, not from any submission."
+  },
+  {
+    "id": "au-vic-incorporated-associations",
+    "name": "Victorian Incorporated Associations Public Register",
+    "slug": "victoria-incorporated-associations-register",
+    "country": "australia",
+    "category": "government",
+    "website": "https://registers.consumer.vic.gov.au/IaSearch",
+    "submissionUrl": null,
+    "description": "Victorian Incorporated Associations Public Register is the state register operated by Consumer Affairs Victoria. It records incorporated associations registered in Victoria under the Associations Incorporation Reform Act 2012. Search by incorporated association name, by registration number, or by browsing associations pending cancellation.",
+    "tier": "tier1",
+    "scope": "subnational",
+    "jurisdiction": {
+      "type": "state",
+      "name": "Victoria",
+      "code": "AU-VIC",
+      "parentCountry": "australia"
+    },
+    "primaryRegistryType": "business-entity-register",
+    "registryTypes": [
+      "business-entity-register",
+      "public-filing-database"
+    ],
+    "operator": {
+      "name": "Consumer Affairs Victoria",
+      "type": "government-agency",
+      "officialUrl": null
+    },
+    "publicAccess": {
+      "searchUrl": "https://registers.consumer.vic.gov.au/IaSearch",
+      "accessLevel": "open",
+      "freeToSearch": true,
+      "loginRequired": false,
+      "identityVerificationRequired": false,
+      "captcha": false,
+      "geographicRestriction": false,
+      "paidDocumentsAvailable": true,
+      "notes": "The register opens directly to a public search form with no account, sign-in or landing barrier."
+    },
+    "petroHrysScore": 80,
+    "scoreFactors": {
+      "editorialTrust": 9,
+      "businessUsefulness": 7,
+      "verificationQuality": 9,
+      "platformReputation": 7,
+      "spamResistance": 10,
+      "industryImportance": 7,
+      "longTermStability": 9,
+      "submissionQuality": 6,
+      "transparency": 8,
+      "moderationQuality": 7
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": true,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-09",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [
+        "au-asic-registers"
+      ],
+      "competitors": []
+    },
+    "bestFor": [
+      "Confirming a Victoria registration or licence that federal records do not carry",
+      "Establishing status before deciding whether a paid extract is worth ordering"
+    ],
+    "notRecommendedFor": [
+      "Confirming company registration, which in Australia is federal and sits with ASIC",
+      "Treating an entry as evidence of solvency, competence or general trustworthiness"
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Entities registered or licensed in Victoria"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "Victorian Incorporated Associations Public Register can be searched free of charge and without an account, directly from Consumer Affairs Victoria.",
+      "It is the authoritative way to confirm that a Victorian club, community group, sporting body or community organisation is a legally incorporated entity, to obtain its A-prefixed registration number, and to confirm whether it is currently registered or deregistered.",
+      "Section 191(2) of the Associations Incorporation Reform Act 2012 states \"The register must be open for public inspection\", and s 191(3) states the purpose is \"to enable members of the public to have access to information about the purposes, rules, contact details and secretaries of incorporated associations in Victoria\".",
+      "Incorporated associations are a Victorian state legal structure created and maintained under the Associations Incorporation Reform Act 2012, entirely distinct from ASIC-registered companies."
+    ],
+    "cons": [
+      "It does not establish company registration.",
+      "The free view withholds secretary names and address history; obtaining them requires a $51.80 paid extract, so the free tier alone will not resolve officeholder identity.",
+      "Data can be up to two hours stale relative to processing, per the operator's own disclaimer.",
+      "The free tier returns index data; extracts, certificates and lodged documents are a separate paid product."
+    ],
+    "editorNotes": "Verified 2026-08-05 from official Victoria sources. Operator: Consumer Affairs Victoria. Consumer Affairs Victoria labels the page \"Incorporated associations public register\". Consumer Affairs Victoria discloses a data latency: \"There may be a delay of up to two hours between when information is processed and when you can see it in the register.\" The free search is limited by design: a paid extract is needed for the \"Current and previous secretary's name\", the \"Association's registered address and previous addresses\" and the \"Association's previous names\". Inclusion arises from statutory registration, licensing or authorisation, not from any submission."
+  },
+  {
+    "id": "au-wa-associations-online",
+    "name": "AssociationsOnline",
+    "slug": "wa-associations-online",
+    "country": "australia",
+    "category": "government",
+    "website": "https://associations.commerce.wa.gov.au/associations/public/publicHomePage.jspx",
+    "submissionUrl": null,
+    "description": "AssociationsOnline is the state register operated by the Department of Local Government, Industry Regulation and Safety (LGIRS) — Consumer Protection. It records associations incorporated in Western Australia under the Associations Incorporation Act 2015. Search fields: Free-text search by association name or by IARN (Incorporated Association Registration Number). The results grid returns four columns, confirmed from the live table headers: Association Name, Number, Status, Date Incorporated.",
+    "tier": "tier1",
+    "scope": "subnational",
+    "jurisdiction": {
+      "type": "state",
+      "name": "Western Australia",
+      "code": "AU-WA",
+      "parentCountry": "australia"
+    },
+    "primaryRegistryType": "business-entity-register",
+    "registryTypes": [
+      "business-entity-register",
+      "public-filing-database"
+    ],
+    "operator": {
+      "name": "Department of Local Government, Industry Regulation and Safety (LGIRS) — Consumer Protection",
+      "type": "government-agency",
+      "officialUrl": null
+    },
+    "publicAccess": {
+      "searchUrl": "https://associations.commerce.wa.gov.au/associations/public/associationSearch.jspx",
+      "accessLevel": "partially-open",
+      "freeToSearch": true,
+      "loginRequired": false,
+      "identityVerificationRequired": false,
+      "captcha": false,
+      "geographicRestriction": false,
+      "paidDocumentsAvailable": true,
+      "notes": "The search is reachable without an account and without payment."
+    },
+    "petroHrysScore": 77,
+    "scoreFactors": {
+      "editorialTrust": 9,
+      "businessUsefulness": 5,
+      "verificationQuality": 9,
+      "platformReputation": 7,
+      "spamResistance": 10,
+      "industryImportance": 7,
+      "longTermStability": 9,
+      "submissionQuality": 6,
+      "transparency": 7,
+      "moderationQuality": 7
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": true,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-12",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "au-vic-incorporated-associations"
+      ],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Confirming a Western Australia registration or licence that federal records do not carry",
+      "Establishing status before deciding whether a paid extract is worth ordering"
+    ],
+    "notRecommendedFor": [
+      "Confirming company registration, which in Australia is federal and sits with ASIC",
+      "Treating an entry as evidence of solvency, competence or general trustworthiness"
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Entities registered or licensed in Western Australia"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "AssociationsOnline can be searched free of charge and without an account, directly from the Department of Local Government, Industry Regulation and Safety (LGIRS) — Consumer Protection.",
+      "The only authoritative way to confirm that a Western Australian incorporated association exists, to obtain its IARN, and to check whether it is currently Registered or Deregistered and when it was incorporated.",
+      "Statutory mandate is explicit: Associations Incorporation Act 2015 (WA) s 161, headed 'Commissioner must keep register of incorporated associations and other documents', provides '(1) The Commissioner must keep — (a) a register of incorporated associations; and (b) a copy of the following — (i) the rules of each incorporated association; (ii) any alteration to the rules of an incorporated association; (iii) every other document required by this Act to be lodged with the Commissioner.'",
+      "Incorporated associations are bodies corporate created under the Western Australian Associations Incorporation Act 2015 and registered by the Commissioner for Consumer Protection, not by ASIC. They carry an IARN in the form A0823232K (observed for ROTARY CANNING RIVER INC.), not an ACN, and they do not appear in the ASIC company or business name registers."
+    ],
+    "cons": [
+      "It does not establish company registration. Incorporated associations are a Western Australian legal structure created under state law; they have no ACN, ASIC does not register or list them, and this register is not a company register. It does not establish an ABN or any tax status — that remains ABN Lookup.",
+      "Result sets are capped — the search screen displays 'A maximum of 100 results were returned. Please refine your search criteria', so broad name queries silently truncate.",
+      "There are no stable per-record permalinks. Search executes as a form POST inside a server-side session carrying a JSF ViewState token, and the results screen shares one fixed URL, so individual association records cannot be cited or deep-linked.",
+      "The free tier returns index data; extracts, certificates and lodged documents are a separate paid product."
+    ],
+    "editorNotes": "Verified 2026-08-05 from official Western Australia sources. Operator: Department of Local Government, Industry Regulation and Safety (LGIRS) — Consumer Protection. Section 162(1) creates a public inspection right: 'A person may, on payment of the prescribed fee — (a) inspect the register kept under section 161(1)(a); or (b) inspect any document lodged with the Commissioner for the purposes of this Act... You won't need to enrol for a user account to do this.' Inclusion arises from statutory registration, licensing or authorisation, not from any submission."
+  },
+  {
+    "id": "au-nt-licensing-public-register",
+    "name": "Licensing NT Public Register",
+    "slug": "licensing-nt-public-register",
+    "country": "australia",
+    "category": "government",
+    "website": "https://licensingnt.nt.gov.au/PublicRegister/",
+    "submissionUrl": null,
+    "description": "Licensing NT Public Register is the territory register operated by the Northern Territory Government. It records holders of business and professional licences and registrations issued under nine Northern Territory licensing schemes. Licence Number; Licence Scheme (optional dropdown of the nine schemes — leaving it blank searches across all); Business Name with Exact Name / Partial Name / Sounds Like matching; Licensee Name with the same three matching modes; a checkbox \"Only Display Active Licences and Registrations\" (ticked by default); and Suburb or Postcode.",
+    "tier": "tier1",
+    "scope": "subnational",
+    "jurisdiction": {
+      "type": "territory",
+      "name": "Northern Territory",
+      "code": "AU-NT",
+      "parentCountry": "australia"
+    },
+    "primaryRegistryType": "professional-licence-register",
+    "registryTypes": [
+      "professional-licence-register",
+      "regulated-operator-register",
+      "business-entity-register"
+    ],
+    "operator": {
+      "name": "Northern Territory Government",
+      "type": "government-agency",
+      "officialUrl": null
+    },
+    "publicAccess": {
+      "searchUrl": "https://licensingnt.nt.gov.au/PublicRegister/",
+      "accessLevel": "open",
+      "freeToSearch": true,
+      "loginRequired": false,
+      "identityVerificationRequired": false,
+      "captcha": false,
+      "geographicRestriction": false,
+      "paidDocumentsAvailable": false,
+      "notes": "A visitor reaches the search form immediately and can run a search and read the full result list — licensee name, licence type, licence number, suburb and status — without an account, payment, or identity check."
+    },
+    "petroHrysScore": 82,
+    "scoreFactors": {
+      "editorialTrust": 9,
+      "businessUsefulness": 8,
+      "verificationQuality": 9,
+      "platformReputation": 7,
+      "spamResistance": 10,
+      "industryImportance": 7,
+      "longTermStability": 9,
+      "submissionQuality": 6,
+      "transparency": 8,
+      "moderationQuality": 7
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-22",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Confirming a Northern Territory registration or licence that federal records do not carry"
+    ],
+    "notRecommendedFor": [
+      "Confirming company registration, which in Australia is federal and sits with ASIC",
+      "Treating an entry as evidence of solvency, competence or general trustworthiness"
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Entities registered or licensed in Northern Territory"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "Licensing NT Public Register can be searched free of charge and without an account, directly from the Northern Territory Government.",
+      "The single authoritative public check on whether a named individual, company or firm holds a current Northern Territory licence across liquor, gambling, gaming machines, tobacco, private security, property agency, commercial and private agency, and second-hand dealing/pawnbroking/motor vehicle dealing — and the only public way to confirm that an NT incorporated association exists and is current, since ASIC does not register them. Returns licence number, licence type, suburb and status, supports phonetic and partial name matching for uncertain spellings, and allows public documents such as a copy of a liquor licence to be viewed.",
+      "A single search form covers nine licence schemes, exactly labelled: Association, Commercial and Private Agents, Consumer Affairs and Fair Trading, Gambling Business, Gaming Machines, Liquor, Private Security, Property Agent, Tobacco (underlying dropdown values ASSOC, CA, DEALER, GAMBLING, GAMING, LIQUOR, SECURITY, PA, TOBACCO).",
+      "Incorporated associations are Northern Territory legal structures created under the Associations Act 2003."
+    ],
+    "cons": [
+      "It is not a company register and does not establish incorporation, company status, directors, shareholders or beneficial ownership.",
+      "Results are returned by ASP.NET postback to /PublicRegister/PublicRegister/LicenceSearch.aspx; there are no stable, citable permalinks for individual records, for scheme-filtered views, or for result sets.",
+      "The observed result count topped out at exactly 1000 ('There were 1000 matching records found'), which appears to be a ceiling rather than a true total."
+    ],
+    "editorNotes": "Verified 2026-08-05 from official Northern Territory sources. Operator: Northern Territory Government. The system is branded \"Licensing NT\" and the searchable section is headed \"Public Register\". The scheme filter is optional, not a portal split: a search with the scheme left blank returns a single mixed result list across schemes, confirming one register application rather than nine separate searches. The application's own words: 'Welcome to the NT Government's Public Register. You can search the register to see if an Individual, Company or Firm is licensed.' Inclusion arises from statutory registration, licensing or authorisation, not from any submission."
+  },
+  {
+    "id": "au-qld-qbcc-licensee-register",
+    "name": "QBCC Licensee Register",
+    "slug": "qbcc-licensee-register",
+    "country": "australia",
+    "category": "government",
+    "website": "https://my.qbcc.qld.gov.au/myQBCC/s/qbcc-licensee-register",
+    "submissionUrl": null,
+    "description": "QBCC Licensee Register is the state register operated by the Queensland Building and Construction Commission. It records holders of QBCC building and construction licences in Queensland — both individuals and companies, across contractor, builder, trade contractor, nominee supervisor and site supervisor licence classes. A licensee is looked up by name or by licence number — QBCC states \"if you have a person's licence number or name, you can look them up in our [licensee register]\".",
+    "tier": "tier1",
+    "scope": "subnational",
+    "jurisdiction": {
+      "type": "state",
+      "name": "Queensland",
+      "code": "AU-QLD",
+      "parentCountry": "australia"
+    },
+    "primaryRegistryType": "professional-licence-register",
+    "registryTypes": [
+      "professional-licence-register",
+      "exclusion-and-debarment-register"
+    ],
+    "operator": {
+      "name": "Queensland Building and Construction Commission",
+      "type": "government-agency",
+      "officialUrl": null
+    },
+    "publicAccess": {
+      "searchUrl": "https://my.qbcc.qld.gov.au/myQBCC/s/qbcc-licensee-register",
+      "accessLevel": "open",
+      "freeToSearch": true,
+      "loginRequired": false,
+      "identityVerificationRequired": false,
+      "captcha": null,
+      "geographicRestriction": false,
+      "paidDocumentsAvailable": true,
+      "notes": "The register opens publicly on the myQBCC portal with no sign-in step and no payment. A search is run against a licensee name or licence number and returns a dated licence search certificate."
+    },
+    "petroHrysScore": 80,
+    "scoreFactors": {
+      "editorialTrust": 9,
+      "businessUsefulness": 7,
+      "verificationQuality": 9,
+      "platformReputation": 7,
+      "spamResistance": 10,
+      "industryImportance": 7,
+      "longTermStability": 9,
+      "submissionQuality": 6,
+      "transparency": 8,
+      "moderationQuality": 7
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-05",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "au-wa-online-licence-search"
+      ],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Confirming a Queensland registration or licence that federal records do not carry",
+      "Establishing status before deciding whether a paid extract is worth ordering"
+    ],
+    "notRecommendedFor": [
+      "Confirming company registration, which in Australia is federal and sits with ASIC",
+      "Treating an entry as evidence of solvency, competence or general trustworthiness"
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Entities registered or licensed in Queensland"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "QBCC Licensee Register can be searched free of charge and without an account, directly from the Queensland Building and Construction Commission.",
+      "The authoritative way to verify that a Queensland building or construction contractor is licensed, for what classes of work, and under what conditions, before contracting.",
+      "Statutorily mandated in its own right: QBCC Act 1991 s 99(1) — \"A register of licensees (the licensee register) must be kept by the commission.\" The search output is headed \"LICENCE SEARCH - COMPANY / Issued Pursuant to Section 99 of the Queensland Building and Construction Commission Act 1991\".",
+      "ASIC registers who is incorporated and who may trade under a business name, nationally."
+    ],
+    "cons": [
+      "This is an occupational licensing register, not a company or business register. It does not incorporate, register or number companies — company registration in Australia is federal, through ASIC — and holding a QBCC licence says nothing about a company's registration status.",
+      "The search interface is a JavaScript (Salesforce Lightning) application, so the search form itself could not be exercised programmatically; the no-login, no-payment finding rests on the register page serving without any sign-in redirect and on a complete licence search certificate being served live and unauthenticated from the same host.",
+      "Directed lookup only — a name or licence number is needed. There is no public bulk download or browse-all listing of every licensee from this register.",
+      "The free tier returns index data; extracts, certificates and lodged documents are a separate paid product."
+    ],
+    "editorNotes": "Verified 2026-08-05 from official Queensland sources. Operator: Queensland Building and Construction Commission. Suspensions and cancellations are part of THIS register by statute, not only separate lists: s 99(3)(g) requires a note of \"any cancellation or suspension of the licensee's licence including the circumstances that led to the cancellation or suspension\". Exclusions, bans and disqualifications are likewise embedded in this register by statute — s 99(3)(h) and (i) require details of the circumstances where a licensee \"has been a permanently excluded individual, an excluded individual, a banned individual or a disqualified individual\", including where a company's director, secretary, influential person or nominee became one \"in the last 10 years\". Inclusion arises from statutory registration, licensing or authorisation, not from any submission."
+  },
+  {
+    "id": "au-wa-online-licence-search",
+    "name": "WA Online Licence Search",
+    "slug": "wa-building-and-energy-licence-search",
+    "country": "australia",
+    "category": "government",
+    "website": "https://ols.demirs.wa.gov.au/search",
+    "submissionUrl": null,
+    "description": "WA Online Licence Search is the state register operated by the Department of Local Government, Industry Regulation and Safety. It records holders of occupational licences, registrations, permits, certificates and accreditations issued under Western Australian law by three divisions of the department. Search fields: A licence type must be selected first; the form then exposes, per type, company/business or family name, first name, location or post code, a search-all-WA option, date of birth (for individual credentials such as High Risk Work Licence and Construction Induction Training Card), and charity category for the Charity type. The application also carries a licence-number lookup path. Records returned include the licensee or entity name, licence number, licence type and sub-type (individual, body corporate/company, partnership), licence status, expiry date, entity type, trading names where held, and a business locality.",
+    "tier": "tier1",
+    "scope": "subnational",
+    "jurisdiction": {
+      "type": "state",
+      "name": "Western Australia",
+      "code": "AU-WA",
+      "parentCountry": "australia"
+    },
+    "primaryRegistryType": "professional-licence-register",
+    "registryTypes": [
+      "professional-licence-register",
+      "contractor-accreditation-register"
+    ],
+    "operator": {
+      "name": "Department of Local Government, Industry Regulation and Safety",
+      "type": "government-agency",
+      "officialUrl": null
+    },
+    "publicAccess": {
+      "searchUrl": "https://ols.demirs.wa.gov.au/search",
+      "accessLevel": "open",
+      "freeToSearch": true,
+      "loginRequired": false,
+      "identityVerificationRequired": false,
+      "captcha": false,
+      "geographicRestriction": false,
+      "paidDocumentsAvailable": true,
+      "notes": "The search opens and returns results without any account, login or payment. Selecting a licence type and entering a name returns full licence records — licensee or entity name, licence number, licence type and sub-type, status, expiry date and locality."
+    },
+    "petroHrysScore": 80,
+    "scoreFactors": {
+      "editorialTrust": 9,
+      "businessUsefulness": 7,
+      "verificationQuality": 9,
+      "platformReputation": 7,
+      "spamResistance": 10,
+      "industryImportance": 7,
+      "longTermStability": 9,
+      "submissionQuality": 6,
+      "transparency": 8,
+      "moderationQuality": 7
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": true,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-20",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "au-qld-qbcc-licensee-register"
+      ],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Confirming a Western Australia registration or licence that federal records do not carry",
+      "Establishing status before deciding whether a paid extract is worth ordering"
+    ],
+    "notRecommendedFor": [
+      "Confirming company registration, which in Australia is federal and sits with ASIC",
+      "Treating an entry as evidence of solvency, competence or general trustworthiness"
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Entities registered or licensed in Western Australia"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "WA Online Licence Search can be searched free of charge and without an account, directly from the Department of Local Government, Industry Regulation and Safety.",
+      "For construction and workplace-safety due diligence it also confirms high risk work, asbestos removal and demolition authorisations.",
+      "Covers 35 distinct licence types spanning three separate regulators in one department — Building and Energy, Consumer Protection and WorkSafe — so it is a department-wide occupational licensing search, not a building-industry tool.",
+      "ASIC registers companies, business names, financial advisers and banned persons under federal law. This register records Western Australian occupational authorisations that ASIC does not hold at all: electrical contractors and workers, gasfitting permits, plumbing contractors, tradesperson plumbers and restricted plumbing permits, building and painting contractors and practitioners, building surveying contractors and practitioners, motor vehicle dealers, salespersons, repairers, repair businesses and yard managers, real estate and settlement agents, land valuers, debt collectors, employment agents, charitable collections licences, and WorkSafe high risk work licences and assessor accreditations, asbestos assessor and Class A/B asbestos removal licences, demolition licences and construction induction training cards."
+    ],
+    "cons": [
+      "It does not establish corporate existence, legal personality or entity identifiers.",
+      "Contact details are withheld by law — the department's own form states \"email and telephone details cannot be released under the relevant legislation.\"",
+      "Downloadable bulk registers exist only for builders, building surveyors, painters and building engineers; the other 31 licence types are query-only.",
+      "The free tier returns index data; extracts, certificates and lodged documents are a separate paid product."
+    ],
+    "editorNotes": "Verified 2026-08-05 from official Western Australia sources. Operator: Department of Local Government, Industry Regulation and Safety. Four bulk registers are published as freely downloadable PDFs, which the department states \"are updated daily\": Register of builders, Register of building surveyors, Register of painters and Register of building engineers. The gas trades are licensed here as a \"Gasfitting Permit\", and Building and Energy states \"the law requires that all gasfitting work is carried out by a person who holds a licence issued by Building and Energy.\" Inclusion arises from statutory registration, licensing or authorisation, not from any submission."
+  },
+  {
+    "id": "au-qld-charity-association-search",
+    "name": "Check a charity or association",
+    "slug": "queensland-charity-association-search",
+    "country": "australia",
+    "category": "government",
+    "website": "https://www.qld.gov.au/community/fair-trading/check-a-licence-association-charity-or-register/check-a-charity-or-association",
+    "submissionUrl": null,
+    "description": "Check a charity or association is the state register operated by the Office of Fair Trading, Department of Justice (Queensland). It records associations incorporated in Queensland under the Associations Incorporation Act 1981 (Qld), and charities authorised to fundraise in Queensland under the Collections Act 1966 (Qld). Search fields: Organisation Number (e.g. IA or CH prefixed numbers, partial matches accepted), Organisation Name, and Organisation Postcode — singly or in combination.",
+    "tier": "tier1",
+    "scope": "subnational",
+    "jurisdiction": {
+      "type": "state",
+      "name": "Queensland",
+      "code": "AU-QLD",
+      "parentCountry": "australia"
+    },
+    "primaryRegistryType": "business-entity-register",
+    "registryTypes": [
+      "business-entity-register",
+      "charity-register"
+    ],
+    "operator": {
+      "name": "Office of Fair Trading, Department of Justice (Queensland)",
+      "type": "government-agency",
+      "officialUrl": null
+    },
+    "publicAccess": {
+      "searchUrl": "https://www.qld.gov.au/community/fair-trading/check-a-licence-association-charity-or-register/check-a-charity-or-association",
+      "accessLevel": "open",
+      "freeToSearch": true,
+      "loginRequired": false,
+      "identityVerificationRequired": false,
+      "captcha": false,
+      "geographicRestriction": false,
+      "paidDocumentsAvailable": true,
+      "notes": "The search is free and anonymous. No account, registration, email address or identity check is required, and no captcha guards the search itself."
+    },
+    "petroHrysScore": 80,
+    "scoreFactors": {
+      "editorialTrust": 9,
+      "businessUsefulness": 7,
+      "verificationQuality": 9,
+      "platformReputation": 7,
+      "spamResistance": 10,
+      "industryImportance": 7,
+      "longTermStability": 9,
+      "submissionQuality": 6,
+      "transparency": 8,
+      "moderationQuality": 7
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": true,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-26",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "au-vic-incorporated-associations"
+      ],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Confirming a Queensland registration or licence that federal records do not carry",
+      "Establishing status before deciding whether a paid extract is worth ordering"
+    ],
+    "notRecommendedFor": [
+      "Confirming company registration, which in Australia is federal and sits with ASIC",
+      "Treating an entry as evidence of solvency, competence or general trustworthiness"
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Entities registered or licensed in Queensland"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "Check a charity or association can be searched free of charge and without an account, directly from the Office of Fair Trading, Department of Justice (Queensland).",
+      "The only official way to confirm, at no cost, that a body is currently incorporated in Queensland or authorised to fundraise there — the state-level status that ASIC and ABN Lookup cannot show. It yields the IA/CH registration number needed to order an official extract, request an association's lodged documents, or obtain a certified certificate of incorporation, and it is the entry point for due diligence on the very large population of Queensland community, sporting and not-for-profit bodies that hold no ACN.",
+      "The statutory basis is s 16 of the Associations Incorporation Act 1981 (Qld): \"The chief executive must keep a register of incorporated associations\", which must include the association's name, nominated address, the day its particulars are entered, and copies of documents lodged under s 59BA(1).",
+      "Incorporated associations are a Queensland legal structure with no federal counterpart on ASIC's registers."
+    ],
+    "cons": [
+      "It does not establish company registration — incorporated associations are not companies, have no ACN, and are not on any ASIC register.",
+      "Free results are limited to three fields — name, registration number and postcode. No address, officeholders, committee, rules or financial data is available without a paid extract.",
+      "The operator disclaims evidentiary value: \"Data from this search is for information only. It should not be used as evidence in legal proceedings.\" Formal use requires a fee-based official extract, usually 10 working days.",
+      "The free tier returns index data; extracts, certificates and lodged documents are a separate paid product."
+    ],
+    "editorNotes": "Verified 2026-08-05 from official Queensland sources. Operator: Office of Fair Trading, Department of Justice (Queensland). Section 18 (\"Inspecting register\") provides that \"On payment of the fee prescribed by regulation, a person may inspect the register or get a copy of details in the register— (a) at the department's Brisbane office when the office is open to the public; or (b) by using a computer\" — the free online tool is a subset of that statutory inspection right. The public search covers two different regulatory populations at once: incorporated associations under the Associations Incorporation Act 1981 and charities authorised to fundraise under the Collections Act 1966. Inclusion arises from statutory registration, licensing or authorisation, not from any submission."
+  },
+  {
+    "id": "au-sa-incorporated-associations",
+    "name": "Incorporated Associations Search",
+    "slug": "sa-incorporated-associations-search",
+    "country": "australia",
+    "category": "government",
+    "website": "https://secure.cbs.sa.gov.au/LGPubReg/associations.php",
+    "submissionUrl": null,
+    "description": "Incorporated Associations Search is the state register operated by Consumer and Business Services. It records incorporated associations registered in South Australia under the Associations Incorporation Act 1985 (SA), administered by Consumer and Business Services. Two search modes are offered, presented as tabs labelled \"By Name / Reg No\" and \"By Public Officer\".",
+    "tier": "tier1",
+    "scope": "subnational",
+    "jurisdiction": {
+      "type": "state",
+      "name": "South Australia",
+      "code": "AU-SA",
+      "parentCountry": "australia"
+    },
+    "primaryRegistryType": "business-entity-register",
+    "registryTypes": [
+      "business-entity-register"
+    ],
+    "operator": {
+      "name": "Consumer and Business Services",
+      "type": "government-agency",
+      "officialUrl": null
+    },
+    "publicAccess": {
+      "searchUrl": "https://secure.cbs.sa.gov.au/LGPubReg/associations.php",
+      "accessLevel": "open",
+      "freeToSearch": true,
+      "loginRequired": false,
+      "identityVerificationRequired": false,
+      "captcha": false,
+      "geographicRestriction": false,
+      "paidDocumentsAvailable": null,
+      "notes": "The search is free and openly available. No account, login, registration or identity check is required, and no CAPTCHA is presented."
+    },
+    "petroHrysScore": 81,
+    "scoreFactors": {
+      "editorialTrust": 9,
+      "businessUsefulness": 8,
+      "verificationQuality": 9,
+      "platformReputation": 7,
+      "spamResistance": 10,
+      "industryImportance": 6,
+      "longTermStability": 9,
+      "submissionQuality": 6,
+      "transparency": 8,
+      "moderationQuality": 7
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": true,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-23",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "au-vic-incorporated-associations"
+      ],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Confirming a South Australia registration or licence that federal records do not carry"
+    ],
+    "notRecommendedFor": [
+      "Confirming company registration, which in Australia is federal and sits with ASIC",
+      "Treating an entry as evidence of solvency, competence or general trustworthiness"
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Entities registered or licensed in South Australia"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "Incorporated Associations Search can be searched free of charge and without an account, directly from Consumer and Business Services.",
+      "This is the authoritative and only public means of confirming that a body is an incorporated association in South Australia.",
+      "The register offers two distinct search modes, rendered as tabs in its own markup: \"By Name / Reg No\" and \"By Public Officer\" — meaning a person's name can be used to find the associations for which they are the listed public officer.",
+      "Incorporated associations are creatures of state law, registered by Consumer and Business Services under the Associations Incorporation Act 1985 (SA). ASIC does not register them, they hold no ACN, and they appear in no ASIC register."
+    ],
+    "cons": [
+      "It does not establish company registration. Incorporated associations are South Australian legal structures that have no ACN and are not registered by ASIC, so an entry here is not a company record and confers no Corporations Act status.",
+      "Every SA Government informational host tested — www.cbs.sa.gov.au, www.sa.gov.au, www.agd.sa.gov.au, www.legislation.sa.gov.au and www.governmentgazette.sa.gov.au — returns a Cloudflare \"Just a moment...\" bot-mitigation interstitial to automated clients.",
+      "Only the agency name \"Consumer and Business Services\" is asserted here."
+    ],
+    "editorNotes": "Verified 2026-08-05 from official South Australia sources. Operator: Consumer and Business Services. Partial-name searching is explicitly supported. The register states beneath its search box: \"The search can also return results when only a part of a name is entered.\" Records are keyed by an \"A\"-prefixed registration number. A live query returned, for example, {\"organisationNum\":\"A2140\",\"name\":\"SOUTH ADELAIDE FOOTBALL CLUB INCORPORATED\",\"publicOfficer\":\"NEIL SHARPE\"}. Inclusion arises from statutory registration, licensing or authorisation, not from any submission."
+  },
+  {
+    "id": "au-act-incorporated-associations",
+    "name": "ACT Incorporated Associations Public Register",
+    "slug": "act-incorporated-associations-register",
+    "country": "australia",
+    "category": "government",
+    "website": "https://services.accesscanberra.act.gov.au/s/public-registers/generic-register?registerid=incorporated-associations-public-register",
+    "submissionUrl": null,
+    "description": "ACT Incorporated Associations Public Register is the territory register operated by Access Canberra, City and Environment Directorate, ACT Government. It records associations incorporated in the ACT under the Associations Incorporation Act 1991. Five fields are displayed for every record: Association number (format A#####, e.g. A00266), Association name, Status, Date of incorporation and Date of cessation.",
+    "tier": "tier1",
+    "scope": "subnational",
+    "jurisdiction": {
+      "type": "territory",
+      "name": "Australian Capital Territory",
+      "code": "AU-ACT",
+      "parentCountry": "australia"
+    },
+    "primaryRegistryType": "business-entity-register",
+    "registryTypes": [
+      "business-entity-register",
+      "corporate-number-database"
+    ],
+    "operator": {
+      "name": "Access Canberra, City and Environment Directorate, ACT Government",
+      "type": "government-agency",
+      "officialUrl": null
+    },
+    "publicAccess": {
+      "searchUrl": "https://services.accesscanberra.act.gov.au/s/public-registers/generic-register?registerid=incorporated-associations-public-register",
+      "accessLevel": "open",
+      "freeToSearch": true,
+      "loginRequired": false,
+      "identityVerificationRequired": false,
+      "captcha": false,
+      "geographicRestriction": false,
+      "paidDocumentsAvailable": true,
+      "notes": "The register opens directly in a browser and shows data immediately."
+    },
+    "petroHrysScore": 80,
+    "scoreFactors": {
+      "editorialTrust": 9,
+      "businessUsefulness": 7,
+      "verificationQuality": 9,
+      "platformReputation": 7,
+      "spamResistance": 10,
+      "industryImportance": 7,
+      "longTermStability": 9,
+      "submissionQuality": 6,
+      "transparency": 8,
+      "moderationQuality": 7
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": true,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-11",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "au-vic-incorporated-associations"
+      ],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Confirming a Australian Capital Territory registration or licence that federal records do not carry",
+      "Establishing status before deciding whether a paid extract is worth ordering"
+    ],
+    "notRecommendedFor": [
+      "Confirming company registration, which in Australia is federal and sits with ASIC",
+      "Treating an entry as evidence of solvency, competence or general trustworthiness"
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Entities registered or licensed in Australian Capital Territory"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "ACT Incorporated Associations Public Register can be searched free of charge and without an account, directly from Access Canberra, City and Environment Directorate, ACT Government.",
+      "With 6,156 records including lapsed entities and cessation dates, it supports due diligence on ACT clubs, community organisations, sporting bodies and not-for-profits: confirming an entity is genuinely incorporated, retrieving its A-number for correspondence or grant applications, checking whether it has lapsed, and establishing how long it has existed.",
+      "Holds 6,156 records, the register itself reporting \"Showing 1 - 10 / 6156 of 6156 results\" (register page).",
+      "Incorporated associations are an ACT territory legal structure created under the Associations Incorporation Act 1991; ASIC neither registers nor lists them, and they carry a territory association number (A#####) rather than an ACN. Nothing in this register is a company, a business name, a financial adviser or a banned person, so it is not reachable through the already-published \"Search ASIC registers\" record and is not an ASIC Connect tab. The boundary runs the other way too: Access Canberra's own hub blurb loosely says its registers include lists about \"companies\", but no ACT company register exists — company registration in Australia is federal through ASIC."
+    ],
+    "cons": [
+      "It establishes that an entity is or was an ACT incorporated association and gives its number, status and incorporation/cessation dates — nothing more. It does not establish anything about ASIC-registered companies or business names, and an ACT incorporated association has an association number, not an ACN. It does not show committee members, the public officer, the registered office, the association's rules or objects, or any financial or annual statement; Access Canberra states that \"the documentation is made available to the public for a fee\", and s 11 of the Act provides for copies or extracts on request, obtained through a paid Association Search request.",
+      "Only five fields per record, and no per-record detail page — clicking a row does not navigate anywhere, so the register cannot yield officers, public officer, registered office, rules or financials.",
+      "Anything beyond those five fields is paywalled: documents lodged for an association are released only via a fee-bearing Association Search request.",
+      "The free tier returns index data; extracts, certificates and lodged documents are a separate paid product."
+    ],
+    "editorNotes": "Verified 2026-08-05 from official Australian Capital Territory sources. Operator: Access Canberra, City and Environment Directorate, ACT Government. Access Canberra labels the register section \"Public register\" under \"Incorporated associations\". Displays exactly five columns — Association number, Association name, Status, Date of incorporation, Date of cessation — observed as the live table header. Retains ceased entities alongside current ones: statuses ACTIVE and LAPSED were both observed, with a populated Date of cessation for lapsed entries (e.g. A02989 DARAMALAN AND BLACK MOUNTAIN EAGLES COMMUNITY ROWING CLUB, LAPSED, cessation 13/12/2001). Inclusion arises from statutory registration, licensing or authorisation, not from any submission."
+  },
+  {
+    "id": "au-tas-licensed-occupations",
+    "name": "Tasmanian Licensed Occupations Search",
+    "slug": "tasmania-licensed-occupations-search",
+    "country": "australia",
+    "category": "government",
+    "website": "https://occupationallicensing.justice.tas.gov.au/Search/onlinesearch.aspx",
+    "submissionUrl": null,
+    "description": "Tasmanian Licensed Occupations Search is the state register operated by Consumer, Building and Occupational Services (CBOS), Department of Justice, Tasmania. It records current holders of Tasmanian occupational licences administered by CBOS, in five licence areas as listed by the search application: \"Electrical, Plumbing, Gas Fitting and Automotive Gas Fitting\", \"Building Services Provider\", \"Motor Vehicle Trader\", \"Security and Investigation\", and \"Conveyancer\". The public first chooses a licence area; for Building Services Provider a further licence-type step appears with the options \"Company\", \"Municipal Council\" and \"Individual\".",
+    "tier": "tier1",
+    "scope": "subnational",
+    "jurisdiction": {
+      "type": "state",
+      "name": "Tasmania",
+      "code": "AU-TAS",
+      "parentCountry": "australia"
+    },
+    "primaryRegistryType": "professional-licence-register",
+    "registryTypes": [
+      "professional-licence-register",
+      "regulated-operator-register"
+    ],
+    "operator": {
+      "name": "Consumer, Building and Occupational Services (CBOS), Department of Justice, Tasmania",
+      "type": "government-agency",
+      "officialUrl": null
+    },
+    "publicAccess": {
+      "searchUrl": "https://occupationallicensing.justice.tas.gov.au/Search/onlinesearch.aspx",
+      "accessLevel": "open",
+      "freeToSearch": true,
+      "loginRequired": false,
+      "identityVerificationRequired": false,
+      "captcha": true,
+      "geographicRestriction": false,
+      "paidDocumentsAvailable": null,
+      "notes": "A visitor reaches the search application directly, with no account, no sign-in prompt and no charge; the licence-area choice and the criteria form were both reached anonymously."
+    },
+    "petroHrysScore": 81,
+    "scoreFactors": {
+      "editorialTrust": 9,
+      "businessUsefulness": 8,
+      "verificationQuality": 9,
+      "platformReputation": 7,
+      "spamResistance": 10,
+      "industryImportance": 7,
+      "longTermStability": 9,
+      "submissionQuality": 5,
+      "transparency": 8,
+      "moderationQuality": 7
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-26",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "au-nt-licensing-public-register"
+      ],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Confirming a Tasmania registration or licence that federal records do not carry"
+    ],
+    "notRecommendedFor": [
+      "Confirming company registration, which in Australia is federal and sits with ASIC",
+      "Treating an entry as evidence of solvency, competence or general trustworthiness"
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Entities registered or licensed in Tasmania"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "Tasmanian Licensed Occupations Search can be searched free of charge and without an account, directly from Consumer, Building and Occupational Services (CBOS), Department of Justice, Tasmania.",
+      "The authoritative way to check that a Tasmanian tradesperson, building practitioner, motor vehicle trader, security agent or conveyancer holds a current licence before engaging them, and the only public place to confirm that an interstate licensee's Automatic Mutual Recognition notification is live and validated for work in Tasmania.",
+      "The search application states, in its own words: \"This register will only display the details of current licence holders. For information regarding licence holders that no longer reflect on this register, please make an application through the Right to Information Act 2009\" — the same sentence is repeated on the CBOS page \"Find a licensed tradesperson\".",
+      "ASIC does not license builders, electricians, plumbers, gas-fitters, motor vehicle traders, security and investigation agents or Tasmanian conveyancers; those licences are issued under Tasmanian law and administered by CBOS. ASIC's registers cover companies, business names, financial advisers and banned persons — none of which appear here — and this register carries no ACN, ABN or company status."
+    ],
+    "cons": [
+      "It is not a company or business-name register and establishes nothing about corporate existence: Tasmanian occupational licensing sits alongside, not inside, the federal ASIC system, so a hit here proves a current licence to practise or trade, not registration of a company, business name or ABN. It also does not cover past licence holders, does not show whether a licence application is pending, and does not record incorporated associations (a separate CBOS function with its own search).",
+      "Current licence holders only; former holders are obtainable only by a Right to Information Act 2009 application.",
+      "Pending licence applications are explicitly out of scope."
+    ],
+    "editorNotes": "Verified 2026-08-05 from official Tasmania sources. Operator: Consumer, Building and Occupational Services (CBOS), Department of Justice, Tasmania. CBOS labels the page \"Search licensed occupations\". CBOS warns on both entry pages: \"Please note this search does not provide information about the status of a licence application\". The register doubles as the public record of Automatic Mutual Recognition: \"Interstate licensees may work in Tasmania under their home state occupational licence provided they notify CBOS... Once CBOS is notified, the licensee's home state licence number will appear on this register\", with statuses \"Notified but not Validated\", \"Validated\" and \"Invalid\". Inclusion arises from statutory registration, licensing or authorisation, not from any submission."
   }
 ]
