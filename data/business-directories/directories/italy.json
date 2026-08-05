@@ -132,5 +132,438 @@
       "The platform is operated for the chambers by their information-technology consortium, which runs the service but is not the authority behind the register."
     ],
     "editorNotes": "Verified 2026-08-04; operator corrected 2026-08-05 (Wave 1D). CORRECTION: operator.name previously read \"InfoCamere, with the Italian Chambers of Commerce\" with operator.type \"other\", which put the technical provider in front of the authority and typed a public-law register as though its operator were neither government nor regulator. The service publishes itself as the official data of the Chamber of Commerce, and the register is held by the Chambers of Commerce under Italian law; InfoCamere is the chambers’ own information-technology consortium and runs the platform for them. Operator is therefore the Italian Chambers of Commerce, typed public-law-body, and the consortium’s real technical role is recorded in prose rather than deleted. Registry types are unchanged: unlike the German, French and Spanish cases, this system genuinely is the constitutive register, so company-register and public-filing-database both remain correct. Score unchanged: only the attribution of the operator was wrong."
+  },
+  {
+    "id": "it-uibm-banca-dati",
+    "name": "Banca dati UIBM",
+    "slug": "uibm-banca-dati",
+    "country": "italy",
+    "category": "government",
+    "website": "https://www.uibm.gov.it/bancadati/",
+    "submissionUrl": null,
+    "description": "Banca dati UIBM is the searchable database of Italian industrial property titles published by the Italian Patent and Trademark Office within the enterprise ministry. It covers applications and granted titles for trade marks, patents and designs, which are three distinct rights recorded in one search system.",
+    "tier": "tier1",
+    "scope": "national",
+    "officialName": "Banca dati dei titoli italiani di proprietà industriale",
+    "nativeName": "Banca dati dei titoli italiani di proprietà industriale",
+    "englishName": "Italian industrial property titles database",
+    "englishNameSource": "editorial-translation",
+    "primaryRegistryType": "trademark-register",
+    "registryTypes": [
+      "trademark-register",
+      "patent-register",
+      "registered-design-register"
+    ],
+    "operator": {
+      "name": "Ministero delle Imprese e del Made in Italy — Ufficio Italiano Brevetti e Marchi",
+      "type": "ministry",
+      "officialUrl": "https://www.uibm.gov.it/"
+    },
+    "publicAccess": {
+      "searchUrl": "https://www.uibm.gov.it/bancadati/",
+      "accessLevel": "open",
+      "freeToSearch": true,
+      "loginRequired": false,
+      "identityVerificationRequired": false,
+      "captcha": true,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "The database is searched without an account. A CAPTCHA control is present in the search form and is recorded as such rather than assumed absent."
+    },
+    "petroHrysScore": 85,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 8,
+      "verificationQuality": 9,
+      "platformReputation": 8,
+      "spamResistance": 10,
+      "industryImportance": 8,
+      "longTermStability": 9,
+      "submissionQuality": 6,
+      "transparency": 8,
+      "moderationQuality": 7
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": true,
+      "saas": true,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": true
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-20",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [
+        "it-registro-imprese"
+      ],
+      "competitors": []
+    },
+    "bestFor": [
+      "Checking whether an Italian trade mark, patent or design has been applied for or granted, and to whom.",
+      "Establishing the status of an Italian industrial property title before relying on it."
+    ],
+    "notRecommendedFor": [
+      "Confirming that a company exists, which is the business register held by the Chambers of Commerce.",
+      "Clearing a mark on its own, because rights arising outside the Italian register are not recorded here."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Holders and applicants of Italian industrial property titles"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source",
+      "intellectual-property"
+    ],
+    "pros": [
+      "Three separate industrial property rights — trade marks, patents and designs — are searchable from one official government database.",
+      "It is published by the office that grants the titles, within the enterprise ministry, rather than by a commercial republisher.",
+      "Searching is free and needs no account."
+    ],
+    "cons": [
+      "A CAPTCHA control is present in the search form, so automated or bulk consultation is constrained.",
+      "It records industrial property titles, not businesses. An entry establishes nothing about whether the holder is a registered or solvent company.",
+      "Rights that arise without registration are not recorded here, so an empty result is not a clearance opinion."
+    ],
+    "editorNotes": "Verified 2026-08-05 from official Italian sources. FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: Italian industrial property titles are granted and registered by the Italian Patent and Trademark Office under the industrial property code; the database publishes those registered titles. The article-level provision was not fetched and is therefore not cited. RESPONSIBLE AUTHORITY: Ministero delle Imprese e del Made in Italy, through its industrial property directorate-general and the Italian Patent and Trademark Office. TECHNICAL PLATFORM: Not separately identified from any official page fetched. PUBLIC ACCESS INTERFACE: The public database at uibm.gov.it/bancadati. A CAPTCHA control was found in the search form during verification and is recorded as present; an earlier draft asserting that no CAPTCHA existed was corrected before publication. This record uses registered-design-register, which was added in an earlier wave for a verified future need and had no records until now."
+  },
+  {
+    "id": "it-pubblicita-legale-anac",
+    "name": "Piattaforma per la pubblicità a valore legale",
+    "slug": "anac-pubblicita-legale",
+    "country": "italy",
+    "category": "government",
+    "website": "https://pubblicitalegale.anticorruzione.it/",
+    "submissionUrl": null,
+    "description": "Piattaforma per la pubblicità a valore legale is the Italian platform on which public procurement notices are published with legal effect, operated by the national anti-corruption authority. Since January 2024 it has replaced the special public-contracts series of the official gazette for national procurement publication, and the legal effects of a published notice run from its publication there.",
+    "tier": "tier1",
+    "scope": "national",
+    "nativeName": "Piattaforma per la pubblicità a valore legale",
+    "englishName": "Legal Advertising",
+    "englishNameSource": "official",
+    "primaryRegistryType": "public-procurement-notice-database",
+    "registryTypes": [
+      "public-procurement-notice-database"
+    ],
+    "operator": {
+      "name": "Autorità Nazionale Anticorruzione",
+      "type": "regulator",
+      "officialUrl": "https://www.anticorruzione.it/"
+    },
+    "publicAccess": {
+      "searchUrl": "https://pubblicitalegale.anticorruzione.it/",
+      "accessLevel": "open",
+      "freeToSearch": true,
+      "loginRequired": false,
+      "identityVerificationRequired": false,
+      "captcha": false,
+      "geographicRestriction": false,
+      "paidDocumentsAvailable": false,
+      "notes": "The interface is client-rendered, but its public query endpoints returned notice records and full notice content anonymously from outside Italy, with no credential, no challenge and no charge, which is how the access position was established rather than inferred."
+    },
+    "petroHrysScore": 85,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 8,
+      "verificationQuality": 9,
+      "platformReputation": 8,
+      "spamResistance": 10,
+      "industryImportance": 8,
+      "longTermStability": 8,
+      "submissionQuality": 6,
+      "transparency": 9,
+      "moderationQuality": 8
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": true,
+      "saas": null,
+      "enterprise": true,
+      "agency": true,
+      "freelancer": null,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-10",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "gb-find-a-tender",
+        "ca-canadabuys"
+      ],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Finding Italian public procurement notices at the point where their legal effects begin.",
+      "Establishing whether and when a given Italian procurement notice was published with legal effect."
+    ],
+    "notRecommendedFor": [
+      "Checking whether a supplier exists or is eligible, which a notice platform does not record.",
+      "European-level publication, which runs through the EU channel rather than this national platform."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Suppliers to Italian public sector bodies"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source",
+      "public-procurement"
+    ],
+    "pros": [
+      "Publication here is what produces the legal effects of an Italian procurement notice, so the platform is part of the procedure rather than a report on it.",
+      "It replaced the special public-contracts series of the official gazette for national publication from January 2024, consolidating a function that was previously split.",
+      "Notices are searched and read free of charge without an account, which was confirmed by anonymous retrieval rather than assumed."
+    ],
+    "cons": [
+      "It is a notice platform, not a supplier register. Publication of a notice establishes nothing about any supplier’s eligibility, standing or trustworthiness.",
+      "It is the publicly searchable legal-publicity component of a wider national procurement database, which is not itself publicly searchable as a whole.",
+      "It covers national publication. European-level publication of the same procurement runs through a separate channel."
+    ],
+    "editorNotes": "Verified 2026-08-05 from official Italian sources, including the public contracts code and the authority’s own service pages. FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: The Banca dati nazionale dei contratti pubblici is the statutory locus of procurement publicity under the public contracts code: publication there is what produces the legal effects of a notice. This platform is the publicly accessible legal-publicity component of that database, and from 1 January 2024 it replaced the official gazette special series for national publication. RESPONSIBLE AUTHORITY: Autorità Nazionale Anticorruzione, which operates the platform; the implementing measure under the code was adopted by the authority in agreement with the infrastructure and transport ministry. TECHNICAL PLATFORM: Unknown. No official page fetched names the software supplier of the platform application. PUBLIC ACCESS INTERFACE: The public platform at pubblicitalegale.anticorruzione.it. An earlier draft framed the national procurement database as merely an interoperability layer and this platform as a register in its own right; that was inverted before publication, because the code makes the database the locus of legally effective publication and this platform its public surface. The English name is the authority’s own published English rendering rather than an editorial translation."
+  },
+  {
+    "id": "it-runts",
+    "name": "Registro Unico Nazionale del Terzo Settore",
+    "slug": "registro-unico-nazionale-del-terzo-settore",
+    "country": "italy",
+    "category": "government",
+    "website": "https://servizi.lavoro.gov.it/runts/it-it/",
+    "submissionUrl": null,
+    "description": "The Registro unico nazionale del Terzo settore is the Italian register of third sector entities, established at the Ministry of Labour and Social Policies under the Third Sector Code. Registration confers the status of third sector entity and, where applicable, the specific statuses of voluntary organisation, social promotion association, philanthropic entity or associative network.",
+    "tier": "tier1",
+    "scope": "national",
+    "officialName": "Registro unico nazionale del Terzo settore",
+    "nativeName": "Registro unico nazionale del Terzo settore",
+    "englishName": "National Single Register of the Third Sector",
+    "englishNameSource": "editorial-translation",
+    "primaryRegistryType": "charity-register",
+    "registryTypes": [
+      "charity-register"
+    ],
+    "operator": {
+      "name": "Ministero del Lavoro e delle Politiche Sociali",
+      "type": "ministry",
+      "officialUrl": "https://www.lavoro.gov.it/"
+    },
+    "publicAccess": {
+      "searchUrl": "https://servizi.lavoro.gov.it/runts/it-it/Ricerca-enti",
+      "accessLevel": "open",
+      "freeToSearch": true,
+      "loginRequired": false,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "The portal states that the register is public and consultable by all interested parties and by public administrations, and its entity search and downloadable entity lists are reachable from the public navigation without an account. Filing and management functions are behind a separate authenticated area, which was not exercised. No CAPTCHA was encountered, but absence was not established and none is asserted."
+    },
+    "petroHrysScore": 87,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 8,
+      "verificationQuality": 9,
+      "platformReputation": 8,
+      "spamResistance": 10,
+      "industryImportance": 8,
+      "longTermStability": 9,
+      "submissionQuality": 6,
+      "transparency": 9,
+      "moderationQuality": 9
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": null,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": true,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-10",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [
+        "it-registro-imprese"
+      ],
+      "competitors": []
+    },
+    "bestFor": [
+      "Confirming that an Italian organisation is a registered third sector entity and which specific status it holds.",
+      "Checking eligibility signals that depend on registration, such as access to the five per thousand scheme or agreements with public administrations."
+    ],
+    "notRecommendedFor": [
+      "Company verification. Commercial entities are registered in the business register, not here.",
+      "Treating registration as a statement about how an organisation is run or how it spends its funds."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Italian third sector entities"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "Registration is constitutive of third sector status: the portal states that entities not registered may not use the designation of third sector entity or the specific ones.",
+      "The register is expressly public and consultable by all interested parties, with both an entity search and downloadable entity lists.",
+      "One national register replaces the separate sectoral registers that previously governed voluntary organisations and social promotion associations."
+    ],
+    "cons": [
+      "Registration is administered on a territorial basis across the state, regional and provincial offices of the register, so practice and processing sit with different offices rather than one desk.",
+      "The public view records registration and status. It is not an account of an organisation’s activities, finances or governance quality.",
+      "Filing and management run through a separate authenticated area, which was not exercised, so nothing is asserted about it."
+    ],
+    "editorNotes": "Verified 2026-08-05 from the register’s own portal pages, including its about, legislation and privacy pages. FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: The register is constituted by the Codice del Terzo settore, decreto legislativo 3 luglio 2017, n. 117: the portal states that it is the telematic register established at the Ministry of Labour and Social Policies in implementation of articles 45 and following of that code. Entries are made territorially by the state, regional and provincial offices of the register, established respectively at the ministry, at each region and at the autonomous provinces of Trento and Bolzano. Procedures for registration, deposit of documents and keeping of the register are set by a ministerial decree numbered 106; the portal and the gazette record differ on that decree’s date, so the date is deliberately not asserted here and the code is cited as the constituting instrument instead. RESPONSIBLE AUTHORITY: Ministero del Lavoro e delle Politiche Sociali, which the portal’s privacy notice names as data controller for the register portal and at which the register is established. TECHNICAL PLATFORM: Not established. No supplier is named on any page fetched, and none is asserted. PUBLIC ACCESS INTERFACE: The public portal at servizi.lavoro.gov.it/runts, which offers an entity search and downloadable entity lists alongside a separate authenticated area for filings. Registry type: charity-register, because registration confers or evidences third sector status, which is what the type requires; the boundary note excluding a general company register that happens to include non-profit forms is what keeps this separate from the Italian business register already published. This portal is on a ministry host and shares no hostname with any published Italian record."
   }
 ]

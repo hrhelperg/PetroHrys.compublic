@@ -6,7 +6,7 @@ Every published record must carry a verification status, a source, a date and at
 least one named reviewer; the validator refuses a `verified` record that is
 missing any of them.
 
-**189 records.**
+**200 records.**
 
 | Directory | Country | Status | Source | Last verified | Next due | Reviewer |
 |---|---|---|---|---|---|---|
@@ -19,13 +19,16 @@ missing any of them.
 | Veřejný rejstřík a Sbírka listin | czech-republic | verified | Official website | 2026-08-04 | 2027-08-29 | Petro Hrys |
 | Baza Internetowa REGON | poland | verified | Government register | 2026-08-04 | 2027-08-27 | Petro Hrys |
 | FDIC BankFind Suite | united-states | verified | Government register | 2026-08-04 | 2027-08-08 | Petro Hrys |
+| Krajowy Rejestr Sądowy | poland | verified | Government register | 2026-08-05 | 2027-08-19 | Petro Hrys |
 | Bundesanzeiger | germany | verified | Government register | 2026-08-04 | 2027-08-31 | Petro Hrys |
 | Gemeinsames Registerportal der Länder | germany | verified | Official website | 2026-08-04 | 2027-08-10 | Petro Hrys |
 | Registro Imprese | italy | verified | Official website | 2026-08-04 | 2027-08-04 | Petro Hrys |
 | Centralna Ewidencja i Informacja o Działalności Gospodarczej | poland | verified | Government register | 2026-08-04 | 2027-08-26 | Petro Hrys |
 | EDGAR | united-states | verified | Government register | 2026-08-04 | 2027-08-13 | Petro Hrys |
 | Registraire des entreprises — Enterprise Register | canada | verified | Government register | 2026-08-05 | 2027-08-31 | Petro Hrys |
+| Unternehmensregister | germany | verified | Government register | 2026-08-05 | 2027-08-25 | Petro Hrys |
 | Ontario Business Registry | canada | verified | Government register | 2026-08-05 | 2027-08-07 | Petro Hrys |
+| Répertoire Sirene | france | verified | Government register | 2026-08-05 | 2027-08-05 | Petro Hrys |
 | NMC Register | united-kingdom | verified | Government register | 2026-08-05 | 2027-08-08 | Petro Hrys |
 | Disqualified Directors Register | united-kingdom | verified | Government register | 2026-08-05 | 2027-08-29 | Petro Hrys |
 | USPTO Trademark Search | united-states | verified | Government register | 2026-08-04 | 2027-08-22 | Petro Hrys |
@@ -39,9 +42,11 @@ missing any of them.
 | Python Package Index (PyPI) | global | verified | Official website | 2026-08-04 | 2027-05-29 | Petro Hrys |
 | Canadian Patents Database | canada | verified | Government register | 2026-08-05 | 2027-08-20 | Petro Hrys |
 | Financial Services Register | united-kingdom | verified | Official website | 2026-08-04 | 2027-08-27 | Petro Hrys |
+| Registre national des entreprises | france | verified | Government register | 2026-08-05 | 2027-08-12 | Petro Hrys |
 | SEDAR+ | canada | verified | Government register | 2026-08-05 | 2027-08-27 | Petro Hrys |
 | WordPress Plugin Directory | global | verified | Official website | 2026-08-04 | 2027-05-29 | Petro Hrys |
 | BC Registry Services | canada | verified | Government register | 2026-08-05 | 2027-08-21 | Petro Hrys |
+| Registro Mercantil Central | spain | verified | Government register | 2026-08-05 | 2027-08-12 | Petro Hrys |
 | Scottish Charity Register | united-kingdom | verified | Government register | 2026-08-05 | 2027-08-08 | Petro Hrys |
 | Tax Exempt Organization Search | united-states | verified | Government register | 2026-08-04 | 2027-08-06 | Petro Hrys |
 | The Barristers’ Register | united-kingdom | verified | Government register | 2026-08-05 | 2027-08-21 | Petro Hrys |
@@ -59,7 +64,11 @@ missing any of them.
 | Australian Trade Mark Search | australia | verified | Government register | 2026-08-05 | 2027-08-31 | Petro Hrys |
 | Manitoba Companies Office | canada | verified | Government register | 2026-08-05 | 2027-08-21 | Petro Hrys |
 | Individual Insolvency Register (England and Wales) | united-kingdom | verified | Government register | 2026-08-05 | 2027-08-16 | Petro Hrys |
+| Insolvenční rejstřík | czech-republic | verified | Government register | 2026-08-05 | 2027-08-13 | Petro Hrys |
+| Banca dati UIBM | italy | verified | Government register | 2026-08-05 | 2027-08-20 | Petro Hrys |
+| Piattaforma per la pubblicità a valore legale | italy | verified | Government register | 2026-08-05 | 2027-08-10 | Petro Hrys |
 | Patent Public Search | united-states | verified | Official website | 2026-08-04 | 2027-08-27 | Petro Hrys |
+| Registro Público Concursal | spain | verified | Government register | 2026-08-05 | 2027-08-10 | Petro Hrys |
 | Nova Scotia Registry of Joint Stock Companies | canada | verified | Government register | 2026-08-05 | 2027-08-06 | Petro Hrys |
 | SAM.gov Exclusions | united-states | verified | Government register | 2026-08-04 | 2027-08-07 | Petro Hrys |
 | USAspending.gov | united-states | verified | Government register | 2026-08-04 | 2027-08-27 | Petro Hrys |
@@ -69,6 +78,7 @@ missing any of them.
 | HHS OIG List of Excluded Individuals and Entities | united-states | verified | Government register | 2026-08-04 | 2027-08-17 | Petro Hrys |
 | Régie du bâtiment du Québec — Licence Holders Register | canada | verified | Government register | 2026-08-05 | 2027-08-23 | Petro Hrys |
 | NFA BASIC | united-states | verified | Official website | 2026-08-04 | 2027-08-04 | Petro Hrys |
+| Transparenzregister | germany | verified | Government register | 2026-08-05 | 2027-08-07 | Petro Hrys |
 | Add-ons for Firefox | global | verified | Official website | 2026-08-04 | 2027-02-18 | Petro Hrys |
 | Visual Studio Marketplace | global | verified | Official website | 2026-08-04 | 2027-05-12 | Petro Hrys |
 | Capterra | global | verified | Official website | 2026-08-04 | 2027-05-19 | Petro Hrys |
@@ -87,6 +97,7 @@ missing any of them.
 | Docker Hub | global | verified | Official website | 2026-08-04 | 2027-05-31 | Petro Hrys |
 | Crunchbase | global | verified | Official website | 2026-08-04 | 2027-05-25 | Petro Hrys |
 | PeerSpot | global | verified | Official website | 2026-08-04 | 2027-05-25 | Petro Hrys |
+| ARES | czech-republic | verified | Government register | 2026-08-05 | 2027-08-25 | Petro Hrys |
 | Business Search | united-states | verified | Government register | 2026-08-05 | 2027-08-17 | Petro Hrys |
 | FCC Form 499 Filer Database | united-states | verified | Government register | 2026-08-04 | 2027-08-22 | Petro Hrys |
 | Federal Maritime Commission Ocean Transportation Intermediary List | united-states | verified | Government register | 2026-08-04 | 2027-08-24 | Petro Hrys |

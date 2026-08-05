@@ -266,5 +266,584 @@
       "Filing costs were not established"
     ],
     "editorNotes": "Verified 2026-08-04. Issued by the Federal Ministry of Justice, operated by Bundesanzeiger Verlag."
+  },
+  {
+    "id": "de-unternehmensregister",
+    "name": "Unternehmensregister",
+    "slug": "unternehmensregister",
+    "country": "germany",
+    "category": "government",
+    "website": "https://www.unternehmensregister.de/",
+    "submissionUrl": null,
+    "description": "Unternehmensregister is the German central platform on which company data that must be published is brought together and made electronically retrievable. It carries register information transmitted from the commercial, cooperative, partnership and company registers, together with accounts and capital-market disclosures, and is constituted for that purpose by the Commercial Code.",
+    "tier": "tier1",
+    "scope": "national",
+    "nativeName": "Unternehmensregister",
+    "englishName": "German Company Register",
+    "englishNameSource": "official",
+    "primaryRegistryType": "public-filing-database",
+    "registryTypes": [
+      "public-filing-database",
+      "securities-filing-database"
+    ],
+    "operator": {
+      "name": "Bundesministerium der Justiz",
+      "type": "ministry",
+      "officialUrl": "https://www.bmj.de/"
+    },
+    "publicAccess": {
+      "searchUrl": "https://www.unternehmensregister.de/ureg/",
+      "accessLevel": "partially-open",
+      "freeToSearch": null,
+      "loginRequired": false,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": false,
+      "paidDocumentsAvailable": null,
+      "notes": "The platform is reached without an account. Whether every retrieval is free of charge was not established, so the fee position is left unknown rather than assumed."
+    },
+    "petroHrysScore": 90,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 9,
+      "verificationQuality": 9,
+      "platformReputation": 9,
+      "spamResistance": 10,
+      "industryImportance": 9,
+      "longTermStability": 10,
+      "submissionQuality": 6,
+      "transparency": 8,
+      "moderationQuality": 8
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": true,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": true,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-25",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "de-bundesanzeiger",
+        "de-transparenzregister"
+      ],
+      "usedWith": [
+        "de-registerportal"
+      ],
+      "competitors": []
+    },
+    "bestFor": [
+      "Reaching German company register information, published accounts and capital-market disclosures from one central platform.",
+      "Finding what a German company has actually published, rather than only that it exists."
+    ],
+    "notRecommendedFor": [
+      "Use as the constitutive commercial register, which is kept by the courts and reached through the register portal.",
+      "Assuming everything shown is free, because the fee position for retrievals was not established."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "German companies subject to publication duties"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "It is constituted in the Commercial Code as the central platform for company data that must be published, so its role is statutory rather than editorial.",
+      "Register information, published accounts and capital-market disclosures are brought together in one place instead of three.",
+      "Data reaches it by transmission from the source registers, so it is a government channel rather than a commercial re-publication."
+    ],
+    "cons": [
+      "It is a central publication platform, not the constitutive register. The German commercial registers are kept by the courts, and the register portal is the designated route to them.",
+      "Whether every retrieval is free of charge was not established, so cost should be checked before relying on it for bulk work.",
+      "What appears depends on what an entity was obliged to publish, so absence of a document is not evidence that an obligation was breached."
+    ],
+    "editorNotes": "Verified 2026-08-05 from the platform’s own pages and from the Commercial Code. The site publishes itself as \"Die zentrale Plattform zu Unternehmensdaten\" and states that data subject to publication duties is centrally brought together and made electronically retrievable. FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: Handelsgesetzbuch § 8b constitutes the Unternehmensregister in federal statute. It is a publication platform: the underlying commercial, cooperative, partnership and company registers remain constituted by the courts under HGB § 8(1). RESPONSIBLE AUTHORITY: Bundesministerium der Justiz, to which HGB § 8b assigns the keeping of the register. TECHNICAL PLATFORM: Bundesanzeiger Verlag GmbH operates the platform. It is the technical operator and is deliberately NOT recorded as the operator field, which names the responsible authority. PUBLIC ACCESS INTERFACE: The public search at unternehmensregister.de. This record is deliberately separate from de-registerportal: the register portal is the designated retrieval route to the court-held registers, while the Unternehmensregister is the statutory central publication platform. Neither is the constitutive register."
+  },
+  {
+    "id": "de-transparenzregister",
+    "name": "Transparenzregister",
+    "slug": "transparenzregister",
+    "country": "germany",
+    "category": "government",
+    "website": "https://www.transparenzregister.de/",
+    "submissionUrl": null,
+    "description": "Transparenzregister is the German register of beneficial owners, established by the Money Laundering Act. Entities subject to the Act report the natural persons who ultimately own or control them, and the register records those persons rather than the entities themselves.",
+    "tier": "tier1",
+    "scope": "national",
+    "nativeName": "Transparenzregister",
+    "englishName": "Transparency Register",
+    "englishNameSource": "editorial-translation",
+    "primaryRegistryType": "beneficial-ownership-register",
+    "registryTypes": [
+      "beneficial-ownership-register"
+    ],
+    "operator": {
+      "name": "Bundesministerium der Finanzen",
+      "type": "ministry",
+      "officialUrl": "https://www.bundesfinanzministerium.de/"
+    },
+    "publicAccess": {
+      "searchUrl": null,
+      "accessLevel": "identity-verification-required",
+      "freeToSearch": false,
+      "loginRequired": true,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": true,
+      "notes": "Inspection requires registration on the portal and is fee-bearing. The application is client-rendered and the inspection flow itself was not exercised, so the precise identity checks applied are not asserted."
+    },
+    "petroHrysScore": 84,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 7,
+      "verificationQuality": 9,
+      "platformReputation": 8,
+      "spamResistance": 10,
+      "industryImportance": 9,
+      "longTermStability": 9,
+      "submissionQuality": 5,
+      "transparency": 7,
+      "moderationQuality": 8
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": true,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": true,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-07",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "de-unternehmensregister"
+      ],
+      "usedWith": [
+        "de-registerportal"
+      ],
+      "competitors": []
+    },
+    "bestFor": [
+      "Establishing who ultimately owns or controls a German entity, where the ownership chain is not visible in the commercial register.",
+      "Anti-money-laundering due diligence that requires the beneficial owner rather than the registered shareholder."
+    ],
+    "notRecommendedFor": [
+      "A quick free lookup, because inspection requires registration and carries a fee.",
+      "Confirming that a company exists, which is the commercial register kept by the courts."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": null,
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "German entities subject to beneficial-ownership reporting"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "It records the natural persons behind an entity, which no other German register sets out to do.",
+      "Keeping the register is a sovereign federal task under the Money Laundering Act, so its basis is statutory rather than contractual.",
+      "It covers entities across legal forms rather than companies alone."
+    ],
+    "cons": [
+      "Inspection is not free and requires registration on the portal, so it is not comparable to the open company registers.",
+      "It records reported beneficial owners. A report is made by the entity, so the register reflects what was declared rather than what was independently established.",
+      "It does not establish that an entity exists or who legally represents it. That is the commercial register kept by the courts, reached through the register portal.",
+      "The application is client-rendered and the inspection flow was not exercised, so the exact identity checks applied to a searcher are not stated here."
+    ],
+    "editorNotes": "Verified 2026-08-05 from official German sources, including the Money Laundering Act provisions constituting the register. FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: Geldwäschegesetz §§ 18 to 26 constitute the register; § 18 establishes it and declares its keeping a sovereign federal task. Since 2021 it is a full register rather than a catch-all reference register. RESPONSIBLE AUTHORITY: Bundesministerium der Finanzen, which under the Act may transfer the keeping of the register to a private body by way of Beleihung. TECHNICAL PLATFORM: Bundesanzeiger Verlag GmbH keeps the register as the beleihene registerführende Stelle under the implementing ordinance. It is the entrusted operator and is deliberately not recorded as the responsible authority. PUBLIC ACCESS INTERFACE: The portal at transparenzregister.de, where inspection requires registration and is fee-bearing. Access booleans reflect what was established: registration is required and inspection is fee-bearing, so loginRequired is true and freeToSearch is false; the precise identity-verification step was not exercised and stays null. No search URL is published because no anonymous search surface exists to link to."
+  },
+  {
+    "id": "de-dpmaregister",
+    "name": "DPMAregister",
+    "slug": "dpmaregister",
+    "country": "germany",
+    "category": "government",
+    "website": "https://register.dpma.de/DPMAregister/Uebersicht",
+    "submissionUrl": null,
+    "description": "DPMAregister is the official register and publication database of the German Patent and Trade Mark Office. It carries the office’s registers for patents, utility models, topographies and supplementary protection certificates, for trade marks and geographical indications, and for designs, each with its own search interface.",
+    "tier": "tier1",
+    "scope": "national",
+    "officialName": "DPMAregister - Amtliche Publikations- und Registerdatenbank",
+    "nativeName": "DPMAregister - Amtliche Publikations- und Registerdatenbank",
+    "englishName": "DPMAregister",
+    "englishNameSource": "official",
+    "primaryRegistryType": "patent-register",
+    "registryTypes": [
+      "patent-register",
+      "trademark-register",
+      "registered-design-register"
+    ],
+    "operator": {
+      "name": "Deutsches Patent- und Markenamt",
+      "type": "government-agency",
+      "officialUrl": "https://www.dpma.de/"
+    },
+    "publicAccess": {
+      "searchUrl": "https://register.dpma.de/DPMAregister/marke/basis",
+      "accessLevel": "open",
+      "freeToSearch": true,
+      "loginRequired": false,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "The overview page and the basic search interfaces for patents, trade marks and designs were all retrieved anonymously without any credential. Rate limiting was not probed and no CAPTCHA was encountered, but absence was not established, so no CAPTCHA claim is made either way."
+    },
+    "petroHrysScore": 92,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 9,
+      "verificationQuality": 10,
+      "platformReputation": 9,
+      "spamResistance": 10,
+      "industryImportance": 9,
+      "longTermStability": 10,
+      "submissionQuality": 6,
+      "transparency": 9,
+      "moderationQuality": 9
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": true,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": true,
+      "developer": true,
+      "openSource": null,
+      "nonprofit": true,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-31",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [
+        "de-registerportal"
+      ],
+      "competitors": []
+    },
+    "bestFor": [
+      "Checking the status, owner and filing history of a German patent, utility model, trade mark or registered design.",
+      "Establishing whether a mark or design is already registered in Germany before filing."
+    ],
+    "notRecommendedFor": [
+      "Company verification. This register records industrial property rights, not the existence or officers of a business.",
+      "Relying on the English interface for a legally binding statement, because the office treats only the German register excerpt as binding."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Holders and applicants of German industrial property rights"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "It is the German office’s own register database, so it is the authoritative source for the status of a German industrial property right rather than a commercial copy of it.",
+      "Three separate rights families each have their own dedicated search entry point, which keeps patents, trade marks and designs from being conflated in one undifferentiated result set.",
+      "Searching is free and worked anonymously, with no account required to reach any of the basic search interfaces."
+    ],
+    "cons": [
+      "Only the German-language register excerpt is legally binding. The office labels its English output a non-binding translation.",
+      "It is a register of rights. It does not record whether a right is being used, whether it is commercially significant, or whether it is being disputed outside the register.",
+      "The office’s main site refused automated requests behind a JavaScript interstitial, so background documentation had to be read from the register host itself."
+    ],
+    "editorNotes": "Verified 2026-08-05 from the register database’s own pages at register.dpma.de. FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: The registers themselves are constituted by the German industrial property statutes — the Patentgesetz, the Gebrauchsmustergesetz, the Markengesetz and the Designgesetz — and are kept by the Deutsches Patent- und Markenamt, which grants and records the rights. This database is the office’s own register, not a third-party view of it. RESPONSIBLE AUTHORITY: Deutsches Patent- und Markenamt. TECHNICAL PLATFORM: None found. No supplier is named on any page fetched; the application is served from the office’s own register host. PUBLIC ACCESS INTERFACE: The database at register.dpma.de, whose overview page offers three labelled basic-search entry points: patents, utility models, topographies and supplementary protection certificates; trade marks and geographical indications; and designs. Registry types: patent-register, trademark-register and registered-design-register are recorded separately because the vocabulary treats them as separate rights with separate registers even where one office runs all three, and the designs entry point was confirmed on the office’s own overview page. public-filing-database was considered and rejected: file inspection was not exercised, so no filed-document function is asserted. The official name uses a plain hyphen, as the register’s own heading does; an en dash appeared in an earlier draft and was corrected. The German industrial property office must not be confused with the German commercial register systems already published, none of which shares a host with this one."
+  },
+  {
+    "id": "de-insolvenzbekanntmachungen",
+    "name": "Insolvenzbekanntmachungen",
+    "slug": "insolvenzbekanntmachungen",
+    "country": "germany",
+    "category": "government",
+    "website": "https://www.insolvenzbekanntmachungen.de/",
+    "submissionUrl": null,
+    "description": "Insolvenzbekanntmachungen is the German portal on which the insolvency courts make the announcements required by the Insolvency Code. Publication there is the statutory public announcement of a proceeding; the proceeding itself is conducted and recorded by the court.",
+    "tier": "tier1",
+    "scope": "national",
+    "nativeName": "Insolvenzbekanntmachungen",
+    "englishName": "Insolvency Announcements",
+    "englishNameSource": "editorial-translation",
+    "primaryRegistryType": "insolvency-register",
+    "registryTypes": [
+      "insolvency-register"
+    ],
+    "operator": {
+      "name": "Ministerium der Justiz des Landes Nordrhein-Westfalen",
+      "type": "ministry",
+      "officialUrl": "https://www.justiz.nrw/"
+    },
+    "publicAccess": {
+      "searchUrl": "https://neu.insolvenzbekanntmachungen.de/ap/",
+      "accessLevel": "open",
+      "freeToSearch": true,
+      "loginRequired": false,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "The portal was reached anonymously with no credential and no fee. Requests to www.insolvenzbekanntmachungen.de redirect to neu.insolvenzbekanntmachungen.de, which is where the pages are actually served. No CAPTCHA was encountered, but absence was not established and none is asserted. The portal states that results are capped at 1,000 hits, that names must match exactly, and that result pages cannot be linked to directly."
+    },
+    "petroHrysScore": 86,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 8,
+      "verificationQuality": 9,
+      "platformReputation": 8,
+      "spamResistance": 10,
+      "industryImportance": 8,
+      "longTermStability": 9,
+      "submissionQuality": 5,
+      "transparency": 9,
+      "moderationQuality": 9
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": true,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": true,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-13",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [
+        "de-registerportal"
+      ],
+      "competitors": []
+    },
+    "bestFor": [
+      "Reading the official announcement of a German insolvency proceeding, including the opening decision and the appointed administrator.",
+      "Checking whether a named German debtor has had an insolvency proceeding announced, when the exact registered name is known."
+    ],
+    "notRecommendedFor": [
+      "Screening by approximate or partial name. The portal returns a hit only on an exact match with the entry as the court wrote it.",
+      "Treating the portal as the register of the proceeding. It is the statutory publication medium; the proceeding is recorded by the insolvency court."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Counterparties to German insolvency proceedings"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "It is the single national medium in which every German insolvency court makes its statutory announcements, so one search covers all Länder rather than sixteen gazettes.",
+      "Searching is free and anonymous, with no account, no fee and no identity step reached at any point.",
+      "The portal documents its own limits explicitly — the hit cap, the exact-match rule and the staggered dates from which each Land’s announcements are carried — instead of leaving a user to discover them."
+    ],
+    "cons": [
+      "Names must match exactly, including suffixes such as “AG” or “GmbH & Co. KG” as recorded in the commercial register, so a near-miss returns nothing rather than a suggestion.",
+      "Every search is capped at 1,000 hits, which matters for any attempt to check a large group of counterparties at once.",
+      "Result pages cannot be linked to, and a result session lasts sixty minutes, so a finding cannot be cited by URL and has to be re-run.",
+      "It carries the announcements the Insolvency Code requires. It does not hold the court file, the creditor filings or the outcome of the proceeding."
+    ],
+    "editorNotes": "Verified 2026-08-05 from the portal’s own pages, including its imprint and its search guidance. FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: The proceedings are conducted and recorded by the German insolvency courts; this portal is where those courts make the announcements the Insolvency Code requires. Its imprint states that selection and publication of the information rest on § 9 InsO together with § 2 of the ordinance on public announcements in insolvency proceedings on the internet of 12 February 2002, as amended in 2019. The portal is therefore the statutory publication medium and is not itself the register of a proceeding. RESPONSIBLE AUTHORITY: Ministerium der Justiz des Landes Nordrhein-Westfalen, named as the publisher in the imprint, operating the service within the joint justice portal of the federation and the Länder. The imprint names no individual as responsible under media law. TECHNICAL PLATFORM: None found. No supplier is named on any page fetched, and no technical operator is asserted here. PUBLIC ACCESS INTERFACE: The portal reached at www.insolvenzbekanntmachungen.de, which redirects to neu.insolvenzbekanntmachungen.de where the search and guidance pages are served. Registry type: insolvency-register, because the system publishes insolvency proceedings as a distinct dataset, which is what the type requires. The record deliberately does not describe the portal as the register in which a proceeding is constituted — that is the court — and the description, the second entry under what it is not recommended for, and this note all state the distinction. The portal itself carries a warning that private registers and invoices are circulated in imitation of official justice publications; that warning is why the distinction between the official medium and a commercial copy is worth stating."
   }
 ]

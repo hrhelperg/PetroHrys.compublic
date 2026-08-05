@@ -135,5 +135,440 @@
       "Interface is primarily Czech-language"
     ],
     "editorNotes": "Verified 2026-08-04 by fetching or.justice.cz. Operated by Ministerstvo spravedlnosti ČR."
+  },
+  {
+    "id": "cz-ares",
+    "name": "ARES",
+    "slug": "ares",
+    "country": "czech-republic",
+    "category": "government",
+    "website": "https://ares.gov.cz/",
+    "submissionUrl": null,
+    "description": "ARES is the Czech Ministry of Finance information system that brings together data on economic subjects held in other registers, including the public register kept by the courts, the trade licensing register and the statistical register. It resolves a Czech entity to its identification number and shows what each source register records, without constituting any of that data itself.",
+    "tier": "tier1",
+    "scope": "national",
+    "officialName": "Administrativní registr ekonomických subjektů",
+    "nativeName": "Administrativní registr ekonomických subjektů",
+    "englishName": "Administrative Register of Economic Subjects",
+    "englishNameSource": "editorial-translation",
+    "primaryRegistryType": "corporate-number-database",
+    "registryTypes": [
+      "corporate-number-database"
+    ],
+    "operator": {
+      "name": "Ministerstvo financí České republiky",
+      "type": "ministry",
+      "officialUrl": "https://www.mfcr.cz/"
+    },
+    "publicAccess": {
+      "searchUrl": "https://ares.gov.cz/ekonomicke-subjekty",
+      "accessLevel": "open",
+      "freeToSearch": true,
+      "loginRequired": false,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": false,
+      "paidDocumentsAvailable": false,
+      "notes": "The web application is client-rendered, but its public REST interface returned entity records anonymously without any credential, which is how free account-free access was established rather than inferred from the landing page."
+    },
+    "petroHrysScore": 82,
+    "scoreFactors": {
+      "editorialTrust": 9,
+      "businessUsefulness": 9,
+      "verificationQuality": 7,
+      "platformReputation": 8,
+      "spamResistance": 10,
+      "industryImportance": 8,
+      "longTermStability": 9,
+      "submissionQuality": 5,
+      "transparency": 8,
+      "moderationQuality": 7
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": true,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": true,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-25",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "cz-isir"
+      ],
+      "usedWith": [
+        "cz-verejny-rejstrik"
+      ],
+      "competitors": []
+    },
+    "bestFor": [
+      "Resolving a Czech business name or identification number and seeing at a glance which source registers hold data on it.",
+      "A first lookup before going to the register that actually constitutes the fact you need."
+    ],
+    "notRecommendedFor": [
+      "Use as the legal source of record, which remains the public register kept by the courts, the trade licensing register or whichever register constitutes the specific fact.",
+      "Obtaining a certified extract, which is issued by the constituting register rather than by this system."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Economic subjects recorded in Czech public registers"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "aggregation-layer"
+    ],
+    "pros": [
+      "One lookup reaches data from several Czech registers that are otherwise consulted separately.",
+      "The public interface is free and needs no account, and machine access returns structured records.",
+      "It is operated by the Ministry of Finance rather than by a commercial aggregator, so the assembly is a government service."
+    ],
+    "cons": [
+      "ARES constitutes nothing. Every fact it displays is constituted in another register held by another body, and a legal question belongs to that register rather than to ARES.",
+      "Because it assembles data from several sources, a discrepancy is resolved against the originating register, not against this system.",
+      "The application renders client-side, so its interactive behaviour, any CAPTCHA and any rate limiting were not observed directly."
+    ],
+    "editorNotes": "Verified 2026-08-05 from official Czech sources. FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: NOT ARES. ARES constitutes nothing: each fact it shows is constituted in a different register held by a different body — principally the veřejný rejstřík kept by the registry courts, the živnostenský rejstřík, and the statistical register. RESPONSIBLE AUTHORITY: Ministerstvo financí České republiky, which operates ARES as its information system. TECHNICAL PLATFORM: Not separately identified from any official page fetched; no external contractor is named, and none is asserted. PUBLIC ACCESS INTERFACE: The ARES web application at ares.gov.cz together with its public REST interface. Classified corporate-number-database and deliberately NOT company-register or business-entity-register: the type’s own boundary note states that an identifier database is not automatically the legal register of the entity, which is precisely ARES’s position. This is the same distinction the previous wave had to correct for Germany, France and Spain, applied here before publication rather than after."
+  },
+  {
+    "id": "cz-isir",
+    "name": "Insolvenční rejstřík",
+    "slug": "insolvencni-rejstrik",
+    "country": "czech-republic",
+    "category": "government",
+    "website": "https://isir.justice.cz/isir/common/index.do",
+    "submissionUrl": null,
+    "description": "Insolvenční rejstřík is the Czech public insolvency register kept under the Insolvency Act, publishing insolvency proceedings, the decisions issued in them and the associated case files. Publication in the register is how insolvency decisions are made publicly effective in the Czech Republic.",
+    "tier": "tier1",
+    "scope": "national",
+    "nativeName": "Insolvenční rejstřík",
+    "englishName": "Insolvency Register",
+    "englishNameSource": "editorial-translation",
+    "primaryRegistryType": "insolvency-register",
+    "registryTypes": [
+      "insolvency-register",
+      "public-filing-database"
+    ],
+    "operator": {
+      "name": "Ministerstvo spravedlnosti České republiky",
+      "type": "ministry",
+      "officialUrl": "https://msp.gov.cz/"
+    },
+    "publicAccess": {
+      "searchUrl": "https://isir.justice.cz/isir/ueu/index.do",
+      "accessLevel": "open",
+      "freeToSearch": true,
+      "loginRequired": false,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": false,
+      "paidDocumentsAvailable": false,
+      "notes": "The register is served publicly without an account. One legacy entry point returned a server error during verification while the register itself remained reachable, so the working entry point is recorded rather than the failing one."
+    },
+    "petroHrysScore": 85,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 8,
+      "verificationQuality": 9,
+      "platformReputation": 8,
+      "spamResistance": 10,
+      "industryImportance": 8,
+      "longTermStability": 9,
+      "submissionQuality": 5,
+      "transparency": 9,
+      "moderationQuality": 8
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": true,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": true,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-13",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "cz-ares"
+      ],
+      "usedWith": [
+        "cz-verejny-rejstrik"
+      ],
+      "competitors": []
+    },
+    "bestFor": [
+      "Checking whether a Czech person or company is subject to insolvency proceedings and reading the decisions issued in them.",
+      "Following a Czech insolvency case through its published court file."
+    ],
+    "notRecommendedFor": [
+      "Confirming that a company exists or who represents it, which is the public register kept by the courts.",
+      "Treating an empty result as proof that a party has never been insolvent, because entries are removed after the statutory period."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Parties to Czech insolvency proceedings"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "The register is free to search and needs no account.",
+      "Publication in the register is the statutory means by which Czech insolvency decisions take public effect, so the register is part of the procedure rather than a report on it.",
+      "The case file associated with a proceeding is published alongside the decisions, so the underlying documents can be read."
+    ],
+    "cons": [
+      "It records insolvency proceedings only. It establishes nothing about whether a company exists, who represents it or whether it is otherwise in good standing.",
+      "Entries are removed once the statutory retention period expires, so an absent result does not prove that a party was never insolvent.",
+      "The register concerns a legal procedure and is not a general assessment of creditworthiness."
+    ],
+    "editorNotes": "Verified 2026-08-05 from official Czech sources, including the register’s own pages citing the Insolvency Act provisions that govern it. FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: The insolvenční zákon constitutes the register; the insolvency courts enter proceedings and decisions into it, and publication there is what makes those decisions publicly effective. RESPONSIBLE AUTHORITY: Ministerstvo spravedlnosti České republiky, which administers the register. TECHNICAL PLATFORM: Unknown. The ministry’s own published data-protection notice indicates that processing involves parties beyond the ministry, but no official page fetched names the software supplier, so no technical provider is asserted here. PUBLIC ACCESS INTERFACE: The public ISIR web interface at isir.justice.cz. A legacy redirect endpoint under isir.justice.cz returned HTTP 500 during verification while the register itself was reachable; the working entry point is recorded and the failing one is not published."
+  },
+  {
+    "id": "cz-evidence-skutecnych-majitelu",
+    "name": "Evidence skutečných majitelů",
+    "slug": "evidence-skutecnych-majitelu",
+    "country": "czech-republic",
+    "category": "government",
+    "website": "https://esm.justice.cz/",
+    "submissionUrl": null,
+    "description": "Evidence skutečných majitelů is the Czech register of beneficial owners, kept under Act No. 37/2021 Coll. and administered by the Ministry of Justice. On 17 December 2025 the Ministry withdrew public access to it, and inspection is now limited to registering persons, public authorities, obliged entities under the anti-money-laundering act and other legally entitled applicants.",
+    "tier": "tier1",
+    "scope": "national",
+    "nativeName": "Evidence skutečných majitelů",
+    "englishName": "Register of Beneficial Owners",
+    "englishNameSource": "editorial-translation",
+    "primaryRegistryType": "beneficial-ownership-register",
+    "registryTypes": [
+      "beneficial-ownership-register"
+    ],
+    "operator": {
+      "name": "Ministerstvo spravedlnosti České republiky",
+      "type": "ministry",
+      "officialUrl": "https://www.justice.cz/"
+    },
+    "publicAccess": {
+      "searchUrl": null,
+      "accessLevel": "restricted",
+      "freeToSearch": false,
+      "loginRequired": true,
+      "identityVerificationRequired": true,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "Public access was withdrawn on 17 December 2025. The page that previously carried the public search now serves the withdrawal notice instead of a search form, so freeToSearch records the absence of any public search rather than a fee. Access requires authentication — a data box for a registering person’s own extract, or the state identity space or an approved application for remote access — which is why login and identity verification are both recorded as required. No form was reached, so the presence of a CAPTCHA is not asserted."
+    },
+    "petroHrysScore": 79,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 5,
+      "verificationQuality": 9,
+      "platformReputation": 8,
+      "spamResistance": 10,
+      "industryImportance": 8,
+      "longTermStability": 9,
+      "submissionQuality": 4,
+      "transparency": 5,
+      "moderationQuality": 9
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": true,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": true,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-13",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "cz-verejny-rejstrik"
+      ],
+      "usedWith": [
+        "cz-verejny-rejstrik",
+        "cz-ares"
+      ],
+      "competitors": []
+    },
+    "bestFor": [
+      "Understanding what the Czech beneficial ownership register holds and on what legal basis, before requesting access through one of the routes that remain open.",
+      "Obtaining a legal entity’s own beneficial ownership extract, which the entity can still retrieve by authenticating with its data box."
+    ],
+    "notRecommendedFor": [
+      "Public beneficial ownership research. There is no public search at any price since 17 December 2025.",
+      "Checking company registration or filed documents, which sit in the public register on a separate system."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Czech legal entities subject to beneficial ownership registration"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "It is the statutory Czech beneficial ownership register, so an extract from it is the authoritative record of who ultimately owns or controls a registered entity.",
+      "The withdrawal of public access, the categories that retain access and the effect on existing remote-access permissions are all stated plainly on the register’s own front page rather than left to be inferred.",
+      "Remote access permissions granted before the withdrawal remain valid, and the Ministry opened an automated application route for obliged entities at the same time."
+    ],
+    "cons": [
+      "It is no longer open to the public. A member of the public cannot look up any entity’s beneficial owners here.",
+      "Every remaining route requires authentication — a data box, the state identity space, or an approved application — so the register cannot be checked anonymously at all.",
+      "An entry records who is registered as a beneficial owner. It is not a statement that the registration is complete, current or correct."
+    ],
+    "editorNotes": "Verified 2026-08-05 from the register’s own pages at esm.justice.cz. FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: The register is constituted by zákon č. 37/2021 Sb., o evidenci skutečných majitelů. It is a separate system from the veřejný rejstřík: the register of beneficial owners is expressly not one of the public registers, sits on its own host and rests on its own act. RESPONSIBLE AUTHORITY: Ministerstvo spravedlnosti České republiky, which administers the register and which announced and carried out the withdrawal of public access. TECHNICAL PLATFORM: Not established. No supplier is named on any page fetched, and none is asserted. PUBLIC ACCESS INTERFACE: The application at esm.justice.cz, which now serves a withdrawal notice in place of a public search and offers authenticated routes instead. Access, established directly rather than inferred: the register’s front page states that on 17 December 2025 the Ministry of Justice withdrew public access to the register, and that it remains accessible to registering persons for their own extract after signing in through the entity’s data box, to privileged users with remote access — public authorities through the state identity space or on application, and entities obliged under the anti-money-laundering act on application — and to other legally entitled subjects on application. Remote access granted before that date remains valid. The page that the register’s own navigation labels as the search in the public part of the register was retrieved and serves the same withdrawal notice rather than a search form, so the absence of any public search was confirmed on the surface that would carry it rather than assumed from the banner. An earlier pass held this record back because the extent of public inspection was unestablished; it is now established, and it is nil. Registry type: beneficial-ownership-register, the only honest type. The record is published rather than dropped because a register that has closed to the public is a fact worth stating plainly, and because a reader who assumes Czech beneficial ownership data is still publicly searchable would otherwise be wrong."
   }
 ]

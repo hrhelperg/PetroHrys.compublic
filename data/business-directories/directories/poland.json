@@ -284,5 +284,299 @@
       "The register interface is published in Polish"
     ],
     "editorNotes": "Verified 2026-08-04. www.ceidg.gov.pl returns a 302 to aplikacja.ceidg.gov.pl, which states the portal is \"supervised by the Ministry of Development and Technology\". biznes.gov.pl, the official government business portal, gives the English name \"Central Registration and Information on Economic Activity\" and states that sole traders register in CEIDG while companies register in the KRS. The public search is at https://www.ceidg.gov.pl/CEIDG/CEIDG.Public.UI/Search.aspx"
+  },
+  {
+    "id": "pl-krs",
+    "name": "Krajowy Rejestr Sądowy",
+    "slug": "krajowy-rejestr-sadowy",
+    "country": "poland",
+    "category": "government",
+    "website": "https://wyszukiwarka-krs.ms.gov.pl/",
+    "submissionUrl": null,
+    "description": "Krajowy Rejestr Sądowy is the Polish National Court Register, kept by the registry courts under the Act of 20 August 1997. It comprises the register of entrepreneurs — commercial companies, cooperatives, state enterprises and branches of foreign entrepreneurs — together with the register of associations, other social and professional organisations, foundations and public healthcare institutions.",
+    "tier": "tier1",
+    "scope": "national",
+    "nativeName": "Krajowy Rejestr Sądowy",
+    "englishName": "National Court Register",
+    "englishNameSource": "editorial-translation",
+    "primaryRegistryType": "company-register",
+    "registryTypes": [
+      "company-register",
+      "business-entity-register",
+      "public-filing-database"
+    ],
+    "operator": {
+      "name": "Ministerstwo Sprawiedliwości",
+      "type": "ministry",
+      "officialUrl": "https://www.gov.pl/web/sprawiedliwosc"
+    },
+    "publicAccess": {
+      "searchUrl": "https://wyszukiwarka-krs.ms.gov.pl/",
+      "accessLevel": "open",
+      "freeToSearch": true,
+      "loginRequired": false,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": false,
+      "paidDocumentsAvailable": null,
+      "notes": "The web search interface refused automated requests behind a bot-protection interstitial and its behaviour was not observed. Free anonymous access was instead confirmed against the ministry’s own open API at api-krs.ms.gov.pl, which returned a complete current extract for a test entity without any credential."
+    },
+    "petroHrysScore": 91,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 9,
+      "verificationQuality": 10,
+      "platformReputation": 8,
+      "spamResistance": 10,
+      "industryImportance": 9,
+      "longTermStability": 10,
+      "submissionQuality": 6,
+      "transparency": 9,
+      "moderationQuality": 9
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": true,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": true,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-19",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "pl-ceidg"
+      ],
+      "usedWith": [
+        "pl-regon"
+      ],
+      "competitors": []
+    },
+    "bestFor": [
+      "Confirming that a Polish company, cooperative, association or foundation legally exists and reading its recorded officers and representation.",
+      "Obtaining a current extract for a Polish registered entity by its KRS number."
+    ],
+    "notRecommendedFor": [
+      "Checking a Polish sole trader, who is not in this register at all but in CEIDG.",
+      "Treating an entry as evidence of solvency, creditworthiness or good standing, none of which the register records."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Entities registered in the Polish National Court Register"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "It is the constitutive register for Polish companies, cooperatives, associations and foundations, so an entry establishes legal existence rather than merely describing a business.",
+      "The Ministry of Justice publishes a free open API that returns a complete current extract for an entity without any account, which makes verification reproducible rather than screen-dependent.",
+      "One register covers both the commercial sector and the association and foundation sector, through two separate statutory sub-registers.",
+      "Financial documents filed by registered entities are held in the associated document repository, so filings can be reached from the register entry."
+    ],
+    "cons": [
+      "It does not cover sole traders. A Polish natural person trading on their own account is registered in CEIDG, and neither register contains the other’s population.",
+      "The NIP and REGON numbers shown in a KRS extract originate in the tax register and in the REGON statistical register and are placed in KRS automatically; they are not established by the registry court.",
+      "The public web search sits behind bot protection that refused automated requests, so its interactive behaviour, any fee for certified output and any CAPTCHA could not be observed.",
+      "An entry records legal existence and filed data. It is not a statement about solvency, creditworthiness or the conduct of the entity."
+    ],
+    "editorNotes": "Verified 2026-08-05 from official Polish sources: the consolidated text of the Act of 20 August 1997 on the National Court Register fetched from the Sejm’s official ELI service, the Ministry of Justice pages on gov.pl, and the ministry’s open KRS API. FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: The register is constituted by ustawa z dnia 20 sierpnia 1997 r. o Krajowym Rejestrze Sądowym and is kept by the registry courts (sądy rejonowe holding the KRS commercial divisions); entries are made by those courts. RESPONSIBLE AUTHORITY: Minister Sprawiedliwości, who under the Act provides the ICT system through which the register operates and through which filings are made. TECHNICAL PLATFORM: Not separately identified. No official page fetched names an external consortium or contractor for the Polish court-register systems, unlike Italy or Spain, so no technical provider is asserted. PUBLIC ACCESS INTERFACE: The public search at wyszukiwarka-krs.ms.gov.pl, alongside the Portal Rejestrów Sądowych and the open API at api-krs.ms.gov.pl. Relationships, all statutory rather than inferred: KRS Act art. 20 ust. 1c transmits entry data to the REGON national official register of business entities; art. 20 ust. 1a places the NIP and REGON numbers in KRS automatically after transmission from the tax register and from REGON, so those identifiers originate elsewhere. The CEIDG Act art. 2 ust. 2 pkt 1 defines CEIDG’s task as recording entrepreneurs who are natural persons, which is a population disjoint from the KRS register of entrepreneurs. Registry types: company-register for the constitutive function over companies, business-entity-register because the Act’s sub-registers span cooperatives, associations, foundations and healthcare institutions as well, and public-filing-database for the financial documents repository. cross-border-registry-interface was considered and rejected: participation in the European register interconnection does not make a national constitutive register an interface."
+  },
+  {
+    "id": "pl-krz",
+    "name": "Krajowy Rejestr Zadłużonych",
+    "slug": "krajowy-rejestr-zadluzonych",
+    "country": "poland",
+    "category": "government",
+    "website": "https://krz.ms.gov.pl/",
+    "submissionUrl": null,
+    "description": "Krajowy Rejestr Zadłużonych is the Polish register of debtors, kept by the Minister of Justice under the Act of 6 December 2018. It discloses restructuring and bankruptcy proceedings, proceedings on a ban from conducting business activity, enforcement discontinued as ineffective, and maintenance arrears older than three months.",
+    "tier": "tier1",
+    "scope": "national",
+    "nativeName": "Krajowy Rejestr Zadłużonych",
+    "englishName": "National Register of Debtors",
+    "englishNameSource": "editorial-translation",
+    "primaryRegistryType": "insolvency-register",
+    "registryTypes": [
+      "insolvency-register",
+      "public-filing-database"
+    ],
+    "operator": {
+      "name": "Ministerstwo Sprawiedliwości",
+      "type": "ministry",
+      "officialUrl": "https://www.gov.pl/web/sprawiedliwosc"
+    },
+    "publicAccess": {
+      "searchUrl": null,
+      "accessLevel": "unknown",
+      "freeToSearch": null,
+      "loginRequired": null,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "The access position could not be observed. Every request to the portal, including with full browser headers, returned an Imperva/Incapsula interstitial rather than the application, and unlike the National Court Register there is no sibling open API to verify against. The Act states that the register is public and that everyone may consult its data over the internet, but that is the legal position rather than an observed behaviour, so no search URL is published and every access boolean stays null."
+    },
+    "petroHrysScore": 84,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 8,
+      "verificationQuality": 9,
+      "platformReputation": 7,
+      "spamResistance": 10,
+      "industryImportance": 8,
+      "longTermStability": 9,
+      "submissionQuality": 5,
+      "transparency": 8,
+      "moderationQuality": 9
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": true,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": true,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-22",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "pl-krs"
+      ],
+      "usedWith": [
+        "pl-krs",
+        "pl-ceidg"
+      ],
+      "competitors": []
+    },
+    "bestFor": [
+      "Checking whether a Polish person or entity is subject to restructuring, bankruptcy or secondary insolvency proceedings.",
+      "Finding whether enforcement against a Polish debtor was discontinued because it would not recover more than the cost of enforcing."
+    ],
+    "notRecommendedFor": [
+      "Confirming that a Polish company exists or reading its officers, which is the National Court Register rather than this register.",
+      "Treating an absence of entries as evidence of solvency. The register records proceedings that have been opened, not a financial assessment."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Parties to Polish insolvency, restructuring and enforcement proceedings"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "It is a single statutory register for insolvency, restructuring, ineffective enforcement and maintenance arrears, populations that are otherwise spread across separate court and enforcement files.",
+      "The Act designates it as the Polish insolvency register for the purposes of the European insolvency regulation, so it is the register other member states connect to.",
+      "The Ministry of Justice publishes its scope and legal basis on its own pages, so what the register does and does not disclose can be checked against the responsible authority rather than a commentary."
+    ],
+    "cons": [
+      "The portal is behind bot protection that returned an Imperva interstitial to every request, so no search behaviour, fee or credential requirement could be observed and none is asserted here.",
+      "There is no open API alongside the portal, unlike the National Court Register, so the access position cannot be established indirectly either.",
+      "Entries describe proceedings and enforcement outcomes. They are not a credit assessment and do not establish that a debt is currently owed."
+    ],
+    "editorNotes": "Verified 2026-08-05 from official Polish sources: the Ministry of Justice page for the register on gov.pl, and the text of the Act of 6 December 2018 on the National Register of Debtors fetched from the Sejm’s official ELI service. FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: The register is constituted by ustawa z dnia 6 grudnia 2018 r. o Krajowym Rejestrze Zadłużonych and is kept by the Minister of Justice in an ICT system. Its content originates with the insolvency and restructuring courts and with enforcement bodies — court enforcement officers, tax office heads and social insurance branch directors — which post the entries the Act assigns to them. RESPONSIBLE AUTHORITY: Minister Sprawiedliwości. The ministry’s own page describes the register as a public register kept by the Minister of Justice. TECHNICAL PLATFORM: Not established. No official page fetched names a supplier for the portal application; the host sits behind an Imperva/Incapsula edge, which is a protection layer rather than a disclosed platform operator. PUBLIC ACCESS INTERFACE: The public portal at krz.ms.gov.pl. The ministry’s guidance also describes a second front door at prs.ms.gov.pl, which was not exercised here. Relationships: this register is distinct from the National Court Register, which constitutes companies; the KRS number appears here only as an identifier and a search key. Registry types: insolvency-register because the Act’s core population is restructuring and bankruptcy proceedings, and public-filing-database because the Act also provides for announcements to be made in the register. exclusion-and-debarment-register was considered, because the register discloses proceedings on a ban from conducting business activity, and rejected: that type is for a register whose subject matter is the exclusion itself, and the boundary note excludes court proceedings databases. Access: nothing was observed. An earlier pass held this record back for exactly that reason; it is published now because identity, authority, scope and legal basis are all evidenced, with the access position recorded as unknown rather than guessed — the same treatment already applied to the French national business register."
   }
 ]

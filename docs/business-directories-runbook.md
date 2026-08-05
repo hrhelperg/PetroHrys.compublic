@@ -361,6 +361,24 @@ four published records breaking it. It is the easiest error in the whole dataset
 to make, because the thing a reader reaches is almost never the thing the law
 constitutes.
 
+**Wave 1E.1 extended it to the published text.** Getting the registry type right
+is not enough, because a reader never sees the type vocabulary. Where a record
+covers an access, publication or consultation surface rather than the
+constitutive register, the record must say so in prose a reader actually meets —
+the description, the cons, or the "not recommended for" list — and not only in
+`editorNotes`, which are working material and are never published.
+
+Two records carry that obligation and are pinned by test:
+
+- **BODACC** gives publicity to acts recorded in the registre national des
+  entreprises; its own about page says so, and names the court registries the
+  data comes from. Its page says it publishes rather than registers.
+- **Insolvenzbekanntmachungen** is where the German insolvency *courts* make the
+  announcements § 9 InsO requires. Its page says the proceeding is the court's.
+
+The mutation harness injects the removal of each of those sentences, and both
+removals are caught.
+
 Four distinctions do the work. Establish each one separately before authoring:
 
 | Question | What it settles |

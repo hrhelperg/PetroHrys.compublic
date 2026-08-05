@@ -323,3 +323,76 @@ Gangmasters and Labour Abuse Authority registers, Scottish and Northern Ireland
 company-adjacent registers, and the Land Registry / Registers of Scotland /
 Land and Property Services title registers. None was reached in this wave; none
 is rejected.
+
+---
+
+## Wave 1E — Continental Europe (2026-08-05)
+
+Seventeen candidates researched, eleven published. What follows is what was not.
+
+### Pending manual verification
+
+| Candidate | Country | Operator | Official URL | Blocker | Next action |
+|---|---|---|---|---|---|
+| Albo delle imprese di assicurazione (IVASS) | Italy | IVASS | `ivass.it` / `infostat-ivass.bancaditalia.it` | Identity, authority and the platform/interface split are established from a fetched IVASS page, but the **access position** of the public inquiry application could not be established. | Exercise the RIGA public inquiry application and record the access position. |
+| Registro dei revisori legali | Italy | Ministero dell'Economia e delle Finanze | `revisionelegale.mef.gov.it` | **Host unreachable.** DNS resolves but the HTTPS connection never completes (timeout at 25 s and 60 s). Nothing about it was established. | Retry from a different network; if it stays down, look for an official MEF mirror. |
+| CONSOB registers | Italy | CONSOB | `consob.it` | Not established to publication standard in this wave. | Research the individual albi ed elenchi and determine whether each is a distinct register. |
+
+### Duplicate — not published
+
+| Candidate | Reason |
+|---|---|
+| Portál veřejných rejstříků a evidencí (`verejnerejstriky.msp.gov.cz`) | A newer ministry portal over the same Czech public register already published as `cz-verejny-rejstrik` (or.justice.cz). Publishing both would be a landing/search pair for one registry, which the duplicate guard forbids. Worth revisiting only if the ministry retires the older surface. |
+
+### A brief discrepancy worth recording
+
+The Wave 1E brief listed **ISIR** among the Polish targets. ISIR is the **Czech**
+Insolvenční rejstřík. Poland's insolvency register is the Krajowy Rejestr
+Zadłużonych (KRZ). Both were researched: ISIR is published under Czechia, and KRZ
+was published in Wave 1E.1 below.
+
+### Carried forward, not started
+
+Poland: Biała lista podatników VAT, Centralny Rejestr Beneficjentów
+Rzeczywistych, UPRP, KNF. Germany: BaFin. France: ORIAS, REGAFI, INPI trade mark
+and patent bases as records separate from `fr-inpi`. Spain: Banco de España,
+Registro Central de Titularidades Reales.
+
+---
+
+## Wave 1E.1 — Continental Europe completion (2026-08-05)
+
+Seventeen candidates researched across the six countries, twelve approved by
+research, **eight published**.
+Every approved candidate came back from the adversarial pass as
+publish-with-corrections rather than publish-as-is, and two carried **fabricated
+quotations** that were removed rather than repaired. What follows is what was not
+published, and why.
+
+### Resolved from the Wave 1E backlog
+
+| Candidate | How it was resolved |
+|---|---|
+| Krajowy Rejestr Zadłużonych (KRZ) | **Published** as `pl-krz`. The Incapsula block was reproduced and still stands, and `api-krz.ms.gov.pl` does not resolve, so no access fact was observed. Identity, responsible authority, scope and statutory basis are established from the Ministry of Justice's own page and the Act's text on the Sejm ELI service, and the record ships with `accessLevel: unknown` and every access boolean null — the treatment already applied to `fr-rne`. |
+| Evidence skutečných majitelů (ESM) | **Published** as `cz-evidence-skutecnych-majitelu`, and the blocker is resolved in the negative: the Ministry of Justice **withdrew public access on 17 December 2025**. The page the register's own navigation labels as the public-part search was retrieved and serves the withdrawal notice instead of a search form, so the absence of a public search was confirmed on the surface that would carry it. |
+
+### Pending manual verification
+
+| Candidate | Country | Operator | Official URL | Blocker | Next action |
+|---|---|---|---|---|---|
+| Živnostenský rejstřík | Czech Republic | Živnostenský úřad ČR / Ministerstvo průmyslu a obchodu | `rzp.gov.cz` | **Role attribution contested and unresolvable from a reachable official source.** The MPO page and § 60 of the trade licensing act were reported to disagree on which body is the register's *správce*. The search surface is an Angular application with no server-rendered content; `www.rzp.gov.cz` does not respond; the MPO landing page is a navigation stub; and e-Sbírka, the official legislation portal, serves only a JavaScript shell to every path tried including its API host. | Obtain § 60 and § 71 of zákon č. 455/1991 Sb. from a server-rendered official source, then settle whether MPO acts *as* the Živnostenský úřad ČR or is a separate principal. Publishing a contested operator attribution would breach this wave's own acceptance criterion. |
+| Marktstammdatenregister (MaStR) | Germany | Bundesnetzagentur | `marktstammdatenregister.de` | Research **fabricated an imprint contact** (a named individual under a "Projektierung" heading) that verification confirmed absent from the page, and misstated the snapshot range on the download page. The register itself is real, open and reachable; the record was not published because its technical-platform field rested on invented detail. | Re-derive the four roles from EnWG § 111e and the imprint alone, assert no personnel, and record that natural-person operators are anonymised in the public view. |
+| Albo nazionale gestori ambientali | Italy | Comitato nazionale, at the environment ministry | `albonazionalegestoriambientali.it` | Identity and access are established, but one cited quotation exists only inside an `alt` attribute rather than as page text, and the institutional pages naming the Comitato could not be located from the reachable navigation. `operatorType` is also unsettled: the committee sits *inside* a ministry rather than standing apart from it. | Locate the committee's own institutional page, re-quote from page text, and settle the operator type against the vocabulary. |
+| Casellario Informatico dei contratti pubblici — annotazioni riservate | Italy | ANAC | `annotazioni.anticorruzione.it` | The record cited **repealed law**: the *reputazione dell'impresa* clause it relied on was suppressed by D.Lgs. 209/2024, and only the original 2023 gazette text was consulted. A scope tension also stands — the reserved annotations have no public search, but other levels of the same statutory casellario are freely consultable on separate ANAC hosts. | Re-read the consolidated art. 222 and ANAC's Delibera 225/2025, then decide whether the publishable unit is the reserved annotations or the casellario as a whole. |
+| Registro Nazionale degli Aiuti di Stato (RNA) | Italy | MIMIT | `rna.gov.it` | **Host unreachable.** DNS resolves but every HTTPS request timed out on three separate paths; the apex does not resolve. Nothing was established. | Retry from a different network. |
+| Registro dei revisori legali | Italy | Ministero dell'Economia e delle Finanze | `revisionelegale.mef.gov.it` | Carried forward from Wave 1E. Host still not retried. | Retry from a different network; if it stays down, look for an official MEF mirror. |
+| CONSOB registers | Italy | CONSOB | `consob.it` | Carried forward from Wave 1E. | Research the individual albi ed elenchi and determine whether each is a distinct register. |
+
+### Rejected on classification, not on quality
+
+| Candidate | Reason |
+|---|---|
+| Banca dati nazionale dei contratti pubblici (BDNCP) | Real and now fully evidenced in law, but it has **no separate public access interface of its own**. Its public surface is the legal-publicity platform already published as `it-pubblicita-legale-anac`. Publishing both would be a landing/search pair for one system. |
+| REA — Repertorio Economico Amministrativo | Legally a distinct *repertorio*, but it is constituted *at* the business register office and has no interface of its own; it is reached through `registroimprese.it`, already published as `it-registro-imprese`. |
+| Vereinsregister (Germany) | No portal of its own — it is reached through `handelsregister.de`, already published as `de-registerportal`, so publishing it would collide on hostname as well as duplicate. |
+| Portál veřejných rejstříků a evidencí (`verejnerejstriky.msp.gov.cz`) | Still in *ověřovací provoz* (verification operation) and its own banner says so. Carried forward from Wave 1E, now with the additional finding that the Ministry is running it as a replacement surface for `or.justice.cz`. **Revisit when it leaves pilot operation** — at that point the published `cz-verejny-rejstrik` may need its URL migrated rather than a second record added. |
