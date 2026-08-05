@@ -10,6 +10,11 @@
     "description": "Statutory register of UK companies operated by Companies House, holding filed accounts, officers and registered office data.",
     "tier": "tier1",
     "scope": "national",
+    "resourceIdentity": {
+      "canonicalDomain": "find-and-update.company-information.service.gov.uk",
+      "systemKey": "companies-house-company-register",
+      "sharedHostGroup": "companies-house-service"
+    },
     "primaryRegistryType": "company-register",
     "registryTypes": [
       "company-register",
@@ -2803,5 +2808,761 @@
       "It does not cover solicitors or other legal professionals, who sit on different registers."
     ],
     "editorNotes": "Verified 2026-08-05 from the official Bar Standards Board Barristers’ Register page, which presents barristers currently authorised to practise alongside a separate view of disbarred or unregistered barristers with a current disciplinary finding. Operator: Bar Standards Board. Filed as a cross-territory jurisdiction covering England and Wales, using covers rather than a compound code. The register host barristerregister.barstandardsboard.org.uk did not respond directly, so the record points at the Bar Standards Board page that serves the register, which was fetched successfully."
+  },
+  {
+    "id": "gb-find-a-tender",
+    "name": "Find a Tender",
+    "slug": "find-a-tender",
+    "country": "united-kingdom",
+    "category": "government",
+    "website": "https://www.find-tender.service.gov.uk/",
+    "submissionUrl": null,
+    "description": "Find a Tender is the United Kingdom government service publishing public sector procurement notices across the whole procurement lifecycle, from pipeline and planning through tender, award, contract details, change, performance and termination. Notices from one procurement are linked by a shared Open Contracting identifier.",
+    "tier": "tier1",
+    "scope": "national",
+    "officialName": "Find a Tender service",
+    "primaryRegistryType": "public-procurement-notice-database",
+    "registryTypes": [
+      "public-procurement-notice-database"
+    ],
+    "operator": {
+      "name": "Cabinet Office",
+      "type": "ministry",
+      "officialUrl": "https://www.gov.uk/government/organisations/cabinet-office"
+    },
+    "publicAccess": {
+      "searchUrl": "https://www.find-tender.service.gov.uk/Search",
+      "accessLevel": "open",
+      "freeToSearch": true,
+      "loginRequired": false,
+      "identityVerificationRequired": false,
+      "captcha": false,
+      "geographicRestriction": false,
+      "paidDocumentsAvailable": false,
+      "notes": "Notices are searched and read without an account. A GOV.UK One Login account adds saved searches, email notifications and organisation registration, none of which is needed to search or read a notice."
+    },
+    "petroHrysScore": 82,
+    "scoreFactors": {
+      "editorialTrust": 9,
+      "businessUsefulness": 8,
+      "verificationQuality": 8,
+      "platformReputation": 8,
+      "spamResistance": 9,
+      "industryImportance": 8,
+      "longTermStability": 9,
+      "submissionQuality": 6,
+      "transparency": 9,
+      "moderationQuality": 7
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": true,
+      "saas": null,
+      "enterprise": true,
+      "agency": true,
+      "freelancer": null,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-24",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "gb-contracts-finder",
+        "gb-public-contracts-scotland",
+        "gb-sell2wales"
+      ],
+      "usedWith": [
+        "gb-companies-house"
+      ],
+      "competitors": []
+    },
+    "bestFor": [
+      "Finding current United Kingdom public sector tender opportunities and the contracts awarded from them.",
+      "Tracing one procurement through its published stages using the shared Open Contracting identifier."
+    ],
+    "notRecommendedFor": [
+      "Checking whether a supplier exists, is solvent or is eligible to bid, none of which a notice database records.",
+      "Assuming complete coverage of Scottish procurement, which largely runs through Public Contracts Scotland."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Suppliers to United Kingdom public sector bodies"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source",
+      "public-procurement"
+    ],
+    "pros": [
+      "Find a Tender can be searched free of charge and without an account, and individual notices are readable anonymously.",
+      "It publishes the full procurement lifecycle rather than opportunities alone, including award, contract detail, change, performance and termination notices.",
+      "Notices from the same procurement share an Open Contracting identifier, so a contract can be followed from pipeline to termination.",
+      "Bulk data is published under the Open Government Licence in the Open Contracting Data Standard, so the notices are reusable rather than only viewable."
+    ],
+    "cons": [
+      "It is a notice database, not a supplier register. Publication of a notice establishes nothing about any supplier’s eligibility, standing, competence or trustworthiness.",
+      "Coverage is not uniform across the United Kingdom. Scotland sits outside the Procurement Act 2023 regime, so Scottish below-threshold and full-lifecycle notices are not published here and run through Public Contracts Scotland instead.",
+      "The widely repeated description of the service as covering only high-value contracts above a threshold is now out of date, and the GOV.UK guidance page still carries that older framing.",
+      "Notice content is supplied by the publishing authority, so an error in a notice is the authority’s error and is not corrected by the service."
+    ],
+    "editorNotes": "Verified 2026-08-05 from the service’s own pages at find-tender.service.gov.uk and the GOV.UK guidance page. Operator: Cabinet Office. Classified as public-procurement-notice-database, which was added for this wave: the service publishes procurement notices and does not register suppliers, so procurement-supplier-register would state the opposite of what it is. Territorial position established from the service’s own legislation section: the Procurement Act 2023 applies in England, Wales and Northern Ireland to new procurements from 24 February 2025, while Scotland is governed by a separate body of legislation; Scottish above-threshold notices appear here but Scottish below-threshold and full-lifecycle notices do not. Filed as scope national because the service is the United Kingdom-wide publication point, with the Scottish limitation published as a con rather than flattened away. The historical \"usually above £139,688\" framing on the stale GOV.UK page is deliberately not repeated as current."
+  },
+  {
+    "id": "gb-contracts-finder",
+    "name": "Contracts Finder",
+    "slug": "contracts-finder",
+    "country": "united-kingdom",
+    "category": "government",
+    "website": "https://www.contractsfinder.service.gov.uk/",
+    "submissionUrl": null,
+    "description": "Contracts Finder publishes lower-value public sector procurement notices and awarded contract records for contracting authorities within the extent of the Public Contracts Regulations 2015. It covers England together with reserved authorities in Wales and Northern Ireland, and does not extend to Scotland.",
+    "tier": "tier1",
+    "scope": "subnational",
+    "jurisdiction": {
+      "type": "cross-territory",
+      "name": "England, Wales and Northern Ireland",
+      "code": null,
+      "covers": [
+        "GB-ENG",
+        "GB-NIR",
+        "GB-WLS"
+      ],
+      "parentCountry": "united-kingdom"
+    },
+    "primaryRegistryType": "public-procurement-notice-database",
+    "registryTypes": [
+      "public-procurement-notice-database"
+    ],
+    "operator": {
+      "name": "Government Commercial Agency, Cabinet Office",
+      "type": "government-agency",
+      "officialUrl": "https://www.gov.uk/government/organisations/cabinet-office"
+    },
+    "publicAccess": {
+      "searchUrl": "https://www.contractsfinder.service.gov.uk/Search",
+      "accessLevel": "open",
+      "freeToSearch": true,
+      "loginRequired": false,
+      "identityVerificationRequired": false,
+      "captcha": false,
+      "geographicRestriction": false,
+      "paidDocumentsAvailable": false,
+      "notes": "Notices are searched and read without an account. An account adds saved searches and notifications, and is not needed to search."
+    },
+    "petroHrysScore": 78,
+    "scoreFactors": {
+      "editorialTrust": 9,
+      "businessUsefulness": 8,
+      "verificationQuality": 7,
+      "platformReputation": 7,
+      "spamResistance": 9,
+      "industryImportance": 7,
+      "longTermStability": 8,
+      "submissionQuality": 6,
+      "transparency": 9,
+      "moderationQuality": 7
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": true,
+      "saas": null,
+      "enterprise": true,
+      "agency": true,
+      "freelancer": null,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-06",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "gb-find-a-tender",
+        "gb-public-contracts-scotland",
+        "gb-sell2wales"
+      ],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Finding lower-value public sector opportunities that do not reach the Find a Tender thresholds.",
+      "Retrieving awarded contract records, including the buyer-supplied company number of the awarded supplier."
+    ],
+    "notRecommendedFor": [
+      "Scottish procurement, which is outside the extent of the regulations this service implements.",
+      "Establishing that a named supplier won a contract as a matter of fact, rather than that an authority published a notice saying so."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "mixed",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Suppliers to public sector bodies in England, Wales and Northern Ireland"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source",
+      "public-procurement"
+    ],
+    "pros": [
+      "Contracts Finder can be searched free of charge and without an account.",
+      "It carries lower-value opportunities that never appear on Find a Tender, which matters most to smaller suppliers.",
+      "Award records carry a buyer-supplied company number, which can usually be matched to a registered legal entity.",
+      "Notice data is published in the Open Contracting Data Standard for bulk reuse."
+    ],
+    "cons": [
+      "It is a notice database, not a supplier register. Publication establishes nothing about a supplier’s eligibility, standing or trustworthiness.",
+      "Its extent does not include Scotland, and in Wales and Northern Ireland it reaches only authorities whose functions are not wholly or mainly devolved. Scotland, Wales and Northern Ireland each run their own procurement service.",
+      "An award notice records that a contracting authority published a statement that a contract was awarded. It is not independent confirmation that the award happened as described.",
+      "Company numbers are entered by the buying authority and are not validated by the service, so a matching error is possible."
+    ],
+    "editorNotes": "Verified 2026-08-05 from the service and from the GOV.UK guidance page, which states that Scotland, Wales and Northern Ireland have their own dedicated public sector procurement websites and names Public Contracts Scotland, Sell2Wales and the Northern Ireland services. Territorial modelling is taken from the extent of the Public Contracts Regulations 2015 rather than from the signposting alone: the instrument extends to England, Wales and Northern Ireland and not to Scotland, with devolved Welsh and Northern Irish authorities outside its reach. It is therefore filed as a cross-territory jurisdiction covering GB-ENG, GB-NIR and GB-WLS, deliberately NOT as United Kingdom-wide and deliberately not as England alone. Classified as public-procurement-notice-database; it registers no suppliers."
+  },
+  {
+    "id": "gb-public-contracts-scotland",
+    "name": "Public Contracts Scotland",
+    "slug": "public-contracts-scotland",
+    "country": "united-kingdom",
+    "category": "government",
+    "website": "https://www.publiccontractsscotland.gov.uk/",
+    "submissionUrl": null,
+    "description": "Public Contracts Scotland is the national advertising portal for Scottish public sector procurement, publishing contract notices and awards from Scottish public bodies. It is the Scottish counterpart to the procurement notice services operated elsewhere in the United Kingdom.",
+    "tier": "tier1",
+    "scope": "subnational",
+    "jurisdiction": {
+      "type": "country",
+      "name": "Scotland",
+      "code": "GB-SCT",
+      "parentCountry": "united-kingdom"
+    },
+    "primaryRegistryType": "public-procurement-notice-database",
+    "registryTypes": [
+      "public-procurement-notice-database"
+    ],
+    "operator": {
+      "name": "Scottish Government, Scottish Procurement and Property Directorate",
+      "type": "ministry",
+      "officialUrl": "https://www.gov.scot/"
+    },
+    "publicAccess": {
+      "searchUrl": "https://www.publiccontractsscotland.gov.uk/Search/Search_MainPage.aspx",
+      "accessLevel": "open",
+      "freeToSearch": true,
+      "loginRequired": false,
+      "identityVerificationRequired": false,
+      "captcha": false,
+      "geographicRestriction": false,
+      "paidDocumentsAvailable": false,
+      "notes": "Notices are searched without an account. Registration is free and is needed to bid or to receive notifications, not to search."
+    },
+    "petroHrysScore": 77,
+    "scoreFactors": {
+      "editorialTrust": 9,
+      "businessUsefulness": 8,
+      "verificationQuality": 7,
+      "platformReputation": 7,
+      "spamResistance": 9,
+      "industryImportance": 7,
+      "longTermStability": 8,
+      "submissionQuality": 6,
+      "transparency": 8,
+      "moderationQuality": 7
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": true,
+      "saas": null,
+      "enterprise": true,
+      "agency": true,
+      "freelancer": null,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-20",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "gb-find-a-tender",
+        "gb-contracts-finder",
+        "gb-sell2wales"
+      ],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Finding Scottish public sector contract opportunities that do not appear on the United Kingdom services.",
+      "Following Scottish public procurement, which runs under its own body of legislation."
+    ],
+    "notRecommendedFor": [
+      "Procurement outside Scotland, which is published through Find a Tender, Contracts Finder or Sell2Wales.",
+      "Checking a supplier’s standing, which no notice database records."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Suppliers to Scottish public sector bodies"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source",
+      "public-procurement"
+    ],
+    "pros": [
+      "Notices can be searched free of charge and without an account, and registration to bid is itself free.",
+      "It is the national advertising portal for Scottish public procurement, which sits under separate Scottish legislation from the rest of the United Kingdom.",
+      "It carries Scottish below-threshold procurement that the United Kingdom-wide service does not publish."
+    ],
+    "cons": [
+      "It is a notice database, not a supplier register. Publication establishes nothing about a supplier’s eligibility, standing or trustworthiness.",
+      "It covers Scotland only. Procurement elsewhere in the United Kingdom is published through different services.",
+      "Day-to-day operation is provided under contract by a commercial supplier on behalf of the Scottish Ministers, so the service is government-owned rather than government-built."
+    ],
+    "editorNotes": "Verified 2026-08-05 from the service’s own pages. The owning public authority is the Scottish Ministers acting through the Scottish Procurement and Property Directorate; the site’s terms identify a commercial supplier as responsible for providing and managing the website day to day, and both facts are recorded rather than only the first. Operator type is ministry because the accountable body is the Scottish Government, and the commercial delivery arrangement is published as a con. Classified as public-procurement-notice-database; it registers no suppliers. Territory is Scotland alone."
+  },
+  {
+    "id": "gb-sell2wales",
+    "name": "Sell2Wales",
+    "slug": "sell2wales",
+    "country": "united-kingdom",
+    "category": "government",
+    "website": "https://www.sell2wales.gov.wales/",
+    "submissionUrl": null,
+    "description": "Sell2Wales publishes public sector contract opportunities in Wales, together with buyer profiles, contract results and pipeline notices. It is operated by the Welsh Government as the Welsh counterpart to the other United Kingdom procurement notice services.",
+    "tier": "tier1",
+    "scope": "subnational",
+    "jurisdiction": {
+      "type": "country",
+      "name": "Wales",
+      "code": "GB-WLS",
+      "parentCountry": "united-kingdom"
+    },
+    "primaryRegistryType": "public-procurement-notice-database",
+    "registryTypes": [
+      "public-procurement-notice-database"
+    ],
+    "operator": {
+      "name": "Welsh Government",
+      "type": "ministry",
+      "officialUrl": "https://www.gov.wales/"
+    },
+    "publicAccess": {
+      "searchUrl": "https://www.sell2wales.gov.wales/search/search_mainpage.aspx",
+      "accessLevel": "open",
+      "freeToSearch": true,
+      "loginRequired": false,
+      "identityVerificationRequired": false,
+      "captcha": false,
+      "geographicRestriction": false,
+      "paidDocumentsAvailable": false,
+      "notes": "Contracts and buyer profiles are searched without an account. Registration is needed to bid or to receive notifications, not to search."
+    },
+    "petroHrysScore": 76,
+    "scoreFactors": {
+      "editorialTrust": 9,
+      "businessUsefulness": 7,
+      "verificationQuality": 7,
+      "platformReputation": 7,
+      "spamResistance": 9,
+      "industryImportance": 7,
+      "longTermStability": 8,
+      "submissionQuality": 6,
+      "transparency": 8,
+      "moderationQuality": 7
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": true,
+      "saas": null,
+      "enterprise": true,
+      "agency": true,
+      "freelancer": null,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-10",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "gb-find-a-tender",
+        "gb-contracts-finder",
+        "gb-public-contracts-scotland"
+      ],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Finding Welsh public sector contract opportunities, including pipeline and future opportunities.",
+      "Identifying Welsh public sector buyers through their published buyer profiles."
+    ],
+    "notRecommendedFor": [
+      "Procurement outside Wales, which is published through the other United Kingdom services.",
+      "Checking a supplier’s standing, which no notice database records."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Suppliers to Welsh public sector bodies"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source",
+      "public-procurement"
+    ],
+    "pros": [
+      "Contracts and buyer profiles can be searched free of charge and without an account.",
+      "It publishes future and pipeline opportunities alongside current ones and contract results, so forward planning is possible.",
+      "Open contracting transparency data is offered for download in several formats, so the notices are reusable in bulk.",
+      "The service is published bilingually in Welsh and English."
+    ],
+    "cons": [
+      "It is a notice database, not a supplier register. Publication establishes nothing about a supplier’s eligibility, standing or trustworthiness.",
+      "It covers Wales only. Procurement elsewhere in the United Kingdom is published through different services.",
+      "Day-to-day operation is provided under contract by a commercial supplier on behalf of the Welsh Government."
+    ],
+    "editorNotes": "Verified 2026-08-05 from the service’s own pages. The Welsh Government is the owning public authority; the site’s terms identify a commercial supplier as responsible for providing and managing the website day to day, and both are recorded. Classified as public-procurement-notice-database; it registers no suppliers. Territory is Wales alone."
+  },
+  {
+    "id": "gb-companies-house-disqualified-directors",
+    "name": "Disqualified Directors Register",
+    "slug": "companies-house-disqualified-directors",
+    "country": "united-kingdom",
+    "category": "government",
+    "website": "https://find-and-update.company-information.service.gov.uk/search/disqualified-officers",
+    "submissionUrl": null,
+    "description": "The register of disqualified company directors records people who are banned from acting as a company director or being involved in forming or running a company. It is published by Companies House as a search distinct from the company register, and the disqualifications themselves are made by courts and other bodies rather than by Companies House.",
+    "tier": "tier1",
+    "scope": "national",
+    "officialName": "Register of disqualified company directors",
+    "resourceIdentity": {
+      "canonicalDomain": "find-and-update.company-information.service.gov.uk",
+      "systemKey": "companies-house-disqualified-directors-register",
+      "sharedHostGroup": "companies-house-service"
+    },
+    "primaryRegistryType": "exclusion-and-debarment-register",
+    "registryTypes": [
+      "exclusion-and-debarment-register"
+    ],
+    "operator": {
+      "name": "Companies House",
+      "type": "government-agency",
+      "officialUrl": "https://www.gov.uk/government/organisations/companies-house"
+    },
+    "publicAccess": {
+      "searchUrl": "https://find-and-update.company-information.service.gov.uk/search/disqualified-officers",
+      "accessLevel": "open",
+      "freeToSearch": true,
+      "loginRequired": false,
+      "identityVerificationRequired": false,
+      "captcha": false,
+      "geographicRestriction": false,
+      "paidDocumentsAvailable": null,
+      "notes": "The disqualified-officers search is served as its own tab and its own URL path alongside the company and officer searches, and is used without an account."
+    },
+    "petroHrysScore": 89,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 9,
+      "verificationQuality": 9,
+      "platformReputation": 9,
+      "spamResistance": 10,
+      "industryImportance": 8,
+      "longTermStability": 9,
+      "submissionQuality": 6,
+      "transparency": 9,
+      "moderationQuality": 9
+    },
+    "domainRating": 92,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-04",
+        "status": "historicalSnapshot",
+        "measuredDomain": "find-and-update.company-information.service.gov.uk"
+      }
+    },
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": true,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-29",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "gb-individual-insolvency-register"
+      ],
+      "usedWith": [
+        "gb-companies-house"
+      ],
+      "competitors": []
+    },
+    "bestFor": [
+      "Checking whether a named person is currently disqualified from acting as a company director.",
+      "Due diligence on a proposed director, officer or business counterparty before appointment."
+    ],
+    "notRecommendedFor": [
+      "Confirming that a company exists or is in good standing, which is the separate company register.",
+      "Treating an empty result as proof that a person has never been disqualified."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Directors and officers of United Kingdom companies"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source",
+      "director-disqualification"
+    ],
+    "pros": [
+      "The register can be searched free of charge and without an account.",
+      "It is a distinct search with its own tab and its own address alongside the company and officer searches, so a disqualification check is a deliberate query rather than a by-product of a company lookup.",
+      "A disqualification can run for up to fifteen years, and the entry records the period rather than only the fact.",
+      "Disqualifications are made or accepted by courts and other public bodies, so the register reflects an external legal decision rather than an administrative opinion of the publisher."
+    ],
+    "cons": [
+      "Absence from the register does not prove that a person was never disqualified. Entries reflect current disqualifications, and a period that has ended is no longer a live restriction.",
+      "Inclusion records a disqualification. It does not describe every restriction, sanction or legal consequence a person may be subject to, and other registers hold other restrictions.",
+      "Company registration and director disqualification are separate systems that happen to share one Companies House website. A clean company record says nothing about its officers’ disqualification status.",
+      "The Domain Rating shown is a dated measurement of the shared Companies House domain, not of this register."
+    ],
+    "editorNotes": "Verified 2026-08-05. The disqualified-officers search is served at its own path on the Companies House service and appears as a separate tab from \"Search for companies\" and \"Search for Officers\", so it is a distinct system rather than a query-string variant of the company search. GOV.UK states a director can be disqualified for up to 15 years and names the courts, the Insolvency Service, the Competition and Markets Authority, the Foreign, Commonwealth and Development Office and HM Treasury among the bodies whose decisions feed it. Published through the resourceIdentity shared-host mechanism because it shares find-and-update.company-information.service.gov.uk with the company register, with a distinct systemKey and the shared group companies-house-service. It reuses that domain’s existing frozen Domain Rating snapshot verbatim — value 92, provider Ahrefs, measured 2026-08-04, status historicalSnapshot — read off the company-register record. No measurement was made and no API was called."
   }
 ]

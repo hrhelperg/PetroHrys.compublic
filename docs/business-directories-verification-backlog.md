@@ -213,36 +213,45 @@ Host reachability shaped several verdicts. Most UK official hosts responded, but
 HTTP 403 behind captcha or bot-mitigation interstitials, reproduced with and
 without a browser user-agent.
 
-### Classification blocker — public procurement notice systems
+### Resolved — classification blocker cleared (2026-08-05)
 
-**Reported rather than published, as instructed.** Find a Tender, Contracts
-Finder, Public Contracts Scotland and Sell2Wales were all researched to
-publication standard, and their territorial scopes were established:
+The four UK procurement systems are **now published**. The blocker was the type
+vocabulary, not the research: they publish procurement *notices*, and no existing
+type described that. A central type was added —
+`public-procurement-notice-database` — with an explicit boundary against
+`procurement-supplier-register`, and all four were authored against it.
 
-| System | Operator | Territory established |
+| System | Record | Territory |
 |---|---|---|
-| Find a Tender | Cabinet Office | United Kingdom-wide, high-value contracts (GOV.UK states usually above £139,688 including VAT) |
-| Contracts Finder | Crown Commercial Service | England-centred; GOV.UK states contracts over £12,000 and directs Scotland, Wales and Northern Ireland to their own systems |
-| Public Contracts Scotland | Scottish Ministers | Scotland |
-| Sell2Wales | Welsh Government | Wales |
+| Find a Tender | `gb-find-a-tender` | United Kingdom-wide, with Scottish below-threshold and full-lifecycle notices out of scope |
+| Contracts Finder | `gb-contracts-finder` | England, Wales and Northern Ireland (`covers` GB-ENG + GB-NIR + GB-WLS); **not** Scotland |
+| Public Contracts Scotland | `gb-public-contracts-scotland` | Scotland (GB-SCT) |
+| Sell2Wales | `gb-sell2wales` | Wales (GB-WLS) |
 
-**None was published, because no registry type fits honestly.** These systems
-publish procurement *notices* — opportunities and awards. They do not register
-suppliers. Recording them as `procurement-supplier-register` would state the
-opposite of what they are: a supplier register records who *may* bid, and these
-record what is being bought. `public-filing-database` is the nearest fit and is
-still a stretch, because the subject of the filing is a contract, not a business.
+Two corrections came out of revalidation and are worth recording:
 
-This is also a **cross-wave consistency point**. Wave 1C-2 rejected CanadaBuys on
-exactly this ground ("a tender-opportunity portal, not a register of businesses").
-Publishing four UK equivalents while that rejection stands would be incoherent.
+- **Find a Tender is no longer "high value only".** From 24 February 2025 it
+  publishes below-threshold notices as well, except below-threshold in Scotland.
+  The GOV.UK guidance page still carries the older "usually above £139,688"
+  framing and is stale on this point; the service's own pages were treated as
+  authoritative. The stale figure is deliberately not repeated as current.
+- **Contracts Finder is neither UK-wide nor England-only.** Its territory was
+  taken from the extent of the Public Contracts Regulations 2015, which reaches
+  England, Wales and Northern Ireland but not Scotland, with devolved Welsh and
+  Northern Irish authorities outside its scope. An earlier England-only proposal
+  was refuted by the operator's own OCDS data.
 
-**Decision needed:** either (a) confirm that procurement notice systems are out
-of scope for a business-registry dataset, and the four UK systems plus CanadaBuys
-stay out; or (b) decide they are in scope, which needs a registry type that
-describes them honestly — and adding one is an architecture decision, not a
-wave decision. Verification work is already done either way; only the
-classification is open.
+**CanadaBuys was re-evaluated and is now published** as `ca-canadabuys`. The
+Wave 1C-2 rejection was correct under the type vocabulary then available; the
+reversal is on the classification question only and the editorial standard is
+unchanged — it is still not a supplier register, and the record says so. Its
+`editorNotes` records the reversal and the ground for it, and a test asserts that
+the reversal note survives.
+
+**The Companies House disqualified directors register is now published** as
+`gb-companies-house-disqualified-directors`, through the `resourceIdentity`
+shared-host mechanism. It reuses the domain's existing frozen Domain Rating
+snapshot verbatim; no measurement was made.
 
 ### Pending manual verification
 
@@ -250,7 +259,7 @@ classification is open.
 |---|---|---|---|---|
 | UK trade marks register | Intellectual Property Office | `trademarks.ipo.gov.uk/ipo-tmtext/start` | HTTP 403 behind an IPO "Service Captcha" interstitial, reproduced with and without a browser user-agent. The register was never observed. | Open in a desktop browser; record the official register name, the search fields, whether search is free and account-free, and the exact search host. **High priority** — this is the UK counterpart to registers already published for Canada. |
 | UK patents register | Intellectual Property Office | `www.search-for-intellectual-property.service.gov.uk` | HTTP 403 behind a GOV.UK anti-data-mining security check. | As above. |
-| UK registered designs | Intellectual Property Office | `www.registered-design.service.gov.uk/find/` | HTTP 403 behind an IPO "Service Captcha". **Additionally a classification blocker:** no listed registry type describes a registered-designs register. `trademark-register` and `patent-register` exist; a design right is neither. | Resolve access first; then decide whether a design register warrants a type, or stays out. Do not force it into `patent-register`. |
+| UK registered designs | Intellectual Property Office | `www.registered-design.service.gov.uk/find/` | HTTP 403 behind an IPO "Service Captcha". **The classification half of this blocker is now cleared:** a `registered-design-register` type was added, with an explicit boundary against trade marks and patents. Only the access blocker remains. | Open in a desktop browser; record the official register name, the search fields, whether search is free and account-free, and the exact search host. The type is ready and waiting; do not force the record into `patent-register`. |
 | Law Society of Scotland — Find a Solicitor | Law Society of Scotland | `www.lawscot.org.uk/find-a-solicitor/` | HTTP 403 behind a Cloudflare block page on two attempts with different user-agents. Nothing on the host was read. | Open in a desktop browser; establish whether this is the statutory roll or a voluntary directory before considering publication — the England and Wales and Northern Ireland equivalents turned out to be voluntary directories and were rejected. |
 | DRO and BRO Register (Northern Ireland) | Insolvency Service, Department for the Economy | `insolvency.economy-ni.gov.uk/Insolvency.Public/DRORegisterSearchWizard.aspx` | The register host serves a client-side shell; the search was never exercised. Its existence and operator are evidenced by an official Department for the Economy page. | Open in a browser, run one search, and record the returned fields and access position. Publishing it would complete Northern Ireland insolvency coverage, which the published IVA register does not provide alone. |
 | OrgBook BC follow-on: none for the UK | — | — | — | — |
@@ -259,7 +268,7 @@ classification is open.
 
 | Candidate | Reason |
 |---|---|
-| Companies House disqualified directors register | Host collision with the published `gb-companies-house`. The disqualified-officers search lives on the same Companies House service host. It is a genuinely distinct legal population and would merit a separate record, but only via the `resourceIdentity` shared-host mechanism, which is a deliberate decision rather than a default. Recorded so it is not lost. |
+| Companies House disqualified directors register | **Resolved and published** as `gb-companies-house-disqualified-directors` via the `resourceIdentity` shared-host mechanism, with a distinct `systemKey`, the shared group `companies-house-service`, and the domain's existing frozen Domain Rating snapshot reused verbatim. |
 | Care Quality Commission provider register | Host collision with the published `gb-cqc`. Researched only to carry the territorial correction, which has been applied. |
 
 ### Rejected — do not propose again

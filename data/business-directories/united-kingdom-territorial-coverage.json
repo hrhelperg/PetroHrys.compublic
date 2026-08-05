@@ -3,10 +3,10 @@
   "note": "The United Kingdom territorial set this section is measured against. Coverage is counted from this file and from the registry, never from a record total. Great Britain is NOT the United Kingdom: it excludes Northern Ireland, and a Great Britain system is modelled as a cross-territory jurisdiction. England and Wales has no ISO 3166-2 code of its own and is modelled with covers, never with the deprecated compound GB-EAW. blockerSummary and nextAction are internal working notes and are never rendered.",
   "lastReviewed": "2026-08-05",
   "totals": {
-    "records": 19,
-    "ukWide": 6,
-    "constituentCountry": 9,
-    "crossTerritory": 4,
+    "records": 24,
+    "ukWide": 8,
+    "constituentCountry": 11,
+    "crossTerritory": 5,
     "territoriesReached": 4
   },
   "territories": [
@@ -19,7 +19,8 @@
         "gb-charity-commission-register",
         "gb-individual-insolvency-register",
         "gb-sra-solicitors-register",
-        "gb-barristers-register"
+        "gb-barristers-register",
+        "gb-contracts-finder"
       ]
     },
     {
@@ -30,7 +31,8 @@
         "gb-oscr-scottish-charity-register",
         "gb-aib-register-of-insolvencies",
         "gb-his-independent-healthcare",
-        "gb-care-inspectorate-scotland"
+        "gb-care-inspectorate-scotland",
+        "gb-public-contracts-scotland"
       ]
     },
     {
@@ -42,7 +44,9 @@
         "gb-charity-commission-register",
         "gb-individual-insolvency-register",
         "gb-sra-solicitors-register",
-        "gb-barristers-register"
+        "gb-barristers-register",
+        "gb-contracts-finder",
+        "gb-sell2wales"
       ]
     },
     {
@@ -52,7 +56,8 @@
       "reachedBy": [
         "gb-ccni-register-of-charities",
         "gb-ni-iva-register",
-        "gb-rqia-register"
+        "gb-rqia-register",
+        "gb-contracts-finder"
       ]
     }
   ],
@@ -80,6 +85,14 @@
     {
       "recordId": "gb-food-hygiene-ratings",
       "name": "Food Hygiene Ratings"
+    },
+    {
+      "recordId": "gb-find-a-tender",
+      "name": "Find a Tender"
+    },
+    {
+      "recordId": "gb-companies-house-disqualified-directors",
+      "name": "Disqualified Directors Register"
     }
   ],
   "crossTerritory": [
@@ -112,6 +125,15 @@
       "name": "England and Wales",
       "covers": [
         "GB-ENG",
+        "GB-WLS"
+      ]
+    },
+    {
+      "recordId": "gb-contracts-finder",
+      "name": "England, Wales and Northern Ireland",
+      "covers": [
+        "GB-ENG",
+        "GB-NIR",
         "GB-WLS"
       ]
     }

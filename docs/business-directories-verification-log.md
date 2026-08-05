@@ -6,7 +6,7 @@ Every published record must carry a verification status, a source, a date and at
 least one named reviewer; the validator refuses a `verified` record that is
 missing any of them.
 
-**183 records.**
+**189 records.**
 
 | Directory | Country | Status | Source | Last verified | Next due | Reviewer |
 |---|---|---|---|---|---|---|
@@ -27,6 +27,7 @@ missing any of them.
 | Registraire des entreprises — Enterprise Register | canada | verified | Government register | 2026-08-05 | 2027-08-31 | Petro Hrys |
 | Ontario Business Registry | canada | verified | Government register | 2026-08-05 | 2027-08-07 | Petro Hrys |
 | NMC Register | united-kingdom | verified | Government register | 2026-08-05 | 2027-08-08 | Petro Hrys |
+| Disqualified Directors Register | united-kingdom | verified | Government register | 2026-08-05 | 2027-08-29 | Petro Hrys |
 | USPTO Trademark Search | united-states | verified | Government register | 2026-08-04 | 2027-08-22 | Petro Hrys |
 | Care Quality Commission | united-kingdom | verified | Government register | 2026-08-04 | 2027-08-08 | Petro Hrys |
 | Institut National de la Propriété Industrielle | france | verified | Government register | 2026-08-04 | 2027-08-24 | Petro Hrys |
@@ -89,6 +90,7 @@ missing any of them.
 | Business Search | united-states | verified | Government register | 2026-08-05 | 2027-08-17 | Petro Hrys |
 | FCC Form 499 Filer Database | united-states | verified | Government register | 2026-08-04 | 2027-08-22 | Petro Hrys |
 | Federal Maritime Commission Ocean Transportation Intermediary List | united-states | verified | Government register | 2026-08-04 | 2027-08-24 | Petro Hrys |
+| Find a Tender | united-kingdom | verified | Government register | 2026-08-05 | 2027-08-24 | Petro Hrys |
 | FSIS Meat, Poultry and Egg Product Inspection Directory | united-states | verified | Government register | 2026-08-04 | 2027-08-20 | Petro Hrys |
 | Licensing NT Public Register | australia | verified | Government register | 2026-08-05 | 2027-08-22 | Petro Hrys |
 | Clutch | global | verified | Official website | 2026-08-04 | 2027-05-16 | Petro Hrys |
@@ -115,6 +117,7 @@ missing any of them.
 | Business Entity Search | united-states | verified | Government register | 2026-08-04 | 2027-08-19 | Petro Hrys |
 | Business Organization Search | united-states | verified | Government register | 2026-08-04 | 2027-08-13 | Petro Hrys |
 | Business Registration search | united-states | verified | Government register | 2026-08-04 | 2027-08-29 | Petro Hrys |
+| CanadaBuys | canada | verified | Government register | 2026-08-05 | 2027-08-08 | Petro Hrys |
 | Care Inspectorate register of care services (Scotland) | united-kingdom | verified | Government register | 2026-08-05 | 2027-08-18 | Petro Hrys |
 | Care Inspectorate Wales service directory | united-kingdom | verified | Government register | 2026-08-05 | 2027-08-08 | Petro Hrys |
 | FAA Aircraft Registry | united-states | verified | Government register | 2026-08-04 | 2027-08-07 | Petro Hrys |
@@ -128,6 +131,7 @@ missing any of them.
 | Business Entity Search | united-states | verified | Government register | 2026-08-04 | 2027-08-22 | Petro Hrys |
 | Business Name Search | united-states | verified | Government register | 2026-08-04 | 2027-08-22 | Petro Hrys |
 | Catalyst | united-states | verified | Government register | 2026-08-04 | 2027-08-09 | Petro Hrys |
+| Contracts Finder | united-kingdom | verified | Government register | 2026-08-05 | 2027-08-06 | Petro Hrys |
 | CorpOnline | united-states | verified | Government register | 2026-08-04 | 2027-08-07 | Petro Hrys |
 | Corporate Name Search (ICRS) | united-states | verified | Government register | 2026-08-04 | 2027-08-13 | Petro Hrys |
 | Corporate Registration Information System (CRIS) | united-states | verified | Government register | 2026-08-04 | 2027-08-24 | Petro Hrys |
@@ -147,6 +151,7 @@ missing any of them.
 | Business Name Search | united-states | verified | Government register | 2026-08-05 | 2027-08-31 | Petro Hrys |
 | Business Search | united-states | verified | Government register | 2026-08-05 | 2027-08-08 | Petro Hrys |
 | Corporations and Charities Filing System (CCFS) | united-states | verified | Government register | 2026-08-04 | 2027-08-20 | Petro Hrys |
+| Public Contracts Scotland | united-kingdom | verified | Government register | 2026-08-05 | 2027-08-20 | Petro Hrys |
 | RQIA Register of Services | united-kingdom | verified | Government register | 2026-08-05 | 2027-08-23 | Petro Hrys |
 | Register of Charities (Northern Ireland) | united-kingdom | verified | Government register | 2026-08-05 | 2027-08-14 | Petro Hrys |
 | Search for a Business Entity | united-states | verified | Government register | 2026-08-04 | 2027-08-22 | Petro Hrys |
@@ -161,6 +166,7 @@ missing any of them.
 | Corporate & Business Search | united-states | verified | Government register | 2026-08-04 | 2027-08-23 | Petro Hrys |
 | Hawaii Business Entity Search | united-states | verified | Government register | 2026-08-04 | 2027-08-05 | Petro Hrys |
 | Search for a Business Entity | united-states | verified | Government register | 2026-08-04 | 2027-08-18 | Petro Hrys |
+| Sell2Wales | united-kingdom | verified | Government register | 2026-08-05 | 2027-08-10 | Petro Hrys |
 | WooCommerce extensions | global | verified | Official website | 2026-08-04 | 2027-02-21 | Petro Hrys |
 | Kaggle Datasets | global | verified | Official website | 2026-08-04 | 2027-05-10 | Petro Hrys |
 | Wellfound | global | verified | Official website | 2026-08-04 | 2027-05-15 | Petro Hrys |

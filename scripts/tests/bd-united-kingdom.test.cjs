@@ -292,7 +292,7 @@ test('no UK record claims that inclusion proves compliance or trustworthiness', 
   // is clause 7 of the content contract, and a register that only says what it
   // proves is the shape that misleads. The phrasings below are the honest ways
   // of saying it; a record matching none of them is not disclaiming at all.
-  const DISCLAIMS = /does not (?:establish|prove|mean|cover|reach)|is not a statement|not a guide to|says nothing about|not a general assessment|establishes [^.]*, not |it is not a |means? [^.]*\. It does not/i;
+  const DISCLAIMS = /does not (?:establish|prove|mean|cover|reach|describe)|is not a statement|not a guide to|says nothing about|not a general assessment|establishes nothing|records nothing|establishes [^.]*, not |it is not a |means? [^.]*\. It does not/i;
   const silent = NEW.filter((r) => !DISCLAIMS.test([...r.cons, ...r.notRecommendedFor].join(' ')));
   assert.deepStrictEqual(silent.map((r) => r.id), [],
     'these records never say what inclusion does not establish');
@@ -340,15 +340,34 @@ test('an access claim is carried by the access block', () => {
 
 // --- metrics -------------------------------------------------------------------
 
-test('no record added by this wave carries a metric', () => {
-  // No UK host matches an already-measured domain, so no snapshot is reusable
-  // and every added record must be null across the board.
+test('no record added by this wave carries a newly measured metric', () => {
+  // Exactly one added record carries a Domain Rating: the disqualified
+  // directors register, which sits on the SAME measured domain as the already
+  // published company register and therefore repeats that domain's stored
+  // snapshot. Repeating a stored reading measures nothing. Everything else on
+  // an unmeasured host must be null across the board.
+  const REUSES_SNAPSHOT = new Set(['gb-companies-house-disqualified-directors']);
   for (const r of NEW) {
-    for (const k of ['domainRating', 'authorityScore', 'estimatedTraffic', 'referringDomains']) {
+    for (const k of ['authorityScore', 'estimatedTraffic', 'referringDomains']) {
       assert.strictEqual(r[k], null, `${r.id} carries ${k} = ${r[k]}`);
     }
-    assert.strictEqual(r.metricStatus, 'unknown', r.id);
-    assert.deepStrictEqual(r.metricsProvenance, {}, r.id);
+    if (!REUSES_SNAPSHOT.has(r.id)) {
+      assert.strictEqual(r.domainRating, null, `${r.id} carries domainRating = ${r.domainRating}`);
+      assert.strictEqual(r.metricStatus, 'unknown', r.id);
+      assert.deepStrictEqual(r.metricsProvenance, {}, r.id);
+      continue;
+    }
+    const p = r.metricsProvenance.domainRating;
+    assert.ok(p, `${r.id} claims a reused snapshot but carries no provenance`);
+    assert.strictEqual(p.status, 'historicalSnapshot', `${r.id} presents its snapshot as current`);
+    assert.strictEqual(p.measuredDomain, S.normaliseDomain(r.website),
+      `${r.id} carries a snapshot measured on another domain`);
+    const source = UK.find((o) => o.id !== r.id
+      && (o.metricsProvenance || {}).domainRating
+      && o.metricsProvenance.domainRating.measuredDomain === p.measuredDomain);
+    assert.ok(source, `${r.id} has no prior record to have reused a snapshot from`);
+    assert.strictEqual(r.domainRating, source.domainRating, 'reused value differs from the stored one');
+    assert.deepStrictEqual(p, source.metricsProvenance.domainRating, 'reused provenance differs');
   }
   assert.deepStrictEqual(S.sharedDomainSnapshotProblems(ALL), []);
 });
