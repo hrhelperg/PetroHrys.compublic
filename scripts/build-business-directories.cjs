@@ -210,15 +210,33 @@ function pageModel(registry) {
     ? [{ name: globalCountry.name, path: routes.countryPath(GLOBAL_SCOPE), count: globalEntries.length }]
     : [];
 
+  // Every other supranational scope is lifted out of the national grid for the
+  // same reason Global is — it is not a place — but it still needs a way in.
+  // This used to be hardcoded to Global alone, which meant a supranational page
+  // could generate, enter the sitemap and have no inbound link anywhere. An
+  // entry with no published record is not rendered at all: a scope with nothing
+  // in it is a plan, and publishing a plan as a card advertises coverage that
+  // does not exist.
+  const supranationalLinks = registry.countries
+    .filter((country) => country.entityType === 'supranational' && country.slug !== GLOBAL_SCOPE)
+    .map((country) => ({
+      name: country.name,
+      path: routes.countryPath(country.slug),
+      count: directoriesFor(registry, country.slug).length,
+    }))
+    .filter((link) => link.count > 0)
+    .sort((a, b) => (b.count - a.count) || (a.name < b.name ? -1 : a.name > b.name ? 1 : 0));
+
   const hubMeta = seo.buildHubMeta({
-    countries: [...globalLink, ...countryLinks.filter((l) => !l.pending)],
+    countries: [...globalLink, ...supranationalLinks, ...countryLinks.filter((l) => !l.pending)],
     faqs: HUB_FAQS,
   });
 
   // Every number is derived. Counts must not reach a meta description — the SEO
   // tests forbid digits there precisely so a count can never be fabricated into
   // one — so the scale is stated in body copy.
-  const scopeCount = publishedCountries.length + (globalEntries.length ? 1 : 0);
+  const scopeCount = publishedCountries.length + (globalEntries.length ? 1 : 0)
+    + supranationalLinks.length;
   const lastVerifiedAt = allDirectories
     .map((d) => d.lastVerified).filter(Boolean).sort().slice(-1)[0];
   const statLine = `      <p class="bd-stat">${escapeHtml(String(allDirectories.length))} verified `
@@ -284,6 +302,13 @@ function pageModel(registry) {
         c.metricNote(activeMetrics),
       ].join('\n')),
       ...(globalBody ? [section('global', 'Global directories', globalBody)] : []),
+      ...(supranationalLinks.length ? [section('supranational', 'Supranational registries', [
+        `      <p>${escapeHtml('These registries are operated above the level of any single '
+          + 'state, so they are listed apart from the national grid. A supranational system '
+          + 'often provides access to records that national authorities hold and constitute.')}</p>`,
+        c.cardGrid(supranationalLinks.map((l) => c.countryCard({ ...l, headingLevel: 3 })),
+          { label: 'Supranational registries' }),
+      ].join('\n'))] : []),
       section('countries', 'Directories by country',
         c.cardGrid(publishedCountries.map((l) => c.countryCard({ ...l, headingLevel: 3 })),
           { label: 'Directories by country' })),
@@ -362,6 +387,16 @@ function pageModel(registry) {
       meta,
       main: [
         c.pageIntro({ title: meta.title, lede: meta.description }),
+        // A supranational entry is a scope, not a place, and a reader arriving
+        // from a country grid has no way to know that. The label says so in the
+        // reader's words: it renders the human scope label, never the stored
+        // entityType, and it sits beside the heading rather than inside it so
+        // the H1 stays the page's own name.
+        ...(country.entityType === 'supranational' ? [
+          `      <ul class="bd-badges" aria-label="Geographic scope">\n`
+          + `        <li class="bd-badge">${escapeHtml(SCHEMA.SCOPE_LABELS[country.scope] || SCHEMA.SCOPE_LABELS.supranational)}</li>\n`
+          + `      </ul>`,
+        ] : []),
         `      <p class="bd-stat">${escapeHtml(`${countryEntries.length} verified `
           + `${countryEntries.length === 1 ? 'directory' : 'directories'} in `
           + `${categoryLinks.length} ${categoryLinks.length === 1 ? 'category' : 'categories'}.`)}</p>`,

@@ -88,11 +88,11 @@ test('a registry type with no records is allowed, but every record type is real'
   }
 });
 
-// --- the four UK procurement systems, plus CanadaBuys --------------------------
+// --- the four UK procurement systems, plus CanadaBuys, Italy's PVL and TED ------
 
-test('the five procurement systems are classified as notice databases, never as supplier registers', () => {
+test('every procurement system is classified as a notice database, never as a supplier register', () => {
   const ids = ['gb-find-a-tender', 'gb-contracts-finder', 'gb-public-contracts-scotland',
-    'gb-sell2wales', 'ca-canadabuys', 'it-pubblicita-legale-anac'];
+    'gb-sell2wales', 'ca-canadabuys', 'it-pubblicita-legale-anac', 'eu-ted'];
   for (const id of ids) {
     const r = byId.get(id);
     assert.ok(r, `${id} is missing`);

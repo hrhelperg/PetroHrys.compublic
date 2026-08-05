@@ -396,3 +396,61 @@ published, and why.
 | REA — Repertorio Economico Amministrativo | Legally a distinct *repertorio*, but it is constituted *at* the business register office and has no interface of its own; it is reached through `registroimprese.it`, already published as `it-registro-imprese`. |
 | Vereinsregister (Germany) | No portal of its own — it is reached through `handelsregister.de`, already published as `de-registerportal`, so publishing it would collide on hostname as well as duplicate. |
 | Portál veřejných rejstříků a evidencí (`verejnerejstriky.msp.gov.cz`) | Still in *ověřovací provoz* (verification operation) and its own banner says so. Carried forward from Wave 1E, now with the additional finding that the Ministry is running it as a replacement surface for `or.justice.cz`. **Revisit when it leaves pilot operation** — at that point the published `cz-verejny-rejstrik` may need its URL migrated rather than a second record added. |
+
+---
+
+## Wave 1F — European Union (2026-08-05)
+
+Sixteen candidates reached a determination; **nine published**. Three research
+clusters never ran to completion, so their candidates are recorded here as
+**not researched** rather than as gaps in EU coverage.
+
+### Not researched — the wave was cut short
+
+The research fleet lost **fourteen of seventeen agents to a monthly spend
+limit**, including *every* adversarial verifier. Verification of the nine
+published records was carried out directly instead. These three subject areas
+produced no usable research at all and must be re-run:
+
+| Area | Candidates named in the brief | Status |
+|---|---|---|
+| Intellectual property | EUIPO trade mark search, EUIPO registered Community design search, TMview, DesignView | **Not researched.** Agent terminated mid-run. |
+| Sanctions | EU Sanctions Map, consolidated EU financial sanctions list | **Not researched.** Agent terminated at the point of returning its answer. |
+| Chemicals, products, regulated goods | ECHA chemicals databases, CTIS clinical trials portal, EUDAMED, RASFF, plant-protection and biocidal registers | **Not researched.** Agent terminated mid-run. |
+
+Nothing above should be read as a judgement on those systems. They were not
+assessed.
+
+### Out of scope — intergovernmental, not EU
+
+| Candidate | Reason |
+|---|---|
+| European Patent Office / European Patent Register | The EPO is an intergovernmental organisation under the **European Patent Convention**, not an EU institution. Serving European states does not make a body an EU body. It is **not** an EU coverage gap and must not be counted as one. Revisit only if the architecture ever gains an explicit intergovernmental geography model, which Wave 1F deliberately did not create. |
+
+### Rejected — real, but not a publishable register here
+
+| Candidate | Reason |
+|---|---|
+| ESMA Registers portal (`registers.esma.europa.eu`) | Live and official, but a **common search front-end over dozens of legally distinct registers**, each with its own regulation, scope and source of record. Publishing it would merge unrelated databases into one record. The single ESMA register published instead is the credit rating agency list, which has one legal basis and where ESMA is itself the supervisor. |
+| EIOPA register of insurance intermediaries | Not a register. It is a **country-by-country table of links** to national registers containing no intermediary records of its own; EIOPA's own page calls it a provisional database of hyperlinks. Publishing it would imply an EU-wide intermediary register that does not currently exist. |
+| European e-Justice "Find a company" as a separate record | **Duplicate of BRIS.** The portal's own text states that "Find a company" *is part of* BRIS, and both would share one URL and one embedded application. Published once, as `eu-bris`. |
+
+### Pending manual verification
+
+| Candidate | Operator | Verified lead URL | Blocker | Next action |
+|---|---|---|---|---|
+| EORI number validation | European Commission (DG TAXUD) | `https://ec.europa.eu/taxation_customs/dds2/eos/eori_home.jsp?Lang=en` | Live and official, but the classification is unresolved: it very often confirms validity **without identifying the trader**, because where the operator did not authorise publication the name and address are withheld. Neither `corporate-number-database` nor `tax-verification-system` fits cleanly when the identifying payload is usually absent. | Settle the type against the boundary notes, then publish. Do not force it. |
+| Financial Transparency System (FTS) | European Commission (DG Budget) | `https://ec.europa.eu/budget/financial-transparency-system/` | Live and official, and it publishes beneficiaries of EU funds. But it is a **spending disclosure database keyed to award decisions**, not a register of entities, and the registry contract fit is arguable. | Decide whether a beneficiary-disclosure database belongs in a registry dataset at all. If yes, a new type may be needed rather than forcing `public-filing-database`. |
+| EU Funding & Tenders Portal — Participant Register (PIC) | European Commission | `https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/how-to-participate/participant-register-search` | Access position unestablished; the search runs behind the portal's application shell. | Exercise the participant search and record the access position. |
+
+### Dead, moved or non-existent — recorded so they are never proposed again
+
+| Address | Finding |
+|---|---|
+| `vies.ec.europa.eu` | **Does not exist.** DNS does not resolve. This is the single most plausible-looking invented URL in the EU set: it was hypothesised, tested and disproved. VIES lives at `ec.europa.eu/taxation_customs/vies/`. |
+| `ec.europa.eu/taxation_customs/vies/faqvies.do`, `viesdisc.do`, `viesspec.do` | HTTP 404. Still linked from inside the live VIES application's own text — the rewrite left stale internal links behind. |
+| `taxation-customs.ec.europa.eu/online-services/.../vies-vat-number-validation_en` | HTTP 404. A plausible path that was constructed and then tested rather than assumed. The real entry point is the online-services index. |
+| `webgate.ec.europa.eu/bris-search/` | Not a public entry point. The BRIS application is reached at `webgate.ec.europa.eu/bris?lang=en`. |
+| `ec.europa.eu/taxation_customs/dds2/eos/eori_help.jsp` | HTTP 404. The working help path is `/dds2/eos/help/index.jsp`. |
+| `e-justice.europa.eu/489/EN/business_registers__search_for_a_company_in_the_eu` | **Moved, not dead.** HTTP 301 to the `/topics/...` slug, which is now canonical. Any dataset holding the old numeric-ID form should be updated. |
+| Commission Implementing Regulation (EU) 2015/884 | **No longer in force**, yet still cited on the live official BRIS page. Superseded via 2020/2244 by Implementing Regulation (EU) 2021/1042. The published record therefore describes the legal basis in general terms rather than repeating a stale citation. |
