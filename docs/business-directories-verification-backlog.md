@@ -52,24 +52,56 @@ check, not new research.
 | FFIEC National Information Center | https://www.ffiec.gov/npw | JS/cookie challenge. The only system resolving bank holding-company hierarchies and the RSSD join key. Must never be described as a beneficial-ownership register — it records legal control chains | **High** |
 | USPTO Assignment Search | https://assignmentcenter.uspto.gov/search/patent | Confirm search works signed out. USPTO gated the sibling Patent Center behind identity verification in September 2025, so open access cannot be assumed | **High** |
 | FMCSA SAFER Company Snapshot | https://safer.fmcsa.dot.gov/CompanySnapshot.aspx | 403 to every attempt, and FMCSA states post-May-2026 Motus filings are not reflected in the legacy system. Publishing a possibly-stale carrier register as authoritative would be harmful | **High** |
-| FDA Drug Establishments Current Registration Site | https://www.accessdata.fda.gov/scripts/cder/drls/default.cfm | Fully verified and publishable, but blocked by the canonical-domain rule: it shares accessdata.fda.gov with the published device register. See the schema note in the Wave 1A report | **High** |
 | NCUA credit union research tools | https://mapping.ncua.gov/ | The primary named URL was never reachable; records were parsed from an official NCUA open-data host instead. Confirm the interactive tool loads and fix the canonical URL | Medium |
 | NMLS Consumer Access | https://www.nmlsconsumeraccess.org/ | Cloudflare. Also reclassified: the operator is CSBS / State Regulatory Registry LLC, a private association of state regulators — this belongs in a state or multistate wave, not the federal layer | Medium |
 | FMCSA Licensing & Insurance | https://li-public.fmcsa.dot.gov/ | FMCSA states it holds only historical records as of 14 May 2026 and the docket numbers it is keyed on are being abolished. Publish as an explicit archive or replace with Motus | Medium |
 | DOL OFLC disclosure data and debarment list | https://flag.dol.gov/ | Every dol.gov URL, including a static PDF, was refused with an edge 403. Split into two records on approval: disclosure data, and the debarment list as a separate exclusions register | Medium |
 | CMS Provider of Services File (CLIA) | https://data.cms.gov/ | A 103-field coded quarterly CSV with no human search; the QCOR front end returned 403. Resolve the data dictionary first | Low |
 
-### Held pending a glossary decision
+## Wave 1D — Spain, opened by the source-of-record correction (2026-08-05)
 
-These three are fully verified and would ship immediately, but no registry type
-in the closed list honestly describes an exclusion or debarment register. See
-the Wave 1A report.
+Correcting `es-registradores` removed two register claims from a record that
+never held those registers. The registers themselves are real and unpublished,
+so they are recorded here rather than lost.
 
-| Candidate | Official URL |
-|---|---|
-| SAM.gov Exclusions | https://sam.gov/search/?index=ex |
-| HHS OIG List of Excluded Individuals and Entities | https://exclusions.oig.hhs.gov/ |
-| CFTC Sanctions in Effect | https://sirt.cftc.gov/sirt/sirt.aspx?Topic=SanctionsInEffect |
+| Candidate | Operator | Official URL | Status | Next action |
+|---|---|---|---|---|
+| Registro Mercantil Central | Registro Mercantil Central (Spanish mercantile registry system) | `https://www.rmc.es/` | Not researched | **High priority for Wave 1E.** Spain currently has NO record for its actual company register — only for the registrars' professional body. Establish the constitutive position: the mercantile registers are kept by registrars in office, with the Central as the central institution. |
+| Registro Público Concursal | Ministry of Justice (material management of the publicity service entrusted to the Colegio de Registradores under RD 892/2013 art. 2.3) | `https://www.publicidadconcursal.es/` | Not researched | Verify the current official host and access position. Record the Ministry of Justice as the responsible body per RD 892/2013 art. 2.2 and art. 4, and the Colegio's role as delegated management, not ownership. |
+| Registro Central de Titularidades Reales | To be established | To be established | Not researched | The Spanish beneficial-ownership register. `beneficial-ownership-register` was removed from `es-registradores` because no official source establishing that body as responsible was read; identify the responsible body before authoring. |
+
+### Resolved — the shared-host blocker was solved (2026-08-05)
+
+| Candidate | Official URL | Published as |
+|---|---|---|
+| FDA Drug Establishments Current Registration Site | https://www.accessdata.fda.gov/scripts/cder/drls/default.cfm | `us-fda-drug-establishments` |
+
+Held because it shares `accessdata.fda.gov` with the published device register
+and the canonical-domain rule forbade two records on one host. That was solved
+by the `resourceIdentity` shared-host model: both records declare the
+`fda-accessdata` group with distinct `systemKey` values and materially different
+destinations. The Wave 1 final audit found this row still listed as blocked;
+corrected in Wave 1D.
+
+### Resolved — the glossary decision was taken (2026-08-05)
+
+These three were held because, at the time, no registry type in the closed list
+described an exclusion or debarment register. **That blocker no longer exists.**
+`exclusion-and-debarment-register` was added in the Wave 1A completion, with an
+explicit boundary against `procurement-supplier-register` — a supplier register
+records who MAY bid, an exclusion register records who may not — and all three
+candidates were authored against it.
+
+| Candidate | Official URL | Published as |
+|---|---|---|
+| SAM.gov Exclusions | https://sam.gov/search/?index=ex | `us-sam-exclusions` |
+| HHS OIG List of Excluded Individuals and Entities | https://exclusions.oig.hhs.gov/ | `us-hhs-oig-leie` |
+| CFTC Sanctions in Effect | https://sirt.cftc.gov/sirt/sirt.aspx?Topic=SanctionsInEffect | `us-cftc-sanctions-in-effect` |
+
+The historical note is retained deliberately: it records that a classification
+blocker was reported rather than worked around, which is the behaviour to repeat.
+The Wave 1 final audit found this section still asserting the blocker as live,
+which made it a false statement about the current schema; corrected in Wave 1D.
 
 ### Deferred to a later wave, not blocked
 

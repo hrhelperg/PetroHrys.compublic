@@ -138,6 +138,14 @@ procurement system described as a supplier register.
 
 **None of these defects was fixed in this audit**, per the brief.
 
+> **Status update — Wave 1D (2026-08-05).** All six confirmed defects have since
+> been corrected in the branch
+> `feat/business-directories-wave-1d-european-legacy-correction`. Findings 1-5
+> were corrected in the records; finding 6 (the `paid` field reference in
+> `de-registerportal` editorNotes) was removed when those notes were rewritten.
+> The backlog staleness recorded in section 11 was also corrected. See
+> [the Wave 1D release note](../releases/2026-08-05-wave-1d-european-legacy-correction.md).
+
 ## 5. Registry type coverage (21 types)
 
 | Observation | Detail |

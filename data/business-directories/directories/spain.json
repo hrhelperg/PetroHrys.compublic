@@ -7,29 +7,27 @@
     "category": "government",
     "website": "https://www.registradores.org/",
     "submissionUrl": null,
-    "description": "Spanish association of registrars operating the commercial, property, movable-property and insolvency registries.",
+    "description": "Registradores de España is the electronic service of the professional body of Spanish registrars, through which extracts and publicity from the mercantile, property and movable-property registries are ordered. The registries themselves are statutory registers kept by the registrars in office, and the body operates the shared access service rather than holding the registers.",
     "tier": "tier1",
     "scope": "national",
     "nativeName": "Colegio de Registradores de España",
-    "primaryRegistryType": "company-register",
+    "primaryRegistryType": "public-filing-database",
     "registryTypes": [
-      "company-register",
-      "insolvency-register",
-      "beneficial-ownership-register"
+      "public-filing-database"
     ],
     "operator": {
-      "name": "Colegio de Registradores de España",
+      "name": "Colegio de Registradores de la Propiedad, Mercantiles y de Bienes Muebles de España",
       "type": "public-law-body",
       "officialUrl": null
     },
-    "petroHrysScore": 88,
+    "petroHrysScore": 85,
     "scoreFactors": {
       "editorialTrust": 10,
-      "businessUsefulness": 8,
+      "businessUsefulness": 7,
       "verificationQuality": 9,
       "platformReputation": 8,
       "spamResistance": 10,
-      "industryImportance": 9,
+      "industryImportance": 7,
       "longTermStability": 10,
       "submissionQuality": 6,
       "transparency": 8,
@@ -94,8 +92,14 @@
       ],
       "competitors": []
     },
-    "bestFor": [],
-    "notRecommendedFor": [],
+    "bestFor": [
+      "Ordering an extract or registry publicity from the Spanish mercantile, property or movable-property registries.",
+      "Identifying which Spanish registry system holds a record before approaching it."
+    ],
+    "notRecommendedFor": [
+      "Use as the Spanish company register, which is the Registro Mercantil, with the Registro Mercantil Central as its central institution.",
+      "Use as the authority for insolvency publicity, which is the Registro Público Concursal under the Ministry of Justice."
+    ],
     "submissionDifficulty": null,
     "listingQuality": null,
     "typicalApprovalTime": null,
@@ -119,11 +123,15 @@
       "primary-source"
     ],
     "pros": [
-      "Covers commercial, property and insolvency registries from one body"
+      "One electronic service reaches the mercantile, property and movable-property registries, which are otherwise held registry by registry.",
+      "It is operated by a public-law corporation rather than by a commercial reseller, so the extracts come from the registry system itself.",
+      "Registry extracts and publicity can be ordered online rather than in person."
     ],
     "cons": [
-      "Certified extracts are chargeable; pricing not established"
+      "The body is the professional corporation of registrars and operates the access service. It is not itself the mercantile register: the registers are kept by the registrars in office, and the Registro Mercantil Central is a separate institution.",
+      "It is not the responsible body for the public insolvency register. Spanish law places the Registro Público Concursal under the Ministry of Justice and entrusts only the material management of its publicity service to this body, under the Ministry’s dependence.",
+      "Certified extracts are chargeable, and the pricing was not established."
     ],
-    "editorNotes": "Verified 2026-08-04. Also operates the beneficial-ownership registry."
+    "editorNotes": "Verified 2026-08-04; source-of-record corrected 2026-08-05 (Wave 1D). CORRECTION: this record previously carried primaryRegistryType company-register plus insolvency-register and beneficial-ownership-register, and described the body as \"operating\" those registries. That attributed three registers to a body that holds none of them. The Colegio de Registradores is a public-law corporation of registrars; the mercantile, property and movable-property registers are kept by the registrars in office, and the Registro Mercantil Central is a separate institution. On insolvency, Real Decreto 892/2013 article 2.2 provides that the Registro Público Concursal depends on the Ministry of Justice, article 2.3 entrusts the material management of its publicity service to this body under the Ministry’s dependence, and article 4 names the Ministry as the register’s responsible body. The delegated management role is real and is stated in prose, but it does not make this body the register, so insolvency-register was removed rather than kept. beneficial-ownership-register was removed because no official source establishing this body as the responsible register was read in this phase; the Spanish beneficial-ownership register is recorded in the backlog as a separate candidate. Reclassified to public-filing-database: the service exposes registry extracts and publicity rather than constituting a register. SCORE CHANGED 88 to 85: businessUsefulness 8 to 7 and industryImportance 9 to 7, because the record now covers an access service to three registry systems rather than the four register functions it claimed, which is a genuine reduction in what a reader gets from it. No other factor moved. The Spanish company register and the public insolvency register are recorded in the backlog for Wave 1E and are deliberately not published here."
   }
 ]

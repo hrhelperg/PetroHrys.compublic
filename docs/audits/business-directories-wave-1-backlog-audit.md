@@ -88,6 +88,19 @@ The US manifest's 10 pending jurisdictions were re-probed during this audit:
 10. Alaska, Virginia, Wyoming, Guam, American Samoa — discovery or browser work.
 11. Northern Ireland DRO and BRO register.
 
+## Status update — Wave 1D (2026-08-05)
+
+Defects 1 and 2 are **corrected**: the "Held pending a glossary decision" section
+and the FDA Drug Establishments row have been moved to resolved sections, with
+their historical resolution notes retained. A regression test now fails if any
+published record reappears in a pending section, or if the backlog asserts that a
+registry type does not exist.
+
+Defect 3 (14 pending rows without an official URL) and the blocker revalidation
+findings below are **not yet applied** — they are backlog hygiene rather than
+published falsehoods, and were left for the phase that next touches those
+jurisdictions.
+
 ## Recommended backlog hygiene (not applied in this audit)
 
 - Move the three exclusion candidates and the FDA row into resolved sections.

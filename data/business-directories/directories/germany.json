@@ -7,16 +7,16 @@
     "category": "government",
     "website": "https://www.handelsregister.de/rp_web/welcome.xhtml",
     "submissionUrl": null,
-    "description": "Joint German register portal aggregating the commercial, cooperative, partnership and association registers of all federal states.",
+    "description": "Gemeinsames Registerportal der Länder is the official electronic system through which the German commercial, cooperative, partnership, company and association registers are searched and their filed documents inspected. The registers themselves are kept by the competent local courts; the portal is the retrieval route the Länder justice administrations designated for them, and it also carries the register announcements.",
     "tier": "tier1",
     "scope": "national",
     "nativeName": "Gemeinsames Registerportal der Länder",
-    "primaryRegistryType": "company-register",
+    "primaryRegistryType": "public-filing-database",
     "registryTypes": [
-      "company-register"
+      "public-filing-database"
     ],
     "operator": {
-      "name": "Justizverwaltungen der Länder (German state justice administrations)",
+      "name": "Landesjustizverwaltungen (justice administrations of the German Länder)",
       "type": "public-law-body",
       "officialUrl": null
     },
@@ -90,8 +90,14 @@
       "usedWith": [],
       "competitors": []
     },
-    "bestFor": [],
-    "notRecommendedFor": [],
+    "bestFor": [
+      "Searching any German register entry from a single national entry point rather than court by court.",
+      "Inspecting the documents an entity has filed with its commercial register."
+    ],
+    "notRecommendedFor": [
+      "Treating a retrieval as the register itself, since the registers are kept by the courts and the portal provides access to them.",
+      "Relying on structured retrieval where the official printout is what is needed, because the operator describes the structured service as non-binding."
+    ],
     "submissionDifficulty": null,
     "listingQuality": null,
     "typicalApprovalTime": null,
@@ -115,13 +121,17 @@
       "primary-source"
     ],
     "pros": [
-      "Covers every Bundesland from one portal",
-      "Includes register announcements"
+      "One portal reaches the registers of every Bundesland, which are otherwise kept court by court.",
+      "It covers the commercial, cooperative, partnership, company and association registers, and the register announcements alongside them.",
+      "Documents filed with the register can be inspected through it, not only the register entries themselves.",
+      "A court can certify that data retrieved through the portal matches the register content, so an official copy is obtainable by this route."
     ],
     "cons": [
-      "Structured retrieval is described by the operator as a non-binding service"
+      "The portal is the designated retrieval system, not the register itself. Under the Commercial Code the commercial register is kept electronically by the courts, and the portal is the electronic information and communication system the Länder justice administrations determined for access to it.",
+      "The operator describes structured retrieval as a non-binding service whose content may differ from the current official printout.",
+      "Because each register is kept by a local court, a question about the legal status of an entry belongs to that court rather than to the portal."
     ],
-    "editorNotes": "Verified 2026-08-04. Operated by the state justice administrations; copyright held by the Ministry of Justice of North Rhine-Westphalia. Whether every retrieval is free was not established, so paid is null. Classified company-register only: the evidence establishes register aggregation, not a filed-document database."
+    "editorNotes": "Verified 2026-08-04; source-of-record corrected 2026-08-05 (Wave 1D). CORRECTION: this record previously carried primaryRegistryType company-register and described the portal as \"aggregating\" the registers, which asserted that the portal constitutes the German commercial register. It does not. Handelsgesetzbuch § 8(1) provides that the commercial register is kept electronically by the courts, and Handelsregisterverordnung § 1 assigns each register to the Amtsgericht at a Landgericht seat. Handelsgesetzbuch § 9(1) provides that the Länder justice administrations determine the electronic information and communication system through which register data may be retrieved, and that the Länder may determine a joint, central cross-Land system. The portal is therefore the designated access and publication route, not the constitutive register. Reclassified to public-filing-database because § 9(1) covers inspection of the register AND of the documents filed with it; the earlier note claiming the evidence established \"register aggregation, not a filed-document database\" was wrong on that point. Operator corrected to the Landesjustizverwaltungen, which is the body § 9(1) charges with determining and running the retrieval system; the courts are named in prose as the holders of the registers rather than as the portal operator. Score unchanged: the correction concerns what the system is, not how reliable or useful it is, and court certification under § 9(3) still runs through this route."
   },
   {
     "id": "de-bundesanzeiger",
