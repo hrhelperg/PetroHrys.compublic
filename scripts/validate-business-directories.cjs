@@ -667,6 +667,20 @@ function validateRegistry(registry) {
     }
   }
 
+  // A Domain Rating is a fact about a domain, so the dataset holds exactly one
+  // snapshot per measured domain. Checked across the whole registry rather than
+  // per country: one domain can legitimately carry records in two countries, and
+  // they must still agree on what was measured and when.
+  for (const problem of S.sharedDomainSnapshotProblems(directories)) {
+    const entry = directories.find((d) => d.id === problem.id);
+    errors.push({
+      file: entry ? fileFor(entry) : '(unknown)',
+      id: problem.id,
+      field: problem.field,
+      reason: problem.reason,
+    });
+  }
+
   // Relations are checked once every id is known, so a forward reference to a
   // record defined in a later file is still valid.
   const allIds = new Set(directories.map((d) => d.id).filter(Boolean));

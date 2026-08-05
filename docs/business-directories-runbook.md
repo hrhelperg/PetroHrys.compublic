@@ -264,8 +264,13 @@ What this means day to day:
 
 - The 64 Domain Ratings already in the registry stay exactly as measured. They
   are dated historical snapshots and are never refreshed.
-- **New records carry `domainRating: null`.** That is the correct value, not a
-  gap to fill. The site renders it as "Not measured" — never as 0.
+- **A new record must not create a new Domain Rating measurement.** On a domain
+  the dataset has never measured, that means `domainRating: null` — the correct
+  value, not a gap to fill. The site renders it as "Not measured", never as 0.
+- **A new record MAY reuse an existing frozen snapshot** when its normalised
+  `measuredDomain` exactly matches a domain already measured. Reuse collects
+  nothing: it repeats the stored value, provider, date and status verbatim, with
+  no network call and no credential. See the next section.
 - A record without a Domain Rating is fully publishable and fully visible. It
   sorts after measured records in the Domain Rating view only.
 - `scripts/measure-business-directory-dr.cjs` is retired. It refuses to run
@@ -280,6 +285,66 @@ one policy for reading the existing snapshots: scheme and `www.` are stripped,
 the host is lowercased, and the result is stored as `measuredDomain`. A rating
 describes *that* domain — for a marketplace on a parent domain the number
 describes the measured host, not the marketplace path, and the page says so.
+
+### Reusing a snapshot on a shared domain
+
+Governments publish several distinct registries on one departmental host. When a
+new record's own normalised domain **exactly matches** a domain already measured,
+copy the stored snapshot across, field for field:
+
+```jsonc
+"domainRating": 92,
+"metricStatus": "measured",
+"metricsProvenance": {
+  "domainRating": {
+    "provider": "Ahrefs",
+    "measuredAt": "2026-08-04",
+    "status": "historicalSnapshot",
+    "measuredDomain": "ised-isde.canada.ca"
+  }
+}
+```
+
+Read those four values off the existing record first. Do not retype them from
+memory and do not "tidy" the date.
+
+**Reuse is permitted only when every one of these holds:**
+
+- the normalised `measuredDomain` is an *exact* string match;
+- the value, provider, `measuredAt` and `status` are identical;
+- `status` stays `historicalSnapshot`;
+- no network call, no API key, no refreshed or inferred value.
+
+**Never:**
+
+- copy a rating between related but different domains;
+- carry a parent-domain value down to a subdomain, or up from one — `canada.ca`
+  and `ised-isde.canada.ca` are two domains and two measurements;
+- change the date or the provider;
+- present the snapshot as current;
+- describe the number as authority belonging to the individual registry page.
+
+`sharedDomainSnapshotProblems()` in `bd-schema.cjs` is the single enforcement
+point; the validator and `bd-truth.test.cjs` both call it, so they cannot drift.
+It rejects differing values, dates, providers or statuses on one measured domain,
+and rejects a snapshot whose `measuredDomain` is not the record's own domain.
+
+**Declining reuse.** A record on an already-measured domain may still carry
+`domainRating: null`, but only deliberately. Write the literal marker in
+`editorNotes`:
+
+```
+Domain Rating not reused: <reason>
+```
+
+Without it the validator fails, so a forgotten value can never be mistaken for a
+considered one.
+
+**What the reader is told.** Every page showing the column carries
+`DR_SNAPSHOT_POLICY_NOTE`, which states that Domain Rating "is a dated historical
+measurement of the shared domain, not an assessment of this individual registry
+page". Two registries on one host therefore show the same number without either
+appearing to have earned it.
 
 **Attribution** is required by the Ahrefs licence: "Domain Rating by Ahrefs",
 linked to <https://ahrefs.com/>, is rendered wherever a value appears. A test

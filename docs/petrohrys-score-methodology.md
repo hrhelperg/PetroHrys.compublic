@@ -47,6 +47,7 @@ Every record stores its `scoreFactors`, and **the validator recomputes the score
 ## What the score explicitly is not
 
 - **Not Domain Rating.** Ahrefs DR, Semrush Authority Score, traffic estimates and referring-domain counts are third-party metrics. Where recorded they carry their provider and measurement date, and they never feed into this score.
+- **Not a page-level measurement.** A Domain Rating is a dated historical measurement of a *domain*, not an assessment of the individual registry page a record points at. Governments publish several distinct registries on one departmental host, and those records then repeat that domain's single stored snapshot. Two records showing the same Domain Rating are reporting one fact about one domain; it says nothing about either registry's own quality and does not make them equivalent. The PetroHrys Score is the number that differs between them, because it is the one that assesses the registry.
 - **Not a review rating.** No `AggregateRating` or `Review` structured data is emitted anywhere in this section, because presenting an internal editorial judgement as third-party review markup would be fabrication.
 - **Not SEO value.** A directory's usefulness for link acquisition is not a scoring dimension. Several high-scoring entries here are `nofollow` or unknown.
 

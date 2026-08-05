@@ -131,3 +131,71 @@ No access facts are asserted for any of the three.
 TGA public registers, AFSA insolvency and bankruptcy records, ACMA registers,
 IP Australia patents (AusPat) and designs, and the NSW co-operatives register.
 None was reached in this wave; none is rejected.
+
+---
+
+## Wave 1C-2 — Canada (2026-08-05)
+
+Canada was researched federally and across all ten provinces and three
+territories. Thirteen records were published. What follows is everything that
+was **not** published, and why. None of it asserts an access fact.
+
+The reachable-source picture matters for reading this section: `www.canada.ca`
+did not respond over either HTTP/2 or HTTP/1.1 from this environment, while the
+departmental hosts `ised-isde.canada.ca`, `brevets-patents.ic.gc.ca`,
+`fintrac-canafe.canada.ca` and `apps.cra-arc.gc.ca` all did. A federal candidate
+being unpublished therefore says nothing about the registry itself.
+
+### Absent registry — not a blocker, and not to be "resolved"
+
+| Jurisdiction | Finding |
+|---|---|
+| Alberta | **No government-operated public corporate search exists.** Alberta states "Registry agents provide all of the search services listed below" and "A registry agent will charge a government fee and a service fee to provide the information you need." Lead ministry: Service Alberta and Red Tape Reduction. There is nothing to publish. Do **not** substitute a private registry agent, an aggregator, or MRAS. Recorded as `no-public-registry` in the coverage manifest, deliberately not as a blocker, and asserted by `bd-canada.test.cjs`. |
+
+Alberta and Saskatchewan are **not** the same case. Saskatchewan's registry is
+statutory and is published (`ca-sk-isc-corporate-registry`); only its delivery is
+commercial, through Information Services Corporation. Alberta has no government
+public search at all. Collapsing the two would misdescribe both.
+
+### Pending manual verification — blocked jurisdictions
+
+| Candidate | Operator | Official URL | Block reason | Verification steps required |
+|---|---|---|---|---|
+| Corporate Affairs Registry | Service New Brunswick | `www.pxw1.snb.ca/snb7001/e/2000/2700e.asp` | Interstitial bot challenge on both `www.snb.ca` and `www.pxw1.snb.ca`, every attempt. | Open in a desktop browser; record official registry name, operating department, search URL, whether search is free, whether an account is required. |
+| Corporate/Business Names Registry | Government of Prince Edward Island, Justice and Public Safety | `www.princeedwardisland.ca/en/information/justice-and-public-safety/corporate-registry` | Radware browser-verification interstitial returned on every attempt; no official page could be read. | As above. |
+| Yukon Corporate Online Registry (YCOR) | Government of Yukon | `yukon.ca/en/corporate-online-registry` | `yukon.ca` returned an interstitial challenge on every attempt; `ycor-regcor.gov.yk.ca` did not respond at all. | As above. |
+
+### Pending manual verification — federal candidates
+
+| Candidate | Operator | Official URL | Block reason | Verification steps required |
+|---|---|---|---|---|
+| List of Charities | Canada Revenue Agency | `apps.cra-arc.gc.ca/ebci/hacc/srch/pub/dsplyBscSrch` | The application renders only through client-side scripts — the served page is the string `Loading/Chargement...` and nothing else. The canada.ca description page was unreachable. | Open in a desktop browser; record the official listing name, the statutory basis under the Income Tax Act, what is published per charity, and whether search is free. **High priority** — this is the authoritative Canadian charity register. |
+| Money services businesses registry | FINTRAC | `fintrac-canafe.canada.ca/msb-esm/public/msb-search/search-by-name/` | The register itself returned HTTP 403 on two hosts and no response on a third. The reachable FINTRAC page is *requirements guidance*, not the register. **Withheld deliberately**: an earlier draft pointed a registry record at the guidance page, which misdescribed it. Statutory basis is established — Proceeds of Crime (Money Laundering) and Terrorist Financing Act (S.C. 2000, c. 17). | Open the MSB search in a desktop browser; confirm the register's own name, that public search is free, and what fields are returned. **High priority.** |
+| Registry of Lobbyists | Office of the Commissioner of Lobbying of Canada | `lobbycanada.gc.ca` | Interstitial bot challenge on every attempt. | Open in a desktop browser; confirm registry name, statutory basis and public access model. |
+| National Registration Search ("Are they registered?") | Canadian Securities Administrators | `securities-administrators.ca/registration/are-they-registered` | `aretheyregistered.ca` redirects here, and the target returned an unresolved redirect on every attempt. | Open in a desktop browser; confirm the tool's official name, coverage across CSA members, and access model. |
+| Regulated financial institutions lists | Office of the Superintendent of Financial Institutions | `osfi-bsif.gc.ca` | Every candidate path tried returned HTTP 404; the current canonical location of the federally regulated financial institutions list was not established. | Locate the current canonical page from OSFI's own navigation and verify. |
+| AdvisorReport | Canadian Investment Regulatory Organization | `ciro.ca/office-investor/advisorreport` | HTTP 403 on every attempt. | Open in a desktop browser; confirm operator status (self-regulatory organisation), coverage and access model. |
+| OrgBook BC | Government of British Columbia | `orgbook.gov.bc.ca` | Client-rendered application; the served page carries the title only. BC is already published through `ca-bc-registry-services`, so this is an additional surface rather than a coverage gap. | Confirm whether OrgBook is a distinct registry system or a presentation layer over BC Registries before publishing; it must not duplicate the existing record. |
+
+### Resolved — published in the completion pass (2026-08-05)
+
+| Candidate | Operator | Official URL | Resolution |
+|---|---|---|---|
+| Canadian Trademarks Database | Canadian Intellectual Property Office | `ised-isde.canada.ca/cipo/trademark-search/srch` | **Published as `ca-cipo-trademarks-database`.** It had been withheld only because it shares the measured domain `ised-isde.canada.ca` with the federal corporation search, which collided with the then-current rule that every new record carries `domainRating: null`. That rule was the wrong shape: the freeze is about *measurement*, not about whether an already-measured number may appear twice. The rule now reads "a new record must not create a new Domain Rating measurement, but may reuse an existing frozen snapshot when its normalised `measuredDomain` exactly matches an already measured domain". The record reuses the stored snapshot verbatim — 92, Ahrefs, 2026-08-04, `historicalSnapshot` — read directly off `ca-corporations-canada`. Sources were revalidated live before publication. No measurement, no request, no credential: the per-domain snapshot digest is byte-identical either side of the change. |
+
+### Rejected — do not propose again
+
+| Candidate | Reason |
+|---|---|
+| `businessregistries.ca` | **Not a government service.** The domain is a commercial domain-sale parking page operated by a US registrar. It is a near-miss for the real MRAS entry point, `canadasbusinessregistries.ca`, and is asserted against by `bd-canada.test.cjs` so it can never be cited as the service. |
+| CanadaBuys | A tender-opportunity portal, not a register of businesses. It publishes procurement notices; it does not record the existence, status or identity of suppliers in a way a registry record would describe. |
+| Alberta registry agents (individual) | Private commercial operators. Publishing one as though it were the Alberta corporate registry would state the opposite of the researched finding. |
+
+### Not surveyed
+
+Provincial securities commissions individually (covered nationally by SEDAR+),
+provincial professional-regulator registers other than Québec's RBQ, provincial
+charity or not-for-profit registers where separate from the corporate registry,
+CRTC and Canadian Transportation Agency operator registers, Health Canada and
+CFIA licence registers, and provincial procurement supplier registers. None was
+reached in this wave; none is rejected.

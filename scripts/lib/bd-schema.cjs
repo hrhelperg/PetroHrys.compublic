@@ -86,11 +86,22 @@ const AHREFS_ATTRIBUTION = { text: 'Domain Rating by Ahrefs', href: 'https://ahr
 // new ones are collected. A record without one is therefore not a record with a
 // low rating, and must never render as 0 — hence an explicit label rather than a
 // bare dash, and an explicit sentence on every page that shows the column.
+//
+// The frozen rule is about MEASUREMENT, not about the value's reachability. A
+// Domain Rating describes a domain, so when a second registry is published on a
+// domain the dataset has already measured, repeating that domain's stored
+// snapshot collects nothing new: same value, same provider, same date, same
+// status, no network call. What is forbidden is producing a NEW measurement, or
+// carrying a different figure for a domain the dataset has already measured.
+// `sharedDomainSnapshotProblems()` below is the one place that rule is enforced.
 const DR_COLLECTION_FROZEN = true;
 const DR_NOT_MEASURED_LABEL = 'Not measured';
 const DR_SNAPSHOT_POLICY_NOTE = 'Domain Rating values are dated historical Ahrefs snapshots. '
-  + 'New measurements are not collected because the Research Center does not depend on mandatory '
-  + 'authenticated APIs.';
+  + 'Domain Rating is a dated historical measurement of the shared domain, not an assessment of '
+  + 'this individual registry page. New measurements are not collected because the Research Center '
+  + 'does not depend on mandatory authenticated APIs. Where several registries are published on one '
+  + 'measured domain they repeat that domain’s single dated snapshot rather than each carrying a '
+  + 'figure of its own.';
 
 // One deterministic domain policy. A Domain Rating describes the registrable
 // domain that was measured, not a path or subdomain on it: measuring
@@ -869,7 +880,100 @@ const OBJECT_VALUED_FIELDS = ['resourceIdentity', 'jurisdiction', 'operator', 'p
   'requiredAssets', 'accepts', 'related', 'scoreFactors', 'metricsProvenance'];
 const ARRAY_VALUED_FIELDS = ['registryTypes', ...ARRAY_FIELDS];
 
+// --- shared measured-domain snapshot consistency -----------------------------
+// A Domain Rating is a fact about a DOMAIN, so the dataset may hold exactly one
+// snapshot per measured domain. Two records reporting 92 and 78 for the same
+// domain, or the same value under two different dates or providers, would
+// publish two contradictory facts about one thing.
+//
+// Reuse is legitimate and collects nothing: a second registry on an
+// already-measured domain repeats the stored value, provider, date and status
+// verbatim. What this function rejects is a snapshot that DIFFERS from the one
+// the dataset already holds for that domain, and a snapshot copied onto a
+// record whose own site is a different domain.
+//
+// A record on an already-measured domain may still carry `domainRating: null` —
+// the value is optional, not mandatory — but only with an explicit reason in
+// editorNotes, so that "we chose not to reuse it" can never be confused with
+// "someone forgot". The marker is deliberately literal and greppable.
+const DR_OMISSION_MARKER = /Domain Rating not reused:/;
+
+function sharedDomainSnapshotProblems(records) {
+  const problems = [];
+  const list = Array.isArray(records) ? records : [];
+  const byDomain = new Map();
+
+  for (const r of list) {
+    if (!r || typeof r !== 'object') continue;
+    const p = (r.metricsProvenance || {}).domainRating;
+    if (!p || !p.measuredDomain) continue;
+
+    // A snapshot must describe the record's own site. Copying a value onto a
+    // record hosted somewhere else attributes another domain's authority to it.
+    const own = normaliseDomain(r.website);
+    if (own && p.measuredDomain !== own) {
+      problems.push({
+        id: r.id,
+        field: 'metricsProvenance.domainRating.measuredDomain',
+        reason: `Is "${p.measuredDomain}" but this record's own measured domain is "${own}". `
+          + 'A Domain Rating may only be reused on the exact domain it was measured on; '
+          + 'copying it to a related domain or from a parent domain to a subdomain '
+          + 'attributes a measurement the number does not make.',
+      });
+      continue;
+    }
+
+    if (!byDomain.has(p.measuredDomain)) byDomain.set(p.measuredDomain, []);
+    byDomain.get(p.measuredDomain).push(r);
+  }
+
+  // Every record on one measured domain must repeat one identical snapshot.
+  for (const [domain, rs] of byDomain) {
+    if (rs.length < 2) continue;
+    const [first] = rs;
+    const fp = first.metricsProvenance.domainRating;
+    for (const r of rs.slice(1)) {
+      const p = r.metricsProvenance.domainRating;
+      const mismatch = (field, a, b) => {
+        if (a === b) return;
+        problems.push({
+          id: r.id,
+          field: field === 'domainRating' ? 'domainRating' : `metricsProvenance.domainRating.${field}`,
+          reason: `Is ${JSON.stringify(b)} but "${first.id}" reports ${JSON.stringify(a)} for the same `
+            + `measured domain "${domain}". One domain has one dated snapshot; records sharing it `
+            + 'must repeat it verbatim rather than carry differing figures.',
+        });
+      };
+      mismatch('domainRating', first.domainRating, r.domainRating);
+      mismatch('provider', fp.provider, p.provider);
+      mismatch('measuredAt', fp.measuredAt, p.measuredAt);
+      mismatch('status', fp.status, p.status);
+    }
+  }
+
+  // A null on an already-measured domain is allowed, but must be deliberate.
+  const measured = new Map();
+  for (const [domain, rs] of byDomain) measured.set(domain, rs[0].id);
+  for (const r of list) {
+    if (!r || typeof r !== 'object') continue;
+    if (r.domainRating !== null && r.domainRating !== undefined) continue;
+    const own = normaliseDomain(r.website);
+    if (!own || !measured.has(own)) continue;
+    if (DR_OMISSION_MARKER.test(r.editorNotes || '')) continue;
+    problems.push({
+      id: r.id,
+      field: 'domainRating',
+      reason: `Is null on "${own}", which "${measured.get(own)}" has already measured. Reuse that `
+        + 'domain\'s stored snapshot verbatim, or record why it is not reused by writing '
+        + '"Domain Rating not reused: <reason>" in editorNotes.',
+    });
+  }
+
+  return problems;
+}
+
 module.exports = {
+  DR_OMISSION_MARKER, sharedDomainSnapshotProblems,
   NESTED_RECORD_KEYS, METRIC_PROVENANCE_KEYS, OBJECT_VALUED_FIELDS, ARRAY_VALUED_FIELDS,
   RESOURCE_IDENTITY_KEYS, CANONICAL_DOMAIN_RE, canonicalDomainProblem,
   normaliseForComparison, urlsAreMateriallyDifferent,

@@ -24,9 +24,20 @@ was written for. It was never acted on in an active workflow.
 - The **64 existing snapshots are preserved unchanged**, each with its provider,
   value, measurement date, measured domain and `historicalSnapshot` status. They
   are dated historical readings and are never refreshed.
-- **No new Domain Rating values are collected.** Records added from Batch 1
-  onward carry `domainRating: null`, which the site renders as "Not measured" —
-  never as 0, and never as a live figure.
+- **No new Domain Rating measurements are made.** Records added from Batch 1
+  onward carry `domainRating: null` on any domain the dataset has not already
+  measured, which the site renders as "Not measured" — never as 0, and never as
+  a live figure.
+- **An existing snapshot may be reused on the exact domain it measured.**
+  Because a Domain Rating is a fact about a *domain*, a second registry
+  published on an already-measured domain repeats that domain's stored snapshot
+  verbatim — same value, provider, date and `historicalSnapshot` status. That
+  performs no measurement, no request and no credential read, so it does not
+  reopen the question this document closed. Copying a value between different
+  domains, between a parent domain and a subdomain, or under a changed date or
+  provider all remain forbidden; `sharedDomainSnapshotProblems()` in
+  `bd-schema.cjs` rejects each case and
+  `scripts/tests/bd-shared-domain-snapshot.test.cjs` proves it.
 - Records without a Domain Rating are fully publishable and fully visible. They
   sort after measured records in the Domain Rating view only. The PetroHrys
   Score, which never incorporated Domain Rating, remains available for every

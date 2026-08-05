@@ -6,13 +6,14 @@ Every published record must carry a verification status, a source, a date and at
 least one named reviewer; the validator refuses a `verified` record that is
 missing any of them.
 
-**153 records.**
+**167 records.**
 
 | Directory | Country | Status | Source | Last verified | Next due | Reviewer |
 |---|---|---|---|---|---|---|
 | Companies House Register | united-kingdom | verified | Official website | 2026-08-04 | 2027-08-15 | Petro Hrys |
 | ABN Lookup | australia | verified | Official website | 2026-08-04 | 2027-08-18 | Petro Hrys |
 | Search ASIC registers | australia | verified | Government register | 2026-08-04 | 2027-08-05 | Petro Hrys |
+| Canadian Trademarks Database | canada | verified | Government register | 2026-08-05 | 2027-08-23 | Petro Hrys |
 | L'Annuaire des Entreprises | france | verified | Government register | 2026-08-04 | 2027-08-26 | Petro Hrys |
 | Veřejný rejstřík a Sbírka listin | czech-republic | verified | Official website | 2026-08-04 | 2027-08-29 | Petro Hrys |
 | Baza Internetowa REGON | poland | verified | Government register | 2026-08-04 | 2027-08-27 | Petro Hrys |
@@ -22,6 +23,8 @@ missing any of them.
 | Registro Imprese | italy | verified | Official website | 2026-08-04 | 2027-08-04 | Petro Hrys |
 | Centralna Ewidencja i Informacja o Działalności Gospodarczej | poland | verified | Government register | 2026-08-04 | 2027-08-26 | Petro Hrys |
 | EDGAR | united-states | verified | Government register | 2026-08-04 | 2027-08-13 | Petro Hrys |
+| Registraire des entreprises — Enterprise Register | canada | verified | Government register | 2026-08-05 | 2027-08-31 | Petro Hrys |
+| Ontario Business Registry | canada | verified | Government register | 2026-08-05 | 2027-08-07 | Petro Hrys |
 | USPTO Trademark Search | united-states | verified | Government register | 2026-08-04 | 2027-08-22 | Petro Hrys |
 | Care Quality Commission | united-kingdom | verified | Government register | 2026-08-04 | 2027-08-08 | Petro Hrys |
 | Institut National de la Propriété Industrielle | france | verified | Government register | 2026-08-04 | 2027-08-24 | Petro Hrys |
@@ -29,8 +32,11 @@ missing any of them.
 | Search for a Federal Corporation | canada | verified | Government register | 2026-08-04 | 2027-08-20 | Petro Hrys |
 | Python Package Index (PyPI) | global | verified | Official website | 2026-08-04 | 2027-05-29 | Petro Hrys |
 | Colegio de Registradores de España | spain | verified | Government register | 2026-08-04 | 2027-08-08 | Petro Hrys |
+| Canadian Patents Database | canada | verified | Government register | 2026-08-05 | 2027-08-20 | Petro Hrys |
 | Financial Services Register | united-kingdom | verified | Official website | 2026-08-04 | 2027-08-27 | Petro Hrys |
+| SEDAR+ | canada | verified | Government register | 2026-08-05 | 2027-08-27 | Petro Hrys |
 | WordPress Plugin Directory | global | verified | Official website | 2026-08-04 | 2027-05-29 | Petro Hrys |
+| BC Registry Services | canada | verified | Government register | 2026-08-05 | 2027-08-21 | Petro Hrys |
 | Tax Exempt Organization Search | united-states | verified | Government register | 2026-08-04 | 2027-08-06 | Petro Hrys |
 | GitHub Marketplace | global | verified | Official website | 2026-08-04 | 2027-05-28 | Petro Hrys |
 | crates.io | global | verified | Official website | 2026-08-04 | 2027-05-12 | Petro Hrys |
@@ -43,12 +49,15 @@ missing any of them.
 | RubyGems.org | global | verified | Official website | 2026-08-04 | 2027-05-09 | Petro Hrys |
 | OpenCorporates | global | verified | Official website | 2026-08-04 | 2027-05-25 | Petro Hrys |
 | Australian Trade Mark Search | australia | verified | Government register | 2026-08-05 | 2027-08-31 | Petro Hrys |
+| Manitoba Companies Office | canada | verified | Government register | 2026-08-05 | 2027-08-21 | Petro Hrys |
 | Patent Public Search | united-states | verified | Official website | 2026-08-04 | 2027-08-27 | Petro Hrys |
+| Nova Scotia Registry of Joint Stock Companies | canada | verified | Government register | 2026-08-05 | 2027-08-06 | Petro Hrys |
 | SAM.gov Exclusions | united-states | verified | Government register | 2026-08-04 | 2027-08-07 | Petro Hrys |
 | USAspending.gov | united-states | verified | Government register | 2026-08-04 | 2027-08-27 | Petro Hrys |
 | Hugging Face | global | verified | Official website | 2026-08-04 | 2027-05-18 | Petro Hrys |
 | Maven Central | global | verified | Official website | 2026-08-04 | 2027-05-28 | Petro Hrys |
 | HHS OIG List of Excluded Individuals and Entities | united-states | verified | Government register | 2026-08-04 | 2027-08-17 | Petro Hrys |
+| Régie du bâtiment du Québec — Licence Holders Register | canada | verified | Government register | 2026-08-05 | 2027-08-23 | Petro Hrys |
 | NFA BASIC | united-states | verified | Official website | 2026-08-04 | 2027-08-04 | Petro Hrys |
 | Add-ons for Firefox | global | verified | Official website | 2026-08-04 | 2027-02-18 | Petro Hrys |
 | Visual Studio Marketplace | global | verified | Official website | 2026-08-04 | 2027-05-12 | Petro Hrys |
@@ -61,6 +70,7 @@ missing any of them.
 | Business Information Search | united-states | verified | Government register | 2026-08-04 | 2027-08-10 | Petro Hrys |
 | Business Records Search | united-states | verified | Government register | 2026-08-04 | 2027-08-22 | Petro Hrys |
 | Business Search | united-states | verified | Government register | 2026-08-04 | 2027-08-26 | Petro Hrys |
+| Northwest Territories Corporate Registries | canada | verified | Government register | 2026-08-05 | 2027-08-13 | Petro Hrys |
 | FDA Establishment Registration and Device Listing | united-states | verified | Government register | 2026-08-04 | 2027-08-05 | Petro Hrys |
 | SAM.gov Entity Information | united-states | verified | Government register | 2026-08-04 | 2027-08-18 | Petro Hrys |
 | Sunbiz | united-states | verified | Government register | 2026-08-04 | 2027-08-10 | Petro Hrys |
@@ -140,6 +150,7 @@ missing any of them.
 | Kaggle Datasets | global | verified | Official website | 2026-08-04 | 2027-05-10 | Petro Hrys |
 | Wellfound | global | verified | Official website | 2026-08-04 | 2027-05-15 | Petro Hrys |
 | Arizona Business Center | united-states | verified | Government register | 2026-08-05 | 2027-08-17 | Petro Hrys |
+| Companies and Deeds Online | canada | verified | Government register | 2026-08-05 | 2027-08-23 | Petro Hrys |
 | Government Records Inquiry System | united-states | verified | Government register | 2026-08-05 | 2027-08-16 | Petro Hrys |
 | NPPES NPI Registry | united-states | verified | Government register | 2026-08-04 | 2027-08-10 | Petro Hrys |
 | Better Business Bureau | united-states | verified | Official website | 2026-08-04 | 2027-02-18 | Petro Hrys |
@@ -148,8 +159,11 @@ missing any of them.
 | Product Hunt | global | verified | Official website | 2026-08-04 | 2027-05-06 | Petro Hrys |
 | Software Advice | global | verified | Official website | 2026-08-04 | 2027-05-27 | Petro Hrys |
 | Business Entities Search | united-states | verified | Government register | 2026-08-05 | 2027-08-09 | Petro Hrys |
+| Saskatchewan Corporate Registry | canada | verified | Government register | 2026-08-05 | 2027-08-09 | Petro Hrys |
 | Permitted Customs Brokers Listing | united-states | verified | Government register | 2026-08-04 | 2027-08-29 | Petro Hrys |
+| MRAS Canadian Business Registry | canada | verified | Government register | 2026-08-05 | 2027-08-25 | Petro Hrys |
 | SOSDirect | united-states | verified | Government register | 2026-08-04 | 2027-08-06 | Petro Hrys |
+| Nunavut Legal Registries | canada | verified | Government register | 2026-08-05 | 2027-08-28 | Petro Hrys |
 | npm | global | verified | Official documentation | 2026-08-04 | 2027-05-30 | Petro Hrys |
 | Joomla! Extensions Directory | global | verified | Official website | 2026-08-04 | 2027-05-30 | Petro Hrys |
 | AlternativeTo | global | verified | Official website | 2026-08-04 | 2027-05-21 | Petro Hrys |
