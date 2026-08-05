@@ -6,8 +6,9 @@ Entries are grouped by verification date, newest first.
 
 ## 2026-08-05
 
-36 directories added or re-verified.
+37 directories added or re-verified.
 
+- **Canadian Trademarks Database** — canada / government — PetroHrys Score 91
 - **Registraire des entreprises — Enterprise Register** — canada / government — PetroHrys Score 90
 - **Ontario Business Registry** — canada / government — PetroHrys Score 90
 - **Canadian Patents Database** — canada / government — PetroHrys Score 88

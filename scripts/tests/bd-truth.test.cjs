@@ -788,19 +788,21 @@ test('domain normalisation is deterministic and rejects nonsense', () => {
 });
 
 test('no two records share a measured domain without it being visible', () => {
-  const seen = new Map();
-  for (const record of D) {
-    const domain = S.normaliseDomain(record.website);
-    if (!domain) continue;
-    if (seen.has(domain)) {
-      // Allowed, but both must then carry the same measurement — one domain has
-      // one rating, and showing two different numbers for it would be incoherent.
-      const other = D.find((r) => r.id === seen.get(domain));
-      assert.equal(record.domainRating, other.domainRating,
-        `${record.id} and ${other.id} share ${domain} but report different Domain Ratings`);
-    }
-    seen.set(domain, record.id);
-  }
+  // One domain has one dated snapshot. Records sharing a measured domain must
+  // repeat it verbatim — same value, provider, date and status — or say in
+  // editorNotes why the value is not reused. The rule itself lives in
+  // sharedDomainSnapshotProblems() so the validator and the suite cannot drift
+  // apart; this asserts the shipped registry satisfies it.
+  const problems = S.sharedDomainSnapshotProblems(D);
+  assert.deepStrictEqual(problems, [],
+    problems.map((p) => `${p.id} ${p.field}: ${p.reason}`).join('\n'));
+
+  // And the omission escape hatch must stay rare and deliberate rather than
+  // becoming the way every shared-domain record is filed.
+  const undocumented = D.filter((r) => r.domainRating === null
+    && S.DR_OMISSION_MARKER.test(r.editorNotes || ''));
+  assert.ok(undocumented.length <= 3,
+    `${undocumented.length} records decline a shared-domain snapshot; the reuse rule is being routed around`);
 });
 
 test('every rendered Domain Rating names its provider and date', () => {

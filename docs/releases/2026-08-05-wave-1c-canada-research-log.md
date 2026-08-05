@@ -108,7 +108,7 @@ behaviour was never observed.
 | Canadian Patents Database | **Approved** | `brevets-patents.ic.gc.ca` served the basic search form directly with no login; page states its own currency (2026-08-05). Limitations quoted from CIPO's "Search intellectual property databases": the 18-month publication rule and "practically impossible to find every relevant publication". |
 | MRAS Canadian Business Registry | **Approved** | Redirect chain verified; see above. |
 | SEDAR+ | **Approved** | Landing page read directly; operator identified from the footer as the BCSC, ASC, OSC and AMF among CSA members. The record search returned 403, so access fields are null and only *filing* fees are mentioned — no searcher fee is asserted. |
-| Canadian Trademarks Database | **Withheld — architectural** | Fully verified (free, no account, 1865 onwards, "over 140 years", "more than 1.4 million"). Blocked only by the shared-host / Domain Rating conflict. See release notes. |
+| Canadian Trademarks Database | **Approved** (published in the completion pass) | Fully verified (free, no account, 1865 onwards, "over 140 years", "more than 1.4 million"). Withheld in the first pass by the shared-host / Domain Rating conflict, then published once that rule was corrected. See "Completion pass" below. |
 | CRA List of Charities | **Pending** | Renders only via client-side scripts; the canada.ca description page was unreachable. High priority. |
 | FINTRAC MSB registry | **Pending — withheld deliberately** | An earlier draft of this wave pointed a *registry* record at FINTRAC's *requirements guidance* page and quoted a fee statement not present on the page actually read. Caught in adversarial review and removed. The register itself is 403 on two hosts. |
 | Registry of Lobbyists | **Pending** | Interstitial challenge. |
@@ -188,3 +188,94 @@ byte-identical afterwards:
 | An unknown access posture hardened to `false` | null-not-false test |
 | The pre-existing federal record re-dated | do-not-rewrite test |
 | A score no longer reproducing from its factors | score reproduction test |
+
+---
+
+## Completion pass — 2026-08-05
+
+Run after Wave 1C-2 was approved at `b2abdc0`, to close the one item the wave
+had deferred.
+
+### The rule that was wrong, and why
+
+The first pass withheld the Canadian Trademarks Database under the rule *every
+new record carries `domainRating: null`*. That rule conflated two different
+things:
+
+- **the freeze** — the Research Center collects no metric needing a paid
+  account, an API subscription or a mandatory credential; and
+- **a prohibition on an already-collected number appearing twice**, which the
+  freeze never required and which nothing else justified.
+
+A Domain Rating is a fact about a **domain**. `ised-isde.canada.ca` was measured
+once, on 2026-08-04, at 92. Repeating that stored reading for a second registry
+published on the same domain performs no measurement, issues no request and
+reads no credential. What the freeze forbids is a *new* reading — and that
+remains forbidden.
+
+The rule now reads: a new record must not create a new Domain Rating
+measurement, but may reuse an existing frozen snapshot when its normalised
+`measuredDomain` is an exact match.
+
+### How the reuse was done safely
+
+The snapshot was **read off `ca-corporations-canada` programmatically**, never
+retyped. The authoring script asserts, before it writes anything, that the
+stored record still carries value 92, provider Ahrefs, `measuredAt` 2026-08-04,
+status `historicalSnapshot` and `measuredDomain` `ised-isde.canada.ca`, and that
+the trademark URL normalises to that same domain. Any drift aborts the run.
+
+Sources were revalidated live immediately before publication: the search page
+served its form and reported "The database was last updated on: 2026-08-05", and
+the introduction page still carried the "over 140 years" and "more than 1.4
+million" figures.
+
+### Proof that nothing was measured
+
+The audit that matters is the digest keyed by *measured domain* rather than by
+record:
+
+| | Records carrying a DR | Distinct measurements | Per-domain digest |
+|---|---|---|---|
+| At `b2abdc0` | 64 | 64 | `aa7e6984…19847a4e` |
+| After the pass | 65 | 64 | `aa7e6984…19847a4e` |
+
+A record was added. A measurement was not.
+
+The two pre-existing tests that pinned this were re-expressed rather than
+weakened: both had pinned the count of *records displaying* a rating, which is
+the wrong quantity. They now pin the count and digest of *measurements*, so they
+still fail on a new domain, an edited value, a refreshed date or a swapped
+provider — and no longer fail on legitimate reuse.
+
+### The one change to a published record
+
+`ca-corporations-canada` gained a `resourceIdentity` shared-host declaration.
+That is required by the architecture's existing rule once a second statutory
+system is published on the same official host, and it is additive: verification
+date, score, Domain Rating value and provenance, URL and classification are all
+unchanged, and a test now pins each of them individually.
+
+### Keeping the two systems apart
+
+The risk in publishing a trademark register beside a corporation register is
+that a reader treats a trademark filing as evidence of company status. The
+record states in published prose that it records "trademarks, not businesses",
+that an entry establishes nothing about the owner's incorporation, legitimacy or
+standing, and that unregistered common-law rights appear in no register. A test
+asserts each of those sentences survives, that the record never carries
+`company-register`, and that its search URL, operator and registry type all
+differ from the corporation search.
+
+### Adversarial review
+
+- The four searchable mark categories were re-verified against the live search
+  form rather than against an earlier summary. All four are present.
+- The Saskatchewan record was re-read sentence by sentence for any claim of
+  government operation. The single occurrence of "government-operated" sits in
+  the clause explaining that Alberta has none. That is now a permanent test
+  rather than a one-off check.
+- A release-gate check flagged `AggregateRating` in a guide page's JSON-LD. It is
+  prose inside an FAQ answer saying that no such markup is emitted, unchanged
+  since before this branch. The check was crude, not the data; it now inspects
+  `@type` values and property keys instead of stringified text.

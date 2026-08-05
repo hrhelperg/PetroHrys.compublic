@@ -49,9 +49,9 @@ const NEW = CA.filter((r) => !PRE_EXISTING.has(r.id));
 // --- shape ------------------------------------------------------------------
 
 test('the wave produced a real Canadian federal, provincial and territorial layer', () => {
-  assert.ok(CA.length >= 14, `only ${CA.length} Canadian records`);
+  assert.ok(CA.length >= 15, `only ${CA.length} Canadian records`);
   assert.ok(SUB.length >= 10, `only ${SUB.length} subnational records`);
-  assert.ok(FEDERAL.length >= 4, `only ${FEDERAL.length} federal records`);
+  assert.ok(FEDERAL.length >= 5, `only ${FEDERAL.length} federal records`);
   // Nine of the thirteen Canadian subdivisions carry a record. The four that do
   // not are a researched outcome, not an oversight: Alberta has no government
   // public search at all, and New Brunswick, Prince Edward Island and Yukon
@@ -133,6 +133,19 @@ test('Saskatchewan is recorded as a statutory registry with a commercial operato
   // The distinction from Alberta must be stated, not left to the reader.
   assert.match(sk.editorNotes, /Alberta/,
     'the Saskatchewan record must state how it differs from Alberta');
+  assert.match([sk.description, ...sk.cons, sk.editorNotes].join(' '), /commercial/i,
+    'the Saskatchewan record must say the operator is commercial');
+
+  // And it must never be described as government-operated. The phrase is only
+  // permitted in the clause explaining that ALBERTA has no such search — which
+  // is the very distinction this record exists to keep visible.
+  const sentences = [sk.description, ...sk.pros, ...sk.cons, sk.editorNotes]
+    .join(' ').split(/(?<=[.!?])\s+/);
+  for (const s of sentences) {
+    if (!/government-operated|operated by (?:the )?government/i.test(s)) continue;
+    assert.ok(/Alberta/.test(s) && /\bno\b/.test(s),
+      `the Saskatchewan record describes government operation outside the Alberta contrast: ${s}`);
+  }
 });
 
 test('MRAS is a registry interface and never the legal source of record', () => {
@@ -205,13 +218,76 @@ test('no record duplicates the federal corporation search', () => {
   }
 });
 
-test('the pre-existing federal record was not rewritten by this wave', () => {
-  // Wave 1C-2 appends. It does not re-author published research.
+test('the pre-existing federal record kept its research and its snapshot', () => {
+  // Wave 1C appends; it does not re-author published research. The single
+  // permitted change is the shared-host declaration the architecture requires
+  // once a second statutory system is published on the same official host.
   const r = byId.get('ca-corporations-canada');
   assert.strictEqual(r.lastVerified, '2026-08-04', 'the pre-existing record was re-dated');
-  assert.strictEqual(r.domainRating, 92, 'the pre-existing Domain Rating snapshot was altered');
-  assert.strictEqual(r.resourceIdentity, null,
-    'the pre-existing record gained a resourceIdentity; this wave must not modify it');
+  assert.strictEqual(r.petroHrysScore, 88, 'the pre-existing score was altered');
+  assert.strictEqual(r.domainRating, 92, 'the pre-existing Domain Rating value was altered');
+  assert.deepStrictEqual(r.metricsProvenance.domainRating, {
+    provider: 'Ahrefs',
+    measuredAt: '2026-08-04',
+    status: 'historicalSnapshot',
+    measuredDomain: 'ised-isde.canada.ca',
+  }, 'the pre-existing Domain Rating provenance was altered');
+  assert.strictEqual(r.website, 'https://ised-isde.canada.ca/cc/lgcy/fdrlCrpSrch.html');
+  assert.strictEqual(r.primaryRegistryType, 'company-register');
+  // The one addition, and it must be exactly the shared-host declaration.
+  assert.deepStrictEqual(r.resourceIdentity, {
+    canonicalDomain: 'ised-isde.canada.ca',
+    systemKey: 'corporations-canada-federal-corporation-search',
+    sharedHostGroup: 'ised-isde-canada',
+  });
+});
+
+test('the trademark database reuses the domain snapshot rather than measuring one', () => {
+  const tm = byId.get('ca-cipo-trademarks-database');
+  const corp = byId.get('ca-corporations-canada');
+  assert.ok(tm, 'the Canadian Trademarks Database record is missing');
+
+  // Same measured domain, therefore the same dated snapshot, field for field.
+  assert.strictEqual(S.normaliseDomain(tm.website), 'ised-isde.canada.ca');
+  assert.strictEqual(tm.domainRating, corp.domainRating);
+  assert.deepStrictEqual(tm.metricsProvenance.domainRating, corp.metricsProvenance.domainRating);
+  assert.strictEqual(tm.metricsProvenance.domainRating.status, 'historicalSnapshot',
+    'a reused snapshot must never be presented as current');
+  assert.strictEqual(tm.metricsProvenance.domainRating.measuredAt, '2026-08-04',
+    'the measurement date must not be refreshed on reuse');
+  assert.deepStrictEqual(S.sharedDomainSnapshotProblems(CA), []);
+
+  // Both declare the shared host, with distinct system keys.
+  assert.strictEqual(tm.resourceIdentity.sharedHostGroup, corp.resourceIdentity.sharedHostGroup);
+  assert.notStrictEqual(tm.resourceIdentity.systemKey, corp.resourceIdentity.systemKey);
+
+  // And the page must not let the domain number read as page-level authority.
+  const html = fs.readFileSync(
+    path.join(ROOT, 'research/business-directories/canada', tm.slug, 'index.html'), 'utf8');
+  assert.ok(html.includes('not an assessment of this individual registry page'),
+    'the detail page does not say the Domain Rating describes the domain rather than the page');
+});
+
+test('the trademark register and the corporation register stay distinct systems', () => {
+  const tm = byId.get('ca-cipo-trademarks-database');
+  const corp = byId.get('ca-corporations-canada');
+
+  assert.ok(S.urlsAreMateriallyDifferent(tm.website, corp.website), 'same search URL');
+  assert.notStrictEqual(tm.primaryRegistryType, corp.primaryRegistryType);
+  assert.ok(!tm.registryTypes.includes('company-register'),
+    'a trademark register is not a company register');
+  assert.notStrictEqual(tm.operator.name, corp.operator.name);
+  assert.notStrictEqual(tm.publicAccess.searchUrl, corp.publicAccess.searchUrl);
+
+  // Trademark registration must never be implied to establish company status.
+  const prose = [tm.description, ...tm.pros, ...tm.bestFor].join(' ');
+  assert.ok(!/establishes?[^.]*\b(?:company|corporate|business)\b[^.]*\b(?:status|existence|registration)\b/i.test(prose),
+    'the trademark record implies it establishes company status');
+  const caveats = [...tm.cons, ...tm.notRecommendedFor].join(' ');
+  assert.match(caveats, /not businesses|company legally exists|corporate-registry question/i,
+    'the trademark record never says it does not establish company existence');
+  assert.match(caveats, /legitimacy|standing/i,
+    'the trademark record never disclaims business legitimacy');
 });
 
 test('a record sharing an official host declares a resourceIdentity', () => {
@@ -265,15 +341,38 @@ test('every Canadian statutory register is notApplicable for submission', () => 
   }
 });
 
-test('no record added by this wave carries a metric', () => {
-  // Domain Rating collection is frozen. The one pre-existing record holds a
-  // dated snapshot; nothing added by this wave may carry any metric at all.
+test('no record added by this wave carries a newly measured metric', () => {
+  // Domain Rating collection is frozen: no record added here may introduce a
+  // NEW measurement. Exactly one added record carries a Domain Rating at all —
+  // the trademark database — and it does so by repeating the snapshot already
+  // held for its own domain, which measures nothing. Everything else is null.
+  const REUSES_SNAPSHOT = new Set(['ca-cipo-trademarks-database']);
   for (const r of NEW) {
-    for (const k of ['domainRating', 'authorityScore', 'estimatedTraffic', 'referringDomains']) {
+    // No metric other than Domain Rating is ever published.
+    for (const k of ['authorityScore', 'estimatedTraffic', 'referringDomains']) {
       assert.strictEqual(r[k], null, `${r.id} carries ${k} = ${r[k]}`);
     }
-    assert.strictEqual(r.metricStatus, 'unknown', r.id);
-    assert.deepStrictEqual(r.metricsProvenance, {}, r.id);
+    if (!REUSES_SNAPSHOT.has(r.id)) {
+      assert.strictEqual(r.domainRating, null, `${r.id} carries domainRating = ${r.domainRating}`);
+      assert.strictEqual(r.metricStatus, 'unknown', r.id);
+      assert.deepStrictEqual(r.metricsProvenance, {}, r.id);
+      continue;
+    }
+    // The reusing record must be reusing, not measuring: its snapshot has to be
+    // identical to one another record already holds for the same domain.
+    const p = r.metricsProvenance.domainRating;
+    assert.ok(p, `${r.id} claims a reused snapshot but carries no provenance`);
+    assert.strictEqual(p.status, 'historicalSnapshot', `${r.id} presents its snapshot as current`);
+    assert.strictEqual(p.measuredDomain, S.normaliseDomain(r.website),
+      `${r.id} carries a snapshot measured on another domain`);
+    const source = CA.find((o) => o.id !== r.id
+      && (o.metricsProvenance || {}).domainRating
+      && o.metricsProvenance.domainRating.measuredDomain === p.measuredDomain);
+    assert.ok(source, `${r.id} has no prior record to have reused a snapshot from`);
+    assert.strictEqual(r.domainRating, source.domainRating);
+    assert.deepStrictEqual(p, source.metricsProvenance.domainRating);
+    assert.ok(source.lastVerified <= r.lastVerified,
+      'the snapshot source must predate the record reusing it');
   }
 });
 

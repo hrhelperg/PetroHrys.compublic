@@ -177,14 +177,11 @@ public search at all. Collapsing the two would misdescribe both.
 | AdvisorReport | Canadian Investment Regulatory Organization | `ciro.ca/office-investor/advisorreport` | HTTP 403 on every attempt. | Open in a desktop browser; confirm operator status (self-regulatory organisation), coverage and access model. |
 | OrgBook BC | Government of British Columbia | `orgbook.gov.bc.ca` | Client-rendered application; the served page carries the title only. BC is already published through `ca-bc-registry-services`, so this is an additional surface rather than a coverage gap. | Confirm whether OrgBook is a distinct registry system or a presentation layer over BC Registries before publishing; it must not duplicate the existing record. |
 
-### Withheld by an architectural constraint, not by research
+### Resolved — published in the completion pass (2026-08-05)
 
-| Candidate | Operator | Official URL | Constraint |
+| Candidate | Operator | Official URL | Resolution |
 |---|---|---|---|
-| Canadian Trademarks Database | Canadian Intellectual Property Office | `ised-isde.canada.ca/cipo/trademark-search/srch` | **Fully researched and fully verified** — free, no account, coverage from 1865, "over 140 years" and "more than 1.4 million Canadian trademarks", currency stated on the page. It is withheld only because it shares the host `ised-isde.canada.ca` with the already-published federal corporation search, and no alternate official host exists (`marques-trademarks.ic.gc.ca` does not resolve). Publishing it requires either (a) giving it the same Domain Rating snapshot as `ca-corporations-canada`, which the wave's Domain Rating policy forbids for new records, or (b) relaxing the `bd-truth` invariant that one measured domain reports one rating. Both are editorial decisions outside this wave's remit. |
-
-**This is the highest-value unpublished Canadian registry.** Resolving it is a
-one-line decision, not more research. See the release notes for the two options.
+| Canadian Trademarks Database | Canadian Intellectual Property Office | `ised-isde.canada.ca/cipo/trademark-search/srch` | **Published as `ca-cipo-trademarks-database`.** It had been withheld only because it shares the measured domain `ised-isde.canada.ca` with the federal corporation search, which collided with the then-current rule that every new record carries `domainRating: null`. That rule was the wrong shape: the freeze is about *measurement*, not about whether an already-measured number may appear twice. The rule now reads "a new record must not create a new Domain Rating measurement, but may reuse an existing frozen snapshot when its normalised `measuredDomain` exactly matches an already measured domain". The record reuses the stored snapshot verbatim — 92, Ahrefs, 2026-08-04, `historicalSnapshot` — read directly off `ca-corporations-canada`. Sources were revalidated live before publication. No measurement, no request, no credential: the per-domain snapshot digest is byte-identical either side of the change. |
 
 ### Rejected — do not propose again
 

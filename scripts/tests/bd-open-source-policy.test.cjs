@@ -98,26 +98,60 @@ test('no build library can make a network request', () => {
 
 // --- 3 & 4. the snapshots are frozen ----------------------------------------
 
-// Pinned 2026-08-04 over the 64 snapshots carried into Batch 1. Any edited
-// value, changed provenance or newly collected rating changes this digest.
-const SNAPSHOT_PIN = {
-  count: 64,
-  sha256: '3b43e7a217bb70560f04b65f6f9de062fb8ec96d91b21d192647d0853bfbeff7',
-};
+// Pinned 2026-08-04 over the 64 measurements carried into Batch 1.
+//
+// The pin is over MEASUREMENTS, keyed by the domain each one measured — not
+// over the records that display them. That is the distinction the freeze is
+// really about: a Domain Rating is a fact about a domain, so publishing a
+// second registry on an already-measured domain repeats an existing reading and
+// collects nothing, while a newly measured domain, an edited value, a refreshed
+// date or a swapped provider all change this digest and fail the test.
+const SNAPSHOT_PIN = { domains: 64 };
 
-function snapshotDigest() {
-  const rows = MEASURED.map((r) => {
+// One row per measured domain. Records reusing one snapshot collapse to a
+// single row; records disagreeing about a domain would produce two rows and
+// break the digest, on top of failing sharedDomainSnapshotProblems().
+function measurementRows() {
+  const rows = new Set();
+  for (const r of MEASURED) {
     const p = (r.metricsProvenance || {}).domainRating || {};
-    return `${r.id}:${r.domainRating}:${p.provider}:${p.measuredAt}:${p.measuredDomain}`;
-  }).sort();
-  return crypto.createHash('sha256').update(rows.join('\n')).digest('hex');
+    rows.add(`${p.measuredDomain}:${r.domainRating}:${p.provider}:${p.measuredAt}:${p.status}`);
+  }
+  return [...rows].sort();
 }
 
+function snapshotDigest() {
+  return crypto.createHash('sha256').update(measurementRows().join('\n')).digest('hex');
+}
+
+// Recomputed on 2026-08-05 when the pin moved from per-record to per-domain
+// keying. The 64 underlying readings are byte-for-byte the ones Batch 1 froze:
+// this digest was verified identical across the change that added a record
+// reusing an existing snapshot, which is exactly the property it must have.
+const FROZEN_DIGEST = 'aa7e6984d516017ea37c3fb5f3ab94791f060787fec1c8dda3a913cd19847a4e';
+
 test('the historical Domain Rating snapshots are unchanged', () => {
-  assert.strictEqual(MEASURED.length, SNAPSHOT_PIN.count,
-    'the number of Domain Rating snapshots changed: none may be added, removed or refreshed');
-  assert.strictEqual(snapshotDigest(), SNAPSHOT_PIN.sha256,
+  const rows = measurementRows();
+  assert.strictEqual(rows.length, SNAPSHOT_PIN.domains,
+    'the number of Domain Rating measurements changed: none may be added, removed or refreshed');
+  assert.strictEqual(snapshotDigest(), FROZEN_DIGEST,
     'a Domain Rating value or its provenance changed; snapshots are frozen historical readings');
+  // Reuse must never become divergence: one domain, one reading.
+  assert.deepStrictEqual(S.sharedDomainSnapshotProblems(D), []);
+});
+
+test('a reused snapshot adds a record but never a measurement', () => {
+  // The count allowed to grow is records; the count that is frozen is
+  // measurements. Asserting both keeps the difference explicit.
+  const domains = new Set(MEASURED.map((r) => r.metricsProvenance.domainRating.measuredDomain));
+  assert.strictEqual(domains.size, SNAPSHOT_PIN.domains,
+    `${domains.size} domains measured; the freeze pins ${SNAPSHOT_PIN.domains}`);
+  assert.ok(MEASURED.length >= domains.size,
+    'more measured domains than records carrying them is impossible');
+  for (const r of MEASURED) {
+    assert.strictEqual(r.metricsProvenance.domainRating.measuredDomain, S.normaliseDomain(r.website),
+      `${r.id} displays a rating measured on a domain that is not its own`);
+  }
 });
 
 test('every Domain Rating is a dated historical snapshot from a named provider', () => {

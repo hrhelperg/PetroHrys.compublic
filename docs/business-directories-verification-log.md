@@ -6,13 +6,14 @@ Every published record must carry a verification status, a source, a date and at
 least one named reviewer; the validator refuses a `verified` record that is
 missing any of them.
 
-**166 records.**
+**167 records.**
 
 | Directory | Country | Status | Source | Last verified | Next due | Reviewer |
 |---|---|---|---|---|---|---|
 | Companies House Register | united-kingdom | verified | Official website | 2026-08-04 | 2027-08-15 | Petro Hrys |
 | ABN Lookup | australia | verified | Official website | 2026-08-04 | 2027-08-18 | Petro Hrys |
 | Search ASIC registers | australia | verified | Government register | 2026-08-04 | 2027-08-05 | Petro Hrys |
+| Canadian Trademarks Database | canada | verified | Government register | 2026-08-05 | 2027-08-23 | Petro Hrys |
 | L'Annuaire des Entreprises | france | verified | Government register | 2026-08-04 | 2027-08-26 | Petro Hrys |
 | Veřejný rejstřík a Sbírka listin | czech-republic | verified | Official website | 2026-08-04 | 2027-08-29 | Petro Hrys |
 | Baza Internetowa REGON | poland | verified | Government register | 2026-08-04 | 2027-08-27 | Petro Hrys |

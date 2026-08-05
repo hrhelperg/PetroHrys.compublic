@@ -10,6 +10,11 @@
     "description": "Federal corporation search operated by Corporations Canada, confirming the existence of federally incorporated bodies.",
     "tier": "tier1",
     "scope": "national",
+    "resourceIdentity": {
+      "canonicalDomain": "ised-isde.canada.ca",
+      "systemKey": "corporations-canada-federal-corporation-search",
+      "sharedHostGroup": "ised-isde-canada"
+    },
     "primaryRegistryType": "company-register",
     "registryTypes": [
       "company-register"
@@ -2065,5 +2070,162 @@
       "It records territorial registration and does not establish federal incorporation."
     ],
     "editorNotes": "Verified 2026-08-05 from the official Nunavut Legal Registries site, operated by the Department of Justice, Government of Nunavut. The public-records wording and the under-construction notice are Nunavut’s own. No online corporate search endpoint was published; searchUrl is therefore null and access fields stay null rather than being recorded as restricted, which would assert a posture not evidenced. This is a genuine coverage limit of the territory, not a gap in research."
+  },
+  {
+    "id": "ca-cipo-trademarks-database",
+    "name": "Canadian Trademarks Database",
+    "slug": "cipo-canadian-trademarks-database",
+    "country": "canada",
+    "category": "government",
+    "website": "https://ised-isde.canada.ca/cipo/trademark-search/srch",
+    "submissionUrl": null,
+    "description": "Canadian Trademarks Database is the federal trademark register published by the Canadian Intellectual Property Office. It carries applied-for and registered Canadian trademarks together with certification marks, distinguishing guises, geographical indications and plant breeders’ rights denominations, searchable by mark, owner, application or registration number and international registration number.",
+    "tier": "tier1",
+    "scope": "national",
+    "resourceIdentity": {
+      "canonicalDomain": "ised-isde.canada.ca",
+      "systemKey": "cipo-canadian-trademarks-database",
+      "sharedHostGroup": "ised-isde-canada"
+    },
+    "primaryRegistryType": "trademark-register",
+    "registryTypes": [
+      "trademark-register",
+      "public-filing-database"
+    ],
+    "operator": {
+      "name": "Canadian Intellectual Property Office",
+      "type": "government-agency",
+      "officialUrl": "https://ised-isde.canada.ca/site/canadian-intellectual-property-office/en"
+    },
+    "publicAccess": {
+      "searchUrl": "https://ised-isde.canada.ca/cipo/trademark-search/srch",
+      "accessLevel": "open",
+      "freeToSearch": true,
+      "loginRequired": false,
+      "identityVerificationRequired": false,
+      "captcha": false,
+      "geographicRestriction": false,
+      "paidDocumentsAvailable": null,
+      "notes": "The search form is served directly with no account, sign-in or landing barrier, with its search fields and the database’s own currency date visible on the page."
+    },
+    "petroHrysScore": 91,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 9,
+      "verificationQuality": 9,
+      "platformReputation": 9,
+      "spamResistance": 10,
+      "industryImportance": 9,
+      "longTermStability": 10,
+      "submissionQuality": 7,
+      "transparency": 9,
+      "moderationQuality": 8
+    },
+    "domainRating": 92,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-04",
+        "status": "historicalSnapshot",
+        "measuredDomain": "ised-isde.canada.ca"
+      }
+    },
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": true,
+      "saas": true,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": true,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": true
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-23",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "ca-cipo-patents-database"
+      ],
+      "usedWith": [
+        "ca-corporations-canada"
+      ],
+      "competitors": []
+    },
+    "bestFor": [
+      "Checking whether a brand name or logo is already applied for or registered as a Canadian trademark.",
+      "Establishing the owner of record, the filing date and the current CIPO status of a Canadian mark."
+    ],
+    "notRecommendedFor": [
+      "Confirming that a company legally exists, which is a corporate-registry question and not a trademark one.",
+      "Clearing a mark on its own, because unregistered common-law rights arise in Canada and appear in no register."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Owners and applicants of Canadian trademarks"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source",
+      "intellectual-property"
+    ],
+    "pros": [
+      "The Canadian Trademarks Database can be searched free of charge and without an account, directly from the Canadian Intellectual Property Office.",
+      "CIPO states the database \"provides access to over 140 years of Canadian trademarks data\" and that a searcher can \"search and study more than 1.4 million Canadian trademarks\".",
+      "Coverage includes \"all active and inactive marks that were cancelled, expunged, abandoned or refused after 1979\", so a lapsed mark stays traceable.",
+      "The database publishes its own currency on the search page, which read 2026-08-05 when this record was verified."
+    ],
+    "cons": [
+      "It records trademarks, not businesses. An entry establishes nothing about whether the owner is an incorporated or registered entity, and nothing about its legitimacy or standing.",
+      "Unregistered common-law trademark rights exist in Canada and appear nowhere in the database, so a clear search is not a clearance opinion.",
+      "CIPO publishes a disclaimer about relying on the database and advises that searching intellectual property is complex enough to warrant a registered agent.",
+      "The Domain Rating shown is a dated measurement of the shared departmental domain ised-isde.canada.ca, not of this database."
+    ],
+    "editorNotes": "Verified 2026-08-05 from official CIPO sources and revalidated immediately before publication: the search page at ised-isde.canada.ca/cipo/trademark-search/srch served its search form and reported \"The database was last updated on: 2026-08-05\". Operator: Canadian Intellectual Property Office, Innovation, Science and Economic Development Canada. Coverage and volume quoted from CIPO’s \"Introduction to the Canadian Trademarks Database\", which also carries the disclaimer notice. The searchable categories — trademarks, certification marks, distinguishing guise, geographical indications and plant breeders’ rights denominations — were read off the search form itself. The advice to engage a registered agent is CIPO’s, from \"Search intellectual property databases\". This is a distinct statutory system from the federal corporation search: a different register, a different legal function, a different search URL and a different population of subjects. It shares the official host ised-isde.canada.ca with that record, so both declare the ised-isde-canada shared-host group and this record reuses the domain’s existing frozen Domain Rating snapshot verbatim — value 92, provider Ahrefs, measured 2026-08-04, status historicalSnapshot, measuredDomain ised-isde.canada.ca — read directly off ca-corporations-canada. No measurement was made, no API was called and no date was changed. The rating describes the departmental domain, not this database and not any individual page on it. Inclusion arises from a trademark filing, not from any submission."
   }
 ]

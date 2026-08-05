@@ -162,9 +162,18 @@ test('no federal record carries a Domain Rating or any third-party metric', () =
 });
 
 test('the frozen snapshot count is untouched by this wave', () => {
+  // Counted as MEASUREMENTS, not as records displaying one. Wave 1A added no
+  // record carrying a rating at all; later waves may publish a second registry
+  // on an already-measured domain, which repeats an existing reading rather
+  // than collecting a new one. The number of readings is what is frozen.
   const measured = REGISTRY.directories.filter((r) => r.domainRating !== null);
-  assert.strictEqual(measured.length, 64,
-    `${measured.length} records carry a Domain Rating; Wave 1A must add none`);
+  const domains = new Set(measured.map((r) => r.metricsProvenance.domainRating.measuredDomain));
+  assert.strictEqual(domains.size, 64,
+    `${domains.size} domains carry a Domain Rating measurement; Wave 1A must add none`);
+  for (const r of FEDERAL) {
+    assert.strictEqual(r.domainRating, null,
+      `${r.id} was added by Wave 1A and carries a Domain Rating`);
+  }
 });
 
 // --- editorial contract ----------------------------------------------------------

@@ -5,21 +5,21 @@ Canada only. No UK, no Europe, no Asia, no Wave 2.
 
 ## What shipped
 
-Thirteen new Canadian government registry records, taking the dataset from
-**153 to 166** records and Canada from **1 to 14**.
+Fourteen new Canadian government registry records, taking the dataset from
+**153 to 167** records and Canada from **1 to 15**.
 
 | Layer | Records |
 |---|---|
-| Federal | Canadian Patents Database · MRAS Canadian Business Registry · SEDAR+ (plus the pre-existing federal corporation search) |
+| Federal | Canadian Trademarks Database · Canadian Patents Database · MRAS Canadian Business Registry · SEDAR+ (plus the pre-existing federal corporation search) |
 | Provinces | Ontario · Quebec enterprise register · Quebec RBQ licence holders · British Columbia · Manitoba · Nova Scotia · Newfoundland and Labrador · Saskatchewan |
 | Territories | Northwest Territories · Nunavut |
 
 Nine of Canada's thirteen provinces and territories now carry a record.
 
 The registry mix is deliberately broader than corporate registers alone, as
-requested: it includes a patent register, a securities filing database, a
-beneficial-ownership register (Quebec), a contractor accreditation register
-(RBQ) and a cross-border registry interface (MRAS).
+requested: it includes a trademark register, a patent register, a securities
+filing database, a beneficial-ownership register (Quebec), a contractor
+accreditation register (RBQ) and a cross-border registry interface (MRAS).
 
 ## What did not ship, and why
 
@@ -45,44 +45,72 @@ neither was reachable.
 Full detail, including verification steps for each, is in
 [the verification backlog](../business-directories-verification-backlog.md).
 
-## One decision needed before Wave 1C-3
+## The shared-domain snapshot decision, resolved
 
-**The Canadian Trademarks Database is fully researched, fully verified, and
-withheld by an architectural constraint rather than by any gap in evidence.**
-It is the highest-value unpublished Canadian registry.
+The **Canadian Trademarks Database** was held back in the first pass by a rule
+that turned out to be the wrong shape, not by any gap in evidence. It is now
+published as `ca-cipo-trademarks-database`.
 
-The conflict is narrow. CIPO's trademark search lives on
-`ised-isde.canada.ca` — the same host as the already-published federal
-corporation search — and no alternate official host exists
-(`marques-trademarks.ic.gc.ca` does not resolve). The architecture permits two
-records on one host through `resourceIdentity` + `sharedHostGroup`, which is
-exactly what that mechanism is for. But `bd-truth.test.cjs` also holds that one
-measured domain reports one Domain Rating, and `ca-corporations-canada` carries
-a dated Ahrefs snapshot of 92 for that host. A new record on the same host must
-therefore either carry 92 too, or break the invariant.
+CIPO's trademark search lives on `ised-isde.canada.ca`, the same host as the
+federal corporation search, and no alternate official host exists
+(`marques-trademarks.ic.gc.ca` does not resolve). The old rule — *every new
+record carries `domainRating: null`* — would have forced the two records to
+report different Domain Ratings for one domain, which `bd-truth` rightly
+forbids.
 
-This wave's Domain Rating policy is explicit that **every new record carries
-`domainRating: null`**, so the record was withheld rather than resolve the
-conflict unilaterally. Two clean options:
+The rule now reads:
 
-1. **Reuse the existing snapshot.** Give the trademark record `domainRating: 92`
-   with the same provenance (`Ahrefs`, `2026-08-04`, `historicalSnapshot`,
-   `measuredDomain: ised-isde.canada.ca`). This collects nothing new and uses no
-   API — it reuses one already-committed measurement of the same domain. It does
-   depart from the letter of "every new record is null".
-2. **Scope the invariant to records that carry a rating.** Let a null sit
-   alongside a measured value on a shared host, on the ground that null means
-   "not measured" rather than a competing number.
+> A new record must not create a new Domain Rating measurement. A record may
+> reuse an existing frozen historical snapshot when its normalised
+> `measuredDomain` exactly matches an already measured domain.
 
-Either is a one-line change. Neither needs more research. Publishing the record
-then takes about ten minutes.
+That is the distinction the freeze was always about. A Domain Rating is a fact
+about a **domain**; repeating a stored reading for the same domain measures
+nothing, calls nothing and needs no credential. Reuse is permitted only on an
+exact `measuredDomain` match, with the value, provider, date and
+`historicalSnapshot` status copied verbatim. Copying between different domains,
+between a parent domain and a subdomain, or under a changed date or provider all
+remain forbidden.
+
+**Proof that nothing was measured:** the snapshot digest keyed by measured
+domain is byte-identical either side of this change —
+`aa7e6984d516017ea37c3fb5f3ab94791f060787fec1c8dda3a913cd19847a4e`, over 64
+measurements, before and after. What grew is the number of *records* displaying
+a rating (64 → 65), never the number of *readings*.
+
+A new central guard, `sharedDomainSnapshotProblems()` in `bd-schema.cjs`, is the
+single enforcement point; the validator and `bd-truth` both call it so they
+cannot drift. It rejects differing values, dates, providers or statuses on one
+measured domain, and rejects a snapshot whose `measuredDomain` is not the
+record's own. A record on an already-measured domain may still decline the
+value, but only by writing the literal marker `Domain Rating not reused: …` in
+`editorNotes`, so a forgotten value can never pass as a considered one.
+
+**What the reader is told.** Every page carrying the column now states that
+Domain Rating "is a dated historical measurement of the shared domain, not an
+assessment of this individual registry page". Two registries on one departmental
+host therefore show the same number without either appearing to have earned it,
+and the PetroHrys Score remains the number that actually differs between them.
+
+**The two systems stay distinct.** The trademark register and the corporation
+register have different legal functions, different search URLs, different
+populations and different registry types. The record states in published prose
+that it records "trademarks, not businesses", that an entry establishes nothing
+about the owner's incorporation, legitimacy or standing, and that unregistered
+common-law rights appear in no register at all. Tests assert each of these.
 
 ## Deliberate non-changes
 
-- `ca-corporations-canada` is **byte-for-byte untouched**. It was not re-dated,
-  not re-scored, and did not gain a `resourceIdentity`. A test asserts this.
-- No existing Domain Rating was altered and no new one was collected. All
-  thirteen new records carry `domainRating: null` and `metricStatus: "unknown"`.
+- `ca-corporations-canada` keeps all of its research: same verification date,
+  same score, same Domain Rating value and provenance, same URL, same
+  classification. Its **only** change is gaining the `resourceIdentity`
+  shared-host declaration the architecture requires once a second statutory
+  system is published on the same official host. A test pins every one of those
+  fields.
+- No existing Domain Rating was altered and no new one was measured. Thirteen of
+  the fourteen new records carry `domainRating: null` and
+  `metricStatus: "unknown"`; the fourteenth reuses its own domain's existing
+  frozen snapshot.
 - No schema change, no new registry type, no new jurisdiction type. The Wave
   1C-0 jurisdiction model already supported Federal / Province / Territory and
   was used as-is.
@@ -93,8 +121,8 @@ then takes about ten minutes.
 
 Two are worth knowing about, and both are the generator working correctly:
 
-- Guide prose counts moved from "84 of 153" to "97 of 166" because dataset
-  counts are build-time tokens, never literals — thirteen new records, all of
+- Guide prose counts moved from "84 of 153" to "98 of 167" because dataset
+  counts are build-time tokens, never literals — fourteen new records, all of
   them official or statutory registers.
 - Several higher-scoring Canadian records displaced US records from guide
   "top 12" tables, which removed the corresponding guide backlinks from a few US
@@ -102,7 +130,31 @@ Two are worth knowing about, and both are the generator working correctly:
 
 ## Verification
 
-Validator clean · migration idempotent across two runs · build byte-identical on
-the second run (`0 written, 0 pruned`) · **692 tests pass, 0 fail** (666 before,
-30 new Canada assertions) · eight deliberate mutations all caught · working tree
-clean after build-then-test.
+Validator exit 0 · second migration rewrote 0 · second build wrote 0 and pruned 0
+· **716 tests pass, 0 fail** (666 at production HEAD; 32 Canada assertions and 17
+shared-domain snapshot assertions added, and one wave-1A guard re-expressed) ·
+13,512 internal links checked, 0 broken · sitemap equals the indexable set
+(236 = 236, 0 noindex) · every indexable record URL present in the RSS feed ·
+236 JSON-LD blocks parse with no `AggregateRating`, `Review`, `Product` or
+`SearchAction` markup · every page carries an absolute canonical and is owned by
+the build manifest · no build, validator or migration path can make a request or
+read a credential · **64 measured domains before and after, per-domain snapshot
+digest unchanged** · eight deliberate mutations all caught · working tree clean
+after build-then-test.
+
+### Adversarial review in this pass
+
+Three claims were re-checked against page text rather than against notes:
+
+- The four searchable mark categories (certification marks, distinguishing
+  guise, geographical indications, plant breeders' rights denominations) were
+  confirmed present on the live search form, not taken from a summary.
+- The Saskatchewan record was checked sentence by sentence for any claim of
+  government operation. The only occurrence of "government-operated" is inside
+  the clause explaining that *Alberta* has none — the distinction the record
+  exists to keep visible. That check is now a permanent test.
+- One release-gate check initially flagged `AggregateRating` on a guide page.
+  It is prose inside an FAQ answer stating that no such markup is emitted, is
+  byte-identical at `b2abdc0` and `origin/main`, and is not markup. The gate
+  check was corrected to inspect `@type` values and property keys rather than
+  text content.
