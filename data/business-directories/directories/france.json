@@ -567,5 +567,149 @@
       "It is maintained for identification and statistical purposes, so it should not be read as a statement about a business’s standing or activity."
     ],
     "editorNotes": "Verified 2026-08-05 from the statistics institute’s own documentation. FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: The register is instituted in the regulatory part of the Code de commerce. It is an identification and statistical register: it does not constitute a business’s legal existence, which since 2023 is the function of the registre national des entreprises. RESPONSIBLE AUTHORITY: Institut national de la statistique et des études économiques, which manages the register. TECHNICAL PLATFORM: Not separately identified from any official page fetched. PUBLIC ACCESS INTERFACE: Documentation and open data published on insee.fr. No interactive search surface was exercised, so the access level is recorded as partially-open on the strength of published open data alone, with every boolean left null. Classified corporate-number-database, matching the type’s boundary note exactly: where the identifier is issued by a statistical body while the constitutive registration happens elsewhere, the record takes this type rather than company-register. The website field points at the institute’s own documentation page rather than at a search surface, because no search surface was verified."
+  },
+  {
+    "id": "fr-bodacc",
+    "name": "BODACC",
+    "slug": "bodacc",
+    "country": "france",
+    "category": "government",
+    "website": "https://www.bodacc.fr/",
+    "submissionUrl": null,
+    "description": "BODACC is the French official bulletin that gives publicity to acts recorded in the national business register. It publishes registrations, modifications, transfers, removals, insolvency and conciliation proceedings and notices that company accounts have been filed, together with certain civil announcements.",
+    "tier": "tier1",
+    "scope": "national",
+    "officialName": "Bulletin officiel des annonces civiles et commerciales",
+    "nativeName": "Bulletin officiel des annonces civiles et commerciales",
+    "englishName": "Official Bulletin of Civil and Commercial Announcements",
+    "englishNameSource": "editorial-translation",
+    "primaryRegistryType": "public-filing-database",
+    "registryTypes": [
+      "public-filing-database"
+    ],
+    "operator": {
+      "name": "Direction de l’information légale et administrative",
+      "type": "government-agency",
+      "officialUrl": "https://www.dila.premier-ministre.gouv.fr/"
+    },
+    "publicAccess": {
+      "searchUrl": "https://www.bodacc.fr/",
+      "accessLevel": "open",
+      "freeToSearch": true,
+      "loginRequired": false,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "The bulletin’s pages were retrieved anonymously with no credential and no fee, and the site states that its contents are published under the open etalab-2.0 licence unless stated otherwise. The separate account host used for the alert subscription service returned a JavaScript interstitial and was not exercised, so nothing is asserted about it."
+    },
+    "petroHrysScore": 92,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 9,
+      "verificationQuality": 9,
+      "platformReputation": 9,
+      "spamResistance": 10,
+      "industryImportance": 9,
+      "longTermStability": 10,
+      "submissionQuality": 6,
+      "transparency": 10,
+      "moderationQuality": 9
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": true,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": true,
+      "developer": true,
+      "openSource": null,
+      "nonprofit": true,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-23",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [
+        "fr-rne",
+        "fr-annuaire-entreprises"
+      ],
+      "competitors": []
+    },
+    "bestFor": [
+      "Reading the official announcement of a French company’s registration, modification, transfer or removal, with its publication date.",
+      "Following French insolvency and conciliation proceedings as they are announced, and seeing which companies have filed accounts."
+    ],
+    "notRecommendedFor": [
+      "Treating the bulletin as the register itself. It publishes acts recorded in the national business register; it does not constitute them.",
+      "Retrieving filed documents such as articles of association or annual accounts, which it announces but does not carry."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "French registered businesses and their counterparties"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "It is the national bulletin of record for French commercial announcements, so a publication in it is the official publicity of the underlying act rather than a report of it.",
+      "Its own pages state where the data comes from — the public registers of the commercial court registries and the other courts named there — which makes the chain from court to bulletin explicit.",
+      "The data is published as open data under the etalab-2.0 licence, so it can be reused without negotiating access."
+    ],
+    "cons": [
+      "It carries announcements, not the documents themselves. A notice that accounts have been filed is not the accounts.",
+      "It is a publication medium rather than a register, so a search here answers what was announced and when, not what the register currently says.",
+      "The alert subscription service sits on a separate host that returned a JavaScript interstitial to automated requests, so its behaviour is not documented here."
+    ],
+    "editorNotes": "Verified 2026-08-05 from the bulletin’s own about and legal-notice pages. This record exists partly to make an access-versus-source distinction explicit, which is the acceptance criterion this wave was published against. FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: The acts are recorded elsewhere. The bulletin’s own about page states that it gives publicity to acts registered in the registre national des entreprises, and that the information published about registered businesses comes from the public registers of the commercial court registries, the proximity and judicial courts, the overseas mixed commercial courts, the courts of first instance and the courts of appeal. Civil announcements are transmitted by the civil court registries, notaries, court-appointed agents and the Banque de France over-indebtedness commissions. The bulletin is the publication medium; it constitutes nothing. RESPONSIBLE AUTHORITY: Direction de l’information légale et administrative, a service of the Prime Minister, named on the legal-notice page as the publisher of the site and described on the about page as the editor of the bulletin. The directrice de la publication is named there as an individual and is deliberately not recorded in the operator field, which identifies an office rather than an officeholder. TECHNICAL PLATFORM: Opendatasoft, with hosting listed alongside Outscale. The legal-notice page names both as hosting providers, and the site is served as an Opendatasoft data portal. Neither is the responsible authority. PUBLIC ACCESS INTERFACE: The public site at bodacc.fr, which carries the announcement search and the open data and API route. An API section exists but its navigation entry is hidden by the site’s own stylesheet, so it is not described here as a visible section. Registry type: public-filing-database, on the vocabulary’s own inclusion note that the content is filed documents — accounts, notices, statements, announcements. insolvency-register was considered and rejected: the bulletin announces insolvency proceedings but the boundary note requires the register to hold the proceedings, which the courts do. company-register and business-entity-register were rejected outright, because treating a bulletin as a register is exactly the error this dataset corrected for Germany, France and Spain in an earlier wave."
   }
 ]

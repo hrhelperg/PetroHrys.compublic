@@ -422,5 +422,290 @@
       "An absent result does not prove that a party has never been subject to insolvency proceedings."
     ],
     "editorNotes": "Verified 2026-08-05 from the register’s own site, which describes it as the principal instrument giving the necessary publicity to insolvency and which names the consolidated text of the Insolvency Act approved by Royal Legislative Decree 1/2020 as its legal frame. FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: Spanish insolvency law: the consolidated text of the Ley Concursal, with the register regulated by Real Decreto 892/2013. Article 2.2 of that decree provides that the register depends on the Ministry of Justice. RESPONSIBLE AUTHORITY: Ministerio de Justicia. Real Decreto 892/2013 makes the ministry responsible for the register. TECHNICAL PLATFORM: The Colegio de Registradores operates the publicity service. Real Decreto 892/2013 article 2.3 entrusts the material management of that service to the Colegio, expressly under the ministry’s dependence, so the Colegio is the technical operator and NOT the responsible authority. PUBLIC ACCESS INTERFACE: The public insolvency-publicity consultation at publicidadconcursal.es, alongside a restricted filing area for the bodies that publish into the register. This record completes the correction made in the previous wave, where insolvency-register was removed from the registrars’ professional body: the register is recorded here against the ministry, with the Colegio’s delegated management stated as the technical role it actually is."
+  },
+  {
+    "id": "es-oepm",
+    "name": "Oficina Española de Patentes y Marcas",
+    "slug": "oficina-espanola-de-patentes-y-marcas",
+    "country": "spain",
+    "category": "government",
+    "website": "https://www.oepm.es/",
+    "submissionUrl": null,
+    "description": "The Oficina Española de Patentes y Marcas is the Spanish industrial property office, an autonomous body of the General State Administration that grants patents, utility models, trade marks, trade names and industrial designs. Its registers are searchable through free public databases on its consultation hosts.",
+    "tier": "tier1",
+    "scope": "national",
+    "officialName": "Oficina Española de Patentes y Marcas, O.A.",
+    "nativeName": "Oficina Española de Patentes y Marcas",
+    "englishName": "Spanish Patent and Trademark Office",
+    "englishNameSource": "editorial-translation",
+    "primaryRegistryType": "trademark-register",
+    "registryTypes": [
+      "trademark-register",
+      "patent-register",
+      "registered-design-register"
+    ],
+    "operator": {
+      "name": "Oficina Española de Patentes y Marcas, O.A.",
+      "type": "government-agency",
+      "officialUrl": "https://www.oepm.es/"
+    },
+    "publicAccess": {
+      "searchUrl": "https://consultas2.oepm.es/InvenesWeb/faces/busquedaInternet.jsp",
+      "accessLevel": "open",
+      "freeToSearch": true,
+      "loginRequired": false,
+      "identityVerificationRequired": null,
+      "captcha": true,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "The patents and designs search pages were retrieved anonymously with no credential and no fee. A CAPTCHA is recorded because the patents search page loads Google reCAPTCHA; whether it challenges every query was not established, and no claim is made that other databases on the same host behave identically."
+    },
+    "petroHrysScore": 90,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 9,
+      "verificationQuality": 9,
+      "platformReputation": 8,
+      "spamResistance": 10,
+      "industryImportance": 9,
+      "longTermStability": 10,
+      "submissionQuality": 6,
+      "transparency": 8,
+      "moderationQuality": 9
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": true,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": true,
+      "developer": true,
+      "openSource": null,
+      "nonprofit": true,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-09-01",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Checking whether a trade mark, patent, utility model or industrial design is registered in Spain and reading its current status.",
+      "Establishing the holder and filing history of a Spanish industrial property right before relying on it or filing against it."
+    ],
+    "notRecommendedFor": [
+      "Company verification. The office registers industrial property rights, not the existence of a business.",
+      "Automated bulk querying, because a CAPTCHA sits on the patents search surface."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Holders and applicants of Spanish industrial property rights"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "It is the granting office itself, so its databases are the authoritative record of a Spanish industrial property right rather than a commercial reproduction.",
+      "Trade marks, patents and utility models, and industrial designs each have their own free public database, so the three separate rights are not merged into one search.",
+      "The office publishes its own institutional role plainly, describing itself as the autonomous body of the General State Administration that grants industrial property titles."
+    ],
+    "cons": [
+      "A Google reCAPTCHA is loaded on the patents search surface, which constrains reproducible or automated checking.",
+      "Consultation runs across more than one host alongside the institutional site, so the entry point for a given right is not obvious from the front page.",
+      "A registration records a right and its status. It says nothing about whether the right is in use or has been challenged outside the register."
+    ],
+    "editorNotes": "Verified 2026-08-05 from the office’s own institutional pages and its public consultation hosts. FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: The rights are constituted by the Spanish industrial property statutes and granted by the office itself; its about page describes it as the autonomous body of the General State Administration that grants legal protection to the various forms of industrial property, and states that it is the official body granting patents, utility models and the other titles. The registers are the office’s own. RESPONSIBLE AUTHORITY: Oficina Española de Patentes y Marcas, O.A., an autonomous body attached to the responsible ministry. The ministry of attachment has been renamed more than once and is deliberately not asserted here from memory. TECHNICAL PLATFORM: Not separately established. The consultation applications are served from the office’s own consultas hosts; no external supplier is named on any page fetched. PUBLIC ACCESS INTERFACE: The institutional site at oepm.es and the free consultation databases on the office’s consultas hosts, including the patents and utility models database and the industrial designs database, both of which returned search pages anonymously. Registry types: trademark-register, patent-register and registered-design-register are recorded separately, as the vocabulary requires even where one office runs all three; the designs database was retrieved directly, which is what supports the design type. CAPTCHA: an earlier draft asserted that no CAPTCHA was present. That was disproved — the patents search page loads Google reCAPTCHA — and the record now says so. Asserting the absence of a CAPTCHA is a recurring failure mode in this dataset and is not done here."
+  },
+  {
+    "id": "es-cnmv",
+    "name": "Comisión Nacional del Mercado de Valores",
+    "slug": "comision-nacional-del-mercado-de-valores",
+    "country": "spain",
+    "category": "government",
+    "website": "https://www.cnmv.es/",
+    "submissionUrl": null,
+    "description": "The Comisión Nacional del Mercado de Valores is the Spanish securities market supervisor. It keeps the official registers of authorised investment firms, collective investment schemes and their managers, venture capital entities, securitisation funds and financial advisers, together with the regulated information filed by listed issuers.",
+    "tier": "tier1",
+    "scope": "national",
+    "nativeName": "Comisión Nacional del Mercado de Valores",
+    "englishName": "National Securities Market Commission",
+    "englishNameSource": "editorial-translation",
+    "primaryRegistryType": "financial-services-register",
+    "registryTypes": [
+      "financial-services-register",
+      "securities-filing-database",
+      "public-filing-database"
+    ],
+    "operator": {
+      "name": "Comisión Nacional del Mercado de Valores",
+      "type": "regulator",
+      "officialUrl": "https://www.cnmv.es/"
+    },
+    "publicAccess": {
+      "searchUrl": "https://www.cnmv.es/Portal/Consultas/BusquedaPorEntidad",
+      "accessLevel": "open",
+      "freeToSearch": true,
+      "loginRequired": false,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "The entity search and the register consultation pages were reached anonymously with no credential and no fee. No CAPTCHA was encountered, but absence was not established and none is asserted."
+    },
+    "petroHrysScore": 91,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 9,
+      "verificationQuality": 9,
+      "platformReputation": 9,
+      "spamResistance": 10,
+      "industryImportance": 9,
+      "longTermStability": 10,
+      "submissionQuality": 6,
+      "transparency": 9,
+      "moderationQuality": 9
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": true,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": true,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-19",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Checking whether a firm is authorised to provide investment services in Spain, and under which register it is entered.",
+      "Reading the regulated information a Spanish listed issuer has filed with the supervisor."
+    ],
+    "notRecommendedFor": [
+      "Company verification generally. These are registers of authorisation and disclosure, not of a company’s existence.",
+      "Assuming that entry in a register is an endorsement. It records an authorisation decision, not an opinion on the firm."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Spanish regulated financial firms and listed issuers"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "It is the supervisor’s own register set, so an entry is the authoritative record that a firm is authorised rather than a directory’s claim that it is.",
+      "Separate consultations cover investment firms, collective investment schemes and their managers, venture capital entities, securitisation funds, credit institutions and financial advisers, so the different authorisation regimes stay distinguishable.",
+      "The registers and the regulated-information filings sit on one supervised site and were all reachable without an account."
+    ],
+    "cons": [
+      "The consultations are spread across many separate pages rather than a single unified search, so finding the right register takes knowing which regime applies.",
+      "Registration records an authorisation. It is not a statement about a firm’s solvency, conduct or the suitability of its products.",
+      "The supervisory registers do not establish corporate existence, which is a matter for the commercial registries."
+    ],
+    "editorNotes": "Verified 2026-08-05 from the supervisor’s own site and its register consultation pages. FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: The official registers are constituted by Spanish securities market legislation and are kept by the supervisor itself; entries follow its authorisation and registration decisions. The record deliberately does not state a count of official registers: an earlier draft asserted a specific number from the implementing decree and the figure did not survive checking, so the categories are described instead. RESPONSIBLE AUTHORITY: Comisión Nacional del Mercado de Valores, the supervisor of the Spanish securities markets. The ministry named in the governing statute as responsible for proposing its leadership has been renamed since, and the current ministry name is deliberately not asserted here. TECHNICAL PLATFORM: Not separately established. The consultations are served from the supervisor’s own portal; no external supplier is named on any page fetched. Endpoint paths are not described as carrying a particular file extension, because the entity search redirects to an extensionless path. PUBLIC ACCESS INTERFACE: The public portal at cnmv.es, including the entity search and the individual register consultations reachable from its home page. Registry types: financial-services-register as the primary function, because entries arise from a financial regulator’s authorisation process; securities-filing-database for the regulated information filed by issuers, and public-filing-database alongside it, which the securities type’s own boundary note says is the usual pairing. regulated-operator-register was considered and rejected on that type’s boundary note, which sends financial firms to the financial services type."
   }
 ]
