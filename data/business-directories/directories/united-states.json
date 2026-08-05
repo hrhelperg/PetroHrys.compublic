@@ -9456,7 +9456,7 @@
     "category": "government",
     "website": "https://ecorp.sos.ga.gov/BusinessSearch",
     "submissionUrl": null,
-    "description": "Business Search is the state business-entity register operated by the Corporations Division of the Georgia Secretary of State's Office (Office of the Georgia Secretary of State, Brad Raffensperger). It covers corporations Division registrations, covering domestic and foreign entities. Filed document images are viewable without charge.",
+    "description": "Business Search is the state business-entity register operated by the Corporations Division of the Office of the Georgia Secretary of State. It covers domestic and foreign entities registered with the division. Filed document images are viewable without charge.",
     "tier": "tier1",
     "scope": "subnational",
     "jurisdiction": {
@@ -9470,7 +9470,7 @@
       "business-entity-register"
     ],
     "operator": {
-      "name": "Corporations Division of the Georgia Secretary of State's Office (Office of the Georgia Secretary of State, Brad Raffensperger)",
+      "name": "Corporations Division, Office of the Georgia Secretary of State",
       "type": "government-agency",
       "officialUrl": null
     },
@@ -9579,15 +9579,15 @@
       "primary-source"
     ],
     "pros": [
-      "Business Search can be searched free of charge and without an account, directly from the Corporations Division of the Georgia Secretary of State's Office (Office of the Georgia Secretary of State, Brad Raffensperger).",
+      "Business Search can be searched free of charge and without an account, directly from the Corporations Division, Office of the Georgia Secretary of State.",
       "Filed document images are published free, so a filing can be read rather than merely confirmed to exist.",
-      "The Corporations Division of the Georgia Secretary of State's Office (Office of the Georgia Secretary of State, Brad Raffensperger) is the statutory source for Georgia, so an entry exists because a filing was made — not because anyone submitted a listing."
+      "The Corporations Division, Office of the Georgia Secretary of State is the statutory source for Georgia, so an entry exists because a filing was made — not because anyone submitted a listing."
     ],
     "cons": [
-      "This is automated bot management, not a CAPTCHA — no puzzle, image challenge or human input was required, and no CAPTCHA appeared at any point in the search flow. The application itself is JavaScript-dependent (results, filing history and record pages all render client-side via in-page form submission rather than distinct GET URLs), so result pages are not individually linkable.",
+      "The application is JavaScript-dependent: results, filing history and record pages render in place rather than at distinct addresses, so an individual result cannot be linked to.",
       "A hit or a clear result in this register does not establish name availability — the system itself states \"This search is not intended to serve as a name availability search\", and the State of Georgia portal calls it \"for research purposes only\"."
     ],
-    "editorNotes": "Verified 2026-08-05 from official Georgia sources. Operator: Corporations Division of the Georgia Secretary of State's Office (Office of the Georgia Secretary of State, Brad Raffensperger). Coverage and search: Search by Business Name, Control Number, Registered Agent Name, Officer Name, or Designated Agent Name. Each supports three match modes: \"Starts With\", \"Contains\" (default), and \"Exact Match\". The application's own Instructions state: \"This search provides access to all the entity's information of record with the Secretary of State.\" The register explicitly disclaims name-availability authority: \"Note: This search is not intended to serve as a name availability search.\" The State of Georgia portal repeats this: \"This is for research purposes only and is not meant to serve as an official name availability search.\" Inclusion arises from entity formation or statutory registration, not from any submission."
+    "editorNotes": "Verified 2026-08-05 from official Georgia sources; operator corrected 2026-08-05 (Wave 1D). CORRECTION: operator.name, the description, three pros and these notes previously named the sitting Secretary of State as part of the operator identity. An operator field identifies the responsible office, not the person holding it, and an incumbent’s name goes stale at the next election; the institutional office name is used throughout instead. A con that recorded observation notes about bot management and the absence of a CAPTCHA was also removed from published prose, because that is research provenance rather than something a reader needs; the access block already records captcha as false. Coverage and search: search by Business Name, Control Number, Registered Agent Name, Officer Name or Designated Agent Name, each supporting \"Starts With\", \"Contains\" and \"Exact Match\". The application’s own Instructions state: \"This search provides access to all the entity's information of record with the Secretary of State.\" The register explicitly disclaims name-availability authority: \"Note: This search is not intended to serve as a name availability search.\" The State of Georgia portal repeats this: \"This is for research purposes only and is not meant to serve as an official name availability search.\" Inclusion arises from entity formation or statutory registration, not from any submission. Score unchanged: only the operator identity and a research note were wrong."
   },
   {
     "id": "us-missouri-business-search",

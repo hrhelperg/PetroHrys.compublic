@@ -90,7 +90,6 @@ Entries are grouped by verification date, newest first.
 - **Shopify App Store** — global / app-directories — PetroHrys Score 88
 - **Search for a Federal Corporation** — canada / government — PetroHrys Score 88
 - **Python Package Index (PyPI)** — global / developer — PetroHrys Score 88
-- **Colegio de Registradores de España** — spain / government — PetroHrys Score 88
 - **Financial Services Register** — united-kingdom / finance — PetroHrys Score 88
 - **WordPress Plugin Directory** — global / developer — PetroHrys Score 87
 - **Tax Exempt Organization Search** — united-states / government — PetroHrys Score 87
@@ -103,6 +102,7 @@ Entries are grouped by verification date, newest first.
 - **NuGet Gallery** — global / developer — PetroHrys Score 85
 - **Packagist.org** — global / developer — PetroHrys Score 85
 - **RubyGems.org** — global / developer — PetroHrys Score 85
+- **Colegio de Registradores de España** — spain / government — PetroHrys Score 85
 - **OpenCorporates** — global / general-business — PetroHrys Score 85
 - **Patent Public Search** — united-states / government — PetroHrys Score 85
 - **SAM.gov Exclusions** — united-states / government — PetroHrys Score 85

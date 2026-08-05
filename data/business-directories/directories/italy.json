@@ -7,7 +7,7 @@
     "category": "government",
     "website": "https://www.registroimprese.it/",
     "submissionUrl": null,
-    "description": "Italian Business Register run by InfoCamere with the Chambers of Commerce, holding company data, officers, shareholdings and filed financial statements.",
+    "description": "Registro Imprese is the Italian business register held by the Chambers of Commerce, carrying company data, officers, shareholdings and filed financial statements. It is published online as the official data of the Chambers of Commerce, and the platform is run for them by their information-technology consortium.",
     "tier": "tier1",
     "scope": "national",
     "nativeName": "Registro Imprese",
@@ -17,8 +17,8 @@
       "public-filing-database"
     ],
     "operator": {
-      "name": "InfoCamere, with the Italian Chambers of Commerce",
-      "type": "other",
+      "name": "Italian Chambers of Commerce",
+      "type": "public-law-body",
       "officialUrl": null
     },
     "petroHrysScore": 90,
@@ -91,8 +91,14 @@
       "usedWith": [],
       "competitors": []
     },
-    "bestFor": [],
-    "notRecommendedFor": [],
+    "bestFor": [
+      "Confirming that an Italian business is on the statutory register and reading its recorded officers and shareholdings.",
+      "Reading financial statements an Italian company has filed."
+    ],
+    "notRecommendedFor": [
+      "Treating the platform operator as the authority behind the register, which is the Chambers of Commerce.",
+      "Obtaining a certified extract without charge, because certified output is a paid chamber service."
+    ],
     "submissionDifficulty": null,
     "listingQuality": null,
     "typicalApprovalTime": null,
@@ -116,12 +122,15 @@
       "primary-source"
     ],
     "pros": [
-      "Authoritative company, officer and shareholding records",
-      "Includes filed financial statements"
+      "It is the statutory Italian business register, so an entry exists because of a filing rather than a submission.",
+      "Company data, officers, shareholdings and filed financial statements sit together in one system.",
+      "The register is published as the official data of the Chambers of Commerce rather than by a commercial reseller."
     ],
     "cons": [
-      "Certified extracts are a paid chamber service"
+      "Certified extracts and filed documents are a paid chamber service, and the pricing was not established.",
+      "Responsibility is distributed across the individual Chambers of Commerce rather than held by a single national office, so a question about a specific entry belongs to the chamber that holds it.",
+      "The platform is operated for the chambers by their information-technology consortium, which runs the service but is not the authority behind the register."
     ],
-    "editorNotes": "Verified 2026-08-04. Operated by InfoCamere with the Italian Chambers of Commerce. Pricing tiers were not established from the homepage, so free and paid are null."
+    "editorNotes": "Verified 2026-08-04; operator corrected 2026-08-05 (Wave 1D). CORRECTION: operator.name previously read \"InfoCamere, with the Italian Chambers of Commerce\" with operator.type \"other\", which put the technical provider in front of the authority and typed a public-law register as though its operator were neither government nor regulator. The service publishes itself as the official data of the Chamber of Commerce, and the register is held by the Chambers of Commerce under Italian law; InfoCamere is the chambers’ own information-technology consortium and runs the platform for them. Operator is therefore the Italian Chambers of Commerce, typed public-law-body, and the consortium’s real technical role is recorded in prose rather than deleted. Registry types are unchanged: unlike the German, French and Spanish cases, this system genuinely is the constitutive register, so company-register and public-filing-database both remain correct. Score unchanged: only the attribution of the operator was wrong."
   }
 ]

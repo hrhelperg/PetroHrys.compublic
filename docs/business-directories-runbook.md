@@ -350,6 +350,73 @@ appearing to have earned it.
 linked to <https://ahrefs.com/>, is rendered wherever a value appears. A test
 fails if it is missing.
 
+## The source-of-record rule
+
+**An official search portal, interoperability layer or consultation interface
+must not be described as the legal source of record unless the responsible law
+or official documentation establishes that role.**
+
+This is the rule Wave 1D was created to enforce, after the Wave 1 audit found
+four published records breaking it. It is the easiest error in the whole dataset
+to make, because the thing a reader reaches is almost never the thing the law
+constitutes.
+
+Four distinctions do the work. Establish each one separately before authoring:
+
+| Question | What it settles |
+|---|---|
+| **Where is the register constituted?** | The legal source of record. Usually a court, a ministry, a chamber or a registrar — often *not* the website. |
+| **What is the responsible authority?** | The body the law makes answerable for the register. This is what `operator` should name. |
+| **Who runs the access route?** | The portal or interface. It may be designated by law and still not be the register. |
+| **Who provides the technology?** | A consortium or contractor. Real, worth recording in prose, and **never** the `operator`. |
+
+### Worked examples, all from Wave 1D
+
+**An access portal is not the register.** German commercial registers are kept by
+the courts — Handelsgesetzbuch § 8(1) — while § 9(1) has the Länder justice
+administrations *determine the electronic system* through which register data is
+retrieved. handelsregister.de is that designated system. It is typed
+`public-filing-database`, not `company-register`.
+
+**A consultation interface is not a register at all.** L'Annuaire des Entreprises
+publishes itself as the official *search engine*, and its own sources page lists
+the Registre National des Entreprises and the Base Sirene among the
+administrations whose data it uses. It is typed `corporate-number-database`,
+whose boundary note already says an identifier lookup is not automatically the
+legal register.
+
+**A professional body is not the register its members keep, and a delegated role
+is not responsibility.** The Colegio de Registradores is a public-law corporation
+of registrars. On insolvency, Real Decreto 892/2013 art. 2.2 places the Registro
+Público Concursal under the Ministry of Justice, and art. 2.3 entrusts only *the
+material management of the publicity service* to the Colegio, "bajo la
+dependencia del Ministerio de Justicia". A delegated management role is recorded
+in prose; it does not earn `insolvency-register`.
+
+**A technical provider is not the statutory authority.** The Registro Imprese is
+held by the Italian Chambers of Commerce, which publish it as "I dati Ufficiali
+della Camera di Commercio". InfoCamere is the chambers' own IT consortium and
+runs the platform. `operator` names the chambers; the consortium's real role goes
+in prose.
+
+**An operator is an office, never the person holding it.** A sitting Secretary of
+State in `operator.name` goes stale at the next election. Use the institutional
+office name.
+
+`scripts/tests/bd-source-of-record.test.cjs` holds all five of these, plus a
+general guard that no record may describe itself as an interface while carrying a
+constitutive register type.
+
+### Does the schema need new fields?
+
+Not on the evidence of these four records. `operator` names the responsible
+authority, the registry type carries the constitutive-versus-access distinction,
+and prose carries the technical provider. A `responsibleAuthority` /
+`technicalOperator` / `sourceOfRecord` split was considered and **rejected as
+premature**: four records corrected cleanly inside the current model without
+prose workarounds. Revisit only if a later wave produces records that genuinely
+cannot be stated honestly without it.
+
 ## Registry types added in Wave 1C-3 completion
 
 Two types were added because forcing a system into a neighbouring type would

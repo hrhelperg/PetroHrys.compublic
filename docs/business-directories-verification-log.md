@@ -37,7 +37,6 @@ missing any of them.
 | Shopify App Store | global | verified | Official website | 2026-08-04 | 2027-03-03 | Petro Hrys |
 | Search for a Federal Corporation | canada | verified | Government register | 2026-08-04 | 2027-08-20 | Petro Hrys |
 | Python Package Index (PyPI) | global | verified | Official website | 2026-08-04 | 2027-05-29 | Petro Hrys |
-| Colegio de Registradores de España | spain | verified | Government register | 2026-08-04 | 2027-08-08 | Petro Hrys |
 | Canadian Patents Database | canada | verified | Government register | 2026-08-05 | 2027-08-20 | Petro Hrys |
 | Financial Services Register | united-kingdom | verified | Official website | 2026-08-04 | 2027-08-27 | Petro Hrys |
 | SEDAR+ | canada | verified | Government register | 2026-08-05 | 2027-08-27 | Petro Hrys |
@@ -55,6 +54,7 @@ missing any of them.
 | NuGet Gallery | global | verified | Official website | 2026-08-04 | 2027-05-04 | Petro Hrys |
 | Packagist.org | global | verified | Official website | 2026-08-04 | 2027-05-20 | Petro Hrys |
 | RubyGems.org | global | verified | Official website | 2026-08-04 | 2027-05-09 | Petro Hrys |
+| Colegio de Registradores de España | spain | verified | Government register | 2026-08-04 | 2027-08-08 | Petro Hrys |
 | OpenCorporates | global | verified | Official website | 2026-08-04 | 2027-05-25 | Petro Hrys |
 | Australian Trade Mark Search | australia | verified | Government register | 2026-08-05 | 2027-08-31 | Petro Hrys |
 | Manitoba Companies Office | canada | verified | Government register | 2026-08-05 | 2027-08-21 | Petro Hrys |
