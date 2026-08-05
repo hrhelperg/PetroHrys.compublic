@@ -41,7 +41,10 @@ const WAVE = ['eu-bris', 'eu-vies', 'eu-ted', 'eu-transparency-register',
   'eu-esma-credit-rating-agencies', 'eu-eba-credit-institutions-register',
   'eu-eba-payment-institutions-register', 'eu-eiopa-insurance-undertakings', 'eu-edes',
   'eu-euipo-esearch-plus', 'eu-tmview', 'eu-designview', 'eu-eudamed', 'eu-echa-chem',
-  'eu-eib-exclusion'];
+  'eu-eib-exclusion',
+  // Wave 1F.1 taxonomy application
+  'eu-ctis', 'eu-giview', 'eu-sanctions-map', 'eu-consolidated-financial-sanctions',
+  'eu-pesticides-database'];
 
 const visible = (r) => [r.description, ...r.pros, ...r.cons, ...r.bestFor, ...r.notRecommendedFor].join(' ');
 const readPage = (r) => fs.readFileSync(
@@ -50,7 +53,7 @@ const readPage = (r) => fs.readFileSync(
 // --- non-vacuity ----------------------------------------------------------------
 
 test('the wave published every record it claims, and the EU set is exactly those', () => {
-  assert.strictEqual(WAVE.length, 15, 'the EU manifest changed size without this test changing');
+  assert.strictEqual(WAVE.length, 20, 'the EU manifest changed size without this test changing');
   for (const id of WAVE) assert.ok(byId.get(id), `${id} is named by this suite but is not in the registry`);
   assert.deepStrictEqual(EU.map((r) => r.id).sort(), [...WAVE].sort(),
     'an EU record exists that this suite does not cover');
@@ -228,6 +231,12 @@ test('every EU website is a pinned, previously verified address', () => {
     'eu-eudamed': 'https://ec.europa.eu/tools/eudamed',
     'eu-echa-chem': 'https://chem.echa.europa.eu/',
     'eu-eib-exclusion': 'https://www.eib.org/en/about/accountability/anti-fraud/exclusion/index.htm',
+    // Wave 1F.1 taxonomy application
+    'eu-ctis': 'https://euclinicaltrials.eu/',
+    'eu-giview': 'https://www.tmdn.org/giview/',
+    'eu-sanctions-map': 'https://www.sanctionsmap.eu/',
+    'eu-consolidated-financial-sanctions': 'https://webgate.ec.europa.eu/fsd/fsf',
+    'eu-pesticides-database': 'https://ec.europa.eu/food/plant/pesticides/eu-pesticides-database/start/screen/active-substances',
   };
   assert.deepStrictEqual(Object.keys(PINNED).sort(), EU.map((r) => r.id).sort(),
     'an EU record is not covered by the pinned-URL guard');

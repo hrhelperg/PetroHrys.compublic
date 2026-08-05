@@ -259,6 +259,81 @@ const REGISTRY_TYPE_DEFINITIONS = [
       + 'supranational or regional scope.',
     examples: ['EU-level cross-register search interfaces'],
   },
+  // --- Wave 1F.1 ------------------------------------------------------------
+  // Five EU systems were verified real, official and live and still held back,
+  // because forcing each into a neighbouring type would have stated something
+  // false. The boundaries below are the whole point of adding them.
+  {
+    id: 'clinical-trial-register',
+    label: 'Clinical trial register',
+    definition: 'An official register of clinical trials, recording individual trials with their '
+      + 'sponsor, status and the information the governing law requires to be made public.',
+    inclusion: 'The registered object is a clinical trial, and an official body publishes trial '
+      + 'records under a legal obligation to do so.',
+    boundary: 'Deliberately narrow. It is NOT a general health, medicine, research or science '
+      + 'database: a register of medicinal products, of medical devices, of research institutions '
+      + 'or of publications is none of them a clinical trial register. It is also not automatically '
+      + 'the source of the authorisation — where the trial is authorised by national authorities '
+      + 'and the system publishes what was submitted, the record must say so.',
+    examples: ['EU Clinical Trials Information System'],
+  },
+  {
+    id: 'geographical-indication-register',
+    label: 'Geographical indication register',
+    definition: 'An official register of protected geographical indications, protected designations '
+      + 'of origin and equivalent rights attaching to a product’s geographical origin.',
+    inclusion: 'An official authority registers or publishes rights whose subject matter is the '
+      + 'geographical origin of a product.',
+    boundary: 'NOT a trademark-register: a geographical indication protects origin, not a trader’s '
+      + 'brand indicator, and the two are separate rights with separate registers even where one '
+      + 'office touches both. Not a registered-design-register. Where responsibility is split '
+      + 'between authorities by product category, the record must say which authority registers what.',
+    examples: ['EU geographical indication search and registration systems'],
+  },
+  {
+    id: 'sanctions-and-restrictive-measures-index',
+    label: 'Sanctions and restrictive measures index',
+    definition: 'An official index of restrictive-measures regimes and the legal acts that '
+      + 'constitute them, presented so a reader can navigate what measures exist and where they '
+      + 'come from.',
+    inclusion: 'The indexed object is a REGIME or a legal act, not a designated person or entity.',
+    boundary: 'NOT a sanctions-designation-list: this type indexes the measures, that type lists '
+      + 'the persons designated under them. NOT an exclusion-and-debarment-register, which records '
+      + 'exclusion from a specific programme or procurement system under different law. A system of '
+      + 'this type is almost never the authentic source: where the operator states that the '
+      + 'authentic texts are the acts published in the official journal, the record must say so.',
+    examples: ['Official indexes of restrictive-measures regimes and their constituting acts'],
+  },
+  {
+    id: 'sanctions-designation-list',
+    label: 'Sanctions designation list',
+    definition: 'An official consolidated list of the natural and legal persons designated under an '
+      + 'authority’s restrictive-measures or asset-freeze regime.',
+    inclusion: 'The listed object is a designated person or entity, published by the authority '
+      + 'responsible for maintaining the consolidated list.',
+    boundary: 'NOT an exclusion-and-debarment-register: a designation under a restrictive-measures '
+      + 'regime is a foreign-policy measure, not exclusion from a funding or procurement programme, '
+      + 'and the two rest on different legal instruments. NOT a '
+      + 'sanctions-and-restrictive-measures-index, which indexes regimes rather than persons. '
+      + 'Absence from one authority’s list never proves a party is unrestricted under any other '
+      + 'regime or in any other jurisdiction, and the record must say so.',
+    examples: ['Official consolidated financial sanctions lists'],
+  },
+  {
+    id: 'plant-protection-product-authorisation-register',
+    label: 'Plant protection product authorisation register',
+    definition: 'An official database of active substance approvals, plant protection product '
+      + 'authorisations and related residue limits under plant-protection law.',
+    inclusion: 'The recorded object is a substance approval, a product authorisation or a residue '
+      + 'limit granted under plant-protection or pesticides legislation.',
+    boundary: 'Deliberately narrow, and NOT a generic chemical or substance register: a chemicals '
+      + 'registration database recording filings under chemicals law is a different system with a '
+      + 'different legal basis and a different recorded object. Where the operator states that the '
+      + 'database has no legal value and that the official information is published elsewhere, the '
+      + 'record must carry that. Often part aggregator, because product authorisations are granted '
+      + 'nationally.',
+    examples: ['EU pesticides and plant protection product databases'],
+  },
 ];
 
 const REGISTRY_TYPE_BY_ID = new Map(REGISTRY_TYPE_DEFINITIONS.map((d) => [d.id, d]));

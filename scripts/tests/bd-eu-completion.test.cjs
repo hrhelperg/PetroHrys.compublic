@@ -121,17 +121,18 @@ test('systems with no honest type were not force-fitted into the vocabulary', ()
   // Each of these was verified real and official and still not published,
   // because no closed-vocabulary type describes it. If one appears later it must
   // arrive with a type decision, not by being squeezed into an existing one.
-  const NOT_PUBLISHED = ['sanctionsmap.eu', 'eusanctionstracker', 'webgate.ec.europa.eu/fsd',
-    'euclinicaltrials.eu', 'giview', 'eu-pesticides-database', 'rasff-window',
-    'competition-cases.ec.europa.eu'];
+  // Five of the six blocked systems were unblocked by the approved taxonomy and
+  // are now published. What must STAY out is what is still blocked or rejected.
+  const NOT_PUBLISHED = ['eusanctionstracker', 'rasff-window', 'competition-cases.ec.europa.eu',
+    'eu-sanctions-compliance-helpdesk', 'register.epo.org'];
   const websites = EU.map((r) => r.website).join(' ');
   for (const frag of NOT_PUBLISHED) {
     assert.ok(!websites.includes(frag),
-      `a record now points at ${frag}, which was held back pending a classification decision`);
+      `a record now points at ${frag}, which is still blocked or was rejected`);
   }
   // Non-vacuity: the holding decision must actually be written down.
   const backlog = fs.readFileSync(path.join(ROOT, 'docs', 'business-directories-verification-backlog.md'), 'utf8');
-  for (const name of ['CTIS', 'GIview', 'Sanctions Map']) {
+  for (const name of ['CTIS', 'GIview', 'Sanctions Map', 'Sanctions Tracker']) {
     assert.ok(backlog.includes(name), `the backlog does not record the decision on ${name}`);
   }
 });

@@ -83,7 +83,10 @@ merged into one record.
 | EU Sanctions Tracker | `sanctions-designation-list` |
 | EU Pesticides Database | `plant-protection-product-authorisation-register` |
 
-**Three narrow types would cover all six. That decision is yours.** Two points
+**Five distinct types are proposed, covering six systems** — the consolidated
+list and the Sanctions Tracker share one. An earlier draft of this note said
+"three", which was simply wrong: the table above has always contained five
+distinct values. **That decision is yours.** Two points
 of substance behind the sanctions blocks: the Sanctions Map's own disclaimer says
 *"Only the legal acts published in the Official Journal of the European Union are
 authentic and produce legal effects"* — it visualises regimes, it is not a
@@ -164,3 +167,102 @@ decision from you.** Every area is now researched and every candidate has a
 determination. Six systems — including the EU's clinical trials portal and its
 entire sanctions estate — are verified real and official but unpublishable until
 three narrow registry types are approved or refused.
+
+---
+
+# Addendum — taxonomy expansion approved and applied
+
+The five proposed types were **approved**. The closed vocabulary went from **21
+to 26** values, and five of the six blocked systems are now published.
+
+**Correction carried through this document:** an earlier draft said "three narrow
+types". That was wrong — the proposal always contained **five distinct values**;
+two of the six systems (the consolidated list and the Sanctions Tracker) shared
+one proposed type, which is where the miscount came from. Corrected here, in the
+backlog and in the report.
+
+## Exact values added
+
+```
+clinical-trial-register
+geographical-indication-register
+sanctions-and-restrictive-measures-index
+sanctions-designation-list
+plant-protection-product-authorisation-register
+```
+
+| Value | Applied to | Record |
+|---|---|---|
+| `clinical-trial-register` | CTIS | `eu-ctis` |
+| `geographical-indication-register` | GIview | `eu-giview` |
+| `sanctions-and-restrictive-measures-index` | EU Sanctions Map | `eu-sanctions-map` |
+| `sanctions-designation-list` | Consolidated list of EU financial sanctions | `eu-consolidated-financial-sanctions` |
+| `plant-protection-product-authorisation-register` | EU Pesticides Database | `eu-pesticides-database` |
+
+**European Union 15 → 20. Dataset 223 → 228.**
+
+## The boundaries, and why they are the whole point
+
+A type is only worth adding for what it **excludes**. Each boundary names the
+neighbouring type it is distinct from, and each is asserted from both directions
+by test — the record must carry the right type *and* must be unreachable by the
+wrong one:
+
+- a sanctions **regime index** is not a **designation list**;
+- a **designation list** is not an **exclusion/debarment register** — a
+  designation is a foreign-policy measure, exclusion under the Financial
+  Regulation bars a party from EU-funded procedures, and a test forbids any
+  record from carrying both;
+- a **geographical indication** protects origin, not a brand, so it is never a
+  **trade mark register**;
+- a **clinical trial register** is never widened into a general health, medicine
+  or research database;
+- a **plant protection authorisation database** is not a **chemicals register** —
+  and a test asserts the pesticides database and the ECHA platform never share a
+  primary type.
+
+`eu-eib-exclusion` and `eu-edes` **keep** `exclusion-and-debarment-register`,
+pinned by test.
+
+Two operator disclaimers are required to stay explicit and are enforced: the
+Sanctions Map must keep naming the **Official Journal** acts as the authentic
+sources, and the pesticides database must keep its own **"no legal value"**
+statement.
+
+## EU Sanctions Tracker — the one system still blocked
+
+**Determination: keep blocked. `sanctions-designation-list` was NOT assigned.**
+
+The rule was to publish it as a designation list only if the official system
+exposes designation records as its *primary* function. Two independent grounds
+say it does not:
+
+1. **No official describing page exists.** The Commission's own sanctions
+   resources page lists the Sanctions Map, the helpdesk, the consolidated list,
+   the whistleblower tool and EUR-Lex — and **not** the Tracker. Nor does the
+   open data portal's news index. Its canonical function cannot be established
+   from any official source.
+2. **The only functional signal points elsewhere.** Its sole server-rendered
+   evidence is the nav order — **Dashboard · Regimes · Nationalities ·
+   Individuals · Entities**. It leads with a dashboard and organises by regime and
+   nationality, with individuals and entities as views inside that frame. That is
+   option **(3), an analytical or tracking interface**, with elements of (2).
+
+Narrowest honest type, **proposed but not recommended**:
+`sanctions-designation-analytics-interface`. I recommend against creating it on a
+single candidate whose official description could not be found.
+
+## Verification
+
+Validator exit 0 · second migration rewrote 0 · second build wrote 0 and pruned 0
+· **868 tests pass, 0 fail** (853 before, 15 added) · **17 injected defects all
+caught, 0 survived, 0 broken probes**, including all five required negative
+probes · 21,888 links, 0 broken · sitemap equals the indexable set (299 = 299) ·
+RSS equals 228 published records · 299 JSON-LD blocks, 0 malformed · unique
+titles and descriptions · EU page linked from the hub, badged **Supranational**,
+20 record links · no new Domain Rating (66 records over 64 measurements, digest
+`aa7e6984…19847a4e` unchanged) · clean tree.
+
+**Previously published records are unchanged**, with one strictly additive
+exception carried over from earlier in this wave: VIES holds a `resourceIdentity`
+block so EUDAMED could share its host. A test pins its substance independently.

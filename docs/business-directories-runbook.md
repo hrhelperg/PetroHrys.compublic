@@ -635,3 +635,57 @@ Migration will not repair an invalid code, an unsorted `covers` or a duplicate �
 it reports them. Fix the source.
 
 Full reference: [`docs/jurisdiction-model.md`](./jurisdiction-model.md).
+
+## The registry type vocabulary is closed, and grows only under pressure
+
+The vocabulary is a **closed list**. A record may only carry values from it, and
+the validator enforces that. It has been extended four times, always for the same
+reason and never to be tidy:
+
+| Wave | Added | Because |
+|---|---|---|
+| 1A | `exclusion-and-debarment-register` | Calling a debarment list a `procurement-supplier-register` states the opposite of what it is: one records who **may** bid, the other who **may not**. |
+| 1C-3 | `public-procurement-notice-database`, `registered-design-register` | A system publishing procurement **notices** is not a register of suppliers; a registered design is neither a trade mark nor a patent. |
+| 1F.1 | `clinical-trial-register`, `geographical-indication-register`, `sanctions-and-restrictive-measures-index`, `sanctions-designation-list`, `plant-protection-product-authorisation-register` | Five verified EU systems had no honest fit. Each was held back as a classification blocker and published only after the type was approved. |
+
+**The rule this establishes:** when a verified system has no honest type, it is
+**held back and reported**, never squeezed into a neighbouring one. A wrong type
+is worse than a missing record, because a reader trusts the type.
+
+### The five Wave 1F.1 boundaries
+
+These types are only worth having because of what they **exclude**. Each boundary
+is asserted from both directions by test — the record must carry the right type
+*and* must not be reachable by the wrong one.
+
+- **`sanctions-and-restrictive-measures-index`** indexes **regimes and legal
+  acts**. It is not a designation list, and it is almost never authentic: where
+  the operator says the authentic texts are the acts published in the Official
+  Journal, the record must say so.
+- **`sanctions-designation-list`** lists **designated persons and entities**. It
+  is **not** an `exclusion-and-debarment-register`: a designation under a
+  restrictive-measures regime is a foreign-policy measure, while exclusion under
+  the Financial Regulation bars a party from EU-funded award procedures. A test
+  forbids any record from carrying both a sanctions type and the exclusion type.
+- **`geographical-indication-register`** protects **origin**, not a brand
+  indicator. It is not a `trademark-register`, even where one office touches both.
+- **`clinical-trial-register`** registers **trials**. It must never be widened
+  into a general health, medicine, research or product database.
+- **`plant-protection-product-authorisation-register`** records **substance
+  approvals, product authorisations and residue limits** under plant-protection
+  law. It is not a generic chemicals or substance register — a chemicals
+  registration database rests on different law and records a different object.
+
+### Adding a type
+
+1. Establish that no existing type fits **honestly**, checking each candidate's
+   own `boundary` note rather than its label.
+2. Hold the record back. Record it in the backlog as **classification-blocked**,
+   with the minimal type that would fit.
+3. Propose; do not create. A type is added only on an explicit decision.
+4. On approval: add the value to `REGISTRY_TYPES`, add a definition with
+   `label`, `definition`, `inclusion`, `boundary` and `examples`, and make the
+   boundary **name the neighbouring type it excludes**.
+5. Add a positive fixture — every type must be used by at least one record, or it
+   is a claim about coverage the dataset does not have — and a negative mutation
+   probe for each neighbouring type it could be confused with.
