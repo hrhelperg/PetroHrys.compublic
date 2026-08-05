@@ -6,30 +6,41 @@ Entries are grouped by verification date, newest first.
 
 ## 2026-08-05
 
-59 directories added or re-verified.
+70 directories added or re-verified.
 
 - **Register of Charities (England and Wales)** — united-kingdom / government — PetroHrys Score 92
 - **Canadian Trademarks Database** — canada / government — PetroHrys Score 91
+- **Krajowy Rejestr Sądowy** — poland / government — PetroHrys Score 91
 - **Registraire des entreprises — Enterprise Register** — canada / government — PetroHrys Score 90
+- **Unternehmensregister** — germany / government — PetroHrys Score 90
 - **Ontario Business Registry** — canada / government — PetroHrys Score 90
+- **Répertoire Sirene** — france / government — PetroHrys Score 90
 - **NMC Register** — united-kingdom / government — PetroHrys Score 90
 - **Disqualified Directors Register** — united-kingdom / government — PetroHrys Score 89
 - **Solicitors Register** — united-kingdom / government — PetroHrys Score 89
 - **GDC Registers** — united-kingdom / government — PetroHrys Score 89
 - **HCPC Register** — united-kingdom / government — PetroHrys Score 89
 - **Canadian Patents Database** — canada / government — PetroHrys Score 88
+- **Registre national des entreprises** — france / government — PetroHrys Score 88
 - **SEDAR+** — canada / government — PetroHrys Score 88
 - **BC Registry Services** — canada / government — PetroHrys Score 87
+- **Registro Mercantil Central** — spain / government — PetroHrys Score 87
 - **Scottish Charity Register** — united-kingdom / government — PetroHrys Score 87
 - **The Barristers’ Register** — united-kingdom / government — PetroHrys Score 87
 - **Australian Trade Mark Search** — australia / government — PetroHrys Score 85
 - **Manitoba Companies Office** — canada / government — PetroHrys Score 85
 - **Individual Insolvency Register (England and Wales)** — united-kingdom / government — PetroHrys Score 85
+- **Insolvenční rejstřík** — czech-republic / government — PetroHrys Score 85
+- **Banca dati UIBM** — italy / government — PetroHrys Score 85
+- **Piattaforma per la pubblicità a valore legale** — italy / government — PetroHrys Score 85
+- **Registro Público Concursal** — spain / government — PetroHrys Score 85
 - **Nova Scotia Registry of Joint Stock Companies** — canada / government — PetroHrys Score 85
 - **Food Hygiene Ratings** — united-kingdom / government — PetroHrys Score 84
 - **Régie du bâtiment du Québec — Licence Holders Register** — canada / government — PetroHrys Score 84
+- **Transparenzregister** — germany / government — PetroHrys Score 84
 - **APRA Registers** — australia / government — PetroHrys Score 83
 - **Northwest Territories Corporate Registries** — canada / government — PetroHrys Score 83
+- **ARES** — czech-republic / government — PetroHrys Score 82
 - **Business Search** — united-states / government — PetroHrys Score 82
 - **Find a Tender** — united-kingdom / government — PetroHrys Score 82
 - **Licensing NT Public Register** — australia / government — PetroHrys Score 82

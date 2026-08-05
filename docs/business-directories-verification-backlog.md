@@ -323,3 +323,41 @@ Gangmasters and Labour Abuse Authority registers, Scottish and Northern Ireland
 company-adjacent registers, and the Land Registry / Registers of Scotland /
 Land and Property Services title registers. None was reached in this wave; none
 is rejected.
+
+---
+
+## Wave 1E — Continental Europe (2026-08-05)
+
+Seventeen candidates researched, eleven published. What follows is what was not.
+
+### Pending manual verification
+
+| Candidate | Country | Operator | Official URL | Blocker | Next action |
+|---|---|---|---|---|---|
+| Krajowy Rejestr Zadłużonych (KRZ) | Poland | Ministerstwo Sprawiedliwości | `krz.ms.gov.pl` | Returns HTTP 200 but the body is an Imperva/Incapsula interstitial, not the application. Unlike KRS there is **no sibling open API**, so no access fact could be observed. Legal identity, statutory basis (ustawa z 6 grudnia 2018 o KRZ) and responsible authority are fully established. | Open in a desktop browser, run one search, record the access position and returned fields. **High priority** — Poland has no insolvency record. |
+| Evidence skutečných majitelů (ESM) | Czech Republic | Ministerstvo spravedlnosti | `esm.justice.cz` | Access is restricted and the extent of public inspection was not established. | Establish what a member of the public may see without credentials, and whether a fee applies. |
+| Albo delle imprese di assicurazione (IVASS) | Italy | IVASS | `ivass.it` / `infostat-ivass.bancaditalia.it` | Identity, authority and the platform/interface split are established from a fetched IVASS page, but the **access position** of the public inquiry application could not be established. | Exercise the RIGA public inquiry application and record the access position. |
+| Registro dei revisori legali | Italy | Ministero dell'Economia e delle Finanze | `revisionelegale.mef.gov.it` | **Host unreachable.** DNS resolves but the HTTPS connection never completes (timeout at 25 s and 60 s). Nothing about it was established. | Retry from a different network; if it stays down, look for an official MEF mirror. |
+| CONSOB registers | Italy | CONSOB | `consob.it` | Not established to publication standard in this wave. | Research the individual albi ed elenchi and determine whether each is a distinct register. |
+
+### Duplicate — not published
+
+| Candidate | Reason |
+|---|---|
+| Portál veřejných rejstříků a evidencí (`verejnerejstriky.msp.gov.cz`) | A newer ministry portal over the same Czech public register already published as `cz-verejny-rejstrik` (or.justice.cz). Publishing both would be a landing/search pair for one registry, which the duplicate guard forbids. Worth revisiting only if the ministry retires the older surface. |
+
+### A brief discrepancy worth recording
+
+The Wave 1E brief listed **ISIR** among the Polish targets. ISIR is the **Czech**
+Insolvenční rejstřík. Poland's insolvency register is the Krajowy Rejestr
+Zadłużonych (KRZ). Both were researched: ISIR is published under Czechia, KRZ is
+pending above.
+
+### Carried forward, not started
+
+Poland: Biała lista podatników VAT, Centralny Rejestr Beneficjentów
+Rzeczywistych, UPRP, KNF. Czechia: Živnostenský rejstřík. Germany: DPMAregister,
+Insolvenzbekanntmachungen, BaFin, Marktstammdatenregister. France: BODACC,
+ORIAS, REGAFI, INPI trade mark and patent bases as records separate from
+`fr-inpi`. Spain: OEPM, CNMV, Banco de España, Registro Central de Titularidades
+Reales. Italy: BDNCP as a record distinct from the legal-publicity platform.

@@ -133,5 +133,294 @@
       "Certified extracts are chargeable, and the pricing was not established."
     ],
     "editorNotes": "Verified 2026-08-04; source-of-record corrected 2026-08-05 (Wave 1D). CORRECTION: this record previously carried primaryRegistryType company-register plus insolvency-register and beneficial-ownership-register, and described the body as \"operating\" those registries. That attributed three registers to a body that holds none of them. The Colegio de Registradores is a public-law corporation of registrars; the mercantile, property and movable-property registers are kept by the registrars in office, and the Registro Mercantil Central is a separate institution. On insolvency, Real Decreto 892/2013 article 2.2 provides that the Registro Público Concursal depends on the Ministry of Justice, article 2.3 entrusts the material management of its publicity service to this body under the Ministry’s dependence, and article 4 names the Ministry as the register’s responsible body. The delegated management role is real and is stated in prose, but it does not make this body the register, so insolvency-register was removed rather than kept. beneficial-ownership-register was removed because no official source establishing this body as the responsible register was read in this phase; the Spanish beneficial-ownership register is recorded in the backlog as a separate candidate. Reclassified to public-filing-database: the service exposes registry extracts and publicity rather than constituting a register. SCORE CHANGED 88 to 85: businessUsefulness 8 to 7 and industryImportance 9 to 7, because the record now covers an access service to three registry systems rather than the four register functions it claimed, which is a genuine reduction in what a reader gets from it. No other factor moved. The Spanish company register and the public insolvency register are recorded in the backlog for Wave 1E and are deliberately not published here."
+  },
+  {
+    "id": "es-registro-mercantil-central",
+    "name": "Registro Mercantil Central",
+    "slug": "registro-mercantil-central",
+    "country": "spain",
+    "category": "government",
+    "website": "https://www.rmc.es/",
+    "submissionUrl": null,
+    "description": "Registro Mercantil Central is the Spanish central mercantile registry institution, dependent on the justice ministry. It issues and reserves company names, keeps the central archive of registered names, and centralises for publicity purposes the data it receives from the provincial mercantile registries, which are the registries where companies are actually registered.",
+    "tier": "tier1",
+    "scope": "national",
+    "nativeName": "Registro Mercantil Central",
+    "englishName": "Central Mercantile Register",
+    "englishNameSource": "editorial-translation",
+    "primaryRegistryType": "business-entity-register",
+    "registryTypes": [
+      "business-entity-register"
+    ],
+    "operator": {
+      "name": "Ministerio de Justicia",
+      "type": "ministry",
+      "officialUrl": "https://www.mjusticia.gob.es/"
+    },
+    "publicAccess": {
+      "searchUrl": "https://www.rmc.es/Deno_consultas.aspx",
+      "accessLevel": "partially-open",
+      "freeToSearch": false,
+      "loginRequired": false,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": true,
+      "notes": "The name-consultation surface is reached without an account. Registry products are chargeable, so the service is recorded as partially open rather than free."
+    },
+    "petroHrysScore": 87,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 8,
+      "verificationQuality": 9,
+      "platformReputation": 8,
+      "spamResistance": 10,
+      "industryImportance": 8,
+      "longTermStability": 10,
+      "submissionQuality": 6,
+      "transparency": 8,
+      "moderationQuality": 8
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": true,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-12",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "es-registro-publico-concursal"
+      ],
+      "usedWith": [
+        "es-registradores"
+      ],
+      "competitors": []
+    },
+    "bestFor": [
+      "Checking whether a proposed Spanish company name is already taken, and reserving one before incorporation.",
+      "Identifying the central institution of the Spanish mercantile registry system before approaching a provincial registry."
+    ],
+    "notRecommendedFor": [
+      "Obtaining the registered file of a specific Spanish company, which is held by the provincial mercantile registry where it is registered.",
+      "A free lookup, because registry products are chargeable."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Companies registered in the Spanish mercantile registry system"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "It is the official institution responsible for issuing company names, which is a mandatory step before a Spanish company can be incorporated.",
+      "It centralises data received from the provincial mercantile registries, so it is the one national point over a registry system that is otherwise provincial.",
+      "It is dependent on the justice ministry rather than on a professional body, which its own pages state directly."
+    ],
+    "cons": [
+      "It does not hold the registered file of a company. It is a central institution over the mercantile registry system, and the file of a given company sits with the provincial mercantile registry where that company is registered.",
+      "Registry products are chargeable, so this is not a free company-lookup service.",
+      "It should not be confused with the registrars’ professional body, which operates a shared electronic access service and is a separate record."
+    ],
+    "editorNotes": "Verified 2026-08-05 from the institution’s own site, which states that it is \"una Institución Oficial dependiente del Ministerio de Justicia\" whose functions are determined by the mercantile registry regulation, and which describes its role in issuing company names and in centralising data received from the provincial registries. FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: The Spanish mercantile register is constituted by the Commercial Code and the mercantile registry regulation, and companies are registered at the PROVINCIAL mercantile registries kept by registrars in office. The Central register is the central institution over that system, principally for name reservation and centralised publicity. RESPONSIBLE AUTHORITY: Ministerio de Justicia, on which the institution is dependent. TECHNICAL PLATFORM: Unknown. No separate contractor or consortium is named on any official page fetched. PUBLIC ACCESS INTERFACE: The consultation surface at rmc.es, reached without an account, with chargeable registry products. Deliberately NOT typed company-register: that type requires the register to be the jurisdiction’s authoritative record of a company’s existence, and the constitutive registration happens at the provincial registries. This continues the distinction established in the previous wave, where the registrars’ professional body was corrected out of the company-register role."
+  },
+  {
+    "id": "es-registro-publico-concursal",
+    "name": "Registro Público Concursal",
+    "slug": "registro-publico-concursal",
+    "country": "spain",
+    "category": "government",
+    "website": "https://www.publicidadconcursal.es/",
+    "submissionUrl": null,
+    "description": "Registro Público Concursal is the Spanish public insolvency register, which gives publicity to the principal decisions issued in insolvency proceedings declared in Spain or producing effects there. It is organised in sections covering insolvency edicts, the registration publicity of insolvency decisions, and out-of-court settlement agreements.",
+    "tier": "tier1",
+    "scope": "national",
+    "nativeName": "Registro Público Concursal",
+    "englishName": "Public Insolvency Register",
+    "englishNameSource": "editorial-translation",
+    "primaryRegistryType": "insolvency-register",
+    "registryTypes": [
+      "insolvency-register",
+      "public-filing-database"
+    ],
+    "operator": {
+      "name": "Ministerio de Justicia",
+      "type": "ministry",
+      "officialUrl": "https://www.mjusticia.gob.es/"
+    },
+    "publicAccess": {
+      "searchUrl": "https://www.publicidadconcursal.es/",
+      "accessLevel": "open",
+      "freeToSearch": true,
+      "loginRequired": false,
+      "identityVerificationRequired": false,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "The insolvency-publicity consultation is offered openly and separately from a restricted filing area used by courts, registrars, notaries and insolvency administrators to publish into the register."
+    },
+    "petroHrysScore": 85,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 8,
+      "verificationQuality": 9,
+      "platformReputation": 8,
+      "spamResistance": 10,
+      "industryImportance": 8,
+      "longTermStability": 9,
+      "submissionQuality": 5,
+      "transparency": 9,
+      "moderationQuality": 8
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": true,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": true,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-05",
+    "nextVerification": "2027-08-10",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "es-registro-mercantil-central"
+      ],
+      "usedWith": [
+        "es-registradores"
+      ],
+      "competitors": []
+    },
+    "bestFor": [
+      "Checking whether a Spanish company or individual is subject to declared insolvency proceedings.",
+      "Reading the insolvency edicts and decisions that Spanish law requires to be published."
+    ],
+    "notRecommendedFor": [
+      "Confirming that a company exists or who its officers are, which is the mercantile registry system.",
+      "Treating an empty result as proof that a party has never been insolvent."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Parties to Spanish insolvency proceedings"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "It is the principal instrument giving the publicity that Spanish insolvency law requires, so it is part of the procedure rather than a commentary on it.",
+      "The public consultation is free and needs no account.",
+      "It is organised into distinct sections for edicts, registration publicity and out-of-court settlement agreements, so the kind of publicity is explicit."
+    ],
+    "cons": [
+      "It records insolvency publicity only. It establishes nothing about whether a company exists, who represents it, or its wider standing.",
+      "Publication into the register is made by courts, registrars, notaries and insolvency administrators, so the register reflects what those parties published rather than an independent assessment.",
+      "An absent result does not prove that a party has never been subject to insolvency proceedings."
+    ],
+    "editorNotes": "Verified 2026-08-05 from the register’s own site, which describes it as the principal instrument giving the necessary publicity to insolvency and which names the consolidated text of the Insolvency Act approved by Royal Legislative Decree 1/2020 as its legal frame. FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: Spanish insolvency law: the consolidated text of the Ley Concursal, with the register regulated by Real Decreto 892/2013. Article 2.2 of that decree provides that the register depends on the Ministry of Justice. RESPONSIBLE AUTHORITY: Ministerio de Justicia. Real Decreto 892/2013 makes the ministry responsible for the register. TECHNICAL PLATFORM: The Colegio de Registradores operates the publicity service. Real Decreto 892/2013 article 2.3 entrusts the material management of that service to the Colegio, expressly under the ministry’s dependence, so the Colegio is the technical operator and NOT the responsible authority. PUBLIC ACCESS INTERFACE: The public insolvency-publicity consultation at publicidadconcursal.es, alongside a restricted filing area for the bodies that publish into the register. This record completes the correction made in the previous wave, where insolvency-register was removed from the registrars’ professional body: the register is recorded here against the ministry, with the Colegio’s delegated management stated as the technical role it actually is."
   }
 ]

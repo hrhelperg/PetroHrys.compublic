@@ -92,7 +92,7 @@ test('a registry type with no records is allowed, but every record type is real'
 
 test('the five procurement systems are classified as notice databases, never as supplier registers', () => {
   const ids = ['gb-find-a-tender', 'gb-contracts-finder', 'gb-public-contracts-scotland',
-    'gb-sell2wales', 'ca-canadabuys'];
+    'gb-sell2wales', 'ca-canadabuys', 'it-pubblicita-legale-anac'];
   for (const id of ids) {
     const r = byId.get(id);
     assert.ok(r, `${id} is missing`);
@@ -106,8 +106,12 @@ test('the five procurement systems are classified as notice databases, never as 
     assert.match(prose, /not a supplier register|notice database, not a/i,
       `${id} never says it is not a supplier register`);
   }
-  assert.strictEqual(PROCUREMENT.length, ids.length,
-    `${PROCUREMENT.length} records carry the procurement type; expected exactly ${ids.length}`);
+  // Every record carrying the type must be in the checked set. Pinning an exact
+  // count would break on each legitimate addition; pinning SET EQUALITY keeps the
+  // guard honest — a new procurement record must be added here and checked, not
+  // silently admitted.
+  assert.deepStrictEqual(PROCUREMENT.map((r) => r.id).sort(), [...ids].sort(),
+    'a record carries the procurement type without being covered by this guard');
 });
 
 test('no procurement record implies publication confers eligibility, award or trustworthiness', () => {
