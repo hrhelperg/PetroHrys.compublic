@@ -454,3 +454,139 @@ assessed.
 | `ec.europa.eu/taxation_customs/dds2/eos/eori_help.jsp` | HTTP 404. The working help path is `/dds2/eos/help/index.jsp`. |
 | `e-justice.europa.eu/489/EN/business_registers__search_for_a_company_in_the_eu` | **Moved, not dead.** HTTP 301 to the `/topics/...` slug, which is now canonical. Any dataset holding the old numeric-ID form should be updated. |
 | Commission Implementing Regulation (EU) 2015/884 | **No longer in force**, yet still cited on the live official BRIS page. Superseded via 2020/2244 by Implementing Regulation (EU) 2021/1042. The published record therefore describes the legal basis in general terms rather than repeating a stale citation. |
+
+---
+
+## Wave 1F.1 — European Union completion (2026-08-06)
+
+The three areas Wave 1F could not research are now researched. **No candidate
+remains `not researched`.** Eighteen candidates reached a determination; **six
+published**.
+
+### Resolved from Wave 1F's "not researched" list
+
+| Area | Outcome |
+|---|---|
+| Intellectual property | **Researched.** eSearch plus, TMview and DesignView published. GIview classification-blocked. European Patent Register confirmed out of scope. |
+| Sanctions and exclusions | **Researched.** EIB exclusion decisions published. Every EU sanctions surface classification-blocked or rejected — see below. |
+| Chemicals, clinical trials, regulated products | **Researched.** EUDAMED and ECHA CHEM published. CTIS and the EU Pesticides Database classification-blocked. RASFF rejected. |
+
+### Classification-blocked — real, official, live, but no honest type exists
+
+These are **not** rejections and **not** coverage gaps. Each is a genuine
+official system that the closed 21-type vocabulary cannot describe without
+lying. Per the brief, the minimal type is proposed rather than created.
+
+| Candidate | Official URL | Why blocked | Minimal type proposed |
+|---|---|---|---|
+| **CTIS — Clinical Trials Information System** | `https://euclinicaltrials.eu/` | The registered object is a **clinical trial** — not a company, licence, security, supplier, IP right, insolvency or debarment. `public-filing-database` would technically stretch to cover it, but every other member of that type is a corporate or financial filing, so it would misdescribe the record. Also note CTIS is the **publication** interface: the authorisation decision is taken by the Member States concerned, not by EMA. | `clinical-trial-register` — an internationally standard category, not a catch-all |
+| **GIview** | `https://www.tmdn.org/giview/` | Geographical indications are neither trade marks nor designs nor any listed type. Its source of record is also **split**: GIs for agricultural products, wines and spirits are registered by the Commission (eAmbrosia), while EUIPO handles GIs for craft and industrial products. | `geographical-indication-register` |
+| **EU Sanctions Map** | `https://www.sanctionsmap.eu/` | Its own served disclaimer settles it: the purpose is to **visualise** restrictive measures, and *"Only the legal acts published in the Official Journal of the European Union are authentic and produce legal effects."* It indexes regimes and their constituting acts, not designated persons. It must **not** be typed `exclusion-and-debarment-register`: CFSP restrictive measures (Art. 29 TEU / Art. 215 TFEU) are legally distinct from procurement debarment under the Financial Regulation. | `sanctions-and-restrictive-measures-index` |
+| **Consolidated list of EU financial sanctions** (Financial Sanctions Files) | `https://webgate.ec.europa.eu/fsd/fsf` | In substance a structured designation register managed by DG FISMA and regenerated daily, but no listed type fits a CFSP asset-freeze designation list, for the same legal-instrument reason as above. Access also unresolved: the web application entered a redirect loop for an anonymous client, indicating it is credential-gated. | `sanctions-designation-list` |
+| **EU Sanctions Tracker** | `https://data.europa.eu/apps/eusanctionstracker/` | The free, login-free searchable surface over the same designations. Blocked on the same vocabulary ground, and it is by its own framing a navigation tool over lists published elsewhere rather than the source. | `sanctions-designation-list` (as its public interface) |
+| **EU Pesticides Database** | `https://ec.europa.eu/food/plant/pesticides/eu-pesticides-database/` | Blocked on classification **and** carrying a disclaimer strong enough to justify outright rejection: *"This database is made available solely for the purpose of information. It has no legal value."* The official information is published in the Official Journal. Part aggregator too — Member States are responsible for authorisations. | `plant-protection-product-authorisation-register` — deliberately **not** a broad "regulated products database" |
+
+**A decision is required before any of these can ship.** **Five** distinct narrow
+types are proposed, covering six systems — two of the six (the consolidated list
+and the Sanctions Tracker) share one proposed type, which is why an earlier draft
+of this section miscounted them as three. None should be created speculatively.
+
+### Rejected — real and official, but not a register
+
+| Candidate | Reason |
+|---|---|
+| **RASFF Window** | An **alert system**, not a register. The Commission's own page states notifications *do not* reveal commercial details, so there is no identifiable-product register behind it. |
+| **DG Competition case search** (`competition-cases.ec.europa.eu`) | An enforcement **case archive** — a searchable index of antitrust, cartel, merger, State aid, DMA and Foreign Subsidies cases and their documents. A case archive is not a register, and the registry contract is not met. |
+| **EU Sanctions Helpdesk** | A compliance **support and advisory platform** for SMEs — resources, publications, events, a helpdesk. It publishes no register. |
+| **EU Sanctions Whistleblower Tool** | A one-way anonymous **reporting form**. It publishes nothing and holds no publicly searchable records. |
+| **EDES policy page** (`.../anti-fraud-measures/edes_en`) | The parent **information page** for EDES, not the register. The register itself is already published as `eu-edes`; publishing the policy page would duplicate it with a page that holds no data. |
+| **eSearch Case Law, TMclass, DESIGNclass, Similarity, IPEP, certified copies** | All live EUIPO services, none a register: case-law database, classification tools, an examiner comparison tool, a restricted enforcement platform, and a document-retrieval utility. Recorded so they are not re-proposed. |
+
+### Out of scope — intergovernmental, not EU
+
+| Candidate | Reason |
+|---|---|
+| **European Patent Register / EPO** | `https://register.epo.org/` is real, live and official, but the European Patent Office is an **intergovernmental organisation under the European Patent Convention**, not an EU institution. It is **not** an EU coverage gap. Revisit only if the architecture gains an explicit intergovernmental geography model — which Wave 1F.1 again deliberately did not create. |
+
+### Dead, obsolete or renamed — recorded so they are never re-proposed
+
+| Item | Finding |
+|---|---|
+| "Registered Community design" / "Register of Community designs" | **Obsolete terminology.** Regulation (EU) 2024/2822 renamed the right to **registered EU design** and the register to the **Register of EU designs**, applicable from 1 May 2025. The old wording is barred from public text by test. |
+| EU Clinical Trials Register (`clinicaltrialsregister.eu`) | **Live but superseded for new trials.** Its own page states that all ongoing EU/EEA trials are displayed through CTIS, while EU CTR *"continues to display information on EudraCT trials"* including newly submitted results. A live legacy system with a defined residual scope — not an archive, not the current register. |
+| `echa.europa.eu` (agency corporate site) | Returns HTTP 403 behind an Azure web application firewall to automated clients. **This is a bot filter, not an outage** — a future pass seeing 403 must not conclude the pages are dead. |
+| `euipo.europa.eu` | Refuses some automated fetch paths with HTTP 403 while serving HTTP 200 to a normal browser. Same caution applies. |
+| `www.tmdn.org` unmatched paths | Serve the application shell with HTTP 200. **A 200 on that host is not evidence that a resource exists.** |
+
+---
+
+## Wave 1F.1 taxonomy decision (2026-08-06)
+
+**Five closed-vocabulary values were approved and applied.** The vocabulary went
+from 21 to **26**. Five of the six systems blocked above are now published; one
+remains blocked on a further functional determination.
+
+| Approved value | Applied to | Record |
+|---|---|---|
+| `clinical-trial-register` | CTIS | `eu-ctis` |
+| `geographical-indication-register` | GIview | `eu-giview` |
+| `sanctions-and-restrictive-measures-index` | EU Sanctions Map | `eu-sanctions-map` |
+| `sanctions-designation-list` | Consolidated list of EU financial sanctions | `eu-consolidated-financial-sanctions` |
+| `plant-protection-product-authorisation-register` | EU Pesticides Database | `eu-pesticides-database` |
+
+The boundaries are documented in the operator runbook and asserted from both
+directions by test. In short: a **regime index** is not a **designation list**; a
+designation list is not an **exclusion/debarment register**; a **geographical
+indication** is not a **trade mark**; a **clinical trial register** is not a
+general health database; and a **plant protection authorisation database** is not
+a **chemicals register**.
+
+### EU Sanctions Tracker — still blocked, and why
+
+**Determination: keep blocked. Do not assign `sanctions-designation-list`.**
+
+The decision rule was to publish it as a designation list *only if the official
+system itself exposes designation records as its primary function*. It does not
+demonstrably do so, on two independent grounds:
+
+1. **No official describing page exists.** The Commission's own sanctions
+   resources page — which lists the Sanctions Map, the sanctions helpdesk, the
+   consolidated list, the whistleblower tool and EUR-Lex — **does not mention the
+   Tracker at all**. Neither does the open data portal's news index. Its canonical
+   function therefore cannot be established from any official source, which is
+   itself disqualifying under the real-site rule.
+2. **The only functional evidence points away from a designation list.** The
+   application is client-rendered; its sole server-rendered signal is the
+   navigation, in this order: **Dashboard · Regimes · Nationalities · Individuals
+   · Entities**. It leads with a *Dashboard* and organises by *Regime* and
+   *Nationality*, with individuals and entities as views inside that frame. On the
+   three-way test that reads as **(3) an analytical or tracking interface**, with
+   elements of **(2) a regime-navigation interface** — not **(1)** a designation
+   list whose primary function is exposing designation records. The product name
+   is, literally, "Tracker".
+
+**Narrowest honest type, proposed but NOT recommended for creation:**
+`sanctions-designation-analytics-interface` — an analytical interface over
+designation data published elsewhere. **I recommend against creating it on a
+single candidate.** The dataset's own rule is that a type needs evidence from
+more than one system, and this one would be defined around a service whose
+official description could not be found.
+
+**Next action:** locate an official Commission or open-data-portal page that
+states the Tracker's purpose. If that page shows designation records are its
+primary function, publish as `sanctions-designation-list`. If it confirms an
+analytical role, leave it unpublished unless a second analytics candidate ever
+justifies the type. Do not publish on the navigation alone.
+
+### Access positions worth carrying forward
+
+- **Consolidated list (`webgate.ec.europa.eu/fsd/fsf`)** — the web application
+  entered a **redirect loop** for an anonymous client and never served a page,
+  indicating it is credential-gated. Published with `accessLevel: unknown` and
+  every boolean null. Next action: establish whether an EU Login account is
+  required, and locate the stable download URL the Commission documents.
+- **CTIS** — open access is recorded from EMA's own documentation, not from an
+  executed search: *"Anybody can view information held in CTIS on clinical trials
+  in the EU and EEA, by using the searchable public website."*
+- **GIview, Sanctions Map, EU Pesticides Database** — all client-rendered; every
+  access boolean null.

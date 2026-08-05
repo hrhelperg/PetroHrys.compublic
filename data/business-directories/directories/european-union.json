@@ -153,6 +153,11 @@
     "tier": "tier1",
     "scope": "supranational",
     "officialName": "VAT Information Exchange System (VIES)",
+    "resourceIdentity": {
+      "canonicalDomain": "ec.europa.eu",
+      "systemKey": "vies-vat-validation",
+      "sharedHostGroup": "ec-europa-eu"
+    },
     "primaryRegistryType": "tax-verification-system",
     "registryTypes": [
       "tax-verification-system"
@@ -1272,5 +1277,1574 @@
       "It covers exclusion from EU-funded procedures only, and says nothing about restrictions imposed under any other regime."
     ],
     "editorNotes": "Verified 2026-08-05 from the Commission’s own EDES pages, retrieved directly. FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: The European Commission, acting under the Financial Regulation. The page states that publication of an EDES measure is done in accordance with the relevant legal framework and points to Article 142 of the Financial Regulation. The exclusion decision is the Commission’s own, so unlike most records in this wave the EU institution is the source of record. RESPONSIBLE AUTHORITY: European Commission. TECHNICAL PLATFORM: Not separately established. The list is published as part of the Commission’s own site; no external supplier is named on any page fetched. PUBLIC ACCESS INTERFACE: The published list on the Commission’s EDES pages. Registry type: exclusion-and-debarment-register, which the vocabulary defines for exactly this function and which the dataset already uses for national equivalents. The record is explicit that the published list is a subset: the Commission states that it covers only cases for which a decision to publish was taken, and that entries are removed when the exclusion ends. A reader who treated absence from this list as proof that a party has never been excluded, or as proof of unrestricted standing anywhere else, would be wrong, and the record says so rather than leaving it implied."
+  },
+  {
+    "id": "eu-euipo-esearch-plus",
+    "name": "EUIPO eSearch plus",
+    "slug": "euipo-esearch-plus",
+    "country": "european-union",
+    "category": "government",
+    "website": "https://euipo.europa.eu/eSearch/",
+    "submissionUrl": null,
+    "description": "eSearch plus is the European Union Intellectual Property Office’s public search application over its own registers of EU trade marks and EU designs. Results are presented under separate tabs for trade marks, designs, owners and representatives.",
+    "tier": "tier1",
+    "scope": "supranational",
+    "officialName": "eSearch plus",
+    "primaryRegistryType": "trademark-register",
+    "registryTypes": [
+      "trademark-register",
+      "registered-design-register"
+    ],
+    "operator": {
+      "name": "European Union Intellectual Property Office",
+      "type": "supranational-institution",
+      "officialUrl": "https://www.euipo.europa.eu/"
+    },
+    "publicAccess": {
+      "searchUrl": null,
+      "accessLevel": "unknown",
+      "freeToSearch": null,
+      "loginRequired": null,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "The application shell was retrieved anonymously and identifies itself, but no search was executed and no result list was seen, so no search behaviour is asserted and no search URL is published. The office’s main site refuses some automated requests while serving a normal browser, so a refusal there is not evidence that a page is gone."
+    },
+    "petroHrysScore": 90,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 9,
+      "verificationQuality": 9,
+      "platformReputation": 9,
+      "spamResistance": 10,
+      "industryImportance": 9,
+      "longTermStability": 9,
+      "submissionQuality": 6,
+      "transparency": 9,
+      "moderationQuality": 9
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": true,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": true,
+      "developer": true,
+      "openSource": null,
+      "nonprofit": true,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-06",
+    "nextVerification": "2027-08-13",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "eu-tmview",
+        "eu-designview"
+      ],
+      "usedWith": [
+        "de-dpmaregister",
+        "es-oepm"
+      ],
+      "competitors": []
+    },
+    "bestFor": [
+      "Checking the status, owner and history of an EU trade mark or an EU design in the office’s own records.",
+      "Establishing whether a mark or design is already protected at EU level before filing."
+    ],
+    "notRecommendedFor": [
+      "Searching national rights held by member state offices, which are reached through the separate aggregation portals rather than here.",
+      "Company verification. This covers industrial property rights, not the existence of a business."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Holders and applicants of EU trade marks and EU designs"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "It is the office’s own application over its own registers, so it is the authoritative public view of an EU trade mark or EU design rather than a copy.",
+      "Trade marks, designs, owners and representatives are presented under separate tabs, so distinct populations are not blended into one undifferentiated result.",
+      "One office keeps both registers, so a single search covers two rights that elsewhere require two systems."
+    ],
+    "cons": [
+      "It is the search interface over the registers, not the registers themselves. The register is the instrument the office is obliged by regulation to keep.",
+      "It covers EU-level rights only. National marks and designs are not in it, and their absence here proves nothing about them.",
+      "No search was executed during verification, so the fee position, any rate limit and any CAPTCHA are unestablished and are not asserted."
+    ],
+    "editorNotes": "Verified 2026-08-06 from the application itself and from the office’s own search hub, retrieved directly. FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: The Registers kept by EUIPO under the EU trade mark and EU design regulations. The regulations separate the instrument from the software: the office is obliged to keep a Register, and separately to store the particulars in an electronic database. The Register is the source of record; this application is the view over the database. RESPONSIBLE AUTHORITY: European Union Intellectual Property Office, an agency of the European Union. TECHNICAL PLATFORM: Not separately established. The application is served from the office’s own host; no external supplier is named on any page fetched. PUBLIC ACCESS INTERFACE: The eSearch plus application, listed on the office’s own search hub alongside its case-law, aggregation and classification tools. Registry types: trademark-register and registered-design-register are recorded separately, as the vocabulary requires even where one office keeps both. professional-licence-register was considered for the representatives tab and rejected: the office maintains a list of professional representatives, but it issues no licence, and a search tab is not a separate register. Scoping decision: there is no separate EUIPO trade mark search and EUIPO design search — they are one application with tabs, so this is one record rather than two, and certainly not one record per tab. A naming note: the right formerly called a registered Community design is now the registered EU design, and the register formerly called the Register of Community designs is now the Register of EU designs. The older wording is obsolete and is deliberately not used here."
+  },
+  {
+    "id": "eu-tmview",
+    "name": "TMview",
+    "slug": "tmview",
+    "country": "european-union",
+    "category": "government",
+    "website": "https://www.tmdn.org/tmview/",
+    "submissionUrl": null,
+    "description": "TMview is the search portal of the European Union Intellectual Property Network that searches trade mark applications and registrations held by participating offices — national offices in the EU, the EUIPO, and offices outside the EU. It aggregates data supplied by those offices and is not itself a trade mark register.",
+    "tier": "tier1",
+    "scope": "supranational",
+    "resourceIdentity": {
+      "canonicalDomain": "tmdn.org",
+      "systemKey": "tmview",
+      "sharedHostGroup": "tmdn-org"
+    },
+    "primaryRegistryType": "cross-border-registry-interface",
+    "registryTypes": [
+      "cross-border-registry-interface"
+    ],
+    "operator": {
+      "name": "European Union Intellectual Property Office",
+      "type": "supranational-institution",
+      "officialUrl": "https://www.euipo.europa.eu/"
+    },
+    "publicAccess": {
+      "searchUrl": null,
+      "accessLevel": "unknown",
+      "freeToSearch": null,
+      "loginRequired": null,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "The portal serves a JavaScript application shell that carries no identifying text of its own, so identity and function rest on the office’s own current search hub, which lists TMview and describes what it covers. No search was executed, so every access boolean stays null and no search URL is published. A response on this host is not by itself evidence that a particular resource exists, because unmatched paths also return a shell."
+    },
+    "petroHrysScore": 85,
+    "scoreFactors": {
+      "editorialTrust": 9,
+      "businessUsefulness": 9,
+      "verificationQuality": 8,
+      "platformReputation": 9,
+      "spamResistance": 10,
+      "industryImportance": 9,
+      "longTermStability": 8,
+      "submissionQuality": 5,
+      "transparency": 8,
+      "moderationQuality": 8
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": true,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": true,
+      "developer": true,
+      "openSource": null,
+      "nonprofit": true,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-06",
+    "nextVerification": "2027-08-26",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "eu-designview"
+      ],
+      "usedWith": [
+        "eu-euipo-esearch-plus"
+      ],
+      "competitors": []
+    },
+    "bestFor": [
+      "Searching trade marks across many national offices and the EU office at once, which no single register offers.",
+      "Establishing whether a similar mark already exists somewhere in Europe before choosing where to file."
+    ],
+    "notRecommendedFor": [
+      "Treating a result as the register entry. The records belong to the office that issued them, and that office is where the authoritative entry lives.",
+      "Concluding a mark is free because it is absent. Coverage depends on which offices participate and on how current each office’s supply is."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Trade mark applicants and holders searching across European and international offices"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "One search reaches trade mark data from participating offices at national, EU and international level, which is what it exists to do.",
+      "It is operated within the official European Union Intellectual Property Network rather than by a commercial aggregator.",
+      "It keeps the aggregation role explicit, so a user can go back to the issuing office for the authoritative record."
+    ],
+    "cons": [
+      "It is an aggregation portal, not a register. It does not constitute any right and establishes nothing on its own.",
+      "Coverage is defined by which offices participate and by what each supplies, so it is not a complete picture of trade marks in Europe.",
+      "The portal is a client-rendered application that could not be exercised, so its search behaviour, filters and export options were not observed."
+    ],
+    "editorNotes": "Verified 2026-08-06 from the office’s own search hub, retrieved directly, because the portal itself serves an identity-free application shell. FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: The participating offices that issue the rights. The office’s own hub describes TMview as covering trade marks of all participating official trade mark offices at national, international and EU level, which places the records with those offices. TMview constitutes nothing. RESPONSIBLE AUTHORITY: European Union Intellectual Property Office, which operates the portal within the European Union Intellectual Property Network. TECHNICAL PLATFORM: The shared network application at tmdn.org, which serves both this portal and the design portal from one codebase. PUBLIC ACCESS INTERFACE: The TMview portal on the network host. Registry type: cross-border-registry-interface, and deliberately nothing else. trademark-register was proposed and rejected as a direct contradiction: a record cannot state three times that a system is not a register and then carry the register type. Shared host: this record and DesignView sit on one official host and both declare resourceIdentity. They are kept as two records because they cover two different rights with two different participating-office populations and are described separately by the office, not because their URLs differ."
+  },
+  {
+    "id": "eu-designview",
+    "name": "DesignView",
+    "slug": "designview",
+    "country": "european-union",
+    "category": "government",
+    "website": "https://www.tmdn.org/tmdsview-web/",
+    "submissionUrl": null,
+    "description": "DesignView is the design search portal of the European Union Intellectual Property Network. The office describes it as providing access to its own database of registered designs together with the databases of other national registries, so it aggregates data from participating offices rather than constituting a register.",
+    "tier": "tier1",
+    "scope": "supranational",
+    "resourceIdentity": {
+      "canonicalDomain": "tmdn.org",
+      "systemKey": "designview",
+      "sharedHostGroup": "tmdn-org"
+    },
+    "primaryRegistryType": "cross-border-registry-interface",
+    "registryTypes": [
+      "cross-border-registry-interface"
+    ],
+    "operator": {
+      "name": "European Union Intellectual Property Office",
+      "type": "supranational-institution",
+      "officialUrl": "https://www.euipo.europa.eu/"
+    },
+    "publicAccess": {
+      "searchUrl": null,
+      "accessLevel": "unknown",
+      "freeToSearch": null,
+      "loginRequired": null,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "The portal serves a JavaScript application shell with no identifying text of its own, so identity and function rest on the office’s own description of the service. No search was executed, so every access boolean stays null and no search URL is published."
+    },
+    "petroHrysScore": 82,
+    "scoreFactors": {
+      "editorialTrust": 9,
+      "businessUsefulness": 8,
+      "verificationQuality": 8,
+      "platformReputation": 9,
+      "spamResistance": 10,
+      "industryImportance": 8,
+      "longTermStability": 8,
+      "submissionQuality": 5,
+      "transparency": 8,
+      "moderationQuality": 8
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": true,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": true,
+      "developer": true,
+      "openSource": null,
+      "nonprofit": true,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-06",
+    "nextVerification": "2027-08-11",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "eu-tmview"
+      ],
+      "usedWith": [
+        "eu-euipo-esearch-plus"
+      ],
+      "competitors": []
+    },
+    "bestFor": [
+      "Searching designs across the EU office and participating national registries in one place.",
+      "Checking whether a similar design is already on a European register before filing."
+    ],
+    "notRecommendedFor": [
+      "Treating a result as the register entry. The authoritative record sits with the office that registered the design.",
+      "Concluding a design is free because it is absent, since coverage depends on which registries participate."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Design applicants and holders searching across European offices"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "It reaches the EU office’s design database and other national registries together, which no single national registry does.",
+      "It is operated within the official European Union Intellectual Property Network rather than by a commercial aggregator.",
+      "It is scoped to designs, which keeps it from being confused with the trade mark portal that shares its platform."
+    ],
+    "cons": [
+      "It is an aggregation portal, not a register. It constitutes no design right and establishes nothing on its own.",
+      "Coverage depends on which registries participate and on what each supplies, so absence is not evidence that a design is unprotected.",
+      "The portal is a client-rendered application that could not be exercised, so its search behaviour and export options were not observed."
+    ],
+    "editorNotes": "Verified 2026-08-06 from the office’s own description of the service, retrieved directly, because the portal itself serves an identity-free application shell. FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: The offices that register the designs. The office describes DesignView as providing access to its own database of registered designs along with the databases of other national registries, which places the records with those offices rather than with the portal. RESPONSIBLE AUTHORITY: European Union Intellectual Property Office, which operates the portal within the European Union Intellectual Property Network. TECHNICAL PLATFORM: The shared network application at tmdn.org, which serves both this portal and the trade mark portal from one codebase. PUBLIC ACCESS INTERFACE: The DesignView portal on the network host. Registry type: cross-border-registry-interface only. registered-design-register was rejected for the same reason the trade mark type was rejected on the sibling portal: a record must not deny being a register and then carry the register type. Shared host: this record and TMview both declare resourceIdentity. A naming note carried from this wave’s research: the EU right is now the registered EU design and the register is the Register of EU designs, the earlier Community wording having been replaced."
+  },
+  {
+    "id": "eu-eudamed",
+    "name": "EUDAMED",
+    "slug": "eudamed",
+    "country": "european-union",
+    "category": "government",
+    "website": "https://ec.europa.eu/tools/eudamed",
+    "submissionUrl": null,
+    "description": "EUDAMED is the European database on medical devices established by the medical devices and in vitro diagnostic regulations. It holds registrations of economic operators, devices and certificates, and its first four modules became mandatory on 28 May 2026.",
+    "tier": "tier1",
+    "scope": "supranational",
+    "officialName": "European Database on Medical Devices (EUDAMED)",
+    "resourceIdentity": {
+      "canonicalDomain": "ec.europa.eu",
+      "systemKey": "eudamed",
+      "sharedHostGroup": "ec-europa-eu"
+    },
+    "primaryRegistryType": "regulated-operator-register",
+    "registryTypes": [
+      "regulated-operator-register"
+    ],
+    "operator": {
+      "name": "European Commission, Directorate-General for Health and Food Safety",
+      "type": "supranational-institution",
+      "officialUrl": "https://health.ec.europa.eu/"
+    },
+    "publicAccess": {
+      "searchUrl": null,
+      "accessLevel": "unknown",
+      "freeToSearch": null,
+      "loginRequired": null,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "The public site serves a JavaScript application shell, so identity, function and current status rest on the Commission’s own medical devices pages. No search was executed, so every access boolean stays null and no search URL is published."
+    },
+    "petroHrysScore": 85,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 8,
+      "verificationQuality": 8,
+      "platformReputation": 9,
+      "spamResistance": 10,
+      "industryImportance": 9,
+      "longTermStability": 8,
+      "submissionQuality": 5,
+      "transparency": 8,
+      "moderationQuality": 8
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": true,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": true,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-06",
+    "nextVerification": "2027-08-25",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Checking whether a medical device economic operator is registered in the EU database and under which role.",
+      "Following the phased introduction of EU medical device registration obligations from the responsible authority’s own system."
+    ],
+    "notRecommendedFor": [
+      "Treating a registration as a safety approval. Registration records that an operator or device has been entered, not that the device has been assessed as safe.",
+      "Assuming complete coverage. The modules became mandatory only recently and earlier use was voluntary, so historical completeness is limited."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Medical device manufacturers, importers and authorised representatives in the EU"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "It is established directly by the medical devices and in vitro diagnostic regulations rather than by administrative practice.",
+      "Its first four modules became mandatory on 28 May 2026, so the data has moved from voluntary submission to a legal obligation.",
+      "It brings economic operator, device and certificate registration into one European system rather than leaving it to national registers."
+    ],
+    "cons": [
+      "The public site is a client-rendered application that could not be exercised, so its search behaviour and coverage of each module were not observed.",
+      "It does not certify devices. Conformity assessment is carried out by notified bodies, and an entry is not a statement that a device is safe or effective.",
+      "Because mandatory use began recently, absence of an operator or device is not evidence that it does not exist or is not lawfully placed on the market."
+    ],
+    "editorNotes": "Verified 2026-08-06 from the Commission’s own medical devices pages, retrieved directly, because the public application serves an identity-free shell. FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: The database is established by Regulation (EU) 2017/745 on medical devices and Regulation (EU) 2017/746 on in vitro diagnostic medical devices. Registrations are made by economic operators and certificates are issued by notified bodies, so the underlying acts are theirs; the database records them. RESPONSIBLE AUTHORITY: European Commission, through the directorate responsible for health and food safety. TECHNICAL PLATFORM: Not separately established. No external supplier is named on any page fetched, and none is asserted. PUBLIC ACCESS INTERFACE: The public EUDAMED site on the Commission’s tools host. Status, established rather than assumed: the Commission announced that the first four modules of EUDAMED became mandatory on 28 May 2026. A characterisation of EUDAMED as still voluntary, which was accurate for years, is now out of date, and this record deliberately states the current position. Registry type: regulated-operator-register, because the indexed population that a reader can act on is registered economic operators in a regulated sector. The record does not claim the public interface is complete across all modules, because that was not observed."
+  },
+  {
+    "id": "eu-echa-chem",
+    "name": "ECHA CHEM",
+    "slug": "echa-chem",
+    "country": "european-union",
+    "category": "government",
+    "website": "https://chem.echa.europa.eu/",
+    "submissionUrl": null,
+    "description": "ECHA CHEM is the European Chemicals Agency’s platform for information on substances placed on the EU market. It publishes information from REACH registration dossiers filed with the agency, together with classification and labelling entries and cross-references to other EU regulatory regimes.",
+    "tier": "tier1",
+    "scope": "supranational",
+    "primaryRegistryType": "public-filing-database",
+    "registryTypes": [
+      "public-filing-database"
+    ],
+    "operator": {
+      "name": "European Chemicals Agency",
+      "type": "regulator",
+      "officialUrl": "https://echa.europa.eu/"
+    },
+    "publicAccess": {
+      "searchUrl": null,
+      "accessLevel": "partially-open",
+      "freeToSearch": true,
+      "loginRequired": false,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "Free credential-free access was observed against the platform’s public substance interface, which returned complete substance records without any account. The rendered interface itself is a client-side application and was not exercised, so no claim is made about its on-screen filters, exports or any CAPTCHA. The agency’s main site refused automated requests behind a web application firewall, which is a bot filter rather than an outage."
+    },
+    "petroHrysScore": 86,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 8,
+      "verificationQuality": 9,
+      "platformReputation": 9,
+      "spamResistance": 10,
+      "industryImportance": 9,
+      "longTermStability": 8,
+      "submissionQuality": 5,
+      "transparency": 9,
+      "moderationQuality": 8
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": true,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-06",
+    "nextVerification": "2027-08-19",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Checking whether a substance has been registered under the EU chemicals regulation and reading the information published from its dossier.",
+      "Finding a substance’s harmonised or notified classification and the EU regulatory regimes it falls under."
+    ],
+    "notRecommendedFor": [
+      "Treating registration as approval. The agency does not thereby declare a substance safe, and it checks only a proportion of dossiers.",
+      "Reading absence as illegality, since low-volume substances, polymers and other exempt categories are not registrable at all."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Manufacturers and importers of chemical substances in the EU"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "The dossiers are filed with the agency itself, so for the registration this is genuinely the source of record rather than a publication layer over someone else’s register.",
+      "Free access without any account was observed directly against the public substance interface, which makes checks reproducible.",
+      "One substance record carries the registration status alongside classification entries and cross-references to other EU regimes, so related obligations are visible together."
+    ],
+    "cons": [
+      "Registration is a filing duty, not a permission. The registrant asserts the data and bears responsibility for it, and the agency does not thereby verify the dossier.",
+      "The platform reflects rather than constitutes the other lists shown on a substance page, such as harmonised classification, which originates in EU legal acts adopted elsewhere.",
+      "Migration from the agency’s older chemical search pages is still in progress, so for some purposes both surfaces may still need consulting."
+    ],
+    "editorNotes": "Verified 2026-08-06 against the platform’s own public substance interface, which returned live records anonymously. FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: Mixed, and deliberately stated as such. For the REACH registration the agency IS the source of record: the dossier is filed with it and it is obliged to publish specified information from that dossier. For the other lists surfaced on a substance page — harmonised classification, inventory entries and downstream sectoral regimes — the source is the underlying EU legal act adopted elsewhere, which the platform reflects rather than constitutes. RESPONSIBLE AUTHORITY: European Chemicals Agency. TECHNICAL PLATFORM: The agency’s own substance and dossier services, served as a client-side application on the platform host. No external supplier is named on any page fetched. PUBLIC ACCESS INTERFACE: The ECHA CHEM platform and its public substance interface. Registry type: public-filing-database, because a registration is a dossier filed by an identifiable legal entity with a regulator and published by law, which is what the type describes. The record deliberately avoids claiming that the platform has fully replaced the agency’s older chemical search pages: migration is stated by the agency to be continuing, and an unqualified supersession claim did not survive checking. Access is recorded as partially-open rather than open because free credential-free retrieval was observed on the public data interface while the rendered application was never exercised."
+  },
+  {
+    "id": "eu-eib-exclusion",
+    "name": "European Investment Bank exclusion decisions",
+    "slug": "eib-exclusion-decisions",
+    "country": "european-union",
+    "category": "government",
+    "website": "https://www.eib.org/en/about/accountability/anti-fraud/exclusion/index.htm",
+    "submissionUrl": null,
+    "description": "The European Investment Bank publishes the entities currently subject to an exclusion decision or a settlement agreement under its exclusion policy. Each entry names the entity, its country of incorporation, the nature and validity period of the decision, and the type of proceedings.",
+    "tier": "tier1",
+    "scope": "supranational",
+    "officialName": "Entities subject to an exclusion decision or a settlement agreement",
+    "primaryRegistryType": "exclusion-and-debarment-register",
+    "registryTypes": [
+      "exclusion-and-debarment-register"
+    ],
+    "operator": {
+      "name": "European Investment Bank",
+      "type": "supranational-institution",
+      "officialUrl": "https://www.eib.org/"
+    },
+    "publicAccess": {
+      "searchUrl": null,
+      "accessLevel": "open",
+      "freeToSearch": null,
+      "loginRequired": false,
+      "identityVerificationRequired": false,
+      "captcha": null,
+      "geographicRestriction": false,
+      "paidDocumentsAvailable": false,
+      "notes": "The list is published as a table on the page itself and was retrieved anonymously with no credential and no fee. There is no search interface over it, so free search is left unstated rather than claimed: a reader reads the published list rather than querying it."
+    },
+    "petroHrysScore": 82,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 7,
+      "verificationQuality": 9,
+      "platformReputation": 8,
+      "spamResistance": 10,
+      "industryImportance": 7,
+      "longTermStability": 8,
+      "submissionQuality": 5,
+      "transparency": 9,
+      "moderationQuality": 9
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": true,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-06",
+    "nextVerification": "2027-08-09",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "eu-edes"
+      ],
+      "usedWith": [
+        "eu-edes"
+      ],
+      "competitors": []
+    },
+    "bestFor": [
+      "Checking whether an entity is currently excluded from bank-financed activity, and until when.",
+      "Due diligence on a prospective partner in a project financed by the bank, alongside the Commission’s own exclusion list."
+    ],
+    "notRecommendedFor": [
+      "Concluding that an absent entity has never been excluded. Only entities currently publicly subject to a decision appear.",
+      "Any inference beyond bank-financed activity. This is not a general debarment list and says nothing about other regimes."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Counterparties and contractors in projects financed by the European Investment Bank"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "Each entry states the nature of the decision and its validity dates, so a reader can tell what was imposed and whether it is still running.",
+      "It is published openly with no account and no fee, which is unusual for exclusion data.",
+      "It distinguishes exclusion decisions from settlement agreements and conditional outcomes rather than flattening them into one status."
+    ],
+    "cons": [
+      "It is a published list rather than a searchable register, so there is no query interface and no export.",
+      "It shows only entities currently publicly subject to a decision, so absence proves nothing about past conduct or past exclusions.",
+      "It is confined to the bank’s own exclusion regime and does not cover exclusion from other EU programmes."
+    ],
+    "editorNotes": "Verified 2026-08-06 from the bank’s own exclusion page, retrieved directly, with the published table of entities read in full. FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: The European Investment Bank, acting under its own exclusion policy. Exclusion decisions and settlement agreements are the bank’s own acts, so unlike most records in the EU set the institution here is the source of record. RESPONSIBLE AUTHORITY: European Investment Bank. TECHNICAL PLATFORM: Not separately established. The list is published as part of the bank’s own site; no external supplier is named on any page fetched. PUBLIC ACCESS INTERFACE: The published table on the bank’s exclusion page. Registry type: exclusion-and-debarment-register, the same type as the Commission’s own exclusion database, which this record is related to but does not duplicate: the two rest on different instruments, cover different populations and are published by different institutions. Access: free search is deliberately left unstated rather than recorded as true, because there is no search surface at all — the page publishes a table. An earlier draft asserted free search and that did not survive checking."
+  },
+  {
+    "id": "eu-ctis",
+    "name": "Clinical Trials Information System",
+    "slug": "clinical-trials-information-system",
+    "country": "european-union",
+    "category": "government",
+    "website": "https://euclinicaltrials.eu/",
+    "submissionUrl": null,
+    "description": "CTIS is the European system through which clinical trials in the EU and EEA are applied for, assessed and published. Its public website carries the trial information the Clinical Trials Regulation requires to be disclosed; the authorisation decisions themselves are taken by the member states concerned.",
+    "tier": "tier1",
+    "scope": "supranational",
+    "officialName": "Clinical Trials Information System (CTIS)",
+    "primaryRegistryType": "clinical-trial-register",
+    "registryTypes": [
+      "clinical-trial-register"
+    ],
+    "operator": {
+      "name": "European Medicines Agency",
+      "type": "supranational-institution",
+      "officialUrl": "https://www.ema.europa.eu/"
+    },
+    "publicAccess": {
+      "searchUrl": null,
+      "accessLevel": "open",
+      "freeToSearch": true,
+      "loginRequired": false,
+      "identityVerificationRequired": false,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": false,
+      "notes": "Open public access is recorded from the agency’s own documentation rather than from an executed search: the agency states that anybody can view information held in the system on clinical trials in the EU and EEA by using the searchable public website, and that the system went live with that website on 31 January 2022. The public site itself is a client-rendered application and was not exercised, so no claim is made about result formatting, export or any CAPTCHA, and no search URL is published."
+    },
+    "petroHrysScore": 89,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 8,
+      "verificationQuality": 9,
+      "platformReputation": 9,
+      "spamResistance": 10,
+      "industryImportance": 9,
+      "longTermStability": 9,
+      "submissionQuality": 6,
+      "transparency": 10,
+      "moderationQuality": 8
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": true,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": true,
+      "openSource": null,
+      "nonprofit": true,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-06",
+    "nextVerification": "2027-08-27",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Finding clinical trials authorised in the EU or EEA, with their sponsor, status and the details the regulation requires to be public.",
+      "Checking what a sponsor has disclosed about a trial, including results where the regulation requires them."
+    ],
+    "notRecommendedFor": [
+      "Treating a listing as an approval by the agency. Authorisation is decided by the member states concerned; this system publishes what was submitted and decided.",
+      "Medicine, device or company verification. It records trials, not products, manufacturers or businesses."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Clinical trial sponsors and investigators in the EU and EEA"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "It is the single European system for clinical trial applications and their publication, replacing a scattered national picture.",
+      "The agency states plainly that anybody can view the public information, so the access position comes from the operator rather than from inference.",
+      "It carries the disclosure the Clinical Trials Regulation mandates, so what appears is a legal obligation rather than voluntary publication."
+    ],
+    "cons": [
+      "It is the publication interface. The trial authorisation is a decision of the member states concerned, and the system does not itself constitute it.",
+      "The public website is a client-rendered application that was not exercised, so its search behaviour, filters and export options were not observed.",
+      "Trials conducted before the current regime are not all here. The predecessor register continues to display legacy trials, so absence is not proof a trial never existed."
+    ],
+    "editorNotes": "Verified 2026-08-06 from the agency’s own pages on the system, retrieved directly, and from the predecessor register’s own notice. FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: The member states concerned, which authorise clinical trials under Regulation (EU) No 536/2014. The agency describes the system as supporting the flow of information between sponsors, member states, EEA countries and the Commission — it is the medium through which applications are made and information is published, not the body that authorises a trial. RESPONSIBLE AUTHORITY: European Medicines Agency, which operates the system. TECHNICAL PLATFORM: Not separately established. No external supplier is named on any page fetched. PUBLIC ACCESS INTERFACE: The searchable public website, which the agency states went live on 31 January 2022 and which anybody can use. Registry type: clinical-trial-register, one of five types approved for this wave. public-filing-database was considered and rejected: it would technically cover a sponsor filing a dossier with a regulator, but every other member of that type in this dataset is a corporate or financial filing, so using it here would misdescribe the record. The type is deliberately narrow and must not be widened into a general health, medicine or research database. Predecessor: the EU Clinical Trials Register remains live for legacy trials and continues to display newly submitted results for them, so it is a live legacy system rather than an archive; it is recorded in the backlog rather than published."
+  },
+  {
+    "id": "eu-giview",
+    "name": "GIview",
+    "slug": "giview",
+    "country": "european-union",
+    "category": "government",
+    "website": "https://www.tmdn.org/giview/",
+    "submissionUrl": null,
+    "description": "GIview is the search portal for geographical indications protected in the European Union. Responsibility for the underlying registers is split: the European Commission registers geographical indications for agricultural products, wines and spirit drinks, while the EU Intellectual Property Office is responsible for those covering craft and industrial products.",
+    "tier": "tier1",
+    "scope": "supranational",
+    "resourceIdentity": {
+      "canonicalDomain": "tmdn.org",
+      "systemKey": "giview",
+      "sharedHostGroup": "tmdn-org"
+    },
+    "primaryRegistryType": "geographical-indication-register",
+    "registryTypes": [
+      "geographical-indication-register"
+    ],
+    "operator": {
+      "name": "European Union Intellectual Property Office",
+      "type": "supranational-institution",
+      "officialUrl": "https://www.euipo.europa.eu/"
+    },
+    "publicAccess": {
+      "searchUrl": null,
+      "accessLevel": "unknown",
+      "freeToSearch": null,
+      "loginRequired": null,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "The portal was retrieved anonymously and identifies itself by name, but it is a client-rendered application that could not be exercised, so no search behaviour is asserted, every access boolean stays null and no search URL is published. A response on this host is not by itself evidence a particular resource exists, because unmatched paths also return an application shell."
+    },
+    "petroHrysScore": 80,
+    "scoreFactors": {
+      "editorialTrust": 9,
+      "businessUsefulness": 7,
+      "verificationQuality": 8,
+      "platformReputation": 9,
+      "spamResistance": 10,
+      "industryImportance": 7,
+      "longTermStability": 8,
+      "submissionQuality": 5,
+      "transparency": 8,
+      "moderationQuality": 8
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-06",
+    "nextVerification": "2027-09-02",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "eu-euipo-esearch-plus"
+      ],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Checking whether a product name is protected in the EU as a geographical indication or designation of origin.",
+      "Finding which EU protection applies to a food, wine, spirit or craft and industrial product name."
+    ],
+    "notRecommendedFor": [
+      "Trade mark searching. A geographical indication protects origin, not a trader’s brand, and the two are separate rights on separate registers.",
+      "Assuming one authority is behind everything shown, because responsibility for EU geographical indications is split by product category."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Producers and users of EU protected geographical indications"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "It brings EU geographical indications into one search rather than requiring a reader to know which authority protects which category.",
+      "It is operated within the official EU intellectual property network rather than by a commercial aggregator.",
+      "It is scoped to geographical indications, which keeps a distinct right from being folded into trade mark tooling."
+    ],
+    "cons": [
+      "It is a search portal over registers whose responsibility is split between the Commission and the intellectual property office; it is not itself the constitutive register for either.",
+      "The portal is a client-rendered application that could not be exercised, so its search behaviour and coverage were not observed.",
+      "A geographical indication is not a trade mark. An entry says nothing about whether any brand using the name is registrable or lawful."
+    ],
+    "editorNotes": "Verified 2026-08-06 from the portal itself, which serves its own name, and from the intellectual property office’s own search hub. FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: Split, and stated as such. Geographical indications for agricultural products, wines and spirit drinks are registered by the European Commission; the EU Intellectual Property Office states that it is responsible for EU geographical indications for craft and industrial products. The portal searches across those registers rather than constituting either. RESPONSIBLE AUTHORITY: European Union Intellectual Property Office, which operates the portal within the EU intellectual property network. TECHNICAL PLATFORM: The shared network application at tmdn.org, which also serves the trade mark and design portals. PUBLIC ACCESS INTERFACE: The GIview portal on the network host. Registry type: geographical-indication-register, one of five types approved for this wave. trademark-register was considered and firmly rejected: a geographical indication protects origin rather than a brand indicator, the two are separate rights with separate registers, and typing this as a trade mark register would misdescribe the right itself. Shared host: this record joins the trade mark and design portals on one official host and declares resourceIdentity accordingly."
+  },
+  {
+    "id": "eu-sanctions-map",
+    "name": "EU Sanctions Map",
+    "slug": "eu-sanctions-map",
+    "country": "european-union",
+    "category": "government",
+    "website": "https://www.sanctionsmap.eu/",
+    "submissionUrl": null,
+    "description": "The EU Sanctions Map presents the European Union’s restrictive-measures regimes and the legal acts that constitute them, so a reader can see which measures exist and where they come from. It indexes regimes rather than listing designated persons, and its operator states that only the acts published in the Official Journal are authentic.",
+    "tier": "tier1",
+    "scope": "supranational",
+    "primaryRegistryType": "sanctions-and-restrictive-measures-index",
+    "registryTypes": [
+      "sanctions-and-restrictive-measures-index"
+    ],
+    "operator": {
+      "name": "Council of the European Union",
+      "type": "supranational-institution",
+      "officialUrl": "https://www.consilium.europa.eu/"
+    },
+    "publicAccess": {
+      "searchUrl": null,
+      "accessLevel": "unknown",
+      "freeToSearch": null,
+      "loginRequired": null,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "The site is a client-rendered application. Its regime data was retrieved anonymously from the service’s own public interface, which confirms the system is live and that its indexed object is a regime, but the rendered application was never exercised, so no search behaviour is asserted, every access boolean stays null and no search URL is published."
+    },
+    "petroHrysScore": 81,
+    "scoreFactors": {
+      "editorialTrust": 9,
+      "businessUsefulness": 7,
+      "verificationQuality": 8,
+      "platformReputation": 9,
+      "spamResistance": 10,
+      "industryImportance": 8,
+      "longTermStability": 8,
+      "submissionQuality": 5,
+      "transparency": 9,
+      "moderationQuality": 8
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": true,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-06",
+    "nextVerification": "2027-08-29",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "eu-consolidated-financial-sanctions"
+      ],
+      "usedWith": [
+        "eu-consolidated-financial-sanctions"
+      ],
+      "competitors": []
+    },
+    "bestFor": [
+      "Finding which EU restrictive-measures regimes exist and which legal acts constitute each one.",
+      "Getting from a regime to its underlying legal acts, which are the authentic texts."
+    ],
+    "notRecommendedFor": [
+      "Screening a person or entity against EU sanctions. This indexes regimes, not designations; the consolidated designation list is the system for that.",
+      "Relying on it as the authentic legal text. Its operator states that only the acts published in the Official Journal are authentic and produce legal effects."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Organisations assessing exposure to EU restrictive measures"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "It organises a genuinely complex body of measures by regime and links each to its constituting acts, which no plain legal search does as directly.",
+      "It is explicit about its own limits, stating that it visualises measures so a user can obtain general information quickly and that only the published acts are authentic.",
+      "Its regime data is served openly, so the structure of the index can be checked rather than taken on trust."
+    ],
+    "cons": [
+      "It is an index of regimes and acts, not a designation list. It will not tell you whether a named person or entity is designated.",
+      "Its operator states that the information is not necessarily comprehensive, complete or up to date, so it is a navigation aid rather than a legal source.",
+      "Only the acts published in the Official Journal are authentic and produce legal effects, so nothing shown here can be relied on as the legal text."
+    ],
+    "editorNotes": "Verified 2026-08-06 against the service’s own public interface, which returned live regime records, and against its own published disclaimer text. FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: The legal acts adopted by the Council and published in the Official Journal of the European Union. The service states that the authentic versions of the relevant acts, including their preambles, are those published in the Official Journal and available in EUR-Lex. The map constitutes nothing. RESPONSIBLE AUTHORITY: Council of the European Union, whose restrictive-measures regimes the service presents. Operational delivery of the site is carried out on the Council’s behalf, and no separate operator is asserted here beyond what the service itself states. TECHNICAL PLATFORM: Not separately established. No external supplier is named on any page fetched. PUBLIC ACCESS INTERFACE: The public map application and the open interface through which its regime data is served. Registry type: sanctions-and-restrictive-measures-index, one of five types approved for this wave and created precisely so this system need not be mistyped. sanctions-designation-list was rejected because the indexed object here is a regime, which the service’s own data confirms: its public interface returns regime records with their specifications and notes, not designated persons. exclusion-and-debarment-register was rejected outright as a category error — restrictive measures adopted under the common foreign and security policy are a different instrument from exclusion from a funding or procurement programme, which is what the exclusion type covers and what the Commission’s own exclusion database records."
+  },
+  {
+    "id": "eu-consolidated-financial-sanctions",
+    "name": "Consolidated list of EU financial sanctions",
+    "slug": "consolidated-list-of-eu-financial-sanctions",
+    "country": "european-union",
+    "category": "government",
+    "website": "https://webgate.ec.europa.eu/fsd/fsf",
+    "submissionUrl": null,
+    "description": "The consolidated list brings together the natural and legal persons, groups and entities subject to EU financial sanctions. The Commission manages and updates it, and it reflects the officially adopted texts published in the Official Journal of the European Union.",
+    "tier": "tier1",
+    "scope": "supranational",
+    "officialName": "Consolidated list of persons, groups and entities subject to EU financial sanctions",
+    "primaryRegistryType": "sanctions-designation-list",
+    "registryTypes": [
+      "sanctions-designation-list"
+    ],
+    "operator": {
+      "name": "European Commission, Directorate-General for Financial Stability, Financial Services and Capital Markets Union",
+      "type": "supranational-institution",
+      "officialUrl": "https://finance.ec.europa.eu/"
+    },
+    "publicAccess": {
+      "searchUrl": null,
+      "accessLevel": "unknown",
+      "freeToSearch": null,
+      "loginRequired": null,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "The web application entered a redirect loop for an anonymous client and never served a page, which indicates it is credential-gated but does not establish how. The Commission separately documents that a downloadable version of the consolidated list is available. Because neither surface was successfully exercised, every access boolean stays null, the access level is recorded as unknown and no search URL is published."
+    },
+    "petroHrysScore": 90,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 9,
+      "verificationQuality": 9,
+      "platformReputation": 9,
+      "spamResistance": 10,
+      "industryImportance": 10,
+      "longTermStability": 9,
+      "submissionQuality": 5,
+      "transparency": 8,
+      "moderationQuality": 9
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": true,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": true,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-06",
+    "nextVerification": "2027-08-10",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "eu-sanctions-map"
+      ],
+      "usedWith": [
+        "eu-sanctions-map"
+      ],
+      "competitors": []
+    },
+    "bestFor": [
+      "Establishing which persons, groups and entities are subject to EU financial sanctions, from the list the Commission itself maintains.",
+      "Obtaining the consolidated designation data as a whole rather than reading each legal act separately."
+    ],
+    "notRecommendedFor": [
+      "Treating a hit or a miss as legally decisive. The list reflects the adopted texts; the acts published in the Official Journal are the legal source.",
+      "Concluding that an absent party is unrestricted. This covers EU financial sanctions only, and says nothing about any other regime or jurisdiction."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Organisations required to screen counterparties against EU financial sanctions"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "It consolidates designations that are otherwise spread across many separate legal acts into one maintained list.",
+      "The Commission states that it manages and updates the list whenever necessary, so the maintenance responsibility is explicit.",
+      "It is the reference dataset that EU financial-sanctions screening is built on, which makes it directly useful rather than merely informative."
+    ],
+    "cons": [
+      "It reflects the officially adopted texts rather than constituting them. The authentic source is the act published in the Official Journal.",
+      "The web application refused an anonymous client with a redirect loop, so its access position could not be established and is recorded as unknown.",
+      "It covers EU financial sanctions only. Absence proves nothing about designations by other authorities or under other regimes."
+    ],
+    "editorNotes": "Verified 2026-08-06 from the Commission’s own sanctions overview page, retrieved directly, and by attempting the application itself. FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: The legal acts adopted at EU level and published in the Official Journal of the European Union. The Commission’s own description is explicit: the consolidated list reflects the officially adopted texts published in the Official Journal. The list is a consolidation, not the instrument that designates. RESPONSIBLE AUTHORITY: European Commission, through the directorate responsible for financial stability, financial services and capital markets union, which the Commission states manages and updates the list. TECHNICAL PLATFORM: Not separately established. The application is served from a Commission host; no external supplier is named on any page fetched. PUBLIC ACCESS INTERFACE: The financial sanctions application, which refused an anonymous client, together with a downloadable version of the list that the Commission documents. Registry type: sanctions-designation-list, one of five types approved for this wave. exclusion-and-debarment-register was rejected as a category error and the distinction is deliberate: a designation under a restrictive-measures regime is a foreign-policy measure, while exclusion under the Financial Regulation bars a party from EU-funded award procedures. The dataset carries both, as separate records with separate types — the Commission’s exclusion database and this list are not the same thing and must not be merged. sanctions-and-restrictive-measures-index was rejected in the other direction: this lists designated persons, not regimes."
+  },
+  {
+    "id": "eu-pesticides-database",
+    "name": "EU Pesticides Database",
+    "slug": "eu-pesticides-database",
+    "country": "european-union",
+    "category": "government",
+    "website": "https://ec.europa.eu/food/plant/pesticides/eu-pesticides-database/start/screen/active-substances",
+    "submissionUrl": null,
+    "description": "The EU Pesticides Database brings together active substance approvals, plant protection product authorisations and maximum residue levels under EU plant-protection law. Its operator states that it is provided for information only and has no legal value, and that the official information is published in the Official Journal of the European Union.",
+    "tier": "tier1",
+    "scope": "supranational",
+    "resourceIdentity": {
+      "canonicalDomain": "ec.europa.eu",
+      "systemKey": "eu-pesticides-database",
+      "sharedHostGroup": "ec-europa-eu"
+    },
+    "primaryRegistryType": "plant-protection-product-authorisation-register",
+    "registryTypes": [
+      "plant-protection-product-authorisation-register"
+    ],
+    "operator": {
+      "name": "European Commission, Directorate-General for Health and Food Safety",
+      "type": "supranational-institution",
+      "officialUrl": "https://food.ec.europa.eu/"
+    },
+    "publicAccess": {
+      "searchUrl": null,
+      "accessLevel": "unknown",
+      "freeToSearch": null,
+      "loginRequired": null,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "The database is a client-rendered application that was not exercised, so no search behaviour is asserted, every access boolean stays null and no search URL is published."
+    },
+    "petroHrysScore": 77,
+    "scoreFactors": {
+      "editorialTrust": 9,
+      "businessUsefulness": 7,
+      "verificationQuality": 7,
+      "platformReputation": 8,
+      "spamResistance": 10,
+      "industryImportance": 7,
+      "longTermStability": 8,
+      "submissionQuality": 5,
+      "transparency": 9,
+      "moderationQuality": 7
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": true,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-06",
+    "nextVerification": "2027-08-29",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [
+        "eu-echa-chem"
+      ],
+      "competitors": []
+    },
+    "bestFor": [
+      "Finding whether an active substance is approved for plant protection use in the EU, and on what terms.",
+      "Looking up maximum residue levels for a substance and crop combination in one place."
+    ],
+    "notRecommendedFor": [
+      "Any legal reliance. Its operator states the database is provided solely for information and has no legal value; the official information is in the Official Journal.",
+      "Chemicals registration questions. This records plant-protection approvals and authorisations, which is a different regime from chemicals registration."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Plant protection product manufacturers, distributors and food producers"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "It assembles substance approvals, product authorisations and residue levels that otherwise sit across several legal instruments.",
+      "Its operator states its limits openly rather than leaving a reader to assume legal force.",
+      "It is the practical starting point for questions about what may be used on crops in the EU."
+    ],
+    "cons": [
+      "It has no legal value. Its operator says so directly, and points to the Official Journal for the official information.",
+      "It is part aggregator: product authorisations are granted by member states, and the operator states that the information provided is their responsibility.",
+      "The application is client-rendered and was not exercised, so its search behaviour, coverage and export options were not observed.",
+      "It does not record chemicals registrations, biocidal product approvals or any authorisation outside plant-protection law, and an entry proves nothing about a product’s status under those regimes."
+    ],
+    "editorNotes": "Verified 2026-08-06 from the Commission’s own database pages, retrieved directly. FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: The Official Journal of the European Union for substance approvals and residue levels, and the member states for product authorisations. The operator states that the database is made available solely for the purpose of information, that it has no legal value, and that the official information is published in the Official Journal. It also states that member states are responsible for granting authorisations and that the information provided is their responsibility. RESPONSIBLE AUTHORITY: European Commission, through the directorate responsible for health and food safety. TECHNICAL PLATFORM: Not separately established. No external supplier is named on any page fetched. PUBLIC ACCESS INTERFACE: The public database application on the Commission’s food host. Registry type: plant-protection-product-authorisation-register, one of five types approved for this wave. The type is deliberately narrow and must not be collapsed into a generic chemical or substance register: the chemicals platform already published in this dataset records filings made under chemicals law, which is a different legal basis with a different recorded object. The no-legal-value disclaimer is carried in the published text rather than only in these notes, because a reader who relied on this database as authoritative would be relying on something its own operator disclaims. Shared host: this record joins the others on the Commission host and declares resourceIdentity."
   }
 ]

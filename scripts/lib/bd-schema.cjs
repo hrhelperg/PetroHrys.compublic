@@ -516,6 +516,17 @@ const REGISTRY_TYPES = [
   // into a neighbouring type.
   'public-procurement-notice-database',
   'registered-design-register',
+  // Added for Wave 1F.1, for the same reason again: five verified EU systems had
+  // no honest fit and were held back as classification blockers rather than
+  // squeezed into a neighbouring type. The two sanctions types are deliberately
+  // SEPARATE from each other and from exclusion-and-debarment-register: a regime
+  // is not a designation, and a designation under a restrictive-measures regime
+  // is not a debarment from a funding programme.
+  'clinical-trial-register',
+  'geographical-indication-register',
+  'sanctions-and-restrictive-measures-index',
+  'sanctions-designation-list',
+  'plant-protection-product-authorisation-register',
 ];
 
 // --- operator ---------------------------------------------------------------
