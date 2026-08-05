@@ -160,26 +160,65 @@ function validateRegistry(registry) {
         if (typeof j.name !== 'string' || !j.name.trim()) {
           add('jurisdiction.name', 'A jurisdiction must be named.');
         }
+        // Never both. A jurisdiction has one code, or covers several
+        // subdivisions; carrying both leaves it ambiguous which is authoritative.
+        //
+        // Neither is still permitted for a non-cross-territory jurisdiction,
+        // where it is identified by normalised name. That is a deliberate
+        // pre-existing allowance — "null is the honest value where no code
+        // exists" — and deleting it would force an invented code on exactly the
+        // places this phase exists to protect.
+        if (!isNullish(j.code) && !isNullish(j.covers)) {
+          add('jurisdiction', 'Jurisdiction carries both "code" and "covers"; a jurisdiction '
+            + 'has one code, or covers several subdivisions, never both.');
+        }
+
+        const parent = countryBySlug.get(j.parentCountry);
+        const parentIso2 = parent && S.ISO_3166_1_RE.test(String(parent.iso2)) ? parent.iso2 : null;
+
         if (!isNullish(j.code)) {
           const problem = S.iso3166_2Problem(j.code);
           if (problem) {
             add('jurisdiction.code', `${JSON.stringify(j.code)} ${problem}.`);
-          } else {
-            const prefix = j.code.slice(0, 2);
-            const parent = countryBySlug.get(j.parentCountry);
+          } else if (!parent) {
             // The prefix check needs a usable parent code. Without one it is not
             // "passed" — it is unperformed, and saying so beats a silent skip.
-            if (!parent) {
-              add('jurisdiction.code', `Cannot check the prefix of "${j.code}": parent country `
-                + `"${j.parentCountry}" is not declared.`);
-            } else if (!S.ISO_3166_1_RE.test(String(parent.iso2))) {
-              add('jurisdiction.code', `Cannot check the prefix of "${j.code}": parent `
-                + `"${parent.slug}" has no usable ISO 3166-1 code (${JSON.stringify(parent.iso2)}).`);
-            } else if (parent.iso2 !== prefix) {
-              add('jurisdiction.code',
-                `Code "${j.code}" has prefix "${prefix}" but ${parent.name} is "${parent.iso2}".`);
-            }
+            add('jurisdiction.code', `Cannot check the prefix of "${j.code}": parent country `
+              + `"${j.parentCountry}" is not declared.`);
+          } else if (!parentIso2) {
+            add('jurisdiction.code', `Cannot check the prefix of "${j.code}": parent `
+              + `"${parent.slug}" has no usable ISO 3166-1 code (${JSON.stringify(parent.iso2)}).`);
+          } else if (parentIso2 !== j.code.slice(0, 2)) {
+            // Reported before the allowlist because "wrong country" is the more
+            // specific diagnosis: "US-ON" filed under Canada is a misfiling, not
+            // merely an unknown code.
+            add('jurisdiction.code',
+              `Code "${j.code}" has prefix "${j.code.slice(0, 2)}" but ${parent.name} is "${parentIso2}".`);
+          } else {
+            // Shape is not existence. "GB-ZZZ" and "GB-EAW" are both well-formed
+            // and neither is an ISO 3166-2 subdivision, so the allowlist decides.
+            const unknown = S.ISO.unknownCodeProblem(j.code);
+            if (unknown) add('jurisdiction.code', `${JSON.stringify(j.code)} ${unknown}.`);
           }
+        }
+
+        if (!isNullish(j.covers)) {
+          if (!parent) {
+            add('jurisdiction.covers', `Cannot check membership: parent country `
+              + `"${j.parentCountry}" is not declared.`);
+          }
+          for (const problem of S.coversProblems(j.covers, parentIso2)) {
+            add('jurisdiction.covers', `${problem}.`);
+          }
+          // Only a cross-territory jurisdiction spans subdivisions. A state or a
+          // province that claimed several would be describing something else.
+          if (j.type && j.type !== 'cross-territory') {
+            add('jurisdiction.covers', `Only jurisdiction type "cross-territory" may carry `
+              + `"covers"; this record is "${j.type}".`);
+          }
+        } else if (j.type === 'cross-territory') {
+          add('jurisdiction.covers', 'A "cross-territory" jurisdiction must list the '
+            + 'subdivisions it covers.');
         }
         if (!countryBySlug.has(j.parentCountry)) {
           add('jurisdiction.parentCountry', `References unknown country "${j.parentCountry}".`);

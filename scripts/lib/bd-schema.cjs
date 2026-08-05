@@ -203,8 +203,23 @@ const SCOPE_DEFINITIONS = {
   regional: 'A multi-country or functional region that is not a subnational jurisdiction.',
 };
 
+// A jurisdiction TYPE describes what kind of subnational unit a record belongs
+// to. It is not the geographic registry's notion of a country: `entityType`
+// there names a sovereign state, whereas `jurisdiction.type = 'country'` names
+// a constituent country INSIDE one — England, Scotland and Wales are countries
+// in this sense and the United Kingdom is not.
+//
+// Northern Ireland stays `province`, which is the category ISO 3166-2 itself
+// assigns it. Using `country` for it would be tidier and would misdescribe the
+// standard the codes come from.
+//
+// `cross-territory` is for a jurisdiction that spans several subdivisions and
+// has no code of its own — England and Wales is one legal jurisdiction over two
+// ISO subdivisions, and the register that serves it is neither England's nor
+// Wales's. Such a record carries `covers`, never `code`.
 const JURISDICTION_TYPES = ['state', 'province', 'territory', 'federal-district',
-  'region', 'autonomous-community', 'prefecture', 'municipality'];
+  'region', 'autonomous-community', 'prefecture', 'municipality',
+  'country', 'cross-territory'];
 
 // --- grouping vocabulary -----------------------------------------------------
 // Presentation labels only. `jurisdiction.type` stays the canonical machine
@@ -257,7 +272,19 @@ const JURISDICTION_VOCABULARY = {
   // someone writes the correct vocabulary, rather than silently borrowing
   // American terminology.
   france: { national: 'National', other: 'Other nationwide listings' },
-  'united-kingdom': { national: 'National', other: 'Other nationwide listings' },
+  // The United Kingdom is not one jurisdiction. A register may cover the whole
+  // UK, one constituent country, or a legal jurisdiction spanning several —
+  // and calling an England-only register "UK-wide" is the error this vocabulary
+  // exists to prevent. "Great Britain" is not a synonym for the United Kingdom
+  // either: it excludes Northern Ireland, and a GB-wide system is modelled as a
+  // cross-territory jurisdiction covering England, Scotland and Wales.
+  'united-kingdom': {
+    national: 'UK-wide',
+    other: 'Other nationwide listings',
+    country: 'Constituent countries',
+    province: 'Constituent countries',
+    'cross-territory': 'Cross-territory jurisdictions',
+  },
   poland: { national: 'National', other: 'Other nationwide listings' },
   'czech-republic': { national: 'National', other: 'Other nationwide listings' },
   'european-union': { national: 'Union-wide', other: 'Other Union-wide listings' },
@@ -300,6 +327,8 @@ function allowedJurisdictionTypes(countrySlug) {
 //
 // ISO 3166-1 alpha-2: exactly two uppercase ASCII letters. Anchored, so "usa",
 // "Us", "U5", " US " and "" are all refused.
+const ISO = require('./iso-3166-2.cjs');
+
 const ISO_3166_1_RE = /^[A-Z]{2}$/;
 // ISO 3166-2: the alpha-2 country, one hyphen, then 1-3 uppercase alphanumerics.
 const ISO_3166_2_RE = /^[A-Z]{2}-[A-Z0-9]{1,3}$/;
@@ -325,6 +354,68 @@ function iso3166_2Problem(code) {
   return ISO_3166_2_RE.test(code) ? null : 'is not a well-formed ISO 3166-2 code';
 }
 
+// --- cross-territory coverage ------------------------------------------------
+// A jurisdiction is identified either by ONE ISO 3166-2 code, or — when it
+// spans several subdivisions and has no code of its own — by the SET of codes
+// it covers. England and Wales is the case that forces this: it is one legal
+// jurisdiction over two ISO subdivisions, and inventing "GB-EAW" to name it
+// would put a deprecated non-ISO identifier into a field that claims to hold
+// ISO codes.
+//
+// `covers` is stored sorted so that the same set is always the same bytes and
+// the same identity. Sorting is done here rather than left to the author,
+// because two records covering the same territory in different orders would
+// otherwise be two different jurisdictions.
+const sortedCovers = (covers) => (Array.isArray(covers) ? [...covers].sort() : covers);
+
+// Returns a list of reasons `covers` is unusable, or [] if it is fine. The
+// caller supplies the parent country's ISO 3166-1 code so membership can be
+// checked; without it that particular check is skipped rather than faked.
+function coversProblems(covers, parentIso2) {
+  const out = [];
+  if (!Array.isArray(covers)) return ['must be an array of ISO 3166-2 codes'];
+  if (covers.length < 2) {
+    out.push('must list at least two subdivisions; a single-subdivision '
+      + 'jurisdiction uses "code" instead');
+  }
+  const seen = new Set();
+  for (const code of covers) {
+    if (typeof code !== 'string') { out.push(`contains a ${typeof code}, not a code`); continue; }
+    if (seen.has(code)) out.push(`lists ${JSON.stringify(code)} more than once`);
+    seen.add(code);
+    const shape = iso3166_2Problem(code);
+    if (shape) { out.push(`${JSON.stringify(code)} ${shape}`); continue; }
+    const unknown = ISO.unknownCodeProblem(code);
+    if (unknown) { out.push(`${JSON.stringify(code)} ${unknown}`); continue; }
+    if (parentIso2 && !code.startsWith(`${parentIso2}-`)) {
+      out.push(`${JSON.stringify(code)} does not belong to the parent country "${parentIso2}"`);
+    }
+  }
+  // The stored order is part of the identity, so an unsorted array is a fault
+  // to report rather than something to quietly fix on the way past.
+  const sorted = [...covers].filter((c) => typeof c === 'string').sort();
+  const given = covers.filter((c) => typeof c === 'string');
+  if (given.length === sorted.length && given.join(',') !== sorted.join(',')) {
+    out.push(`must be sorted; expected [${sorted.join(', ')}]`);
+  }
+  return out;
+}
+
+// Exactly one of code / covers. Both is ambiguous; neither leaves the
+// jurisdiction unidentifiable.
+function codeCoversProblem(jurisdiction) {
+  const hasCode = jurisdiction.code !== null && jurisdiction.code !== undefined;
+  const hasCovers = jurisdiction.covers !== null && jurisdiction.covers !== undefined;
+  if (hasCode && hasCovers) {
+    return 'carries both "code" and "covers"; a jurisdiction has one code, or covers '
+      + 'several subdivisions, never both';
+  }
+  if (!hasCode && !hasCovers) {
+    return 'carries neither "code" nor "covers"; one is required to identify the territory';
+  }
+  return null;
+}
+
 // --- jurisdiction identity ---------------------------------------------------
 // Several registry records may legitimately belong to one jurisdiction —
 // California has more than one. What must be consistent is the DEFINITION of
@@ -347,9 +438,15 @@ function jurisdictionIdentity(jurisdiction) {
   if (!jurisdiction || typeof jurisdiction !== 'object') return null;
   const parent = jurisdiction.parentCountry || '';
   const type = jurisdiction.type || '';
-  return jurisdiction.code
-    ? { key: `${parent}|${type}|code:${jurisdiction.code}`, by: 'code' }
-    : { key: `${parent}|${type}|name:${normaliseJurisdictionName(jurisdiction.name)}`, by: 'name' };
+  if (jurisdiction.code) {
+    return { key: `${parent}|${type}|code:${jurisdiction.code}`, by: 'code' };
+  }
+  // A covers set identifies the territory as firmly as a code does, and sorting
+  // it means the same two subdivisions in either order are one jurisdiction.
+  if (Array.isArray(jurisdiction.covers) && jurisdiction.covers.length) {
+    return { key: `${parent}|${type}|covers:${sortedCovers(jurisdiction.covers).join(',')}`, by: 'covers' };
+  }
+  return { key: `${parent}|${type}|name:${normaliseJurisdictionName(jurisdiction.name)}`, by: 'name' };
 }
 
 // The reverse view: one place, keyed by name, so two codes claiming the same
@@ -751,7 +848,7 @@ function urlsAreMateriallyDifferent(a, b) {
 // applies at every level with a dotted path in the message.
 const NESTED_RECORD_KEYS = {
   resourceIdentity: RESOURCE_IDENTITY_KEYS,
-  jurisdiction: ['type', 'name', 'code', 'parentCountry'],
+  jurisdiction: ['type', 'name', 'code', 'covers', 'parentCountry'],
   operator: ['name', 'type', 'officialUrl'],
   publicAccess: ['searchUrl', 'accessLevel', ...PUBLIC_ACCESS_BOOLEANS, 'notes'],
   verification: ['status', 'source', 'reviewers'],
@@ -779,6 +876,7 @@ module.exports = {
   ENTITY_TYPES, SCOPES, SCOPE_DEFINITIONS, JURISDICTION_TYPES,
   ISO_3166_1_RE, ISO_3166_2_RE, iso3166_2Problem,
   normaliseJurisdictionName, jurisdictionIdentity, jurisdictionNameKey,
+  sortedCovers, coversProblems, codeCoversProblem, ISO,
   JURISDICTION_VOCABULARY, NATIONAL_KEY, OTHER_KEY, DEFAULT_NATIONAL_LABEL,
   jurisdictionLabel, allowedJurisdictionTypes,
   ENGLISH_NAME_SOURCES, displayName, isEditorialTranslation,

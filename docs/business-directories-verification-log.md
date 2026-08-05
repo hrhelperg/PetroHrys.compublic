@@ -6,7 +6,7 @@ Every published record must carry a verification status, a source, a date and at
 least one named reviewer; the validator refuses a `verified` record that is
 missing any of them.
 
-**96 records.**
+**153 records.**
 
 | Directory | Country | Status | Source | Last verified | Next due | Reviewer |
 |---|---|---|---|---|---|---|
@@ -42,6 +42,7 @@ missing any of them.
 | Packagist.org | global | verified | Official website | 2026-08-04 | 2027-05-20 | Petro Hrys |
 | RubyGems.org | global | verified | Official website | 2026-08-04 | 2027-05-09 | Petro Hrys |
 | OpenCorporates | global | verified | Official website | 2026-08-04 | 2027-05-25 | Petro Hrys |
+| Australian Trade Mark Search | australia | verified | Government register | 2026-08-05 | 2027-08-31 | Petro Hrys |
 | Patent Public Search | united-states | verified | Official website | 2026-08-04 | 2027-08-27 | Petro Hrys |
 | SAM.gov Exclusions | united-states | verified | Government register | 2026-08-04 | 2027-08-07 | Petro Hrys |
 | USAspending.gov | united-states | verified | Government register | 2026-08-04 | 2027-08-27 | Petro Hrys |
@@ -54,45 +55,101 @@ missing any of them.
 | Capterra | global | verified | Official website | 2026-08-04 | 2027-05-19 | Petro Hrys |
 | Flathub | global | verified | Official website | 2026-08-04 | 2027-02-21 | Petro Hrys |
 | Chambers and Partners | global | verified | Official website | 2026-08-04 | 2027-05-10 | Petro Hrys |
+| APRA Registers | australia | verified | Government register | 2026-08-05 | 2027-08-30 | Petro Hrys |
+| Business Database Search | united-states | verified | Government register | 2026-08-04 | 2027-08-09 | Petro Hrys |
+| Business Entity Search | united-states | verified | Government register | 2026-08-04 | 2027-08-12 | Petro Hrys |
+| Business Information Search | united-states | verified | Government register | 2026-08-04 | 2027-08-10 | Petro Hrys |
+| Business Records Search | united-states | verified | Government register | 2026-08-04 | 2027-08-22 | Petro Hrys |
+| Business Search | united-states | verified | Government register | 2026-08-04 | 2027-08-26 | Petro Hrys |
 | FDA Establishment Registration and Device Listing | united-states | verified | Government register | 2026-08-04 | 2027-08-05 | Petro Hrys |
 | SAM.gov Entity Information | united-states | verified | Government register | 2026-08-04 | 2027-08-18 | Petro Hrys |
+| Sunbiz | united-states | verified | Government register | 2026-08-04 | 2027-08-10 | Petro Hrys |
 | Docker Hub | global | verified | Official website | 2026-08-04 | 2027-05-31 | Petro Hrys |
 | Crunchbase | global | verified | Official website | 2026-08-04 | 2027-05-25 | Petro Hrys |
 | PeerSpot | global | verified | Official website | 2026-08-04 | 2027-05-25 | Petro Hrys |
+| Business Search | united-states | verified | Government register | 2026-08-05 | 2027-08-17 | Petro Hrys |
 | FCC Form 499 Filer Database | united-states | verified | Government register | 2026-08-04 | 2027-08-22 | Petro Hrys |
 | Federal Maritime Commission Ocean Transportation Intermediary List | united-states | verified | Government register | 2026-08-04 | 2027-08-24 | Petro Hrys |
 | FSIS Meat, Poultry and Egg Product Inspection Directory | united-states | verified | Government register | 2026-08-04 | 2027-08-20 | Petro Hrys |
+| Licensing NT Public Register | australia | verified | Government register | 2026-08-05 | 2027-08-22 | Petro Hrys |
 | Clutch | global | verified | Official website | 2026-08-04 | 2027-05-16 | Petro Hrys |
 | The Legal 500 | global | verified | Official website | 2026-08-04 | 2027-05-04 | Petro Hrys |
+| Business Search | united-states | verified | Government register | 2026-08-04 | 2027-08-11 | Petro Hrys |
 | FCC Universal Licensing System | united-states | verified | Government register | 2026-08-04 | 2027-08-07 | Petro Hrys |
 | Google Business Profile | global | verified | Official documentation | 2026-08-04 | 2027-05-07 | Petro Hrys |
+| Incorporated Associations Search | australia | verified | Government register | 2026-08-05 | 2027-08-23 | Petro Hrys |
 | Investment Adviser Public Disclosure | united-states | verified | Official website | 2026-08-04 | 2027-08-14 | Petro Hrys |
+| Tasmanian Licensed Occupations Search | australia | verified | Government register | 2026-08-05 | 2027-08-26 | Petro Hrys |
 | Drupal Modules | global | verified | Official website | 2026-08-04 | 2027-05-23 | Petro Hrys |
 | pub.dev | global | verified | Official website | 2026-08-04 | 2027-05-26 | Petro Hrys |
+| ACT Incorporated Associations Public Register | australia | verified | Government register | 2026-08-05 | 2027-08-11 | Petro Hrys |
 | CFTC Sanctions in Effect | united-states | verified | Government register | 2026-08-04 | 2027-08-29 | Petro Hrys |
+| Check a charity or association | australia | verified | Government register | 2026-08-05 | 2027-08-26 | Petro Hrys |
+| QBCC Licensee Register | australia | verified | Government register | 2026-08-05 | 2027-08-05 | Petro Hrys |
+| SOS Business Entity Search | united-states | verified | Government register | 2026-08-05 | 2027-08-13 | Petro Hrys |
+| Victorian Incorporated Associations Public Register | australia | verified | Government register | 2026-08-05 | 2027-08-09 | Petro Hrys |
+| WA Online Licence Search | australia | verified | Government register | 2026-08-05 | 2027-08-20 | Petro Hrys |
 | Yelp for Business | global | verified | Official website | 2026-08-04 | 2027-05-27 | Petro Hrys |
 | Hex | global | verified | Official website | 2026-08-04 | 2027-05-10 | Petro Hrys |
+| Business Entities Search | united-states | verified | Government register | 2026-08-04 | 2027-08-26 | Petro Hrys |
+| Business Entity Search | united-states | verified | Government register | 2026-08-04 | 2027-08-19 | Petro Hrys |
+| Business Organization Search | united-states | verified | Government register | 2026-08-04 | 2027-08-13 | Petro Hrys |
+| Business Registration search | united-states | verified | Government register | 2026-08-04 | 2027-08-29 | Petro Hrys |
 | FAA Aircraft Registry | united-states | verified | Government register | 2026-08-04 | 2027-08-07 | Petro Hrys |
 | G2 | global | verified | Official documentation | 2026-08-04 | 2027-05-08 | Petro Hrys |
 | MSHA Mine Data Retrieval System | united-states | verified | Government register | 2026-08-04 | 2027-08-24 | Petro Hrys |
+| Search Business Filings | united-states | verified | Government register | 2026-08-04 | 2027-08-05 | Petro Hrys |
+| Search for an entity within the RI Business Portal (CIMS) | united-states | verified | Government register | 2026-08-04 | 2027-08-10 | Petro Hrys |
+| SOSBiz | united-states | verified | Government register | 2026-08-04 | 2027-08-23 | Petro Hrys |
 | TTB List of Permittees | united-states | verified | Government register | 2026-08-04 | 2027-08-17 | Petro Hrys |
+| Business Entity Search | united-states | verified | Government register | 2026-08-04 | 2027-08-22 | Petro Hrys |
+| Business Name Search | united-states | verified | Government register | 2026-08-04 | 2027-08-22 | Petro Hrys |
+| Catalyst | united-states | verified | Government register | 2026-08-04 | 2027-08-09 | Petro Hrys |
+| CorpOnline | united-states | verified | Government register | 2026-08-04 | 2027-08-07 | Petro Hrys |
+| Corporate Name Search (ICRS) | united-states | verified | Government register | 2026-08-04 | 2027-08-13 | Petro Hrys |
+| Corporate Registration Information System (CRIS) | united-states | verified | Government register | 2026-08-04 | 2027-08-24 | Petro Hrys |
+| Corporation and Business Entity Database | united-states | verified | Government register | 2026-08-04 | 2027-08-31 | Petro Hrys |
 | Drug Establishments Current Registration Site | united-states | verified | Government register | 2026-08-04 | 2027-08-13 | Petro Hrys |
+| FirstStop | united-states | verified | Government register | 2026-08-04 | 2027-08-31 | Petro Hrys |
+| Registro Electrónico de Corporaciones y Entidades | united-states | verified | Government register | 2026-08-04 | 2027-08-15 | Petro Hrys |
 | HubSpot App Marketplace | global | verified | Official website | 2026-08-04 | 2027-02-26 | Petro Hrys |
 | Open Collective | global | verified | Official website | 2026-08-04 | 2027-05-28 | Petro Hrys |
 | F-Droid | global | verified | Official website | 2026-08-04 | 2027-02-22 | Petro Hrys |
 | Snap Store | global | verified | Official website | 2026-08-04 | 2027-02-25 | Petro Hrys |
+| AssociationsOnline | australia | verified | Government register | 2026-08-05 | 2027-08-12 | Petro Hrys |
+| Business Entities Online | united-states | verified | Government register | 2026-08-05 | 2027-08-19 | Petro Hrys |
+| Business Entity Search | united-states | verified | Government register | 2026-08-04 | 2027-08-28 | Petro Hrys |
+| Business Entity Search | united-states | verified | Government register | 2026-08-04 | 2027-08-19 | Petro Hrys |
+| Business Filing Portal | united-states | verified | Government register | 2026-08-04 | 2027-08-20 | Petro Hrys |
+| Business Name Search | united-states | verified | Government register | 2026-08-05 | 2027-08-31 | Petro Hrys |
+| Business Search | united-states | verified | Government register | 2026-08-05 | 2027-08-08 | Petro Hrys |
+| Corporations and Charities Filing System (CCFS) | united-states | verified | Government register | 2026-08-04 | 2027-08-20 | Petro Hrys |
+| Search for a Business Entity | united-states | verified | Government register | 2026-08-04 | 2027-08-22 | Petro Hrys |
+| Search for Louisiana Business Filings | united-states | verified | Government register | 2026-08-04 | 2027-08-30 | Petro Hrys |
 | Trustpilot | global | verified | Official website | 2026-08-04 | 2027-02-13 | Petro Hrys |
 | GetApp | global | verified | Official website | 2026-08-04 | 2027-05-26 | Petro Hrys |
+| Business Entity Search | united-states | verified | Government register | 2026-08-05 | 2027-08-09 | Petro Hrys |
+| Business Records Service | united-states | verified | Government register | 2026-08-04 | 2027-08-31 | Petro Hrys |
+| Business Search | united-states | verified | Government register | 2026-08-05 | 2027-08-24 | Petro Hrys |
+| Business Search | united-states | verified | Government register | 2026-08-05 | 2027-08-14 | Petro Hrys |
+| Business Services Online Filings Portal | united-states | verified | Government register | 2026-08-05 | 2027-08-14 | Petro Hrys |
+| Corporate & Business Search | united-states | verified | Government register | 2026-08-04 | 2027-08-23 | Petro Hrys |
+| Hawaii Business Entity Search | united-states | verified | Government register | 2026-08-04 | 2027-08-05 | Petro Hrys |
+| Search for a Business Entity | united-states | verified | Government register | 2026-08-04 | 2027-08-18 | Petro Hrys |
 | WooCommerce extensions | global | verified | Official website | 2026-08-04 | 2027-02-21 | Petro Hrys |
 | Kaggle Datasets | global | verified | Official website | 2026-08-04 | 2027-05-10 | Petro Hrys |
 | Wellfound | global | verified | Official website | 2026-08-04 | 2027-05-15 | Petro Hrys |
+| Arizona Business Center | united-states | verified | Government register | 2026-08-05 | 2027-08-17 | Petro Hrys |
+| Government Records Inquiry System | united-states | verified | Government register | 2026-08-05 | 2027-08-16 | Petro Hrys |
 | NPPES NPI Registry | united-states | verified | Government register | 2026-08-04 | 2027-08-10 | Petro Hrys |
 | Better Business Bureau | united-states | verified | Official website | 2026-08-04 | 2027-02-18 | Petro Hrys |
 | Foursquare Places | global | verified | Official website | 2026-08-04 | 2027-05-25 | Petro Hrys |
 | JetBrains Marketplace | global | verified | Official website | 2026-08-04 | 2027-05-15 | Petro Hrys |
 | Product Hunt | global | verified | Official website | 2026-08-04 | 2027-05-06 | Petro Hrys |
 | Software Advice | global | verified | Official website | 2026-08-04 | 2027-05-27 | Petro Hrys |
+| Business Entities Search | united-states | verified | Government register | 2026-08-05 | 2027-08-09 | Petro Hrys |
 | Permitted Customs Brokers Listing | united-states | verified | Government register | 2026-08-04 | 2027-08-29 | Petro Hrys |
+| SOSDirect | united-states | verified | Government register | 2026-08-04 | 2027-08-06 | Petro Hrys |
 | npm | global | verified | Official documentation | 2026-08-04 | 2027-05-30 | Petro Hrys |
 | Joomla! Extensions Directory | global | verified | Official website | 2026-08-04 | 2027-05-30 | Petro Hrys |
 | AlternativeTo | global | verified | Official website | 2026-08-04 | 2027-05-21 | Petro Hrys |

@@ -4,9 +4,37 @@ Generated from the registry by `scripts/generate-bd-logs.cjs`. Do not edit by ha
 
 Entries are grouped by verification date, newest first.
 
+## 2026-08-05
+
+23 directories added or re-verified.
+
+- **Australian Trade Mark Search** — australia / government — PetroHrys Score 85
+- **APRA Registers** — australia / government — PetroHrys Score 83
+- **Business Search** — united-states / government — PetroHrys Score 82
+- **Licensing NT Public Register** — australia / government — PetroHrys Score 82
+- **Incorporated Associations Search** — australia / government — PetroHrys Score 81
+- **Tasmanian Licensed Occupations Search** — australia / government — PetroHrys Score 81
+- **ACT Incorporated Associations Public Register** — australia / government — PetroHrys Score 80
+- **Check a charity or association** — australia / government — PetroHrys Score 80
+- **QBCC Licensee Register** — australia / government — PetroHrys Score 80
+- **SOS Business Entity Search** — united-states / government — PetroHrys Score 80
+- **Victorian Incorporated Associations Public Register** — australia / government — PetroHrys Score 80
+- **WA Online Licence Search** — australia / government — PetroHrys Score 80
+- **AssociationsOnline** — australia / government — PetroHrys Score 77
+- **Business Entities Online** — united-states / government — PetroHrys Score 77
+- **Business Name Search** — united-states / government — PetroHrys Score 77
+- **Business Search** — united-states / government — PetroHrys Score 77
+- **Business Entity Search** — united-states / government — PetroHrys Score 76
+- **Business Search** — united-states / government — PetroHrys Score 76
+- **Business Search** — united-states / government — PetroHrys Score 76
+- **Business Services Online Filings Portal** — united-states / government — PetroHrys Score 76
+- **Arizona Business Center** — united-states / government — PetroHrys Score 75
+- **Government Records Inquiry System** — united-states / government — PetroHrys Score 75
+- **Business Entities Search** — united-states / government — PetroHrys Score 74
+
 ## 2026-08-04
 
-96 directories added or re-verified.
+130 directories added or re-verified.
 
 - **Companies House Register** — united-kingdom / government — PetroHrys Score 95
 - **ABN Lookup** — australia / government — PetroHrys Score 93
@@ -52,8 +80,14 @@ Entries are grouped by verification date, newest first.
 - **Capterra** — global / software — PetroHrys Score 83
 - **Flathub** — global / app-directories — PetroHrys Score 83
 - **Chambers and Partners** — global / legal — PetroHrys Score 83
+- **Business Database Search** — united-states / government — PetroHrys Score 83
+- **Business Entity Search** — united-states / government — PetroHrys Score 83
+- **Business Information Search** — united-states / government — PetroHrys Score 83
+- **Business Records Search** — united-states / government — PetroHrys Score 83
+- **Business Search** — united-states / government — PetroHrys Score 83
 - **FDA Establishment Registration and Device Listing** — united-states / healthcare — PetroHrys Score 83
 - **SAM.gov Entity Information** — united-states / government — PetroHrys Score 83
+- **Sunbiz** — united-states / government — PetroHrys Score 83
 - **Docker Hub** — global / developer — PetroHrys Score 82
 - **Crunchbase** — global / startup — PetroHrys Score 82
 - **PeerSpot** — global / software — PetroHrys Score 82
@@ -62,6 +96,7 @@ Entries are grouped by verification date, newest first.
 - **FSIS Meat, Poultry and Egg Product Inspection Directory** — united-states / government — PetroHrys Score 82
 - **Clutch** — global / marketing — PetroHrys Score 81
 - **The Legal 500** — global / legal — PetroHrys Score 81
+- **Business Search** — united-states / government — PetroHrys Score 81
 - **FCC Universal Licensing System** — united-states / telecommunications — PetroHrys Score 81
 - **Google Business Profile** — global / local-business — PetroHrys Score 81
 - **Investment Adviser Public Disclosure** — united-states / finance — PetroHrys Score 81
@@ -70,17 +105,43 @@ Entries are grouped by verification date, newest first.
 - **CFTC Sanctions in Effect** — united-states / finance — PetroHrys Score 80
 - **Yelp for Business** — global / local-business — PetroHrys Score 79
 - **Hex** — global / developer — PetroHrys Score 79
+- **Business Entities Search** — united-states / government — PetroHrys Score 79
+- **Business Entity Search** — united-states / government — PetroHrys Score 79
+- **Business Organization Search** — united-states / government — PetroHrys Score 79
+- **Business Registration search** — united-states / government — PetroHrys Score 79
 - **FAA Aircraft Registry** — united-states / government — PetroHrys Score 79
 - **G2** — global / software — PetroHrys Score 79
 - **MSHA Mine Data Retrieval System** — united-states / government — PetroHrys Score 79
+- **Search Business Filings** — united-states / government — PetroHrys Score 79
+- **Search for an entity within the RI Business Portal (CIMS)** — united-states / government — PetroHrys Score 79
+- **SOSBiz** — united-states / government — PetroHrys Score 79
 - **TTB List of Permittees** — united-states / government — PetroHrys Score 79
+- **Business Entity Search** — united-states / government — PetroHrys Score 78
+- **Business Name Search** — united-states / government — PetroHrys Score 78
+- **Catalyst** — united-states / government — PetroHrys Score 78
+- **CorpOnline** — united-states / government — PetroHrys Score 78
+- **Corporate Name Search (ICRS)** — united-states / government — PetroHrys Score 78
+- **Corporate Registration Information System (CRIS)** — united-states / government — PetroHrys Score 78
+- **Corporation and Business Entity Database** — united-states / government — PetroHrys Score 78
 - **Drug Establishments Current Registration Site** — united-states / healthcare — PetroHrys Score 78
+- **FirstStop** — united-states / government — PetroHrys Score 78
+- **Registro Electrónico de Corporaciones y Entidades** — united-states / government — PetroHrys Score 78
 - **HubSpot App Marketplace** — global / app-directories — PetroHrys Score 77
 - **Open Collective** — global / general-business — PetroHrys Score 77
 - **F-Droid** — global / app-directories — PetroHrys Score 77
 - **Snap Store** — global / app-directories — PetroHrys Score 77
+- **Business Entity Search** — united-states / government — PetroHrys Score 77
+- **Business Entity Search** — united-states / government — PetroHrys Score 77
+- **Business Filing Portal** — united-states / government — PetroHrys Score 77
+- **Corporations and Charities Filing System (CCFS)** — united-states / government — PetroHrys Score 77
+- **Search for a Business Entity** — united-states / government — PetroHrys Score 77
+- **Search for Louisiana Business Filings** — united-states / government — PetroHrys Score 77
 - **Trustpilot** — global / review-sites — PetroHrys Score 76
 - **GetApp** — global / software — PetroHrys Score 76
+- **Business Records Service** — united-states / government — PetroHrys Score 76
+- **Corporate & Business Search** — united-states / government — PetroHrys Score 76
+- **Hawaii Business Entity Search** — united-states / government — PetroHrys Score 76
+- **Search for a Business Entity** — united-states / government — PetroHrys Score 76
 - **WooCommerce extensions** — global / app-directories — PetroHrys Score 75
 - **Kaggle Datasets** — global / developer — PetroHrys Score 75
 - **Wellfound** — global / startup — PetroHrys Score 75
@@ -91,6 +152,7 @@ Entries are grouped by verification date, newest first.
 - **Product Hunt** — global / startup — PetroHrys Score 74
 - **Software Advice** — global / software — PetroHrys Score 74
 - **Permitted Customs Brokers Listing** — united-states / government — PetroHrys Score 73
+- **SOSDirect** — united-states / government — PetroHrys Score 72
 - **npm** — global / developer — PetroHrys Score 70
 - **Joomla! Extensions Directory** — global / developer — PetroHrys Score 69
 - **AlternativeTo** — global / software — PetroHrys Score 69

@@ -429,3 +429,23 @@ platform."* — rendered only on records that actually share a host.
 Ordinary commercial directories are unaffected. Two records on one host without
 `resourceIdentity` are rejected exactly as before, and a test proves the guard is
 what rejects them by weakening it in memory and confirming the duplicate passes.
+
+---
+
+## Jurisdiction model (extended in Wave 1C-0)
+
+The jurisdiction model gained two types and a coverage field so the United
+Kingdom can be represented without inventing an ISO code:
+
+- `country` — a constituent country inside a sovereign state (England, Scotland,
+  Wales). Distinct from the geographic registry's `entityType: 'country'`, which
+  names a sovereign state.
+- `cross-territory` — a jurisdiction spanning several subdivisions, carrying
+  `covers: ["GB-ENG", "GB-WLS"]` and no code of its own.
+- Northern Ireland stays `province`, which is the category ISO 3166-2 assigns it.
+
+ISO 3166-2 codes are now checked against a project-maintained allowlist rather
+than a format pattern. `GB-ZZZ` and `GB-EAW` both passed the old check; neither
+is a subdivision.
+
+Full reference: [`docs/jurisdiction-model.md`](./jurisdiction-model.md).

@@ -389,3 +389,33 @@ host needs:
 If the systems are not genuinely distinct — different operator, population,
 statute or official function — do not reach for this. It exists for shared
 government platforms, not for listing one registry twice.
+
+---
+
+## Filing a subnational record
+
+Every jurisdiction is identified by ONE ISO 3166-2 code, or — where it spans
+several subdivisions — by the SET it covers. Never both.
+
+    { "type": "country", "name": "Scotland", "code": "GB-SCT",
+      "parentCountry": "united-kingdom" }
+
+    { "type": "cross-territory", "name": "England and Wales", "code": null,
+      "covers": ["GB-ENG", "GB-WLS"], "parentCountry": "united-kingdom" }
+
+`covers` must hold at least two real ISO codes, unique, sorted, all belonging to
+the parent country. Leave it out entirely when the jurisdiction has a code.
+
+Codes are checked against `scripts/lib/iso-3166-2.cjs`, which covers US, CA, AU,
+DE, ES, IT, JP, CN and GB. A code for any other country fails with instructions
+to extend the allowlist first.
+
+Do NOT use `GB-EAW`, `GB-GBN`, `GB-UKM`, `GB-CYM`, `GB-CHC` or `GB-COH`. None is
+an ISO 3166-2 subdivision; the first three are deprecated compound entities and
+the rest belong to other identifier schemes. The validator rejects each by name
+and says what to use instead.
+
+Migration will not repair an invalid code, an unsorted `covers` or a duplicate —
+it reports them. Fix the source.
+
+Full reference: [`docs/jurisdiction-model.md`](./jurisdiction-model.md).

@@ -292,9 +292,23 @@ function registryInformation(directory) {
 
   const j = directory.jurisdiction;
   if (j && j.name) {
-    row('Jurisdiction', j.code
-      ? `${escapeHtml(j.name)} <span class="bd-def-note">${escapeHtml(j.code)}</span>`
-      : escapeHtml(j.name));
+    // A cross-territory jurisdiction has no code of its own, and showing the
+    // raw covers array — ["GB-ENG","GB-WLS"] — would put machine syntax in
+    // front of a reader. Name the territories instead, in the ISO names, and
+    // keep the jurisdiction's own name primary: a reader looking up the Charity
+    // Commission wants to see "England and Wales", not two rows.
+    if (Array.isArray(j.covers) && j.covers.length) {
+      const names = j.covers.map((code) => {
+        const sub = S.ISO.subdivision(code);
+        return escapeHtml(sub ? sub.name.replace(/\s*\[[^\]]*\]\s*$/, '') : code);
+      });
+      row('Jurisdiction', `${escapeHtml(j.name)} <span class="bd-def-note">`
+        + `Covers ${names.join(' · ')}</span>`);
+    } else {
+      row('Jurisdiction', j.code
+        ? `${escapeHtml(j.name)} <span class="bd-def-note">${escapeHtml(j.code)}</span>`
+        : escapeHtml(j.name));
+    }
   }
   if (directory.scope && S.SCOPE_LABELS[directory.scope]) {
     row('Scope', escapeHtml(S.SCOPE_LABELS[directory.scope]));
@@ -718,16 +732,26 @@ function jurisdictionGroups(entries, countrySlug) {
       count: national.length,
     });
   }
+  // Types are grouped by LABEL, not one group per type. The United Kingdom maps
+  // both `country` (England, Scotland, Wales) and `province` (Northern Ireland)
+  // to "Constituent countries", and rendering those as two boxes with the same
+  // heading would tell a reader there are two kinds of constituent country.
+  // Where every type has its own label — the United States, Canada, Australia —
+  // this merges nothing and the output is unchanged.
+  const byLabel = new Map();
   for (const type of S.allowedJurisdictionTypes(countrySlug) || []) {
-    const items = list.filter((d) => d.jurisdiction && d.jurisdiction.type === type)
-      .sort(byJurisdictionThenName);
+    const items = list.filter((d) => d.jurisdiction && d.jurisdiction.type === type);
     if (!items.length) continue;
-    groups.push({
-      key: type,
-      label: S.jurisdictionLabel(countrySlug, type),
-      items,
-      count: items.length,
-    });
+    const label = S.jurisdictionLabel(countrySlug, type);
+    const existing = byLabel.get(label);
+    if (existing) existing.items.push(...items);
+    // The key comes from the FIRST type to claim the label, so the anchor and
+    // the jump link stay stable as later types join it.
+    else byLabel.set(label, { key: type, label, items: [...items] });
+  }
+  for (const group of byLabel.values()) {
+    group.items.sort(byJurisdictionThenName);
+    groups.push({ ...group, count: group.items.length });
   }
 
   // Everything left with no jurisdiction: regional or global bodies filed under
