@@ -1,0 +1,119 @@
+{
+  "country": "united-kingdom",
+  "note": "The United Kingdom territorial set this section is measured against. Coverage is counted from this file and from the registry, never from a record total. Great Britain is NOT the United Kingdom: it excludes Northern Ireland, and a Great Britain system is modelled as a cross-territory jurisdiction. England and Wales has no ISO 3166-2 code of its own and is modelled with covers, never with the deprecated compound GB-EAW. blockerSummary and nextAction are internal working notes and are never rendered.",
+  "lastReviewed": "2026-08-05",
+  "totals": {
+    "records": 19,
+    "ukWide": 6,
+    "constituentCountry": 9,
+    "crossTerritory": 4,
+    "territoriesReached": 4
+  },
+  "territories": [
+    {
+      "code": "GB-ENG",
+      "name": "England",
+      "kind": "country",
+      "reachedBy": [
+        "gb-cqc",
+        "gb-charity-commission-register",
+        "gb-individual-insolvency-register",
+        "gb-sra-solicitors-register",
+        "gb-barristers-register"
+      ]
+    },
+    {
+      "code": "GB-SCT",
+      "name": "Scotland",
+      "kind": "country",
+      "reachedBy": [
+        "gb-oscr-scottish-charity-register",
+        "gb-aib-register-of-insolvencies",
+        "gb-his-independent-healthcare",
+        "gb-care-inspectorate-scotland"
+      ]
+    },
+    {
+      "code": "GB-WLS",
+      "name": "Wales",
+      "kind": "country",
+      "reachedBy": [
+        "gb-care-inspectorate-wales",
+        "gb-charity-commission-register",
+        "gb-individual-insolvency-register",
+        "gb-sra-solicitors-register",
+        "gb-barristers-register"
+      ]
+    },
+    {
+      "code": "GB-NIR",
+      "name": "Northern Ireland",
+      "kind": "province",
+      "reachedBy": [
+        "gb-ccni-register-of-charities",
+        "gb-ni-iva-register",
+        "gb-rqia-register"
+      ]
+    }
+  ],
+  "ukWide": [
+    {
+      "recordId": "gb-companies-house",
+      "name": "Companies House Register"
+    },
+    {
+      "recordId": "gb-fca-register",
+      "name": "Financial Services Register"
+    },
+    {
+      "recordId": "gb-nmc-register",
+      "name": "NMC Register"
+    },
+    {
+      "recordId": "gb-gdc-registers",
+      "name": "GDC Registers"
+    },
+    {
+      "recordId": "gb-hcpc-register",
+      "name": "HCPC Register"
+    },
+    {
+      "recordId": "gb-food-hygiene-ratings",
+      "name": "Food Hygiene Ratings"
+    }
+  ],
+  "crossTerritory": [
+    {
+      "recordId": "gb-charity-commission-register",
+      "name": "England and Wales",
+      "covers": [
+        "GB-ENG",
+        "GB-WLS"
+      ]
+    },
+    {
+      "recordId": "gb-individual-insolvency-register",
+      "name": "England and Wales",
+      "covers": [
+        "GB-ENG",
+        "GB-WLS"
+      ]
+    },
+    {
+      "recordId": "gb-sra-solicitors-register",
+      "name": "England and Wales",
+      "covers": [
+        "GB-ENG",
+        "GB-WLS"
+      ]
+    },
+    {
+      "recordId": "gb-barristers-register",
+      "name": "England and Wales",
+      "covers": [
+        "GB-ENG",
+        "GB-WLS"
+      ]
+    }
+  ]
+}

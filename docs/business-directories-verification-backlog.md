@@ -199,3 +199,86 @@ charity or not-for-profit registers where separate from the corporate registry,
 CRTC and Canadian Transportation Agency operator registers, Health Canada and
 CFIA licence registers, and provincial procurement supplier registers. None was
 reached in this wave; none is rejected.
+
+---
+
+## Wave 1C-3 — United Kingdom (2026-08-05)
+
+Thirty-two candidates researched, sixteen published. What follows is everything
+**not** published, and why. No access fact is asserted for any of it.
+
+Host reachability shaped several verdicts. Most UK official hosts responded, but
+`trademarks.ipo.gov.uk`, `www.search-for-intellectual-property.service.gov.uk`,
+`www.registered-design.service.gov.uk` and `www.lawscot.org.uk` all returned
+HTTP 403 behind captcha or bot-mitigation interstitials, reproduced with and
+without a browser user-agent.
+
+### Classification blocker — public procurement notice systems
+
+**Reported rather than published, as instructed.** Find a Tender, Contracts
+Finder, Public Contracts Scotland and Sell2Wales were all researched to
+publication standard, and their territorial scopes were established:
+
+| System | Operator | Territory established |
+|---|---|---|
+| Find a Tender | Cabinet Office | United Kingdom-wide, high-value contracts (GOV.UK states usually above £139,688 including VAT) |
+| Contracts Finder | Crown Commercial Service | England-centred; GOV.UK states contracts over £12,000 and directs Scotland, Wales and Northern Ireland to their own systems |
+| Public Contracts Scotland | Scottish Ministers | Scotland |
+| Sell2Wales | Welsh Government | Wales |
+
+**None was published, because no registry type fits honestly.** These systems
+publish procurement *notices* — opportunities and awards. They do not register
+suppliers. Recording them as `procurement-supplier-register` would state the
+opposite of what they are: a supplier register records who *may* bid, and these
+record what is being bought. `public-filing-database` is the nearest fit and is
+still a stretch, because the subject of the filing is a contract, not a business.
+
+This is also a **cross-wave consistency point**. Wave 1C-2 rejected CanadaBuys on
+exactly this ground ("a tender-opportunity portal, not a register of businesses").
+Publishing four UK equivalents while that rejection stands would be incoherent.
+
+**Decision needed:** either (a) confirm that procurement notice systems are out
+of scope for a business-registry dataset, and the four UK systems plus CanadaBuys
+stay out; or (b) decide they are in scope, which needs a registry type that
+describes them honestly — and adding one is an architecture decision, not a
+wave decision. Verification work is already done either way; only the
+classification is open.
+
+### Pending manual verification
+
+| Candidate | Operator | Official URL | Block reason | Verification steps required |
+|---|---|---|---|---|
+| UK trade marks register | Intellectual Property Office | `trademarks.ipo.gov.uk/ipo-tmtext/start` | HTTP 403 behind an IPO "Service Captcha" interstitial, reproduced with and without a browser user-agent. The register was never observed. | Open in a desktop browser; record the official register name, the search fields, whether search is free and account-free, and the exact search host. **High priority** — this is the UK counterpart to registers already published for Canada. |
+| UK patents register | Intellectual Property Office | `www.search-for-intellectual-property.service.gov.uk` | HTTP 403 behind a GOV.UK anti-data-mining security check. | As above. |
+| UK registered designs | Intellectual Property Office | `www.registered-design.service.gov.uk/find/` | HTTP 403 behind an IPO "Service Captcha". **Additionally a classification blocker:** no listed registry type describes a registered-designs register. `trademark-register` and `patent-register` exist; a design right is neither. | Resolve access first; then decide whether a design register warrants a type, or stays out. Do not force it into `patent-register`. |
+| Law Society of Scotland — Find a Solicitor | Law Society of Scotland | `www.lawscot.org.uk/find-a-solicitor/` | HTTP 403 behind a Cloudflare block page on two attempts with different user-agents. Nothing on the host was read. | Open in a desktop browser; establish whether this is the statutory roll or a voluntary directory before considering publication — the England and Wales and Northern Ireland equivalents turned out to be voluntary directories and were rejected. |
+| DRO and BRO Register (Northern Ireland) | Insolvency Service, Department for the Economy | `insolvency.economy-ni.gov.uk/Insolvency.Public/DRORegisterSearchWizard.aspx` | The register host serves a client-side shell; the search was never exercised. Its existence and operator are evidenced by an official Department for the Economy page. | Open in a browser, run one search, and record the returned fields and access position. Publishing it would complete Northern Ireland insolvency coverage, which the published IVA register does not provide alone. |
+| OrgBook BC follow-on: none for the UK | — | — | — | — |
+
+### Duplicates — already represented
+
+| Candidate | Reason |
+|---|---|
+| Companies House disqualified directors register | Host collision with the published `gb-companies-house`. The disqualified-officers search lives on the same Companies House service host. It is a genuinely distinct legal population and would merit a separate record, but only via the `resourceIdentity` shared-host mechanism, which is a deliberate decision rather than a default. Recorded so it is not lost. |
+| Care Quality Commission provider register | Host collision with the published `gb-cqc`. Researched only to carry the territorial correction, which has been applied. |
+
+### Rejected — do not propose again
+
+| Candidate | Reason |
+|---|---|
+| Insolvency Service director disqualification outcomes | Not a register. It is a rolling three-month publication of recent outcomes, and the Insolvency Service states on the page itself that it should not be relied on as a complete record. |
+| Law Society of England and Wales — Find a Solicitor | The operator states it is not a register: it lists only those who choose to be listed, does not contain details of all solicitors, and includes non-solicitors holding Law Society accreditations. The statutory register for England and Wales is the SRA's, which **is** published. |
+| Law Society of Northern Ireland — Find a Solicitor | The operator expressly disclaims it: it is "not a copy of the Register of Solicitors", lists only firms willing to be displayed, and excludes in-house, government and opted-out solicitors. |
+| Faculty of Advocates — Find an Advocate | An independent professional body, not a government agency, statutory regulator, court or public-law body. No statutory register basis was evidenced. |
+| Food Hygiene Information Scheme as a separate record | FHIS is Scotland's hygiene scheme, but the Food Standards Scotland page for it is scheme *guidance*, not a register search. Scottish results are served through `ratings.food.gov.uk`, which **is** published and which states it holds information for England, Northern Ireland, Wales and Scotland. Publishing the guidance page as a register would repeat the FINTRAC error caught in Wave 1C-2. The Scottish scheme difference is instead published as a con on the ratings record. |
+
+### Not surveyed
+
+The General Medical Council register, the General Pharmaceutical Council and
+Pharmaceutical Society of Northern Ireland registers, Social Work England and its
+devolved counterparts, Ofsted and Estyn provider registers, the Gambling
+Commission and Ofcom licence registers, the Employment Agency Standards and
+Gangmasters and Labour Abuse Authority registers, Scottish and Northern Ireland
+company-adjacent registers, and the Land Registry / Registers of Scotland /
+Land and Property Services title registers. None was reached in this wave; none
+is rejected.
