@@ -266,3 +266,40 @@ titles and descriptions · EU page linked from the hub, badged **Supranational**
 **Previously published records are unchanged**, with one strictly additive
 exception carried over from earlier in this wave: VIES holds a `resourceIdentity`
 block so EUDAMED could share its host. A test pins its substance independently.
+
+## Release-gate statements
+
+Four facts stated explicitly, because each corrects or sharpens something an
+earlier draft got loose:
+
+1. **Five types were added, not three.** The proposal always contained five
+   distinct enum values. The "three" came from counting *category families*
+   rather than values.
+2. **Three of the six blocked systems shared one category family** — the
+   sanctions family, holding the Sanctions Map, the consolidated financial
+   sanctions list and the Sanctions Tracker. A family is not a type: those three
+   required different values, because a regime index, a designation list and an
+   analytics interface are three different things. Five distinct enum values were
+   required.
+3. **Four records retain `accessLevel: unknown`, not three** — GIview, the EU
+   Sanctions Map, the consolidated financial sanctions list and the EU Pesticides
+   Database. Their interactive behaviour was not verified, so every access boolean
+   stays null. Only CTIS ships as `open`, and that rests on EMA's own
+   documentation rather than an executed search. No access value was adjusted to
+   make a record look more complete.
+4. **The EU Sanctions Tracker remains blocked** because no official page describes
+   it and its function is ambiguous — the Commission's own sanctions resources
+   page does not mention it, and its only server-rendered signal is a navigation
+   that leads with a dashboard and organises by regime and nationality.
+
+## Glossary and rollback
+
+The full closed vocabulary is documented in
+[`docs/business-directories-registry-type-glossary.md`](../business-directories-registry-type-glossary.md),
+generated from the type definitions so it cannot drift. The rollback procedure is
+in the PR body alongside this note.
+
+**One rollback consequence worth knowing before merging:** the taxonomy commit
+cannot be reverted on its own. Removing the five types while five records still
+reference them makes the validator fail closed. Revert both commits together, or
+neither.
