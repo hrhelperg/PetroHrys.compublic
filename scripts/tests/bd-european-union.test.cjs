@@ -35,9 +35,13 @@ const ALL = REGISTRY.directories;
 const byId = new Map(ALL.map((r) => [r.id, r]));
 
 const EU = ALL.filter((r) => r.country === 'european-union');
+// Wave 1F published the first nine; Wave 1F.1 completed the set with six more.
+// This suite covers the whole EU set, so both waves are held to it.
 const WAVE = ['eu-bris', 'eu-vies', 'eu-ted', 'eu-transparency-register',
   'eu-esma-credit-rating-agencies', 'eu-eba-credit-institutions-register',
-  'eu-eba-payment-institutions-register', 'eu-eiopa-insurance-undertakings', 'eu-edes'];
+  'eu-eba-payment-institutions-register', 'eu-eiopa-insurance-undertakings', 'eu-edes',
+  'eu-euipo-esearch-plus', 'eu-tmview', 'eu-designview', 'eu-eudamed', 'eu-echa-chem',
+  'eu-eib-exclusion'];
 
 const visible = (r) => [r.description, ...r.pros, ...r.cons, ...r.bestFor, ...r.notRecommendedFor].join(' ');
 const readPage = (r) => fs.readFileSync(
@@ -46,7 +50,7 @@ const readPage = (r) => fs.readFileSync(
 // --- non-vacuity ----------------------------------------------------------------
 
 test('the wave published every record it claims, and the EU set is exactly those', () => {
-  assert.strictEqual(WAVE.length, 9, 'the wave manifest changed size without this test changing');
+  assert.strictEqual(WAVE.length, 15, 'the EU manifest changed size without this test changing');
   for (const id of WAVE) assert.ok(byId.get(id), `${id} is named by this suite but is not in the registry`);
   assert.deepStrictEqual(EU.map((r) => r.id).sort(), [...WAVE].sort(),
     'an EU record exists that this suite does not cover');
@@ -217,6 +221,13 @@ test('every EU website is a pinned, previously verified address', () => {
     'eu-eba-payment-institutions-register': 'https://www.eba.europa.eu/risk-and-data-analysis/data/registers/payment-institutions-register',
     'eu-eiopa-insurance-undertakings': 'https://register.eiopa.europa.eu/registers/register-of-insurance-undertakings',
     'eu-edes': 'https://commission.europa.eu/strategy-and-policy/eu-budget/how-it-works/annual-lifecycle/implementation/anti-fraud-measures/edes/edes-database_en',
+    // Wave 1F.1
+    'eu-euipo-esearch-plus': 'https://euipo.europa.eu/eSearch/',
+    'eu-tmview': 'https://www.tmdn.org/tmview/',
+    'eu-designview': 'https://www.tmdn.org/tmdsview-web/',
+    'eu-eudamed': 'https://ec.europa.eu/tools/eudamed',
+    'eu-echa-chem': 'https://chem.echa.europa.eu/',
+    'eu-eib-exclusion': 'https://www.eib.org/en/about/accountability/anti-fraud/exclusion/index.htm',
   };
   assert.deepStrictEqual(Object.keys(PINNED).sort(), EU.map((r) => r.id).sort(),
     'an EU record is not covered by the pinned-URL guard');
