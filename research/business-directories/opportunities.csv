@@ -2,6 +2,7 @@
 au-aussieweb,AussieWeb Local Search,https://www.aussieweb.com.au/,australia,australia,local-business,create-and-claim,freemium,,tier1,P1,true,https://mylisting.aussieweb.com.au/add-listing.aspx,,Australian businesses wanting a genuinely free listing with a documented verification process behind it.,Most entries were not created by the businesses they describe. The operator states: “Most of the details on this site were found on publicly available internet sites.” An entry here is therefore not evidence that a business chose to be listed.,2026-08-06,active
 au-yellowpages,Yellow Pages Australia,https://www.yellowpages.com.au/,australia,australia,local-business,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,active
 au-localsearch,Localsearch,https://www.localsearch.com.au/,australia,australia,local-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,unknown
+au-seek-companies,SEEK Company Profiles,https://www.seek.com.au/companies,australia,australia,general-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,active
 au-truelocal,TrueLocal,https://www.truelocal.com.au/,australia,australia,local-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,unknown
 au-dlook,dLook,https://www.dlook.com.au/,australia,australia,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
 at-herold,Herold,https://www.herold.at/,austria,dach,local-business,create-and-claim,free,,tier1,P1,true,https://www.herold.at/firmeneintrag/,https://www.herold.at/firmeneintrag/,Austrian businesses wanting a free entry in the country’s best-known directory.,The operator markets “Besseres Google-Ranking” as a benefit. That is a marketing claim and is NOT adopted here; no ranking outcome is asserted.,2026-08-06,active
@@ -18,6 +19,7 @@ br-cylex,Cylex Brasil,https://www.cylex.com.br/,brazil,latam,local-business,unkn
 br-hotfrog,Hotfrog Brasil,https://www.hotfrog.com.br/,brazil,latam,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
 ca-yellowpages,YellowPages.ca,https://www.yellowpages.ca/,canada,canada,local-business,create,freemium,,tier1,P1,true,https://solutions.yp.ca/free-listing,,Canadian businesses wanting a listing in the country’s best-known commercial directory.,"The free listing is REQUESTED, not published. The operator’s wording is “REQUEST YOUR FREE ONLINE LISTING”, and what the free tier contains is not enumerated on that page.",2026-08-06,active
 ca-411,411.ca,https://www.411.ca/,canada,canada,local-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
+ca-goldbook,GoldBook,https://www.goldbook.ca/,canada,canada,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
 ca-hotfrog,Hotfrog Canada,https://www.hotfrog.ca/,canada,canada,local-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,unknown
 ca-n49,n49,https://www.n49.com/,canada,canada,local-business,create,freemium,,tier1,P3,true,https://www.n49.com/add-biz,,Canadian businesses wanting a free listing on a platform that documents its tiers and prices openly.,"The free listing is explicitly NOT verified. The operator lists “Not Verified” as a characteristic of the free tier, and sells verification as a paid upgrade, so a free entry here carries no verification of any kind.",2026-08-06,active
 cz-firmy-cz,Firmy.cz,https://www.firmy.cz/,czech-republic,country-specific,local-business,create,free,,tier1,P1,true,https://admin.firmy.cz/pridat-firmu-zaciname/1,,"Czech businesses wanting the single most visible domestic local citation, tied to the country’s own search engine.","Creating an entry is confirmed; claiming an existing third-party entry is not documented, so no claim flow is asserted.",2026-08-06,active
@@ -32,16 +34,25 @@ fi-finder,Finder.fi,https://www.finder.fi/,finland,nordics,general-business,unkn
 fi-fonecta,Fonecta,https://www.fonecta.fi/,finland,nordics,local-business,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,active
 fi-suomenyritykset,Suomen Yritykset,https://www.suomenyritykset.fi/,finland,nordics,general-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
 fr-pagesjaunes,PagesJaunes,https://www.pagesjaunes.fr/,france,country-specific,local-business,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,unknown
+fr-avis-verifies,Avis Vérifiés,https://www.avis-verifies.com/,france,country-specific,review-sites,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,unknown
+fr-custplace,Custplace,https://www.custplace.com/,france,country-specific,review-sites,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
+fr-justacote,Justacote,https://www.justacote.com/,france,country-specific,review-sites,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,unknown
 fr-kompass,Kompass France,https://fr.kompass.com/,france,europe,general-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,unknown
 fr-malt,Malt,https://www.malt.fr/,france,europe,general-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,unknown
+fr-mappy,Mappy,https://www.mappy.com/,france,country-specific,local-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
+fr-starofservice,StarOfService,https://www.starofservice.com/,france,europe,local-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
 fr-codeur,Codeur.com,https://www.codeur.com/,france,country-specific,general-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 fr-cylex,Cylex France,https://www.cylex.fr/,france,country-specific,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
 fr-hotfrog,Hotfrog France,https://www.hotfrog.fr/,france,country-specific,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
+fr-viamichelin,ViaMichelin,https://www.viamichelin.com/,france,europe,local-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,unknown
 de-das-telefonbuch,Das Telefonbuch,https://www.dastelefonbuch.de/,germany,dach,local-business,create,free,,tier1,P1,true,https://www.dastelefonbuch.de/Firmeneintrag,,German businesses wanting a free entry in the country’s long-established telephone directory.,"Creating an entry is confirmed; claiming an existing one is not documented, so no claim flow is asserted.",2026-08-06,active
 de-das-oertliche,Das Örtliche,https://www.dasoertliche.de/,germany,dach,local-business,create,free,,tier1,P1,true,https://www.dtme.de/ihr-eintrag/,,German businesses wanting one free submission that reaches three established national directories.,"A submission is not confined to this directory. The same form publishes to Das Telefonbuch and Gelbe Seiten, which is convenient but removes the choice of appearing in only one.",2026-08-06,active
 de-gelbe-seiten,Gelbe Seiten,https://www.gelbeseiten.de/,germany,dach,local-business,create,free,,tier1,P1,true,https://www.gelbeseiten.de/starteintrag,,German local businesses wanting a free listing in a long-established national directory.,"An entry is a REQUEST, not a publication. The operator states that submitted data “werden an den für Ihre Region zuständigen Gelbe Seiten Verlag geschickt. Dort erfolgt eine redaktionelle Prüfung.”",2026-08-06,active
+de-omr-reviews,OMR Reviews,https://www.omr.com/en/reviews,germany,dach,software,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,active
 de-11880,11880.com,https://www.11880.com/,germany,dach,local-business,create,free,,tier1,P2,true,,,German local businesses wanting a free entry on a directory whose profiles carry customer ratings.,"Ratings exist, but whether a business owner can respond to them is NOT documented, so no owner-response capability is asserted.",2026-08-06,active
+de-exportpages,Exportpages,https://www.exportpages.de/,germany,dach; europe,manufacturing,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
 de-presseportal,Presseportal,https://www.presseportal.de/,germany,dach,press-release-platforms,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,active
+de-stepstone,Stepstone,https://www.stepstone.de/,germany,dach,general-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,active
 de-werkenntdenbesten,WerKenntDenBesten,https://www.werkenntdenbesten.de/,germany,dach,review-sites,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
 de-golocal,golocal,https://www.golocal.de/,germany,dach,review-sites,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
 de-meinestadt,meinestadt.de,https://www.meinestadt.de/,germany,dach,local-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,unknown
@@ -55,6 +66,7 @@ de-stadtbranchenbuch,Stadtbranchenbuch,https://www.stadtbranchenbuch.com/,german
 de-unternehmensverzeichnis,Unternehmensverzeichnis,https://www.unternehmensverzeichnis.org/,germany,dach,general-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 global-alibaba,Alibaba.com,https://www.alibaba.com/,global,asia; global,manufacturing,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,active
 global-apple-app-store,Apple App Store,https://apps.apple.com/,global,global,app-directories,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,active
+global-builtin,Built In,https://www.builtin.com/,global,united-states,startup,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,active
 global-capterra,Capterra,https://www.capterra.com/,global,global,software,unknown,unknown,91,tier1,P1,,https://www.capterra.com/vendors/,,SaaS vendors selling to SMB and mid-market buyers,Vendor listing pricing is not disclosed on the homepage,2026-08-04,unknown
 global-chrome-web-store,Chrome Web Store,https://chromewebstore.google.com/,global,global,app-directories,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,active
 global-clutch,Clutch,https://clutch.co/,global,global,marketing,unknown,unknown,91,tier1,P1,,,,,Listing pricing is not disclosed publicly,2026-08-04,unknown
@@ -62,8 +74,10 @@ global-crunchbase,Crunchbase,https://www.crunchbase.com/,global,global,startup,u
 global-europages,Europages,https://www.europages.co.uk/,global,europe; global,general-business,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,active
 global-futurepedia,Futurepedia,https://www.futurepedia.io/,global,global,ai,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,active
 global-g2,G2,https://www.g2.com/,global,global,software,unknown,unknown,,tier1,P1,,https://www.g2.com/products/new,,"B2B software vendors who want a moderated, reviewed product profile",No accessible official page states what a vendor listing costs,2026-08-04,unknown
+global-glassdoor,Glassdoor,https://www.glassdoor.com/,global,global,general-business,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,unknown
 global-google-business-profile,Google Business Profile,https://www.google.com/business/,global,global,local-business,unknown,free,,tier1,P1,,,,Businesses with a physical location or face-to-face customer contact,Changes take effect only after the profile has been verified,2026-08-04,active
 global-google-play,Google Play Store,https://play.google.com/store,global,global,app-directories,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,active
+global-indeed-companies,Indeed Company Pages,https://www.indeed.com/companies,global,global,general-business,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,unknown
 global-kompass,Kompass,https://www.kompass.com/,global,europe; global,general-business,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,unknown
 global-microsoft-appsource,Microsoft AppSource,https://appsource.microsoft.com/,global,global,app-directories,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,active
 global-product-hunt,Product Hunt,https://www.producthunt.com/,global,global,startup,unknown,unknown,91,tier1,P1,,https://www.producthunt.com/launch,,New software products seeking a launch moment,"Promoted placements exist, so ranking is not purely organic",2026-08-04,unknown
@@ -74,6 +88,7 @@ global-trustradius,TrustRadius,https://www.trustradius.com/,global,global,softwa
 global-trustpilot,Trustpilot,https://business.trustpilot.com/,global,global,review-sites,unknown,freemium,94,tier1,P1,,https://signup.business.trustpilot.com/create-account,,Consumer-facing businesses collecting public reviews,Open review model is susceptible to review manipulation,2026-08-04,active
 global-yelp,Yelp for Business,https://business.yelp.com/,global,global,local-business,unknown,freemium,94,tier1,P1,,,,,Review recommendation software filters some reviews,2026-08-04,active
 global-zapier-apps,Zapier App Directory,https://www.zapier.com/apps,global,global,app-directories,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,active
+global-kununu,kununu,https://www.kununu.com/,global,dach,review-sites,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,unknown
 global-alternativeto,AlternativeTo,https://alternativeto.net/,global,global,software,unknown,free,79,tier2,P2,,,,,Rankings reflect community opinion rather than structured testing,2026-08-04,unknown
 global-appsumo,AppSumo,https://appsumo.com/,global,global,software,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
 global-atlassian-marketplace,Atlassian Marketplace,https://marketplace.atlassian.com/,global,global,app-directories,unknown,unknown,92,tier1,P2,,,,,Listing pricing not disclosed publicly,2026-08-04,active
@@ -82,6 +97,7 @@ global-bark,Bark.com,https://www.bark.com/,global,global; united-kingdom,local-b
 global-behance,Behance,https://www.behance.net/,global,global,marketing,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,active
 global-betalist,BetaList,https://betalist.com/,global,global,startup,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
 global-businesswire,Business Wire,https://www.businesswire.com/,global,global,press-release-platforms,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,unknown
+global-comparably,Comparably,https://www.comparably.com/,global,global; united-states,review-sites,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,unknown
 global-consumeraffairs,ConsumerAffairs,https://www.consumeraffairs.com/,global,united-states,review-sites,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,active
 global-designrush,DesignRush,https://www.designrush.com/,global,global,marketing,unknown,unknown,90,tier2,P2,,,,,Listing pricing not disclosed,2026-08-04,unknown
 global-docker-hub,Docker Hub,https://hub.docker.com/,global,global,developer,unknown,freemium,92,tier1,P2,,,,,Pull-rate limits apply to unauthenticated users,2026-08-04,active
@@ -134,6 +150,7 @@ global-startupranking,StartupRanking,https://www.startupranking.com/,global,glob
 global-techpilot,Techpilot,https://www.techpilot.net/,global,dach; europe,manufacturing,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
 global-theknot,The Knot,https://www.theknot.com/,global,united-states,local-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,unknown
 global-themanifest,The Manifest,https://www.themanifest.com/,global,global; north-america,marketing,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,unknown
+global-themuse,The Muse,https://www.themuse.com/companies,global,global; united-states,general-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
 global-toolify,Toolify,https://www.toolify.ai/,global,global,ai,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
 global-tradeindia,TradeIndia,https://www.tradeindia.com/,global,asia; india,manufacturing,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,active
 global-trusted-shops,Trusted Shops,https://www.trustedshops.com/,global,dach; europe,review-sites,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,active
@@ -141,6 +158,7 @@ global-upwork,Upwork,https://www.upwork.com/,global,global,general-business,unkn
 global-viator,Viator,https://www.viator.com/,global,global,local-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,unknown
 global-vs-marketplace,Visual Studio Marketplace,https://marketplace.visualstudio.com/,global,global,developer,unknown,unknown,92,tier1,P2,,,,,Ratings and review functionality not confirmed from the landing page,2026-08-04,active
 global-weddingwire,WeddingWire,https://www.weddingwire.com/,global,global; united-states,local-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,unknown
+global-welcometothejungle,Welcome to the Jungle,https://www.welcometothejungle.com/,global,europe; global,general-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,active
 global-wellfound,Wellfound,https://wellfound.com/,global,global,startup,unknown,freemium,87,tier1,P2,,,,,Oriented to hiring rather than general company discovery,2026-08-04,active
 global-woocommerce-marketplace,WooCommerce extensions,https://woocommerce.com/marketplace/,global,global,app-directories,unknown,unknown,92,tier2,P2,,,,,Review functionality not confirmed,2026-08-04,active
 global-wordpress-plugins,WordPress Plugin Directory,https://wordpress.org/plugins/,global,global,developer,unknown,free,97,tier1,P2,,,,,Plugins must be GPL-compatible,2026-08-04,active
@@ -155,6 +173,7 @@ global-adobe-commerce-marketplace,Adobe Commerce Marketplace,https://marketplace
 global-agencyspotter,Agency Spotter,https://www.agencyspotter.com/,global,global; north-america,marketing,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,unknown
 global-alternative-me,Alternative.me,https://alternative.me/,global,global,software,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 global-anaconda,Anaconda.org,https://anaconda.org/,global,global,developer,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,unknown
+global-b2b-manufacturer,B2B Manufacturer,https://www.b2b-manufacturer.com/,global,asia,manufacturing,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 global-bioconductor,Bioconductor,https://bioconductor.org/,global,global,developer,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 za-bizcommunity,Bizcommunity,https://www.bizcommunity.com/,global,africa,general-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 global-cran,CRAN,https://cran.r-project.org/,global,global,developer,unknown,unknown,,tier1,P3,true,,,,,2026-08-06,active
@@ -188,6 +207,7 @@ global-luarocks,LuaRocks,https://luarocks.org/,global,global,developer,unknown,u
 global-melpa,MELPA,https://melpa.org/,global,global,developer,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 global-maven-central,Maven Central,https://central.sonatype.com/,global,global,developer,unknown,free,86,tier1,P3,,,,,"Publishing requires namespace verification, which is slower than peer registries",2026-08-04,active
 global-meetup,Meetup,https://www.meetup.com/,global,global,general-business,unknown,unknown,,tier1,P3,true,,,,,2026-08-06,active
+global-monster,Monster,https://www.monster.com/,global,global,general-business,unknown,unknown,,tier1,P3,true,,,,,2026-08-06,unknown
 global-nuget,NuGet Gallery,https://www.nuget.org/,global,global,developer,unknown,free,89,tier1,P3,,,,,Vendor-operated rather than foundation-governed,2026-08-04,active
 global-odoo-apps,Odoo Apps Store,https://apps.odoo.com/apps,global,global,app-directories,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 global-ollama-library,Ollama Library,https://ollama.com/library,global,global,developer,unknown,unknown,87,tier2,P3,,,,Model publishers targeting local-first deployment,Operated by a single commercial entity,2026-08-04,active
@@ -218,8 +238,11 @@ global-topdevelopers,TopDevelopers.co,https://www.topdevelopers.co/,global,asia;
 global-toptal,Toptal,https://www.toptal.com/,global,global,general-business,unknown,unknown,,tier1,P3,true,,,,,2026-08-06,unknown
 global-tradekey,TradeKey,https://www.tradekey.com/,global,asia; global,manufacturing,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 global-tupalo,Tupalo,https://tupalo.com/,global,europe; global,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+global-vault,Vault,https://www.vault.com/,global,united-states,general-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 global-wand,Wand,https://www.wand.com/,global,global; north-america,manufacturing,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 global-yalwa,Yalwa,https://www.yalwa.com/,global,global,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
+global-yellowpagesdirectory,YellowPagesDirectory,https://www.yellowpagesdirectory.com/,global,global; united-states,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
+global-ziprecruiter,ZipRecruiter,https://www.ziprecruiter.com/,global,united-states,general-business,unknown,unknown,,tier1,P3,true,,,,,2026-08-06,unknown
 global-aitools-fyi,aitools.fyi,https://aitools.fyi/,global,global,ai,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 global-crates-io,crates.io,https://crates.io/,global,global,developer,unknown,free,87,tier1,P3,,,,,No quality review of published crates,2026-08-04,unknown
 global-ekomi,eKomi,https://www.ekomi.com/,global,dach; europe,review-sites,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
@@ -292,11 +315,14 @@ uk-scoot,Scoot,https://www.scoot.co.uk/,united-kingdom,united-kingdom,local-busi
 uk-trustatrader,TrustATrader,https://www.trustatrader.com/,united-kingdom,united-kingdom,construction,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
 uk-bizify,Bizify,https://www.bizify.co.uk/,united-kingdom,united-kingdom,local-business,create,freemium,,tier1,P3,true,https://www.bizify.co.uk/add-new-company,,"UK-registered businesses wanting an additional free directory listing with a named, companies-house-identified operator.","The operator contradicts its own marketing. The site promises that listings “rank” and are “built to rank too”, while the terms state: “We do not provide any warranties or guarantees as to the outcome of any of the Advertising Services, including but not limited to traffic driven to your website, orders for your goods or services, and placement of your website on any search engines.” The disclaimer is the binding text.",2026-08-06,active
 uk-businessmagnet,BusinessMagnet,https://www.businessmagnet.co.uk/,united-kingdom,united-kingdom,general-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
+uk-cv-library,CV-Library,https://www.cv-library.co.uk/,united-kingdom,united-kingdom,general-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 uk-cylex,Cylex UK,https://www.cylex-uk.co.uk/,united-kingdom,united-kingdom,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
 uk-misterwhat,MisterWhat UK,https://www.misterwhat.co.uk/,united-kingdom,united-kingdom,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 uk-opendi,Opendi UK,https://www.opendi.co.uk/,united-kingdom,united-kingdom,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 uk-peopleperhour,PeoplePerHour,https://www.peopleperhour.com/,united-kingdom,europe; united-kingdom,general-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 uk-pressat,Pressat,https://www.pressat.co.uk/,united-kingdom,united-kingdom,press-release-platforms,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
+uk-reed,Reed.co.uk,https://www.reed.co.uk/,united-kingdom,united-kingdom,general-business,unknown,unknown,,tier1,P3,true,,,,,2026-08-06,unknown
+uk-totaljobs,Totaljobs,https://www.totaljobs.com/,united-kingdom,united-kingdom,general-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 uk-ukbusinessdirectory,UK Business Directory,https://www.ukbusinessdirectory.uk/,united-kingdom,united-kingdom,general-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 us-angi,Angi,https://www.angi.com/,united-states,united-states,local-business,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,unknown
 us-houzz,Houzz,https://www.houzz.com/,united-states,global; united-states,local-business,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,active
