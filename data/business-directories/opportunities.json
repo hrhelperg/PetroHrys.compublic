@@ -872,5 +872,299 @@
     "submissionModel": "unknown",
     "note": "An international company and telephone directory. Live but behind a bot filter, so the product could not be inspected automatically — a browser check is needed before submitting.",
     "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "fr-pagesjaunes",
+    "name": "PagesJaunes",
+    "website": "https://www.pagesjaunes.fr/",
+    "country": "france",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P1",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The French market-leading directory. Live but behind a bot filter, so the product could not be inspected automatically — a browser check is needed before submitting.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "fr-kompass",
+    "name": "Kompass France",
+    "website": "https://fr.kompass.com/",
+    "country": "france",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "europe"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The French arm of an international B2B database. Live but behind a bot filter, so the product could not be inspected automatically — a browser check is needed before submitting.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "es-paginas-amarillas",
+    "name": "Páginas Amarillas",
+    "website": "https://www.paginasamarillas.es/",
+    "country": "spain",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P1",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Spanish market-leading directory. Live but behind a bot filter, so the product could not be inspected automatically — a browser check is needed before submitting.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "it-misterimprese",
+    "name": "MisterImprese",
+    "website": "https://www.misterimprese.it/",
+    "country": "italy",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An Italian company directory with public business profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "nl-detelefoongids",
+    "name": "De Telefoongids",
+    "website": "https://www.detelefoongids.nl/",
+    "country": "netherlands",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P1",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The principal Dutch business and telephone directory with public company entries.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "be-goudengids",
+    "name": "Gouden Gids",
+    "website": "https://www.goudengids.be/",
+    "country": "belgium",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P1",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The principal Belgian business directory, published in Dutch and French.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "pt-pai",
+    "name": "PAI",
+    "website": "https://www.pai.pt/",
+    "country": "portugal",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P1",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The principal Portuguese business directory. The historic Páginas Amarelas domain now redirects here, so PAI is the live product.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "nz-yellow",
+    "name": "Yellow NZ",
+    "website": "https://www.yellow.co.nz/",
+    "country": "new-zealand",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P1",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The New Zealand market-leading directory. Live but behind a bot filter, so the product could not be inspected automatically — a browser check is needed before submitting.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-trustradius",
+    "name": "TrustRadius",
+    "website": "https://www.trustradius.com/",
+    "country": "global",
+    "category": "software",
+    "tier": "tier1",
+    "priority": "P1",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A B2B software review platform with public vendor profiles. Live but behind a bot filter, so the product could not be inspected automatically — a browser check is needed before submitting.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-reviews-io",
+    "name": "Reviews.io",
+    "website": "https://www.reviews.io/",
+    "country": "global",
+    "category": "review-sites",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global",
+      "united-kingdom"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A customer and product review platform with public company profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-feefo",
+    "name": "Feefo",
+    "website": "https://business.feefo.com/",
+    "country": "global",
+    "category": "review-sites",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global",
+      "united-kingdom"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A verified customer review service with public merchant profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-betalist",
+    "name": "BetaList",
+    "website": "https://betalist.com/",
+    "country": "global",
+    "category": "startup",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A launch platform for early-stage startups with public product pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-f6s",
+    "name": "F6S",
+    "website": "https://www.f6s.com/",
+    "country": "global",
+    "category": "startup",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A startup and founder network with public company profiles and programme listings.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-global-sources",
+    "name": "Global Sources",
+    "website": "https://www.globalsources.com/",
+    "country": "global",
+    "category": "manufacturing",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "asia",
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A long-established international sourcing marketplace with public supplier profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-made-in-china",
+    "name": "Made-in-China",
+    "website": "https://www.made-in-china.com/",
+    "country": "global",
+    "category": "manufacturing",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "asia",
+      "china",
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A large Chinese supplier and manufacturer marketplace with public company profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-ec21",
+    "name": "EC21",
+    "website": "https://www.ec21.com/",
+    "country": "global",
+    "category": "manufacturing",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "asia",
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A long-running international B2B marketplace. Live but behind a bot filter, so the product could not be inspected automatically — a browser check is needed before submitting.",
+    "lastVerified": "2026-08-06"
   }
 ]
