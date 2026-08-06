@@ -3785,5 +3785,495 @@
     "submissionModel": "unknown",
     "note": "HashiCorp's public registry of Terraform providers and modules.",
     "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-chamberofcommerce-org",
+    "name": "ChamberofCommerce.org",
+    "website": "https://www.chamberofcommerce.org/",
+    "country": "united-states",
+    "category": "chambers-of-commerce",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A US chamber membership organisation carrying a public member business directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-tripadvisor",
+    "name": "Tripadvisor",
+    "website": "https://www.tripadvisor.co.uk/",
+    "country": "global",
+    "category": "review-sites",
+    "tier": "tier1",
+    "priority": "P1",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A major global travel and hospitality review platform where businesses claim and manage public listings. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-theknot",
+    "name": "The Knot",
+    "website": "https://www.theknot.com/",
+    "country": "global",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A large US wedding vendor marketplace with public vendor profiles. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-weddingwire",
+    "name": "WeddingWire",
+    "website": "https://www.weddingwire.com/",
+    "country": "global",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "global",
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A large wedding vendor directory with public vendor profiles. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-wedding-spot",
+    "name": "Wedding Spot",
+    "website": "https://www.wedding-spot.com/",
+    "country": "united-states",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A US wedding venue directory and planning platform with public venue listings.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-resy",
+    "name": "Resy",
+    "website": "https://www.resy.com/",
+    "country": "united-states",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A restaurant reservation platform with public restaurant pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-zomato",
+    "name": "Zomato",
+    "website": "https://www.zomato.com/",
+    "country": "global",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "asia",
+      "india"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A large restaurant discovery and delivery platform with public restaurant listings.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-grubhub",
+    "name": "Grubhub",
+    "website": "https://www.grubhub.com/",
+    "country": "united-states",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A US food ordering marketplace with public restaurant listings.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-doordash",
+    "name": "DoorDash",
+    "website": "https://www.doordash.com/",
+    "country": "united-states",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "canada",
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A major North American delivery marketplace with public merchant listings. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-getyourguide",
+    "name": "GetYourGuide",
+    "website": "https://www.getyourguide.com/",
+    "country": "global",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "europe",
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A tours and activities marketplace where operators publish public listings. Live but behind an error page, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-viator",
+    "name": "Viator",
+    "website": "https://www.viator.com/",
+    "country": "global",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A tours and activities marketplace with public operator listings. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-cars-com",
+    "name": "Cars.com",
+    "website": "https://www.cars.com/",
+    "country": "united-states",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A US automotive marketplace with public dealer profiles. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "nz-hotfrog",
+    "name": "Hotfrog New Zealand",
+    "website": "https://www.hotfrog.co.nz/",
+    "country": "new-zealand",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The New Zealand arm of an international directory network. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "nz-localist",
+    "name": "Localist",
+    "website": "https://www.localist.co.nz/",
+    "country": "new-zealand",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A New Zealand local business directory. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "nz-cylex",
+    "name": "Cylex New Zealand",
+    "website": "https://www.cylex.co.nz/",
+    "country": "new-zealand",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The New Zealand arm of the international Cylex network. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ie-hotfrog",
+    "name": "Hotfrog Ireland",
+    "website": "https://www.hotfrog.ie/",
+    "country": "ireland",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Irish arm of an international directory network. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ie-cylex",
+    "name": "Cylex Ireland",
+    "website": "https://www.cylex.ie/",
+    "country": "ireland",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Irish arm of the international Cylex network. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "be-cylex",
+    "name": "Cylex Belgium",
+    "website": "https://www.cylex.be/",
+    "country": "belgium",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Belgian arm of the international Cylex network. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "pt-hotfrog",
+    "name": "Hotfrog Portugal",
+    "website": "https://www.hotfrog.pt/",
+    "country": "portugal",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Portuguese arm of an international directory network with public business listings.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "pt-cylex",
+    "name": "Cylex Portugal",
+    "website": "https://www.cylex.pt/",
+    "country": "portugal",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Portuguese arm of the international Cylex network. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "se-cylex",
+    "name": "Cylex Sverige",
+    "website": "https://www.cylex.se/",
+    "country": "sweden",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "nordics"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Swedish arm of the international Cylex network. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "dk-hotfrog",
+    "name": "Hotfrog Danmark",
+    "website": "https://www.hotfrog.dk/",
+    "country": "denmark",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "nordics"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Danish arm of an international directory network with public business listings.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "no-hotfrog",
+    "name": "Hotfrog Norge",
+    "website": "https://www.hotfrog.no/",
+    "country": "norway",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "nordics"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Norwegian arm of an international directory network with public business listings.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ch-hotfrog",
+    "name": "Hotfrog Schweiz",
+    "website": "https://www.hotfrog.ch/",
+    "country": "switzerland",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "dach"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Swiss arm of an international directory network. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ch-cylex",
+    "name": "Cylex Schweiz",
+    "website": "https://www.cylex.ch/",
+    "country": "switzerland",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "dach"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Swiss arm of the international Cylex network. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "at-hotfrog",
+    "name": "Hotfrog Österreich",
+    "website": "https://www.hotfrog.at/",
+    "country": "austria",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "dach"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Austrian arm of an international directory network. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "at-cylex",
+    "name": "Cylex Österreich",
+    "website": "https://www.cylex.at/",
+    "country": "austria",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "dach"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Austrian arm of the international Cylex network. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
   }
 ]
