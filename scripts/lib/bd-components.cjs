@@ -669,6 +669,46 @@ ${options}
       </div>`;
 }
 
+// A select-based facet. Distinct from the boolean checkboxes above: those ask
+// "is this true?", these ask "which value?". Options are derived from the rows
+// on the page, so a facet can never offer a value that filters to nothing.
+//
+// Rendered visible rather than hidden-until-JS, because the wrapper carries a
+// <noscript> explanation and the whole table is present either way.
+function facetSelect({ idPrefix, facet, label, rows, labels = {}, order = [] }) {
+  const id = `${escapeHtml(idPrefix)}-facet-${escapeHtml(facet.name)}`;
+  const counts = new Map();
+  for (const r of rows) {
+    const v = String(r[facet.key] ?? facet.fallback ?? '');
+    if (!v) continue;
+    counts.set(v, (counts.get(v) || 0) + 1);
+  }
+  const rank = (v) => {
+    const i = order.indexOf(v);
+    return i === -1 ? order.length : i;
+  };
+  const values = [...counts.entries()].sort((a, b) => (rank(a[0]) - rank(b[0]))
+    || (b[1] - a[1]) || (a[0] < b[0] ? -1 : a[0] > b[0] ? 1 : 0));
+  const options = values.map(([v, n]) =>
+    `          <option value="${escapeHtml(v)}">${escapeHtml(labels[v] || v)} (${n})</option>`).join('\n');
+  return `      <div class="bd-control">
+        <label class="bd-label" for="${id}">${escapeHtml(label)}</label>
+        <select class="bd-select" id="${id}" data-bd-facet="${escapeHtml(facet.name)}">
+          <option value="">All</option>
+${options}
+        </select>
+      </div>`;
+}
+
+// The reset for search, checkboxes and facets. A component rather than inline
+// markup so the data attribute the client script reads is emitted where the
+// attribute audit can see it.
+function clearFiltersControl({ label = 'Clear filters' } = {}) {
+  return `      <div class="bd-control">
+        <button class="bd-button bd-button--ghost" type="button" data-bd-clear>${escapeHtml(label)}</button>
+      </div>`;
+}
+
 // ---------------------------------------------------------------------------
 // 5. Directory table
 // ---------------------------------------------------------------------------
@@ -737,6 +777,18 @@ function directoryRow(directory, columns) {
         `data-bd-jurisdiction-code="${escapeHtml(String(directory.jurisdiction.code || ''))}"`]
       : []),
     ...FILTERS.map((f) => `${dataKey(f.field)}="${filterAttr(directory, f.field)}"`),
+    // Facet attributes for the opportunities worklist. Emitted for every row so
+    // one filter implementation serves both the boolean checkboxes and the
+    // select-based facets, and so a facet can never read a value the row does
+    // not actually carry.
+    `data-bd-facet-country="${escapeHtml(String(directory.country || ''))}"`,
+    `data-bd-facet-category="${escapeHtml(String(directory.category || ''))}"`,
+    `data-bd-facet-cost="${escapeHtml(String(directory.submissionModel || 'unknown'))}"`,
+    `data-bd-facet-action="${escapeHtml(String(directory.listingAction || 'unknown'))}"`,
+    `data-bd-facet-tier="${escapeHtml(String(directory.tier || ''))}"`,
+    `data-bd-facet-priority="${escapeHtml(String(directory.priority || 'unassessed'))}"`,
+    `data-bd-facet-status="${escapeHtml(String(directory.currentStatus || 'unknown'))}"`,
+    `data-bd-facet-audience="${escapeHtml((directory.audienceGeography || []).join(' '))}"`,
   ].join(' ');
   const cells = TABLE_METRIC_COLUMNS
     .filter((col) => !shown || shown.has(col.field))
@@ -1414,7 +1466,7 @@ module.exports = {
   statusBadges, prosCons, bestForTags, bulletList, emptyState, faqSection,
   registryInformation,
   listingInformation,
-  searchControls, filterControls, sortControls, pagination,
+  searchControls, filterControls, sortControls, pagination, facetSelect, clearFiltersControl,
   verificationBlock, acceptsList, scoreBreakdown, filterValue, filterAttr,
   relatedDirectories, submissionLink, editorialGuidance,
   methodologyNote, provenanceBlock, externalLinkCta,

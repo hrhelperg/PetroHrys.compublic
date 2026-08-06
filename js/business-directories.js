@@ -44,6 +44,10 @@
   var sortSelect = document.querySelector('[data-bd-sort]');
   var searchInput = document.querySelector('[data-bd-search]');
   var filters = Array.prototype.slice.call(document.querySelectorAll('[data-bd-filter]'));
+  // Select-based facets for the opportunities worklist. Each select names the
+  // row attribute it filters, so adding a facet needs no change here.
+  var facets = Array.prototype.slice.call(document.querySelectorAll('[data-bd-facet]'));
+  var clearBtn = document.querySelector('[data-bd-clear]');
   var jSelect = document.querySelector('[data-bd-jurisdiction-select]');
   // Every state's card, published or pending. A pending state has a card and no
   // row, so selecting it must narrow the grid rather than empty the page.
@@ -132,6 +136,19 @@
       // matches only 'yes'. 'unknown' is hidden because it is not a confirmed
       // match, NOT because it is a confirmed miss — the fieldset says so in
       // words, and the unknown tally is printed next to each filter label.
+      // Facets are exact-match on a single value, except audience which is a
+      // space-separated list and matches on membership.
+      facets.forEach(function (sel) {
+        var want = sel.value;
+        if (!want) return;
+        var name = String(sel.getAttribute('data-bd-facet'));
+        var have = row.getAttribute('data-bd-facet-' + name) || '';
+        if (name === 'audience') {
+          if ((' ' + have + ' ').indexOf(' ' + want + ' ') === -1) visible = false;
+        } else if (have !== want) {
+          visible = false;
+        }
+      });
       var hiddenUnknown = 0;
       active.forEach(function (f) {
         var attr = 'data-bd-' + String(f.getAttribute('data-bd-filter')).toLowerCase();
@@ -209,6 +226,16 @@
   if (sortSelect) sortSelect.addEventListener('change', apply);
   if (searchInput) searchInput.addEventListener('input', apply);
   filters.forEach(function (f) { f.addEventListener('change', apply); });
+  facets.forEach(function (sel) { sel.addEventListener('change', apply); });
+  if (clearBtn) {
+    clearBtn.addEventListener('click', function () {
+      if (searchInput) searchInput.value = '';
+      filters.forEach(function (f) { f.checked = false; });
+      facets.forEach(function (sel) { sel.value = ''; });
+      apply();
+      if (searchInput) searchInput.focus();
+    });
+  }
 
   apply();
 })();
