@@ -36,7 +36,7 @@ const hostOf = (u) => new URL(u).hostname.replace(/^www\./, '');
 
 test('every record this wave claims to have published exists', () => {
   for (const id of WAVE) assert.ok(byId.get(id), `missing record ${id}`);
-  assert.strictEqual(ALL.filter((r) => r.country === 'germany').length, 14); // +1 Wave 4 telecoms
+  assert.strictEqual(ALL.filter((r) => r.country === 'germany').length, 15); // +1 Wave 4 telecoms, +1 Wave 4B postal
   assert.strictEqual(ALL.filter((r) => r.country === 'france').length, 11);
 });
 

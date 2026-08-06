@@ -1878,6 +1878,11 @@
     "nativeName": "Verzeichnis der gemeldeten Unternehmen",
     "englishName": "Directory of Notified Undertakings",
     "englishNameSource": "editorial-translation",
+    "resourceIdentity": {
+      "canonicalDomain": "bundesnetzagentur.de",
+      "systemKey": "bnetza-tkg-meldeverzeichnis",
+      "sharedHostGroup": "bundesnetzagentur-de"
+    },
     "primaryRegistryType": "regulated-operator-register",
     "registryTypes": [
       "regulated-operator-register"
@@ -1958,7 +1963,8 @@
     "related": {
       "alternatives": [],
       "similar": [
-        "eu-berec-gadb"
+        "eu-berec-gadb",
+        "de-bnetza-post-anbieterverzeichnis"
       ],
       "usedWith": [],
       "competitors": []
@@ -2008,5 +2014,158 @@
       "The spreadsheet was not opened during verification, so nothing about its contents, field coverage or completeness is asserted."
     ],
     "editorNotes": "Verified 2026-08-06 by navigating from the agency’s own telecommunications obligations section, and re-verified in a separate direct adversarial pass. The agency states \"§ 5 Telekommunikationsgesetz (TKG) ist die gesetzliche Grundlage der Meldepflicht\" and quotes the provision, including that it does not apply to \"nummernunabhängige interpersonelle Telekommunikationsdienste\". It further states: \"Gemäß § 5 Abs. 4 TKG veröffentlicht die Bundesnetzagentur regelmäßig ein Verzeichnis der gemeldeten Unternehmen. Dieses Verzeichnis enthält die Namen und Anschriften der anbietenden Unternehmen sowie eine Kurzbeschreibung der gemeldeten Tätigkeit.\" The directory was published as \"Gemeldete Unternehmen (Stand 05.08.2026) (xlsx / 301 KB)\". The agency also states it transmits section 5(2) data to BEREC for the Union database under § 5 Abs. 6 TKG, which is how the BEREC GADB record was reached. FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: The notification made by the undertaking under § 5 TKG. The agency records and publishes it under § 5 Abs. 4 TKG; nothing is granted. RESPONSIBLE AUTHORITY: Bundesnetzagentur. TECHNICAL PLATFORM: Not separately established. The directory is published as a spreadsheet on the agency’s own bundesnetzagentur.de domain. PUBLIC ACCESS INTERFACE: The Meldepflicht page, which is where the agency publishes both the notification form and the directory. There is no separate search application, so the page is recorded as the public access interface. Publication-form decision: this download IS the register’s official published form under § 5 Abs. 4 TKG, which is why it is published here — unlike the German audit chamber’s Article 16(3) list rejected in Wave 3A-2, which was a publication DERIVED from a register that also had its own searchable interface."
+  },
+  {
+    "id": "de-bnetza-post-anbieterverzeichnis",
+    "name": "Anbieterverzeichnis für Postdienstleistungen",
+    "slug": "post-anbieterverzeichnis",
+    "country": "germany",
+    "category": "government",
+    "website": "https://www.bundesnetzagentur.de/DE/Fachthemen/Post/Anbieterverzeichnis/PostAnbieterverzeichnis.html?nn=1097982",
+    "submissionUrl": null,
+    "description": "The German directory of postal service providers, kept by the Federal Network Agency. Entry is constitutive rather than declaratory: since 18 July 2024 postal services may be provided only by entered providers, and a provider may subcontract only to another entered provider. It is a different legal act from the agency’s telecommunications notification directory, which it sits alongside.",
+    "tier": "tier1",
+    "scope": "national",
+    "officialName": "Anbieterverzeichnis",
+    "nativeName": "Anbieterverzeichnis",
+    "englishName": "Directory of Postal Service Providers",
+    "englishNameSource": "editorial-translation",
+    "resourceIdentity": {
+      "canonicalDomain": "bundesnetzagentur.de",
+      "systemKey": "bnetza-post-anbieterverzeichnis",
+      "sharedHostGroup": "bundesnetzagentur-de"
+    },
+    "primaryRegistryType": "regulated-operator-register",
+    "registryTypes": [
+      "regulated-operator-register"
+    ],
+    "operator": {
+      "name": "Bundesnetzagentur",
+      "type": "regulator",
+      "officialUrl": "https://www.bundesnetzagentur.de/"
+    },
+    "publicAccess": {
+      "searchUrl": null,
+      "accessLevel": "partially-open",
+      "freeToSearch": true,
+      "loginRequired": false,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "Result rows were rendered to an anonymous client with no credential and no payment, showing registration number, company, postcode, town, address, country and entry date. Free public reading is therefore observed rather than inferred. The record count, the \"Stand\" date and the hit counter are filled by JavaScript and showed placeholders to a non-executing client, so no total, currency date or coverage figure was observed and none is asserted. No filtered query was submitted, so behaviour under a specific search and any rate limit stay null."
+    },
+    "petroHrysScore": 89,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 9,
+      "verificationQuality": 10,
+      "platformReputation": 9,
+      "spamResistance": 10,
+      "industryImportance": 8,
+      "longTermStability": 8,
+      "submissionQuality": 6,
+      "transparency": 9,
+      "moderationQuality": 9
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": true,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-06",
+    "nextVerification": "2027-08-07",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "de-bnetza-verzeichnis-gemeldeter-unternehmen"
+      ],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Checking whether a company may lawfully provide postal services in Germany.",
+      "Checking a subcontractor before instructing it, because a provider may only commission an entered provider."
+    ],
+    "notRecommendedFor": [
+      "Checking a telecommunications undertaking. Postal entry and the agency’s telecommunications notification are different legal acts in different directories.",
+      "Assuming entry proves universal-service status or any particular service quality. It records entitlement to provide postal services and nothing more."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "logistics",
+      "postal-services"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "Entry is constitutive, not declaratory: the agency states that postal services may only be provided by providers entered in the directory, which makes a search here legally meaningful rather than merely informative.",
+      "It reaches the supply chain: a provider may commission another provider only if that provider is entered, so the directory is the correct check before subcontracting.",
+      "Rows are readable without an account or payment, and each carries an entry date so a reader can see how long a provider has been entered.",
+      "It records whether a provider offers formal service of documents, which is a legally significant capability rather than a marketing claim."
+    ],
+    "cons": [
+      "This is entry on application, not a notification and not a licence in the telecommunications sense. A provider must apply and be entered before starting activity; the agency does not merely record a declaration.",
+      "A transitional regime was still running at verification. Providers notified under the former section 36 of the Postal Act before 18 July 2024 may continue only until 18 August 2026, and only if they applied by 20 July 2026 — after which continuing to provide postal services is unlawful. During that window the directory does not yet show every lawful provider.",
+      "It is a POSTAL directory kept by the same agency that keeps the telecommunications notification directory. Entry here says nothing about whether a company is a telecommunications undertaking, holds spectrum, or holds numbers.",
+      "Entry records entitlement. It is not a statement about delivery quality, reliability, solvency, or whether any particular item was handled properly.",
+      "Absence does not by itself establish that a company may not deliver anything. During the transitional window a former section 36 notifier may still be operating lawfully, and services outside the statutory definition of postal services are not covered here.",
+      "The directory’s own record count and currency date are rendered by JavaScript and were not observed, so no total and no \"as at\" date is asserted."
+    ],
+    "editorNotes": "Verified 2026-08-06 by navigating from the agency’s postal section, and re-verified in a separate direct adversarial pass in which all five quotations below matched contiguous official text and the register still rendered rows. The agency states: \"Die Bundesnetzagentur führt ein öffentlich einsehbares digitales Verzeichnis aller Anbieter von Postdienstleistungen.\" and \"Postdienstleistungen dürfen nur noch von Anbietern erbracht werden, die in das sogenannte \"Anbieterverzeichnis\" eingetragen sind.\" It adds: \"Anbieter dürfen einen anderen Anbieter nur dann mit der Erbringung von Postdienstleistungen beauftragen, wenn dieser in das Anbieterverzeichnis eingetragen ist.\"; that a provider not covered by the transitional rule \"muss vor Aufnahme der Tätigkeit bei der Bundesnetzagentur die Aufnahme in das Anbieterverzeichnis beantragen\"; that pre-18-July-2024 notifiers \"können ihre Tätigkeit noch bis zum 18. August 2026 fortsetzen\"; and that without a timely application \"ist die weitere Erbringung von Postdienstleistungen unzulässig\". The register renders columns Stammnr., Firma, PLZ, Ort, Anschrift, Land, Förm. Zustell. and Eintragung. FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: Entry in the Anbieterverzeichnis under the German Postal Act as amended from 18 July 2024. Entry follows an application and is a precondition of providing postal services. RESPONSIBLE AUTHORITY: Bundesnetzagentur. TECHNICAL PLATFORM: The agency’s own bundesnetzagentur.de host, which also serves its telecommunications notification directory as a separate system. PUBLIC ACCESS INTERFACE: The public directory page at bundesnetzagentur.de. SHARED-HOST DECISION: this record and de-bnetza-verzeichnis-gemeldeter-unternehmen sit on one host and are two materially different statutory systems — postal entry on application versus telecommunications notification under § 5 TKG — covering different populations under different Acts. Both declare resourceIdentity in the bundesnetzagentur-de group with distinct systemKeys. They are neither merged nor treated as views of each other. POSTAL SCOPE DECISION: postal is published as its own record rather than folded under telecommunications, even though one agency supervises both, in line with the wave contract. The record uses the postal population and states explicitly that entry says nothing about telecommunications status."
   }
 ]
