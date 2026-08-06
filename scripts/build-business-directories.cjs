@@ -20,6 +20,11 @@ const { validateRegistry, formatReport } = require('./validate-business-director
 const BASE = routes.BASE;
 const SECTION_DIR = routes.SECTION_DIR;
 const SITEMAP_FILE = routes.sitemapOut();
+// The employee working list. Staged like any other artefact so it is owned,
+// pruned and diffed by the same machinery as the pages.
+const CSV_FILE = path.join(SECTION_DIR, 'opportunities.csv');
+const csv = require('./lib/bd-csv.cjs');
+const { renderCsv } = csv;
 const FEED_FILE = routes.feedOut();
 const MANIFEST_FILE = path.join('data', 'business-directories', '.build-manifest.json');
 const REFERENCE_COUNTRY = 'united-states';
@@ -340,6 +345,65 @@ function pageModel(registry) {
     ].join('\n\n'),
   });
 
+  // --- the employee working list -------------------------------------------
+  // ONE page for every actionable opportunity, rather than a detail page per
+  // row or a country page per geography. Countries that have no dedicated page
+  // of their own surface here under "Other countries", which is why sixteen new
+  // geographies could be added without generating a single thin page.
+  if (csv.actionableOpportunities(allDirectories).length > 0) {
+    const actionable = csv.actionableOpportunities(allDirectories);
+    const publishedCountrySlugs = new Set(publishedCountries.map((c) => c.slug));
+    const other = actionable.filter((d) => !publishedCountrySlugs.has(d.country));
+    const OPP_COLUMNS = ['name', 'country', 'category', 'submissionModel', 'listingAction',
+      'tier', 'domainRating'];
+
+    pages.push({
+      kind: 'opportunities',
+      owner: 'opportunities',
+      outPath: path.join(SECTION_DIR, 'opportunities', 'index.html'),
+      meta: seo.buildOpportunitiesMeta(),
+      main: [
+        c.pageIntro({
+          title: 'Business Listing Opportunities',
+          lede: 'Platforms where a business can create, claim or apply for a public profile. '
+            + 'Every row is a researched record; nothing here is a ranking or a recommendation to buy.',
+        }),
+        section('working-list', 'Working list', [
+          `      <p>${escapeHtml(`${actionable.length} platforms are listed. Records that are `
+            + 'shutting down, dormant, redirected into a successor, or assessed as not worth using '
+            + 'are excluded from this list and from the export. A blank cell means the fact was '
+            + 'researched and not established — it never means no.')}</p>`,
+          `      <p><a class="bd-link" href="/research/business-directories/opportunities.csv" download>`
+            + `Download the full list as CSV</a> — one row per platform, opens in Excel or Sheets.</p>`,
+          c.directoryTable({
+            directories: actionable,
+            caption: 'Business listing opportunities',
+            columns: OPP_COLUMNS,
+            sortKey: null,
+          }),
+          // Same attribution every other page owes when it shows a Domain
+          // Rating. Inlined rather than invented as a component: the constant
+          // is the single source of the wording.
+          `      <p class="bd-note"><a href="${escapeHtml(SCHEMA.AHREFS_ATTRIBUTION.href)}" `
+            + `rel="noopener noreferrer" target="_blank">${escapeHtml(SCHEMA.AHREFS_ATTRIBUTION.text)}</a>. `
+            + `${escapeHtml('A Domain Rating describes the domain, not the value of a listing on it.')}</p>`,
+        ].join('\n')),
+        ...(other.length ? [section('other-countries', 'Other countries', [
+          `      <p>${escapeHtml(`${other.length} of these platforms are based in countries that do `
+            + 'not yet have a page of their own here. They are listed together rather than split '
+            + 'into single-record country pages. A country gets its own page once it has enough '
+            + 'researched platforms to make one worth reading.')}</p>`,
+          c.directoryTable({
+            directories: other,
+            caption: 'Platforms from other countries',
+            columns: OPP_COLUMNS,
+            sortKey: null,
+          }),
+        ].join('\n'))] : []),
+      ].join('\n\n'),
+    });
+  }
+
   for (const article of articles) {
     pages.push({
       kind: 'article',
@@ -554,6 +618,13 @@ function stageBuild(registry, pages) {
     }));
   files.set(FEED_FILE, renderRss(feedItems));
 
+  // Same no-empty-artefact rule as the opportunities page: a CSV containing
+  // only a header row is not a working list, and it would survive a full data
+  // removal as an orphan.
+  if (csv.actionableOpportunities(registry.directories).length > 0) {
+    files.set(CSV_FILE, renderCsv(registry.directories));
+  }
+
   return files;
 }
 
@@ -638,7 +709,7 @@ function readManifest(outRoot) {
 }
 
 function buildManifest(files, pages) {
-  const owners = { [SITEMAP_FILE]: 'sitemap', [FEED_FILE]: 'feed' };
+  const owners = { [SITEMAP_FILE]: 'sitemap', [FEED_FILE]: 'feed', [CSV_FILE]: 'csv' };
   for (const page of pages) owners[page.outPath] = page.owner;
   const sorted = {};
   for (const key of [...files.keys()].sort()) sorted[key] = owners[key];

@@ -288,6 +288,24 @@ function buildArticleIndexMeta({ articles = [] }) {
   });
 }
 
+// The employee working list. One page, deliberately: 500-700 opportunities must
+// not become 500-700 thin detail pages, and sixteen new geographies must not
+// become sixteen one-record country pages.
+function buildOpportunitiesMeta() {
+  const canonicalPath = `${routes.BASE}opportunities/`;
+  const title = 'Business Listing Opportunities';
+  const description = 'A working list of platforms where a business can create, claim or apply '
+    + 'for a public profile, with cost, listing action and priority for each.';
+  const trail = [...ROOT_TRAIL, { name: 'Opportunities', path: canonicalPath }];
+  return meta({
+    title, description, canonicalPath, robots: undefined, breadcrumbTrail: trail,
+    graph: [
+      collectionPage({ name: title, description, url: absoluteUrl(canonicalPath) }),
+      breadcrumbList(trail),
+    ],
+  });
+}
+
 function buildDirectoryMeta({ country, category, directory, indexable = true }) {
   const countryPath = routes.countryPath(country.slug);
   const canonicalPath = routes.directoryPath(country.slug, directory.slug);
@@ -335,5 +353,5 @@ module.exports = {
   ORIGIN, SeoError, absoluteUrl, safeExternalUrl, renderJsonLd,
   breadcrumbList, collectionPage, webPage, itemList, faqPage, organisationAbout,
   buildHubMeta, buildCountryMeta, buildCategoryMeta, buildDirectoryMeta,
-  buildArticleMeta, buildArticleIndexMeta,
+  buildArticleMeta, buildArticleIndexMeta, buildOpportunitiesMeta,
 };
