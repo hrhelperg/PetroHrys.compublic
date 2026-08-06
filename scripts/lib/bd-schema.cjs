@@ -25,8 +25,22 @@ const SUBMISSION_MODELS = ['free', 'paid', 'freemium', 'notApplicable', 'unknown
 //
 // "create-and-claim" — not "create-or-claim" — because the value asserts that
 // BOTH official flows were confirmed, not that either might exist.
-const LISTING_ACTIONS = ['create', 'claim', 'create-and-claim', 'invite-only',
-  'not-applicable', 'unknown'];
+//
+// "apply" was added for eligibility-gated inclusion, which none of the other
+// values could describe without asserting something false. A certified-supplier
+// directory, a chamber member directory and a tourism-partner listing all share
+// one shape: the business initiates, and the OPERATOR decides on certification,
+// membership or eligibility. Before "apply" existed the choices were to call
+// that "create" (which hides the gate), "invite-only" (which renders as "Invite
+// only" and denies that a business may apply at all), or "unknown" (which
+// discards documented evidence). Each is a different untruth.
+//
+// "apply" is NOT for ordinary editorial moderation. Almost every directory
+// reviews submissions; that alone stays "create". The distinguishing feature is
+// that inclusion depends on WHO the business is — certification, membership or
+// eligibility — not merely on whether the submitted data passes review.
+const LISTING_ACTIONS = ['create', 'claim', 'create-and-claim', 'apply',
+  'invite-only', 'not-applicable', 'unknown'];
 
 // How a platform verifies the person claiming or creating a listing. This is
 // deliberately NOT derivable from verificationRequired: knowing that a platform
@@ -49,6 +63,34 @@ const isGovernmentPillar = (record) => PILLAR_A_CATEGORIES.includes(record && re
 // The listingAction a record carries when nothing has been established. A
 // statutory register is not an unresolved commercial platform — it has no
 // listing concept at all — so the two defaults differ by pillar.
+// The "apply" contract, as a pure function so the validator and its tests share
+// one implementation. Extracted after the first version lived only inside the
+// validator: testing it there meant mutating the real registry on disk, which
+// raced against every other test file reading the same registry in parallel.
+//
+// Returns [] when the record is not "apply" or satisfies the contract.
+function applyContractProblems(entry) {
+  if (!entry || entry.listingAction !== 'apply') return [];
+  const problems = [];
+  const visible = [entry.description, ...(entry.pros || []), ...(entry.cons || []),
+    ...(entry.bestFor || []), ...(entry.notRecommendedFor || [])]
+    .filter((v) => typeof v === 'string').join(' ');
+  // The gate is the defining fact about an eligibility-gated platform. If it is
+  // not in a published field, a reader never learns inclusion is conditional.
+  if (!/eligib|certif|member|accredit|qualif|approv|admitted|vetted|criteria/i.test(visible)) {
+    problems.push(['listingAction', 'Is "apply", but no visible field explains the eligibility, certification or membership gate. The gate must be published, not left in editorNotes.']);
+  }
+  if (!entry.submissionUrl) {
+    problems.push(['listingAction', 'Is "apply", but no submissionUrl records the official application route.']);
+  }
+  // Applying is not claiming. Both together means the action was resolved
+  // wrongly, or a second flow went undocumented.
+  if (entry.claimUrl) {
+    problems.push(['claimUrl', 'Is set alongside listingAction "apply". Applying for inclusion and claiming an existing profile are different actions; resolve which one the platform documents.']);
+  }
+  return problems;
+}
+
 const defaultListingAction = (record) => (isGovernmentPillar(record) ? 'not-applicable' : 'unknown');
 
 
@@ -1036,6 +1078,7 @@ module.exports = {
   PILLAR_A_CATEGORIES,
   isGovernmentPillar,
   defaultListingAction,
+  applyContractProblems,
   DR_OMISSION_MARKER, sharedDomainSnapshotProblems,
   NESTED_RECORD_KEYS, METRIC_PROVENANCE_KEYS, OBJECT_VALUED_FIELDS, ARRAY_VALUED_FIELDS,
   RESOURCE_IDENTITY_KEYS, CANONICAL_DOMAIN_RE, canonicalDomainProblem,

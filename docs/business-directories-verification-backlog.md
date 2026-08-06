@@ -1788,3 +1788,117 @@ pattern from Yellow Pages, Manta and Hotfrog. The state layer's real yield will
 be chamber-operated and regional portals that have no national parent, and the
 honest expectation is that a substantial number of the twenty states produce
 nothing publishable.
+
+---
+
+## Wave 1C.1A — West and Southwest: research milestone, zero records
+
+**24 candidates classified across five states. Zero records authored.**
+
+That is the correct outcome, not a failure. The wave established where genuine
+state directories exist, which apparent ones are national regional views, which
+are procurement systems, which are advocacy organisations, and which have been
+renamed or repurposed. What it could not establish — for any candidate — is a
+**verified public discovery surface**, because every qualifying interface is
+behind a WAF or served as a JavaScript application.
+
+### Schema decision
+
+This wave added the listing action **`apply`**, label **"Apply for inclusion"**.
+
+Region A's genuine candidates are overwhelmingly certification and membership
+directories, and every existing enum value described them falsely:
+
+| Value | Why it was wrong |
+|---|---|
+| `create` | Implies submitting produces a listing; hides the certification gate |
+| `invite-only` | Renders "Invite only" — denies that a business may apply at all |
+| `claim` | A different action; there is no prior profile to claim |
+| `unknown` | Discards documented evidence about a flow that IS documented |
+
+`apply` means: *the business initiates an application, but inclusion depends on
+operator approval based on certification, membership, eligibility or another
+documented gate. Submission alone does not create or guarantee a listing.*
+
+It is **not** for ordinary editorial moderation — nearly every directory reviews
+submissions, and that stays `create`. The distinguishing feature is that
+inclusion depends on **who the business is**, not merely on whether the submitted
+data passes review.
+
+**The enum does not make a candidate publishable.** Two separate proofs are still
+required: an official application route, and a public discovery surface. A free
+certification application is not a public searchable supplier directory.
+
+### National duplicates — excluded across all five states
+
+| Platform | State pattern | Finding |
+|---|---|---|
+| ChamberofCommerce.com | `/business-directory/<state>/`, all 50 states | Regional views of one national platform |
+| MerchantCircle | city slugs (`/ca-los-angeles`) | One national system. `/california` returns **404** — no state surface exists at all |
+| Alignable | `/<city>-<state>/directory` | One national system, city views under one account |
+
+No state record may be created from any of these.
+
+### California
+
+| Candidate | Outcome |
+|---|---|
+| **CalChamber** | **Rejected** — not a directory. Its membership product is HR compliance: *"HRCalifornia.com, our members-only portal that includes the HR Library"*. No public business directory exists. |
+| **CA Supplier Clearinghouse** | **Targeted research incomplete.** A genuine certification programme — *"On behalf of the California Public Utilities Commission (CPUC), we certify women, minority, LGBT, persons with disabilities, and disabled veteran business enterprises"* — but its About page is unedited WordPress theme boilerplate (testimonials from "Colabrio", a link to `ohio.clbthemes.com`) and Contact names no legal entity. **Operator unestablished.** Also **not a California directory**: *"Does the business need to be located in California to be certified by the Clearinghouse? No. The Clearinghouse certifies companies located in the United States."* |
+| **CMTC → Roadmap 4 Innovation** | **Renamed successor, rejected.** *"Roadmap 4 Innovation (R4I) is a 501(c)(3) nonprofit dedicated to helping California manufacturers strengthen competitiveness through expert consulting"* — a consulting nonprofit, not a directory. |
+| **Cal eProcure** | **Pending browser** — public supplier search returns an empty body. |
+| **Visit California** | **Pending browser** — `/business-directory/` exists but is a JavaScript app. |
+
+### Washington
+
+| Candidate | Outcome |
+|---|---|
+| **OMWBE certified-business directory** | **Pending browser** — the region's strongest candidate. Operator unambiguous (Washington State agency), cost documented: *"There is no cost to apply for OMWBE Certification… all fees have been waived indefinitely."* But the directory itself is served from `omwbe.diversitycompliance.com`, which returns **403**. Public discovery unverified. Note the two-role split: OMWBE is the programme operator, DiversityCompliance the technical platform. |
+| **Association of Washington Business** | **Rejected** — policy and advocacy; no member business directory. |
+| **Choose Washington** | **Rejected** — no listing or directory route; economic-development landing pages. |
+| **Impact Washington** | Targeted research incomplete. |
+| **ExperienceWA** | **Pending browser** — no response on two independent passes. |
+
+### Arizona · Colorado
+
+Arizona: Arizona Chamber targeted incomplete; **Arizona Commerce 403**; **Visit
+Arizona 403**. Colorado: **Colorado Chamber no response**; **Colorado.com 403**;
+OEDIT and Manufacturer's Edge targeted incomplete. Neither state produced a
+candidate whose public discovery could be verified without a browser.
+
+### Texas
+
+| Candidate | Outcome |
+|---|---|
+| **VetHUB** (formerly HUB) | **Renamed, scope narrowed.** *"VetHUB is Veteran Heroes United in Business. The program focuses on certification of service-disabled veterans (SDV)."* The historical HUB description covering minority- and women-owned businesses must not be carried forward as current. Public directory status unresolved. |
+| **CMBL** | **Procurement registration, excluded from Pillar B.** Its own definition: *"The CMBL is a master database used by State of Texas purchasing entities to develop a mailing list for vendors to receive bids."* A bidders mailing list is not a public promotional directory. |
+| **Texas Association of Business** | Membership workflow on a GrowthZone portal; public discovery not established. |
+| **Travel Texas** | No verified listing route. |
+
+### Browser queue — Region A
+
+Every entry is **blocked, not absent**. Each states what stays null until verified.
+
+| # | Platform | State | URL | Blocker | Exact browser action | Facts to observe | Stays null until verified |
+|---|---|---|---|---|---|---|---|
+| 1 | **OMWBE directory** | WA | `https://omwbe.diversitycompliance.com/` | 403 | Load the directory; run an anonymous search; open one result | public search without login, stable business profile, operator/platform roles | everything except operator and cost |
+| 2 | **CA Supplier Clearinghouse** | US-wide | `https://sch.prismcompliance.com/` (Certified Directory) | third-party host | Open the certified-firm directory; inspect a result page | **legal operator**, public profile stability, search without login | all fields |
+| 3 | **Cal eProcure** | CA | `https://caleprocure.ca.gov/pages/PublicSearch/supplier-search.aspx` | JS app, empty body | Run a public supplier search | whether results are reusable discovery or procurement lookup only | all fields |
+| 4 | **Visit California** | CA | `https://www.visitcalifornia.com/business-directory/` | JS app | Open the directory; find the partner application route | who may apply, eligibility, cost, public listing stability | all fields |
+| 5 | **Texas VetHUB** | TX | `https://comptroller.texas.gov/purchasing/vendor/hub/` | Public directory unresolved | Follow "Search for CMBL/VetHUB Vendors" | whether a public certified-business directory exists **separate from** the CMBL bidders list | all fields |
+| 6 | **Visit Arizona** | AZ | `https://www.visitarizona.com/` | 403 | Open the partner/listing route | application route, eligibility, cost | all fields |
+| 7 | **Arizona Commerce Authority** | AZ | `https://www.azcommerce.com/` | 403 | Open business/supplier directory routes | whether any public company directory exists | all fields |
+| 8 | **Colorado.com** | CO | `https://www.colorado.com/` | 403 | Open the listing/partner route | application route, eligibility, cost | all fields |
+| 9 | **ExperienceWA** | WA | `https://www.experiencewa.com/` | No response ×2 | Load in a browser | whether the site still operates | all fields |
+
+### Conditions required before any Region A record is authored
+
+1. A **public discovery surface** verified directly — anonymous search and a stable business profile, not a certification page.
+2. An **official application route** for a qualifying business.
+3. An **established legal operator**, distinguishing programme operator from technical platform.
+4. For `apply` records, the eligibility gate must be visible in published prose, not editorNotes.
+
+### Dependency
+
+Global commercial records require a separate remediation wave; this regional
+release does not modify or duplicate them.
