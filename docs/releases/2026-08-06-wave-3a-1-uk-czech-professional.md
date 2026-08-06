@@ -42,7 +42,7 @@ note was clarified instead.
 **ARB is statutory; the Engineering Council is not.** The board "was established
 by Parliament in 1997". The council operates "as a charity under Royal Charter"
 and its titles "are protected under our Royal Charter". It is typed
-`chartered-body`, **not** `regulator` — calling a chartered body a statutory
+`public-law-body`, **not** `regulator` — calling a chartered body a statutory
 regulator is the same class of error this dataset corrected for ORIAS in Wave 2A.
 
 **IPReg is ONE record.** Its page says "Search our registers" — plural, reflecting

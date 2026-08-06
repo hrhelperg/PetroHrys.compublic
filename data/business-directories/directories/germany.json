@@ -989,5 +989,879 @@
       "No query was executed during verification, so result formatting, export options and any rate limit are unestablished and are not asserted."
     ],
     "editorNotes": "Verified 2026-08-06 by direct fetch of the database itself, and re-verified in a separate direct adversarial pass. The served form carried a stated data-currency date and the category filters for supervised institution types. FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: The supervisory and authorisation decisions of the German financial supervisor, taken under German financial supervision law. For credit institutions within the European banking union the authorisation decision may sit with the European supervisor while the national supervisor conducts the procedure, so the record does not claim the database constitutes the authorisation. RESPONSIBLE AUTHORITY: Bundesanstalt für Finanzdienstleistungsaufsicht. TECHNICAL PLATFORM: Not separately established. The database is served from the supervisor’s own portal host; no external supplier is named on any page fetched. PUBLIC ACCESS INTERFACE: The company database on the supervisor’s portal. Scoping decision: the supervisor publishes several databases and lists. Only the company database is published here, because it is the one coherent searchable register of supervised undertakings. Warning lists and unauthorised-business notices were deliberately excluded — they record the opposite of authorisation and would need their own classification decision rather than being folded in. Registry type: financial-services-register."
+  },
+  {
+    "id": "de-brak-anwaltsverzeichnis",
+    "name": "Bundesweites Amtliches Anwaltsverzeichnis",
+    "slug": "bundesweites-amtliches-anwaltsverzeichnis",
+    "country": "germany",
+    "category": "government",
+    "website": "https://bravsearch.bea-brak.de/bravsearch/",
+    "submissionUrl": null,
+    "description": "The official nationwide directory of lawyers admitted in Germany, operated by the Bundesrechtsanwaltskammer over the registers of the regional bars. It answers one question — whether a person is admitted to practise as a Rechtsanwalt in Germany — and admission is required to practise, not merely to use the title.",
+    "tier": "tier1",
+    "scope": "national",
+    "nativeName": "Bundesweites Amtliches Anwaltsverzeichnis",
+    "englishName": "Official Nationwide Register of Lawyers",
+    "englishNameSource": "editorial-translation",
+    "primaryRegistryType": "professional-licence-register",
+    "registryTypes": [
+      "professional-licence-register"
+    ],
+    "operator": {
+      "name": "Bundesrechtsanwaltskammer",
+      "type": "public-law-body",
+      "officialUrl": "https://www.brak.de/"
+    },
+    "publicAccess": {
+      "searchUrl": null,
+      "accessLevel": "partially-open",
+      "freeToSearch": null,
+      "loginRequired": false,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "The search form was served anonymously with no credential, in German and English, with fields for name, professional title, specialist subtitle, firm, address and bar, so login is recorded as not required. No query was executed, so result content, coverage and any rate limit were not observed and stay null."
+    },
+    "petroHrysScore": 91,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 9,
+      "verificationQuality": 10,
+      "platformReputation": 9,
+      "spamResistance": 10,
+      "industryImportance": 9,
+      "longTermStability": 9,
+      "submissionQuality": 6,
+      "transparency": 9,
+      "moderationQuality": 9
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": true,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-06",
+    "nextVerification": "2027-08-12",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Checking whether a named person is admitted to practise as a lawyer anywhere in Germany.",
+      "Confirming that a European or non-German lawyer is established in Germany under the Federal Lawyers Act."
+    ],
+    "notRecommendedFor": [
+      "Judging whether a lawyer is suitable for a matter. The chamber states it may not assess or recommend individual lawyers.",
+      "Treating a nil result as proof that someone never practised. Admission can end, and the directory shows current status."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "legal-services",
+      "professional-services"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "It is the official nationwide directory and covers every lawyer admitted in Germany, so one search replaces twenty-eight regional ones.",
+      "It reaches beyond German lawyers to European lawyers and to lawyers from other states established in Germany under section 206 of the Federal Lawyers Act.",
+      "It is served in both German and English, which is unusual for a national professional register."
+    ],
+    "cons": [
+      "Admission is required to practise, not only to use the title, so an entry means more here than in a protected-title register — but it still says nothing about competence in any field.",
+      "The federal chamber operates the directory; it is not the body that admitted anyone. Admission and discipline sit with the regional bar, which the search page states directly.",
+      "It records individual lawyers and their firms, not a firm’s quality, and specialist subtitles are conferred by the local bar rather than centrally.",
+      "The chamber states it is not entitled to give legal advice, to examine the conduct of individual lawyers, to recommend them, or to check fee invoices, so inclusion establishes none of those things.",
+      "No search was executed during verification, so result content and any limits were not observed and none is asserted."
+    ],
+    "editorNotes": "Verified 2026-08-06 by direct fetch of the search host and of the chamber’s own describing page, and re-verified in a separate direct adversarial pass. The search host titles itself \"Official Nationwide Register Of Lawyers\" and states it covers \"all Rechtsanwälte/Rechtsanwältinnen and European lawyers admitted in Germany as well as lawyers from other countries which are established in Germany under 206 of the Federal Lawyers Act and all legal advisers (“Rechtsbeistände”) who are members of a Bar\". The chamber’s page states the directory \"umfasst alle in Deutschland zugelassenen Rechtsanwältinnen und Rechtsanwälte\". FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: The admission decisions of the twenty-eight regional Rechtsanwaltskammern under the Bundesrechtsanwaltsordnung. The search host states that \"Disciplinary control is exercised by the respective regional Bar to which the lawyer is admitted\", so the federal directory is an interface over regional registers and is not itself the source of record. RESPONSIBLE AUTHORITY: Bundesrechtsanwaltskammer, a public-law corporation and the umbrella body of the regional bars. TECHNICAL PLATFORM: bea-brak.de, the chamber’s own electronic-communication platform, which also serves the beA system. PUBLIC ACCESS INTERFACE: The public search at bravsearch.bea-brak.de. URL note: the chamber’s own link (www.bea-brak.de/bravsearch/search.brak) and the widely cited rechtsanwaltsregister.org both redirect cross-host to bravsearch.bea-brak.de/bravsearch/, which is recorded here as the canonical entry.  Duplicate decision: BRAK’s separate \"Anwaltssuche\" page is NOT a second record. It is a signpost that points readers to the regional chambers’ own search services and to this directory; it is not a system of its own."
+  },
+  {
+    "id": "de-wpk-berufsregister",
+    "name": "WPK Berufsregister",
+    "slug": "wpk-berufsregister",
+    "country": "germany",
+    "category": "government",
+    "website": "https://www.wpk.de/berufsregister/",
+    "submissionUrl": null,
+    "description": "The professional register of German public auditors and audit firms, kept by the Wirtschaftsprüferkammer under section 37 of the Public Accountant Act. The same register also discharges the statutory auditor register required by the EU Audit Directive, so one system serves both purposes.",
+    "tier": "tier1",
+    "scope": "national",
+    "officialName": "Berufsregister/Abschlussprüferregister",
+    "nativeName": "Berufsregister/Abschlussprüferregister",
+    "englishName": "Professional Register / Statutory Auditor Register",
+    "englishNameSource": "editorial-translation",
+    "primaryRegistryType": "professional-licence-register",
+    "registryTypes": [
+      "professional-licence-register"
+    ],
+    "operator": {
+      "name": "Wirtschaftsprüferkammer",
+      "type": "public-law-body",
+      "officialUrl": "https://www.wpk.de/"
+    },
+    "publicAccess": {
+      "searchUrl": null,
+      "accessLevel": "partially-open",
+      "freeToSearch": null,
+      "loginRequired": false,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "The register is described by the chamber as publicly accessible with current data. The search application was served anonymously with no credential, so login is recorded as not required. It renders its interface with JavaScript and no query was executed, so result content and any limits were not observed and stay null."
+    },
+    "petroHrysScore": 90,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 9,
+      "verificationQuality": 10,
+      "platformReputation": 8,
+      "spamResistance": 10,
+      "industryImportance": 9,
+      "longTermStability": 9,
+      "submissionQuality": 6,
+      "transparency": 9,
+      "moderationQuality": 9
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": true,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-06",
+    "nextVerification": "2027-08-30",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Checking that a named auditor or audit firm is entitled to carry out statutory audits in Germany.",
+      "Confirming the status of an EU, EEA or third-country audit firm registered in Germany."
+    ],
+    "notRecommendedFor": [
+      "Judging audit quality. Registration records entitlement, not how any engagement was performed.",
+      "Assuming a person absent from it cannot do any accountancy work. Only statutory audit is reserved to the professions recorded here."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "accounting",
+      "professional-services",
+      "financial-services"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "Its statutory basis is stated on the chamber’s own page: section 37(1) sentence 1 of the Wirtschaftsprüferordnung.",
+      "One register discharges two legal functions, so there is no second national auditor list to reconcile it against.",
+      "It covers firms as well as individuals, including EU and EEA audit firms and third-country auditors and firms."
+    ],
+    "cons": [
+      "Registration is required to carry out statutory audits, so it is a licence to practise a reserved activity rather than a protected title — but it is not a statement about the quality of any audit.",
+      "It mixes populations with different entitlements — public auditors, sworn accountants, audit firms, foreign firms and cooperative audit associations — so a hit alone does not tell a reader what the entry permits.",
+      "The register is kept by the chamber; entries follow the chamber’s own admission and recognition decisions, which is not the same as supervision of an individual audit.",
+      "The search application renders with JavaScript, so it could not be exercised and nothing about result content or coverage is asserted."
+    ],
+    "editorNotes": "Verified 2026-08-06 by direct fetch of the chamber’s register page and search entry, and re-verified in a separate direct adversarial pass. The chamber states: \"Die WPK führt ein Berufsregister für Wirtschaftsprüfer und Wirtschaftsprüfungsgesellschaften (§ 37 Abs. 1 Satz 1 WPO)\" and that \"Neben der Erfassung der Daten der Mitglieder der WPK erfüllt das Berufsregister zugleich die Aufgabe des Abschlussprüferregisters im Sinne der Abschlussprüferrichtlinie (Richtlinie 2006/43/EG)\". Listed populations: Wirtschaftsprüfer/vereidigte Buchprüfer; Wirtschaftsprüfungs-/Buchprüfungsgesellschaften; EU- und EWR-Abschlussprüfungsgesellschaften; Drittstaatsprüfer und Drittstaatsprüfungsgesellschaften; genossenschaftliche Prüfungsverbände und Prüfungsstellen der Sparkassen- und Giroverbände. FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: The professional register kept by the Wirtschaftsprüferkammer under section 37(1) sentence 1 WPO, which simultaneously constitutes the statutory auditor register under Directive 2006/43/EC. RESPONSIBLE AUTHORITY: Wirtschaftsprüferkammer, a public-law professional chamber. TECHNICAL PLATFORM: Not separately established. The application is served from the chamber’s own domain and no external supplier is named. PUBLIC ACCESS INTERFACE: The chamber’s public register search at wpk.de/berufsregister/. Duplicate decisions, both rejections. The chamber’s \"Liste der Abschlussprüfer und Prüfungsgesellschaften\" is a DOWNLOAD published for selection procedures under Article 16(3) of EU Regulation 537/2014 — a publication derived from this register, not a register. Its \"Suche nach Spezialkenntnissen\" is a filtered view of the same register, not a separate system. Recorded so neither is proposed again. Also noted and not researched: the Abschlussprüferaufsichtsstelle (APAS) publishes a separate list of firms meeting a 15 per cent fee-share threshold; that is a different body."
+  },
+  {
+    "id": "de-patentanwaltsverzeichnis",
+    "name": "Bundesweites Amtliches Patentanwaltsverzeichnis",
+    "slug": "bundesweites-amtliches-patentanwaltsverzeichnis",
+    "country": "germany",
+    "category": "government",
+    "website": "https://www.patentanwaltsregister.de/",
+    "submissionUrl": null,
+    "description": "The official nationwide directory of patent attorneys admitted in Germany, kept by the Patentanwaltskammer. It covers individual patent attorneys, in-house patent attorneys and professional practice companies, and admission is required to practise rather than only to use the title.",
+    "tier": "tier1",
+    "scope": "national",
+    "nativeName": "Bundesweites Amtliches Patentanwaltsverzeichnis",
+    "englishName": "Official Nationwide Register of Patent Attorneys",
+    "englishNameSource": "editorial-translation",
+    "primaryRegistryType": "professional-licence-register",
+    "registryTypes": [
+      "professional-licence-register"
+    ],
+    "operator": {
+      "name": "Patentanwaltskammer",
+      "type": "public-law-body",
+      "officialUrl": "https://www.patentanwalt.de/"
+    },
+    "publicAccess": {
+      "searchUrl": null,
+      "accessLevel": "partially-open",
+      "freeToSearch": null,
+      "loginRequired": false,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "The search mask was served anonymously with no credential, with fields for salutation, title, name, place and company, so login is recorded as not required. No query was executed, so result content and any limits were not observed and stay null."
+    },
+    "petroHrysScore": 86,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 8,
+      "verificationQuality": 9,
+      "platformReputation": 8,
+      "spamResistance": 10,
+      "industryImportance": 8,
+      "longTermStability": 8,
+      "submissionQuality": 6,
+      "transparency": 9,
+      "moderationQuality": 9
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": true,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-06",
+    "nextVerification": "2027-08-23",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Checking that a named patent attorney is admitted in Germany before instructing them.",
+      "Confirming that a patent practice company is admitted under the Patent Attorney Regulations."
+    ],
+    "notRecommendedFor": [
+      "Choosing an attorney by technical field. The directory records admission, not expertise in a technology.",
+      "Assuming coverage of European Patent Attorneys generally. Only those established in Germany under the applicable provisions appear."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "legal-services",
+      "intellectual-property",
+      "professional-services"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "The chamber describes it as an electronic directory of all patent attorneys admitted in Germany, maintained on a daily basis.",
+      "It covers professional practice companies under sections 52f and 159 of the Patent Attorney Regulations, so firms are searchable and not only individuals.",
+      "It reaches European patent attorneys established in Germany and patent attorneys from other states, each shown with the professional title of their home state."
+    ],
+    "cons": [
+      "Admission is required to practise as a patent attorney, so this is a licence register — but an entry is not a statement about experience in any technical field or trade.",
+      "It records individuals and practice companies together, so a result must be read carefully to know which kind of entry has been returned.",
+      "The chamber keeps the directory and admits its members; it does not supervise the conduct of any individual mandate.",
+      "The application issues a session-specific address on entry, so a copied link is not a durable citation and a reader should return through the register’s own domain.",
+      "Absence does not establish that a person never practised. Admission can end, and the directory shows who is admitted now rather than a history of the profession.",
+      "No search was executed during verification, so result content and any limits were not observed and none is asserted."
+    ],
+    "editorNotes": "Verified 2026-08-06 by navigating from the chamber’s own site to the register, and re-verified in a separate direct adversarial pass. The chamber states patent attorneys in Germany \"sind in einer Körperschaft des öffentlichen Rechts organisiert, die sich selbst verwaltet\", and that it \"hat ein elektronisches Verzeichnis aller in Deutschland zugelassenen Patentanwältinnen und Patentanwälte eingerichtet … Das Verzeichnis wird tagesaktuell geführt\". The register page titles itself \"Bundesweites Amtliches Patentanwaltsverzeichnis\" and states it also covers \"zugelassenen Berufsausübungsgesellschaften gemäß § 52f PAO und ausländischen Berufsausübungsgesellschaften gemäß § 159 PAO\", plus European patent attorneys under § 20 EuPAG and patent attorneys from other states under § 157 Abs. 1 PAO. FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: Admission to the profession under the Patentanwaltsordnung. The chamber admits and records; the directory reflects that decision. RESPONSIBLE AUTHORITY: Patentanwaltskammer, a self-governing public-law corporation. TECHNICAL PLATFORM: An ASP.NET application on the chamber’s patentanwaltsregister.de domain, which mints a session-specific path on entry. PUBLIC ACCESS INTERFACE: The public search at patentanwaltsregister.de. Access note: entry to the bare domain returned HTTP 200 and redirected to a session URL of the form /(X(1)S(…))/default.aspx. The stable entry recorded here is the bare domain."
+  },
+  {
+    "id": "de-steuerberaterverzeichnis",
+    "name": "Amtliches Steuerberaterverzeichnis",
+    "slug": "amtliches-steuerberaterverzeichnis",
+    "country": "germany",
+    "category": "government",
+    "website": "https://steuerberaterverzeichnis.berufs-org.de/",
+    "submissionUrl": null,
+    "description": "The official nationwide register of German tax advisers, tax agents and tax advisory practice companies, kept by the Bundessteuerberaterkammer under section 86b of the Tax Advisory Act. It records who is entitled to give unrestricted assistance in tax matters in Germany.",
+    "tier": "tier1",
+    "scope": "national",
+    "nativeName": "Amtliches Steuerberaterverzeichnis",
+    "englishName": "Official Register of Tax Advisers",
+    "englishNameSource": "editorial-translation",
+    "primaryRegistryType": "professional-licence-register",
+    "registryTypes": [
+      "professional-licence-register"
+    ],
+    "operator": {
+      "name": "Bundessteuerberaterkammer",
+      "type": "public-law-body",
+      "officialUrl": "https://www.bstbk.de/"
+    },
+    "publicAccess": {
+      "searchUrl": null,
+      "accessLevel": "partially-open",
+      "freeToSearch": null,
+      "loginRequired": false,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "The chamber states the register is accessible to anyone. The search was served anonymously with no credential, so login is recorded as not required. No query was executed, so result content and any limits were not observed and stay null."
+    },
+    "petroHrysScore": 90,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 9,
+      "verificationQuality": 10,
+      "platformReputation": 8,
+      "spamResistance": 10,
+      "industryImportance": 9,
+      "longTermStability": 9,
+      "submissionQuality": 6,
+      "transparency": 9,
+      "moderationQuality": 9
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": true,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-06",
+    "nextVerification": "2027-08-22",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "de-stbk-eu-dienstleister-steuersachen",
+        "de-stbk-partiell-zugelassene-steuersachen"
+      ],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Checking that a named person or company may give unrestricted assistance in tax matters in Germany.",
+      "Confirming that a tax advisory practice company is recognised or entered in the professional register."
+    ],
+    "notRecommendedFor": [
+      "Finding an adviser for a particular specialism. The chamber states the register does not serve that purpose.",
+      "Concluding from absence that a person may not act at all in tax matters. Two separate registers cover foreign and partially authorised providers."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "accounting",
+      "professional-services",
+      "tax"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "Its statutory basis is stated on the register itself: section 86b of the Steuerberatungsgesetz, as an electronic overall register.",
+      "It covers appointed tax advisers and tax agents together with recognised practice companies, so firms are searchable as well as individuals.",
+      "The chamber states plainly that the register is accessible to anyone, and it can be narrowed to a place or postcode area."
+    ],
+    "cons": [
+      "Appointment is required to give unrestricted assistance in tax matters, so this is a licence register — but the chamber states the register is not a way to search for an adviser with a particular specialism or qualification.",
+      "The federal chamber publishes the register, but the underlying professional registers are kept by the locally competent regional chambers, which the register states in reference to section 86b(1) sentence 3.",
+      "Absence from this register does not mean a person may not act in tax matters at all. Foreign providers acting temporarily and persons with partial authorisation are recorded in two separate registers kept by the same chamber.",
+      "No search was executed during verification, so result content and any limits were not observed and none is asserted."
+    ],
+    "editorNotes": "Verified 2026-08-06 by navigating from the federal chamber’s own site, and re-verified in a separate direct adversarial pass. The register states: \"Die Bundessteuerberaterkammer führt nach § 86b Steuerberatungsgesetz ein elektronisches Gesamtverzeichnis aller in Deutschland bestellten Steuerberater und Steuerbevollmächtigten sowie aller im Berufsregister eingetragenen steuerberatenden Berufsausübungsgesellschaften. Das amtliche Steuerberaterverzeichnis ist jedermann zugänglich.\" It also states it \"dient dagegen nicht dazu, nach einem Steuerberater für ein bestimmtes Fachgebiet oder mit speziellen Qualifikationen zu suchen\", and that it \"basiert auf den Daten der Berufsregister, die von den örtlich zuständigen Steuerberaterkammern geführt werden (vgl. § 86b Abs. 1 Satz 3 StBerG)\". FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: The professional registers kept by the locally competent Steuerberaterkammern; the federal register aggregates them under § 86b StBerG. RESPONSIBLE AUTHORITY: Bundessteuerberaterkammer, a public-law professional chamber. TECHNICAL PLATFORM: A berufs-org.de subdomain of its own. The chamber’s two other statutory registers run on separate subdomains of the same parent domain. PUBLIC ACCESS INTERFACE: The public search at steuerberaterverzeichnis.berufs-org.de. Separation decision: kept distinct from the § 3b and § 3g registers. Three different statutory bases, three different authorisation regimes, three different populations AND three different hosts; merging them because the chamber runs all three would misstate what any entry permits. No shared-host group is declared, because the three registers do not share a host — each has its own subdomain."
+  },
+  {
+    "id": "de-stbk-eu-dienstleister-steuersachen",
+    "name": "Verzeichnis der zur vorübergehenden Hilfeleistung in Steuersachen befugten Personen",
+    "slug": "verzeichnis-eu-dienstleister-steuersachen",
+    "country": "germany",
+    "category": "government",
+    "website": "https://eu-dienstleister-in-steuersachen.berufs-org.de/",
+    "submissionUrl": null,
+    "description": "The statutory register of service providers from other EU or EEA states or Switzerland who are authorised to give temporary and occasional assistance in tax matters in Germany, kept by the Bundessteuerberaterkammer under section 3b of the Tax Advisory Act.",
+    "tier": "tier1",
+    "scope": "national",
+    "officialName": "Verzeichnis der zur vorübergehenden und gelegentlichen Hilfeleistung in Steuersachen befugten Personen",
+    "nativeName": "Verzeichnis der zur vorübergehenden und gelegentlichen Hilfeleistung in Steuersachen befugten Personen",
+    "englishName": "Register of Persons Authorised for Temporary and Occasional Assistance in Tax Matters",
+    "englishNameSource": "editorial-translation",
+    "primaryRegistryType": "professional-licence-register",
+    "registryTypes": [
+      "professional-licence-register"
+    ],
+    "operator": {
+      "name": "Bundessteuerberaterkammer",
+      "type": "public-law-body",
+      "officialUrl": "https://www.bstbk.de/"
+    },
+    "publicAccess": {
+      "searchUrl": null,
+      "accessLevel": "partially-open",
+      "freeToSearch": null,
+      "loginRequired": false,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "The chamber states the register is accessible to anyone. The search was served anonymously with no credential, so login is recorded as not required. No query was executed, so result content and any limits were not observed and stay null."
+    },
+    "petroHrysScore": 83,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 7,
+      "verificationQuality": 9,
+      "platformReputation": 8,
+      "spamResistance": 10,
+      "industryImportance": 7,
+      "longTermStability": 8,
+      "submissionQuality": 6,
+      "transparency": 9,
+      "moderationQuality": 9
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": true,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-06",
+    "nextVerification": "2027-08-15",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "de-steuerberaterverzeichnis",
+        "de-stbk-partiell-zugelassene-steuersachen"
+      ],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Checking whether a foreign provider is registered to give temporary and occasional assistance in tax matters in Germany.",
+      "Distinguishing a cross-border provider from a tax adviser appointed in Germany."
+    ],
+    "notRecommendedFor": [
+      "Assessing a foreign provider’s qualifications or specialisms. The register states it does not serve that purpose.",
+      "Treating an entry as equivalent to appointment as a German tax adviser. The authorisation is temporary and occasional."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "accounting",
+      "professional-services",
+      "tax"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "Its statutory basis is stated on the register itself: section 3b of the Steuerberatungsgesetz, covering providers authorised under section 3a.",
+      "It makes a population visible that would otherwise be invisible in the main tax adviser register.",
+      "The chamber states the register is accessible to anyone and can be narrowed to a place or postcode area."
+    ],
+    "cons": [
+      "The authorisation recorded here is for temporary and occasional assistance only. It is not an appointment as a German tax adviser and must not be read as one.",
+      "Only foreign providers temporarily entered in the professional register of the competent regional chamber following a notification under section 3a(2) are listed, so it is not a general directory of foreign advisers.",
+      "The register states it does not serve to establish what qualifications or specialisations a foreign provider has.",
+      "Absence here does not mean a person may not act in Germany. They may be appointed as a tax adviser, or hold partial authorisation recorded in a separate register.",
+      "No search was executed during verification, so result content and any limits were not observed and none is asserted."
+    ],
+    "editorNotes": "Verified 2026-08-06 by navigating from the federal chamber’s own site, and re-verified in a separate direct adversarial pass. The register states: \"Die Bundessteuerberaterkammer führt nach § 3b Steuerberatungsgesetz (StBerG) ein elektronisches Verzeichnis über die Dienstleister aus anderen Mitgliedstaaten der Europäischen Union, den Vertragsstaaten des Abkommens über den Europäischen Wirtschaftraum oder der Schweiz, die nach § 3a StBerG in Deutschland zur vorübergehenden und gelegentlichen Hilfeleistung in Steuersachen befugt sind\", that only those \"aufgrund einer Meldung nach § 3a Abs. 2 StBerG im Berufsregister der zuständigen Steuerberaterkammer vorübergehend eingetragen sind (§ 3a Abs. 3 StBerG)\" appear, and that \"Das Verzeichnis ist jedermann zugänglich.\" FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: Temporary entry in the professional register of the competent regional Steuerberaterkammer following a notification under § 3a(2) StBerG; the federal register publishes it under § 3b StBerG. RESPONSIBLE AUTHORITY: Bundessteuerberaterkammer, a public-law professional chamber. TECHNICAL PLATFORM: A berufs-org.de subdomain of its own, separate from the chamber’s two other statutory registers. PUBLIC ACCESS INTERFACE: The public search at eu-dienstleister-in-steuersachen.berufs-org.de. Separation decision: distinct statutory basis (§ 3b), distinct population and its own host, separate from the § 86b main register and the § 3g partial-access register. Not a filter of either."
+  },
+  {
+    "id": "de-stbk-partiell-zugelassene-steuersachen",
+    "name": "Verzeichnis der partiell zugelassenen Personen nach § 3d StBerG",
+    "slug": "verzeichnis-partiell-zugelassene-personen-steuersachen",
+    "country": "germany",
+    "category": "government",
+    "website": "https://partiell-zugelassene-personen-in-steuersachen.berufs-org.de/",
+    "submissionUrl": null,
+    "description": "The statutory register of persons holding partial authorisation to give restricted commercial assistance in tax matters in Germany on the basis of a professional qualification obtained in the EU, EEA or Switzerland, kept by the Bundessteuerberaterkammer under section 3g of the Tax Advisory Act.",
+    "tier": "tier1",
+    "scope": "national",
+    "officialName": "Verzeichnis der partiell zugelassenen Personen nach § 3d Steuerberatungsgesetz",
+    "nativeName": "Verzeichnis der partiell zugelassenen Personen nach § 3d Steuerberatungsgesetz",
+    "englishName": "Register of Persons with Partial Authorisation in Tax Matters",
+    "englishNameSource": "editorial-translation",
+    "primaryRegistryType": "professional-licence-register",
+    "registryTypes": [
+      "professional-licence-register"
+    ],
+    "operator": {
+      "name": "Bundessteuerberaterkammer",
+      "type": "public-law-body",
+      "officialUrl": "https://www.bstbk.de/"
+    },
+    "publicAccess": {
+      "searchUrl": null,
+      "accessLevel": "partially-open",
+      "freeToSearch": null,
+      "loginRequired": false,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "The chamber states the register is accessible to anyone. The search form was served anonymously with no credential, with fields for surname or company, place and postcode, so login is recorded as not required. No query was executed, so result content and any limits were not observed and stay null."
+    },
+    "petroHrysScore": 83,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 7,
+      "verificationQuality": 9,
+      "platformReputation": 8,
+      "spamResistance": 10,
+      "industryImportance": 7,
+      "longTermStability": 8,
+      "submissionQuality": 6,
+      "transparency": 9,
+      "moderationQuality": 9
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": true,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-06",
+    "nextVerification": "2027-08-23",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "de-steuerberaterverzeichnis",
+        "de-stbk-eu-dienstleister-steuersachen"
+      ],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Checking whether a person holds partial authorisation to assist in tax matters in Germany.",
+      "Establishing that an entry carries a restricted rather than a full entitlement."
+    ],
+    "notRecommendedFor": [
+      "Treating an entry as unrestricted authorisation. The entitlement covers only the activities for which partial access was granted.",
+      "Concluding from absence that a person cannot act. They may be a fully appointed tax adviser or a temporary cross-border provider."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "accounting",
+      "professional-services",
+      "tax"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "Its statutory basis is stated on the register itself: section 3g of the Steuerberatungsgesetz, for permissions granted under section 3d(1).",
+      "It makes an easily misread population explicit rather than folding it into the main register.",
+      "The chamber states the register is accessible to anyone and can be narrowed to a place or postcode area."
+    ],
+    "cons": [
+      "The entitlement is partial. The register states that it covers only the activities for which partial access was granted, and is further limited to the scope of the entitlement in the home state.",
+      "Only persons entered in the professional register of the competent regional chamber appear, so the federal register depends on a regional entry.",
+      "An entry is not an appointment as a German tax adviser and does not permit unrestricted assistance in tax matters.",
+      "Absence here does not establish that a person may not act, because full appointment and temporary cross-border authorisation are recorded elsewhere.",
+      "No search was executed during verification, so result content and any limits were not observed and none is asserted."
+    ],
+    "editorNotes": "Verified 2026-08-06 by navigating from the federal chamber’s own site, and re-verified in a separate direct adversarial pass. The register states: \"Die Bundessteuerberaterkammer führt nach § 3g Steuerberatungsgesetz (StBerG) ein elektronisches Verzeichnis aller Personen mit einer in einem Mitgliedstaat der Europäischen Union, einem Vertragsstaat über das Abkommen über den Europäischen Wirtschaftsraum oder in der Schweiz erworbenen Berufsqualifikation, denen nach § 3d Abs. 1 StBerG eine Erlaubnis zu beschränkter geschäftsmäßiger Hilfeleistung in Steuersachen (partieller Zugang) erteilt worden ist und die in das Berufsregister der zuständigen Steuerberaterkammer eingetragen sind.\" It adds: \"Die Befugnis zur Hilfeleistung in Steuersachen der in dem Verzeichnis gelisteten Personen umfasst nur die Tätigkeiten, für die partieller Zugang gewährt wurde.\" FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: A permission for partial access granted under § 3d(1) StBerG together with entry in the professional register of the competent regional Steuerberaterkammer; published federally under § 3g StBerG. RESPONSIBLE AUTHORITY: Bundessteuerberaterkammer, a public-law professional chamber. TECHNICAL PLATFORM: A berufs-org.de subdomain of its own, separate from the chamber’s two other statutory registers. PUBLIC ACCESS INTERFACE: The public search at partiell-zugelassene-personen-in-steuersachen.berufs-org.de. Separation decision: distinct statutory basis (§ 3g), a materially different entitlement and its own host, separate from both the § 86b main register and the § 3b temporary-provider register."
   }
 ]
