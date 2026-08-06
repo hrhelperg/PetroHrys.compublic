@@ -42,6 +42,105 @@ const SUBMISSION_MODELS = ['free', 'paid', 'freemium', 'notApplicable', 'unknown
 const LISTING_ACTIONS = ['create', 'claim', 'create-and-claim', 'apply',
   'invite-only', 'not-applicable', 'unknown'];
 
+// ── Business-listing operations layer ───────────────────────────────────────
+// These four fields answer an OPERATIONAL question the editorial record could
+// not: "where should we publish this business, and should we do it first?"
+// They are deliberately few. Everything else an employee needs already exists —
+// country is the platform country, lastVerified is the last check, description
+// is the short note, cons/notRecommendedFor are the limitations, and tier is the
+// reputation tier. Adding parallel fields for those would have created two
+// sources of truth for the same fact.
+
+// The audience a platform actually reaches. Distinct from `scope`, which is a
+// LEVEL (global/national/regional), and from `country`, which is where the
+// platform sits. A German operator can serve DACH; a Swiss platform can be
+// local. Never inferred from the operator's country.
+const AUDIENCE_GEOGRAPHIES = ['global', 'europe', 'european-union', 'dach',
+  'nordics', 'north-america', 'united-states', 'canada', 'united-kingdom',
+  'australia', 'latam', 'middle-east', 'africa', 'asia', 'india', 'japan',
+  'china', 'country-specific', 'regional', 'local'];
+
+// An editorial work recommendation, not a queue state and not a quality score.
+// "hold" means potentially valuable but not yet actionable; "reject" means do
+// not use. Both are deliberately distinct from null, which means unassessed.
+const PRIORITIES = ['P1', 'P2', 'P3', 'hold', 'reject'];
+
+// Whether the researched PRODUCT still operates. "redirected" records a domain
+// that now resolves into a successor — which is not proof the successor offers
+// the same service, so a redirected record is not actionable unless it has been
+// re-modelled as the live successor.
+const CURRENT_STATUSES = ['active', 'shutting-down', 'redirected', 'dormant', 'unknown'];
+
+// Sort order for the operational views and the CSV. Kept explicit rather than
+// derived from the array above so that reordering PRIORITIES for display can
+// never silently change the export.
+const PRIORITY_RANK = { P1: 0, P2: 1, P3: 2, hold: 3, reject: 4 };
+const priorityRank = (p) => (p in PRIORITY_RANK ? PRIORITY_RANK[p] : 5);
+
+// A deterministic, locale-independent comparator. localeCompare is explicitly
+// NOT used: its result depends on the host ICU data, which would make the CSV
+// non-reproducible across machines.
+const compareStable = (a, b) => {
+  const x = String(a); const y = String(b);
+  if (x < y) return -1;
+  if (x > y) return 1;
+  return 0;
+};
+
+// Problems with the operational fields, as a pure function shared by the
+// validator and its tests.
+function operationsProblems(entry) {
+  if (!entry) return [];
+  const problems = [];
+  const ag = entry.audienceGeography;
+  if (ag !== undefined && ag !== null) {
+    if (!Array.isArray(ag)) {
+      problems.push(['audienceGeography', 'Must be an array of audience tokens, or null when the audience was never established.']);
+    } else if (ag.length === 0) {
+      // [] would read as "reaches nobody", which is never what was meant.
+      problems.push(['audienceGeography', 'Is an empty array. Use null when the audience is not established; an empty list asserts that the platform reaches no audience.']);
+    } else {
+      for (const t of ag) {
+        if (!AUDIENCE_GEOGRAPHIES.includes(t)) {
+          problems.push(['audienceGeography', `Contains "${t}". Allowed: ${AUDIENCE_GEOGRAPHIES.join(', ')}.`]);
+        }
+      }
+      if (new Set(ag).size !== ag.length) {
+        problems.push(['audienceGeography', 'Contains a duplicate token.']);
+      }
+      const sorted = ag.slice().sort(compareStable);
+      if (ag.join('|') !== sorted.join('|')) {
+        problems.push(['audienceGeography', `Is not in deterministic order. Expected: ${JSON.stringify(sorted)}.`]);
+      }
+    }
+  }
+  if (entry.priority !== undefined && entry.priority !== null
+    && !PRIORITIES.includes(entry.priority)) {
+    problems.push(['priority', `Must be one of: ${PRIORITIES.join(', ')}, or null when unassessed.`]);
+  }
+  if (entry.currentStatus !== undefined && entry.currentStatus !== null
+    && !CURRENT_STATUSES.includes(entry.currentStatus)) {
+    problems.push(['currentStatus', `Must be one of: ${CURRENT_STATUSES.join(', ')}, or null when never evaluated.`]);
+  }
+  const ppa = entry.publicProfileAvailable;
+  if (ppa !== undefined && ppa !== null && typeof ppa !== 'boolean') {
+    problems.push(['publicProfileAvailable', 'Must be true, false, or null when not established.']);
+  }
+  return problems;
+}
+
+// THE central definition of an actionable opportunity. Every count, the CSV, the
+// public list and batch reporting derive from this one function, so a platform
+// can never be actionable in one view and archived in another.
+function isActionableOpportunity(record, isGovernmentPillarFn) {
+  if (!record) return false;
+  if (isGovernmentPillarFn(record)) return false;          // government-only
+  if (record.priority === 'reject') return false;
+  if (['shutting-down', 'dormant', 'redirected'].includes(record.currentStatus)) return false;
+  if (!record.website || !/^https:\/\//.test(record.website)) return false;
+  return true;
+}
+
 // How a platform verifies the person claiming or creating a listing. This is
 // deliberately NOT derivable from verificationRequired: knowing that a platform
 // verifies says nothing about whether it posts a card, calls a number or checks
@@ -884,6 +983,7 @@ const KNOWN_RECORD_KEYS = [
   // Commercial listing schema — the action, verification and claim axes that
   // submissionModel (a cost enum) cannot express.
   'listingAction', 'verificationMethods', 'ownerResponseSupport', 'claimUrl',
+  'audienceGeography', 'priority', 'currentStatus', 'publicProfileAvailable',
   'accepts',
   'backlinkType', 'robots', 'sitemap', 'indexed', 'ssl',
   'lastVerified', 'nextVerification', 'verification', 'related',
@@ -1078,6 +1178,8 @@ module.exports = {
   PILLAR_A_CATEGORIES,
   isGovernmentPillar,
   defaultListingAction,
+  AUDIENCE_GEOGRAPHIES, PRIORITIES, CURRENT_STATUSES,
+  priorityRank, compareStable, operationsProblems, isActionableOpportunity,
   applyContractProblems,
   DR_OMISSION_MARKER, sharedDomainSnapshotProblems,
   NESTED_RECORD_KEYS, METRIC_PROVENANCE_KEYS, OBJECT_VALUED_FIELDS, ARRAY_VALUED_FIELDS,
