@@ -1009,3 +1009,119 @@ not registers of entitlement.
   survivors turned out to be facts that also lived in the `description`, which
   `strip()` never touched. The records were telling readers the truth; the probes
   had not injected the defect.
+
+---
+
+## Wave 4 — Telecommunications, spectrum & licensing registries (2026-08-06)
+
+First telecommunications wave. **Eight records across four jurisdictions**, from a
+brief listing eleven. Priority was legal truth, not count.
+
+### The legal truth this wave establishes
+
+Under the European Electronic Communications Code, operating a public electronic
+communications network or service requires **no individual licence** — only a
+**notification** under a general authorisation. Spectrum and numbering are the
+opposite: those are individual rights granted one at a time. One regulator
+therefore keeps several legally different registers:
+
+| System | Legal act | Evidence |
+|---|---|---|
+| Operator register | **Notification** | § 13 ZEK (CZ) · § 5 TKG (DE) · art. 6.2 Ley 11/2022 (ES) |
+| Numbering register | Individual **right of use** granted | art. 30.5 Ley 11/2022 (ES) |
+| Spectrum register | Individual **authorisation** granted | *individuální oprávnění* (CZ) |
+
+Being on one proves nothing about the others. Every record says so in rendered
+prose, and a test asserts it.
+
+### Approved and published (8)
+
+| Record | Jurisdiction | System |
+|---|---|---|
+| `eu-berec-gadb` | EU | Union database of general-authorisation notifications |
+| `cz-ctu-evidence-podnikatelu-ek` | CZ | Operator register (§ 13 ZEK notification) |
+| `cz-ctu-pridelena-cisla-a-kody` | CZ | Allocated numbers and codes |
+| `cz-ctu-individualni-opravneni-kmitocty` | CZ | Individual spectrum authorisations |
+| `cz-ctu-evidence-postovnich-provozovatelu` | CZ | Postal operators (same regulator) |
+| `de-bnetza-verzeichnis-gemeldeter-unternehmen` | DE | § 5(4) TKG directory (spreadsheet) |
+| `es-cnmc-registro-operadores` | ES | Register of operators (art. 6.2) |
+| `es-cnmc-registro-numeracion` | ES | Numbering rights of use (art. 30.5) |
+
+### Listed is not operating
+
+Three of these registers demonstrably retain entities that have stopped:
+
+- The Czech operator register covers undertakings that **"byli či jsou oprávněni"**
+  — *were or are* authorised — and offers a filter to exclude interrupted or
+  terminated ones. It reported 2,845 records.
+- The Czech postal register offers *"Vyhledávat i provozovatele s ukončenou
+  činností"*.
+- Spain confirms continuation only **every three years**, and cessation depends on
+  the operator notifying it.
+
+### What absence does not prove
+
+**Number-independent interpersonal communications services — email and messaging —
+are outside the notification duty** in Czechia and Germany. Germany quotes § 5 TKG
+excluding them expressly since 1 December 2021. Spain is the instructive contrast:
+those providers *do* notify, but **"a efectos estadísticos y censales"** — a
+different legal effect from an operator's entry.
+
+### Duplicate determinations
+
+- **ČTÚ publishes fourteen search databases; four were published.** The radio and
+  television transmitter overviews are **filtered views** of the individual
+  spectrum authorisations — the TV one names itself *"Přehled platných
+  individuálních oprávnění – televizní vysílače"*. The point-to-point 71–76/81–86
+  GHz dataset is a technical view.
+- **Rejected as registers:** ČTÚ's *Cenový barometr* (price comparison) and its
+  blocked-website list — neither records an authorisation; CNMC's mobile and fixed
+  **portability status** pages — they report the operational state of a process.
+- **Predecessor databases are not separate systems.** The Czech pre-2022 operator
+  database and pre-2024 postal database are temporal predecessors, described in
+  the records rather than published separately.
+- **The Union database is not merged with any national register**, and no national
+  register is merged into it. BEREC aggregates; the **national register remains
+  the legal source of record**.
+- **Germany's spreadsheet IS the register's published form** under § 5(4) TKG, so
+  it was published — unlike the German audit chamber's Art. 16(3) list rejected in
+  Wave 3A-2, which was derived from a register that had its own search.
+
+### No US record was added
+
+`us-fcc-uls` (spectrum) and `us-fcc-form-499` (carrier registration) already
+exist. A test asserts this wave added no US record, so any future US telecom
+candidate must be tested against those two first.
+
+### Blocked to automated clients — NOT evidence of absence
+
+| Regulator | State |
+|---|---|
+| **Ofcom** (UK) | HTTP 403 |
+| **FCC** (US) | HTTP 403 |
+| **ACMA** (Australia) | transport failure (000) |
+| **ARCEP** (France) | F5 bot shield — *"Please enable JavaScript to view the page content. Your support ID is…"* |
+| **CRTC** (Canada) | responds, but served a 597-character JavaScript shell |
+
+All five are Tier 1 in the brief. Every one must be reached in a browser before
+any conclusion is recorded.
+
+### Researched but not published
+
+AGCOM (Italy) — the ROC was not located from official navigation to publication
+standard. UKE (Poland) — the telecoms undertakings register was not exposed on the
+homepage and was not established from official navigation. ISED (Canada) —
+spectrum licensing not analysed. CNMC's *Registro de alias* and digital
+terrestrial television register — not analysed. BNetzA numbering and frequency
+systems — not analysed; only the § 5 directory was.
+
+### Findings worth carrying forward
+
+- **"Notification" is the word to look for in any EU telecoms register.** If a
+  record says "licence" about market entry in an EU member state, it is almost
+  certainly wrong.
+- **Count the regulator's portals before publishing any of them.** ČTÚ has
+  fourteen; four are distinct statutory systems.
+- **A probe that skips the description does not inject its defect.** This was the
+  survivor cause in Waves 3A-1, 3A-2 and 3A-3. The Wave 4 harness strips the
+  description by construction, and had zero survivors on its first valid run.
