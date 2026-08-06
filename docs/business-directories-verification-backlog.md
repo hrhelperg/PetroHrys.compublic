@@ -643,3 +643,64 @@ FINTRAC (Canada), and AUSTRAC plus the ASIC/APRA duplication question (Australia
 - **Guessed paths are not evidence.** Constructed URLs for Banco de España, CONSOB,
   Banca d'Italia and ČNB all returned 404 before navigation found the real ones.
   Every published URL in this wave was reached by following official navigation.
+
+---
+
+## Wave 2B — UK, US, Canada & Australia financial registries (2026-08-06)
+
+**Nineteen candidates determined. Two published.** This wave's dominant output is
+duplicate determinations, which the brief correctly anticipated: the FCA, ASIC and
+APRA entries already in the dataset are deliberately broad and absorb most
+candidates. Researched directly in two passes; no subagents.
+
+### Approved and published (2)
+
+| Candidate | Country | Decision |
+|---|---|---|
+| **FINTRAC Money Services Business Registry** | Canada | The register, reached by navigating the agency's own site — deliberately **not** the guidance landing page, which is a different URL. |
+| **NCUA Credit Union Locator** | United States | **One** record covering both the locator and the Research a Credit Union view: one dataset, one host, two UI views. |
+
+### Duplicate — absorbed by an existing record (5)
+
+| Candidate | Absorbed by | Evidence |
+|---|---|---|
+| **PRA-authorised firms** | `gb-fca-register` | The Bank of England's own page states PRA firm data is *"published on the Financial Services Register"*, and directs readers to the register's "Other Registers" section for Bank Holding Companies. The FCA record already states it covers firms authorised by the FCA **or the PRA**. |
+| **PRA standalone firm lists** (e.g. designated investment firms CSV) | `gb-fca-register` | Downloadable **publications** of a subset already in the register, not a separate searchable system. |
+| **FCA Warning List** | `gb-fca-register` | The existing record already states it carries warnings about unauthorised and clone firms. |
+| **ASIC financial advisers / banned and disqualified views** | `au-asic-registers` | The existing record explicitly covers "financial adviser and banned-person registers". ASIC Connect tabs are filtered views. |
+| **APRA per-sector lists** (ADIs, insurers, superannuation) | `au-apra-registers` | Filtered populations inside one published register set. |
+
+### Pending manual verification — host blocked to automated clients (4)
+
+| Candidate | Country | Blocker | Next action |
+|---|---|---|---|
+| **NMLS Consumer Access** | US | `nmlsconsumeraccess.org` returns **HTTP 403** to every automated request. | Reach it in a browser. Then settle the source-of-record question the brief raises: NMLS is operated through a multistate regulator association, and **state regulators remain the source of record for each state licence**. It must not be described as a federal register. |
+| **CIRO** | Canada | `ciro.ca` returns **HTTP 403**. | Reach it in a browser and determine whether the public product is an advisor search, a dealer-member directory, an enforcement database, or a combination — and that CIRO membership is **not** universal Canadian securities authorisation. |
+| **AUSTRAC** | Australia | `austrac.gov.au` did not respond at all (connection failure, not a 403) on repeated attempts with full browser headers. | Reach it in a browser. Determine whether a public register exists at all, and distinguish **remittance-sector registration** and digital currency exchange registration from general AML reporting-entity status — not all reporting entities appear publicly. |
+| **OSFI regulated entities** | Canada | Institution-list links were not locatable from the OSFI homepage navigation, and guessed paths 404. | Navigate in a browser. Determine whether one list covers all federally regulated financial institutions or whether banks, insurers, trust companies and pension plans are separate systems — **do not split by sector without evidence**. |
+
+### Targeted research incomplete (3)
+
+| Candidate | Country | State |
+|---|---|---|
+| **MSRB / EMMA** | US | Both hosts respond. Not analysed to publication standard. The key question is unresolved: EMMA is a **securities disclosure** database, not a professional licence register, and municipal disclosures must not be classified as a licence register. |
+| **The Pensions Regulator** | UK | Host responds. Not analysed. Determine whether the scheme register is publicly searchable. |
+| **Bank of England FMI / recognised payment system lists** | UK | Not analysed. Likely publications rather than registers. |
+
+### Rejected (0 this wave)
+
+None. No candidate was rejected outright; the ones not published are duplicates,
+pending, or incomplete.
+
+### Findings worth carrying forward
+
+- **The FCA register is the UK's single financial front door.** PRA authorisation
+  is surfaced through it. Any future UK financial candidate must be tested against
+  that record first.
+- **Anglophone financial regulators are heavily bot-protected.** NMLS (403), CIRO
+  (403), AUSTRAC (no response) and NCUA's application host (no response) all
+  refused automated clients, while the regulators' own describing pages served
+  normally. A 403 is a bot filter, not evidence that a register does not exist.
+- **NCUA's application host does not respond to automated requests**, so its record
+  rests on identity and function confirmed from `ncua.gov` itself. That limitation
+  is disclosed in the published text, not only in editor notes.
