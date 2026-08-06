@@ -3564,5 +3564,425 @@
       "The Domain Rating shown is a dated measurement of the shared Companies House domain, not of this register."
     ],
     "editorNotes": "Verified 2026-08-05. The disqualified-officers search is served at its own path on the Companies House service and appears as a separate tab from \"Search for companies\" and \"Search for Officers\", so it is a distinct system rather than a query-string variant of the company search. GOV.UK states a director can be disqualified for up to 15 years and names the courts, the Insolvency Service, the Competition and Markets Authority, the Foreign, Commonwealth and Development Office and HM Treasury among the bodies whose decisions feed it. Published through the resourceIdentity shared-host mechanism because it shares find-and-update.company-information.service.gov.uk with the company register, with a distinct systemKey and the shared group companies-house-service. It reuses that domain’s existing frozen Domain Rating snapshot verbatim — value 92, provider Ahrefs, measured 2026-08-04, status historicalSnapshot — read off the company-register record. No measurement was made and no API was called."
+  },
+  {
+    "id": "gb-arb-architects-register",
+    "name": "Architects Register",
+    "slug": "architects-register",
+    "country": "united-kingdom",
+    "category": "government",
+    "website": "https://architects-register.org.uk/",
+    "submissionUrl": null,
+    "description": "The Architects Register is the statutory register of architects in the United Kingdom, kept by the Architects Registration Board. Registration is required to use the title “architect”; it is not a licence to carry out architectural work, which is not reserved by law.",
+    "tier": "tier1",
+    "scope": "national",
+    "officialName": "The Register of Architects",
+    "primaryRegistryType": "professional-licence-register",
+    "registryTypes": [
+      "professional-licence-register"
+    ],
+    "operator": {
+      "name": "Architects Registration Board",
+      "type": "regulator",
+      "officialUrl": "https://arb.org.uk/"
+    },
+    "publicAccess": {
+      "searchUrl": null,
+      "accessLevel": "partially-open",
+      "freeToSearch": null,
+      "loginRequired": false,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "The register search was served anonymously with no credential, with fields for registration number, name, company, address and country, so login is recorded as not required. No query was executed, so result content, any fee and any rate limit were not observed and stay null."
+    },
+    "petroHrysScore": 88,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 9,
+      "verificationQuality": 9,
+      "platformReputation": 8,
+      "spamResistance": 10,
+      "industryImportance": 8,
+      "longTermStability": 9,
+      "submissionQuality": 6,
+      "transparency": 9,
+      "moderationQuality": 9
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": true,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-06",
+    "nextVerification": "2027-08-23",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Checking whether a person is entitled to call themselves an architect in the United Kingdom.",
+      "Confirming an architect’s registration number and recorded details before engaging them."
+    ],
+    "notRecommendedFor": [
+      "Establishing that someone may lawfully design a building. Architectural work is not reserved by law, so an unregistered person may lawfully do it — they simply may not use the title.",
+      "Judging competence for a particular project. Registration records entitlement to the title, not skill, insurance or fitness for a commission."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Architects practising in the United Kingdom"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "The board was established by Parliament in 1997 to regulate the architects’ profession, so this is a statutory register rather than a membership list.",
+      "The title “architect” is protected, which makes the register a real gate on who may use it and gives the search a definite legal meaning.",
+      "The search offers registration number as well as name and company, so a person can be identified without relying on name matching alone."
+    ],
+    "cons": [
+      "It protects a title, not an activity. Registration is required to use the word “architect”, not to carry out architectural work.",
+      "It records registration status only. It is not a statement about competence, current insurance or disciplinary history.",
+      "No search was executed during verification, so result content and any limits were not observed and none is asserted.",
+      "It registers individual practitioners, not practices. A firm is not registered here, so the register does not establish anything about the business an architect works for."
+    ],
+    "editorNotes": "Verified 2026-08-06 by direct fetch of the board’s own site and of the register search, and re-verified in a separate direct adversarial pass. The board states that it “was established by Parliament in 1997 to regulate the architects’ profession in the UK”. FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: The statutory register kept by the Architects Registration Board under the United Kingdom architects legislation. Entry follows the board’s registration decision. RESPONSIBLE AUTHORITY: Architects Registration Board. TECHNICAL PLATFORM: The register search is served from a separate host from the board’s own site; no external supplier is named on any page fetched. PUBLIC ACCESS INTERFACE: The register search, linked from the board’s own site. Classification, decided in this wave: professional-licence-register, under the boundary note clarified here to cover protected-title registers where an official body responsible for the profession holds the register. The record states in visible prose that registration is required to use the TITLE and not to do the work, which that clarified boundary requires. Territorial scope: UK-wide, on the board’s own statement that it regulates the profession in the UK — not inferred."
+  },
+  {
+    "id": "gb-engc-regcheck",
+    "name": "Engineering Council RegCheck",
+    "slug": "engineering-council-regcheck",
+    "country": "united-kingdom",
+    "category": "government",
+    "website": "https://www.engc.org.uk/professional-registration/check-a-registration-regcheck/",
+    "submissionUrl": null,
+    "description": "RegCheck searches the Engineering Council Register, which records the individuals entitled to use the professional titles CEng, IEng, EngTech and ICTTech. Those titles are protected under the council’s Royal Charter; engineering practice itself is not reserved by law, so registration is not a licence to work as an engineer.",
+    "tier": "tier1",
+    "scope": "national",
+    "officialName": "RegCheck",
+    "primaryRegistryType": "professional-licence-register",
+    "registryTypes": [
+      "professional-licence-register"
+    ],
+    "operator": {
+      "name": "Engineering Council",
+      "type": "public-law-body",
+      "officialUrl": "https://www.engc.org.uk/"
+    },
+    "publicAccess": {
+      "searchUrl": null,
+      "accessLevel": "partially-open",
+      "freeToSearch": null,
+      "loginRequired": false,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "The RegCheck page was served anonymously with no credential, so login is recorded as not required. No query was executed, so result content and any limits were not observed and stay null. The council states that a search requires an exact match, which is a documented behaviour rather than one observed here."
+    },
+    "petroHrysScore": 78,
+    "scoreFactors": {
+      "editorialTrust": 9,
+      "businessUsefulness": 7,
+      "verificationQuality": 7,
+      "platformReputation": 8,
+      "spamResistance": 10,
+      "industryImportance": 7,
+      "longTermStability": 8,
+      "submissionQuality": 5,
+      "transparency": 9,
+      "moderationQuality": 8
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": true,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-06",
+    "nextVerification": "2027-09-02",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "gb-arb-architects-register"
+      ],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Checking whether an individual currently holds a UK engineering professional title such as CEng, IEng or EngTech.",
+      "Verifying a title claim where the exact registered name is known."
+    ],
+    "notRecommendedFor": [
+      "Establishing that someone may lawfully work as an engineer. Engineering practice is not generally reserved by law in the United Kingdom, and registration is not a licence to practise.",
+      "Concluding from a nil result that a person is unregistered. The council states that a search requires an exact match, so an unexpected result does not mean the person is not registered."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Engineers holding UK professional titles"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "It is the register held by the body responsible for the UK engineering profession, rather than any one institution’s membership list.",
+      "The titles it records are protected under the council’s Royal Charter, so a confirmed entry has a definite meaning.",
+      "It includes people who registered in the past or hold inactive registrations, so a historical check is possible as well as a current one."
+    ],
+    "cons": [
+      "It protects titles, not an activity, and the protection comes from a Royal Charter rather than from statute. Registration is not required to work as an engineer.",
+      "Search requires an exact match to the record held, so the council itself warns that an unexpected nil result does not establish that someone is unregistered.",
+      "Assessment is carried out by licensed professional engineering institutions rather than by the council directly, so an entry reflects an institution’s assessment as much as a central decision.",
+      "It registers individual practitioners, not employers. An engineering business is not registered here, so the register does not establish anything about the company an engineer works for.",
+      "No search was executed during verification, so result content, coverage and any rate limit were not observed and none is asserted."
+    ],
+    "editorNotes": "Verified 2026-08-06 by direct fetch of the council’s own regulator and RegCheck pages, and re-verified in a separate direct adversarial pass. The council states it operates “as a charity under Royal Charter”, that it licenses professional engineering institutions to assess individuals, and that the titles “may only be used by individuals with current Engineering Council registration” and “are protected under our Royal Charter”. FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: The Engineering Council Register, held under the council’s Royal Charter. Individual assessment is carried out by licensed professional engineering institutions; the council holds the register and awards the titles. RESPONSIBLE AUTHORITY: Engineering Council, a chartered body rather than a statutory regulator. It is deliberately NOT typed as a regulator in the statutory sense used elsewhere in this dataset. TECHNICAL PLATFORM: Not separately established. No external supplier is named on any page fetched. PUBLIC ACCESS INTERFACE: The RegCheck search on the council’s own site. Classification, the pilot’s hardest call: professional-licence-register, under the boundary note clarified in this wave to cover protected-title registers. The alternative — creating a narrow protected-professional-title-register type — was considered and rejected, because it would have rested on two candidates whose protections come from different sources (statute for architects, Royal Charter here) and the distinction a reader actually needs is carried better in prose than in an enum. The record therefore states plainly that registration is required to use the TITLE and not to practise, which the clarified boundary makes mandatory."
+  },
+  {
+    "id": "gb-ipreg-register",
+    "name": "IPReg Register",
+    "slug": "ipreg-register",
+    "country": "united-kingdom",
+    "category": "government",
+    "website": "https://ipreg.org.uk/register",
+    "submissionUrl": null,
+    "description": "IPReg publishes the register of patent attorneys, trade mark attorneys and the firms through which they practise in the United Kingdom. One search covers both professions and both individuals and firms; the professions are regulated separately but are not presented as separate public registers.",
+    "tier": "tier1",
+    "scope": "national",
+    "officialName": "The Register",
+    "primaryRegistryType": "professional-licence-register",
+    "registryTypes": [
+      "professional-licence-register"
+    ],
+    "operator": {
+      "name": "Intellectual Property Regulation Board",
+      "type": "regulator",
+      "officialUrl": "https://ipreg.org.uk/"
+    },
+    "publicAccess": {
+      "searchUrl": null,
+      "accessLevel": "partially-open",
+      "freeToSearch": null,
+      "loginRequired": false,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "The register search was served anonymously with no credential, with fields for attorney or firm name, postcode or location and country, so login is recorded as not required. No query was executed, so result content and any limits were not observed and stay null."
+    },
+    "petroHrysScore": 83,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 8,
+      "verificationQuality": 8,
+      "platformReputation": 8,
+      "spamResistance": 10,
+      "industryImportance": 8,
+      "longTermStability": 8,
+      "submissionQuality": 5,
+      "transparency": 8,
+      "moderationQuality": 8
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": true,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-06",
+    "nextVerification": "2027-08-08",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Checking whether a patent or trade mark attorney, or the firm they practise through, is on the regulator’s register.",
+      "Finding a regulated attorney by name or location without relying on a commercial directory."
+    ],
+    "notRecommendedFor": [
+      "Separating the patent and trade mark professions by register. They are regulated separately but the public search covers both, so a result must be read for which qualification it records.",
+      "Assessing suitability for a particular matter. The register records regulated status, not specialism or experience."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Patent and trade mark attorneys practising in the United Kingdom"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "It is the regulator’s own register rather than a professional body’s membership directory.",
+      "One search covers attorneys and the firms they practise through, so a client can check both sides of an engagement in one place.",
+      "It is scoped to a regulated population, which distinguishes it from the commercial IP directories that dominate search results."
+    ],
+    "cons": [
+      "Patent attorneys and trade mark attorneys are distinct regulated professions, but the public interface presents one combined search rather than two registers.",
+      "It records individuals and firms together, so a result must be read carefully to know which kind of entry has been returned.",
+      "Inclusion records regulated status only. It does not establish that an attorney has experience in a particular technology or trade, that any matter was handled well, or that professional indemnity cover extends to a given engagement.",
+      "No search was executed during verification, so result content and any limits were not observed and none is asserted."
+    ],
+    "editorNotes": "Verified 2026-08-06 by direct fetch of the regulator’s register page, and re-verified in a separate direct adversarial pass. FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: The statutory registers of patent attorneys and trade mark attorneys, maintained under the regulator’s approved regulatory arrangements. Entry follows the regulator’s decision. RESPONSIBLE AUTHORITY: Intellectual Property Regulation Board. TECHNICAL PLATFORM: Not separately established. No external supplier is named on any page fetched. PUBLIC ACCESS INTERFACE: The register search on the regulator’s own site. SPLIT DECISION, taken deliberately and against the temptation to split: the regulator’s page is headed “Search our registers” in the plural, which reflects the underlying statutory registers, but the PUBLIC INTERFACE is a single form at a single URL covering attorneys and firms together. Under the duplicate contract, two records require materially distinct public identity or function, and here there is one identity and one journey. Published as ONE record whose description names both professions, rather than two records split on a profession the interface does not itself separate. Individuals and firms are likewise not split: one integrated search covers both."
   }
 ]

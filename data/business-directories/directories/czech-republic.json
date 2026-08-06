@@ -714,5 +714,580 @@
       "The published address is the bank’s own entry point and redirects to a separate application host, so a bookmark or a citation may not land on the address a reader started from."
     ],
     "editorNotes": "Verified 2026-08-06 by direct fetch of the application, and re-verified in a separate direct adversarial pass. FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: The regulatory and registration decisions of the Czech National Bank, taken under Czech financial market law. The application publishes them. RESPONSIBLE AUTHORITY: Česká národní banka. TECHNICAL PLATFORM: Not separately established. The application is served from the bank’s own host; no external supplier is named on any page fetched. PUBLIC ACCESS INTERFACE: The unified application reached from the bank’s lists and registers section. Scoping decision: the direct search, the basic lists and the time-series views are one integrated application with one entry point, so they are published as ONE record rather than three. Splitting them would be splitting a system by its own output modes. The bank’s separate central credit register was considered and excluded: it serves credit institutions rather than the public and is not a public register."
+  },
+  {
+    "id": "cz-cak-advokati",
+    "name": "Seznam advokátů a koncipientů",
+    "slug": "cak-seznam-advokatu",
+    "country": "czech-republic",
+    "category": "government",
+    "website": "https://vyhledavac.cak.cz/",
+    "submissionUrl": null,
+    "description": "The Czech Bar Association publishes the search over its register of advocates and trainee advocates. Entry in the register is required to practise as an advocate in Czechia, so the search verifies a reserved professional status rather than membership of a voluntary body.",
+    "tier": "tier1",
+    "scope": "national",
+    "officialName": "Vyhledávání advokátů a koncipientů",
+    "nativeName": "Vyhledávání advokátů a koncipientů",
+    "englishName": "Search for advocates and trainee advocates",
+    "englishNameSource": "editorial-translation",
+    "primaryRegistryType": "professional-licence-register",
+    "registryTypes": [
+      "professional-licence-register"
+    ],
+    "operator": {
+      "name": "Česká advokátní komora",
+      "type": "public-law-body",
+      "officialUrl": "https://www.cak.cz/"
+    },
+    "publicAccess": {
+      "searchUrl": null,
+      "accessLevel": "partially-open",
+      "freeToSearch": null,
+      "loginRequired": false,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "The search was served anonymously with no credential, so login is recorded as not required. No query was executed, so result content and any limits were not observed and stay null."
+    },
+    "petroHrysScore": 87,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 9,
+      "verificationQuality": 9,
+      "platformReputation": 8,
+      "spamResistance": 10,
+      "industryImportance": 8,
+      "longTermStability": 9,
+      "submissionQuality": 5,
+      "transparency": 9,
+      "moderationQuality": 8
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": true,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-06",
+    "nextVerification": "2027-08-16",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "cz-nkcr-notari"
+      ],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Checking whether a person is entered as an advocate in Czechia and may therefore provide legal services as one.",
+      "Distinguishing a qualified advocate from a trainee advocate, who appears in the same search but holds a different status."
+    ],
+    "notRecommendedFor": [
+      "Assuming every entry carries the same rights. Advocates and trainee advocates are different statuses, and foreign legal service providers appear on different terms.",
+      "Treating entry as a statement about the quality of an advocate’s work or the outcome of any matter."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Advocates and trainee advocates in Czechia"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "Entry is required to practise as an advocate, so the register is a genuine gate rather than a directory of willing participants.",
+      "It covers trainee advocates as well as advocates, so a client can tell which status a person actually holds.",
+      "It is the chamber’s own search over its own register, which makes it the authoritative Czech source rather than a commercial copy."
+    ],
+    "cons": [
+      "It mixes populations with different rights — advocates, trainees, and providers operating under foreign law — so a hit alone does not tell a reader what a person may do.",
+      "The chamber notes that services provided under the law of a foreign state are not covered by the collective professional indemnity arrangement, so insurance cover is not uniform across entries.",
+      "No search was executed during verification, so result content and any limits were not observed and none is asserted.",
+      "An entry records that a person is entered in the register. It does not establish the outcome of any matter, the scope of any indemnity cover, or that an advocate is suitable for a particular case."
+    ],
+    "editorNotes": "Verified 2026-08-06 by direct fetch of the chamber’s own search, and re-verified in a separate direct adversarial pass. The page cites § 24c zákona o advokacii in relation to the collective professional indemnity arrangement, which places the search inside the statutory advocacy framework rather than a membership scheme. FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: The register of advocates kept by the Czech Bar Association under the Czech advocacy act. Entry follows the chamber’s decision and is required to practise. RESPONSIBLE AUTHORITY: Česká advokátní komora, a public-law professional chamber rather than a state agency. TECHNICAL PLATFORM: A dedicated search host operated for the chamber; no external supplier is named on any page fetched. PUBLIC ACCESS INTERFACE: The chamber’s public search over the register. Classification: professional-licence-register, and here the effect genuinely IS a licence to practise rather than a protected title — the contrast with the UK architect and engineer registers in this same wave, which protect titles only. The record states that distinction rather than leaving both to read alike."
+  },
+  {
+    "id": "cz-nkcr-notari",
+    "name": "Seznam notářů",
+    "slug": "nkcr-seznam-notaru",
+    "country": "czech-republic",
+    "category": "government",
+    "website": "https://www.nkcr.cz/seznam-notaru",
+    "submissionUrl": null,
+    "description": "The Notarial Chamber of the Czech Republic publishes the list of Czech notaries. A notary holds a state-conferred office rather than an ordinary business licence, and the list identifies who currently holds one.",
+    "tier": "tier1",
+    "scope": "national",
+    "nativeName": "Seznam notářů",
+    "englishName": "List of notaries",
+    "englishNameSource": "editorial-translation",
+    "primaryRegistryType": "professional-licence-register",
+    "registryTypes": [
+      "professional-licence-register"
+    ],
+    "operator": {
+      "name": "Notářská komora České republiky",
+      "type": "public-law-body",
+      "officialUrl": "https://www.nkcr.cz/"
+    },
+    "publicAccess": {
+      "searchUrl": null,
+      "accessLevel": "partially-open",
+      "freeToSearch": null,
+      "loginRequired": false,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "The list page was served anonymously with no credential, so login is recorded as not required. No query was executed and no result was retrieved, so nothing about search behaviour or completeness is asserted."
+    },
+    "petroHrysScore": 83,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 8,
+      "verificationQuality": 8,
+      "platformReputation": 8,
+      "spamResistance": 10,
+      "industryImportance": 7,
+      "longTermStability": 9,
+      "submissionQuality": 5,
+      "transparency": 8,
+      "moderationQuality": 8
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-06",
+    "nextVerification": "2027-08-11",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "cz-cak-advokati"
+      ],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Finding a Czech notary and confirming that the person holds a notarial office.",
+      "Identifying which notarial office covers a matter, where the chamber publishes office changes alongside the list."
+    ],
+    "notRecommendedFor": [
+      "Treating a notary as an ordinary licensed professional. A notarial office is conferred by the state and its number is limited, so this is not a general professional licence list.",
+      "Assuming the list explains what any individual notary may do in a particular matter."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Notaries in Czechia"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "It is the chamber’s own list, and the chamber is the body that keeps the record of Czech notaries.",
+      "The chamber publishes changes in notarial offices alongside it, so a reader can see that the position is not static.",
+      "A notarial office is a state appointment, so appearing on the list carries a stronger meaning than membership of a professional body."
+    ],
+    "cons": [
+      "It records who holds a notarial office. It is not a statement about how a notary performs any particular act.",
+      "The number of notarial offices is limited by the state, so absence does not mean a person is unqualified — it may mean no office is held.",
+      "No search was executed during verification, so search behaviour, coverage and completeness were not observed and none is asserted."
+    ],
+    "editorNotes": "Verified 2026-08-06 by direct fetch of the chamber’s own list page, and re-verified in a separate direct adversarial pass. FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: The Czech notarial code, under which a notary is appointed to an office. The chamber keeps and publishes the list; the appointment itself is a state act. RESPONSIBLE AUTHORITY: Notářská komora České republiky, a public-law professional chamber. TECHNICAL PLATFORM: Not separately established. No external supplier is named on any page fetched. PUBLIC ACCESS INTERFACE: The published list on the chamber’s own site. Classification: professional-licence-register. The effect here is neither a pure protected title nor an ordinary licence — it is appointment to a limited state office, and the record says so rather than flattening it into either. Completeness is deliberately not claimed: the list was not exercised and no official statement of completeness was read."
+  },
+  {
+    "id": "cz-cka-autorizovani-architekti",
+    "name": "Seznam autorizovaných architektů",
+    "slug": "cka-seznam-autorizovanych-architektu",
+    "country": "czech-republic",
+    "category": "government",
+    "website": "https://www.cka.cz/komora/autorizovani-architekti/seznam-autorizovanych-architektu",
+    "submissionUrl": null,
+    "description": "The Czech Chamber of Architects publishes the list of authorised architects. Authorisation is required to carry out selected activities in construction reserved to authorised persons, so it is an authorisation to act rather than only a protected title.",
+    "tier": "tier1",
+    "scope": "national",
+    "nativeName": "Seznam autorizovaných architektů",
+    "englishName": "List of authorised architects",
+    "englishNameSource": "editorial-translation",
+    "primaryRegistryType": "professional-licence-register",
+    "registryTypes": [
+      "professional-licence-register"
+    ],
+    "operator": {
+      "name": "Česká komora architektů",
+      "type": "public-law-body",
+      "officialUrl": "https://www.cka.cz/"
+    },
+    "publicAccess": {
+      "searchUrl": null,
+      "accessLevel": "partially-open",
+      "freeToSearch": null,
+      "loginRequired": false,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "The list page was served anonymously with no credential, so login is recorded as not required. No query was executed, so search behaviour, coverage and completeness were not observed and stay null."
+    },
+    "petroHrysScore": 82,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 8,
+      "verificationQuality": 8,
+      "platformReputation": 8,
+      "spamResistance": 10,
+      "industryImportance": 7,
+      "longTermStability": 8,
+      "submissionQuality": 5,
+      "transparency": 8,
+      "moderationQuality": 8
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": true,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-06",
+    "nextVerification": "2027-08-25",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "cz-ckait-autorizovane-osoby"
+      ],
+      "usedWith": [
+        "cz-ckait-autorizovane-osoby"
+      ],
+      "competitors": []
+    },
+    "bestFor": [
+      "Checking whether a person holds Czech architectural authorisation and may therefore carry out reserved activities in construction.",
+      "Separating an authorised architect from an authorised engineer or technician, who are authorised by a different chamber."
+    ],
+    "notRecommendedFor": [
+      "Checking authorised engineers or technicians in construction, who are held by the separate chamber for those professions, not this one.",
+      "Treating authorisation as a statement about design quality or suitability for a particular commission."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Authorised architects in Czechia"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "Authorisation is required for reserved construction activities, so the list verifies an entitlement to act rather than only a title.",
+      "It is kept by the chamber that grants the authorisation, which makes it the authoritative Czech source.",
+      "It is scoped to architects, which keeps a legally distinct population from being blended with construction engineers."
+    ],
+    "cons": [
+      "It covers architects only. Authorised engineers and technicians are in a separate chamber’s list, and absence here says nothing about them.",
+      "Authorisation records an entitlement. It is not a statement about the quality of any design or the conduct of any commission.",
+      "No search was executed during verification, so search behaviour, coverage and completeness were not observed and none is asserted."
+    ],
+    "editorNotes": "Verified 2026-08-06 by navigating from the chamber’s own site to its published list, and re-verified in a separate direct adversarial pass. FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: Czech law on authorised architects and authorised engineers and technicians in construction, under which authorisation is granted and reserved activities are defined. The chamber grants and records the authorisation. RESPONSIBLE AUTHORITY: Česká komora architektů, a public-law professional chamber. TECHNICAL PLATFORM: Not separately established. No external supplier is named on any page fetched. PUBLIC ACCESS INTERFACE: The published list on the chamber’s own site. Separation decision: this record and the authorised engineers and technicians list are kept apart deliberately. They are different chambers, different authorisations and different reserved activities, and merging them because both concern construction would misstate what either authorisation permits."
+  },
+  {
+    "id": "cz-ckait-autorizovane-osoby",
+    "name": "Seznam autorizovaných inženýrů a techniků",
+    "slug": "ckait-seznam-autorizovanych-osob",
+    "country": "czech-republic",
+    "category": "government",
+    "website": "https://www.ckait.cz/autorizovane-osoby",
+    "submissionUrl": null,
+    "description": "The Czech Chamber of Chartered Engineers and Technicians in Construction publishes selections from its list of authorised engineers and technicians. Authorisation is required to carry out selected activities in construction reserved to authorised persons.",
+    "tier": "tier1",
+    "scope": "national",
+    "officialName": "Výběry ze seznamu autorizovaných inženýrů a techniků",
+    "nativeName": "Výběry ze seznamu autorizovaných inženýrů a techniků",
+    "englishName": "Selections from the list of authorised engineers and technicians",
+    "englishNameSource": "editorial-translation",
+    "primaryRegistryType": "professional-licence-register",
+    "registryTypes": [
+      "professional-licence-register"
+    ],
+    "operator": {
+      "name": "Česká komora autorizovaných inženýrů a techniků činných ve výstavbě",
+      "type": "public-law-body",
+      "officialUrl": "https://www.ckait.cz/"
+    },
+    "publicAccess": {
+      "searchUrl": null,
+      "accessLevel": "partially-open",
+      "freeToSearch": null,
+      "loginRequired": false,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "The page was served anonymously with no credential, so login is recorded as not required. It states that JavaScript must be enabled to use its form, and no query was executed, so search behaviour, coverage and completeness were not observed and stay null."
+    },
+    "petroHrysScore": 80,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 8,
+      "verificationQuality": 7,
+      "platformReputation": 8,
+      "spamResistance": 10,
+      "industryImportance": 7,
+      "longTermStability": 8,
+      "submissionQuality": 5,
+      "transparency": 8,
+      "moderationQuality": 8
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": true,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-06",
+    "nextVerification": "2027-08-08",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "cz-cka-autorizovani-architekti"
+      ],
+      "usedWith": [
+        "cz-cka-autorizovani-architekti"
+      ],
+      "competitors": []
+    },
+    "bestFor": [
+      "Checking whether a person holds Czech authorisation as an engineer or technician in construction.",
+      "Separating an authorised engineer from an authorised architect, who is authorised by a different chamber."
+    ],
+    "notRecommendedFor": [
+      "Checking architects, who hold a different authorisation from a separate chamber and do not appear here.",
+      "Treating authorisation as a statement about the quality of any engineering work."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Authorised engineers and technicians in Czech construction"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "Authorisation is required for reserved construction activities, so an entry verifies an entitlement to act.",
+      "Engineers and technicians are distinguished within one chamber’s list, which reflects how the authorisations actually differ.",
+      "It is kept by the chamber that grants the authorisation, making it the authoritative Czech source."
+    ],
+    "cons": [
+      "The page presents selections from the list rather than announcing itself as the complete register, so completeness is not claimed here.",
+      "Its form requires JavaScript, so the search could not be exercised and nothing about result content or coverage is asserted.",
+      "It covers engineers and technicians in construction only. Architects are elsewhere, and absence here says nothing about them."
+    ],
+    "editorNotes": "Verified 2026-08-06 by navigating from the chamber’s own site, and re-verified in a separate direct adversarial pass. The page titles itself “Výběry ze seznamu autorizovaných inženýrů a techniků” — selections FROM the list — and the record deliberately does not upgrade that into a claim to be the complete register. FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: Czech law on authorised architects and authorised engineers and technicians in construction. The chamber grants and records the authorisation. RESPONSIBLE AUTHORITY: Česká komora autorizovaných inženýrů a techniků činných ve výstavbě, a public-law professional chamber. TECHNICAL PLATFORM: Not separately established. No external supplier is named on any page fetched. PUBLIC ACCESS INTERFACE: The published selections on the chamber’s own site, whose form requires JavaScript. Separation decision: kept distinct from the architects’ chamber list. Two chambers, two authorisations, two sets of reserved activities. Merging them because both concern construction would misstate what either permits, which is why a test pins the separation."
   }
 ]

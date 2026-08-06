@@ -704,3 +704,106 @@ pending, or incomplete.
 - **NCUA's application host does not respond to automated requests**, so its record
   rests on identity and function confirmed from `ncua.gov` itself. That limitation
   is disclosed in the published text, not only in editor notes.
+
+---
+
+## Wave 3A-1 — United Kingdom & Czech Republic professional registers (2026-08-06)
+
+First wave of the professional-licence layer. Wave 3A was split on scope: Germany
+and France are deferred to Wave 3A-2 and were **not researched here**, so nothing
+below should be read as a finding about them.
+
+Healthcare regulators were excluded by the brief and are not candidates.
+
+### Approved and published (7)
+
+| Record | Country | Profession | Effect of entry |
+|---|---|---|---|
+| `gb-arb-architects-register` | UK | Architects | **Title only.** Required to use the word "architect", not to do the work. |
+| `gb-engc-regcheck` | UK | Engineers | **Title only**, and under a Royal Charter rather than statute. |
+| `gb-ipreg-register` | UK | Patent & trade mark attorneys | Regulated status; two professions and firms in one search. |
+| `cz-cak-advokati` | CZ | Advocates | **Practice.** Entry in the statutory register of advocates. |
+| `cz-nkcr-notari` | CZ | Notaries | Holding of a notarial office, appointed by the state. |
+| `cz-cka-autorizovani-architekti` | CZ | Authorised architects | **Practice.** Authorisation for reserved activities. |
+| `cz-ckait-autorizovane-osoby` | CZ | Authorised engineers & technicians | **Practice.** Authorisation for reserved activities. |
+
+### The distinction this wave exists to hold
+
+**A protected-title register is not a licence to practise.** ARB and the
+Engineering Council both restrict a *title*; neither restricts the *work*. The
+Czech chambers restrict *reserved activities*. Both kinds are
+`professional-licence-register`, but the legal effect differs, and every record
+now states which it is **in rendered prose** — not in editor notes.
+
+The type boundary in `bd-registry-types.cjs` was clarified rather than split. A
+new `protected-professional-title-register` type would have rested on two
+candidates whose protection comes from different sources (statute for ARB, Royal
+Charter for the Engineering Council), which is a distinction that belongs in
+prose, not in the enum.
+
+### Determinations that must not be silently reversed
+
+| Question | Determination | Evidence |
+|---|---|---|
+| Is ARB statutory? | **Yes.** | The board states it "was established by Parliament in 1997 to regulate the architects' profession in the UK". |
+| Is the Engineering Council a statutory regulator? | **No.** It operates "as a charity under Royal Charter"; the titles "are protected under our Royal Charter". Typed `chartered-body`, not `regulator`. |
+| Is IPReg one record or two? | **One.** The page says "Search our registers" (plural — reflecting the underlying statutory registers), but the public interface is a single form at one URL covering both professions and firms. Splitting it would split a system by its own filter. |
+| Are the two Czech construction chambers one? | **No.** ČKA (architects) and ČKAIT (engineers and technicians) are separate chambers with separate lists. Each record says the other exists, because absence from one says nothing about the other. |
+| Do these registers cover individuals or firms? | **Individuals**, except IPReg, which records firms too. ARB and the Engineering Council register practitioners, not employers — now stated in each record, because a reader checking a business would otherwise draw the wrong conclusion. |
+
+### Access — nothing claimed that was not observed
+
+All seven ship `accessLevel: partially-open` with `loginRequired: false` (an
+anonymous load was observed) and **every other access field null**. No search was
+executed on any of them, so result content, coverage and limits are not asserted.
+
+**Fully-unknown access: 0% — the brief's 50% ceiling passes with room to spare.**
+
+Note on `accepts`: these registers cover **individual practitioners**, so they
+carry `accepts.localBusiness: null`, matching the barristers/NMC/HCPC precedent.
+IPReg is the single exception — it records firms alongside individuals.
+
+Two limitations worth carrying:
+
+- **ČKAIT's page presents "Výběry ze seznamu"** — *selections from* the list — and
+  the record deliberately does not upgrade that into a claim to be the complete
+  register. Its form also requires JavaScript, so it could not be exercised.
+- **Engineering Council RegCheck requires an exact match**, and the council itself
+  warns that an unexpected nil result does not establish that someone is
+  unregistered. This is in the published limitations, because a reader who does
+  not know it will misread a nil result as proof.
+
+### Not researched in this phase, by scope
+
+Germany and France (Wave 3A-2): Rechtsanwaltskammern, Wirtschaftsprüferkammer,
+Architektenkammern, Bundesnotarkammer; the French ordres and CNB. **No conclusion
+about any of them is recorded here.**
+
+UK candidates deliberately not added: solicitors, barristers and Scottish
+solicitors were checked against existing records and **already covered** —
+`gb-sra-solicitors-register` and `gb-barristers-register` are published, and no
+duplicate was created. The Law Society of Scotland's host refused automated
+clients; a 403 is a bot filter, not evidence of absence.
+
+Czech candidates not published: the auditors' chamber (KAČR) and the tax advisers'
+chamber were not analysed to publication standard in this wave.
+
+### Findings worth carrying forward
+
+- **Reachability is not approval.** Every record here was reachable; publication
+  still turned on whether an official body responsible for the profession holds
+  the register and entry follows its registration decision.
+- **A coverage manifest drifts silently.** Adding three UK-wide records left
+  `united-kingdom-territorial-coverage.json` claiming 24 records and 8 UK-wide.
+  It was corrected to 27 and 11, and is now **pinned to the registry by test** —
+  the same defect Canada's manifest had in Wave 2B, which nothing was enforcing.
+- **Structured data can contradict rendered prose without anything failing.**
+  Five records carried `accepts.localBusiness: true` while their own text said a
+  firm is not registered — which would have listed them in an audience guide for
+  readers looking for their business. Corrected to `null`; only IPReg, which
+  genuinely records firms, keeps `true`. The rule is now pinned by test in both
+  directions. It was found by chasing why two unrelated pages changed in a
+  `git status`, not by any check.
+- **A rendered-caveat guard must check every limitation, not the first.** The
+  existing check only asserted `cons[0]` reached the page, so dropping any later
+  limitation was invisible. It now checks all of them.
