@@ -242,6 +242,70 @@ function metricNote(active) {
 // schema's gaps back at a reader tells them about our data model rather than
 // about the register. `accessLevel: "unknown"` IS shown, because there the
 // absence is the finding — it says we looked and could not establish it.
+
+// Commercial listing information. Deliberately NOT part of registryInformation:
+// a listing fact is not a registry fact, and rendering "Listing action" under a
+// "Registry information" heading would blur the government/commercial line this
+// schema exists to draw.
+//
+// Rendered only where at least one listing fact is ESTABLISHED. A record whose
+// action is merely "unknown" shows nothing — an unverified field is silence,
+// not a row reading "not established" on every unresearched platform. A
+// Government Registry pillar record resolves to "not-applicable" and can never
+// reach this block at all.
+const LISTING_ACTION_LABELS = {
+  create: 'Create a listing',
+  claim: 'Claim an existing profile',
+  'create-and-claim': 'Create or claim a profile',
+  'invite-only': 'Invite only',
+};
+
+function listingInformation(directory) {
+  if (!directory) return '';
+  const action = directory.listingAction;
+  if (!action || action === 'not-applicable') return '';
+
+  const actionLabel = LISTING_ACTION_LABELS[action] || null;
+  const vm = directory.verificationMethods;
+  const established = !!actionLabel
+    || Array.isArray(vm)
+    || directory.ownerResponseSupport === true
+    || directory.ownerResponseSupport === false
+    || !!safeHref(directory.claimUrl);
+  if (!established) return '';
+
+  const rows = [];
+  const row = (label, value) => rows.push(
+    `        <div class="bd-def">
+          <dt class="bd-def-t">${escapeHtml(label)}</dt>
+          <dd class="bd-def-d">${value}</dd>
+        </div>`,
+  );
+
+  if (actionLabel) row('Listing action', escapeHtml(actionLabel));
+  // [] and null are different: [] is evidence that nothing is required, null is
+  // silence. Only the array form renders.
+  if (Array.isArray(vm)) {
+    row('Verification', vm.length ? escapeHtml(vm.join(' · ')) : 'No verification required');
+  }
+  if (directory.ownerResponseSupport === true) {
+    row('Owner responses', 'The business can respond to reviews');
+  } else if (directory.ownerResponseSupport === false) {
+    row('Owner responses', 'Not available');
+  }
+  const claimHref = safeHref(directory.claimUrl);
+  if (claimHref) {
+    row('Official claim page',
+      `<a href="${escapeHtml(claimHref)}" rel="${REL_EXTERNAL}" target="_blank">`
+      + `${escapeHtml(claimHref)}${vh(' (opens in a new tab)')}</a>`);
+  }
+
+  if (!rows.length) return '';
+  return `      <dl class="bd-defs bd-listing-info">
+${rows.join('\n')}
+      </dl>`;
+}
+
 function registryInformation(directory) {
   if (!directory) return '';
   // Scope alone does not earn the section. Every record has one, so triggering
@@ -346,6 +410,7 @@ function registryInformation(directory) {
     row('Hosting', `This registry is a distinct system hosted on the shared `
       + `${escapeHtml(ri.canonicalDomain)} platform.`);
   }
+
 
   if (!rows.length) return '';
   return `      <dl class="bd-defs bd-registry-info">
@@ -1325,6 +1390,7 @@ module.exports = {
   directoryTable, directoryRow, directoryCard, metric, metricsBlock, metricNote,
   statusBadges, prosCons, bestForTags, bulletList, emptyState, faqSection,
   registryInformation,
+  listingInformation,
   searchControls, filterControls, sortControls, pagination,
   verificationBlock, acceptsList, scoreBreakdown, filterValue, filterAttr,
   relatedDirectories, submissionLink, editorialGuidance,
