@@ -1,0 +1,101 @@
+{
+  "programme": "wave-1c-1a-west-southwest",
+  "note": "Wave 1C.1A coverage for the five West and Southwest states. This manifest records RESEARCH coverage, not published records: no Region A record was authored, because no candidate's public discovery surface could be verified without a browser. 'coverage-complete-with-browser-pending' means the candidate universe was researched to the programme standard and every remaining gap has a named next action. It does not mean exhaustive knowledge of every website in the state. approvedCount is 0 across all five states by design and must be derived from the registry, never asserted here. Candidate arithmetic: totals.candidates = the sum of per-state candidates PLUS totals.nationalDuplicates, because the three national platforms are assessed once for the whole region rather than per state.",
+  "lastReviewed": "2026-08-06",
+  "totals": {
+    "states": 5,
+    "candidates": 24,
+    "approved": 0,
+    "pendingBrowser": 9,
+    "targetedIncomplete": 5,
+    "rejected": 6,
+    "nationalDuplicates": 3,
+    "procurementExcluded": 1,
+    "stateCandidates": 21
+  },
+  "states": [
+    {
+      "state": "California",
+      "code": "US-CA",
+      "region": "west-southwest",
+      "researchStatus": "coverage-complete-with-browser-pending",
+      "candidates": 5,
+      "approved": 0,
+      "pendingBrowser": 2,
+      "targetedIncomplete": 1,
+      "rejected": 2,
+      "lastResearched": "2026-08-06",
+      "nextAction": "Browser-verify the Cal eProcure public supplier search and the Visit California business directory; establish the legal operator of the Supplier Clearinghouse."
+    },
+    {
+      "state": "Washington",
+      "code": "US-WA",
+      "region": "west-southwest",
+      "researchStatus": "coverage-complete-with-browser-pending",
+      "candidates": 5,
+      "approved": 0,
+      "pendingBrowser": 2,
+      "targetedIncomplete": 1,
+      "rejected": 2,
+      "lastResearched": "2026-08-06",
+      "nextAction": "Browser-verify the OMWBE certified-business directory on omwbe.diversitycompliance.com and confirm ExperienceWA still operates."
+    },
+    {
+      "state": "Arizona",
+      "code": "US-AZ",
+      "region": "west-southwest",
+      "researchStatus": "coverage-complete-with-browser-pending",
+      "candidates": 3,
+      "approved": 0,
+      "pendingBrowser": 2,
+      "targetedIncomplete": 1,
+      "rejected": 0,
+      "lastResearched": "2026-08-06",
+      "nextAction": "Browser-verify Arizona Commerce Authority systems and Visit Arizona; determine whether the Arizona Chamber operates a public member directory."
+    },
+    {
+      "state": "Colorado",
+      "code": "US-CO",
+      "region": "west-southwest",
+      "researchStatus": "coverage-complete-with-browser-pending",
+      "candidates": 4,
+      "approved": 0,
+      "pendingBrowser": 2,
+      "targetedIncomplete": 2,
+      "rejected": 0,
+      "lastResearched": "2026-08-06",
+      "nextAction": "Browser-verify Colorado.com business listings and reach the Colorado Chamber; classify OEDIT and Manufacturer's Edge."
+    },
+    {
+      "state": "Texas",
+      "code": "US-TX",
+      "region": "west-southwest",
+      "researchStatus": "coverage-complete-with-browser-pending",
+      "candidates": 4,
+      "approved": 0,
+      "pendingBrowser": 1,
+      "targetedIncomplete": 0,
+      "rejected": 2,
+      "procurementExcluded": 1,
+      "lastResearched": "2026-08-06",
+      "nextAction": "Determine whether VetHUB publishes a public certified-business directory distinct from the CMBL bidders list."
+    }
+  ],
+  "nationalDuplicates": [
+    {
+      "platform": "ChamberofCommerce.com",
+      "pattern": "/business-directory/<state>/ for all fifty states",
+      "finding": "Regional views of one national platform. Not published: the operator names no legal entity and the add-business route is behind a Cloudflare challenge."
+    },
+    {
+      "platform": "MerchantCircle",
+      "pattern": "city slugs such as /ca-los-angeles",
+      "finding": "One national system. /california returns 404, so there is no state-level surface at all. Published once as us-merchantcircle."
+    },
+    {
+      "platform": "Alignable",
+      "pattern": "/<city>-<state>/directory",
+      "finding": "One national system with city views under one account. Published once as us-alignable."
+    }
+  ]
+}

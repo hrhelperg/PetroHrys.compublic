@@ -457,6 +457,18 @@ function validateRegistry(registry) {
       add('listingAction', 'Only a Government Registry pillar record may be "not-applicable".');
     }
 
+    // "apply" asserts that inclusion is gated on certification, membership or
+    // eligibility. That gate is the single most important fact about such a
+    // platform, so it must reach a READER — a gate recorded only in editorNotes
+    // is a gate the audience never learns about. The record must also name an
+    // official application route, because "apply" without one is an assertion
+    // that a flow exists which nobody located.
+    // The apply contract lives in bd-schema so the validator and its tests
+    // share one implementation rather than one racing on the registry file.
+    for (const [field, message] of S.applyContractProblems({ ...entry, listingAction })) {
+      add(field, message);
+    }
+
     // verificationMethods: null and [] are different states and both are legal.
     const vm = entry.verificationMethods === undefined ? null : entry.verificationMethods;
     if (vm !== null) {

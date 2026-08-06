@@ -28,8 +28,12 @@ const keys = (r) => Object.keys(serialisableRecord(r));
 
 // ── enum shape ──────────────────────────────────────────────────────────────
 test('the listing action enum is exactly the approved closed set', () => {
+  // "apply" was added by explicit approval, for eligibility-gated inclusion.
+  // Everything else is unchanged. This assertion is the reason an UNapproved
+  // value cannot be slipped in alongside an approved one.
   assert.deepStrictEqual(S.LISTING_ACTIONS,
-    ['create', 'claim', 'create-and-claim', 'invite-only', 'not-applicable', 'unknown']);
+    ['create', 'claim', 'create-and-claim', 'apply', 'invite-only',
+      'not-applicable', 'unknown']);
   // The rejected spelling must not creep back in.
   assert.ok(!S.LISTING_ACTIONS.includes('create-or-claim'),
     '"create-or-claim" was explicitly rejected in favour of "create-and-claim"');
@@ -219,6 +223,10 @@ const ACTION_EVIDENCE = {
   create: /creat\w+ (a |an )?(new )?(\w+ )?(profile|listing|account|page|entry|company)|add(ing)? (your|a|an) (business|listing|profile|entry|company)|submit/i,
   claim: /claim/i,
   'create-and-claim': /claim/i,
+  // "apply" must show the ACT of applying, not merely the word "eligible".
+  // The validator separately requires the gate itself to be visible, so these
+  // two rules together mean a reader sees both the route and the condition.
+  apply: /appl(y|ies|ication|ying)|submit an application|request inclusion/i,
   'invite-only': /invit/i,
 };
 

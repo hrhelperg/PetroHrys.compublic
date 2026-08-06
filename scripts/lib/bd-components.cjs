@@ -253,10 +253,14 @@ function metricNote(active) {
 // not a row reading "not established" on every unresearched platform. A
 // Government Registry pillar record resolves to "not-applicable" and can never
 // reach this block at all.
+// "Apply for inclusion" is worded to carry the gate in the label itself. A
+// reader who sees only this row must not come away believing a listing follows
+// from submitting, which is exactly what "Create a listing" would imply.
 const LISTING_ACTION_LABELS = {
   create: 'Create a listing',
   claim: 'Claim an existing profile',
   'create-and-claim': 'Create or claim a profile',
+  apply: 'Apply for inclusion',
   'invite-only': 'Invite only',
 };
 
