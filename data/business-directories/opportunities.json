@@ -6452,5 +6452,1290 @@
     "submissionModel": "unknown",
     "note": "A New Zealand trades review directory with public business profiles and ratings.",
     "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-sulekha",
+    "name": "Sulekha",
+    "website": "https://www.sulekha.com/",
+    "country": "global",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "india"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A large Indian local services marketplace with public business profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-tradeford",
+    "name": "TradeFord",
+    "website": "https://www.tradeford.com/",
+    "country": "global",
+    "category": "manufacturing",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "asia",
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An international B2B marketplace with public supplier listings.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-eworldtrade",
+    "name": "eWorldTrade",
+    "website": "https://www.eworldtrade.com/",
+    "country": "global",
+    "category": "manufacturing",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "asia",
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An international B2B marketplace. Live but behind a challenge, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-b2bmap",
+    "name": "B2BMap",
+    "website": "https://www.b2bmap.com/",
+    "country": "global",
+    "category": "manufacturing",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An international B2B company directory. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-exporthub",
+    "name": "ExportHub",
+    "website": "https://www.exporthub.com/",
+    "country": "global",
+    "category": "manufacturing",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "asia",
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An international export and supplier marketplace. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-bizvibe",
+    "name": "BizVibe",
+    "website": "https://www.bizvibe.com/",
+    "country": "global",
+    "category": "manufacturing",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A B2B marketplace and company intelligence platform with public company profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-mouthshut",
+    "name": "MouthShut",
+    "website": "https://www.mouthshut.com/",
+    "country": "global",
+    "category": "review-sites",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "india"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A large Indian consumer review platform with public business and product pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-grotal",
+    "name": "Grotal",
+    "website": "https://www.grotal.com/",
+    "country": "global",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "india"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An Indian local business search directory with public listings.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-indiacom",
+    "name": "Indiacom",
+    "website": "https://www.indiacom.com/",
+    "country": "global",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "india"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An Indian local business directory and listing service.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-dealroom",
+    "name": "Dealroom.co",
+    "website": "https://www.dealroom.co/",
+    "country": "global",
+    "category": "startup",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "europe",
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A tech ecosystem intelligence platform with public company profiles that founders can claim and edit.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-tracxn",
+    "name": "Tracxn",
+    "website": "https://www.tracxn.com/",
+    "country": "global",
+    "category": "startup",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global",
+      "india"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A private-market research platform with public company profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-startupstash",
+    "name": "Startup Stash",
+    "website": "https://www.startupstash.com/",
+    "country": "global",
+    "category": "startup",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A curated startup tools and resources directory with public listings. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-semrush-agencies",
+    "name": "Semrush Agency Partners",
+    "website": "https://www.semrush.com/agencies/",
+    "country": "global",
+    "category": "marketing",
+    "tier": "tier1",
+    "priority": "P1",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "Semrush's agency partner directory with public agency profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-hubspot-agencies",
+    "name": "HubSpot Solutions Directory",
+    "website": "https://www.hubspot.com/agencies",
+    "country": "global",
+    "category": "marketing",
+    "tier": "tier1",
+    "priority": "P1",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "HubSpot's partner and agency marketplace with public provider profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-shopify-partners",
+    "name": "Shopify Partners",
+    "website": "https://partners.shopify.com/",
+    "country": "global",
+    "category": "marketing",
+    "tier": "tier1",
+    "priority": "P1",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "Shopify's partner programme and public partner directory for agencies and developers.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-wix-marketplace",
+    "name": "Wix Marketplace",
+    "website": "https://www.wix.com/marketplace",
+    "country": "global",
+    "category": "marketing",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "Wix's directory of expert service providers with public profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-squarespace-circle",
+    "name": "Squarespace Circle",
+    "website": "https://www.squarespace.com/circle",
+    "country": "global",
+    "category": "marketing",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "Squarespace's partner programme with a public professional directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-webflow-experts",
+    "name": "Webflow Certified Partners",
+    "website": "https://experts.webflow.com/",
+    "country": "global",
+    "category": "marketing",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "Webflow's certified designer and agency directory with public profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-klaviyo-partners",
+    "name": "Klaviyo Partner Directory",
+    "website": "https://www.klaviyo.com/partners",
+    "country": "global",
+    "category": "marketing",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "Klaviyo's partner programme and public agency directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-mailchimp-experts",
+    "name": "Mailchimp Experts",
+    "website": "https://www.mailchimp.com/experts/",
+    "country": "global",
+    "category": "marketing",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "Mailchimp's expert and agency directory with public provider profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-google-cloud-partners",
+    "name": "Google Cloud Partner Directory",
+    "website": "https://cloud.google.com/find-a-partner",
+    "country": "global",
+    "category": "marketing",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "Google Cloud's public partner finder listing certified service partners.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-atlassian-partners",
+    "name": "Atlassian Partners",
+    "website": "https://www.atlassian.com/partners",
+    "country": "global",
+    "category": "marketing",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "Atlassian's public solution partner directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-zendesk-marketplace",
+    "name": "Zendesk Marketplace",
+    "website": "https://www.zendesk.com/marketplace/",
+    "country": "global",
+    "category": "app-directories",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "Zendesk's app and partner marketplace. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-intercom-app-store",
+    "name": "Intercom App Store",
+    "website": "https://www.intercom.com/app-store",
+    "country": "global",
+    "category": "app-directories",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "Intercom's public app and integration directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-notion-integrations",
+    "name": "Notion Integrations",
+    "website": "https://www.notion.so/integrations",
+    "country": "global",
+    "category": "app-directories",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "Notion's public integrations and connections directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-airtable-marketplace",
+    "name": "Airtable Marketplace",
+    "website": "https://www.airtable.com/marketplace",
+    "country": "global",
+    "category": "app-directories",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "Airtable's public app marketplace.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-monday-marketplace",
+    "name": "monday.com Marketplace",
+    "website": "https://www.monday.com/marketplace",
+    "country": "global",
+    "category": "app-directories",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "monday.com's public app marketplace.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-asana-apps",
+    "name": "Asana Apps",
+    "website": "https://www.asana.com/apps",
+    "country": "global",
+    "category": "app-directories",
+    "tier": "tier1",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "Asana's public app and integration directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-clickup-integrations",
+    "name": "ClickUp Integrations",
+    "website": "https://www.clickup.com/integrations",
+    "country": "global",
+    "category": "app-directories",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "ClickUp's public integrations directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-canva-apps",
+    "name": "Canva Apps",
+    "website": "https://www.canva.com/apps/",
+    "country": "global",
+    "category": "app-directories",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "Canva's public app marketplace. Live but behind a client challenge, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-autodesk-partners",
+    "name": "Autodesk Partners",
+    "website": "https://www.autodesk.com/partners",
+    "country": "global",
+    "category": "marketing",
+    "tier": "tier1",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "Autodesk's public partner directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-sap-partners",
+    "name": "SAP Partner Finder",
+    "website": "https://www.sap.com/partners",
+    "country": "global",
+    "category": "marketing",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "SAP's public partner directory for consultancies and solution providers.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-oracle-partners",
+    "name": "Oracle Partner Finder",
+    "website": "https://www.oracle.com/partner/",
+    "country": "global",
+    "category": "marketing",
+    "tier": "tier1",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "Oracle's public partner directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "dk-eniro",
+    "name": "Eniro Danmark",
+    "website": "https://www.eniro.dk/",
+    "country": "denmark",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "nordics"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Danish arm of the Eniro directory group. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ca-merchantcircle",
+    "name": "MerchantCircle Canada",
+    "website": "https://www.merchantcircle.ca/",
+    "country": "canada",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "canada"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Canadian surface of the MerchantCircle business directory with public company pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-owler",
+    "name": "Owler",
+    "website": "https://www.owler.com/company",
+    "country": "global",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A company intelligence platform with public company profiles businesses can claim. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-craft",
+    "name": "Craft.co",
+    "website": "https://www.craft.co/",
+    "country": "global",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A company intelligence platform with public company profiles. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-zippia",
+    "name": "Zippia",
+    "website": "https://www.zippia.com/",
+    "country": "global",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A US careers platform with public company profile pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "it-infoimprese",
+    "name": "Infoimprese",
+    "website": "https://www.infoimprese.it/",
+    "country": "italy",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Italian chambers of commerce company directory with public business entries.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "it-paginemail",
+    "name": "PagineMail",
+    "website": "https://www.paginemail.it/",
+    "country": "italy",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An Italian business directory. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-hotfrog-india",
+    "name": "Hotfrog India",
+    "website": "https://www.hotfrog.in/",
+    "country": "global",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "india"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Indian arm of an international directory network. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "sg-hotfrog",
+    "name": "Hotfrog Singapore",
+    "website": "https://www.hotfrog.sg/",
+    "country": "singapore",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "asia"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Singapore arm of an international directory network. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-ycombinator-directory",
+    "name": "Y Combinator Startup Directory",
+    "website": "https://www.ycombinator.com/companies",
+    "country": "global",
+    "category": "startup",
+    "tier": "tier1",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "YC's public directory of funded startups. Inclusion follows acceptance into the accelerator rather than open submission.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-techstars",
+    "name": "Techstars",
+    "website": "https://www.techstars.com/",
+    "country": "global",
+    "category": "startup",
+    "tier": "tier1",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A global accelerator network with a public portfolio company directory. Inclusion follows acceptance into a programme.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-500-global",
+    "name": "500 Global",
+    "website": "https://www.500.co/",
+    "country": "global",
+    "category": "startup",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A global venture firm with a public portfolio company directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-kickstarter",
+    "name": "Kickstarter",
+    "website": "https://www.kickstarter.com/",
+    "country": "global",
+    "category": "startup",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A major crowdfunding platform where creators publish public project pages. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-indiegogo",
+    "name": "Indiegogo",
+    "website": "https://www.indiegogo.com/",
+    "country": "global",
+    "category": "startup",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A major crowdfunding platform with public campaign pages. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-crowdcube",
+    "name": "Crowdcube",
+    "website": "https://www.crowdcube.com/",
+    "country": "global",
+    "category": "startup",
+    "tier": "tier1",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "europe",
+      "united-kingdom"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A European equity crowdfunding platform with public company campaign pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-seedrs",
+    "name": "Seedrs",
+    "website": "https://www.seedrs.com/",
+    "country": "global",
+    "category": "startup",
+    "tier": "tier1",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "europe",
+      "united-kingdom"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A European equity crowdfunding platform with public company pages. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "de-opendi",
+    "name": "Opendi Deutschland",
+    "website": "https://www.opendi.de/",
+    "country": "germany",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "dach"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The German arm of the Opendi directory network. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "fr-opendi",
+    "name": "Opendi France",
+    "website": "https://www.opendi.fr/",
+    "country": "france",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The French arm of the Opendi business directory and review network.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "es-opendi",
+    "name": "Opendi España",
+    "website": "https://www.opendi.es/",
+    "country": "spain",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Spanish arm of the Opendi business directory and review network.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "it-opendi",
+    "name": "Opendi Italia",
+    "website": "https://www.opendi.it/",
+    "country": "italy",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Italian arm of the Opendi business directory and review network.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "pl-opendi",
+    "name": "Opendi Polska",
+    "website": "https://www.opendi.pl/",
+    "country": "poland",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Polish arm of the Opendi business directory and review network.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "at-opendi",
+    "name": "Opendi Österreich",
+    "website": "https://www.opendi.at/",
+    "country": "austria",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "dach"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Austrian arm of the Opendi directory network.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ch-opendi",
+    "name": "Opendi Schweiz",
+    "website": "https://www.opendi.ch/",
+    "country": "switzerland",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "dach"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Swiss arm of the Opendi directory network.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "nl-opendi",
+    "name": "Opendi Nederland",
+    "website": "https://www.opendi.nl/",
+    "country": "netherlands",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Dutch arm of the Opendi business directory and review network.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "se-opendi",
+    "name": "Opendi Sverige",
+    "website": "https://www.opendi.se/",
+    "country": "sweden",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "nordics"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Swedish arm of the Opendi business directory and review network.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "dk-opendi",
+    "name": "Opendi Danmark",
+    "website": "https://www.opendi.dk/",
+    "country": "denmark",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "nordics"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Danish arm of the Opendi business directory and review network.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "no-opendi",
+    "name": "Opendi Norge",
+    "website": "https://www.opendi.no/",
+    "country": "norway",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "nordics"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Norwegian arm of the Opendi business directory and review network.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "fi-opendi",
+    "name": "Opendi Suomi",
+    "website": "https://www.opendi.fi/",
+    "country": "finland",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "nordics"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Finnish arm of the Opendi business directory and review network.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "pt-opendi",
+    "name": "Opendi Portugal",
+    "website": "https://www.opendi.pt/",
+    "country": "portugal",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Portuguese arm of the Opendi business directory and review network.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-opendi",
+    "name": "Opendi US",
+    "website": "https://www.opendi.us/",
+    "country": "united-states",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The US arm of the Opendi business directory and review network.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "at-firmania",
+    "name": "Firmania Österreich",
+    "website": "https://www.firmania.at/",
+    "country": "austria",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "dach"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Austrian arm of the Firmania business directory network. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "be-firmania",
+    "name": "Firmania Belgique",
+    "website": "https://www.firmania.be/",
+    "country": "belgium",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Belgian arm of the Firmania business directory network. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "fr-firmania",
+    "name": "Firmania France",
+    "website": "https://www.firmania.fr/",
+    "country": "france",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The French arm of the Firmania business directory network. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "es-firmania",
+    "name": "Firmania España",
+    "website": "https://www.firmania.es/",
+    "country": "spain",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Spanish arm of the Firmania business directory network. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "it-firmania",
+    "name": "Firmania Italia",
+    "website": "https://www.firmania.it/",
+    "country": "italy",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Italian arm of the Firmania business directory network. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "uk-infoisinfo",
+    "name": "Infoisinfo UK",
+    "website": "https://www.infoisinfo.co.uk/",
+    "country": "united-kingdom",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "united-kingdom"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The UK arm of the Infoisinfo business directory network with public company listings.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "es-infoisinfo",
+    "name": "Infoisinfo España",
+    "website": "https://www.infoisinfo.es/",
+    "country": "spain",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Spanish arm of the Infoisinfo business directory network with public company listings.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-yably",
+    "name": "Yably",
+    "website": "https://www.yably.com/",
+    "country": "global",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An international business listing directory. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
   }
 ]
