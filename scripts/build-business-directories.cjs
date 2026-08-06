@@ -523,8 +523,19 @@ function pageModel(registry) {
     for (const directory of countryEntries) {
       const category = registry.categories.find((cat) => cat.slug === directory.category);
       const { indexable, missing } = SCHEMA.indexability(directory);
+      // A record that fails the meaningful-content contract is a Level 1
+      // operational row: it belongs in the working list, the CSV and every
+      // filter, but it has nothing substantive to put on a page of its own.
+      // Generating one would be exactly the thin page the SEO policy forbids.
+      // Build the route for every record, thin or not: routes.directoryOut is
+      // what refuses a hostile slug, and skipping it for compact rows would
+      // retire that check without anyone noticing.
+      const outPath = routes.directoryOut(country.slug, directory.slug);
+      if (!indexable) {
+        noindexReport.push({ id: directory.id, missing });
+        continue;
+      }
       const dirMeta = seo.buildDirectoryMeta({ country, category, directory, indexable });
-      if (!indexable) noindexReport.push({ id: directory.id, missing });
 
       const guides = guidesFor(articles, directory);
       const guideLinks = guides.length ? [
@@ -606,8 +617,12 @@ function stageBuild(registry, pages) {
     .map((page) => ({ path: page.meta.canonicalPath, lastmod: page.lastmod }));
   files.set(SITEMAP_FILE, renderSitemap(indexable));
 
+  // The feed announces PAGES, so it may only carry records that have one. A
+  // Level 1 operational row has no detail page, and an item pointing at a page
+  // that was never generated is a broken feed — which the pre-write validator
+  // correctly refuses to publish.
   const feedItems = registry.directories
-    .filter((d) => d.lastVerified)
+    .filter((d) => d.lastVerified && SCHEMA.indexability(d).indexable)
     .slice()
     .sort((a, b) => (a.lastVerified < b.lastVerified ? 1 : a.lastVerified > b.lastVerified ? -1 : 0))
     .map((d) => ({

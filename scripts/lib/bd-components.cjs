@@ -743,8 +743,23 @@ function directoryRow(directory, columns) {
     .map((col) => `            <td class="bd-cell" data-bd-label="${escapeHtml(col.label)}">`
       + `${metric(directory[col.field], provenance[col.field], undefined, col.emptyLabel)}</td>`)
     .join('\n');
+  // Level 1 operational rows carry no detail page — they exist to be worked
+  // from, not read about — so their name links straight to the platform. Only a
+  // record substantive enough to pass the meaningful-content contract has an
+  // internal page to point at. Linking every row internally would 404 the
+  // moment a compact row was added.
+  //
+  // The route is built for EVERY row, including compact ones, because
+  // directoryPathFor is what refuses a hostile slug. Skipping the call for
+  // rows that do not use the result would quietly retire that check.
+  const internalPath = directoryPathFor(directory);
+  const hasDetailPage = S.indexability(directory).indexable;
+  const nameLink = hasDetailPage
+    ? `<a href="${escapeHtml(internalPath)}">${escapeHtml(S.displayName(directory))}</a>`
+    : `<a href="${escapeHtml(directory.website)}" rel="${REL_EXTERNAL}" target="_blank">`
+      + `${escapeHtml(S.displayName(directory))}</a>`;
   return `          <tr class="bd-row" ${attrs}>
-            <th class="bd-cell" scope="row" data-bd-label="Directory"><a href="${escapeHtml(directoryPathFor(directory))}">${escapeHtml(S.displayName(directory))}</a></th>
+            <th class="bd-cell" scope="row" data-bd-label="Directory">${nameLink}</th>
 ${cells}
           </tr>`;
 }

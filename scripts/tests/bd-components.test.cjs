@@ -104,10 +104,22 @@ test('directory links are site-absolute so they resolve from any page depth', ()
   // Regression guard for C1: a relative href resolved into
   // /country/categories/<cat>/<slug>/ from a category page, which is never
   // generated, so every link on every category page was a 404.
-  const html = c.directoryTable({ directories: [DIR] });
-  const href = html.match(/scope="row"[^>]*><a href="([^"]+)"/)[1];
-  assert.strictEqual(href, '/research/business-directories/united-states/example-directory/');
-  assert.ok(href.startsWith('/'), 'directory hrefs must never be relative');
+  //
+  // A record substantive enough to have a detail page links INTERNALLY. A
+  // compact operational row has no page, so it links to the platform itself —
+  // linking it internally would 404. Both directions are asserted, because
+  // getting either wrong produces broken links across every country page.
+  const substantive = { ...DIR, pros: ['A documented advantage.'], cons: ['A documented limit.'] };
+  const full = c.directoryTable({ directories: [substantive] });
+  const internal = full.match(/scope="row"[^>]*><a href="([^"]+)"/)[1];
+  assert.strictEqual(internal, '/research/business-directories/united-states/example-directory/');
+  assert.ok(internal.startsWith('/'), 'directory hrefs must never be relative');
+
+  const compact = { ...DIR, pros: [], cons: [] };
+  const row = c.directoryTable({ directories: [compact] });
+  const external = row.match(/scope="row"[^>]*><a href="([^"]+)"/)[1];
+  assert.strictEqual(external, compact.website,
+    'a compact row must link to the platform, not to a page that is never generated');
 });
 
 test('breadcrumb paths are escaped', () => {
