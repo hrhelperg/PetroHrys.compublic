@@ -2712,5 +2712,1078 @@
     "submissionModel": "unknown",
     "note": "A Gulf region business directory with public company listings and search.",
     "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "br-guiamais",
+    "name": "Guia Mais",
+    "website": "https://www.guiamais.com.br/",
+    "country": "brazil",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P1",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "latam"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Brazilian online business directory with public company listings and reviews.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "br-apontador",
+    "name": "Apontador",
+    "website": "https://www.apontador.com.br/",
+    "country": "brazil",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P1",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "latam"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Brazilian local discovery platform for shops, services and places with public business pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "br-solutudo",
+    "name": "Solutudo",
+    "website": "https://www.solutudo.com.br/",
+    "country": "brazil",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "latam"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Brazilian business directory. Live but behind a bot filter, so a browser check is needed before submitting.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "br-hotfrog",
+    "name": "Hotfrog Brasil",
+    "website": "https://www.hotfrog.com.br/",
+    "country": "brazil",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "latam"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Brazilian arm of an international directory network. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "br-cylex",
+    "name": "Cylex Brasil",
+    "website": "https://www.cylex.com.br/",
+    "country": "brazil",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "latam"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Brazilian arm of the international Cylex network. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "mx-seccionamarilla",
+    "name": "Sección Amarilla",
+    "website": "https://www.seccionamarilla.com.mx/",
+    "country": "mexico",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P1",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "latam"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The principal Mexican business and services directory with public company listings.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "mx-cylex",
+    "name": "Cylex México",
+    "website": "https://www.cylex.com.mx/",
+    "country": "mexico",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "latam"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Mexican arm of the international Cylex network. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "jp-mapion",
+    "name": "Mapion",
+    "website": "https://www.mapion.co.jp/",
+    "country": "japan",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "japan"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Japanese mapping service carrying local business and place listings.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "jp-ekiten",
+    "name": "Ekiten",
+    "website": "https://www.ekiten.jp/",
+    "country": "japan",
+    "category": "review-sites",
+    "tier": "tier1",
+    "priority": "P1",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "japan"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A large Japanese local business review and listing platform with public shop pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "jp-jpnumber",
+    "name": "JPNumber",
+    "website": "https://www.jpnumber.com/",
+    "country": "japan",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "japan"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Japanese telephone and business number directory. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-prweb",
+    "name": "PRWeb",
+    "website": "https://www.prweb.com/",
+    "country": "global",
+    "category": "press-release-platforms",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global",
+      "north-america"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An online press release distribution service used to publish company announcements.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-einpresswire",
+    "name": "EIN Presswire",
+    "website": "https://www.einpresswire.com/",
+    "country": "global",
+    "category": "press-release-platforms",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A press release distribution service with an accompanying world media directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-newswire",
+    "name": "Newswire",
+    "website": "https://www.newswire.com/",
+    "country": "global",
+    "category": "press-release-platforms",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global",
+      "north-america"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A press release distribution platform for company announcements.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-businesswire",
+    "name": "Business Wire",
+    "website": "https://www.businesswire.com/",
+    "country": "global",
+    "category": "press-release-platforms",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A major press release distribution service. Live but behind a bot filter, so a browser check is needed before submitting.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-globenewswire",
+    "name": "GlobeNewswire",
+    "website": "https://www.globenewswire.com/",
+    "country": "global",
+    "category": "press-release-platforms",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A major press release and news distribution service.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-openpr",
+    "name": "openPR",
+    "website": "https://www.openpr.com/",
+    "country": "global",
+    "category": "press-release-platforms",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "dach",
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An open press release publishing service.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "uk-pressat",
+    "name": "Pressat",
+    "website": "https://www.pressat.co.uk/",
+    "country": "united-kingdom",
+    "category": "press-release-platforms",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "united-kingdom"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A UK press release distribution service.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "de-presseportal",
+    "name": "Presseportal",
+    "website": "https://www.presseportal.de/",
+    "country": "germany",
+    "category": "press-release-platforms",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "dach"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The principal German press release portal, operated alongside dpa.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-247pressrelease",
+    "name": "24-7PressRelease",
+    "website": "https://www.24-7pressrelease.com/",
+    "country": "global",
+    "category": "press-release-platforms",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global",
+      "north-america"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A press release distribution service.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-accesswire",
+    "name": "ACCESSWIRE",
+    "website": "https://www.accesswire.com/",
+    "country": "global",
+    "category": "press-release-platforms",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "global",
+      "north-america"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A press release distribution service. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-startupranking",
+    "name": "StartupRanking",
+    "website": "https://www.startupranking.com/",
+    "country": "global",
+    "category": "startup",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A worldwide startup index with public company profiles and rankings.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-eu-startups",
+    "name": "EU-Startups",
+    "website": "https://www.eu-startups.com/",
+    "country": "global",
+    "category": "startup",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "europe"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A European startup publication and directory with company profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-startupblink",
+    "name": "StartupBlink",
+    "website": "https://www.startupblink.com/",
+    "country": "global",
+    "category": "startup",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A global startup ecosystem map with public company entries. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-gust",
+    "name": "Gust",
+    "website": "https://www.gust.com/",
+    "country": "global",
+    "category": "startup",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "global",
+      "north-america"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A startup and investor platform with public company profiles. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-launchingnext",
+    "name": "Launching Next",
+    "website": "https://www.launchingnext.com/",
+    "country": "global",
+    "category": "startup",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A directory of new startups and products with public submission.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-startupbuffer",
+    "name": "Startup Buffer",
+    "website": "https://www.startupbuffer.com/",
+    "country": "global",
+    "category": "startup",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A startup submission and discovery directory. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-alternative-me",
+    "name": "Alternative.me",
+    "website": "https://alternative.me/",
+    "country": "global",
+    "category": "software",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A software alternatives directory with public product pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-chrome-web-store",
+    "name": "Chrome Web Store",
+    "website": "https://chromewebstore.google.com/",
+    "country": "global",
+    "category": "app-directories",
+    "tier": "tier1",
+    "priority": "P1",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The official distribution store for Chrome extensions, with public product listings.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-figma-community",
+    "name": "Figma Community",
+    "website": "https://www.figma.com/community",
+    "country": "global",
+    "category": "app-directories",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "Figma's public library of community templates, plugins and widgets with creator profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-open-vsx",
+    "name": "Open VSX Registry",
+    "website": "https://open-vsx.org/",
+    "country": "global",
+    "category": "developer",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An open registry for VS Code compatible extensions with public listings.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-thunderbird-addons",
+    "name": "Thunderbird Add-ons",
+    "website": "https://addons.thunderbird.net/",
+    "country": "global",
+    "category": "app-directories",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The official Thunderbird add-on directory. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-zoom-marketplace",
+    "name": "Zoom App Marketplace",
+    "website": "https://marketplace.zoom.us/",
+    "country": "global",
+    "category": "app-directories",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "Zoom's official app marketplace with public application listings.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-apple-app-store",
+    "name": "Apple App Store",
+    "website": "https://apps.apple.com/",
+    "country": "global",
+    "category": "app-directories",
+    "tier": "tier1",
+    "priority": "P1",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "Apple's app distribution store with public product pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-google-play",
+    "name": "Google Play Store",
+    "website": "https://play.google.com/store",
+    "country": "global",
+    "category": "app-directories",
+    "tier": "tier1",
+    "priority": "P1",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "Google's Android app distribution store with public product pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-microsoft-store",
+    "name": "Microsoft Store",
+    "website": "https://www.microsoft.com/store/apps",
+    "country": "global",
+    "category": "app-directories",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "Microsoft's consumer app store with public product listings.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-microsoft-appsource",
+    "name": "Microsoft AppSource",
+    "website": "https://appsource.microsoft.com/",
+    "country": "global",
+    "category": "app-directories",
+    "tier": "tier1",
+    "priority": "P1",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "Microsoft's business application marketplace with public publisher listings.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-zapier-apps",
+    "name": "Zapier App Directory",
+    "website": "https://www.zapier.com/apps",
+    "country": "global",
+    "category": "app-directories",
+    "tier": "tier1",
+    "priority": "P1",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "Zapier's public integration directory, where software products publish an app listing.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-slack-marketplace",
+    "name": "Slack Marketplace",
+    "website": "https://slack.com/marketplace",
+    "country": "global",
+    "category": "app-directories",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "Slack's official app marketplace with public application listings.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-stripe-marketplace",
+    "name": "Stripe App Marketplace",
+    "website": "https://marketplace.stripe.com/",
+    "country": "global",
+    "category": "app-directories",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "Stripe's app marketplace with public application listings.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-pipedrive-marketplace",
+    "name": "Pipedrive Marketplace",
+    "website": "https://www.pipedrive.com/en/marketplace",
+    "country": "global",
+    "category": "app-directories",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "Pipedrive's CRM extension marketplace with public app listings.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-adobe-commerce-marketplace",
+    "name": "Adobe Commerce Marketplace",
+    "website": "https://marketplace.magento.com/",
+    "country": "global",
+    "category": "app-directories",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Adobe Commerce extension and theme marketplace with public vendor listings.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-prestashop-addons",
+    "name": "PrestaShop Addons",
+    "website": "https://addons.prestashop.com/",
+    "country": "global",
+    "category": "app-directories",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "europe",
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The PrestaShop module marketplace. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-odoo-apps",
+    "name": "Odoo Apps Store",
+    "website": "https://apps.odoo.com/apps",
+    "country": "global",
+    "category": "app-directories",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Odoo application store with public module listings.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-smartcustomer",
+    "name": "SmartCustomer",
+    "website": "https://www.sitejabber.com/",
+    "country": "global",
+    "category": "review-sites",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global",
+      "north-america"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A business review and ratings platform with public company profiles. The Sitejabber domain now resolves to SmartCustomer, so SmartCustomer is the live product name.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-resellerratings",
+    "name": "ResellerRatings",
+    "website": "https://www.resellerratings.com/",
+    "country": "global",
+    "category": "review-sites",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global",
+      "north-america"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A store ratings and reviews platform with public merchant profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-consumeraffairs",
+    "name": "ConsumerAffairs",
+    "website": "https://www.consumeraffairs.com/",
+    "country": "global",
+    "category": "review-sites",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A large US consumer review and research platform with public brand profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-pissedconsumer",
+    "name": "PissedConsumer",
+    "website": "https://www.pissedconsumer.com/",
+    "country": "global",
+    "category": "review-sites",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global",
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A consumer review and complaints platform carrying public company pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-shopper-approved",
+    "name": "Shopper Approved",
+    "website": "https://www.shopperapproved.com/",
+    "country": "global",
+    "category": "review-sites",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global",
+      "north-america"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An ecommerce customer review service with public merchant ratings.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-packagecontrol",
+    "name": "Package Control",
+    "website": "https://packagecontrol.io/",
+    "country": "global",
+    "category": "developer",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Sublime Text package registry with public package listings.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-cocoapods",
+    "name": "CocoaPods",
+    "website": "https://cocoapods.org/",
+    "country": "global",
+    "category": "developer",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The dependency manager and public registry for Swift and Objective-C projects.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-conan-center",
+    "name": "ConanCenter",
+    "website": "https://conan.io/center",
+    "country": "global",
+    "category": "developer",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The central public registry for Conan C and C++ packages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-anaconda",
+    "name": "Anaconda.org",
+    "website": "https://anaconda.org/",
+    "country": "global",
+    "category": "developer",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A public package registry for Python and data-science distributions. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-bioconductor",
+    "name": "Bioconductor",
+    "website": "https://bioconductor.org/",
+    "country": "global",
+    "category": "developer",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A public repository of R packages for bioinformatics.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-cran",
+    "name": "CRAN",
+    "website": "https://cran.r-project.org/",
+    "country": "global",
+    "category": "developer",
+    "tier": "tier1",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Comprehensive R Archive Network, the canonical public registry for R packages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-luarocks",
+    "name": "LuaRocks",
+    "website": "https://luarocks.org/",
+    "country": "global",
+    "category": "developer",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The public package registry for Lua modules.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-opam",
+    "name": "opam",
+    "website": "https://opam.ocaml.org/",
+    "country": "global",
+    "category": "developer",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The public package registry for OCaml.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-hackage",
+    "name": "Hackage",
+    "website": "https://hackage.haskell.org/",
+    "country": "global",
+    "category": "developer",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The public package archive for Haskell.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-melpa",
+    "name": "MELPA",
+    "website": "https://melpa.org/",
+    "country": "global",
+    "category": "developer",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The public package archive for Emacs Lisp.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-terraform-registry",
+    "name": "Terraform Registry",
+    "website": "https://www.terraform.io/registry",
+    "country": "global",
+    "category": "developer",
+    "tier": "tier1",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "HashiCorp's public registry of Terraform providers and modules.",
+    "lastVerified": "2026-08-06"
   }
 ]
