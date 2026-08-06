@@ -42,6 +42,11 @@
     "reviewSystem": true,
     "verificationRequired": true,
     "manualReview": true,
+    "audienceGeography": [
+      "united-states"
+    ],
+    "priority": "P2",
+    "currentStatus": "active",
     "accepts": {
       "startup": null,
       "saas": null,
@@ -10776,6 +10781,12 @@
     "listingAction": "claim",
     "ownerResponseSupport": true,
     "claimUrl": "https://www.merchantcircle.com/business_homepage",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "priority": "P2",
+    "currentStatus": "active",
+    "publicProfileAvailable": true,
     "accepts": {
       "startup": null,
       "saas": null,
@@ -10909,6 +10920,12 @@
     "verificationRequired": null,
     "manualReview": null,
     "listingAction": "create",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "priority": "P3",
+    "currentStatus": "active",
+    "publicProfileAvailable": true,
     "accepts": {
       "startup": null,
       "saas": null,

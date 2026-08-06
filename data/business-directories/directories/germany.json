@@ -2213,6 +2213,12 @@
     "verificationRequired": null,
     "manualReview": true,
     "listingAction": "create",
+    "audienceGeography": [
+      "dach"
+    ],
+    "priority": "P1",
+    "currentStatus": "active",
+    "publicProfileAvailable": true,
     "accepts": {
       "startup": null,
       "saas": null,
@@ -2346,6 +2352,12 @@
     "verificationRequired": null,
     "manualReview": null,
     "listingAction": "create",
+    "audienceGeography": [
+      "dach"
+    ],
+    "priority": "P1",
+    "currentStatus": "active",
+    "publicProfileAvailable": true,
     "accepts": {
       "startup": null,
       "saas": null,
@@ -2476,6 +2488,12 @@
     "verificationRequired": null,
     "manualReview": null,
     "listingAction": "create",
+    "audienceGeography": [
+      "dach"
+    ],
+    "priority": "P2",
+    "currentStatus": "active",
+    "publicProfileAvailable": true,
     "accepts": {
       "startup": null,
       "saas": null,
@@ -2609,6 +2627,12 @@
     "verificationRequired": null,
     "manualReview": null,
     "listingAction": "create",
+    "audienceGeography": [
+      "dach"
+    ],
+    "priority": "P2",
+    "currentStatus": "active",
+    "publicProfileAvailable": true,
     "accepts": {
       "startup": null,
       "saas": null,
@@ -2738,6 +2762,12 @@
     "verificationRequired": null,
     "manualReview": null,
     "listingAction": "create",
+    "audienceGeography": [
+      "dach"
+    ],
+    "priority": "P1",
+    "currentStatus": "active",
+    "publicProfileAvailable": true,
     "accepts": {
       "startup": null,
       "saas": null,

@@ -1,1 +1,139 @@
-[]
+[
+  {
+    "id": "at-herold",
+    "name": "Herold",
+    "slug": "herold",
+    "country": "austria",
+    "category": "local-business",
+    "website": "https://www.herold.at/",
+    "submissionUrl": "https://www.herold.at/firmeneintrag/",
+    "description": "Austria’s principal business and telephone directory, operated by HEROLD Business Data GmbH. A company entry is free, and the same form is used both to create a new entry and to claim an existing one — the operator names both routes explicitly.",
+    "tier": "tier1",
+    "scope": "national",
+    "nativeName": "Herold",
+    "operator": {
+      "name": "HEROLD Business Data GmbH",
+      "type": "other",
+      "officialUrl": "https://www.herold.at/firmeneintrag/"
+    },
+    "petroHrysScore": 65,
+    "scoreFactors": {
+      "editorialTrust": 7,
+      "businessUsefulness": 7,
+      "verificationQuality": 4,
+      "platformReputation": 7,
+      "spamResistance": 5,
+      "industryImportance": 7,
+      "longTermStability": 8,
+      "submissionQuality": 8,
+      "transparency": 7,
+      "moderationQuality": 5
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "free",
+    "registrationRequired": null,
+    "reviewSystem": null,
+    "verificationRequired": null,
+    "manualReview": null,
+    "listingAction": "create-and-claim",
+    "claimUrl": "https://www.herold.at/firmeneintrag/",
+    "audienceGeography": [
+      "dach"
+    ],
+    "priority": "P1",
+    "currentStatus": "active",
+    "publicProfileAvailable": true,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": true,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-06",
+    "nextVerification": "2027-05-17",
+    "verification": {
+      "status": "verified",
+      "source": "official-documentation",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Austrian businesses wanting a free entry in the country’s best-known directory.",
+      "Businesses that are already listed and want to take control of the entry rather than create a duplicate."
+    ],
+    "notRecommendedFor": [
+      "Businesses outside Austria. The directory is organised around Austrian regions.",
+      "Anyone expecting the operator’s Google-ranking claim to be a commitment. It is marketing."
+    ],
+    "submissionDifficulty": "easy",
+    "listingQuality": null,
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "local-services",
+      "retail",
+      "professional-services"
+    ],
+    "editorialTags": [
+      "business-directory",
+      "commercial-platform"
+    ],
+    "pros": [
+      "The entry is free and the operator says so in the page’s own heading: “Kostenlosen Firmeneintrag auf Herold erstellen”.",
+      "Both routes are named by the operator, which is why this is recorded as create-and-claim: “Eintrag hinzufügen” and “Eintrag beanspruchen”, alongside “Eintrag verwalten” for managing it afterwards.",
+      "The operator describes the platform as “Österreichs größtem Branchen- und Firmenverzeichnis”, and identifies itself in the footer as HEROLD Business Data GmbH.",
+      "One form handles creating and claiming, so a business that is unsure whether it is already listed does not have to guess."
+    ],
+    "cons": [
+      "The operator markets “Besseres Google-Ranking” as a benefit. That is a marketing claim and is NOT adopted here; no ranking outcome is asserted.",
+      "Whether verification is required, and by what method, is not documented, so nothing about verification is asserted.",
+      "No review system or owner-response function is documented on the pages consulted, so neither is asserted. Absence here means unrecorded, not unavailable.",
+      "The free entry sits alongside paid promotion products, so the operator has a commercial interest in upselling after submission.",
+      "No Domain Rating is published for this platform. No valid measurement exists in the frozen historical set and none may be estimated, so the metric is recorded as not measured rather than guessed.",
+      "A listing is a directory entry. It is not evidence that a business is solvent, currently trading, licensed, or checked beyond what the operator documents here.",
+      "No ranking, indexing, traffic or lead outcome is asserted. The operator markets outcomes; this record does not adopt them."
+    ],
+    "editorNotes": "Verified 2026-08-06 from the operator’s own company-entry page and footer, and re-verified in a separate direct pass in which “Kostenlosen Firmeneintrag auf Herold erstellen”, “Eintrag hinzufügen”, “Eintrag beanspruchen” and “HEROLD Business Data GmbH” were each present in the served page. PLATFORM OPERATOR: HEROLD Business Data GmbH, named in the site footer. LISTING CONTROL: The business creates or claims an entry and then manages it itself. MODERATION AUTHORITY: Not documented. PUBLIC INTERFACE: herold.at, with the entry route at /firmeneintrag/. LISTING ACTION DECISION — create-and-claim: both routes are named by the operator as separate controls, not inferred from the existence of an account. AUDIENCE: dach rather than a country token, because Austrian business directories are read across the German-speaking market. DOMAIN RATING: null; no historical measurement exists for this domain. NOT ASSERTED: verification, reviews, owner responses, indexability, link attributes, traffic."
+  }
+]

@@ -56,15 +56,38 @@ test('audience geography rejects empty, duplicate, unknown and unsorted values',
   assert.ok(problems({ audienceGeography: 'dach' }).includes('audienceGeography'));
 });
 
-test('audience is never inferred from the platform country', () => {
-  // Nothing was backfilled, so no record may carry an audience derived from
-  // where its operator sits. If a later batch populates these, it must do so
-  // from evidence about the audience, not by copying the country.
-  for (const r of ALL) {
-    if (!Array.isArray(r.audienceGeography)) continue;
-    assert.notDeepStrictEqual(r.audienceGeography, [r.country],
-      `${r.id} audience looks mechanically copied from its country`);
+test('audience reflects judgement, not a copy of the country column', () => {
+  // An earlier version of this test forbade audienceGeography === [country].
+  // That was the wrong guard: for a United-States-only platform the correct
+  // audience token IS 'united-states', so the guard banned the right answer.
+  //
+  // Two things actually protect against mechanical assignment, and both are
+  // asserted here. First, the vocabulary contains no token for most countries —
+  // there is no 'germany', 'poland' or 'czech-republic' — so copying is
+  // structurally impossible for them. Second, real judgement produces audiences
+  // that are BROADER or NARROWER than the platform's own country.
+  const audienced = ALL.filter((r) => Array.isArray(r.audienceGeography));
+  assert.ok(audienced.length > 0, 'no record carries an audience at all');
+
+  for (const banned of ['germany', 'poland', 'czech-republic', 'italy', 'france', 'spain']) {
+    assert.ok(!S.AUDIENCE_GEOGRAPHIES.includes(banned),
+      `the vocabulary gained a country token "${banned}", which makes copying possible`);
   }
+
+  // German directories are read across DACH, not only in Germany. If this ever
+  // collapses to the country, the assignment stopped being editorial.
+  const de = ALL.filter((r) => r.country === 'germany' && Array.isArray(r.audienceGeography));
+  assert.ok(de.length > 0, 'no German record carries an audience');
+  for (const r of de) {
+    assert.ok(r.audienceGeography.includes('dach'),
+      `${r.id} is a German directory whose audience does not include dach`);
+  }
+
+  // And at least one record must reach an audience wider than its own country,
+  // which a pure country-copy could never produce.
+  assert.ok(audienced.some((r) => r.country !== 'global' && r.audienceGeography.some(
+    (t) => ['dach', 'europe', 'european-union', 'nordics', 'north-america', 'global'].includes(t))),
+  'every audience equals its own country; the column carries no judgement');
 });
 
 test('priority, current status and public profile enforce their contracts', () => {
@@ -205,9 +228,15 @@ test('the sixteen geographies exist in data and generated no page', () => {
     const c = bySlug.get(slug);
     assert.ok(c, `${slug} is missing from the country vocabulary`);
     assert.ok(c.name && c.titleName && c.iso2 && c.entityType, `${slug} is incompletely declared`);
-    // The whole point: declared in data, absent from the site.
-    assert.ok(!fs.existsSync(path.join(ROOT, 'research/business-directories', slug, 'index.html')),
-      `${slug} generated an empty country page`);
+    // The rule is no EMPTY page, not no page ever. A geography with records
+    // legitimately gets one — that is country promotion. Austria was promoted
+    // this way once Herold was published. A geography with NO records must
+    // still generate nothing.
+    const hasRecords = ALL.some((r) => r.country === slug);
+    const hasPage = fs.existsSync(path.join(ROOT, 'research/business-directories', slug, 'index.html'));
+    if (!hasRecords) {
+      assert.ok(!hasPage, `${slug} has no records but generated a country page`);
+    }
   }
   // Japan already existed and must not have been duplicated.
   assert.strictEqual(countries.filter((c) => c.slug === 'japan').length, 1);
@@ -243,18 +272,36 @@ test('Other countries is one consolidated view, not sixteen thin pages', () => {
 });
 
 // ── 11 + 22 + 23. nothing was stamped, nothing was measured ─────────────────
-test('no record was rewritten to carry the new fields', () => {
+test('only commercial opportunities carry operational fields', () => {
+  // Batch 0 stamped nothing; Milestone 1 populates the fields deliberately.
+  // What must stay true in every phase is that the operations layer never
+  // reaches the Government Registry pillar — a statutory register has no
+  // priority, no audience and no listing status, and stamping one would blur
+  // the two questions the dataset exists to keep apart.
   const dir = path.join(ROOT, 'data/business-directories/directories');
-  let carrying = 0;
+  const OPS = ['audienceGeography', 'priority', 'currentStatus', 'publicProfileAvailable'];
   for (const f of fs.readdirSync(dir).filter((x) => x.endsWith('.json'))) {
     for (const r of JSON.parse(fs.readFileSync(path.join(dir, f), 'utf8'))) {
-      for (const k of ['audienceGeography', 'priority', 'currentStatus', 'publicProfileAvailable']) {
-        if (k in r) carrying += 1;
+      if (!S.isGovernmentPillar(r)) continue;
+      for (const k of OPS) {
+        assert.ok(!(k in r), `government record ${r.id} was stamped with ${k}`);
       }
     }
   }
-  assert.strictEqual(carrying, 0,
-    `${carrying} records were physically stamped with an operational field; Batch 0 adds no data`);
+});
+
+test('every actionable opportunity is prioritised and has a status', () => {
+  // The working list only works if it sorts. A record with no priority sinks
+  // below "hold" and an employee never sees it.
+  const actionable = csv.actionableOpportunities(ALL);
+  for (const r of actionable) {
+    assert.ok(S.PRIORITIES.includes(r.priority), `${r.id} has no priority and cannot be queued`);
+    assert.ok(S.CURRENT_STATUSES.includes(r.currentStatus), `${r.id} has no current status`);
+  }
+  // And a blocked platform must never have been recorded as confirmed-active on
+  // reputation alone: unknown is the honest value when a WAF hid the product.
+  assert.ok(actionable.some((r) => r.currentStatus === 'unknown'),
+    'every record claims active status; blocked platforms should be unknown');
 });
 
 test('the foundation took no measurement and added no dependency', () => {
