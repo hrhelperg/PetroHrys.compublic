@@ -1207,3 +1207,104 @@ forbids any French record from attributing a spectrum function to ARCEP.
 - **A cross-country mutation probe must write to the target country's file**, or
   the validator catches placement and the semantic guard under test never runs.
   Four probes in this wave were initially wrong in exactly that way.
+
+---
+
+## Wave 4B — Telecom service & licence boundary audit (2026-08-06)
+
+A boundary audit across VoIP, MVNO, broadcasting, satellite, fixed wireless,
+number portability and postal. **One record published.** Almost everything else
+resolved to an absorbed view, an operational database, or a browser-blocked
+pending determination — which the brief states is a successful outcome.
+
+### Approved (1)
+
+| Record | Jurisdiction | Why it is not a duplicate |
+|---|---|---|
+| `de-bnetza-post-anbieterverzeichnis` | DE | **Entry is constitutive**, not a notification. Postal services may only be provided by entered providers, and a provider may only subcontract to an entered provider. Different Act, different population, different legal effect from the § 5 TKG telecom directory it shares a host with. |
+
+### The service-category determination
+
+**VoIP, MVNO and fixed wireless are service categories, not statutory
+populations** — in every jurisdiction where evidence was obtainable:
+
+- **Czechia** exposes them as *filters* on the operator register: network types
+  (metallic, terrestrial radio licensed/unlicensed, satellite, 2G–5G mobile) and
+  service types (number-based interpersonal fixed/mobile, M2M, internet access).
+- **Germany** and **Czechia** both *exclude* number-independent interpersonal
+  services — email and messaging — from the notification duty entirely.
+- **Spain** includes them, but expressly *"a efectos estadísticos y censales"*.
+
+No jurisdiction researched publishes a separate VoIP or MVNO register. A test
+blocks twelve plausible invented ids and forbids any record named after a service
+category.
+
+### Czech Republic — all 14 ČTÚ databases classified
+
+| # | Database | Status |
+|---|---|---|
+| 3 | Přidělená čísla a kódy | **published** (numbering) |
+| 4 | Evidence podnikatelů v elektronických komunikacích | **published** (operators) |
+| 6 | Evidence poštovních provozovatelů od 2024 | **published** (postal) |
+| 7 | Informační portál individuálních oprávnění | **published** (spectrum) |
+| 5 | Evidence poštovních provozovatelů do 2023 | absorbed — temporal predecessor |
+| 8 | Technické údaje pevných rádiových systémů 71–76/81–86 GHz | absorbed — technical view of spectrum |
+| 9 | Přehled rozhlasových vysílačů | absorbed — filtered spectrum view |
+| 10 | Přehled televizních vysílačů | absorbed — names itself *"Přehled platných individuálních oprávnění"* |
+| 11 | Evidence stanic BMIS | absorbed — coordinate-searched site inventory |
+| 12 | Přehled oznámených rozhraní | absorbed — technical disclosure attached to operators already covered |
+| 1–2 | Seznam schválených / oznámených zařízení | out of scope — equipment, not entities |
+| 13 | Cenový barometr | rejected — price comparison |
+| 14 | Jednotný seznam blokovaných internetových stránek | rejected — not an authorisation record |
+
+**No new Czech records.** Four published, ten absorbed, rejected or out of scope.
+
+### Germany — numbering and portability
+
+- **Numbering** is a *hoheitliche Aufgabe* of the Bundesnetzagentur, but the
+  agency publishes general rulings as PDFs rather than a searchable allocation
+  register. Unlike Czechia and Spain, **no public German numbering register was
+  located** → targeted research incomplete.
+- **Portierungskennungen** (porting identifiers) are assigned to operators and
+  documented in a number plan PDF with an application procedure. No public
+  directory of assigned identifiers → not published, consistent with the wave
+  default that portability systems are operational.
+
+### Two pre-existing records were repaired
+
+`us-fcc-uls` and `us-fcc-form-499` predate the content contract and stated
+**neither** what inclusion nor what absence proves. Both now do, using only what
+each record already established. This was surfaced by running the Wave 4B guard
+across the whole telecom layer rather than only the new record — the alternative
+would have been narrowing the guard and hiding the gap.
+
+### Browser queue — unchanged and still blocking
+
+Ofcom, ACMA, ARCEP, AGCOM ROC and UKE remain exactly as recorded in Wave 4A-2. No
+new evidence was obtainable for any of them in this wave. **AGCOM's ROC is still
+the single highest-value browser action**: its scope decides whether Italy needs
+one record or three.
+
+### Taxonomy finding — no gate triggered, but worth recording
+
+`regulated-operator-register` now carries **12 of 13** telecom records, spanning
+notification, registration, constitutive entry, numbering rights, spectrum
+authorisations and postal entry. The type's own definition — *"organisations
+authorised, licensed or registered to operate in a regulated sector"* — honestly
+covers all of them, so **no taxonomy gate was triggered and no type was
+proposed**. But the type is doing a great deal of work, and the legal distinctions
+it flattens are currently carried entirely by prose and tests. A dedicated
+taxonomy wave, with the browser queue cleared first so the candidate set is known,
+is the right place to revisit it — not a wave that would create types for one
+candidate each.
+
+### Findings worth carrying forward
+
+- **The validator already enforces Part 5 natively.** It rejects a record whose
+  website "is not materially different … on the same host", naming query-parameter
+  variants and search modes explicitly. The VoIP-filter probe was caught by that
+  rule, not only by the new tests.
+- **A mutation clone must carry its own `systemKey`**, or a structural collision
+  masks whether the semantic guard fires. Four probes were corrected for this.
+- **Running a new wave's guards across the whole existing layer finds real gaps.**
+  That is how the two FCC records' missing non-proofs surfaced.

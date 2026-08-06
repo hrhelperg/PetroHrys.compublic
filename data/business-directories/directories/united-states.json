@@ -2773,7 +2773,9 @@
     ],
     "cons": [
       "Search sessions are server-scoped, so results cannot be linked or cited by URL",
-      "Covers Wireless Bureau licensing only; other FCC estates live in separate systems"
+      "Covers Wireless Bureau licensing only; other FCC estates live in separate systems",
+      "A licence record establishes that a licence exists in the Wireless Bureau’s system. It does not establish that the licensee is transmitting, that the licence is unrestricted, or that the holder is an authorised telecommunications carrier — carrier registration sits in a separate FCC system.",
+      "Absence does not establish that a transmission is unlawful or unauthorised. This system covers Wireless Bureau licensing only, and broadcast, cable, satellite and equipment authorisations are held in separate FCC systems."
     ],
     "editorNotes": "Verified 2026-08-04. Records arise from FCC licensing and spectrum authorisation under the Communications Act. License Search, Advanced and Specialized Search, Application Search, License Archive Search and Ownership Disclosure Search are modes of one platform, one registry. The session-scoped search produces no stable deep links, so a result cannot be cited or re-checked by URL."
   },
@@ -2913,7 +2915,9 @@
     ],
     "cons": [
       "The results endpoint is protected by bot management and needs a real browser",
-      "Reported revenue data is not disclosed, so it establishes registration only"
+      "Reported revenue data is not disclosed, so it establishes registration only",
+      "A filer entry establishes registration for the Telecommunications Reporting Worksheet. It does not establish that the carrier holds any licence, that it is currently providing service, or that it is financially sound.",
+      "Absence does not establish that a provider is unauthorised. This database records worksheet filers, and licensing and authorisation records are held in separate FCC systems."
     ],
     "editorNotes": "Verified 2026-08-04. Entries arise from a mandatory filing: the FCC states that providers are required to register using Form 499-A and update at least annually. Data collection is performed by the Universal Service Administrative Company on the FCC’s behalf. The interactive results endpoint sits behind an Akamai challenge that refuses non-browser clients, which is a real access limitation even though the register itself is free."
   },
