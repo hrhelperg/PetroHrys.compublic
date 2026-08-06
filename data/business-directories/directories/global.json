@@ -6374,5 +6374,140 @@
       "Does not accept business-to-consumer products or alpha and beta software"
     ],
     "editorNotes": "Verified 2026-08-04. company.g2.com names G2.com, Inc. as the operating entity. documentation.g2.com documents the listing route — submission at g2.com/products/new, a research-team eligibility and categorisation check, then a claim approved \"within 1–3 business days\" — and states \"Every review is reviewed by a member of G2’s moderation team.\" The vendor pricing page documents how vendors publish their own product pricing, not what G2 charges vendors, and G2 does not publish its own vendor pricing. www.g2.com returns HTTP 403 to automated fetches."
+  },
+  {
+    "id": "global-provenexpert",
+    "name": "ProvenExpert",
+    "slug": "provenexpert",
+    "country": "global",
+    "category": "review-sites",
+    "website": "https://www.provenexpert.com/",
+    "submissionUrl": "https://www.provenexpert.com/en-us/registration/",
+    "description": "A customer-review and rating platform operated by Expert Systems AG in Berlin, strongest in the German-speaking market and available internationally in English since 2017. A free tier exists with a capped number of displayed reviews, and the paid tiers are priced openly.",
+    "tier": "tier1",
+    "scope": "global",
+    "operator": {
+      "name": "Expert Systems AG",
+      "type": "other",
+      "officialUrl": "https://www.provenexpert.com/en-us/company/"
+    },
+    "petroHrysScore": 59,
+    "scoreFactors": {
+      "editorialTrust": 6,
+      "businessUsefulness": 6,
+      "verificationQuality": 4,
+      "platformReputation": 6,
+      "spamResistance": 5,
+      "industryImportance": 6,
+      "longTermStability": 7,
+      "submissionQuality": 7,
+      "transparency": 8,
+      "moderationQuality": 5
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "freemium",
+    "registrationRequired": true,
+    "reviewSystem": true,
+    "verificationRequired": null,
+    "manualReview": null,
+    "listingAction": "create",
+    "accepts": {
+      "startup": null,
+      "saas": true,
+      "enterprise": true,
+      "agency": true,
+      "freelancer": true,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-06",
+    "nextVerification": "2027-02-11",
+    "verification": {
+      "status": "verified",
+      "source": "official-documentation",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "global-trustpilot"
+      ],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Businesses in the German-speaking market wanting a review profile with an openly priced upgrade path.",
+      "Freelancers and small firms that want to collect customer feedback through surveys rather than only unsolicited reviews."
+    ],
+    "notRecommendedFor": [
+      "Businesses needing an uncapped free profile. The free tier limits how many reviews are displayed.",
+      "Businesses whose reason for joining is search visibility. Indexing is a marketed feature, not a guarantee, and is not asserted here."
+    ],
+    "submissionDifficulty": "easy",
+    "listingQuality": null,
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "professional-services",
+      "local-services",
+      "marketing"
+    ],
+    "editorialTags": [
+      "business-directory",
+      "commercial-platform"
+    ],
+    "pros": [
+      "The operator is named fully on its own company page: “ProvenExpert.com is an online service provided by Expert Systems AG”, with the footer confirming “© 2011 - 2026 Expert Systems AG”.",
+      "A genuinely free tier exists and is presented alongside the paid ones rather than hidden, so the entry point is knowable before signing up.",
+      "Paid tiers are priced openly — the Basic plan is listed at $359.88 per year — instead of being quoted only on request.",
+      "Reviews are collected through the platform’s own surveys as well as aggregated, and the operator publishes what each tier includes feature by feature.",
+      "The company page states where the business is run from and who leads it, which is more disclosure than most review platforms offer."
+    ],
+    "cons": [
+      "The free tier is capped. The operator lists a limited number of displayed reviews and a single active survey per month, so a free profile is a sample of the product rather than a full one.",
+      "A thirty-day premium trial is offered at signup. A trial is not a free tier, and the two must not be confused when judging cost.",
+      "“ProvenExpert Profile indexed in Google” appears among the marketed features. That is the operator’s product description and is NOT adopted here — no indexing outcome is asserted.",
+      "An account is required before a profile exists, so this is not an anonymous submission.",
+      "Creating a profile is documented; claiming an existing third-party profile is not, so no claim flow is asserted.",
+      "Whether a business can respond to reviews is not documented on the pages consulted and is not asserted. A review system existing never implies a reply function.",
+      "Whether verification is required, and by what method, is not documented, so nothing about verification is asserted.",
+      "No Domain Rating is published for this platform. No valid measurement exists in the frozen historical set and none may be estimated, so the metric is recorded as not measured rather than guessed.",
+      "A listing is a directory entry. It is not evidence that a business is solvent, currently trading, licensed, or checked beyond what the operator documents here.",
+      "No ranking, indexing, traffic or lead outcome is asserted. The operator markets outcomes; this record does not adopt them."
+    ],
+    "editorNotes": "Verified 2026-08-06 from the platform’s own company page and pricing page, and re-verified in a separate direct pass in which “an online service provided by Expert Systems AG”, “© 2011 - 2026 Expert Systems AG”, “Start with our 30-day PREMIUM trial” and “$359.88 /yr” were each present in the served pages. PLATFORM OPERATOR: Expert Systems AG, named on the platform’s own company page and in its footer. LISTING CONTROL: The business registers and manages its own profile and surveys. MODERATION AUTHORITY: Not documented beyond a marketed “protection against fake reviews” feature, which is not evidence of a documented process. PUBLIC INTERFACE: provenexpert.com, with registration at /en-us/registration/. COST DECISION: freemium. A free tier is listed on the operator’s own pricing page alongside priced plans. The thirty-day premium trial is recorded as a trial and explicitly NOT treated as evidence of a free tier — the free tier stands on its own listing. DUPLICATE DECISION: kept separate from Trustpilot. Both are review platforms and both are European, but they are different operators, different products, different submission systems and different profiles. Sharing a market is not sharing a system. STORED AS GLOBAL: the operator describes the platform as strongest in Germany, Austria and Switzerland but available to global users in English since 2017. One record, not a per-country set. NOT ASSERTED: owner responses, verification, claim flow, indexability, link attributes, traffic. DOMAIN RATING: null. No historical measurement exists for this domain."
   }
 ]

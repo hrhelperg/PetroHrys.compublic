@@ -36,7 +36,7 @@ const hostOf = (u) => new URL(u).hostname.replace(/^www\./, '');
 
 test('every record this wave claims to have published exists', () => {
   for (const id of WAVE) assert.ok(byId.get(id), `missing record ${id}`);
-  assert.strictEqual(ALL.filter((r) => r.country === 'poland').length, 10); // +2 Wave 1B directories
+  assert.strictEqual(ALL.filter((r) => r.country === 'poland').length, 11); // +2 Wave 1B directories, +1 Firmy.net
   assert.strictEqual(ALL.filter((r) => r.country === 'italy').length, 8); // +1 Wave 1B directory
   assert.strictEqual(ALL.filter((r) => r.country === 'spain').length, 10); // +2 Wave 4 telecoms
 });

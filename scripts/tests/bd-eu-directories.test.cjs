@@ -42,7 +42,7 @@ const commercialIn = (c) => ALL.filter((r) => r.country === c && !S.isGovernment
 test('every record this wave claims to have published exists', () => {
   assert.strictEqual(WAVE.length, 3, 'the wave manifest changed size without this test changing');
   for (const id of WAVE) assert.ok(byId.get(id), `missing record ${id}`);
-  assert.strictEqual(ALL.filter((r) => r.country === 'poland').length, 10);
+  assert.strictEqual(ALL.filter((r) => r.country === 'poland').length, 11); // +1 Firmy.net, high-authority expansion
   assert.strictEqual(ALL.filter((r) => r.country === 'italy').length, 8);
 });
 
@@ -60,7 +60,11 @@ test('the blocked and rejected candidates stay unpublished', () => {
   const FORBIDDEN_HOSTS = [
     'pagesjaunes.fr', 'kompass.com', 'solocal.com', 'hoodspot.fr', 'annuaire.petitesaffiches.fr',
     'paginasamarillas.es', 'empresite.eleconomista.es', 'einforma.com',
-    'firmy.net', 'misterimprese.it', 'aziende.virgilio.it',
+    // firmy.net was removed from this list by the high-authority expansion wave.
+    // Its rejection reason — operator unidentified, add flow a javascript:void(0)
+    // handler, cost undocumented — was resolved from the operator's own pages:
+    // NNV Sp. z o.o., a real /dodaj-firme form, and a stated free presentation.
+    'misterimprese.it', 'aziende.virgilio.it',
   ];
   for (const host of FORBIDDEN_HOSTS) {
     const hit = ALL.find((r) => hostOf(r.website) === host);
