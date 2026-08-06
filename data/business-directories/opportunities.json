@@ -5237,5 +5237,566 @@
     "submissionModel": "unknown",
     "note": "A major US hiring platform with public employer profiles. Live but behind a bot filter, so a browser check is needed.",
     "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-aixploria",
+    "name": "Aixploria",
+    "website": "https://www.aixploria.com/en/",
+    "country": "global",
+    "category": "ai",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An AI tools directory organised by category with public product listings.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-insidr-ai",
+    "name": "Insidr.ai",
+    "website": "https://www.insidr.ai/",
+    "country": "global",
+    "category": "ai",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An AI tools and business AI directory with public product pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-topai-tools",
+    "name": "TopAI.tools",
+    "website": "https://www.topai.tools/",
+    "country": "global",
+    "category": "ai",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An AI tools directory with public product listings. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-aitoolmall",
+    "name": "AI Tool Mall",
+    "website": "https://www.aitoolmall.com/",
+    "country": "global",
+    "category": "ai",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An AI tools platform with public product listings.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-easywithai",
+    "name": "Easy With AI",
+    "website": "https://www.easywithai.com/",
+    "country": "global",
+    "category": "ai",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An AI tools directory. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-aicyclopedia",
+    "name": "AICyclopedia",
+    "website": "https://www.aicyclopedia.com/",
+    "country": "global",
+    "category": "ai",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An AI news, tools and learning directory with public listings.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-opentools",
+    "name": "OpenTools",
+    "website": "https://www.opentools.ai/",
+    "country": "global",
+    "category": "ai",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An AI tools directory with verified public product listings.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-uneed",
+    "name": "Uneed",
+    "website": "https://www.uneed.best/",
+    "country": "global",
+    "category": "startup",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A product launch platform with public product listings.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-tinylaunch",
+    "name": "TinyLaunch",
+    "website": "https://www.tinylaunch.com/",
+    "country": "global",
+    "category": "startup",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A product launch platform for indie and early-stage products.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-peerlist",
+    "name": "Peerlist",
+    "website": "https://www.peerlist.io/",
+    "country": "global",
+    "category": "startup",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "asia",
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A professional network with public profiles and a product launch surface. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-betapage",
+    "name": "BetaPage",
+    "website": "https://www.betapage.co/",
+    "country": "global",
+    "category": "startup",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A startup discovery and launch directory. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-saasgenius",
+    "name": "SaaSGenius",
+    "website": "https://www.saasgenius.com/",
+    "country": "global",
+    "category": "software",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A SaaS product review and comparison directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-getlatka",
+    "name": "GetLatka",
+    "website": "https://www.getlatka.com/",
+    "country": "global",
+    "category": "software",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A SaaS company database with public company profiles and metrics.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-trepup",
+    "name": "Trepup",
+    "website": "https://www.trepup.com/",
+    "country": "global",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A global business and ecommerce network where companies publish public profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-expressbusinessdirectory",
+    "name": "Express Business Directory",
+    "website": "https://www.expressbusinessdirectory.com/",
+    "country": "global",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An international business listing directory with public company pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-freelistingusa",
+    "name": "FreeListingUSA",
+    "website": "https://www.freelistingusa.com/",
+    "country": "united-states",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A free US local business listing directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-zaubee",
+    "name": "Zaubee",
+    "website": "https://www.zaubee.com/",
+    "country": "global",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An international business listing directory. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-wheree",
+    "name": "Wheree",
+    "website": "https://www.wheree.com/",
+    "country": "global",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An international place and business directory. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-locanto",
+    "name": "Locanto",
+    "website": "https://www.locanto.com/",
+    "country": "global",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An international classifieds and local services platform with public business listings. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "pl-opineo",
+    "name": "Opineo",
+    "website": "https://www.opineo.pl/",
+    "country": "poland",
+    "category": "review-sites",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Polish online shop review platform with public merchant profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "pl-ceneo",
+    "name": "Ceneo",
+    "website": "https://www.ceneo.pl/",
+    "country": "poland",
+    "category": "review-sites",
+    "tier": "tier1",
+    "priority": "P1",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The leading Polish price comparison service where merchants publish public shop profiles and receive reviews.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "cz-heureka",
+    "name": "Heureka",
+    "website": "https://www.heureka.cz/",
+    "country": "czech-republic",
+    "category": "review-sites",
+    "tier": "tier1",
+    "priority": "P1",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The leading Czech price comparison and shop review service. Live but behind a security check, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "cz-zbozi",
+    "name": "Zboží.cz",
+    "website": "https://www.zbozi.cz/",
+    "country": "czech-republic",
+    "category": "review-sites",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Czech price comparison service operated by Seznam where merchants list shops and products.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "de-idealo",
+    "name": "idealo",
+    "website": "https://www.idealo.de/",
+    "country": "germany",
+    "category": "review-sites",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "dach"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A leading German price comparison service where merchants publish shop listings. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-pricerunner",
+    "name": "PriceRunner",
+    "website": "https://www.pricerunner.com/",
+    "country": "global",
+    "category": "review-sites",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "nordics",
+      "united-kingdom"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A price comparison service where merchants publish public shop listings.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-kelkoo",
+    "name": "Kelkoo",
+    "website": "https://www.kelkoo.com/",
+    "country": "global",
+    "category": "review-sites",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "europe"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A European price comparison network for merchants. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "it-trovaprezzi",
+    "name": "Trovaprezzi",
+    "website": "https://www.trovaprezzi.it/",
+    "country": "italy",
+    "category": "review-sites",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The leading Italian price comparison service where merchants publish shop listings. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-here",
+    "name": "HERE",
+    "website": "https://www.here.com/",
+    "country": "global",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A major location and mapping platform carrying business place data.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-tomtom",
+    "name": "TomTom",
+    "website": "https://www.tomtom.com/",
+    "country": "global",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A mapping and location technology platform carrying business place data.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-petal-maps",
+    "name": "Petal Maps",
+    "website": "https://www.petalmaps.com/",
+    "country": "global",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "asia",
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "Huawei's mapping service carrying business place listings.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-openstreetmap",
+    "name": "OpenStreetMap",
+    "website": "https://www.openstreetmap.org/",
+    "country": "global",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The open collaborative world map, where a business can add and maintain its own place entry.",
+    "lastVerified": "2026-08-06"
   }
 ]
