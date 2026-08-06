@@ -1289,5 +1289,610 @@
       "It covers engineers and technicians in construction only. Architects are elsewhere, and absence here says nothing about them."
     ],
     "editorNotes": "Verified 2026-08-06 by navigating from the chamber’s own site, and re-verified in a separate direct adversarial pass. The page titles itself “Výběry ze seznamu autorizovaných inženýrů a techniků” — selections FROM the list — and the record deliberately does not upgrade that into a claim to be the complete register. FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: Czech law on authorised architects and authorised engineers and technicians in construction. The chamber grants and records the authorisation. RESPONSIBLE AUTHORITY: Česká komora autorizovaných inženýrů a techniků činných ve výstavbě, a public-law professional chamber. TECHNICAL PLATFORM: Not separately established. No external supplier is named on any page fetched. PUBLIC ACCESS INTERFACE: The published selections on the chamber’s own site, whose form requires JavaScript. Separation decision: kept distinct from the architects’ chamber list. Two chambers, two authorisations, two sets of reserved activities. Merging them because both concern construction would misstate what either permits, which is why a test pins the separation."
+  },
+  {
+    "id": "cz-ctu-evidence-podnikatelu-ek",
+    "name": "Evidence podnikatelů v elektronických komunikacích",
+    "slug": "evidence-podnikatelu-v-elektronickych-komunikacich",
+    "country": "czech-republic",
+    "category": "government",
+    "website": "https://ctu.gov.cz/vyhledavaci-databaze/evidence-podnikatelu-v-elektronickych-komunikacich-podle-vseobecneho-opravneni-od-2022",
+    "submissionUrl": null,
+    "description": "The Czech register of undertakings in electronic communications, kept by the Czech Telecommunication Office. Entry follows a notification under section 13 of the Electronic Communications Act under the general authorisation regime — it is not a licence — and the register deliberately retains undertakings whose activity has ended.",
+    "tier": "tier1",
+    "scope": "national",
+    "officialName": "Evidence podnikatelů v elektronických komunikacích podle všeobecného oprávnění",
+    "nativeName": "Evidence podnikatelů v elektronických komunikacích",
+    "englishName": "Register of Undertakings in Electronic Communications",
+    "englishNameSource": "editorial-translation",
+    "resourceIdentity": {
+      "canonicalDomain": "ctu.gov.cz",
+      "systemKey": "ctu-evidence-podnikatelu",
+      "sharedHostGroup": "ctu-gov-cz"
+    },
+    "primaryRegistryType": "regulated-operator-register",
+    "registryTypes": [
+      "regulated-operator-register"
+    ],
+    "operator": {
+      "name": "Český telekomunikační úřad",
+      "type": "regulator",
+      "officialUrl": "https://ctu.gov.cz/"
+    },
+    "publicAccess": {
+      "searchUrl": null,
+      "accessLevel": "partially-open",
+      "freeToSearch": true,
+      "loginRequired": false,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "Result rows were rendered to an anonymous client with no credential and no payment, and the database reported 2,845 records at the time of verification. Free public reading is therefore observed rather than inferred. Filters offered for business name, company number, municipality, street, network type, service type, certificate number and whether communication activity is currently interrupted or terminated. No filtered query was submitted, so behaviour under a specific search and any rate limit were not observed and stay null."
+    },
+    "petroHrysScore": 90,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 9,
+      "verificationQuality": 10,
+      "platformReputation": 8,
+      "spamResistance": 10,
+      "industryImportance": 8,
+      "longTermStability": 9,
+      "submissionQuality": 6,
+      "transparency": 10,
+      "moderationQuality": 9
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": true,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-06",
+    "nextVerification": "2027-09-02",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "cz-ctu-pridelena-cisla-a-kody",
+        "cz-ctu-individualni-opravneni-kmitocty"
+      ],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Checking whether an undertaking has notified the Czech regulator that it provides electronic communications networks or services.",
+      "Establishing which networks and services a Czech provider actually notified, down to network technology and service type."
+    ],
+    "notRecommendedFor": [
+      "Establishing that a provider is currently trading. The register retains undertakings whose activity has been interrupted or ended.",
+      "Checking a messaging or email service. Number-independent interpersonal communications services are excluded from the register."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "telecommunications",
+      "technology"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "It records what was actually notified, listing network types from metallic and optical lines to satellite and 2G-to-5G mobile, and service types from fixed and mobile voice to M2M and internet access.",
+      "It states its statutory basis directly: notification under section 13 of the Electronic Communications Act.",
+      "Results are readable without an account or payment, and the database carries its own update date.",
+      "It offers an explicit filter for undertakings that have not interrupted or ended their activity, so a reader can separate current from historical entries."
+    ],
+    "cons": [
+      "Entry follows a NOTIFICATION, not a licence. Under the general authorisation regime the regulator grants nothing; the undertaking declares, and the register records that declaration.",
+      "The register lists undertakings that \"were or are\" authorised. An entry alone does not establish that a provider is trading today, which is why the interrupted-or-ended filter exists and why using it matters.",
+      "Number-independent interpersonal communications services — email and messenger services — are expressly excluded, so absence does not establish that a communications service is unlawful or unregistered.",
+      "Being recorded here proves nothing about spectrum or numbering. Notification as an operator, an individual spectrum authorisation and an allocation of numbers are three separate legal acts kept in three separate systems. A Czech undertaking’s spectrum and numbers are in the regulator’s two other databases.",
+      "Records from before 1 January 2022 sit in a separate predecessor database, so a full history may require following the link the regulator provides on each affected entry."
+    ],
+    "editorNotes": "Verified 2026-08-06 by navigating from the regulator’s own search-database index, and re-verified in a separate direct adversarial pass. The database states: \"V této vyhledávací databázi jsou uvedeni všichni podnikatelé v elektronických komunikacích, kteří byli či jsou oprávněni k podnikání v elektronických komunikacích (s výjimkou poskytování interpersonálních komunikačních služeb nezávislých na číslech). Databáze obsahuje identifikaci podnikatele a záznamy o veřejných komunikačních sítích a službách elektronických komunikací, jejichž zajišťování a poskytování podnikatel oznámil podle § 13 zákona o elektronických komunikacích.\" It offers the filter \"Vyhledávat pouze mezi subjekty, které v současnosti nemají přerušenou či ukončenou komunikační činnost\" and reported \"Nalezeno 2845 záznamů\" on both passes. Entries predating 1 January 2022 link to the predecessor database \"Evidence podnikatelů v elektronických komunikacích do 31. 12. 2021\". FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: The notification made by the undertaking under section 13 of the Czech Electronic Communications Act, within the general authorisation regime. Nothing is granted; the notification is recorded. RESPONSIBLE AUTHORITY: Český telekomunikační úřad, the Czech national regulatory authority for electronic communications and postal services. TECHNICAL PLATFORM: Not separately established. Served from the regulator’s own ctu.gov.cz domain, which also serves its numbering, spectrum and postal databases. PUBLIC ACCESS INTERFACE: The public search database at ctu.gov.cz. Duplicate decisions: the pre-2022 database is a PREDECESSOR of this one under a superseded classification, not a separate statutory system, and is described here rather than published separately. The regulator publishes fourteen search databases in total; only genuinely distinct statutory systems were published in this wave, and the price barometer and blocked-website list were rejected as candidates because neither records an authorisation."
+  },
+  {
+    "id": "cz-ctu-pridelena-cisla-a-kody",
+    "name": "Přidělená čísla a kódy",
+    "slug": "pridelena-cisla-a-kody",
+    "country": "czech-republic",
+    "category": "government",
+    "website": "https://ctu.gov.cz/vyhledavaci-databaze/pridelena-cisla-a-kody",
+    "submissionUrl": null,
+    "description": "The Czech register of allocated telephone numbers and codes, kept by the Czech Telecommunication Office. Allocation is an individual right granted to an undertaking, which is a different legal act from the notification that puts an undertaking on the operator register, and the database can show the full history of holders of a given number.",
+    "tier": "tier1",
+    "scope": "national",
+    "nativeName": "Přidělená čísla a kódy",
+    "englishName": "Allocated Numbers and Codes",
+    "englishNameSource": "editorial-translation",
+    "resourceIdentity": {
+      "canonicalDomain": "ctu.gov.cz",
+      "systemKey": "ctu-pridelena-cisla",
+      "sharedHostGroup": "ctu-gov-cz"
+    },
+    "primaryRegistryType": "regulated-operator-register",
+    "registryTypes": [
+      "regulated-operator-register"
+    ],
+    "operator": {
+      "name": "Český telekomunikační úřad",
+      "type": "regulator",
+      "officialUrl": "https://ctu.gov.cz/"
+    },
+    "publicAccess": {
+      "searchUrl": null,
+      "accessLevel": "partially-open",
+      "freeToSearch": null,
+      "loginRequired": false,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "The database was served anonymously with no credential, offering search by a whole number, by leading digits, by reference number, by undertaking and by the history of a number, with the full list of undertakings rendered in the selector. Login is therefore recorded as not required. No query was executed, so result content and any limits were not observed and stay null."
+    },
+    "petroHrysScore": 87,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 8,
+      "verificationQuality": 9,
+      "platformReputation": 8,
+      "spamResistance": 10,
+      "industryImportance": 8,
+      "longTermStability": 9,
+      "submissionQuality": 6,
+      "transparency": 9,
+      "moderationQuality": 9
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-06",
+    "nextVerification": "2027-09-02",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "cz-ctu-evidence-podnikatelu-ek",
+        "cz-ctu-individualni-opravneni-kmitocty"
+      ],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Finding which undertaking holds an allocation covering a given Czech number range.",
+      "Tracing the historical holders of a number allocation over time."
+    ],
+    "notRecommendedFor": [
+      "Identifying the retail provider of a specific subscriber line. Allocation is not the same as who serves the end customer, because numbers can be ported.",
+      "Inferring anything about spectrum or about a provider’s operator status from a number allocation."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "telecommunications",
+      "technology"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "It exposes the history of a number, showing all past holders of the right to use it, which few numbering registers publish.",
+      "It can be searched from either direction — from a number to its holder, or from an undertaking to the numbers allocated to it.",
+      "It accepts partial numbers, so a reader can work from leading digits rather than needing an exact range."
+    ],
+    "cons": [
+      "Allocation is a right of use granted to an undertaking. It does not establish that the undertaking is currently providing service on those numbers.",
+      "Because numbers are portable, the holder of an allocation is not necessarily the provider serving a particular subscriber on that number.",
+      "Being recorded here proves nothing about spectrum or numbering. Notification as an operator, an individual spectrum authorisation and an allocation of numbers are three separate legal acts kept in three separate systems. This database covers only numbers and codes.",
+      "Absence of a number from an allocation does not establish that it is invalid or unassigned; it establishes that it is not covered by an allocation recorded here.",
+      "No query was executed during verification, so result content and any limits were not observed and none is asserted."
+    ],
+    "editorNotes": "Verified 2026-08-06 by navigating from the regulator’s own search-database index, and re-verified in a separate direct adversarial pass. The database offers \"Hledat celé číslo\", \"Hledat podle části čísla (dle prvních počátečních čísel)\", \"Hledat podle čísla jednacího\", \"Hledat dle podnikatele\" and \"Hledat historii čísla\", the last described as showing \"historicky všechny držitele oprávnění k využívání tohoto čísla\". The undertaking selector rendered the full list of allocation holders to an anonymous client. FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: The individual allocation decisions of the Czech Telecommunication Office granting rights to use numbers and codes. RESPONSIBLE AUTHORITY: Český telekomunikační úřad. TECHNICAL PLATFORM: Not separately established. Served from the regulator’s own ctu.gov.cz domain. PUBLIC ACCESS INTERFACE: The public numbering database at ctu.gov.cz. Separation decision: kept distinct from the operator register and the spectrum portal on the same host. Three different legal acts — notification, number allocation and individual spectrum authorisation — recorded in three databases by one regulator. All three declare resourceIdentity in the ctu-gov-cz group with distinct systemKeys."
+  },
+  {
+    "id": "cz-ctu-individualni-opravneni-kmitocty",
+    "name": "Individuální oprávnění a příděly rádiových kmitočtů",
+    "slug": "individualni-opravneni-radiove-kmitocty",
+    "country": "czech-republic",
+    "category": "government",
+    "website": "https://ctu.gov.cz/vyhledavaci-databaze/databaze-pridelenych-radiovych-kmitoctu-podle-vydanych-pridelu-a-individualnich-opravneni/vyhledavani",
+    "submissionUrl": null,
+    "description": "The Czech database of individual radio spectrum authorisations and assignments, kept by the Czech Telecommunication Office. Unlike the operator register, spectrum is granted individually, and the database covers licensees who are not telecommunications undertakings at all, including amateur, aeronautical and maritime radio.",
+    "tier": "tier1",
+    "scope": "national",
+    "officialName": "Informační portál o údajích udělených individuálních oprávnění a vydaných přídělů",
+    "nativeName": "Informační portál o údajích udělených individuálních oprávnění a vydaných přídělů",
+    "englishName": "Portal of Granted Individual Spectrum Authorisations and Assignments",
+    "englishNameSource": "editorial-translation",
+    "resourceIdentity": {
+      "canonicalDomain": "ctu.gov.cz",
+      "systemKey": "ctu-individualni-opravneni",
+      "sharedHostGroup": "ctu-gov-cz"
+    },
+    "primaryRegistryType": "regulated-operator-register",
+    "registryTypes": [
+      "regulated-operator-register"
+    ],
+    "operator": {
+      "name": "Český telekomunikační úřad",
+      "type": "regulator",
+      "officialUrl": "https://ctu.gov.cz/"
+    },
+    "publicAccess": {
+      "searchUrl": null,
+      "accessLevel": "partially-open",
+      "freeToSearch": null,
+      "loginRequired": false,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "The portal was served anonymously with no credential, offering search by frequency range in kHz, MHz or GHz and separate lists of individual authorisations for the amateur, aeronautical mobile and maritime mobile services. Login is therefore recorded as not required. No query was executed, so result content, coverage and any limits were not observed and stay null."
+    },
+    "petroHrysScore": 87,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 8,
+      "verificationQuality": 9,
+      "platformReputation": 8,
+      "spamResistance": 10,
+      "industryImportance": 8,
+      "longTermStability": 9,
+      "submissionQuality": 6,
+      "transparency": 9,
+      "moderationQuality": 9
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": true,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-06",
+    "nextVerification": "2027-08-30",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "cz-ctu-evidence-podnikatelu-ek",
+        "cz-ctu-pridelena-cisla-a-kody"
+      ],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Finding who holds an individual authorisation over a given Czech frequency range.",
+      "Checking amateur, aeronautical mobile or maritime mobile radio authorisations from the regulator’s own lists."
+    ],
+    "notRecommendedFor": [
+      "Inferring that a spectrum holder is an authorised telecommunications operator. Those are separate legal acts in separate registers.",
+      "Treating it as a register of organisations only. It also records individual licensees such as radio amateurs."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "telecommunications",
+      "technology"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "It is searchable by frequency range across kHz, MHz and GHz, which is the way a spectrum question is actually asked.",
+      "It exposes named service lists — amateur, aeronautical mobile and maritime mobile — rather than requiring a reader to know a frequency first.",
+      "It distinguishes individual authorisations from spectrum assignments, which are different instruments under Czech law."
+    ],
+    "cons": [
+      "Holding spectrum is not the same as being an authorised telecommunications operator. A spectrum holder may have made no notification under section 13 at all, and an operator may hold no spectrum.",
+      "It records authorisations held by individuals as well as by undertakings, so a hit does not establish that the holder is a business.",
+      "Being recorded here proves nothing about spectrum or numbering. Notification as an operator, an individual spectrum authorisation and an allocation of numbers are three separate legal acts kept in three separate systems. This portal covers only spectrum.",
+      "Absence does not establish that a frequency is unused. Spectrum can be used under a general authorisation in unlicensed bands without any individual authorisation appearing here.",
+      "No query was executed during verification, so result content, coverage and any limits were not observed and none is asserted."
+    ],
+    "editorNotes": "Verified 2026-08-06 by navigating from the regulator’s own search-database index, and re-verified in a separate direct adversarial pass. The portal titles itself \"Informační portál o údajích udělených individuálních oprávnění a vydaných přídělů\", offers \"Vyhledávání podle kmitočtu\" with kHz/MHz/GHz units, and lists \"Seznamy individuálních oprávnění některých služeb: Amatérská radiokomunikační služba, Letecká pohyblivá služba, Námořní pohyblivá služba\". FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: Individual authorisations to use radio frequencies and spectrum assignments granted by the Czech Telecommunication Office. RESPONSIBLE AUTHORITY: Český telekomunikační úřad. TECHNICAL PLATFORM: Not separately established. Served from the regulator’s own ctu.gov.cz domain. PUBLIC ACCESS INTERFACE: The public spectrum portal at ctu.gov.cz. Duplicate decisions: the regulator’s separate overviews of radio and television transmitters are FILTERED VIEWS of these individual authorisations — the television overview names itself \"Přehled platných individuálních oprávnění – televizní vysílače\" — and were therefore NOT published as separate broadcast records. The point-to-point fixed-link technical dataset in the 71-76 and 81-86 GHz bands was likewise treated as a technical view rather than a separate statutory register."
+  },
+  {
+    "id": "cz-ctu-evidence-postovnich-provozovatelu",
+    "name": "Evidence provozovatelů poštovních služeb",
+    "slug": "evidence-provozovatelu-postovnich-sluzeb",
+    "country": "czech-republic",
+    "category": "government",
+    "website": "https://ctu.gov.cz/vyhledavaci-databaze/evidence-provozovatelu-poskytujicich-nebo-zajistujicich-postovni-sluzby-od-2024",
+    "submissionUrl": null,
+    "description": "The Czech register of postal service operators, kept by the same regulator that supervises electronic communications. It is included here because the Czech Telecommunication Office officially combines telecommunications and postal supervision, and it records which specific postal services each operator is entitled to provide.",
+    "tier": "tier1",
+    "scope": "national",
+    "officialName": "Evidence provozovatelů poskytujících nebo zajišťujících poštovní služby od 1. 1. 2024",
+    "nativeName": "Evidence provozovatelů poskytujících nebo zajišťujících poštovní služby",
+    "englishName": "Register of Postal Service Operators",
+    "englishNameSource": "editorial-translation",
+    "resourceIdentity": {
+      "canonicalDomain": "ctu.gov.cz",
+      "systemKey": "ctu-evidence-postovni",
+      "sharedHostGroup": "ctu-gov-cz"
+    },
+    "primaryRegistryType": "regulated-operator-register",
+    "registryTypes": [
+      "regulated-operator-register"
+    ],
+    "operator": {
+      "name": "Český telekomunikační úřad",
+      "type": "regulator",
+      "officialUrl": "https://ctu.gov.cz/"
+    },
+    "publicAccess": {
+      "searchUrl": null,
+      "accessLevel": "partially-open",
+      "freeToSearch": null,
+      "loginRequired": false,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "The database was served anonymously with no credential, offering filters for operator, date the business entitlement arose, street, municipality, company number, certificate number, whether to include operators that have ceased activity, and the specific postal services provided. Login is therefore recorded as not required. No query was executed, so result content and any limits were not observed and stay null."
+    },
+    "petroHrysScore": 86,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 8,
+      "verificationQuality": 9,
+      "platformReputation": 8,
+      "spamResistance": 10,
+      "industryImportance": 7,
+      "longTermStability": 9,
+      "submissionQuality": 6,
+      "transparency": 9,
+      "moderationQuality": 9
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-06",
+    "nextVerification": "2027-08-22",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Checking whether a company is entitled to provide postal services in Czechia.",
+      "Establishing which specific postal services an operator provides, down to domestic, outbound and inbound categories."
+    ],
+    "notRecommendedFor": [
+      "Assuming a postal operator is also an electronic communications undertaking. The two registers are separate and entry in one says nothing about the other.",
+      "Assuming every entry is currently trading. The database offers an option to include operators that have ceased activity."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "logistics",
+      "postal-services"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "It breaks entitlement down by service category — standard, registered, items for blind persons, printed matter and addressed advertising, each split into domestic, outbound and inbound.",
+      "It exposes the date on which the business entitlement arose, so a reader can see how long an operator has held it.",
+      "It is kept by the same authority that supervises electronic communications, so postal and telecom supervision are traceable to one regulator."
+    ],
+    "cons": [
+      "It is a postal register. It says nothing about whether the operator is an electronic communications undertaking, holds spectrum, or holds numbers.",
+      "The database can include operators whose activity has ceased, so a hit alone does not establish that a company is currently providing postal services.",
+      "Operators recorded before 1 January 2024 sit in a separate predecessor database, and the regulator provides a link to it rather than merging the two.",
+      "Absence does not establish that a company carries nothing. The register records entitlement for the postal services the Act defines, and operators recorded before 1 January 2024 sit in the predecessor database rather than here.",
+      "No query was executed during verification, so result content and any limits were not observed and none is asserted."
+    ],
+    "editorNotes": "Verified 2026-08-06 by navigating from the regulator’s own search-database index, and re-verified in a separate direct adversarial pass. The database titles itself \"Evidence provozovatelů poskytujících nebo zajišťujících poštovní služby od 1. 1. 2024\", offers the filter \"Vyhledávat i provozovatele s ukončenou činností\" and enumerates the postal services in the categories quoted above. It links to the predecessor database covering the period to 31 December 2023. FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: The business entitlement to provide or ensure postal services recorded by the Czech Telecommunication Office. RESPONSIBLE AUTHORITY: Český telekomunikační úřad, which supervises both electronic communications and postal services. TECHNICAL PLATFORM: Not separately established. Served from the regulator’s own ctu.gov.cz domain. PUBLIC ACCESS INTERFACE: The public postal operator database at ctu.gov.cz. Scope decision: postal is in scope for this wave ONLY because this regulator officially combines telecommunications and postal supervision, which the brief permits. The predecessor database covering the period to 31 December 2023 is a temporal predecessor, not a separate statutory system, and is described here rather than published separately."
   }
 ]

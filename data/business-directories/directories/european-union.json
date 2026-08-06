@@ -2846,5 +2846,147 @@
       "It does not record chemicals registrations, biocidal product approvals or any authorisation outside plant-protection law, and an entry proves nothing about a product’s status under those regimes."
     ],
     "editorNotes": "Verified 2026-08-06 from the Commission’s own database pages, retrieved directly. FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: The Official Journal of the European Union for substance approvals and residue levels, and the member states for product authorisations. The operator states that the database is made available solely for the purpose of information, that it has no legal value, and that the official information is published in the Official Journal. It also states that member states are responsible for granting authorisations and that the information provided is their responsibility. RESPONSIBLE AUTHORITY: European Commission, through the directorate responsible for health and food safety. TECHNICAL PLATFORM: Not separately established. No external supplier is named on any page fetched. PUBLIC ACCESS INTERFACE: The public database application on the Commission’s food host. Registry type: plant-protection-product-authorisation-register, one of five types approved for this wave. The type is deliberately narrow and must not be collapsed into a generic chemical or substance register: the chemicals platform already published in this dataset records filings made under chemicals law, which is a different legal basis with a different recorded object. The no-legal-value disclaimer is carried in the published text rather than only in these notes, because a reader who relied on this database as authoritative would be relying on something its own operator disclaims. Shared host: this record joins the others on the Commission host and declares resourceIdentity."
+  },
+  {
+    "id": "eu-berec-gadb",
+    "name": "BEREC General Authorisation Database",
+    "slug": "berec-general-authorisation-database",
+    "country": "european-union",
+    "category": "government",
+    "website": "https://gadb.berec.europa.eu/",
+    "submissionUrl": null,
+    "description": "The Union database of notifications from providers of electronic communications networks and services, established by BEREC under the European Electronic Communications Code. It aggregates the notifications made to national regulators under the general authorisation regime; it does not replace them and it is not a licence register.",
+    "tier": "tier1",
+    "scope": "supranational",
+    "officialName": "General Authorisation Database (GADB)",
+    "primaryRegistryType": "regulated-operator-register",
+    "registryTypes": [
+      "regulated-operator-register",
+      "cross-border-registry-interface"
+    ],
+    "operator": {
+      "name": "Body of European Regulators for Electronic Communications",
+      "type": "supranational-institution",
+      "officialUrl": "https://www.berec.europa.eu/"
+    },
+    "publicAccess": {
+      "searchUrl": null,
+      "accessLevel": "partially-open",
+      "freeToSearch": null,
+      "loginRequired": false,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "The database was served anonymously with no credential, so login is recorded as not required. It is a JavaScript application that did not render its search to a non-executing client, so result content, coverage and any limits were not observed and stay null."
+    },
+    "petroHrysScore": 87,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 8,
+      "verificationQuality": 9,
+      "platformReputation": 9,
+      "spamResistance": 10,
+      "industryImportance": 9,
+      "longTermStability": 8,
+      "submissionQuality": 6,
+      "transparency": 9,
+      "moderationQuality": 8
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-06",
+    "nextVerification": "2027-08-18",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Finding electronic communications providers notified in more than one EU member state from a single interface.",
+      "Establishing that a provider has notified a national regulator under the general authorisation regime."
+    ],
+    "notRecommendedFor": [
+      "Treating an entry as a licence. The general authorisation regime replaced individual licensing; a notification is not a licence.",
+      "Treating the Union database as the legal source. The national register of the member state remains the source of record."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "telecommunications",
+      "technology"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "Its legal basis is stated on the database itself: Article 12 of Directive (EU) 2018/1972 and Article 4(1)(l)(i) of Regulation (EU) 2018/1971.",
+      "It is the only single interface covering notified providers across EU member states, which no national register can offer.",
+      "It can be searched by provider name, legal status, address and country, and by network type, service type, wholesale or retail level, public availability and geographical area."
+    ],
+    "cons": [
+      "It is a database of NOTIFICATIONS, not of licences. Under the general authorisation regime a provider notifies the regulator; no individual licence is granted, and an entry must not be read as one.",
+      "It aggregates what national regulators transmit. The national register remains the legal source of record, and a discrepancy is resolved there rather than here.",
+      "Being recorded here proves nothing about spectrum or numbering. Notification as an operator, an individual spectrum authorisation and an allocation of numbers are three separate legal acts kept in three separate systems. This database covers only the operator notification.",
+      "Providers of number-independent interpersonal communications services — email and messaging — are outside the notification duty in several member states, so absence does not establish that a service is unlawful or unregulated.",
+      "The interface is a JavaScript application, so it could not be exercised and nothing about result content or coverage is asserted."
+    ],
+    "editorNotes": "Verified 2026-08-06 by direct fetch of the database and its About page, reached from the German regulator’s own Meldepflicht page, and re-verified in a separate direct adversarial pass. The About page states: \"The General authorization database (GADB) is an EU database that consists of notifications from providers of electronic communications networks and services transmitted to the competent authorities in EU member states by undertakings subject to the general authorisation regime. The GADB is established by the Body of European Regulators for Electronic Communications (BEREC), and maintained by the BEREC Office on its behalf\", to meet requirements set by \"Article 12 of Directive (EU) 2018/1972\", \"Article 4(1)(l)(i) of Regulation (EU) 2018/1971\" and \"Article 5 of the Regulation (EU) 2018/1971\". Search options are enumerated there verbatim. FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: The notifications made to national competent authorities under the general authorisation regime; the Union database aggregates them under Article 12 of Directive (EU) 2018/1972. The national register remains the source of record. RESPONSIBLE AUTHORITY: BEREC, with the BEREC Office maintaining the database on its behalf under Article 5 of Regulation (EU) 2018/1971. TECHNICAL PLATFORM: A SharePoint-based application on the berec.europa.eu domain. PUBLIC ACCESS INTERFACE: The public database at gadb.berec.europa.eu. Duplicate decision: this is NOT merged with any national operator register and no national register is merged into it. One authority linking to another does not make them one system — the Union database and each national register have different keepers and different legal effect."
   }
 ]

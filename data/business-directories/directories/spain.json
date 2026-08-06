@@ -1150,5 +1150,308 @@
       "The search application renders with JavaScript, so it could not be exercised and nothing about result content or coverage is asserted."
     ],
     "editorNotes": "Verified 2026-08-06 by navigating from the institute’s own site, and re-verified in a separate direct adversarial pass. The service page titles itself \"Registro Oficial de Auditores de Cuentas (ROAC)\" and offers four services: \"Buscador de Auditores y Sociedades de Auditoría\"; \"Listado de auditores y sociedades de auditoría (artículo 16.3a Reglamento-UE 537/2014)\"; \"Sanciones inscritas en el Registro Oficial de Auditores de Cuentas\"; and \"Auditores de Cuentas, Sociedades y Entidades de Auditoría de Terceros Países\". The search entry at icac.gob.es/buscador-roac was served anonymously and renders client-side. FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: The Registro Oficial de Auditores de Cuentas, kept by the Instituto de Contabilidad y Auditoría de Cuentas. RESPONSIBLE AUTHORITY: Instituto de Contabilidad y Auditoría de Cuentas, the Spanish state audit regulator. TECHNICAL PLATFORM: Not separately established. Served from the institute’s own icac.gob.es domain. PUBLIC ACCESS INTERFACE: The ROAC service page and its Buscador at icac.gob.es. Duplicate decision, a rejection consistent with Wave 3A-2: the article 16.3a listing is a publication for selection procedures, exactly as the German chamber’s equivalent list is, and is NOT a separate register. The sanctions view and the third-country view are views over the same register and were likewise not split out. The record’s entry point is the ROAC service page rather than the bare Buscador, because that page is what names the register and enumerates its parts."
+  },
+  {
+    "id": "es-cnmc-registro-operadores",
+    "name": "Registro de operadores",
+    "slug": "registro-de-operadores",
+    "country": "spain",
+    "category": "government",
+    "website": "https://www.cnmc.es/sectores-que-regulamos/telecomunicaciones/registro-de-operadores",
+    "submissionUrl": null,
+    "description": "The Spanish register of operators of electronic communications networks and services, kept by the CNMC. Entry follows a prior notification under article 6.2 of the General Telecommunications Act; operators must also notify cessation and must confirm every three years that they intend to continue.",
+    "tier": "tier1",
+    "scope": "national",
+    "officialName": "Registro de operadores de redes y servicios de comunicaciones electrónicas",
+    "nativeName": "Registro de operadores",
+    "englishName": "Register of Electronic Communications Network and Service Operators",
+    "englishNameSource": "editorial-translation",
+    "resourceIdentity": {
+      "canonicalDomain": "cnmc.es",
+      "systemKey": "cnmc-registro-operadores",
+      "sharedHostGroup": "cnmc-es"
+    },
+    "primaryRegistryType": "regulated-operator-register",
+    "registryTypes": [
+      "regulated-operator-register"
+    ],
+    "operator": {
+      "name": "Comisión Nacional de los Mercados y la Competencia",
+      "type": "regulator",
+      "officialUrl": "https://www.cnmc.es/"
+    },
+    "publicAccess": {
+      "searchUrl": null,
+      "accessLevel": "partially-open",
+      "freeToSearch": null,
+      "loginRequired": false,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "The register’s official page was served anonymously with no credential, so login is recorded as not required. Register transactions are directed to the commission’s electronic office, and no public search was exercised, so search behaviour, result content, coverage and any limits were not observed and stay null."
+    },
+    "petroHrysScore": 88,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 8,
+      "verificationQuality": 9,
+      "platformReputation": 9,
+      "spamResistance": 10,
+      "industryImportance": 8,
+      "longTermStability": 9,
+      "submissionQuality": 6,
+      "transparency": 9,
+      "moderationQuality": 9
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-06",
+    "nextVerification": "2027-08-30",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "es-cnmc-registro-numeracion",
+        "eu-berec-gadb"
+      ],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Establishing the Spanish notification duty for operating electronic communications networks or services.",
+      "Understanding what an operator must keep current — data changes, cessation, and a three-yearly confirmation of continuing activity."
+    ],
+    "notRecommendedFor": [
+      "Treating an entry as a licence. Spanish market entry is by prior notification, not by individual authorisation.",
+      "Assuming a number-independent service provider carries the same status. Those notify for statistical and census purposes only."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "telecommunications",
+      "technology"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "Its statutory basis is stated on the register’s own page: article 6.2 of Law 11/2022 of 28 June, the General Telecommunications Act.",
+      "It states the continuing obligations plainly — notify changes, notify cessation, and confirm every three years an intention to continue.",
+      "It publishes the relevant resolutions on registration questions, so contested points of scope are traceable to a decision rather than to inference."
+    ],
+    "cons": [
+      "Entry follows a PRIOR NOTIFICATION, not a licence. If a notification does not meet the requirements the commission issues a reasoned decision treating it as not made, within fifteen days.",
+      "Providers of number-independent interpersonal electronic communications services also notify, but expressly for statistical and census purposes — their entry carries a different legal effect from an operator’s.",
+      "Being recorded here proves nothing about spectrum or numbering. Notification as an operator, an individual spectrum authorisation and an allocation of numbers are three separate legal acts kept in three separate systems. Spanish numbering rights of use are granted under a separate article and recorded in a separate register.",
+      "Because continuation is confirmed only every three years and cessation depends on the operator notifying it, an entry does not establish that a company is trading today.",
+      "Absence does not establish that a provider is operating unlawfully. A provider may have notified another member state, or may fall outside the notification duty, and the Union database rather than this register is where cross-border activity becomes visible.",
+      "No public search was exercised during verification, so nothing about search behaviour, result content or coverage is asserted."
+    ],
+    "editorNotes": "Verified 2026-08-06 by navigating from the commission’s own telecommunications section, and re-verified in a separate direct adversarial pass. The page states: \"De acuerdo con el artículo 6.2 de la Ley 11/2022, de 28 de junio, General de Telecomunicaciones, los interesados en la explotación de redes públicas y prestación de servicios de comunicaciones electrónicas al público en el territorio español han de notificárnoslo previamente para su inscripción en el Registro de Operadores.\" It adds that a non-compliant notification draws \"resolución motivada no teniendo por realizada la notificación, en un plazo de 15 días\"; that operators must communicate \"la modificación de los datos inscritos, el cese de la actividad y la intención de continuar la actividad (cada tres años)\"; and that providers of number-independent interpersonal services must notify \"a efectos estadísticos y censales\". FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: The prior notification made under article 6.2 of Law 11/2022; the commission inscribes it in the Register of Operators. RESPONSIBLE AUTHORITY: Comisión Nacional de los Mercados y la Competencia. TECHNICAL PLATFORM: Not separately established. The register’s page is served from cnmc.es and transactions are directed to the commission’s electronic office. PUBLIC ACCESS INTERFACE: The register’s official page at cnmc.es, with transactions via the sede electrónica. Separation decision: kept distinct from the commission’s numbering register on the same host. Notification as an operator and the grant of rights of use over numbering resources are different legal acts under different articles of the same Act. Both declare resourceIdentity in the cnmc-es group with distinct systemKeys."
+  },
+  {
+    "id": "es-cnmc-registro-numeracion",
+    "name": "Registro de numeración",
+    "slug": "registro-de-numeracion",
+    "country": "spain",
+    "category": "government",
+    "website": "https://www.cnmc.es/sectores-que-regulamos/telecomunicaciones/registros-de-numeracion",
+    "submissionUrl": null,
+    "description": "The Spanish numbering register, kept by the CNMC, which grants rights of use over the public numbering resources in the national numbering plans under article 30.5 of the General Telecommunications Act. It also administers signalling point codes and mobile network codes assigned to Spain by the ITU.",
+    "tier": "tier1",
+    "scope": "national",
+    "nativeName": "Registro de numeración",
+    "englishName": "Numbering Register",
+    "englishNameSource": "editorial-translation",
+    "resourceIdentity": {
+      "canonicalDomain": "cnmc.es",
+      "systemKey": "cnmc-registro-numeracion",
+      "sharedHostGroup": "cnmc-es"
+    },
+    "primaryRegistryType": "regulated-operator-register",
+    "registryTypes": [
+      "regulated-operator-register"
+    ],
+    "operator": {
+      "name": "Comisión Nacional de los Mercados y la Competencia",
+      "type": "regulator",
+      "officialUrl": "https://www.cnmc.es/"
+    },
+    "publicAccess": {
+      "searchUrl": null,
+      "accessLevel": "partially-open",
+      "freeToSearch": null,
+      "loginRequired": false,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "The register’s official page was served anonymously with no credential, so login is recorded as not required. No public numbering search was exercised, so search behaviour, result content, coverage and any limits were not observed and stay null."
+    },
+    "petroHrysScore": 88,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 8,
+      "verificationQuality": 9,
+      "platformReputation": 9,
+      "spamResistance": 10,
+      "industryImportance": 8,
+      "longTermStability": 9,
+      "submissionQuality": 6,
+      "transparency": 9,
+      "moderationQuality": 9
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-06",
+    "nextVerification": "2027-08-21",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "es-cnmc-registro-operadores"
+      ],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Establishing who grants rights of use over Spanish numbering resources and under what provision.",
+      "Understanding the range of Spanish numbering resources, from geographic and mobile numbers to M2M, short codes and operator selection codes."
+    ],
+    "notRecommendedFor": [
+      "Inferring operator status from a numbering right. The two are granted under different articles and recorded separately.",
+      "Identifying who serves a particular subscriber. Numbering rights are granted over ranges, and numbers are portable."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "telecommunications",
+      "technology"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "Its statutory basis is stated on the register’s own page: article 30.5 of Law 11/2022 gives the commission the grant of rights of use over public numbering resources.",
+      "It sets out the full span of resources administered — geographic, nomadic, mobile, special-tariff, short codes, operator selection codes, M2M, personal, virtual private network and internet access numbering.",
+      "It also administers national and international signalling point codes and mobile network identifiers under the relevant ITU recommendations, so those are traceable to the same authority."
+    ],
+    "cons": [
+      "A numbering right of use is granted to an operator over a resource. It does not establish that the operator is providing service on it, nor that it serves any particular subscriber, because numbers are portable.",
+      "Being recorded here proves nothing about spectrum or numbering. Notification as an operator, an individual spectrum authorisation and an allocation of numbers are three separate legal acts kept in three separate systems. Being granted numbers is a different legal act from notifying as an operator under article 6.2.",
+      "The register administers Spain’s allocation within the ITU country code 34; it does not establish anything about numbering in any other country.",
+      "Absence of a resource does not establish that it is unassigned, only that it is not covered by a right of use recorded here.",
+      "No public numbering search was exercised during verification, so nothing about search behaviour, result content or coverage is asserted."
+    ],
+    "editorNotes": "Verified 2026-08-06 by navigating from the commission’s own telecommunications section, and re-verified in a separate direct adversarial pass. The page states: \"El artículo 30 de la Ley 11/2022, de 28 de junio, General de Telecomunicaciones en su apartado 5 que corresponde a la CNMC el otorgamiento de los derechos de uso de los recursos públicos regulados en los planes nacionales de numeración\", that the commission manages \"el espacio de numeración correspondiente al indicativo de país “34” de la Recomendación E.164 de la Unión Internacional de Telecomunicaciones (UIT)\", and enumerates the resource types quoted above together with \"Códigos de Punto de Señalización Nacional e Internacional (CPSN y CPSI, Recomendación Q.708 de la UIT)\" and \"Identificadores de Red Móvil (IRM o MNC, Recomendación E.212 de la UIT)\". FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: The grant of rights of use over public numbering resources by the CNMC under article 30.5 of Law 11/2022. RESPONSIBLE AUTHORITY: Comisión Nacional de los Mercados y la Competencia. TECHNICAL PLATFORM: Not separately established. Served from the commission’s own cnmc.es domain; the commission also runs a dedicated numbering and operator host for portability status, which was not published as a register. PUBLIC ACCESS INTERFACE: The register’s official page at cnmc.es. Duplicate decisions: the commission’s mobile and fixed PORTABILITY STATUS pages were rejected as candidates — they report the operational state of the portability process, not a register of authorisations. Its \"Registro de alias\" and digital terrestrial television register were not researched to publication standard in this wave and are recorded in the backlog rather than guessed at."
   }
 ]

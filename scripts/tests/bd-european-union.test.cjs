@@ -44,7 +44,9 @@ const WAVE = ['eu-bris', 'eu-vies', 'eu-ted', 'eu-transparency-register',
   'eu-eib-exclusion',
   // Wave 1F.1 taxonomy application
   'eu-ctis', 'eu-giview', 'eu-sanctions-map', 'eu-consolidated-financial-sanctions',
-  'eu-pesticides-database'];
+  'eu-pesticides-database',
+  // Wave 4 — telecommunications
+  'eu-berec-gadb'];
 
 const visible = (r) => [r.description, ...r.pros, ...r.cons, ...r.bestFor, ...r.notRecommendedFor].join(' ');
 const readPage = (r) => fs.readFileSync(
@@ -53,7 +55,7 @@ const readPage = (r) => fs.readFileSync(
 // --- non-vacuity ----------------------------------------------------------------
 
 test('the wave published every record it claims, and the EU set is exactly those', () => {
-  assert.strictEqual(WAVE.length, 20, 'the EU manifest changed size without this test changing');
+  assert.strictEqual(WAVE.length, 21, 'the EU manifest changed size without this test changing');
   for (const id of WAVE) assert.ok(byId.get(id), `${id} is named by this suite but is not in the registry`);
   assert.deepStrictEqual(EU.map((r) => r.id).sort(), [...WAVE].sort(),
     'an EU record exists that this suite does not cover');
@@ -215,6 +217,7 @@ test('no record points at a generic institution homepage', () => {
 // an invented subdomain or a known-dead path being swapped in silently.
 test('every EU website is a pinned, previously verified address', () => {
   const PINNED = {
+    'eu-berec-gadb': 'https://gadb.berec.europa.eu/',
     'eu-bris': 'https://e-justice.europa.eu/topics/registers-business-insolvency-land/business-registers-search-company-eu_en',
     'eu-vies': 'https://ec.europa.eu/taxation_customs/vies/',
     'eu-ted': 'https://ted.europa.eu/en/',
