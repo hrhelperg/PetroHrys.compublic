@@ -1125,3 +1125,85 @@ systems — not analysed; only the § 5 directory was.
 - **A probe that skips the description does not inject its defect.** This was the
   survivor cause in Waves 3A-1, 3A-2 and 3A-3. The Wave 4 harness strips the
   description by construction, and had zero survivors on its first valid run.
+
+---
+
+## Wave 4A-2 — Core telecom regulator completion (2026-08-06)
+
+A **boundary wave**. Seven regulators researched; **two records published**. Five
+produced pending or incomplete determinations. Per the brief, a duplicate,
+rejection or pending determination is a valid outcome and no regulator was forced
+to yield a record.
+
+### Approved (2)
+
+| Record | Jurisdiction | Shape |
+|---|---|---|
+| `us-fcc-public-inspection-files` | US | **Disclosure/filing** system — broadcast, cable, DBS, SDARS |
+| `ca-crtc-registered-telecom-providers` | CA | **Registration** — mandatory before offering service |
+
+Neither is a licence register, and both say so. Together they add two shapes Wave
+4 did not cover: a broadcaster's *disclosure obligation*, and a *registration*
+that is expressly not the international licence.
+
+### Seven-jurisdiction matrix
+
+| Regulator | Candidate | Outcome | Reason |
+|---|---|---|---|
+| **Ofcom** (UK) | all systems | **pending browser** | Host refused automated clients on both apex and www. No official page reachable; no system identified. |
+| **FCC** (US) | Public Inspection Files | **approved** | Distinct population and legal function; only reachable FCC host. |
+| | CORES, ICFS, LMS, ASR, robocall DB, §214 | **targeted research incomplete** | Main host and app subdomains refused automated clients. |
+| | ULS / Form 499 | **already published** | Unchanged; duplicate audit documented on the new record. |
+| **CRTC** (CA) | Registered Telecommunications Providers | **approved** | Identity + function from official describing pages. |
+| | Withdrawn and Incomplete Providers | **duplicate** | Historical face of the same registration act — a current/historical toggle. Absorbed by `ca-crtc-registered-telecom-providers`. |
+| | Quality of Service Indicator | **rejected** | Reports operational performance, not an authorisation. |
+| | BITS licence | **targeted research incomplete** | A genuinely distinct legal act, but only *applications* are published; no register of licensees located. |
+| **ACMA** (AU) | Register of Radiocommunications Licences | **pending browser** | `web.acma.gov.au` refused automated clients; `www.acma.gov.au` did not respond at all. Host confirmed to exist. |
+| **ARCEP** (FR) | operator declarations, numbering | **pending browser** | F5 bot shield — *"Please enable JavaScript to view the page content. Your support ID is…"* |
+| **ANFR** (FR) | spectrum authorisations | **targeted research incomplete** | Readable, and **confirmed as the French spectrum authority**, but no discrete public register system located. |
+| | Cartoradio | **rejected** | A cartographic platform. The wave contract rejects map views. |
+| **AGCOM** (IT) | ROC | **pending browser** | Angular SPA at `datiroc.agcom.it/elenco-pubblico`; AGCOM links it as "ROC" but its **scope** — telecom operators, media operators or both — could not be established, which is the whole question. |
+| **UKE** (PL) | Rejestr przedsiębiorców telekomunikacyjnych | **targeted research incomplete** | Homepage exposes 48 links, all news; navigation does not reach the registers. A constructed URL landed on an unrelated article and was discarded. |
+| | NIS2 key-entities list | **rejected** | A cybersecurity register, **not** a telecom operator register. Recorded so the two are never confused. |
+
+### The determination that matters most
+
+**ARCEP is not the French spectrum authority — ANFR is.** ANFR's own site states
+the spectrum belongs to the State's public domain, *"qui en a confié la gestion à
+l'ANFR"*, and reports the 5G and 4G sites *"autorisés par l'ANFR"*. A test now
+forbids any French record from attributing a spectrum function to ARCEP.
+
+### Boundary rules applied
+
+- **Do not split a historical toggle.** The CRTC withdrawn list is the negative of
+  the same registration act; it is described inside the registration record so a
+  reader who finds nothing knows where a removed provider goes.
+- **Three FCC subdomains are three hosts**, so no shared-host group applies —
+  consistent with the Czech tax-register determination in Wave 3A-2.
+- **A disclosure system is not a register of authorisations.** The FCC public file
+  proves an entity has a public file obligation and has filed. Nothing more.
+
+### Browser verification queue
+
+| Candidate | Exact URL | Blocker | One browser action | Must stay null until observed |
+|---|---|---|---|---|
+| Ofcom systems | `https://www.ofcom.org.uk/` | WAF (refuses automated clients) | Open and navigate to spectrum/numbering/broadcast register pages; record exact system names and URLs | everything — no system identified yet |
+| ACMA RRL | `https://web.acma.gov.au/rrl/register_search.main_page` | WAF | Open; confirm the register's official name and whether spectrum and apparatus licences are one system | accessLevel, all booleans |
+| ARCEP | `https://www.arcep.fr/` | F5 bot shield | Open; confirm whether an operator declaration list is still published and whether the duty persists | accessLevel, all booleans |
+| AGCOM ROC | `https://datiroc.agcom.it/elenco-pubblico` | Angular SPA | Open; determine whether ROC covers telecom operators, media operators or both | scope, accessLevel, all booleans |
+| UKE registers | `https://www.uke.gov.pl/` | JS-driven navigation | Open; navigate to the register index and record exact URLs | everything |
+| FCC ULS / Form 499 | existing record URLs | WAF appeared **after** Wave 4 | Confirm both systems still serve browsers | nothing — records unchanged; 403 is not absence |
+
+### Findings worth carrying forward
+
+- **A bot filter can appear between waves.** `wireless2.fcc.gov` and
+  `apps.fcc.gov` served automated clients when Waves 1–4 authored records on them
+  and refuse now. The records were not changed: refusal is not absence.
+- **`accessLevel: unknown` may not carry an observed boolean.** An existing guard
+  and the wave brief agree. Reaching a page anonymously does not establish that
+  the register behind it needs no credential.
+- **No published field may contain an HTTP status code** — including
+  `editorNotes`. Describe the host's behaviour instead.
+- **A cross-country mutation probe must write to the target country's file**, or
+  the validator catches placement and the semantic guard under test never runs.
+  Four probes in this wave were initially wrong in exactly that way.

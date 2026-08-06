@@ -2512,5 +2512,146 @@
       "No query was executed during verification, so the search behaviour is recorded from the agency’s own documentation rather than observed, and no search URL is published."
     ],
     "editorNotes": "Verified 2026-08-06 by navigating from the agency’s own site rather than guessing a path, and re-verified in a separate direct adversarial pass. The register-versus-guidance distinction the brief required was settled from the agency’s own navigation: the guidance landing page is a different page from the registry itself, and this record points at the registry. FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: The registration decisions of Canada’s financial intelligence unit under the proceeds of crime and terrorist financing legislation. The agency states that money services businesses must register before they begin to operate. RESPONSIBLE AUTHORITY: Financial Transactions and Reports Analysis Centre of Canada. TECHNICAL PLATFORM: Not separately established. The registry is served from the agency’s own host; no external supplier is named on any page fetched. PUBLIC ACCESS INTERFACE: The Money Services Business Registry page, alongside a separately published list of businesses whose registration has been revoked. What registration does NOT establish, in the agency’s own words carried into the published text: “Registration with FINTRAC does not indicate that FINTRAC endorses or licenses the business. It indicates only that the business has satisfied the legal requirements to register. FINTRAC does not issue licenses or certificates of registration to businesses it regulates.” The revoked-registration list is a separate page over the same registration data and is deliberately NOT published as a second record: it is a status view of one registry, not a distinct system. Registry types: financial-services-register for the regulated financial activity, and regulated-operator-register because the registered population is businesses authorised to operate in a supervised sector rather than individual practitioners."
+  },
+  {
+    "id": "ca-crtc-registered-telecom-providers",
+    "name": "List of Registered Telecommunications Providers",
+    "slug": "crtc-registered-telecommunications-providers",
+    "country": "canada",
+    "category": "government",
+    "website": "https://applications.crtc.gc.ca/portail-portal/eng/listes-lists/registration/5",
+    "submissionUrl": null,
+    "description": "The Canadian Radio-television and Telecommunications Commission’s list of organisations registered to offer telecommunications services in Canada. Registration is mandatory before an organisation may offer service and is free; it is a registration rather than a licence, and carrying traffic internationally requires a separate BITS licence.",
+    "tier": "tier1",
+    "scope": "national",
+    "primaryRegistryType": "regulated-operator-register",
+    "registryTypes": [
+      "regulated-operator-register"
+    ],
+    "operator": {
+      "name": "Canadian Radio-television and Telecommunications Commission",
+      "type": "regulator",
+      "officialUrl": "https://crtc.gc.ca/"
+    },
+    "publicAccess": {
+      "searchUrl": null,
+      "accessLevel": "unknown",
+      "freeToSearch": null,
+      "loginRequired": null,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "The list page was served anonymously with no credential and rendered its column headings — company name, contact name, email, phone, address and registration list — but no credential prompt was reached either way. The table body is loaded by JavaScript and displayed only \"Loading...\" to a non-executing client, so no entry was ever seen. Access level is therefore recorded as unknown and EVERY boolean stays null, including loginRequired: reaching a page anonymously is not the same as establishing that the register itself requires no credential. Identity and function were established from the Commission’s own describing pages, not from the application."
+    },
+    "petroHrysScore": 84,
+    "scoreFactors": {
+      "editorialTrust": 9,
+      "businessUsefulness": 8,
+      "verificationQuality": 8,
+      "platformReputation": 9,
+      "spamResistance": 10,
+      "industryImportance": 8,
+      "longTermStability": 9,
+      "submissionQuality": 6,
+      "transparency": 8,
+      "moderationQuality": 8
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-06",
+    "nextVerification": "2027-08-22",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Checking whether an organisation has registered with the Commission before offering telecommunications services in Canada.",
+      "Understanding the Canadian registration duty, which reaches local voice, VoIP, internet, long distance, wireless and payphone services."
+    ],
+    "notRecommendedFor": [
+      "Treating registration as a licence. Registration is free and mandatory; carrying traffic internationally requires a separate BITS licence.",
+      "Relying on the entries as accurate or current. The Commission expressly disclaims responsibility for the accuracy, reliability and currency of the data."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "telecommunications",
+      "technology"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "The registration duty is stated plainly by the Commission: an organisation must register before it can offer or provide customers with telecommunications services.",
+      "The stated scope is broad and explicit, covering local voice, Voice over IP, internet, long distance, wireless and payphone services.",
+      "Registration is free, so the list is not filtered by ability to pay a fee.",
+      "The Commission publishes a companion list of providers removed from the registration lists, with a reason, so a disappearance can be traced rather than merely noticed."
+    ],
+    "cons": [
+      "This is a REGISTRATION, not a licence. The Commission grants nothing on registering, and an entry is not an authorisation to carry traffic internationally — that requires a separate BITS licence.",
+      "The Commission states that the information \"has been provided by external sources\" and that it \"is not responsible for the accuracy, reliability or currency\" of it, so an entry is a provider’s own submission rather than a verified fact.",
+      "Registration says nothing about technical quality, solvency, or compliance with obligations other than the duty to register, and it does not establish that a provider is currently offering service.",
+      "Absence does not establish that an organisation may not operate. Exemptions exist, and a provider removed from the list appears on the separate withdrawn-and-incomplete list rather than here.",
+      "The list is rendered by JavaScript and showed only a loading state to the client used for verification, so no entry, count or coverage was observed and none is asserted."
+    ],
+    "editorNotes": "Verified 2026-08-06 by navigating from the Commission’s telecommunications section to its registration guidance and then to the list, and re-verified in a separate direct adversarial pass in which all three quotations matched contiguous official text. The registration page states: \"Before an organization can offer or provide customers with telecommunications services, it must register with the CRTC.\" and \"All telecommunications providers that carry telecommunications traffic internationally must obtain a BITS licence.\" It also states \"It’s free to register.\" The list page carries the disclaimer: \"The information on these pages has been provided by external sources. The Commission is not responsible for the accuracy, reliability or currency of the information contained on these pages.\" FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: The registration duty administered by the Commission; the register records the provider’s own submission. The Commission disclaims responsibility for its accuracy and currency. RESPONSIBLE AUTHORITY: Canadian Radio-television and Telecommunications Commission. TECHNICAL PLATFORM: applications.crtc.gc.ca, the Commission’s applications portal, distinct from the crtc.gc.ca site that carries the describing pages. PUBLIC ACCESS INTERFACE: The public list at applications.crtc.gc.ca. The Commission’s root host served only a JavaScript shell to automated clients; the describing pages were reached through its English-language path. DUPLICATE AND BOUNDARY DECISIONS. The \"Withdrawn and Incomplete Telecommunication Providers\" list was NOT published as a separate record: it contains providers REMOVED from these registration lists and is the historical face of the same registration act, which the wave contract classifies as a current/historical toggle rather than a distinct statutory system. It is instead described in this record’s limitations, because a reader who finds nothing here needs to know where a removed provider goes. The Commission’s quality-of-service indicator list was REJECTED as a candidate: it reports operational performance, not an authorisation. The BITS licence is a genuinely distinct legal act and is NOT covered by this record, but no public register of BITS licensees was located — the Commission publishes BITS applications by year — so it is recorded as targeted research incomplete rather than published or merged."
   }
 ]
