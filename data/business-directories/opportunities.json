@@ -4275,5 +4275,494 @@
     "submissionModel": "unknown",
     "note": "The Austrian arm of the international Cylex network. Live but behind a bot filter, so a browser check is needed.",
     "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "uk-192",
+    "name": "192.com",
+    "website": "https://www.192.com/",
+    "country": "united-kingdom",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "united-kingdom"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A UK people and business search directory. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "uk-ukbusinessdirectory",
+    "name": "UK Business Directory",
+    "website": "https://www.ukbusinessdirectory.uk/",
+    "country": "united-kingdom",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "united-kingdom"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A UK business listing directory with public company entries.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "uk-applegate",
+    "name": "Applegate",
+    "website": "https://www.applegate.co.uk/",
+    "country": "united-kingdom",
+    "category": "manufacturing",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "united-kingdom"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A UK business-to-business sourcing marketplace with public supplier profiles. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "uk-mybuilder",
+    "name": "MyBuilder",
+    "website": "https://www.mybuilder.com/",
+    "country": "united-kingdom",
+    "category": "construction",
+    "tier": "tier1",
+    "priority": "P1",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "united-kingdom"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A leading UK tradesperson marketplace with public trader profiles and reviews. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "uk-opendi",
+    "name": "Opendi UK",
+    "website": "https://www.opendi.co.uk/",
+    "country": "united-kingdom",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "united-kingdom"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The UK arm of the Opendi international directory network with public business pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-enrollbusiness",
+    "name": "EnrollBusiness",
+    "website": "https://www.enrollbusiness.com/",
+    "country": "global",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An international business listing directory. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-smartguy",
+    "name": "SmartGuy",
+    "website": "https://www.smartguy.com/",
+    "country": "global",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An international local business and professional directory with public profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-hubbiz",
+    "name": "Hubbiz",
+    "website": "https://www.hub.biz/",
+    "country": "global",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global",
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A business listing and updates directory with public company pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-wand",
+    "name": "Wand",
+    "website": "https://www.wand.com/",
+    "country": "global",
+    "category": "manufacturing",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global",
+      "north-america"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A B2B product and supplier directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-industrynet",
+    "name": "IndustryNet",
+    "website": "https://www.industrynet.com/",
+    "country": "united-states",
+    "category": "manufacturing",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "north-america"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A US industrial marketplace listing machinery, parts, supplies and services suppliers.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-mfg",
+    "name": "MFG.com",
+    "website": "https://www.mfg.com/",
+    "country": "global",
+    "category": "manufacturing",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A custom manufacturing marketplace where suppliers publish capability profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "uk-houzz",
+    "name": "Houzz UK",
+    "website": "https://www.houzz.co.uk/",
+    "country": "united-kingdom",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "united-kingdom"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The UK arm of the Houzz home design platform with public professional profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-behance",
+    "name": "Behance",
+    "website": "https://www.behance.net/",
+    "country": "global",
+    "category": "marketing",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "Adobe's creative portfolio network where studios and freelancers publish public profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-dribbble",
+    "name": "Dribbble",
+    "website": "https://dribbble.com/",
+    "country": "global",
+    "category": "marketing",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A design portfolio and hiring platform with public designer and agency profiles. Live but behind a checkpoint, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-awwwards",
+    "name": "Awwwards",
+    "website": "https://www.awwwards.com/",
+    "country": "global",
+    "category": "marketing",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A web design awards and agency directory with public studio profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-cssdesignawards",
+    "name": "CSS Design Awards",
+    "website": "https://www.cssdesignawards.com/",
+    "country": "global",
+    "category": "marketing",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A web design awards directory with public studio profiles. Live but behind a checkpoint, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-99designs",
+    "name": "99designs",
+    "website": "https://www.99designs.com/",
+    "country": "global",
+    "category": "marketing",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A design marketplace where designers publish public portfolio profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-upwork",
+    "name": "Upwork",
+    "website": "https://www.upwork.com/",
+    "country": "global",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A major freelance and agency marketplace with public provider profiles. Live but behind a challenge, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-fiverr",
+    "name": "Fiverr",
+    "website": "https://www.fiverr.com/",
+    "country": "global",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A major freelance services marketplace with public seller profiles. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-freelancer",
+    "name": "Freelancer.com",
+    "website": "https://www.freelancer.com/",
+    "country": "global",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A large freelance marketplace with public freelancer and agency profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "uk-peopleperhour",
+    "name": "PeoplePerHour",
+    "website": "https://www.peopleperhour.com/",
+    "country": "united-kingdom",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "europe",
+      "united-kingdom"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A UK freelance marketplace with public provider profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-toptal",
+    "name": "Toptal",
+    "website": "https://www.toptal.com/",
+    "country": "global",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A vetted freelance network with public talent profiles. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-guru",
+    "name": "Guru.com",
+    "website": "https://www.guru.com/",
+    "country": "global",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A freelance services marketplace with public provider profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "fr-malt",
+    "name": "Malt",
+    "website": "https://www.malt.fr/",
+    "country": "france",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "europe"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A leading French and European freelance marketplace with public profiles. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "fr-codeur",
+    "name": "Codeur.com",
+    "website": "https://www.codeur.com/",
+    "country": "france",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A French freelance and agency marketplace with public provider profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-eventbrite",
+    "name": "Eventbrite",
+    "website": "https://www.eventbrite.com/",
+    "country": "global",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An events platform where organisers publish public organiser and event pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-meetup",
+    "name": "Meetup",
+    "website": "https://www.meetup.com/",
+    "country": "global",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A community events platform where organisations publish public group pages.",
+    "lastVerified": "2026-08-06"
   }
 ]
