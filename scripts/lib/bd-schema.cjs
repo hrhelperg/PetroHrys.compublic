@@ -16,6 +16,42 @@ const ROBOTS_STATES = ['allowed', 'disallowed', 'partial', 'unknown'];
 // counted as free, paid, freemium, or as an unanswered question.
 const SUBMISSION_MODELS = ['free', 'paid', 'freemium', 'notApplicable', 'unknown'];
 
+// ── Commercial listing schema ───────────────────────────────────────────────
+// submissionModel above is a COST axis. It cannot express what a business may
+// actually DO on a platform, which is the question a commercial directory
+// record exists to answer. LISTING_ACTIONS is that missing axis, kept separate
+// so a statutory register's "notApplicable" cost posture never has to double as
+// a statement about listing flows.
+//
+// "create-and-claim" — not "create-or-claim" — because the value asserts that
+// BOTH official flows were confirmed, not that either might exist.
+const LISTING_ACTIONS = ['create', 'claim', 'create-and-claim', 'invite-only',
+  'not-applicable', 'unknown'];
+
+// How a platform verifies the person claiming or creating a listing. This is
+// deliberately NOT derivable from verificationRequired: knowing that a platform
+// verifies says nothing about whether it posts a card, calls a number or checks
+// a document, and that difference decides whether a business can realistically
+// complete the flow.
+//
+// null  — methods not established.
+// []    — official evidence establishes that NO verification is required.
+// [...] — only methods directly observed or officially documented.
+const VERIFICATION_METHODS = ['email', 'phone', 'sms', 'postcard', 'video',
+  'documents', 'domain', 'identity', 'business-registration', 'other'];
+
+// The pillars, by category. Pillar A is the Government Registry Core; its
+// records normalise to listingAction "not-applicable" mechanically, from this
+// contract, rather than being guessed record by record.
+const PILLAR_A_CATEGORIES = ['government', 'finance', 'healthcare', 'telecommunications'];
+const isGovernmentPillar = (record) => PILLAR_A_CATEGORIES.includes(record && record.category);
+
+// The listingAction a record carries when nothing has been established. A
+// statutory register is not an unresolved commercial platform — it has no
+// listing concept at all — so the two defaults differ by pillar.
+const defaultListingAction = (record) => (isGovernmentPillar(record) ? 'not-applicable' : 'unknown');
+
+
 const SUBMISSION_MODEL_LABELS = {
   free: 'Free to submit',
   paid: 'Paid submission',
@@ -802,7 +838,11 @@ const KNOWN_RECORD_KEYS = [
   'domainRating', 'authorityScore', 'estimatedTraffic', 'referringDomains', 'httpStatus',
   'metricStatus', 'metricsProvenance',
   'submissionModel', 'registrationRequired', 'reviewSystem', 'verificationRequired',
-  'manualReview', 'accepts',
+  'manualReview',
+  // Commercial listing schema — the action, verification and claim axes that
+  // submissionModel (a cost enum) cannot express.
+  'listingAction', 'verificationMethods', 'ownerResponseSupport', 'claimUrl',
+  'accepts',
   'backlinkType', 'robots', 'sitemap', 'indexed', 'ssl',
   'lastVerified', 'nextVerification', 'verification', 'related',
   'bestFor', 'notRecommendedFor', 'submissionDifficulty', 'listingQuality',
@@ -991,6 +1031,11 @@ function sharedDomainSnapshotProblems(records) {
 }
 
 module.exports = {
+  LISTING_ACTIONS,
+  VERIFICATION_METHODS,
+  PILLAR_A_CATEGORIES,
+  isGovernmentPillar,
+  defaultListingAction,
   DR_OMISSION_MARKER, sharedDomainSnapshotProblems,
   NESTED_RECORD_KEYS, METRIC_PROVENANCE_KEYS, OBJECT_VALUED_FIELDS, ARRAY_VALUED_FIELDS,
   RESOURCE_IDENTITY_KEYS, CANONICAL_DOMAIN_RE, canonicalDomainProblem,

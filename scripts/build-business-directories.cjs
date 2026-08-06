@@ -492,6 +492,9 @@ ${category ? `        <li><a href="${routes.categoryPath(country.slug, category.
           section('verification', 'Verification', c.verificationBlock(directory)),
           // Conditional: renders nothing at all for a record that carries none
           // of the structured registry fields, so pre-Wave-1 pages are unchanged.
+          ...(c.listingInformation(directory)
+            ? [section('listing-information', 'Listing', c.listingInformation(directory))]
+            : []),
           ...(c.registryInformation(directory)
             ? [section('registry-information', 'Registry information', c.registryInformation(directory))]
             : []),

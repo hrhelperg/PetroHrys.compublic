@@ -431,6 +431,89 @@ function validateRegistry(registry) {
     if (!S.SUBMISSION_MODELS.includes(entry.submissionModel)) {
       add('submissionModel', `Must be one of: ${S.SUBMISSION_MODELS.join(', ')}.`);
     }
+
+    // --- commercial listing schema ------------------------------------------
+    // submissionModel above is a COST axis. These four fields carry the action,
+    // verification and claim axes, and nothing here may be silently coerced:
+    // an invalid value is rejected so it is visible, never repaired.
+    // An ABSENT field resolves to its documented default, exactly as the
+    // migration does — that is the schema's meaning of absence, not a silent
+    // repair. An explicitly WRONG value still fails, which is the distinction
+    // the "no silent coercion" rule is actually about.
+    const listingAction = isNullish(entry.listingAction)
+      ? S.defaultListingAction(entry)
+      : entry.listingAction;
+    if (!S.LISTING_ACTIONS.includes(listingAction)) {
+      add('listingAction', `Must be one of: ${S.LISTING_ACTIONS.join(', ')}.`);
+    }
+
+    // A statutory register has no listing concept. The pillar decides this, so a
+    // government record may never carry a commercial action.
+    const isGovPillar = S.isGovernmentPillar(entry);
+    if (isGovPillar && listingAction !== 'not-applicable') {
+      add('listingAction', `A ${entry.category} record belongs to the Government Registry pillar and must be "not-applicable", not "${listingAction}".`);
+    }
+    if (!isGovPillar && listingAction === 'not-applicable') {
+      add('listingAction', 'Only a Government Registry pillar record may be "not-applicable".');
+    }
+
+    // verificationMethods: null and [] are different states and both are legal.
+    const vm = entry.verificationMethods === undefined ? null : entry.verificationMethods;
+    if (vm !== null) {
+      if (!Array.isArray(vm)) {
+        add('verificationMethods', 'Must be an array, or null when the methods were never established.');
+      } else {
+        for (const m of vm) {
+          if (!S.VERIFICATION_METHODS.includes(m)) {
+            add('verificationMethods', `Contains "${m}". Allowed: ${S.VERIFICATION_METHODS.join(', ')}.`);
+          }
+        }
+        if (new Set(vm).size !== vm.length) {
+          add('verificationMethods', 'Contains a duplicate verification method.');
+        }
+        if (vm.length > 0 && entry.verificationRequired !== true) {
+          add('verificationMethods', 'Lists methods, so verificationRequired must be true.');
+        }
+        if (vm.length === 0 && entry.verificationRequired !== false) {
+          add('verificationMethods', 'Is empty, which asserts that no verification is required, so verificationRequired must be false. Use null where the methods were simply never established.');
+        }
+      }
+    } else if (entry.verificationRequired === false && Array.isArray(vm)) {
+      add('verificationMethods', 'verificationRequired is false but methods are listed.');
+    }
+    // "other" is a catch-all, so it must be explained where a reader can see it.
+    // The test looks for an explanatory CONSTRUCTION ("verified by ...",
+    // "verification is via ..."), not merely the word "verification", which
+    // appears in almost any access prose and made an earlier version of this
+    // check pass vacuously.
+    if (Array.isArray(vm) && vm.includes('other')) {
+      const prose = `${entry.description} ${(entry.pros || []).join(' ')} ${(entry.cons || []).join(' ')}`;
+      if (!/verif\w*\s+(is|are)?\s*(by|via|through|using)\b|verification method/i.test(prose)) {
+        add('verificationMethods', 'Uses "other", which requires a visible explanation of the method in rendered prose — for example "verified by ...".');
+      }
+    }
+
+    // Reviews existing says nothing about whether an owner may reply.
+    if (entry.ownerResponseSupport === true && entry.reviewSystem !== true) {
+      add('ownerResponseSupport', 'Is true, but reviewSystem is not true. An owner cannot respond where no review system is established.');
+    }
+
+    // claimUrl is an official endpoint, never a guess and never a homepage
+    // standing in for one.
+    if (!isNullish(entry.claimUrl)) {
+      if (typeof entry.claimUrl !== 'string' || !/^https:\/\//.test(entry.claimUrl)) {
+        add('claimUrl', 'Must be an absolute https URL, or null when not verified.');
+      }
+      if (entry.claimUrl === entry.website) {
+        add('claimUrl', 'Is identical to the record website. A homepage standing in for a claim interface is not a claim endpoint.');
+      }
+      if (!['claim', 'create-and-claim'].includes(listingAction)) {
+        add('claimUrl', `Is set, but listingAction is "${listingAction}". A claim endpoint requires listingAction "claim" or "create-and-claim".`);
+      }
+    }
+    if (listingAction === 'not-applicable' && !isNullish(entry.claimUrl)) {
+      add('claimUrl', 'A not-applicable record must carry claimUrl: null.');
+    }
     for (const [field, allowed] of [['submissionDifficulty', S.SUBMISSION_DIFFICULTY],
       ['listingQuality', S.LISTING_QUALITY]]) {
       if (!isNullish(entry[field]) && !allowed.includes(entry[field])) {

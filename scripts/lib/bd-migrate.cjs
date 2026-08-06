@@ -291,6 +291,16 @@ function migrateRecord(record) {
     verificationRequired: isNullish(record.verificationRequired) ? null : record.verificationRequired,
     manualReview: isNullish(record.manualReview) ? null : record.manualReview,
 
+    // Commercial listing schema. Normalised in memory for every record;
+    // serialisableRecord drops each one again wherever it still holds the
+    // pillar's default, so no existing JSON file is rewritten to carry a null.
+    listingAction: isNullish(record.listingAction)
+      ? SCHEMA.defaultListingAction(record)
+      : record.listingAction,
+    verificationMethods: migrateVerificationMethods(record),
+    ownerResponseSupport: isNullish(record.ownerResponseSupport) ? null : record.ownerResponseSupport,
+    claimUrl: record.claimUrl ?? null,
+
     accepts: migrateAccepts(record),
 
     backlinkType: isNullish(record.backlinkType) ? null : record.backlinkType,
@@ -349,6 +359,15 @@ const WAVE1_DEFAULTED = {
   registryTypes: (v) => Array.isArray(v) && v.length === 0,
   operator: (v) => v === null,
   publicAccess: (v) => v === null,
+
+  // Commercial listing schema. Each key is dropped while it holds the default
+  // for its pillar, which is why adding these fields rewrote no record on disk.
+  // A government record's "not-applicable" and a commercial record's "unknown"
+  // are both derivable from the category, so neither needs storing.
+  listingAction: (v, rec) => v === SCHEMA.defaultListingAction(rec),
+  verificationMethods: (v) => v === null,
+  ownerResponseSupport: (v) => v === null,
+  claimUrl: (v) => v === null,
 };
 
 // Defaults NESTED inside an object field. `covers` is null on every
@@ -359,6 +378,18 @@ const WAVE1_DEFAULTED = {
 const NESTED_DEFAULTED = {
   jurisdiction: { covers: (v) => v === null || v === undefined },
 };
+
+
+// null and [] mean different things here and both must round-trip:
+//   null — the methods were never established
+//   []   — official evidence establishes that no verification is required
+// An array is passed through verbatim so an invalid value REACHES the validator
+// rather than being silently repaired before it can be rejected.
+function migrateVerificationMethods(record) {
+  const v = record.verificationMethods;
+  if (v === undefined || v === null) return null;
+  return Array.isArray(v) ? v.slice() : v;
+}
 
 // The on-disk projection of a normalised record. Round-trips: migrating the
 // output of this function reproduces the same normalised record.
