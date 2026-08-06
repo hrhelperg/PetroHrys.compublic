@@ -1676,3 +1676,115 @@ have made the manifests — and the country pages derived from them — state
 coverage figures that are not true. Both tests assert the pillar filter is
 load-bearing, so deleting every commercial record cannot silently restore the old
 behaviour.
+
+---
+
+## Wave 1C — United States, Layer A (national commercial directories)
+
+**25 candidates researched · 2 published · 23 unpublished.**
+
+The number is small and the reason is structural, not editorial. Reachability
+shaped earlier waves; the operator gate shaped Waves 1B.7–1B.9; this wave was
+shaped by something new — **most of the brief's national targets already exist in
+the dataset as `global` records.**
+
+### Published
+
+| Platform | Operator | Action | Cost | Notes |
+|---|---|---|---|---|
+| MerchantCircle | Buyerlink Inc. | **claim** | freemium | First claim-only record in the dataset |
+| Alignable | Alignable Corporation | create | **unknown** | Networking platform with public city directories |
+
+### The global-overlap finding
+
+Eight of the brief's twenty-five national targets **already exist as `global`
+records**: Yelp, Google Business Profile, Trustpilot, Foursquare, Clutch, G2,
+Capterra and Software Advice. Republishing them under `united-states` would
+create duplicates on every test in the duplicate rules — same dashboard, same
+listing, same profile. They were left as single records.
+
+All eight are also **pre-contract**: `operator: null`, `listingAction: unknown`.
+So are the other 45 `global` records — 53 in total, none carrying an operator.
+
+**This is a remediation problem, not a US-coverage problem**, and it is the
+single highest-value item outstanding in Pillar B. Yelp, Google Business Profile
+and Trustpilot are the three platforms most likely to be the actual answer to
+"where should a US business create a profile", and every substantive field on
+them currently reads `unknown`.
+
+Research already gathered toward that remediation, quotations verified:
+
+- **Yelp** — operator `Yelp Inc.` (*"Copyright © 2004–2026 Yelp Inc."*). Free
+  tier documented: *"It's free to be on Yelp"*, with a pricing page listing
+  **Free** against *"Gain access to 20+ free features"*. Claim route documented
+  in the operator's own guide, *"The simple steps to claiming your Yelp Page"*.
+- **Trustpilot** — paid plans from **€79/month**, and *"All contracts are a
+  12-month commitment"*. *"Respond to reviews"* is a documented feature.
+
+Neither was remediated here. Half-remediating a 53-record layer would make
+`unknown` ambiguous — researched-and-unknown versus never-researched — and a test
+now pins that all 53 stay untouched until a dedicated wave does the whole layer.
+
+### Rejected, with reasons
+
+| Platform | Finding |
+|---|---|
+| **Porch** | **Pivoted to insurance.** The `/pros` directory pages still render, but the page's own `<title>` is *"Porch \| A new kind of home insurance"*, the only signup route on it is `insurance/agent/signup`, and every "claim" link is an insurance or warranty claim. No professional onboarding exists. A directory a business cannot join is not a listing opportunity. Re-verified on an independent fetch. |
+| **Chamber of Commerce** | Names **no legal entity anywhere**; its entire footer is *"© 2026 - CHAMBEROFCOMMERCE.COM"*. A domain is not a company. Its `/members/add-business` route is additionally behind a Cloudflare challenge. Same failure mode as MisterWhat in the UK. |
+| **Dun & Bradstreet** | **Wrong pillar** — a credit and company-data product, not a platform where a business publishes a profile. Same call already made for eInforma in Spain. It also geo-routes: requests from this location land on `/cs-cz/`. |
+| **Brownbook** | Already rejected under the search-marketing rule; unchanged. |
+
+### Browser queue
+
+Every entry below is **blocked, not absent**.
+
+| # | Platform | URL | Blocker | Exact browser action | Facts to observe | Publication depends on it? |
+|---|---|---|---|---|---|---|
+| 1 | **Yellow Pages US** | `https://www.yellowpages.com/` | 403 | Open the free-listing/advertise page and legal pages | operator, listing action, base cost, reviews, owner responses | **Yes** — largest US directory brand |
+| 2 | **Better Business Bureau** | `https://www.bbb.org/` | 403 | Open "Get Accredited" and the business-profile claim flow | operator, accreditation vs free profile, cost, claim route | **Yes** — also remediates the existing `us-bbb` record |
+| 3 | **Manta** | `https://www.manta.com/` | 403 | Open add/claim business and terms | operator, action, cost | Yes |
+| 4 | **Angi** | `https://www.angi.com/` | 403 | Open the pro signup and terms | operator, action, cost, reviews | Yes |
+| 5 | **Thumbtack** | `https://www.thumbtack.com/` | Bot challenge (202, *"we need to verify that you're not a robot"*) | Open pro signup and terms | operator, action, cost | Yes |
+| 6 | **Houzz** | `https://www.houzz.com/professionals` | JS "Client Challenge" | Open the Houzz Pro signup | listing action, cost, reviews, owner responses | Partly — operator already known (**Houzz Inc.**) |
+| 7 | **Nextdoor Business** | `https://business.nextdoor.com/` | `legal.nextdoor.com` returns 401 | Open the legal/terms page for the operating entity | **legal operator entity** | **Yes** — create and claim already evidenced, operator is the only gap |
+| 8 | **Hotfrog US** | `https://www.hotfrog.com/` | 403 | Open add-business and terms | operator, action, cost; also test whether Hotfrog US/UK/CA are one system | Yes |
+| 9 | **Cylex US** | `https://www.cylex.us.com/` | 403 | Open add-business and terms | operator, action, cost | Yes |
+| 10 | **EZlocal** | `https://www.ezlocal.com/` | 403 | Open add-business and terms | operator, action, cost | No |
+| 11 | **Local.com** | `https://www.local.com/` | 503 / no response on two passes | Load in a browser; confirm the product still exists | current status, operator | No |
+| 12 | **Chamber of Commerce** | `https://www.chamberofcommerce.com/members/add-business` | Cloudflare challenge | Open add-business; look for any legal entity in terms or checkout | **legal operator entity**, action, cost | Yes |
+
+### Evidence notes worth keeping
+
+**MerchantCircle — a free profile carries competitors' advertising.** The paid
+tier's selling point is *"Remove competitor ads from your listing"* and *"No ads
+on your page - consumers will focus only on you!"*. That is a plain statement
+about what the free tier looks like, published as a limitation.
+
+**MerchantCircle — verification is sold, not performed.** *"Receive a verified
+Badge"* is a paid-tier feature. A purchased badge is not evidence that the
+operator checked anything, so `verificationMethods` stays `null`.
+
+**MerchantCircle — the first claim-only record.** The documented call to action
+is *"Claim my business"*. No route exists for registering a business absent from
+the database, and an account system is not one. `listingAction: claim`.
+
+**Alignable — cost genuinely unknown.** Joining is presented only as *"Join
+Today"*, there is no pricing page, and the premium tier offers *"Try for Free"*.
+A free account is not a free listing and a free trial is not a free listing, so
+the value stays `unknown` rather than being rounded to free.
+
+**Alignable — a network, not a consumer directory.** Its own profile reads
+*"Alignable is the networking platform for businesses."* Public city directories
+do exist and were confirmed directly, but entries are person-led. A reader
+deciding where to list needs to know a profile here reaches peers, not searchers.
+
+### Wave 1C.1 — Top 20 states, scoping note
+
+One finding bears directly on the state programme: **chamberofcommerce.com
+already publishes a full `/business-directory/<state>/` tree for all fifty
+states.** That is a national platform with state *views*, not fifty state
+directories — precisely the distinction Wave 1C.1 has to draw. Expect the same
+pattern from Yellow Pages, Manta and Hotfrog. The state layer's real yield will
+be chamber-operated and regional portals that have no national parent, and the
+honest expectation is that a substantial number of the twenty states produce
+nothing publishable.
