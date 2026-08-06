@@ -216,7 +216,7 @@ const ACTION_EVIDENCE = {
   // profile", "creating an entry"), and accept "entry" — the standard word in
   // German directories. An earlier version required the noun to follow the
   // article directly and rejected prose that plainly stated the create flow.
-  create: /creat\w+ (a |an )?(new )?(\w+ )?(profile|listing|account|page|entry)|add (your|a) (business|listing|profile|entry)|submit/i,
+  create: /creat\w+ (a |an )?(new )?(\w+ )?(profile|listing|account|page|entry|company)|add(ing)? (your|a|an) (business|listing|profile|entry|company)|submit/i,
   claim: /claim/i,
   'create-and-claim': /claim/i,
   'invite-only': /invit/i,

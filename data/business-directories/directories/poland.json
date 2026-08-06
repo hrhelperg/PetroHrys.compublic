@@ -1152,5 +1152,265 @@
       "No search was executed during verification, so result content and any limits were not observed and none is asserted."
     ],
     "editorNotes": "Verified 2026-08-06 by navigating from the chamber’s own site, and re-verified in a separate direct adversarial pass. The page states it is the \"Oficjalna i na bieżąco aktualizowana lista doradców podatkowych\", that a reader can check \"czy osoba podająca się za doradcę podatkowego posiada wymagane prawem uprawnienia do wykonywania tego zawodu\", and that \"Warunkiem wykonywania czynności doradztwa podatkowego jest posiadanie numeru wpisu na listę.\" It warns: \"Kto, nie będąc uprawniony, wykonuje czynności doradztwa podatkowego, podlega grzywnie do 50 000 zł\", citing \"Art. 81 ustawy z dnia 5 lipca 1996 r. o doradztwie podatkowym\". Sixteen regional chambers are selectable. FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: Entry on the list of tax advisers under the Tax Advisory Act of 5 July 1996; the chamber enters and publishes. RESPONSIBLE AUTHORITY: Krajowa Izba Doradców Podatkowych, a public-law professional self-government body. TECHNICAL PLATFORM: Not separately established. Served from the chamber’s own kidp.pl domain. PUBLIC ACCESS INTERFACE: The public list search at kidp.pl, behind a privacy-policy acknowledgement. Rejected as a separate record: the chamber’s \"Rejestr podmiotów uprawnionych\" is published as a static PDF download, not a searchable register, and is recorded here as a limitation of this record rather than as a system of its own."
+  },
+  {
+    "id": "pl-panorama-firm",
+    "name": "Panorama Firm",
+    "slug": "panorama-firm",
+    "country": "poland",
+    "category": "local-business",
+    "website": "https://panoramafirm.pl/",
+    "submissionUrl": "https://panoramafirm.pl/dodaj-firme.html",
+    "description": "A Polish business directory in the WeNet group. Adding a company is free, and the form offers two distinct routes — one for the business owner and one for a customer adding a company they used — so entries do not all originate with the business they name.",
+    "tier": "tier1",
+    "scope": "national",
+    "nativeName": "Panorama Firm",
+    "operator": {
+      "name": "WeNet",
+      "type": "other",
+      "officialUrl": "https://wenet.pl/"
+    },
+    "petroHrysScore": 61,
+    "scoreFactors": {
+      "editorialTrust": 6,
+      "businessUsefulness": 7,
+      "verificationQuality": 4,
+      "platformReputation": 7,
+      "spamResistance": 4,
+      "industryImportance": 7,
+      "longTermStability": 7,
+      "submissionQuality": 8,
+      "transparency": 5,
+      "moderationQuality": 5
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "free",
+    "registrationRequired": null,
+    "reviewSystem": true,
+    "verificationRequired": null,
+    "manualReview": null,
+    "listingAction": "create",
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": true,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-06",
+    "nextVerification": "2027-05-08",
+    "verification": {
+      "status": "verified",
+      "source": "official-documentation",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "pl-pkt"
+      ],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Polish businesses wanting a free national directory entry.",
+      "Adding a Polish local citation quickly, without an account."
+    ],
+    "notRecommendedFor": [
+      "Businesses that need control over who created their entry. A customer can add a company they used.",
+      "Anyone treating an entry as verified data. Nothing about verification is documented."
+    ],
+    "submissionDifficulty": "easy",
+    "listingQuality": null,
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "local-services",
+      "retail",
+      "professional-services"
+    ],
+    "editorialTags": [
+      "business-directory",
+      "commercial-platform"
+    ],
+    "pros": [
+      "Adding a company is free and stated as such: “Dodaj firmę bezpłatnie”.",
+      "The operator describes what the business gets in return — “darmową wizytówkę swojego biznesu w Internecie” — rather than leaving the offer vague.",
+      "Profiles carry opinions, so the directory supports reputation as well as lookup.",
+      "The submission route is a plain form at a stable address."
+    ],
+    "cons": [
+      "The submission form asks whether you are the owner or a user — “Jestem: Właścicielem / Użytkownikiem” — so a third party who used a business can add it. An entry is not evidence that the named business created or approved it.",
+      "Creating an entry is confirmed; claiming an existing third-party entry is not documented, so no claim flow is asserted.",
+      "Nothing about verification is documented, so it is not asserted. Combined with third-party submission, entry data should be treated as unverified.",
+      "Opinions appear on profiles, but whether a business can respond to them is not documented and is not asserted.",
+      "The operating company is identified only through footer links to WeNet properties rather than a naming statement on the directory itself."
+    ],
+    "editorNotes": "Verified 2026-08-06 from the directory and its own submission form, and re-verified in a separate direct pass in which “Dodaj firmę bezpłatnie”, “Właścicielem” and “darmową wizytówkę” were each present in the served pages. PLATFORM OPERATOR: WeNet. The directory footer links to wenet.pl properties and a WeNet Club; the group is not named in a statement on the directory itself, which is why the operator is recorded under the group brand rather than a specific company. LISTING CONTROL: Either the business owner or a customer may add a company, which the form asks explicitly. MODERATION AUTHORITY: Not documented by the operator. PUBLIC INTERFACE: panoramafirm.pl, with the submission form at /dodaj-firme.html. DUPLICATE DECISION: kept separate from pkt.pl even though both sit in the WeNet group. Ownership is not evidence of one system: the two run different submission forms on different domains, pkt.pl carries its own site terms, and neither states that a submission reaches the other. Shared group ownership is disclosed in prose instead. NOT ASSERTED: verification, owner responses, claim flow, indexability, link attributes, traffic."
+  },
+  {
+    "id": "pl-pkt",
+    "name": "pkt.pl",
+    "slug": "pkt-pl",
+    "country": "poland",
+    "category": "local-business",
+    "website": "https://www.pkt.pl/",
+    "submissionUrl": "https://www.pkt.pl/dodaj-aktualizuj-dane-firmy",
+    "description": "A Polish business database operated by WeNet Group S.A. Its single form covers both adding a company and updating an existing entry, and adding is free. The form requires JavaScript.",
+    "tier": "tier1",
+    "scope": "national",
+    "nativeName": "pkt.pl",
+    "operator": {
+      "name": "WeNet Group S.A.",
+      "type": "other",
+      "officialUrl": "https://wenet.pl/"
+    },
+    "petroHrysScore": 61,
+    "scoreFactors": {
+      "editorialTrust": 6,
+      "businessUsefulness": 7,
+      "verificationQuality": 4,
+      "platformReputation": 7,
+      "spamResistance": 5,
+      "industryImportance": 7,
+      "longTermStability": 7,
+      "submissionQuality": 7,
+      "transparency": 6,
+      "moderationQuality": 5
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "free",
+    "registrationRequired": null,
+    "reviewSystem": true,
+    "verificationRequired": null,
+    "manualReview": null,
+    "listingAction": "create",
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": true,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-06",
+    "nextVerification": "2027-05-09",
+    "verification": {
+      "status": "verified",
+      "source": "official-documentation",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "pl-panorama-firm"
+      ],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Polish businesses wanting a second national directory entry alongside Panorama Firm.",
+      "Correcting company data already held in the database, which the same form covers."
+    ],
+    "notRecommendedFor": [
+      "Anyone expecting a submission here to also reach Panorama Firm. Both are WeNet properties, but neither states that an entry reaches the other.",
+      "Users without JavaScript. The submission form states that it is required."
+    ],
+    "submissionDifficulty": "easy",
+    "listingQuality": null,
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "local-services",
+      "retail",
+      "professional-services"
+    ],
+    "editorialTags": [
+      "business-directory",
+      "commercial-platform"
+    ],
+    "pros": [
+      "The operating company is named directly in the form’s consent text — WeNet Group S.A. and WeNet Sp. z o.o. — which is unusually explicit for a directory.",
+      "One route covers both cases: the page is titled “Chcesz dodać lub aktualizować dane firmy na pkt.pl?”, so correcting existing data does not require a different journey.",
+      "Adding a company is free and stated as such: “Dodaj firmę bezpłatnie”.",
+      "The database indexes opinions alongside addresses and telephone numbers."
+    ],
+    "cons": [
+      "The form covers updating an existing entry, but updating data is not the same as taking ownership of a profile, so no claim flow is asserted.",
+      "The submission form requires JavaScript and says so, which makes it unusable without a scripted browser.",
+      "The operator promotes better Google positioning as a benefit of listing. That is the operator’s marketing claim, and no ranking, indexing or traffic outcome is asserted by this record.",
+      "Nothing about verification is documented, so it is not asserted.",
+      "Opinions appear in the database, but whether a business can respond to them is not documented and is not asserted."
+    ],
+    "editorNotes": "Verified 2026-08-06 from the database and its own submission page, and re-verified in a separate direct pass in which “dodać lub aktualizować dane firmy”, “WeNet Group S.A.” and “Dodaj firmę bezpłatnie” were each present in the served pages. PLATFORM OPERATOR: WeNet Group S.A., named directly in the submission form’s consent text alongside WeNet Sp. z o.o. LISTING CONTROL: A business adds or updates its own data through one form. MODERATION AUTHORITY: Not documented by the operator. PUBLIC INTERFACE: pkt.pl, with the add-or-update form at /dodaj-aktualizuj-dane-firmy. DUPLICATE DECISION: kept separate from Panorama Firm despite shared WeNet group ownership. Different domains, different submission forms, and pkt.pl carries its own site terms. Ownership is not evidence that businesses manage one shared profile, and no operator states that a submission reaches both. MARKETING CLAIM NOT ADOPTED: the submission page promotes “Wyższa pozycja w Google”. That is promotional copy, not documentation, and no SEO outcome is asserted anywhere in this record. NOT ASSERTED: verification, owner responses, claim flow, indexability, link attributes, traffic."
   }
 ]
