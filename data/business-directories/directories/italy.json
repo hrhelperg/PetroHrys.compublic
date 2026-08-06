@@ -1044,6 +1044,12 @@
     "verificationRequired": null,
     "manualReview": null,
     "listingAction": "create",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "priority": "P1",
+    "currentStatus": "active",
+    "publicProfileAvailable": true,
     "accepts": {
       "startup": null,
       "saas": null,

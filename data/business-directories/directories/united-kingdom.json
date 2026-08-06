@@ -4028,6 +4028,12 @@
     "manualReview": null,
     "listingAction": "create",
     "ownerResponseSupport": true,
+    "audienceGeography": [
+      "united-kingdom"
+    ],
+    "priority": "P1",
+    "currentStatus": "active",
+    "publicProfileAvailable": true,
     "accepts": {
       "startup": null,
       "saas": null,
@@ -4162,6 +4168,12 @@
     "verificationRequired": null,
     "manualReview": null,
     "listingAction": "create",
+    "audienceGeography": [
+      "united-kingdom"
+    ],
+    "priority": "P2",
+    "currentStatus": "active",
+    "publicProfileAvailable": true,
     "accepts": {
       "startup": null,
       "saas": null,
@@ -4298,6 +4310,12 @@
     "verificationMethods": [
       "email"
     ],
+    "audienceGeography": [
+      "united-kingdom"
+    ],
+    "priority": "P2",
+    "currentStatus": "active",
+    "publicProfileAvailable": true,
     "accepts": {
       "startup": null,
       "saas": null,
@@ -4433,6 +4451,12 @@
     "verificationRequired": null,
     "manualReview": true,
     "listingAction": "create",
+    "audienceGeography": [
+      "united-kingdom"
+    ],
+    "priority": "P2",
+    "currentStatus": "active",
+    "publicProfileAvailable": true,
     "accepts": {
       "startup": null,
       "saas": null,
@@ -4567,6 +4591,12 @@
     "verificationRequired": null,
     "manualReview": null,
     "listingAction": "create",
+    "audienceGeography": [
+      "united-kingdom"
+    ],
+    "priority": "P3",
+    "currentStatus": "active",
+    "publicProfileAvailable": true,
     "accepts": {
       "startup": null,
       "saas": null,

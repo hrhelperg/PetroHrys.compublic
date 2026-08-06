@@ -2696,6 +2696,12 @@
     "verificationRequired": null,
     "manualReview": null,
     "listingAction": "create",
+    "audienceGeography": [
+      "canada"
+    ],
+    "priority": "P1",
+    "currentStatus": "active",
+    "publicProfileAvailable": true,
     "accepts": {
       "startup": null,
       "saas": null,
@@ -2828,6 +2834,12 @@
     "verificationRequired": false,
     "manualReview": null,
     "listingAction": "create",
+    "audienceGeography": [
+      "canada"
+    ],
+    "priority": "P3",
+    "currentStatus": "active",
+    "publicProfileAvailable": true,
     "accepts": {
       "startup": null,
       "saas": null,

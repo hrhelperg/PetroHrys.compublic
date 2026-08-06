@@ -42,6 +42,11 @@
     "reviewSystem": false,
     "verificationRequired": false,
     "manualReview": false,
+    "audienceGeography": [
+      "global"
+    ],
+    "priority": "P2",
+    "currentStatus": "unknown",
     "accepts": {
       "startup": true,
       "saas": null,
@@ -164,6 +169,11 @@
     "reviewSystem": true,
     "verificationRequired": false,
     "manualReview": false,
+    "audienceGeography": [
+      "global"
+    ],
+    "priority": "P1",
+    "currentStatus": "active",
     "accepts": {
       "startup": null,
       "saas": true,
@@ -289,6 +299,11 @@
     "reviewSystem": true,
     "verificationRequired": true,
     "manualReview": false,
+    "audienceGeography": [
+      "global"
+    ],
+    "priority": "P1",
+    "currentStatus": "active",
     "accepts": {
       "startup": null,
       "saas": null,
@@ -408,6 +423,11 @@
     "reviewSystem": true,
     "verificationRequired": true,
     "manualReview": true,
+    "audienceGeography": [
+      "global"
+    ],
+    "priority": "P1",
+    "currentStatus": "unknown",
     "accepts": {
       "startup": null,
       "saas": true,
@@ -540,6 +560,11 @@
     "reviewSystem": true,
     "verificationRequired": true,
     "manualReview": true,
+    "audienceGeography": [
+      "global"
+    ],
+    "priority": "P2",
+    "currentStatus": "unknown",
     "accepts": {
       "startup": null,
       "saas": true,
@@ -670,6 +695,11 @@
     "reviewSystem": true,
     "verificationRequired": false,
     "manualReview": true,
+    "audienceGeography": [
+      "global"
+    ],
+    "priority": "P2",
+    "currentStatus": "unknown",
     "accepts": {
       "startup": null,
       "saas": true,
@@ -791,6 +821,11 @@
     "reviewSystem": true,
     "verificationRequired": true,
     "manualReview": true,
+    "audienceGeography": [
+      "global"
+    ],
+    "priority": "P1",
+    "currentStatus": "unknown",
     "accepts": {
       "startup": null,
       "saas": null,
@@ -910,6 +945,11 @@
     "reviewSystem": true,
     "verificationRequired": true,
     "manualReview": true,
+    "audienceGeography": [
+      "global"
+    ],
+    "priority": "P2",
+    "currentStatus": "unknown",
     "accepts": {
       "startup": null,
       "saas": null,
@@ -1029,6 +1069,11 @@
     "reviewSystem": false,
     "verificationRequired": true,
     "manualReview": true,
+    "audienceGeography": [
+      "global"
+    ],
+    "priority": "P1",
+    "currentStatus": "active",
     "accepts": {
       "startup": true,
       "saas": null,
@@ -1147,6 +1192,11 @@
     "reviewSystem": true,
     "verificationRequired": true,
     "manualReview": false,
+    "audienceGeography": [
+      "global"
+    ],
+    "priority": "P1",
+    "currentStatus": "unknown",
     "accepts": {
       "startup": true,
       "saas": true,
@@ -1273,6 +1323,11 @@
     "reviewSystem": false,
     "verificationRequired": true,
     "manualReview": false,
+    "audienceGeography": [
+      "global"
+    ],
+    "priority": "P2",
+    "currentStatus": "active",
     "accepts": {
       "startup": true,
       "saas": null,
@@ -1391,6 +1446,11 @@
     "reviewSystem": true,
     "verificationRequired": true,
     "manualReview": true,
+    "audienceGeography": [
+      "global"
+    ],
+    "priority": "P2",
+    "currentStatus": "active",
     "accepts": {
       "startup": null,
       "saas": true,
@@ -1511,6 +1571,11 @@
     "reviewSystem": null,
     "verificationRequired": true,
     "manualReview": true,
+    "audienceGeography": [
+      "global"
+    ],
+    "priority": "P2",
+    "currentStatus": "active",
     "accepts": {
       "startup": null,
       "saas": true,
@@ -1630,6 +1695,11 @@
     "reviewSystem": null,
     "verificationRequired": true,
     "manualReview": true,
+    "audienceGeography": [
+      "global"
+    ],
+    "priority": "P2",
+    "currentStatus": "active",
     "accepts": {
       "startup": null,
       "saas": true,
@@ -1747,6 +1817,11 @@
     "reviewSystem": null,
     "verificationRequired": true,
     "manualReview": true,
+    "audienceGeography": [
+      "global"
+    ],
+    "priority": "P2",
+    "currentStatus": "unknown",
     "accepts": {
       "startup": null,
       "saas": true,
@@ -1867,6 +1942,11 @@
     "reviewSystem": true,
     "verificationRequired": true,
     "manualReview": true,
+    "audienceGeography": [
+      "global"
+    ],
+    "priority": "P2",
+    "currentStatus": "active",
     "accepts": {
       "startup": null,
       "saas": null,
@@ -1985,6 +2065,11 @@
     "reviewSystem": true,
     "verificationRequired": true,
     "manualReview": true,
+    "audienceGeography": [
+      "global"
+    ],
+    "priority": "P3",
+    "currentStatus": "active",
     "accepts": {
       "startup": null,
       "saas": null,
@@ -2103,6 +2188,11 @@
     "reviewSystem": false,
     "verificationRequired": true,
     "manualReview": null,
+    "audienceGeography": [
+      "global"
+    ],
+    "priority": "P2",
+    "currentStatus": "active",
     "accepts": {
       "startup": null,
       "saas": false,
@@ -2224,6 +2314,11 @@
     "reviewSystem": false,
     "verificationRequired": true,
     "manualReview": null,
+    "audienceGeography": [
+      "global"
+    ],
+    "priority": "P3",
+    "currentStatus": "active",
     "accepts": {
       "startup": null,
       "saas": null,
@@ -2342,6 +2437,11 @@
     "reviewSystem": false,
     "verificationRequired": true,
     "manualReview": null,
+    "audienceGeography": [
+      "global"
+    ],
+    "priority": "P3",
+    "currentStatus": "active",
     "accepts": {
       "startup": null,
       "saas": null,
@@ -2460,6 +2560,11 @@
     "reviewSystem": false,
     "verificationRequired": true,
     "manualReview": null,
+    "audienceGeography": [
+      "global"
+    ],
+    "priority": "P3",
+    "currentStatus": "unknown",
     "accepts": {
       "startup": null,
       "saas": null,
@@ -2579,6 +2684,11 @@
     "reviewSystem": false,
     "verificationRequired": true,
     "manualReview": null,
+    "audienceGeography": [
+      "global"
+    ],
+    "priority": "P3",
+    "currentStatus": "active",
     "accepts": {
       "startup": null,
       "saas": null,
@@ -2697,6 +2807,11 @@
     "reviewSystem": false,
     "verificationRequired": true,
     "manualReview": null,
+    "audienceGeography": [
+      "global"
+    ],
+    "priority": "P3",
+    "currentStatus": "active",
     "accepts": {
       "startup": null,
       "saas": null,
@@ -2815,6 +2930,11 @@
     "reviewSystem": false,
     "verificationRequired": true,
     "manualReview": null,
+    "audienceGeography": [
+      "global"
+    ],
+    "priority": "P3",
+    "currentStatus": "active",
     "accepts": {
       "startup": null,
       "saas": null,
@@ -2934,6 +3054,11 @@
     "reviewSystem": false,
     "verificationRequired": true,
     "manualReview": null,
+    "audienceGeography": [
+      "global"
+    ],
+    "priority": "P3",
+    "currentStatus": "active",
     "accepts": {
       "startup": null,
       "saas": null,
@@ -3053,6 +3178,11 @@
     "reviewSystem": null,
     "verificationRequired": true,
     "manualReview": null,
+    "audienceGeography": [
+      "global"
+    ],
+    "priority": "P2",
+    "currentStatus": "active",
     "accepts": {
       "startup": null,
       "saas": true,
@@ -3171,6 +3301,11 @@
     "reviewSystem": null,
     "verificationRequired": true,
     "manualReview": null,
+    "audienceGeography": [
+      "global"
+    ],
+    "priority": "P3",
+    "currentStatus": "active",
     "accepts": {
       "startup": null,
       "saas": null,
@@ -3290,6 +3425,11 @@
     "reviewSystem": null,
     "verificationRequired": true,
     "manualReview": null,
+    "audienceGeography": [
+      "global"
+    ],
+    "priority": "P3",
+    "currentStatus": "active",
     "accepts": {
       "startup": null,
       "saas": null,
@@ -3407,6 +3547,11 @@
     "reviewSystem": null,
     "verificationRequired": true,
     "manualReview": null,
+    "audienceGeography": [
+      "global"
+    ],
+    "priority": "P3",
+    "currentStatus": "active",
     "accepts": {
       "startup": null,
       "saas": false,
@@ -3526,6 +3671,11 @@
     "reviewSystem": null,
     "verificationRequired": true,
     "manualReview": null,
+    "audienceGeography": [
+      "global"
+    ],
+    "priority": "P2",
+    "currentStatus": "active",
     "accepts": {
       "startup": null,
       "saas": null,
@@ -3642,6 +3792,11 @@
     "reviewSystem": null,
     "verificationRequired": true,
     "manualReview": null,
+    "audienceGeography": [
+      "global"
+    ],
+    "priority": "P2",
+    "currentStatus": "active",
     "accepts": {
       "startup": null,
       "saas": null,
@@ -3757,6 +3912,11 @@
     "reviewSystem": true,
     "verificationRequired": true,
     "manualReview": null,
+    "audienceGeography": [
+      "global"
+    ],
+    "priority": "P2",
+    "currentStatus": "active",
     "accepts": {
       "startup": null,
       "saas": true,
@@ -3877,6 +4037,11 @@
     "reviewSystem": null,
     "verificationRequired": true,
     "manualReview": null,
+    "audienceGeography": [
+      "global"
+    ],
+    "priority": "P2",
+    "currentStatus": "active",
     "accepts": {
       "startup": null,
       "saas": true,
@@ -3995,6 +4160,11 @@
     "reviewSystem": null,
     "verificationRequired": true,
     "manualReview": null,
+    "audienceGeography": [
+      "global"
+    ],
+    "priority": "P3",
+    "currentStatus": "active",
     "accepts": {
       "startup": null,
       "saas": null,
@@ -4113,6 +4283,11 @@
     "reviewSystem": true,
     "verificationRequired": true,
     "manualReview": null,
+    "audienceGeography": [
+      "global"
+    ],
+    "priority": "P3",
+    "currentStatus": "active",
     "accepts": {
       "startup": null,
       "saas": null,
@@ -4229,6 +4404,11 @@
     "reviewSystem": true,
     "verificationRequired": true,
     "manualReview": null,
+    "audienceGeography": [
+      "global"
+    ],
+    "priority": "P2",
+    "currentStatus": "unknown",
     "accepts": {
       "startup": null,
       "saas": true,
@@ -4357,6 +4537,11 @@
     "reviewSystem": true,
     "verificationRequired": true,
     "manualReview": null,
+    "audienceGeography": [
+      "global"
+    ],
+    "priority": "P2",
+    "currentStatus": "active",
     "accepts": {
       "startup": null,
       "saas": true,
@@ -4479,6 +4664,11 @@
     "reviewSystem": true,
     "verificationRequired": null,
     "manualReview": null,
+    "audienceGeography": [
+      "global"
+    ],
+    "priority": "P3",
+    "currentStatus": "unknown",
     "accepts": {
       "startup": null,
       "saas": true,
@@ -4595,6 +4785,11 @@
     "reviewSystem": true,
     "verificationRequired": null,
     "manualReview": null,
+    "audienceGeography": [
+      "global"
+    ],
+    "priority": "P2",
+    "currentStatus": "unknown",
     "accepts": {
       "startup": null,
       "saas": true,
@@ -4712,6 +4907,11 @@
     "reviewSystem": true,
     "verificationRequired": null,
     "manualReview": null,
+    "audienceGeography": [
+      "global"
+    ],
+    "priority": "P3",
+    "currentStatus": "active",
     "accepts": {
       "startup": true,
       "saas": true,
@@ -4828,6 +5028,11 @@
     "reviewSystem": false,
     "verificationRequired": null,
     "manualReview": null,
+    "audienceGeography": [
+      "global"
+    ],
+    "priority": "P3",
+    "currentStatus": "active",
     "accepts": {
       "startup": null,
       "saas": null,
@@ -4945,6 +5150,11 @@
     "reviewSystem": false,
     "verificationRequired": true,
     "manualReview": null,
+    "audienceGeography": [
+      "global"
+    ],
+    "priority": "P2",
+    "currentStatus": "active",
     "accepts": {
       "startup": null,
       "saas": null,
@@ -5062,6 +5272,11 @@
     "reviewSystem": false,
     "verificationRequired": true,
     "manualReview": null,
+    "audienceGeography": [
+      "global"
+    ],
+    "priority": "P2",
+    "currentStatus": "active",
     "accepts": {
       "startup": null,
       "saas": true,
@@ -5194,6 +5409,11 @@
     "reviewSystem": null,
     "verificationRequired": true,
     "manualReview": null,
+    "audienceGeography": [
+      "global"
+    ],
+    "priority": "P3",
+    "currentStatus": "active",
     "accepts": {
       "startup": null,
       "saas": null,
@@ -5322,6 +5542,11 @@
     "reviewSystem": false,
     "verificationRequired": null,
     "manualReview": null,
+    "audienceGeography": [
+      "global"
+    ],
+    "priority": "P3",
+    "currentStatus": "active",
     "accepts": {
       "startup": null,
       "saas": null,
@@ -5446,6 +5671,11 @@
     "reviewSystem": false,
     "verificationRequired": true,
     "manualReview": null,
+    "audienceGeography": [
+      "global"
+    ],
+    "priority": "P2",
+    "currentStatus": "active",
     "accepts": {
       "startup": true,
       "saas": null,
@@ -5572,6 +5802,12 @@
     "reviewSystem": false,
     "verificationRequired": true,
     "manualReview": true,
+    "audienceGeography": [
+      "europe",
+      "global"
+    ],
+    "priority": "P3",
+    "currentStatus": "active",
     "accepts": {
       "startup": null,
       "saas": null,
@@ -5696,6 +5932,12 @@
     "reviewSystem": false,
     "verificationRequired": true,
     "manualReview": true,
+    "audienceGeography": [
+      "europe",
+      "global"
+    ],
+    "priority": "P3",
+    "currentStatus": "active",
     "accepts": {
       "startup": null,
       "saas": null,
@@ -5820,6 +6062,12 @@
     "reviewSystem": false,
     "verificationRequired": true,
     "manualReview": true,
+    "audienceGeography": [
+      "global",
+      "north-america"
+    ],
+    "priority": "P2",
+    "currentStatus": "active",
     "accepts": {
       "startup": true,
       "saas": true,
@@ -5934,6 +6182,11 @@
     "reviewSystem": false,
     "verificationRequired": null,
     "manualReview": null,
+    "audienceGeography": [
+      "global"
+    ],
+    "priority": "P2",
+    "currentStatus": "unknown",
     "accepts": {
       "startup": null,
       "saas": null,
@@ -6053,6 +6306,11 @@
     "reviewSystem": true,
     "verificationRequired": true,
     "manualReview": null,
+    "audienceGeography": [
+      "global"
+    ],
+    "priority": "P1",
+    "currentStatus": "active",
     "accepts": {
       "startup": null,
       "saas": null,
@@ -6172,6 +6430,11 @@
     "reviewSystem": false,
     "verificationRequired": false,
     "manualReview": null,
+    "audienceGeography": [
+      "global"
+    ],
+    "priority": "P3",
+    "currentStatus": "unknown",
     "accepts": {
       "startup": null,
       "saas": null,
@@ -6290,6 +6553,11 @@
     "reviewSystem": true,
     "verificationRequired": true,
     "manualReview": true,
+    "audienceGeography": [
+      "global"
+    ],
+    "priority": "P1",
+    "currentStatus": "unknown",
     "accepts": {
       "startup": null,
       "saas": true,
@@ -6417,6 +6685,14 @@
     "verificationRequired": null,
     "manualReview": null,
     "listingAction": "create",
+    "audienceGeography": [
+      "dach",
+      "europe",
+      "global"
+    ],
+    "priority": "P2",
+    "currentStatus": "active",
+    "publicProfileAvailable": true,
     "accepts": {
       "startup": null,
       "saas": true,

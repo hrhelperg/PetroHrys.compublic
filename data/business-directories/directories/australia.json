@@ -1929,6 +1929,12 @@
       "email",
       "phone"
     ],
+    "audienceGeography": [
+      "australia"
+    ],
+    "priority": "P1",
+    "currentStatus": "active",
+    "publicProfileAvailable": true,
     "accepts": {
       "startup": null,
       "saas": null,
