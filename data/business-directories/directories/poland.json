@@ -578,5 +578,148 @@
       "Entries describe proceedings and enforcement outcomes. They are not a credit assessment and do not establish that a debt is currently owed."
     ],
     "editorNotes": "Verified 2026-08-05 from official Polish sources: the Ministry of Justice page for the register on gov.pl, and the text of the Act of 6 December 2018 on the National Register of Debtors fetched from the Sejm’s official ELI service. FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: The register is constituted by ustawa z dnia 6 grudnia 2018 r. o Krajowym Rejestrze Zadłużonych and is kept by the Minister of Justice in an ICT system. Its content originates with the insolvency and restructuring courts and with enforcement bodies — court enforcement officers, tax office heads and social insurance branch directors — which post the entries the Act assigns to them. RESPONSIBLE AUTHORITY: Minister Sprawiedliwości. The ministry’s own page describes the register as a public register kept by the Minister of Justice. TECHNICAL PLATFORM: Not established. No official page fetched names a supplier for the portal application; the host sits behind an Imperva/Incapsula edge, which is a protection layer rather than a disclosed platform operator. PUBLIC ACCESS INTERFACE: The public portal at krz.ms.gov.pl. The ministry’s guidance also describes a second front door at prs.ms.gov.pl, which was not exercised here. Relationships: this register is distinct from the National Court Register, which constitutes companies; the KRS number appears here only as an identifier and a search key. Registry types: insolvency-register because the Act’s core population is restructuring and bankruptcy proceedings, and public-filing-database because the Act also provides for announcements to be made in the register. exclusion-and-debarment-register was considered, because the register discloses proceedings on a ban from conducting business activity, and rejected: that type is for a register whose subject matter is the exclusion itself, and the boundary note excludes court proceedings databases. Access: nothing was observed. An earlier pass held this record back for exactly that reason; it is published now because identity, authority, scope and legal basis are all evidenced, with the access position recorded as unknown rather than guessed — the same treatment already applied to the French national business register."
+  },
+  {
+    "id": "pl-knf-wyszukiwarka-podmiotow",
+    "name": "KNF Wyszukiwarka podmiotów",
+    "slug": "knf-wyszukiwarka-podmiotow",
+    "country": "poland",
+    "category": "government",
+    "website": "https://www.knf.gov.pl/podmioty/wyszukiwarka_podmiotow",
+    "submissionUrl": null,
+    "description": "The Polish Financial Supervision Authority publishes a search over the entities it supervises, with category filters and an option to include entities that have been struck off. The authority states on the search page itself that it does not cover every register it keeps.",
+    "tier": "tier1",
+    "scope": "national",
+    "officialName": "Wyszukiwarka podmiotów Komisji Nadzoru Finansowego",
+    "nativeName": "Wyszukiwarka podmiotów",
+    "englishName": "Entity search",
+    "englishNameSource": "editorial-translation",
+    "primaryRegistryType": "financial-services-register",
+    "registryTypes": [
+      "financial-services-register"
+    ],
+    "operator": {
+      "name": "Komisja Nadzoru Finansowego",
+      "type": "regulator",
+      "officialUrl": "https://www.knf.gov.pl/"
+    },
+    "publicAccess": {
+      "searchUrl": null,
+      "accessLevel": "unknown",
+      "freeToSearch": null,
+      "loginRequired": null,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "The search form was served directly and anonymously, including its category selector and the option to include struck-off entities, but no query was executed, so no result behaviour is asserted and no search URL is published."
+    },
+    "petroHrysScore": 84,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 8,
+      "verificationQuality": 8,
+      "platformReputation": 8,
+      "spamResistance": 10,
+      "industryImportance": 8,
+      "longTermStability": 9,
+      "submissionQuality": 5,
+      "transparency": 9,
+      "moderationQuality": 8
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": true,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-06",
+    "nextVerification": "2027-08-25",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [
+        "pl-krs"
+      ],
+      "competitors": []
+    },
+    "bestFor": [
+      "Checking whether a financial entity is supervised in Poland, including entities that have since been struck off.",
+      "Reaching the Polish supervisor’s own record rather than a commercial reproduction of it."
+    ],
+    "notRecommendedFor": [
+      "Treating a nil result as proof that an entity is unsupervised. The authority states that some of its registers are not covered by this search.",
+      "Company verification, which is the National Court Register rather than a supervisory search."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Financial entities supervised in Poland"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "It is the supervisor’s own search, covering supervised entities across categories in one place.",
+      "It can include entities that have been struck off, so a historical check is possible rather than only a current-status one.",
+      "The authority states the search’s own limits on the search page, rather than leaving a user to assume completeness."
+    ],
+    "cons": [
+      "It is explicitly incomplete. The authority directs users to check registers that this search does not include, so absence here is not absence from supervision.",
+      "No query was executed during verification, so result content, export and any rate limit are unestablished.",
+      "Supervision is not endorsement. An entry says an entity is supervised, not that it is solvent or well conducted."
+    ],
+    "editorNotes": "Verified 2026-08-06 by direct fetch of the search page, and re-verified in a separate direct adversarial pass. FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: The supervisory and authorisation decisions of the Polish Financial Supervision Authority, taken under Polish financial supervision law. The search publishes those; it does not constitute them. RESPONSIBLE AUTHORITY: Komisja Nadzoru Finansowego. TECHNICAL PLATFORM: Not separately established. No external supplier is named on any page fetched. PUBLIC ACCESS INTERFACE: The entity search on the authority’s own site. Completeness, carried into the published text rather than left in these notes: the search page itself tells a user that if the information sought is not found, they should also check registers that are not included in the search engine. That caveat is the single most important thing a reader needs about this system, and the record states it in the cons and in what it is not recommended for. The record deliberately does NOT claim the search covers every register the authority keeps."
   }
 ]

@@ -565,5 +565,147 @@
       "Filing and management run through a separate authenticated area, which was not exercised, so nothing is asserted about it."
     ],
     "editorNotes": "Verified 2026-08-05 from the register’s own portal pages, including its about, legislation and privacy pages. FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: The register is constituted by the Codice del Terzo settore, decreto legislativo 3 luglio 2017, n. 117: the portal states that it is the telematic register established at the Ministry of Labour and Social Policies in implementation of articles 45 and following of that code. Entries are made territorially by the state, regional and provincial offices of the register, established respectively at the ministry, at each region and at the autonomous provinces of Trento and Bolzano. Procedures for registration, deposit of documents and keeping of the register are set by a ministerial decree numbered 106; the portal and the gazette record differ on that decree’s date, so the date is deliberately not asserted here and the code is cited as the constituting instrument instead. RESPONSIBLE AUTHORITY: Ministero del Lavoro e delle Politiche Sociali, which the portal’s privacy notice names as data controller for the register portal and at which the register is established. TECHNICAL PLATFORM: Not established. No supplier is named on any page fetched, and none is asserted. PUBLIC ACCESS INTERFACE: The public portal at servizi.lavoro.gov.it/runts, which offers an entity search and downloadable entity lists alongside a separate authenticated area for filings. Registry type: charity-register, because registration confers or evidences third sector status, which is what the type requires; the boundary note excluding a general company register that happens to include non-profit forms is what keeps this separate from the Italian business register already published. This portal is on a ministry host and shares no hostname with any published Italian record."
+  },
+  {
+    "id": "it-banca-ditalia-albi-elenchi",
+    "name": "Albi ed elenchi di vigilanza",
+    "slug": "banca-ditalia-albi-ed-elenchi",
+    "country": "italy",
+    "category": "government",
+    "website": "https://www.bancaditalia.it/compiti/vigilanza/albi-elenchi/index.html",
+    "submissionUrl": null,
+    "description": "Banca d’Italia publishes the supervisory registers and lists of banks and other financial intermediaries. It states that publication discharges the public-information duties imposed by the Italian banking and financial consolidated acts, and the published data extends beyond the registers themselves to registration and cancellation dates, activities and branches.",
+    "tier": "tier1",
+    "scope": "national",
+    "nativeName": "Albi ed elenchi di vigilanza",
+    "englishName": "Supervisory registers and lists",
+    "englishNameSource": "editorial-translation",
+    "primaryRegistryType": "financial-services-register",
+    "registryTypes": [
+      "financial-services-register"
+    ],
+    "operator": {
+      "name": "Banca d’Italia",
+      "type": "regulator",
+      "officialUrl": "https://www.bancaditalia.it/"
+    },
+    "publicAccess": {
+      "searchUrl": null,
+      "accessLevel": "unknown",
+      "freeToSearch": null,
+      "loginRequired": null,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "The public consultation application was reached anonymously and served without any credential once a session cookie was accepted, which is a meaningful contrast with the separate insurance supervisor’s portal that redirects to a one-time-password login. No query was executed, so no search behaviour, fee or limit is asserted and no search URL is published."
+    },
+    "petroHrysScore": 89,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 9,
+      "verificationQuality": 9,
+      "platformReputation": 9,
+      "spamResistance": 10,
+      "industryImportance": 9,
+      "longTermStability": 9,
+      "submissionQuality": 5,
+      "transparency": 10,
+      "moderationQuality": 8
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": true,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": true,
+      "developer": true,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-06",
+    "nextVerification": "2027-08-25",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [
+        "eu-eba-credit-institutions-register"
+      ],
+      "competitors": []
+    },
+    "bestFor": [
+      "Checking whether a bank or financial intermediary is entered in the Italian supervisory registers, and when it was entered or cancelled.",
+      "Reading the activities and branches recorded for a supervised intermediary, which the publication carries beyond the bare register entries."
+    ],
+    "notRecommendedFor": [
+      "Insurance undertakings and intermediaries, which are supervised by the insurance authority and are not in these registers.",
+      "Treating entry as a statement about an intermediary’s soundness. It records authorisation and registration, not condition."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Banks and financial intermediaries supervised in Italy"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "The supervisor states that publication discharges a statutory public-information duty, so the register is published as an obligation rather than as a courtesy.",
+      "The publication deliberately carries more than the bare register — registration and cancellation dates, activities and branches — and supports historical searching.",
+      "It makes a legally consequential fact checkable: carrying on banking or financial activity without the required entry is a criminal offence in Italy."
+    ],
+    "cons": [
+      "The consultation application is client-rendered and was not exercised, so its search behaviour, export options and any limits were not observed.",
+      "It covers banking and financial intermediaries. Insurance and securities populations sit with other authorities, and absence here says nothing about them.",
+      "Entry records authorisation and registration. It is not a statement about solvency, conduct or the quality of any service."
+    ],
+    "editorNotes": "Verified 2026-08-06 by navigating from the supervisor’s own supervision pages, and re-verified in a separate direct adversarial pass. The supervisor’s own words: “Con la pubblicazione degli \"Albi ed elenchi di vigilanza\" la Banca d’Italia ottempera agli obblighi informativi nei confronti del pubblico previsti dai Testi Unici in materia di intermediazione bancaria e finanziaria”, and “L’esercizio di attività bancaria o finanziaria in mancanza delle autorizzazioni/iscrizioni ai pertinenti albi previste dalla legge è sanzionato penalmente.” FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: The supervisory registers themselves, kept by Banca d’Italia under the Italian banking and financial consolidated acts. The registers are the instrument; the published consultation is the window onto them. RESPONSIBLE AUTHORITY: Banca d’Italia. TECHNICAL PLATFORM: The supervisor’s own statistical information platform hosts the public consultation application. No external supplier is named on any page fetched. PUBLIC ACCESS INTERFACE: The public consultation of supervisory registers and lists of banks and other intermediaries, reached from the supervisor’s own pages. A quotation correction made during the second direct adversarial pass and worth recording: the criminal-sanction sentence was first transcribed with a straight apostrophe, which is not what the page serves. The page uses a typographic apostrophe, and the quotation was corrected rather than published as approximate. Scoping: the insurance supervisor’s portal is a separate system on a separate host and is NOT covered here; it redirects to a one-time-password login and remains unpublished pending an open access route."
   }
 ]
