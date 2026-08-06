@@ -10441,5 +10441,146 @@
       "A search result establishes that a filing exists with the Secretary of State and the status recorded against it. It is not a licence, not evidence of tax compliance, not a certificate of existence, and not proof that an entity is trading."
     ],
     "editorNotes": "Verified 2026-08-05 from official Alabama sources. Operator: Alabama Secretary of State — Business Services, Business Entities Division. Coverage and search: Four separate search screens are offered: Entity Name, Entity Number, \"Officer | Agent | Incorporator\", and \"Reservation | Registration by ID\". The Entity Name form additionally accepts entity type, status, place and city filters. The Secretary of State brands the whole facility the \"Government Records Inquiry System\" and describes it as: \"This facility provides you easy access to public information maintained by the Secretary of State's office in electronic format.\" The same platform carries non-business registers: a parallel page uses identical wording for \"Notaries Public Search Options\" on the same host, so the entity search is one module of a shared state records system. Inclusion arises from entity formation or statutory registration, not from any submission."
+  },
+  {
+    "id": "us-ncua-credit-union-search",
+    "name": "NCUA Credit Union Locator",
+    "slug": "ncua-credit-union-locator",
+    "country": "united-states",
+    "category": "government",
+    "website": "https://mapping.ncua.gov/",
+    "submissionUrl": null,
+    "description": "The National Credit Union Administration publishes a public search over federally insured credit unions. Its own site presents the locator search and a companion research view over the same data, where a credit union’s call reports can be downloaded and financial performance reports requested.",
+    "tier": "tier1",
+    "scope": "national",
+    "officialName": "Credit Union Locator",
+    "primaryRegistryType": "financial-services-register",
+    "registryTypes": [
+      "financial-services-register",
+      "regulated-operator-register"
+    ],
+    "operator": {
+      "name": "National Credit Union Administration",
+      "type": "regulator",
+      "officialUrl": "https://ncua.gov/"
+    },
+    "publicAccess": {
+      "searchUrl": null,
+      "accessLevel": "unknown",
+      "freeToSearch": null,
+      "loginRequired": null,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "The application host does not respond to automated requests, so no page of the tool itself was retrieved and no access fact is asserted. Identity, current status and function rest on the regulator’s own current site, which links the tool and describes what it does. Every access boolean stays null and no search URL is published."
+    },
+    "petroHrysScore": 83,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 8,
+      "verificationQuality": 7,
+      "platformReputation": 9,
+      "spamResistance": 10,
+      "industryImportance": 8,
+      "longTermStability": 9,
+      "submissionQuality": 5,
+      "transparency": 8,
+      "moderationQuality": 8
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": true,
+      "developer": true,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-06",
+    "nextVerification": "2027-08-20",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [
+        "us-fdic-bankfind"
+      ],
+      "competitors": []
+    },
+    "bestFor": [
+      "Finding a federally insured credit union by name, address or charter number.",
+      "Reaching a credit union’s call reports and financial performance reporting from the regulator rather than a commercial aggregator."
+    ],
+    "notRecommendedFor": [
+      "Banks and savings institutions, which are covered by the deposit insurer’s own institution search rather than this one.",
+      "Treating insurance of deposits as a statement about a credit union’s financial condition or management."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Federally insured credit unions in the United States"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "It is the credit union regulator’s own search, covering a population that bank-focused institution searches do not include.",
+      "The regulator presents the locator and the research view over one dataset, so a reader can move from finding an institution to its filed reports.",
+      "Charter number search makes an institution identifiable without relying on name matching."
+    ],
+    "cons": [
+      "The application host does not respond to automated requests, so nothing about its search behaviour, coverage or fees is asserted here.",
+      "It covers credit unions only. A bank will not be here, and its absence means nothing.",
+      "Federal insurance and supervision are not an assessment of financial condition, and an entry is not a statement about how an institution is run."
+    ],
+    "editorNotes": "Verified 2026-08-06 from the regulator’s own current site, which links the tool under its official names and describes its function, and re-verified in a separate direct adversarial pass. The tool’s own host does not respond to automated requests; under the wave’s real-site rule a system may be published where identity and function are confirmed from a separate official page and interactive behaviour is not asserted, which is the position recorded here. FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: The chartering, insurance and supervisory decisions of the credit union regulator under United States federal credit union law. The search publishes them. RESPONSIBLE AUTHORITY: National Credit Union Administration. TECHNICAL PLATFORM: A mapping application on a host separate from the regulator’s main site. No external supplier is named on any page fetched. PUBLIC ACCESS INTERFACE: The locator search and the companion research view, both linked from the regulator’s own site. Duplication decision, taken deliberately: the regulator publishes a Credit Union Locator and a Research a Credit Union view. They sit on ONE host over ONE dataset — the locator finds an institution, the research view shows its filed reports — so they are published as ONE record rather than two. Splitting them would be splitting a system by its user-interface view, which the duplication contract forbids. This record is also distinct from the deposit insurer’s institution search already published: different regulator, different statutory population, and credit unions do not appear in that system."
   }
 ]
