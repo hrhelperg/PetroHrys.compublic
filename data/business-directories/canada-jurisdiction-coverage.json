@@ -1,7 +1,7 @@
 {
   "country": "canada",
   "note": "The complete set of Canadian jurisdictions this section is measured against. Coverage is counted from this file and from the registry, never from a record total. blockerSummary and nextAction are internal working notes and are never rendered. Alberta is deliberately recorded as no-public-registry rather than as a blocker: the absence of a government-operated public corporate search is a researched finding about Alberta, not a fetch failure, and must never be 'resolved' by substituting a private registry agent.",
-  "lastReviewed": "2026-08-05",
+  "lastReviewed": "2026-08-06",
   "totals": {
     "provinces": 10,
     "provincesPublished": 7,
@@ -10,7 +10,7 @@
     "territories": 3,
     "territoriesPublished": 2,
     "territoriesPending": 1,
-    "federalPublished": 7
+    "federalPublished": 8
   },
   "jurisdictions": [
     {
