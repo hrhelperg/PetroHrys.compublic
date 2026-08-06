@@ -119,3 +119,29 @@ here. The open questions are already identified: PRA versus FCA duplication;
 NMLS, NCUA and MSRB; OSFI, CIRO and FINTRAC; AUSTRAC plus the ASIC/APRA
 duplication question. Duplication, not discovery, is the dominant risk in all
 four — their existing entries are broad.
+
+## Release-gate addendum
+
+Two facts established during the release gate that change how earlier notes in
+this document should be read:
+
+1. **Record pages render a standard access-unknown sentence, not the per-record
+   `publicAccess.notes`.** Those notes are editor-facing provenance. Anything a
+   reader must know about access has to appear in the description or the
+   limitations, and this wave's access caveats were placed accordingly.
+2. **The ČNB entry point redirects cross-host** to a separate application host.
+   Found by re-checking all eight live URLs at release time, and disclosed in the
+   published limitations — a bookmark or citation may not land on the address a
+   reader started from. This matches the disclosure made for the German insolvency
+   portal in Wave 1F.
+
+Live URL re-check at release: **all eight returned 200**.
+
+## Rollback
+
+See [`PR-BODY-wave-2a-europe-financial.md`](PR-BODY-wave-2a-europe-financial.md)
+for the full rollback procedure. One consequence worth knowing before merging:
+reverting either Bank of Spain record alone leaves the other holding a
+`resourceIdentity` for a shared-host group with a single member. Harmless to the
+validator, but the `app-bde-es` group should be dropped from the survivor in the
+same commit.

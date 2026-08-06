@@ -604,7 +604,7 @@
       "captcha": null,
       "geographicRestriction": null,
       "paidDocumentsAvailable": null,
-      "notes": "The application was served directly and anonymously and shows its own menu — direct search, basic lists, entity counts and time series — but no query was executed, so no result behaviour is asserted and no search URL is published."
+      "notes": "The application was served directly and anonymously and shows its own menu — direct search, basic lists, entity counts and time series — but no query was executed, so no result behaviour is asserted and no search URL is published. The published address is the bank’s own stable entry point, which redirects to a separate application host where the pages are actually served; the entry point is published rather than the application host because it is the address the bank itself links."
     },
     "petroHrysScore": 85,
     "scoreFactors": {
@@ -710,7 +710,8 @@
     "cons": [
       "It distinguishes regulated from merely registered entities, and the two carry different regulatory weight; a hit alone does not tell a reader which applies.",
       "No query was executed during verification, so result content and any limits are unestablished and none is asserted.",
-      "A financial supervisory list does not establish that an entity legally exists, which is a matter for the public register kept by the courts."
+      "A financial supervisory list does not establish that an entity legally exists, which is a matter for the public register kept by the courts.",
+      "The published address is the bank’s own entry point and redirects to a separate application host, so a bookmark or a citation may not land on the address a reader started from."
     ],
     "editorNotes": "Verified 2026-08-06 by direct fetch of the application, and re-verified in a separate direct adversarial pass. FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: The regulatory and registration decisions of the Czech National Bank, taken under Czech financial market law. The application publishes them. RESPONSIBLE AUTHORITY: Česká národní banka. TECHNICAL PLATFORM: Not separately established. The application is served from the bank’s own host; no external supplier is named on any page fetched. PUBLIC ACCESS INTERFACE: The unified application reached from the bank’s lists and registers section. Scoping decision: the direct search, the basic lists and the time-series views are one integrated application with one entry point, so they are published as ONE record rather than three. Splitting them would be splitting a system by its own output modes. The bank’s separate central credit register was considered and excluded: it serves credit institutions rather than the public and is not a public register."
   }
