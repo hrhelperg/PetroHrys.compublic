@@ -10731,5 +10731,274 @@
       "No search was executed and no file was opened during verification, so result content, coverage and any limits were not observed and none is asserted."
     ],
     "editorNotes": "Verified 2026-08-06 by direct fetch, and re-verified in a separate direct adversarial pass in which both quotations below matched contiguous official text and the page body was byte-identical in length between passes. The site states: \"This site provides summary information about, and access to, the “public inspection file” (or “public file”) for the following types of entities: licensed full-service radio and television broadcast stations, Class A television stations, cable television systems, direct broadcast satellite (“DBS”) providers, and satellite radio (also referred to as “Satellite Digital Audio Radio Services” or “SDARS”) licensees.\" It describes the file contents as including \"information about political time sold or given away by each station, quarterly lists of the most significant programs each station aired concerning issues of importance to its community, data on ownership of each station and active applications each station has filed with the Commission\", and quotes the Commission’s purpose: \"make information to which the public already has a right more readily available, so that the public will be encouraged to play a more active part in dialogue with broadcast licensees.\" FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: The public inspection file obligations imposed by Commission rules on the listed entity types. The obligation, not this website, is the legal source; the site publishes what those entities file. RESPONSIBLE AUTHORITY: Federal Communications Commission. TECHNICAL PLATFORM: publicfiles.fcc.gov, a Commission host distinct from the wireless2 and apps subdomains that serve the two FCC records already published. At verification those two hosts, and the Commission’s main host, each refused automated clients while this host served them normally — a bot filter, not evidence that either system is gone. PUBLIC ACCESS INTERFACE: The public search at publicfiles.fcc.gov. DUPLICATE AUDIT against the two pre-existing FCC records. us-fcc-uls is the Universal Licensing System, covering wireless radio licences keyed by call sign — a licensing system for a different population, and broadcast stations are not licensed through it. us-fcc-form-499 is the filer database for the Telecommunications Reporting Worksheet, covering carriers rather than broadcasters. This record shares neither population nor legal function with either, sits on a different host, and is reached by a different public verification journey. No shared-host group is declared: three different fcc.gov subdomains are three different hosts, and a group names one host."
+  },
+  {
+    "id": "us-merchantcircle",
+    "name": "MerchantCircle",
+    "slug": "merchantcircle",
+    "country": "united-states",
+    "category": "local-business",
+    "website": "https://www.merchantcircle.com/",
+    "submissionUrl": "https://www.merchantcircle.com/business_homepage",
+    "description": "A United States local business directory operated by Buyerlink Inc. Its documented route is claiming an existing page rather than creating a new one, and the free tier is unusual in including review responses — but the operator also sells removal of competitor advertising from your own page.",
+    "tier": "tier1",
+    "scope": "national",
+    "operator": {
+      "name": "Buyerlink Inc.",
+      "type": "other",
+      "officialUrl": "https://www.merchantcircle.com/pages/privacy.html"
+    },
+    "petroHrysScore": 47,
+    "scoreFactors": {
+      "editorialTrust": 5,
+      "businessUsefulness": 5,
+      "verificationQuality": 3,
+      "platformReputation": 5,
+      "spamResistance": 3,
+      "industryImportance": 5,
+      "longTermStability": 6,
+      "submissionQuality": 6,
+      "transparency": 7,
+      "moderationQuality": 3
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "freemium",
+    "registrationRequired": true,
+    "reviewSystem": true,
+    "verificationRequired": null,
+    "manualReview": null,
+    "listingAction": "claim",
+    "ownerResponseSupport": true,
+    "claimUrl": "https://www.merchantcircle.com/business_homepage",
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": true,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-06",
+    "nextVerification": "2027-05-22",
+    "verification": {
+      "status": "verified",
+      "source": "official-documentation",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "us-alignable"
+      ],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "US local businesses that find themselves already listed and want to take control of the page.",
+      "Businesses that want to reply to reviews without paying, which this operator permits on its free tier."
+    ],
+    "notRecommendedFor": [
+      "Businesses wanting to create a brand-new listing. The documented route is claiming an existing page, not creating one.",
+      "Businesses that do not want competitors advertised on their own profile. Removing that is a paid feature."
+    ],
+    "submissionDifficulty": "easy",
+    "listingQuality": null,
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "local-services",
+      "retail",
+      "professional-services"
+    ],
+    "editorialTags": [
+      "business-directory",
+      "commercial-platform"
+    ],
+    "pros": [
+      "The operator is identified in the platform’s own privacy page: “2026 MerchantCircle. A Buyerlink inc. company. All Rights Reserved.”",
+      "The free tier is stated plainly — “Basic Listing / Free” — alongside “Grow your business for free with MerchantCircle”.",
+      "Replying to reviews is included at no cost. The free tier lists “Monitor and respond to reviews”, and the operator’s own summary is “Own your page. Respond to reviews. Update your blog and photos.”",
+      "Paid tiers are priced openly at $30 per month rather than quoted only on request.",
+      "The platform has a long documented history, described by the operator as “Founded in 2005, and announced in June 2006.”"
+    ],
+    "cons": [
+      "A free profile carries competitors’ advertising. The operator sells the removal of it: the paid tier promises to “Remove competitor ads from your listing” and “No ads on your page - consumers will focus only on you!”. That is a plain statement about what the free tier looks like.",
+      "The documented action is CLAIMING, not creating. The primary call to action is “Claim my business”, and no route for registering a business that is not already in the database is documented, so no create action is asserted.",
+      "Verification is sold rather than required: “Receive a verified Badge” appears as a paid-tier feature. A purchased badge is not evidence that the operator verified anything, and no verification method is asserted.",
+      "An account is required before a page can be managed, so this is not an anonymous submission.",
+      "The audience figure — “Over 100 million consumers visited MerchantCircle last year” — is the operator’s own claim and has not been independently checked.",
+      "A separate paid add-on syndicates listing data to third parties. It is an extra product, not part of the directory entry, and what those third parties do with the data is not documented here.",
+      "A listing is a directory entry. It is not evidence that a business is solvent, currently trading, licensed, or checked beyond what the operator documents here.",
+      "No ranking, indexing, traffic or lead outcome is asserted. The operator markets outcomes; this record does not adopt them."
+    ],
+    "editorNotes": "Verified 2026-08-06 from the operator’s own business homepage, product page, about page and privacy page, and re-verified in a separate direct pass in which “A Buyerlink inc. company”, “Claim my business”, “Basic Listing”, “Monitor and respond to reviews” and “Remove competitor ads from your listing” were each present in the served pages. PLATFORM OPERATOR: Buyerlink Inc., named in the platform’s own privacy page footer. The about page names no entity at all, so the privacy page is the operative disclosure. LISTING CONTROL: The business claims and then self-manages an existing page. MODERATION AUTHORITY: Not documented. PUBLIC INTERFACE: merchantcircle.com, with the business route at /business_homepage. LISTING ACTION DECISION — claim, not create-and-claim: the only documented workflow is “Claim my business”. A business absent from the database has no documented route in, and inventing one from the existence of an account system is exactly what the listing-action gate forbids. This is the first claim-only record in the dataset and it should stay that way until a creation route is evidenced. OWNER RESPONSES: asserted, unusually, on the FREE tier — “Monitor and respond to reviews” is listed under Basic. This is not inferred from the existence of reviews; it is a stated free-tier feature. NOT ASSERTED: create flow, verification, verification methods, indexability, link attributes, traffic."
+  },
+  {
+    "id": "us-alignable",
+    "name": "Alignable",
+    "slug": "alignable",
+    "country": "united-states",
+    "category": "general-business",
+    "website": "https://www.alignable.com/",
+    "submissionUrl": "https://www.alignable.com/biz_users/sign_up",
+    "description": "A business networking platform operated by Alignable Corporation, whose member profiles are published in public city directories. It is a peer-to-peer network first and a directory second — profiles are person-led — and the operator publishes no pricing, so the cost of membership is recorded as unestablished.",
+    "tier": "tier1",
+    "scope": "national",
+    "operator": {
+      "name": "Alignable Corporation",
+      "type": "other",
+      "officialUrl": "https://www.alignable.com/terms-conditions"
+    },
+    "petroHrysScore": 48,
+    "scoreFactors": {
+      "editorialTrust": 5,
+      "businessUsefulness": 5,
+      "verificationQuality": 3,
+      "platformReputation": 6,
+      "spamResistance": 4,
+      "industryImportance": 5,
+      "longTermStability": 6,
+      "submissionQuality": 6,
+      "transparency": 4,
+      "moderationQuality": 4
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "unknown",
+    "registrationRequired": true,
+    "reviewSystem": null,
+    "verificationRequired": null,
+    "manualReview": null,
+    "listingAction": "create",
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": null,
+      "agency": true,
+      "freelancer": true,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-06",
+    "nextVerification": "2027-05-23",
+    "verification": {
+      "status": "verified",
+      "source": "official-documentation",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "us-merchantcircle"
+      ],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "US small business owners who want peer referrals and local business networking rather than consumer discovery.",
+      "Businesses that want a publicly readable profile in a city-level directory without a consumer review system attached."
+    ],
+    "notRecommendedFor": [
+      "Businesses that need to know the cost before joining. The operator publishes no pricing page.",
+      "Businesses seeking consumer reviews or ratings. This platform documents neither.",
+      "Anyone wanting a business-led rather than person-led profile. Entries are presented under an individual’s name."
+    ],
+    "submissionDifficulty": "easy",
+    "listingQuality": null,
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "professional-services",
+      "local-services",
+      "marketing"
+    ],
+    "editorialTags": [
+      "business-directory",
+      "commercial-platform"
+    ],
+    "pros": [
+      "The operator is fully identified in its own terms as “ALIGNABLE CORPORATION, PO BOX 1666, NORTH FALMOUTH MA 02556”.",
+      "Profiles genuinely are public: a city directory such as the Boston page renders member businesses, with counts and descriptions, to a reader who is not signed in.",
+      "The platform is candid that it is a network rather than a listings product — its own profile describes it as “the networking platform for businesses”.",
+      "Coverage is stated by the operator as continental: “businesses across North America use Alignable”.",
+      "A business owner creates a profile directly by registering — the operator’s route is a single “Join Today” signup that leads into its own onboarding, with no waiting list or invitation step."
+    ],
+    "cons": [
+      "The cost is NOT established and is recorded as unknown. There is no pricing page, joining is presented only as “Join Today”, and the premium tier offers only “Try for Free” — a trial, which is not evidence that anything is free thereafter.",
+      "This is a networking platform, not a consumer directory. Its own mission statement is about business owners who “connect, build relationships”, so a profile here reaches peers rather than customers searching for a service.",
+      "Directory entries are person-led: public listings are headed by an individual’s name with the business as a secondary label, which is a different object from a business profile.",
+      "No review or rating system is documented anywhere on the pages consulted, so neither reviews nor owner responses are asserted. Absence here means unrecorded, not unavailable.",
+      "An account is required before a profile exists, so this is not an anonymous submission, and the membership figure quoted on the site is the operator’s own claim.",
+      "Whether verification is required, and by what method, is not documented, so nothing about verification is asserted.",
+      "A listing is a directory entry. It is not evidence that a business is solvent, currently trading, licensed, or checked beyond what the operator documents here.",
+      "No ranking, indexing, traffic or lead outcome is asserted. The operator markets outcomes; this record does not adopt them."
+    ],
+    "editorNotes": "Verified 2026-08-06 from the operator’s own terms and conditions, about page, a public city directory page and the premium landing page, and re-verified in a separate direct pass in which “ALIGNABLE CORPORATION, PO BOX 1666, NORTH FALMOUTH MA 02556”, “the networking platform for businesses” and “Try for Free” were each present in the served pages. PLATFORM OPERATOR: Alignable Corporation, named with its registered address in the platform’s own terms and conditions. The about page and footer name no entity, so the terms are the operative disclosure. LISTING CONTROL: The member registers and self-manages a profile. MODERATION AUTHORITY: Not documented. PUBLIC INTERFACE: alignable.com, with public city directories under a per-city path such as /boston-ma/directory, and registration at /biz_users/sign_up. COST DECISION — unknown, deliberately. Joining appears free, but a free ACCOUNT is not a free listing, and the only paid-tier signal is a free trial. Under the cost gate neither is evidence, so the value stays unknown rather than being rounded to free. ACCEPTANCE DECISION: published despite being a networking platform, because the acceptance test is whether businesses genuinely manage a public profile, and the public city directories establish that they do. The networking character is disclosed as a limitation rather than used to reject, since a reader deciding where to list needs to know a profile here reaches peers, not searchers. NOT ASSERTED: cost, reviews, owner responses, verification, claim flow, indexability, link attributes, traffic."
   }
 ]
