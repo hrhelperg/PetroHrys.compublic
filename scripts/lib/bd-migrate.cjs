@@ -300,6 +300,12 @@ function migrateRecord(record) {
     verificationMethods: migrateVerificationMethods(record),
     ownerResponseSupport: isNullish(record.ownerResponseSupport) ? null : record.ownerResponseSupport,
     claimUrl: record.claimUrl ?? null,
+    // Operations layer. Absence normalises to null in memory; the projection
+    // below then drops it again on write, so no record gains a stamped default.
+    audienceGeography: migrateAudienceGeography(record),
+    priority: isNullish(record.priority) ? null : record.priority,
+    currentStatus: isNullish(record.currentStatus) ? null : record.currentStatus,
+    publicProfileAvailable: isNullish(record.publicProfileAvailable) ? null : record.publicProfileAvailable,
 
     accepts: migrateAccepts(record),
 
@@ -368,6 +374,10 @@ const WAVE1_DEFAULTED = {
   verificationMethods: (v) => v === null,
   ownerResponseSupport: (v) => v === null,
   claimUrl: (v) => v === null,
+  audienceGeography: (v) => v === null,
+  priority: (v) => v === null,
+  currentStatus: (v) => v === null,
+  publicProfileAvailable: (v) => v === null,
 };
 
 // Defaults NESTED inside an object field. `covers` is null on every
@@ -385,6 +395,14 @@ const NESTED_DEFAULTED = {
 //   []   — official evidence establishes that no verification is required
 // An array is passed through verbatim so an invalid value REACHES the validator
 // rather than being silently repaired before it can be rejected.
+// An explicitly invalid value must survive migration so the VALIDATOR rejects
+// it. Silently repairing [] to null here would hide an authoring mistake.
+function migrateAudienceGeography(record) {
+  const v = record.audienceGeography;
+  if (v === undefined || v === null) return null;
+  return Array.isArray(v) ? v.slice() : v;
+}
+
 function migrateVerificationMethods(record) {
   const v = record.verificationMethods;
   if (v === undefined || v === null) return null;

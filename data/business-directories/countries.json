@@ -114,5 +114,133 @@
     "entityType": "country",
     "titleName": "Japan",
     "iso2": "JP"
+  },
+  {
+    "id": "netherlands",
+    "slug": "netherlands",
+    "name": "Netherlands",
+    "entityType": "country",
+    "titleName": "the Netherlands",
+    "iso2": "NL"
+  },
+  {
+    "id": "austria",
+    "slug": "austria",
+    "name": "Austria",
+    "entityType": "country",
+    "titleName": "Austria",
+    "iso2": "AT"
+  },
+  {
+    "id": "switzerland",
+    "slug": "switzerland",
+    "name": "Switzerland",
+    "entityType": "country",
+    "titleName": "Switzerland",
+    "iso2": "CH"
+  },
+  {
+    "id": "sweden",
+    "slug": "sweden",
+    "name": "Sweden",
+    "entityType": "country",
+    "titleName": "Sweden",
+    "iso2": "SE"
+  },
+  {
+    "id": "norway",
+    "slug": "norway",
+    "name": "Norway",
+    "entityType": "country",
+    "titleName": "Norway",
+    "iso2": "NO"
+  },
+  {
+    "id": "denmark",
+    "slug": "denmark",
+    "name": "Denmark",
+    "entityType": "country",
+    "titleName": "Denmark",
+    "iso2": "DK"
+  },
+  {
+    "id": "finland",
+    "slug": "finland",
+    "name": "Finland",
+    "entityType": "country",
+    "titleName": "Finland",
+    "iso2": "FI"
+  },
+  {
+    "id": "belgium",
+    "slug": "belgium",
+    "name": "Belgium",
+    "entityType": "country",
+    "titleName": "Belgium",
+    "iso2": "BE"
+  },
+  {
+    "id": "portugal",
+    "slug": "portugal",
+    "name": "Portugal",
+    "entityType": "country",
+    "titleName": "Portugal",
+    "iso2": "PT"
+  },
+  {
+    "id": "ireland",
+    "slug": "ireland",
+    "name": "Ireland",
+    "entityType": "country",
+    "titleName": "Ireland",
+    "iso2": "IE"
+  },
+  {
+    "id": "new-zealand",
+    "slug": "new-zealand",
+    "name": "New Zealand",
+    "entityType": "country",
+    "titleName": "New Zealand",
+    "iso2": "NZ"
+  },
+  {
+    "id": "singapore",
+    "slug": "singapore",
+    "name": "Singapore",
+    "entityType": "country",
+    "titleName": "Singapore",
+    "iso2": "SG"
+  },
+  {
+    "id": "south-korea",
+    "slug": "south-korea",
+    "name": "South Korea",
+    "entityType": "country",
+    "titleName": "South Korea",
+    "iso2": "KR"
+  },
+  {
+    "id": "brazil",
+    "slug": "brazil",
+    "name": "Brazil",
+    "entityType": "country",
+    "titleName": "Brazil",
+    "iso2": "BR"
+  },
+  {
+    "id": "mexico",
+    "slug": "mexico",
+    "name": "Mexico",
+    "entityType": "country",
+    "titleName": "Mexico",
+    "iso2": "MX"
+  },
+  {
+    "id": "united-arab-emirates",
+    "slug": "united-arab-emirates",
+    "name": "United Arab Emirates",
+    "entityType": "country",
+    "titleName": "the United Arab Emirates",
+    "iso2": "AE"
   }
 ]

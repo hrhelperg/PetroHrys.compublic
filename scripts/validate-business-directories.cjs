@@ -469,6 +469,12 @@ function validateRegistry(registry) {
       add(field, message);
     }
 
+    // Operations layer: audience tokens, priority, current status, public
+    // profile. Shared with the tests through one pure function.
+    for (const [field, message] of S.operationsProblems(entry)) {
+      add(field, message);
+    }
+
     // verificationMethods: null and [] are different states and both are legal.
     const vm = entry.verificationMethods === undefined ? null : entry.verificationMethods;
     if (vm !== null) {
