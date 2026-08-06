@@ -1007,5 +1007,148 @@
       "Registration records that an agent is registered, not that the agent is competent or that its principal stands behind any particular act."
     ],
     "editorNotes": "Verified 2026-08-06 by navigating from the bank’s supervised-entities page and following the link it publishes under the full official name, rather than by guessing a path. Re-verified in a separate direct adversarial pass. FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: The registration decisions of the Bank of Spain in respect of agents, taken under Spanish financial law. RESPONSIBLE AUTHORITY: Banco de España. TECHNICAL PLATFORM: Not separately established. No external supplier is named on any page fetched. PUBLIC ACCESS INTERFACE: The agents register application, linked from the bank’s supervised-entities page. Duplication decision: this is NOT a filtered view of the register of entities. The two are separate applications on the same official host, with different official names published by the bank itself and materially different registered populations, so both declare resourceIdentity and both are published. The test applied was the dataset’s own: separate records only where the legal population, the official system identity and the regulatory purpose all differ, which they do here."
+  },
+  {
+    "id": "es-icac-roac",
+    "name": "Registro Oficial de Auditores de Cuentas",
+    "slug": "registro-oficial-de-auditores-de-cuentas",
+    "country": "spain",
+    "category": "government",
+    "website": "https://www.icac.gob.es/servicios-roac/servicios",
+    "submissionUrl": null,
+    "description": "The Spanish official register of auditors and audit firms, kept by the Institute of Accounting and Account Auditing, the state audit regulator. It covers individual auditors, audit firms and third-country auditors, and sanctions entered in the register are published alongside it.",
+    "tier": "tier1",
+    "scope": "national",
+    "nativeName": "Registro Oficial de Auditores de Cuentas (ROAC)",
+    "englishName": "Official Register of Auditors",
+    "englishNameSource": "editorial-translation",
+    "primaryRegistryType": "professional-licence-register",
+    "registryTypes": [
+      "professional-licence-register"
+    ],
+    "operator": {
+      "name": "Instituto de Contabilidad y Auditoría de Cuentas",
+      "type": "government-agency",
+      "officialUrl": "https://www.icac.gob.es/"
+    },
+    "publicAccess": {
+      "searchUrl": null,
+      "accessLevel": "partially-open",
+      "freeToSearch": null,
+      "loginRequired": false,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "The register’s service page and its search entry were served anonymously with no credential, so login is recorded as not required. The search application renders with JavaScript and no query was executed, so result content, coverage and any limits were not observed and stay null."
+    },
+    "petroHrysScore": 91,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 9,
+      "verificationQuality": 10,
+      "platformReputation": 9,
+      "spamResistance": 10,
+      "industryImportance": 9,
+      "longTermStability": 9,
+      "submissionQuality": 6,
+      "transparency": 9,
+      "moderationQuality": 9
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": true,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-06",
+    "nextVerification": "2027-08-10",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Checking that an auditor or audit firm is entered in the Spanish official register.",
+      "Establishing whether sanctions have been entered against a registered auditor."
+    ],
+    "notRecommendedFor": [
+      "Judging audit quality. Registration records entitlement, not how any audit was performed.",
+      "Assuming absence means a person may do no accountancy work. Only statutory audit is reserved to the register."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "accounting",
+      "professional-services",
+      "financial-services"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "It is kept by the state audit regulator itself rather than by a professional association.",
+      "It covers individual auditors, audit firms and auditors and firms from third countries in one register.",
+      "Sanctions entered in the register are published, which is unusual and directly useful when checking standing."
+    ],
+    "cons": [
+      "Registration is required to carry out statutory audits, so this is a licence register — but it says nothing about the quality of any audit.",
+      "The register covers statutory audit. Absence does not establish that a person may not carry out other accounting work in Spain.",
+      "A separate listing is published for auditor selection procedures under article 16.3a of EU Regulation 537/2014; that is a publication derived from the register rather than a second register, and it is not searched here.",
+      "The search application renders with JavaScript, so it could not be exercised and nothing about result content or coverage is asserted."
+    ],
+    "editorNotes": "Verified 2026-08-06 by navigating from the institute’s own site, and re-verified in a separate direct adversarial pass. The service page titles itself \"Registro Oficial de Auditores de Cuentas (ROAC)\" and offers four services: \"Buscador de Auditores y Sociedades de Auditoría\"; \"Listado de auditores y sociedades de auditoría (artículo 16.3a Reglamento-UE 537/2014)\"; \"Sanciones inscritas en el Registro Oficial de Auditores de Cuentas\"; and \"Auditores de Cuentas, Sociedades y Entidades de Auditoría de Terceros Países\". The search entry at icac.gob.es/buscador-roac was served anonymously and renders client-side. FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: The Registro Oficial de Auditores de Cuentas, kept by the Instituto de Contabilidad y Auditoría de Cuentas. RESPONSIBLE AUTHORITY: Instituto de Contabilidad y Auditoría de Cuentas, the Spanish state audit regulator. TECHNICAL PLATFORM: Not separately established. Served from the institute’s own icac.gob.es domain. PUBLIC ACCESS INTERFACE: The ROAC service page and its Buscador at icac.gob.es. Duplicate decision, a rejection consistent with Wave 3A-2: the article 16.3a listing is a publication for selection procedures, exactly as the German chamber’s equivalent list is, and is NOT a separate register. The sanctions view and the third-country view are views over the same register and were likewise not split out. The record’s entry point is the ROAC service page rather than the bare Buscador, because that page is what names the register and enumerates its parts."
   }
 ]

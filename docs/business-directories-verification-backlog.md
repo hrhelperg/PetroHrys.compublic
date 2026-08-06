@@ -918,3 +918,94 @@ corrected for ORIAS in Wave 2A and the Colegio de Registradores in Wave 1D.
   at 64 and the digest is unchanged. Records displaying a rating went 66 → 67.
 - **A description must carry its own restriction.** A caveat that survives only in
   `cons` or `notRecommendedFor` does not travel into listings or metadata.
+
+---
+
+## Wave 3A-3 — Poland, Italy & Spain professional registers (2026-08-06)
+
+Third professional-licence wave. **Six records published, not thirty.** The brief
+listed roughly ten professions per country; accuracy over quantity governed what
+shipped, and everything not published is recorded below with its reason.
+
+### Approved and published (6)
+
+| Record | Country | Profession | Effect of entry |
+|---|---|---|---|
+| `pl-kirp-lista-radcow-prawnych` | PL | Legal advisers | Required to practise; **includes non-practising members** |
+| `pl-pibr-rejestr-bieglych-rewidentow` | PL | Statutory auditors | Required for statutory audit; **individuals only** |
+| `pl-kidp-lista-doradcow-podatkowych` | PL | Tax advisers | **Statutory condition** of practising; fine up to 50,000 zł |
+| `it-cndcec-albo-nazionale` | IT | Chartered accountants | Roll entry; 131 territorial Ordini, ~120,000 members |
+| `it-notariato-albo-unico-notai` | IT | Notaries | Albo Unico under art. 3, D.P.R. 137/2012 |
+| `es-icac-roac` | ES | Auditors & audit firms | Required for statutory audit; state-kept register |
+
+### Status distinctions that would mislead if flattened
+
+This wave's dominant risk was not duplication — it was **flattening a status
+distinction the register genuinely records**. Four are pinned by test:
+
+- **A Polish legal adviser may be entered but not practising.** The list exposes
+  "Wykonuje zawód" / "Nie wykonuje zawodu" as a filter. A hit alone does not
+  establish that someone is currently providing legal services.
+- **Polish advocates (adwokaci) are a different profession.** Absence from the
+  legal advisers' list says nothing about whether a person may act as a lawyer.
+- **The Polish auditor register excludes firms.** Audit firms are on a separate
+  chamber list.
+- **Italian notaries cannot be searched by name.** The page instructs "Non
+  inserire il nome del notaio" — it is a regional finder, not a name-verification
+  tool.
+
+### Aggregation, again
+
+The national interface is not the legal source of record in any of the three:
+nineteen Polish OIRP chambers, sixteen KIDP regional chambers, 131 Italian
+territorial Ordini. For the Italian notaries the council states outright that "Il
+CNN **non può effettuare variazioni e/o aggiornamenti** alle informazioni",
+because the Ordini and the notaries themselves enter the data.
+
+### Duplicate determinations
+
+- **The Italian roll is ONE record.** "Ricerca Iscritti", "Ricerca Società" and
+  "Ricerca Prestazioni" sit under a single "Albo Nazionale" heading — three views
+  of one roll, not three registers.
+- **ROAC is ONE record.** Its Art. 16.3a EU Reg. 537/2014 listing is a
+  publication for selection procedures — the identical rejection made for the
+  German chamber's equivalent list in Wave 3A-2. Its sanctions view and
+  third-country view are views over the same register.
+- **KIDP's "Rejestr podmiotów uprawnionych" is a static PDF**, not a searchable
+  register. Recorded as a limitation of the tax adviser record, not published.
+- **PIBR's "Lista firm audytorskich" was NOT published.** Polish audit oversight
+  was restructured in 2020 and the question of which body keeps the firm list was
+  not settled from official text. Not merged, not invented.
+
+### Rejected as candidates
+
+Two KIRP lists — representatives before the European Court of Human Rights, and
+advisers supporting victims of human trafficking — are **thematic sign-up lists**,
+not registers of entitlement.
+
+### Not published, and why
+
+| Candidate | State |
+|---|---|
+| **Italian statutory auditors (MEF)** | `revisionelegale.mef.gov.it` returned a **transport failure (000)** on https, http and www, and the ministry homepage carries no link to it. **This is not evidence the register is absent.** Re-check in a browser. |
+| **Spanish notaries** | `notariado.org` "Elige a tu notario" is a navigation shell; no register content could be extracted. |
+| **Spanish architects** | CSCAE exposes "Registro arquitectos" and "Registro sociedades" under its ventanilla única, but both pages rendered as navigation only. |
+| **Spanish procuradores** | `cgpe.es` exposes a "Directorio" that resolves to a colegio list, not a register of individuals. |
+| **Spanish economists** | `economistas.es` returned **HTTP 403** to automated clients — a bot filter, not absence. |
+| **Spanish abogados (CGAE)** | No register or census link found on `abogacia.es`. |
+| **Polish advocates (NRA)** | No register link found on `nra.pl`; the advocates' register is understood to live on a separate host that was not established from official navigation. |
+| **Italian avvocati, engineers, architects, doctors, pharmacists, consulenti del lavoro** | Not analysed to publication standard. |
+| **Polish notaries, bailiffs, patent attorneys, architects, engineers** | Not analysed to publication standard. |
+| **Healthcare in all three** | Not analysed. |
+
+### Findings worth carrying forward
+
+- **A status filter is a warning, not a feature.** Where a register exposes
+  practising status, the record must say the list contains both, because the
+  default reading of a hit is "this person is practising".
+- **The Art. 16.3a listing recurs across every EU member state's audit
+  regulator.** It is a publication for selection procedures. Reject it every time.
+- **A probe that only filters the arrays is incomplete.** Both Wave 3A-3
+  survivors turned out to be facts that also lived in the `description`, which
+  `strip()` never touched. The records were telling readers the truth; the probes
+  had not injected the defect.

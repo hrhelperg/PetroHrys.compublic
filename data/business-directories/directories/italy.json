@@ -707,5 +707,296 @@
       "Entry records authorisation and registration. It is not a statement about solvency, conduct or the quality of any service."
     ],
     "editorNotes": "Verified 2026-08-06 by navigating from the supervisor’s own supervision pages, and re-verified in a separate direct adversarial pass. The supervisor’s own words: “Con la pubblicazione degli \"Albi ed elenchi di vigilanza\" la Banca d’Italia ottempera agli obblighi informativi nei confronti del pubblico previsti dai Testi Unici in materia di intermediazione bancaria e finanziaria”, and “L’esercizio di attività bancaria o finanziaria in mancanza delle autorizzazioni/iscrizioni ai pertinenti albi previste dalla legge è sanzionato penalmente.” FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: The supervisory registers themselves, kept by Banca d’Italia under the Italian banking and financial consolidated acts. The registers are the instrument; the published consultation is the window onto them. RESPONSIBLE AUTHORITY: Banca d’Italia. TECHNICAL PLATFORM: The supervisor’s own statistical information platform hosts the public consultation application. No external supplier is named on any page fetched. PUBLIC ACCESS INTERFACE: The public consultation of supervisory registers and lists of banks and other intermediaries, reached from the supervisor’s own pages. A quotation correction made during the second direct adversarial pass and worth recording: the criminal-sanction sentence was first transcribed with a straight apostrophe, which is not what the page serves. The page uses a typographic apostrophe, and the quotation was corrected rather than published as approximate. Scoping: the insurance supervisor’s portal is a separate system on a separate host and is NOT covered here; it redirects to a one-time-password login and remains unpublished pending an open access route."
+  },
+  {
+    "id": "it-cndcec-albo-nazionale",
+    "name": "Albo Nazionale dei Dottori Commercialisti e degli Esperti Contabili",
+    "slug": "albo-nazionale-commercialisti",
+    "country": "italy",
+    "category": "government",
+    "website": "https://commercialisti.it/albo-nazionale/",
+    "submissionUrl": null,
+    "description": "The national roll of Italian chartered accountants and accounting experts, published by the national council over the rolls kept by the territorial Ordini. It searches individual members, professional companies and declared services from one roll.",
+    "tier": "tier1",
+    "scope": "national",
+    "officialName": "Albo Nazionale",
+    "nativeName": "Albo Nazionale",
+    "englishName": "National Roll of Chartered Accountants and Accounting Experts",
+    "englishNameSource": "editorial-translation",
+    "primaryRegistryType": "professional-licence-register",
+    "registryTypes": [
+      "professional-licence-register"
+    ],
+    "operator": {
+      "name": "Consiglio Nazionale dei Dottori Commercialisti e degli Esperti Contabili",
+      "type": "public-law-body",
+      "officialUrl": "https://commercialisti.it/"
+    },
+    "publicAccess": {
+      "searchUrl": null,
+      "accessLevel": "partially-open",
+      "freeToSearch": null,
+      "loginRequired": false,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "The roll and its three searches were served anonymously with no credential, so login is recorded as not required. The search interfaces render with JavaScript and no query was executed, so result content, coverage and any limits were not observed and stay null."
+    },
+    "petroHrysScore": 85,
+    "scoreFactors": {
+      "editorialTrust": 9,
+      "businessUsefulness": 9,
+      "verificationQuality": 8,
+      "platformReputation": 8,
+      "spamResistance": 10,
+      "industryImportance": 9,
+      "longTermStability": 8,
+      "submissionQuality": 6,
+      "transparency": 8,
+      "moderationQuality": 9
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": true,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-06",
+    "nextVerification": "2027-08-08",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Checking that a named accountant is on the Italian national roll.",
+      "Checking a professional company as well as an individual member."
+    ],
+    "notRecommendedFor": [
+      "Raising an individual matter with the national council. It answers only territorial Ordini and public bodies.",
+      "Judging an accountant’s quality from a declared service. Declared services are not verified statements of expertise."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "accounting",
+      "tax",
+      "professional-services"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "It searches members, professional companies and declared services from a single national roll rather than 131 separate ones.",
+      "The national council states its own remit, citing article 29 of legislative decree 139/2005.",
+      "The roll’s scale is published on the council’s own page: 131 territorial Ordini and almost 120,000 members."
+    ],
+    "cons": [
+      "Entry on the roll is required to use the professional titles and to carry out the profession’s reserved activities, but an entry is not a statement about the quality of any engagement.",
+      "The national council publishes the roll; the underlying rolls are kept by the 131 territorial Ordini, and the council states that requests from individuals must go to the territorially competent Ordine.",
+      "The three searches — members, companies and services — are views of one roll, not three registers, so a result in one does not imply absence from another.",
+      "The declared-services search reflects what a member has declared, not an assessment by the council or by an Ordine.",
+      "The search interfaces render with JavaScript, so they could not be exercised and nothing about result content or coverage is asserted."
+    ],
+    "editorNotes": "Verified 2026-08-06 by direct fetch of the national roll page and its member search, and re-verified in a separate direct adversarial pass. The council states: \"Interlocutori del Consiglio nazionale dei Dottori Commercialisti ed Esperti Contabili sono i 131 Ordini territoriali della categoria, i quasi 120.000 iscritti all’Albo, le Istituzioni e le pubbliche amministrazioni, i media\", and that \"Il CNDCEC, quale organo nazionale, risponde esclusivamente alle richieste formulate dagli Ordini territoriali e da altri enti ed istituzioni pubbliche, relative alle materie rientranti tra le sue attribuzioni (art. 29, d.lgs. 139/2005). Le richieste dei singoli (iscritti, tirocinanti o aspiranti tali) vanno indirizzate all’Ordine territorialmente competente.\" FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: The rolls kept by the 131 territorial Ordini; the national council publishes the national aggregate. RESPONSIBLE AUTHORITY: Consiglio Nazionale dei Dottori Commercialisti e degli Esperti Contabili. TECHNICAL PLATFORM: Not separately established. Served from the council’s own commercialisti.it domain. PUBLIC ACCESS INTERFACE: The national roll and its three searches at commercialisti.it/albo-nazionale/. Duplicate decision: \"Ricerca Iscritti\", \"Ricerca Società\" and \"Ricerca Prestazioni\" are three views of ONE albo published under a single \"Albo Nazionale\" heading, not three registers. Splitting them would split a system by its own filters."
+  },
+  {
+    "id": "it-notariato-albo-unico-notai",
+    "name": "Albo Unico dei notai — Trova Notaio",
+    "slug": "albo-unico-notai-trova-notaio",
+    "country": "italy",
+    "category": "government",
+    "website": "https://www.notariato.it/it/trova-notaio/",
+    "submissionUrl": null,
+    "description": "The single electronic professional roll of Italian notaries, published by the National Council of Notaries under article 3 of Presidential Decree 137 of 7 August 2012. The territorial Ordini and the notaries themselves enter the data; the national council states that it cannot alter it.",
+    "tier": "tier1",
+    "scope": "national",
+    "officialName": "Albo Unico professionale elettronico",
+    "nativeName": "Albo Unico professionale elettronico",
+    "englishName": "Single Electronic Professional Roll of Notaries",
+    "englishNameSource": "editorial-translation",
+    "primaryRegistryType": "professional-licence-register",
+    "registryTypes": [
+      "professional-licence-register"
+    ],
+    "operator": {
+      "name": "Consiglio Nazionale del Notariato",
+      "type": "public-law-body",
+      "officialUrl": "https://www.notariato.it/"
+    },
+    "publicAccess": {
+      "searchUrl": null,
+      "accessLevel": "partially-open",
+      "freeToSearch": null,
+      "loginRequired": false,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "The search was served anonymously with no credential, with a region selector covering all twenty Italian regions, so login is recorded as not required. The page instructs a reader not to enter the notary’s name. No query was executed, so result content, coverage and any limits were not observed and stay null."
+    },
+    "petroHrysScore": 82,
+    "scoreFactors": {
+      "editorialTrust": 9,
+      "businessUsefulness": 8,
+      "verificationQuality": 8,
+      "platformReputation": 8,
+      "spamResistance": 10,
+      "industryImportance": 8,
+      "longTermStability": 8,
+      "submissionQuality": 6,
+      "transparency": 8,
+      "moderationQuality": 9
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-06",
+    "nextVerification": "2027-08-08",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Finding notaries by Italian region from the single national roll.",
+      "Establishing that the roll exists on a stated statutory basis rather than as an association directory."
+    ],
+    "notRecommendedFor": [
+      "Searching by a notary’s name. The page explicitly instructs a reader not to enter it.",
+      "Any marketing or commercial use of the data, which the council states is a pursuable offence."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "legal-services",
+      "real-estate",
+      "professional-services"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "Its statutory basis is stated on the page itself: the single electronic professional roll under article 3 of D.P.R. 137 of 7 August 2012.",
+      "It covers all twenty Italian regions, from Abruzzo to Veneto including the autonomous regions.",
+      "The council is explicit about provenance, stating that entries are inserted by the territorial Ordini and by the notaries themselves."
+    ],
+    "cons": [
+      "Entry on the roll is required to practise as a notary, but an entry is not a statement about how any deed was drawn or any transaction handled.",
+      "The search is organised by region and the page instructs a reader NOT to enter the notary’s name, so it does not work as a name-verification tool.",
+      "The national council states that it cannot make changes or updates to the entries, because the data is inserted by the territorial Ordini and by the notaries; an error therefore has to be corrected at source.",
+      "Use of the data for marketing or advertising is stated to be a pursuable offence and incompatible with the purpose for which the data is held, so this is not a source for building contact lists.",
+      "Absence from a regional result does not establish that a person is not a notary. The search is organised by region, and because entries are inserted by the territorial Ordini and by the notaries themselves, an entry may not yet reflect a recent change.",
+      "No search was executed during verification, so result content, coverage and completeness were not observed and none is asserted."
+    ],
+    "editorNotes": "Verified 2026-08-06 by navigating from the council’s own site, and re-verified in a separate direct adversarial pass. The page identifies itself as \"Albo Unico professionale elettronico – Articolo 3, D.P.R. 7 agosto 2012, n. 137\" and states: \"Le informazioni degli iscritti vengono inserite nel database dagli Ordini Territoriali e dai Notai. Il CNN non può effettuare variazioni e/o aggiornamenti alle informazioni.\" It further states that \"Costituisce illecito perseguibile l’utilizzazione dei dati degli iscritti per attività di marketing o di invio di pubblicità\", and instructs \"Non inserire il nome del notaio\". FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: The single electronic professional roll under article 3 of D.P.R. 137/2012, populated by the territorial Ordini and by the notaries themselves. RESPONSIBLE AUTHORITY: Consiglio Nazionale del Notariato. TECHNICAL PLATFORM: Not separately established. Served from the council’s own notariato.it domain; a supplier subdomain also resolves to the same functionality and is not recorded as the canonical entry. PUBLIC ACCESS INTERFACE: The Trova Notaio search at notariato.it/it/trova-notaio/. Access observation at verification: the page displayed a notice that extraordinary maintenance was under way and that the Trova Notaio function might be interrupted. That is a transient condition and is not recorded as a permanent limitation, but it is why no query was attempted."
   }
 ]

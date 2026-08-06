@@ -721,5 +721,436 @@
       "Supervision is not endorsement. An entry says an entity is supervised, not that it is solvent or well conducted."
     ],
     "editorNotes": "Verified 2026-08-06 by direct fetch of the search page, and re-verified in a separate direct adversarial pass. FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: The supervisory and authorisation decisions of the Polish Financial Supervision Authority, taken under Polish financial supervision law. The search publishes those; it does not constitute them. RESPONSIBLE AUTHORITY: Komisja Nadzoru Finansowego. TECHNICAL PLATFORM: Not separately established. No external supplier is named on any page fetched. PUBLIC ACCESS INTERFACE: The entity search on the authority’s own site. Completeness, carried into the published text rather than left in these notes: the search page itself tells a user that if the information sought is not found, they should also check registers that are not included in the search engine. That caveat is the single most important thing a reader needs about this system, and the record states it in the cons and in what it is not recommended for. The record deliberately does NOT claim the search covers every register the authority keeps."
+  },
+  {
+    "id": "pl-kirp-lista-radcow-prawnych",
+    "name": "Lista radców prawnych",
+    "slug": "lista-radcow-prawnych",
+    "country": "poland",
+    "category": "government",
+    "website": "https://kirp.pl/krajowa-wyszukiwarka-radcow-prawnych/",
+    "submissionUrl": null,
+    "description": "The national list of Polish legal advisers (radcowie prawni), published by the National Chamber of Legal Advisers over the lists kept by the nineteen regional chambers. It records entry on the list and shows whether a person is currently practising, which is a separate question from being entered.",
+    "tier": "tier1",
+    "scope": "national",
+    "nativeName": "Lista radców prawnych",
+    "englishName": "List of Legal Advisers",
+    "englishNameSource": "editorial-translation",
+    "primaryRegistryType": "professional-licence-register",
+    "registryTypes": [
+      "professional-licence-register"
+    ],
+    "operator": {
+      "name": "Krajowa Izba Radców Prawnych",
+      "type": "public-law-body",
+      "officialUrl": "https://kirp.pl/"
+    },
+    "publicAccess": {
+      "searchUrl": null,
+      "accessLevel": "partially-open",
+      "freeToSearch": true,
+      "loginRequired": false,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "Result rows were rendered to an anonymous client with no credential and no payment, showing surname, forename, entry number and regional chamber, and the page reported 57,288 results at the time of verification. Free public reading is therefore observed rather than inferred. Filters offered for surname, entry number, district, city and practising status. No filtered query was submitted, so behaviour under a specific search and any rate limit were not observed and stay null."
+    },
+    "petroHrysScore": 86,
+    "scoreFactors": {
+      "editorialTrust": 9,
+      "businessUsefulness": 9,
+      "verificationQuality": 9,
+      "platformReputation": 8,
+      "spamResistance": 10,
+      "industryImportance": 8,
+      "longTermStability": 8,
+      "submissionQuality": 6,
+      "transparency": 9,
+      "moderationQuality": 9
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": true,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-06",
+    "nextVerification": "2027-08-18",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Checking whether a named person is entered on the Polish list of legal advisers.",
+      "Establishing which regional chamber a legal adviser belongs to."
+    ],
+    "notRecommendedFor": [
+      "Checking a Polish advocate. Adwokaci are a separate profession with a separate register and do not appear here.",
+      "Assuming every entry is currently practising. The list marks practising and non-practising members alike."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "legal-services",
+      "professional-services"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "Results are readable without an account or payment, which makes it directly usable for verification.",
+      "It states the regional chamber for each entry, across all nineteen chambers from Białystok to Zielona Góra.",
+      "It exposes practising status as a filter, so a reader can distinguish an entered person from a practising one."
+    ],
+    "cons": [
+      "Entry on the list is required to practise as a legal adviser, so this is a licence register — but an entry is not a statement about competence in any field of law.",
+      "The list includes members who do not practise. A hit alone does not establish that a person is currently providing legal services, and reading it that way is the most likely error.",
+      "Polish advocates (adwokaci) are a different profession with their own register. Absence here does not establish that a person may not act as a lawyer in Poland.",
+      "Trainees and foreign lawyers are kept on separate lists by the same chamber, so this search does not cover them.",
+      "The chamber publishes the national list, but the underlying lists are kept by the nineteen regional chambers, so entries reflect regional decisions."
+    ],
+    "editorNotes": "Verified 2026-08-06 by direct fetch of the chamber’s national search, and re-verified in a separate direct adversarial pass. The page is server-rendered and returned result rows to an anonymous client, reporting \"57288 wyników\" on both passes. It offers filters for \"Wyszukiwanie po nazwisku\", \"Wyszukiwanie po nr wpisu\", \"Okręg\", \"Miasto\" and \"Status\", the status values being \"Wykonuje zawód\" and \"Nie wykonuje zawodu\". Nineteen regional chambers are selectable: OIRP Białystok, Bydgoszcz, Gdańsk, Katowice, Kielce, Koszalin, Kraków, Lublin, Łódź, Opole, Olsztyn, Poznań, Rzeszów, Szczecin, Toruń, Wałbrzych, Warszawa, Wrocław, Zielona Góra. FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: The lists of legal advisers kept by the nineteen regional chambers (okręgowe izby radców prawnych); the national chamber publishes the aggregate. RESPONSIBLE AUTHORITY: Krajowa Izba Radców Prawnych, a public-law professional self-government body. TECHNICAL PLATFORM: Not separately established. Served from the chamber’s own kirp.pl domain. PUBLIC ACCESS INTERFACE: The national list search at kirp.pl. Separation decisions: the chamber also publishes a list of trainees (\"Lista aplikantów radcowskich\") and a list of foreign lawyers (\"Lista prawników zagranicznych\") on separate pages. Those are distinct populations and are NOT merged into this record. Two further chamber lists — representatives before the European Court of Human Rights and advisers supporting victims of human trafficking — are thematic sign-up lists rather than registers of entitlement and were rejected as candidates."
+  },
+  {
+    "id": "pl-pibr-rejestr-bieglych-rewidentow",
+    "name": "Rejestr biegłych rewidentów",
+    "slug": "rejestr-bieglych-rewidentow",
+    "country": "poland",
+    "category": "government",
+    "website": "https://www.pibr.org.pl/pl/search/auditor?biegli=1",
+    "submissionUrl": null,
+    "description": "The Polish register of statutory auditors, kept by the National Council of Statutory Auditors. It records individual auditors entitled to carry out statutory audits; audit firms are kept on a separate list by the same chamber.",
+    "tier": "tier1",
+    "scope": "national",
+    "nativeName": "Rejestr biegłych rewidentów",
+    "englishName": "Register of Statutory Auditors",
+    "englishNameSource": "editorial-translation",
+    "primaryRegistryType": "professional-licence-register",
+    "registryTypes": [
+      "professional-licence-register"
+    ],
+    "operator": {
+      "name": "Polska Izba Biegłych Rewidentów",
+      "type": "public-law-body",
+      "officialUrl": "https://www.pibr.org.pl/"
+    },
+    "publicAccess": {
+      "searchUrl": null,
+      "accessLevel": "partially-open",
+      "freeToSearch": true,
+      "loginRequired": false,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "Result rows were rendered to an anonymous client with no credential and no payment, showing register number and name, and the page reported 4,811 entries at the time of verification. Free public reading is therefore observed rather than inferred. Search fields offered for surname or number and for an associated audit firm. No filtered query was submitted, so behaviour under a specific search and any rate limit were not observed and stay null."
+    },
+    "petroHrysScore": 84,
+    "scoreFactors": {
+      "editorialTrust": 9,
+      "businessUsefulness": 8,
+      "verificationQuality": 9,
+      "platformReputation": 8,
+      "spamResistance": 10,
+      "industryImportance": 8,
+      "longTermStability": 8,
+      "submissionQuality": 6,
+      "transparency": 9,
+      "moderationQuality": 9
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": true,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-06",
+    "nextVerification": "2027-08-12",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Checking that a named person is entered in the Polish register of statutory auditors.",
+      "Establishing which audit firm an auditor is associated with."
+    ],
+    "notRecommendedFor": [
+      "Checking an audit firm. Firms are kept on a separate list and do not appear in this register.",
+      "Judging audit quality. The register records entitlement, not how any engagement was performed."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "accounting",
+      "professional-services",
+      "financial-services"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "The register states its own keeper on the page: it is kept by the National Council of Statutory Auditors.",
+      "Results are readable without an account or payment, with the register number shown beside each name.",
+      "It can be searched by an associated audit firm as well as by name, which links a person to the practice they work in."
+    ],
+    "cons": [
+      "Entry is required to carry out statutory audits, so this is a licence register — but it says nothing about the quality of any audit.",
+      "It records individual auditors only. Audit firms are kept on a separate list by the same chamber, so absence here does not establish that a firm may not audit.",
+      "The chamber keeps the register and admits its members; that is not the same as supervising an individual engagement.",
+      "The published entry point carries a query parameter that selects the auditors view, so a link stripped of it may not land on this register."
+    ],
+    "editorNotes": "Verified 2026-08-06 by navigating from the chamber’s own site, and re-verified in a separate direct adversarial pass. The page states: \"Rejestr biegłych rewidentów prowadzony jest przez Krajową Radę Biegłych Rewidentów.\" It is server-rendered and returned rows to an anonymous client, reporting \"Znaleziono: 4811\" on both passes. FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: The register of statutory auditors kept by the Krajowa Rada Biegłych Rewidentów, the chamber’s national council. RESPONSIBLE AUTHORITY: Polska Izba Biegłych Rewidentów, a public-law professional self-government body. TECHNICAL PLATFORM: Not separately established. Served from the chamber’s own pibr.org.pl domain. PUBLIC ACCESS INTERFACE: The public register search at pibr.org.pl. Separation decision: the chamber also publishes a \"Lista firm audytorskich\" as a separate menu item and a separate population. It was NOT merged into this record and was NOT published in this wave, because its keeper and statutory basis were not established to publication standard — Polish audit oversight was restructured in 2020 and the question of which body keeps the firm list must be settled from official text before it is recorded."
+  },
+  {
+    "id": "pl-kidp-lista-doradcow-podatkowych",
+    "name": "Lista doradców podatkowych",
+    "slug": "lista-doradcow-podatkowych",
+    "country": "poland",
+    "category": "government",
+    "website": "https://kidp.pl/wyszukaj-doradce-podatkowego",
+    "submissionUrl": null,
+    "description": "The official list of Polish tax advisers, published by the National Chamber of Tax Advisers. Entry on the list is a statutory condition of performing tax advisory activities, and performing them without entitlement is punishable by a fine.",
+    "tier": "tier1",
+    "scope": "national",
+    "nativeName": "Lista doradców podatkowych",
+    "englishName": "List of Tax Advisers",
+    "englishNameSource": "editorial-translation",
+    "primaryRegistryType": "professional-licence-register",
+    "registryTypes": [
+      "professional-licence-register"
+    ],
+    "operator": {
+      "name": "Krajowa Izba Doradców Podatkowych",
+      "type": "public-law-body",
+      "officialUrl": "https://kidp.pl/"
+    },
+    "publicAccess": {
+      "searchUrl": null,
+      "accessLevel": "partially-open",
+      "freeToSearch": null,
+      "loginRequired": false,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "The search form was served anonymously with no credential, with fields for surname, forename, entry number, region and keyword, so login is recorded as not required. Submitting the form requires acknowledging the privacy policy, and no query was executed, so result content and any limits were not observed and stay null."
+    },
+    "petroHrysScore": 87,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 9,
+      "verificationQuality": 9,
+      "platformReputation": 8,
+      "spamResistance": 10,
+      "industryImportance": 8,
+      "longTermStability": 8,
+      "submissionQuality": 6,
+      "transparency": 9,
+      "moderationQuality": 9
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": true,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-06",
+    "nextVerification": "2027-08-22",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Checking that a person holding themselves out as a Polish tax adviser holds the required entitlement.",
+      "Confirming an adviser’s entry number before instructing them."
+    ],
+    "notRecommendedFor": [
+      "Finding an adviser by specialism. The list records entitlement, not expertise.",
+      "Checking an entitled company. Entities authorised to perform tax advisory activities are published separately."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "tax",
+      "accounting",
+      "professional-services"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "The chamber describes it as the official and continuously updated list of tax advisers.",
+      "It states the legal consequence plainly: holding an entry number on the list is the condition of performing tax advisory activities.",
+      "It warns that performing tax advisory activities without entitlement is punishable by a fine of up to 50,000 złoty under Article 81 of the Tax Advisory Act of 5 July 1996.",
+      "It can be narrowed to any of the sixteen regional chambers."
+    ],
+    "cons": [
+      "Entry is required to perform tax advisory activities, so this is a licence register — but it is not a statement about how any engagement was carried out.",
+      "The search cannot be submitted without acknowledging the privacy policy, so reading the list is not a single anonymous click.",
+      "The chamber publishes a separate register of entitled entities as a downloadable PDF rather than a searchable register, so a company cannot be checked here.",
+      "Absence does not establish that a person may not act at all in tax matters; it establishes that they are not entered on this list of tax advisers.",
+      "No search was executed during verification, so result content and any limits were not observed and none is asserted."
+    ],
+    "editorNotes": "Verified 2026-08-06 by navigating from the chamber’s own site, and re-verified in a separate direct adversarial pass. The page states it is the \"Oficjalna i na bieżąco aktualizowana lista doradców podatkowych\", that a reader can check \"czy osoba podająca się za doradcę podatkowego posiada wymagane prawem uprawnienia do wykonywania tego zawodu\", and that \"Warunkiem wykonywania czynności doradztwa podatkowego jest posiadanie numeru wpisu na listę.\" It warns: \"Kto, nie będąc uprawniony, wykonuje czynności doradztwa podatkowego, podlega grzywnie do 50 000 zł\", citing \"Art. 81 ustawy z dnia 5 lipca 1996 r. o doradztwie podatkowym\". Sixteen regional chambers are selectable. FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: Entry on the list of tax advisers under the Tax Advisory Act of 5 July 1996; the chamber enters and publishes. RESPONSIBLE AUTHORITY: Krajowa Izba Doradców Podatkowych, a public-law professional self-government body. TECHNICAL PLATFORM: Not separately established. Served from the chamber’s own kidp.pl domain. PUBLIC ACCESS INTERFACE: The public list search at kidp.pl, behind a privacy-policy acknowledgement. Rejected as a separate record: the chamber’s \"Rejestr podmiotów uprawnionych\" is published as a static PDF download, not a searchable register, and is recorded here as a limitation of this record rather than as a system of its own."
   }
 ]
