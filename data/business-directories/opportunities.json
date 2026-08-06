@@ -5798,5 +5798,659 @@
     "submissionModel": "unknown",
     "note": "The open collaborative world map, where a business can add and maintain its own place entry.",
     "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-thefork",
+    "name": "TheFork",
+    "website": "https://www.thefork.com/",
+    "country": "global",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P1",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "europe"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A leading European restaurant reservation platform with public restaurant profiles. It has absorbed Bookatable. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "de-quandoo",
+    "name": "Quandoo",
+    "website": "https://www.quandoo.de/",
+    "country": "germany",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "dach",
+      "europe"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A restaurant reservation platform with public restaurant listings.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "uk-treatwell",
+    "name": "Treatwell",
+    "website": "https://www.treatwell.co.uk/",
+    "country": "united-kingdom",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P1",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "europe",
+      "united-kingdom"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A leading European hair and beauty booking marketplace with public salon profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-booksy",
+    "name": "Booksy",
+    "website": "https://www.booksy.com/",
+    "country": "global",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P1",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "europe",
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A global beauty and wellness booking marketplace with public provider profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-fresha",
+    "name": "Fresha",
+    "website": "https://www.fresha.com/",
+    "country": "global",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P1",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A global salon and spa booking marketplace with public business profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-setmore",
+    "name": "Setmore",
+    "website": "https://www.setmore.com/",
+    "country": "global",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An appointment scheduling platform that gives businesses a public booking page.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "fr-planity",
+    "name": "Planity",
+    "website": "https://www.planity.com/",
+    "country": "france",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P1",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The leading French hair and beauty booking platform with public salon profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "de-shore",
+    "name": "Shore",
+    "website": "https://www.shore.com/",
+    "country": "germany",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "dach"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A German appointment booking platform giving businesses a public profile page.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "nl-zoover",
+    "name": "Zoover",
+    "website": "https://www.zoover.nl/",
+    "country": "netherlands",
+    "category": "review-sites",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Dutch travel and accommodation review platform with public property listings.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "fr-appvizer",
+    "name": "Appvizer",
+    "website": "https://www.appvizer.fr/",
+    "country": "france",
+    "category": "software",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "europe"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A French-language business software directory with public vendor listings.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "fr-softwareadvice",
+    "name": "Software Advice France",
+    "website": "https://www.softwareadvice.fr/",
+    "country": "france",
+    "category": "software",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The French arm of the Software Advice directory. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "de-wer-zu-wem",
+    "name": "wer-zu-wem",
+    "website": "https://www.wer-zu-wem.de/",
+    "country": "germany",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "dach"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A German company database with researched public company entries.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "de-firmenpresse",
+    "name": "Firmenpresse",
+    "website": "https://www.firmenpresse.de/",
+    "country": "germany",
+    "category": "press-release-platforms",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "dach"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A German press release publishing service, free to submit.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "de-dialo",
+    "name": "Dialo",
+    "website": "https://www.dialo.de/",
+    "country": "germany",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "dach"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A German telephone and business directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "de-yellowmap",
+    "name": "YellowMap",
+    "website": "https://www.yellowmap.de/",
+    "country": "germany",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "dach"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A German business directory and location search service with public company entries.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ch-search-ch",
+    "name": "search.ch",
+    "website": "https://www.search.ch/",
+    "country": "switzerland",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P1",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "dach"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A principal Swiss search service carrying business and telephone directory entries.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ch-swissguide",
+    "name": "Swissguide",
+    "website": "https://www.swissguide.ch/",
+    "country": "switzerland",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "dach"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Swiss directory of companies, products and brands with public entries.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "se-foretagsfakta",
+    "name": "Företagsfakta",
+    "website": "https://www.foretagsfakta.se/",
+    "country": "sweden",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "nordics"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Swedish company search directory with public business entries.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "dk-jobindex",
+    "name": "Jobindex",
+    "website": "https://www.jobindex.dk/",
+    "country": "denmark",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "nordics"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The principal Danish job platform carrying public employer profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-softwarereviews",
+    "name": "SoftwareReviews",
+    "website": "https://www.softwarereviews.com/",
+    "country": "global",
+    "category": "software",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global",
+      "north-america"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A business software discovery and review platform with public vendor profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-gartner-peer-insights",
+    "name": "Gartner Peer Insights",
+    "website": "https://www.gartner.com/reviews",
+    "country": "global",
+    "category": "software",
+    "tier": "tier1",
+    "priority": "P1",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "Gartner's enterprise software review platform with public vendor profiles. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-slant",
+    "name": "Slant",
+    "website": "https://www.slant.co/",
+    "country": "global",
+    "category": "software",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A product recommendation and comparison directory. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-softpedia",
+    "name": "Softpedia",
+    "website": "https://www.softpedia.com/",
+    "country": "global",
+    "category": "software",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "europe",
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A long-running software download and listing catalogue. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-majorgeeks",
+    "name": "MajorGeeks",
+    "website": "https://www.majorgeeks.com/",
+    "country": "global",
+    "category": "software",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A software download and listing catalogue.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-openhub",
+    "name": "Open Hub",
+    "website": "https://www.openhub.net/",
+    "country": "global",
+    "category": "developer",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A public directory of open source projects and contributors. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-libraries-io",
+    "name": "Libraries.io",
+    "website": "https://www.libraries.io/",
+    "country": "global",
+    "category": "developer",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An open source package index carrying public project pages across registries.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "au-hotfrog",
+    "name": "Hotfrog Australia",
+    "website": "https://www.hotfrog.com.au/",
+    "country": "australia",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "australia"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Australian arm of an international directory network. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "au-pinkpages",
+    "name": "Pink Pages",
+    "website": "https://www.pinkpages.com.au/",
+    "country": "australia",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "australia"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An Australian business directory with public company listings.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "au-womo",
+    "name": "WOMO",
+    "website": "https://www.womo.com.au/",
+    "country": "australia",
+    "category": "review-sites",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "australia"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An Australian word-of-mouth business review directory. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "au-serviceseeking",
+    "name": "ServiceSeeking",
+    "website": "https://www.serviceseeking.com.au/",
+    "country": "australia",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "australia"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An Australian trades and services marketplace with public business profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "au-hipages",
+    "name": "hipages",
+    "website": "https://www.hipages.com.au/",
+    "country": "australia",
+    "category": "construction",
+    "tier": "tier1",
+    "priority": "P1",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "australia"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The leading Australian tradesperson marketplace with public business profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "au-oneflare",
+    "name": "Oneflare",
+    "website": "https://www.oneflare.com.au/",
+    "country": "australia",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "australia"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An Australian services marketplace with public business profiles. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "au-airtasker",
+    "name": "Airtasker",
+    "website": "https://www.airtasker.com/",
+    "country": "australia",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "australia",
+      "united-kingdom"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A services marketplace with public provider profiles. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "au-homeimprovementpages",
+    "name": "Home Improvement Pages",
+    "website": "https://www.homeimprovementpages.com.au/",
+    "country": "australia",
+    "category": "construction",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "australia"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An Australian home improvement trades directory with public business profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "nz-builderscrack",
+    "name": "Builderscrack",
+    "website": "https://www.builderscrack.co.nz/",
+    "country": "new-zealand",
+    "category": "construction",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A New Zealand trades marketplace with public tradesperson profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "nz-nocowboys",
+    "name": "NoCowboys",
+    "website": "https://www.nocowboys.co.nz/",
+    "country": "new-zealand",
+    "category": "review-sites",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A New Zealand trades review directory with public business profiles and ratings.",
+    "lastVerified": "2026-08-06"
   }
 ]
