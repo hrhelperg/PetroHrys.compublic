@@ -91,7 +91,13 @@ const REGISTRY_TYPE_DEFINITIONS = [
     inclusion: 'The register\'s population is individual practitioners and entry follows a '
       + 'licensing or registration decision.',
     boundary: 'A register of firms is a regulated-operator-register or a '
-      + 'contractor-accreditation-register. Membership of a voluntary association is neither.',
+      + 'contractor-accreditation-register. Membership of a voluntary association is neither. '
+      + 'Clarified in Wave 3A-1: this type ALSO covers a protected-title register, where entry is '
+      + 'required to use a title rather than to carry out the work — but only where an official body '
+      + 'responsible for the profession holds the register and entry follows its registration '
+      + 'decision. Because the legal effect differs, a record MUST state in visible prose whether '
+      + 'registration is required to PRACTISE or only to USE THE TITLE. A list whose effect is '
+      + 'neither, such as a voluntary membership directory, is not this type.',
     examples: ['Registers of authorised architects and engineers held by professional chambers'],
   },
   {

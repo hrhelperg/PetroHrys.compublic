@@ -1,10 +1,10 @@
 {
   "country": "united-kingdom",
   "note": "The United Kingdom territorial set this section is measured against. Coverage is counted from this file and from the registry, never from a record total. Great Britain is NOT the United Kingdom: it excludes Northern Ireland, and a Great Britain system is modelled as a cross-territory jurisdiction. England and Wales has no ISO 3166-2 code of its own and is modelled with covers, never with the deprecated compound GB-EAW. blockerSummary and nextAction are internal working notes and are never rendered.",
-  "lastReviewed": "2026-08-05",
+  "lastReviewed": "2026-08-06",
   "totals": {
-    "records": 24,
-    "ukWide": 8,
+    "records": 27,
+    "ukWide": 11,
     "constituentCountry": 11,
     "crossTerritory": 5,
     "territoriesReached": 4
@@ -93,6 +93,18 @@
     {
       "recordId": "gb-companies-house-disqualified-directors",
       "name": "Disqualified Directors Register"
+    },
+    {
+      "recordId": "gb-arb-architects-register",
+      "name": "Architects Register"
+    },
+    {
+      "recordId": "gb-engc-regcheck",
+      "name": "Engineering Council RegCheck"
+    },
+    {
+      "recordId": "gb-ipreg-register",
+      "name": "IPReg Register"
     }
   ],
   "crossTerritory": [
