@@ -13,17 +13,34 @@ ca-411,411.ca,https://www.411.ca/,canada,canada,local-business,unknown,unknown,,
 ca-hotfrog,Hotfrog Canada,https://www.hotfrog.ca/,canada,canada,local-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,unknown
 ca-n49,n49,https://www.n49.com/,canada,canada,local-business,create,freemium,,tier1,P3,true,https://www.n49.com/add-biz,,Canadian businesses wanting a free listing on a platform that documents its tiers and prices openly.,"The free listing is explicitly NOT verified. The operator lists “Not Verified” as a characteristic of the free tier, and sells verification as a paid upgrade, so a free entry here carries no verification of any kind.",2026-08-06,active
 cz-firmy-cz,Firmy.cz,https://www.firmy.cz/,czech-republic,country-specific,local-business,create,free,,tier1,P1,true,https://admin.firmy.cz/pridat-firmu-zaciname/1,,"Czech businesses wanting the single most visible domestic local citation, tied to the country’s own search engine.","Creating an entry is confirmed; claiming an existing third-party entry is not documented, so no claim flow is asserted.",2026-08-06,active
+cz-edb,EDB.cz,https://www.edb.cz/,czech-republic,country-specific,general-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,unknown
+cz-zivefirmy,Živéfirmy,https://www.zivefirmy.cz/,czech-republic,country-specific,general-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
+cz-cylex,Cylex Česko,https://www.cylex.cz/,czech-republic,country-specific,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
 cz-zlate-stranky,Zlaté stránky,https://www.zlatestranky.cz/,czech-republic,country-specific,local-business,create,unknown,,tier1,P3,true,,,Czech businesses wanting a second domestic citation alongside the Seznam catalogue.,"Whether a basic entry is free is NOT documented. The operator promotes paid highlighting, but the existence of a paid option establishes nothing about the basic entry, so cost is recorded as unknown.",2026-08-06,active
+dk-degulesider,De Gule Sider,https://www.degulesider.dk/,denmark,nordics,local-business,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,unknown
 dk-krak,Krak,https://www.krak.dk/,denmark,nordics,local-business,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,unknown
+fi-finder,Finder.fi,https://www.finder.fi/,finland,nordics,general-business,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,active
 fi-fonecta,Fonecta,https://www.fonecta.fi/,finland,nordics,local-business,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,active
+fi-suomenyritykset,Suomen Yritykset,https://www.suomenyritykset.fi/,finland,nordics,general-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
 fr-pagesjaunes,PagesJaunes,https://www.pagesjaunes.fr/,france,country-specific,local-business,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,unknown
 fr-kompass,Kompass France,https://fr.kompass.com/,france,europe,general-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,unknown
+fr-cylex,Cylex France,https://www.cylex.fr/,france,country-specific,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
+fr-hotfrog,Hotfrog France,https://www.hotfrog.fr/,france,country-specific,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
 de-das-telefonbuch,Das Telefonbuch,https://www.dastelefonbuch.de/,germany,dach,local-business,create,free,,tier1,P1,true,https://www.dastelefonbuch.de/Firmeneintrag,,German businesses wanting a free entry in the country’s long-established telephone directory.,"Creating an entry is confirmed; claiming an existing one is not documented, so no claim flow is asserted.",2026-08-06,active
 de-das-oertliche,Das Örtliche,https://www.dasoertliche.de/,germany,dach,local-business,create,free,,tier1,P1,true,https://www.dtme.de/ihr-eintrag/,,German businesses wanting one free submission that reaches three established national directories.,"A submission is not confined to this directory. The same form publishes to Das Telefonbuch and Gelbe Seiten, which is convenient but removes the choice of appearing in only one.",2026-08-06,active
 de-gelbe-seiten,Gelbe Seiten,https://www.gelbeseiten.de/,germany,dach,local-business,create,free,,tier1,P1,true,https://www.gelbeseiten.de/starteintrag,,German local businesses wanting a free listing in a long-established national directory.,"An entry is a REQUEST, not a publication. The operator states that submitted data “werden an den für Ihre Region zuständigen Gelbe Seiten Verlag geschickt. Dort erfolgt eine redaktionelle Prüfung.”",2026-08-06,active
 de-11880,11880.com,https://www.11880.com/,germany,dach,local-business,create,free,,tier1,P2,true,,,German local businesses wanting a free entry on a directory whose profiles carry customer ratings.,"Ratings exist, but whether a business owner can respond to them is NOT documented, so no owner-response capability is asserted.",2026-08-06,active
+de-werkenntdenbesten,WerKenntDenBesten,https://www.werkenntdenbesten.de/,germany,dach,review-sites,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
+de-golocal,golocal,https://www.golocal.de/,germany,dach,review-sites,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
+de-meinestadt,meinestadt.de,https://www.meinestadt.de/,germany,dach,local-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,unknown
 de-wlw,wlw (Wer liefert was),https://www.wlw.de/,germany,dach,general-business,create,unknown,,tier1,P2,true,,,"German-speaking B2B suppliers wanting to be found by professional buyers in Germany, Austria and Switzerland.","Whether a basic profile is free is NOT documented. A premium profile is offered on request, but the existence of a paid tier does not establish that the basic tier is free, so cost is recorded as unknown.",2026-08-06,active
+de-branchenbuch,Branchenbuch Deutschland,https://www.branchenbuchdeutschland.de/,germany,dach,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+de-cylex,Cylex Deutschland,https://www.cylex.de/,germany,dach,local-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,unknown
+de-hotfrog,Hotfrog Deutschland,https://www.hotfrog.de/,germany,dach,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
 de-industrystock,IndustryStock Deutschland,https://www.industrystock.de/,germany,dach,manufacturing,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
+de-kennstdueinen,KennstDuEinen,https://www.kennstdueinen.de/,germany,dach,review-sites,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+de-stadtbranchenbuch,Stadtbranchenbuch,https://www.stadtbranchenbuch.com/,germany,dach,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
+de-unternehmensverzeichnis,Unternehmensverzeichnis,https://www.unternehmensverzeichnis.org/,germany,dach,general-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 global-alibaba,Alibaba.com,https://www.alibaba.com/,global,asia; global,manufacturing,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,active
 global-capterra,Capterra,https://www.capterra.com/,global,global,software,unknown,unknown,91,tier1,P1,,https://www.capterra.com/vendors/,,SaaS vendors selling to SMB and mid-market buyers,Vendor listing pricing is not disclosed on the homepage,2026-08-04,unknown
 global-clutch,Clutch,https://clutch.co/,global,global,marketing,unknown,unknown,91,tier1,P1,,,,,Listing pricing is not disclosed publicly,2026-08-04,unknown
@@ -130,19 +147,38 @@ global-go4worldbusiness,go4WorldBusiness,https://www.go4worldbusiness.com/,globa
 global-iglobal,iGlobal,https://www.iglobal.co/,global,global,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 global-pub-dev,pub.dev,https://pub.dev/,global,global,developer,unknown,unknown,86,tier1,P3,,,,,Publishing cost not stated on the homepage,2026-08-04,active
 ie-goldenpages,Golden Pages,https://www.goldenpages.ie/,ireland,country-specific,local-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,unknown
+it-paginebianche,PagineBianche,https://www.paginebianche.it/,italy,country-specific,local-business,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,active
 it-paginegialle,PagineGialle,https://www.paginegialle.it/,italy,country-specific,local-business,create,free,,tier1,P1,true,https://www.paginegialle.it/inserisci_attivita,,VAT-registered Italian businesses wanting a free national directory profile.,"An Italian VAT number is required. The registration page carries the condition “*Partita IVA necessaria”, so this is not open to unregistered businesses or to foreign companies without Italian VAT registration.",2026-08-06,active
 it-misterimprese,MisterImprese,https://www.misterimprese.it/,italy,country-specific,general-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
+it-cylex,Cylex Italia,https://www.cylex.it/,italy,country-specific,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
+it-hotfrog,Hotfrog Italia,https://www.hotfrog.it/,italy,country-specific,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+it-trovanumeri,TrovaNumeri,https://www.trovanumeri.com/,italy,country-specific,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 nl-detelefoongids,De Telefoongids,https://www.detelefoongids.nl/,netherlands,country-specific,local-business,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,active
+nl-telefoonboek,Telefoonboek,https://www.telefoonboek.nl/,netherlands,country-specific,local-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
+nl-trustoo,Trustoo,https://www.trustoo.nl/,netherlands,country-specific,review-sites,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
+nl-bedrijvenpagina,Bedrijvenpagina,https://www.bedrijvenpagina.nl/,netherlands,country-specific,general-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 nz-yellow,Yellow NZ,https://www.yellow.co.nz/,new-zealand,country-specific,local-business,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,unknown
 no-gulesider,Gule Sider,https://www.gulesider.no/,norway,nordics,local-business,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,unknown
+no-1881,Opplysningen 1881,https://www.1881.no/,norway,nordics,local-business,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,active
 pl-panorama-firm,Panorama Firm,https://panoramafirm.pl/,poland,country-specific,local-business,create,free,,tier1,P1,true,https://panoramafirm.pl/dodaj-firme.html,,Polish businesses wanting a free national directory entry.,The submission form asks whether you are the owner or a user — “Jestem: Właścicielem / Użytkownikiem” — so a third party who used a business can add it. An entry is not evidence that the named business created or approved it.,2026-08-06,active
+pl-aleo,Aleo,https://www.aleo.com/,poland,country-specific,general-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,unknown
+pl-oferteo,Oferteo,https://www.oferteo.pl/,poland,country-specific,local-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
+pl-cylex,Cylex Polska,https://www.cylex.pl/,poland,country-specific,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
 pl-firmy-net,Firmy.net,https://www.firmy.net/,poland,country-specific,general-business,create,free,,tier1,P3,true,https://www.firmy.net/dodaj-firme,,"Polish businesses wanting a free company presentation with a named, long-established operator.","Your entry does not stay on this site alone. The operator states a presentation reaches customers “z Google, aplikacji mobilnych oraz kilkunastu portali partnerskich” — from Google, mobile apps and more than a dozen partner portals. Where those entries appear is not enumerated.",2026-08-06,active
+pl-firmy-pl,Firmy.pl,https://www.firmy.pl/,poland,country-specific,general-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 pl-pkt,pkt.pl,https://www.pkt.pl/,poland,country-specific,local-business,create,free,,tier1,P3,true,https://www.pkt.pl/dodaj-aktualizuj-dane-firmy,,Polish businesses wanting a second national directory entry alongside Panorama Firm.,"The form covers updating an existing entry, but updating data is not the same as taking ownership of a profile, so no claim flow is asserted.",2026-08-06,active
 pt-pai,PAI,https://www.pai.pt/,portugal,country-specific,local-business,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,active
+sg-streetdirectory,Streetdirectory,https://www.streetdirectory.com/,singapore,asia,local-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
+sg-yellowpages,Yellow Pages Singapore,https://www.yellowpages.com.sg/,singapore,asia,local-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,unknown
 es-paginas-amarillas,Páginas Amarillas,https://www.paginasamarillas.es/,spain,country-specific,local-business,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,unknown
+es-11870,11870,https://www.11870.com/,spain,country-specific,review-sites,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,unknown
+es-qdq,QDQ,https://www.qdq.com/,spain,country-specific,local-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
+es-cylex,Cylex España,https://www.cylex.es/,spain,country-specific,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
+es-hotfrog,Hotfrog España,https://www.hotfrog.es/,spain,country-specific,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
 se-eniro,Eniro,https://www.eniro.se/,sweden,nordics,local-business,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,unknown
 se-hitta,Hitta.se,https://www.hitta.se/,sweden,nordics,local-business,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,active
 ch-local-ch,local.ch,https://www.local.ch/,switzerland,dach,local-business,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,active
+ae-gulfyp,GulfYP,https://www.dubaiyellowpagesonline.com/,united-arab-emirates,middle-east,local-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
 uk-checkatrade,Checkatrade,https://www.checkatrade.com/,united-kingdom,united-kingdom,construction,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,unknown
 uk-thomson-local,Thomson Local,https://www.thomsonlocal.com/,united-kingdom,united-kingdom,local-business,create,freemium,,tier1,P1,true,https://www.thomsonlocal.com/product/freelisting,,"UK local businesses wanting a free entry in a directory with a named, long-established operator.","The free listing EXPIRES. The operator describes it as “A three-month time limited free business listing”, so it is not a permanent presence and no permanence is asserted here.",2026-08-06,active
 uk-yell,Yell,https://www.yell.com/,united-kingdom,united-kingdom,local-business,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,unknown

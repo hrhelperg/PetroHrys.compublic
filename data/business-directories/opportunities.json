@@ -2064,5 +2064,653 @@
     "submissionModel": "unknown",
     "note": "An African business news and company directory covering companies, jobs and events.",
     "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "de-cylex",
+    "name": "Cylex Deutschland",
+    "website": "https://www.cylex.de/",
+    "country": "germany",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "dach"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The German arm of the international Cylex directory network. Live but behind a bot filter, so a browser check is needed before submitting.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "de-branchenbuch",
+    "name": "Branchenbuch Deutschland",
+    "website": "https://www.branchenbuchdeutschland.de/",
+    "country": "germany",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "dach"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A German trade and business directory with public company entries.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "de-unternehmensverzeichnis",
+    "name": "Unternehmensverzeichnis",
+    "website": "https://www.unternehmensverzeichnis.org/",
+    "country": "germany",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "dach"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A German company index with public business entries.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "de-werkenntdenbesten",
+    "name": "WerKenntDenBesten",
+    "website": "https://www.werkenntdenbesten.de/",
+    "country": "germany",
+    "category": "review-sites",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "dach"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A German business review platform with public company profiles and customer ratings.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "de-golocal",
+    "name": "golocal",
+    "website": "https://www.golocal.de/",
+    "country": "germany",
+    "category": "review-sites",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "dach"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A German local recommendation and review platform with public business profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "de-kennstdueinen",
+    "name": "KennstDuEinen",
+    "website": "https://www.kennstdueinen.de/",
+    "country": "germany",
+    "category": "review-sites",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "dach"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A German business listing and customer review directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "de-meinestadt",
+    "name": "meinestadt.de",
+    "website": "https://www.meinestadt.de/",
+    "country": "germany",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "dach"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A large German city portal carrying local business listings. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "de-stadtbranchenbuch",
+    "name": "Stadtbranchenbuch",
+    "website": "https://www.stadtbranchenbuch.com/",
+    "country": "germany",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "dach"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A German city trade directory. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "de-hotfrog",
+    "name": "Hotfrog Deutschland",
+    "website": "https://www.hotfrog.de/",
+    "country": "germany",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "dach"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The German arm of an international directory network. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "nl-trustoo",
+    "name": "Trustoo",
+    "website": "https://www.trustoo.nl/",
+    "country": "netherlands",
+    "category": "review-sites",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Dutch service-provider review and matching platform with public company profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "nl-bedrijvenpagina",
+    "name": "Bedrijvenpagina",
+    "website": "https://www.bedrijvenpagina.nl/",
+    "country": "netherlands",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Dutch company directory with public business entries.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "nl-telefoonboek",
+    "name": "Telefoonboek",
+    "website": "https://www.telefoonboek.nl/",
+    "country": "netherlands",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Dutch telephone and business directory with public company entries.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "fr-cylex",
+    "name": "Cylex France",
+    "website": "https://www.cylex.fr/",
+    "country": "france",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The French arm of the international Cylex network. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "fr-hotfrog",
+    "name": "Hotfrog France",
+    "website": "https://www.hotfrog.fr/",
+    "country": "france",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The French arm of an international directory network. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "es-qdq",
+    "name": "QDQ",
+    "website": "https://www.qdq.com/",
+    "country": "spain",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Spanish business directory and digital marketing group with public company listings.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "es-11870",
+    "name": "11870",
+    "website": "https://www.11870.com/",
+    "country": "spain",
+    "category": "review-sites",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Spanish local business review and recommendation directory. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "es-cylex",
+    "name": "Cylex España",
+    "website": "https://www.cylex.es/",
+    "country": "spain",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Spanish arm of the international Cylex network. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "es-hotfrog",
+    "name": "Hotfrog España",
+    "website": "https://www.hotfrog.es/",
+    "country": "spain",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Spanish arm of an international directory network. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "it-paginebianche",
+    "name": "PagineBianche",
+    "website": "https://www.paginebianche.it/",
+    "country": "italy",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P1",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Italian white-pages directory covering people and businesses, operated alongside PagineGialle.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "it-cylex",
+    "name": "Cylex Italia",
+    "website": "https://www.cylex.it/",
+    "country": "italy",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Italian arm of the international Cylex network. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "it-hotfrog",
+    "name": "Hotfrog Italia",
+    "website": "https://www.hotfrog.it/",
+    "country": "italy",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Italian arm of an international directory network with public business listings.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "it-trovanumeri",
+    "name": "TrovaNumeri",
+    "website": "https://www.trovanumeri.com/",
+    "country": "italy",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An Italian business and telephone directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "pl-cylex",
+    "name": "Cylex Polska",
+    "website": "https://www.cylex.pl/",
+    "country": "poland",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Polish arm of the international Cylex network. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "pl-oferteo",
+    "name": "Oferteo",
+    "website": "https://www.oferteo.pl/",
+    "country": "poland",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Polish service-provider marketplace with public company profiles and customer requests.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "pl-aleo",
+    "name": "Aleo",
+    "website": "https://www.aleo.com/",
+    "country": "poland",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Polish B2B marketplace and company directory. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "pl-firmy-pl",
+    "name": "Firmy.pl",
+    "website": "https://www.firmy.pl/",
+    "country": "poland",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Polish company directory with public business entries.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "cz-cylex",
+    "name": "Cylex Česko",
+    "website": "https://www.cylex.cz/",
+    "country": "czech-republic",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Czech arm of the international Cylex network. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "cz-edb",
+    "name": "EDB.cz",
+    "website": "https://www.edb.cz/",
+    "country": "czech-republic",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Czech company database and business directory. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "cz-zivefirmy",
+    "name": "Živéfirmy",
+    "website": "https://www.zivefirmy.cz/",
+    "country": "czech-republic",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "Described on the site as the largest independent Czech company catalogue, with public business entries.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "no-1881",
+    "name": "Opplysningen 1881",
+    "website": "https://www.1881.no/",
+    "country": "norway",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P1",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "nordics"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The principal Norwegian directory enquiry service, covering companies and people.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "dk-degulesider",
+    "name": "De Gule Sider",
+    "website": "https://www.degulesider.dk/",
+    "country": "denmark",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P1",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "nordics"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Danish yellow-pages directory. Live but behind a bot filter, so a browser check is needed before submitting.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "fi-suomenyritykset",
+    "name": "Suomen Yritykset",
+    "website": "https://www.suomenyritykset.fi/",
+    "country": "finland",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "nordics"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Finnish company directory with public business entries.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "fi-finder",
+    "name": "Finder.fi",
+    "website": "https://www.finder.fi/",
+    "country": "finland",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P1",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "nordics"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Finnish company and decision-maker search service with public business profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "sg-yellowpages",
+    "name": "Yellow Pages Singapore",
+    "website": "https://www.yellowpages.com.sg/",
+    "country": "singapore",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "asia"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Singapore yellow-pages directory. Live but behind a captcha, so a browser check is needed before submitting.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "sg-streetdirectory",
+    "name": "Streetdirectory",
+    "website": "https://www.streetdirectory.com/",
+    "country": "singapore",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "asia"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Singapore mapping and local business directory with public company listings.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ae-gulfyp",
+    "name": "GulfYP",
+    "website": "https://www.dubaiyellowpagesonline.com/",
+    "country": "united-arab-emirates",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "middle-east"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Gulf region business directory with public company listings and search.",
+    "lastVerified": "2026-08-06"
   }
 ]
