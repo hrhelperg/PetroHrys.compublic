@@ -79,11 +79,19 @@ test('the pre-contract global records were not silently half-remediated', () => 
   // would leave the layer inconsistent and make "unknown" ambiguous: is it
   // researched-and-unknown, or never-researched? This wave deliberately touched
   // none of them, and that decision is recorded rather than assumed.
+  // The 53 PRE-CONTRACT global records must stay unremediated. The high-authority
+  // expansion later ADDED global-provenexpert, which was authored to contract
+  // standard from the start — so the invariant is about the legacy set, not the
+  // total. Counting the total would have made a legitimate addition look like a
+  // remediation.
   const global = ALL.filter((r) => r.country === 'global');
-  assert.strictEqual(global.length, 53, 'the global record count changed this wave');
   const unremediated = global.filter((r) => !r.operator || !r.operator.name);
   assert.strictEqual(unremediated.length, 53,
-    'some global records gained an operator; remediation must be a whole wave, not a sample');
+    'the pre-contract global set changed size; remediation must be a whole wave, not a sample');
+  for (const r of global.filter((x) => x.operator && x.operator.name)) {
+    assert.ok(r.lastVerified >= '2026-08-06',
+      `${r.id} carries an operator but was not authored to contract standard`);
+  }
 });
 
 // ── operator gate ───────────────────────────────────────────────────────────

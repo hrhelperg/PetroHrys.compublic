@@ -1412,5 +1412,140 @@
       "Opinions appear in the database, but whether a business can respond to them is not documented and is not asserted."
     ],
     "editorNotes": "Verified 2026-08-06 from the database and its own submission page, and re-verified in a separate direct pass in which “dodać lub aktualizować dane firmy”, “WeNet Group S.A.” and “Dodaj firmę bezpłatnie” were each present in the served pages. PLATFORM OPERATOR: WeNet Group S.A., named directly in the submission form’s consent text alongside WeNet Sp. z o.o. LISTING CONTROL: A business adds or updates its own data through one form. MODERATION AUTHORITY: Not documented by the operator. PUBLIC INTERFACE: pkt.pl, with the add-or-update form at /dodaj-aktualizuj-dane-firmy. DUPLICATE DECISION: kept separate from Panorama Firm despite shared WeNet group ownership. Different domains, different submission forms, and pkt.pl carries its own site terms. Ownership is not evidence that businesses manage one shared profile, and no operator states that a submission reaches both. MARKETING CLAIM NOT ADOPTED: the submission page promotes “Wyższa pozycja w Google”. That is promotional copy, not documentation, and no SEO outcome is asserted anywhere in this record. NOT ASSERTED: verification, owner responses, claim flow, indexability, link attributes, traffic."
+  },
+  {
+    "id": "pl-firmy-net",
+    "name": "Firmy.net",
+    "slug": "firmy-net",
+    "country": "poland",
+    "category": "general-business",
+    "website": "https://www.firmy.net/",
+    "submissionUrl": "https://www.firmy.net/dodaj-firme",
+    "description": "A Polish business directory operated by NNV Sp. z o.o. since 2007. A company presentation is created free of charge after registering an account, and the operator states that entries are also distributed to partner portals — which is useful to know before submitting.",
+    "tier": "tier1",
+    "scope": "national",
+    "nativeName": "Firmy.net",
+    "operator": {
+      "name": "NNV Sp. z o.o.",
+      "type": "other",
+      "officialUrl": "https://www.firmy.net/dodaj-firme"
+    },
+    "petroHrysScore": 52,
+    "scoreFactors": {
+      "editorialTrust": 5,
+      "businessUsefulness": 6,
+      "verificationQuality": 3,
+      "platformReputation": 5,
+      "spamResistance": 4,
+      "industryImportance": 5,
+      "longTermStability": 7,
+      "submissionQuality": 7,
+      "transparency": 6,
+      "moderationQuality": 4
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "free",
+    "registrationRequired": true,
+    "reviewSystem": null,
+    "verificationRequired": null,
+    "manualReview": null,
+    "listingAction": "create",
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": true,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-06",
+    "nextVerification": "2027-05-19",
+    "verification": {
+      "status": "verified",
+      "source": "official-documentation",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "pl-panorama-firm",
+        "pl-pkt"
+      ],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Polish businesses wanting a free company presentation with a named, long-established operator.",
+      "Businesses that want one submission to reach partner portals as well as the directory itself."
+    ],
+    "notRecommendedFor": [
+      "Businesses that want their entry confined to one site. The operator states it is distributed to partner portals.",
+      "Anyone expecting the search-position claims on the signup page to be guaranteed. They are marketing, not commitments."
+    ],
+    "submissionDifficulty": "easy",
+    "listingQuality": null,
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "local-services",
+      "professional-services",
+      "retail"
+    ],
+    "editorialTags": [
+      "business-directory",
+      "commercial-platform"
+    ],
+    "pros": [
+      "Creating a presentation is free and the operator says so twice over: “Rozpocznij darmową reklamę Twojej firmy!” and “Zarejestruj się i promuj firmę bezpłatnie”.",
+      "The operator is identified in both the footer and the signup form’s data-protection notice: “Administratorem danych osobowych jest NNV Sp. z o.o.”",
+      "The operating history is long and stated on the site, running from 2007.",
+      "The submission is a genuine self-service route with its own page, not an enquiry form."
+    ],
+    "cons": [
+      "Your entry does not stay on this site alone. The operator states a presentation reaches customers “z Google, aplikacji mobilnych oraz kilkunastu portali partnerskich” — from Google, mobile apps and more than a dozen partner portals. Where those entries appear is not enumerated.",
+      "The signup page claims a presentation “natychmiast po utworzeniu osiąga wysokie pozycje w wynikach wyszukiwania” — that it immediately reaches high positions in search results. That is the operator’s marketing claim and is NOT adopted here; no ranking outcome is asserted.",
+      "An account with a confirmed email address is required before a presentation exists, so this is not an anonymous submission.",
+      "Creating a presentation is documented; claiming an existing third-party entry is not, so no claim flow is asserted.",
+      "Whether verification is required, and by what method, is not documented, so nothing about verification is asserted.",
+      "No review system or owner-response function is documented, so neither is asserted.",
+      "No Domain Rating is published for this platform. No valid measurement exists in the frozen historical set and none may be estimated, so the metric is recorded as not measured rather than guessed.",
+      "A listing is a directory entry. It is not evidence that a business is solvent, currently trading, licensed, or checked beyond what the operator documents here.",
+      "No ranking, indexing, traffic or lead outcome is asserted. The operator markets outcomes; this record does not adopt them."
+    ],
+    "editorNotes": "Verified 2026-08-06 from the platform’s own signup page and footer, and re-verified in a separate direct pass in which “NNV Sp. z o. o.”, “Rozpocznij darmową reklamę Twojej firmy!” and “kilkunastu portali partnerskich” were each present in the served pages. PLATFORM OPERATOR: NNV Sp. z o.o., named in the site footer and in the signup form’s data-protection notice. LISTING CONTROL: The business registers an account and creates and manages its own presentation. MODERATION AUTHORITY: Not documented. PUBLIC INTERFACE: firmy.net, with the creation route at /dodaj-firme. EARLIER WAVE CORRECTED: Firmy.net was previously recorded as targeted-research-incomplete because no operator could be established and the add-company route appeared to be a JavaScript handler. Both are now resolved from the operator’s own pages. DUPLICATE DECISION: kept separate from Panorama Firm and pkt.pl. Those two are WeNet Group properties; this is NNV Sp. z o.o. Different operator, different domain, its own submission form and its own account system. MARKETING CLAIM NOT ADOPTED: the search-position promise on the signup page is recorded as a claim and disowned. DOMAIN RATING: null. No historical measurement exists for this domain. NOT ASSERTED: verification, reviews, owner responses, claim flow, the composition of the partner-portal network, indexability, link attributes, traffic."
   }
 ]

@@ -2299,7 +2299,7 @@
       "The operator does not document a review system or owner responses on the pages consulted, so neither is asserted. Absence here means unrecorded, not unavailable.",
       "A listing is a directory entry. It is not evidence that a business is solvent, currently trading, or has been checked beyond the publisher’s editorial review of the submitted data."
     ],
-    "editorNotes": "Verified 2026-08-06 from the operator’s own entry service at gelbeseiten.de/starteintrag, and re-verified in a separate direct pass in which “Grundeintrag”, “kostenloser Grundeintrag bei Gelbe Seiten”, “redaktionelle Prüfung” and “zuständigen Gelbe Seiten Verlag” were each present in the served page. PLATFORM OPERATOR: Gelbe Seiten Verlage, identified on the site as “Ein Service Ihrer Gelbe Seiten Verlage”. LISTING CONTROL: The business submits an entry; the regionally responsible publisher decides whether it appears. Control is therefore shared, not self-service. MODERATION AUTHORITY: The regional Gelbe Seiten publisher, through a stated editorial review (“redaktionelle Prüfung”). PUBLIC INTERFACE: gelbeseiten.de, with the entry service at /starteintrag. DUPLICATE DECISION: kept separate from Das Telefonbuch and 11880. The three reference one another as partner services and share a market, but each operates its OWN entry service on its OWN domain with its OWN editorial process — Gelbe Seiten routes to regional Gelbe Seiten publishers specifically. No operator states that one submission produces entries in the others. Shared ownership or cross-linking is not evidence of one system. NOT ASSERTED: verification, reviews, owner responses, indexability, link attributes, traffic. None was documented by the operator and none is inferred."
+    "editorNotes": "Verified 2026-08-06 from the operator’s own entry service at gelbeseiten.de/starteintrag, and re-verified in a separate direct pass in which “Grundeintrag”, “kostenloser Grundeintrag bei Gelbe Seiten”, “redaktionelle Prüfung” and “zuständigen Gelbe Seiten Verlag” were each present in the served page. PLATFORM OPERATOR: Gelbe Seiten Verlage, identified on the site as “Ein Service Ihrer Gelbe Seiten Verlage”. LISTING CONTROL: The business submits an entry; the regionally responsible publisher decides whether it appears. Control is therefore shared, not self-service. MODERATION AUTHORITY: The regional Gelbe Seiten publisher, through a stated editorial review (“redaktionelle Prüfung”). PUBLIC INTERFACE: gelbeseiten.de, with the entry service at /starteintrag. DUPLICATE DECISION: kept separate from Das Telefonbuch and 11880. The three reference one another as partner services and share a market, but each operates its OWN entry service on its OWN domain with its OWN editorial process — Gelbe Seiten routes to regional Gelbe Seiten publishers specifically. CORRECTED 2026-08-06: an earlier version of this note said that no operator claims one submission produces entries in the others. That was wrong. DTM Deutsche Tele Medien’s entry service states “Mit nur 1 Klick direkt in 3 Verzeichnissen” and names Das Telefonbuch, Gelbe Seiten and Das Örtliche. A combined submission route therefore DOES exist. The records stay separate because each directory is its own product on its own domain with its own publisher and its own independent entry service; what is shared is one optional combined form, not a listing identity. Shared ownership or cross-linking is not evidence of one system. NOT ASSERTED: verification, reviews, owner responses, indexability, link attributes, traffic. None was documented by the operator and none is inferred."
   },
   {
     "id": "de-das-telefonbuch",
@@ -2431,7 +2431,7 @@
       "The site links to Gelbe Seiten and Das Örtliche as separate services, and no operator states that one entry reaches all three. A business wanting presence in each must submit to each.",
       "The operator is identified on the site only as joint publishers rather than a single named company, so the corporate entity behind the directory is not established here."
     ],
-    "editorNotes": "Verified 2026-08-06 from the operator’s own Firmeneintrag service, and re-verified in a separate direct pass in which “kostenlos” and “Firmeneintrag” were both present in the served page. The homepage identifies the publisher only as “Gemeinsame Herausgeber und Verleger”, so the operator is recorded under the directory’s own name rather than a company that was not established. PLATFORM OPERATOR: Das Telefonbuch, published by joint publishers named collectively on the site rather than as a single company. LISTING CONTROL: The business creates its own entry through the Firmeneintrag service. MODERATION AUTHORITY: Not documented by the operator. PUBLIC INTERFACE: dastelefonbuch.de, with the entry service at /Firmeneintrag. DUPLICATE DECISION: kept separate from Gelbe Seiten and 11880. Its entry service is its own, on its own domain, and the footer treats the other directories as separate linked services. The entry page carries no statement that a submission reaches any other directory. NOT ASSERTED: verification, reviews, owner responses, moderation, indexability, link attributes, traffic."
+    "editorNotes": "Verified 2026-08-06 from the operator’s own Firmeneintrag service, and re-verified in a separate direct pass in which “kostenlos” and “Firmeneintrag” were both present in the served page. The homepage identifies the publisher only as “Gemeinsame Herausgeber und Verleger”, so the operator is recorded under the directory’s own name rather than a company that was not established. PLATFORM OPERATOR: Das Telefonbuch, published by joint publishers named collectively on the site rather than as a single company. LISTING CONTROL: The business creates its own entry through the Firmeneintrag service. MODERATION AUTHORITY: Not documented by the operator. PUBLIC INTERFACE: dastelefonbuch.de, with the entry service at /Firmeneintrag. DUPLICATE DECISION: kept separate from Gelbe Seiten and 11880. Its entry service is its own, on its own domain, and the footer treats the other directories as separate linked services. CORRECTED 2026-08-06: this record previously said its entry page carries no statement that a submission reaches another directory. That remains true of dastelefonbuch.de itself, but it was being used to imply no such route exists anywhere, and one does: DTM Deutsche Tele Medien’s entry service publishes to Das Telefonbuch, Gelbe Seiten and Das Örtliche from a single form. The records stay separate on product and publisher grounds, not on the absence of a combined route. NOT ASSERTED: verification, reviews, owner responses, moderation, indexability, link attributes, traffic."
   },
   {
     "id": "de-11880",
@@ -2692,5 +2692,141 @@
       "Coverage is described as the DACH region rather than Germany alone, so a record filed under Germany understates its geography. The dataset does not yet carry a machine-readable coverage field, and this is stated in prose instead."
     ],
     "editorNotes": "Verified 2026-08-06 from the operator’s own site, and re-verified in a separate direct pass in which “B2B” and “Firmenprofil” were both present in the served page. Profile creation is confirmed by “Erstellen Sie ein Firmenprofil und laden Sie Ihre Produktdaten hoch, um neue Käufer zu gewinnen”, with a supplier registration route at /de/supplier-registration. PLATFORM OPERATOR: wlw (Wer liefert was), a B2B marketplace operator. LISTING CONTROL: The supplier creates and maintains its own company profile and product data. MODERATION AUTHORITY: Not documented by the operator. PUBLIC INTERFACE: wlw.de, with supplier registration on the same domain. COST DECISION: an automated summariser characterised the basic profile as “appears available”, which is not evidence. submissionModel is recorded as unknown rather than free. The brief forbids inferring free from the presence of a registration route, and forbids inferring paid from the presence of a premium tier. NOT ASSERTED: cost, verification, reviews, owner responses, moderation, indexability, link attributes, traffic."
+  },
+  {
+    "id": "de-das-oertliche",
+    "name": "Das Örtliche",
+    "slug": "das-oertliche",
+    "country": "germany",
+    "category": "local-business",
+    "website": "https://www.dasoertliche.de/",
+    "submissionUrl": "https://www.dtme.de/ihr-eintrag/",
+    "description": "One of Germany’s three long-established telephone and business directories. Its entry service is run by DTM Deutsche Tele Medien and is notable for what it does openly: a single free submission places a business in Das Örtliche, Das Telefonbuch and Gelbe Seiten at once.",
+    "tier": "tier1",
+    "scope": "national",
+    "nativeName": "Das Örtliche",
+    "englishName": "The Local",
+    "englishNameSource": "editorial-translation",
+    "operator": {
+      "name": "DTM Deutsche Tele Medien GmbH",
+      "type": "other",
+      "officialUrl": "https://www.dtme.de/ihr-eintrag/"
+    },
+    "petroHrysScore": 68,
+    "scoreFactors": {
+      "editorialTrust": 7,
+      "businessUsefulness": 7,
+      "verificationQuality": 4,
+      "platformReputation": 8,
+      "spamResistance": 6,
+      "industryImportance": 7,
+      "longTermStability": 8,
+      "submissionQuality": 8,
+      "transparency": 8,
+      "moderationQuality": 5
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "free",
+    "registrationRequired": null,
+    "reviewSystem": null,
+    "verificationRequired": null,
+    "manualReview": null,
+    "listingAction": "create",
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": true,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-06",
+    "nextVerification": "2027-05-09",
+    "verification": {
+      "status": "verified",
+      "source": "official-documentation",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "de-gelbe-seiten",
+        "de-das-telefonbuch"
+      ],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "German businesses wanting one free submission that reaches three established national directories.",
+      "Businesses that would otherwise submit separately to Das Telefonbuch and Gelbe Seiten."
+    ],
+    "notRecommendedFor": [
+      "Businesses that want to appear in exactly one directory. This route deliberately publishes to three.",
+      "Businesses outside Germany. The service is organised around German directory publishers."
+    ],
+    "submissionDifficulty": "easy",
+    "listingQuality": null,
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "local-services",
+      "retail",
+      "professional-services"
+    ],
+    "editorialTags": [
+      "business-directory",
+      "commercial-platform"
+    ],
+    "pros": [
+      "The entry is free and the operator states it without qualification: “Ihr Eintrag. Mit nur 1 Klick direkt in 3 Verzeichnissen. Kostenfrei.”",
+      "One submission reaches three of Germany’s best-known directories: “Freuen Sie sich auf Ihren Eintrag in Das Telefonbuch, Gelbe Seiten und Das Örtliche.”",
+      "The operator is named plainly as DTM Deutsche Tele Medien GmbH, with separate documented routes for creating, editing and deleting an entry.",
+      "Both new entries and changes to an existing one are handled through the same service: “Hier können Sie sich oder Ihre Firma neu eintragen oder Ihren bestehenden Eintrag verwalten.”"
+    ],
+    "cons": [
+      "A submission is not confined to this directory. The same form publishes to Das Telefonbuch and Gelbe Seiten, which is convenient but removes the choice of appearing in only one.",
+      "The directory itself is a separate surface from the entry service: dasoertliche.de carries the listings, dtme.de takes the submissions. A business must leave the directory to manage its own data.",
+      "Creating and updating an entry are documented; taking control of an existing third-party entry as its owner is not described as a claim process, so no claim flow is asserted.",
+      "Whether verification is required, and by what method, is not documented, so nothing about verification is asserted.",
+      "No review system or owner-response function is documented on the pages consulted, so neither is asserted. Absence here means unrecorded, not unavailable.",
+      "No Domain Rating is published for this platform. No valid measurement exists in the frozen historical set and none may be estimated, so the metric is recorded as not measured rather than guessed.",
+      "A listing is a directory entry. It is not evidence that a business is solvent, currently trading, licensed, or checked beyond what the operator documents here.",
+      "No ranking, indexing, traffic or lead outcome is asserted. The operator markets outcomes; this record does not adopt them."
+    ],
+    "editorNotes": "Verified 2026-08-06 from the operator’s own entry service at dtme.de and the directory at dasoertliche.de, and re-verified in a separate direct pass in which “Mit nur 1 Klick direkt in 3 Verzeichnissen”, “Kostenfrei”, “Freuen Sie sich auf Ihren Eintrag in Das Telefonbuch, Gelbe Seiten und Das Örtliche” and “DTM Deutsche Tele Medien GmbH” were each present in the served pages. PLATFORM OPERATOR: DTM Deutsche Tele Medien GmbH, named on its own entry-service site, which the directory links to as its submission route. LISTING CONTROL: The business submits through DTM and can update or delete its entry through the same service. MODERATION AUTHORITY: Not documented. PUBLIC INTERFACE: dasoertliche.de for the directory, dtme.de/ihr-eintrag for submissions. DUPLICATE DECISION: published as its own record despite the shared entry service. The three German directories remain separate PRODUCTS on separate domains with separate publishers and separate public surfaces; what they share is one optional combined submission route. A shared submission form is not the same as a shared listing identity, and a reader choosing where to appear still faces three distinct directories. CORRECTION TO AN EARLIER WAVE: the Gelbe Seiten and Das Telefonbuch records previously stated that no operator claims one submission produces entries in the others. DTM states exactly that. Both records have been corrected in this wave. DOMAIN RATING: null. dasoertliche.de carries no historical measurement and no value may be estimated. NOT ASSERTED: verification, reviews, owner responses, claim flow, indexability, link attributes, traffic."
   }
 ]

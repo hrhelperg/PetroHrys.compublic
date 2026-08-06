@@ -35,7 +35,7 @@ const hostOf = (u) => new URL(u).hostname.replace(/^www\./, '');
 test('every record this wave claims to have published exists', () => {
   assert.strictEqual(WAVE.length, 4, 'the wave manifest changed size without this test changing');
   for (const id of WAVE) assert.ok(byId.get(id), `missing record ${id}`);
-  assert.strictEqual(ALL.filter((r) => r.country === 'germany').length, 19);
+  assert.strictEqual(ALL.filter((r) => r.country === 'germany').length, 20); // +1 Das Örtliche, high-authority expansion
 });
 
 // ── the pillar boundary ─────────────────────────────────────────────────────
@@ -89,17 +89,30 @@ test('no record claims that one entry reaches the other directories', () => {
     }
   }
   // Das Telefonbuch must actively tell a reader it does NOT.
-  assert.match(limitsOf(byId.get('de-das-telefonbuch')),
-    /must submit to each|no operator states that one entry reaches all three/i,
-    'the Das Telefonbuch record does not warn that entries are not shared');
+  // CORRECTED: this previously required the record to state that entries are
+  // NOT shared. DTM's entry service publishes to all three from one form, so
+  // that warning would now be false. What must survive is that each directory
+  // ALSO has its own independent entry service.
+  assert.match(byId.get('de-das-telefonbuch').editorNotes, /CORRECTED 2026-08-06/,
+    'the Das Telefonbuch shared-entry correction was reverted');
+  assert.match(byId.get('de-gelbe-seiten').editorNotes, /CORRECTED 2026-08-06/,
+    'the Gelbe Seiten shared-entry correction was reverted');
 });
 
 // ── the rejections must not be reversed silently ────────────────────────────
-test('the two rejected German candidates remain unpublished', () => {
-  for (const id of ['de-das-oertliche', 'de-marktplatz-mittelstand', 'de-dasoertliche']) {
+// Das Örtliche's rejection WAS reversed, on evidence, by the high-authority
+// expansion wave: its Wave 1B.1 failure was "business surface unreachable —
+// marketing site 410 Gone", and DTM Deutsche Tele Medien's entry service is now
+// live and documents a free submission in plain terms. Marktplatz Mittelstand's
+// failure was different and is still unresolved: profile provenance, i.e.
+// whether entries are self-created or generated from other sources, remains
+// undocumented. A rejection may only be reversed by resolving the reason it was
+// made, not by researching the candidate again and finding other facts.
+test('the Marktplatz Mittelstand rejection remains unreversed', () => {
+  for (const id of ['de-marktplatz-mittelstand']) {
     assert.ok(!byId.get(id), `${id} was published despite an unresolved acceptance failure`);
   }
-  for (const host of ['dasoertliche.de', 'marktplatz-mittelstand.de']) {
+  for (const host of ['marktplatz-mittelstand.de']) {
     const hit = ALL.find((r) => hostOf(r.website) === host);
     assert.ok(!hit, `${host} was published, but its acceptance criteria were never met`);
   }

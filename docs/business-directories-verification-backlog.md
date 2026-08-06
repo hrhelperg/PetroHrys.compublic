@@ -1902,3 +1902,91 @@ Every entry is **blocked, not absent**. Each states what stays null until verifi
 
 Global commercial records require a separate remediation wave; this regional
 release does not modify or duplicate them.
+
+---
+
+## High-authority expansion wave
+
+**~55 candidates probed · 3 published · 2 existing records corrected.**
+
+The wave's premise was that the dataset was missing high-authority listing
+platforms. The inventory said otherwise: **24 of the 26 platforms named in the
+brief were already published.** The genuine yield was therefore small, and the
+most valuable output is a correction to two records that were already live.
+
+### The correction — one submission, three German directories
+
+Gelbe Seiten and Das Telefonbuch both carried a duplicate decision asserting
+that **no operator claims one submission produces entries in the others**. That
+was wrong. DTM Deutsche Tele Medien's entry service states:
+
+> *"Ihr Eintrag. Mit nur 1 Klick direkt in 3 Verzeichnissen. Kostenfrei."*
+> *"Freuen Sie sich auf Ihren Eintrag in Das Telefonbuch, Gelbe Seiten und Das Örtliche."*
+
+A single free submission publishes to all three. Both records were corrected in
+place, and a test now fails if either reverts.
+
+**The three stay three records.** Each directory is its own product on its own
+domain with its own publisher and its own independent entry service; what they
+share is one *optional* combined form. A shared submission form is not a shared
+listing identity, and a reader choosing where to appear still faces three
+distinct directories.
+
+### Published
+
+| Platform | Country | Operator | Action | Cost | DR |
+|---|---|---|---|---|---|
+| **Das Örtliche** | Germany | DTM Deutsche Tele Medien GmbH | create | free | not measured |
+| **Firmy.net** | Poland | NNV Sp. z o.o. | create | free | not measured |
+| **ProvenExpert** | Global | Expert Systems AG | create | freemium | not measured |
+
+### Two rejections reversed — and one that was not
+
+A rejection may only be reversed by **resolving the reason it was made**, not by
+researching the candidate again and finding other facts. That rule decided three
+cases this wave:
+
+| Platform | Original reason | Outcome |
+|---|---|---|
+| **Das Örtliche** | "Business surface unreachable, marketing site 410 Gone" | **Reversed.** DTM's entry service is live and documents a free submission in plain terms. |
+| **Firmy.net** | "Operator unidentified, add flow a `javascript:void(0)` handler, cost undocumented" | **Reversed.** NNV Sp. z o.o. named in footer and data-protection notice; `/dodaj-firme` is a real form; free stated twice. |
+| **Marktplatz Mittelstand** | "Whether profiles are self-created or generated from other sources is documented nowhere" | **NOT reversed.** This wave established an operator and a registration route but never profile provenance. The rejection stands. |
+
+The Marktplatz Mittelstand attempt was caught by the Wave 1B.1 guard, which is
+exactly what that guard exists for. It is recorded here because the near-miss is
+more instructive than the outcome.
+
+### Domain Rating
+
+**No new measurement was taken and none was estimated.** None of the three new
+domains carries a historical measurement, so all three are `domainRating: null`
+and render as *Not measured*. Each record additionally tells a reader *why* the
+metric is absent rather than leaving a blank. The frozen set stays at 67 records
+over 64 measurements, digest unchanged.
+
+### Duplicate findings
+
+- **GoYellow → Gelbe Seiten.** `goyellow.de` now redirects to `gelbeseiten.de` with `wwac_src=goyellow&wwac_med=redirect` in the query. Absorbed; not published.
+- **Sitejabber → smartcustomer.com.** The domain redirects to a differently-named product. Rename unresolved; not published.
+- **ProvenExpert stored once as Global** despite a German-speaking home market — the operator states it has been available to global users in English since 2017.
+- **Firmy.net kept separate from Panorama Firm and pkt.pl.** Those are WeNet Group properties; this is NNV Sp. z o.o. Different operator, domain, form and account system. BiznesFinder.pl *is* WeNet ("Copyright 2026 WeNet Group S.A.") and remains unresearched.
+
+### Blocked, not absent
+
+403 or bot-challenged on two passes: Tripadvisor · ThomasNet · Kompass · GoodFirms · Sortlist · Cybo · Yalwa · Infobel · Eniro · Krak · Gulesider · Superpages · Owler · UpCity · JustDial. Golden Pages IE returns 202. Reachable but thin or unresolved: Tupalo, hitta.se, Fonecta, Opendi, MapQuest, Yellowbook, IndiaMART, Trusted Shops, eKomi, Expertise.com.
+
+### Country-model blocker
+
+Three strong candidates could not be published because **their countries do not
+exist in the dataset**: Herold.at (Austria — HEROLD Business Data GmbH, a
+documented free `create-and-claim` entry, *"Kostenlosen Firmeneintrag"*),
+local.ch (Switzerland) and hitta.se (Sweden). Adding a country is a structural
+change — new country page, navigation and coverage semantics — and was not
+authorised by this wave. Austria in particular is ready to publish the moment a
+country decision is made.
+
+### Recommended next batch
+
+1. **Austria / Switzerland / Nordics** — needs a country-addition decision first; Herold.at is fully researched and waiting.
+2. **Europages** — major European B2B marketplace, reachable, `/en/supplier-registration` confirmed, public company profiles; needs an operator and cost pass.
+3. **Global remediation** — still the largest gap: 53 pre-contract records including Yelp, Google Business Profile and Trustpilot.
