@@ -1,0 +1,876 @@
+[
+  {
+    "id": "us-yellowpages",
+    "name": "Yellow Pages",
+    "website": "https://www.yellowpages.com/",
+    "country": "united-states",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P1",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The largest US directory brand. Live but behind a bot filter, so the product could not be inspected automatically — a browser check is needed before submitting.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-manta",
+    "name": "Manta",
+    "website": "https://www.manta.com/",
+    "country": "united-states",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A long-established US small-business directory. Live but behind a bot filter, so the product could not be inspected automatically — a browser check is needed before submitting.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-hotfrog",
+    "name": "Hotfrog US",
+    "website": "https://www.hotfrog.com/",
+    "country": "united-states",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "Part of an international directory network. Live but behind a bot filter, so the product could not be inspected automatically — a browser check is needed before submitting.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-cylex",
+    "name": "Cylex US",
+    "website": "https://www.cylex.us.com/",
+    "country": "united-states",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "Part of the international Cylex network. Live but behind a bot filter, so the product could not be inspected automatically — a browser check is needed before submitting.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-ezlocal",
+    "name": "EZlocal",
+    "website": "https://www.ezlocal.com/",
+    "country": "united-states",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A US local citation platform. Live but behind a bot filter, so the product could not be inspected automatically — a browser check is needed before submitting.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-angi",
+    "name": "Angi",
+    "website": "https://www.angi.com/",
+    "country": "united-states",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P1",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A major US home-services marketplace with public pro profiles and reviews. Live but behind a bot filter, so the product could not be inspected automatically — a browser check is needed before submitting.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-thumbtack",
+    "name": "Thumbtack",
+    "website": "https://www.thumbtack.com/",
+    "country": "united-states",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P1",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A major US services marketplace with public professional profiles. Served a bot challenge, so a browser check is needed before submitting.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-houzz",
+    "name": "Houzz",
+    "website": "https://www.houzz.com/",
+    "country": "united-states",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P1",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global",
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A leading home design and renovation platform with public professional profiles. Operated by Houzz Inc. The professional signup is a JavaScript app, so the onboarding step needs a browser.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-nextdoor",
+    "name": "Nextdoor Business",
+    "website": "https://business.nextdoor.com/",
+    "country": "united-states",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P1",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A neighbourhood social platform where businesses hold public pages; the operator states millions of businesses have claimed one. The legal entity is behind an authenticated page, so the operator is not recorded.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-superpages",
+    "name": "Superpages",
+    "website": "https://www.superpages.com/",
+    "country": "united-states",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An established US directory brand. Live but behind a bot filter, so the product could not be inspected automatically — a browser check is needed before submitting.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-yellowbook",
+    "name": "Yellowbook",
+    "website": "https://www.yellowbook.com/",
+    "country": "united-states",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A long-running US directory brand. Reachable and serving a public business directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-mapquest",
+    "name": "MapQuest",
+    "website": "https://www.mapquest.com/",
+    "country": "united-states",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An established US mapping and local-search service carrying public business places.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-chamberofcommerce",
+    "name": "ChamberofCommerce.com",
+    "website": "https://www.chamberofcommerce.com/",
+    "country": "united-states",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A national US business directory with a state-by-state tree of public profiles. It names no legal entity anywhere, which is why the operator stays unknown and it is not a full record.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "uk-yell",
+    "name": "Yell",
+    "website": "https://www.yell.com/",
+    "country": "united-kingdom",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P1",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "united-kingdom"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The UK market-leading directory. Live but behind a bot filter, so the product could not be inspected automatically — a browser check is needed before submitting.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "uk-cylex",
+    "name": "Cylex UK",
+    "website": "https://www.cylex-uk.co.uk/",
+    "country": "united-kingdom",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "united-kingdom"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "Part of the international Cylex network. Live but behind a bot filter, so the product could not be inspected automatically — a browser check is needed before submitting.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "uk-hotfrog",
+    "name": "Hotfrog UK",
+    "website": "https://www.hotfrog.co.uk/",
+    "country": "united-kingdom",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "united-kingdom"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The UK arm of an international directory network. Live but behind a bot filter, so the product could not be inspected automatically — a browser check is needed before submitting.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "uk-businessmagnet",
+    "name": "BusinessMagnet",
+    "website": "https://www.businessmagnet.co.uk/",
+    "country": "united-kingdom",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "united-kingdom"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A UK business-to-business directory. Live but behind a bot filter, so the product could not be inspected automatically — a browser check is needed before submitting.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "uk-misterwhat",
+    "name": "MisterWhat UK",
+    "website": "https://www.misterwhat.co.uk/",
+    "country": "united-kingdom",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "united-kingdom"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A UK local directory trading since 2011. It names no legal entity anywhere on the site, which is why the operator stays unknown.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ca-411",
+    "name": "411.ca",
+    "website": "https://www.411.ca/",
+    "country": "canada",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "canada"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Canadian local search engine with public business profiles, operated by 411 Local Search Corp. Its add-business route sends businesses to the Yellow Pages form, so its own listing action is unresolved.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ca-canadaone",
+    "name": "CanadaOne",
+    "website": "https://www.canadaone.com/",
+    "country": "canada",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "dormant",
+    "audienceGeography": [
+      "canada"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Canadian small-business portal with a verified-business directory. Its newest article is dated 2020 and its copyright line ends 2014, so it is recorded dormant and excluded from the working list.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ca-hotfrog",
+    "name": "Hotfrog Canada",
+    "website": "https://www.hotfrog.ca/",
+    "country": "canada",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "canada"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Canadian arm of an international directory network. Live but behind a bot filter, so the product could not be inspected automatically — a browser check is needed before submitting.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "au-yellowpages",
+    "name": "Yellow Pages Australia",
+    "website": "https://www.yellowpages.com.au/",
+    "country": "australia",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P1",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "australia"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Australian market-leading directory, operated by Thryv Australia Pty Ltd. The free-listing signup is a JavaScript app on a separate host, so the onboarding step needs a browser.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "au-truelocal",
+    "name": "TrueLocal",
+    "website": "https://www.truelocal.com.au/",
+    "country": "australia",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "australia"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An established Australian local directory. Live but behind a bot filter, so the product could not be inspected automatically — a browser check is needed before submitting.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "au-dlook",
+    "name": "dLook",
+    "website": "https://www.dlook.com.au/",
+    "country": "australia",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "australia"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An Australian local directory. Live but behind a bot filter, so the product could not be inspected automatically — a browser check is needed before submitting.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "au-localsearch",
+    "name": "Localsearch",
+    "website": "https://www.localsearch.com.au/",
+    "country": "australia",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "australia"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An established Australian local directory. It answered with an empty body, so the product could not be inspected automatically and needs a browser check.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ch-local-ch",
+    "name": "local.ch",
+    "website": "https://www.local.ch/",
+    "country": "switzerland",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P1",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "dach"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The principal Swiss business directory and booking platform, described on the site as a localsearch company. Its about and business routes both 404, so the operator and onboarding stay unknown.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "at-wko-firmen",
+    "name": "WKO Firmen A-Z",
+    "website": "https://www.wko.at/service/wko.at-firmen-a-z",
+    "country": "austria",
+    "category": "chambers-of-commerce",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "dach"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Austrian Economic Chamber’s public company index. Membership of the chamber is statutory for Austrian businesses, so inclusion follows registration rather than an open submission.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "at-firmenabc",
+    "name": "FirmenABC",
+    "website": "https://www.firmenabc.at/",
+    "country": "austria",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "dach"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An Austrian company directory. It answered with a rate-limit response, so the product could not be inspected automatically.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "se-hitta",
+    "name": "Hitta.se",
+    "website": "https://www.hitta.se/",
+    "country": "sweden",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P1",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "nordics"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A principal Swedish search service covering people and companies, with public business entries.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "se-eniro",
+    "name": "Eniro",
+    "website": "https://www.eniro.se/",
+    "country": "sweden",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P1",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "nordics"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The long-established Swedish directory brand. Live but behind a bot filter, so the product could not be inspected automatically — a browser check is needed before submitting.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "no-gulesider",
+    "name": "Gule Sider",
+    "website": "https://www.gulesider.no/",
+    "country": "norway",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P1",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "nordics"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Norwegian yellow-pages brand. Live but behind a bot filter, so the product could not be inspected automatically — a browser check is needed before submitting.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "dk-krak",
+    "name": "Krak",
+    "website": "https://www.krak.dk/",
+    "country": "denmark",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P1",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "nordics"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The long-established Danish directory brand. Live but behind a bot filter, so the product could not be inspected automatically — a browser check is needed before submitting.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "fi-fonecta",
+    "name": "Fonecta",
+    "website": "https://www.fonecta.fi/",
+    "country": "finland",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P1",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "nordics"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The principal Finnish directory and search service, covering companies and people.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ie-goldenpages",
+    "name": "Golden Pages",
+    "website": "https://www.goldenpages.ie/",
+    "country": "ireland",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Irish yellow-pages brand. It answered with a challenge response, so the product could not be inspected automatically.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-europages",
+    "name": "Europages",
+    "website": "https://www.europages.co.uk/",
+    "country": "global",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P1",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "europe",
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A major European business-to-business marketplace with public company profiles and a supplier registration route. No reachable page names a legal operator.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-kompass",
+    "name": "Kompass",
+    "website": "https://www.kompass.com/",
+    "country": "global",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P1",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "europe",
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A long-established international B2B company database. Live but behind a bot filter, so the product could not be inspected automatically — a browser check is needed before submitting.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-thomasnet",
+    "name": "Thomasnet",
+    "website": "https://www.thomasnet.com/",
+    "country": "global",
+    "category": "manufacturing",
+    "tier": "tier1",
+    "priority": "P1",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "north-america"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The principal North American industrial supplier directory. Live but behind a bot filter, so the product could not be inspected automatically — a browser check is needed before submitting.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-indiamart",
+    "name": "IndiaMART",
+    "website": "https://www.indiamart.com/",
+    "country": "global",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "asia",
+      "india"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A very large Indian business-to-business marketplace with public supplier profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-trusted-shops",
+    "name": "Trusted Shops",
+    "website": "https://www.trustedshops.com/",
+    "country": "global",
+    "category": "review-sites",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "dach",
+      "europe"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A European trustmark and review service for online retailers, strongest in the German-speaking market.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-ekomi",
+    "name": "eKomi",
+    "website": "https://www.ekomi.com/",
+    "country": "global",
+    "category": "review-sites",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "dach",
+      "europe"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A European customer-review service with public seller profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-goodfirms",
+    "name": "GoodFirms",
+    "website": "https://www.goodfirms.co/",
+    "country": "global",
+    "category": "marketing",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An agency and software review directory. Live but behind a bot filter, so the product could not be inspected automatically — a browser check is needed before submitting.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-sortlist",
+    "name": "Sortlist",
+    "website": "https://www.sortlist.com/",
+    "country": "global",
+    "category": "marketing",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "europe",
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An agency marketplace with public agency profiles. Live but behind a bot filter, so the product could not be inspected automatically — a browser check is needed before submitting.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-expertise",
+    "name": "Expertise.com",
+    "website": "https://www.expertise.com/",
+    "country": "united-states",
+    "category": "marketing",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A US service-provider directory that publishes curated local professional listings. Inclusion is editorially selected rather than openly submitted.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-opendi",
+    "name": "Opendi",
+    "website": "https://www.opendi.com/",
+    "country": "global",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "europe",
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An international local business directory operated by Opendi International AG.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-tupalo",
+    "name": "Tupalo",
+    "website": "https://tupalo.com/",
+    "country": "global",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "europe",
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An international local business and places directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-cybo",
+    "name": "Cybo",
+    "website": "https://www.cybo.com/",
+    "country": "global",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An international business directory. Live but behind a bot filter, so the product could not be inspected automatically — a browser check is needed before submitting.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-yalwa",
+    "name": "Yalwa",
+    "website": "https://www.yalwa.com/",
+    "country": "global",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An international local business directory network. Live but behind a bot filter, so the product could not be inspected automatically — a browser check is needed before submitting.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-infobel",
+    "name": "Infobel",
+    "website": "https://www.infobel.com/",
+    "country": "global",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "europe",
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An international company and telephone directory. Live but behind a bot filter, so the product could not be inspected automatically — a browser check is needed before submitting.",
+    "lastVerified": "2026-08-06"
+  }
+]

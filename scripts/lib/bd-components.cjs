@@ -752,8 +752,12 @@ function directoryRow(directory, columns) {
   // The route is built for EVERY row, including compact ones, because
   // directoryPathFor is what refuses a hostile slug. Skipping the call for
   // rows that do not use the result would quietly retire that check.
-  const internalPath = directoryPathFor(directory);
-  const hasDetailPage = S.indexability(directory).indexable;
+  // A Level 1 operational row has no slug-based route because it never has a
+  // page. Editorial records still build their route unconditionally, which is
+  // what keeps the hostile-slug check live.
+  const isRow = directory.isOperationalRow === true;
+  const internalPath = isRow ? null : directoryPathFor(directory);
+  const hasDetailPage = !isRow && S.indexability(directory).indexable;
   const nameLink = hasDetailPage
     ? `<a href="${escapeHtml(internalPath)}">${escapeHtml(S.displayName(directory))}</a>`
     : `<a href="${escapeHtml(directory.website)}" rel="${REL_EXTERNAL}" target="_blank">`

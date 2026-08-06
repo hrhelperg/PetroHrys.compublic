@@ -24,6 +24,7 @@ const SITEMAP_FILE = routes.sitemapOut();
 // pruned and diffed by the same machinery as the pages.
 const CSV_FILE = path.join(SECTION_DIR, 'opportunities.csv');
 const csv = require('./lib/bd-csv.cjs');
+const opportunities = require('./lib/bd-opportunities.cjs');
 const { renderCsv } = csv;
 const FEED_FILE = routes.feedOut();
 const MANIFEST_FILE = path.join('data', 'business-directories', '.build-manifest.json');
@@ -350,8 +351,9 @@ function pageModel(registry) {
   // row or a country page per geography. Countries that have no dedicated page
   // of their own surface here under "Other countries", which is why sixteen new
   // geographies could be added without generating a single thin page.
-  if (csv.actionableOpportunities(allDirectories).length > 0) {
-    const actionable = csv.actionableOpportunities(allDirectories);
+  const opRows = registry.operationalRows || [];
+  if (csv.actionableOpportunities(allDirectories, opRows).length > 0) {
+    const actionable = csv.actionableOpportunities(allDirectories, opRows);
     const publishedCountrySlugs = new Set(publishedCountries.map((c) => c.slug));
     const other = actionable.filter((d) => !publishedCountrySlugs.has(d.country));
     const OPP_COLUMNS = ['name', 'country', 'category', 'submissionModel', 'listingAction',
@@ -636,8 +638,9 @@ function stageBuild(registry, pages) {
   // Same no-empty-artefact rule as the opportunities page: a CSV containing
   // only a header row is not a working list, and it would survive a full data
   // removal as an orphan.
-  if (csv.actionableOpportunities(registry.directories).length > 0) {
-    files.set(CSV_FILE, renderCsv(registry.directories));
+  const rows = registry.operationalRows || [];
+  if (csv.actionableOpportunities(registry.directories, rows).length > 0) {
+    files.set(CSV_FILE, renderCsv(registry.directories, rows));
   }
 
   return files;
@@ -782,6 +785,14 @@ function buildAll(options = {}) {
 
   // 1. Load. A structural fault throws before anything else happens.
   const registry = loadRegistry(dataRoot);
+  // Level 1 operational rows. Validated on load and kept separate from the
+  // registry: they feed the working list and the CSV, never a detail page.
+  const operationalRows = opportunities.loadOpportunities(
+    dataRoot,
+    new Set(registry.countries.map((c) => c.slug)),
+    new Set(registry.categories.map((c) => c.slug)),
+  );
+  registry.operationalRows = operationalRows;
 
   // 2. Validate. The single build gate — nothing is rendered, staged or
   //    written unless the registry is clean.

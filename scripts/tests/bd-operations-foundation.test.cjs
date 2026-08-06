@@ -22,10 +22,19 @@ const { execFileSync } = require('node:child_process');
 
 const S = require('../lib/bd-schema.cjs');
 const csv = require('../lib/bd-csv.cjs');
+const ops = require('../lib/bd-opportunities.cjs');
 const { loadRegistry } = require('../lib/bd-registry.cjs');
 
 const ROOT = path.resolve(__dirname, '..', '..');
-const ALL = loadRegistry().directories;
+const REGISTRY = loadRegistry();
+const ALL = REGISTRY.directories;
+// Level 1 rows live in their own file and merge into the same working list.
+const ROWS = ops.loadOpportunities(
+  path.join(path.resolve(__dirname, '..', '..'), 'data', 'business-directories'),
+  new Set(REGISTRY.countries.map((c) => c.slug)),
+  new Set(REGISTRY.categories.map((c) => c.slug)),
+);
+const ACTIONABLE = () => csv.actionableOpportunities(ALL, ROWS);
 const CSV_PATH = path.join(ROOT, 'research/business-directories/opportunities.csv');
 const TRACKER = path.join(ROOT, 'data/business-directories/internal-tracker.template.csv');
 const OPP_PAGE = path.join(ROOT, 'research/business-directories/opportunities/index.html');
@@ -125,7 +134,7 @@ test('the actionable set has exactly one definition and it excludes what it shou
 });
 
 test('every published count derives from that one function', () => {
-  const actionable = csv.actionableOpportunities(ALL);
+  const actionable = ACTIONABLE();
   // No government record may reach the working list.
   for (const r of actionable) {
     assert.ok(!S.isGovernmentPillar(r), `${r.id} is a government record in the opportunity set`);
@@ -141,7 +150,7 @@ test('the CSV contains exactly the actionable set, and nothing else', () => {
   const raw = fs.readFileSync(CSV_PATH, 'utf8');
   const lines = raw.replace(/^﻿/, '').split('\r\n').filter((l) => l.length);
   const rows = lines.slice(1);
-  const actionable = csv.actionableOpportunities(ALL);
+  const actionable = ACTIONABLE();
   assert.strictEqual(rows.length, actionable.length,
     `CSV has ${rows.length} rows for ${actionable.length} actionable opportunities`);
   const ids = rows.map((l) => l.split(',')[0]);
@@ -173,8 +182,8 @@ test('CSV escaping survives commas, quotes and line breaks', () => {
 });
 
 test('the CSV sort is deterministic and locale-independent', () => {
-  const a = csv.renderCsv(ALL);
-  const b = csv.renderCsv(ALL.slice().reverse());
+  const a = csv.renderCsv(ALL, ROWS);
+  const b = csv.renderCsv(ALL.slice().reverse(), ROWS.slice().reverse());
   assert.strictEqual(a, b, 'CSV output depends on input array order');
   // localeCompare would make the file differ across machines. Match the CALL,
   // not the word: both files mention it in comments explaining why it is banned,
@@ -259,7 +268,7 @@ test('Other countries is one consolidated view, not sixteen thin pages', () => {
   const body = fs.readFileSync(OPP_PAGE, 'utf8');
   const text = body.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ');
   // The section renders only when there is something to put in it.
-  const actionable = csv.actionableOpportunities(ALL);
+  const actionable = ACTIONABLE();
   const published = new Set(ALL.filter((r) => fs.existsSync(
     path.join(ROOT, 'research/business-directories', r.country, 'index.html'))).map((r) => r.country));
   const other = actionable.filter((r) => !published.has(r.country));
@@ -293,7 +302,7 @@ test('only commercial opportunities carry operational fields', () => {
 test('every actionable opportunity is prioritised and has a status', () => {
   // The working list only works if it sorts. A record with no priority sinks
   // below "hold" and an employee never sees it.
-  const actionable = csv.actionableOpportunities(ALL);
+  const actionable = ACTIONABLE();
   for (const r of actionable) {
     assert.ok(S.PRIORITIES.includes(r.priority), `${r.id} has no priority and cannot be queued`);
     assert.ok(S.CURRENT_STATUSES.includes(r.currentStatus), `${r.id} has no current status`);
@@ -349,4 +358,76 @@ test('the opportunities page is usable without JavaScript and links the CSV', ()
   for (const leak of ['assigned_to', 'internal_note', 'workflow_status', 'submitted_at']) {
     assert.ok(!html.includes(leak), `the public page exposes the internal field ${leak}`);
   }
+});
+
+// ── Level 1 operational rows ────────────────────────────────────────────────
+test('operational rows live outside the editorial registry', () => {
+  // The separation is the design. Mixing compact rows into the registry was
+  // tried and failed 49 existing assertions — not because they were wrong, but
+  // because they protect properties of editorial records that a compact row
+  // does not have and should not need.
+  const ids = new Set(ALL.map((r) => r.id));
+  for (const row of ROWS) {
+    assert.ok(!ids.has(row.id), `${row.id} exists in both the registry and the operational file`);
+    assert.strictEqual(row.isOperationalRow, true);
+  }
+});
+
+test('an operational row never generates a page and never invents a metric', () => {
+  const root = path.resolve(__dirname, '..', '..');
+  for (const row of ROWS) {
+    // No detail page, ever. That is what keeps 500 rows from becoming 500 thin pages.
+    const slug = row.website.replace(/^https:\/\//, '').replace(/[^a-z0-9]+/gi, '-');
+    assert.ok(!fs.existsSync(path.join(root, 'research/business-directories', row.country, slug, 'index.html')),
+      `${row.id} generated a detail page`);
+    // Domain Rating is never carried by a row: only a researched editorial
+    // record may hold one, and only from a frozen measurement.
+    assert.strictEqual(row.domainRating, null, `${row.id} carries a Domain Rating`);
+    assert.deepStrictEqual(row.metricsProvenance, {}, `${row.id} invented metrics provenance`);
+  }
+});
+
+test('a row may leave operator, cost and action unknown but may not invent them', () => {
+  const known = ROWS.filter((r) => r.submissionModel !== 'unknown');
+  for (const r of known) {
+    assert.ok(S.SUBMISSION_MODELS.includes(r.submissionModel), `${r.id} has an invalid cost`);
+  }
+  // Unknown is expected and must remain permitted — that is what makes the
+  // 500-row target reachable without guessing.
+  assert.ok(ROWS.some((r) => r.listingAction === 'unknown'),
+    'no row leaves the listing action unknown; the compact standard is not being used');
+  assert.ok(ROWS.every((r) => r.tier && S.TIERS.includes(r.tier)), 'a row has no reputation tier');
+  assert.ok(ROWS.every((r) => S.PRIORITIES.includes(r.priority)), 'a row has no priority');
+});
+
+test('blocked platforms are recorded as unknown, never as dead', () => {
+  // A WAF 403 proves the server is live and says nothing about the product.
+  // Recording such a platform "dormant" or omitting it would be the error the
+  // whole programme is meant to avoid.
+  const blocked = ROWS.filter((r) => r.currentStatus === 'unknown');
+  assert.ok(blocked.length > 0, 'no row records an unresolved product state');
+  for (const r of blocked) {
+    assert.match(r.description, /browser check|could not be inspected|bot filter|challenge/i,
+      `${r.id} is unknown but does not say what needs checking`);
+  }
+  // And nothing in the operational file is described as dead or gone.
+  const DEAD = /\b(?:is dead|no longer exists|defunct|has closed)\b/i;
+  for (const r of ROWS) assert.ok(!DEAD.test(r.description), `${r.id} is described as dead`);
+});
+
+test('a dormant row is carried but excluded from the working list', () => {
+  const dormant = ROWS.filter((r) => r.currentStatus === 'dormant');
+  for (const r of dormant) {
+    assert.ok(!ACTIONABLE().some((x) => x.id === r.id),
+      `${r.id} is dormant but reached the actionable set`);
+  }
+  // The evidence is kept even though the row is not actionable.
+  if (dormant.length) assert.ok(dormant[0].description.length > 40);
+});
+
+test('the merged working list is the sum of both levels', () => {
+  const editorial = ALL.filter((r) => S.isActionableOpportunity(r, S.isGovernmentPillar)).length;
+  const rows = ROWS.filter((r) => S.isActionableOpportunity(r, () => false)).length;
+  assert.strictEqual(ACTIONABLE().length, editorial + rows,
+    'the merged list does not equal the two levels combined');
 });
