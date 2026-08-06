@@ -590,3 +590,56 @@ justifies the type. Do not publish on the navigation alone.
   in the EU and EEA, by using the searchable public website."*
 - **GIview, Sanctions Map, EU Pesticides Database** — all client-rendered; every
   access boolean null.
+
+---
+
+## Wave 2A — Continental Europe financial & regulatory registries (2026-08-06)
+
+Ten candidates reached a determination across six countries; **eight published**.
+
+**Researched and adversarially reviewed directly, in two separate passes.** The
+agent fleet failed twice on the monthly spend limit — five of five agents in the
+Wave 2 dispatch, returning nothing — so it is not an available dependency and
+nothing in this wave rests on subagent output.
+
+### Approved and published
+
+| Candidate | Country | Operator | Note |
+|---|---|---|---|
+| REGAFI / REFASSU | France | ACPR | One portal, two populations — published as **one** record |
+| ORIAS | France | Register-keeping body under Treasury supervision | **Not** the regulator |
+| BaFin Unternehmensdatenbank | Germany | BaFin | Warning lists deliberately excluded |
+| KNF Wyszukiwarka podmiotów | Poland | KNF | Carries the operator's own incompleteness caveat |
+| ČNB seznamy regulovaných subjektů | Czechia | ČNB | One application, three output modes — **one** record |
+| Registro on-line de entidades | Spain | Banco de España | Shared host with the agents register |
+| Registro de agentes | Spain | Banco de España | Distinct population, distinct official name |
+| Albi ed elenchi di vigilanza | Italy | Banca d'Italia | Unauthorised activity is criminally sanctioned |
+
+### Pending manual verification
+
+| Candidate | Country | Blocker | Next action |
+|---|---|---|---|
+| **IVASS public inquiry** | Italy | **Access established as credential-gated.** `infostat-ivass.bancaditalia.it` redirects to a Banca d'Italia **one-time-password login**. A login page is not an open public registry. This resolves the access question left open since Wave 1E — the answer is that there is no anonymous route. | Determine whether IVASS publishes any *open* register surface elsewhere on `ivass.it`. If it does not, the honest outcome may be a record with a gated access level rather than no record. |
+
+### Targeted research incomplete
+
+| Candidate | Country | Blocker | Next action |
+|---|---|---|---|
+| **CONSOB registers** | Italy | The supervised-entities page returns a **Radware CAPTCHA page** to automated clients. The CONSOB homepage itself serves normally, so this is a bot filter on the register path, not an outage. Identity could not be established from a register page. | Reach the albi ed elenchi through a browser, confirm which are distinct statutory registers, and settle whether any duplicates the existing CNMV-style coverage. |
+
+### Not researched in this phase, by scope
+
+United Kingdom, United States, Canada and Australia were **explicitly out of scope**
+for Wave 2A and are carried to **Wave 2B**. The open questions there are already
+identified: PRA versus FCA duplication (UK), NMLS / NCUA / MSRB (US), OSFI / CIRO /
+FINTRAC (Canada), and AUSTRAC plus the ASIC/APRA duplication question (Australia).
+
+### Findings worth carrying forward
+
+- **`app.bde.es` hosts several Bank of Spain applications**, only two of which are
+  registers. `ree_mle` is a business-multilocation visualiser and `sew_www` is a
+  sectorisation of the Spanish economy — neither is a register, and neither should
+  be proposed.
+- **Guessed paths are not evidence.** Constructed URLs for Banco de España, CONSOB,
+  Banca d'Italia and ČNB all returned 404 before navigation found the real ones.
+  Every published URL in this wave was reached by following official navigation.

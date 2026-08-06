@@ -711,5 +711,296 @@
       "The alert subscription service sits on a separate host that returned a JavaScript interstitial to automated requests, so its behaviour is not documented here."
     ],
     "editorNotes": "Verified 2026-08-05 from the bulletin’s own about and legal-notice pages. This record exists partly to make an access-versus-source distinction explicit, which is the acceptance criterion this wave was published against. FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: The acts are recorded elsewhere. The bulletin’s own about page states that it gives publicity to acts registered in the registre national des entreprises, and that the information published about registered businesses comes from the public registers of the commercial court registries, the proximity and judicial courts, the overseas mixed commercial courts, the courts of first instance and the courts of appeal. Civil announcements are transmitted by the civil court registries, notaries, court-appointed agents and the Banque de France over-indebtedness commissions. The bulletin is the publication medium; it constitutes nothing. RESPONSIBLE AUTHORITY: Direction de l’information légale et administrative, a service of the Prime Minister, named on the legal-notice page as the publisher of the site and described on the about page as the editor of the bulletin. The directrice de la publication is named there as an individual and is deliberately not recorded in the operator field, which identifies an office rather than an officeholder. TECHNICAL PLATFORM: Opendatasoft, with hosting listed alongside Outscale. The legal-notice page names both as hosting providers, and the site is served as an Opendatasoft data portal. Neither is the responsible authority. PUBLIC ACCESS INTERFACE: The public site at bodacc.fr, which carries the announcement search and the open data and API route. An API section exists but its navigation entry is hidden by the site’s own stylesheet, so it is not described here as a visible section. Registry type: public-filing-database, on the vocabulary’s own inclusion note that the content is filed documents — accounts, notices, statements, announcements. insolvency-register was considered and rejected: the bulletin announces insolvency proceedings but the boundary note requires the register to hold the proceedings, which the courts do. company-register and business-entity-register were rejected outright, because treating a bulletin as a register is exactly the error this dataset corrected for Germany, France and Spain in an earlier wave."
+  },
+  {
+    "id": "fr-regafi",
+    "name": "REGAFI",
+    "slug": "regafi",
+    "country": "france",
+    "category": "government",
+    "website": "https://www.regafi.fr/",
+    "submissionUrl": null,
+    "description": "REGAFI is the French register of financial firms authorised to operate in France, published by the prudential supervisor. It is served from one portal together with REFASSU, the corresponding insurance register, so a single search surface covers both populations.",
+    "tier": "tier1",
+    "scope": "national",
+    "officialName": "Registre des agents financiers (REGAFI)",
+    "nativeName": "Registre des agents financiers",
+    "englishName": "Register of Financial Agents",
+    "englishNameSource": "editorial-translation",
+    "primaryRegistryType": "financial-services-register",
+    "registryTypes": [
+      "financial-services-register"
+    ],
+    "operator": {
+      "name": "Autorité de contrôle prudentiel et de résolution",
+      "type": "regulator",
+      "officialUrl": "https://acpr.banque-france.fr/"
+    },
+    "publicAccess": {
+      "searchUrl": null,
+      "accessLevel": "unknown",
+      "freeToSearch": null,
+      "loginRequired": null,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "The portal was retrieved anonymously and identifies its operator in its own page title, but the search itself is a client-rendered application that was not exercised, so no search behaviour is asserted and no search URL is published. The portal advertises an API, which was not exercised either: an API is not evidence of public interface behaviour."
+    },
+    "petroHrysScore": 88,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 9,
+      "verificationQuality": 9,
+      "platformReputation": 8,
+      "spamResistance": 10,
+      "industryImportance": 9,
+      "longTermStability": 9,
+      "submissionQuality": 5,
+      "transparency": 9,
+      "moderationQuality": 8
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": true,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": true,
+      "developer": true,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-06",
+    "nextVerification": "2027-08-30",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "fr-orias"
+      ],
+      "usedWith": [
+        "fr-orias",
+        "eu-eba-payment-institutions-register"
+      ],
+      "competitors": []
+    },
+    "bestFor": [
+      "Checking whether a financial firm is authorised to operate in France, and under which category.",
+      "Reaching the French prudential supervisor’s own record of an authorised firm rather than a commercial copy."
+    ],
+    "notRecommendedFor": [
+      "Checking insurance, banking or finance intermediaries, who are registered separately in the intermediaries register rather than here.",
+      "Treating authorisation as a statement about a firm’s solvency, conduct or the suitability of its products."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Financial firms authorised to operate in France"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "It is the prudential supervisor’s own register, so an entry is the authoritative record of authorisation rather than a directory’s claim of it.",
+      "One portal serves both the financial and the insurance register, so a user does not have to know in advance which applies.",
+      "The supervisor publishes an API alongside the portal, so the data is reachable programmatically as well as by search."
+    ],
+    "cons": [
+      "The search is a client-rendered application that was not exercised, so its behaviour, any fee and any rate limit were not observed and none is asserted.",
+      "It records authorisation status. It does not establish that a firm is solvent, well run or suitable for a given customer.",
+      "Intermediaries are not here. Their absence from this register proves nothing, because they are registered in a different one."
+    ],
+    "editorNotes": "Verified 2026-08-06 by direct fetch of the portal, and re-verified in a separate direct adversarial pass. FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: The authorisation decisions of the French prudential supervisor, taken under the monetary and financial code. The register publishes those decisions; it does not constitute them independently of the supervisory act. RESPONSIBLE AUTHORITY: Autorité de contrôle prudentiel et de résolution, named in the portal’s own page title. TECHNICAL PLATFORM: Not separately established. The portal is served from its own host; no external supplier is named on any page fetched. PUBLIC ACCESS INTERFACE: The REGAFI/REFASSU portal, which serves both registers from one search surface, together with a published API. Scoping decision, taken deliberately: REGAFI and REFASSU are ONE portal serving two populations, and the portal titles itself as such. They are published as one record rather than two, because splitting a single coherent search system by the population filter it offers would be splitting on a filter rather than on a system. The API and the public interface are the same system and are not published separately for the same reason. Registry type: financial-services-register, whose definition covers firms authorised for regulated financial activity."
+  },
+  {
+    "id": "fr-orias",
+    "name": "ORIAS",
+    "slug": "orias",
+    "country": "france",
+    "category": "government",
+    "website": "https://www.orias.fr/",
+    "submissionUrl": null,
+    "description": "ORIAS keeps the French official register of insurance, banking and finance intermediaries. Registration on it is compulsory, and the body that keeps it operates under the supervision of the Treasury directorate of the economy ministry.",
+    "tier": "tier1",
+    "scope": "national",
+    "officialName": "Registre unique des intermédiaires en assurance, banque et finance",
+    "nativeName": "Organisme pour le registre unique des intermédiaires en assurance, banque et finance",
+    "englishName": "Single register of insurance, banking and finance intermediaries",
+    "englishNameSource": "editorial-translation",
+    "primaryRegistryType": "financial-services-register",
+    "registryTypes": [
+      "financial-services-register"
+    ],
+    "operator": {
+      "name": "Organisme pour le registre unique des intermédiaires en assurance, banque et finance",
+      "type": "public-law-body",
+      "officialUrl": "https://www.orias.fr/"
+    },
+    "publicAccess": {
+      "searchUrl": null,
+      "accessLevel": "unknown",
+      "freeToSearch": null,
+      "loginRequired": null,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "The site was retrieved anonymously and describes its own role and legal supervision on the page reached, but the search is a client-rendered application that was not exercised, so no search behaviour is asserted and no search URL is published."
+    },
+    "petroHrysScore": 87,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 9,
+      "verificationQuality": 9,
+      "platformReputation": 8,
+      "spamResistance": 10,
+      "industryImportance": 8,
+      "longTermStability": 9,
+      "submissionQuality": 5,
+      "transparency": 9,
+      "moderationQuality": 8
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": true,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": true,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-06",
+    "nextVerification": "2027-08-30",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "fr-regafi"
+      ],
+      "usedWith": [
+        "fr-regafi"
+      ],
+      "competitors": []
+    },
+    "bestFor": [
+      "Checking that an insurance, banking or finance intermediary is registered and therefore permitted to distribute in France.",
+      "Distinguishing an intermediary from a directly authorised institution, which is registered elsewhere."
+    ],
+    "notRecommendedFor": [
+      "Checking directly authorised financial institutions, which are in the supervisor’s own register rather than this one.",
+      "Treating the register keeper as the regulator. It keeps the register under ministerial supervision; it does not supervise the market."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "Insurance, banking and finance intermediaries operating in France"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "Registration is compulsory, so the register is a genuine gate on distribution rather than a voluntary listing.",
+      "A single register covers insurance, banking and finance intermediaries together, which would otherwise be three separate checks.",
+      "The body states its own legal position plainly, including that it operates under the supervision of the Treasury directorate."
+    ],
+    "cons": [
+      "It covers intermediaries only. A directly authorised institution will not be here, and its absence proves nothing about it.",
+      "The search is a client-rendered application that was not exercised, so its behaviour and any limits were not observed.",
+      "Registration records that an intermediary meets the entry conditions. It is not a statement about how the intermediary advises or behaves."
+    ],
+    "editorNotes": "Verified 2026-08-06 by direct fetch, and re-verified in a separate direct adversarial pass. The body’s own words on the page fetched: it is “l’organisme en charge du Registre officiel des intermédiaires en Assurance, Banque et Finance, placé sous la tutelle de la Direction Générale du Trésor (Ministère de l’Economie)”, and “L’immatriculation de ces intermédiaires sur ce Registre est obligatoire.” FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: The official register of intermediaries, kept under French law with compulsory registration. The register is the instrument; the supervisory relationship sits with the state. RESPONSIBLE AUTHORITY: The body charged with keeping the register, operating under the supervision of the Treasury directorate of the economy ministry. This body is deliberately NOT described as the regulator: it keeps an official register under ministerial supervision, and prudential supervision of the market lies elsewhere. TECHNICAL PLATFORM: Not separately established. No external supplier is named on any page fetched. PUBLIC ACCESS INTERFACE: The public site, which offers an advanced search over the register. Registry type: financial-services-register, whose definition expressly covers firms OR individuals registered to carry on regulated financial activity, and whose boundary note allows a body other than a government agency to operate one. professional-licence-register was considered and rejected: the registered population is intermediaries as businesses and individuals under a financial regime, not a single regulated profession."
   }
 ]
