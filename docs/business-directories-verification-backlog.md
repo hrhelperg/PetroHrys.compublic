@@ -1386,3 +1386,67 @@ quotations, never its characterisations.**
 Das Örtliche (needs a browser to reach any business surface) · Marktplatz
 Mittelstand (needs profile provenance documented) · Zlaté stránky equivalents and
 regional German directories, not researched.
+
+---
+
+## Wave 1B.2 — Czechia, second completed commercial-directory country (2026-08-06)
+
+Five candidates, **two published**. The three rejections are the wave's most
+valuable output, because every one of them would appear on a "best Czech business
+directories" list written from memory.
+
+### Approved (2)
+
+| Record | Operator | Listing | Cost | Reviews |
+|---|---|---|---|---|
+| `cz-firmy-cz` | **Seznam.cz, a.s.** | create | free | true |
+| `cz-zlate-stranky` | **Mediatel, spol. s r.o.** | create | **unknown** | true |
+
+### Rejected (3)
+
+| Candidate | Finding |
+|---|---|
+| **Najisto.cz** | **No longer a business directory.** Now a Ukrainian-language content site titled *"наїсто: Вболіваємо за якісний контент"* publishing weather, fuel-price and recipe articles. Zero directory vocabulary — no *firma*, *katalog*, *podnik*, *IČO*, *zapsat* — and its only internal path is `/stattia` ("article"). |
+| **ČeskéFirmy.cz** | Redirects to `quaest.net`, a **parked placeholder** titled "Loading..." with no directory vocabulary at all. |
+| **Atlas firem** | Redirects to `firmablizko.cz`, which **does** operate as a distance-based catalogue with an add-company flow. Rejected only because meaningful business adoption could not be established — this is a *pending* candidate, not a dead one. |
+
+### Correction to Wave 1B
+
+**Zlaté stránky was recorded as unreachable (transport failure 000).** That was
+transient. It responds normally, is a genuine directory reporting *"823 263
+kontaktů na firmy"*, and is published here. A single failed fetch is not a
+property of a site.
+
+### Duplicate decisions
+
+- **Firmy.cz and "Seznam Firmy" are ONE system.** Firmy.cz *is* Seznam's business
+  catalogue, operated by Seznam.cz, a.s. One record.
+- **Firmy.cz and Zlaté stránky are separate.** Different operators (Seznam vs
+  Mediatel), different catalogues, different entry flows, and neither states that
+  an entry reaches the other. Zlaté stránky's add-company route resolves to
+  `content-cmp.mediatel.cz`, which is how its operator was identified.
+
+### What was not asserted
+
+Neither Czech operator documented verification methods, owner responses, a claim
+flow, indexability, link attributes or traffic. All `null`. `listingAction` is
+`create` on both.
+
+**Zlaté stránky cost is `unknown`.** Paid highlighting is promoted; nothing states
+the basic entry is free. The brief forbids inferring either direction.
+
+**Firmy.cz owner-response inference stayed rejected** — see the tool caution
+recorded in Wave 1B.1. The record documents why.
+
+### Reachability map for the remaining countries
+
+| Country | Candidate | Result |
+|---|---|---|
+| **France** | PagesJaunes · Kompass FR · Solocal | **403** |
+| | Hoodspot | redirects to `annuaire.petitesaffiches.fr` |
+| **Poland** | Panorama Firm · pkt.pl · Firmy.net | **200 — all reachable, not yet researched** |
+| **Italy** | PagineGialle · Virgilio Aziende · MisterImprese | **200 — all reachable, not yet researched** |
+| **Spain** | Páginas Amarillas | **403** |
+| | Empresite · eInforma | **200 — reachable, not yet researched** |
+
+France remains the only country where no candidate can be reached.

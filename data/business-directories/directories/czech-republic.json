@@ -1894,5 +1894,269 @@
       "No query was executed during verification, so result content and any limits were not observed and none is asserted."
     ],
     "editorNotes": "Verified 2026-08-06 by navigating from the regulator’s own search-database index, and re-verified in a separate direct adversarial pass. The database titles itself \"Evidence provozovatelů poskytujících nebo zajišťujících poštovní služby od 1. 1. 2024\", offers the filter \"Vyhledávat i provozovatele s ukončenou činností\" and enumerates the postal services in the categories quoted above. It links to the predecessor database covering the period to 31 December 2023. FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: The business entitlement to provide or ensure postal services recorded by the Czech Telecommunication Office. RESPONSIBLE AUTHORITY: Český telekomunikační úřad, which supervises both electronic communications and postal services. TECHNICAL PLATFORM: Not separately established. Served from the regulator’s own ctu.gov.cz domain. PUBLIC ACCESS INTERFACE: The public postal operator database at ctu.gov.cz. Scope decision: postal is in scope for this wave ONLY because this regulator officially combines telecommunications and postal supervision, which the brief permits. The predecessor database covering the period to 31 December 2023 is a temporal predecessor, not a separate statutory system, and is described here rather than published separately."
+  },
+  {
+    "id": "cz-firmy-cz",
+    "name": "Firmy.cz",
+    "slug": "firmy-cz",
+    "country": "czech-republic",
+    "category": "local-business",
+    "website": "https://www.firmy.cz/",
+    "submissionUrl": "https://admin.firmy.cz/pridat-firmu-zaciname/1",
+    "description": "The business catalogue operated by Seznam.cz, the Czech search company. Registration is free, a business can add a company that is not yet listed, and company profiles carry ratings — which makes it the default Czech local citation.",
+    "tier": "tier1",
+    "scope": "national",
+    "nativeName": "Firmy.cz",
+    "englishName": "Companies.cz",
+    "englishNameSource": "editorial-translation",
+    "operator": {
+      "name": "Seznam.cz, a.s.",
+      "type": "other",
+      "officialUrl": "https://www.seznam.cz/"
+    },
+    "petroHrysScore": 80,
+    "scoreFactors": {
+      "editorialTrust": 8,
+      "businessUsefulness": 9,
+      "verificationQuality": 6,
+      "platformReputation": 9,
+      "spamResistance": 7,
+      "industryImportance": 9,
+      "longTermStability": 9,
+      "submissionQuality": 8,
+      "transparency": 7,
+      "moderationQuality": 7
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "free",
+    "registrationRequired": null,
+    "reviewSystem": true,
+    "verificationRequired": null,
+    "manualReview": null,
+    "listingAction": "create",
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": true,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-06",
+    "nextVerification": "2027-05-22",
+    "verification": {
+      "status": "verified",
+      "source": "official-documentation",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "cz-zlate-stranky"
+      ],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Czech businesses wanting the single most visible domestic local citation, tied to the country’s own search engine.",
+      "Adding a free Czech profile that carries customer ratings."
+    ],
+    "notRecommendedFor": [
+      "Businesses assuming they can reply to ratings. Owner responses are not documented and are not asserted here.",
+      "Anyone outside Czechia. The catalogue is a Czech-market product."
+    ],
+    "submissionDifficulty": "easy",
+    "listingQuality": null,
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "local-services",
+      "retail",
+      "professional-services"
+    ],
+    "editorialTags": [
+      "business-directory",
+      "commercial-platform"
+    ],
+    "pros": [
+      "It is operated by Seznam.cz, a.s., the Czech search company, so a profile sits inside the domestic search ecosystem rather than beside it.",
+      "Registration is free and stated as such: “Registrace je zdarma a zabere jen pár minut.”",
+      "A business can add a company that is not yet listed — the catalogue invites it directly: “Máte nebo znáte firmu, co tu není? Přidejte ji.”",
+      "Company profiles carry ratings, so the catalogue supports reputation as well as discovery."
+    ],
+    "cons": [
+      "Creating an entry is confirmed; claiming an existing third-party entry is not documented, so no claim flow is asserted.",
+      "The catalogue distinguishes suggesting a company from adding your own, but whether the second route establishes ownership of an existing profile is not documented.",
+      "Ratings exist, but whether a business owner can respond to them is NOT documented, so no owner-response capability is asserted.",
+      "The operator states that companies are verified but does not document what is verified or how, so nothing about verification method is asserted.",
+      "A profile records what was submitted and what reviewers wrote. It is not a check that a business is solvent, licensed or currently trading, and it is not the Czech commercial register."
+    ],
+    "editorNotes": "Verified 2026-08-06 from the catalogue itself, and re-verified in a separate direct pass in which “Seznam.cz”, “Přidat svou firmu” and “Registrace je zdarma” were each present in the served page. PLATFORM OPERATOR: Seznam.cz, a.s., identified in the site footer. LISTING CONTROL: A business adds its own company through the catalogue’s admin flow; third parties may separately suggest a company. MODERATION AUTHORITY: Not documented by the operator. PUBLIC INTERFACE: firmy.cz, with the add-company flow on admin.firmy.cz. DUPLICATE DECISION: Firmy.cz and “Seznam Firmy” are ONE system, not two. Firmy.cz IS Seznam’s business catalogue, operated by Seznam.cz, a.s. Kept separate from Zlaté stránky, which is a different operator with its own catalogue and its own entry flow. EVIDENCE CAUTION: an automated page summariser reported that owners can respond to reviews, citing a section headed “Souhrnné hodnocení”. That phrase means “summary rating” and establishes nothing about replies. The inference was rejected and ownerResponseSupport stays null. NOT ASSERTED: verification method, owner responses, claim flow, indexability, link attributes, traffic."
+  },
+  {
+    "id": "cz-zlate-stranky",
+    "name": "Zlaté stránky",
+    "slug": "zlate-stranky",
+    "country": "czech-republic",
+    "category": "local-business",
+    "website": "https://www.zlatestranky.cz/",
+    "submissionUrl": null,
+    "description": "The Czech Yellow Pages catalogue, operated by Mediatel. Adding a company requires signing in first, and the catalogue reports over 823,000 business contacts with profiles carrying contacts, a map and reviews.",
+    "tier": "tier1",
+    "scope": "national",
+    "nativeName": "Zlaté stránky",
+    "englishName": "Yellow Pages Czechia",
+    "englishNameSource": "editorial-translation",
+    "operator": {
+      "name": "Mediatel, spol. s r.o.",
+      "type": "other",
+      "officialUrl": "https://www.mediatel.cz/"
+    },
+    "petroHrysScore": 65,
+    "scoreFactors": {
+      "editorialTrust": 7,
+      "businessUsefulness": 7,
+      "verificationQuality": 5,
+      "platformReputation": 7,
+      "spamResistance": 6,
+      "industryImportance": 7,
+      "longTermStability": 8,
+      "submissionQuality": 6,
+      "transparency": 5,
+      "moderationQuality": 6
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "unknown",
+    "registrationRequired": true,
+    "reviewSystem": true,
+    "verificationRequired": null,
+    "manualReview": null,
+    "listingAction": "create",
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": true,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-06",
+    "nextVerification": "2027-05-28",
+    "verification": {
+      "status": "verified",
+      "source": "official-documentation",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "cz-firmy-cz"
+      ],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Czech businesses wanting a second domestic citation alongside the Seznam catalogue.",
+      "Businesses whose customers still use the Yellow Pages brand as a starting point."
+    ],
+    "notRecommendedFor": [
+      "Anyone needing to know the price before starting. The cost of a basic entry is NOT documented and is recorded as unknown.",
+      "Businesses expecting to add an entry anonymously. Signing in is required first."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": null,
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "local-services",
+      "retail",
+      "professional-services"
+    ],
+    "editorialTags": [
+      "business-directory",
+      "commercial-platform"
+    ],
+    "pros": [
+      "The catalogue states its own scale: “823 263 kontaktů na firmy”.",
+      "The operator is identifiable and long-established — Mediatel describes “více než třicetiletou historií” and its transformation from a printed-directory publisher.",
+      "Profiles carry contacts, a map and reviews, so the catalogue supports reputation as well as lookup.",
+      "The catalogue covers more than companies alone, indexing products, menus, articles, questions and events."
+    ],
+    "cons": [
+      "Whether a basic entry is free is NOT documented. The operator promotes paid highlighting, but the existence of a paid option establishes nothing about the basic entry, so cost is recorded as unknown.",
+      "Adding a company requires an account first — the route is stated as “Přihlásit se a přidat firmu”, so this is not an anonymous submission.",
+      "Creating an entry is confirmed; claiming an existing entry is not documented, so no claim flow is asserted.",
+      "Reviews exist on profiles, but whether an owner can respond to them is not documented and is not asserted.",
+      "The contact count is the operator’s own figure for its database. It is not evidence that each entry is current, verified, or maintained by the business it names."
+    ],
+    "editorNotes": "Verified 2026-08-06 from the catalogue and the operator’s own site, and re-verified in a separate direct pass in which “katalog firem”, “Přidat firmu”, “kontaktů na firmy”, “Přihlásit se a přidat firmu”, “třicetiletou historií” and “recenzemi” were each present in the served pages. The add-company route resolves to content-cmp.mediatel.cz, which is how the operator was identified. PLATFORM OPERATOR: Mediatel, spol. s r.o., whose own site describes Zlaté stránky and hosts the add-company flow. LISTING CONTROL: A signed-in business creates its own entry. MODERATION AUTHORITY: Not documented by the operator. PUBLIC INTERFACE: zlatestranky.cz, with the add-company flow on a Mediatel host. CORRECTION TO AN EARLIER WAVE: this platform was recorded as unreachable during Wave 1B on the basis of a transport failure. It responds normally; the earlier result was transient and is corrected here. DUPLICATE DECISION: kept separate from Firmy.cz. Different operator, different catalogue, different entry flow, and neither states that an entry reaches the other. COST DECISION: recorded as unknown rather than free. Paid highlighting is promoted, which the brief forbids treating as evidence that the basic entry is paid — and equally, nothing states it is free. NOT ASSERTED: cost, verification, owner responses, claim flow, indexability, link attributes, traffic."
   }
 ]
