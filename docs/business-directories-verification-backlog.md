@@ -746,7 +746,7 @@ prose, not in the enum.
 | Question | Determination | Evidence |
 |---|---|---|
 | Is ARB statutory? | **Yes.** | The board states it "was established by Parliament in 1997 to regulate the architects' profession in the UK". |
-| Is the Engineering Council a statutory regulator? | **No.** It operates "as a charity under Royal Charter"; the titles "are protected under our Royal Charter". Typed `chartered-body`, not `regulator`. |
+| Is the Engineering Council a statutory regulator? | **No.** It operates "as a charity under Royal Charter"; the titles "are protected under our Royal Charter". Typed `public-law-body`, not `regulator`. |
 | Is IPReg one record or two? | **One.** The page says "Search our registers" (plural — reflecting the underlying statutory registers), but the public interface is a single form at one URL covering both professions and firms. Splitting it would split a system by its own filter. |
 | Are the two Czech construction chambers one? | **No.** ČKA (architects) and ČKAIT (engineers and technicians) are separate chambers with separate lists. Each record says the other exists, because absence from one says nothing about the other. |
 | Do these registers cover individuals or firms? | **Individuals**, except IPReg, which records firms too. ARB and the Engineering Council register practitioners, not employers — now stated in each record, because a reader checking a business would otherwise draw the wrong conclusion. |
@@ -807,3 +807,114 @@ chamber were not analysed to publication standard in this wave.
 - **A rendered-caveat guard must check every limitation, not the first.** The
   existing check only asserted `cons[0]` reached the page, so dropping any later
   limitation was invisible. It now checks all of them.
+
+---
+
+## Wave 3A-2 — Germany & France professional registers (2026-08-06)
+
+Second half of the professional-licence pilot, completing the split made at Wave
+3A-1. Healthcare regulators remain out of scope by brief.
+
+### The finding that matters most is negative
+
+**Germany has no national register for most regulated professions.** This was
+tested against each federal body's own words, not assumed:
+
+| Profession | Federal body | Legal form, verbatim | Publishable? |
+|---|---|---|---|
+| Architects | BAK | "Bundesgemeinschaft der Architektenkammern, Körperschaften des Öffentlichen Rechts **e.V.**" | **No** |
+| Engineers | BIngK | "Bundesingenieurkammer **e. V.**" | **No** |
+| Doctors | BÄK | "die **Spitzenorganisation** der ärztlichen Selbstverwaltung" | **No** |
+| Pharmacists | ABDA | "**Bundesvereinigung** Deutscher Apothekerverbände" | **No** |
+| Vets | BTK | "als **Dachverband** der Landes-/Tierärztekammern, die Körperschaften öffentlichen Rechts sind" | **No** |
+
+In each case the Länder chambers are the public-law bodies that hold the lists.
+Publishing a federal record would publish an association directory. **A test pins
+all five hosts as unpublishable** so a later wave cannot quietly add them.
+
+The BÄK "Arztsuche" deserves its own note, because it looks like a national
+register and is not one. It is a signpost to sixteen Länder services, and the
+page states that the chambers and regional associations "als einzige die validen
+Angaben" hold the valid data, that some offer only telephone enquiries, and that
+"nicht alle Organisationen online vertreten sind". Its own coverage is admittedly
+incomplete.
+
+### Approved and published (10)
+
+| Record | Country | Profession | Statutory basis / effect |
+|---|---|---|---|
+| `de-brak-anwaltsverzeichnis` | DE | Lawyers | Admission under the BRAO; required to practise |
+| `de-wpk-berufsregister` | DE | Auditors | § 37(1) s.1 WPO; also the EU statutory auditor register |
+| `de-patentanwaltsverzeichnis` | DE | Patent attorneys | Admission under the PAO; incl. §§ 52f/159 firms |
+| `de-steuerberaterverzeichnis` | DE | Tax advisers | § 86b StBerG; unrestricted assistance |
+| `de-stbk-eu-dienstleister-steuersachen` | DE | Cross-border providers | § 3b StBerG; **temporary and occasional** only |
+| `de-stbk-partiell-zugelassene-steuersachen` | DE | Partial-access holders | § 3g StBerG; **restricted** to granted activities |
+| `fr-tableau-architectes` | FR | Architects | Roll of the Order; title **and** reserved design work |
+| `fr-annuaire-experts-comptables` | FR | Chartered accountants | Roll of the Order; "prérogative exclusive" |
+| `fr-inpi-conseils-propriete-industrielle` | FR | IP attorneys | List held by INPI; reserved activity **not established** |
+| `fr-notaires-annuaire-officiel` | FR | Notaries | Appointment to a notarial office by the state |
+
+### A national interface is usually not the legal source of record
+
+This wave found the NMLS pattern from the Wave 3A-4 brief two waves early, in
+both countries:
+
+- **BAV** — the search host states "Disciplinary control is exercised by the
+  respective regional Bar to which the lawyer is admitted."
+- **Steuerberaterverzeichnis** — "basiert auf den Daten der Berufsregister, die
+  von den **örtlich zuständigen Steuerberaterkammern** geführt werden".
+- **Tableau des architectes** — "mis à jour en permanence par les **Conseils
+  régionaux** de l'Ordre".
+- **Experts-comptables** — unresolved cases go to "le Conseil de l'Ordre de
+  **votre région**".
+
+A test asserts each of these four says so in rendered prose.
+
+### Duplicate determinations
+
+- **WPK is ONE record.** Its register "erfüllt **zugleich** die Aufgabe des
+  Abschlussprüferregisters" — one system discharging both the national
+  professional register and the EU Audit Directive register.
+- **REJECTED as registers:** the WPK "Liste der Abschlussprüfer und
+  Prüfungsgesellschaften" (a **download** for Art. 16(3) EU Reg. 537/2014
+  selection procedures) and its "Suche nach Spezialkenntnissen" (a filtered view).
+- **BRAK "Anwaltssuche" is a signpost page**, not a second system.
+- **The three tax registers are THREE records.** Three statutory bases (§ 86b,
+  § 3b, § 3g), three authorisation regimes, three populations and three hosts.
+  They cross-reference each other because absence from one says nothing about the
+  other two.
+- **REJECTED as a marketing directory:** `architectes-pour-tous.fr` ("Trouver un
+  architecte") invites a visitor to "sélectionner des architectes prêts à vous
+  accompagner", filtered by project type and MaPrimeRénov' referencing. It is a
+  client-matching finder run by the Order, not the roll.
+
+### The register keeper is not the profession's own body
+
+The French list of conseils en propriété industrielle is published by **INPI**,
+the state industrial property institute — not by the CNCPI, which is the
+profession's own national body. Naming the organisation as keeper is the error
+corrected for ORIAS in Wave 2A and the Colegio de Registradores in Wave 1D.
+
+### Not published — and why
+
+| Candidate | State |
+|---|---|
+| **German notaries** | BNotK **is** a Körperschaft des öffentlichen Rechts with 21 regional chambers, but no statutory nationwide *Verzeichnis* was established. notar.de offers a consumer "Notarsuche"; BNotK's own site carries only a *European* notary directory. Reachability is not approval — **not published**. |
+| **French avocats** | The CNB "Annuaire des avocats de France" (78,938 entries at 1 Jan 2026) is cookie-gated on the CNB page and its application at `e-annuaire.avocat.fr` is a JavaScript app that could not be read. Data comes "directement des informations enregistrées auprès de votre ordre". No official designation established — **not published**. |
+| **CNCC** (commissaires aux comptes) | Host responds; the site is a JavaScript app with no extractable text. Not analysed to publication standard. |
+| **French healthcare / RPPS** | `annuaire.sante.fr` returned a transport failure (000) on probe. **That is not evidence the register is absent.** Re-check in a browser. |
+| **German Länder chambers** | Sixteen architects' chambers, sixteen engineers' chambers, seventeen medical chambers and their equivalents were **not** individually researched. Each would be its own record at subnational scope. |
+
+### Findings worth carrying forward
+
+- **`e.V.` is the tell.** A German federal body whose legal form is a registered
+  association is not a register keeper, however official its name sounds.
+- **A shared-host group names ONE host.** Three registers on three subdomains of
+  one parent domain do not share a host, and the validator rejects a group that
+  spans them. `resourceIdentity` was removed from all three tax records.
+- **An already-measured domain must reuse its snapshot.** `inpi.fr` was measured
+  at Wave 1-era DR 85; the new attorney directory reuses that snapshot verbatim
+  rather than carrying null. Same domain, same measurement — the frozen set stays
+  at 64 and the digest is unchanged. Records displaying a rating went 66 → 67.
+- **A description must carry its own restriction.** A caveat that survives only in
+  `cons` or `notRecommendedFor` does not travel into listings or metadata.

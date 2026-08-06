@@ -160,6 +160,11 @@
     "tier": "tier1",
     "scope": "national",
     "nativeName": "Institut National de la Propriété Industrielle",
+    "resourceIdentity": {
+      "canonicalDomain": "inpi.fr",
+      "systemKey": "inpi-industrial-property-registers",
+      "sharedHostGroup": "inpi-fr"
+    },
     "primaryRegistryType": "company-register",
     "registryTypes": [
       "company-register",
@@ -1002,5 +1007,600 @@
       "Registration records that an intermediary meets the entry conditions. It is not a statement about how the intermediary advises or behaves."
     ],
     "editorNotes": "Verified 2026-08-06 by direct fetch, and re-verified in a separate direct adversarial pass. The body’s own words on the page fetched: it is “l’organisme en charge du Registre officiel des intermédiaires en Assurance, Banque et Finance, placé sous la tutelle de la Direction Générale du Trésor (Ministère de l’Economie)”, and “L’immatriculation de ces intermédiaires sur ce Registre est obligatoire.” FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: The official register of intermediaries, kept under French law with compulsory registration. The register is the instrument; the supervisory relationship sits with the state. RESPONSIBLE AUTHORITY: The body charged with keeping the register, operating under the supervision of the Treasury directorate of the economy ministry. This body is deliberately NOT described as the regulator: it keeps an official register under ministerial supervision, and prudential supervision of the market lies elsewhere. TECHNICAL PLATFORM: Not separately established. No external supplier is named on any page fetched. PUBLIC ACCESS INTERFACE: The public site, which offers an advanced search over the register. Registry type: financial-services-register, whose definition expressly covers firms OR individuals registered to carry on regulated financial activity, and whose boundary note allows a body other than a government agency to operate one. professional-licence-register was considered and rejected: the registered population is intermediaries as businesses and individuals under a financial regime, not a single regulated profession."
+  },
+  {
+    "id": "fr-tableau-architectes",
+    "name": "Tableau des architectes",
+    "slug": "tableau-des-architectes",
+    "country": "france",
+    "category": "government",
+    "website": "https://annuaire.architectes.org/",
+    "submissionUrl": null,
+    "description": "The roll of the French Order of Architects, kept and continuously updated by the regional councils of the Order. Entry on the roll is required to use the title of architect and to carry out the design work reserved to the profession, and the roll distinguishes architects entitled to design work from those registered for other activities.",
+    "tier": "tier1",
+    "scope": "national",
+    "officialName": "Tableau de l’Ordre des architectes",
+    "nativeName": "Le tableau des architectes",
+    "englishName": "Roll of the Order of Architects",
+    "englishNameSource": "editorial-translation",
+    "primaryRegistryType": "professional-licence-register",
+    "registryTypes": [
+      "professional-licence-register"
+    ],
+    "operator": {
+      "name": "Conseil national de l’Ordre des architectes",
+      "type": "public-law-body",
+      "officialUrl": "https://www.architectes.org/"
+    },
+    "publicAccess": {
+      "searchUrl": null,
+      "accessLevel": "partially-open",
+      "freeToSearch": null,
+      "loginRequired": false,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "The roll search was served anonymously with no credential, with fields for name, company name or registration number, postcode, town and region of registration, so login is recorded as not required. No query was executed, so result content and any limits were not observed and stay null."
+    },
+    "petroHrysScore": 88,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 9,
+      "verificationQuality": 9,
+      "platformReputation": 8,
+      "spamResistance": 10,
+      "industryImportance": 8,
+      "longTermStability": 9,
+      "submissionQuality": 6,
+      "transparency": 9,
+      "moderationQuality": 9
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": true,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-06",
+    "nextVerification": "2027-08-30",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Checking that a named architect or architectural company is on the roll of the Order.",
+      "Establishing whether an architect is entitled to carry out design and project-supervision work."
+    ],
+    "notRecommendedFor": [
+      "Choosing an architect for a project. A separate finder exists for that and is not this register.",
+      "Assuming every architect found is insured for design work. The roll states that some are not."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "architecture",
+      "construction",
+      "professional-services"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "It is the roll of the Order itself, kept continuously up to date by the regional councils rather than compiled periodically.",
+      "It separates architects entitled to design, interior and exterior layout, urban planning and works supervision from architects registered for other activities such as teaching, journalism or expert work.",
+      "It covers companies as well as individuals, and distinguishes liberal, salaried, associate, public-servant and company modes of practice.",
+      "It reaches the overseas regions, including Guadeloupe, Guyane, Martinique and Réunion-Mayotte, not only metropolitan France."
+    ],
+    "cons": [
+      "Entry is required both to use the title and to carry out reserved design work, so the two effects coincide here — but an entry is still not a statement about the quality of any project.",
+      "Architects registered for other activities are on the roll but are NOT entitled to design work and, as the roll states, are not insured for it. Reading any hit as a designer is an error.",
+      "The roll is maintained by the regional councils of the Order, so the national interface aggregates regional decisions and the Order directs doubtful cases back to the regional council.",
+      "Several adjacent lists exist beside the roll — holders of a récépissé, service providers, fee lists and a special list of architects’ holding companies — and a search of the roll does not cover them.",
+      "Absence from the roll does not establish that a person never practised, and it does not exhaust the Order’s lists. Entry can end, the adjacent lists are searched separately, and the Order directs doubtful cases to the regional council.",
+      "No search was executed during verification, so result content and any limits were not observed and none is asserted."
+    ],
+    "editorNotes": "Verified 2026-08-06 by navigating from the Order’s own national site to the roll, and re-verified in a separate direct adversarial pass. The roll states: \"Le tableau de l’Ordre est mis à jour en permanence par les Conseils régionaux de l’Ordre. En cas d’interrogation ou de doute, consulter le Conseil régional concerné.\" It distinguishes architects \"habilités à exercer des missions de conception, d’aménagement intérieur et extérieur, d’urbanisme, de suivi et d’assistance à la réception des travaux, etc. et sont assurés à ce titre\" from architects exercising \"une autre activité\" of whom it warns \"ces architectes ne sont pas habilités à exercer des missions de conception et de maîtrise d’œuvre et ne sont pas assurés à ce titre\". Adjacent lists offered beside the roll: \"Annexe des détenteurs de récépissé\", \"Liste des prestataires de services\", \"Liste des honoraires\", \"Liste spéciale des SPFPL d’architectes\". FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: The roll of the Order, on which entry is decided and maintained by the regional councils of the Order. RESPONSIBLE AUTHORITY: Conseil national de l’Ordre des architectes, with the regional councils keeping the roll. TECHNICAL PLATFORM: Not separately established. The roll is served from the Order’s own annuaire.architectes.org domain and no external supplier is named. PUBLIC ACCESS INTERFACE: The public roll search at annuaire.architectes.org. Duplicate decision, a rejection: architectes-pour-tous.fr (\"Trouver un architecte\") is NOT this register and was not published. It invites a visitor to \"sélectionner des architectes prêts à vous accompagner\", filtered by project type, MaPrimeRénov’ referencing and geolocation. That is a client-matching finder operated by the Order, not the roll, and publishing it as a register would publish a marketing directory."
+  },
+  {
+    "id": "fr-annuaire-experts-comptables",
+    "name": "Annuaire des experts-comptables",
+    "slug": "annuaire-des-experts-comptables",
+    "country": "france",
+    "category": "government",
+    "website": "https://annuaire.experts-comptables.org/",
+    "submissionUrl": null,
+    "description": "The directory of French chartered accountants published by the Order of Chartered Accountants. Its stated purpose is to verify that a professional entrusted with accounting work is an expert-comptable entered on the roll of the Order, which is required because the profession holds an exclusive prerogative over accountancy engagements.",
+    "tier": "tier1",
+    "scope": "national",
+    "nativeName": "Annuaire des experts-comptables",
+    "englishName": "Directory of Chartered Accountants",
+    "englishNameSource": "editorial-translation",
+    "primaryRegistryType": "professional-licence-register",
+    "registryTypes": [
+      "professional-licence-register"
+    ],
+    "operator": {
+      "name": "Conseil national de l’ordre des experts-comptables",
+      "type": "public-law-body",
+      "officialUrl": "https://www.experts-comptables.fr/"
+    },
+    "publicAccess": {
+      "searchUrl": null,
+      "accessLevel": "partially-open",
+      "freeToSearch": null,
+      "loginRequired": false,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "The directory was served anonymously with no credential, with a locality field and a search control, so login is recorded as not required. No query was executed, so result content and any limits were not observed and stay null."
+    },
+    "petroHrysScore": 86,
+    "scoreFactors": {
+      "editorialTrust": 9,
+      "businessUsefulness": 9,
+      "verificationQuality": 9,
+      "platformReputation": 8,
+      "spamResistance": 10,
+      "industryImportance": 9,
+      "longTermStability": 8,
+      "submissionQuality": 6,
+      "transparency": 8,
+      "moderationQuality": 9
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": true,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-06",
+    "nextVerification": "2027-08-08",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Verifying that a person offering to keep your accounts is an expert-comptable entered on the roll.",
+      "Establishing that an accountancy engagement is being carried out by someone entitled to it."
+    ],
+    "notRecommendedFor": [
+      "Judging the quality of an accountant. The directory records inscription, not performance.",
+      "Concluding from absence that a person is not registered. The Order asks readers to report a gap or contact the regional council."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "accounting",
+      "professional-services",
+      "tax"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "The Order states the directory’s purpose in verification terms — checking that a professional is an expert-comptable inscribed on the roll of the Order.",
+      "It makes the exclusive prerogative explicit: accountancy engagements covered by it may be carried out only by an expert-comptable.",
+      "It gives a documented route when someone is not found, directing the reader to a reporting form or to the regional council of the Order."
+    ],
+    "cons": [
+      "Inscription on the roll is required to carry out reserved accountancy engagements, so this is a licence register — but an entry says nothing about how any engagement was performed.",
+      "The Order directs unresolved cases to the regional council, so the national directory reflects decisions taken regionally rather than centrally.",
+      "The entry point published by the Order redirects cross-host to a separate directory domain, so a bookmark may not land on the address the reader started from.",
+      "The Order presents a figure of 22,000 experts-comptables on the directory itself, which is a headline count rather than a statement that every entry is current at the moment of reading.",
+      "No search was executed during verification, so result content and any limits were not observed and none is asserted."
+    ],
+    "editorNotes": "Verified 2026-08-06 by navigating from the Order’s own site, and re-verified in a separate direct adversarial pass. The directory states: \"La consultation du présent annuaire permet de vérifier que le professionnel à qui vous confiez votre comptabilité est un expert-comptable, et qu’il est à ce titre inscrit au tableau de l’Ordre. Toute mission en lien avec la comptabilité et visée par la prérogative exclusive d’exercice de la profession ne peut être réalisée que par un expert-comptable. A défaut de le trouver dans l’annuaire, remplissez le formulaire de signalement ou prenez contact avec le Conseil de l’Ordre de votre région.\" FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: Inscription on the roll (tableau) of the Order of Chartered Accountants, decided through the Order’s regional councils. RESPONSIBLE AUTHORITY: Conseil national de l’ordre des experts-comptables. TECHNICAL PLATFORM: Not separately established. Served from annuaire.experts-comptables.org, the Order’s own directory domain. PUBLIC ACCESS INTERFACE: The public directory at annuaire.experts-comptables.org. Redirect note: the Order’s published entry point experts-comptables.fr/annuaire redirects cross-host to annuaire.experts-comptables.org, which is recorded here as the canonical entry and disclosed in the published limitations."
+  },
+  {
+    "id": "fr-inpi-conseils-propriete-industrielle",
+    "name": "Annuaire des conseils en propriété industrielle",
+    "slug": "annuaire-des-conseils-en-propriete-industrielle",
+    "country": "france",
+    "category": "government",
+    "website": "https://www.inpi.fr/annuaire-des-conseils",
+    "submissionUrl": null,
+    "description": "The directory of French industrial property attorneys published by the INPI, the national industrial property institute. The title of conseil en propriété industrielle is regulated and the list is held by the state institute rather than by the profession’s own trade body.",
+    "tier": "tier1",
+    "scope": "national",
+    "nativeName": "Annuaire des conseils en propriété industrielle",
+    "englishName": "Directory of Industrial Property Attorneys",
+    "englishNameSource": "editorial-translation",
+    "resourceIdentity": {
+      "canonicalDomain": "inpi.fr",
+      "systemKey": "inpi-annuaire-conseils-pi",
+      "sharedHostGroup": "inpi-fr"
+    },
+    "primaryRegistryType": "professional-licence-register",
+    "registryTypes": [
+      "professional-licence-register"
+    ],
+    "operator": {
+      "name": "Institut national de la propriété industrielle",
+      "type": "government-agency",
+      "officialUrl": "https://www.inpi.fr/"
+    },
+    "publicAccess": {
+      "searchUrl": null,
+      "accessLevel": "partially-open",
+      "freeToSearch": true,
+      "loginRequired": false,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "Result rows were rendered to an anonymous client with no credential and no payment, showing firm name, legal form, address, telephone, email and specialisms, and the page reported 550 results at the time of verification. Free public reading is therefore observed rather than inferred. No filtered query was submitted, so behaviour under a specific search and any rate limit were not observed and stay null."
+    },
+    "petroHrysScore": 88,
+    "scoreFactors": {
+      "editorialTrust": 10,
+      "businessUsefulness": 8,
+      "verificationQuality": 9,
+      "platformReputation": 9,
+      "spamResistance": 10,
+      "industryImportance": 8,
+      "longTermStability": 9,
+      "submissionQuality": 6,
+      "transparency": 9,
+      "moderationQuality": 9
+    },
+    "domainRating": 85,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-04",
+        "status": "historicalSnapshot",
+        "measuredDomain": "inpi.fr"
+      }
+    },
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": true,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-06",
+    "nextVerification": "2027-09-02",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "fr-inpi"
+      ],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Finding an industrial property attorney recognised by the French national IP institute.",
+      "Checking whether a firm holding itself out as a conseil en propriété industrielle appears on the institute’s list."
+    ],
+    "notRecommendedFor": [
+      "Assuming the trade body is the register keeper. The list is published by the institute, not by the profession’s national company.",
+      "Judging an attorney’s competence in a technology. The list records specialism categories, not proven expertise."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "intellectual-property",
+      "legal-services",
+      "professional-services"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "It is published by the INPI itself, the state industrial property institute, rather than by the profession’s own organisation.",
+      "Results are readable without an account or payment, which is unusual among the professional registers in this dataset.",
+      "It can be narrowed by region and department, including the overseas departments, and by specialism between patents and trade marks, designs and models.",
+      "Entries show the practice, its legal form and the number of attorneys attached to it, so a reader sees the firm and its people together."
+    ],
+    "cons": [
+      "The title of conseil en propriété industrielle is regulated, but the pages fetched do not establish whether any activity is reserved to the profession. This record therefore makes no claim that inclusion is a licence to practise, and none should be read into it.",
+      "The list records firms and the attorneys attached to them, so a result must be read carefully to know whether an individual or a practice has been returned.",
+      "Specialism labels distinguish patents from trade marks, designs and models, but they do not establish experience in any particular technology or trade.",
+      "The result count shown on entry reflects the unfiltered list at the moment of reading and is not a guaranteed total of the profession.",
+      "The list sits on the institute’s main domain alongside its industrial property registers, which are separate systems with a different purpose; a reader arriving from those should not read this as one of them.",
+      "Absence does not establish that a person may not advise on industrial property. Attorneys at law and other advisers work in the field without appearing on this list."
+    ],
+    "editorNotes": "Verified 2026-08-06 by navigating from the institute’s own site to the directory, and re-verified in a separate direct adversarial pass. The page is server-rendered and returned result rows to an anonymous client, reporting \"550 résultats correspondent à votre recherche\" on both the first pass and the adversarial re-check; the figure is recorded as a reading at a moment in time rather than a fixed total. Filters offered: name of attorney or firm, region and department including DOM TOM, and specialism (\"Brevets d’invention\" / \"Marques, dessins & modèles\"). FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: The list of conseils en propriété industrielle held by the Institut national de la propriété industrielle. RESPONSIBLE AUTHORITY: Institut national de la propriété industrielle, the French state industrial property institute. TECHNICAL PLATFORM: Not separately established. Served from the institute’s own www.inpi.fr domain. PUBLIC ACCESS INTERFACE: The public directory at inpi.fr/annuaire-des-conseils. Register-keeper decision: the Compagnie nationale des conseils en propriété industrielle (CNCPI) is the profession’s own national body and is NOT recorded as the register keeper. The institute publishes the directory and is linked from its own resource page about the CNCPI, which is the reverse relationship. Naming a professional organisation as the register keeper is the error corrected for ORIAS in Wave 2A and for the Colegio de Registradores in Wave 1D.  Shared-host note: www.inpi.fr also serves fr-inpi, the institute’s industrial property registers. Both declare resourceIdentity in the inpi-fr group with distinct systemKeys, because a directory of attorneys and a register of industrial property rights are different systems that happen to share a host."
+  },
+  {
+    "id": "fr-notaires-annuaire-officiel",
+    "name": "Annuaire officiel des notaires de France",
+    "slug": "annuaire-officiel-des-notaires",
+    "country": "france",
+    "category": "government",
+    "website": "https://www.notaires.fr/fr/directory",
+    "submissionUrl": null,
+    "description": "The official directory of French notaries, published by the notarial profession’s national body. French notaries are public officers appointed to an office, so the directory records who holds a notarial office rather than who has chosen to join a scheme.",
+    "tier": "tier1",
+    "scope": "national",
+    "officialName": "Annuaire officiel des notaires",
+    "nativeName": "Annuaire officiel",
+    "englishName": "Official Directory of Notaries",
+    "englishNameSource": "editorial-translation",
+    "primaryRegistryType": "professional-licence-register",
+    "registryTypes": [
+      "professional-licence-register"
+    ],
+    "operator": {
+      "name": "Conseil supérieur du notariat",
+      "type": "public-law-body",
+      "officialUrl": "https://www.notaires.fr/"
+    },
+    "publicAccess": {
+      "searchUrl": null,
+      "accessLevel": "partially-open",
+      "freeToSearch": null,
+      "loginRequired": false,
+      "identityVerificationRequired": null,
+      "captcha": null,
+      "geographicRestriction": null,
+      "paidDocumentsAvailable": null,
+      "notes": "The directory was served anonymously with no credential, with separate searches for a notary, an office and a company, plus postcode and town fields, so login is recorded as not required. No query was executed, so result content, coverage and any limits were not observed and stay null."
+    },
+    "petroHrysScore": 83,
+    "scoreFactors": {
+      "editorialTrust": 9,
+      "businessUsefulness": 8,
+      "verificationQuality": 8,
+      "platformReputation": 8,
+      "spamResistance": 10,
+      "industryImportance": 8,
+      "longTermStability": 9,
+      "submissionQuality": 6,
+      "transparency": 8,
+      "moderationQuality": 9
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "notApplicable",
+    "registrationRequired": null,
+    "reviewSystem": false,
+    "verificationRequired": null,
+    "manualReview": null,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-06",
+    "nextVerification": "2027-08-13",
+    "verification": {
+      "status": "verified",
+      "source": "government-register",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Finding a notarial office in a given town or department, including the overseas territories.",
+      "Checking that a named notary or notarial company appears in the profession’s official directory."
+    ],
+    "notRecommendedFor": [
+      "Treating an entry as a statement about how a notary performed any act.",
+      "Assuming absence means a person is unqualified. Notarial offices are limited in number and a person may hold no office."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": "high",
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "legal-services",
+      "real-estate",
+      "professional-services"
+    ],
+    "editorialTags": [
+      "statutory",
+      "government",
+      "primary-source"
+    ],
+    "pros": [
+      "It titles itself the official directory of the profession and is published by the profession’s national body.",
+      "It searches notaries, offices and companies separately, which matches how the profession is actually organised.",
+      "It covers the overseas territories explicitly, including Guyane, Martinique, Guadeloupe, La Réunion, Mayotte and Saint-Pierre-et-Miquelon."
+    ],
+    "cons": [
+      "It records who holds a notarial office. It is not a statement about how any particular deed or transaction was handled.",
+      "French notaries are public officers appointed by the state, so appointment — not entry in this directory — is what confers the office; the directory reflects that appointment.",
+      "Optional filters include practical facilities and languages spoken, which are conveniences declared for the office rather than verified statements about a notary’s competence.",
+      "No search was executed during verification, so result content, coverage and completeness were not observed and none is asserted."
+    ],
+    "editorNotes": "Verified 2026-08-06 by navigating from the profession’s own national site to the directory, and re-verified in a separate direct adversarial pass. The page titles itself \"Annuaire officiel\" and heads the search \"Trouver un notaire : annuaire des notaires de France\", offering three search modes — \"un notaire\", \"un office\", \"une société\" — with postcode and town fields, optional facility and language filters, and map coverage listing France métropolitaine, Guyane, Martinique, Guadeloupe, La Réunion, Mayotte and Saint-Pierre-et-Miquelon. FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: Appointment to a notarial office by the state. The profession’s national body publishes the directory; the appointment itself is a state act. RESPONSIBLE AUTHORITY: Conseil supérieur du notariat. TECHNICAL PLATFORM: Not separately established. Served from the profession’s own notaires.fr domain. PUBLIC ACCESS INTERFACE: The public directory at notaires.fr/fr/directory. Scope note: the directory’s statutory designation was not established from the pages fetched beyond its own description as the official directory, so no claim about a legal basis is made in the published text. What is asserted is what the operator states and what was observed."
   }
 ]
