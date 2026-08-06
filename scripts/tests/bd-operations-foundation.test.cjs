@@ -139,10 +139,23 @@ test('every published count derives from that one function', () => {
   for (const r of actionable) {
     assert.ok(!S.isGovernmentPillar(r), `${r.id} is a government record in the opportunity set`);
   }
-  // The page states the count in prose; it must be the same number.
-  const body = fs.readFileSync(OPP_PAGE, 'utf8').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ');
-  assert.ok(body.includes(`${actionable.length} platforms are listed`),
+  // The page states the count in its H1 and in prose; both must be the derived
+  // number. A hardcoded total would drift the moment a row is added.
+  const html = fs.readFileSync(OPP_PAGE, 'utf8');
+  const body = html.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ');
+  const h1 = (html.match(/<h1[^>]*>([^<]*)/) || [, ''])[1];
+  assert.ok(h1.includes(String(actionable.length)),
+    `the H1 does not state the derived count of ${actionable.length}: "${h1}"`);
+  assert.ok(body.includes(`${actionable.length} platforms across`),
     `the page does not state the derived count of ${actionable.length}`);
+  // And the two levels must reconcile to the total.
+  const editorial = actionable.filter((r) => !r.isOperationalRow).length;
+  const rows = actionable.filter((r) => r.isOperationalRow).length;
+  assert.strictEqual(editorial + rows, actionable.length);
+  assert.ok(body.includes(`${editorial} carry a detailed guide`),
+    'the page does not state how many entries are detailed guides');
+  assert.ok(body.includes(`${rows} are compact entries`),
+    'the page does not state how many entries are compact rows');
 });
 
 // ── 12 + 13. CSV parity and content ─────────────────────────────────────────

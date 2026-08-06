@@ -186,7 +186,13 @@ test('every data attribute the client reads is emitted by the components', () =>
       { code: 'US-BB', name: 'B', record: null, path: null, blockerCode: 'waf-blocked' },
     ])
     + components.jurisdictionSelect(
-      [{ code: 'US-AA', name: 'A', record: DIR }], [{ key: 'national', label: 'Federal', count: 1 }]);
+      [{ code: 'US-AA', name: 'A', record: DIR }], [{ key: 'national', label: 'Federal', count: 1 }])
+    // The opportunities worklist controls. Included here so an attribute the
+    // client reads but no component emits still fails this audit.
+    + components.clearFiltersControl()
+    + components.facetSelect({
+      idPrefix: 'a', facet: { name: 'country', key: 'country' }, label: 'Market', rows: [DIR],
+    });
   const read = new Set();
   for (const m of js().matchAll(/'(data-bd-[a-z-]+)'/g)) read.add(m[1]);
   for (const m of js().matchAll(/\[(data-bd-[a-z-]+)\]/g)) read.add(m[1]);

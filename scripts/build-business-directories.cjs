@@ -197,6 +197,7 @@ function pageModel(registry) {
   const countryLinks = registry.countries
     .filter((country) => country.slug !== GLOBAL_SCOPE && country.entityType !== 'supranational')
     .map((country) => ({
+      slug: country.slug,
       name: country.name,
       path: routes.countryPath(country.slug),
       count: directoriesFor(registry, country.slug).length,
@@ -232,6 +233,15 @@ function pageModel(registry) {
     }))
     .filter((link) => link.count > 0)
     .sort((a, b) => (b.count - a.count) || (a.name < b.name ? -1 : a.name > b.name ? 1 : 0));
+
+  // Worklist figures, derived once and shared by the hub hero and the
+  // opportunities page. Two independently computed totals would eventually
+  // disagree, and the hub is the first thing a reader sees.
+  const worklist = csv.actionableOpportunities(allDirectories, registry.operationalRows || []);
+  const worklistEditorial = worklist.filter((d) => !d.isOperationalRow).length;
+  const worklistRows = worklist.filter((d) => d.isOperationalRow).length;
+  const worklistMarkets = new Set(worklist.map((d) => d.country)).size;
+  const OPPORTUNITIES_PATH = `${routes.BASE}opportunities/`;
 
   const hubMeta = seo.buildHubMeta({
     countries: [...globalLink, ...supranationalLinks, ...countryLinks.filter((l) => !l.pending)],
@@ -279,6 +289,41 @@ function pageModel(registry) {
     meta: hubMeta,
     main: [
       c.pageIntro({ title: 'Business Directories', lede: hubMeta.description }),
+      // The worklist was an orphan: generated, sitemapped, and linked from
+      // nowhere. This hero is the primary entry point, placed above the
+      // editorial tables because it is what most readers actually want.
+      ...(worklist.length ? [`    <section class="bd-section bd-hero" aria-labelledby="worklist-hero">
+      <p class="bd-eyebrow">Business visibility database</p>
+      <h2 id="worklist-hero">${escapeHtml(`${worklist.length} business listing opportunities`)}</h2>
+      <p>${escapeHtml('Reputable directories, review platforms, supplier databases, software '
+        + 'marketplaces and local-discovery services where a business can create, claim or apply '
+        + 'for a public presence.')}</p>
+      <p class="bd-actions">
+        <a class="bd-button" href="${OPPORTUNITIES_PATH}">${escapeHtml(`Browse all ${worklist.length} opportunities`)}</a>
+        <a class="bd-button bd-button--ghost" href="${routes.BASE}opportunities.csv" download>Download CSV</a>
+      </p>
+      <ul class="bd-list bd-stats">
+        <li>${escapeHtml(`${worklist.length} active opportunities`)}</li>
+        <li>${escapeHtml(`${worklistMarkets} markets`)}</li>
+        <li>${escapeHtml(`${worklistEditorial} detailed platform guides`)}</li>
+        <li>${escapeHtml(`${worklistRows} compact working-list entries`)}</li>
+      </ul>
+    </section>`,
+      section('two-levels', 'Two levels of directory intelligence', [
+        '      <div class="bd-cards">',
+        `        <div class="bd-card"><h3>Detailed platform guides</h3>`,
+        `          <p>${escapeHtml('In-depth researched pages covering platform workflows, advantages, '
+          + 'limitations and verified listing details.')}</p>`,
+        `          <p class="bd-count">${escapeHtml(`${worklistEditorial} guides`)}</p>`,
+        `          <p><a href="${routes.BASE}">Browse detailed guides</a></p></div>`,
+        `        <div class="bd-card"><h3>Operational opportunities</h3>`,
+        `          <p>${escapeHtml('A larger working list of reputable platforms for employees and '
+          + 'business owners to review, prioritise and submit to. Some details are still unverified '
+          + 'and a few entries need a browser check before submitting.')}</p>`,
+        `          <p class="bd-count">${escapeHtml(`${worklist.length} opportunities`)}</p>`,
+        `          <p><a href="${OPPORTUNITIES_PATH}">Open the complete working list</a></p></div>`,
+        '      </div>',
+      ].join('\n'))] : []),
       statLine,
       // A. Authority — the domain, measured by a third party.
       ...(authorityEntries.length ? [section('highest-authority', 'Highest authority business directories', [
@@ -354,10 +399,41 @@ function pageModel(registry) {
   const opRows = registry.operationalRows || [];
   if (csv.actionableOpportunities(allDirectories, opRows).length > 0) {
     const actionable = csv.actionableOpportunities(allDirectories, opRows);
-    const publishedCountrySlugs = new Set(publishedCountries.map((c) => c.slug));
+    // countryLinks previously carried no slug, so this Set was {undefined} and
+    // NOTHING ever matched — every row was repeated in "Other countries",
+    // doubling the page. Global is a published destination too and must be
+    // excluded from "other" alongside the national pages.
+    const publishedCountrySlugs = new Set([
+      ...publishedCountries.map((c) => c.slug),
+      ...(globalEntries.length ? [GLOBAL_SCOPE] : []),
+    ]);
     const other = actionable.filter((d) => !publishedCountrySlugs.has(d.country));
     const OPP_COLUMNS = ['name', 'country', 'category', 'submissionModel', 'listingAction',
       'tier', 'domainRating'];
+    // Every number on the page is derived. A hardcoded total would drift the
+    // moment a row is added, and the page would then state something untrue.
+    const editorialCount = actionable.filter((d) => !d.isOperationalRow).length;
+    const rowCount = actionable.filter((d) => d.isOperationalRow).length;
+    const countryCount = new Set(actionable.map((d) => d.country)).size;
+    const FACETS = [
+      { name: 'country', key: 'country', label: 'Market' },
+      { name: 'category', key: 'category', label: 'Platform type' },
+      { name: 'priority', key: 'priority', label: 'Priority', fallback: 'unassessed',
+        order: ['P1', 'P2', 'P3', 'hold'],
+        labels: { P1: 'P1 — do first', P2: 'P2 — valuable', P3: 'P3 — optional', hold: 'Hold', unassessed: 'Not assessed' } },
+      { name: 'cost', key: 'submissionModel', label: 'Cost', fallback: 'unknown',
+        order: ['free', 'freemium', 'paid', 'unknown'],
+        labels: { free: 'Free', freemium: 'Freemium', paid: 'Paid', unknown: 'Unknown' } },
+      { name: 'action', key: 'listingAction', label: 'Listing action', fallback: 'unknown',
+        order: ['create', 'claim', 'create-and-claim', 'apply', 'invite-only', 'unknown'],
+        labels: { create: 'Create', claim: 'Claim', 'create-and-claim': 'Create or claim', apply: 'Apply', 'invite-only': 'Invite only', unknown: 'Unknown' } },
+      { name: 'tier', key: 'tier', label: 'Reputation',
+        order: ['tier1', 'tier2', 'tier3'],
+        labels: { tier1: 'Tier A — exceptional', tier2: 'Tier B — established', tier3: 'Tier C — niche' } },
+      { name: 'status', key: 'currentStatus', label: 'Status', fallback: 'unknown',
+        order: ['active', 'unknown'],
+        labels: { active: 'Active', unknown: 'Needs browser check' } },
+    ];
 
     pages.push({
       kind: 'opportunities',
@@ -366,29 +442,38 @@ function pageModel(registry) {
       meta: seo.buildOpportunitiesMeta(),
       main: [
         c.pageIntro({
-          title: 'Business Listing Opportunities',
-          lede: 'Platforms where a business can create, claim or apply for a public profile. '
-            + 'Every row is a researched record; nothing here is a ranking or a recommendation to buy.',
+          title: `${actionable.length} Business Listing Opportunities`,
+          lede: 'Find reputable websites where companies, products and professional services can '
+            + 'build visibility through public profiles, directories, reviews, marketplaces and '
+            + 'supplier listings. Every row is a researched platform; nothing here is a ranking.',
         }),
-        section('working-list', 'Working list', [
-          `      <p>${escapeHtml(`${actionable.length} platforms are listed. Records that are `
-            + 'shutting down, dormant, redirected into a successor, or assessed as not worth using '
-            + 'are excluded from this list and from the export. A blank cell means the fact was '
-            + 'researched and not established — it never means no.')}</p>`,
-          `      <p><a class="bd-link" href="/research/business-directories/opportunities.csv" download>`
-            + `Download the full list as CSV</a> — one row per platform, opens in Excel or Sheets.</p>`,
+        section('worklist', 'Working list', [
+          `      <p>${escapeHtml(`${actionable.length} platforms across ${countryCount} markets. `
+            + `${editorialCount} carry a detailed guide; ${rowCount} are compact entries for `
+            + 'operational review. Records that are shutting down, dormant, redirected into a '
+            + 'successor, or assessed as not worth using are excluded from this list and from the '
+            + 'export. A blank cell means the fact was researched and not established — it never '
+            + 'means no, and some entries still need a browser check before submitting.')}</p>`,
+          '      <div class="bd-controls">',
+          c.searchControls({ idPrefix: 'opp' }).replace(' hidden>', '>'),
+          ...FACETS.map((f) => c.facetSelect({
+            idPrefix: 'opp', facet: f, label: f.label, rows: actionable,
+            labels: f.labels || {}, order: f.order || [],
+          })),
+          c.clearFiltersControl(),
+          '      </div>',
+          `      <p class="bd-note"><a class="bd-button" href="/research/business-directories/opportunities.csv" download>`
+            + `Download all ${actionable.length} opportunities as CSV</a> `
+            + `${escapeHtml('Designed for Excel, Google Sheets and internal submission workflows.')}</p>`,
           c.directoryTable({
             directories: actionable,
             caption: 'Business listing opportunities',
             columns: OPP_COLUMNS,
             sortKey: null,
           }),
-          // Same attribution every other page owes when it shows a Domain
-          // Rating. Inlined rather than invented as a component: the constant
-          // is the single source of the wording.
           `      <p class="bd-note"><a href="${escapeHtml(SCHEMA.AHREFS_ATTRIBUTION.href)}" `
             + `rel="noopener noreferrer" target="_blank">${escapeHtml(SCHEMA.AHREFS_ATTRIBUTION.text)}</a>. `
-            + `${escapeHtml('A Domain Rating describes the domain, not the value of a listing on it.')}</p>`,
+            + `${escapeHtml('A Domain Rating describes the domain, not the value of a listing on it. Most rows are not measured.')}</p>`,
         ].join('\n')),
         ...(other.length ? [section('other-countries', 'Other countries', [
           `      <p>${escapeHtml(`${other.length} of these platforms are based in countries that do `
@@ -398,7 +483,8 @@ function pageModel(registry) {
           c.directoryTable({
             directories: other,
             caption: 'Platforms from other countries',
-            columns: OPP_COLUMNS,
+            columns: OPP_COLUMNS.filter((col) => col !== 'domainRating'
+              || other.some((d) => d.domainRating !== null && d.domainRating !== undefined)),
             sortKey: null,
           }),
         ].join('\n'))] : []),
@@ -453,6 +539,11 @@ function pageModel(registry) {
       meta,
       main: [
         c.pageIntro({ title: meta.title, lede: meta.description }),
+        // Inbound link to the worklist, so the page is reachable from every
+        // market rather than only from the hub.
+        ...(worklist.length ? [`    <p class="bd-note"><a href="${OPPORTUNITIES_PATH}">`
+          + escapeHtml(`See all ${worklist.length} business listing opportunities across `
+            + `${worklistMarkets} markets`) + '</a></p>'] : []),
         // A supranational entry is a scope, not a place, and a reader arriving
         // from a country grid has no way to know that. The label says so in the
         // reader's words: it renders the human scope label, never the stored
@@ -507,6 +598,8 @@ function pageModel(registry) {
         meta: catMeta,
         main: [
           c.pageIntro({ title: catMeta.title, lede: category.description }),
+          ...(worklist.length ? [`    <p class="bd-note"><a href="${OPPORTUNITIES_PATH}">`
+            + escapeHtml(`See all ${worklist.length} business listing opportunities`) + '</a></p>'] : []),
           section('directories', 'Directories', [
             c.searchControls({ idPrefix: `${country.slug}-${category.slug}` }),
             c.filterControls({ idPrefix: `${country.slug}-${category.slug}`, directories: entries }),
