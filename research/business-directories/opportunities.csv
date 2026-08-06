@@ -23,33 +23,42 @@ de-das-oertliche,Das Örtliche,https://www.dasoertliche.de/,germany,dach,local-b
 de-gelbe-seiten,Gelbe Seiten,https://www.gelbeseiten.de/,germany,dach,local-business,create,free,,tier1,P1,true,https://www.gelbeseiten.de/starteintrag,,German local businesses wanting a free listing in a long-established national directory.,"An entry is a REQUEST, not a publication. The operator states that submitted data “werden an den für Ihre Region zuständigen Gelbe Seiten Verlag geschickt. Dort erfolgt eine redaktionelle Prüfung.”",2026-08-06,active
 de-11880,11880.com,https://www.11880.com/,germany,dach,local-business,create,free,,tier1,P2,true,,,German local businesses wanting a free entry on a directory whose profiles carry customer ratings.,"Ratings exist, but whether a business owner can respond to them is NOT documented, so no owner-response capability is asserted.",2026-08-06,active
 de-wlw,wlw (Wer liefert was),https://www.wlw.de/,germany,dach,general-business,create,unknown,,tier1,P2,true,,,"German-speaking B2B suppliers wanting to be found by professional buyers in Germany, Austria and Switzerland.","Whether a basic profile is free is NOT documented. A premium profile is offered on request, but the existence of a paid tier does not establish that the basic tier is free, so cost is recorded as unknown.",2026-08-06,active
+de-industrystock,IndustryStock Deutschland,https://www.industrystock.de/,germany,dach,manufacturing,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
+global-alibaba,Alibaba.com,https://www.alibaba.com/,global,asia; global,manufacturing,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,active
 global-capterra,Capterra,https://www.capterra.com/,global,global,software,unknown,unknown,91,tier1,P1,,https://www.capterra.com/vendors/,,SaaS vendors selling to SMB and mid-market buyers,Vendor listing pricing is not disclosed on the homepage,2026-08-04,unknown
 global-clutch,Clutch,https://clutch.co/,global,global,marketing,unknown,unknown,91,tier1,P1,,,,,Listing pricing is not disclosed publicly,2026-08-04,unknown
 global-crunchbase,Crunchbase,https://www.crunchbase.com/,global,global,startup,unknown,freemium,91,tier1,P1,,,,,Most analytical depth sits behind a paid plan,2026-08-04,active
 global-europages,Europages,https://www.europages.co.uk/,global,europe; global,general-business,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,active
+global-futurepedia,Futurepedia,https://www.futurepedia.io/,global,global,ai,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,active
 global-g2,G2,https://www.g2.com/,global,global,software,unknown,unknown,,tier1,P1,,https://www.g2.com/products/new,,"B2B software vendors who want a moderated, reviewed product profile",No accessible official page states what a vendor listing costs,2026-08-04,unknown
 global-google-business-profile,Google Business Profile,https://www.google.com/business/,global,global,local-business,unknown,free,,tier1,P1,,,,Businesses with a physical location or face-to-face customer contact,Changes take effect only after the profile has been verified,2026-08-04,active
 global-kompass,Kompass,https://www.kompass.com/,global,europe; global,general-business,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,unknown
 global-product-hunt,Product Hunt,https://www.producthunt.com/,global,global,startup,unknown,unknown,91,tier1,P1,,https://www.producthunt.com/launch,,New software products seeking a launch moment,"Promoted placements exist, so ranking is not purely organic",2026-08-04,unknown
+global-theresanaiforthat,There's An AI For That,https://theresanaiforthat.com/,global,global,ai,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,active
 global-thomasnet,Thomasnet,https://www.thomasnet.com/,global,north-america,manufacturing,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,unknown
 global-trustradius,TrustRadius,https://www.trustradius.com/,global,global,software,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,unknown
 global-trustpilot,Trustpilot,https://business.trustpilot.com/,global,global,review-sites,unknown,freemium,94,tier1,P1,,https://signup.business.trustpilot.com/create-account,,Consumer-facing businesses collecting public reviews,Open review model is susceptible to review manipulation,2026-08-04,active
 global-yelp,Yelp for Business,https://business.yelp.com/,global,global,local-business,unknown,freemium,94,tier1,P1,,,,,Review recommendation software filters some reviews,2026-08-04,active
 global-alternativeto,AlternativeTo,https://alternativeto.net/,global,global,software,unknown,free,79,tier2,P2,,,,,Rankings reflect community opinion rather than structured testing,2026-08-04,unknown
+global-appsumo,AppSumo,https://appsumo.com/,global,global,software,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
 global-atlassian-marketplace,Atlassian Marketplace,https://marketplace.atlassian.com/,global,global,app-directories,unknown,unknown,92,tier1,P2,,,,,Listing pricing not disclosed publicly,2026-08-04,active
+global-bark,Bark.com,https://www.bark.com/,global,global; united-kingdom,local-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
 global-betalist,BetaList,https://betalist.com/,global,global,startup,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
 global-designrush,DesignRush,https://www.designrush.com/,global,global,marketing,unknown,unknown,90,tier2,P2,,,,,Listing pricing not disclosed,2026-08-04,unknown
 global-docker-hub,Docker Hub,https://hub.docker.com/,global,global,developer,unknown,freemium,92,tier1,P2,,,,,Pull-rate limits apply to unauthenticated users,2026-08-04,active
+global-exportersindia,ExportersIndia,https://www.exportersindia.com/,global,asia; india,manufacturing,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
 global-f6s,F6S,https://www.f6s.com/,global,global,startup,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
 global-feefo,Feefo,https://business.feefo.com/,global,global; united-kingdom,review-sites,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
 global-foursquare-places,Foursquare Places,https://foursquare.com/products/places/,global,global,local-business,unknown,unknown,91,tier2,P2,,,,,Primarily a data product rather than a self-service listing directory,2026-08-04,active
 global-getapp,GetApp,https://www.getapp.com/,global,global,software,unknown,unknown,85,tier2,P2,,,,SaaS vendors comparing against category peers,Vendor listing pricing not disclosed,2026-08-04,unknown
 global-github-marketplace,GitHub Marketplace,https://github.com/marketplace,global,global,developer,unknown,unknown,97,tier1,P2,,,,,No rating or review mechanism visible on the index,2026-08-04,unknown
 global-global-sources,Global Sources,https://www.globalsources.com/,global,asia; global,manufacturing,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,active
+global-globalspec,GlobalSpec,https://www.globalspec.com/,global,global; north-america,manufacturing,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,unknown
 global-goodfirms,GoodFirms,https://www.goodfirms.co/,global,global,marketing,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,unknown
 global-hubspot-marketplace,HubSpot App Marketplace,https://ecosystem.hubspot.com/marketplace/apps,global,global,app-directories,unknown,unknown,93,tier2,P2,,,,,Review functionality not evident from the marketplace index,2026-08-04,active
 global-hugging-face,Hugging Face,https://huggingface.co/,global,global,developer,unknown,freemium,91,tier1,P2,,https://huggingface.co/join,,Teams publishing open models or datasets,"Publishing is unmoderated, so quality varies widely",2026-08-04,active
 global-indiamart,IndiaMART,https://www.indiamart.com/,global,asia; india,general-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,active
+global-industrystock,IndustryStock,https://www.industrystock.com/,global,europe; global,manufacturing,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
 global-jetbrains-marketplace,JetBrains Marketplace,https://plugins.jetbrains.com/,global,global,developer,unknown,unknown,91,tier2,P2,,,,,Only the marketplace name could be confirmed from the landing page; other fields are unverified,2026-08-04,active
 global-made-in-china,Made-in-China,https://www.made-in-china.com/,global,asia; china; global,manufacturing,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,active
 global-open-collective,Open Collective,https://opencollective.com/,global,global,general-business,unknown,unknown,89,tier2,P2,,,,Open-source projects needing transparent finances,Pricing for creating a collective is not stated on the homepage,2026-08-04,active
@@ -59,11 +68,18 @@ global-peerspot,PeerSpot,https://www.peerspot.com/,global,global,software,unknow
 global-provenexpert,ProvenExpert,https://www.provenexpert.com/,global,dach; europe; global,review-sites,create,freemium,,tier1,P2,true,https://www.provenexpert.com/en-us/registration/,,Businesses in the German-speaking market wanting a review profile with an openly priced upgrade path.,"The free tier is capped. The operator lists a limited number of displayed reviews and a single active survey per month, so a free profile is a sample of the product rather than a full one.",2026-08-06,active
 global-pypi,Python Package Index (PyPI),https://pypi.org/,global,global,developer,unknown,free,91,tier1,P2,,https://pypi.org/account/register/,,,No editorial review of package quality,2026-08-04,active
 global-reviews-io,Reviews.io,https://www.reviews.io/,global,global; united-kingdom,review-sites,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
+global-saasworthy,SaaSworthy,https://www.saasworthy.com/,global,global,software,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,unknown
 global-salesforce-appexchange,Salesforce AppExchange (AgentExchange),https://appexchange.salesforce.com/,global,global,app-directories,unknown,unknown,92,tier1,P2,,,,,"Storefront is mid-rebrand, so naming is currently ambiguous",2026-08-04,active
 global-shopify-app-store,Shopify App Store,https://apps.shopify.com/,global,global,app-directories,unknown,unknown,96,tier1,P2,,,,,Restricted to the Shopify ecosystem,2026-08-04,active
 global-software-advice,Software Advice,https://www.softwareadvice.com/,global,global,software,unknown,unknown,87,tier2,P2,,https://www.softwareadvice.com/vendors/,,SaaS vendors wanting advisor-driven lead flow,Buyer-side advice is monetised through vendor referrals,2026-08-04,unknown
+global-softwaresuggest,SoftwareSuggest,https://www.softwaresuggest.com/,global,asia; global,software,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,unknown
 global-sortlist,Sortlist,https://www.sortlist.com/,global,europe; global,marketing,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,unknown
 global-sourceforge,SourceForge,https://sourceforge.net/,global,global,software,unknown,free,92,tier3,P2,,,,,Reputation was damaged by past bundled-installer practices under previous ownership,2026-08-04,unknown
+global-stackshare,StackShare,https://stackshare.io/,global,global,developer,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,unknown
+global-techpilot,Techpilot,https://www.techpilot.net/,global,dach; europe,manufacturing,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
+global-themanifest,The Manifest,https://www.themanifest.com/,global,global; north-america,marketing,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,unknown
+global-toolify,Toolify,https://www.toolify.ai/,global,global,ai,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
+global-tradeindia,TradeIndia,https://www.tradeindia.com/,global,asia; india,manufacturing,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,active
 global-trusted-shops,Trusted Shops,https://www.trustedshops.com/,global,dach; europe,review-sites,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,active
 global-vs-marketplace,Visual Studio Marketplace,https://marketplace.visualstudio.com/,global,global,developer,unknown,unknown,92,tier1,P2,,,,,Ratings and review functionality not confirmed from the landing page,2026-08-04,active
 global-wellfound,Wellfound,https://wellfound.com/,global,global,startup,unknown,freemium,87,tier1,P2,,,,,Oriented to hiring rather than general company discovery,2026-08-04,active
@@ -71,13 +87,19 @@ global-woocommerce-marketplace,WooCommerce extensions,https://woocommerce.com/ma
 global-wordpress-plugins,WordPress Plugin Directory,https://wordpress.org/plugins/,global,global,developer,unknown,free,97,tier1,P2,,,,,Plugins must be GPL-compatible,2026-08-04,active
 global-npm,npm,https://www.npmjs.com/,global,global,developer,unknown,free,,tier1,P2,,,,Distributing a JavaScript or TypeScript library to Node and browser projects,No pre-publication review process is documented,2026-08-04,unknown
 global-firefox-addons,Add-ons for Firefox,https://addons.mozilla.org/en-US/firefox/,global,global,app-directories,unknown,unknown,96,tier1,P3,,,,,Submission cost not stated on the landing page,2026-08-04,active
+global-agencyspotter,Agency Spotter,https://www.agencyspotter.com/,global,global; north-america,marketing,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,unknown
+za-bizcommunity,Bizcommunity,https://www.bizcommunity.com/,global,africa,general-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 global-chambers-and-partners,Chambers and Partners,https://chambers.com/,global,europe; global,legal,unknown,unknown,82,tier1,P3,,,,Firms competing for recognised international legal rankings,Heavy annual submission burden,2026-08-04,active
+global-crozdesk,Crozdesk,https://www.crozdesk.com/,global,europe; global,software,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 global-cybo,Cybo,https://www.cybo.com/,global,global,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
+global-dhgate,DHgate,https://www.dhgate.com/,global,asia; global,manufacturing,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,unknown
+global-discovercloud,DiscoverCloud,https://www.discovercloud.com/,global,global,software,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 global-drupal-modules,Drupal Modules,https://www.drupal.org/project/project_module,global,global,developer,unknown,free,91,tier2,P3,,,,,Restricted to the Drupal ecosystem,2026-08-04,active
 global-ec21,EC21,https://www.ec21.com/,global,asia; global,manufacturing,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
 global-f-droid,F-Droid,https://f-droid.org/,global,global,app-directories,unknown,free,85,tier2,P3,,,,,Excludes proprietary applications by design,2026-08-04,active
 global-flathub,Flathub,https://flathub.org/,global,global,app-directories,unknown,free,83,tier1,P3,,,,,Review system not confirmed from the storefront,2026-08-04,active
 global-hex,Hex,https://hex.pm/,global,global,developer,unknown,freemium,78,tier2,P3,,,,,Private packages require a paid organisation tier,2026-08-04,active
+global-itfirms,ITFirms,https://www.itfirms.co/,global,global,marketing,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 global-infobel,Infobel,https://www.infobel.com/,global,europe; global,general-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,unknown
 global-joomla-extensions,Joomla! Extensions Directory,https://extensions.joomla.org/,global,global,developer,unknown,unknown,91,tier3,P3,,,,,Smaller ecosystem than WordPress or Drupal,2026-08-04,active
 global-kaggle-datasets,Kaggle Datasets,https://www.kaggle.com/datasets,global,global,developer,unknown,free,90,tier2,P3,,,,Organisations releasing open datasets,Review system not confirmed from the catalogue page,2026-08-04,active
@@ -89,14 +111,23 @@ global-opendi,Opendi,https://www.opendi.com/,global,europe; global,local-busines
 global-packagist,Packagist.org,https://packagist.org/,global,global,developer,unknown,free,88,tier1,P3,,https://packagist.org/packages/submit,,,Private packages require a paid separate product,2026-08-04,active
 global-rubygems,RubyGems.org,https://rubygems.org/,global,global,developer,unknown,unknown,87,tier1,P3,,,,,Publishing cost is not stated on the homepage,2026-08-04,active
 global-saashub,SaaSHub,https://www.saashub.com/,global,global,software,unknown,free,79,tier3,P3,,,,,Very large catalogue with correspondingly light curation,2026-08-04,active
+global-selecthub,SelectHub,https://www.selecthub.com/,global,global; north-america,software,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 global-slashdot-software,Slashdot Software Directory,https://slashdot.org/software/,global,global,software,unknown,unknown,87,tier3,P3,,,,,"Shares its review corpus with SourceForge, so listings overlap heavily",2026-08-04,unknown
 global-snap-store,Snap Store,https://snapcraft.io/store,global,global,app-directories,unknown,free,84,tier2,P3,,,,,Backend is single-vendor and not open source,2026-08-04,active
+global-softwareworld,SoftwareWorld,https://www.softwareworld.co/,global,global,software,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
+global-superbcompanies,SuperbCompanies,https://www.superbcompanies.com/,global,global,marketing,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 global-swift-package-index,Swift Package Index,https://swiftpackageindex.com/,global,global,developer,unknown,free,,tier2,P3,,https://github.com/SwiftPackageIndex/PackageList,,Publishing a Swift package so Swift developers can discover it,No quality threshold is applied to packages that meet the technical requirements,2026-08-04,unknown
+global-taiwantrade,Taiwantrade,https://www.taiwantrade.com/,global,asia,manufacturing,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,unknown
 global-legal-500,The Legal 500,https://www.legal500.com/,global,europe; global,legal,unknown,unknown,81,tier1,P3,,,,Law firms seeking recognised practice-area rankings,Submission is an annual research cycle rather than a listing,2026-08-04,active
+global-topdevelopers,TopDevelopers.co,https://www.topdevelopers.co/,global,asia; global,marketing,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+global-tradekey,TradeKey,https://www.tradekey.com/,global,asia; global,manufacturing,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 global-tupalo,Tupalo,https://tupalo.com/,global,europe; global,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 global-yalwa,Yalwa,https://www.yalwa.com/,global,global,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
+global-aitools-fyi,aitools.fyi,https://aitools.fyi/,global,global,ai,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 global-crates-io,crates.io,https://crates.io/,global,global,developer,unknown,free,87,tier1,P3,,,,,No quality review of published crates,2026-08-04,unknown
 global-ekomi,eKomi,https://www.ekomi.com/,global,dach; europe,review-sites,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
+global-go4worldbusiness,go4WorldBusiness,https://www.go4worldbusiness.com/,global,asia; global,manufacturing,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
+global-iglobal,iGlobal,https://www.iglobal.co/,global,global,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 global-pub-dev,pub.dev,https://pub.dev/,global,global,developer,unknown,unknown,86,tier1,P3,,,,,Publishing cost not stated on the homepage,2026-08-04,active
 ie-goldenpages,Golden Pages,https://www.goldenpages.ie/,ireland,country-specific,local-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,unknown
 it-paginegialle,PagineGialle,https://www.paginegialle.it/,italy,country-specific,local-business,create,free,,tier1,P1,true,https://www.paginegialle.it/inserisci_attivita,,VAT-registered Italian businesses wanting a free national directory profile.,"An Italian VAT number is required. The registration page carries the condition “*Partita IVA necessaria”, so this is not open to unregistered businesses or to foreign companies without Italian VAT registration.",2026-08-06,active
@@ -112,12 +143,15 @@ es-paginas-amarillas,Páginas Amarillas,https://www.paginasamarillas.es/,spain,c
 se-eniro,Eniro,https://www.eniro.se/,sweden,nordics,local-business,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,unknown
 se-hitta,Hitta.se,https://www.hitta.se/,sweden,nordics,local-business,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,active
 ch-local-ch,local.ch,https://www.local.ch/,switzerland,dach,local-business,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,active
+uk-checkatrade,Checkatrade,https://www.checkatrade.com/,united-kingdom,united-kingdom,construction,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,unknown
 uk-thomson-local,Thomson Local,https://www.thomsonlocal.com/,united-kingdom,united-kingdom,local-business,create,freemium,,tier1,P1,true,https://www.thomsonlocal.com/product/freelisting,,"UK local businesses wanting a free entry in a directory with a named, long-established operator.","The free listing EXPIRES. The operator describes it as “A three-month time limited free business listing”, so it is not a permanent presence and no permanence is asserted here.",2026-08-06,active
 uk-yell,Yell,https://www.yell.com/,united-kingdom,united-kingdom,local-business,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,unknown
 uk-approved-business,Approved Business,https://www.approvedbusiness.co.uk/,united-kingdom,united-kingdom,general-business,create,freemium,,tier1,P2,true,https://www.approvedbusiness.co.uk/list-your-company,,UK business-to-business suppliers wanting a categorised trade listing with an enquiry form.,"The free package carries a “12 month contract”. A free listing here is a term commitment, not a casual entry, and that is unusual enough to check before submitting.",2026-08-06,active
 uk-freeindex,FreeIndex,https://www.freeindex.co.uk/,united-kingdom,united-kingdom,local-business,create,freemium,,tier1,P2,true,https://www.freeindex.co.uk/signup.htm,,UK businesses wanting a free listing on a directory whose paid tier is priced openly rather than sold by phone.,"What the email step confirms is a working email address — nothing more. It is not verification of the business, of its identity, or of the registrant’s authority to represent it, and no such verification is asserted.",2026-08-06,active
 uk-hotfrog,Hotfrog UK,https://www.hotfrog.co.uk/,united-kingdom,united-kingdom,local-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,unknown
+uk-ratedpeople,Rated People,https://www.ratedpeople.com/,united-kingdom,united-kingdom,construction,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,unknown
 uk-scoot,Scoot,https://www.scoot.co.uk/,united-kingdom,united-kingdom,local-business,create,freemium,,tier1,P2,true,https://www.scoot.co.uk/add-listing,,UK local businesses wanting one free submission that reaches a directory network rather than a single site.,Your details will be used to market to you. The form states the information “will be used to contact you by users of these directories … and suppliers (including https://web.com/en-gb ) who may wish to provide services to businesses like yours”.,2026-08-06,active
+uk-trustatrader,TrustATrader,https://www.trustatrader.com/,united-kingdom,united-kingdom,construction,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
 uk-bizify,Bizify,https://www.bizify.co.uk/,united-kingdom,united-kingdom,local-business,create,freemium,,tier1,P3,true,https://www.bizify.co.uk/add-new-company,,"UK-registered businesses wanting an additional free directory listing with a named, companies-house-identified operator.","The operator contradicts its own marketing. The site promises that listings “rank” and are “built to rank too”, while the terms state: “We do not provide any warranties or guarantees as to the outcome of any of the Advertising Services, including but not limited to traffic driven to your website, orders for your goods or services, and placement of your website on any search engines.” The disclaimer is the binding text.",2026-08-06,active
 uk-businessmagnet,BusinessMagnet,https://www.businessmagnet.co.uk/,united-kingdom,united-kingdom,general-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
 uk-cylex,Cylex UK,https://www.cylex-uk.co.uk/,united-kingdom,united-kingdom,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
@@ -127,15 +161,30 @@ us-houzz,Houzz,https://www.houzz.com/,united-states,global; united-states,local-
 us-nextdoor,Nextdoor Business,https://business.nextdoor.com/,united-states,united-states,local-business,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,active
 us-thumbtack,Thumbtack,https://www.thumbtack.com/,united-states,united-states,local-business,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,unknown
 us-yellowpages,Yellow Pages,https://www.yellowpages.com/,united-states,united-states,local-business,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,unknown
+us-avvo,Avvo,https://www.avvo.com/,united-states,united-states,legal,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,unknown
 us-bbb,Better Business Bureau,https://www.bbb.org/,united-states,united-states,review-sites,unknown,freemium,93,tier1,P2,,,,,"Accreditation is a paid programme, which draws recurring criticism of the rating model",2026-08-04,active
 us-chamberofcommerce,ChamberofCommerce.com,https://www.chamberofcommerce.com/,united-states,united-states,general-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
+us-findlaw,FindLaw,https://www.findlaw.com/,united-states,united-states,legal,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,unknown
+us-healthgrades,Healthgrades,https://www.healthgrades.com/,united-states,united-states,local-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,unknown
+us-homeadvisor,HomeAdvisor,https://www.homeadvisor.com/,united-states,united-states,construction,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,unknown
 us-hotfrog,Hotfrog US,https://www.hotfrog.com/,united-states,united-states,local-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,unknown
+us-justia,Justia,https://www.justia.com/,united-states,united-states,legal,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,unknown
 us-manta,Manta,https://www.manta.com/,united-states,united-states,general-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,unknown
 us-mapquest,MapQuest,https://www.mapquest.com/,united-states,united-states,local-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
+us-martindale,Martindale-Hubbell,https://www.martindale.com/,united-states,united-states,legal,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,unknown
 us-merchantcircle,MerchantCircle,https://www.merchantcircle.com/,united-states,united-states,local-business,claim,freemium,,tier1,P2,true,https://www.merchantcircle.com/business_homepage,https://www.merchantcircle.com/business_homepage,US local businesses that find themselves already listed and want to take control of the page.,A free profile carries competitors’ advertising. The operator sells the removal of it: the paid tier promises to “Remove competitor ads from your listing” and “No ads on your page - consumers will focus only on you!”. That is a plain statement about what the free tier looks like.,2026-08-06,active
 us-superpages,Superpages,https://www.superpages.com/,united-states,united-states,local-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,unknown
+us-zocdoc,Zocdoc,https://www.zocdoc.com/,united-states,united-states,local-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,unknown
 us-alignable,Alignable,https://www.alignable.com/,united-states,united-states,general-business,create,unknown,,tier1,P3,true,https://www.alignable.com/biz_users/sign_up,,US small business owners who want peer referrals and local business networking rather than consumer discovery.,"The cost is NOT established and is recorded as unknown. There is no pricing page, joining is presented only as “Join Today”, and the premium tier offers only “Try for Free” — a trial, which is not evidence that anything is free thereafter.",2026-08-06,active
+us-buildzoom,BuildZoom,https://www.buildzoom.com/,united-states,united-states,construction,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,unknown
+us-citysearch,Citysearch,https://www.citysearch.com/,united-states,united-states,local-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 us-cylex,Cylex US,https://www.cylex.us.com/,united-states,united-states,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
+us-dexknows,DexKnows,https://www.dexknows.com/,united-states,united-states,local-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,unknown
 us-ezlocal,EZlocal,https://www.ezlocal.com/,united-states,united-states,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
 us-expertise,Expertise.com,https://www.expertise.com/,united-states,united-states,marketing,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
+us-fyple,Fyple,https://www.fyple.com/,united-states,united-states,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+us-insiderpages,InsiderPages,https://www.insiderpages.com/,united-states,united-states,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+us-showmelocal,ShowMeLocal,https://www.showmelocal.com/,united-states,united-states,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
+us-storeboard,Storeboard,https://www.storeboard.com/,united-states,united-states,general-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
 us-yellowbook,Yellowbook,https://www.yellowbook.com/,united-states,united-states,local-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
+us-elocal,eLocal,https://www.elocal.com/,united-states,united-states,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active

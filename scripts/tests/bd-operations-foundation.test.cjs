@@ -431,3 +431,15 @@ test('the merged working list is the sum of both levels', () => {
   assert.strictEqual(ACTIONABLE().length, editorial + rows,
     'the merged list does not equal the two levels combined');
 });
+
+test('no operational row lands in the Government Registry pillar', () => {
+  // Found the hard way: Healthgrades and Zocdoc were filed under "healthcare",
+  // which is a Pillar A category reserved for statutory registers like the FDA
+  // and the CQC. A commercial provider directory belongs in local-business.
+  // The pillar decides which QUESTION a record answers, so a miscategorised row
+  // silently claims to be a source of regulatory truth.
+  for (const r of ROWS) {
+    assert.ok(!S.isGovernmentPillar(r),
+      `${r.id} uses category "${r.category}", which puts an operational row in the Government Registry pillar`);
+  }
+});
