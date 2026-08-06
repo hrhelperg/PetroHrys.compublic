@@ -2653,5 +2653,273 @@
       "The list is rendered by JavaScript and showed only a loading state to the client used for verification, so no entry, count or coverage was observed and none is asserted."
     ],
     "editorNotes": "Verified 2026-08-06 by navigating from the Commission’s telecommunications section to its registration guidance and then to the list, and re-verified in a separate direct adversarial pass in which all three quotations matched contiguous official text. The registration page states: \"Before an organization can offer or provide customers with telecommunications services, it must register with the CRTC.\" and \"All telecommunications providers that carry telecommunications traffic internationally must obtain a BITS licence.\" It also states \"It’s free to register.\" The list page carries the disclaimer: \"The information on these pages has been provided by external sources. The Commission is not responsible for the accuracy, reliability or currency of the information contained on these pages.\" FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: The registration duty administered by the Commission; the register records the provider’s own submission. The Commission disclaims responsibility for its accuracy and currency. RESPONSIBLE AUTHORITY: Canadian Radio-television and Telecommunications Commission. TECHNICAL PLATFORM: applications.crtc.gc.ca, the Commission’s applications portal, distinct from the crtc.gc.ca site that carries the describing pages. PUBLIC ACCESS INTERFACE: The public list at applications.crtc.gc.ca. The Commission’s root host served only a JavaScript shell to automated clients; the describing pages were reached through its English-language path. DUPLICATE AND BOUNDARY DECISIONS. The \"Withdrawn and Incomplete Telecommunication Providers\" list was NOT published as a separate record: it contains providers REMOVED from these registration lists and is the historical face of the same registration act, which the wave contract classifies as a current/historical toggle rather than a distinct statutory system. It is instead described in this record’s limitations, because a reader who finds nothing here needs to know where a removed provider goes. The Commission’s quality-of-service indicator list was REJECTED as a candidate: it reports operational performance, not an authorisation. The BITS licence is a genuinely distinct legal act and is NOT covered by this record, but no public register of BITS licensees was located — the Commission publishes BITS applications by year — so it is recorded as targeted research incomplete rather than published or merged."
+  },
+  {
+    "id": "ca-yellowpages",
+    "name": "YellowPages.ca",
+    "slug": "yellowpages-ca",
+    "country": "canada",
+    "category": "local-business",
+    "website": "https://www.yellowpages.ca/",
+    "submissionUrl": "https://solutions.yp.ca/free-listing",
+    "description": "Canada’s principal commercial business directory, operated by Yellow Pages Digital & Media Solutions Limited. A free online listing is requested through the operator’s solutions site, and the same company’s terms define YellowPages.ca and its French counterpart PagesJaunes.ca as one set of sites.",
+    "tier": "tier1",
+    "scope": "national",
+    "operator": {
+      "name": "Yellow Pages Digital & Media Solutions Limited",
+      "type": "other",
+      "officialUrl": "https://corporate.yp.ca/terms-of-use-agreement"
+    },
+    "petroHrysScore": 69,
+    "scoreFactors": {
+      "editorialTrust": 7,
+      "businessUsefulness": 8,
+      "verificationQuality": 5,
+      "platformReputation": 8,
+      "spamResistance": 6,
+      "industryImportance": 8,
+      "longTermStability": 8,
+      "submissionQuality": 6,
+      "transparency": 6,
+      "moderationQuality": 6
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "freemium",
+    "registrationRequired": null,
+    "reviewSystem": true,
+    "verificationRequired": null,
+    "manualReview": null,
+    "listingAction": "create",
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": true,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-06",
+    "nextVerification": "2027-05-18",
+    "verification": {
+      "status": "verified",
+      "source": "official-documentation",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "ca-n49"
+      ],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Canadian businesses wanting a listing in the country’s best-known commercial directory.",
+      "Businesses serving both English and French markets, since one operator runs both language properties under one set of terms."
+    ],
+    "notRecommendedFor": [
+      "Businesses wanting to publish a profile directly. The free route is a request submitted to the operator, not self-service publication.",
+      "Anyone who needs the free tier’s exact contents documented in advance. The operator sets those out only after contact."
+    ],
+    "submissionDifficulty": "easy",
+    "listingQuality": null,
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "local-services",
+      "retail",
+      "professional-services"
+    ],
+    "editorialTags": [
+      "business-directory",
+      "commercial-platform"
+    ],
+    "pros": [
+      "The operator is named unambiguously in its own terms: sites are “OWNED AND OPERATED BY YELLOW PAGES DIGITAL & MEDIA SOLUTIONS LIMITED”, and the same entity holds the YellowPages.ca and Canada411 trademarks.",
+      "A free listing route is documented on the operator’s own solutions site under the heading “REQUEST YOUR FREE ONLINE LISTING”.",
+      "Public business profiles are openly accessible, with no login required to view them.",
+      "Ratings appear on business profiles and the operator’s help section describes account holders being able to “give your opinion on your favourite businesses”, so a consumer review function is documented."
+    ],
+    "cons": [
+      "The free listing is REQUESTED, not published. The operator’s wording is “REQUEST YOUR FREE ONLINE LISTING”, and what the free tier contains is not enumerated on that page.",
+      "Everything else the operator sells around the listing — priority placement, websites, search and social advertising, print — is a separate paid product, and none of it is evidence about the base listing.",
+      "Creating a listing is confirmed; claiming an existing third-party profile is not documented, so no claim flow is asserted.",
+      "Whether verification is required, and by what method, is not documented, so nothing about verification is asserted.",
+      "Ratings and consumer opinions are documented, but whether a business can respond to them is not, and is not asserted.",
+      "The operator’s free-listing page carries a 2023 copyright line while the directory itself carries a current one, so the solutions site is less actively maintained than the directory.",
+      "A listing is a directory entry. It is not evidence that a business is solvent, currently trading, licensed, or checked beyond what the operator documents here.",
+      "No ranking, indexing, traffic or lead outcome is asserted. The operator markets outcomes; this record does not adopt them."
+    ],
+    "editorNotes": "Verified 2026-08-06 from the operator’s corporate terms of use, its solutions site and the directory itself, and re-verified in a separate direct pass in which “OWNED AND OPERATED BY YELLOW PAGES DIGITAL & MEDIA SOLUTIONS LIMITED”, “REQUEST YOUR FREE ONLINE LISTING” and the trademark attribution were each present in the served pages. PLATFORM OPERATOR: Yellow Pages Digital & Media Solutions Limited, named in the corporate terms of use and in the trademark attribution on the free-listing page. LISTING CONTROL: The business requests a listing from the operator; self-service publication is not documented. MODERATION AUTHORITY: Not documented. PUBLIC INTERFACE: yellowpages.ca, with public profiles under /business/ and the free-listing request at solutions.yp.ca/free-listing. DUPLICATE DECISION — PAGESJAUNES.CA ABSORBED: PagesJaunes.ca is NOT published as a separate record. The operator’s single terms of use defines “Sites” as “corporate.yp.ca, yp.ca, pj.ca, YellowPages.ca, PagesJaunes.ca, Canada411.com”, one company operates them all, and the directory itself offers direct language switching between the English and French surfaces. This is one product on two language surfaces, the same conclusion reached for Virgilio Aziende and PagineGialle. The surviving record is this one.  DUPLICATE DECISION — 411.CA NOT ABSORBED AND NOT PUBLISHED: 411.ca returned 502 in an earlier pass and responds normally now, so its earlier unavailability was transport failure, not absence. It names a DIFFERENT operator in its own footer (“© 411 Local Search Corp 2026”) and serves its own public profile URLs, so the duplicate tests are not met and calling it a duplicate would assert a shared listing identity nobody documented. But both of its business links — “Business solutions” and “Add your business” — route to solutions.yp.ca, so it exposes no listing action of its own and cannot be published on its own terms either. Recorded as an unresolved routing relationship for browser verification.  CANADA411 SEPARATE: Canada411.com is in the same trademark family but is a people-search product, not a business directory, and is out of scope rather than a duplicate.  NOT ASSERTED: verification, owner responses, claim flow, free-tier contents, indexability, link attributes, traffic."
+  },
+  {
+    "id": "ca-n49",
+    "name": "n49",
+    "slug": "n49",
+    "country": "canada",
+    "category": "local-business",
+    "website": "https://www.n49.com/",
+    "submissionUrl": "https://www.n49.com/add-biz",
+    "description": "A Canadian review-led business directory operated by N49 Interactive Inc. Its pricing page is unusually blunt about what the free tier is not: the operator lists the free listing as carrying no website link, no verification and no support, with all three sold as upgrades.",
+    "tier": "tier1",
+    "scope": "national",
+    "operator": {
+      "name": "N49 Interactive Inc.",
+      "type": "other",
+      "officialUrl": "https://www.n49.com/terms"
+    },
+    "petroHrysScore": 53,
+    "scoreFactors": {
+      "editorialTrust": 6,
+      "businessUsefulness": 5,
+      "verificationQuality": 4,
+      "platformReputation": 5,
+      "spamResistance": 4,
+      "industryImportance": 5,
+      "longTermStability": 6,
+      "submissionQuality": 7,
+      "transparency": 9,
+      "moderationQuality": 4
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "freemium",
+    "registrationRequired": true,
+    "reviewSystem": true,
+    "verificationRequired": false,
+    "manualReview": null,
+    "listingAction": "create",
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": true,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-06",
+    "nextVerification": "2027-05-07",
+    "verification": {
+      "status": "verified",
+      "source": "official-documentation",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "ca-yellowpages"
+      ],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Canadian businesses wanting a free listing on a platform that documents its tiers and prices openly.",
+      "Businesses that want to know exactly what a free directory tier withholds before deciding whether to pay."
+    ],
+    "notRecommendedFor": [
+      "Businesses expecting a free listing to be verified or supported. The operator states the free tier is neither.",
+      "Anyone whose reason for listing is a link to their own website. The operator states the free tier does not include one."
+    ],
+    "submissionDifficulty": "easy",
+    "listingQuality": null,
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "local-services",
+      "retail",
+      "professional-services"
+    ],
+    "editorialTags": [
+      "business-directory",
+      "commercial-platform"
+    ],
+    "pros": [
+      "The operator is named plainly in its own terms: “n49 is owned and operated by N49 Interactive Inc.”",
+      "The base listing is free and the terms say so twice over: “n49 does not charge members any fees for use of the site. n49 does not charge business owners to list their business on the site.”",
+      "The pricing page is exceptionally candid about the free tier’s limits, listing “No Website Link”, “Not Verified” and “No Support” as its own product description rather than leaving them to be discovered.",
+      "Paid tiers are priced openly, at $10.00 per month for a verified listing and $100.00 for a sponsored one, rather than being quoted only on request.",
+      "The terms recognise a distinct “Business Owner” role — someone who “has registered a business profile on the site” — so the creation route is defined in the binding document, not only in marketing."
+    ],
+    "cons": [
+      "The free listing is explicitly NOT verified. The operator lists “Not Verified” as a characteristic of the free tier, and sells verification as a paid upgrade, so a free entry here carries no verification of any kind.",
+      "The free listing carries no link to your website. The operator states “No Website Link” for the free tier and lists a link only under the paid tiers. No link benefit is documented for a free listing and none is asserted.",
+      "The free tier also carries “No Support”, so there is no documented route to help if an entry is wrong.",
+      "Cost is not guaranteed to stay as it is. The terms reserve the right that “in the future, n49 may charge for any of the services and may change its fees from time to time in its sole discretion.”",
+      "Anything you post is licensed very broadly. The terms take “a non-exclusive, irrevocable, perpetual, fully-paid and royalty-free worldwide license (with a right of sublicense through unlimited levels and numbers of sublicenses)” over submitted content.",
+      "An account is required before a business profile can be registered, so this is not an anonymous submission.",
+      "Creating a profile is confirmed; claiming an existing third-party profile is not documented, so no claim flow is asserted.",
+      "Reviews are central to the platform, but whether a business can respond to them is not documented and is not asserted. The AI review tool bundled with the most expensive tier is a separate product and establishes nothing about replying on the free one.",
+      "How the operator verifies a paid “Verified Listing” is not documented, so no verification method is recorded.",
+      "A listing is a directory entry. It is not evidence that a business is solvent, currently trading, licensed, or checked beyond what the operator documents here.",
+      "No ranking, indexing, traffic or lead outcome is asserted. The operator markets outcomes; this record does not adopt them."
+    ],
+    "editorNotes": "Verified 2026-08-06 from the operator’s own terms of use and pricing page, and re-verified in a separate direct pass in which “n49 is owned and operated by N49 Interactive Inc.”, “n49 does not charge business owners to list their business on the site”, “No Website Link” and “Not Verified” were each present in the served pages. PLATFORM OPERATOR: N49 Interactive Inc., named in the platform’s own terms of use. LISTING CONTROL: The business registers an account and self-manages a business profile; a business dashboard is documented for paid tiers. MODERATION AUTHORITY: Not documented. PUBLIC INTERFACE: n49.com, with the creation route at /add-biz and tiers set out at /pricing. COST DECISION: freemium, on the operator’s own explicit statement that it does not charge to list, combined with two documented paid tiers at stated prices.  VERIFICATION DECISION: verificationRequired is recorded as FALSE rather than unknown, because the operator states the free tier is “Not Verified” — an affirmative product statement, not an absence of documentation. The METHOD used for paid verified listings remains unrecorded because it is genuinely undocumented.  NOT ASSERTED: owner responses, claim flow, verification methods, indexability, link attributes, traffic. The paid tiers’ link-attribute wording is reported as the operator’s own product description and is NOT adopted by this record."
   }
 ]

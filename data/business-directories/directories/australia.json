@@ -1882,5 +1882,147 @@
       "Pending licence applications are explicitly out of scope."
     ],
     "editorNotes": "Verified 2026-08-05 from official Tasmania sources. Operator: Consumer, Building and Occupational Services (CBOS), Department of Justice, Tasmania. CBOS labels the page \"Search licensed occupations\". CBOS warns on both entry pages: \"Please note this search does not provide information about the status of a licence application\". The register doubles as the public record of Automatic Mutual Recognition: \"Interstate licensees may work in Tasmania under their home state occupational licence provided they notify CBOS... Once CBOS is notified, the licensee's home state licence number will appear on this register\", with statuses \"Notified but not Validated\", \"Validated\" and \"Invalid\". Inclusion arises from statutory registration, licensing or authorisation, not from any submission."
+  },
+  {
+    "id": "au-aussieweb",
+    "name": "AussieWeb Local Search",
+    "slug": "aussieweb",
+    "country": "australia",
+    "category": "local-business",
+    "website": "https://www.aussieweb.com.au/",
+    "submissionUrl": "https://mylisting.aussieweb.com.au/add-listing.aspx",
+    "description": "An Australian local business directory operated by Locafy Ltd. Listing is free, staff review every submission, email confirmation is mandatory and phone checks are used — and the operator states openly that most existing entries were compiled from public sources rather than supplied by the businesses they name.",
+    "tier": "tier1",
+    "scope": "national",
+    "operator": {
+      "name": "Locafy Ltd",
+      "type": "other",
+      "officialUrl": "https://www.aussieweb.com.au/"
+    },
+    "petroHrysScore": 68,
+    "scoreFactors": {
+      "editorialTrust": 7,
+      "businessUsefulness": 6,
+      "verificationQuality": 8,
+      "platformReputation": 5,
+      "spamResistance": 8,
+      "industryImportance": 5,
+      "longTermStability": 6,
+      "submissionQuality": 8,
+      "transparency": 9,
+      "moderationQuality": 8
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "freemium",
+    "registrationRequired": false,
+    "reviewSystem": null,
+    "verificationRequired": true,
+    "manualReview": true,
+    "listingAction": "create-and-claim",
+    "verificationMethods": [
+      "email",
+      "phone"
+    ],
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": true,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-06",
+    "nextVerification": "2027-05-16",
+    "verification": {
+      "status": "verified",
+      "source": "official-documentation",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "Australian businesses wanting a genuinely free listing with a documented verification process behind it.",
+      "Businesses that find themselves already listed and want to take control of that entry, since a claim route is documented rather than merely implied.",
+      "Businesses with premises in several locations, which the operator permits as separate entries under stated conditions."
+    ],
+    "notRecommendedFor": [
+      "Businesses wanting to link out to other directories from their listing. The operator refuses this outright.",
+      "Businesses unwilling to supply an address. The operator requires one even when it is not displayed publicly.",
+      "Anyone using a Hotmail, Yahoo or Outlook email address, which the operator no longer accepts."
+    ],
+    "submissionDifficulty": "easy",
+    "listingQuality": null,
+    "typicalApprovalTime": null,
+    "reviewProcess": "Every submission is reviewed by the operator’s staff after mandatory email confirmation, with the business’s own website checked for consistency and a phone call used frequently to confirm the business. The operator states this may take a couple of working days.",
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "local-services",
+      "retail",
+      "professional-services"
+    ],
+    "editorialTags": [
+      "business-directory",
+      "commercial-platform"
+    ],
+    "pros": [
+      "Both listing routes are independently documented, which is unusual: creation via “To add your business to AussieWeb Local Search just fill in this form”, and claiming an existing entry via a per-listing button the operator describes as “Your business? Claim it!”",
+      "The base listing is free without qualification: “Is it really free? A. Yes. We will not charge you a cent.” — with a single named exception for an optional promoted listing.",
+      "Verification is real and mandatory, not nominal: “You must click the link in the confirmation email before your addition will be processed”, backed by “We often contact you by phone to verify the business and protect your listing.”",
+      "Every submission is checked by a person — “every request is reviewed by Aussieweb Local Search staff” — and claimed changes are checked “to make sure you are not attempting to alter someone else’s information”.",
+      "The operator is candid about the provenance of existing entries rather than presenting them as owner-supplied.",
+      "The free feature set is enumerated in full on the FAQ, including images, products, opening hours, social links and an ABN link, so what is included is knowable in advance.",
+      "The operator refuses to overstate what a listing achieves: on search visibility it says plainly that “we have no control over the results that come up from searches on Google and other search engines.”"
+    ],
+    "cons": [
+      "Most entries were not created by the businesses they describe. The operator states: “Most of the details on this site were found on publicly available internet sites.” An entry here is therefore not evidence that a business chose to be listed.",
+      "What the checks confirm is contact reachability — a working email address and a working phone number — not the legal existence, ownership or good standing of the business, and no such verification is asserted.",
+      "The phone check is described as frequent rather than universal, so it cannot be relied on as applying to every entry.",
+      "A listing cannot link to another business directory: “Can I link my listing to another business directory? A. No. Sorry, but it’s a competitive world and we’re not happy promoting our competitors.”",
+      "A website link is conditional, not guaranteed — provided “it meets our conditions”, with the restrictions set out separately in the terms.",
+      "An address is required even for home-based businesses: “Aussieweb Local Search does require it”, although a PO box is accepted and display can be turned off.",
+      "Extra locations are only permitted with actual premises, and the operator requires the business’s own website to corroborate them.",
+      "Publication is not immediate: the operator states it “may take a couple of working days to complete the addition process”.",
+      "No review system is documented anywhere in the operator’s FAQ, so reviews and owner responses are both recorded as unestablished. Absence here means unrecorded, not unavailable.",
+      "A listing is a directory entry. It is not evidence that a business is solvent, currently trading, licensed, or checked beyond what the operator documents here.",
+      "No ranking, indexing, traffic or lead outcome is asserted. The operator markets outcomes; this record does not adopt them."
+    ],
+    "editorNotes": "Verified 2026-08-06 from the operator’s own submission page and FAQ, and re-verified in a separate direct pass in which “owned and operated by Locafy Ltd”, “This is a free service. There are no costs involved.”, “Your business? Claim it!”, “We will not charge you a cent”, “We often contact you by phone to verify the business” and “Most of the details on this site were found on publicly available internet sites” were each present in the served pages. PLATFORM OPERATOR: Locafy Ltd, named in the site footer as “Aussieweb is owned and operated by Locafy Ltd”. LISTING CONTROL: The business submits or claims, and then self-manages using an access code issued by the operator; the operator checks every change. MODERATION AUTHORITY: The operator, through staff review of every submission and a per-listing “Report a problem” route with a stated five-business-day handling time. PUBLIC INTERFACE: aussieweb.com.au, with the submission form on the mylisting.aussieweb.com.au subdomain and claiming initiated from each public listing. LISTING ACTION DECISION — the only create-and-claim in this wave: both routes are documented independently and neither was inferred from the existence of a dashboard. Creation is a described form; claiming is a named, per-listing control with its own follow-on flow (“Log in to Update your Listing!” and “Email me my Access code”). No single claim URL is published because the control is per-listing rather than a standing page, so claimUrl stays null.  COST DECISION: freemium rather than free. “We will not charge you a cent” is stated absolutely, but the same answer continues “Unless you purchase a Promoted listing”, and treating that as anything other than a paid tier would misreport the operator.  VERIFICATION DECISION: email and phone. The operator also checks the business’s own website for consistency with the listing, which is corroboration rather than proof of domain control, so no domain method is claimed.  SCRAPER DISCLOSURE: recorded and published rather than treated as a disqualification. The operator answers the question directly and unprompted in its own FAQ, which is more than most platforms in this wave disclose at all.  NOT ASSERTED: reviews, owner responses, indexability, link attributes, traffic."
   }
 ]

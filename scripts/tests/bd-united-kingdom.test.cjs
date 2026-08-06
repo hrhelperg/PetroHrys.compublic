@@ -32,15 +32,20 @@ const { loadRegistry } = require('../lib/bd-registry.cjs');
 const ROOT = path.resolve(__dirname, '..', '..');
 const ALL = loadRegistry().directories;
 const UK = ALL.filter((r) => r.country === 'united-kingdom');
-const SUB = UK.filter((r) => r.jurisdiction);
-const UKWIDE = UK.filter((r) => !r.jurisdiction);
+// Wave 1B.7 added commercial directories to the UK. Structural assertions
+// (registry types, publicAccess, notApplicable submission) belong to statutory
+// registers; the prose guards below keep sweeping every UK record, because
+// clause 7 of the content contract binds commercial platforms too.
+const REG = UK.filter((r) => S.isGovernmentPillar(r));
+const SUB = REG.filter((r) => r.jurisdiction);
+const UKWIDE = REG.filter((r) => !r.jurisdiction);
 const CROSS = SUB.filter((r) => r.jurisdiction.type === 'cross-territory');
 const PAGE = fs.readFileSync(path.join(ROOT, 'research/business-directories/united-kingdom/index.html'), 'utf8');
 const byId = new Map(UK.map((r) => [r.id, r]));
 
 // Authored before this wave under an earlier contract.
 const PRE_EXISTING = new Set(['gb-companies-house', 'gb-fca-register', 'gb-cqc']);
-const NEW = UK.filter((r) => !PRE_EXISTING.has(r.id));
+const NEW = REG.filter((r) => !PRE_EXISTING.has(r.id));
 
 // --- shape --------------------------------------------------------------------
 
@@ -121,7 +126,7 @@ test('no deprecated or invented GB compound identifier appears anywhere', () => 
       r.resourceIdentity && r.resourceIdentity.systemKey,
       r.resourceIdentity && r.resourceIdentity.sharedHostGroup,
       r.website,
-      r.publicAccess.searchUrl,
+      (r.publicAccess || {}).searchUrl,
     ].filter(Boolean);
     for (const code of FORBIDDEN) {
       for (const value of identifiers) {
@@ -292,7 +297,7 @@ test('no UK record claims that inclusion proves compliance or trustworthiness', 
   // is clause 7 of the content contract, and a register that only says what it
   // proves is the shape that misleads. The phrasings below are the honest ways
   // of saying it; a record matching none of them is not disclaiming at all.
-  const DISCLAIMS = /does not (?:establish|prove|mean|cover|reach|describe)|is not a statement|not a guide to|says nothing about|not a general assessment|establishes nothing|records nothing|establishes [^.]*, not |it is not a |means? [^.]*\. It does not/i;
+  const DISCLAIMS = /does not (?:establish|prove|mean|cover|reach|describe)|is not a statement|not a guide to|says nothing about|not a general assessment|establishes nothing|records nothing|establishes [^.]*, not |it is not a |is not evidence|means? [^.]*\. It does not/i;
   const silent = NEW.filter((r) => !DISCLAIMS.test([...r.cons, ...r.notRecommendedFor].join(' ')));
   assert.deepStrictEqual(silent.map((r) => r.id), [],
     'these records never say what inclusion does not establish');
@@ -320,7 +325,7 @@ test('an unverified access posture stays null rather than a confident false', ()
 });
 
 test('an access claim is carried by the access block', () => {
-  for (const r of UK) {
+  for (const r of REG) {
     const pa = r.publicAccess;
     const sentences = [r.description, ...r.pros, ...r.cons]
       .flatMap((v) => v.split(/(?<=[.!?])\s+/))

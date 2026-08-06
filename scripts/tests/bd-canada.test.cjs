@@ -34,8 +34,12 @@ const { loadRegistry } = require('../lib/bd-registry.cjs');
 
 const ROOT = path.resolve(__dirname, '..', '..');
 const CA = loadRegistry().directories.filter((r) => r.country === 'canada');
+// Wave 1B.8 added commercial directories to Canada. Assertions about registry
+// types, notApplicable submission and the publicAccess block belong to statutory
+// registers only; prose and link-safety guards keep sweeping all of CA.
+const REG = CA.filter((r) => S.isGovernmentPillar(r));
 const SUB = CA.filter((r) => r.jurisdiction);
-const FEDERAL = CA.filter((r) => !r.jurisdiction);
+const FEDERAL = REG.filter((r) => !r.jurisdiction);
 const PAGE = fs.readFileSync(path.join(ROOT, 'research/business-directories/canada/index.html'), 'utf8');
 
 const byId = new Map(CA.map((r) => [r.id, r]));
@@ -44,7 +48,7 @@ const byId = new Map(CA.map((r) => [r.id, r]));
 // contract. It is deliberately left byte-for-byte untouched, so the record
 // contract below is scoped to what Wave 1C-2 published.
 const PRE_EXISTING = new Set(['ca-corporations-canada']);
-const NEW = CA.filter((r) => !PRE_EXISTING.has(r.id));
+const NEW = REG.filter((r) => !PRE_EXISTING.has(r.id));
 
 // --- shape ------------------------------------------------------------------
 
@@ -171,7 +175,10 @@ test('the parked businessregistries.ca domain is never used as an official URL',
   // connection. The official entry point is canadasbusinessregistries.ca. The
   // near-miss is recorded in editorNotes as a warning — which is the point —
   // so only the fields that actually send a reader somewhere are checked.
-  const linkFields = (r) => [r.website, r.submissionUrl, r.publicAccess.searchUrl,
+  // Commercial directories carry no publicAccess block, and this guard must keep
+  // sweeping them: a commercial record linking to a parked lookalike domain is
+  // exactly as harmful as a register doing it.
+  const linkFields = (r) => [r.website, r.submissionUrl, (r.publicAccess || {}).searchUrl,
     r.operator.officialUrl].filter(Boolean);
   for (const r of CA) {
     for (const url of linkFields(r)) {
@@ -335,7 +342,7 @@ test('every Canadian record meets the publication contract', () => {
 });
 
 test('every Canadian statutory register is notApplicable for submission', () => {
-  for (const r of CA) {
+  for (const r of REG) {
     assert.strictEqual(r.submissionModel, 'notApplicable',
       `${r.id} is "${r.submissionModel}"; a filing or certificate fee is not a paid directory listing`);
   }
@@ -377,7 +384,7 @@ test('no record added by this wave carries a newly measured metric', () => {
 });
 
 test('an access claim is carried by the access block', () => {
-  for (const r of CA) {
+  for (const r of REG) {
     const pa = r.publicAccess;
     const assertions = [r.description, ...r.pros, ...r.cons]
       .flatMap((v) => v.split(/(?<=[.!?])\s+/))

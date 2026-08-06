@@ -28,8 +28,16 @@ const { createDocument } = require('./helpers/mini-dom.cjs');
 
 const ROOT = path.resolve(__dirname, '..', '..');
 const AU = loadRegistry().directories.filter((r) => r.country === 'australia');
-const SUB = AU.filter((r) => r.jurisdiction);
-const FEDERAL = AU.filter((r) => !r.jurisdiction);
+// Wave 1B.9 put commercial directories in Australia for the first time. This file
+// is about STATUTORY REGISTERS: it asserts registry types, notApplicable
+// submission and a populated publicAccess block, none of which a commercial
+// platform has or should have. REG is the set those assertions apply to. The
+// prose guards below deliberately keep sweeping AU, because "do not claim a
+// listing proves trustworthiness" is if anything more important for a commercial
+// platform than for a register.
+const REG = AU.filter((r) => S.isGovernmentPillar(r));
+const SUB = REG.filter((r) => r.jurisdiction);
+const FEDERAL = REG.filter((r) => !r.jurisdiction);
 const PAGE = fs.readFileSync(path.join(ROOT, 'research/business-directories/australia/index.html'), 'utf8');
 const CLIENT = fs.readFileSync(path.join(ROOT, 'js/business-directories.js'), 'utf8');
 
@@ -94,20 +102,50 @@ test('every state record says what it covers that ASIC does not', () => {
   }
 });
 
+// A negator makes a sentence a DISCLAIMER of the thing, not a claim of it.
+// "A website link is conditional, not guaranteed" is the sentence this platform
+// should be printing; a guard that fails on it is punishing the right answer.
+const NEGATED = /\b(?:no|not|never|nor|neither|without|cannot|can’t|can't|does not|do not|is not|are not|none|nothing)\b/i;
+
 test('nothing implies a state registration substitutes for ASIC, or that a licence proves trustworthiness', () => {
   for (const r of AU) {
-    const prose = [r.description, ...r.pros, ...r.cons, ...r.bestFor, ...r.notRecommendedFor,
-      (r.publicAccess || {}).notes || ''].join(' ');
+    const sentences = [r.description, ...r.pros, ...r.cons, ...r.bestFor, ...r.notRecommendedFor,
+      (r.publicAccess || {}).notes || '']
+      .flatMap((v) => v.split(/(?<=[.!?])\s+/));
     // Each of these would be a false statement about Australian law or a claim
     // the register cannot support.
-    for (const [pattern, why] of [
-      [/replaces ASIC|instead of ASIC|substitute for ASIC registration/i, 'implies it replaces ASIC'],
-      [/proves? (?:the )?(?:business|company|entity) is (?:trustworthy|reputable|solvent)/i, 'reads a licence as trustworthiness'],
-      [/an ABN (?:proves|establishes|confirms) (?:active )?company registration/i, 'reads an ABN as company registration'],
-      [/guarantee[sd]?\b/i, 'guarantees something'],
-      [/\bdefinitive\b/i, 'claims to be definitive'],
+    for (const [pattern, why, negatable] of [
+      [/replaces ASIC|instead of ASIC|substitute for ASIC registration/i, 'implies it replaces ASIC', false],
+      [/proves? (?:the )?(?:business|company|entity) is (?:trustworthy|reputable|solvent)/i, 'reads a licence as trustworthiness', true],
+      [/an ABN (?:proves|establishes|confirms) (?:active )?company registration/i, 'reads an ABN as company registration', false],
+      [/guarantee[sd]?\b/i, 'guarantees something', true],
+      [/\bdefinitive\b/i, 'claims to be definitive', true],
     ]) {
-      assert.ok(!pattern.test(prose), `${r.id} ${why}`);
+      for (const s of sentences) {
+        if (!pattern.test(s)) continue;
+        if (negatable && NEGATED.test(s)) continue;
+        assert.fail(`${r.id} ${why}: ${s.trim()}`);
+      }
+    }
+  }
+});
+
+test('the negation exemption cannot be used to smuggle in a real guarantee', () => {
+  // The exemption above is only safe if it is narrow. A sentence that both
+  // promises an outcome AND happens to contain a negator elsewhere must still
+  // fail, so the guard is re-proved here against a fabricated claim.
+  const CLAIM = 'We guarantee your listing will rank, and no competitor will outrank you.';
+  const DISCLAIMER = 'A website link is conditional, not guaranteed.';
+  const fires = (s) => /guarantee[sd]?\b/i.test(s) && !NEGATED.test(s);
+  assert.ok(!fires(DISCLAIMER), 'the guard still punishes a correct disclaimer');
+  // The fabricated claim contains "no", so the negator test alone would clear it.
+  // That is exactly why an outcome promise needs its own guard, asserted here.
+  const PROMISES_OUTCOME = /\bguarantee[sd]?\b[^.!?]*\b(?:rank|ranking|traffic|leads?|indexed|placement)\b/i;
+  assert.ok(PROMISES_OUTCOME.test(CLAIM), 'the outcome guard does not catch a real guarantee');
+  assert.ok(!PROMISES_OUTCOME.test(DISCLAIMER), 'the outcome guard misfires on a disclaimer');
+  for (const r of AU) {
+    for (const s of [r.description, ...r.pros, ...r.cons, ...r.bestFor, ...r.notRecommendedFor]) {
+      assert.ok(!PROMISES_OUTCOME.test(s), `${r.id} guarantees a search or traffic outcome: ${s}`);
     }
   }
 });
@@ -165,7 +203,7 @@ test('a record sharing an official host declares a resourceIdentity', () => {
 // audience guidance — a real gap, but a pre-existing one, and widening this
 // wave to rewrite them would be scope creep. It is disclosed in the report.
 const PRE_EXISTING = new Set(['au-abn-lookup', 'au-asic-registers']);
-const NEW = AU.filter((r) => !PRE_EXISTING.has(r.id));
+const NEW = REG.filter((r) => !PRE_EXISTING.has(r.id));
 
 test('every Australian record meets the publication contract', () => {
   for (const r of NEW) {
@@ -193,7 +231,7 @@ test('every Australian record meets the publication contract', () => {
 });
 
 test('every Australian statutory register is notApplicable for submission', () => {
-  for (const r of AU) {
+  for (const r of REG) {
     assert.strictEqual(r.submissionModel, 'notApplicable',
       `${r.id} is "${r.submissionModel}"; a licence or filing fee is not a paid directory listing`);
   }
@@ -213,7 +251,7 @@ test('no Australian record carries a metric', () => {
 });
 
 test('an access claim is carried by the access block', () => {
-  for (const r of AU) {
+  for (const r of REG) {
     const pa = r.publicAccess;
     const assertions = [r.description, ...r.pros, ...r.cons]
       .flatMap((v) => v.split(/(?<=[.!?])\s+/))
