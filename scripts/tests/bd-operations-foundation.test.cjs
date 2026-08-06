@@ -228,9 +228,15 @@ test('the sixteen geographies exist in data and generated no page', () => {
     const c = bySlug.get(slug);
     assert.ok(c, `${slug} is missing from the country vocabulary`);
     assert.ok(c.name && c.titleName && c.iso2 && c.entityType, `${slug} is incompletely declared`);
-    // The whole point: declared in data, absent from the site.
-    assert.ok(!fs.existsSync(path.join(ROOT, 'research/business-directories', slug, 'index.html')),
-      `${slug} generated an empty country page`);
+    // The rule is no EMPTY page, not no page ever. A geography with records
+    // legitimately gets one — that is country promotion. Austria was promoted
+    // this way once Herold was published. A geography with NO records must
+    // still generate nothing.
+    const hasRecords = ALL.some((r) => r.country === slug);
+    const hasPage = fs.existsSync(path.join(ROOT, 'research/business-directories', slug, 'index.html'));
+    if (!hasRecords) {
+      assert.ok(!hasPage, `${slug} has no records but generated a country page`);
+    }
   }
   // Japan already existed and must not have been duplicated.
   assert.strictEqual(countries.filter((c) => c.slug === 'japan').length, 1);
