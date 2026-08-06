@@ -212,7 +212,11 @@ test('an empty method array renders as evidence, not as silence', () => {
 // a platform really offers both flows, so the content has to carry it. This is
 // the same rule as "critical caveats must render", applied to listing facts.
 const ACTION_EVIDENCE = {
-  create: /creat\w+ (a |an )?(new )?(profile|listing|account|page)|add (your|a) (business|listing|profile)|submit/i,
+  // Allow a qualifier between the article and the noun ("create a company
+  // profile", "creating an entry"), and accept "entry" — the standard word in
+  // German directories. An earlier version required the noun to follow the
+  // article directly and rejected prose that plainly stated the create flow.
+  create: /creat\w+ (a |an )?(new )?(\w+ )?(profile|listing|account|page|entry)|add (your|a) (business|listing|profile|entry)|submit/i,
   claim: /claim/i,
   'create-and-claim': /claim/i,
   'invite-only': /invit/i,

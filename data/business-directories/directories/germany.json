@@ -2167,5 +2167,530 @@
       "The directory’s own record count and currency date are rendered by JavaScript and were not observed, so no total and no \"as at\" date is asserted."
     ],
     "editorNotes": "Verified 2026-08-06 by navigating from the agency’s postal section, and re-verified in a separate direct adversarial pass in which all five quotations below matched contiguous official text and the register still rendered rows. The agency states: \"Die Bundesnetzagentur führt ein öffentlich einsehbares digitales Verzeichnis aller Anbieter von Postdienstleistungen.\" and \"Postdienstleistungen dürfen nur noch von Anbietern erbracht werden, die in das sogenannte \"Anbieterverzeichnis\" eingetragen sind.\" It adds: \"Anbieter dürfen einen anderen Anbieter nur dann mit der Erbringung von Postdienstleistungen beauftragen, wenn dieser in das Anbieterverzeichnis eingetragen ist.\"; that a provider not covered by the transitional rule \"muss vor Aufnahme der Tätigkeit bei der Bundesnetzagentur die Aufnahme in das Anbieterverzeichnis beantragen\"; that pre-18-July-2024 notifiers \"können ihre Tätigkeit noch bis zum 18. August 2026 fortsetzen\"; and that without a timely application \"ist die weitere Erbringung von Postdienstleistungen unzulässig\". The register renders columns Stammnr., Firma, PLZ, Ort, Anschrift, Land, Förm. Zustell. and Eintragung. FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: Entry in the Anbieterverzeichnis under the German Postal Act as amended from 18 July 2024. Entry follows an application and is a precondition of providing postal services. RESPONSIBLE AUTHORITY: Bundesnetzagentur. TECHNICAL PLATFORM: The agency’s own bundesnetzagentur.de host, which also serves its telecommunications notification directory as a separate system. PUBLIC ACCESS INTERFACE: The public directory page at bundesnetzagentur.de. SHARED-HOST DECISION: this record and de-bnetza-verzeichnis-gemeldeter-unternehmen sit on one host and are two materially different statutory systems — postal entry on application versus telecommunications notification under § 5 TKG — covering different populations under different Acts. Both declare resourceIdentity in the bundesnetzagentur-de group with distinct systemKeys. They are neither merged nor treated as views of each other. POSTAL SCOPE DECISION: postal is published as its own record rather than folded under telecommunications, even though one agency supervises both, in line with the wave contract. The record uses the postal population and states explicitly that entry says nothing about telecommunications status."
+  },
+  {
+    "id": "de-gelbe-seiten",
+    "name": "Gelbe Seiten",
+    "slug": "gelbe-seiten",
+    "country": "germany",
+    "category": "local-business",
+    "website": "https://www.gelbeseiten.de/",
+    "submissionUrl": "https://www.gelbeseiten.de/starteintrag",
+    "description": "The German Yellow Pages business directory. A basic entry is free and is submitted through the platform’s own entry service, after which it is passed to the regionally responsible Gelbe Seiten publisher for editorial review — so an entry is requested rather than published directly.",
+    "tier": "tier1",
+    "scope": "national",
+    "nativeName": "Gelbe Seiten",
+    "englishName": "Yellow Pages Germany",
+    "englishNameSource": "editorial-translation",
+    "operator": {
+      "name": "Gelbe Seiten Verlage",
+      "type": "other",
+      "officialUrl": "https://www.gelbeseiten.de/"
+    },
+    "petroHrysScore": 78,
+    "scoreFactors": {
+      "editorialTrust": 8,
+      "businessUsefulness": 8,
+      "verificationQuality": 6,
+      "platformReputation": 8,
+      "spamResistance": 8,
+      "industryImportance": 8,
+      "longTermStability": 9,
+      "submissionQuality": 8,
+      "transparency": 7,
+      "moderationQuality": 8
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "free",
+    "registrationRequired": null,
+    "reviewSystem": null,
+    "verificationRequired": null,
+    "manualReview": true,
+    "listingAction": "create",
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": true,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-06",
+    "nextVerification": "2027-05-25",
+    "verification": {
+      "status": "verified",
+      "source": "official-documentation",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "de-das-telefonbuch",
+        "de-11880"
+      ],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "German local businesses wanting a free listing in a long-established national directory.",
+      "Building a German local citation with a named regional publisher behind it."
+    ],
+    "notRecommendedFor": [
+      "Anyone needing an entry to appear immediately. Every submission goes to a regional publisher for editorial review first.",
+      "Businesses outside Germany. The entry service is organised around German regional publishers."
+    ],
+    "submissionDifficulty": "easy",
+    "listingQuality": null,
+    "typicalApprovalTime": null,
+    "reviewProcess": "Submitted data is sent to the regionally responsible Gelbe Seiten publisher, where it undergoes editorial review before appearing.",
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "local-services",
+      "retail",
+      "professional-services"
+    ],
+    "editorialTags": [
+      "business-directory",
+      "commercial-platform"
+    ],
+    "pros": [
+      "A basic entry is free and the operator says so plainly: “Ein kostenloser Grundeintrag bei Gelbe Seiten beinhaltet grundlegende Firmendaten wie die Firmenadresse, Telefonnummer und Öffnungszeiten.”",
+      "Submissions are editorially reviewed rather than published automatically, which is unusual among free directories and works against spam.",
+      "The regionally responsible publisher is named as the party that receives and checks the data, so there is an accountable human process behind an entry.",
+      "Corrections to an existing entry can be requested from within the entry itself."
+    ],
+    "cons": [
+      "An entry is a REQUEST, not a publication. The operator states that submitted data “werden an den für Ihre Region zuständigen Gelbe Seiten Verlag geschickt. Dort erfolgt eine redaktionelle Prüfung.”",
+      "Creating an entry is confirmed; taking control of an existing third-party entry is not. Changes to an existing entry are requested through the publisher, which is a correction route rather than an established claim of ownership, so no claim flow is asserted here.",
+      "The operator does not document whether verification is required or by what method, so nothing about verification is asserted.",
+      "The operator does not document a review system or owner responses on the pages consulted, so neither is asserted. Absence here means unrecorded, not unavailable.",
+      "A listing is a directory entry. It is not evidence that a business is solvent, currently trading, or has been checked beyond the publisher’s editorial review of the submitted data."
+    ],
+    "editorNotes": "Verified 2026-08-06 from the operator’s own entry service at gelbeseiten.de/starteintrag, and re-verified in a separate direct pass in which “Grundeintrag”, “kostenloser Grundeintrag bei Gelbe Seiten”, “redaktionelle Prüfung” and “zuständigen Gelbe Seiten Verlag” were each present in the served page. PLATFORM OPERATOR: Gelbe Seiten Verlage, identified on the site as “Ein Service Ihrer Gelbe Seiten Verlage”. LISTING CONTROL: The business submits an entry; the regionally responsible publisher decides whether it appears. Control is therefore shared, not self-service. MODERATION AUTHORITY: The regional Gelbe Seiten publisher, through a stated editorial review (“redaktionelle Prüfung”). PUBLIC INTERFACE: gelbeseiten.de, with the entry service at /starteintrag. DUPLICATE DECISION: kept separate from Das Telefonbuch and 11880. The three reference one another as partner services and share a market, but each operates its OWN entry service on its OWN domain with its OWN editorial process — Gelbe Seiten routes to regional Gelbe Seiten publishers specifically. No operator states that one submission produces entries in the others. Shared ownership or cross-linking is not evidence of one system. NOT ASSERTED: verification, reviews, owner responses, indexability, link attributes, traffic. None was documented by the operator and none is inferred."
+  },
+  {
+    "id": "de-das-telefonbuch",
+    "name": "Das Telefonbuch",
+    "slug": "das-telefonbuch",
+    "country": "germany",
+    "category": "local-business",
+    "website": "https://www.dastelefonbuch.de/",
+    "submissionUrl": "https://www.dastelefonbuch.de/Firmeneintrag",
+    "description": "The German national telephone and business directory. A basic business entry is free and is created through the platform’s own Firmeneintrag service, which is separate from the entry services of the other German directories it links to.",
+    "tier": "tier1",
+    "scope": "national",
+    "nativeName": "Das Telefonbuch",
+    "englishName": "The Telephone Book",
+    "englishNameSource": "editorial-translation",
+    "operator": {
+      "name": "Das Telefonbuch",
+      "type": "other",
+      "officialUrl": "https://www.dastelefonbuch.de/"
+    },
+    "petroHrysScore": 70,
+    "scoreFactors": {
+      "editorialTrust": 7,
+      "businessUsefulness": 7,
+      "verificationQuality": 5,
+      "platformReputation": 8,
+      "spamResistance": 7,
+      "industryImportance": 7,
+      "longTermStability": 9,
+      "submissionQuality": 8,
+      "transparency": 6,
+      "moderationQuality": 6
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "free",
+    "registrationRequired": null,
+    "reviewSystem": null,
+    "verificationRequired": null,
+    "manualReview": null,
+    "listingAction": "create",
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": true,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-06",
+    "nextVerification": "2027-05-09",
+    "verification": {
+      "status": "verified",
+      "source": "official-documentation",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "de-gelbe-seiten",
+        "de-11880"
+      ],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "German businesses wanting a free entry in the country’s long-established telephone directory.",
+      "Adding a German local citation alongside, rather than instead of, the other national directories."
+    ],
+    "notRecommendedFor": [
+      "Businesses expecting one submission to populate Gelbe Seiten or Das Örtliche. Nothing on the service states that it does.",
+      "Anyone relying on documented verification. The operator publishes none."
+    ],
+    "submissionDifficulty": "easy",
+    "listingQuality": null,
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "local-services",
+      "retail",
+      "professional-services"
+    ],
+    "editorialTags": [
+      "business-directory",
+      "commercial-platform"
+    ],
+    "pros": [
+      "The basic business entry is explicitly free — the service is described as “Ihr kostenloser Firmeneintrag in Das Telefonbuch”.",
+      "The entry service is a plain, dedicated route at a stable address rather than a sales funnel.",
+      "The published entry supports substantive business data including web address, telephone, category and opening hours."
+    ],
+    "cons": [
+      "Creating an entry is confirmed; claiming an existing one is not documented, so no claim flow is asserted.",
+      "The operator does not state whether verification is required or by what method. Nothing about verification is asserted.",
+      "No review system or owner response capability is documented on the pages consulted, so neither is asserted.",
+      "The site links to Gelbe Seiten and Das Örtliche as separate services, and no operator states that one entry reaches all three. A business wanting presence in each must submit to each.",
+      "The operator is identified on the site only as joint publishers rather than a single named company, so the corporate entity behind the directory is not established here."
+    ],
+    "editorNotes": "Verified 2026-08-06 from the operator’s own Firmeneintrag service, and re-verified in a separate direct pass in which “kostenlos” and “Firmeneintrag” were both present in the served page. The homepage identifies the publisher only as “Gemeinsame Herausgeber und Verleger”, so the operator is recorded under the directory’s own name rather than a company that was not established. PLATFORM OPERATOR: Das Telefonbuch, published by joint publishers named collectively on the site rather than as a single company. LISTING CONTROL: The business creates its own entry through the Firmeneintrag service. MODERATION AUTHORITY: Not documented by the operator. PUBLIC INTERFACE: dastelefonbuch.de, with the entry service at /Firmeneintrag. DUPLICATE DECISION: kept separate from Gelbe Seiten and 11880. Its entry service is its own, on its own domain, and the footer treats the other directories as separate linked services. The entry page carries no statement that a submission reaches any other directory. NOT ASSERTED: verification, reviews, owner responses, moderation, indexability, link attributes, traffic."
+  },
+  {
+    "id": "de-11880",
+    "name": "11880.com",
+    "slug": "11880",
+    "country": "germany",
+    "category": "local-business",
+    "website": "https://www.11880.com/",
+    "submissionUrl": null,
+    "description": "A German business directory operated by 11880 Solutions AG, successor to the former telephone directory enquiry company. A basic company entry is free, and company profiles carry customer ratings.",
+    "tier": "tier1",
+    "scope": "national",
+    "nativeName": "11880.com",
+    "operator": {
+      "name": "11880 Solutions AG",
+      "type": "other",
+      "officialUrl": "https://www.11880.com/"
+    },
+    "petroHrysScore": 67,
+    "scoreFactors": {
+      "editorialTrust": 7,
+      "businessUsefulness": 7,
+      "verificationQuality": 5,
+      "platformReputation": 7,
+      "spamResistance": 6,
+      "industryImportance": 7,
+      "longTermStability": 8,
+      "submissionQuality": 8,
+      "transparency": 6,
+      "moderationQuality": 6
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "free",
+    "registrationRequired": null,
+    "reviewSystem": true,
+    "verificationRequired": null,
+    "manualReview": null,
+    "listingAction": "create",
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": true,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-06",
+    "nextVerification": "2027-05-15",
+    "verification": {
+      "status": "verified",
+      "source": "official-documentation",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "de-gelbe-seiten",
+        "de-das-telefonbuch"
+      ],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "German local businesses wanting a free entry on a directory whose profiles carry customer ratings.",
+      "Adding a German citation on a platform with a named, identifiable operating company."
+    ],
+    "notRecommendedFor": [
+      "Businesses assuming they can reply to ratings. Owner responses are not documented and are not asserted here.",
+      "Anyone treating the operator’s paid review-management product as evidence of what the free entry includes."
+    ],
+    "submissionDifficulty": "easy",
+    "listingQuality": null,
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "local-services",
+      "retail",
+      "professional-services"
+    ],
+    "editorialTags": [
+      "business-directory",
+      "commercial-platform"
+    ],
+    "pros": [
+      "A basic entry is free and stated as such — the site offers “Gratis: Ihre Firma eintragen”.",
+      "The operating company is named and traceable: 11880 Solutions AG, successor to telegate AG and klicktel AG.",
+      "Company profiles carry customer ratings, so the directory supports reputation as well as discovery.",
+      "A dedicated business section exists for owners rather than only a consumer-facing search."
+    ],
+    "cons": [
+      "Ratings exist, but whether a business owner can respond to them is NOT documented, so no owner-response capability is asserted.",
+      "The operator sells a paid review-management product. That is a separate commercial offering and is not evidence that responding to ratings is included in the free entry.",
+      "Creating an entry is confirmed; claiming an existing profile is not documented, so no claim flow is asserted.",
+      "Whether verification is required, and by what method, is not documented.",
+      "A rating on a profile reflects what reviewers submitted. It is not a check of whether the business is solvent, licensed or currently trading."
+    ],
+    "editorNotes": "Verified 2026-08-06 from the operator’s own site, and re-verified in a separate direct pass in which “Ihre Firma eintragen”, “Gratis”, “Bewertungen”, “11880 Solutions” and “kostenlos” were each present in the served page. The first re-verification attempt timed out and the second succeeded; the failure was transport, not content. PLATFORM OPERATOR: 11880 Solutions AG, described on the site as the successor to telegate AG and klicktel AG. LISTING CONTROL: The business creates its own entry through the free registration route. MODERATION AUTHORITY: Not documented by the operator. PUBLIC INTERFACE: 11880.com, with a separate business section for owners. EVIDENCE CAUTION: an automated page summariser initially reported that owner responses are supported, citing the presence of a paid “Bewertungsmanagement” product. That is a commercial offering, not documentation of the free entry, and the inference was rejected. ownerResponseSupport stays null. DUPLICATE DECISION: kept separate from Gelbe Seiten and Das Telefonbuch — different operating company, different entry route, different domain. NOT ASSERTED: verification, owner responses, moderation, indexability, link attributes, traffic."
+  },
+  {
+    "id": "de-wlw",
+    "name": "wlw (Wer liefert was)",
+    "slug": "wlw-wer-liefert-was",
+    "country": "germany",
+    "category": "general-business",
+    "website": "https://www.wlw.de/",
+    "submissionUrl": null,
+    "description": "A German-language B2B supplier marketplace covering the DACH region. Suppliers create a company profile and upload product data to be found by professional buyers, which makes it a procurement discovery platform rather than a local business directory.",
+    "tier": "tier1",
+    "scope": "national",
+    "nativeName": "Wer liefert was",
+    "englishName": "Who Supplies What",
+    "englishNameSource": "editorial-translation",
+    "operator": {
+      "name": "wlw (Wer liefert was)",
+      "type": "other",
+      "officialUrl": "https://www.wlw.de/"
+    },
+    "petroHrysScore": 71,
+    "scoreFactors": {
+      "editorialTrust": 7,
+      "businessUsefulness": 8,
+      "verificationQuality": 6,
+      "platformReputation": 8,
+      "spamResistance": 7,
+      "industryImportance": 8,
+      "longTermStability": 8,
+      "submissionQuality": 6,
+      "transparency": 5,
+      "moderationQuality": 6
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "unknown",
+    "registrationRequired": true,
+    "reviewSystem": null,
+    "verificationRequired": null,
+    "manualReview": null,
+    "listingAction": "create",
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": null,
+      "localBusiness": null,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-06",
+    "nextVerification": "2027-05-21",
+    "verification": {
+      "status": "verified",
+      "source": "official-documentation",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "German-speaking B2B suppliers wanting to be found by professional buyers in Germany, Austria and Switzerland.",
+      "Manufacturers and wholesalers whose discovery problem is procurement rather than local footfall."
+    ],
+    "notRecommendedFor": [
+      "Local consumer-facing businesses. This is a B2B procurement marketplace, not a local directory.",
+      "Anyone assuming a basic profile is free. The cost of a basic profile is NOT documented and is recorded as unknown."
+    ],
+    "submissionDifficulty": null,
+    "listingQuality": null,
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "manufacturing",
+      "industrial-supply",
+      "wholesale"
+    ],
+    "editorialTags": [
+      "business-directory",
+      "commercial-platform"
+    ],
+    "pros": [
+      "The population is stated plainly: the platform describes itself as covering “600.000 B2B-Anbieter” and as “der meistbesuchte B2B-Marktplatz für den professionellen Einkauf in der DACH-Region”.",
+      "Profiles carry product data, not just contact details, which is what a procurement search actually needs.",
+      "Its reach is regional rather than national — Germany, Austria and Switzerland — which suits suppliers who already sell across DACH."
+    ],
+    "cons": [
+      "Whether a basic profile is free is NOT documented. A premium profile is offered on request, but the existence of a paid tier does not establish that the basic tier is free, so cost is recorded as unknown.",
+      "It is a B2B marketplace. Presence here says nothing about local or consumer visibility, and it is the wrong platform for a business whose customers are the public.",
+      "Supplier badges indicate that some verification exists, but the operator does not document what is required or how it is checked, so nothing about verification is asserted.",
+      "No review system is documented, so neither reviews nor owner responses are asserted.",
+      "Coverage is described as the DACH region rather than Germany alone, so a record filed under Germany understates its geography. The dataset does not yet carry a machine-readable coverage field, and this is stated in prose instead."
+    ],
+    "editorNotes": "Verified 2026-08-06 from the operator’s own site, and re-verified in a separate direct pass in which “B2B” and “Firmenprofil” were both present in the served page. Profile creation is confirmed by “Erstellen Sie ein Firmenprofil und laden Sie Ihre Produktdaten hoch, um neue Käufer zu gewinnen”, with a supplier registration route at /de/supplier-registration. PLATFORM OPERATOR: wlw (Wer liefert was), a B2B marketplace operator. LISTING CONTROL: The supplier creates and maintains its own company profile and product data. MODERATION AUTHORITY: Not documented by the operator. PUBLIC INTERFACE: wlw.de, with supplier registration on the same domain. COST DECISION: an automated summariser characterised the basic profile as “appears available”, which is not evidence. submissionModel is recorded as unknown rather than free. The brief forbids inferring free from the presence of a registration route, and forbids inferring paid from the presence of a premium tier. NOT ASSERTED: cost, verification, reviews, owner responses, moderation, indexability, link attributes, traffic."
   }
 ]

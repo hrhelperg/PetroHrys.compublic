@@ -1308,3 +1308,81 @@ candidate each.
   masks whether the semantic guard fires. Four probes were corrected for this.
 - **Running a new wave's guards across the whole existing layer finds real gaps.**
   That is how the two FCC records' missing non-proofs surfaced.
+
+---
+
+## Wave 1B.1 — Germany, first completed commercial-directory country (2026-08-06)
+
+The first country in **Pillar B — Business Directory Intelligence**, and the
+reference implementation for every commercial-directory country that follows.
+
+**"Complete" means every candidate has a final status — not that every candidate
+became a record.** Six candidates, four published, two deliberately not.
+
+### Approved (4)
+
+| Record | Category | Listing | Cost | Reviews |
+|---|---|---|---|---|
+| `de-gelbe-seiten` | local-business | create | free | not documented |
+| `de-das-telefonbuch` | local-business | create | free | not documented |
+| `de-11880` | local-business | create | free | **true** |
+| `de-wlw` | general-business | create | **unknown** | not documented |
+
+### Not published (2), and why
+
+| Candidate | Reason |
+|---|---|
+| **Das Örtliche** | Business surface unreachable. `/eintrag` resolves to a **search result**, the entry-service link redirects to a mobile page, and its marketing site returns **HTTP 410 Gone**. The acceptance rule "official documentation exists" is not met. |
+| **Marktplatz Mittelstand** | *"100% kostenlos & unverbindlich"* is stated, but **whether profiles are self-created or generated from other sources is documented nowhere reachable**. The acceptance rule "not scraper-generated" cannot be confirmed, and uncertainty forbids publication. |
+
+### The duplicate decision
+
+Gelbe Seiten, Das Telefonbuch and 11880 share a market and reference one another
+as partner services. **They are three records, not one**, because each runs its
+own entry service on its own domain with its own process — Gelbe Seiten routes
+submissions to *"den für Ihre Region zuständigen Gelbe Seiten Verlag"* for a
+*"redaktionelle Prüfung"*, which none of the others shares.
+
+**No operator states that one entry reaches the others**, and the Das Telefonbuch
+record says so explicitly so a reader does not assume cross-posting. A test scans
+sentence by sentence for that claim, skipping negations.
+
+### What was NOT asserted
+
+No German operator documented verification methods, owner responses, indexability,
+link attributes or traffic. All are `null` on all four records. `listingAction` is
+`create` on all four — **no claim flow was established for any of them**, and
+Gelbe Seiten's "request a change to an existing entry" route is a correction path
+mediated by a publisher, not an established claim of ownership.
+
+### Three evidence-discipline calls worth carrying forward
+
+1. **wlw cost is `unknown`, not free.** A premium tier is offered on request; that
+   establishes nothing about the basic tier. The brief forbids inferring free from
+   a registration route and paid from a premium tier.
+2. **11880 has ratings but no documented owner response.** The operator sells a
+   paid *"Bewertungsmanagement"* product — a separate commercial offering, not
+   evidence that replying is included in the free entry.
+3. **Gelbe Seiten entries are requests, not publications.** Editorial review comes
+   first, which is unusual among free directories and is published as a limitation
+   rather than a feature.
+
+### Methodological finding — the fetch summariser over-infers
+
+The tool that reaches bot-filtered pages **summarises**, and it produced two
+inferences that the sources do not support:
+
+- it reported that Firmy.cz owners can respond to reviews, citing a section
+  headed *"Souhrnné hodnocení"* — which means *summary rating*;
+- it characterised wlw's basic profile as "appears available", which is not a
+  statement about cost.
+
+Both were rejected. It restrained itself correctly elsewhere ("not mentioned"),
+which makes the failure harder to discount, not easier. **Rule: accept its direct
+quotations, never its characterisations.**
+
+### Pending for later German waves
+
+Das Örtliche (needs a browser to reach any business surface) · Marktplatz
+Mittelstand (needs profile provenance documented) · Zlaté stránky equivalents and
+regional German directories, not researched.
