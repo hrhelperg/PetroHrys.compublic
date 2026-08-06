@@ -1450,3 +1450,79 @@ recorded in Wave 1B.1. The record documents why.
 | | Empresite · eInforma | **200 — reachable, not yet researched** |
 
 France remains the only country where no candidate can be reached.
+
+---
+
+## Waves 1B.3–1B.6 — France, Poland, Italy, Spain (2026-08-06)
+
+**Three records from four countries. Two countries yield nothing**, and that is
+the finding rather than a failure.
+
+### Approved (3)
+
+| Record | Country | Operator | Cost |
+|---|---|---|---|
+| `pl-panorama-firm` | Poland | WeNet | free |
+| `pl-pkt` | Poland | **WeNet Group S.A.** | free |
+| `it-paginegialle` | Italy | **Italiaonline S.p.A.** | free (VAT number required) |
+
+### Two duplicate decisions that went opposite ways on the same question
+
+This is the subtlest result of the wave. Both countries had one owner running two
+directories. **Ownership decided neither. The submission system decided both.**
+
+**Poland — TWO records.** WeNet owns Panorama Firm and pkt.pl, but each runs its
+own submission form on its own domain, pkt.pl carries its own site terms, and
+neither states that a submission reaches the other. Businesses manage independent
+profiles.
+
+**Italy — ONE record.** Italiaonline owns PagineGialle and Virgilio Aziende, and
+**Virgilio's "Registra Azienda Gratis" call to action routes to
+`italiaonline.it/self/pgit`** — the PagineGialle self-service product, confirmed
+in served HTML. A business registering through Virgilio is registering in
+PagineGialle. One product, two surfaces. **Virgilio is absorbed, not published.**
+
+### France — 0 records
+
+| Candidate | Result |
+|---|---|
+| PagesJaunes | **403** on both direct fetch and the summarising fetch path |
+| Kompass France | **403** |
+| Solocal | **403** |
+| Hoodspot | Still exists, but served from `annuaire.petitesaffiches.fr` as a JavaScript app; operator relationship and listing flow unestablished |
+
+France is the only country in the programme where **no candidate can be reached
+at all**.
+
+### Spain — 0 records
+
+| Candidate | Result |
+|---|---|
+| Páginas Amarillas | **403** on both fetch paths |
+| Empresite | A directory built on company data; **no listing-creation flow** established. Its own copy offers a free *search* — *"Buscador gratuito"* — not free listing |
+| eInforma | **Wrong pillar.** A credit and company-information product — *informe, balance, riesgo, morosidad*, with a *Tarifas* page. Businesses do not publish profiles there |
+
+### Poland — the provenance finding
+
+Panorama Firm's submission form asks **"Jestem: Właścicielem / Użytkownikiem"** —
+owner or user. A customer who used a business can add it. An entry is therefore
+**not evidence that the named business created or approved it**, which is
+published as a limitation and pinned by test.
+
+pkt.pl promotes **"Wyższa pozycja w Google"** as a benefit. That is the operator's
+marketing copy; **no ranking, indexing or traffic outcome is asserted** anywhere
+in the record, and a test enforces it.
+
+### Italy — requirement is not verification
+
+PagineGialle's registration carries **"*Partita IVA necessaria"**. A VAT number is
+*required by the form*; whether the operator verifies it against any register is
+not documented. `verificationMethods` stays `null`, and a test asserts that the
+required field was not promoted into a verification method.
+
+### Pending
+
+Firmy.net (Poland) — operator not identified, add flow is `javascript:void(0)`,
+cost undocumented. MisterImprese (Italy) — free to *consult*; listing cost and
+operator not established. Hoodspot (France) and Páginas Amarillas (Spain) — need
+a browser.

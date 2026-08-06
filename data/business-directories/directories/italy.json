@@ -998,5 +998,135 @@
       "No search was executed during verification, so result content, coverage and completeness were not observed and none is asserted."
     ],
     "editorNotes": "Verified 2026-08-06 by navigating from the council’s own site, and re-verified in a separate direct adversarial pass. The page identifies itself as \"Albo Unico professionale elettronico – Articolo 3, D.P.R. 7 agosto 2012, n. 137\" and states: \"Le informazioni degli iscritti vengono inserite nel database dagli Ordini Territoriali e dai Notai. Il CNN non può effettuare variazioni e/o aggiornamenti alle informazioni.\" It further states that \"Costituisce illecito perseguibile l’utilizzazione dei dati degli iscritti per attività di marketing o di invio di pubblicità\", and instructs \"Non inserire il nome del notaio\". FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: The single electronic professional roll under article 3 of D.P.R. 137/2012, populated by the territorial Ordini and by the notaries themselves. RESPONSIBLE AUTHORITY: Consiglio Nazionale del Notariato. TECHNICAL PLATFORM: Not separately established. Served from the council’s own notariato.it domain; a supplier subdomain also resolves to the same functionality and is not recorded as the canonical entry. PUBLIC ACCESS INTERFACE: The Trova Notaio search at notariato.it/it/trova-notaio/. Access observation at verification: the page displayed a notice that extraordinary maintenance was under way and that the Trova Notaio function might be interrupted. That is a transient condition and is not recorded as a permanent limitation, but it is why no query was attempted."
+  },
+  {
+    "id": "it-paginegialle",
+    "name": "PagineGialle",
+    "slug": "paginegialle",
+    "country": "italy",
+    "category": "local-business",
+    "website": "https://www.paginegialle.it/",
+    "submissionUrl": "https://www.paginegialle.it/inserisci_attivita",
+    "description": "The Italian Yellow Pages directory, operated by Italiaonline. Creating a company profile is free but requires an Italian VAT number, and the same Italiaonline self-service system also serves the Virgilio Aziende directory.",
+    "tier": "tier1",
+    "scope": "national",
+    "nativeName": "PagineGialle",
+    "englishName": "Yellow Pages Italy",
+    "englishNameSource": "editorial-translation",
+    "operator": {
+      "name": "Italiaonline S.p.A.",
+      "type": "other",
+      "officialUrl": "https://www.italiaonline.it/"
+    },
+    "petroHrysScore": 73,
+    "scoreFactors": {
+      "editorialTrust": 7,
+      "businessUsefulness": 8,
+      "verificationQuality": 6,
+      "platformReputation": 8,
+      "spamResistance": 7,
+      "industryImportance": 8,
+      "longTermStability": 8,
+      "submissionQuality": 8,
+      "transparency": 6,
+      "moderationQuality": 6
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "free",
+    "registrationRequired": null,
+    "reviewSystem": true,
+    "verificationRequired": null,
+    "manualReview": null,
+    "listingAction": "create",
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": true,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-06",
+    "nextVerification": "2027-05-29",
+    "verification": {
+      "status": "verified",
+      "source": "official-documentation",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "VAT-registered Italian businesses wanting a free national directory profile.",
+      "Reaching two Italiaonline properties through one registration, since Virgilio Aziende uses the same self-service system."
+    ],
+    "notRecommendedFor": [
+      "Businesses without an Italian VAT number. The registration page states one is necessary.",
+      "Anyone treating Virgilio Aziende as a separate listing opportunity. Its registration routes into this same system."
+    ],
+    "submissionDifficulty": "easy",
+    "listingQuality": null,
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "local-services",
+      "retail",
+      "professional-services"
+    ],
+    "editorialTags": [
+      "business-directory",
+      "commercial-platform"
+    ],
+    "pros": [
+      "Creating a profile is free and stated plainly: “Crea gratis il tuo Profilo Azienda”.",
+      "The operator is clearly identified as Italiaonline S.p.A. in the site’s legal footer.",
+      "The profile is self-managed — the operator promises management “in pochi clic” with hours, photos and posts.",
+      "Profiles carry reviews, which the directory advertises in its own title."
+    ],
+    "cons": [
+      "An Italian VAT number is required. The registration page carries the condition “*Partita IVA necessaria”, so this is not open to unregistered businesses or to foreign companies without Italian VAT registration.",
+      "Supplying a VAT number is a requirement of the form. Whether the operator verifies it against any register is not documented, so no verification method is asserted.",
+      "Creating a profile is confirmed; claiming an existing third-party profile is not documented, so no claim flow is asserted.",
+      "Reviews appear on profiles, but whether a business can respond to them is not documented and is not asserted.",
+      "A profile is a directory entry. It is not evidence that a business is solvent, currently trading, or checked beyond the VAT number the form requires."
+    ],
+    "editorNotes": "Verified 2026-08-06 from the directory and its own registration page, and re-verified in a separate direct pass in which “Crea gratis il tuo Profilo Azienda” and “Partita IVA necessaria” were both present in the served page. PLATFORM OPERATOR: Italiaonline S.p.A., named in the legal footer of both this directory and Virgilio Aziende. LISTING CONTROL: The business creates and manages its own profile through the Italiaonline self-service system. MODERATION AUTHORITY: Not documented by the operator. PUBLIC INTERFACE: paginegialle.it, with registration at /inserisci_attivita. DUPLICATE DECISION — VIRGILIO AZIENDE ABSORBED: Virgilio Aziende is NOT published as a separate record. Both properties carry the same Italiaonline S.p.A. footer, and Virgilio’s “Registra Azienda Gratis” call to action routes to italiaonline.it/self/pgit — the PagineGialle self-service product — which was confirmed in the served HTML. A business registering through Virgilio is registering in this system, so the two are one listing product surfaced on two properties rather than two independent profiles. This is the opposite conclusion to the Polish WeNet pair, where the same group runs two genuinely separate submission forms. NOT ASSERTED: verification method, owner responses, claim flow, indexability, link attributes, traffic."
   }
 ]
