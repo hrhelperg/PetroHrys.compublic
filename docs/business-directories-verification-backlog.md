@@ -1526,3 +1526,153 @@ Firmy.net (Poland) — operator not identified, add flow is `javascript:void(0)`
 cost undocumented. MisterImprese (Italy) — free to *consult*; listing cost and
 operator not established. Hoodspot (France) and Páginas Amarillas (Spain) — need
 a browser.
+
+---
+
+## Waves 1B.7–1B.9 — United Kingdom, Canada, Australia
+
+**27 candidates researched · 15 reachable · 8 published · 19 unpublished.**
+
+The operator gate decided this wave. Reachability decided the previous ones; here
+most candidates that *were* reachable still failed, because they name no legal
+entity anywhere on the platform. Reputation is not an operator.
+
+### Published
+
+| Country | Platform | Operator | Action | Cost |
+|---|---|---|---|---|
+| UK | Thomson Local | Thomson Directories Ltd | create | freemium |
+| UK | Scoot | Newfold Digital | create | freemium |
+| UK | FreeIndex | FreeIndex Ltd (05716323) | create | freemium |
+| UK | Approved Business | Approved Business Ltd | create | freemium |
+| UK | Bizify | Outrank Limited (11723162) | create | freemium |
+| CA | YellowPages.ca | Yellow Pages Digital & Media Solutions Limited | create | freemium |
+| CA | n49 | N49 Interactive Inc. | create | freemium |
+| AU | AussieWeb Local Search | Locafy Ltd | **create-and-claim** | freemium |
+
+AussieWeb is the only `create-and-claim` in the wave. Both routes are documented
+independently: creation by form, claiming by a per-listing **"Your business?
+Claim it!"** control with its own follow-on flow. No other candidate documented a
+second route, and a dashboard is not a claim flow.
+
+### Duplicate decisions
+
+**Touch Local → Scoot.** Previously argued from the dashboard host. Now settled
+by the operator's own submission form: *"By adding yourself to this directory you
+will be automatically added to our network of directories including Scoot and
+Touch Local."* One submission publishes to both. Surviving record: **Scoot**.
+
+**PagesJaunes.ca → YellowPages.ca.** One Terms of Use defines *"corporate.yp.ca,
+yp.ca, pj.ca, YellowPages.ca, PagesJaunes.ca, Canada411.com"* as the same Sites
+under one named operator, and the directory switches language between them. One
+product, two language surfaces. Surviving record: **YellowPages.ca**.
+
+**411.ca — deliberately NOT a duplicate, and not published.** It was 502 in an
+earlier pass and responds normally now: transport failure, not absence. Its
+footer names a *different* company (411 Local Search Corp) and its public profile
+URLs are its own, so the duplicate tests are not met. But its only add-business
+route — the single `add|claim|list` href on the whole page — is
+`solutions.yp.ca/free-listing`, so it exposes no listing action of its own.
+Recorded as an unresolved routing relationship. Calling it a duplicate would
+assert a shared listing identity nobody documented.
+
+**Canada411 — out of scope**, not a duplicate: a people-search product.
+
+### Current-status findings
+
+| Platform | Finding |
+|---|---|
+| **Ourbis.ca** | Shutting down, by its own announcement. Remains unpublished. |
+| **CanadaOne** | Reachable, real operator (Biz-Zone Internet Group, Inc.), and **stale**: newest article **May 2020**, copyright line ends **2014**. Two independent staleness signals. Not published. |
+| **Brownbook** | Self-describes as *"Free business listings for SEO and search engine marketing"*. Rejected under the search-marketing rule. |
+| **MisterWhat** | Reachable, current, plainly a directory — and **anonymous**. Its entire footer is *"MisterWhat Copyright © 2011-2026"*. Fails the operator gate. |
+| **Localsearch (AU)** | HTTP **202 with a zero-byte body**. Not a 403, not a redirect. Browser needed. |
+| **StartLocal (AU)**, **ProfileCanada** | No response on either the apex or `www.` path, in two separate passes. |
+
+### Browser queue
+
+Every entry below is **blocked, not absent**. A 403 is a bot filter.
+
+| # | Platform | Country | URL | Blocker | Exact browser action | Facts to observe | Must stay null | Blocks publication? |
+|---|---|---|---|---|---|---|---|---|
+| 1 | **Yell** | UK | `https://www.yell.com/` | 403 | Open the free-listing/advertise page; capture operator legal entity, listing action, cost | operator, create vs claim, base-listing cost, reviews, owner responses | all commercial fields | **Yes** — UK market leader |
+| 2 | **YellowPages.ca free listing** | CA | `https://solutions.yp.ca/free-listing` | Wix JS form | Complete the form far enough to see what the free tier contains | free-tier contents, verification, claim route | verification, owner responses | No — record published; would enrich |
+| 3 | **Yellow Pages Australia** | AU | `https://my.yellow.com.au/online-signup/` | JS shell; `/free-listing` and `/about-us` 403 | Open signup; capture listing action and base cost | listing action, cost, verification, reviews | everything except operator (Thryv Australia Pty Ltd, confirmed) | **Yes** — AU market leader |
+| 4 | **Cylex UK** | UK | `https://www.cylex-uk.co.uk/` | 403 | Open add-business and legal pages | operator, action, cost | all | Yes |
+| 5 | **TrueLocal** | AU | `https://www.truelocal.com.au/` | 403 | Open add-business and terms | operator, action, cost, reviews | all | Yes |
+| 6 | **Hotfrog UK / Canada** | UK, CA | `https://www.hotfrog.co.uk/`, `https://www.hotfrog.ca/` | 403 | Open add-business and legal pages; confirm whether both are one system | operator, action, cost, **shared-dashboard test** | all | Yes |
+| 7 | **White Pages Business** | AU | `https://www.whitepages.com.au/` | 403 | Open business listing pages; confirm relationship to Yellow Pages AU | operator, action, cost, duplicate relationship | all | Yes |
+| 8 | **BusinessMagnet** | UK | `https://www.businessmagnet.co.uk/` | 403 | Open add-company and terms | operator, action, cost | all | No |
+| 9 | **dLook** | AU | `https://www.dlook.com.au/` | 403 | Open add-business and terms | operator, action, cost | all | No |
+| 10 | **Localsearch** | AU | `https://www.localsearch.com.au/` | 202, empty body | Load in a browser; confirm the product still exists | current status, operator, action, cost | all | No |
+| 11 | **411.ca** | CA | `https://www.411.ca/` | Resolved — routing open | Submit a Yellow Pages free listing and check whether it appears on 411.ca | whether one submission publishes to both | — | No |
+| 12 | **CanadaOne** | CA | `https://www.canadaone.com/business/addbusiness.html` | Reachable but stale | Submit and confirm whether entries are still processed | whether the directory is still maintained | all | No |
+
+### Evidence notes worth keeping
+
+**Thomson Local — the free listing expires.** *"A three-month time limited free
+business listing"*. Also: the free tier carries no website link — *"Website link
+is available when purchasing a thomsonlocal backlink product or paid
+advertising"* — and the FREE/PAID table's ticks are CSS-rendered, so the
+per-feature split is **not** resolvable from the served HTML and is not asserted.
+
+**Thomson Local — citations are not listings.** *"Listings are directory entries
+whereby the owner of the business or organisation has a direct relationship with
+Thomson Local. Whereas citations are provided from a third party."* Most
+citations come from 118 Information Ltd.
+
+**n49 — the most candid pricing page in the dataset.** The free tier is described
+by its operator as *"No Website Link"*, *"Not Verified"*, *"No Support"*. That is
+why `verificationRequired` is `false` rather than unknown: it is an affirmative
+product statement, not an absence of documentation.
+
+**AussieWeb — scraper provenance, disclosed unprompted.** *"Where did my details
+come from to be on this site? A. Most of the details on this site were found on
+publicly available internet sites."* Published rather than treated as
+disqualifying, because the operator answers the question directly.
+
+**Bizify — the operator contradicts its own marketing.** The site promises
+listings are *"built to rank"*; the terms state *"We do not provide any
+warranties or guarantees as to the outcome of any of the Advertising Services,
+including but not limited to traffic driven to your website, orders for your
+goods or services, and placement of your website on any search engines."* The
+disclaimer is the binding text. Published with the contradiction quoted, because
+that is more useful to a reader than omission.
+
+**Approved Business — a free package with a term.** The free tier carries a
+*"12 month contract"* and *"Displays at the bottom of product and service
+pages"*. *"Website backlink"* is a Featured-tier feature, so no link is
+documented for the free package.
+
+**FreeIndex — claiming is routed away, not merely undocumented.** *"Do not
+re-register if your business is already on the site. Either login or contact us.
+All duplicates are rejected."* Also *"Franchisee's and branches are automatically
+rejected."* Its email step confirms a working mailbox and nothing more, which is
+recorded as a bounded `email` method.
+
+### Pass 2 corrections
+
+Two values moved **away from null** on direct observation of live pages:
+
+1. **Thomson Local owner responses** — drafted `null`, corrected to `true`. A
+   public profile's review form states *"Get notified - if an advertiser responds
+   to your review"* and *"Respond to advertisers - if they reply to your
+   review"*. Bounded to the operator's own word *advertiser*; whether a free
+   listing may reply is not established.
+2. **Scoot reviews** — drafted `null`, corrected to `true`. Pass 1 saw only
+   homepage consumer-journey copy and rightly rejected it; Pass 2 inspected live
+   results carrying a review element and a *"Be the first to review"* prompt.
+
+Three editorial leaks were also caught and removed before commit: internal wave
+vocabulary ("in this wave") had reached the AussieWeb description, one pro and
+one audience line, and would have been published in page text and JSON-LD.
+
+### Structural change
+
+The UK and Canada coverage manifests are now scoped to the **Government Registry
+pillar**. They measure which territories are reached by a *statutory register*; a
+commercial directory reaches none in that sense. Counting the two together would
+have made the manifests — and the country pages derived from them — state
+coverage figures that are not true. Both tests assert the pillar filter is
+load-bearing, so deleting every commercial record cannot silently restore the old
+behaviour.

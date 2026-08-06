@@ -220,9 +220,20 @@ test('no new record carries a metric and the frozen snapshot is untouched', () =
 
 test('the Canada coverage manifest counts the new federal record', () => {
   // A coverage manifest that drifts from the registry makes the country page lie.
+  //
+  // The manifest measures JURISDICTIONAL coverage by statutory registers, so it
+  // counts the Government Registry pillar only. Wave 1B.8 added commercial
+  // directories carrying no jurisdiction, which would otherwise have been counted
+  // as federal registry coverage — asserting that a business directory covers a
+  // jurisdiction the way a statutory register does. It does not.
   const manifest = JSON.parse(fs.readFileSync(
     path.join(ROOT, 'data', 'business-directories', 'canada-jurisdiction-coverage.json'), 'utf8'));
-  const federal = ALL.filter((r) => r.country === 'canada' && !r.jurisdiction);
+  const federal = ALL.filter((r) => r.country === 'canada' && !r.jurisdiction
+    && S.isGovernmentPillar(r));
   assert.strictEqual(manifest.totals.federalPublished, federal.length,
     'the Canada coverage manifest disagrees with the number of federal records');
+  // The pillar filter must stay load-bearing. Without this, deleting every
+  // commercial Canadian record would silently turn the test back into the old one.
+  assert.ok(ALL.some((r) => r.country === 'canada' && !S.isGovernmentPillar(r)),
+    'no commercial Canadian record exists, so the pillar filter above is untested');
 });

@@ -300,10 +300,18 @@ test('every critical limitation is rendered, not hidden in editor notes', () => 
 // registry. This wave adds three UK-wide records, so the UK manifest is pinned
 // the same way: a coverage manifest that disagrees with the registry makes the
 // country page state a coverage figure that is not true.
+//
+// Wave 1B.7 scoped this to the Government Registry pillar. The manifest measures
+// which UK territories are REACHED by a statutory register; a commercial business
+// directory reaches no territory in that sense. Counting the two together would
+// have made the manifest — and the country page derived from it — claim
+// territorial coverage that the added records do not provide.
 test('the UK territorial coverage manifest matches the registry', () => {
   const manifest = JSON.parse(fs.readFileSync(
     path.join(ROOT, 'data', 'business-directories', 'united-kingdom-territorial-coverage.json'), 'utf8'));
-  const uk = ALL.filter((r) => r.country === 'united-kingdom');
+  const uk = ALL.filter((r) => r.country === 'united-kingdom' && S.isGovernmentPillar(r));
+  assert.ok(ALL.some((r) => r.country === 'united-kingdom' && !S.isGovernmentPillar(r)),
+    'no commercial UK record exists, so the pillar filter above is untested');
   const ukWide = uk.filter((r) => r.jurisdiction === null);
   const cross = uk.filter((r) => r.jurisdiction && r.jurisdiction.type === 'cross-territory');
   const constituent = uk.filter((r) => r.jurisdiction

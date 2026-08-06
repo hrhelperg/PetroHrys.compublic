@@ -3984,5 +3984,678 @@
       "No search was executed during verification, so result content and any limits were not observed and none is asserted."
     ],
     "editorNotes": "Verified 2026-08-06 by direct fetch of the regulator’s register page, and re-verified in a separate direct adversarial pass. FOUR ROLES, determined separately. LEGAL SOURCE OF RECORD: The statutory registers of patent attorneys and trade mark attorneys, maintained under the regulator’s approved regulatory arrangements. Entry follows the regulator’s decision. RESPONSIBLE AUTHORITY: Intellectual Property Regulation Board. TECHNICAL PLATFORM: Not separately established. No external supplier is named on any page fetched. PUBLIC ACCESS INTERFACE: The register search on the regulator’s own site. SPLIT DECISION, taken deliberately and against the temptation to split: the regulator’s page is headed “Search our registers” in the plural, which reflects the underlying statutory registers, but the PUBLIC INTERFACE is a single form at a single URL covering attorneys and firms together. Under the duplicate contract, two records require materially distinct public identity or function, and here there is one identity and one journey. Published as ONE record whose description names both professions, rather than two records split on a profession the interface does not itself separate. Individuals and firms are likewise not split: one integrated search covers both."
+  },
+  {
+    "id": "uk-thomson-local",
+    "name": "Thomson Local",
+    "slug": "thomson-local",
+    "country": "united-kingdom",
+    "category": "local-business",
+    "website": "https://www.thomsonlocal.com/",
+    "submissionUrl": "https://www.thomsonlocal.com/product/freelisting",
+    "description": "A UK business directory operated by Thomson Directories Ltd, trading since 1980. The free listing is real but expressly time-limited to three months, and the operator distinguishes owner-created \"listings\" from third-party \"citations\" that make up much of the database.",
+    "tier": "tier1",
+    "scope": "national",
+    "operator": {
+      "name": "Thomson Directories Ltd",
+      "type": "other",
+      "officialUrl": "https://www.thomsonlocal.com/aboutus"
+    },
+    "petroHrysScore": 59,
+    "scoreFactors": {
+      "editorialTrust": 6,
+      "businessUsefulness": 6,
+      "verificationQuality": 4,
+      "platformReputation": 7,
+      "spamResistance": 5,
+      "industryImportance": 6,
+      "longTermStability": 7,
+      "submissionQuality": 7,
+      "transparency": 7,
+      "moderationQuality": 5
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "freemium",
+    "registrationRequired": null,
+    "reviewSystem": true,
+    "verificationRequired": null,
+    "manualReview": null,
+    "listingAction": "create",
+    "ownerResponseSupport": true,
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": true,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-06",
+    "nextVerification": "2027-05-28",
+    "verification": {
+      "status": "verified",
+      "source": "official-documentation",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "uk-scoot",
+        "uk-freeindex"
+      ],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "UK local businesses wanting a free entry in a directory with a named, long-established operator.",
+      "Businesses that want to understand exactly what a free tier excludes before paying for anything."
+    ],
+    "notRecommendedFor": [
+      "Anyone who needs a permanent free listing. The operator states the free listing is time-limited to three months.",
+      "Businesses whose main reason for listing is a link to their own website. The operator states that is a paid feature."
+    ],
+    "submissionDifficulty": "easy",
+    "listingQuality": null,
+    "typicalApprovalTime": null,
+    "reviewProcess": "The operator states a free listing can be live “in as little as 48 hours” after applying. What is checked in that period is not documented.",
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "local-services",
+      "retail",
+      "professional-services"
+    ],
+    "editorialTags": [
+      "business-directory",
+      "commercial-platform"
+    ],
+    "pros": [
+      "The operator is named plainly and consistently: the footer reads “© 2026 Thomson Directories Ltd. All rights reserved” and the about page describes how “a little company called Thomson Directories Ltd was born”.",
+      "The free route is a real submission form with business name, address, phone, email and category fields — not merely an enquiry button.",
+      "The operator is unusually open about where its data comes from, separating owner-supplied listings from bought-in citations rather than presenting the whole database as owner-managed.",
+      "The submission form asks explicitly whether you are the business or a third party, which at least records provenance at the point of entry."
+    ],
+    "cons": [
+      "The free listing EXPIRES. The operator describes it as “A three-month time limited free business listing”, so it is not a permanent presence and no permanence is asserted here.",
+      "The free listing does not include a link to your website. The operator footnotes its own comparison table: “Website link is available when purchasing a thomsonlocal backlink product or paid advertising”.",
+      "Much of what appears in search results was never supplied by the business. The operator states: “Listings are directory entries whereby the owner of the business or organisation has a direct relationship with Thomson Local. Whereas citations are provided from a third party.” It names 118 Information Ltd as the source of most citations.",
+      "Beyond the website-link footnote, the free-versus-paid feature split is rendered by the page’s styling rather than stated in text, so which specific features a free listing includes is NOT established and is not asserted.",
+      "A third party may submit a business: the form offers “I am promoting this business on behalf of someone else”. An entry is therefore not evidence that the named business created or approved it.",
+      "Whether verification is required, and by what method, is not documented by the operator, so nothing about verification is asserted.",
+      "Businesses can reply to reviews, but the operator’s own wording bounds who: the review form promises “Get notified - if an advertiser responds to your review”. Responding is documented for ADVERTISERS, and whether a free listing can reply is not established.",
+      "A listing is a directory entry. It is not evidence that a business is solvent, currently trading, licensed, or checked beyond what the operator documents here.",
+      "No ranking, indexing, traffic or lead outcome is asserted. The operator markets outcomes; this record does not adopt them."
+    ],
+    "editorNotes": "Verified 2026-08-06 from the operator’s own free-listing product page and about page, and re-verified in a separate direct pass in which “A three-month time limited free business listing”, “Website link is available when purchasing a thomsonlocal backlink product or paid advertising” and “© 2026 Thomson Directories Ltd” were each present in the served pages. PLATFORM OPERATOR: Thomson Directories Ltd, named in the site footer and described in the operator’s own company history. LISTING CONTROL: Mixed, and the operator says so. A business controls a listing it submits; citations bought from a third party describe businesses that have no relationship with the platform. MODERATION AUTHORITY: Not documented. A 48-hour time-to-live is stated but no review step is described. PUBLIC INTERFACE: thomsonlocal.com, with public profiles under /search/ and the free submission form at /product/freelisting. COST DECISION: recorded as freemium, not free. A free tier is documented and so are three paid listing tiers. The free tier is additionally time-limited, which is recorded as a limitation rather than folded into the cost value.  FEATURE SPLIT NOT ASSERTED: the FREE/PAID comparison table marks rows with CSS-rendered ticks that are not present as text in the served HTML. Only the website-link footnote is stated in prose, so only that is published.  PASS 2 CORRECTION: owner responses were drafted as undocumented and corrected to documented. The second pass inspected an actual public profile, whose review form states “Get notified - if an advertiser responds to your review” and “Respond to advertisers - if they reply to your review”. That is direct evidence of a reply function, so ownerResponseSupport is true — bounded to the operator’s own term “advertiser”, since it does not establish that a free listing can reply.  NOT ASSERTED: verification, claim flow, whether free listings may reply, indexability, link attributes, traffic."
+  },
+  {
+    "id": "uk-scoot",
+    "name": "Scoot",
+    "slug": "scoot",
+    "country": "united-kingdom",
+    "category": "local-business",
+    "website": "https://www.scoot.co.uk/",
+    "submissionUrl": "https://www.scoot.co.uk/add-listing",
+    "description": "A UK business directory operated by Newfold Digital. One submission does not produce one listing: the operator states that adding a business here automatically adds it to a wider network of directories including Touch Local, and that the submitted details are shared with suppliers who may market to the business.",
+    "tier": "tier1",
+    "scope": "national",
+    "operator": {
+      "name": "Newfold Digital",
+      "type": "other",
+      "officialUrl": "https://www.scoot.co.uk/contact-us"
+    },
+    "petroHrysScore": 51,
+    "scoreFactors": {
+      "editorialTrust": 5,
+      "businessUsefulness": 5,
+      "verificationQuality": 3,
+      "platformReputation": 6,
+      "spamResistance": 4,
+      "industryImportance": 5,
+      "longTermStability": 7,
+      "submissionQuality": 7,
+      "transparency": 6,
+      "moderationQuality": 4
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "freemium",
+    "registrationRequired": null,
+    "reviewSystem": true,
+    "verificationRequired": null,
+    "manualReview": null,
+    "listingAction": "create",
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": true,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-06",
+    "nextVerification": "2027-05-10",
+    "verification": {
+      "status": "verified",
+      "source": "official-documentation",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "uk-thomson-local",
+        "uk-freeindex"
+      ],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "UK local businesses wanting one free submission that reaches a directory network rather than a single site.",
+      "Businesses that want a self-service dashboard to edit their own entry afterwards."
+    ],
+    "notRecommendedFor": [
+      "Businesses that do not want their submitted contact details passed to suppliers for marketing. The operator states plainly that this happens.",
+      "Anyone who wants to appear on exactly one directory. The operator states the submission propagates across its network."
+    ],
+    "submissionDifficulty": "easy",
+    "listingQuality": null,
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "local-services",
+      "retail",
+      "professional-services"
+    ],
+    "editorialTags": [
+      "business-directory",
+      "commercial-platform"
+    ],
+    "pros": [
+      "A free entry is documented by the operator: “We are easy to join and give significant value to small businesses for FREE”, alongside “a range of paid for services”.",
+      "The submission is a real, complete form — name, business name, category, postcode, address, email, phone and web address — described as “Step 1 of 1 - Business Details”.",
+      "The business can maintain its own entry afterwards: “Have the ability to update your profile 24/7 from your Scoot Dashboard”.",
+      "The operator discloses the onward use of submitted data before you submit it, rather than burying it in terms."
+    ],
+    "cons": [
+      "Your details will be used to market to you. The form states the information “will be used to contact you by users of these directories … and suppliers (including https://web.com/en-gb ) who may wish to provide services to businesses like yours”.",
+      "One submission is not one listing. The operator states: “By adding yourself to this directory you will be automatically added to our network of directories including Scoot and Touch Local.” Where else an entry appears across that network is not enumerated.",
+      "The operator describes a network “with over 400 websites”. That figure is the operator’s own claim and has not been independently checked.",
+      "Creating an entry is confirmed; claiming an existing third-party entry is not documented anywhere, so no claim flow is asserted.",
+      "Whether verification is required, and by what method, is not documented, so nothing about verification is asserted.",
+      "Listings carry reviews — public results invite a reader to “Be the first to review” — but whether a business can respond to them is not documented and is not asserted.",
+      "A listing is a directory entry. It is not evidence that a business is solvent, currently trading, licensed, or checked beyond what the operator documents here.",
+      "No ranking, indexing, traffic or lead outcome is asserted. The operator markets outcomes; this record does not adopt them."
+    ],
+    "editorNotes": "Verified 2026-08-06 from the operator’s own about, contact and add-listing pages, and re-verified in a separate direct pass in which “Scoot | Newfold Digital”, “automatically added to our network of directories including Scoot and Touch Local” and “suppliers (including https://web.com/en-gb )” were each present in the served pages. PLATFORM OPERATOR: Newfold Digital, named on the platform’s own contact page as “Scoot | Newfold Digital”, at Fusion Hive, North Shore Road, Stockton-on-Tees, with support routed to a web.com address. The site footer alone says only “© 2026 Scoot - part of the network”, which would not have been sufficient. LISTING CONTROL: The business submits and then self-manages through the Scoot Dashboard. MODERATION AUTHORITY: Not documented. PUBLIC INTERFACE: scoot.co.uk, with the submission form at /add-listing. DUPLICATE DECISION — TOUCH LOCAL ABSORBED: Touch Local is NOT published as a separate record. This was previously argued from Touch Local’s dashboard being served at dashboard.scoot.co.uk. It is now settled by the operator’s own submission form, which states that adding a business here automatically adds it to “our network of directories including Scoot and Touch Local”. One submission publishes to both, which is the duplicate test itself rather than a proxy for it. The surviving record is this one.  PASS 2 CORRECTION: reviews were drafted as unestablished and corrected to documented. The first pass saw only the homepage’s consumer-journey wording, which was rightly rejected as marketing copy. The second pass inspected actual public results, which carry a review element and a “Be the first to review” prompt, so reviewSystem is true on direct observation. Owner responses remain undocumented.  NOT ASSERTED: owner responses, verification, claim flow, the composition of the 400-site network, indexability, link attributes, traffic."
+  },
+  {
+    "id": "uk-freeindex",
+    "name": "FreeIndex",
+    "slug": "freeindex",
+    "country": "united-kingdom",
+    "category": "local-business",
+    "website": "https://www.freeindex.co.uk/",
+    "submissionUrl": "https://www.freeindex.co.uk/signup.htm",
+    "description": "An independent UK business directory and quote-request platform operated by FreeIndex Ltd since 2003. Listing is free with a priced optional upgrade, registration requires a confirmed email address, and the operator explicitly rejects duplicate registrations and franchisee entries.",
+    "tier": "tier1",
+    "scope": "national",
+    "operator": {
+      "name": "FreeIndex Ltd",
+      "type": "other",
+      "officialUrl": "https://www.freeindex.co.uk/about.htm"
+    },
+    "petroHrysScore": 67,
+    "scoreFactors": {
+      "editorialTrust": 7,
+      "businessUsefulness": 7,
+      "verificationQuality": 5,
+      "platformReputation": 6,
+      "spamResistance": 7,
+      "industryImportance": 6,
+      "longTermStability": 7,
+      "submissionQuality": 8,
+      "transparency": 8,
+      "moderationQuality": 7
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "freemium",
+    "registrationRequired": true,
+    "reviewSystem": true,
+    "verificationRequired": true,
+    "manualReview": null,
+    "listingAction": "create",
+    "verificationMethods": [
+      "email"
+    ],
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": true,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": true,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-06",
+    "nextVerification": "2027-05-28",
+    "verification": {
+      "status": "verified",
+      "source": "official-documentation",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "uk-thomson-local",
+        "uk-scoot"
+      ],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "UK businesses wanting a free listing on a directory whose paid tier is priced openly rather than sold by phone.",
+      "Trades and services businesses that want inbound quote requests as well as a profile.",
+      "Head-office businesses that can add branches as sub-listings under one registration."
+    ],
+    "notRecommendedFor": [
+      "Franchisees and individual branches registering independently. The operator states these are automatically rejected.",
+      "Businesses already listed. The operator states duplicates are rejected and directs you to log in or make contact instead."
+    ],
+    "submissionDifficulty": "easy",
+    "listingQuality": null,
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "local-services",
+      "retail",
+      "professional-services"
+    ],
+    "editorialTags": [
+      "business-directory",
+      "commercial-platform"
+    ],
+    "pros": [
+      "The cost position is stated openly and precisely, with the standard tier priced at Free and the upgrade at “Only £9.95 a month, or £99.50 a year” — rather than hidden behind a sales call.",
+      "The operator identifies itself fully: “FreeIndex Ltd”, “Ltd Company No: 05716323”, and “a small independent UK company which has been owned, run and developed by its directors since 2003”.",
+      "Registration requires a working email address before anything can be contributed, which is a real if limited barrier: “We will send you an email once you have registered with a link in it to confirm you have a working email address.”",
+      "The operator actively works against duplicate and low-quality entries — “All duplicates are rejected” — and normalises submitted names, stating that “Extra words like ‘Cheap London Builder’ will be removed”.",
+      "The operator commits against a common directory nuisance: “We have not and never will engage in any kind of cold calling, spamming, up-selling or other aggressive marketing tactics”."
+    ],
+    "cons": [
+      "What the email step confirms is a working email address — nothing more. It is not verification of the business, of its identity, or of the registrant’s authority to represent it, and no such verification is asserted.",
+      "There is no claim flow. The operator directs existing-business cases away from one: “Do not re-register if your business is already on the site. Either login or contact us . All duplicates are rejected.” Creating is confirmed; claiming is not merely undocumented but routed elsewhere.",
+      "Franchisees and branches cannot register in their own right — “Franchisee’s and branches are automatically rejected. Get your head office to register and add you as a sub listing.”",
+      "An account is required before a listing can be created, so this is not an anonymous submission.",
+      "Reviews exist on the platform, but whether a business can respond to them is not documented and is not asserted. The paid tier’s review feature concerns displaying Google reviews, which is a different thing from replying on FreeIndex.",
+      "The operator markets ranking and lead outcomes on its advertising pages. Those are marketing claims and are not adopted here.",
+      "A listing is a directory entry. It is not evidence that a business is solvent, currently trading, licensed, or checked beyond what the operator documents here.",
+      "No ranking, indexing, traffic or lead outcome is asserted. The operator markets outcomes; this record does not adopt them."
+    ],
+    "editorNotes": "Verified 2026-08-06 from the operator’s about page, terms of use, advertising page, premium page and registration form, and re-verified in a separate direct pass in which “Ltd Company No: 05716323”, “All duplicates are rejected”, “Franchisee’s and branches are automatically rejected” and “Only £9.95 a month, or £99.50 a year” were each present in the served pages. PLATFORM OPERATOR: FreeIndex Ltd, named in the site footer with its company number and described on the about page as director-owned since 2003. LISTING CONTROL: The business registers an account and self-manages its own profile. MODERATION AUTHORITY: The operator, which rejects duplicates and franchisee registrations and edits submitted business names to remove promotional wording. PUBLIC INTERFACE: freeindex.co.uk, with registration at /signup.htm. VERIFICATION DECISION: recorded as email, and deliberately bounded. The terms state that contributions require “a confirmed email address”, which is a documented, mandatory, dated fact. It is recorded as an email method with an explicit limitation that it establishes a working mailbox and NOT the business — the same treatment given to the PagineGialle VAT field, where a required form value was not allowed to become a verification claim.  NOT ASSERTED: owner responses, claim flow, indexability, link attributes, traffic, and the operator’s ranking and lead-generation claims."
+  },
+  {
+    "id": "uk-approved-business",
+    "name": "Approved Business",
+    "slug": "approved-business",
+    "country": "united-kingdom",
+    "category": "general-business",
+    "website": "https://www.approvedbusiness.co.uk/",
+    "submissionUrl": "https://www.approvedbusiness.co.uk/list-your-company",
+    "description": "A UK business-to-business directory operated by Approved Business Ltd. Listing is organised as packages rather than a single free entry: a free package exists, but the operator attaches a twelve-month contract to it and places free listings below paid ones.",
+    "tier": "tier1",
+    "scope": "national",
+    "operator": {
+      "name": "Approved Business Ltd",
+      "type": "other",
+      "officialUrl": "https://www.approvedbusiness.co.uk/terms-and-conditions"
+    },
+    "petroHrysScore": 49,
+    "scoreFactors": {
+      "editorialTrust": 5,
+      "businessUsefulness": 5,
+      "verificationQuality": 3,
+      "platformReputation": 5,
+      "spamResistance": 4,
+      "industryImportance": 5,
+      "longTermStability": 6,
+      "submissionQuality": 6,
+      "transparency": 6,
+      "moderationQuality": 5
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "freemium",
+    "registrationRequired": null,
+    "reviewSystem": true,
+    "verificationRequired": null,
+    "manualReview": true,
+    "listingAction": "create",
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": true,
+      "freelancer": null,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-06",
+    "nextVerification": "2027-05-22",
+    "verification": {
+      "status": "verified",
+      "source": "official-documentation",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "uk-bizify"
+      ],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "UK business-to-business suppliers wanting a categorised trade listing with an enquiry form.",
+      "Businesses comparing what a free directory package actually withholds, since the operator sets the tiers out feature by feature."
+    ],
+    "notRecommendedFor": [
+      "Businesses unwilling to accept a twelve-month term on a free listing.",
+      "Anyone expecting a free listing to carry a link to their website. The operator lists that as a paid-tier feature."
+    ],
+    "submissionDifficulty": "easy",
+    "listingQuality": null,
+    "typicalApprovalTime": null,
+    "reviewProcess": "The operator states that publication of submitted material is at its sole discretion and that it may make additions or deletions before publication.",
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "professional-services",
+      "manufacturing",
+      "local-services"
+    ],
+    "editorialTags": [
+      "business-directory",
+      "commercial-platform"
+    ],
+    "pros": [
+      "The operator is named consistently throughout its own terms as Approved Business Ltd, which sets out publication and licensing terms in its own name.",
+      "Every package, free included, is documented as carrying company name, address, phone number, quote form, review system and an admin console.",
+      "The tier structure is set out feature by feature, so what a free package withholds is visible before signing up rather than after.",
+      "The operator reserves an explicit editorial role over submitted material, which is a real moderation position rather than automatic publication."
+    ],
+    "cons": [
+      "The free package carries a “12 month contract”. A free listing here is a term commitment, not a casual entry, and that is unusual enough to check before submitting.",
+      "A free listing is positioned last: the operator states it “Displays at the bottom of product and service pages”, with paid listings above it.",
+      "A website link is a paid feature. “Website backlink” appears in the Featured tier’s feature list and not in the free package, so no link benefit is documented for a free listing and none is asserted.",
+      "The operator also sells SEO, website design, email marketing, video production and social media services, so the directory sits inside a marketing-services business rather than standing alone.",
+      "Publication is discretionary and editable by the operator: it “may publish and make available to the public by any means any material that you submit … at their sole discretion and they shall be entitled to make additions or deletions to any such material prior to publication.”",
+      "Submitted material is licensed broadly: the terms take “a non-exclusive, royalty-free, perpetual and worldwide licence to republish any material you submit”.",
+      "Creating a listing is confirmed; claiming an existing third-party listing is not documented, so no claim flow is asserted.",
+      "A review system is documented in every package, but whether a business can respond to reviews is not, and is not asserted.",
+      "A listing is a directory entry. It is not evidence that a business is solvent, currently trading, licensed, or checked beyond what the operator documents here.",
+      "No ranking, indexing, traffic or lead outcome is asserted. The operator markets outcomes; this record does not adopt them."
+    ],
+    "editorNotes": "Verified 2026-08-06 from the operator’s own package page and terms and conditions, and re-verified in a separate direct pass in which “Approved Business Ltd”, “12 month contract”, “Displays at the bottom of product and service pages” and “Website backlink” were each present in the served pages. PLATFORM OPERATOR: Approved Business Ltd, named throughout its own terms and conditions as the publishing party. LISTING CONTROL: The business selects a package and supplies material; the operator decides whether and in what form it is published. MODERATION AUTHORITY: The operator, by stated sole discretion, including additions and deletions before publication. PUBLIC INTERFACE: approvedbusiness.co.uk, with the package and registration route at /list-your-company. COST DECISION: freemium. A free package is documented and so are Featured, Premium and Premium+ tiers. The twelve-month contract attached to the free package is recorded as a limitation, not as a reason to call the tier paid — no money is documented as changing hands.  NOT ASSERTED: verification, owner responses, claim flow, indexability, link attributes, traffic. The Featured tier’s “Website backlink” wording is reported as the operator’s own product description and is NOT adopted as a link-attribute claim by this record."
+  },
+  {
+    "id": "uk-bizify",
+    "name": "Bizify",
+    "slug": "bizify",
+    "country": "united-kingdom",
+    "category": "local-business",
+    "website": "https://www.bizify.co.uk/",
+    "submissionUrl": "https://www.bizify.co.uk/add-new-company",
+    "description": "A UK business directory operated by Outrank Limited, a Middlesbrough search-marketing company. It functions as a directory with listings and reviews, but is built and marketed as a ranking instrument — and the operator’s own terms disclaim the search outcomes its marketing pages promise.",
+    "tier": "tier1",
+    "scope": "national",
+    "operator": {
+      "name": "Outrank Limited",
+      "type": "other",
+      "officialUrl": "https://www.bizify.co.uk/terms-conditions"
+    },
+    "petroHrysScore": 41,
+    "scoreFactors": {
+      "editorialTrust": 4,
+      "businessUsefulness": 4,
+      "verificationQuality": 3,
+      "platformReputation": 4,
+      "spamResistance": 3,
+      "industryImportance": 4,
+      "longTermStability": 5,
+      "submissionQuality": 6,
+      "transparency": 6,
+      "moderationQuality": 3
+    },
+    "domainRating": null,
+    "authorityScore": null,
+    "estimatedTraffic": null,
+    "referringDomains": null,
+    "httpStatus": null,
+    "metricStatus": "unknown",
+    "metricsProvenance": {},
+    "submissionModel": "freemium",
+    "registrationRequired": true,
+    "reviewSystem": true,
+    "verificationRequired": null,
+    "manualReview": null,
+    "listingAction": "create",
+    "accepts": {
+      "startup": null,
+      "saas": null,
+      "enterprise": true,
+      "agency": null,
+      "freelancer": true,
+      "localBusiness": true,
+      "developer": null,
+      "openSource": null,
+      "nonprofit": null,
+      "ai": null,
+      "mobileApp": null,
+      "ecommerce": null
+    },
+    "backlinkType": null,
+    "robots": null,
+    "sitemap": null,
+    "indexed": null,
+    "ssl": true,
+    "lastVerified": "2026-08-06",
+    "nextVerification": "2027-05-11",
+    "verification": {
+      "status": "verified",
+      "source": "official-documentation",
+      "reviewers": [
+        {
+          "id": "petro-hrys",
+          "name": "Petro Hrys",
+          "role": "editor"
+        }
+      ]
+    },
+    "related": {
+      "alternatives": [],
+      "similar": [
+        "uk-approved-business"
+      ],
+      "usedWith": [],
+      "competitors": []
+    },
+    "bestFor": [
+      "UK-registered businesses wanting an additional free directory listing with a named, companies-house-identified operator."
+    ],
+    "notRecommendedFor": [
+      "Businesses choosing a directory for search-ranking reasons. The operator’s own terms disclaim exactly that outcome.",
+      "Businesses outside the UK. The operator restricts free listings to UK-based registered businesses."
+    ],
+    "submissionDifficulty": "easy",
+    "listingQuality": null,
+    "typicalApprovalTime": null,
+    "reviewProcess": null,
+    "commonMistakes": [],
+    "preparationChecklist": [],
+    "requiredAssets": {
+      "logo": null,
+      "website": null,
+      "description": null,
+      "categories": null,
+      "contact": null,
+      "screenshots": null,
+      "businessVerification": null
+    },
+    "recommendedIndustries": [
+      "local-services",
+      "retail",
+      "professional-services"
+    ],
+    "editorialTags": [
+      "business-directory",
+      "commercial-platform"
+    ],
+    "pros": [
+      "The operator is fully identified in its own terms: “Bizify.co.uk is a site operated by Outrank Limited trading as “bizify” … registered in England and Wales under company number 11723162”.",
+      "The free tier is stated without qualification: “Any registered business, based in the UK, can sign up for a free business listing on bizify.”",
+      "The creation route is documented rather than implied — “All you need to do is sign in and follow the on screen instructions to create your listing.”",
+      "Consumer reviews are part of the documented product: the operator describes users “who have used a business that is listed with bizify, and would like to leave a review of the product or service they received”."
+    ],
+    "cons": [
+      "The operator contradicts its own marketing. The site promises that listings “rank” and are “built to rank too”, while the terms state: “We do not provide any warranties or guarantees as to the outcome of any of the Advertising Services, including but not limited to traffic driven to your website, orders for your goods or services, and placement of your website on any search engines.” The disclaimer is the binding text.",
+      "This is a directory operated by a search-marketing company — “Part of the Outrank Ecosystem”, with a “Free SEO report” among its own links. That context matters when judging what a listing here is for.",
+      "An account is required before a listing can be created: the submission route redirects to a login page, so this is not an anonymous submission.",
+      "The FAQ refers in passing to having “claimed your listing”, but no claim workflow is documented anywhere, so claiming is NOT asserted and the listing action is recorded as create only.",
+      "The operator gives two different registered addresses for itself on the same site — one in its terms and another in its FAQ — which is a small but real inconsistency in its own disclosures.",
+      "The audience and customer figures on the site are the operator’s own claims and have not been independently checked.",
+      "Whether verification is required, and by what method, is not documented, so nothing about verification is asserted.",
+      "Reviews exist, but whether a business can respond to them is not documented and is not asserted.",
+      "A listing is a directory entry. It is not evidence that a business is solvent, currently trading, licensed, or checked beyond what the operator documents here.",
+      "No ranking, indexing, traffic or lead outcome is asserted. The operator markets outcomes; this record does not adopt them."
+    ],
+    "editorNotes": "Verified 2026-08-06 from the operator’s own terms and conditions, about page and FAQ, and re-verified in a separate direct pass in which “operated by Outrank Limited”, “company number 11723162”, “can sign up for a free business listing on bizify” and “We do not provide any warranties or guarantees as to the outcome” were each present in the served pages. PLATFORM OPERATOR: Outrank Limited, trading as bizify, named with its company number in the platform’s own terms and separately in its FAQ. LISTING CONTROL: The business signs in and creates and manages its own listing. MODERATION AUTHORITY: Not documented. PUBLIC INTERFACE: bizify.co.uk, with the creation route at /add-new-company, which redirects to a login. ACCEPTANCE DECISION: published, unlike Brownbook. Brownbook was rejected because its own self-description makes search-engine marketing the PRODUCT. Bizify’s documented product is a directory listing with reviews and a free tier, operated by a search-marketing company that markets ranking benefits alongside it. The distinction is between a platform whose function is selling search outcomes and a platform that is a directory sold on search-outcome language. The remedy chosen here is publication with the contradiction quoted, because the operator’s own disclaimer is more useful to a reader than silence.  MARKETING CLAIM NOT ADOPTED: the ranking and SERP-performance claims on the about page are recorded as claims and refuted from the operator’s own terms.  NOT ASSERTED: verification, owner responses, claim flow, indexability, link attributes, traffic."
   }
 ]
