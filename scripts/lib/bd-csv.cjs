@@ -85,19 +85,21 @@ function compareRecords(a, b) {
   return S.compareStable(a.name, b.name);
 }
 
-function actionableOpportunities(directories) {
-  return directories
-    .filter((r) => S.isActionableOpportunity(r, S.isGovernmentPillar))
-    .slice()
-    .sort(compareRecords);
+// Accepts the editorial registry plus, optionally, the Level 1 operational rows.
+// Both are sorted by the same comparator into one list, because an employee
+// working the queue does not care which level a row came from.
+function actionableOpportunities(directories, operationalRows = []) {
+  const editorial = directories.filter((r) => S.isActionableOpportunity(r, S.isGovernmentPillar));
+  const rows = operationalRows.filter((r) => S.isActionableOpportunity(r, () => false));
+  return editorial.concat(rows).sort(compareRecords);
 }
 
 // BOM first: without it Excel on Windows misreads UTF-8 accents, which matters
 // for a list full of Örtliche, Páginas and Zlaté.
 const BOM = '﻿';
 
-function renderCsv(directories) {
-  const rows = actionableOpportunities(directories);
+function renderCsv(directories, operationalRows = []) {
+  const rows = actionableOpportunities(directories, operationalRows);
   const lines = [COLUMNS.join(',')];
   for (const r of rows) lines.push(rowFor(r).map(csvField).join(','));
   // RFC 4180 line ending, and a trailing break so the file ends cleanly.

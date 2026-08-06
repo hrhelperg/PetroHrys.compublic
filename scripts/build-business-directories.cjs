@@ -24,6 +24,7 @@ const SITEMAP_FILE = routes.sitemapOut();
 // pruned and diffed by the same machinery as the pages.
 const CSV_FILE = path.join(SECTION_DIR, 'opportunities.csv');
 const csv = require('./lib/bd-csv.cjs');
+const opportunities = require('./lib/bd-opportunities.cjs');
 const { renderCsv } = csv;
 const FEED_FILE = routes.feedOut();
 const MANIFEST_FILE = path.join('data', 'business-directories', '.build-manifest.json');
@@ -350,8 +351,9 @@ function pageModel(registry) {
   // row or a country page per geography. Countries that have no dedicated page
   // of their own surface here under "Other countries", which is why sixteen new
   // geographies could be added without generating a single thin page.
-  if (csv.actionableOpportunities(allDirectories).length > 0) {
-    const actionable = csv.actionableOpportunities(allDirectories);
+  const opRows = registry.operationalRows || [];
+  if (csv.actionableOpportunities(allDirectories, opRows).length > 0) {
+    const actionable = csv.actionableOpportunities(allDirectories, opRows);
     const publishedCountrySlugs = new Set(publishedCountries.map((c) => c.slug));
     const other = actionable.filter((d) => !publishedCountrySlugs.has(d.country));
     const OPP_COLUMNS = ['name', 'country', 'category', 'submissionModel', 'listingAction',
@@ -523,8 +525,19 @@ function pageModel(registry) {
     for (const directory of countryEntries) {
       const category = registry.categories.find((cat) => cat.slug === directory.category);
       const { indexable, missing } = SCHEMA.indexability(directory);
+      // A record that fails the meaningful-content contract is a Level 1
+      // operational row: it belongs in the working list, the CSV and every
+      // filter, but it has nothing substantive to put on a page of its own.
+      // Generating one would be exactly the thin page the SEO policy forbids.
+      // Build the route for every record, thin or not: routes.directoryOut is
+      // what refuses a hostile slug, and skipping it for compact rows would
+      // retire that check without anyone noticing.
+      const outPath = routes.directoryOut(country.slug, directory.slug);
+      if (!indexable) {
+        noindexReport.push({ id: directory.id, missing });
+        continue;
+      }
       const dirMeta = seo.buildDirectoryMeta({ country, category, directory, indexable });
-      if (!indexable) noindexReport.push({ id: directory.id, missing });
 
       const guides = guidesFor(articles, directory);
       const guideLinks = guides.length ? [
@@ -606,8 +619,12 @@ function stageBuild(registry, pages) {
     .map((page) => ({ path: page.meta.canonicalPath, lastmod: page.lastmod }));
   files.set(SITEMAP_FILE, renderSitemap(indexable));
 
+  // The feed announces PAGES, so it may only carry records that have one. A
+  // Level 1 operational row has no detail page, and an item pointing at a page
+  // that was never generated is a broken feed — which the pre-write validator
+  // correctly refuses to publish.
   const feedItems = registry.directories
-    .filter((d) => d.lastVerified)
+    .filter((d) => d.lastVerified && SCHEMA.indexability(d).indexable)
     .slice()
     .sort((a, b) => (a.lastVerified < b.lastVerified ? 1 : a.lastVerified > b.lastVerified ? -1 : 0))
     .map((d) => ({
@@ -621,8 +638,9 @@ function stageBuild(registry, pages) {
   // Same no-empty-artefact rule as the opportunities page: a CSV containing
   // only a header row is not a working list, and it would survive a full data
   // removal as an orphan.
-  if (csv.actionableOpportunities(registry.directories).length > 0) {
-    files.set(CSV_FILE, renderCsv(registry.directories));
+  const rows = registry.operationalRows || [];
+  if (csv.actionableOpportunities(registry.directories, rows).length > 0) {
+    files.set(CSV_FILE, renderCsv(registry.directories, rows));
   }
 
   return files;
@@ -767,6 +785,14 @@ function buildAll(options = {}) {
 
   // 1. Load. A structural fault throws before anything else happens.
   const registry = loadRegistry(dataRoot);
+  // Level 1 operational rows. Validated on load and kept separate from the
+  // registry: they feed the working list and the CSV, never a detail page.
+  const operationalRows = opportunities.loadOpportunities(
+    dataRoot,
+    new Set(registry.countries.map((c) => c.slug)),
+    new Set(registry.categories.map((c) => c.slug)),
+  );
+  registry.operationalRows = operationalRows;
 
   // 2. Validate. The single build gate — nothing is rendered, staged or
   //    written unless the registry is clean.

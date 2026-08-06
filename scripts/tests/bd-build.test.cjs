@@ -102,7 +102,9 @@ test('the hub is indexable and the empty reference pages are not', () => {
 });
 
 test('adding a record emits its country, category and detail pages', () => {
-  const { dataRoot, outRoot } = fixture({ 'united-states': [rec()] });
+  // indexableRec, not rec: only a record that passes the meaningful-content
+  // contract gets a detail page. A bare record is a Level 1 operational row.
+  const { dataRoot, outRoot } = fixture({ 'united-states': [indexableRec()] });
   buildAll({ dataRoot, outRoot });
   assert.ok(has(outRoot, SAAS));
   assert.ok(has(outRoot, DETAIL));
@@ -189,7 +191,9 @@ test('8-9 canonicals and output paths are unique', () => {
 });
 
 test('11 every emitted file maps to exactly one owner', () => {
-  const { dataRoot, outRoot } = fixture({ 'united-states': [rec()] });
+  // A detail page must exist for its owner to be asserted, so this needs a
+  // record substantive enough to get one.
+  const { dataRoot, outRoot } = fixture({ 'united-states': [indexableRec()] });
   buildAll({ dataRoot, outRoot });
   const owners = Object.values(JSON.parse(read(outRoot, MANIFEST_FILE)).files);
   assert.strictEqual(new Set(owners).size, owners.length, `duplicate owner: ${owners}`);
@@ -199,10 +203,7 @@ test('11 every emitted file maps to exactly one owner', () => {
 // --- 10: sitemap integrity --------------------------------------------------
 
 test('10 the sitemap only references pages that were generated', () => {
-  const { dataRoot, outRoot } = fixture({ 'united-states': [rec({ lastVerified: '2026-08-01',
-    nextVerification: '2027-08-01',
-    verification: { status: 'verified', source: 'official-website',
-      reviewers: [{ id: 'p', name: 'P', role: 'editor' }] } })] });
+  const { dataRoot, outRoot } = fixture({ 'united-states': [indexableRec()] });
   buildAll({ dataRoot, outRoot });
   const canonicals = new Set(pageModel(loadRegistry(dataRoot)).map((p) => p.meta.canonical));
   const locs = [...read(outRoot, SITEMAP).matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
@@ -223,7 +224,7 @@ test('10 the sitemap never lists a noindex page', () => {
 // --- 12, 13: pruning correctness --------------------------------------------
 
 test('12-13 removing the last record prunes only its dependents', () => {
-  const { dataRoot, outRoot } = fixture({ 'united-states': [rec()] });
+  const { dataRoot, outRoot } = fixture({ 'united-states': [indexableRec()] });
   buildAll({ dataRoot, outRoot });
   assert.ok(has(outRoot, SAAS) && has(outRoot, DETAIL));
 
@@ -357,17 +358,23 @@ test('a verified record appears in both the feed and the sitemap', () => {
   assert.ok(read(outRoot, SITEMAP).includes('/united-states/ok-dir/'));
 });
 
-test('a record failing the meaningful-content contract is noindex and off the sitemap', () => {
+test('a record failing the meaningful-content contract gets no detail page at all', () => {
   // Thin means the evidence package itself is incomplete — here, no pros and no
-  // cons, so the page asserts nothing a reader could not get from the country
-  // table. Curated relations are deliberately NOT part of this test: a record
-  // with none is a gap in cross-referencing, not a thin page. The page and all
-  // its links survive; it just leaves the index.
+  // cons, so a page would assert nothing a reader could not get from the country
+  // table. This used to publish a noindex page. It now publishes NO page: such a
+  // record is a Level 1 operational row, which belongs in the working list, the
+  // CSV and every filter, but has nothing substantive to put on a page of its
+  // own. Generating one is exactly the thin page the SEO policy forbids.
   const thin = indexableRec({ pros: [], cons: [] });
   const { dataRoot, outRoot } = fixture({ 'united-states': [thin] });
   buildAll({ dataRoot, outRoot });
-  assert.ok(has(outRoot, DETAIL), 'the page is still published');
-  assert.ok(read(outRoot, DETAIL).includes('noindex,follow'));
+  assert.ok(!has(outRoot, DETAIL), 'a thin record must not get a detail page');
   assert.ok(!read(outRoot, SITEMAP).includes('/united-states/ok-dir/'),
     'the sitemap must equal the indexable set');
+  // The country page still lists it, and links it to the platform itself so the
+  // row is usable and nothing 404s.
+  const country = read(outRoot, 'research/business-directories/united-states/index.html');
+  assert.ok(country.includes(thin.name), 'the compact row vanished from the country page');
+  assert.ok(!country.includes('/united-states/ok-dir/'),
+    'the country page links to a detail page that was never generated');
 });
