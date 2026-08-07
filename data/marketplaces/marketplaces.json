@@ -16,6 +16,43 @@
     "note": "Albania's leading classifieds marketplace."
   },
   {
+    "id": "mp-ar-argenprop",
+    "name": "Argenprop",
+    "website": "https://www.argenprop.com/",
+    "country": "argentina",
+    "marketplaceType": "property",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "active",
+    "note": "A major Argentine property marketplace where agents hold public listings."
+  },
+  {
+    "id": "mp-ar-mercadolibre",
+    "name": "Mercado Libre Argentina",
+    "website": "https://www.mercadolibre.com.ar/",
+    "country": "argentina",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "vehicles"
+    ],
+    "operator": "Mercado Libre",
+    "note": "The dominant Argentine marketplace, where sellers hold public storefronts."
+  },
+  {
+    "id": "mp-ar-zonaprop",
+    "name": "Zonaprop",
+    "website": "https://www.zonaprop.com.ar/",
+    "country": "argentina",
+    "marketplaceType": "property",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "unknown",
+    "note": "Argentina's main property marketplace. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
     "id": "mp-au-airtasker",
     "name": "Airtasker",
     "website": "https://www.airtasker.com/",
@@ -295,6 +332,151 @@
     "note": "The leading Bosnian classifieds marketplace. Live but behind a bot filter, so a browser check is needed."
   },
   {
+    "id": "mp-br-chavesnamao",
+    "name": "Chaves na Mão",
+    "website": "https://www.chavesnamao.com.br/",
+    "country": "brazil",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "property",
+      "vehicles"
+    ],
+    "note": "A Brazilian classifieds portal covering property and vehicles."
+  },
+  {
+    "id": "mp-br-enjoei",
+    "name": "Enjoei",
+    "website": "https://www.enjoei.com.br/",
+    "country": "brazil",
+    "marketplaceType": "second-hand",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "note": "A Brazilian resale marketplace where sellers hold public shops."
+  },
+  {
+    "id": "mp-br-imovelweb",
+    "name": "ImovelWeb",
+    "website": "https://www.imovelweb.com.br/",
+    "country": "brazil",
+    "marketplaceType": "property",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "unknown",
+    "note": "A Brazilian property marketplace where agents hold public listings. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
+    "id": "mp-br-infojobs",
+    "name": "InfoJobs Brasil",
+    "website": "https://www.infojobs.com.br/",
+    "country": "brazil",
+    "marketplaceType": "jobs",
+    "sellerTypes": "business",
+    "costModel": "paid",
+    "currentStatus": "unknown",
+    "note": "A Brazilian job marketplace where employers hold public company pages. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
+    "id": "mp-br-mercadolivre",
+    "name": "Mercado Livre Brasil",
+    "website": "https://www.mercadolivre.com.br/",
+    "country": "brazil",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "vehicles"
+    ],
+    "operator": "Mercado Libre",
+    "note": "The dominant Brazilian marketplace, where sellers hold public storefronts."
+  },
+  {
+    "id": "mp-br-olx",
+    "name": "OLX Brasil",
+    "website": "https://www.olx.com.br/",
+    "country": "brazil",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "unknown",
+    "alsoCovers": [
+      "property",
+      "vehicles"
+    ],
+    "operator": "OLX Group",
+    "note": "Brazil's largest classifieds marketplace. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
+    "id": "mp-br-quintoandar",
+    "name": "QuintoAndar",
+    "website": "https://www.quintoandar.com.br/",
+    "country": "brazil",
+    "marketplaceType": "property",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "active",
+    "note": "A Brazilian rental and sales property marketplace."
+  },
+  {
+    "id": "mp-br-vagas",
+    "name": "Vagas.com.br",
+    "website": "https://www.vagas.com.br/",
+    "country": "brazil",
+    "marketplaceType": "jobs",
+    "sellerTypes": "business",
+    "costModel": "paid",
+    "currentStatus": "active",
+    "note": "A major Brazilian job marketplace where employers hold public company pages."
+  },
+  {
+    "id": "mp-br-vivareal",
+    "name": "VivaReal",
+    "website": "https://www.vivareal.com.br/",
+    "country": "brazil",
+    "marketplaceType": "property",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "unknown",
+    "note": "A major Brazilian property marketplace. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
+    "id": "mp-br-webmotors",
+    "name": "Webmotors",
+    "website": "https://www.webmotors.com.br/",
+    "country": "brazil",
+    "marketplaceType": "vehicles",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "unknown",
+    "note": "Brazil's main vehicle marketplace, where dealers hold public dealer pages. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
+    "id": "mp-br-zapimoveis",
+    "name": "ZAP Imóveis",
+    "website": "https://www.zapimoveis.com.br/",
+    "country": "brazil",
+    "marketplaceType": "property",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "unknown",
+    "note": "A major Brazilian property marketplace where agents hold public listings. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
+    "id": "mp-br-icarros",
+    "name": "iCarros",
+    "website": "https://www.icarros.com.br/",
+    "country": "brazil",
+    "marketplaceType": "vehicles",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "unknown",
+    "note": "A major Brazilian vehicle marketplace. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
     "id": "mp-bg-bazar",
     "name": "Bazar.bg",
     "website": "https://www.bazar.bg/",
@@ -433,6 +615,59 @@
     "note": "The Canadian storefront of the eBay marketplace, where businesses hold public seller shops."
   },
   {
+    "id": "mp-cl-chileautos",
+    "name": "Chileautos",
+    "website": "https://www.chileautos.cl/",
+    "country": "chile",
+    "marketplaceType": "vehicles",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "active",
+    "note": "Chile's main vehicle marketplace, where dealers hold public dealer pages."
+  },
+  {
+    "id": "mp-cl-mercadolibre",
+    "name": "Mercado Libre Chile",
+    "website": "https://www.mercadolibre.cl/",
+    "country": "chile",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "vehicles"
+    ],
+    "operator": "Mercado Libre",
+    "note": "The dominant Chilean marketplace, where sellers hold public storefronts."
+  },
+  {
+    "id": "mp-cl-portalinmobiliario",
+    "name": "Portal Inmobiliario",
+    "website": "https://www.portalinmobiliario.com/",
+    "country": "chile",
+    "marketplaceType": "property",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "active",
+    "operator": "Mercado Libre",
+    "note": "Chile's main property marketplace, now operated within Mercado Libre."
+  },
+  {
+    "id": "mp-cl-yapo",
+    "name": "Yapo.cl",
+    "website": "https://www.yapo.cl/",
+    "country": "chile",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "property",
+      "vehicles"
+    ],
+    "note": "Chile's main classifieds marketplace."
+  },
+  {
     "id": "mp-cn-1688",
     "name": "1688",
     "website": "https://www.1688.com/",
@@ -518,6 +753,66 @@
     "costModel": "freemium",
     "currentStatus": "active",
     "note": "A major Chinese second-hand marketplace with authenticated resale."
+  },
+  {
+    "id": "mp-co-fincaraiz",
+    "name": "Fincaraíz",
+    "website": "https://www.fincaraiz.com.co/",
+    "country": "colombia",
+    "marketplaceType": "property",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "active",
+    "note": "Colombia's main property marketplace, where agents hold public listings."
+  },
+  {
+    "id": "mp-co-mercadolibre",
+    "name": "Mercado Libre Colombia",
+    "website": "https://www.mercadolibre.com.co/",
+    "country": "colombia",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "vehicles"
+    ],
+    "operator": "Mercado Libre",
+    "note": "The dominant Colombian marketplace, where sellers hold public storefronts."
+  },
+  {
+    "id": "mp-co-metrocuadrado",
+    "name": "Metrocuadrado",
+    "website": "https://www.metrocuadrado.com/",
+    "country": "colombia",
+    "marketplaceType": "property",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "active",
+    "note": "A major Colombian property marketplace where agents hold public listings."
+  },
+  {
+    "id": "mp-co-tucarro",
+    "name": "TuCarro",
+    "website": "https://www.tucarro.com/",
+    "country": "colombia",
+    "marketplaceType": "vehicles",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "active",
+    "operator": "Mercado Libre",
+    "note": "Colombia's main vehicle marketplace, where dealers hold public pages."
+  },
+  {
+    "id": "mp-co-elempleo",
+    "name": "elempleo",
+    "website": "https://www.elempleo.com/",
+    "country": "colombia",
+    "marketplaceType": "jobs",
+    "sellerTypes": "business",
+    "costModel": "paid",
+    "currentStatus": "active",
+    "note": "A major Colombian job marketplace where employers hold public company pages."
   },
   {
     "id": "mp-hr-njuskalo",
@@ -1310,6 +1605,80 @@
     "note": "Malta's main classifieds marketplace."
   },
   {
+    "id": "mp-mx-autocosmos",
+    "name": "Autocosmos México",
+    "website": "https://www.autocosmos.com.mx/",
+    "country": "mexico",
+    "marketplaceType": "vehicles",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "active",
+    "note": "A Mexican vehicle marketplace and information portal with dealer listings."
+  },
+  {
+    "id": "mp-mx-inmuebles24",
+    "name": "Inmuebles24",
+    "website": "https://www.inmuebles24.com/",
+    "country": "mexico",
+    "marketplaceType": "property",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "unknown",
+    "note": "Mexico's main property marketplace, which absorbed Segundamano's audience. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
+    "id": "mp-mx-kavak",
+    "name": "Kavak",
+    "website": "https://www.kavak.com/",
+    "country": "mexico",
+    "marketplaceType": "vehicles",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "note": "A Latin American used-vehicle marketplace originating in Mexico."
+  },
+  {
+    "id": "mp-mx-mercadolibre",
+    "name": "Mercado Libre México",
+    "website": "https://www.mercadolibre.com.mx/",
+    "country": "mexico",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "vehicles"
+    ],
+    "operator": "Mercado Libre",
+    "note": "The dominant Mexican marketplace, where sellers hold public storefronts."
+  },
+  {
+    "id": "mp-mx-seminuevos",
+    "name": "Seminuevos",
+    "website": "https://www.seminuevos.com/",
+    "country": "mexico",
+    "marketplaceType": "vehicles",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "active",
+    "note": "A Mexican used-vehicle marketplace where dealers hold public listings."
+  },
+  {
+    "id": "mp-mx-vivanuncios",
+    "name": "Vivanuncios",
+    "website": "https://www.vivanuncios.com.mx/",
+    "country": "mexico",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "unknown",
+    "alsoCovers": [
+      "property",
+      "vehicles"
+    ],
+    "note": "A major Mexican classifieds marketplace. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
     "id": "mp-md-999",
     "name": "999.md",
     "website": "https://www.999.md/",
@@ -1474,6 +1843,54 @@
     "costModel": "paid",
     "currentStatus": "active",
     "note": "Pakistan's main property marketplace, where agents hold public listings."
+  },
+  {
+    "id": "mp-pe-adondevivir",
+    "name": "A Dónde Vivir",
+    "website": "https://www.adondevivir.com/",
+    "country": "peru",
+    "marketplaceType": "property",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "unknown",
+    "note": "A major Peruvian property marketplace. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
+    "id": "mp-pe-mercadolibre",
+    "name": "Mercado Libre Perú",
+    "website": "https://www.mercadolibre.com.pe/",
+    "country": "peru",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "vehicles"
+    ],
+    "operator": "Mercado Libre",
+    "note": "The dominant Peruvian marketplace, where sellers hold public storefronts."
+  },
+  {
+    "id": "mp-pe-neoauto",
+    "name": "Neoauto",
+    "website": "https://www.neoauto.com/",
+    "country": "peru",
+    "marketplaceType": "vehicles",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "unknown",
+    "note": "Peru's main vehicle marketplace. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
+    "id": "mp-pe-urbania",
+    "name": "Urbania",
+    "website": "https://www.urbania.pe/",
+    "country": "peru",
+    "marketplaceType": "property",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "unknown",
+    "note": "Peru's main property marketplace. Live but behind a bot filter, so a browser check is needed."
   },
   {
     "id": "mp-ph-autodeal",
@@ -2730,6 +3147,32 @@
       "vehicles"
     ],
     "note": "The largest US auction and fixed-price marketplace, where businesses hold public seller shops."
+  },
+  {
+    "id": "mp-ve-mercadolibre",
+    "name": "Mercado Libre Venezuela",
+    "website": "https://www.mercadolibre.com.ve/",
+    "country": "venezuela",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "vehicles"
+    ],
+    "operator": "Mercado Libre",
+    "note": "The dominant Venezuelan marketplace, where sellers hold public storefronts."
+  },
+  {
+    "id": "mp-ve-tuinmueble",
+    "name": "TuInmueble",
+    "website": "https://www.tuinmueble.com/",
+    "country": "venezuela",
+    "marketplaceType": "property",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "active",
+    "note": "A Venezuelan property marketplace where agents hold public listings."
   },
   {
     "id": "mp-vn-alonhadat",

@@ -205,6 +205,21 @@ test('no row points at a marketplace that closed or was repurposed', () => {
   }
 });
 
+test('a marketplace that announced its own closure is never listed', () => {
+  // segundamano.mx answers 200 and the page says, in the operator's own words,
+  // "Segundamano ha sido dado de baja, dirígete a Inmuebles24". It was a named
+  // priority in the Latin America brief and it no longer exists; Inmuebles24,
+  // which absorbed its audience, is listed instead.
+  const CLOSED = ['segundamano.mx', 'recycler.com'];
+  const websites = ROWS.map((r) => r.website.toLowerCase());
+  for (const bad of CLOSED) {
+    assert.ok(!websites.some((w) => w.includes(bad)),
+      `${bad} states on its own page that it has closed`);
+  }
+  assert.ok(websites.some((w) => w.includes('inmuebles24.com')),
+    'the successor to Segundamano is missing, so the closure has no replacement');
+});
+
 test('no build-time network call was introduced', () => {
   const source = fs.readFileSync(path.join(ROOT, 'scripts/build-marketplaces.cjs'), 'utf8')
     + fs.readFileSync(path.join(ROOT, 'scripts/lib/mp-schema.cjs'), 'utf8');
