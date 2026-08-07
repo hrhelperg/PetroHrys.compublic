@@ -1,4 +1,15 @@
 ﻿id,name,website,platform_country,audience_geography,category,listing_action,cost,domain_rating,tier,priority,public_profile_available,submission_url,claim_url,best_for,limitations,last_verified,current_status
+ar-computrabajo,Computrabajo Argentina,https://ar.computrabajo.com/,argentina,latam,general-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,active
+ar-mercadolibre,Mercado Libre Argentina,https://www.mercadolibre.com.ar/,argentina,latam,general-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,active
+ar-pedidosya,PedidosYa Argentina,https://www.pedidosya.com.ar/,argentina,latam,local-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,unknown
+ar-paginasamarillas,Páginas Amarillas Argentina,https://www.paginasamarillas.com.ar/,argentina,country-specific,general-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
+ar-rappi,Rappi Argentina,https://www.rappi.com.ar/,argentina,latam,local-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,active
+ar-restorando,Restorando,https://www.restorando.com.ar/,argentina,latam,local-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
+ar-cylex,Cylex Argentina,https://www.cylex.com.ar/,argentina,country-specific,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
+ar-guialocal,GuiaLocal Argentina,https://www.guialocal.com.ar/,argentina,country-specific,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+ar-hotfrog,Hotfrog Argentina,https://www.hotfrog.com.ar/,argentina,country-specific,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+ar-laguiadelocio,La Guía del Ocio,https://www.laguiadelocio.com.ar/,argentina,latam,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+ar-opendi,Opendi Argentina,https://www.opendi.com.ar/,argentina,country-specific,general-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 au-aussieweb,AussieWeb Local Search,https://www.aussieweb.com.au/,australia,australia,local-business,create-and-claim,freemium,,tier1,P1,true,https://mylisting.aussieweb.com.au/add-listing.aspx,,Australian businesses wanting a genuinely free listing with a documented verification process behind it.,Most entries were not created by the businesses they describe. The operator states: “Most of the details on this site were found on publicly available internet sites.” An entry here is therefore not evidence that a business chose to be listed.,2026-08-06,active
 au-yellowpages,Yellow Pages Australia,https://www.yellowpages.com.au/,australia,australia,local-business,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,active
 au-hipages,hipages,https://www.hipages.com.au/,australia,australia,construction,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,active
@@ -45,11 +56,24 @@ be-infoisinfo,InfoIsInfo België,https://www.infoisinfo.be/,belgium,country-spec
 be-opendi,Opendi België,https://www.opendi.be/,belgium,country-specific,general-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 bz-belize-com,Belize.com,https://www.belize.com/,belize,country-specific,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 bz-travelbelize,Travel Belize,https://www.travelbelize.org/,belize,country-specific,local-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,unknown
+bo-mercadolibre,Mercado Libre Bolivia,https://www.mercadolibre.com.bo/,bolivia,latam,general-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,active
+bo-pedidosya,PedidosYa Bolivia,https://www.pedidosya.com.bo/,bolivia,latam,local-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,unknown
 br-apontador,Apontador,https://www.apontador.com.br/,brazil,latam,local-business,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,active
 br-guiamais,Guia Mais,https://www.guiamais.com.br/,brazil,latam,local-business,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,active
+br-buscja,Buscja,https://www.buscja.com/,brazil,latam,general-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
+br-doctoralia,Doctoralia Brasil,https://www.doctoralia.com.br/,brazil,country-specific,local-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
+br-getninjas,GetNinjas,https://www.getninjas.com.br/,brazil,country-specific,local-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
+br-mercadolivre,Mercado Livre,https://www.mercadolivre.com.br/,brazil,latam,general-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,active
+br-reclameaqui,Reclame Aqui,https://www.reclameaqui.com.br/,brazil,country-specific,review-sites,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,unknown
 br-solutudo,Solutudo,https://www.solutudo.com.br/,brazil,latam,local-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,unknown
+br-ifood,iFood,https://www.ifood.com.br/,brazil,latam,local-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,unknown
 br-cylex,Cylex Brasil,https://www.cylex.com.br/,brazil,latam,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
+br-encontraniteroi,Encontra Niterói,https://www.encontraniteroi.com.br/,brazil,regional,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+br-guiafacil,Guia Fácil,https://www.guiafacil.com/,brazil,latam,general-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 br-hotfrog,Hotfrog Brasil,https://www.hotfrog.com.br/,brazil,latam,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
+br-olx,OLX Brasil,https://www.olx.com.br/,brazil,latam,general-business,unknown,unknown,,tier1,P3,true,,,,,2026-08-06,unknown
+br-zoom,Zoom,https://www.zoom.com.br/,brazil,country-specific,general-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,unknown
+br-hagah,hagah,https://www.hagah.com.br/,brazil,latam,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 ca-yellowpages,YellowPages.ca,https://www.yellowpages.ca/,canada,canada,local-business,create,freemium,,tier1,P1,true,https://solutions.yp.ca/free-listing,,Canadian businesses wanting a listing in the country’s best-known commercial directory.,"The free listing is REQUESTED, not published. The operator’s wording is “REQUEST YOUR FREE ONLINE LISTING”, and what the free tier contains is not enumerated on that page.",2026-08-06,active
 ca-411,411.ca,https://www.411.ca/,canada,canada,local-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
 ca-canpages,Canpages,https://www.canpages.ca/,canada,canada,local-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,unknown
@@ -76,8 +100,25 @@ ca-used,Used.ca,https://www.usedvictoria.com/,canada,regional,general-business,u
 ca-weddingwire,WeddingWire Canada,https://www.weddingwire.ca/,canada,canada,local-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,unknown
 ca-zipleaf,ZipLeaf Canada,https://www.zipleaf.ca/,canada,canada,general-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 ca-n49,n49,https://www.n49.com/,canada,canada,local-business,create,freemium,,tier1,P3,true,https://www.n49.com/add-biz,,Canadian businesses wanting a free listing on a platform that documents its tiers and prices openly.,"The free listing is explicitly NOT verified. The operator lists “Not Verified” as a characteristic of the free tier, and sells verification as a paid upgrade, so a free entry here carries no verification of any kind.",2026-08-06,active
+cl-computrabajo,Computrabajo Chile,https://www.computrabajo.cl/,chile,latam,general-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,active
+cl-doctoralia,Doctoralia Chile,https://www.doctoralia.cl/,chile,country-specific,local-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
+cl-mercadolibre,Mercado Libre Chile,https://www.mercadolibre.cl/,chile,latam,general-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,active
+cl-amarillas,Páginas Amarillas Chile,https://www.amarillas.cl/,chile,country-specific,general-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
+cl-cylex,Cylex Chile,https://www.cylex.cl/,chile,country-specific,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
+cl-guialocal,GuiaLocal Chile,https://www.guialocal.cl/,chile,country-specific,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+cl-hotfrog,Hotfrog Chile,https://www.hotfrog.cl/,chile,country-specific,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+cl-opendi,Opendi Chile,https://www.opendi.cl/,chile,country-specific,general-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+cl-yapo,Yapo.cl,https://www.yapo.cl/,chile,country-specific,general-business,unknown,unknown,,tier1,P3,true,,,,,2026-08-06,active
 cn-china-cn,China.cn,https://www.china.cn/,china,china,manufacturing,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 cn-gongchang,World Factory Network,https://www.gongchang.com/,china,china,manufacturing,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
+co-computrabajo,Computrabajo Colombia,https://co.computrabajo.com/,colombia,latam,general-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,active
+co-doctoralia,Doctoralia Colombia,https://www.doctoralia.co/,colombia,country-specific,local-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
+co-mercadolibre,Mercado Libre Colombia,https://www.mercadolibre.com.co/,colombia,latam,general-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,active
+co-paginasamarillas,Páginas Amarillas Colombia,https://www.paginasamarillas.com.co/,colombia,country-specific,general-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
+co-rappi,Rappi Colombia,https://www.rappi.com.co/,colombia,latam,local-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,active
+co-cylex,Cylex Colombia,https://www.cylex.com.co/,colombia,country-specific,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
+co-guialocal,GuiaLocal Colombia,https://www.guialocal.com.co/,colombia,country-specific,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+co-hotfrog,Hotfrog Colombia,https://www.hotfrog.com.co/,colombia,country-specific,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 cr-govisitcostarica,Go Visit Costa Rica,https://www.govisitcostarica.co.cr/,costa-rica,country-specific,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 cr-visitcostarica,Visit Costa Rica,https://www.visitcostarica.com/,costa-rica,country-specific,local-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 cz-firmy-cz,Firmy.cz,https://www.firmy.cz/,czech-republic,country-specific,local-business,create,free,,tier1,P1,true,https://admin.firmy.cz/pridat-firmu-zaciname/1,,"Czech businesses wanting the single most visible domestic local citation, tied to the country’s own search engine.","Creating an entry is confirmed; claiming an existing third-party entry is not documented, so no claim flow is asserted.",2026-08-06,active
@@ -109,6 +150,8 @@ dk-misterwhat,MisterWhat Danmark,https://www.misterwhat.dk/,denmark,country-spec
 dk-opendi,Opendi Danmark,https://www.opendi.dk/,denmark,nordics,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 do-paginasamarillas,Páginas Amarillas República Dominicana,https://www.paginasamarillas.com.do/,dominican-republic,country-specific,general-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
 do-godominicanrepublic,Go Dominican Republic,https://www.godominicanrepublic.com/,dominican-republic,country-specific,local-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
+ec-computrabajo,Computrabajo Ecuador,https://ec.computrabajo.com/,ecuador,latam,general-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,active
+ec-mercadolibre,Mercado Libre Ecuador,https://www.mercadolibre.com.ec/,ecuador,latam,general-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,active
 sv-paginasamarillas,Páginas Amarillas El Salvador,https://www.paginasamarillas.com.sv/,el-salvador,country-specific,general-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
 sv-elsalvador-travel,El Salvador Travel,https://www.elsalvador.travel/,el-salvador,country-specific,local-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 fi-finder,Finder.fi,https://www.finder.fi/,finland,nordics,general-business,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,active
@@ -609,6 +652,7 @@ my-businesslist,BusinessList Malaysia,https://www.businesslist.my/,malaysia,coun
 my-lazada,Lazada Malaysia,https://www.lazada.com.my/,malaysia,asia,general-business,unknown,unknown,,tier1,P3,true,,,,,2026-08-06,active
 my-mudah,Mudah.my,https://www.mudah.my/,malaysia,country-specific,general-business,unknown,unknown,,tier1,P3,true,,,,,2026-08-06,active
 mx-seccionamarilla,Sección Amarilla,https://www.seccionamarilla.com.mx/,mexico,latam,local-business,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,active
+mx-computrabajo,Computrabajo México,https://mx.computrabajo.com/,mexico,latam,general-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,active
 mx-doctoralia,Doctoralia México,https://www.doctoralia.com.mx/,mexico,country-specific,local-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
 mx-mercadolibre,Mercado Libre México,https://www.mercadolibre.com.mx/,mexico,latam,general-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,active
 mx-yaloencontre,¡Ya lo Encontré!,https://www.yaloencontre.mx/,mexico,country-specific,local-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
@@ -666,6 +710,15 @@ no-opendi,Opendi Norge,https://www.opendi.no/,norway,nordics,local-business,unkn
 pk-businesslist,BusinessList Pakistan,https://www.businesslist.pk/,pakistan,country-specific,general-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
 pa-paginasamarillas,Páginas Amarillas Panamá,https://www.paginasamarillas.com.pa/,panama,country-specific,general-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
 pa-visitpanama,Visit Panama,https://www.visitpanama.com/,panama,country-specific,local-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
+py-mercadolibre,Mercado Libre Paraguay,https://www.mercadolibre.com.py/,paraguay,latam,general-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,active
+pe-computrabajo,Computrabajo Perú,https://pe.computrabajo.com/,peru,latam,general-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,active
+pe-doctoralia,Doctoralia Perú,https://www.doctoralia.pe/,peru,country-specific,local-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
+pe-mercadolibre,Mercado Libre Perú,https://www.mercadolibre.com.pe/,peru,latam,general-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,active
+pe-pedidosya,PedidosYa Perú,https://www.pedidosya.com.pe/,peru,latam,local-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,unknown
+pe-paginasamarillas,Páginas Amarillas Perú,https://www.paginasamarillas.com.pe/,peru,country-specific,general-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
+pe-rappi,Rappi Perú,https://www.rappi.com.pe/,peru,latam,local-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,active
+pe-deperu,DePeru,https://www.deperu.com/,peru,country-specific,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+pe-hotfrog,Hotfrog Perú,https://www.hotfrog.com.pe/,peru,country-specific,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 ph-jobstreet,JobStreet Philippines,https://www.jobstreet.com.ph/,philippines,country-specific,general-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,unknown
 ph-foodpanda,foodpanda Philippines,https://www.foodpanda.ph/,philippines,country-specific,local-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,unknown
 ph-businesslist,BusinessList Philippines,https://www.businesslist.ph/,philippines,country-specific,general-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
@@ -959,6 +1012,9 @@ us-yellowpagecity,YellowPageCity,https://www.yellowpagecity.com/,united-states,u
 us-yellowbook,Yellowbook,https://www.yellowbook.com/,united-states,united-states,local-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 us-zola-vendors,Zola Wedding Vendors,https://www.zola.com/wedding-vendors,united-states,united-states,local-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 us-elocal,eLocal,https://www.elocal.com/,united-states,united-states,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+uy-mercadolibre,Mercado Libre Uruguay,https://www.mercadolibre.com.uy/,uruguay,latam,general-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,active
+uy-pedidosya,PedidosYa Uruguay,https://www.pedidosya.com.uy/,uruguay,latam,local-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,unknown
+ve-mercadolibre,Mercado Libre Venezuela,https://www.mercadolibre.com.ve/,venezuela,latam,general-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,active
 vn-foody,Foody,https://www.foody.vn/,vietnam,country-specific,local-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,active
 vn-yellowpages,Trang Vàng Việt Nam,https://www.yellowpages.vn/,vietnam,country-specific,general-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
 vn-chotot,Chợ Tốt,https://www.chotot.com/,vietnam,country-specific,general-business,unknown,unknown,,tier1,P3,true,,,,,2026-08-06,active

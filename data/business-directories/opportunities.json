@@ -16038,5 +16038,1013 @@
     "submissionModel": "unknown",
     "note": "A Southeast Asian startup ecosystem directory with public company profiles. Live but behind a bot filter, so a browser check is needed.",
     "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "br-buscja",
+    "name": "Buscja",
+    "website": "https://www.buscja.com/",
+    "country": "brazil",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "latam"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Brazilian company finder, formerly published as Telelistas.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "br-encontraniteroi",
+    "name": "Encontra Niterói",
+    "website": "https://www.encontraniteroi.com.br/",
+    "country": "brazil",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "regional"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A regional Brazilian city guide listing local businesses in Niterói.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "br-hagah",
+    "name": "hagah",
+    "website": "https://www.hagah.com.br/",
+    "country": "brazil",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "latam"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Brazilian city guide listing restaurants, shops and services.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "br-guiafacil",
+    "name": "Guia Fácil",
+    "website": "https://www.guiafacil.com/",
+    "country": "brazil",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "latam"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Brazilian supplier and services directory covering the whole country.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "br-mercadolivre",
+    "name": "Mercado Livre",
+    "website": "https://www.mercadolivre.com.br/",
+    "country": "brazil",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "latam"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The dominant Brazilian marketplace, where sellers hold public storefronts.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "br-olx",
+    "name": "OLX Brasil",
+    "website": "https://www.olx.com.br/",
+    "country": "brazil",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "latam"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The main Brazilian classifieds marketplace, with professional seller sections. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "br-ifood",
+    "name": "iFood",
+    "website": "https://www.ifood.com.br/",
+    "country": "brazil",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "latam"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The dominant Brazilian food delivery platform, where restaurants hold public pages. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "br-getninjas",
+    "name": "GetNinjas",
+    "website": "https://www.getninjas.com.br/",
+    "country": "brazil",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Brazilian services marketplace where professionals hold public profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "br-doctoralia",
+    "name": "Doctoralia Brasil",
+    "website": "https://www.doctoralia.com.br/",
+    "country": "brazil",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Brazilian arm of a healthcare booking platform where practitioners hold public profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "br-zoom",
+    "name": "Zoom",
+    "website": "https://www.zoom.com.br/",
+    "country": "brazil",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Brazilian price comparison service where merchants hold public store pages. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "br-reclameaqui",
+    "name": "Reclame Aqui",
+    "website": "https://www.reclameaqui.com.br/",
+    "country": "brazil",
+    "category": "review-sites",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The main Brazilian consumer complaint and review platform, where companies hold public profiles. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ar-paginasamarillas",
+    "name": "Páginas Amarillas Argentina",
+    "website": "https://www.paginasamarillas.com.ar/",
+    "country": "argentina",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Argentine company directory of the Páginas Amarillas network.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ar-mercadolibre",
+    "name": "Mercado Libre Argentina",
+    "website": "https://www.mercadolibre.com.ar/",
+    "country": "argentina",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "latam"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Argentine storefront of the dominant Latin American marketplace, where sellers hold public stores.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ar-pedidosya",
+    "name": "PedidosYa Argentina",
+    "website": "https://www.pedidosya.com.ar/",
+    "country": "argentina",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "latam"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Argentine arm of a Latin American delivery platform where restaurants hold public pages. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "cl-amarillas",
+    "name": "Páginas Amarillas Chile",
+    "website": "https://www.amarillas.cl/",
+    "country": "chile",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Chilean company directory of the Páginas Amarillas network.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "cl-mercadolibre",
+    "name": "Mercado Libre Chile",
+    "website": "https://www.mercadolibre.cl/",
+    "country": "chile",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "latam"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Chilean storefront of the dominant Latin American marketplace, where sellers hold public stores.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "cl-yapo",
+    "name": "Yapo.cl",
+    "website": "https://www.yapo.cl/",
+    "country": "chile",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The main Chilean classifieds marketplace, with professional seller sections.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "cl-doctoralia",
+    "name": "Doctoralia Chile",
+    "website": "https://www.doctoralia.cl/",
+    "country": "chile",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Chilean arm of a healthcare booking platform where practitioners hold public profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "co-rappi",
+    "name": "Rappi Colombia",
+    "website": "https://www.rappi.com.co/",
+    "country": "colombia",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "latam"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Colombian arm of a Latin American delivery marketplace where partner shops hold public pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "co-paginasamarillas",
+    "name": "Páginas Amarillas Colombia",
+    "website": "https://www.paginasamarillas.com.co/",
+    "country": "colombia",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Colombian company directory of the Páginas Amarillas network.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "co-computrabajo",
+    "name": "Computrabajo Colombia",
+    "website": "https://co.computrabajo.com/",
+    "country": "colombia",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "latam"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A major Latin American job board where employers hold public company pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "co-mercadolibre",
+    "name": "Mercado Libre Colombia",
+    "website": "https://www.mercadolibre.com.co/",
+    "country": "colombia",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "latam"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Colombian storefront of the dominant Latin American marketplace, where sellers hold public stores.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "co-doctoralia",
+    "name": "Doctoralia Colombia",
+    "website": "https://www.doctoralia.co/",
+    "country": "colombia",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Colombian arm of a healthcare booking platform where practitioners hold public profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "pe-paginasamarillas",
+    "name": "Páginas Amarillas Perú",
+    "website": "https://www.paginasamarillas.com.pe/",
+    "country": "peru",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Peruvian company directory of the Páginas Amarillas network.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "pe-mercadolibre",
+    "name": "Mercado Libre Perú",
+    "website": "https://www.mercadolibre.com.pe/",
+    "country": "peru",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "latam"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Peruvian storefront of the dominant Latin American marketplace, where sellers hold public stores.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "pe-doctoralia",
+    "name": "Doctoralia Perú",
+    "website": "https://www.doctoralia.pe/",
+    "country": "peru",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Peruvian arm of a healthcare booking platform where practitioners hold public profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "uy-mercadolibre",
+    "name": "Mercado Libre Uruguay",
+    "website": "https://www.mercadolibre.com.uy/",
+    "country": "uruguay",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "latam"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Uruguayan storefront of the dominant Latin American marketplace, where sellers hold public stores.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ve-mercadolibre",
+    "name": "Mercado Libre Venezuela",
+    "website": "https://www.mercadolibre.com.ve/",
+    "country": "venezuela",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "latam"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Venezuelan storefront of the dominant Latin American marketplace, where sellers hold public stores.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ec-mercadolibre",
+    "name": "Mercado Libre Ecuador",
+    "website": "https://www.mercadolibre.com.ec/",
+    "country": "ecuador",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "latam"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Ecuadorian storefront of the dominant Latin American marketplace, where sellers hold public stores.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "bo-mercadolibre",
+    "name": "Mercado Libre Bolivia",
+    "website": "https://www.mercadolibre.com.bo/",
+    "country": "bolivia",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "latam"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Bolivian storefront of the dominant Latin American marketplace, where sellers hold public stores.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ar-computrabajo",
+    "name": "Computrabajo Argentina",
+    "website": "https://ar.computrabajo.com/",
+    "country": "argentina",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "latam"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Argentine arm of a major Latin American job board where employers hold public company pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "mx-computrabajo",
+    "name": "Computrabajo México",
+    "website": "https://mx.computrabajo.com/",
+    "country": "mexico",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "latam"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Mexican arm of a major Latin American job board where employers hold public company pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "pe-computrabajo",
+    "name": "Computrabajo Perú",
+    "website": "https://pe.computrabajo.com/",
+    "country": "peru",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "latam"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Peruvian arm of a major Latin American job board where employers hold public company pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "cl-computrabajo",
+    "name": "Computrabajo Chile",
+    "website": "https://www.computrabajo.cl/",
+    "country": "chile",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "latam"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Chilean arm of a major Latin American job board where employers hold public company pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ec-computrabajo",
+    "name": "Computrabajo Ecuador",
+    "website": "https://ec.computrabajo.com/",
+    "country": "ecuador",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "latam"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Ecuadorian arm of a major Latin American job board where employers hold public company pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "uy-pedidosya",
+    "name": "PedidosYa Uruguay",
+    "website": "https://www.pedidosya.com.uy/",
+    "country": "uruguay",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "latam"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Uruguayan arm of a Latin American delivery platform where restaurants hold public pages. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "bo-pedidosya",
+    "name": "PedidosYa Bolivia",
+    "website": "https://www.pedidosya.com.bo/",
+    "country": "bolivia",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "latam"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Bolivian arm of a Latin American delivery platform where restaurants hold public pages. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "pe-pedidosya",
+    "name": "PedidosYa Perú",
+    "website": "https://www.pedidosya.com.pe/",
+    "country": "peru",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "latam"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Peruvian arm of a Latin American delivery platform where restaurants hold public pages. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "pe-rappi",
+    "name": "Rappi Perú",
+    "website": "https://www.rappi.com.pe/",
+    "country": "peru",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "latam"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Peruvian arm of a Latin American delivery marketplace where partner shops hold public pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ar-rappi",
+    "name": "Rappi Argentina",
+    "website": "https://www.rappi.com.ar/",
+    "country": "argentina",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "latam"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Argentine arm of a Latin American delivery marketplace where partner shops hold public pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "cl-hotfrog",
+    "name": "Hotfrog Chile",
+    "website": "https://www.hotfrog.cl/",
+    "country": "chile",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Chilean arm of an international directory network.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ar-hotfrog",
+    "name": "Hotfrog Argentina",
+    "website": "https://www.hotfrog.com.ar/",
+    "country": "argentina",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Argentine arm of an international directory network.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "co-hotfrog",
+    "name": "Hotfrog Colombia",
+    "website": "https://www.hotfrog.com.co/",
+    "country": "colombia",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Colombian arm of an international directory network.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "pe-hotfrog",
+    "name": "Hotfrog Perú",
+    "website": "https://www.hotfrog.com.pe/",
+    "country": "peru",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Peruvian arm of an international directory network.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ar-cylex",
+    "name": "Cylex Argentina",
+    "website": "https://www.cylex.com.ar/",
+    "country": "argentina",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Argentine arm of an international business directory network. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "cl-cylex",
+    "name": "Cylex Chile",
+    "website": "https://www.cylex.cl/",
+    "country": "chile",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Chilean arm of an international business directory network. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "co-cylex",
+    "name": "Cylex Colombia",
+    "website": "https://www.cylex.com.co/",
+    "country": "colombia",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Colombian arm of an international business directory network. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ar-opendi",
+    "name": "Opendi Argentina",
+    "website": "https://www.opendi.com.ar/",
+    "country": "argentina",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Argentine arm of an international business pages and review network.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "cl-opendi",
+    "name": "Opendi Chile",
+    "website": "https://www.opendi.cl/",
+    "country": "chile",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Chilean arm of an international business pages and review network.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ar-guialocal",
+    "name": "GuiaLocal Argentina",
+    "website": "https://www.guialocal.com.ar/",
+    "country": "argentina",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Argentine arm of a Latin American local business guide.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "co-guialocal",
+    "name": "GuiaLocal Colombia",
+    "website": "https://www.guialocal.com.co/",
+    "country": "colombia",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Colombian arm of a Latin American local business guide.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "cl-guialocal",
+    "name": "GuiaLocal Chile",
+    "website": "https://www.guialocal.cl/",
+    "country": "chile",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Chilean arm of a Latin American local business guide.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ar-laguiadelocio",
+    "name": "La Guía del Ocio",
+    "website": "https://www.laguiadelocio.com.ar/",
+    "country": "argentina",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "latam"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Latin American events and venue guide listing cultural venues and organisers.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ar-restorando",
+    "name": "Restorando",
+    "website": "https://www.restorando.com.ar/",
+    "country": "argentina",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "latam"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An Argentine restaurant reservation platform where venues hold public pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "pe-deperu",
+    "name": "DePeru",
+    "website": "https://www.deperu.com/",
+    "country": "peru",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Peruvian tourism and local business information portal.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "py-mercadolibre",
+    "name": "Mercado Libre Paraguay",
+    "website": "https://www.mercadolibre.com.py/",
+    "country": "paraguay",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "latam"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Paraguayan storefront of the dominant Latin American marketplace, where sellers hold public stores.",
+    "lastVerified": "2026-08-06"
   }
 ]
