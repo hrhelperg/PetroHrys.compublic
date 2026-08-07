@@ -26064,5 +26064,779 @@
     "submissionModel": "unknown",
     "note": "The Georgian chamber of commerce and industry, whose member companies appear in a directory.",
     "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-microsoft-partners",
+    "name": "Microsoft Find a Partner",
+    "website": "https://partner.microsoft.com/en-us/partnership/find-a-partner",
+    "country": "global",
+    "category": "software",
+    "tier": "tier1",
+    "priority": "P1",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "Microsoft's public partner finder, where partner companies hold searchable profiles. Listing requires partner-program membership.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-aws-partners",
+    "name": "AWS Partner Solutions Finder",
+    "website": "https://partners.amazonaws.com/",
+    "country": "global",
+    "category": "software",
+    "tier": "tier1",
+    "priority": "P1",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "Amazon Web Services' public partner directory, where partner companies hold searchable profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-cisco-partners",
+    "name": "Cisco Partner Locator",
+    "website": "https://www.cisco.com/c/en/us/partners/partner-locator.html",
+    "country": "global",
+    "category": "software",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "Cisco's public partner locator, where partner companies hold searchable profiles. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-ibm-partners",
+    "name": "IBM Partner Finder",
+    "website": "https://www.ibm.com/partnerplus/directory",
+    "country": "global",
+    "category": "software",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "IBM's public partner finder, where partner companies hold searchable profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-odoo-partners",
+    "name": "Odoo Partners",
+    "website": "https://www.odoo.com/partners",
+    "country": "global",
+    "category": "software",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "Odoo's public reseller and implementation partner directory with searchable company pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-elastic-partners",
+    "name": "Elastic Find a Partner",
+    "website": "https://www.elastic.co/partners/find-a-partner",
+    "country": "global",
+    "category": "software",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "Elastic's public partner directory with searchable partner company profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-hashicorp-partners",
+    "name": "HashiCorp Find a Partner",
+    "website": "https://www.hashicorp.com/partners/find-a-partner",
+    "country": "global",
+    "category": "software",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "HashiCorp's public partner directory with searchable partner profiles. Live but behind a security checkpoint, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-gitlab-partners",
+    "name": "GitLab Ecosystem Partners",
+    "website": "https://partners.gitlab.com/",
+    "country": "global",
+    "category": "software",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "GitLab's public ecosystem partner directory with searchable partner profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-linuxfoundation",
+    "name": "Linux Foundation Members",
+    "website": "https://www.linuxfoundation.org/members",
+    "country": "global",
+    "category": "industry-associations",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Linux Foundation member organisation directory. Listing requires membership.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-cncf-members",
+    "name": "CNCF Members",
+    "website": "https://www.cncf.io/about/members/",
+    "country": "global",
+    "category": "industry-associations",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Cloud Native Computing Foundation member organisation directory. Listing requires membership.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-eclipse-members",
+    "name": "Eclipse Foundation Members",
+    "website": "https://www.eclipse.org/membership/explore-membership/",
+    "country": "global",
+    "category": "industry-associations",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Eclipse Foundation member organisation directory. Listing requires membership.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-openjsf-members",
+    "name": "OpenJS Foundation Members",
+    "website": "https://openjsf.org/about/members",
+    "country": "global",
+    "category": "industry-associations",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The OpenJS Foundation member organisation directory. Listing requires membership.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-psf-sponsors",
+    "name": "Python Software Foundation Sponsors",
+    "website": "https://www.python.org/psf/sponsors/",
+    "country": "global",
+    "category": "industry-associations",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Python Software Foundation sponsor organisation listing. Listing requires sponsorship.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-rustfoundation-members",
+    "name": "Rust Foundation Members",
+    "website": "https://rustfoundation.org/members/",
+    "country": "global",
+    "category": "industry-associations",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Rust Foundation member organisation directory. Listing requires membership.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-openinfra-members",
+    "name": "OpenInfra Foundation Members",
+    "website": "https://openinfra.org/members/",
+    "country": "global",
+    "category": "industry-associations",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Open Infrastructure Foundation supporting organisation directory. Listing requires membership.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-redhat-catalog",
+    "name": "Red Hat Ecosystem Catalog",
+    "website": "https://catalog.redhat.com/",
+    "country": "global",
+    "category": "software",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "Red Hat's public ecosystem catalogue, where certified partners and products hold searchable pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-databricks-partners",
+    "name": "Databricks Partner Directory",
+    "website": "https://www.databricks.com/company/partners/consulting-and-si",
+    "country": "global",
+    "category": "software",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "Databricks' public consulting and systems integrator partner directory with searchable profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-fortinet-partners",
+    "name": "Fortinet Partner Locator",
+    "website": "https://www.fortinet.com/partners/partner-locator",
+    "country": "global",
+    "category": "software",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "Fortinet's public partner locator with searchable partner company profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-nutanix-partners",
+    "name": "Nutanix Find a Partner",
+    "website": "https://www.nutanix.com/partners/find-a-partner",
+    "country": "global",
+    "category": "software",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "Nutanix's public partner directory with searchable partner profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-snowflake-partners",
+    "name": "Snowflake Partners",
+    "website": "https://www.snowflake.com/partners/",
+    "country": "global",
+    "category": "software",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "Snowflake's public partner directory with searchable partner company profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-stripe-partner-directory",
+    "name": "Stripe Partner Directory",
+    "website": "https://stripe.partners/",
+    "country": "global",
+    "category": "software",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "Stripe's public partner ecosystem directory with searchable partner profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-segment-catalog",
+    "name": "Segment Catalog",
+    "website": "https://www.segment.com/catalog/",
+    "country": "global",
+    "category": "software",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "Segment's public integration catalogue, where partner products hold searchable pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-intel-partners",
+    "name": "Intel Find a Partner",
+    "website": "https://www.intel.com/content/www/us/en/partner/find-a-partner.html",
+    "country": "global",
+    "category": "software",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "Intel's public partner directory with searchable partner profiles. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-fiata",
+    "name": "FIATA",
+    "website": "https://www.fiata.org/",
+    "country": "global",
+    "category": "industry-associations",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The international freight forwarders federation, whose member companies appear in a searchable directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-jctrans",
+    "name": "JCtrans",
+    "website": "https://www.jctrans.com/",
+    "country": "global",
+    "category": "industry-associations",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An international freight forwarder network where member companies hold public profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-wcaworld",
+    "name": "WCA World",
+    "website": "https://www.wcaworld.com/",
+    "country": "global",
+    "category": "industry-associations",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The largest independent logistics network, where member companies hold searchable profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-iata",
+    "name": "IATA",
+    "website": "https://www.iata.org/",
+    "country": "global",
+    "category": "industry-associations",
+    "tier": "tier1",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The international air transport association, whose member airlines and accredited agents appear in public directories.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-worldchambers",
+    "name": "World Chambers Network",
+    "website": "https://www.worldchambers.com/",
+    "country": "global",
+    "category": "chambers-of-commerce",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An international chambers of commerce portal carrying member business listings.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "uk-techuk",
+    "name": "techUK",
+    "website": "https://www.techuk.org/",
+    "country": "united-kingdom",
+    "category": "industry-associations",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "united-kingdom"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The UK technology trade association, whose member companies appear in a searchable directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-digitaleurope",
+    "name": "DIGITALEUROPE",
+    "website": "https://www.digitaleurope.org/",
+    "country": "global",
+    "category": "industry-associations",
+    "tier": "tier1",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "europe"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The European digital technology association, whose member companies appear in a directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-ecommerce-europe",
+    "name": "Ecommerce Europe",
+    "website": "https://www.ecommerce-europe.eu/",
+    "country": "global",
+    "category": "industry-associations",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "europe"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The European e-commerce association, whose members appear in a directory. Rejects automated requests, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-nam",
+    "name": "National Association of Manufacturers",
+    "website": "https://www.nam.org/",
+    "country": "united-states",
+    "category": "industry-associations",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The US manufacturers association, whose member companies appear in a directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-iafcertsearch",
+    "name": "IAF CertSearch",
+    "website": "https://www.iafcertsearch.org/",
+    "country": "global",
+    "category": "industry-associations",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The global database of accredited management system certifications, where certified organisations hold searchable public entries.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-bcorporation",
+    "name": "B Corp Directory",
+    "website": "https://www.bcorporation.net/en-us/find-a-b-corp/",
+    "country": "global",
+    "category": "industry-associations",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The certified B Corporation directory, where certified companies hold searchable public profiles. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-partnershiponai",
+    "name": "Partnership on AI",
+    "website": "https://www.partnershiponai.org/partners/",
+    "country": "global",
+    "category": "ai",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Partnership on AI partner index, where member organisations hold public entries.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-mlcommons",
+    "name": "MLCommons",
+    "website": "https://www.mlcommons.org/",
+    "country": "global",
+    "category": "ai",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The MLCommons member organisation listing. Listing requires membership.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-eu-robotics",
+    "name": "euRobotics",
+    "website": "https://www.eu-robotics.net/",
+    "country": "global",
+    "category": "industry-associations",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "europe"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The European robotics association, whose member organisations appear in a searchable directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-cairne",
+    "name": "CAIRNE",
+    "website": "https://cairne.eu/",
+    "country": "global",
+    "category": "ai",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "europe"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The European confederation of AI laboratories, whose member groups appear in a public directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-sgs-certified",
+    "name": "SGS Certified Clients",
+    "website": "https://www.sgs.com/en/certified-clients-and-products",
+    "country": "global",
+    "category": "industry-associations",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "SGS's certified client and product directory, where certified companies hold public entries. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-tuvsud-certified",
+    "name": "TÜV SÜD Certified Clients",
+    "website": "https://www.tuvsud.com/en/services/certified-clients",
+    "country": "global",
+    "category": "industry-associations",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "TÜV SÜD's certified client directory, where certified companies hold public entries. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-dnv-certified",
+    "name": "DNV Certified Client Directory",
+    "website": "https://www.dnv.com/services/certified-client-directory",
+    "country": "global",
+    "category": "industry-associations",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "DNV's certified client directory, where certified companies hold public entries. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-nsf-certified",
+    "name": "NSF Certified Products and Systems",
+    "website": "https://www.nsf.org/certified-products-systems",
+    "country": "global",
+    "category": "industry-associations",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "NSF's certified products and systems listings, where certified companies hold public entries. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-iatf",
+    "name": "IATF Global Oversight",
+    "website": "https://www.iatfglobaloversight.org/",
+    "country": "global",
+    "category": "industry-associations",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The IATF 16949 certified site database for automotive suppliers. Rejects automated requests, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
   }
 ]
