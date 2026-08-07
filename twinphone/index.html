@@ -17,7 +17,7 @@
   <meta name="msvalidate.01" content="PASTE_YOUR_BING_VERIFICATION_CODE_HERE">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TwinPhone — Virtual Phone Numbers in 145+ Countries | Petro Hrys</title>
-    <meta name="description" content="Get a real local phone number in 145+ countries. Browser-based encrypted calls from $0.02/min. No app install, no contracts, free trial included.">
+    <meta name="description" content="Call 145+ countries from your browser from $0.02/min, rent virtual numbers and receive SMS. Twin Phone Enterprise adds a shared team line with call logging and per-person analytics. iOS app available.">
     <meta name="keywords" content="virtual phone number, international calling, local number, business phone, web-based calling">
     <link rel="canonical" href="https://www.petrohrys.com/twinphone/">
     <meta property="og:title" content="TwinPhone — Virtual Phone Numbers in 145+ Countries">
@@ -601,6 +601,33 @@
         }
 
         /* Related Tools */
+
+        /* Enterprise, business use cases and app availability. Reuses the page's
+           existing card and grid conventions; no new design system. */
+        .enterprise { padding: 80px 20px; background: #fff; }
+        .enterprise h2, .biz-cases h2, .app-availability h2 { font-size: 2rem; text-align: center; margin-bottom: 12px; }
+        .enterprise .lede, .biz-cases .lede, .app-availability .lede {
+            text-align: center; max-width: 720px; margin: 0 auto 40px; color: #555; }
+        .enterprise-grid, .biz-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px; max-width: 1100px; margin: 0 auto; }
+        .enterprise-card, .biz-card {
+            border: 1px solid #e5e5e5; border-radius: 10px; padding: 22px; background: #fafafa; }
+        .enterprise-card h3, .biz-card h3 { font-size: 1.05rem; margin-bottom: 8px; }
+        .enterprise-card p, .biz-card p { color: #555; font-size: 0.95rem; line-height: 1.55; }
+        .app-availability { padding: 70px 20px; background: #f7f7f8; }
+        .app-links { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
+        .app-link {
+            display: inline-flex; flex-direction: column; gap: 2px; padding: 14px 26px;
+            border-radius: 10px; text-decoration: none; border: 1px solid #d8d8d8; background: #fff; }
+        .app-link strong { font-size: 1rem; color: #111; }
+        .app-link span { font-size: 0.85rem; color: #666; }
+        .app-link--soon { opacity: 0.72; cursor: default; }
+        @media (max-width: 768px) {
+            .enterprise h2, .biz-cases h2, .app-availability h2 { font-size: 1.5rem; }
+            .app-links { flex-direction: column; align-items: stretch; }
+            .app-link { text-align: center; }
+        }
         .related-tools {
             margin: 4rem 0;
         }
@@ -867,7 +894,8 @@
             <div class="nav-links">
                 <a href="#features">Features</a>
                 <a href="#pricing">Pricing</a>
-                <a href="#use-cases">Use Cases</a>
+                <a href="#enterprise">Enterprise</a>
+                <a href="#apps">Apps</a>
                 <a href="#faq">FAQ</a>
             </div>
         </div>
@@ -995,6 +1023,99 @@
         </section>
 
         <!-- Use Cases -->
+        <section class="enterprise" id="enterprise">
+            <h2>Twin Phone Enterprise</h2>
+            <p class="lede">A shared cloud phone for a whole team, at <a href="https://enterprise.twin-phone.com" rel="noopener">enterprise.twin-phone.com</a>. One number the company answers, with every call logged against it.</p>
+            <div class="enterprise-grid">
+                <div class="enterprise-card">
+                    <h3>One line, the whole team</h3>
+                    <p>A single business number that any member of the team can answer, so a caller reaches the company rather than one person's handset.</p>
+                </div>
+                <div class="enterprise-card">
+                    <h3>Your number, or a new one</h3>
+                    <p>Bring an existing number across or take a new US or Canada number. Numbers on the enterprise plan cover the US and Canada.</p>
+                </div>
+                <div class="enterprise-card">
+                    <h3>Every call kept</h3>
+                    <p>Calls are recorded and stored against the contact, so what was actually said is available afterwards rather than a note about it.</p>
+                </div>
+                <div class="enterprise-card">
+                    <h3>Call analytics per person</h3>
+                    <p>See call volume and spend broken down by team member, so the cost of the phone line is attributable rather than a single monthly figure.</p>
+                </div>
+                <div class="enterprise-card">
+                    <h3>One contact list and history</h3>
+                    <p>Contacts and call history are shared across the team, so a colleague picking up a returning caller can see the previous conversation.</p>
+                </div>
+                <div class="enterprise-card">
+                    <h3>Carrier infrastructure</h3>
+                    <p>Calls run over Twilio and Telnyx carrier networks rather than a consumer VoIP relay.</p>
+                </div>
+                <div class="enterprise-card">
+                    <h3>No subscription, no per-seat fee</h3>
+                    <p>Adding a colleague does not add a licence cost. You pay for the calls you make, not for the number of people who can make them.</p>
+                </div>
+                <div class="enterprise-card">
+                    <h3>Works from anywhere</h3>
+                    <p>The line runs in a browser, so a distributed team needs no desk phones, no PBX hardware and no office to route through.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="biz-cases" id="business-use-cases">
+            <h2>How businesses use it</h2>
+            <p class="lede">The shared-line model suits teams that make or take a high volume of calls, particularly across borders. These are the sectors the enterprise product is built around.</p>
+            <div class="biz-grid">
+                <div class="biz-card">
+                    <h3>Outbound sales and lead generation</h3>
+                    <p>A sales team dialling from one shared line, with each call logged against the contact and spend visible per representative. Local numbers in the markets you call tend to be answered more often than unfamiliar international ones.</p>
+                </div>
+                <div class="biz-card">
+                    <h3>Customer support</h3>
+                    <p>Any available colleague can answer the company number, and the shared history means a returning caller does not have to repeat themselves.</p>
+                </div>
+                <div class="biz-card">
+                    <h3>Call centres and BPO</h3>
+                    <p>Per-person analytics and recorded calls give a quality-assurance trail without separate call-recording software.</p>
+                </div>
+                <div class="biz-card">
+                    <h3>Distributed and remote teams</h3>
+                    <p>Colleagues in different countries answer the same line from a browser, with no hardware to ship and no office PBX to route through.</p>
+                </div>
+                <div class="biz-card">
+                    <h3>International sales</h3>
+                    <p>Calls to 145+ countries from $0.02 a minute, which is where the saving against conventional international telephony sits.</p>
+                </div>
+                <div class="biz-card">
+                    <h3>Real estate</h3>
+                    <p>Agents share one enquiry line, and the recording of a viewing arrangement stays attached to the contact.</p>
+                </div>
+                <div class="biz-card">
+                    <h3>E-commerce</h3>
+                    <p>One number for order and delivery questions, answered by whoever is free, with the history visible to the next person.</p>
+                </div>
+                <div class="biz-card">
+                    <h3>Automotive, clinics and local services</h3>
+                    <p>Appointment-driven businesses where a missed call is a lost booking, and where several staff need to answer the same published number.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="app-availability" id="apps">
+            <h2>Mobile apps</h2>
+            <p class="lede">Twin Phone runs in a browser and needs no app. An iOS app is also available; an Android app has not been released yet.</p>
+            <div class="app-links">
+                <a class="app-link" href="https://apps.apple.com/app/id6792280945" rel="noopener" target="_blank">
+                    <strong>iPhone and iPad</strong>
+                    <span>Available on the App Store</span>
+                </a>
+                <span class="app-link app-link--soon">
+                    <strong>Android</strong>
+                    <span>Coming soon</span>
+                </span>
+            </div>
+        </section>
+
         <section class="use-cases" id="use-cases">
             <h2>Who uses TwinPhone</h2>
             <div class="use-cases-grid">
@@ -1187,7 +1308,7 @@
                     <div class="faq-answer">
                         <p>No. Zero contracts, zero commitments. Start with a free trial (no credit card), and cancel anytime if it's not for you. No penalties, no closing fees, nothing like that.</p>
                     </div>
-                </section>
+                </div>
             </div>
         </section>
 
@@ -1213,6 +1334,10 @@
                 <a href="/cv-builder/" class="tool-card">
                     <h3>CV Builder</h3>
                     <p>Build a beautiful, ATS-friendly resume. Customize designs and export to PDF or share online.</p>
+                </a>
+                <a href="/esimky/" class="tool-card">
+                    <h3>eSIMky</h3>
+                    <p>Rent a travel eSIM for a trip and get the QR by email. Useful alongside Twin Phone when you need data abroad as well as calls.</p>
                 </a>
             </div>
         </section>
@@ -1298,17 +1423,12 @@
         "description": "Get a real local phone number in 145+ countries. Browser-based, encrypted calls from $0.02/min. No app, no contracts, free trial included.",
         "url": "https://www.twin-phone.com",
         "applicationCategory": "CommunicationApplication",
-        "operatingSystem": "Web",
         "offers": {
             "@type": "Offer",
             "price": "0.02",
             "priceCurrency": "USD"
         },
-        "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.8",
-            "ratingCount": "2150"
-        }
+        "operatingSystem": "Web, iOS"
     }
     </script>
 

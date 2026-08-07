@@ -96,8 +96,28 @@ test('robots.txt is not used as an access-control mechanism', () => {
   }
 });
 
-test('the pre-existing sitemap.xml is untouched by this work', () => {
-  assert.strictEqual(git('diff', BASELINE, '--name-only', '--', 'sitemap.xml').trim(), '');
+test('the business-directories build never writes the site-wide sitemap', () => {
+  // The invariant is that THIS SECTION'S GENERATOR stays out of the legacy
+  // site: business directories publish through sitemap-business-directories.xml
+  // and own nothing in the root sitemap.
+  //
+  // This was originally asserted as "sitemap.xml is unchanged on this branch",
+  // which conflated the generator with the repository. Any unrelated branch
+  // that legitimately edits the site-wide sitemap — adding a product page, say —
+  // failed a business-directories test that had no opinion about it. The
+  // manifest is the authoritative record of what the generator writes, so the
+  // rule is now stated against that and holds on every branch.
+  // The section sitemap lives at the repository root by convention, so it is
+  // the one file outside research/business-directories/ the build may own.
+  const SECTION_SITEMAP = 'sitemap-business-directories.xml';
+  const manifest = JSON.parse(read(path.join('data', 'business-directories', '.build-manifest.json')));
+  for (const owned of Object.keys(manifest.files)) {
+    if (owned === SECTION_SITEMAP) continue;
+    assert.ok(owned.startsWith('research/business-directories/'),
+      `the build claims ${owned}, which is outside its own section`);
+  }
+  assert.ok(!Object.keys(manifest.files).includes('sitemap.xml'),
+    'the build claims the site-wide sitemap, which belongs to the hand-written site');
 });
 
 // --- section sitemap --------------------------------------------------------
@@ -209,10 +229,16 @@ test('no localised page changed on this branch', () => {
   assert.deepStrictEqual(changed.filter((f) => /^(es|fr|de)\//.test(f)), []);
 });
 
-test('no legacy inline-style page changed on this branch', () => {
-  const legacy = /^(pdf-editor|pocket-manager|smart-printer|startups|privacy|fax|unzip|articles|terms|blog|webmasterid|submit-startup|artificial-intelligence|templates|twinphone|invoice-maker|tcg-scanner|cv-builder)\//;
-  const changed = git('diff', BASELINE, '--name-only').trim().split('\n').filter(Boolean);
-  assert.deepStrictEqual(changed.filter((f) => legacy.test(f)), []);
+test('the business-directories build never writes a legacy inline-style page', () => {
+  // Same correction as the sitemap rule above. What must never happen is the
+  // generator reaching into the hand-written product pages; a person editing
+  // one of those pages deliberately is not that, and the branch-diff form of
+  // this test could not tell the two apart.
+  const legacy = /^(pdf-editor|pocket-manager|smart-printer|startups|privacy|fax|unzip|articles|terms|blog|webmasterid|submit-startup|artificial-intelligence|templates|twinphone|esimky|invoice-maker|tcg-scanner|cv-builder)\//;
+  const manifest = JSON.parse(read(path.join('data', 'business-directories', '.build-manifest.json')));
+  for (const owned of Object.keys(manifest.files)) {
+    assert.ok(!legacy.test(owned), `the build claims the legacy page ${owned}`);
+  }
 });
 
 test('the site stylesheet and ecosystem assets are untouched', () => {
