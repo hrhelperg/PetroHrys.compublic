@@ -17046,5 +17046,977 @@
     "submissionModel": "unknown",
     "note": "The Paraguayan storefront of the dominant Latin American marketplace, where sellers hold public stores.",
     "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ae-yellowpages",
+    "name": "Yellow Pages UAE",
+    "website": "https://www.yellowpages.ae/",
+    "country": "united-arab-emirates",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "middle-east"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The UAE B2B business directory with public company profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ae-dubizzle",
+    "name": "Dubizzle",
+    "website": "https://www.dubizzle.com/",
+    "country": "united-arab-emirates",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "middle-east"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The main UAE classifieds marketplace, with professional seller sections. Rejects automated requests, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ae-talabat",
+    "name": "Talabat",
+    "website": "https://www.talabat.com/",
+    "country": "united-arab-emirates",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "middle-east"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The main Gulf food delivery platform, where restaurants and shops hold public pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ae-careem",
+    "name": "Careem",
+    "website": "https://www.careem.com/",
+    "country": "united-arab-emirates",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "middle-east"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Middle Eastern super-app where merchants and restaurants hold public listings.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ae-gulftalent",
+    "name": "GulfTalent",
+    "website": "https://www.gulftalent.com/",
+    "country": "united-arab-emirates",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "middle-east"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Gulf recruitment platform where employers hold public company pages. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ae-bayt",
+    "name": "Bayt.com",
+    "website": "https://www.bayt.com/",
+    "country": "united-arab-emirates",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "middle-east"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The main Middle Eastern job platform, where employers hold public company pages. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "sa-haraj",
+    "name": "Haraj",
+    "website": "https://www.haraj.com.sa/",
+    "country": "saudi-arabia",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The main Saudi classifieds marketplace, with professional seller sections.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "sa-hungerstation",
+    "name": "HungerStation",
+    "website": "https://www.hungerstation.com/",
+    "country": "saudi-arabia",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The main Saudi food and grocery delivery platform, where merchants hold public pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "bh-bahrainyellowpages",
+    "name": "Bahrain Yellow Pages",
+    "website": "https://www.bahrainyellowpages.com/",
+    "country": "bahrain",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Bahraini yellow pages business directory. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "om-omanyp",
+    "name": "Oman Yellow Pages",
+    "website": "https://www.omanyp.com/",
+    "country": "oman",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Omani yellow pages business directory. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "jo-opensooq",
+    "name": "OpenSooq",
+    "website": "https://www.opensooq.com/",
+    "country": "jordan",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "middle-east"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The main Arab-world classifieds marketplace, with professional seller sections.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "qa-qatarliving",
+    "name": "Qatar Living",
+    "website": "https://www.qatarliving.com/",
+    "country": "qatar",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Qatari community platform with classifieds and local business listings.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "qa-ilovequatar",
+    "name": "ILoveQatar",
+    "website": "https://www.ilovequatar.net/",
+    "country": "qatar",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Qatari city guide listing local businesses and venues. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "il-zap",
+    "name": "Zap",
+    "website": "https://www.zap.co.il/",
+    "country": "israel",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An Israeli price comparison and business platform where merchants hold public store pages. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "il-dapey-zahav",
+    "name": "Dapey Zahav",
+    "website": "https://www.d.co.il/",
+    "country": "israel",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Israeli yellow pages business directory. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "il-b144",
+    "name": "Bezeq B144",
+    "website": "https://www.b144.co.il/",
+    "country": "israel",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P1",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A leading Israeli business and tradesperson directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "il-rest",
+    "name": "Rest.co.il",
+    "website": "https://www.rest.co.il/",
+    "country": "israel",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The main Israeli restaurant guide with public venue pages. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "il-easy",
+    "name": "Easy.co.il",
+    "website": "https://www.easy.co.il/",
+    "country": "israel",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An Israeli maps and local business directory. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "za-brabys",
+    "name": "Brabys",
+    "website": "https://www.brabys.com/",
+    "country": "south-africa",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A South African business directory with public company profiles. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "za-snupit",
+    "name": "Snupit",
+    "website": "https://www.snupit.co.za/",
+    "country": "south-africa",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A South African marketplace where local professionals hold public profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "za-hellopeter",
+    "name": "Hellopeter",
+    "website": "https://www.hellopeter.com/",
+    "country": "south-africa",
+    "category": "review-sites",
+    "tier": "tier1",
+    "priority": "P1",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The leading South African company review platform, where businesses hold public profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "za-cylex",
+    "name": "Cylex South Africa",
+    "website": "https://www.cylex.net.za/",
+    "country": "south-africa",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The South African arm of an international business directory network. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "za-hotfrog",
+    "name": "Hotfrog South Africa",
+    "website": "https://www.hotfrog.co.za/",
+    "country": "south-africa",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The South African arm of an international directory network. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "za-gumtree",
+    "name": "Gumtree South Africa",
+    "website": "https://www.gumtree.co.za/",
+    "country": "south-africa",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The main South African classifieds marketplace, with professional seller sections.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "eg-yellowpages",
+    "name": "Yellow Pages Egypt",
+    "website": "https://www.yellowpages.com.eg/",
+    "country": "egypt",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Egyptian yellow pages business directory. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "eg-elmenus",
+    "name": "elmenus",
+    "website": "https://www.elmenus.com/",
+    "country": "egypt",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The main Egyptian restaurant and food delivery directory, where venues hold public pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ma-yellowpages",
+    "name": "Yellow Pages Morocco",
+    "website": "https://www.yellowpages.ma/",
+    "country": "morocco",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Moroccan business directory with public company entries.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ma-telecontact",
+    "name": "Telecontact",
+    "website": "https://www.telecontact.ma/",
+    "country": "morocco",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The main Moroccan professional directory, published as the country's pages jaunes.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ma-avito",
+    "name": "Avito Maroc",
+    "website": "https://www.avito.ma/",
+    "country": "morocco",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The main Moroccan classifieds marketplace, with professional seller sections. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "tn-tunisieindex",
+    "name": "Tunisie Index",
+    "website": "https://www.tunisieindex.com/",
+    "country": "tunisia",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Tunisian economic directory listing companies and businesses.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "dz-ouedkniss",
+    "name": "Ouedkniss",
+    "website": "https://www.ouedkniss.com/",
+    "country": "algeria",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The main Algerian classifieds marketplace, with professional seller sections.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "dz-sougplus",
+    "name": "SougPlus",
+    "website": "https://www.algerie-annonce.com/",
+    "country": "algeria",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An Algerian classifieds platform covering property, jobs and services.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ng-businesslist",
+    "name": "BusinessList Nigeria",
+    "website": "https://www.businesslist.com.ng/",
+    "country": "nigeria",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Nigerian business directory. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ng-finelib",
+    "name": "Finelib",
+    "website": "https://www.finelib.com/",
+    "country": "nigeria",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Nigerian business directory and search engine with public company profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ng-nigeriagalleria",
+    "name": "Nigeria Galleria",
+    "website": "https://www.nigeriagalleria.com/",
+    "country": "nigeria",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Nigerian information hub with a business and services directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ng-jiji",
+    "name": "Jiji Nigeria",
+    "website": "https://www.jiji.ng/",
+    "country": "nigeria",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "africa"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The main Nigerian classifieds marketplace, with professional seller sections. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ng-jumia",
+    "name": "Jumia Nigeria",
+    "website": "https://www.jumia.com.ng/",
+    "country": "nigeria",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "africa"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The main African e-commerce marketplace, where sellers hold public storefronts. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ke-businesslist",
+    "name": "BusinessList Kenya",
+    "website": "https://www.businesslist.co.ke/",
+    "country": "kenya",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Kenyan business directory. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ke-yellowpages",
+    "name": "Yellow Pages Kenya",
+    "website": "https://www.yellowpageskenya.com/",
+    "country": "kenya",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Kenyan yellow pages business directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ke-jiji",
+    "name": "Jiji Kenya",
+    "website": "https://www.jiji.co.ke/",
+    "country": "kenya",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "africa"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The main Kenyan classifieds marketplace, with professional seller sections. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "gh-ghanayello",
+    "name": "GhanaYello",
+    "website": "https://www.ghanayello.com/",
+    "country": "ghana",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Ghanaian yellow pages business directory. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "gh-tonaton",
+    "name": "Tonaton",
+    "website": "https://www.tonaton.com/",
+    "country": "ghana",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The main Ghanaian classifieds marketplace, with professional seller sections. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "et-2merkato",
+    "name": "2merkato",
+    "website": "https://www.2merkato.com/",
+    "country": "ethiopia",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The main Ethiopian business portal with a company and supplier directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ug-jiji",
+    "name": "Jiji Uganda",
+    "website": "https://www.jiji.ug/",
+    "country": "uganda",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "africa"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The main Ugandan classifieds marketplace, with professional seller sections. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "tz-jiji",
+    "name": "Jiji Tanzania",
+    "website": "https://www.jiji.co.tz/",
+    "country": "tanzania",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "africa"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The main Tanzanian classifieds marketplace, with professional seller sections. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ke-jumia",
+    "name": "Jumia Kenya",
+    "website": "https://www.jumia.co.ke/",
+    "country": "kenya",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "africa"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Kenyan storefront of the main African e-commerce marketplace, where sellers hold public stores. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "gh-jumia",
+    "name": "Jumia Ghana",
+    "website": "https://www.jumia.com.gh/",
+    "country": "ghana",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "africa"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Ghanaian storefront of the main African e-commerce marketplace, where sellers hold public stores. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ug-jumia",
+    "name": "Jumia Uganda",
+    "website": "https://www.jumia.ug/",
+    "country": "uganda",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "africa"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Ugandan storefront of the main African e-commerce marketplace, where sellers hold public stores. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "zm-zambiayp",
+    "name": "Zambia Yellow Pages",
+    "website": "https://www.zambiayp.com/",
+    "country": "zambia",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Zambian yellow pages business directory. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "na-namibiayp",
+    "name": "Namibia Yellow Pages",
+    "website": "https://www.namibiayp.com/",
+    "country": "namibia",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Namibian yellow pages business directory. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "rw-rwandaonline",
+    "name": "Rwanda Online",
+    "website": "https://www.rwandaonline.rw/",
+    "country": "rwanda",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Rwandan travel and business guide listing local companies.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-afrindex",
+    "name": "Afrindex",
+    "website": "https://www.afrindex.com/",
+    "country": "global",
+    "category": "manufacturing",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "africa"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An Africa-China trade B2B platform with public supplier profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-africa-business",
+    "name": "Africa Business Pages",
+    "website": "https://www.africa-business.com/",
+    "country": "global",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "africa"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A pan-African B2B business directory with public company entries.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-expat",
+    "name": "Expat.com",
+    "website": "https://www.expat.com/",
+    "country": "global",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An international expatriate community with country guides and local business listings.",
+    "lastVerified": "2026-08-06"
   }
 ]
