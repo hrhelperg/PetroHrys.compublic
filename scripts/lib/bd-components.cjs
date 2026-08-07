@@ -675,6 +675,36 @@ ${options}
 //
 // Rendered visible rather than hidden-until-JS, because the wrapper carries a
 // <noscript> explanation and the whole table is present either way.
+// The recommendation table. Every row carries its score, its level, the basis
+// the fit rests on, and the reasons — because a recommendation an employee
+// cannot interrogate is one they have to re-research, which defeats the point.
+function recommendationTable({ rows, profileLabel }) {
+  const head = ['Platform', 'Score', 'Level', 'Fit basis', 'Why'];
+  const body = rows.map((r) => {
+    const reasons = (r.recommendationReasons || []).length
+      ? `<ul class="bd-reasons">${(r.recommendationReasons || [])
+        .map((x) => `<li>${escapeHtml(x)}</li>`).join('')}</ul>`
+      : `<span class="bd-muted">${escapeHtml('No supporting evidence recorded.')}</span>`;
+    return `          <tr data-bd-rec-level="${escapeHtml(String(r.recommendationLevel || ''))}" `
+      + `data-bd-rec-basis="${escapeHtml(String(r.recommendationBasis || ''))}">
+            <td data-label="Platform"><a href="${escapeHtml(r.website)}" rel="${REL_EXTERNAL}" target="_blank">${escapeHtml(r.name)}</a></td>
+            <td data-label="Score">${escapeHtml(String(r.recommendationScore))}</td>
+            <td data-label="Level">${escapeHtml(String(r.recommendationLevel || ''))}</td>
+            <td data-label="Fit basis">${escapeHtml(String(r.recommendationBasis || ''))}</td>
+            <td data-label="Why">${reasons}</td>
+          </tr>`;
+  }).join('\n');
+  return `      <div class="bd-table-wrap">
+        <table class="bd-table">
+          <caption>${escapeHtml(`Directories ranked for ${profileLabel}`)}</caption>
+          <thead><tr>${head.map((h) => `<th scope="col">${escapeHtml(h)}</th>`).join('')}</tr></thead>
+          <tbody>
+${body}
+          </tbody>
+        </table>
+      </div>`;
+}
+
 function facetSelect({ idPrefix, facet, label, rows, labels = {}, order = [] }) {
   const id = `${escapeHtml(idPrefix)}-facet-${escapeHtml(facet.name)}`;
   const counts = new Map();
@@ -795,6 +825,10 @@ function directoryRow(directory, columns) {
     `data-bd-facet-score="${escapeHtml(String(directory.scoreBand || 'unscored'))}"`,
     `data-bd-facet-approval="${escapeHtml(String(directory.approvalMode || 'unknown'))}"`,
     `data-bd-facet-reach="${escapeHtml(String(directory.countryReach || 'unknown'))}"`,
+    // v3. The business profiles this platform is a priority or recommended
+    // choice for, space-separated. Only those two levels: listing every profile
+    // a row merely qualifies for would make the filter meaningless.
+    `data-bd-facet-bestfor="${escapeHtml((directory.bestForProfiles || []).join(' '))}"`,
   ].join(' ');
   const cells = TABLE_METRIC_COLUMNS
     .filter((col) => !shown || shown.has(col.field))
@@ -1472,6 +1506,7 @@ module.exports = {
   statusBadges, prosCons, bestForTags, bulletList, emptyState, faqSection,
   registryInformation,
   listingInformation,
+  recommendationTable,
   searchControls, filterControls, sortControls, pagination, facetSelect, clearFiltersControl,
   verificationBlock, acceptsList, scoreBreakdown, filterValue, filterAttr,
   relatedDirectories, submissionLink, editorialGuidance,

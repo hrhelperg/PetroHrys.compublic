@@ -26,6 +26,7 @@ const CSV_FILE = path.join(SECTION_DIR, 'opportunities.csv');
 const csv = require('./lib/bd-csv.cjs');
 const opportunities = require('./lib/bd-opportunities.cjs');
 const INTEL = require('./lib/bd-intelligence.cjs');
+const RECOMMEND = require('./lib/bd-recommend.cjs');
 const { renderCsv } = csv;
 const FEED_FILE = routes.feedOut();
 const MANIFEST_FILE = path.join('data', 'business-directories', '.build-manifest.json');
@@ -405,12 +406,20 @@ function pageModel(registry) {
     const actionable = csv.actionableOpportunities(allDirectories, opRows).map((r) => {
       const score = INTEL.directoryScore(r);
       const intel = r.intelligence || {};
+      // Which business profiles this platform is actually a strong choice for.
+      // Computed from the same engine the profile pages use, so the filter and
+      // the pages can never disagree.
+      const bestForProfiles = RECOMMEND.PROFILES
+        .filter((p) => ['priority', 'recommended'].includes(RECOMMEND.recommend(r, p.key).level))
+        .map((p) => p.key);
       return {
         ...r,
         directoryScore: score.overall,
         scoreBand: INTEL.band(score.overall),
         approvalMode: intel.approvalMode || null,
         countryReach: intel.countryReach || null,
+        bestForProfiles,
+        bestForKey: bestForProfiles[0] || '',
       };
     });
     // countryLinks previously carried no slug, so this Set was {undefined} and
@@ -459,6 +468,9 @@ function pageModel(registry) {
       { name: 'reach', key: 'countryReach', label: 'Country reach', fallback: 'unknown',
         order: ['global', 'regional', 'single', 'unknown'],
         labels: { global: 'Global', regional: 'Regional', single: 'Single country', unknown: 'Unknown' } },
+      { name: 'bestfor', key: 'bestForKey', label: 'Best for', fallback: '',
+        order: RECOMMEND.PROFILES.map((p) => p.key),
+        labels: Object.fromEntries(RECOMMEND.PROFILES.map((p) => [p.key, p.label])) },
     ];
 
     pages.push({
@@ -516,6 +528,77 @@ function pageModel(registry) {
         ].join('\n'))] : []),
       ].join('\n\n'),
     });
+
+    // --- Directory Intelligence v3: one page per business profile -----------
+    // Nothing here is curated. Each page asks the recommendation engine to rank
+    // the SAME actionable set against a profile's declaration, and renders what
+    // comes back. Adding a platform to the registry changes these pages with no
+    // edit to this file.
+    const PAGE_LIMIT = 25;
+    const MIN_ENTRIES = 5;
+    for (const profile of RECOMMEND.PROFILES) {
+      const ranked = RECOMMEND.rankFor(actionable, profile.key,
+        { limit: PAGE_LIMIT, minLevel: 'marginal' });
+      // The no-empty-artefact rule the whole section follows: a page that would
+      // recommend almost nothing is not a page.
+      if (ranked.length < MIN_ENTRIES) continue;
+      const rows = ranked.map(({ record, recommendation }) => ({
+        ...record,
+        recommendationScore: recommendation.score,
+        recommendationLevel: RECOMMEND.LEVEL_LABELS[recommendation.level] || '',
+        recommendationBasis: recommendation.fit,
+        recommendationReasons: recommendation.reasons,
+      }));
+      const byLevel = (lv) => ranked.filter((r) => r.recommendation.level === lv).length;
+      pages.push({
+        kind: 'recommendation',
+        owner: `recommendation:${profile.key}`,
+        outPath: routes.recommendationOut(profile.slug),
+        meta: seo.buildRecommendationMeta({
+          label: profile.label, slug: profile.slug, blurb: profile.blurb, count: ranked.length,
+        }),
+        main: [
+          c.pageIntro({
+            title: `Best business directories for ${profile.label}`,
+            lede: profile.blurb,
+          }),
+          section('ranked', 'Ranked recommendations', [
+            `      <p>${escapeHtml(`${ranked.length} platforms, ranked by how well each suits `
+              + `${profile.label} rather than by how good it is in general. `
+              + `${byLevel('priority')} priority, ${byLevel('recommended')} recommended, `
+              + `${byLevel('possible')} possible, ${byLevel('marginal')} marginal. `
+              + 'A Recommendation Score is fit multiplied by platform quality, so a strong '
+              + 'platform for a different kind of business scores low here on purpose.')}</p>`,
+            c.recommendationTable({ rows, profileLabel: profile.label }),
+          ].join('\n')),
+          section('methodology', 'How these were selected', [
+            `      <p>${escapeHtml('Nothing on this page is a curated list. Every actionable '
+              + 'platform in the database was scored against one declaration of what '
+              + `${profile.label} need, and the ranking is what came back.`)}</p>`,
+            '      <ul class="bd-list">',
+            `        <li>${escapeHtml('Fit comes first. Where a platform states which business '
+              + 'types it accepts, that statement is used. Where it does not, the platform\'s '
+              + 'category is used, and failing that the words in its own description. Each row '
+              + 'shows which of the three applied.')}</li>`,
+            `        <li>${escapeHtml('A platform that states it does NOT accept this kind of '
+              + 'business is excluded outright, however good it is.')}</li>`,
+            `        <li>${escapeHtml('Quality is the Directory Score where there is enough '
+              + 'evidence to compute one, and a discounted fallback from reputation and status '
+              + 'where there is not.')}</li>`,
+            '      </ul>',
+          ].join('\n')),
+          section('limitations', 'Limitations', [
+            `      <p>${escapeHtml('These rankings reflect evidence recorded, not a survey of '
+              + 'outcomes. A well-documented platform can outrank a better one that has been '
+              + 'researched less. Rows marked Possible or Marginal rest on a category or a '
+              + 'keyword rather than the platform\'s own statement of who it accepts — treat '
+              + 'them as candidates to check, not conclusions.')}</p>`,
+            `      <p class="bd-note"><a class="bd-button" href="${OPPORTUNITIES_PATH}">`
+              + `${escapeHtml('Browse all opportunities')}</a></p>`,
+          ].join('\n')),
+        ].join('\n\n'),
+      });
+    }
   }
 
   for (const article of articles) {
