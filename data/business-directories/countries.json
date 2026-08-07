@@ -786,5 +786,205 @@
     "entityType": "country",
     "titleName": "Armenia",
     "iso2": "AM"
+  },
+  {
+    "id": "slovakia",
+    "slug": "slovakia",
+    "name": "Slovakia",
+    "entityType": "country",
+    "titleName": "Slovakia",
+    "iso2": "SK"
+  },
+  {
+    "id": "hungary",
+    "slug": "hungary",
+    "name": "Hungary",
+    "entityType": "country",
+    "titleName": "Hungary",
+    "iso2": "HU"
+  },
+  {
+    "id": "romania",
+    "slug": "romania",
+    "name": "Romania",
+    "entityType": "country",
+    "titleName": "Romania",
+    "iso2": "RO"
+  },
+  {
+    "id": "bulgaria",
+    "slug": "bulgaria",
+    "name": "Bulgaria",
+    "entityType": "country",
+    "titleName": "Bulgaria",
+    "iso2": "BG"
+  },
+  {
+    "id": "croatia",
+    "slug": "croatia",
+    "name": "Croatia",
+    "entityType": "country",
+    "titleName": "Croatia",
+    "iso2": "HR"
+  },
+  {
+    "id": "slovenia",
+    "slug": "slovenia",
+    "name": "Slovenia",
+    "entityType": "country",
+    "titleName": "Slovenia",
+    "iso2": "SI"
+  },
+  {
+    "id": "serbia",
+    "slug": "serbia",
+    "name": "Serbia",
+    "entityType": "country",
+    "titleName": "Serbia",
+    "iso2": "RS"
+  },
+  {
+    "id": "greece",
+    "slug": "greece",
+    "name": "Greece",
+    "entityType": "country",
+    "titleName": "Greece",
+    "iso2": "GR"
+  },
+  {
+    "id": "estonia",
+    "slug": "estonia",
+    "name": "Estonia",
+    "entityType": "country",
+    "titleName": "Estonia",
+    "iso2": "EE"
+  },
+  {
+    "id": "latvia",
+    "slug": "latvia",
+    "name": "Latvia",
+    "entityType": "country",
+    "titleName": "Latvia",
+    "iso2": "LV"
+  },
+  {
+    "id": "lithuania",
+    "slug": "lithuania",
+    "name": "Lithuania",
+    "entityType": "country",
+    "titleName": "Lithuania",
+    "iso2": "LT"
+  },
+  {
+    "id": "iceland",
+    "slug": "iceland",
+    "name": "Iceland",
+    "entityType": "country",
+    "titleName": "Iceland",
+    "iso2": "IS"
+  },
+  {
+    "id": "malta",
+    "slug": "malta",
+    "name": "Malta",
+    "entityType": "country",
+    "titleName": "Malta",
+    "iso2": "MT"
+  },
+  {
+    "id": "cyprus",
+    "slug": "cyprus",
+    "name": "Cyprus",
+    "entityType": "country",
+    "titleName": "Cyprus",
+    "iso2": "CY"
+  },
+  {
+    "id": "luxembourg",
+    "slug": "luxembourg",
+    "name": "Luxembourg",
+    "entityType": "country",
+    "titleName": "Luxembourg",
+    "iso2": "LU"
+  },
+  {
+    "id": "turkey",
+    "slug": "turkey",
+    "name": "Turkey",
+    "entityType": "country",
+    "titleName": "Turkey",
+    "iso2": "TR"
+  },
+  {
+    "id": "ukraine",
+    "slug": "ukraine",
+    "name": "Ukraine",
+    "entityType": "country",
+    "titleName": "Ukraine",
+    "iso2": "UA"
+  },
+  {
+    "id": "russia",
+    "slug": "russia",
+    "name": "Russia",
+    "entityType": "country",
+    "titleName": "Russia",
+    "iso2": "RU"
+  },
+  {
+    "id": "belarus",
+    "slug": "belarus",
+    "name": "Belarus",
+    "entityType": "country",
+    "titleName": "Belarus",
+    "iso2": "BY"
+  },
+  {
+    "id": "moldova",
+    "slug": "moldova",
+    "name": "Moldova",
+    "entityType": "country",
+    "titleName": "Moldova",
+    "iso2": "MD"
+  },
+  {
+    "id": "albania",
+    "slug": "albania",
+    "name": "Albania",
+    "entityType": "country",
+    "titleName": "Albania",
+    "iso2": "AL"
+  },
+  {
+    "id": "north-macedonia",
+    "slug": "north-macedonia",
+    "name": "North Macedonia",
+    "entityType": "country",
+    "titleName": "North Macedonia",
+    "iso2": "MK"
+  },
+  {
+    "id": "bosnia-and-herzegovina",
+    "slug": "bosnia-and-herzegovina",
+    "name": "Bosnia and Herzegovina",
+    "entityType": "country",
+    "titleName": "Bosnia and Herzegovina",
+    "iso2": "BA"
+  },
+  {
+    "id": "montenegro",
+    "slug": "montenegro",
+    "name": "Montenegro",
+    "entityType": "country",
+    "titleName": "Montenegro",
+    "iso2": "ME"
+  },
+  {
+    "id": "kosovo",
+    "slug": "kosovo",
+    "name": "Kosovo",
+    "entityType": "country",
+    "titleName": "Kosovo",
+    "iso2": "XK"
   }
 ]

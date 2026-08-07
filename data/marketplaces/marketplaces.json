@@ -1,0 +1,1351 @@
+[
+  {
+    "id": "mp-al-merrjep",
+    "name": "MerrJep",
+    "website": "https://www.merrjep.al/",
+    "country": "albania",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "jobs",
+      "property",
+      "vehicles"
+    ],
+    "note": "Albania's leading classifieds marketplace."
+  },
+  {
+    "id": "mp-at-bazar",
+    "name": "bazar.at",
+    "website": "https://www.bazar.at/",
+    "country": "austria",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "free",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "vehicles"
+    ],
+    "note": "An Austrian free classifieds portal."
+  },
+  {
+    "id": "mp-at-willhaben",
+    "name": "willhaben",
+    "website": "https://www.willhaben.at/",
+    "country": "austria",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "jobs",
+      "property",
+      "vehicles"
+    ],
+    "note": "Austria's largest classifieds marketplace, with dedicated commercial seller tooling."
+  },
+  {
+    "id": "mp-by-kufar",
+    "name": "Kufar",
+    "website": "https://www.kufar.by/",
+    "country": "belarus",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "jobs",
+      "property",
+      "vehicles"
+    ],
+    "note": "Belarus's leading classifieds marketplace."
+  },
+  {
+    "id": "mp-by-av",
+    "name": "av.by",
+    "website": "https://www.av.by/",
+    "country": "belarus",
+    "marketplaceType": "vehicles",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "unknown",
+    "note": "The main Belarusian vehicle marketplace. Returns a non-standard response, so a browser check is needed."
+  },
+  {
+    "id": "mp-be-2dehands",
+    "name": "2dehands",
+    "website": "https://www.2dehands.be/",
+    "country": "belgium",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "property",
+      "vehicles"
+    ],
+    "operator": "Adevinta",
+    "note": "The main Dutch-language Belgian classifieds marketplace."
+  },
+  {
+    "id": "mp-be-bizzy-2dehands",
+    "name": "Immoweb",
+    "website": "https://www.immoweb.be/",
+    "country": "belgium",
+    "marketplaceType": "property",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "unknown",
+    "note": "The main Belgian property marketplace, where agents hold public listings. Needs a browser check."
+  },
+  {
+    "id": "mp-ba-olx",
+    "name": "OLX Bosnia",
+    "website": "https://www.olx.ba/",
+    "country": "bosnia-and-herzegovina",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "unknown",
+    "alsoCovers": [
+      "property",
+      "vehicles"
+    ],
+    "operator": "OLX Group",
+    "note": "The leading Bosnian classifieds marketplace. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
+    "id": "mp-bg-bazar",
+    "name": "Bazar.bg",
+    "website": "https://www.bazar.bg/",
+    "country": "bulgaria",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "jobs",
+      "property",
+      "services",
+      "vehicles"
+    ],
+    "note": "A Bulgarian free classifieds portal covering goods, property, vehicles and jobs."
+  },
+  {
+    "id": "mp-bg-mobile-bg",
+    "name": "Mobile.bg",
+    "website": "https://www.mobile.bg/",
+    "country": "bulgaria",
+    "marketplaceType": "vehicles",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "active",
+    "note": "The main Bulgarian vehicle marketplace, where dealers hold public pages."
+  },
+  {
+    "id": "mp-bg-olx",
+    "name": "OLX Bulgaria",
+    "website": "https://www.olx.bg/",
+    "country": "bulgaria",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "jobs",
+      "property",
+      "vehicles"
+    ],
+    "operator": "OLX Group",
+    "note": "Bulgaria's leading classifieds marketplace."
+  },
+  {
+    "id": "mp-hr-njuskalo",
+    "name": "Njuskalo",
+    "website": "https://www.njuskalo.hr/",
+    "country": "croatia",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "property",
+      "vehicles"
+    ],
+    "note": "Croatia's largest classifieds marketplace."
+  },
+  {
+    "id": "mp-cy-bazaraki",
+    "name": "Bazaraki",
+    "website": "https://www.bazaraki.com/",
+    "country": "cyprus",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "unknown",
+    "alsoCovers": [
+      "property",
+      "vehicles"
+    ],
+    "note": "Cyprus's main classifieds marketplace. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
+    "id": "mp-cz-annonce",
+    "name": "Annonce.cz",
+    "website": "https://www.annonce.cz/",
+    "country": "czech-republic",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "property",
+      "vehicles"
+    ],
+    "note": "A long-running Czech classifieds portal."
+  },
+  {
+    "id": "mp-cz-aukro",
+    "name": "Aukro",
+    "website": "https://www.aukro.cz/",
+    "country": "czech-republic",
+    "marketplaceType": "auctions",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "general-classifieds"
+    ],
+    "note": "The main Czech auction marketplace, where businesses hold seller shops."
+  },
+  {
+    "id": "mp-cz-bazos",
+    "name": "Bazos.cz",
+    "website": "https://www.bazos.cz/",
+    "country": "czech-republic",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "property",
+      "vehicles"
+    ],
+    "note": "The dominant Czech free classifieds board."
+  },
+  {
+    "id": "mp-cz-hyperinzerce",
+    "name": "Hyperinzerce",
+    "website": "https://www.hyperinzerce.cz/",
+    "country": "czech-republic",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "free",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "property",
+      "vehicles"
+    ],
+    "note": "A Czech free classifieds portal."
+  },
+  {
+    "id": "mp-cz-sbazar",
+    "name": "Sbazar",
+    "website": "https://www.sbazar.cz/",
+    "country": "czech-republic",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "operator": "Seznam.cz",
+    "note": "A major Czech classifieds marketplace operated by Seznam."
+  },
+  {
+    "id": "mp-dk-bilbasen",
+    "name": "Bilbasen",
+    "website": "https://www.bilbasen.dk/",
+    "country": "denmark",
+    "marketplaceType": "vehicles",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "active",
+    "note": "The main Danish vehicle marketplace, where dealers hold public dealer pages."
+  },
+  {
+    "id": "mp-dk-dba",
+    "name": "DBA",
+    "website": "https://www.dba.dk/",
+    "country": "denmark",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "vehicles"
+    ],
+    "note": "A major Danish classifieds marketplace."
+  },
+  {
+    "id": "mp-ee-auto24",
+    "name": "Auto24.ee",
+    "website": "https://www.auto24.ee/",
+    "country": "estonia",
+    "marketplaceType": "vehicles",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "unknown",
+    "note": "The main Estonian vehicle marketplace. Live but behind a security check, so a browser check is needed."
+  },
+  {
+    "id": "mp-ee-kv",
+    "name": "KV.ee",
+    "website": "https://www.kv.ee/",
+    "country": "estonia",
+    "marketplaceType": "property",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "unknown",
+    "note": "The main Estonian property marketplace. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
+    "id": "mp-ee-soov",
+    "name": "Soov.ee",
+    "website": "https://www.soov.ee/",
+    "country": "estonia",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "unknown",
+    "note": "An Estonian general classifieds marketplace. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
+    "id": "mp-fi-tori",
+    "name": "Tori",
+    "website": "https://www.tori.fi/",
+    "country": "finland",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "property",
+      "vehicles"
+    ],
+    "note": "Finland's dominant classifieds marketplace."
+  },
+  {
+    "id": "mp-fr-paruvendu",
+    "name": "ParuVendu",
+    "website": "https://www.paruvendu.fr/",
+    "country": "france",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "jobs",
+      "property",
+      "vehicles"
+    ],
+    "note": "A French classifieds portal for private and professional advertisers."
+  },
+  {
+    "id": "mp-fr-vinted",
+    "name": "Vinted",
+    "website": "https://www.vinted.fr/",
+    "country": "france",
+    "marketplaceType": "fashion-resale",
+    "sellerTypes": "private",
+    "costModel": "free",
+    "currentStatus": "active",
+    "operator": "Vinted UAB",
+    "note": "A pan-European second-hand fashion marketplace. Primarily private sellers."
+  },
+  {
+    "id": "mp-fr-leboncoin",
+    "name": "leboncoin",
+    "website": "https://www.leboncoin.fr/",
+    "country": "france",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "jobs",
+      "property",
+      "vehicles"
+    ],
+    "operator": "Adevinta",
+    "note": "France's dominant classifieds marketplace, with professional seller sections."
+  },
+  {
+    "id": "mp-de-hood",
+    "name": "Hood.de",
+    "website": "https://www.hood.de/",
+    "country": "germany",
+    "marketplaceType": "auctions",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "general-classifieds"
+    ],
+    "note": "A German auction and fixed-price marketplace where businesses hold seller shops."
+  },
+  {
+    "id": "mp-de-kleinanzeigen",
+    "name": "Kleinanzeigen",
+    "website": "https://www.kleinanzeigen.de/",
+    "country": "germany",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "jobs",
+      "property",
+      "services",
+      "vehicles"
+    ],
+    "operator": "Adevinta",
+    "note": "Germany's dominant classifieds site, formerly eBay Kleinanzeigen. Business sellers get a commercial seller account."
+  },
+  {
+    "id": "mp-de-quoka",
+    "name": "Quoka",
+    "website": "https://www.quoka.de/",
+    "country": "germany",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "property",
+      "vehicles"
+    ],
+    "note": "A long-running German free classifieds portal."
+  },
+  {
+    "id": "mp-de-kalaydo",
+    "name": "kalaydo.de",
+    "website": "https://www.kalaydo.de/",
+    "country": "germany",
+    "marketplaceType": "jobs",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "general-classifieds",
+      "property",
+      "vehicles"
+    ],
+    "note": "A German regional classifieds and job portal run with regional newspapers."
+  },
+  {
+    "id": "mp-de-markt-de",
+    "name": "markt.de",
+    "website": "https://www.markt.de/",
+    "country": "germany",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "jobs",
+      "property",
+      "services"
+    ],
+    "note": "A German classifieds portal covering goods, services and jobs."
+  },
+  {
+    "id": "mp-gr-car-gr",
+    "name": "Car.gr",
+    "website": "https://www.car.gr/",
+    "country": "greece",
+    "marketplaceType": "vehicles",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "unknown",
+    "alsoCovers": [
+      "general-classifieds"
+    ],
+    "note": "The main Greek vehicle marketplace. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
+    "id": "mp-gr-xe",
+    "name": "XE.gr",
+    "website": "https://www.xe.gr/",
+    "country": "greece",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "unknown",
+    "alsoCovers": [
+      "jobs",
+      "property",
+      "vehicles"
+    ],
+    "note": "A leading Greek classifieds portal for property, vehicles and jobs. Live but behind a verification gate, so a browser check is needed."
+  },
+  {
+    "id": "mp-hu-hasznaltauto",
+    "name": "Hasznaltauto",
+    "website": "https://www.hasznaltauto.hu/",
+    "country": "hungary",
+    "marketplaceType": "vehicles",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "unknown",
+    "note": "The main Hungarian vehicle marketplace, where dealers hold public pages. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
+    "id": "mp-hu-jofogas",
+    "name": "Jofogas",
+    "website": "https://www.jofogas.hu/",
+    "country": "hungary",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "property",
+      "vehicles"
+    ],
+    "note": "Hungary's leading classifieds marketplace."
+  },
+  {
+    "id": "mp-hu-vatera",
+    "name": "Vatera",
+    "website": "https://www.vatera.hu/",
+    "country": "hungary",
+    "marketplaceType": "auctions",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "general-classifieds"
+    ],
+    "note": "A Hungarian auction and marketplace site with seller shops."
+  },
+  {
+    "id": "mp-is-bland",
+    "name": "Bland.is",
+    "website": "https://www.bland.is/",
+    "country": "iceland",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "note": "Iceland's main classifieds marketplace."
+  },
+  {
+    "id": "mp-ie-adverts",
+    "name": "Adverts.ie",
+    "website": "https://www.adverts.ie/",
+    "country": "ireland",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "unknown",
+    "note": "An Irish general classifieds marketplace. Live but behind a security check, so a browser check is needed."
+  },
+  {
+    "id": "mp-ie-carzone",
+    "name": "Carzone",
+    "website": "https://www.carzone.ie/",
+    "country": "ireland",
+    "marketplaceType": "vehicles",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "unknown",
+    "note": "The main Irish vehicle marketplace, where dealers hold public pages. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
+    "id": "mp-ie-daft",
+    "name": "Daft.ie",
+    "website": "https://www.daft.ie/",
+    "country": "ireland",
+    "marketplaceType": "property",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "unknown",
+    "note": "The main Irish property marketplace, where agents hold public listings. Live but behind a security check, so a browser check is needed."
+  },
+  {
+    "id": "mp-ie-donedeal",
+    "name": "DoneDeal",
+    "website": "https://www.donedeal.ie/",
+    "country": "ireland",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "unknown",
+    "alsoCovers": [
+      "property",
+      "vehicles"
+    ],
+    "note": "Ireland's largest classifieds marketplace. Live but behind a security check, so a browser check is needed."
+  },
+  {
+    "id": "mp-it-subito",
+    "name": "Subito",
+    "website": "https://www.subito.it/",
+    "country": "italy",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "jobs",
+      "property",
+      "vehicles"
+    ],
+    "operator": "Adevinta",
+    "note": "Italy's dominant classifieds marketplace, with professional seller accounts."
+  },
+  {
+    "id": "mp-lv-ss",
+    "name": "SS.COM",
+    "website": "https://www.ss.com/",
+    "country": "latvia",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "jobs",
+      "property",
+      "vehicles"
+    ],
+    "note": "Latvia's dominant classifieds portal, covering goods, property, vehicles and jobs."
+  },
+  {
+    "id": "mp-lt-aruodas",
+    "name": "Aruodas.lt",
+    "website": "https://www.aruodas.lt/",
+    "country": "lithuania",
+    "marketplaceType": "property",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "active",
+    "note": "The main Lithuanian property marketplace, where agents hold public listings."
+  },
+  {
+    "id": "mp-lt-autoplius",
+    "name": "Autoplius.lt",
+    "website": "https://www.autoplius.lt/",
+    "country": "lithuania",
+    "marketplaceType": "vehicles",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "active",
+    "note": "The main Lithuanian vehicle marketplace, where dealers hold public pages."
+  },
+  {
+    "id": "mp-lt-skelbiu",
+    "name": "Skelbiu.lt",
+    "website": "https://www.skelbiu.lt/",
+    "country": "lithuania",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "property",
+      "services",
+      "vehicles"
+    ],
+    "note": "Lithuania's most visited classifieds portal."
+  },
+  {
+    "id": "mp-lu-luxauto",
+    "name": "LuxAuto",
+    "website": "https://www.luxauto.lu/",
+    "country": "luxembourg",
+    "marketplaceType": "vehicles",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "active",
+    "note": "A Luxembourg vehicle marketplace where dealers hold public listings."
+  },
+  {
+    "id": "mp-lu-athome",
+    "name": "atHome.lu",
+    "website": "https://www.athome.lu/",
+    "country": "luxembourg",
+    "marketplaceType": "property",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "active",
+    "note": "The main Luxembourg property marketplace, where agents hold public listings."
+  },
+  {
+    "id": "mp-mt-maltapark",
+    "name": "Maltapark",
+    "website": "https://www.maltapark.com/",
+    "country": "malta",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "property",
+      "vehicles"
+    ],
+    "note": "Malta's main classifieds marketplace."
+  },
+  {
+    "id": "mp-md-999",
+    "name": "999.md",
+    "website": "https://www.999.md/",
+    "country": "moldova",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "jobs",
+      "property",
+      "vehicles"
+    ],
+    "note": "Moldova's dominant classifieds marketplace."
+  },
+  {
+    "id": "mp-md-makler",
+    "name": "Makler.md",
+    "website": "https://www.makler.md/",
+    "country": "moldova",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "property",
+      "vehicles"
+    ],
+    "note": "A Moldovan classifieds portal."
+  },
+  {
+    "id": "mp-nl-marktplaats",
+    "name": "Marktplaats",
+    "website": "https://www.marktplaats.nl/",
+    "country": "netherlands",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "jobs",
+      "property",
+      "vehicles"
+    ],
+    "operator": "Adevinta",
+    "note": "The dominant Dutch classifieds marketplace, with commercial seller accounts."
+  },
+  {
+    "id": "mp-nl-speurders",
+    "name": "Speurders",
+    "website": "https://www.speurders.nl/",
+    "country": "netherlands",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "unknown",
+    "note": "A Dutch classifieds portal. Could not be identified automatically, so a browser check is needed."
+  },
+  {
+    "id": "mp-mk-pazar3",
+    "name": "Pazar3",
+    "website": "https://www.pazar3.mk/",
+    "country": "north-macedonia",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "property",
+      "vehicles"
+    ],
+    "note": "North Macedonia's leading classifieds marketplace."
+  },
+  {
+    "id": "mp-mk-reklama5",
+    "name": "Reklama5",
+    "website": "https://www.reklama5.mk/",
+    "country": "north-macedonia",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "unknown",
+    "alsoCovers": [
+      "property",
+      "vehicles"
+    ],
+    "note": "A North Macedonian classifieds portal. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
+    "id": "mp-no-finn",
+    "name": "FINN.no",
+    "website": "https://www.finn.no/",
+    "country": "norway",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "jobs",
+      "property",
+      "vehicles"
+    ],
+    "note": "Norway's dominant classifieds marketplace, with professional advertiser accounts."
+  },
+  {
+    "id": "mp-no-tise",
+    "name": "Tise",
+    "website": "https://www.tise.com/",
+    "country": "norway",
+    "marketplaceType": "fashion-resale",
+    "sellerTypes": "both",
+    "costModel": "free",
+    "currentStatus": "active",
+    "note": "A Nordic second-hand fashion marketplace."
+  },
+  {
+    "id": "mp-pl-allegro",
+    "name": "Allegro",
+    "website": "https://allegro.pl/",
+    "country": "poland",
+    "marketplaceType": "auctions",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "unknown",
+    "alsoCovers": [
+      "general-classifieds"
+    ],
+    "note": "Poland's dominant marketplace, where sellers hold public shop pages. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
+    "id": "mp-pl-gratka",
+    "name": "Gratka",
+    "website": "https://www.gratka.pl/",
+    "country": "poland",
+    "marketplaceType": "property",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "general-classifieds",
+      "vehicles"
+    ],
+    "note": "A Polish classifieds portal focused on property and vehicles."
+  },
+  {
+    "id": "mp-pl-olx",
+    "name": "OLX Polska",
+    "website": "https://www.olx.pl/",
+    "country": "poland",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "unknown",
+    "alsoCovers": [
+      "jobs",
+      "property",
+      "services",
+      "vehicles"
+    ],
+    "operator": "OLX Group",
+    "note": "Poland's dominant classifieds marketplace. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
+    "id": "mp-pl-otomoto",
+    "name": "OTOMOTO",
+    "website": "https://www.otomoto.pl/",
+    "country": "poland",
+    "marketplaceType": "vehicles",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "active",
+    "operator": "OLX Group",
+    "note": "The main Polish vehicle marketplace, where dealers hold public dealer pages."
+  },
+  {
+    "id": "mp-pl-sprzedajemy",
+    "name": "Sprzedajemy.pl",
+    "website": "https://www.sprzedajemy.pl/",
+    "country": "poland",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "note": "A Polish free classifieds board."
+  },
+  {
+    "id": "mp-pt-custojusto",
+    "name": "CustoJusto",
+    "website": "https://www.custojusto.pt/",
+    "country": "portugal",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "property",
+      "vehicles"
+    ],
+    "note": "A Portuguese free classifieds marketplace."
+  },
+  {
+    "id": "mp-pt-olx",
+    "name": "OLX Portugal",
+    "website": "https://www.olx.pt/",
+    "country": "portugal",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "jobs",
+      "property",
+      "vehicles"
+    ],
+    "operator": "OLX Group",
+    "note": "Portugal's leading classifieds marketplace."
+  },
+  {
+    "id": "mp-pt-standvirtual",
+    "name": "Standvirtual",
+    "website": "https://www.standvirtual.com/",
+    "country": "portugal",
+    "marketplaceType": "vehicles",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "active",
+    "operator": "OLX Group",
+    "note": "The main Portuguese vehicle marketplace, where dealers hold public dealer pages."
+  },
+  {
+    "id": "mp-ro-autovit",
+    "name": "Autovit",
+    "website": "https://www.autovit.ro/",
+    "country": "romania",
+    "marketplaceType": "vehicles",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "active",
+    "operator": "OLX Group",
+    "note": "The main Romanian vehicle marketplace, where dealers hold public dealer pages."
+  },
+  {
+    "id": "mp-ro-olx",
+    "name": "OLX Romania",
+    "website": "https://www.olx.ro/",
+    "country": "romania",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "unknown",
+    "alsoCovers": [
+      "jobs",
+      "property",
+      "vehicles"
+    ],
+    "operator": "OLX Group",
+    "note": "Romania's dominant classifieds marketplace. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
+    "id": "mp-ro-publi24",
+    "name": "Publi24",
+    "website": "https://www.publi24.ro/",
+    "country": "romania",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "jobs",
+      "property",
+      "vehicles"
+    ],
+    "note": "A Romanian free classifieds portal."
+  },
+  {
+    "id": "mp-ru-avito",
+    "name": "Avito",
+    "website": "https://www.avito.ru/",
+    "country": "russia",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "unknown",
+    "alsoCovers": [
+      "jobs",
+      "property",
+      "services",
+      "vehicles"
+    ],
+    "note": "Russia's dominant classifieds marketplace. Rate-limits automated requests, so a browser check is needed."
+  },
+  {
+    "id": "mp-ru-drom",
+    "name": "Drom.ru",
+    "website": "https://www.drom.ru/",
+    "country": "russia",
+    "marketplaceType": "vehicles",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "note": "A major Russian vehicle marketplace."
+  },
+  {
+    "id": "mp-ru-youla",
+    "name": "Youla",
+    "website": "https://www.youla.ru/",
+    "country": "russia",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "note": "A major Russian classifieds marketplace."
+  },
+  {
+    "id": "mp-rs-halooglasi",
+    "name": "Halo Oglasi",
+    "website": "https://www.halooglasi.com/",
+    "country": "serbia",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "unknown",
+    "alsoCovers": [
+      "property",
+      "vehicles"
+    ],
+    "note": "A major Serbian classifieds portal. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
+    "id": "mp-rs-kupujemprodajem",
+    "name": "KupujemProdajem",
+    "website": "https://www.kupujemprodajem.com/",
+    "country": "serbia",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "note": "Serbia's largest classifieds marketplace."
+  },
+  {
+    "id": "mp-rs-polovniautomobili",
+    "name": "Polovni Automobili",
+    "website": "https://www.polovniautomobili.com/",
+    "country": "serbia",
+    "marketplaceType": "vehicles",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "unknown",
+    "note": "The main Serbian vehicle marketplace. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
+    "id": "mp-sk-bazar",
+    "name": "Bazar.sk",
+    "website": "https://www.bazar.sk/",
+    "country": "slovakia",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "free",
+    "currentStatus": "active",
+    "note": "A Slovak free classifieds portal."
+  },
+  {
+    "id": "mp-sk-bazos",
+    "name": "Bazos.sk",
+    "website": "https://www.bazos.sk/",
+    "country": "slovakia",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "property",
+      "vehicles"
+    ],
+    "note": "The Slovak arm of the Bazos classifieds network."
+  },
+  {
+    "id": "mp-si-avto-net",
+    "name": "Avto.net",
+    "website": "https://www.avto.net/",
+    "country": "slovenia",
+    "marketplaceType": "vehicles",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "unknown",
+    "note": "The main Slovenian vehicle marketplace. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
+    "id": "mp-si-bolha",
+    "name": "Bolha.com",
+    "website": "https://www.bolha.com/",
+    "country": "slovenia",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "property",
+      "vehicles"
+    ],
+    "note": "Slovenia's largest classifieds marketplace."
+  },
+  {
+    "id": "mp-es-milanuncios",
+    "name": "Milanuncios",
+    "website": "https://www.milanuncios.com/",
+    "country": "spain",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "unknown",
+    "alsoCovers": [
+      "jobs",
+      "property",
+      "vehicles"
+    ],
+    "operator": "Adevinta",
+    "note": "A major Spanish classifieds marketplace. Rejects automated requests, so a browser check is needed."
+  },
+  {
+    "id": "mp-es-wallapop",
+    "name": "Wallapop",
+    "website": "https://www.wallapop.com/",
+    "country": "spain",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "note": "A major Spanish classifieds marketplace with professional seller accounts."
+  },
+  {
+    "id": "mp-se-blocket",
+    "name": "Blocket",
+    "website": "https://www.blocket.se/",
+    "country": "sweden",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "jobs",
+      "property",
+      "vehicles"
+    ],
+    "note": "Sweden's dominant classifieds marketplace."
+  },
+  {
+    "id": "mp-se-bytbil",
+    "name": "Bytbil",
+    "website": "https://www.bytbil.com/",
+    "country": "sweden",
+    "marketplaceType": "vehicles",
+    "sellerTypes": "business",
+    "costModel": "paid",
+    "currentStatus": "active",
+    "note": "A Swedish vehicle marketplace where dealers hold public dealer pages."
+  },
+  {
+    "id": "mp-se-tradera",
+    "name": "Tradera",
+    "website": "https://www.tradera.com/",
+    "country": "sweden",
+    "marketplaceType": "auctions",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "general-classifieds"
+    ],
+    "note": "A Swedish auction marketplace where businesses hold seller shops."
+  },
+  {
+    "id": "mp-ch-ricardo",
+    "name": "Ricardo",
+    "website": "https://www.ricardo.ch/",
+    "country": "switzerland",
+    "marketplaceType": "auctions",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "unknown",
+    "alsoCovers": [
+      "general-classifieds"
+    ],
+    "note": "Switzerland's largest online auction and marketplace. Live but behind a captcha gate, so a browser check is needed."
+  },
+  {
+    "id": "mp-ch-anibis",
+    "name": "anibis.ch",
+    "website": "https://www.anibis.ch/",
+    "country": "switzerland",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "unknown",
+    "alsoCovers": [
+      "vehicles"
+    ],
+    "note": "A Swiss classifieds marketplace. Live but behind a security check, so a browser check is needed."
+  },
+  {
+    "id": "mp-ch-tutti",
+    "name": "tutti.ch",
+    "website": "https://www.tutti.ch/",
+    "country": "switzerland",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "unknown",
+    "alsoCovers": [
+      "property",
+      "vehicles"
+    ],
+    "note": "A leading Swiss classifieds marketplace. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
+    "id": "mp-tr-arabam",
+    "name": "Arabam.com",
+    "website": "https://www.arabam.com/",
+    "country": "turkey",
+    "marketplaceType": "vehicles",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "unknown",
+    "note": "The main Turkish vehicle marketplace, where dealers hold public pages. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
+    "id": "mp-tr-hepsiemlak",
+    "name": "Hepsiemlak",
+    "website": "https://www.hepsiemlak.com/",
+    "country": "turkey",
+    "marketplaceType": "property",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "unknown",
+    "note": "A major Turkish property marketplace. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
+    "id": "mp-tr-sahibinden",
+    "name": "Sahibinden",
+    "website": "https://www.sahibinden.com/",
+    "country": "turkey",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "unknown",
+    "alsoCovers": [
+      "jobs",
+      "property",
+      "vehicles"
+    ],
+    "note": "Turkey's dominant classifieds marketplace. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
+    "id": "mp-ua-autoria",
+    "name": "AUTO.RIA",
+    "website": "https://auto.ria.com/",
+    "country": "ukraine",
+    "marketplaceType": "vehicles",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "note": "Ukraine's largest vehicle marketplace, where dealers hold public pages."
+  },
+  {
+    "id": "mp-ua-olx",
+    "name": "OLX Ukraine",
+    "website": "https://www.olx.ua/",
+    "country": "ukraine",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "jobs",
+      "property",
+      "services",
+      "vehicles"
+    ],
+    "operator": "OLX Group",
+    "note": "Ukraine's dominant classifieds marketplace."
+  },
+  {
+    "id": "mp-ua-prom",
+    "name": "Prom.ua",
+    "website": "https://www.prom.ua/",
+    "country": "ukraine",
+    "marketplaceType": "b2b",
+    "sellerTypes": "business",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "general-classifieds"
+    ],
+    "note": "Ukraine's largest marketplace, where businesses hold public company storefronts."
+  },
+  {
+    "id": "mp-ua-ria",
+    "name": "RIA.com",
+    "website": "https://www.ria.com/",
+    "country": "ukraine",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "property",
+      "vehicles"
+    ],
+    "note": "A Ukrainian classifieds network covering vehicles, property and goods."
+  },
+  {
+    "id": "mp-uk-freeads",
+    "name": "Freeads",
+    "website": "https://www.freeads.co.uk/",
+    "country": "united-kingdom",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "unknown",
+    "alsoCovers": [
+      "vehicles"
+    ],
+    "note": "A UK free classifieds site. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
+    "id": "mp-uk-gumtree",
+    "name": "Gumtree",
+    "website": "https://www.gumtree.com/",
+    "country": "united-kingdom",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "unknown",
+    "alsoCovers": [
+      "jobs",
+      "property",
+      "vehicles"
+    ],
+    "operator": "Adevinta",
+    "note": "The main UK classifieds marketplace. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
+    "id": "mp-uk-preloved",
+    "name": "Preloved",
+    "website": "https://www.preloved.co.uk/",
+    "country": "united-kingdom",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "note": "A UK classifieds marketplace for goods and services."
+  }
+]
