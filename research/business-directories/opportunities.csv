@@ -262,6 +262,7 @@ fr-michelin-guide,MICHELIN Guide,https://guide.michelin.com/,france,global,local
 fr-malt,Malt,https://www.malt.fr/,france,europe,general-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,unknown
 fr-mappy,Mappy,https://www.mappy.com/,france,country-specific,local-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
 fr-mariages,Mariages.net,https://www.mariages.net/,france,country-specific,local-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,unknown
+fr-stationf,STATION F,https://www.stationf.co/,france,europe,startup,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,active
 fr-starofservice,StarOfService,https://www.starofservice.com/,france,europe,local-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
 fr-travaux,Travaux.com,https://www.travaux.com/,france,country-specific,construction,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,unknown
 fr-aacc,AACC,https://www.aacc.fr/,france,country-specific,marketing,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
@@ -433,6 +434,7 @@ global-eu-startups,EU-Startups,https://www.eu-startups.com/,global,europe,startu
 global-exportersindia,ExportersIndia,https://www.exportersindia.com/,global,asia; india,manufacturing,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
 global-f6s,F6S,https://www.f6s.com/,global,global,startup,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
 global-feefo,Feefo,https://business.feefo.com/,global,global; united-kingdom,review-sites,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
+global-fibre2fashion,Fibre2Fashion,https://www.fibre2fashion.com/,global,global,manufacturing,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
 global-figma-community,Figma Community,https://www.figma.com/community,global,global,app-directories,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,active
 global-fiverr,Fiverr,https://www.fiverr.com/,global,global,general-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,unknown
 global-foursquare-places,Foursquare Places,https://foursquare.com/products/places/,global,global,local-business,unknown,unknown,91,tier2,P2,,,,,Primarily a data product rather than a self-service listing directory,2026-08-04,active
@@ -491,6 +493,7 @@ global-startupblink,StartupBlink,https://www.startupblink.com/,global,global,sta
 global-startupranking,StartupRanking,https://www.startupranking.com/,global,global,startup,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
 global-sulekha,Sulekha,https://www.sulekha.com/,global,india,local-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,active
 global-techpilot,Techpilot,https://www.techpilot.net/,global,dach; europe,manufacturing,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
+global-tekpon,Tekpon,https://www.tekpon.com/,global,global,saas,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
 global-theknot,The Knot,https://www.theknot.com/,global,united-states,local-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,unknown
 global-themanifest,The Manifest,https://www.themanifest.com/,global,global; north-america,marketing,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,unknown
 global-themuse,The Muse,https://www.themuse.com/companies,global,global; united-states,general-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
@@ -519,10 +522,12 @@ global-npm,npm,https://www.npmjs.com/,global,global,developer,unknown,free,,tier
 global-247pressrelease,24-7PressRelease,https://www.24-7pressrelease.com/,global,global; north-america,press-release-platforms,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 global-2findlocal,2FindLocal,https://www.2findlocal.com/,global,global,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 global-500-global,500 Global,https://www.500.co/,global,global,startup,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
+global-50pros,50Pros,https://www.50pros.com/,global,global,marketing,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
 global-99designs,99designs,https://www.99designs.com/,global,global,marketing,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 global-accesswire,ACCESSWIRE,https://www.accesswire.com/,global,global; north-america,press-release-platforms,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,unknown
 global-aitoolmall,AI Tool Mall,https://www.aitoolmall.com/,global,global,ai,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 global-aicyclopedia,AICyclopedia,https://www.aicyclopedia.com/,global,global,ai,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+global-adforum,AdForum,https://www.adforum.com/,global,global,marketing,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,unknown
 global-firefox-addons,Add-ons for Firefox,https://addons.mozilla.org/en-US/firefox/,global,global,app-directories,unknown,unknown,96,tier1,P3,,,,,Submission cost not stated on the landing page,2026-08-04,active
 global-adobe-commerce-marketplace,Adobe Commerce Marketplace,https://marketplace.magento.com/,global,global,app-directories,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 global-africa-business,Africa Business Pages,https://www.africa-business.com/,global,africa,general-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
@@ -530,6 +535,7 @@ global-afrindex,Afrindex,https://www.afrindex.com/,global,africa,manufacturing,u
 global-agencyspotter,Agency Spotter,https://www.agencyspotter.com/,global,global; north-america,marketing,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,unknown
 global-alternative-me,Alternative.me,https://alternative.me/,global,global,software,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 global-anaconda,Anaconda.org,https://anaconda.org/,global,global,developer,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,unknown
+global-antler,Antler,https://www.antler.co/,global,global,startup,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 global-asana-apps,Asana Apps,https://www.asana.com/apps,global,global,app-directories,unknown,unknown,,tier1,P3,true,,,,,2026-08-06,active
 global-autodesk-partners,Autodesk Partners,https://www.autodesk.com/partners,global,global,marketing,unknown,unknown,,tier1,P3,true,,,,,2026-08-06,active
 global-b2b-manufacturer,B2B Manufacturer,https://www.b2b-manufacturer.com/,global,asia,manufacturing,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
@@ -545,7 +551,9 @@ global-cssdesignawards,CSS Design Awards,https://www.cssdesignawards.com/,global
 global-centralamerica,Central America Living,https://www.centralamerica.com/,global,regional,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 global-chambers-and-partners,Chambers and Partners,https://chambers.com/,global,europe; global,legal,unknown,unknown,82,tier1,P3,,,,Firms competing for recognised international legal rankings,Heavy annual submission burden,2026-08-04,active
 global-clickup-integrations,ClickUp Integrations,https://www.clickup.com/integrations,global,global,app-directories,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
+global-climate-kic,Climate KIC,https://www.climate-kic.org/,global,europe,startup,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 global-cocoapods,CocoaPods,https://cocoapods.org/,global,global,developer,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
+global-compare-software,CompareSoftware,https://www.compare-software.com/,global,global,saas,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 global-conan-center,ConanCenter,https://conan.io/center,global,global,developer,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 global-craft,Craft.co,https://www.craft.co/,global,global,general-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,unknown
 global-crossfit-affiliates,CrossFit Affiliate Directory,https://www.crossfit.com/affiliate-map,global,global,local-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
@@ -553,9 +561,11 @@ global-crowdcube,Crowdcube,https://www.crowdcube.com/,global,europe; united-king
 global-crozdesk,Crozdesk,https://www.crozdesk.com/,global,europe; global,software,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 global-cybo,Cybo,https://www.cybo.com/,global,global,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
 global-dhgate,DHgate,https://www.dhgate.com/,global,asia; global,manufacturing,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,unknown
+global-digitalagencynetwork,Digital Agency Network,https://www.digitalagencynetwork.com/,global,global,marketing,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 global-discovercloud,DiscoverCloud,https://www.discovercloud.com/,global,global,software,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 global-drupal-modules,Drupal Modules,https://www.drupal.org/project/project_module,global,global,developer,unknown,free,91,tier2,P3,,,,,Restricted to the Drupal ecosystem,2026-08-04,active
 global-ec21,EC21,https://www.ec21.com/,global,asia; global,manufacturing,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
+global-eitfood,EIT Food,https://www.eitfood.eu/,global,europe,startup,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 global-easywithai,Easy With AI,https://www.easywithai.com/,global,global,ai,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
 global-enrollbusiness,EnrollBusiness,https://www.enrollbusiness.com/,global,global,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
 global-eventbrite,Eventbrite,https://www.eventbrite.com/,global,global,general-business,unknown,unknown,,tier1,P3,true,,,,,2026-08-06,active
@@ -576,6 +586,8 @@ global-hostelworld,Hostelworld,https://www.hostelworld.com/,global,global,local-
 global-hotfrog-india,Hotfrog India,https://www.hotfrog.in/,global,india,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
 global-hubbiz,Hubbiz,https://www.hub.biz/,global,global; united-states,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 global-itfirms,ITFirms,https://www.itfirms.co/,global,global,marketing,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+global-itrate,ITRate,https://www.itrate.co/,global,global,software,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+global-impacthub,Impact Hub,https://www.impacthub.net/,global,global,startup,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 global-indiacom,Indiacom,https://www.indiacom.com/,global,india,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 global-infobel,Infobel,https://www.infobel.com/,global,europe; global,general-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,unknown
 global-insidr-ai,Insidr.ai,https://www.insidr.ai/,global,global,ai,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
@@ -585,6 +597,7 @@ global-joomla-extensions,Joomla! Extensions Directory,https://extensions.joomla.
 global-jora,Jora,https://www.jora.com/,global,global,general-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,unknown
 global-kaggle-datasets,Kaggle Datasets,https://www.kaggle.com/datasets,global,global,developer,unknown,free,90,tier2,P3,,,,Organisations releasing open datasets,Review system not confirmed from the catalogue page,2026-08-04,active
 global-kelkoo,Kelkoo,https://www.kelkoo.com/,global,europe,review-sites,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,unknown
+global-killerstartups,KillerStartups,https://www.killerstartups.com/,global,global,startup,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 global-lacartes,Lacartes,https://www.lacartes.com/,global,global,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 global-launchingnext,Launching Next,https://www.launchingnext.com/,global,global,startup,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 global-libhunt,LibHunt,https://www.libhunt.com/,global,global,developer,unknown,free,61,tier3,P3,,,,,Rankings derive from social mentions rather than assessment,2026-08-04,active
@@ -605,6 +618,7 @@ global-openhub,Open Hub,https://www.openhub.net/,global,global,developer,unknown
 global-open-vsx,Open VSX Registry,https://open-vsx.org/,global,global,developer,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 global-opentools,OpenTools,https://www.opentools.ai/,global,global,ai,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 global-opendi,Opendi,https://www.opendi.com/,global,europe; global,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+global-openfuture-ai,Openfuture,https://www.openfuture.ai/,global,global,ai,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
 global-oracle-partners,Oracle Partner Finder,https://www.oracle.com/partner/,global,global,marketing,unknown,unknown,,tier1,P3,true,,,,,2026-08-06,active
 global-owler,Owler,https://www.owler.com/company,global,global,general-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,unknown
 global-packagecontrol,Package Control,https://packagecontrol.io/,global,global,developer,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
@@ -613,16 +627,20 @@ global-petal-maps,Petal Maps,https://www.petalmaps.com/,global,asia; global,loca
 global-pinterest-business,Pinterest Business Account,https://www.pinterest.com/business/,global,global,general-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 global-pipedrive-marketplace,Pipedrive Marketplace,https://www.pipedrive.com/en/marketplace,global,global,app-directories,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 global-pissedconsumer,PissedConsumer,https://www.pissedconsumer.com/,global,global; united-states,review-sites,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+global-pitchwall,PitchWall,https://www.pitchwall.co/,global,global,startup,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 global-prestashop-addons,PrestaShop Addons,https://addons.prestashop.com/,global,europe; global,app-directories,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,unknown
 global-restaurantguru,Restaurant Guru,https://www.restaurantguru.com/,global,global,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 global-rubygems,RubyGems.org,https://rubygems.org/,global,global,developer,unknown,unknown,87,tier1,P3,,,,,Publishing cost is not stated on the homepage,2026-08-04,active
 global-saasgenius,SaaSGenius,https://www.saasgenius.com/,global,global,software,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 global-saashub,SaaSHub,https://www.saashub.com/,global,global,software,unknown,free,79,tier3,P3,,,,,Very large catalogue with correspondingly light curation,2026-08-04,active
+global-saaslist,SaasList,https://www.saaslist.com/,global,global,saas,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 global-seedrs,Seedrs,https://www.seedrs.com/,global,europe; united-kingdom,startup,unknown,unknown,,tier1,P3,true,,,,,2026-08-06,unknown
 global-seedtable,Seedtable,https://www.seedtable.com/,global,europe,startup,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
 global-selecthub,SelectHub,https://www.selecthub.com/,global,global; north-america,software,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
+global-selectedfirms,SelectedFirms,https://www.selectedfirms.co/,global,global,marketing,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 global-setmore,Setmore,https://www.setmore.com/,global,global,local-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 global-shopper-approved,Shopper Approved,https://www.shopperapproved.com/,global,global; north-america,review-sites,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
+global-sideprojectors,SideProjectors,https://www.sideprojectors.com/,global,global,startup,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 global-slant,Slant,https://www.slant.co/,global,global,software,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
 global-slashdot-software,Slashdot Software Directory,https://slashdot.org/software/,global,global,software,unknown,unknown,87,tier3,P3,,,,,"Shares its review corpus with SourceForge, so listings overlap heavily",2026-08-04,unknown
 global-smartguy,SmartGuy,https://www.smartguy.com/,global,global,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
@@ -630,18 +648,22 @@ global-snap-store,Snap Store,https://snapcraft.io/store,global,global,app-direct
 global-softpedia,Softpedia,https://www.softpedia.com/,global,europe; global,software,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,unknown
 global-softwareworld,SoftwareWorld,https://www.softwareworld.co/,global,global,software,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
 global-startupbuffer,Startup Buffer,https://www.startupbuffer.com/,global,global,startup,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
+global-startupwiseguys,Startup Wise Guys,https://www.startupwiseguys.com/,global,europe,startup,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
+global-startupbootcamp,Startupbootcamp,https://www.startupbootcamp.org/,global,global,startup,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 global-stripe-marketplace,Stripe App Marketplace,https://marketplace.stripe.com/,global,global,app-directories,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 global-superbcompanies,SuperbCompanies,https://www.superbcompanies.com/,global,global,marketing,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 global-swift-package-index,Swift Package Index,https://swiftpackageindex.com/,global,global,developer,unknown,free,,tier2,P3,,https://github.com/SwiftPackageIndex/PackageList,,Publishing a Swift package so Swift developers can discover it,No quality threshold is applied to packages that meet the technical requirements,2026-08-04,unknown
 global-taiwantrade,Taiwantrade,https://www.taiwantrade.com/,global,asia,manufacturing,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,unknown
 global-talent-com,Talent.com,https://www.talent.com/,global,global,general-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 global-techinasia,Tech in Asia,https://www.techinasia.com/,global,asia,startup,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
+global-techimply,Techimply,https://www.techimply.com/,global,global,saas,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
 global-techstars,Techstars,https://www.techstars.com/,global,global,startup,unknown,unknown,,tier1,P3,true,,,,,2026-08-06,active
 global-terraform-registry,Terraform Registry,https://www.terraform.io/registry,global,global,developer,unknown,unknown,,tier1,P3,true,,,,,2026-08-06,active
 global-legal-500,The Legal 500,https://www.legal500.com/,global,europe; global,legal,unknown,unknown,81,tier1,P3,,,,Law firms seeking recognised practice-area rankings,Submission is an annual research cycle rather than a listing,2026-08-04,active
 global-thunderbird-addons,Thunderbird Add-ons,https://addons.thunderbird.net/,global,global,app-directories,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
 global-timeout,Time Out,https://www.timeout.com/,global,global,local-business,unknown,unknown,,tier1,P3,true,,,,,2026-08-06,active
 global-tinylaunch,TinyLaunch,https://www.tinylaunch.com/,global,global,startup,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+global-toolsforhumans,ToolsForHumans,https://www.toolsforhumans.ai/,global,global,ai,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 global-topdevelopers,TopDevelopers.co,https://www.topdevelopers.co/,global,asia; global,marketing,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 global-toptal,Toptal,https://www.toptal.com/,global,global,general-business,unknown,unknown,,tier1,P3,true,,,,,2026-08-06,unknown
 global-tracxn,Tracxn,https://www.tracxn.com/,global,global; india,startup,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
@@ -652,6 +674,7 @@ global-tupalo,Tupalo,https://tupalo.com/,global,europe; global,local-business,un
 global-untappd,Untappd,https://www.untappd.com/,global,global,local-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 global-vault,Vault,https://www.vault.com/,global,united-states,general-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 global-vrbo,Vrbo,https://www.vrbo.com/,global,north-america,local-business,unknown,unknown,,tier1,P3,true,,,,,2026-08-06,unknown
+global-wadline,Wadline,https://www.wadline.com/,global,global,software,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 global-wand,Wand,https://www.wand.com/,global,global; north-america,manufacturing,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 global-wheree,Wheree,https://www.wheree.com/,global,global,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
 global-whodoyou,WhoDoYou,https://www.whodoyou.com/,global,global; united-states,review-sites,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
@@ -673,6 +696,7 @@ global-iglobal,iGlobal,https://www.iglobal.co/,global,global,local-business,unkn
 global-opam,opam,https://opam.ocaml.org/,global,global,developer,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 global-openpr,openPR,https://www.openpr.com/,global,dach; global,press-release-platforms,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 global-pub-dev,pub.dev,https://pub.dev/,global,global,developer,unknown,unknown,86,tier1,P3,,,,,Publishing cost not stated on the homepage,2026-08-04,active
+global-topseos,topseos,https://www.topseos.com/,global,global,marketing,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 gt-paginasamarillas,Páginas Amarillas Guatemala,https://www.paginasamarillas.com.gt/,guatemala,country-specific,general-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
 hn-hondurastips,Honduras Tips,https://www.hondurastips.hn/,honduras,country-specific,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 hn-honduras-travel,Honduras Travel,https://www.honduras.travel/,honduras,country-specific,local-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
@@ -862,6 +886,7 @@ nl-goudengids,Gouden Gids,https://www.goudengids.nl/,netherlands,country-specifi
 nl-eetnu,Eet.nu,https://www.eet.nu/,netherlands,country-specific,local-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
 nl-kiyoh,Kiyoh,https://www.kiyoh.com/,netherlands,country-specific,review-sites,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
 nl-quandoo,Quandoo Nederland,https://www.quandoo.nl/,netherlands,country-specific,local-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
+nl-techleap,Techleap,https://www.techleap.nl/,netherlands,country-specific,startup,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
 nl-telefoonboek,Telefoonboek,https://www.telefoonboek.nl/,netherlands,country-specific,local-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
 nl-thuisbezorgd,Thuisbezorgd,https://www.thuisbezorgd.nl/,netherlands,country-specific,local-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,unknown
 nl-treatwell,Treatwell Nederland,https://www.treatwell.nl/,netherlands,country-specific,local-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
@@ -886,10 +911,13 @@ nl-misterwhat,MisterWhat Nederland,https://www.misterwhat.nl/,netherlands,countr
 nl-nlingenieurs,NLingenieurs,https://www.nlingenieurs.nl/,netherlands,country-specific,industry-associations,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
 nl-nationalevacaturebank,Nationale Vacaturebank,https://www.nationalevacaturebank.nl/,netherlands,country-specific,general-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,unknown
 nl-opendi,Opendi Nederland,https://www.opendi.nl/,netherlands,country-specific,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+nl-startupvillage,Startup Village Amsterdam,https://www.startupvillage.nl/,netherlands,regional,startup,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 nl-thuiswinkel,Thuiswinkel.org,https://www.thuiswinkel.org/,netherlands,country-specific,industry-associations,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
+nl-utrechtinc,UtrechtInc,https://www.utrechtinc.nl/,netherlands,regional,startup,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 nl-vno-ncw,VNO-NCW,https://www.vno-ncw.nl/,netherlands,country-specific,industry-associations,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 nl-webwinkelkeur,WebwinkelKeur,https://www.webwinkelkeur.nl/,netherlands,country-specific,review-sites,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 nl-werkzoeken,Werkzoeken.nl,https://www.werkzoeken.nl/,netherlands,country-specific,general-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
+nl-yesdelft,YES!Delft,https://www.yesdelft.com/,netherlands,regional,startup,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 nl-yalwa,Yalwa Nederland,https://www.yalwa.nl/,netherlands,country-specific,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
 nl-zoover,Zoover,https://www.zoover.nl/,netherlands,country-specific,review-sites,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 nl-zorgkaart,ZorgkaartNederland,https://www.zorgkaartnederland.nl/,netherlands,country-specific,local-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
@@ -1107,6 +1135,9 @@ ch-infoisinfo,InfoIsInfo Schweiz,https://www.infoisinfo.ch/,switzerland,country-
 ch-lokalesgewerbe,LokalesGewerbe.ch,https://www.lokalesgewerbe.ch/,switzerland,country-specific,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 ch-opendi,Opendi Schweiz,https://www.opendi.ch/,switzerland,dach,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 ch-schweizfirmen,Schweizfirmen,https://www.schweizfirmen.ch/,switzerland,country-specific,general-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+ch-startupticker,Startupticker,https://www.startupticker.ch/,switzerland,country-specific,startup,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
+ch-swissstartupassociation,Swiss Startup Association,https://www.swissstartupassociation.ch/,switzerland,country-specific,startup,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
+ch-venturelab,Venturelab,https://www.venturelab.swiss/,switzerland,country-specific,startup,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 ch-yalwa,Yalwa Schweiz,https://www.yalwa.ch/,switzerland,country-specific,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
 ch-vschweiz,vSchweiz,https://vschweiz.ch/,switzerland,country-specific,general-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 tw-104,104 Job Bank,https://www.104.com.tw/,taiwan,country-specific,general-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,unknown
@@ -1170,11 +1201,14 @@ uk-ciob,CIOB,https://www.ciob.org/,united-kingdom,united-kingdom,industry-associ
 uk-cv-library,CV-Library,https://www.cv-library.co.uk/,united-kingdom,united-kingdom,general-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 uk-cylex,Cylex UK,https://www.cylex-uk.co.uk/,united-kingdom,united-kingdom,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
 uk-designmynight,DesignMyNight,https://www.designmynight.com/,united-kingdom,united-kingdom,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+uk-entrepreneurfirst,Entrepreneur First,https://www.entrepreneurfirst.com/,united-kingdom,global,startup,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 uk-fmb,Federation of Master Builders,https://www.fmb.org.uk/,united-kingdom,united-kingdom,industry-associations,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 uk-fsb,Federation of Small Businesses,https://www.fsb.org.uk/,united-kingdom,united-kingdom,industry-associations,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,unknown
 uk-gumtree,Gumtree,https://www.gumtree.com/,united-kingdom,united-kingdom,general-business,unknown,unknown,,tier1,P3,true,,,,,2026-08-06,active
 uk-hardens,Harden's,https://www.hardens.com/,united-kingdom,united-kingdom,local-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 uk-infoisinfo,Infoisinfo UK,https://www.infoisinfo.co.uk/,united-kingdom,united-kingdom,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+uk-knowledgequarter,Knowledge Quarter London,https://www.knowledgequarter.london/,united-kingdom,regional,startup,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+uk-level39,Level39,https://www.level39.co/,united-kingdom,regional,startup,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 uk-local-heroes,Local Heroes,https://www.local-heroes.com/,united-kingdom,united-kingdom,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 uk-locallife,LocalLife,https://www.locallife.co.uk/,united-kingdom,united-kingdom,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 uk-misterwhat,MisterWhat UK,https://www.misterwhat.co.uk/,united-kingdom,united-kingdom,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
@@ -1185,6 +1219,7 @@ uk-peopleperhour,PeoplePerHour,https://www.peopleperhour.com/,united-kingdom,eur
 uk-pressat,Pressat,https://www.pressat.co.uk/,united-kingdom,united-kingdom,press-release-platforms,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 uk-quandoo,Quandoo UK,https://www.quandoo.co.uk/,united-kingdom,united-kingdom,local-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 uk-reed,Reed.co.uk,https://www.reed.co.uk/,united-kingdom,united-kingdom,general-business,unknown,unknown,,tier1,P3,true,,,,,2026-08-06,unknown
+uk-seedcamp,Seedcamp,https://www.seedcamp.com/,united-kingdom,europe,startup,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 uk-smartbusinessdirectory,Smart Business Directory,https://www.smartbusinessdirectory.co.uk/,united-kingdom,united-kingdom,general-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 uk-squaremeal,SquareMeal,https://www.squaremeal.co.uk/,united-kingdom,united-kingdom,local-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,unknown
 uk-totaljobs,Totaljobs,https://www.totaljobs.com/,united-kingdom,united-kingdom,general-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
@@ -1215,6 +1250,7 @@ us-manta,Manta,https://www.manta.com/,united-states,united-states,general-busine
 us-mapquest,MapQuest,https://www.mapquest.com/,united-states,united-states,local-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
 us-martindale,Martindale-Hubbell,https://www.martindale.com/,united-states,united-states,legal,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,unknown
 us-merchantcircle,MerchantCircle,https://www.merchantcircle.com/,united-states,united-states,local-business,claim,freemium,,tier1,P2,true,https://www.merchantcircle.com/business_homepage,https://www.merchantcircle.com/business_homepage,US local businesses that find themselves already listed and want to take control of the page.,A free profile carries competitors’ advertising. The operator sells the removal of it: the paid tier promises to “Remove competitor ads from your listing” and “No ads on your page - consumers will focus only on you!”. That is a plain statement about what the free tier looks like.,2026-08-06,active
+us-plugandplay,Plug and Play,https://www.plugandplaytechcenter.com/,united-states,global,startup,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,active
 us-psychologytoday,Psychology Today Therapist Directory,https://www.psychologytoday.com/us/therapists,united-states,north-america,local-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,active
 us-realtor-agents,Realtor.com Agent Directory,https://www.realtor.com/realestateagents,united-states,united-states,local-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,unknown
 us-superpages,Superpages,https://www.superpages.com/,united-states,united-states,local-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,unknown
@@ -1323,6 +1359,7 @@ us-repairpal,RepairPal,https://www.repairpal.com/,united-states,united-states,lo
 us-restaurantji,Restaurantji,https://www.restaurantji.com/,united-states,united-states,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 us-resy,Resy,https://www.resy.com/,united-states,united-states,local-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 us-rover,Rover,https://www.rover.com/,united-states,north-america,local-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,unknown
+us-sfchamber,San Francisco Chamber of Commerce,https://www.sfchamber.com/directory,united-states,regional,chambers-of-commerce,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 us-seniorly,Seniorly,https://www.seniorly.com/,united-states,united-states,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 us-sharecare,Sharecare,https://www.sharecare.com/,united-states,united-states,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 us-showmelocal,ShowMeLocal,https://www.showmelocal.com/,united-states,united-states,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown

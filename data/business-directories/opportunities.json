@@ -23382,5 +23382,671 @@
     "submissionModel": "unknown",
     "note": "A major Middle Eastern marketplace where sellers hold public storefronts. Live but behind a bot filter, so a browser check is needed.",
     "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-tekpon",
+    "name": "Tekpon",
+    "website": "https://www.tekpon.com/",
+    "country": "global",
+    "category": "saas",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A software discovery and review platform where vendors hold public product profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-techimply",
+    "name": "Techimply",
+    "website": "https://www.techimply.com/",
+    "country": "global",
+    "category": "saas",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A software review directory where vendors hold public product profiles. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-pitchwall",
+    "name": "PitchWall",
+    "website": "https://www.pitchwall.co/",
+    "country": "global",
+    "category": "startup",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A product discovery community where makers publish public product pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-killerstartups",
+    "name": "KillerStartups",
+    "website": "https://www.killerstartups.com/",
+    "country": "global",
+    "category": "startup",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A startup discovery platform publishing public company pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-fibre2fashion",
+    "name": "Fibre2Fashion",
+    "website": "https://www.fibre2fashion.com/",
+    "country": "global",
+    "category": "manufacturing",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A textile and apparel B2B marketplace where suppliers hold public company profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-50pros",
+    "name": "50Pros",
+    "website": "https://www.50pros.com/",
+    "country": "global",
+    "category": "marketing",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An agency ranking and directory platform with public company profiles. Live but behind a security checkpoint, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-selectedfirms",
+    "name": "SelectedFirms",
+    "website": "https://www.selectedfirms.co/",
+    "country": "global",
+    "category": "marketing",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A B2B agency ratings and reviews platform where agencies hold public profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-topseos",
+    "name": "topseos",
+    "website": "https://www.topseos.com/",
+    "country": "global",
+    "category": "marketing",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An agency ranking directory where marketing firms hold public profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-digitalagencynetwork",
+    "name": "Digital Agency Network",
+    "website": "https://www.digitalagencynetwork.com/",
+    "country": "global",
+    "category": "marketing",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An international agency directory where agencies hold public profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-itrate",
+    "name": "ITRate",
+    "website": "https://www.itrate.co/",
+    "country": "global",
+    "category": "software",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An IT company review and rating directory with public company profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-wadline",
+    "name": "Wadline",
+    "website": "https://www.wadline.com/",
+    "country": "global",
+    "category": "software",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An IT company and software solutions directory with public company profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-adforum",
+    "name": "AdForum",
+    "website": "https://www.adforum.com/",
+    "country": "global",
+    "category": "marketing",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An international advertising agency directory with public agency profiles. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-compare-software",
+    "name": "CompareSoftware",
+    "website": "https://www.compare-software.com/",
+    "country": "global",
+    "category": "saas",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A software comparison directory where vendors hold public product profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-saaslist",
+    "name": "SaasList",
+    "website": "https://www.saaslist.com/",
+    "country": "global",
+    "category": "saas",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A business SaaS directory with public product profiles and pricing pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-toolsforhumans",
+    "name": "ToolsForHumans",
+    "website": "https://www.toolsforhumans.ai/",
+    "country": "global",
+    "category": "ai",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An AI tool directory where products hold public listing pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-openfuture-ai",
+    "name": "Openfuture",
+    "website": "https://www.openfuture.ai/",
+    "country": "global",
+    "category": "ai",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An AI tool directory where products hold public listing pages. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-sideprojectors",
+    "name": "SideProjectors",
+    "website": "https://www.sideprojectors.com/",
+    "country": "global",
+    "category": "startup",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A marketplace where founders publish public pages for side projects.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-sfchamber",
+    "name": "San Francisco Chamber of Commerce",
+    "website": "https://www.sfchamber.com/directory",
+    "country": "united-states",
+    "category": "chambers-of-commerce",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "regional"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A US regional chamber publishing a searchable member business directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "fr-stationf",
+    "name": "STATION F",
+    "website": "https://www.stationf.co/",
+    "country": "france",
+    "category": "startup",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "europe"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Paris startup campus, publishing a public directory of resident companies.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-plugandplay",
+    "name": "Plug and Play",
+    "website": "https://www.plugandplaytechcenter.com/",
+    "country": "united-states",
+    "category": "startup",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A global innovation platform publishing public portfolio company pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "uk-seedcamp",
+    "name": "Seedcamp",
+    "website": "https://www.seedcamp.com/",
+    "country": "united-kingdom",
+    "category": "startup",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "europe"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A European seed fund publishing a public portfolio company directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-antler",
+    "name": "Antler",
+    "website": "https://www.antler.co/",
+    "country": "global",
+    "category": "startup",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An international venture builder publishing public portfolio company pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "uk-entrepreneurfirst",
+    "name": "Entrepreneur First",
+    "website": "https://www.entrepreneurfirst.com/",
+    "country": "united-kingdom",
+    "category": "startup",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An international talent investor publishing public portfolio company pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-impacthub",
+    "name": "Impact Hub",
+    "website": "https://www.impacthub.net/",
+    "country": "global",
+    "category": "startup",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A global network of innovation hubs where member organisations hold public profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "nl-techleap",
+    "name": "Techleap",
+    "website": "https://www.techleap.nl/",
+    "country": "netherlands",
+    "category": "startup",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Dutch scaleup organisation publishing a public technology company directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-startupwiseguys",
+    "name": "Startup Wise Guys",
+    "website": "https://www.startupwiseguys.com/",
+    "country": "global",
+    "category": "startup",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "europe"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A European accelerator publishing a public portfolio company directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-eitfood",
+    "name": "EIT Food",
+    "website": "https://www.eitfood.eu/",
+    "country": "global",
+    "category": "startup",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "europe"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A European food innovation community publishing a public partner and startup directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-climate-kic",
+    "name": "Climate KIC",
+    "website": "https://www.climate-kic.org/",
+    "country": "global",
+    "category": "startup",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "europe"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A European climate innovation community publishing public partner listings.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ch-startupticker",
+    "name": "Startupticker",
+    "website": "https://www.startupticker.ch/",
+    "country": "switzerland",
+    "category": "startup",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Swiss startup platform publishing a public startup and company database.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ch-swissstartupassociation",
+    "name": "Swiss Startup Association",
+    "website": "https://www.swissstartupassociation.ch/",
+    "country": "switzerland",
+    "category": "startup",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Swiss startup association, whose member companies appear in a public directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ch-venturelab",
+    "name": "Venturelab",
+    "website": "https://www.venturelab.swiss/",
+    "country": "switzerland",
+    "category": "startup",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Swiss startup programme publishing public portfolio company pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "nl-utrechtinc",
+    "name": "UtrechtInc",
+    "website": "https://www.utrechtinc.nl/",
+    "country": "netherlands",
+    "category": "startup",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "regional"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Dutch startup incubator publishing a public portfolio company directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "nl-yesdelft",
+    "name": "YES!Delft",
+    "website": "https://www.yesdelft.com/",
+    "country": "netherlands",
+    "category": "startup",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "regional"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Dutch tech incubator publishing a public portfolio company directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-startupbootcamp",
+    "name": "Startupbootcamp",
+    "website": "https://www.startupbootcamp.org/",
+    "country": "global",
+    "category": "startup",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An international accelerator network publishing public portfolio company pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "nl-startupvillage",
+    "name": "Startup Village Amsterdam",
+    "website": "https://www.startupvillage.nl/",
+    "country": "netherlands",
+    "category": "startup",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "regional"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An Amsterdam innovation campus listing resident companies publicly.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "uk-level39",
+    "name": "Level39",
+    "website": "https://www.level39.co/",
+    "country": "united-kingdom",
+    "category": "startup",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "regional"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A London technology community publishing a public member company directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "uk-knowledgequarter",
+    "name": "Knowledge Quarter London",
+    "website": "https://www.knowledgequarter.london/",
+    "country": "united-kingdom",
+    "category": "startup",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "regional"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A London innovation district publishing a public partner organisation directory.",
+    "lastVerified": "2026-08-06"
   }
 ]
