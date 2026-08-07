@@ -24048,5 +24048,995 @@
     "submissionModel": "unknown",
     "note": "A London innovation district publishing a public partner organisation directory.",
     "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "in-aajjo",
+    "name": "Aajjo",
+    "website": "https://www.aajjo.com/",
+    "country": "india",
+    "category": "manufacturing",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "india"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An Indian B2B portal where manufacturers, suppliers and traders hold public company profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "in-getdistributors",
+    "name": "GetDistributors",
+    "website": "https://www.getdistributors.com/",
+    "country": "india",
+    "category": "manufacturing",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "india"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An Indian directory where manufacturers and wholesalers publish public profiles to appoint distributors.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "in-bizbangboom",
+    "name": "BizBangBoom",
+    "website": "https://www.bizbangboom.com/",
+    "country": "india",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "india"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An Indian business directory with public company listings.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "in-pepagora",
+    "name": "Pepagora",
+    "website": "https://www.pepagora.com/",
+    "country": "india",
+    "category": "manufacturing",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "asia"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An Indian B2B marketplace with public supplier profiles. Live but behind a verification gate, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "in-indiantradebird",
+    "name": "Indian TradeBird",
+    "website": "https://www.indiantradebird.com/",
+    "country": "india",
+    "category": "manufacturing",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "india"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An Indian machinery marketplace where suppliers hold public company pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "in-fieo",
+    "name": "FIEO",
+    "website": "https://www.fieo.org/",
+    "country": "india",
+    "category": "industry-associations",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "india"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Federation of Indian Export Organisations, whose member exporters appear in a directory. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "in-aepc",
+    "name": "Apparel Export Promotion Council",
+    "website": "https://www.aepcindia.com/",
+    "country": "india",
+    "category": "industry-associations",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "india"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Indian apparel export council, whose member exporters appear in a directory. Membership is eligibility-gated.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "in-chemexcil",
+    "name": "CHEMEXCIL",
+    "website": "https://www.chemexcil.in/",
+    "country": "india",
+    "category": "industry-associations",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "india"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Indian basic chemicals export council, whose member exporters appear in a directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "in-epch",
+    "name": "EPCH",
+    "website": "https://www.epch.in/",
+    "country": "india",
+    "category": "industry-associations",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "india"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Indian handicrafts export council, whose member exporters appear in a directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "in-pharmexcil",
+    "name": "Pharmexcil",
+    "website": "https://www.pharmexcil.com/",
+    "country": "india",
+    "category": "industry-associations",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "india"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Indian pharmaceuticals export council, whose member exporters appear in a directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "in-plexconcil",
+    "name": "PLEXCONCIL",
+    "website": "https://www.plexconcil.org/",
+    "country": "india",
+    "category": "industry-associations",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "india"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Indian plastics export council, whose member exporters appear in a directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "in-sportsgoodsindia",
+    "name": "Sports Goods Export Promotion Council",
+    "website": "https://www.sportsgoodsindia.org/",
+    "country": "india",
+    "category": "industry-associations",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "india"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Indian sports goods export council, whose member exporters appear in a directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "in-leatherindia",
+    "name": "Council for Leather Exports",
+    "website": "https://www.leatherindia.org/",
+    "country": "india",
+    "category": "industry-associations",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "india"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Indian leather export council, whose member exporters appear in a directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "in-cmai",
+    "name": "CMAI",
+    "website": "https://www.cmai.in/",
+    "country": "india",
+    "category": "industry-associations",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "india"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Clothing Manufacturers Association of India, whose member companies appear in a directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "in-indiaonline",
+    "name": "IndiaOnline",
+    "website": "https://www.indiaonline.in/",
+    "country": "india",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "india"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A major Indian local search engine where businesses hold public profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "in-ahmedabadyellowpages",
+    "name": "Ahmedabad Yellow Pages",
+    "website": "https://www.ahmedabadyellowpages.com/",
+    "country": "india",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "regional"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An Indian city business directory covering Ahmedabad.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "in-citiyellowpages",
+    "name": "CitiYellowPages",
+    "website": "https://www.citiyellowpages.com/",
+    "country": "india",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "india"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An Indian city-based yellow pages business directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "in-mumbaibusinessdirectory",
+    "name": "Mumbai Business Directory",
+    "website": "https://www.mumbaibusinessdirectory.com/",
+    "country": "india",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "regional"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An Indian city business directory and networking listing for Mumbai.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "cn-51sole",
+    "name": "搜了网 51sole",
+    "website": "https://www.51sole.com/",
+    "country": "china",
+    "category": "manufacturing",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "china"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Chinese vertical business search and B2B platform where companies hold public profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "cn-b2b168",
+    "name": "八方资源网 B2B168",
+    "website": "https://www.b2b168.com/",
+    "country": "china",
+    "category": "manufacturing",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "china"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Chinese B2B trade platform where suppliers hold public company pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "cn-jdzj",
+    "name": "机电之家 JDZJ",
+    "website": "https://www.jdzj.com/",
+    "country": "china",
+    "category": "manufacturing",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "china"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Chinese electromechanical industry B2B platform with public supplier profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "cn-hisupplier",
+    "name": "HiSupplier",
+    "website": "https://www.hisupplier.com/",
+    "country": "china",
+    "category": "manufacturing",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A China suppliers and manufacturers directory aimed at international buyers.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "cn-11467",
+    "name": "顺企网 11467",
+    "website": "https://www.11467.com/",
+    "country": "china",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "china"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A large Chinese company directory with public business entries. Rate-limits automated requests, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "cn-21food",
+    "name": "21food",
+    "website": "https://www.21food.com/",
+    "country": "china",
+    "category": "manufacturing",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Chinese food industry B2B marketplace with public supplier profiles. Requires a browser to render, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "cn-baidu-aicaigou",
+    "name": "百度爱采购 Baidu B2B",
+    "website": "https://b2b.baidu.com/",
+    "country": "china",
+    "category": "manufacturing",
+    "tier": "tier1",
+    "priority": "P1",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "china"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "Baidu's B2B sourcing platform, where suppliers hold public company and product pages fed by Baidu search.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "cn-baidu-maps",
+    "name": "百度地图 Baidu Maps",
+    "website": "https://map.baidu.com/",
+    "country": "china",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P1",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "china"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The business listing surface of China's dominant search engine's map product.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "cn-tencent-maps",
+    "name": "腾讯地图 Tencent Maps",
+    "website": "https://map.qq.com/",
+    "country": "china",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "china"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The business listing surface of Tencent's map product.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "cn-dianping",
+    "name": "大众点评 Dianping",
+    "website": "https://www.dianping.com/",
+    "country": "china",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P1",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "china"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "China's leading local business review platform, where venues hold public profiles. Requires a browser to render, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "cn-meituan",
+    "name": "美团 Meituan",
+    "website": "https://www.meituan.com/",
+    "country": "china",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P1",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "china"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "China's dominant local services and delivery platform, where merchants hold public pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "cn-58",
+    "name": "58同城 58.com",
+    "website": "https://www.58.com/",
+    "country": "china",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "china"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A major Chinese classifieds and local services platform where businesses hold public listings.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "vn-vcci",
+    "name": "VCCI",
+    "website": "https://www.vcci.com.vn/",
+    "country": "vietnam",
+    "category": "chambers-of-commerce",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Vietnam Chamber of Commerce and Industry, whose member companies appear in directories.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "vn-vietnamsuppliers",
+    "name": "Vietnam Suppliers",
+    "website": "https://www.vietnamsuppliers.com/",
+    "country": "vietnam",
+    "category": "manufacturing",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Vietnamese supplier and exporter directory aimed at international buyers.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "vn-trangvang-biz",
+    "name": "Trang Vàng BIZ",
+    "website": "https://www.trangvang.biz/",
+    "country": "vietnam",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Vietnamese company records and business lookup directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "vn-vietnamworks",
+    "name": "VietnamWorks",
+    "website": "https://www.vietnamworks.com/",
+    "country": "vietnam",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The main Vietnamese recruitment platform, where employers hold public company pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "vn-topcv",
+    "name": "TopCV",
+    "website": "https://www.topcv.vn/",
+    "country": "vietnam",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A major Vietnamese recruitment platform where employers hold public company pages. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "vn-tiki",
+    "name": "Tiki",
+    "website": "https://www.tiki.vn/",
+    "country": "vietnam",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A major Vietnamese marketplace where sellers hold public storefronts.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "vn-sendo",
+    "name": "Sendo",
+    "website": "https://www.sendo.vn/",
+    "country": "vietnam",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Vietnamese marketplace where sellers hold public storefronts.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "vn-lazada",
+    "name": "Lazada Việt Nam",
+    "website": "https://www.lazada.vn/",
+    "country": "vietnam",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "asia"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Vietnamese storefront of a major Southeast Asian marketplace where sellers hold public stores.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "sg-asme",
+    "name": "ASME Singapore",
+    "website": "https://www.asme.org.sg/",
+    "country": "singapore",
+    "category": "industry-associations",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Singapore SME association, whose member companies appear in a directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "sg-sbf",
+    "name": "Singapore Business Federation",
+    "website": "https://www.sbf.org.sg/",
+    "country": "singapore",
+    "category": "industry-associations",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Singapore business federation, whose member companies appear in a directory. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "sg-sicci",
+    "name": "SICCI",
+    "website": "https://www.sicci.com/",
+    "country": "singapore",
+    "category": "chambers-of-commerce",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Singapore Indian Chamber of Commerce and Industry, whose members appear in a directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "hk-chamber",
+    "name": "Hong Kong General Chamber of Commerce",
+    "website": "https://www.chamber.org.hk/",
+    "country": "hong-kong",
+    "category": "chambers-of-commerce",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The main Hong Kong chamber of commerce, whose member companies appear in a directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "hk-hkstp",
+    "name": "Hong Kong Science and Technology Parks",
+    "website": "https://www.hkstp.org/",
+    "country": "hong-kong",
+    "category": "startup",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Hong Kong science park, publishing a public directory of tenant and partner companies.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "hk-cyberport",
+    "name": "Cyberport",
+    "website": "https://www.cyberport.hk/",
+    "country": "hong-kong",
+    "category": "startup",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Hong Kong digital technology hub, publishing a community company directory. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "tw-cnfi",
+    "name": "CNFI",
+    "website": "https://www.cnfi.org.tw/",
+    "country": "taiwan",
+    "category": "industry-associations",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Taiwanese national federation of industries, whose member companies appear in a directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "tw-tca",
+    "name": "Taipei Computer Association",
+    "website": "https://www.tca.org.tw/",
+    "country": "taiwan",
+    "category": "industry-associations",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Taipei computer industry association, whose member companies appear in a directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "my-fmm",
+    "name": "Federation of Malaysian Manufacturers",
+    "website": "https://www.fmm.org.my/",
+    "country": "malaysia",
+    "category": "industry-associations",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Malaysian manufacturers federation, whose member companies appear in a directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "my-yellowpages",
+    "name": "Yellow Pages Malaysia",
+    "website": "https://www.yellowpages.my/",
+    "country": "malaysia",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Malaysian yellow pages business directory. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "id-kadin",
+    "name": "KADIN Indonesia",
+    "website": "https://www.kadin.id/",
+    "country": "indonesia",
+    "category": "chambers-of-commerce",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Indonesian chamber of commerce and industry, whose member companies appear in directories.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "id-apindo",
+    "name": "APINDO",
+    "website": "https://www.apindo.or.id/",
+    "country": "indonesia",
+    "category": "industry-associations",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Indonesian employers association, whose member companies appear in a directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "id-indonetwork",
+    "name": "Indonetwork",
+    "website": "https://www.indonetwork.co.id/",
+    "country": "indonesia",
+    "category": "manufacturing",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The largest Indonesian B2B business directory and marketplace, with public supplier profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "id-ralali",
+    "name": "Ralali",
+    "website": "https://www.ralali.com/",
+    "country": "indonesia",
+    "category": "manufacturing",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An Indonesian B2B wholesale marketplace where sellers hold public storefronts.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "th-fti",
+    "name": "Federation of Thai Industries",
+    "website": "https://www.fti.or.th/",
+    "country": "thailand",
+    "category": "industry-associations",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Thai industries federation, whose member companies appear in a directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "th-thaichamber",
+    "name": "Thai Chamber of Commerce",
+    "website": "https://www.thaichamber.org/",
+    "country": "thailand",
+    "category": "chambers-of-commerce",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Thai chamber of commerce, whose member businesses appear in directories.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "th-thaitrade",
+    "name": "Thaitrade",
+    "website": "https://www.thaitrade.com/",
+    "country": "thailand",
+    "category": "manufacturing",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Thai national B2B marketplace where exporters hold public supplier profiles.",
+    "lastVerified": "2026-08-06"
   }
 ]

@@ -169,8 +169,20 @@ cl-guialocal,GuiaLocal Chile,https://www.guialocal.cl/,chile,country-specific,lo
 cl-hotfrog,Hotfrog Chile,https://www.hotfrog.cl/,chile,country-specific,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 cl-opendi,Opendi Chile,https://www.opendi.cl/,chile,country-specific,general-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 cl-yapo,Yapo.cl,https://www.yapo.cl/,chile,country-specific,general-business,unknown,unknown,,tier1,P3,true,,,,,2026-08-06,active
+cn-dianping,大众点评 Dianping,https://www.dianping.com/,china,china,local-business,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,unknown
+cn-baidu-maps,百度地图 Baidu Maps,https://map.baidu.com/,china,china,local-business,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,active
+cn-baidu-aicaigou,百度爱采购 Baidu B2B,https://b2b.baidu.com/,china,china,manufacturing,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,active
+cn-meituan,美团 Meituan,https://www.meituan.com/,china,china,local-business,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,active
+cn-58,58同城 58.com,https://www.58.com/,china,china,general-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,active
+cn-b2b168,八方资源网 B2B168,https://www.b2b168.com/,china,china,manufacturing,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
+cn-51sole,搜了网 51sole,https://www.51sole.com/,china,china,manufacturing,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
+cn-tencent-maps,腾讯地图 Tencent Maps,https://map.qq.com/,china,china,local-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,active
+cn-11467,顺企网 11467,https://www.11467.com/,china,china,general-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,unknown
+cn-21food,21food,https://www.21food.com/,china,global,manufacturing,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
 cn-china-cn,China.cn,https://www.china.cn/,china,china,manufacturing,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
+cn-hisupplier,HiSupplier,https://www.hisupplier.com/,china,global,manufacturing,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 cn-gongchang,World Factory Network,https://www.gongchang.com/,china,china,manufacturing,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
+cn-jdzj,机电之家 JDZJ,https://www.jdzj.com/,china,china,manufacturing,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 co-computrabajo,Computrabajo Colombia,https://co.computrabajo.com/,colombia,latam,general-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,active
 co-doctoralia,Doctoralia Colombia,https://www.doctoralia.co/,colombia,country-specific,local-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
 co-mercadolibre,Mercado Libre Colombia,https://www.mercadolibre.com.co/,colombia,latam,general-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,active
@@ -702,12 +714,19 @@ hn-hondurastips,Honduras Tips,https://www.hondurastips.hn/,honduras,country-spec
 hn-honduras-travel,Honduras Travel,https://www.honduras.travel/,honduras,country-specific,local-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 hk-deliveroo,Deliveroo Hong Kong,https://www.deliveroo.hk/,hong-kong,country-specific,local-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
 hk-hktdc,HKTDC,https://www.hktdc.com/,hong-kong,country-specific,manufacturing,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,active
+hk-chamber,Hong Kong General Chamber of Commerce,https://www.chamber.org.hk/,hong-kong,country-specific,chambers-of-commerce,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,active
 hk-jobsdb,JobsDB Hong Kong,https://hk.jobsdb.com/,hong-kong,country-specific,general-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,unknown
 hk-klook,Klook,https://www.klook.com/,hong-kong,asia,local-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,unknown
 hk-openrice,OpenRice,https://www.openrice.com/,hong-kong,country-specific,local-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,active
 hk-foodpanda,foodpanda Hong Kong,https://www.foodpanda.hk/,hong-kong,country-specific,local-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,unknown
+hk-cyberport,Cyberport,https://www.cyberport.hk/,hong-kong,country-specific,startup,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,unknown
+hk-hkstp,Hong Kong Science and Technology Parks,https://www.hkstp.org/,hong-kong,country-specific,startup,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 hk-hotfrog,Hotfrog Hong Kong,https://www.hotfrog.hk/,hong-kong,country-specific,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
+in-aajjo,Aajjo,https://www.aajjo.com/,india,india,manufacturing,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
 in-eazydiner,EazyDiner,https://www.eazydiner.com/,india,india,local-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
+in-fieo,FIEO,https://www.fieo.org/,india,india,industry-associations,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,unknown
+in-getdistributors,GetDistributors,https://www.getdistributors.com/,india,india,manufacturing,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
+in-indiaonline,IndiaOnline,https://www.indiaonline.in/,india,india,local-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,active
 in-justdial,Justdial,https://www.justdial.com/,india,india,local-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,unknown
 in-msmemart,MSMEmart,https://www.msmemart.com/,india,india,manufacturing,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
 in-practo,Practo,https://www.practo.com/,india,india,local-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,active
@@ -718,20 +737,34 @@ in-apna,apna,https://www.apna.co/,india,india,general-business,unknown,unknown,,
 in-foundit,foundit,https://www.foundit.in/,india,asia,general-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,active
 in-nasscom,nasscom,https://www.nasscom.in/,india,india,industry-associations,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,active
 in-assocham,ASSOCHAM,https://www.assocham.org/,india,india,industry-associations,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
+in-ahmedabadyellowpages,Ahmedabad Yellow Pages,https://www.ahmedabadyellowpages.com/,india,regional,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+in-aepc,Apparel Export Promotion Council,https://www.aepcindia.com/,india,india,industry-associations,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
+in-bizbangboom,BizBangBoom,https://www.bizbangboom.com/,india,india,general-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 in-bookmyshow,BookMyShow,https://www.bookmyshow.com/,india,india,local-business,unknown,unknown,,tier1,P3,true,,,,,2026-08-06,unknown
+in-chemexcil,CHEMEXCIL,https://www.chemexcil.in/,india,india,industry-associations,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
+in-cmai,CMAI,https://www.cmai.in/,india,india,industry-associations,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
+in-citiyellowpages,CitiYellowPages,https://www.citiyellowpages.com/,india,india,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+in-leatherindia,Council for Leather Exports,https://www.leatherindia.org/,india,india,industry-associations,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
+in-epch,EPCH,https://www.epch.in/,india,india,industry-associations,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 in-ficci,FICCI,https://www.ficci.in/,india,india,industry-associations,unknown,unknown,,tier1,P3,true,,,,,2026-08-06,active
 in-freshersworld,Freshersworld,https://www.freshersworld.com/,india,india,general-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 in-goibibo,Goibibo,https://www.goibibo.com/,india,india,local-business,unknown,unknown,,tier1,P3,true,,,,,2026-08-06,active
 in-inc42,Inc42,https://www.inc42.com/,india,india,startup,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
+in-indiantradebird,Indian TradeBird,https://www.indiantradebird.com/,india,india,manufacturing,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 in-indianyellowpages,Indian Yellow Pages,https://www.indianyellowpages.com/,india,india,manufacturing,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 in-instahyre,Instahyre,https://www.instahyre.com/,india,india,general-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
 in-internshala,Internshala,https://www.internshala.com/,india,india,education,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 in-meesho,Meesho,https://www.meesho.com/,india,india,general-business,unknown,unknown,,tier1,P3,true,,,,,2026-08-06,unknown
+in-mumbaibusinessdirectory,Mumbai Business Directory,https://www.mumbaibusinessdirectory.com/,india,regional,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 in-oyorooms,OYO,https://www.oyorooms.com/,india,global,local-business,unknown,unknown,,tier1,P3,true,,,,,2026-08-06,active
 in-opendi,Opendi India,https://www.opendi.in/,india,india,general-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+in-plexconcil,PLEXCONCIL,https://www.plexconcil.org/,india,india,industry-associations,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+in-pepagora,Pepagora,https://www.pepagora.com/,india,asia,manufacturing,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,unknown
+in-pharmexcil,Pharmexcil,https://www.pharmexcil.com/,india,india,industry-associations,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 in-quikr,Quikr,https://www.quikr.com/,india,india,general-business,unknown,unknown,,tier1,P3,true,,,,,2026-08-06,active
 in-shine,Shine.com,https://www.shine.com/,india,india,general-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 in-snapdeal,Snapdeal,https://www.snapdeal.com/,india,india,general-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,unknown
+in-sportsgoodsindia,Sports Goods Export Promotion Council,https://www.sportsgoodsindia.org/,india,india,industry-associations,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 in-timesjobs,TimesJobs,https://www.timesjobs.com/,india,india,general-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 in-treebo,Treebo,https://www.treebo.com/,india,india,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 in-yalwa,Yalwa India,https://www.yalwa.in/,india,india,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
@@ -743,13 +776,17 @@ in-nearbuy,nearbuy,https://www.nearbuy.com/,india,india,local-business,unknown,u
 id-alodokter,Alodokter,https://www.alodokter.com/,indonesia,country-specific,local-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
 id-gojek,Gojek,https://www.gojek.com/,indonesia,asia,local-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,active
 id-halodoc,Halodoc,https://www.halodoc.com/,indonesia,country-specific,local-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
+id-indonetwork,Indonetwork,https://www.indonetwork.co.id/,indonesia,country-specific,manufacturing,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,active
 id-indotrading,Indotrading,https://www.indotrading.com/,indonesia,country-specific,manufacturing,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,unknown
 id-jobstreet,JobStreet Indonesia,https://www.jobstreet.co.id/,indonesia,country-specific,general-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,unknown
+id-kadin,KADIN Indonesia,https://www.kadin.id/,indonesia,country-specific,chambers-of-commerce,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,active
 id-traveloka,Traveloka,https://www.traveloka.com/,indonesia,asia,local-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,active
+id-apindo,APINDO,https://www.apindo.or.id/,indonesia,country-specific,industry-associations,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 id-bukalapak,Bukalapak,https://www.bukalapak.com/,indonesia,country-specific,general-business,unknown,unknown,,tier1,P3,true,,,,,2026-08-06,unknown
 id-businesslist,BusinessList Indonesia,https://www.businesslist.id/,indonesia,country-specific,general-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 id-hotfrog,Hotfrog Indonesia,https://www.hotfrog.co.id/,indonesia,country-specific,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 id-qraved,Qraved,https://www.qraved.com/,indonesia,country-specific,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+id-ralali,Ralali,https://www.ralali.com/,indonesia,country-specific,manufacturing,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 id-tiket,tiket.com,https://www.tiket.com/,indonesia,country-specific,local-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,unknown
 ie-goldenpages,Golden Pages,https://www.goldenpages.ie/,ireland,country-specific,local-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,unknown
 ie-irishjobs,IrishJobs,https://www.irishjobs.ie/,ireland,country-specific,general-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
@@ -845,7 +882,9 @@ ke-businesslist,BusinessList Kenya,https://www.businesslist.co.ke/,kenya,country
 ke-jiji,Jiji Kenya,https://www.jiji.co.ke/,kenya,africa,general-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,unknown
 ke-jumia,Jumia Kenya,https://www.jumia.co.ke/,kenya,africa,general-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,unknown
 ke-yellowpages,Yellow Pages Kenya,https://www.yellowpageskenya.com/,kenya,country-specific,general-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
+my-fmm,Federation of Malaysian Manufacturers,https://www.fmm.org.my/,malaysia,country-specific,industry-associations,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,active
 my-jobstreet,JobStreet Malaysia,https://my.jobstreet.com/,malaysia,asia,general-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,unknown
+my-yellowpages,Yellow Pages Malaysia,https://www.yellowpages.my/,malaysia,country-specific,general-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,unknown
 my-foodpanda,foodpanda Malaysia,https://www.foodpanda.my/,malaysia,country-specific,local-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,unknown
 my-businesslist,BusinessList Malaysia,https://www.businesslist.my/,malaysia,country-specific,general-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
 my-lazada,Lazada Malaysia,https://www.lazada.com.my/,malaysia,asia,general-business,unknown,unknown,,tier1,P3,true,,,,,2026-08-06,active
@@ -1018,10 +1057,13 @@ sa-haraj,Haraj,https://www.haraj.com.sa/,saudi-arabia,country-specific,general-b
 sg-burpple,Burpple,https://www.burpple.com/,singapore,country-specific,local-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
 sg-chope,Chope,https://www.chope.co/,singapore,asia,local-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
 sg-grab,Grab,https://www.grab.com/,singapore,asia,local-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,active
+sg-sbf,Singapore Business Federation,https://www.sbf.org.sg/,singapore,country-specific,industry-associations,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,unknown
 sg-streetdirectory,Streetdirectory,https://www.streetdirectory.com/,singapore,asia,local-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
 sg-yellowpages,Yellow Pages Singapore,https://www.yellowpages.com.sg/,singapore,asia,local-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,unknown
+sg-asme,ASME Singapore,https://www.asme.org.sg/,singapore,country-specific,industry-associations,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 sg-carousell,Carousell,https://www.carousell.sg/,singapore,asia,general-business,unknown,unknown,,tier1,P3,true,,,,,2026-08-06,unknown
 sg-hotfrog,Hotfrog Singapore,https://www.hotfrog.sg/,singapore,asia,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
+sg-sicci,SICCI,https://www.sicci.com/,singapore,country-specific,chambers-of-commerce,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 sg-yalwa,Yalwa Singapore,https://www.yalwa.sg/,singapore,country-specific,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
 sg-sgcarmart,sgCarMart,https://www.sgcarmart.com/,singapore,country-specific,general-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,unknown
 za-hellopeter,Hellopeter,https://www.hellopeter.com/,south-africa,country-specific,review-sites,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,active
@@ -1143,12 +1185,17 @@ ch-vschweiz,vSchweiz,https://vschweiz.ch/,switzerland,country-specific,general-b
 tw-104,104 Job Bank,https://www.104.com.tw/,taiwan,country-specific,general-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,unknown
 tw-kkday,KKday,https://www.kkday.com/,taiwan,asia,local-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,unknown
 tw-iyp,Taiwan Yellow Pages,https://www.iyp.com.tw/,taiwan,country-specific,general-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
+tw-cnfi,CNFI,https://www.cnfi.org.tw/,taiwan,country-specific,industry-associations,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 tw-gomaji,Gomaji,https://www.gomaji.com/,taiwan,country-specific,local-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 tw-pcstore,PChome Store Street,https://www.pcstore.com.tw/,taiwan,country-specific,general-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
+tw-tca,Taipei Computer Association,https://www.tca.org.tw/,taiwan,country-specific,industry-associations,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 tz-jiji,Jiji Tanzania,https://www.jiji.co.tz/,tanzania,africa,general-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,unknown
 th-wongnai,Wongnai,https://www.wongnai.com/,thailand,country-specific,local-business,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,active
+th-fti,Federation of Thai Industries,https://www.fti.or.th/,thailand,country-specific,industry-associations,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,active
 th-jobsdb,JobsDB Thailand,https://www.jobsdb.co.th/,thailand,country-specific,general-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,unknown
+th-thaichamber,Thai Chamber of Commerce,https://www.thaichamber.org/,thailand,country-specific,chambers-of-commerce,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,active
 th-yellowpages,Thailand Yellow Pages,https://www.yellowpages.co.th/,thailand,country-specific,general-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
+th-thaitrade,Thaitrade,https://www.thaitrade.com/,thailand,global,manufacturing,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
 tt-discovertnt,Discover Trinidad & Tobago,https://www.discovertnt.com/,trinidad-and-tobago,country-specific,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 tn-tunisieindex,Tunisie Index,https://www.tunisieindex.com/,tunisia,country-specific,general-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 ug-jiji,Jiji Uganda,https://www.jiji.ug/,uganda,africa,general-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,unknown
@@ -1404,6 +1451,14 @@ uy-mercadolibre,Mercado Libre Uruguay,https://www.mercadolibre.com.uy/,uruguay,l
 uy-pedidosya,PedidosYa Uruguay,https://www.pedidosya.com.uy/,uruguay,latam,local-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,unknown
 ve-mercadolibre,Mercado Libre Venezuela,https://www.mercadolibre.com.ve/,venezuela,latam,general-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,active
 vn-foody,Foody,https://www.foody.vn/,vietnam,country-specific,local-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,active
+vn-topcv,TopCV,https://www.topcv.vn/,vietnam,country-specific,general-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,unknown
 vn-yellowpages,Trang Vàng Việt Nam,https://www.yellowpages.vn/,vietnam,country-specific,general-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
+vn-vcci,VCCI,https://www.vcci.com.vn/,vietnam,country-specific,chambers-of-commerce,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,active
+vn-vietnamworks,VietnamWorks,https://www.vietnamworks.com/,vietnam,country-specific,general-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,active
 vn-chotot,Chợ Tốt,https://www.chotot.com/,vietnam,country-specific,general-business,unknown,unknown,,tier1,P3,true,,,,,2026-08-06,active
+vn-lazada,Lazada Việt Nam,https://www.lazada.vn/,vietnam,asia,general-business,unknown,unknown,,tier1,P3,true,,,,,2026-08-06,active
+vn-sendo,Sendo,https://www.sendo.vn/,vietnam,country-specific,general-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
+vn-tiki,Tiki,https://www.tiki.vn/,vietnam,country-specific,general-business,unknown,unknown,,tier1,P3,true,,,,,2026-08-06,active
+vn-trangvang-biz,Trang Vàng BIZ,https://www.trangvang.biz/,vietnam,country-specific,general-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+vn-vietnamsuppliers,Vietnam Suppliers,https://www.vietnamsuppliers.com/,vietnam,global,manufacturing,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 zm-zambiayp,Zambia Yellow Pages,https://www.zambiayp.com/,zambia,country-specific,general-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,unknown
