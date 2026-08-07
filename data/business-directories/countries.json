@@ -986,5 +986,21 @@
     "entityType": "country",
     "titleName": "Kosovo",
     "iso2": "XK"
+  },
+  {
+    "id": "dr-congo",
+    "slug": "dr-congo",
+    "name": "DR Congo",
+    "entityType": "country",
+    "titleName": "DR Congo",
+    "iso2": "CD"
+  },
+  {
+    "id": "sudan",
+    "slug": "sudan",
+    "name": "Sudan",
+    "entityType": "country",
+    "titleName": "Sudan",
+    "iso2": "SD"
   }
 ]
