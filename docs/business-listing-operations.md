@@ -129,6 +129,31 @@ is promoted to its own page when it has roughly 5–10 strong active platforms a
 enough unique content to be worth reading. That is guidance, not a validator
 quota.
 
+## 6a. What counts as a duplicate
+
+Two entries are the same opportunity when submitting to one publishes on the
+other. Ownership alone never makes a duplicate — the test is the submission
+path, not the cap table.
+
+| Case | Ruling | Why |
+|---|---|---|
+| `cylex.fr` and `cylex-france.fr` | **duplicate** — one row | Same brand, same country, one submission |
+| `hotfrog.de` and `hotfrog.pl` | two rows | Separate national directories, separate onboarding |
+| `europages.co.uk` and `europages.fr` | **duplicate** | One platform behind a language switch, one account |
+| `treatwell.de` and `treatwell.co.uk` | two rows | Country storefronts a salon joins separately |
+| `steuerberater.net` → `anwalt.de/suche.php` | **duplicate** | A redirect into another listed platform's own search |
+
+The dividing line is a country arm with its own content and its own submission
+versus one site rendered in another language. When it cannot be established
+which of the two a pair is — both blocked by a bot filter, say — the pair is
+merged. Accuracy has priority over count, and a merge is reversible.
+
+A **compromised or repurposed domain is not a duplicate, it is an exclusion**.
+`evropskadatabanka.cz` answered 200 and redirected offsite into an advertising
+blog; `oferia.pl` redirects into a retailer. A 200 proves a server answered, not
+that the platform still exists — following the redirect is what settles it, and
+`scripts/tests/bd-europe-wave-l1.test.cjs` pins the known cases.
+
 ## 7. Domain Rating
 
 Unchanged by this batch and restated because it is the easiest rule to erode.

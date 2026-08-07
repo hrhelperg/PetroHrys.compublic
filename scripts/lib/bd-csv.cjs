@@ -75,14 +75,22 @@ function rowFor(record) {
   ];
 }
 
-// Sort: country, then work priority, then name. Every comparison is
+// Sort: country, then work priority, then name, then id. Every comparison is
 // locale-independent, so the file is reproducible.
+//
+// The id tiebreaker is what makes this a TOTAL order. Two platforms can
+// legitimately share a country, a priority and a display name — a country arm
+// of an international network is the usual case — and on a tie the result
+// would otherwise fall back to input array order, which is not a property of
+// the data. Ids are unique by construction, so this can never tie.
 function compareRecords(a, b) {
   const byCountry = S.compareStable(a.country, b.country);
   if (byCountry !== 0) return byCountry;
   const byPriority = S.priorityRank(a.priority) - S.priorityRank(b.priority);
   if (byPriority !== 0) return byPriority;
-  return S.compareStable(a.name, b.name);
+  const byName = S.compareStable(a.name, b.name);
+  if (byName !== 0) return byName;
+  return S.compareStable(a.id, b.id);
 }
 
 // Accepts the editorial registry plus, optionally, the Level 1 operational rows.
