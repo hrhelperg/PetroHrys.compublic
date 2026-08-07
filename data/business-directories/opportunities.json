@@ -11340,5 +11340,3191 @@
     "submissionModel": "unknown",
     "note": "The Swedish arm of a food delivery platform where restaurants hold public pages. Live but behind a bot filter, so a browser check is needed.",
     "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-citysquares",
+    "name": "CitySquares",
+    "website": "https://www.citysquares.com/",
+    "country": "united-states",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A US local business directory accepting self-submitted listings. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-us-info",
+    "name": "US-Info",
+    "website": "https://www.us-info.com/",
+    "country": "united-states",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The US arm of the Infobel directory network. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-americantowns",
+    "name": "AmericanTowns",
+    "website": "https://www.americantowns.com/",
+    "country": "united-states",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A US community and local business directory organised by town.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-bizhwy",
+    "name": "BizHwy",
+    "website": "https://www.bizhwy.com/",
+    "country": "united-states",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A US business directory offering free company listings.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-yellowbot",
+    "name": "YellowBot",
+    "website": "https://www.yellowbot.com/",
+    "country": "united-states",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A US local business directory with reviews. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-judysbook",
+    "name": "Judy's Book",
+    "website": "https://www.judysbook.com/",
+    "country": "united-states",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A US local business review directory. Returns 403 without a challenge page, so a browser check is needed before use.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-trustlink",
+    "name": "TrustLink",
+    "website": "https://www.trustlink.org/",
+    "country": "united-states",
+    "category": "review-sites",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A US business review directory where companies hold public profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-networx",
+    "name": "Networx",
+    "website": "https://www.networx.com/",
+    "country": "united-states",
+    "category": "construction",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A US directory of local contractors and home improvement professionals.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-contractors-com",
+    "name": "Contractors.com",
+    "website": "https://www.contractors.com/",
+    "country": "united-states",
+    "category": "construction",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A US contractor directory with public company profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-zola-vendors",
+    "name": "Zola Wedding Vendors",
+    "website": "https://www.zola.com/wedding-vendors",
+    "country": "united-states",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A US wedding vendor marketplace where suppliers hold public profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-gigsalad",
+    "name": "GigSalad",
+    "website": "https://www.gigsalad.com/",
+    "country": "united-states",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A US marketplace for entertainers and event vendors with public profiles. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-thebash",
+    "name": "The Bash",
+    "website": "https://www.thebash.com/",
+    "country": "united-states",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A US event vendor booking marketplace with public profiles. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-vagaro",
+    "name": "Vagaro",
+    "website": "https://www.vagaro.com/",
+    "country": "united-states",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "north-america"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A US salon, spa and fitness booking marketplace where businesses hold public pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-styleseat",
+    "name": "StyleSeat",
+    "website": "https://www.styleseat.com/",
+    "country": "united-states",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A US booking marketplace where hair and beauty professionals hold public profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-classpass",
+    "name": "ClassPass",
+    "website": "https://www.classpass.com/",
+    "country": "united-states",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A fitness class marketplace where studios hold public pages. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ca-canpages",
+    "name": "Canpages",
+    "website": "https://www.canpages.ca/",
+    "country": "canada",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "canada"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Canadian local business directory. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ca-opendi",
+    "name": "Opendi Canada",
+    "website": "https://www.opendi.ca/",
+    "country": "canada",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "canada"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Canadian arm of an international business pages and review network.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ca-homestars",
+    "name": "HomeStars",
+    "website": "https://www.homestars.com/",
+    "country": "canada",
+    "category": "construction",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "canada"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Canadian home services review platform where contractors hold public profiles. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ca-trustedpros",
+    "name": "TrustedPros",
+    "website": "https://www.trustedpros.ca/",
+    "country": "canada",
+    "category": "construction",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "canada"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Canadian contractor directory with public company profiles. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ca-renoquotes",
+    "name": "RenoQuotes",
+    "website": "https://www.renoquotes.com/",
+    "country": "canada",
+    "category": "construction",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "canada"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Canadian renovation marketplace where contractors receive quote requests.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ca-ratemds",
+    "name": "RateMDs",
+    "website": "https://www.ratemds.com/",
+    "country": "canada",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "north-america"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A doctor rating directory with public practitioner profiles. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ca-opencare",
+    "name": "Opencare",
+    "website": "https://www.opencare.com/",
+    "country": "canada",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "north-america"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A dentist booking marketplace where practices hold public profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ca-weddingwire",
+    "name": "WeddingWire Canada",
+    "website": "https://www.weddingwire.ca/",
+    "country": "canada",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "canada"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Canadian arm of a wedding vendor marketplace with public supplier profiles. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "mx-hotfrog",
+    "name": "Hotfrog México",
+    "website": "https://www.hotfrog.com.mx/",
+    "country": "mexico",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "latam"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Mexican arm of an international directory network.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "mx-doctoralia",
+    "name": "Doctoralia México",
+    "website": "https://www.doctoralia.com.mx/",
+    "country": "mexico",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Mexican arm of a healthcare booking platform where practitioners hold public profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "mx-zonaturistica",
+    "name": "Zona Turística",
+    "website": "https://www.zonaturistica.com/",
+    "country": "mexico",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Mexican tourism directory listing hotels and destinations with public pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "mx-mexicoglobal",
+    "name": "Mexico Global",
+    "website": "https://www.mexicoglobal.net/",
+    "country": "mexico",
+    "category": "manufacturing",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Mexican B2B and export directory. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "mx-yaloencontre",
+    "name": "¡Ya lo Encontré!",
+    "website": "https://www.yaloencontre.mx/",
+    "country": "mexico",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Mexican business directory offering free self-registration.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "mx-directoriodenegocios",
+    "name": "Directorio de Negocios México",
+    "website": "https://directoriodenegocios.com.mx/",
+    "country": "mexico",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Mexican company directory offering free business registration.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "mx-directorioelregional",
+    "name": "Directorio El Regional",
+    "website": "https://directorioelregional.com/",
+    "country": "mexico",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Mexican business directory offering free listings for small companies.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "mx-encuentren",
+    "name": "Encuentren.ME",
+    "website": "https://www.encuentren.me/",
+    "country": "mexico",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Mexican electronic business directory with free registration. Returns a block page, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "mx-mercadolibre",
+    "name": "Mercado Libre México",
+    "website": "https://www.mercadolibre.com.mx/",
+    "country": "mexico",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "latam"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The dominant Latin American marketplace, where sellers hold public store pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "mx-vivanuncios",
+    "name": "Vivanuncios",
+    "website": "https://www.vivanuncios.com.mx/",
+    "country": "mexico",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Mexican classifieds marketplace with professional seller sections. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "mx-rappi",
+    "name": "Rappi México",
+    "website": "https://www.rappi.com.mx/",
+    "country": "mexico",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "latam"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Latin American delivery marketplace where partner shops and restaurants hold public pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-ubereats",
+    "name": "Uber Eats",
+    "website": "https://www.ubereats.com/",
+    "country": "global",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An international food delivery platform where restaurants hold public pages. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "pa-paginasamarillas",
+    "name": "Páginas Amarillas Panamá",
+    "website": "https://www.paginasamarillas.com.pa/",
+    "country": "panama",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Panamanian company directory of the Páginas Amarillas network.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "do-paginasamarillas",
+    "name": "Páginas Amarillas República Dominicana",
+    "website": "https://www.paginasamarillas.com.do/",
+    "country": "dominican-republic",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Dominican company directory of the Páginas Amarillas network.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "gt-paginasamarillas",
+    "name": "Páginas Amarillas Guatemala",
+    "website": "https://www.paginasamarillas.com.gt/",
+    "country": "guatemala",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Guatemalan company directory of the Páginas Amarillas network.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "sv-paginasamarillas",
+    "name": "Páginas Amarillas El Salvador",
+    "website": "https://www.paginasamarillas.com.sv/",
+    "country": "el-salvador",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Salvadoran company directory of the Páginas Amarillas network.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ni-paginasamarillas",
+    "name": "Páginas Amarillas Nicaragua",
+    "website": "https://www.paginasamarillas.com.ni/",
+    "country": "nicaragua",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Nicaraguan company directory of the Páginas Amarillas network.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "jm-findyello",
+    "name": "Yello Caribbean",
+    "website": "https://www.findyello.com/",
+    "country": "jamaica",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "regional"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The regional Caribbean business directory network. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "jm-jamaicayp",
+    "name": "Jamaica Yellow Pages",
+    "website": "https://www.jamaicayp.com/",
+    "country": "jamaica",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Jamaican yellow pages directory. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "bb-barbadosyp",
+    "name": "Barbados Yellow Pages",
+    "website": "https://www.barbadosyp.com/",
+    "country": "barbados",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Barbadian yellow pages directory. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "hn-hondurastips",
+    "name": "Honduras Tips",
+    "website": "https://www.hondurastips.hn/",
+    "country": "honduras",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The official Honduran tourism guide, listing hotels, restaurants and tour operators.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "tt-discovertnt",
+    "name": "Discover Trinidad & Tobago",
+    "website": "https://www.discovertnt.com/",
+    "country": "trinidad-and-tobago",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Trinidad and Tobago travel guide listing local businesses and operators.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "bs-thebahamasguide",
+    "name": "The Bahamas Guide",
+    "website": "https://www.thebahamasguide.com/",
+    "country": "bahamas",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Bahamian guide listing local businesses and services.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "bs-bahamaslocal",
+    "name": "Bahamas Local",
+    "website": "https://www.bahamaslocal.com/",
+    "country": "bahamas",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Bahamian local search engine and business directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "pr-clasificadosonline",
+    "name": "Clasificados Online",
+    "website": "https://www.clasificadosonline.com/",
+    "country": "puerto-rico",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The main Puerto Rican classifieds site, covering real estate, jobs and vehicles with professional seller sections.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "cr-govisitcostarica",
+    "name": "Go Visit Costa Rica",
+    "website": "https://www.govisitcostarica.co.cr/",
+    "country": "costa-rica",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Costa Rican tourism directory listing hotels, tours and local operators.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "pr-discoverpuertorico",
+    "name": "Discover Puerto Rico",
+    "website": "https://www.discoverpuertorico.com/",
+    "country": "puerto-rico",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The official Puerto Rico destination guide, listing local businesses and operators.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "bz-belize-com",
+    "name": "Belize.com",
+    "website": "https://www.belize.com/",
+    "country": "belize",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Belize tourism and country guide listing local businesses.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-bing-places",
+    "name": "Bing Places for Business",
+    "website": "https://www.bingplaces.com/",
+    "country": "global",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P1",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "Microsoft's business listing service, feeding Bing search and maps results.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-apple-business-connect",
+    "name": "Apple Business Connect",
+    "website": "https://businessconnect.apple.com/",
+    "country": "global",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P1",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "Apple's business profile service, feeding Apple Maps and Siri results.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-linkedin-pages",
+    "name": "LinkedIn Company Page",
+    "website": "https://business.linkedin.com/marketing-solutions/linkedin-pages",
+    "country": "global",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P1",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The company page surface of the main global professional network.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-whitepages-business",
+    "name": "Whitepages Business",
+    "website": "https://www.whitepages.com/business",
+    "country": "united-states",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A US business listing surface within a large contact directory. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-facebook-business",
+    "name": "Facebook Business Page",
+    "website": "https://www.facebook.com/business/",
+    "country": "global",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P1",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The business page surface of the largest global social network. Rejects automated requests, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-instagram-business",
+    "name": "Instagram Business Profile",
+    "website": "https://www.instagram.com/",
+    "country": "global",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The business profile surface of a major global social platform.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-pinterest-business",
+    "name": "Pinterest Business Account",
+    "website": "https://www.pinterest.com/business/",
+    "country": "global",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The business account surface of a global visual discovery platform.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-instacart",
+    "name": "Instacart",
+    "website": "https://www.instacart.com/",
+    "country": "united-states",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "north-america"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A US grocery delivery marketplace where retailers hold public storefronts.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-slicelife",
+    "name": "Slice",
+    "website": "https://www.slicelife.com/",
+    "country": "united-states",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A US pizzeria ordering platform where restaurants hold public pages. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-eatstreet",
+    "name": "EatStreet",
+    "website": "https://www.eatstreet.com/",
+    "country": "united-states",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A US food ordering marketplace where restaurants hold public pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-menufy",
+    "name": "Menufy",
+    "website": "https://www.menufy.com/",
+    "country": "united-states",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A US restaurant ordering platform where restaurants hold public pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-beyondmenu",
+    "name": "Beyond Menu",
+    "website": "https://www.beyondmenu.com/",
+    "country": "united-states",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A US takeout and delivery directory where restaurants hold public pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-vitals",
+    "name": "Vitals",
+    "website": "https://www.vitals.com/",
+    "country": "united-states",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A US doctor directory with public practitioner profiles and ratings. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-wellness-com",
+    "name": "Wellness.com",
+    "website": "https://www.wellness.com/",
+    "country": "united-states",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A US health provider directory with public practitioner listings.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-doximity",
+    "name": "Doximity",
+    "website": "https://www.doximity.com/",
+    "country": "united-states",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A US physician network where verified clinicians hold public profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-sharecare",
+    "name": "Sharecare",
+    "website": "https://www.sharecare.com/",
+    "country": "united-states",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A US health platform with a doctor finder carrying public provider profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-psychologytoday",
+    "name": "Psychology Today Therapist Directory",
+    "website": "https://www.psychologytoday.com/us/therapists",
+    "country": "united-states",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "north-america"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The leading US therapist directory, where practitioners hold public profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-goodtherapy",
+    "name": "GoodTherapy",
+    "website": "https://www.goodtherapy.org/",
+    "country": "united-states",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A US therapist directory with public practitioner profiles. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-rateabiz",
+    "name": "RateABiz",
+    "website": "https://www.rateabiz.com/",
+    "country": "united-states",
+    "category": "review-sites",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A US local business review directory with public company profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-lawyers-com",
+    "name": "Lawyers.com",
+    "website": "https://www.lawyers.com/",
+    "country": "united-states",
+    "category": "legal",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A US lawyer directory with public attorney profiles. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-superlawyers",
+    "name": "Super Lawyers",
+    "website": "https://www.superlawyers.com/",
+    "country": "united-states",
+    "category": "legal",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A US attorney rating directory where selection is editorially controlled. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-lawyer-com",
+    "name": "Lawyer.com",
+    "website": "https://www.lawyer.com/",
+    "country": "united-states",
+    "category": "legal",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A US lawyer and law firm directory with public profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-attorneys-com",
+    "name": "Attorneys.com",
+    "website": "https://www.attorneys.com/",
+    "country": "united-states",
+    "category": "legal",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A US attorney directory with public profiles. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-repairpal",
+    "name": "RepairPal",
+    "website": "https://www.repairpal.com/",
+    "country": "united-states",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A US auto repair shop directory with certified shop profiles. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-rover",
+    "name": "Rover",
+    "website": "https://www.rover.com/",
+    "country": "united-states",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "north-america"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A pet care marketplace where sitters and walkers hold public profiles. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-care-com",
+    "name": "Care.com",
+    "website": "https://www.care.com/",
+    "country": "united-states",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "north-america"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A US care marketplace where childcare, senior care and pet care providers hold public profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-sittercity",
+    "name": "Sittercity",
+    "website": "https://www.sittercity.com/",
+    "country": "united-states",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A US childcare marketplace where sitters hold public profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-aplaceformom",
+    "name": "A Place for Mom",
+    "website": "https://www.aplaceformom.com/",
+    "country": "united-states",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "north-america"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A US senior living referral service listing care communities with public pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-caring",
+    "name": "Caring.com",
+    "website": "https://www.caring.com/",
+    "country": "united-states",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A US senior living and care directory with public community listings and reviews.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-seniorly",
+    "name": "Seniorly",
+    "website": "https://www.seniorly.com/",
+    "country": "united-states",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A US senior living directory with public community pages and reviews.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-greatschools",
+    "name": "GreatSchools",
+    "website": "https://www.greatschools.org/",
+    "country": "united-states",
+    "category": "education",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A US school directory with public school profiles and ratings.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-niche",
+    "name": "Niche",
+    "website": "https://www.niche.com/",
+    "country": "united-states",
+    "category": "education",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A US school and college directory with public institution profiles. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-wyzant",
+    "name": "Wyzant",
+    "website": "https://www.wyzant.com/",
+    "country": "united-states",
+    "category": "education",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A US tutoring marketplace where tutors hold public profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-tutors-com",
+    "name": "Tutors.com",
+    "website": "https://www.tutors.com/",
+    "country": "united-states",
+    "category": "education",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A US tutoring and local services directory with public provider profiles. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-zillow-professionals",
+    "name": "Zillow Agent Finder",
+    "website": "https://www.zillow.com/professionals/",
+    "country": "united-states",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The agent and professional directory of a major US property portal. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-realtor-agents",
+    "name": "Realtor.com Agent Directory",
+    "website": "https://www.realtor.com/realestateagents",
+    "country": "united-states",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The agent directory of a major US property portal. Live but rate-limits automated requests, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-movers-com",
+    "name": "Movers.com",
+    "website": "https://www.movers.com/",
+    "country": "united-states",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A US moving company directory with public company profiles. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-moving-com",
+    "name": "Moving.com",
+    "website": "https://www.moving.com/",
+    "country": "united-states",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A US moving company directory with public company profiles. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-sparefoot",
+    "name": "SpareFoot",
+    "website": "https://www.sparefoot.com/",
+    "country": "united-states",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A US self-storage marketplace where facilities hold public pages. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-storagecafe",
+    "name": "StorageCafe",
+    "website": "https://www.storagecafe.com/",
+    "country": "united-states",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A US self-storage directory where facilities hold public pages. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-eventective",
+    "name": "Eventective",
+    "website": "https://www.eventective.com/",
+    "country": "united-states",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "north-america"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A US event venue and vendor directory with public business profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-tablelist",
+    "name": "Tablelist",
+    "website": "https://www.tablelist.com/",
+    "country": "united-states",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A US nightlife booking platform where venues hold public pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-peerspace",
+    "name": "Peerspace",
+    "website": "https://www.peerspace.com/",
+    "country": "united-states",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "north-america"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A venue and space rental marketplace where hosts hold public listings. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-untappd",
+    "name": "Untappd",
+    "website": "https://www.untappd.com/",
+    "country": "global",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An international beer community where breweries and venues hold public profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-farmersmarketonline",
+    "name": "Farmer's Market Online",
+    "website": "https://www.farmersmarketonline.com/",
+    "country": "united-states",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A US directory of farm and market vendors with public seller pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-eatwild",
+    "name": "Eatwild",
+    "website": "https://www.eatwild.com/",
+    "country": "united-states",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "north-america"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A US and Canadian directory of pasture-based farms with public farm listings.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-certifiedhumane",
+    "name": "Certified Humane",
+    "website": "https://www.certifiedhumane.org/",
+    "country": "united-states",
+    "category": "industry-associations",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "north-america"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A US farm animal welfare certification that publishes a directory of certified producers. Certification is eligibility-gated.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-veteranownedbusiness",
+    "name": "Veteran Owned Business Directory",
+    "website": "https://www.veteranownedbusiness.com/",
+    "country": "united-states",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A US directory of veteran-owned businesses with public company profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-wbenc",
+    "name": "WBENC",
+    "website": "https://www.wbenc.org/",
+    "country": "united-states",
+    "category": "industry-associations",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The US women's business enterprise certification body, whose certified suppliers appear in a searchable directory. Certification is eligibility-gated.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-nmsdc",
+    "name": "NMSDC",
+    "website": "https://www.nmsdc.org/",
+    "country": "united-states",
+    "category": "industry-associations",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The US minority supplier development council, whose certified suppliers appear in a searchable directory. Certification is eligibility-gated.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-booking-join",
+    "name": "Booking.com Partner Listing",
+    "website": "https://www.booking.com/join",
+    "country": "global",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P1",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The property listing route for the largest global accommodation platform.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-expedia-partner",
+    "name": "Expedia Partner Central",
+    "website": "https://www.expediapartnercentral.com/",
+    "country": "global",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P1",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The property listing dashboard for the Expedia group of travel brands.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-airbnb-experiences",
+    "name": "Airbnb Experiences",
+    "website": "https://www.airbnb.com/host/experiences",
+    "country": "global",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The experience host listing route of a major global accommodation platform.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-vrbo",
+    "name": "Vrbo",
+    "website": "https://www.vrbo.com/",
+    "country": "global",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "north-america"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A vacation rental platform where property managers hold public listings. Rate-limits automated requests, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-hostelworld",
+    "name": "Hostelworld",
+    "website": "https://www.hostelworld.com/",
+    "country": "global",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An international hostel booking platform where properties hold public pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-campspot",
+    "name": "Campspot",
+    "website": "https://www.campspot.com/",
+    "country": "united-states",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "north-america"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A North American campground and RV resort marketplace with public property pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-hipcamp",
+    "name": "Hipcamp",
+    "website": "https://www.hipcamp.com/",
+    "country": "united-states",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A camping marketplace where landowners and campgrounds hold public listings.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-golfnow",
+    "name": "GolfNow",
+    "website": "https://www.golfnow.com/",
+    "country": "united-states",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "north-america"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A golf tee time marketplace where courses hold public pages. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-teeoff",
+    "name": "TeeOff",
+    "website": "https://www.teeoff.com/",
+    "country": "united-states",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A US golf booking directory where courses hold public pages. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-crossfit-affiliates",
+    "name": "CrossFit Affiliate Directory",
+    "website": "https://www.crossfit.com/affiliate-map",
+    "country": "global",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The affiliate gym directory of a global fitness brand. Affiliation is eligibility-gated.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-yogaalliance",
+    "name": "Yoga Alliance",
+    "website": "https://www.yogaalliance.org/",
+    "country": "global",
+    "category": "industry-associations",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A yoga credentialing body publishing directories of registered schools and teachers. Registration is eligibility-gated.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-napfa",
+    "name": "NAPFA Advisor Directory",
+    "website": "https://www.napfa.org/",
+    "country": "united-states",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The fee-only financial advisor association directory. Membership is eligibility-gated.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-letsmakeaplan",
+    "name": "CFP Board Let's Make a Plan",
+    "website": "https://www.letsmakeaplan.org/",
+    "country": "united-states",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The certified financial planner finder of the CFP Board. Listing requires the CFP credential.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-wiseradvisor",
+    "name": "WiserAdvisor",
+    "website": "https://www.wiseradvisor.com/",
+    "country": "united-states",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A US financial advisor directory with public advisor profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-trustedchoice",
+    "name": "TrustedChoice",
+    "website": "https://www.trustedchoice.com/",
+    "country": "united-states",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A US independent insurance agent directory with public agency profiles. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-creativehotlist",
+    "name": "Creative Hotlist",
+    "website": "https://www.creativehotlist.com/",
+    "country": "united-states",
+    "category": "marketing",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A US creative talent and agency directory with public profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-techreviewer",
+    "name": "Techreviewer",
+    "website": "https://www.techreviewer.co/",
+    "country": "united-states",
+    "category": "software",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A software development company ratings directory with public company profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-appfutura",
+    "name": "AppFutura",
+    "website": "https://www.appfutura.com/",
+    "country": "united-states",
+    "category": "software",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An app and software developer directory with public company profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-techbehemoths",
+    "name": "TechBehemoths",
+    "website": "https://www.techbehemoths.com/",
+    "country": "united-states",
+    "category": "software",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An IT company directory with public company profiles. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-americanstaffing",
+    "name": "American Staffing Association",
+    "website": "https://www.americanstaffing.net/",
+    "country": "united-states",
+    "category": "industry-associations",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The US staffing industry association, whose member agencies appear in a searchable directory. Membership is eligibility-gated.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-pestworld",
+    "name": "PestWorld",
+    "website": "https://www.pestworld.org/",
+    "country": "united-states",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The US pest management association's find-a-professional directory of member companies.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-homeguide",
+    "name": "HomeGuide",
+    "website": "https://www.homeguide.com/",
+    "country": "united-states",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A US home services directory where professionals hold public profiles. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-taskrabbit",
+    "name": "Taskrabbit",
+    "website": "https://www.taskrabbit.com/",
+    "country": "united-states",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "north-america"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A US task and home services marketplace where taskers hold public profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-handy",
+    "name": "Handy",
+    "website": "https://www.handy.com/",
+    "country": "united-states",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A US cleaning and handyman marketplace where professionals hold public profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-lawnstarter",
+    "name": "LawnStarter",
+    "website": "https://www.lawnstarter.com/",
+    "country": "united-states",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A US lawn care marketplace where providers hold public profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-greenpal",
+    "name": "GreenPal",
+    "website": "https://www.greenpal.com/",
+    "country": "united-states",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A US lawn care marketplace where independent providers hold public profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-gaf-contractors",
+    "name": "GAF Contractor Locator",
+    "website": "https://www.gaf.com/en-us/roofing-contractors",
+    "country": "united-states",
+    "category": "construction",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The certified roofing contractor locator of a major US manufacturer. Listing requires certified-contractor status. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-owenscorning-contractors",
+    "name": "Owens Corning Contractor Locator",
+    "website": "https://www.owenscorning.com/en-us/roofing/contractors",
+    "country": "united-states",
+    "category": "construction",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The independent roofing contractor locator of a major US manufacturer. Listing requires network membership.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-trane-dealers",
+    "name": "Trane Dealer Locator",
+    "website": "https://www.trane.com/residential/en/dealers/",
+    "country": "united-states",
+    "category": "construction",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "north-america"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The dealer locator of a major HVAC manufacturer. Listing requires authorised-dealer status.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-carrier-dealers",
+    "name": "Carrier Dealer Locator",
+    "website": "https://www.carrier.com/residential/en/us/find-a-dealer/",
+    "country": "united-states",
+    "category": "construction",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "north-america"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The dealer locator of a major HVAC manufacturer. Listing requires authorised-dealer status.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-phcc",
+    "name": "PHCC Contractor Directory",
+    "website": "https://www.phccweb.org/",
+    "country": "united-states",
+    "category": "industry-associations",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The US plumbing, heating and cooling contractors association, whose members appear in a searchable directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-neca",
+    "name": "NECA",
+    "website": "https://www.necanet.org/",
+    "country": "united-states",
+    "category": "industry-associations",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The US electrical contractors association, whose members appear in a searchable directory. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-abc",
+    "name": "Associated Builders and Contractors",
+    "website": "https://www.abc.org/",
+    "country": "united-states",
+    "category": "industry-associations",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A US construction trade association with a member company directory. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-agc",
+    "name": "Associated General Contractors",
+    "website": "https://www.agc.org/",
+    "country": "united-states",
+    "category": "industry-associations",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A US construction trade association with a member company directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-asid",
+    "name": "ASID",
+    "website": "https://www.asid.org/",
+    "country": "united-states",
+    "category": "industry-associations",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The American Society of Interior Designers, whose members appear in a searchable directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-aia-architects",
+    "name": "AIA Find an Architect",
+    "website": "https://www.aia.org/find-an-architect",
+    "country": "united-states",
+    "category": "industry-associations",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The American Institute of Architects firm directory. Returns 403 without a challenge page, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-asla",
+    "name": "ASLA",
+    "website": "https://www.asla.org/",
+    "country": "united-states",
+    "category": "industry-associations",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The American Society of Landscape Architects, whose members appear in a searchable directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-nkba",
+    "name": "NKBA",
+    "website": "https://www.nkba.org/",
+    "country": "united-states",
+    "category": "industry-associations",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The US kitchen and bath association, whose member professionals appear in a searchable directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ca-cme",
+    "name": "Canadian Manufacturers & Exporters",
+    "website": "https://www.cme-mec.ca/",
+    "country": "canada",
+    "category": "industry-associations",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "canada"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Canadian manufacturers and exporters association, whose members appear in a directory. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ca-quebecentreprises",
+    "name": "Entreprises Québécoises",
+    "website": "https://www.quebecentreprises.com/",
+    "country": "canada",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "regional"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A directory of Quebec companies with public business entries.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ca-indexsante",
+    "name": "Index Santé",
+    "website": "https://www.indexsante.ca/",
+    "country": "canada",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "regional"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Quebec health directory listing clinics and practitioners with public profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ca-skipthedishes",
+    "name": "SkipTheDishes",
+    "website": "https://www.skipthedishes.com/",
+    "country": "canada",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "canada"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The main Canadian food delivery platform, where restaurants hold public pages. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ca-autotrader",
+    "name": "AutoTrader.ca",
+    "website": "https://www.autotrader.ca/",
+    "country": "canada",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "canada"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The main Canadian vehicle marketplace, where dealers hold public dealer pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ca-kijiji",
+    "name": "Kijiji",
+    "website": "https://www.kijiji.ca/",
+    "country": "canada",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "canada"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The dominant Canadian classifieds marketplace, with professional seller sections.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ca-lespac",
+    "name": "LesPAC",
+    "website": "https://www.lespac.com/",
+    "country": "canada",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "regional"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Quebec classifieds marketplace with professional seller sections. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ca-used",
+    "name": "Used.ca",
+    "website": "https://www.usedvictoria.com/",
+    "country": "canada",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "regional"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A regional Canadian classifieds marketplace with business seller sections.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-restaurantji",
+    "name": "Restaurantji",
+    "website": "https://www.restaurantji.com/",
+    "country": "united-states",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A US restaurant directory with menus, reviews and public venue pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-menupages",
+    "name": "MenuPages",
+    "website": "https://www.menupages.com/",
+    "country": "united-states",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A US restaurant menu directory with public venue pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-dealerrater",
+    "name": "DealerRater",
+    "website": "https://www.dealerrater.com/",
+    "country": "united-states",
+    "category": "review-sites",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "north-america"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A US car dealership review directory with public dealer profiles. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-cargurus",
+    "name": "CarGurus",
+    "website": "https://www.cargurus.com/",
+    "country": "united-states",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "north-america"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A major US vehicle marketplace where dealers hold public dealer pages. Rejects automated requests, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-edmunds-dealerships",
+    "name": "Edmunds Dealership Directory",
+    "website": "https://www.edmunds.com/dealerships/",
+    "country": "united-states",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The dealer directory of a major US automotive site. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-truecar",
+    "name": "TrueCar",
+    "website": "https://www.truecar.com/",
+    "country": "united-states",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A US car buying platform with a certified dealer network and public dealer pages. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-legalmatch",
+    "name": "LegalMatch",
+    "website": "https://www.legalmatch.com/",
+    "country": "united-states",
+    "category": "legal",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A US attorney matching service where lawyers hold public profiles. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-patch",
+    "name": "Patch",
+    "website": "https://www.patch.com/",
+    "country": "united-states",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A US hyperlocal news network with a local business directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-businessyab",
+    "name": "BusinessYab",
+    "website": "https://www.businessyab.com/",
+    "country": "united-states",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "north-america"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A local business directory covering the US and Canada with public company pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-trueen",
+    "name": "TRUEen",
+    "website": "https://www.trueen.com/",
+    "country": "united-states",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A free local business directory with public company profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ca-getlistedcanada",
+    "name": "GetListedCanada",
+    "website": "https://www.getlistedcanada.com/",
+    "country": "canada",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "canada"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A free Canadian local business listing directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ca-cdnpages",
+    "name": "Cdnpages",
+    "website": "https://www.cdnpages.ca/",
+    "country": "canada",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "canada"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Canadian business directory with contact details and reviews.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ca-canadianplanet",
+    "name": "Canadian Planet",
+    "website": "https://www.canadianplanet.net/",
+    "country": "canada",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "canada"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Canadian business directory. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ca-zipleaf",
+    "name": "ZipLeaf Canada",
+    "website": "https://www.zipleaf.ca/",
+    "country": "canada",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "canada"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Canadian arm of an international business directory network.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "us-yellowpagecity",
+    "name": "YellowPageCity",
+    "website": "https://www.yellowpagecity.com/",
+    "country": "united-states",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A US city-based yellow pages directory. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "mx-sitiosmexico",
+    "name": "Sitios México",
+    "website": "https://www.sitiosmexico.com/",
+    "country": "mexico",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Mexican web and company directory with public business entries.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "mx-mexicoxport",
+    "name": "Méxicoxport",
+    "website": "https://www.mexicoxport.com/",
+    "country": "mexico",
+    "category": "manufacturing",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Mexican exporter directory with public supplier profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "mx-comce",
+    "name": "COMCE",
+    "website": "https://www.comce.org.mx/",
+    "country": "mexico",
+    "category": "industry-associations",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Mexican foreign trade business council, whose members appear in a directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "mx-claroshop",
+    "name": "Claroshop",
+    "website": "https://www.claroshop.com/",
+    "country": "mexico",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Mexican online marketplace where sellers hold public storefronts.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-amazon-sellers",
+    "name": "Amazon Seller Storefront",
+    "website": "https://www.amazon.com/",
+    "country": "global",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The seller storefront surface of the largest global marketplace. Rejects automated requests, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "cr-visitcostarica",
+    "name": "Visit Costa Rica",
+    "website": "https://www.visitcostarica.com/",
+    "country": "costa-rica",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The official Costa Rican tourism site, listing accredited hotels, tours and operators.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "pa-visitpanama",
+    "name": "Visit Panama",
+    "website": "https://www.visitpanama.com/",
+    "country": "panama",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The official Panamanian tourism site, listing hotels, attractions and operators.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "do-godominicanrepublic",
+    "name": "Go Dominican Republic",
+    "website": "https://www.godominicanrepublic.com/",
+    "country": "dominican-republic",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The official Dominican tourism site, listing hotels and local operators.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "jm-visitjamaica",
+    "name": "Visit Jamaica",
+    "website": "https://www.visitjamaica.com/",
+    "country": "jamaica",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The official Jamaican tourism site, listing hotels, attractions and operators.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "bz-travelbelize",
+    "name": "Travel Belize",
+    "website": "https://www.travelbelize.org/",
+    "country": "belize",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The official Belize tourism site, listing hotels and tour operators. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "sv-elsalvador-travel",
+    "name": "El Salvador Travel",
+    "website": "https://www.elsalvador.travel/",
+    "country": "el-salvador",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The official Salvadoran tourism site, listing hotels and local operators.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "hn-honduras-travel",
+    "name": "Honduras Travel",
+    "website": "https://www.honduras.travel/",
+    "country": "honduras",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The official Honduran tourism site, listing hotels and tour operators.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "bs-bahamas-com",
+    "name": "Bahamas.com",
+    "website": "https://www.bahamas.com/",
+    "country": "bahamas",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The official Bahamian tourism site, listing hotels, restaurants and operators.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-centralamerica",
+    "name": "Central America Living",
+    "website": "https://www.centralamerica.com/",
+    "country": "global",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "regional"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A regional Central American guide listing local businesses and services.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "jm-caribbeanjobs",
+    "name": "CaribbeanJobs",
+    "website": "https://www.caribbeanjobs.com/",
+    "country": "jamaica",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "regional"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A regional Caribbean job board where employers hold public company pages.",
+    "lastVerified": "2026-08-06"
   }
 ]

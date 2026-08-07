@@ -242,5 +242,117 @@
     "entityType": "country",
     "titleName": "the United Arab Emirates",
     "iso2": "AE"
+  },
+  {
+    "id": "puerto-rico",
+    "slug": "puerto-rico",
+    "name": "Puerto Rico",
+    "entityType": "country",
+    "titleName": "Puerto Rico",
+    "iso2": "PR"
+  },
+  {
+    "id": "costa-rica",
+    "slug": "costa-rica",
+    "name": "Costa Rica",
+    "entityType": "country",
+    "titleName": "Costa Rica",
+    "iso2": "CR"
+  },
+  {
+    "id": "panama",
+    "slug": "panama",
+    "name": "Panama",
+    "entityType": "country",
+    "titleName": "Panama",
+    "iso2": "PA"
+  },
+  {
+    "id": "dominican-republic",
+    "slug": "dominican-republic",
+    "name": "Dominican Republic",
+    "entityType": "country",
+    "titleName": "Dominican Republic",
+    "iso2": "DO"
+  },
+  {
+    "id": "jamaica",
+    "slug": "jamaica",
+    "name": "Jamaica",
+    "entityType": "country",
+    "titleName": "Jamaica",
+    "iso2": "JM"
+  },
+  {
+    "id": "guatemala",
+    "slug": "guatemala",
+    "name": "Guatemala",
+    "entityType": "country",
+    "titleName": "Guatemala",
+    "iso2": "GT"
+  },
+  {
+    "id": "honduras",
+    "slug": "honduras",
+    "name": "Honduras",
+    "entityType": "country",
+    "titleName": "Honduras",
+    "iso2": "HN"
+  },
+  {
+    "id": "el-salvador",
+    "slug": "el-salvador",
+    "name": "El Salvador",
+    "entityType": "country",
+    "titleName": "El Salvador",
+    "iso2": "SV"
+  },
+  {
+    "id": "nicaragua",
+    "slug": "nicaragua",
+    "name": "Nicaragua",
+    "entityType": "country",
+    "titleName": "Nicaragua",
+    "iso2": "NI"
+  },
+  {
+    "id": "belize",
+    "slug": "belize",
+    "name": "Belize",
+    "entityType": "country",
+    "titleName": "Belize",
+    "iso2": "BZ"
+  },
+  {
+    "id": "trinidad-and-tobago",
+    "slug": "trinidad-and-tobago",
+    "name": "Trinidad and Tobago",
+    "entityType": "country",
+    "titleName": "Trinidad and Tobago",
+    "iso2": "TT"
+  },
+  {
+    "id": "bahamas",
+    "slug": "bahamas",
+    "name": "Bahamas",
+    "entityType": "country",
+    "titleName": "Bahamas",
+    "iso2": "BS"
+  },
+  {
+    "id": "barbados",
+    "slug": "barbados",
+    "name": "Barbados",
+    "entityType": "country",
+    "titleName": "Barbados",
+    "iso2": "BB"
+  },
+  {
+    "id": "cuba",
+    "slug": "cuba",
+    "name": "Cuba",
+    "entityType": "country",
+    "titleName": "Cuba",
+    "iso2": "CU"
   }
 ]

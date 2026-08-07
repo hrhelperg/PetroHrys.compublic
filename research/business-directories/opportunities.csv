@@ -27,6 +27,10 @@ at-opendi,Opendi Österreich,https://www.opendi.at/,austria,dach,local-business,
 at-tupalo,Tupalo Österreich,https://www.tupalo.at/,austria,country-specific,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 at-yalwa,Yalwa Österreich,https://www.yalwa.at/,austria,country-specific,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
 at-wogibtswas,wogibtswas.at,https://www.wogibtswas.at/,austria,dach,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+bs-bahamaslocal,Bahamas Local,https://www.bahamaslocal.com/,bahamas,country-specific,local-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
+bs-bahamas-com,Bahamas.com,https://www.bahamas.com/,bahamas,country-specific,local-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
+bs-thebahamasguide,The Bahamas Guide,https://www.thebahamasguide.com/,bahamas,country-specific,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+bb-barbadosyp,Barbados Yellow Pages,https://www.barbadosyp.com/,barbados,country-specific,general-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,unknown
 be-goudengids,Gouden Gids,https://www.goudengids.be/,belgium,country-specific,local-business,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,active
 be-stepstone,StepStone België,https://www.stepstone.be/,belgium,country-specific,general-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
 be-2dehands,2dehands,https://www.2dehands.be/,belgium,country-specific,general-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
@@ -38,6 +42,8 @@ be-deondernemersgids,De Ondernemersgids,https://www.deondernemersgids.com/,belgi
 be-firmania,Firmania Belgique,https://www.firmania.be/,belgium,country-specific,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
 be-infoisinfo,InfoIsInfo België,https://www.infoisinfo.be/,belgium,country-specific,general-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 be-opendi,Opendi België,https://www.opendi.be/,belgium,country-specific,general-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+bz-belize-com,Belize.com,https://www.belize.com/,belize,country-specific,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+bz-travelbelize,Travel Belize,https://www.travelbelize.org/,belize,country-specific,local-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,unknown
 br-apontador,Apontador,https://www.apontador.com.br/,brazil,latam,local-business,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,active
 br-guiamais,Guia Mais,https://www.guiamais.com.br/,brazil,latam,local-business,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,active
 br-solutudo,Solutudo,https://www.solutudo.com.br/,brazil,latam,local-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,unknown
@@ -45,10 +51,32 @@ br-cylex,Cylex Brasil,https://www.cylex.com.br/,brazil,latam,local-business,unkn
 br-hotfrog,Hotfrog Brasil,https://www.hotfrog.com.br/,brazil,latam,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
 ca-yellowpages,YellowPages.ca,https://www.yellowpages.ca/,canada,canada,local-business,create,freemium,,tier1,P1,true,https://solutions.yp.ca/free-listing,,Canadian businesses wanting a listing in the country’s best-known commercial directory.,"The free listing is REQUESTED, not published. The operator’s wording is “REQUEST YOUR FREE ONLINE LISTING”, and what the free tier contains is not enumerated on that page.",2026-08-06,active
 ca-411,411.ca,https://www.411.ca/,canada,canada,local-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
+ca-canpages,Canpages,https://www.canpages.ca/,canada,canada,local-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,unknown
+ca-homestars,HomeStars,https://www.homestars.com/,canada,canada,construction,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,unknown
+ca-skipthedishes,SkipTheDishes,https://www.skipthedishes.com/,canada,canada,local-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,unknown
+ca-autotrader,AutoTrader.ca,https://www.autotrader.ca/,canada,canada,general-business,unknown,unknown,,tier1,P3,true,,,,,2026-08-06,active
+ca-cme,Canadian Manufacturers & Exporters,https://www.cme-mec.ca/,canada,canada,industry-associations,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,unknown
+ca-canadianplanet,Canadian Planet,https://www.canadianplanet.net/,canada,canada,general-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
+ca-cdnpages,Cdnpages,https://www.cdnpages.ca/,canada,canada,general-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+ca-quebecentreprises,Entreprises Québécoises,https://www.quebecentreprises.com/,canada,regional,general-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+ca-getlistedcanada,GetListedCanada,https://www.getlistedcanada.com/,canada,canada,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 ca-goldbook,GoldBook,https://www.goldbook.ca/,canada,canada,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
 ca-hotfrog,Hotfrog Canada,https://www.hotfrog.ca/,canada,canada,local-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,unknown
+ca-indexsante,Index Santé,https://www.indexsante.ca/,canada,regional,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+ca-kijiji,Kijiji,https://www.kijiji.ca/,canada,canada,general-business,unknown,unknown,,tier1,P3,true,,,,,2026-08-06,active
+ca-lespac,LesPAC,https://www.lespac.com/,canada,regional,general-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
 ca-merchantcircle,MerchantCircle Canada,https://www.merchantcircle.ca/,canada,canada,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+ca-opencare,Opencare,https://www.opencare.com/,canada,north-america,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+ca-opendi,Opendi Canada,https://www.opendi.ca/,canada,canada,general-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+ca-ratemds,RateMDs,https://www.ratemds.com/,canada,north-america,local-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,unknown
+ca-renoquotes,RenoQuotes,https://www.renoquotes.com/,canada,canada,construction,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+ca-trustedpros,TrustedPros,https://www.trustedpros.ca/,canada,canada,construction,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
+ca-used,Used.ca,https://www.usedvictoria.com/,canada,regional,general-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+ca-weddingwire,WeddingWire Canada,https://www.weddingwire.ca/,canada,canada,local-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,unknown
+ca-zipleaf,ZipLeaf Canada,https://www.zipleaf.ca/,canada,canada,general-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 ca-n49,n49,https://www.n49.com/,canada,canada,local-business,create,freemium,,tier1,P3,true,https://www.n49.com/add-biz,,Canadian businesses wanting a free listing on a platform that documents its tiers and prices openly.,"The free listing is explicitly NOT verified. The operator lists “Not Verified” as a characteristic of the free tier, and sells verification as a paid upgrade, so a free entry here carries no verification of any kind.",2026-08-06,active
+cr-govisitcostarica,Go Visit Costa Rica,https://www.govisitcostarica.co.cr/,costa-rica,country-specific,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+cr-visitcostarica,Visit Costa Rica,https://www.visitcostarica.com/,costa-rica,country-specific,local-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 cz-firmy-cz,Firmy.cz,https://www.firmy.cz/,czech-republic,country-specific,local-business,create,free,,tier1,P1,true,https://admin.firmy.cz/pridat-firmu-zaciname/1,,"Czech businesses wanting the single most visible domestic local citation, tied to the country’s own search engine.","Creating an entry is confirmed; claiming an existing third-party entry is not documented, so no claim flow is asserted.",2026-08-06,active
 cz-heureka,Heureka,https://www.heureka.cz/,czech-republic,country-specific,review-sites,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,unknown
 cz-damejidlo,Dáme jídlo,https://www.damejidlo.cz/,czech-republic,country-specific,local-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,unknown
@@ -76,6 +104,10 @@ dk-hotfrog,Hotfrog Danmark,https://www.hotfrog.dk/,denmark,nordics,local-busines
 dk-jobindex,Jobindex,https://www.jobindex.dk/,denmark,nordics,general-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 dk-misterwhat,MisterWhat Danmark,https://www.misterwhat.dk/,denmark,country-specific,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 dk-opendi,Opendi Danmark,https://www.opendi.dk/,denmark,nordics,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+do-paginasamarillas,Páginas Amarillas República Dominicana,https://www.paginasamarillas.com.do/,dominican-republic,country-specific,general-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
+do-godominicanrepublic,Go Dominican Republic,https://www.godominicanrepublic.com/,dominican-republic,country-specific,local-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
+sv-paginasamarillas,Páginas Amarillas El Salvador,https://www.paginasamarillas.com.sv/,el-salvador,country-specific,general-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
+sv-elsalvador-travel,El Salvador Travel,https://www.elsalvador.travel/,el-salvador,country-specific,local-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 fi-finder,Finder.fi,https://www.finder.fi/,finland,nordics,general-business,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,active
 fi-fonecta,Fonecta,https://www.fonecta.fi/,finland,nordics,local-business,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,active
 fi-suomenyritykset,Suomen Yritykset,https://www.suomenyritykset.fi/,finland,nordics,general-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
@@ -188,6 +220,9 @@ de-sanego,sanego,https://www.sanego.de/,germany,country-specific,local-business,
 de-wer-zu-wem,wer-zu-wem,https://www.wer-zu-wem.de/,germany,dach,general-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 global-alibaba,Alibaba.com,https://www.alibaba.com/,global,asia; global,manufacturing,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,active
 global-apple-app-store,Apple App Store,https://apps.apple.com/,global,global,app-directories,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,active
+global-apple-business-connect,Apple Business Connect,https://businessconnect.apple.com/,global,global,local-business,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,active
+global-bing-places,Bing Places for Business,https://www.bingplaces.com/,global,global,local-business,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,active
+global-booking-join,Booking.com Partner Listing,https://www.booking.com/join,global,global,local-business,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,active
 global-booksy,Booksy,https://www.booksy.com/,global,europe; united-states,local-business,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,active
 global-builtin,Built In,https://www.builtin.com/,global,united-states,startup,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,active
 global-capterra,Capterra,https://www.capterra.com/,global,global,software,unknown,unknown,91,tier1,P1,,https://www.capterra.com/vendors/,,SaaS vendors selling to SMB and mid-market buyers,Vendor listing pricing is not disclosed on the homepage,2026-08-04,unknown
@@ -195,6 +230,8 @@ global-chrome-web-store,Chrome Web Store,https://chromewebstore.google.com/,glob
 global-clutch,Clutch,https://clutch.co/,global,global,marketing,unknown,unknown,91,tier1,P1,,,,,Listing pricing is not disclosed publicly,2026-08-04,unknown
 global-crunchbase,Crunchbase,https://www.crunchbase.com/,global,global,startup,unknown,freemium,91,tier1,P1,,,,,Most analytical depth sits behind a paid plan,2026-08-04,active
 global-europages,Europages,https://www.europages.co.uk/,global,europe; global,general-business,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,active
+global-expedia-partner,Expedia Partner Central,https://www.expediapartnercentral.com/,global,global,local-business,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,active
+global-facebook-business,Facebook Business Page,https://www.facebook.com/business/,global,global,general-business,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,unknown
 global-fresha,Fresha,https://www.fresha.com/,global,global,local-business,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,active
 global-futurepedia,Futurepedia,https://www.futurepedia.io/,global,global,ai,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,active
 global-g2,G2,https://www.g2.com/,global,global,software,unknown,unknown,,tier1,P1,,https://www.g2.com/products/new,,"B2B software vendors who want a moderated, reviewed product profile",No accessible official page states what a vendor listing costs,2026-08-04,unknown
@@ -205,6 +242,7 @@ global-google-play,Google Play Store,https://play.google.com/store,global,global
 global-hubspot-agencies,HubSpot Solutions Directory,https://www.hubspot.com/agencies,global,global,marketing,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,active
 global-indeed-companies,Indeed Company Pages,https://www.indeed.com/companies,global,global,general-business,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,unknown
 global-kompass,Kompass,https://www.kompass.com/,global,europe; global,general-business,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,unknown
+global-linkedin-pages,LinkedIn Company Page,https://business.linkedin.com/marketing-solutions/linkedin-pages,global,global,general-business,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,active
 global-microsoft-appsource,Microsoft AppSource,https://appsource.microsoft.com/,global,global,app-directories,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,active
 global-product-hunt,Product Hunt,https://www.producthunt.com/,global,global,startup,unknown,unknown,91,tier1,P1,,https://www.producthunt.com/launch,,New software products seeking a launch moment,"Promoted placements exist, so ranking is not purely organic",2026-08-04,unknown
 global-semrush-agencies,Semrush Agency Partners,https://www.semrush.com/agencies/,global,global,marketing,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,active
@@ -218,9 +256,11 @@ global-trustpilot,Trustpilot,https://business.trustpilot.com/,global,global,revi
 global-yelp,Yelp for Business,https://business.yelp.com/,global,global,local-business,unknown,freemium,94,tier1,P1,,,,,Review recommendation software filters some reviews,2026-08-04,active
 global-zapier-apps,Zapier App Directory,https://www.zapier.com/apps,global,global,app-directories,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,active
 global-kununu,kununu,https://www.kununu.com/,global,dach,review-sites,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,unknown
+global-airbnb-experiences,Airbnb Experiences,https://www.airbnb.com/host/experiences,global,global,local-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,active
 global-airtable-marketplace,Airtable Marketplace,https://www.airtable.com/marketplace,global,global,app-directories,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,active
 global-aixploria,Aixploria,https://www.aixploria.com/en/,global,global,ai,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
 global-alternativeto,AlternativeTo,https://alternativeto.net/,global,global,software,unknown,free,79,tier2,P2,,,,,Rankings reflect community opinion rather than structured testing,2026-08-04,unknown
+global-amazon-sellers,Amazon Seller Storefront,https://www.amazon.com/,global,global,general-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,unknown
 global-appsumo,AppSumo,https://appsumo.com/,global,global,software,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
 global-atlassian-marketplace,Atlassian Marketplace,https://marketplace.atlassian.com/,global,global,app-directories,unknown,unknown,92,tier1,P2,,,,,Listing pricing not disclosed publicly,2026-08-04,active
 global-atlassian-partners,Atlassian Partners,https://www.atlassian.com/partners,global,global,marketing,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,active
@@ -258,6 +298,7 @@ global-hugging-face,Hugging Face,https://huggingface.co/,global,global,developer
 global-indiamart,IndiaMART,https://www.indiamart.com/,global,asia; india,general-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,active
 global-indiegogo,Indiegogo,https://www.indiegogo.com/,global,global,startup,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,unknown
 global-industrystock,IndustryStock,https://www.industrystock.com/,global,europe; global,manufacturing,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
+global-instagram-business,Instagram Business Profile,https://www.instagram.com/,global,global,general-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,active
 global-intercom-app-store,Intercom App Store,https://www.intercom.com/app-store,global,global,app-directories,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,active
 global-jetbrains-marketplace,JetBrains Marketplace,https://plugins.jetbrains.com/,global,global,developer,unknown,unknown,91,tier2,P2,,,,,Only the marketplace name could be confirmed from the landing page; other fields are unverified,2026-08-04,active
 global-kickstarter,Kickstarter,https://www.kickstarter.com/,global,global,startup,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,unknown
@@ -306,6 +347,7 @@ global-toolify,Toolify,https://www.toolify.ai/,global,global,ai,unknown,unknown,
 global-topai-tools,TopAI.tools,https://www.topai.tools/,global,global,ai,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,unknown
 global-tradeindia,TradeIndia,https://www.tradeindia.com/,global,asia; india,manufacturing,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,active
 global-trusted-shops,Trusted Shops,https://www.trustedshops.com/,global,dach; europe,review-sites,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,active
+global-ubereats,Uber Eats,https://www.ubereats.com/,global,global,local-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,unknown
 global-uneed,Uneed,https://www.uneed.best/,global,global,startup,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
 global-upwork,Upwork,https://www.upwork.com/,global,global,general-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,unknown
 global-viator,Viator,https://www.viator.com/,global,global,local-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,unknown
@@ -346,11 +388,13 @@ za-bizcommunity,Bizcommunity,https://www.bizcommunity.com/,global,africa,general
 global-brownbook,Brownbook,https://www.brownbook.net/,global,global,general-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 global-cran,CRAN,https://cran.r-project.org/,global,global,developer,unknown,unknown,,tier1,P3,true,,,,,2026-08-06,active
 global-cssdesignawards,CSS Design Awards,https://www.cssdesignawards.com/,global,global,marketing,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
+global-centralamerica,Central America Living,https://www.centralamerica.com/,global,regional,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 global-chambers-and-partners,Chambers and Partners,https://chambers.com/,global,europe; global,legal,unknown,unknown,82,tier1,P3,,,,Firms competing for recognised international legal rankings,Heavy annual submission burden,2026-08-04,active
 global-clickup-integrations,ClickUp Integrations,https://www.clickup.com/integrations,global,global,app-directories,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 global-cocoapods,CocoaPods,https://cocoapods.org/,global,global,developer,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 global-conan-center,ConanCenter,https://conan.io/center,global,global,developer,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 global-craft,Craft.co,https://www.craft.co/,global,global,general-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,unknown
+global-crossfit-affiliates,CrossFit Affiliate Directory,https://www.crossfit.com/affiliate-map,global,global,local-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 global-crowdcube,Crowdcube,https://www.crowdcube.com/,global,europe; united-kingdom,startup,unknown,unknown,,tier1,P3,true,,,,,2026-08-06,active
 global-crozdesk,Crozdesk,https://www.crozdesk.com/,global,europe; global,software,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 global-cybo,Cybo,https://www.cybo.com/,global,global,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
@@ -373,6 +417,7 @@ global-guru,Guru.com,https://www.guru.com/,global,global,general-business,unknow
 global-gust,Gust,https://www.gust.com/,global,global; north-america,startup,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,unknown
 global-hackage,Hackage,https://hackage.haskell.org/,global,global,developer,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 global-hex,Hex,https://hex.pm/,global,global,developer,unknown,freemium,78,tier2,P3,,,,,Private packages require a paid organisation tier,2026-08-04,active
+global-hostelworld,Hostelworld,https://www.hostelworld.com/,global,global,local-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 global-hotfrog-india,Hotfrog India,https://www.hotfrog.in/,global,india,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
 global-hubbiz,Hubbiz,https://www.hub.biz/,global,global; united-states,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 global-itfirms,ITFirms,https://www.itfirms.co/,global,global,marketing,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
@@ -409,6 +454,7 @@ global-owler,Owler,https://www.owler.com/company,global,global,general-business,
 global-packagecontrol,Package Control,https://packagecontrol.io/,global,global,developer,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 global-packagist,Packagist.org,https://packagist.org/,global,global,developer,unknown,free,88,tier1,P3,,https://packagist.org/packages/submit,,,Private packages require a paid separate product,2026-08-04,active
 global-petal-maps,Petal Maps,https://www.petalmaps.com/,global,asia; global,local-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
+global-pinterest-business,Pinterest Business Account,https://www.pinterest.com/business/,global,global,general-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 global-pipedrive-marketplace,Pipedrive Marketplace,https://www.pipedrive.com/en/marketplace,global,global,app-directories,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 global-pissedconsumer,PissedConsumer,https://www.pissedconsumer.com/,global,global; united-states,review-sites,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 global-prestashop-addons,PrestaShop Addons,https://addons.prestashop.com/,global,europe; global,app-directories,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,unknown
@@ -443,7 +489,9 @@ global-tradeford,TradeFord,https://www.tradeford.com/,global,asia; global,manufa
 global-tradekey,TradeKey,https://www.tradekey.com/,global,asia; global,manufacturing,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 global-trepup,Trepup,https://www.trepup.com/,global,global,general-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 global-tupalo,Tupalo,https://tupalo.com/,global,europe; global,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+global-untappd,Untappd,https://www.untappd.com/,global,global,local-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 global-vault,Vault,https://www.vault.com/,global,united-states,general-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
+global-vrbo,Vrbo,https://www.vrbo.com/,global,north-america,local-business,unknown,unknown,,tier1,P3,true,,,,,2026-08-06,unknown
 global-wand,Wand,https://www.wand.com/,global,global; north-america,manufacturing,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 global-wheree,Wheree,https://www.wheree.com/,global,global,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
 global-whodoyou,WhoDoYou,https://www.whodoyou.com/,global,global; united-states,review-sites,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
@@ -451,6 +499,7 @@ global-ycombinator-directory,Y Combinator Startup Directory,https://www.ycombina
 global-yably,Yably,https://www.yably.com/,global,global,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
 global-yalwa,Yalwa,https://www.yalwa.com/,global,global,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
 global-yellowpagesdirectory,YellowPagesDirectory,https://www.yellowpagesdirectory.com/,global,global; united-states,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
+global-yogaalliance,Yoga Alliance,https://www.yogaalliance.org/,global,global,industry-associations,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 global-zaubee,Zaubee,https://www.zaubee.com/,global,global,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
 global-ziprecruiter,ZipRecruiter,https://www.ziprecruiter.com/,global,united-states,general-business,unknown,unknown,,tier1,P3,true,,,,,2026-08-06,unknown
 global-zippia,Zippia,https://www.zippia.com/,global,united-states,general-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
@@ -463,6 +512,9 @@ global-iglobal,iGlobal,https://www.iglobal.co/,global,global,local-business,unkn
 global-opam,opam,https://opam.ocaml.org/,global,global,developer,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 global-openpr,openPR,https://www.openpr.com/,global,dach; global,press-release-platforms,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 global-pub-dev,pub.dev,https://pub.dev/,global,global,developer,unknown,unknown,86,tier1,P3,,,,,Publishing cost not stated on the homepage,2026-08-04,active
+gt-paginasamarillas,Páginas Amarillas Guatemala,https://www.paginasamarillas.com.gt/,guatemala,country-specific,general-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
+hn-hondurastips,Honduras Tips,https://www.hondurastips.hn/,honduras,country-specific,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+hn-honduras-travel,Honduras Travel,https://www.honduras.travel/,honduras,country-specific,local-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 ie-goldenpages,Golden Pages,https://www.goldenpages.ie/,ireland,country-specific,local-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,unknown
 ie-irishjobs,IrishJobs,https://www.irishjobs.ie/,ireland,country-specific,general-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
 ie-justeat,Just Eat Ireland,https://www.justeat.ie/,ireland,country-specific,local-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,unknown
@@ -497,11 +549,30 @@ it-pagineazzurre,Pagine Azzurre,https://www.pagineazzurre.com/,italy,country-spe
 it-paginemail,PagineMail,https://www.paginemail.it/,italy,country-specific,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
 it-subito,Subito,https://www.subito.it/,italy,country-specific,general-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 it-trovanumeri,TrovaNumeri,https://www.trovanumeri.com/,italy,country-specific,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+jm-jamaicayp,Jamaica Yellow Pages,https://www.jamaicayp.com/,jamaica,country-specific,general-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,unknown
+jm-findyello,Yello Caribbean,https://www.findyello.com/,jamaica,regional,general-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,unknown
+jm-caribbeanjobs,CaribbeanJobs,https://www.caribbeanjobs.com/,jamaica,regional,general-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
+jm-visitjamaica,Visit Jamaica,https://www.visitjamaica.com/,jamaica,country-specific,local-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 jp-ekiten,Ekiten,https://www.ekiten.jp/,japan,japan,review-sites,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,active
 jp-mapion,Mapion,https://www.mapion.co.jp/,japan,japan,local-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
 jp-jpnumber,JPNumber,https://www.jpnumber.com/,japan,japan,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
 mx-seccionamarilla,Sección Amarilla,https://www.seccionamarilla.com.mx/,mexico,latam,local-business,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,active
+mx-doctoralia,Doctoralia México,https://www.doctoralia.com.mx/,mexico,country-specific,local-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
+mx-mercadolibre,Mercado Libre México,https://www.mercadolibre.com.mx/,mexico,latam,general-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,active
+mx-yaloencontre,¡Ya lo Encontré!,https://www.yaloencontre.mx/,mexico,country-specific,local-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
+mx-comce,COMCE,https://www.comce.org.mx/,mexico,country-specific,industry-associations,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+mx-claroshop,Claroshop,https://www.claroshop.com/,mexico,country-specific,general-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 mx-cylex,Cylex México,https://www.cylex.com.mx/,mexico,latam,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
+mx-directorioelregional,Directorio El Regional,https://directorioelregional.com/,mexico,country-specific,general-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+mx-directoriodenegocios,Directorio de Negocios México,https://directoriodenegocios.com.mx/,mexico,country-specific,general-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+mx-encuentren,Encuentren.ME,https://www.encuentren.me/,mexico,country-specific,general-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
+mx-hotfrog,Hotfrog México,https://www.hotfrog.com.mx/,mexico,latam,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+mx-mexicoglobal,Mexico Global,https://www.mexicoglobal.net/,mexico,country-specific,manufacturing,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
+mx-mexicoxport,Méxicoxport,https://www.mexicoxport.com/,mexico,country-specific,manufacturing,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+mx-rappi,Rappi México,https://www.rappi.com.mx/,mexico,latam,local-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
+mx-sitiosmexico,Sitios México,https://www.sitiosmexico.com/,mexico,country-specific,general-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+mx-vivanuncios,Vivanuncios,https://www.vivanuncios.com.mx/,mexico,country-specific,general-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,unknown
+mx-zonaturistica,Zona Turística,https://www.zonaturistica.com/,mexico,country-specific,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 nl-detelefoongids,De Telefoongids,https://www.detelefoongids.nl/,netherlands,country-specific,local-business,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,active
 nl-quandoo,Quandoo Nederland,https://www.quandoo.nl/,netherlands,country-specific,local-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
 nl-telefoonboek,Telefoonboek,https://www.telefoonboek.nl/,netherlands,country-specific,local-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
@@ -528,6 +599,7 @@ nz-localist,Localist,https://www.localist.co.nz/,new-zealand,country-specific,lo
 nz-nocowboys,NoCowboys,https://www.nocowboys.co.nz/,new-zealand,country-specific,review-sites,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
 nz-cylex,Cylex New Zealand,https://www.cylex.co.nz/,new-zealand,country-specific,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
 nz-hotfrog,Hotfrog New Zealand,https://www.hotfrog.co.nz/,new-zealand,country-specific,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
+ni-paginasamarillas,Páginas Amarillas Nicaragua,https://www.paginasamarillas.com.ni/,nicaragua,country-specific,general-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
 no-gulesider,Gule Sider,https://www.gulesider.no/,norway,nordics,local-business,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,unknown
 no-1881,Opplysningen 1881,https://www.1881.no/,norway,nordics,local-business,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,active
 no-finn,FINN.no,https://www.finn.no/,norway,country-specific,general-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,active
@@ -538,6 +610,8 @@ no-byggstart,Byggstart,https://www.byggstart.no/,norway,country-specific,constru
 no-cylex,Cylex Norge,https://www.cylex.no/,norway,country-specific,general-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
 no-hotfrog,Hotfrog Norge,https://www.hotfrog.no/,norway,nordics,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 no-opendi,Opendi Norge,https://www.opendi.no/,norway,nordics,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+pa-paginasamarillas,Páginas Amarillas Panamá,https://www.paginasamarillas.com.pa/,panama,country-specific,general-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
+pa-visitpanama,Visit Panama,https://www.visitpanama.com/,panama,country-specific,local-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 pl-ceneo,Ceneo,https://www.ceneo.pl/,poland,country-specific,review-sites,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,active
 pl-panorama-firm,Panorama Firm,https://panoramafirm.pl/,poland,country-specific,local-business,create,free,,tier1,P1,true,https://panoramafirm.pl/dodaj-firme.html,,Polish businesses wanting a free national directory entry.,The submission form asks whether you are the owner or a user — “Jestem: Właścicielem / Użytkownikiem” — so a third party who used a business can add it. An entry is not evidence that the named business created or approved it.,2026-08-06,active
 pl-aleo,Aleo,https://www.aleo.com/,poland,country-specific,general-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,unknown
@@ -568,6 +642,8 @@ pt-misterwhat,MisterWhat Portugal,https://www.misterwhat.pt/,portugal,country-sp
 pt-opendi,Opendi Portugal,https://www.opendi.pt/,portugal,country-specific,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 pt-portugalempresas,Portugal Empresas,https://www.portugalempresas.pt/,portugal,country-specific,general-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 pt-guiadacidade,oGuia,https://www.guiadacidade.pt/,portugal,country-specific,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+pr-clasificadosonline,Clasificados Online,https://www.clasificadosonline.com/,puerto-rico,country-specific,general-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
+pr-discoverpuertorico,Discover Puerto Rico,https://www.discoverpuertorico.com/,puerto-rico,country-specific,local-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 sg-streetdirectory,Streetdirectory,https://www.streetdirectory.com/,singapore,asia,local-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
 sg-yellowpages,Yellow Pages Singapore,https://www.yellowpages.com.sg/,singapore,asia,local-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,unknown
 sg-hotfrog,Hotfrog Singapore,https://www.hotfrog.sg/,singapore,asia,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
@@ -622,6 +698,7 @@ ch-opendi,Opendi Schweiz,https://www.opendi.ch/,switzerland,dach,local-business,
 ch-schweizfirmen,Schweizfirmen,https://www.schweizfirmen.ch/,switzerland,country-specific,general-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 ch-yalwa,Yalwa Schweiz,https://www.yalwa.ch/,switzerland,country-specific,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
 ch-vschweiz,vSchweiz,https://vschweiz.ch/,switzerland,country-specific,general-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+tt-discovertnt,Discover Trinidad & Tobago,https://www.discovertnt.com/,trinidad-and-tobago,country-specific,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 ae-gulfyp,GulfYP,https://www.dubaiyellowpagesonline.com/,united-arab-emirates,middle-east,local-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
 uk-checkatrade,Checkatrade,https://www.checkatrade.com/,united-kingdom,united-kingdom,construction,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,unknown
 uk-mybuilder,MyBuilder,https://www.mybuilder.com/,united-kingdom,united-kingdom,construction,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,unknown
@@ -665,8 +742,11 @@ us-houzz,Houzz,https://www.houzz.com/,united-states,global; united-states,local-
 us-nextdoor,Nextdoor Business,https://business.nextdoor.com/,united-states,united-states,local-business,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,active
 us-thumbtack,Thumbtack,https://www.thumbtack.com/,united-states,united-states,local-business,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,unknown
 us-yellowpages,Yellow Pages,https://www.yellowpages.com/,united-states,united-states,local-business,unknown,unknown,,tier1,P1,true,,,,,2026-08-06,unknown
+us-aplaceformom,A Place for Mom,https://www.aplaceformom.com/,united-states,north-america,local-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
 us-avvo,Avvo,https://www.avvo.com/,united-states,united-states,legal,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,unknown
 us-bbb,Better Business Bureau,https://www.bbb.org/,united-states,united-states,review-sites,unknown,freemium,93,tier1,P2,,,,,"Accreditation is a paid programme, which draws recurring criticism of the rating model",2026-08-04,active
+us-care-com,Care.com,https://www.care.com/,united-states,north-america,local-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,active
+us-caring,Caring.com,https://www.caring.com/,united-states,united-states,local-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
 us-chamberofcommerce,ChamberofCommerce.com,https://www.chamberofcommerce.com/,united-states,united-states,general-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
 us-doordash,DoorDash,https://www.doordash.com/,united-states,canada; united-states,local-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,unknown
 us-findlaw,FindLaw,https://www.findlaw.com/,united-states,united-states,legal,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,unknown
@@ -676,28 +756,125 @@ us-homeadvisor,HomeAdvisor,https://www.homeadvisor.com/,united-states,united-sta
 us-hotfrog,Hotfrog US,https://www.hotfrog.com/,united-states,united-states,local-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,unknown
 us-industrynet,IndustryNet,https://www.industrynet.com/,united-states,north-america,manufacturing,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
 us-justia,Justia,https://www.justia.com/,united-states,united-states,legal,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,unknown
+us-lawyers-com,Lawyers.com,https://www.lawyers.com/,united-states,united-states,legal,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,unknown
 us-manta,Manta,https://www.manta.com/,united-states,united-states,general-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,unknown
 us-mapquest,MapQuest,https://www.mapquest.com/,united-states,united-states,local-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
 us-martindale,Martindale-Hubbell,https://www.martindale.com/,united-states,united-states,legal,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,unknown
 us-merchantcircle,MerchantCircle,https://www.merchantcircle.com/,united-states,united-states,local-business,claim,freemium,,tier1,P2,true,https://www.merchantcircle.com/business_homepage,https://www.merchantcircle.com/business_homepage,US local businesses that find themselves already listed and want to take control of the page.,A free profile carries competitors’ advertising. The operator sells the removal of it: the paid tier promises to “Remove competitor ads from your listing” and “No ads on your page - consumers will focus only on you!”. That is a plain statement about what the free tier looks like.,2026-08-06,active
+us-psychologytoday,Psychology Today Therapist Directory,https://www.psychologytoday.com/us/therapists,united-states,north-america,local-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,active
+us-realtor-agents,Realtor.com Agent Directory,https://www.realtor.com/realestateagents,united-states,united-states,local-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,unknown
 us-superpages,Superpages,https://www.superpages.com/,united-states,united-states,local-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,unknown
+us-taskrabbit,Taskrabbit,https://www.taskrabbit.com/,united-states,north-america,local-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,active
+us-vitals,Vitals,https://www.vitals.com/,united-states,united-states,local-business,unknown,unknown,,tier2,P2,true,,,,,2026-08-06,unknown
+us-zillow-professionals,Zillow Agent Finder,https://www.zillow.com/professionals/,united-states,united-states,local-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,unknown
 us-zocdoc,Zocdoc,https://www.zocdoc.com/,united-states,united-states,local-business,unknown,unknown,,tier1,P2,true,,,,,2026-08-06,unknown
+us-aia-architects,AIA Find an Architect,https://www.aia.org/find-an-architect,united-states,united-states,industry-associations,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,unknown
+us-asid,ASID,https://www.asid.org/,united-states,united-states,industry-associations,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
+us-asla,ASLA,https://www.asla.org/,united-states,united-states,industry-associations,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 us-alignable,Alignable,https://www.alignable.com/,united-states,united-states,general-business,create,unknown,,tier1,P3,true,https://www.alignable.com/biz_users/sign_up,,US small business owners who want peer referrals and local business networking rather than consumer discovery.,"The cost is NOT established and is recorded as unknown. There is no pricing page, joining is presented only as “Join Today”, and the premium tier offers only “Try for Free” — a trial, which is not evidence that anything is free thereafter.",2026-08-06,active
+us-americanstaffing,American Staffing Association,https://www.americanstaffing.net/,united-states,united-states,industry-associations,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
+us-americantowns,AmericanTowns,https://www.americantowns.com/,united-states,united-states,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+us-appfutura,AppFutura,https://www.appfutura.com/,united-states,global,software,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+us-abc,Associated Builders and Contractors,https://www.abc.org/,united-states,united-states,industry-associations,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,unknown
+us-agc,Associated General Contractors,https://www.agc.org/,united-states,united-states,industry-associations,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
+us-attorneys-com,Attorneys.com,https://www.attorneys.com/,united-states,united-states,legal,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
+us-beyondmenu,Beyond Menu,https://www.beyondmenu.com/,united-states,united-states,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+us-bizhwy,BizHwy,https://www.bizhwy.com/,united-states,united-states,general-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 us-buildzoom,BuildZoom,https://www.buildzoom.com/,united-states,united-states,construction,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,unknown
+us-businessyab,BusinessYab,https://www.businessyab.com/,united-states,north-america,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+us-letsmakeaplan,CFP Board Let's Make a Plan,https://www.letsmakeaplan.org/,united-states,united-states,local-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
+us-campspot,Campspot,https://www.campspot.com/,united-states,north-america,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+us-cargurus,CarGurus,https://www.cargurus.com/,united-states,north-america,general-business,unknown,unknown,,tier1,P3,true,,,,,2026-08-06,unknown
+us-carrier-dealers,Carrier Dealer Locator,https://www.carrier.com/residential/en/us/find-a-dealer/,united-states,north-america,construction,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 us-cars-com,Cars.com,https://www.cars.com/,united-states,united-states,local-business,unknown,unknown,,tier1,P3,true,,,,,2026-08-06,unknown
+us-certifiedhumane,Certified Humane,https://www.certifiedhumane.org/,united-states,north-america,industry-associations,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 us-chamberofcommerce-org,ChamberofCommerce.org,https://www.chamberofcommerce.org/,united-states,united-states,chambers-of-commerce,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
+us-citysquares,CitySquares,https://www.citysquares.com/,united-states,united-states,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
 us-citysearch,Citysearch,https://www.citysearch.com/,united-states,united-states,local-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
+us-classpass,ClassPass,https://www.classpass.com/,united-states,global,local-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,unknown
+us-contractors-com,Contractors.com,https://www.contractors.com/,united-states,united-states,construction,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+us-creativehotlist,Creative Hotlist,https://www.creativehotlist.com/,united-states,united-states,marketing,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 us-cylex,Cylex US,https://www.cylex.us.com/,united-states,united-states,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
+us-dealerrater,DealerRater,https://www.dealerrater.com/,united-states,north-america,review-sites,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,unknown
 us-dexknows,DexKnows,https://www.dexknows.com/,united-states,united-states,local-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,unknown
+us-doximity,Doximity,https://www.doximity.com/,united-states,united-states,local-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 us-ezlocal,EZlocal,https://www.ezlocal.com/,united-states,united-states,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
+us-eatstreet,EatStreet,https://www.eatstreet.com/,united-states,united-states,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+us-eatwild,Eatwild,https://www.eatwild.com/,united-states,north-america,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+us-edmunds-dealerships,Edmunds Dealership Directory,https://www.edmunds.com/dealerships/,united-states,united-states,general-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,unknown
+us-eventective,Eventective,https://www.eventective.com/,united-states,north-america,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 us-expertise,Expertise.com,https://www.expertise.com/,united-states,united-states,marketing,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
+us-farmersmarketonline,Farmer's Market Online,https://www.farmersmarketonline.com/,united-states,united-states,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 us-freelistingusa,FreeListingUSA,https://www.freelistingusa.com/,united-states,united-states,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 us-fyple,Fyple,https://www.fyple.com/,united-states,united-states,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+us-gaf-contractors,GAF Contractor Locator,https://www.gaf.com/en-us/roofing-contractors,united-states,united-states,construction,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,unknown
+us-gigsalad,GigSalad,https://www.gigsalad.com/,united-states,united-states,local-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,unknown
+us-golfnow,GolfNow,https://www.golfnow.com/,united-states,north-america,local-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,unknown
+us-goodtherapy,GoodTherapy,https://www.goodtherapy.org/,united-states,united-states,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
+us-greatschools,GreatSchools,https://www.greatschools.org/,united-states,united-states,education,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
+us-greenpal,GreenPal,https://www.greenpal.com/,united-states,united-states,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+us-handy,Handy,https://www.handy.com/,united-states,united-states,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+us-hipcamp,Hipcamp,https://www.hipcamp.com/,united-states,global,local-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
+us-homeguide,HomeGuide,https://www.homeguide.com/,united-states,united-states,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
 us-insiderpages,InsiderPages,https://www.insiderpages.com/,united-states,united-states,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+us-instacart,Instacart,https://www.instacart.com/,united-states,north-america,local-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
+us-judysbook,Judy's Book,https://www.judysbook.com/,united-states,united-states,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
+us-lawnstarter,LawnStarter,https://www.lawnstarter.com/,united-states,united-states,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+us-lawyer-com,Lawyer.com,https://www.lawyer.com/,united-states,united-states,legal,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+us-legalmatch,LegalMatch,https://www.legalmatch.com/,united-states,united-states,legal,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
+us-menupages,MenuPages,https://www.menupages.com/,united-states,united-states,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+us-menufy,Menufy,https://www.menufy.com/,united-states,united-states,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+us-movers-com,Movers.com,https://www.movers.com/,united-states,united-states,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
+us-moving-com,Moving.com,https://www.moving.com/,united-states,united-states,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
+us-napfa,NAPFA Advisor Directory,https://www.napfa.org/,united-states,united-states,local-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
+us-neca,NECA,https://www.necanet.org/,united-states,united-states,industry-associations,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,unknown
+us-nkba,NKBA,https://www.nkba.org/,united-states,united-states,industry-associations,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+us-nmsdc,NMSDC,https://www.nmsdc.org/,united-states,united-states,industry-associations,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
+us-networx,Networx,https://www.networx.com/,united-states,united-states,construction,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+us-niche,Niche,https://www.niche.com/,united-states,united-states,education,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,unknown
 us-opendi,Opendi US,https://www.opendi.us/,united-states,united-states,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+us-owenscorning-contractors,Owens Corning Contractor Locator,https://www.owenscorning.com/en-us/roofing/contractors,united-states,united-states,construction,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
+us-phcc,PHCC Contractor Directory,https://www.phccweb.org/,united-states,united-states,industry-associations,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
+us-patch,Patch,https://www.patch.com/,united-states,united-states,local-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
+us-peerspace,Peerspace,https://www.peerspace.com/,united-states,north-america,local-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,unknown
+us-pestworld,PestWorld,https://www.pestworld.org/,united-states,united-states,local-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
+us-rateabiz,RateABiz,https://www.rateabiz.com/,united-states,united-states,review-sites,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+us-repairpal,RepairPal,https://www.repairpal.com/,united-states,united-states,local-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,unknown
+us-restaurantji,Restaurantji,https://www.restaurantji.com/,united-states,united-states,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 us-resy,Resy,https://www.resy.com/,united-states,united-states,local-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
+us-rover,Rover,https://www.rover.com/,united-states,north-america,local-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,unknown
+us-seniorly,Seniorly,https://www.seniorly.com/,united-states,united-states,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+us-sharecare,Sharecare,https://www.sharecare.com/,united-states,united-states,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
 us-showmelocal,ShowMeLocal,https://www.showmelocal.com/,united-states,united-states,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
+us-sittercity,Sittercity,https://www.sittercity.com/,united-states,united-states,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+us-slicelife,Slice,https://www.slicelife.com/,united-states,united-states,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
+us-sparefoot,SpareFoot,https://www.sparefoot.com/,united-states,united-states,local-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,unknown
+us-storagecafe,StorageCafe,https://www.storagecafe.com/,united-states,united-states,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
 us-storeboard,Storeboard,https://www.storeboard.com/,united-states,united-states,general-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
+us-styleseat,StyleSeat,https://www.styleseat.com/,united-states,united-states,local-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
+us-superlawyers,Super Lawyers,https://www.superlawyers.com/,united-states,united-states,legal,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,unknown
+us-trueen,TRUEen,https://www.trueen.com/,united-states,global,general-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+us-tablelist,Tablelist,https://www.tablelist.com/,united-states,united-states,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+us-techbehemoths,TechBehemoths,https://www.techbehemoths.com/,united-states,global,software,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
+us-techreviewer,Techreviewer,https://www.techreviewer.co/,united-states,global,software,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+us-teeoff,TeeOff,https://www.teeoff.com/,united-states,united-states,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
+us-thebash,The Bash,https://www.thebash.com/,united-states,united-states,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
+us-trane-dealers,Trane Dealer Locator,https://www.trane.com/residential/en/dealers/,united-states,north-america,construction,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
+us-truecar,TrueCar,https://www.truecar.com/,united-states,united-states,general-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,unknown
+us-trustlink,TrustLink,https://www.trustlink.org/,united-states,united-states,review-sites,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+us-trustedchoice,TrustedChoice,https://www.trustedchoice.com/,united-states,united-states,local-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,unknown
+us-tutors-com,Tutors.com,https://www.tutors.com/,united-states,united-states,education,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
+us-us-info,US-Info,https://www.us-info.com/,united-states,united-states,general-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
+us-vagaro,Vagaro,https://www.vagaro.com/,united-states,north-america,local-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
+us-veteranownedbusiness,Veteran Owned Business Directory,https://www.veteranownedbusiness.com/,united-states,united-states,general-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+us-wbenc,WBENC,https://www.wbenc.org/,united-states,united-states,industry-associations,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 us-wedding-spot,Wedding Spot,https://www.wedding-spot.com/,united-states,united-states,local-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
+us-wellness-com,Wellness.com,https://www.wellness.com/,united-states,united-states,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+us-whitepages-business,Whitepages Business,https://www.whitepages.com/business,united-states,united-states,local-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,unknown
+us-wiseradvisor,WiserAdvisor,https://www.wiseradvisor.com/,united-states,united-states,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
+us-wyzant,Wyzant,https://www.wyzant.com/,united-states,united-states,education,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
+us-yellowbot,YellowBot,https://www.yellowbot.com/,united-states,united-states,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
+us-yellowpagecity,YellowPageCity,https://www.yellowpagecity.com/,united-states,united-states,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,unknown
 us-yellowbook,Yellowbook,https://www.yellowbook.com/,united-states,united-states,local-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
+us-zola-vendors,Zola Wedding Vendors,https://www.zola.com/wedding-vendors,united-states,united-states,local-business,unknown,unknown,,tier2,P3,true,,,,,2026-08-06,active
 us-elocal,eLocal,https://www.elocal.com/,united-states,united-states,local-business,unknown,unknown,,tier3,P3,true,,,,,2026-08-06,active
