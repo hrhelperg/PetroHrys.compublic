@@ -181,6 +181,50 @@ test('the page states what the dataset excludes', () => {
     'the page does not say that business directories are excluded');
 });
 
+test('the page never claims a geography the dataset does not have', () => {
+  // The title, description, H1 and JSON-LD all said "in Europe" for four waves
+  // after M2-M5 took the dataset to North America, Australia, Asia, Latin
+  // America and Africa. A page holding Mercado Libre, Jumia and Rakuten
+  // described itself as European, and would never match a reader looking for
+  // any of those markets.
+  //
+  // The rule is that the framing is derived. Any continent named in the page
+  // chrome is a claim nothing recomputes.
+  const publishable = ROWS.filter(MP.isPublishable);
+  const countries = new Set(publishable.map((r) => r.country)).size;
+  const page = fs.readFileSync(PAGE, 'utf8');
+
+  // Only the strings the page says about ITSELF. A first version sliced
+  // everything before the table, which swept in the country dropdown and failed
+  // on the option "South Africa (7)" — a country name is data, not a claim.
+  const grab = (re, what) => {
+    const m = page.match(re);
+    assert.ok(m, `the page has no ${what}`);
+    return m[1];
+  };
+  const framing = {
+    title: grab(/<title>([^<]*)<\/title>/, 'title'),
+    description: grab(/<meta name="description" content="([^"]*)"/, 'description'),
+    h1: grab(/<h1[^>]*>([^<]*)/, 'H1'),
+    jsonLdName: grab(/"name":\s*"([^"]*)"/, 'structured-data name'),
+  };
+  for (const [where, claim] of Object.entries(framing)) {
+    for (const continent of ['Europe', 'European', 'Asia', 'Africa', 'Latin America', 'North America']) {
+      assert.ok(!new RegExp(`\\b${continent}\\b`).test(claim),
+        `the ${where} claims ${continent}: "${claim}". The dataset spans ${countries} countries and nothing recomputes that word`);
+    }
+  }
+  // And the counts each one states must be the derived ones. Checked against
+  // the extracted strings, not the whole page: a first version searched the
+  // page and passed with a hardcoded "120 platforms across 17 countries" in the
+  // meta description, because the intro paragraph happened to carry the correct
+  // sentence a few hundred bytes further down.
+  assert.strictEqual(framing.h1, `${publishable.length} marketplace and classified platforms in ${countries} countries`,
+    'the H1 does not state the derived platform and country counts');
+  assert.ok(framing.description.startsWith(`${publishable.length} platforms across ${countries} countries`),
+    `the description does not state the derived counts: "${framing.description}"`);
+});
+
 test('a city-sharded platform is one row, not one row per city', () => {
   // Craigslist runs several hundred city sites from one platform and one
   // account. Listing them per city would multiply the dataset by 400 and mean

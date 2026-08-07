@@ -110,7 +110,9 @@ function renderPage(rows, countryName) {
   const head = ['Platform', 'Country', 'Type', 'Who can list', 'Cost', 'Operator', 'Status', 'Notes'];
   return [
     c.pageIntro({
-      title: `${rows.length} marketplace and classified platforms in Europe`,
+      // Both numbers are derived. An earlier version hardcoded "in Europe" and
+      // kept saying it through four waves that took the dataset worldwide.
+      title: `${rows.length} marketplace and classified platforms in ${countries.size} countries`,
       lede: 'Platforms where a business or a person can publish a listing — goods, vehicles, '
         + 'property, jobs or services. This is a different question from a business directory, '
         + 'which is about publishing a company profile, and the two datasets are kept apart.',
