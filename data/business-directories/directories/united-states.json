@@ -61,6 +61,13 @@
       "mobileApp": null,
       "ecommerce": null
     },
+    "intelligence": {
+      "countryReach": "regional",
+      "approvalMode": "manual",
+      "profileIndexed": true,
+      "profileUrlPattern": "https://www.bbb.org/{country}/{state}/{city}/profile/{category}/{slug}",
+      "ranksByCompanyName": true
+    },
     "backlinkType": null,
     "robots": null,
     "sitemap": null,

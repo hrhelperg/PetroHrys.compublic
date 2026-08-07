@@ -629,7 +629,13 @@
     "listingAction": "unknown",
     "submissionModel": "unknown",
     "note": "A major European business-to-business marketplace with public company profiles and a supplier registration route. No reachable page names a legal operator.",
-    "lastVerified": "2026-08-06"
+    "lastVerified": "2026-08-06",
+    "intelligence": {
+      "countryReach": "regional",
+      "approvalMode": "manual",
+      "profileIndexed": true,
+      "ranksByCompanyName": true
+    }
   },
   {
     "id": "global-kompass",
@@ -648,7 +654,12 @@
     "listingAction": "unknown",
     "submissionModel": "unknown",
     "note": "A long-established international B2B company database. Live but behind a bot filter, so the product could not be inspected automatically — a browser check is needed before submitting.",
-    "lastVerified": "2026-08-06"
+    "lastVerified": "2026-08-06",
+    "intelligence": {
+      "countryReach": "global",
+      "approvalMode": "manual",
+      "profileIndexed": true
+    }
   },
   {
     "id": "global-thomasnet",
@@ -666,7 +677,13 @@
     "listingAction": "unknown",
     "submissionModel": "unknown",
     "note": "The principal North American industrial supplier directory. Live but behind a bot filter, so the product could not be inspected automatically — a browser check is needed before submitting.",
-    "lastVerified": "2026-08-06"
+    "lastVerified": "2026-08-06",
+    "intelligence": {
+      "countryReach": "single",
+      "approvalMode": "manual",
+      "profileIndexed": true,
+      "ranksByCompanyName": true
+    }
   },
   {
     "id": "global-indiamart",
@@ -685,7 +702,13 @@
     "listingAction": "unknown",
     "submissionModel": "unknown",
     "note": "A very large Indian business-to-business marketplace with public supplier profiles.",
-    "lastVerified": "2026-08-06"
+    "lastVerified": "2026-08-06",
+    "intelligence": {
+      "countryReach": "single",
+      "approvalMode": "manual",
+      "profileIndexed": true,
+      "ranksByCompanyName": true
+    }
   },
   {
     "id": "global-trusted-shops",
@@ -1184,7 +1207,14 @@
     "listingAction": "unknown",
     "submissionModel": "unknown",
     "note": "One of the largest international manufacturer and supplier marketplaces, with public company profiles.",
-    "lastVerified": "2026-08-06"
+    "lastVerified": "2026-08-06",
+    "intelligence": {
+      "hasApi": true,
+      "bulkSubmission": true,
+      "countryReach": "global",
+      "approvalMode": "manual",
+      "profileIndexed": true
+    }
   },
   {
     "id": "global-industrystock",
@@ -7032,7 +7062,12 @@
     "listingAction": "unknown",
     "submissionModel": "unknown",
     "note": "SAP's public partner directory for consultancies and solution providers.",
-    "lastVerified": "2026-08-06"
+    "lastVerified": "2026-08-06",
+    "intelligence": {
+      "countryReach": "global",
+      "approvalMode": "manual",
+      "profileIndexed": true
+    }
   },
   {
     "id": "global-oracle-partners",
@@ -26081,7 +26116,13 @@
     "listingAction": "unknown",
     "submissionModel": "unknown",
     "note": "Microsoft's public partner finder, where partner companies hold searchable profiles. Listing requires partner-program membership.",
-    "lastVerified": "2026-08-06"
+    "lastVerified": "2026-08-06",
+    "intelligence": {
+      "countryReach": "global",
+      "approvalMode": "manual",
+      "multipleLocations": true,
+      "profileIndexed": true
+    }
   },
   {
     "id": "global-aws-partners",
@@ -26099,7 +26140,13 @@
     "listingAction": "unknown",
     "submissionModel": "unknown",
     "note": "Amazon Web Services' public partner directory, where partner companies hold searchable profiles.",
-    "lastVerified": "2026-08-06"
+    "lastVerified": "2026-08-06",
+    "intelligence": {
+      "countryReach": "global",
+      "approvalMode": "manual",
+      "profileIndexed": true,
+      "profileUrlPattern": "https://partners.amazonaws.com/partners/{id}/"
+    }
   },
   {
     "id": "global-cisco-partners",

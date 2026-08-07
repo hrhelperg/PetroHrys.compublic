@@ -2,6 +2,7 @@
 const { loadRegistry, reservedSlugs } = require('./lib/bd-registry.cjs');
 const S = require('./lib/bd-schema.cjs');
 const { UNKNOWN_KEYS } = require('./lib/bd-migrate.cjs');
+const INTEL = require('./lib/bd-intelligence.cjs');
 
 const isNullish = (v) => v === null || v === undefined;
 
@@ -472,6 +473,13 @@ function validateRegistry(registry) {
     // Operations layer: audience tokens, priority, current status, public
     // profile. Shared with the tests through one pure function.
     for (const [field, message] of S.operationsProblems(entry)) {
+      add(field, message);
+    }
+
+    // Directory Intelligence v2. The same shape on an editorial record and on
+    // an operational row, checked by the same pure function, so the two levels
+    // can never disagree about what an attribute means.
+    for (const [field, message] of INTEL.problemsFor(entry.intelligence, entry.id)) {
       add(field, message);
     }
 

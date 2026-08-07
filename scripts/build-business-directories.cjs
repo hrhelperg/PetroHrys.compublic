@@ -25,6 +25,7 @@ const SITEMAP_FILE = routes.sitemapOut();
 const CSV_FILE = path.join(SECTION_DIR, 'opportunities.csv');
 const csv = require('./lib/bd-csv.cjs');
 const opportunities = require('./lib/bd-opportunities.cjs');
+const INTEL = require('./lib/bd-intelligence.cjs');
 const { renderCsv } = csv;
 const FEED_FILE = routes.feedOut();
 const MANIFEST_FILE = path.join('data', 'business-directories', '.build-manifest.json');
@@ -398,7 +399,20 @@ function pageModel(registry) {
   // geographies could be added without generating a single thin page.
   const opRows = registry.operationalRows || [];
   if (csv.actionableOpportunities(allDirectories, opRows).length > 0) {
-    const actionable = csv.actionableOpportunities(allDirectories, opRows);
+    // Decorate once with the computed intelligence view. The score is never
+    // stored, so every consumer on this page derives it from the same call
+    // rather than from a value someone wrote down.
+    const actionable = csv.actionableOpportunities(allDirectories, opRows).map((r) => {
+      const score = INTEL.directoryScore(r);
+      const intel = r.intelligence || {};
+      return {
+        ...r,
+        directoryScore: score.overall,
+        scoreBand: INTEL.band(score.overall),
+        approvalMode: intel.approvalMode || null,
+        countryReach: intel.countryReach || null,
+      };
+    });
     // countryLinks previously carried no slug, so this Set was {undefined} and
     // NOTHING ever matched — every row was repeated in "Other countries",
     // doubling the page. Global is a published destination too and must be
@@ -433,6 +447,18 @@ function pageModel(registry) {
       { name: 'status', key: 'currentStatus', label: 'Status', fallback: 'unknown',
         order: ['active', 'unknown'],
         labels: { active: 'Active', unknown: 'Needs browser check' } },
+      // Directory Intelligence v2 filters. Every value is computed from facts
+      // already on the record; a platform with too little evidence to score
+      // shows as "Not yet scored" rather than being hidden or guessed at.
+      { name: 'score', key: 'scoreBand', label: 'Directory Score', fallback: 'unscored',
+        order: ['strong', 'good', 'moderate', 'limited', 'unscored'],
+        labels: { ...INTEL.BAND_LABELS, unscored: 'Not yet scored' } },
+      { name: 'approval', key: 'approvalMode', label: 'Approval', fallback: 'unknown',
+        order: ['instant', 'mixed', 'manual', 'unknown'],
+        labels: { instant: 'Instant', mixed: 'Mixed', manual: 'Manual review', unknown: 'Unknown' } },
+      { name: 'reach', key: 'countryReach', label: 'Country reach', fallback: 'unknown',
+        order: ['global', 'regional', 'single', 'unknown'],
+        labels: { global: 'Global', regional: 'Regional', single: 'Single country', unknown: 'Unknown' } },
     ];
 
     pages.push({

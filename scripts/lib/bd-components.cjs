@@ -789,6 +789,12 @@ function directoryRow(directory, columns) {
     `data-bd-facet-priority="${escapeHtml(String(directory.priority || 'unassessed'))}"`,
     `data-bd-facet-status="${escapeHtml(String(directory.currentStatus || 'unknown'))}"`,
     `data-bd-facet-audience="${escapeHtml((directory.audienceGeography || []).join(' '))}"`,
+    // Directory Intelligence v2. The values arrive already computed on the
+    // record so this stays a renderer: one module owns the scoring, and the
+    // table, the facets and the CSV all read the same numbers.
+    `data-bd-facet-score="${escapeHtml(String(directory.scoreBand || 'unscored'))}"`,
+    `data-bd-facet-approval="${escapeHtml(String(directory.approvalMode || 'unknown'))}"`,
+    `data-bd-facet-reach="${escapeHtml(String(directory.countryReach || 'unknown'))}"`,
   ].join(' ');
   const cells = TABLE_METRIC_COLUMNS
     .filter((col) => !shown || shown.has(col.field))

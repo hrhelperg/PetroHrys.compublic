@@ -20,6 +20,7 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const S = require('./bd-schema.cjs');
+const INTEL = require('./bd-intelligence.cjs');
 
 class OpportunityError extends Error {}
 
@@ -61,6 +62,12 @@ function problemsFor(row, knownCountries, knownCategories) {
     && !S.LISTING_ACTIONS.includes(row.listingAction)) {
     at('listingAction', `must be one of ${S.LISTING_ACTIONS.join(', ')}.`);
   }
+  // Directory Intelligence v2. A row carries the same attribute set as an
+  // editorial record — the intelligence layer is the one place the two levels
+  // are deliberately identical, because a buying decision does not care which
+  // level a platform was researched at.
+  for (const [f, m] of INTEL.problemsFor(row.intelligence, row.id)) p.push([f, m]);
+
   // Domain Rating is never estimated. A row may not carry one at all: only a
   // researched editorial record can, and only from a frozen measurement.
   if (row.domainRating !== undefined && row.domainRating !== null) {
@@ -94,6 +101,7 @@ function normalise(row) {
     // CSV need no special cases.
     bestFor: [], cons: [], notRecommendedFor: [], pros: [],
     metricsProvenance: {},
+    intelligence: INTEL.normalise(row.intelligence),
     isOperationalRow: true,
   };
 }
