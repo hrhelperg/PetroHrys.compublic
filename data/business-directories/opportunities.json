@@ -14526,5 +14526,3497 @@
     "submissionModel": "unknown",
     "note": "A regional Caribbean job board where employers hold public company pages.",
     "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "jp-hotpepper",
+    "name": "Hot Pepper",
+    "website": "https://www.hotpepper.jp/",
+    "country": "japan",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P1",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "japan"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A major Japanese restaurant and salon booking platform where venues hold public pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "jp-tabelog",
+    "name": "Tabelog",
+    "website": "https://tabelog.com/",
+    "country": "japan",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P1",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "japan"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The leading Japanese restaurant directory and reservation site.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "jp-gnavi",
+    "name": "Gurunavi",
+    "website": "https://r.gnavi.co.jp/",
+    "country": "japan",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "japan"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A major Japanese restaurant directory and reservation platform.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "jp-navitime",
+    "name": "NAVITIME",
+    "website": "https://www.navitime.co.jp/",
+    "country": "japan",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "japan"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Japanese map and route service carrying local business points of interest.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "jp-nc-net",
+    "name": "NC Network",
+    "website": "https://www.nc-net.or.jp/",
+    "country": "japan",
+    "category": "manufacturing",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "japan"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Japanese factory and manufacturer search network with public company profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "jp-ipros",
+    "name": "Ipros",
+    "website": "https://mono.ipros.com/",
+    "country": "japan",
+    "category": "manufacturing",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "japan"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Japanese manufacturing industry product and supplier search platform.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "jp-tokyo-cci",
+    "name": "Tokyo Chamber of Commerce",
+    "website": "https://www.tokyo-cci.or.jp/",
+    "country": "japan",
+    "category": "chambers-of-commerce",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "japan"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Tokyo Chamber of Commerce and Industry, whose members appear in a directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "kr-saramin",
+    "name": "Saramin",
+    "website": "https://www.saramin.co.kr/",
+    "country": "south-korea",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A major Korean recruitment platform where employers hold public company pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "kr-jobkorea",
+    "name": "JobKorea",
+    "website": "https://www.jobkorea.co.kr/",
+    "country": "south-korea",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A major Korean recruitment platform where employers hold public company pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "kr-kita",
+    "name": "Korea International Trade Association",
+    "website": "https://www.kita.net/",
+    "country": "south-korea",
+    "category": "industry-associations",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Korean trade association, whose member companies appear in a directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "kr-gobizkorea",
+    "name": "GobizKOREA",
+    "website": "https://www.gobizkorea.com/",
+    "country": "south-korea",
+    "category": "manufacturing",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Korean supplier and manufacturer directory for international buyers.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "kr-siksinhot",
+    "name": "Siksin",
+    "website": "https://www.siksinhot.com/",
+    "country": "south-korea",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Korean restaurant directory with public venue pages. Live but behind a security check, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "tw-iyp",
+    "name": "Taiwan Yellow Pages",
+    "website": "https://www.iyp.com.tw/",
+    "country": "taiwan",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Taiwanese yellow pages company directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "hk-hktdc",
+    "name": "HKTDC",
+    "website": "https://www.hktdc.com/",
+    "country": "hong-kong",
+    "category": "manufacturing",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Hong Kong Trade Development Council supplier directory for international buyers.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "hk-openrice",
+    "name": "OpenRice",
+    "website": "https://www.openrice.com/",
+    "country": "hong-kong",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The leading Hong Kong restaurant directory with public venue pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "kr-naver-smartplace",
+    "name": "Naver SmartPlace",
+    "website": "https://smartplace.naver.com/",
+    "country": "south-korea",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P1",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The business listing service of Korea's dominant search portal, feeding Naver Map and Place results.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "sg-burpple",
+    "name": "Burpple",
+    "website": "https://www.burpple.com/",
+    "country": "singapore",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Singapore restaurant discovery platform where venues hold public pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "sg-chope",
+    "name": "Chope",
+    "website": "https://www.chope.co/",
+    "country": "singapore",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "asia"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Southeast Asian restaurant reservation platform where venues hold public pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "sg-carousell",
+    "name": "Carousell",
+    "website": "https://www.carousell.sg/",
+    "country": "singapore",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "asia"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Southeast Asian marketplace with professional seller sections. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "sg-sgcarmart",
+    "name": "sgCarMart",
+    "website": "https://www.sgcarmart.com/",
+    "country": "singapore",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Singapore vehicle marketplace where dealers hold public dealer pages. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "in-practo",
+    "name": "Practo",
+    "website": "https://www.practo.com/",
+    "country": "india",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "india"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A major Indian healthcare platform where doctors and clinics hold public profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "in-urbancompany",
+    "name": "Urban Company",
+    "website": "https://www.urbancompany.com/",
+    "country": "india",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "india"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A major Indian home services marketplace where professionals hold public profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "in-nearbuy",
+    "name": "nearbuy",
+    "website": "https://www.nearbuy.com/",
+    "country": "india",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "india"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An Indian local deals platform where merchants hold public pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "in-magicpin",
+    "name": "magicpin",
+    "website": "https://www.magicpin.in/",
+    "country": "india",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "india"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An Indian local merchant discovery platform where businesses hold public pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "in-justdial",
+    "name": "Justdial",
+    "website": "https://www.justdial.com/",
+    "country": "india",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "india"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "India's largest local search and business directory. Did not answer from this network across repeated attempts, so a browser check is needed before use.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "in-eindiabusiness",
+    "name": "eIndiaBusiness",
+    "website": "https://www.eindiabusiness.com/",
+    "country": "india",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "india"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An Indian B2B company directory. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "in-indianyellowpages",
+    "name": "Indian Yellow Pages",
+    "website": "https://www.indianyellowpages.com/",
+    "country": "india",
+    "category": "manufacturing",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "india"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An Indian B2B directory of manufacturers, suppliers and exporters.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "pk-businesslist",
+    "name": "BusinessList Pakistan",
+    "website": "https://www.businesslist.pk/",
+    "country": "pakistan",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Pakistani business directory. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "bd-bdyellowpages",
+    "name": "BD Yellowpages",
+    "website": "https://www.bdyellowpages.com/",
+    "country": "bangladesh",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Bangladeshi yellow pages business directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "lk-lankayp",
+    "name": "Lanka Yellow Pages",
+    "website": "https://www.lankayp.com/",
+    "country": "sri-lanka",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Sri Lankan yellow pages directory. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "lk-srilankabusiness",
+    "name": "Sri Lanka Business Portal",
+    "website": "https://www.srilankabusiness.com/",
+    "country": "sri-lanka",
+    "category": "manufacturing",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Sri Lanka Export Development Board exporter directory with public supplier profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "my-businesslist",
+    "name": "BusinessList Malaysia",
+    "website": "https://www.businesslist.my/",
+    "country": "malaysia",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Malaysian business directory. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "my-mudah",
+    "name": "Mudah.my",
+    "website": "https://www.mudah.my/",
+    "country": "malaysia",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "Malaysia's largest classifieds marketplace, with professional seller sections.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "my-foodpanda",
+    "name": "foodpanda Malaysia",
+    "website": "https://www.foodpanda.my/",
+    "country": "malaysia",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Malaysian arm of a delivery platform where restaurants and shops hold public pages. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "th-yellowpages",
+    "name": "Thailand Yellow Pages",
+    "website": "https://www.yellowpages.co.th/",
+    "country": "thailand",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Thai yellow pages business directory covering companies nationwide.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "th-wongnai",
+    "name": "Wongnai",
+    "website": "https://www.wongnai.com/",
+    "country": "thailand",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P1",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The leading Thai restaurant and local business review platform.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "id-indotrading",
+    "name": "Indotrading",
+    "website": "https://www.indotrading.com/",
+    "country": "indonesia",
+    "category": "manufacturing",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An Indonesian B2B supplier directory. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "id-bukalapak",
+    "name": "Bukalapak",
+    "website": "https://www.bukalapak.com/",
+    "country": "indonesia",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A major Indonesian marketplace where sellers hold public storefronts. Rejects automated requests, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "id-qraved",
+    "name": "Qraved",
+    "website": "https://www.qraved.com/",
+    "country": "indonesia",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An Indonesian restaurant discovery platform where venues hold public pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ph-businesslist",
+    "name": "BusinessList Philippines",
+    "website": "https://www.businesslist.ph/",
+    "country": "philippines",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Philippine business directory. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "vn-yellowpages",
+    "name": "Trang Vàng Việt Nam",
+    "website": "https://www.yellowpages.vn/",
+    "country": "vietnam",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Vietnamese yellow pages company directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "vn-chotot",
+    "name": "Chợ Tốt",
+    "website": "https://www.chotot.com/",
+    "country": "vietnam",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "Vietnam's leading classifieds marketplace, with professional seller sections.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "vn-foody",
+    "name": "Foody",
+    "website": "https://www.foody.vn/",
+    "country": "vietnam",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The leading Vietnamese restaurant and food venue directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "my-lazada",
+    "name": "Lazada Malaysia",
+    "website": "https://www.lazada.com.my/",
+    "country": "malaysia",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "asia"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Malaysian storefront of a major Southeast Asian marketplace where sellers hold public stores.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "sg-grab",
+    "name": "Grab",
+    "website": "https://www.grab.com/",
+    "country": "singapore",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "asia"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Southeast Asian super-app where merchants and restaurants hold public listings.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "id-businesslist",
+    "name": "BusinessList Indonesia",
+    "website": "https://www.businesslist.id/",
+    "country": "indonesia",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An Indonesian business directory with public company entries.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "kz-satu",
+    "name": "Satu.kz",
+    "website": "https://www.satu.kz/",
+    "country": "kazakhstan",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Kazakh marketplace where companies hold public storefronts.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "mn-mongolchamber",
+    "name": "Mongolian National Chamber of Commerce",
+    "website": "https://www.mongolchamber.mn/",
+    "country": "mongolia",
+    "category": "chambers-of-commerce",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Mongolian chamber of commerce, whose member companies appear in a directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "cn-china-cn",
+    "name": "China.cn",
+    "website": "https://www.china.cn/",
+    "country": "china",
+    "category": "manufacturing",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "china"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Chinese B2B supplier and product directory with public company profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "cn-gongchang",
+    "name": "World Factory Network",
+    "website": "https://www.gongchang.com/",
+    "country": "china",
+    "category": "manufacturing",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "china"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Chinese industrial B2B directory with public supplier profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ph-foodpanda",
+    "name": "foodpanda Philippines",
+    "website": "https://www.foodpanda.ph/",
+    "country": "philippines",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Philippine arm of a delivery platform where restaurants and shops hold public pages. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "id-gojek",
+    "name": "Gojek",
+    "website": "https://www.gojek.com/",
+    "country": "indonesia",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "asia"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An Indonesian super-app where merchants and restaurants hold public listings.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "my-jobstreet",
+    "name": "JobStreet Malaysia",
+    "website": "https://my.jobstreet.com/",
+    "country": "malaysia",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "asia"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A major Malaysian job board where employers hold public company pages. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "hk-jobsdb",
+    "name": "JobsDB Hong Kong",
+    "website": "https://hk.jobsdb.com/",
+    "country": "hong-kong",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A major Hong Kong job board where employers hold public company pages. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "tw-104",
+    "name": "104 Job Bank",
+    "website": "https://www.104.com.tw/",
+    "country": "taiwan",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "Taiwan's largest job platform, where employers hold public company pages. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "tw-pcstore",
+    "name": "PChome Store Street",
+    "website": "https://www.pcstore.com.tw/",
+    "country": "taiwan",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Taiwanese online mall where merchants hold public storefronts.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "tw-gomaji",
+    "name": "Gomaji",
+    "website": "https://www.gomaji.com/",
+    "country": "taiwan",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Taiwanese local deals platform where restaurants and venues hold public pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "hk-foodpanda",
+    "name": "foodpanda Hong Kong",
+    "website": "https://www.foodpanda.hk/",
+    "country": "hong-kong",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Hong Kong arm of a delivery platform where restaurants hold public pages. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "hk-deliveroo",
+    "name": "Deliveroo Hong Kong",
+    "website": "https://www.deliveroo.hk/",
+    "country": "hong-kong",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Hong Kong arm of a delivery platform where restaurants hold public pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "hk-klook",
+    "name": "Klook",
+    "website": "https://www.klook.com/",
+    "country": "hong-kong",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "asia"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An Asian activity and experience marketplace where operators hold public listings. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "tw-kkday",
+    "name": "KKday",
+    "website": "https://www.kkday.com/",
+    "country": "taiwan",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "asia"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An Asian tour and activity marketplace where operators hold public listings. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "id-traveloka",
+    "name": "Traveloka",
+    "website": "https://www.traveloka.com/",
+    "country": "indonesia",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "asia"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Southeast Asian travel platform where hotels and activity operators hold public listings.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "id-tiket",
+    "name": "tiket.com",
+    "website": "https://www.tiket.com/",
+    "country": "indonesia",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An Indonesian travel platform where hotels and operators hold public listings. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "id-hotfrog",
+    "name": "Hotfrog Indonesia",
+    "website": "https://www.hotfrog.co.id/",
+    "country": "indonesia",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Indonesian arm of an international directory network.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ph-hotfrog",
+    "name": "Hotfrog Philippines",
+    "website": "https://www.hotfrog.ph/",
+    "country": "philippines",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Philippine arm of an international directory network. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "hk-hotfrog",
+    "name": "Hotfrog Hong Kong",
+    "website": "https://www.hotfrog.hk/",
+    "country": "hong-kong",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Hong Kong arm of an international directory network. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "jp-hotfrog",
+    "name": "Hotfrog Japan",
+    "website": "https://www.hotfrog.jp/",
+    "country": "japan",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "japan"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Japanese arm of an international directory network. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "in-opendi",
+    "name": "Opendi India",
+    "website": "https://www.opendi.in/",
+    "country": "india",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "india"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Indian arm of an international business pages and review network.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "in-zipleaf",
+    "name": "ZipLeaf India",
+    "website": "https://www.zipleaf.in/",
+    "country": "india",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "india"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Indian arm of an international business directory network.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "in-yalwa",
+    "name": "Yalwa India",
+    "website": "https://www.yalwa.in/",
+    "country": "india",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "india"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Indian arm of an international local business directory network. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ph-yalwa",
+    "name": "Yalwa Philippines",
+    "website": "https://www.yalwa.ph/",
+    "country": "philippines",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Philippine arm of an international local business directory network. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "sg-yalwa",
+    "name": "Yalwa Singapore",
+    "website": "https://www.yalwa.sg/",
+    "country": "singapore",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Singapore arm of an international local business directory network. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "id-halodoc",
+    "name": "Halodoc",
+    "website": "https://www.halodoc.com/",
+    "country": "indonesia",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An Indonesian health platform where doctors and pharmacies hold public profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "id-alodokter",
+    "name": "Alodokter",
+    "website": "https://www.alodokter.com/",
+    "country": "indonesia",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An Indonesian health platform where doctors and clinics hold public profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "th-jobsdb",
+    "name": "JobsDB Thailand",
+    "website": "https://www.jobsdb.co.th/",
+    "country": "thailand",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A major Thai job board where employers hold public company pages. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "id-jobstreet",
+    "name": "JobStreet Indonesia",
+    "website": "https://www.jobstreet.co.id/",
+    "country": "indonesia",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A major Indonesian job board where employers hold public company pages. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ph-jobstreet",
+    "name": "JobStreet Philippines",
+    "website": "https://www.jobstreet.com.ph/",
+    "country": "philippines",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A major Philippine job board where employers hold public company pages. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "in-shine",
+    "name": "Shine.com",
+    "website": "https://www.shine.com/",
+    "country": "india",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "india"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An Indian job platform where employers hold public company pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "in-timesjobs",
+    "name": "TimesJobs",
+    "website": "https://www.timesjobs.com/",
+    "country": "india",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "india"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An Indian job platform where employers hold public company pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "jp-rikunabi",
+    "name": "Rikunabi",
+    "website": "https://www.rikunabi.com/",
+    "country": "japan",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "japan"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A major Japanese graduate recruitment platform where employers hold public company pages. Returned a service-unavailable response, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "jp-mynavi",
+    "name": "Mynavi",
+    "website": "https://www.mynavi.jp/",
+    "country": "japan",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "japan"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A major Japanese recruitment platform where employers hold public company pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "jp-wantedly",
+    "name": "Wantedly",
+    "website": "https://www.wantedly.com/",
+    "country": "japan",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "japan"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Japanese business network where companies hold public profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-techinasia",
+    "name": "Tech in Asia",
+    "website": "https://www.techinasia.com/",
+    "country": "global",
+    "category": "startup",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "asia"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An Asian startup ecosystem platform with a public company and startup database.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-e27",
+    "name": "e27",
+    "website": "https://www.e27.co/",
+    "country": "global",
+    "category": "startup",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "asia"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Southeast Asian startup ecosystem directory with public company profiles. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "br-buscja",
+    "name": "Buscja",
+    "website": "https://www.buscja.com/",
+    "country": "brazil",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "latam"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Brazilian company finder, formerly published as Telelistas.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "br-encontraniteroi",
+    "name": "Encontra Niterói",
+    "website": "https://www.encontraniteroi.com.br/",
+    "country": "brazil",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "regional"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A regional Brazilian city guide listing local businesses in Niterói.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "br-hagah",
+    "name": "hagah",
+    "website": "https://www.hagah.com.br/",
+    "country": "brazil",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "latam"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Brazilian city guide listing restaurants, shops and services.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "br-guiafacil",
+    "name": "Guia Fácil",
+    "website": "https://www.guiafacil.com/",
+    "country": "brazil",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "latam"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Brazilian supplier and services directory covering the whole country.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "br-mercadolivre",
+    "name": "Mercado Livre",
+    "website": "https://www.mercadolivre.com.br/",
+    "country": "brazil",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "latam"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The dominant Brazilian marketplace, where sellers hold public storefronts.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "br-olx",
+    "name": "OLX Brasil",
+    "website": "https://www.olx.com.br/",
+    "country": "brazil",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "latam"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The main Brazilian classifieds marketplace, with professional seller sections. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "br-ifood",
+    "name": "iFood",
+    "website": "https://www.ifood.com.br/",
+    "country": "brazil",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "latam"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The dominant Brazilian food delivery platform, where restaurants hold public pages. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "br-getninjas",
+    "name": "GetNinjas",
+    "website": "https://www.getninjas.com.br/",
+    "country": "brazil",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Brazilian services marketplace where professionals hold public profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "br-doctoralia",
+    "name": "Doctoralia Brasil",
+    "website": "https://www.doctoralia.com.br/",
+    "country": "brazil",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Brazilian arm of a healthcare booking platform where practitioners hold public profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "br-zoom",
+    "name": "Zoom",
+    "website": "https://www.zoom.com.br/",
+    "country": "brazil",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Brazilian price comparison service where merchants hold public store pages. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "br-reclameaqui",
+    "name": "Reclame Aqui",
+    "website": "https://www.reclameaqui.com.br/",
+    "country": "brazil",
+    "category": "review-sites",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The main Brazilian consumer complaint and review platform, where companies hold public profiles. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ar-paginasamarillas",
+    "name": "Páginas Amarillas Argentina",
+    "website": "https://www.paginasamarillas.com.ar/",
+    "country": "argentina",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Argentine company directory of the Páginas Amarillas network.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ar-mercadolibre",
+    "name": "Mercado Libre Argentina",
+    "website": "https://www.mercadolibre.com.ar/",
+    "country": "argentina",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "latam"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Argentine storefront of the dominant Latin American marketplace, where sellers hold public stores.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ar-pedidosya",
+    "name": "PedidosYa Argentina",
+    "website": "https://www.pedidosya.com.ar/",
+    "country": "argentina",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "latam"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Argentine arm of a Latin American delivery platform where restaurants hold public pages. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "cl-amarillas",
+    "name": "Páginas Amarillas Chile",
+    "website": "https://www.amarillas.cl/",
+    "country": "chile",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Chilean company directory of the Páginas Amarillas network.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "cl-mercadolibre",
+    "name": "Mercado Libre Chile",
+    "website": "https://www.mercadolibre.cl/",
+    "country": "chile",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "latam"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Chilean storefront of the dominant Latin American marketplace, where sellers hold public stores.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "cl-yapo",
+    "name": "Yapo.cl",
+    "website": "https://www.yapo.cl/",
+    "country": "chile",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The main Chilean classifieds marketplace, with professional seller sections.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "cl-doctoralia",
+    "name": "Doctoralia Chile",
+    "website": "https://www.doctoralia.cl/",
+    "country": "chile",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Chilean arm of a healthcare booking platform where practitioners hold public profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "co-rappi",
+    "name": "Rappi Colombia",
+    "website": "https://www.rappi.com.co/",
+    "country": "colombia",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "latam"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Colombian arm of a Latin American delivery marketplace where partner shops hold public pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "co-paginasamarillas",
+    "name": "Páginas Amarillas Colombia",
+    "website": "https://www.paginasamarillas.com.co/",
+    "country": "colombia",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Colombian company directory of the Páginas Amarillas network.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "co-computrabajo",
+    "name": "Computrabajo Colombia",
+    "website": "https://co.computrabajo.com/",
+    "country": "colombia",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "latam"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A major Latin American job board where employers hold public company pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "co-mercadolibre",
+    "name": "Mercado Libre Colombia",
+    "website": "https://www.mercadolibre.com.co/",
+    "country": "colombia",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "latam"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Colombian storefront of the dominant Latin American marketplace, where sellers hold public stores.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "co-doctoralia",
+    "name": "Doctoralia Colombia",
+    "website": "https://www.doctoralia.co/",
+    "country": "colombia",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Colombian arm of a healthcare booking platform where practitioners hold public profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "pe-paginasamarillas",
+    "name": "Páginas Amarillas Perú",
+    "website": "https://www.paginasamarillas.com.pe/",
+    "country": "peru",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Peruvian company directory of the Páginas Amarillas network.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "pe-mercadolibre",
+    "name": "Mercado Libre Perú",
+    "website": "https://www.mercadolibre.com.pe/",
+    "country": "peru",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "latam"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Peruvian storefront of the dominant Latin American marketplace, where sellers hold public stores.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "pe-doctoralia",
+    "name": "Doctoralia Perú",
+    "website": "https://www.doctoralia.pe/",
+    "country": "peru",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Peruvian arm of a healthcare booking platform where practitioners hold public profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "uy-mercadolibre",
+    "name": "Mercado Libre Uruguay",
+    "website": "https://www.mercadolibre.com.uy/",
+    "country": "uruguay",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "latam"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Uruguayan storefront of the dominant Latin American marketplace, where sellers hold public stores.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ve-mercadolibre",
+    "name": "Mercado Libre Venezuela",
+    "website": "https://www.mercadolibre.com.ve/",
+    "country": "venezuela",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "latam"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Venezuelan storefront of the dominant Latin American marketplace, where sellers hold public stores.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ec-mercadolibre",
+    "name": "Mercado Libre Ecuador",
+    "website": "https://www.mercadolibre.com.ec/",
+    "country": "ecuador",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "latam"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Ecuadorian storefront of the dominant Latin American marketplace, where sellers hold public stores.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "bo-mercadolibre",
+    "name": "Mercado Libre Bolivia",
+    "website": "https://www.mercadolibre.com.bo/",
+    "country": "bolivia",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "latam"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Bolivian storefront of the dominant Latin American marketplace, where sellers hold public stores.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ar-computrabajo",
+    "name": "Computrabajo Argentina",
+    "website": "https://ar.computrabajo.com/",
+    "country": "argentina",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "latam"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Argentine arm of a major Latin American job board where employers hold public company pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "mx-computrabajo",
+    "name": "Computrabajo México",
+    "website": "https://mx.computrabajo.com/",
+    "country": "mexico",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "latam"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Mexican arm of a major Latin American job board where employers hold public company pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "pe-computrabajo",
+    "name": "Computrabajo Perú",
+    "website": "https://pe.computrabajo.com/",
+    "country": "peru",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "latam"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Peruvian arm of a major Latin American job board where employers hold public company pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "cl-computrabajo",
+    "name": "Computrabajo Chile",
+    "website": "https://www.computrabajo.cl/",
+    "country": "chile",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "latam"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Chilean arm of a major Latin American job board where employers hold public company pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ec-computrabajo",
+    "name": "Computrabajo Ecuador",
+    "website": "https://ec.computrabajo.com/",
+    "country": "ecuador",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "latam"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Ecuadorian arm of a major Latin American job board where employers hold public company pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "uy-pedidosya",
+    "name": "PedidosYa Uruguay",
+    "website": "https://www.pedidosya.com.uy/",
+    "country": "uruguay",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "latam"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Uruguayan arm of a Latin American delivery platform where restaurants hold public pages. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "bo-pedidosya",
+    "name": "PedidosYa Bolivia",
+    "website": "https://www.pedidosya.com.bo/",
+    "country": "bolivia",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "latam"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Bolivian arm of a Latin American delivery platform where restaurants hold public pages. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "pe-pedidosya",
+    "name": "PedidosYa Perú",
+    "website": "https://www.pedidosya.com.pe/",
+    "country": "peru",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "latam"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Peruvian arm of a Latin American delivery platform where restaurants hold public pages. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "pe-rappi",
+    "name": "Rappi Perú",
+    "website": "https://www.rappi.com.pe/",
+    "country": "peru",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "latam"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Peruvian arm of a Latin American delivery marketplace where partner shops hold public pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ar-rappi",
+    "name": "Rappi Argentina",
+    "website": "https://www.rappi.com.ar/",
+    "country": "argentina",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "latam"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Argentine arm of a Latin American delivery marketplace where partner shops hold public pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "cl-hotfrog",
+    "name": "Hotfrog Chile",
+    "website": "https://www.hotfrog.cl/",
+    "country": "chile",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Chilean arm of an international directory network.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ar-hotfrog",
+    "name": "Hotfrog Argentina",
+    "website": "https://www.hotfrog.com.ar/",
+    "country": "argentina",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Argentine arm of an international directory network.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "co-hotfrog",
+    "name": "Hotfrog Colombia",
+    "website": "https://www.hotfrog.com.co/",
+    "country": "colombia",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Colombian arm of an international directory network.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "pe-hotfrog",
+    "name": "Hotfrog Perú",
+    "website": "https://www.hotfrog.com.pe/",
+    "country": "peru",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Peruvian arm of an international directory network.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ar-cylex",
+    "name": "Cylex Argentina",
+    "website": "https://www.cylex.com.ar/",
+    "country": "argentina",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Argentine arm of an international business directory network. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "cl-cylex",
+    "name": "Cylex Chile",
+    "website": "https://www.cylex.cl/",
+    "country": "chile",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Chilean arm of an international business directory network. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "co-cylex",
+    "name": "Cylex Colombia",
+    "website": "https://www.cylex.com.co/",
+    "country": "colombia",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Colombian arm of an international business directory network. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ar-opendi",
+    "name": "Opendi Argentina",
+    "website": "https://www.opendi.com.ar/",
+    "country": "argentina",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Argentine arm of an international business pages and review network.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "cl-opendi",
+    "name": "Opendi Chile",
+    "website": "https://www.opendi.cl/",
+    "country": "chile",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Chilean arm of an international business pages and review network.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ar-guialocal",
+    "name": "GuiaLocal Argentina",
+    "website": "https://www.guialocal.com.ar/",
+    "country": "argentina",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Argentine arm of a Latin American local business guide.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "co-guialocal",
+    "name": "GuiaLocal Colombia",
+    "website": "https://www.guialocal.com.co/",
+    "country": "colombia",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Colombian arm of a Latin American local business guide.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "cl-guialocal",
+    "name": "GuiaLocal Chile",
+    "website": "https://www.guialocal.cl/",
+    "country": "chile",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Chilean arm of a Latin American local business guide.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ar-laguiadelocio",
+    "name": "La Guía del Ocio",
+    "website": "https://www.laguiadelocio.com.ar/",
+    "country": "argentina",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "latam"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Latin American events and venue guide listing cultural venues and organisers.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ar-restorando",
+    "name": "Restorando",
+    "website": "https://www.restorando.com.ar/",
+    "country": "argentina",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "latam"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An Argentine restaurant reservation platform where venues hold public pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "pe-deperu",
+    "name": "DePeru",
+    "website": "https://www.deperu.com/",
+    "country": "peru",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Peruvian tourism and local business information portal.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "py-mercadolibre",
+    "name": "Mercado Libre Paraguay",
+    "website": "https://www.mercadolibre.com.py/",
+    "country": "paraguay",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "latam"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Paraguayan storefront of the dominant Latin American marketplace, where sellers hold public stores.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ae-yellowpages",
+    "name": "Yellow Pages UAE",
+    "website": "https://www.yellowpages.ae/",
+    "country": "united-arab-emirates",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "middle-east"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The UAE B2B business directory with public company profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ae-dubizzle",
+    "name": "Dubizzle",
+    "website": "https://www.dubizzle.com/",
+    "country": "united-arab-emirates",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "middle-east"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The main UAE classifieds marketplace, with professional seller sections. Rejects automated requests, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ae-talabat",
+    "name": "Talabat",
+    "website": "https://www.talabat.com/",
+    "country": "united-arab-emirates",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "middle-east"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The main Gulf food delivery platform, where restaurants and shops hold public pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ae-careem",
+    "name": "Careem",
+    "website": "https://www.careem.com/",
+    "country": "united-arab-emirates",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "middle-east"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Middle Eastern super-app where merchants and restaurants hold public listings.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ae-gulftalent",
+    "name": "GulfTalent",
+    "website": "https://www.gulftalent.com/",
+    "country": "united-arab-emirates",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "middle-east"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Gulf recruitment platform where employers hold public company pages. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ae-bayt",
+    "name": "Bayt.com",
+    "website": "https://www.bayt.com/",
+    "country": "united-arab-emirates",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "middle-east"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The main Middle Eastern job platform, where employers hold public company pages. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "sa-haraj",
+    "name": "Haraj",
+    "website": "https://www.haraj.com.sa/",
+    "country": "saudi-arabia",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The main Saudi classifieds marketplace, with professional seller sections.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "sa-hungerstation",
+    "name": "HungerStation",
+    "website": "https://www.hungerstation.com/",
+    "country": "saudi-arabia",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The main Saudi food and grocery delivery platform, where merchants hold public pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "bh-bahrainyellowpages",
+    "name": "Bahrain Yellow Pages",
+    "website": "https://www.bahrainyellowpages.com/",
+    "country": "bahrain",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Bahraini yellow pages business directory. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "om-omanyp",
+    "name": "Oman Yellow Pages",
+    "website": "https://www.omanyp.com/",
+    "country": "oman",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Omani yellow pages business directory. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "jo-opensooq",
+    "name": "OpenSooq",
+    "website": "https://www.opensooq.com/",
+    "country": "jordan",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "middle-east"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The main Arab-world classifieds marketplace, with professional seller sections.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "qa-qatarliving",
+    "name": "Qatar Living",
+    "website": "https://www.qatarliving.com/",
+    "country": "qatar",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Qatari community platform with classifieds and local business listings.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "qa-ilovequatar",
+    "name": "ILoveQatar",
+    "website": "https://www.ilovequatar.net/",
+    "country": "qatar",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Qatari city guide listing local businesses and venues. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "il-zap",
+    "name": "Zap",
+    "website": "https://www.zap.co.il/",
+    "country": "israel",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An Israeli price comparison and business platform where merchants hold public store pages. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "il-dapey-zahav",
+    "name": "Dapey Zahav",
+    "website": "https://www.d.co.il/",
+    "country": "israel",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Israeli yellow pages business directory. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "il-b144",
+    "name": "Bezeq B144",
+    "website": "https://www.b144.co.il/",
+    "country": "israel",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P1",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A leading Israeli business and tradesperson directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "il-rest",
+    "name": "Rest.co.il",
+    "website": "https://www.rest.co.il/",
+    "country": "israel",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The main Israeli restaurant guide with public venue pages. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "il-easy",
+    "name": "Easy.co.il",
+    "website": "https://www.easy.co.il/",
+    "country": "israel",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An Israeli maps and local business directory. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "za-brabys",
+    "name": "Brabys",
+    "website": "https://www.brabys.com/",
+    "country": "south-africa",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A South African business directory with public company profiles. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "za-snupit",
+    "name": "Snupit",
+    "website": "https://www.snupit.co.za/",
+    "country": "south-africa",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A South African marketplace where local professionals hold public profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "za-hellopeter",
+    "name": "Hellopeter",
+    "website": "https://www.hellopeter.com/",
+    "country": "south-africa",
+    "category": "review-sites",
+    "tier": "tier1",
+    "priority": "P1",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The leading South African company review platform, where businesses hold public profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "za-cylex",
+    "name": "Cylex South Africa",
+    "website": "https://www.cylex.net.za/",
+    "country": "south-africa",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The South African arm of an international business directory network. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "za-hotfrog",
+    "name": "Hotfrog South Africa",
+    "website": "https://www.hotfrog.co.za/",
+    "country": "south-africa",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The South African arm of an international directory network. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "za-gumtree",
+    "name": "Gumtree South Africa",
+    "website": "https://www.gumtree.co.za/",
+    "country": "south-africa",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The main South African classifieds marketplace, with professional seller sections.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "eg-yellowpages",
+    "name": "Yellow Pages Egypt",
+    "website": "https://www.yellowpages.com.eg/",
+    "country": "egypt",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Egyptian yellow pages business directory. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "eg-elmenus",
+    "name": "elmenus",
+    "website": "https://www.elmenus.com/",
+    "country": "egypt",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The main Egyptian restaurant and food delivery directory, where venues hold public pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ma-yellowpages",
+    "name": "Yellow Pages Morocco",
+    "website": "https://www.yellowpages.ma/",
+    "country": "morocco",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Moroccan business directory with public company entries.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ma-telecontact",
+    "name": "Telecontact",
+    "website": "https://www.telecontact.ma/",
+    "country": "morocco",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The main Moroccan professional directory, published as the country's pages jaunes.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ma-avito",
+    "name": "Avito Maroc",
+    "website": "https://www.avito.ma/",
+    "country": "morocco",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The main Moroccan classifieds marketplace, with professional seller sections. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "tn-tunisieindex",
+    "name": "Tunisie Index",
+    "website": "https://www.tunisieindex.com/",
+    "country": "tunisia",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Tunisian economic directory listing companies and businesses.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "dz-ouedkniss",
+    "name": "Ouedkniss",
+    "website": "https://www.ouedkniss.com/",
+    "country": "algeria",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The main Algerian classifieds marketplace, with professional seller sections.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "dz-sougplus",
+    "name": "SougPlus",
+    "website": "https://www.algerie-annonce.com/",
+    "country": "algeria",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An Algerian classifieds platform covering property, jobs and services.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ng-businesslist",
+    "name": "BusinessList Nigeria",
+    "website": "https://www.businesslist.com.ng/",
+    "country": "nigeria",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Nigerian business directory. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ng-finelib",
+    "name": "Finelib",
+    "website": "https://www.finelib.com/",
+    "country": "nigeria",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Nigerian business directory and search engine with public company profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ng-nigeriagalleria",
+    "name": "Nigeria Galleria",
+    "website": "https://www.nigeriagalleria.com/",
+    "country": "nigeria",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Nigerian information hub with a business and services directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ng-jiji",
+    "name": "Jiji Nigeria",
+    "website": "https://www.jiji.ng/",
+    "country": "nigeria",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "africa"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The main Nigerian classifieds marketplace, with professional seller sections. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ng-jumia",
+    "name": "Jumia Nigeria",
+    "website": "https://www.jumia.com.ng/",
+    "country": "nigeria",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "africa"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The main African e-commerce marketplace, where sellers hold public storefronts. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ke-businesslist",
+    "name": "BusinessList Kenya",
+    "website": "https://www.businesslist.co.ke/",
+    "country": "kenya",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Kenyan business directory. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ke-yellowpages",
+    "name": "Yellow Pages Kenya",
+    "website": "https://www.yellowpageskenya.com/",
+    "country": "kenya",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Kenyan yellow pages business directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ke-jiji",
+    "name": "Jiji Kenya",
+    "website": "https://www.jiji.co.ke/",
+    "country": "kenya",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "africa"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The main Kenyan classifieds marketplace, with professional seller sections. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "gh-ghanayello",
+    "name": "GhanaYello",
+    "website": "https://www.ghanayello.com/",
+    "country": "ghana",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Ghanaian yellow pages business directory. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "gh-tonaton",
+    "name": "Tonaton",
+    "website": "https://www.tonaton.com/",
+    "country": "ghana",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The main Ghanaian classifieds marketplace, with professional seller sections. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "et-2merkato",
+    "name": "2merkato",
+    "website": "https://www.2merkato.com/",
+    "country": "ethiopia",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The main Ethiopian business portal with a company and supplier directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ug-jiji",
+    "name": "Jiji Uganda",
+    "website": "https://www.jiji.ug/",
+    "country": "uganda",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "africa"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The main Ugandan classifieds marketplace, with professional seller sections. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "tz-jiji",
+    "name": "Jiji Tanzania",
+    "website": "https://www.jiji.co.tz/",
+    "country": "tanzania",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "africa"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The main Tanzanian classifieds marketplace, with professional seller sections. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ke-jumia",
+    "name": "Jumia Kenya",
+    "website": "https://www.jumia.co.ke/",
+    "country": "kenya",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "africa"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Kenyan storefront of the main African e-commerce marketplace, where sellers hold public stores. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "gh-jumia",
+    "name": "Jumia Ghana",
+    "website": "https://www.jumia.com.gh/",
+    "country": "ghana",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "africa"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Ghanaian storefront of the main African e-commerce marketplace, where sellers hold public stores. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ug-jumia",
+    "name": "Jumia Uganda",
+    "website": "https://www.jumia.ug/",
+    "country": "uganda",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "africa"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Ugandan storefront of the main African e-commerce marketplace, where sellers hold public stores. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "zm-zambiayp",
+    "name": "Zambia Yellow Pages",
+    "website": "https://www.zambiayp.com/",
+    "country": "zambia",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Zambian yellow pages business directory. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "na-namibiayp",
+    "name": "Namibia Yellow Pages",
+    "website": "https://www.namibiayp.com/",
+    "country": "namibia",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Namibian yellow pages business directory. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "rw-rwandaonline",
+    "name": "Rwanda Online",
+    "website": "https://www.rwandaonline.rw/",
+    "country": "rwanda",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Rwandan travel and business guide listing local companies.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-afrindex",
+    "name": "Afrindex",
+    "website": "https://www.afrindex.com/",
+    "country": "global",
+    "category": "manufacturing",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "africa"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An Africa-China trade B2B platform with public supplier profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-africa-business",
+    "name": "Africa Business Pages",
+    "website": "https://www.africa-business.com/",
+    "country": "global",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "africa"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A pan-African B2B business directory with public company entries.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-expat",
+    "name": "Expat.com",
+    "website": "https://www.expat.com/",
+    "country": "global",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An international expatriate community with country guides and local business listings.",
+    "lastVerified": "2026-08-06"
   }
 ]
