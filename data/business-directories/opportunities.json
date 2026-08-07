@@ -7737,5 +7737,3608 @@
     "submissionModel": "unknown",
     "note": "An international business listing directory. Live but behind a bot filter, so a browser check is needed.",
     "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "de-marktplatz-mittelstand",
+    "name": "Marktplatz Mittelstand",
+    "website": "https://www.marktplatz-mittelstand.de/",
+    "country": "germany",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "dach"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A German SME business directory operated by Marktplatz Mittelstand GmbH & Co. KG since 1998, with a public registration route.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "de-branchen-info",
+    "name": "branchen-info.net",
+    "website": "https://www.branchen-info.net/",
+    "country": "germany",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "dach"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A German trade directory with public company entries.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "de-branchenbuch24",
+    "name": "Branchenbuch24",
+    "website": "https://www.branchenbuch24.com/",
+    "country": "germany",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "dach"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A German business directory listing company addresses and phone numbers.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "de-branchenorte",
+    "name": "Branchenorte",
+    "website": "https://www.branchenorte.de/",
+    "country": "germany",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "dach"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A German regional trade directory with public business entries.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "de-business-branchenbuch",
+    "name": "Business-Branchenbuch",
+    "website": "https://www.business-branchenbuch.de/",
+    "country": "germany",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "dach"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A German business directory with public company listings.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "de-firmeneintrag",
+    "name": "Firmeneintrag.de",
+    "website": "https://www.firmeneintrag.de/",
+    "country": "germany",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "dach"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A German local company directory built around finding and being found.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "de-firmenindex",
+    "name": "Firmenindex Deutschland",
+    "website": "https://www.firmenindex-deutschland.de/",
+    "country": "germany",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "dach"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A German company index with public business entries.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "de-branchen-domain",
+    "name": "Branchen-Domain",
+    "website": "https://www.branchen-domain.de/",
+    "country": "germany",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "dach"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A German trade directory and company portal offering a free entry service.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "de-firmendb",
+    "name": "FirmenDB",
+    "website": "https://www.firmendb.de/",
+    "country": "germany",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "dach"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A German company database with public business entries.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "de-misterwhat",
+    "name": "MisterWhat Deutschland",
+    "website": "https://www.misterwhat.de/",
+    "country": "germany",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "dach"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The German arm of the MisterWhat directory network with public company listings.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "de-pointoo",
+    "name": "Pointoo",
+    "website": "https://www.pointoo.de/",
+    "country": "germany",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "dach"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A German local business directory. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "de-yalwa",
+    "name": "Yalwa Deutschland",
+    "website": "https://www.yalwa.de/",
+    "country": "germany",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "dach"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The German arm of the Yalwa directory network. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "de-bizin",
+    "name": "Bizin Deutschland",
+    "website": "https://de.bizin.eu/",
+    "country": "germany",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "dach"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The German arm of the Bizin European business directory. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "de-houzz",
+    "name": "Houzz Deutschland",
+    "website": "https://www.houzz.de/",
+    "country": "germany",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "dach"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The German arm of the Houzz home design platform with public professional profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-2findlocal",
+    "name": "2FindLocal",
+    "website": "https://www.2findlocal.com/",
+    "country": "global",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An international small business directory with public company listings.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-lacartes",
+    "name": "Lacartes",
+    "website": "https://www.lacartes.com/",
+    "country": "global",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An international local business and services directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-whodoyou",
+    "name": "WhoDoYou",
+    "website": "https://www.whodoyou.com/",
+    "country": "global",
+    "category": "review-sites",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global",
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A local recommendation platform where businesses appear from customer referrals.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "at-branchenverzeichnis",
+    "name": "Branchenverzeichnis.at",
+    "website": "https://www.branchenverzeichnis.at/",
+    "country": "austria",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "dach"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An Austrian and German-language trade directory with public company entries.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "fr-hoodspot",
+    "name": "Hoodspot",
+    "website": "https://www.hoodspot.fr/",
+    "country": "france",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A French local business directory with public company pages. The annuaire.com domain resolves here.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "fr-118000",
+    "name": "118000.fr",
+    "website": "https://www.118000.fr/",
+    "country": "france",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A French telephone and professional directory with public business entries.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "fr-allo-commercants",
+    "name": "Allo-Commercants",
+    "website": "https://www.allo-commercants.fr/",
+    "country": "france",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A French directory of shops and local traders.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "fr-coodoeil",
+    "name": "Coodoeil",
+    "website": "https://www.coodoeil.fr/",
+    "country": "france",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A free French-language business and web directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "fr-e-pro",
+    "name": "ePRO",
+    "website": "https://www.e-pro.fr/",
+    "country": "france",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A French directory referencing small and medium businesses across all regions.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "fr-indexa",
+    "name": "INDEXA",
+    "website": "https://www.indexa.fr/",
+    "country": "france",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A French professional company directory operating since 1997.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "fr-telephone-annuaire",
+    "name": "Annuaire Téléphone",
+    "website": "https://www.telephone-annuaire.fr/",
+    "country": "france",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A French telephone and business search directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "fr-webwiki",
+    "name": "Webwiki France",
+    "website": "https://www.webwiki.fr/",
+    "country": "france",
+    "category": "review-sites",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A French website and company directory carrying public reviews.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "fr-trouverunpro",
+    "name": "Trouver un Pro",
+    "website": "https://www.trouverunpro.fr/",
+    "country": "france",
+    "category": "construction",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A French directory for finding renovation and construction professionals.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "fr-travaux",
+    "name": "Travaux.com",
+    "website": "https://www.travaux.com/",
+    "country": "france",
+    "category": "construction",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A French home-renovation professional marketplace. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "fr-houzz",
+    "name": "Houzz France",
+    "website": "https://www.houzz.fr/",
+    "country": "france",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The French arm of the Houzz home design platform with public professional profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "uk-localpages",
+    "name": "Local Pages",
+    "website": "https://www.localpages.co.uk/",
+    "country": "united-kingdom",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "united-kingdom"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A UK local business directory offering free business listings.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "uk-openingtimes",
+    "name": "Opening Times",
+    "website": "https://www.openingtimes.co.uk/",
+    "country": "united-kingdom",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "united-kingdom"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A UK directory of shops, restaurants and businesses focused on opening hours.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "uk-thebestof",
+    "name": "thebestof",
+    "website": "https://www.thebestof.co.uk/",
+    "country": "united-kingdom",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "united-kingdom"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A UK local business directory covering trusted businesses, offers and events.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "uk-locallife",
+    "name": "LocalLife",
+    "website": "https://www.locallife.co.uk/",
+    "country": "united-kingdom",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "united-kingdom"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A UK local business listings directory with maps and events.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "uk-mylocalservices",
+    "name": "My Local Services",
+    "website": "https://www.mylocalservices.co.uk/",
+    "country": "united-kingdom",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "united-kingdom"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A UK local business directory and business forum.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "uk-uksmallbusinessdirectory",
+    "name": "UK Small Business Directory",
+    "website": "https://www.uksmallbusinessdirectory.co.uk/",
+    "country": "united-kingdom",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "united-kingdom"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A UK directory offering free business listings for small businesses.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-jasminedirectory",
+    "name": "Jasmine Directory",
+    "website": "https://www.jasminedirectory.com/",
+    "country": "global",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global",
+      "united-kingdom"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A human-curated general business directory operating since 2009.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-b2bhint",
+    "name": "B2BHint",
+    "website": "https://www.b2bhint.com/",
+    "country": "global",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "europe",
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An international company information and business directory. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "it-italiaimprese",
+    "name": "Italia Imprese",
+    "website": "https://www.italiaimprese.it/",
+    "country": "italy",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An Italian portal listing companies with public profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "it-guidamonaci",
+    "name": "Guida Monaci",
+    "website": "https://www.guidamonaci.it/",
+    "country": "italy",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A long-established Italian company directory publisher with public business entries.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "it-tuttocitta",
+    "name": "TuttoCittà",
+    "website": "https://www.tuttocitta.it/",
+    "country": "italy",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An Italian maps and local business directory covering shops, restaurants and services.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "nl-bedrijvengids",
+    "name": "Bedrijvengids.nl",
+    "website": "https://www.bedrijvengids.nl/",
+    "country": "netherlands",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Dutch company directory with public business entries.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "nl-hotfrog",
+    "name": "Hotfrog Nederland",
+    "website": "https://www.hotfrog.nl/",
+    "country": "netherlands",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Dutch arm of an international directory network. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "es-solostocks",
+    "name": "SoloStocks",
+    "website": "https://www.solostocks.com/",
+    "country": "spain",
+    "category": "manufacturing",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Spanish B2B marketplace where suppliers publish public company and product listings.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "es-expansion-directorio",
+    "name": "Expansión Directorio de Empresas",
+    "website": "https://www.expansion.com/directorio-empresas.html",
+    "country": "spain",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Spanish company directory published by the Expansión business newspaper.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "cz-abecedafirem",
+    "name": "Abeceda firem",
+    "website": "https://www.abecedafirem.cz/",
+    "country": "czech-republic",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Czech company directory with public business entries.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "cz-hotfrog",
+    "name": "Hotfrog Česko",
+    "website": "https://www.hotfrog.cz/",
+    "country": "czech-republic",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Czech arm of an international directory network. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "pl-gdziepolek",
+    "name": "GdziePoLek",
+    "website": "https://www.gdziepolek.pl/",
+    "country": "poland",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Polish pharmacy finder listing pharmacies with public profiles. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "be-deondernemersgids",
+    "name": "De Ondernemersgids",
+    "website": "https://www.deondernemersgids.com/",
+    "country": "belgium",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Belgian business and telephone directory covering companies across the country.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "be-bedrijvengidsbelgie",
+    "name": "Bedrijvengids België",
+    "website": "https://www.bedrijvengidsbelgie.com/",
+    "country": "belgium",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Belgian company directory organised by municipality and sector.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "be-bedrijven-vinden",
+    "name": "Bedrijven-vinden.be",
+    "website": "https://www.bedrijven-vinden.be/",
+    "country": "belgium",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Belgian local business finder covering companies by area.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "be-bsearch",
+    "name": "BSearch",
+    "website": "https://www.bsearch.be/",
+    "country": "belgium",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Belgian business search engine listing products and services of Belgian companies.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ch-schweizfirmen",
+    "name": "Schweizfirmen",
+    "website": "https://www.schweizfirmen.ch/",
+    "country": "switzerland",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Swiss company directory browsable by industry and location.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ch-firma-finden",
+    "name": "Firma-Finden",
+    "website": "https://www.firma-finden.ch/",
+    "country": "switzerland",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Swiss SME portal combining a company directory with business guidance content.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ch-vschweiz",
+    "name": "vSchweiz",
+    "website": "https://vschweiz.ch/",
+    "country": "switzerland",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Swiss online company directory organised by category.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ch-lokalesgewerbe",
+    "name": "LokalesGewerbe.ch",
+    "website": "https://www.lokalesgewerbe.ch/",
+    "country": "switzerland",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Swiss trade directory listing local businesses with addresses and opening hours.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ie-askspud",
+    "name": "AskSpud.ie",
+    "website": "https://askspud.ie/",
+    "country": "ireland",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An Irish national business discovery directory where businesses submit a listing by category, town and county.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ie-localsearch",
+    "name": "Local Search Ireland",
+    "website": "https://www.localsearch.ie/",
+    "country": "ireland",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An Irish directory focused on local and small businesses.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ie-onlinedirectories",
+    "name": "OnlineDirectories.ie",
+    "website": "https://onlinedirectories.ie/",
+    "country": "ireland",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An Irish business directory offering free company listings.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ie-irelands-advisor",
+    "name": "Ireland's Advisor",
+    "website": "https://irelands-advisor.com/",
+    "country": "ireland",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An Irish business directory listing local services. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "no-bedriftsguide",
+    "name": "Bedrifts Guide",
+    "website": "https://www.bedriftsguide.no/",
+    "country": "norway",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Norwegian company guide listing businesses by sector. Answered normally on first contact and now returns a non-standard 454 consistently, so a browser check is needed before use.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "pt-portugalempresas",
+    "name": "Portugal Empresas",
+    "website": "https://www.portugalempresas.pt/",
+    "country": "portugal",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Portuguese company directory with public business entries.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "de-myhammer",
+    "name": "MyHammer",
+    "website": "https://www.myhammer.de/",
+    "country": "germany",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "dach"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A German tradesperson marketplace where craft businesses hold public profiles with customer ratings. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "de-blauarbeit",
+    "name": "Blauarbeit",
+    "website": "https://www.blauarbeit.de/",
+    "country": "germany",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "dach"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A German platform for finding regional tradespeople, with company profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "de-jameda",
+    "name": "jameda",
+    "website": "https://www.jameda.de/",
+    "country": "germany",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A German doctor booking and review portal where practices hold public profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "de-doctolib",
+    "name": "Doctolib Deutschland",
+    "website": "https://www.doctolib.de/",
+    "country": "germany",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The German arm of a healthcare booking platform where practices hold public profiles. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "de-anwalt-de",
+    "name": "anwalt.de",
+    "website": "https://www.anwalt.de/",
+    "country": "germany",
+    "category": "legal",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A German legal portal where lawyers hold public profiles. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "de-anwaltauskunft",
+    "name": "Deutsche Anwaltauskunft",
+    "website": "https://www.anwaltauskunft.de/",
+    "country": "germany",
+    "category": "legal",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The lawyer search of the German Bar Association, listing member lawyers.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "de-ortsdienst",
+    "name": "Ortsdienst",
+    "website": "https://www.ortsdienst.de/",
+    "country": "germany",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A German opening-hours and trade directory covering local businesses.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-brownbook",
+    "name": "Brownbook",
+    "website": "https://www.brownbook.net/",
+    "country": "global",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A global business listing database offering free entries.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-fordaq",
+    "name": "Fordaq",
+    "website": "https://www.fordaq.com/",
+    "country": "global",
+    "category": "manufacturing",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "europe"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An international timber and wood industry B2B marketplace with public supplier profiles. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "at-wogibtswas",
+    "name": "wogibtswas.at",
+    "website": "https://www.wogibtswas.at/",
+    "country": "austria",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "dach"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An Austrian shop and offers portal listing retailers with branch locations.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "at-docfinder",
+    "name": "DocFinder",
+    "website": "https://www.docfinder.at/",
+    "country": "austria",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An Austrian doctor search and booking portal where practices hold public profiles with reviews.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "es-doctoralia",
+    "name": "Doctoralia España",
+    "website": "https://www.doctoralia.es/",
+    "country": "spain",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Spanish arm of a healthcare booking platform where practitioners hold public profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "it-miodottore",
+    "name": "MioDottore",
+    "website": "https://www.miodottore.it/",
+    "country": "italy",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An Italian doctor search and booking portal where practitioners hold public profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "it-prontopro",
+    "name": "ProntoPro",
+    "website": "https://www.prontopro.it/",
+    "country": "italy",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An Italian marketplace where service professionals hold public profiles and quote for jobs.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "it-instapro",
+    "name": "Instapro",
+    "website": "https://www.instapro.it/",
+    "country": "italy",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An Italian home-services marketplace with tradesperson profiles. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "it-subito",
+    "name": "Subito",
+    "website": "https://www.subito.it/",
+    "country": "italy",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The main Italian classifieds marketplace, with professional seller sections.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "pl-znanylekarz",
+    "name": "ZnanyLekarz",
+    "website": "https://www.znanylekarz.pl/",
+    "country": "poland",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Polish doctor search and booking portal where practitioners hold public profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "pl-fixly",
+    "name": "Fixly",
+    "website": "https://www.fixly.pl/",
+    "country": "poland",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Polish local services marketplace with professional profiles. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "pl-allegro",
+    "name": "Allegro",
+    "website": "https://allegro.pl/",
+    "country": "poland",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The dominant Polish e-commerce marketplace, where sellers hold public shop pages. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "fr-doctolib",
+    "name": "Doctolib",
+    "website": "https://www.doctolib.fr/",
+    "country": "france",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A French healthcare booking platform where practices hold public profiles. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "fr-leboncoin",
+    "name": "leboncoin",
+    "website": "https://www.leboncoin.fr/",
+    "country": "france",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The main French classifieds marketplace, with professional seller sections. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "nl-zorgkaart",
+    "name": "ZorgkaartNederland",
+    "website": "https://www.zorgkaartnederland.nl/",
+    "country": "netherlands",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Dutch healthcare review site where care providers hold public profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "nl-werkspot",
+    "name": "Werkspot",
+    "website": "https://www.werkspot.nl/",
+    "country": "netherlands",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Dutch home-services marketplace where tradespeople hold public profiles. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "es-certicalia",
+    "name": "Certicalia",
+    "website": "https://www.certicalia.com/",
+    "country": "spain",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Spanish marketplace for technical and professional services with provider profiles. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "pl-baza-firm",
+    "name": "Baza Firm — Business Navigator",
+    "website": "https://www.baza-firm.com.pl/",
+    "country": "poland",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Polish company catalogue organised by sector.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "se-reco",
+    "name": "Reco.se",
+    "website": "https://www.reco.se/",
+    "country": "sweden",
+    "category": "review-sites",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Swedish review site where companies hold public profiles carrying customer ratings.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "se-offerta",
+    "name": "Offerta",
+    "website": "https://www.offerta.se/",
+    "country": "sweden",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Swedish quote marketplace where service companies hold public profiles and bid for jobs.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "se-servicefinder",
+    "name": "Servicefinder",
+    "website": "https://www.servicefinder.se/",
+    "country": "sweden",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Swedish marketplace connecting households with local service companies.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "se-bytbil",
+    "name": "Bytbil",
+    "website": "https://www.bytbil.com/",
+    "country": "sweden",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Swedish vehicle marketplace where car dealers hold public dealer pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "no-mittanbud",
+    "name": "Mittanbud",
+    "website": "https://www.mittanbud.no/",
+    "country": "norway",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Norwegian marketplace where tradespeople hold public profiles and bid for jobs.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "no-byggstart",
+    "name": "Byggstart",
+    "website": "https://www.byggstart.no/",
+    "country": "norway",
+    "category": "construction",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Norwegian platform for finding construction and renovation professionals.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "dk-3byggetilbud",
+    "name": "3byggetilbud",
+    "website": "https://www.3byggetilbud.dk/",
+    "country": "denmark",
+    "category": "construction",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Danish construction quote platform listing building companies.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "dk-handyhand",
+    "name": "Handyhand",
+    "website": "https://www.handyhand.dk/",
+    "country": "denmark",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Danish task and home-services marketplace with provider profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "fi-urakkamaailma",
+    "name": "Urakkamaailma",
+    "website": "https://www.urakkamaailma.fi/",
+    "country": "finland",
+    "category": "construction",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Finnish renovation marketplace listing contractors.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "fi-remonttitarjous",
+    "name": "Remonttitarjous",
+    "website": "https://remonttitarjous.com/",
+    "country": "finland",
+    "category": "construction",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Finnish platform for comparing renovation contractors.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "fi-suomenyritysrekisteri",
+    "name": "Suomen Yritysrekisteri",
+    "website": "https://www.suomenyritysrekisteri.fi/",
+    "country": "finland",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A commercial Finnish company register with public business entries.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "fi-duunitori",
+    "name": "Duunitori",
+    "website": "https://www.duunitori.fi/",
+    "country": "finland",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Finnish job platform where employers hold public company pages. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "no-bedrifter",
+    "name": "Bedrifter.no",
+    "website": "https://www.bedrifter.no/",
+    "country": "norway",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Norwegian company directory with public business entries.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "dk-anmeldelser",
+    "name": "Anmeldelser.dk",
+    "website": "https://www.anmeldelser.dk/",
+    "country": "denmark",
+    "category": "review-sites",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Danish review site where companies hold public profiles carrying customer ratings.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "fr-misterwhat",
+    "name": "MisterWhat France",
+    "website": "https://www.misterwhat.fr/",
+    "country": "france",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The French arm of an international small-business directory network.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "nl-misterwhat",
+    "name": "MisterWhat Nederland",
+    "website": "https://www.misterwhat.nl/",
+    "country": "netherlands",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Dutch arm of an international small-business directory network.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "dk-misterwhat",
+    "name": "MisterWhat Danmark",
+    "website": "https://www.misterwhat.dk/",
+    "country": "denmark",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Danish arm of an international small-business directory network.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "pt-misterwhat",
+    "name": "MisterWhat Portugal",
+    "website": "https://www.misterwhat.pt/",
+    "country": "portugal",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Portuguese arm of an international small-business directory network.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "pl-misterwhat",
+    "name": "MisterWhat Polska",
+    "website": "https://www.misterwhat.pl/",
+    "country": "poland",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Polish arm of an international small-business directory network.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "fr-yalwa",
+    "name": "Yalwa France",
+    "website": "https://www.yalwa.fr/",
+    "country": "france",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The French arm of an international local business directory network. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "es-yalwa",
+    "name": "Yalwa España",
+    "website": "https://www.yalwa.es/",
+    "country": "spain",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Spanish arm of an international local business directory network. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "nl-yalwa",
+    "name": "Yalwa Nederland",
+    "website": "https://www.yalwa.nl/",
+    "country": "netherlands",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Dutch arm of an international local business directory network. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ch-yalwa",
+    "name": "Yalwa Schweiz",
+    "website": "https://www.yalwa.ch/",
+    "country": "switzerland",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Swiss arm of an international local business directory network. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "at-yalwa",
+    "name": "Yalwa Österreich",
+    "website": "https://www.yalwa.at/",
+    "country": "austria",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Austrian arm of an international local business directory network. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ie-yalwa",
+    "name": "Yalwa Ireland",
+    "website": "https://www.yalwa.ie/",
+    "country": "ireland",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Irish arm of an international local business directory network. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "fr-infoisinfo",
+    "name": "InfoIsInfo France",
+    "website": "https://www.infoisinfo.fr/",
+    "country": "france",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The French arm of an international business directory network.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "it-infoisinfo",
+    "name": "InfoIsInfo Italia",
+    "website": "https://www.infoisinfo.it/",
+    "country": "italy",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Italian arm of an international business directory network.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "pl-infoisinfo",
+    "name": "InfoIsInfo Polska",
+    "website": "https://www.infoisinfo.pl/",
+    "country": "poland",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Polish arm of an international business directory network.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "nl-infoisinfo",
+    "name": "InfoIsInfo Nederland",
+    "website": "https://www.infoisinfo.nl/",
+    "country": "netherlands",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Dutch arm of an international business directory network.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "be-infoisinfo",
+    "name": "InfoIsInfo België",
+    "website": "https://www.infoisinfo.be/",
+    "country": "belgium",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Belgian arm of an international business directory network.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "at-infoisinfo",
+    "name": "InfoIsInfo Österreich",
+    "website": "https://www.infoisinfo.at/",
+    "country": "austria",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Austrian arm of an international business directory network.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ch-infoisinfo",
+    "name": "InfoIsInfo Schweiz",
+    "website": "https://www.infoisinfo.ch/",
+    "country": "switzerland",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Swiss arm of an international business directory network.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "se-infoisinfo",
+    "name": "InfoIsInfo Sverige",
+    "website": "https://www.infoisinfo.se/",
+    "country": "sweden",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Swedish arm of an international business directory network.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "at-tupalo",
+    "name": "Tupalo Österreich",
+    "website": "https://www.tupalo.at/",
+    "country": "austria",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Austrian arm of an international local business and review directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "be-opendi",
+    "name": "Opendi België",
+    "website": "https://www.opendi.be/",
+    "country": "belgium",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Belgian arm of an international trade directory and rating portal.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "pl-hotfrog",
+    "name": "Hotfrog Polska",
+    "website": "https://www.hotfrog.pl/",
+    "country": "poland",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Polish arm of an international directory network.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "pl-firmania",
+    "name": "Firmania Polska",
+    "website": "https://www.firmania.pl/",
+    "country": "poland",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Polish arm of an international local business directory. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "nl-firmania",
+    "name": "Firmania Nederland",
+    "website": "https://www.firmania.nl/",
+    "country": "netherlands",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Dutch arm of an international local business directory. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ch-firmania",
+    "name": "Firmania Schweiz",
+    "website": "https://www.firmania.ch/",
+    "country": "switzerland",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Swiss arm of an international local business directory. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "dk-firmania",
+    "name": "Firmania Danmark",
+    "website": "https://www.firmania.dk/",
+    "country": "denmark",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Danish arm of an international local business directory. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "se-firmania",
+    "name": "Firmania Sverige",
+    "website": "https://www.firmania.se/",
+    "country": "sweden",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Swedish arm of an international local business directory. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "dk-cylex",
+    "name": "Cylex Danmark",
+    "website": "https://www.cylex.dk/",
+    "country": "denmark",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Danish arm of an international business directory network. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "no-cylex",
+    "name": "Cylex Norge",
+    "website": "https://www.cylex.no/",
+    "country": "norway",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Norwegian arm of an international business directory network. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "fi-cylex",
+    "name": "Cylex Suomi",
+    "website": "https://www.cylex.fi/",
+    "country": "finland",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Finnish arm of an international business directory network. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "nl-cylex",
+    "name": "Cylex Nederland",
+    "website": "https://www.cylex.nl/",
+    "country": "netherlands",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Dutch arm of an international business directory network. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "it-pagineazzurre",
+    "name": "Pagine Azzurre",
+    "website": "https://www.pagineazzurre.com/",
+    "country": "italy",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Italian nautical guide listing marinas and boating services with public entries.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "de-treatwell",
+    "name": "Treatwell Deutschland",
+    "website": "https://www.treatwell.de/",
+    "country": "germany",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The German storefront of a salon booking marketplace where salons hold public profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "es-treatwell",
+    "name": "Treatwell España",
+    "website": "https://www.treatwell.es/",
+    "country": "spain",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Spanish storefront of a salon booking marketplace where salons hold public profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "it-treatwell",
+    "name": "Treatwell Italia",
+    "website": "https://www.treatwell.it/",
+    "country": "italy",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Italian storefront of a salon booking marketplace where salons hold public profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "nl-treatwell",
+    "name": "Treatwell Nederland",
+    "website": "https://www.treatwell.nl/",
+    "country": "netherlands",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Dutch storefront of a salon booking marketplace where salons hold public profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "de-salonkee",
+    "name": "Salonkee Deutschland",
+    "website": "https://www.salonkee.de/",
+    "country": "germany",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "dach"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A salon booking platform serving German-speaking markets, with public salon pages. Live but behind a human-verification gate, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "it-quandoo",
+    "name": "Quandoo Italia",
+    "website": "https://www.quandoo.it/",
+    "country": "italy",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Italian storefront of a restaurant reservation platform where restaurants hold public pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "nl-quandoo",
+    "name": "Quandoo Nederland",
+    "website": "https://www.quandoo.nl/",
+    "country": "netherlands",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Dutch storefront of a restaurant reservation platform where restaurants hold public pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "it-matrimonio",
+    "name": "Matrimonio.com",
+    "website": "https://www.matrimonio.com/",
+    "country": "italy",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Italian wedding supplier marketplace where vendors hold public profiles. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "es-bodas",
+    "name": "Bodas.net",
+    "website": "https://www.bodas.net/",
+    "country": "spain",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Spanish wedding supplier marketplace where vendors hold public profiles. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "fr-mariages",
+    "name": "Mariages.net",
+    "website": "https://www.mariages.net/",
+    "country": "france",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The French wedding supplier marketplace where vendors hold public profiles. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "de-hochzeit-click",
+    "name": "Hochzeit.click",
+    "website": "https://www.hochzeit.click/",
+    "country": "germany",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "dach"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A German wedding planning directory listing suppliers.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-mywed",
+    "name": "MyWed",
+    "website": "https://www.mywed.com/",
+    "country": "global",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An international wedding photographer community with public photographer profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-restaurantguru",
+    "name": "Restaurant Guru",
+    "website": "https://www.restaurantguru.com/",
+    "country": "global",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An international restaurant directory with public venue pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "fr-annuaire-entreprises-locales",
+    "name": "Annuaire des entreprises locales",
+    "website": "https://www.annuaire-des-entreprises-locales.fr/",
+    "country": "france",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A French local business directory where each company can publish and maintain a free mini-site.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "fr-annuaire-entreprise-co",
+    "name": "Annuaire-Entreprise.co",
+    "website": "https://www.annuaire-entreprise.co/",
+    "country": "france",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A free French company directory that accepts self-submitted entries.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "fr-franceterritoires",
+    "name": "France Territoires",
+    "website": "https://franceterritoires.com/fr/annuaire",
+    "country": "france",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A French local business directory reserved for professionals.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "fr-aef-cci",
+    "name": "Annuaire des Entreprises de France (CCI)",
+    "website": "https://www.aef.cci.fr/statiques/recherche-entreprises",
+    "country": "france",
+    "category": "chambers-of-commerce",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The company directory of the French chamber of commerce network, covering companies registered with the CCIs.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "es-empresite",
+    "name": "Empresite",
+    "website": "https://empresite.eleconomista.es/",
+    "country": "spain",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Spanish company and professional directory published by El Economista.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "es-todoenlaces",
+    "name": "Todoenlaces",
+    "website": "https://www.todoenlaces.com/",
+    "country": "spain",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Spanish company directory with public business entries.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "es-multiguia",
+    "name": "Multiguía",
+    "website": "https://www.multiguia.es/",
+    "country": "spain",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Spanish business directory organised by activity and location.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "es-winred",
+    "name": "Winred Empresas",
+    "website": "https://winred.es/empresas/",
+    "country": "spain",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A free Spanish online company directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "es-guiatelefonica",
+    "name": "Guía Telefónica de Empresas",
+    "website": "https://guiatelefonicadeempresas.com/",
+    "country": "spain",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Spanish guide to companies and local businesses.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "es-interempresas",
+    "name": "Interempresas",
+    "website": "https://www.interempresas.net/",
+    "country": "spain",
+    "category": "manufacturing",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Spanish industrial B2B portal with a supplier and product catalogue.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "es-callejeando",
+    "name": "Callejeando",
+    "website": "https://www.callejeando.com/",
+    "country": "spain",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Spanish street map and company finder classified by activity and town.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "it-impresaitalia",
+    "name": "Impresa Italia",
+    "website": "https://www.impresaitalia.info/",
+    "country": "italy",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An Italian portal listing companies with public business entries.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "de-xing-companies",
+    "name": "XING Employer Profiles",
+    "website": "https://www.xing.com/companies",
+    "country": "germany",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "dach"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The employer profile section of the main German-speaking professional network.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "es-infojobs",
+    "name": "InfoJobs",
+    "website": "https://www.infojobs.net/",
+    "country": "spain",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The main Spanish job board, where employers hold public company pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "pl-pracuj",
+    "name": "Pracuj.pl",
+    "website": "https://www.pracuj.pl/",
+    "country": "poland",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The main Polish job board, where employers hold public company pages. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "cz-jobs-cz",
+    "name": "Jobs.cz",
+    "website": "https://www.jobs.cz/",
+    "country": "czech-republic",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The main Czech job board, where employers hold public company pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "nl-nationalevacaturebank",
+    "name": "Nationale Vacaturebank",
+    "website": "https://www.nationalevacaturebank.nl/",
+    "country": "netherlands",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Dutch job board where employers hold public company pages. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "be-stepstone",
+    "name": "StepStone België",
+    "website": "https://www.stepstone.be/",
+    "country": "belgium",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Belgian arm of a job board where employers hold public company pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "at-karriere",
+    "name": "karriere.at",
+    "website": "https://www.karriere.at/",
+    "country": "austria",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The main Austrian job board, where employers hold public company pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ie-irishjobs",
+    "name": "IrishJobs",
+    "website": "https://www.irishjobs.ie/",
+    "country": "ireland",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An Irish job board where employers hold public company pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "no-finn",
+    "name": "FINN.no",
+    "website": "https://www.finn.no/",
+    "country": "norway",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The dominant Norwegian classifieds and marketplace, with professional seller and employer sections.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-jobteaser",
+    "name": "JobTeaser",
+    "website": "https://www.jobteaser.com/",
+    "country": "global",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "europe"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A European graduate careers platform where employers hold public company pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "de-hotelbewertungen",
+    "name": "Hotelbewertungen.net",
+    "website": "https://www.hotelbewertungen.net/",
+    "country": "germany",
+    "category": "review-sites",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "dach"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A German hotel review and booking directory with public hotel pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "de-sanego",
+    "name": "sanego",
+    "website": "https://www.sanego.de/",
+    "country": "germany",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A German health portal listing doctors with public profiles and patient ratings.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "de-arzt-auskunft",
+    "name": "Arzt-Auskunft",
+    "website": "https://www.arzt-auskunft.de/",
+    "country": "germany",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The doctor search directory of Stiftung Gesundheit, listing practices across Germany.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "de-klinikbewertungen",
+    "name": "Klinikbewertungen",
+    "website": "https://www.klinikbewertungen.de/",
+    "country": "germany",
+    "category": "review-sites",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A German hospital and clinic review directory with public facility pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "de-medi-karriere",
+    "name": "Medi-Karriere",
+    "website": "https://www.medi-karriere.de/",
+    "country": "germany",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A German healthcare job board where employers hold public company pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "de-makler-empfehlung",
+    "name": "Makler-Empfehlung",
+    "website": "https://www.makler-empfehlung.de/",
+    "country": "germany",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A German estate agent directory with public agency profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ch-gastro",
+    "name": "Gastro.ch",
+    "website": "https://www.gastro.ch/",
+    "country": "switzerland",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Swiss restaurant and hotel guide with public venue entries.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "uk-trustmark",
+    "name": "TrustMark",
+    "website": "https://www.trustmark.org.uk/",
+    "country": "united-kingdom",
+    "category": "construction",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "united-kingdom"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A UK quality scheme for tradespeople where registered businesses hold public profiles. Registration is eligibility-gated.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "uk-fmb",
+    "name": "Federation of Master Builders",
+    "website": "https://www.fmb.org.uk/",
+    "country": "united-kingdom",
+    "category": "industry-associations",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "united-kingdom"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The UK builders trade body, whose Find a Builder directory lists member firms. Membership is eligibility-gated.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "uk-gumtree",
+    "name": "Gumtree",
+    "website": "https://www.gumtree.com/",
+    "country": "united-kingdom",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "united-kingdom"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A major UK classifieds marketplace with professional seller sections.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "uk-designmynight",
+    "name": "DesignMyNight",
+    "website": "https://www.designmynight.com/",
+    "country": "united-kingdom",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "united-kingdom"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A UK nightlife and venue guide where bars and restaurants hold public pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "uk-smartbusinessdirectory",
+    "name": "Smart Business Directory",
+    "website": "https://www.smartbusinessdirectory.co.uk/",
+    "country": "united-kingdom",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "united-kingdom"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A UK business directory accepting self-submitted company entries.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "pl-nocowanie",
+    "name": "Nocowanie.pl",
+    "website": "https://www.nocowanie.pl/",
+    "country": "poland",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Polish accommodation portal where properties hold public listings.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "pl-polskiefirmy-info",
+    "name": "Polskie Firmy",
+    "website": "https://www.polskiefirmy.info/",
+    "country": "poland",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An online Polish company catalogue.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "cz-atlasfirem",
+    "name": "Atlas firem",
+    "website": "https://www.atlasfirem.cz/",
+    "country": "czech-republic",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Czech company catalogue searchable by distance from a location.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "cz-katalog",
+    "name": "Katalog.cz",
+    "website": "https://www.katalog.cz/",
+    "country": "czech-republic",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Czech company catalogue with public business entries.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "pt-guiadacidade",
+    "name": "oGuia",
+    "website": "https://www.guiadacidade.pt/",
+    "country": "portugal",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Portuguese guide to tourism, leisure and local companies.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "se-prisjakt",
+    "name": "Prisjakt",
+    "website": "https://www.prisjakt.nu/",
+    "country": "sweden",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "nordics"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Swedish price comparison service where merchants hold public store pages with ratings.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "dk-bilbasen",
+    "name": "Bilbasen",
+    "website": "https://www.bilbasen.dk/",
+    "country": "denmark",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The main Danish vehicle marketplace, where dealers hold public dealer pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "dk-dba",
+    "name": "DBA",
+    "website": "https://www.dba.dk/",
+    "country": "denmark",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A major Danish classifieds marketplace with professional seller sections.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "fi-tori",
+    "name": "Tori",
+    "website": "https://www.tori.fi/",
+    "country": "finland",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The main Finnish classifieds marketplace, with professional seller sections.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "nl-marktplaats",
+    "name": "Marktplaats",
+    "website": "https://www.marktplaats.nl/",
+    "country": "netherlands",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The dominant Dutch classifieds marketplace, with professional seller sections.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "be-2dehands",
+    "name": "2dehands",
+    "website": "https://www.2dehands.be/",
+    "country": "belgium",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The main Belgian classifieds marketplace, with professional seller sections.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "de-autoscout24",
+    "name": "AutoScout24",
+    "website": "https://www.autoscout24.de/",
+    "country": "germany",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "europe"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A major European vehicle marketplace where dealers hold public dealer pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "de-mobile-de",
+    "name": "mobile.de",
+    "website": "https://www.mobile.de/",
+    "country": "germany",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "dach"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The main German vehicle marketplace, where dealers hold public dealer pages. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "nl-thuisbezorgd",
+    "name": "Thuisbezorgd",
+    "website": "https://www.thuisbezorgd.nl/",
+    "country": "netherlands",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The main Dutch food delivery platform, where restaurants hold public pages. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "de-lieferando",
+    "name": "Lieferando",
+    "website": "https://www.lieferando.de/",
+    "country": "germany",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The main German food delivery platform, where restaurants hold public pages. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "pl-pyszne",
+    "name": "Pyszne.pl",
+    "website": "https://www.pyszne.pl/",
+    "country": "poland",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The main Polish food delivery platform, where restaurants hold public pages. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "cz-damejidlo",
+    "name": "Dáme jídlo",
+    "website": "https://www.damejidlo.cz/",
+    "country": "czech-republic",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The main Czech food delivery platform, where restaurants hold public pages. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ie-justeat",
+    "name": "Just Eat Ireland",
+    "website": "https://www.justeat.ie/",
+    "country": "ireland",
+    "category": "local-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The main Irish food delivery platform, where restaurants hold public pages. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "fr-deliveroo",
+    "name": "Deliveroo France",
+    "website": "https://www.deliveroo.fr/",
+    "country": "france",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The French arm of a food delivery platform where restaurants and shops hold public pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "es-glovo",
+    "name": "Glovo",
+    "website": "https://www.glovoapp.com/",
+    "country": "spain",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "europe"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A delivery marketplace originating in Spain where partner shops and restaurants hold public pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "se-foodora",
+    "name": "Foodora Sverige",
+    "website": "https://www.foodora.se/",
+    "country": "sweden",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Swedish arm of a food delivery platform where restaurants hold public pages. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
   }
 ]
