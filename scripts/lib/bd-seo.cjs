@@ -315,10 +315,20 @@ function buildRecommendationMeta({ label, slug, blurb, count }) {
 // The marketplaces dataset is a sibling section, so it gets its own root trail
 // rather than hanging off the business-directories breadcrumb — the two answer
 // different questions and neither is a child of the other.
+// The title said "in Europe" for four waves after the dataset stopped being
+// European. Waves M2 to M5 added North America, Australia, Asia, Latin America
+// and Africa without touching this string, so a page holding platforms in
+// Brazil, Nigeria and Japan described itself as a European collection — and
+// would never match anyone looking for those markets.
+//
+// The geography claim is gone rather than corrected. Naming continents means
+// maintaining a country-to-continent mapping this repository does not have, and
+// the next wave would stale it the same way. The country count is derived from
+// the rows and cannot.
 function buildMarketplacesMeta({ count, countries }) {
   const canonicalPath = '/research/marketplaces/';
-  const title = 'Marketplace and classified platforms in Europe';
-  const description = `${count} platforms across ${countries} European countries where a business `
+  const title = 'Marketplace and classified platforms';
+  const description = `${count} platforms across ${countries} countries where a business `
     + 'or a person can publish a listing, with type, cost and who may list for each.';
   const trail = [ROOT_TRAIL[0], { name: 'Marketplaces', path: canonicalPath }];
   return meta({

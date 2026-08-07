@@ -224,9 +224,22 @@ test('no package.json was added at the repository root', () => {
   assert.ok(!exists('package.json'));
 });
 
-test('no localised page changed on this branch', () => {
-  const changed = git('diff', BASELINE, '--name-only').trim().split('\n').filter(Boolean);
-  assert.deepStrictEqual(changed.filter((f) => /^(es|fr|de)\//.test(f)), []);
+test('no generator writes into a localised page', () => {
+  // Third guard of this shape to be restated. It read the branch diff, so it
+  // could not distinguish "the generator reached into es/fr/de" — the thing that
+  // must never happen — from "a person edited the German footer on purpose",
+  // which is ordinary work. A branch adding a product link to every footer
+  // failed it while doing nothing the rule was written to prevent.
+  //
+  // Both generators are checked, not just the directory one: the marketplace
+  // build is a sibling with its own manifest, and a rule that only covered the
+  // older build would go quiet exactly when a second one appeared.
+  const LOCALISED = /^(es|fr|de)\//;
+  const bd = JSON.parse(read(path.join('data', 'business-directories', '.build-manifest.json')));
+  const mp = JSON.parse(read(path.join('data', 'marketplaces', '.build-manifest.json')));
+  for (const owned of [...Object.keys(bd.files), ...mp.files]) {
+    assert.ok(!LOCALISED.test(owned), `a build claims the localised page ${owned}`);
+  }
 });
 
 test('the business-directories build never writes a legacy inline-style page', () => {

@@ -141,13 +141,33 @@ test('the research hub keeps all of its original sections', () => {
 });
 
 test('the added section reuses existing markup patterns only', () => {
+  // This originally asserted `class="prose"`, naming the one component the
+  // section happened to use. That is not the property worth protecting: when
+  // Collections grew to three databases and became a .product-list — the same
+  // component the homepage and /work/ use — the assertion failed on a change
+  // that introduced nothing new at all.
+  //
+  // The property is that the section invents no styling. Checking every class
+  // against the stylesheet says exactly that, and is stricter than naming one
+  // class: a made-up class name passed the old form as long as .prose was also
+  // present, and fails this one.
   const html = read('research/index.html');
   const start = html.indexOf('id="collections"');
   assert.ok(start > -1, 'collections section missing');
   const section = html.slice(html.lastIndexOf('<section', start), html.indexOf('</section>', start));
-  assert.ok(section.includes('class="prose"'), 'must reuse the existing .prose pattern');
   assert.ok(!/style="/.test(section), 'no inline styles');
   assert.ok(!/class="bd-/.test(section), 'no new design system classes on the hand-authored page');
+
+  const css = fs.readFileSync(path.join(root, 'css', 'petrohrys.css'), 'utf8');
+  const defined = new Set((css.match(/\.[a-zA-Z][\w-]*/g) || []).map((s) => s.slice(1)));
+  const used = new Set();
+  for (const m of section.matchAll(/class="([^"]+)"/g)) {
+    m[1].split(/\s+/).filter(Boolean).forEach((c) => used.add(c));
+  }
+  assert.ok(used.size > 0, 'the section carries no component class at all');
+  for (const c of used) {
+    assert.ok(defined.has(c), `.${c} is not defined in the site stylesheet`);
+  }
 });
 
 test('the research hub gains no new stylesheet or script', () => {
