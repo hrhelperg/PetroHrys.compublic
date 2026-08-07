@@ -35,6 +35,13 @@ const MARKETPLACE_TYPES = [
   'services',
   'fashion-resale',
   'auctions',
+  // Peer-to-peer resale of general goods. Added when the operator/country/type
+  // guard flagged Taobao and Xianyu as one platform: both are Alibaba, both are
+  // Chinese, and both were 'general-classifieds' — but a merchant retail
+  // marketplace and a consumer resale marketplace are not the same listing, and
+  // a vocabulary that cannot tell them apart makes the guard produce a false
+  // positive. The distinction is real and several platforms needed it.
+  'second-hand',
 ];
 
 // Who may publish. This is the axis that matters to an employee: a platform

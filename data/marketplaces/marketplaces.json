@@ -198,6 +198,33 @@
     "note": "Austria's largest classifieds marketplace, with dedicated commercial seller tooling."
   },
   {
+    "id": "mp-bd-bikroy",
+    "name": "Bikroy",
+    "website": "https://www.bikroy.com/",
+    "country": "bangladesh",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "unknown",
+    "alsoCovers": [
+      "jobs",
+      "property",
+      "vehicles"
+    ],
+    "note": "Bangladesh's leading classifieds marketplace. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
+    "id": "mp-bd-bproperty",
+    "name": "Bproperty",
+    "website": "https://www.bproperty.com/",
+    "country": "bangladesh",
+    "marketplaceType": "property",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "active",
+    "note": "Bangladesh's main property marketplace, where agents hold public listings."
+  },
+  {
     "id": "mp-by-kufar",
     "name": "Kufar",
     "website": "https://www.kufar.by/",
@@ -328,7 +355,7 @@
     "name": "Bunz",
     "website": "https://www.bunz.com/",
     "country": "canada",
-    "marketplaceType": "general-classifieds",
+    "marketplaceType": "second-hand",
     "sellerTypes": "both",
     "costModel": "free",
     "currentStatus": "unknown",
@@ -404,6 +431,93 @@
       "general-classifieds"
     ],
     "note": "The Canadian storefront of the eBay marketplace, where businesses hold public seller shops."
+  },
+  {
+    "id": "mp-cn-1688",
+    "name": "1688",
+    "website": "https://www.1688.com/",
+    "country": "china",
+    "marketplaceType": "b2b",
+    "sellerTypes": "business",
+    "costModel": "freemium",
+    "currentStatus": "unknown",
+    "operator": "Alibaba Group",
+    "note": "China's dominant domestic B2B wholesale marketplace. Could not be identified automatically, so a browser check is needed."
+  },
+  {
+    "id": "mp-cn-58",
+    "name": "58.com",
+    "website": "https://www.58.com/",
+    "country": "china",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "jobs",
+      "property",
+      "services",
+      "vehicles"
+    ],
+    "operator": "58.com Inc",
+    "note": "China's dominant classifieds platform, covering jobs, property, vehicles and local services. Ganji was absorbed into it and now resolves to its login."
+  },
+  {
+    "id": "mp-cn-aihuishou",
+    "name": "AiHuiShou",
+    "website": "https://www.aihuishou.com/",
+    "country": "china",
+    "marketplaceType": "second-hand",
+    "sellerTypes": "both",
+    "costModel": "free",
+    "currentStatus": "active",
+    "note": "A Chinese electronics trade-in and resale marketplace."
+  },
+  {
+    "id": "mp-cn-pinduoduo",
+    "name": "Pinduoduo",
+    "website": "https://www.pinduoduo.com/",
+    "country": "china",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "business",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "note": "A major Chinese consumer marketplace where merchants hold public shops."
+  },
+  {
+    "id": "mp-cn-taobao",
+    "name": "Taobao",
+    "website": "https://www.taobao.com/",
+    "country": "china",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "operator": "Alibaba Group",
+    "note": "China's largest consumer marketplace, where sellers hold public shops."
+  },
+  {
+    "id": "mp-cn-goofish",
+    "name": "Xianyu",
+    "website": "https://www.goofish.com/",
+    "country": "china",
+    "marketplaceType": "second-hand",
+    "sellerTypes": "both",
+    "costModel": "free",
+    "currentStatus": "active",
+    "operator": "Alibaba Group",
+    "note": "China's largest second-hand marketplace, where sellers hold public listings."
+  },
+  {
+    "id": "mp-cn-zhuanzhuan",
+    "name": "Zhuanzhuan",
+    "website": "https://www.zhuanzhuan.com/",
+    "country": "china",
+    "marketplaceType": "second-hand",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "note": "A major Chinese second-hand marketplace with authenticated resale."
   },
   {
     "id": "mp-hr-njuskalo",
@@ -734,6 +848,55 @@
     "note": "A leading Greek classifieds portal for property, vehicles and jobs. Live but behind a verification gate, so a browser check is needed."
   },
   {
+    "id": "mp-hk-28hse",
+    "name": "28Hse",
+    "website": "https://www.28hse.com/",
+    "country": "hong-kong",
+    "marketplaceType": "property",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "active",
+    "note": "A major Hong Kong property marketplace where agents hold public listings."
+  },
+  {
+    "id": "mp-hk-carousell",
+    "name": "Carousell Hong Kong",
+    "website": "https://www.carousell.com.hk/",
+    "country": "hong-kong",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "unknown",
+    "alsoCovers": [
+      "property",
+      "vehicles"
+    ],
+    "operator": "Carousell Group",
+    "note": "The Hong Kong arm of a Southeast Asian classifieds marketplace. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
+    "id": "mp-hk-dcfever",
+    "name": "DCFever",
+    "website": "https://www.dcfever.com/",
+    "country": "hong-kong",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "note": "A Hong Kong technology community with an active second-hand trading marketplace."
+  },
+  {
+    "id": "mp-hk-squarefoot",
+    "name": "Squarefoot",
+    "website": "https://www.squarefoot.com.hk/",
+    "country": "hong-kong",
+    "marketplaceType": "property",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "active",
+    "note": "A Hong Kong property marketplace where agents hold public listings."
+  },
+  {
     "id": "mp-hu-hasznaltauto",
     "name": "Hasznaltauto",
     "website": "https://www.hasznaltauto.hu/",
@@ -783,6 +946,111 @@
     "costModel": "freemium",
     "currentStatus": "active",
     "note": "Iceland's main classifieds marketplace."
+  },
+  {
+    "id": "mp-in-99acres",
+    "name": "99acres",
+    "website": "https://www.99acres.com/",
+    "country": "india",
+    "marketplaceType": "property",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "unknown",
+    "note": "A major Indian property marketplace. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
+    "id": "mp-in-cardekho",
+    "name": "CarDekho",
+    "website": "https://www.cardekho.com/",
+    "country": "india",
+    "marketplaceType": "vehicles",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "active",
+    "note": "A major Indian vehicle marketplace where dealers hold public pages."
+  },
+  {
+    "id": "mp-in-cars24",
+    "name": "Cars24",
+    "website": "https://www.cars24.com/",
+    "country": "india",
+    "marketplaceType": "vehicles",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "note": "An Indian used-vehicle marketplace."
+  },
+  {
+    "id": "mp-in-housing",
+    "name": "Housing.com",
+    "website": "https://www.housing.com/",
+    "country": "india",
+    "marketplaceType": "property",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "unknown",
+    "note": "An Indian property marketplace. Rejects automated requests, so a browser check is needed."
+  },
+  {
+    "id": "mp-in-magicbricks",
+    "name": "Magicbricks",
+    "website": "https://www.magicbricks.com/",
+    "country": "india",
+    "marketplaceType": "property",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "unknown",
+    "note": "A major Indian property marketplace. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
+    "id": "mp-in-quikr",
+    "name": "Quikr",
+    "website": "https://www.quikr.com/",
+    "country": "india",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "jobs",
+      "property",
+      "services",
+      "vehicles"
+    ],
+    "note": "A major Indian classifieds platform covering goods, jobs, property and services."
+  },
+  {
+    "id": "mp-in-spinny",
+    "name": "Spinny",
+    "website": "https://www.spinny.com/",
+    "country": "india",
+    "marketplaceType": "vehicles",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "note": "An Indian used-vehicle marketplace."
+  },
+  {
+    "id": "mp-id-mobil123",
+    "name": "Mobil123",
+    "website": "https://www.mobil123.com/",
+    "country": "indonesia",
+    "marketplaceType": "vehicles",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "unknown",
+    "note": "An Indonesian vehicle marketplace where dealers hold public pages. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
+    "id": "mp-id-rumah123",
+    "name": "Rumah123",
+    "website": "https://www.rumah123.com/",
+    "country": "indonesia",
+    "marketplaceType": "property",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "active",
+    "note": "A major Indonesian property marketplace where agents hold public listings."
   },
   {
     "id": "mp-ie-adverts",
@@ -848,6 +1116,80 @@
     ],
     "operator": "Adevinta",
     "note": "Italy's dominant classifieds marketplace, with professional seller accounts."
+  },
+  {
+    "id": "mp-jp-carsensor",
+    "name": "Carsensor",
+    "website": "https://www.carsensor.net/",
+    "country": "japan",
+    "marketplaceType": "vehicles",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "active",
+    "note": "A major Japanese vehicle marketplace where dealers hold public pages."
+  },
+  {
+    "id": "mp-jp-goonet",
+    "name": "Goo-net",
+    "website": "https://www.goo-net.com/",
+    "country": "japan",
+    "marketplaceType": "vehicles",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "unknown",
+    "note": "A major Japanese vehicle marketplace where dealers hold public pages. Could not be identified automatically, so a browser check is needed."
+  },
+  {
+    "id": "mp-jp-jmty",
+    "name": "Jimoty",
+    "website": "https://jmty.jp/",
+    "country": "japan",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "free",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "jobs",
+      "property",
+      "services"
+    ],
+    "note": "Japan's main free local classifieds board."
+  },
+  {
+    "id": "mp-jp-suumo",
+    "name": "SUUMO",
+    "website": "https://suumo.jp/",
+    "country": "japan",
+    "marketplaceType": "property",
+    "sellerTypes": "business",
+    "costModel": "paid",
+    "currentStatus": "active",
+    "note": "Japan's largest property marketplace, where agents hold public listings."
+  },
+  {
+    "id": "mp-jp-yahoo-auctions",
+    "name": "Yahoo! Auctions Japan",
+    "website": "https://auctions.yahoo.co.jp/",
+    "country": "japan",
+    "marketplaceType": "auctions",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "unknown",
+    "alsoCovers": [
+      "general-classifieds"
+    ],
+    "note": "Japan's largest auction marketplace, where sellers hold public listings. Live but behind a regional gate, so a browser check is needed."
+  },
+  {
+    "id": "mp-jp-athome",
+    "name": "at home",
+    "website": "https://www.athome.co.jp/",
+    "country": "japan",
+    "marketplaceType": "property",
+    "sellerTypes": "business",
+    "costModel": "paid",
+    "currentStatus": "active",
+    "note": "A major Japanese property marketplace where agents hold public listings."
   },
   {
     "id": "mp-lv-ss",
@@ -924,6 +1266,33 @@
     "costModel": "paid",
     "currentStatus": "active",
     "note": "The main Luxembourg property marketplace, where agents hold public listings."
+  },
+  {
+    "id": "mp-my-carousell",
+    "name": "Carousell Malaysia",
+    "website": "https://www.carousell.com.my/",
+    "country": "malaysia",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "unknown",
+    "operator": "Carousell Group",
+    "note": "The Malaysian arm of a Southeast Asian classifieds marketplace. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
+    "id": "mp-my-mudah",
+    "name": "Mudah.my",
+    "website": "https://www.mudah.my/",
+    "country": "malaysia",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "property",
+      "vehicles"
+    ],
+    "note": "Malaysia's largest classifieds marketplace."
   },
   {
     "id": "mp-mt-maltapark",
@@ -1055,6 +1424,94 @@
     "costModel": "free",
     "currentStatus": "active",
     "note": "A Nordic second-hand fashion marketplace."
+  },
+  {
+    "id": "mp-pk-olx",
+    "name": "OLX Pakistan",
+    "website": "https://www.olx.com.pk/",
+    "country": "pakistan",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "jobs",
+      "property",
+      "vehicles"
+    ],
+    "operator": "OLX Group",
+    "note": "Pakistan's dominant classifieds marketplace."
+  },
+  {
+    "id": "mp-pk-pakwheels",
+    "name": "PakWheels",
+    "website": "https://www.pakwheels.com/",
+    "country": "pakistan",
+    "marketplaceType": "vehicles",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "note": "Pakistan's main vehicle marketplace, where dealers hold public pages."
+  },
+  {
+    "id": "mp-pk-propertyfinder",
+    "name": "PropertyFinder.pk",
+    "website": "https://www.propertyfinder.pk/",
+    "country": "pakistan",
+    "marketplaceType": "property",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "active",
+    "note": "A Pakistani property marketplace where agents hold public listings."
+  },
+  {
+    "id": "mp-pk-zameen",
+    "name": "Zameen",
+    "website": "https://www.zameen.com/",
+    "country": "pakistan",
+    "marketplaceType": "property",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "active",
+    "note": "Pakistan's main property marketplace, where agents hold public listings."
+  },
+  {
+    "id": "mp-ph-autodeal",
+    "name": "AutoDeal",
+    "website": "https://www.autodeal.com.ph/",
+    "country": "philippines",
+    "marketplaceType": "vehicles",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "unknown",
+    "note": "A Philippine vehicle marketplace where dealers hold public pages. Rejects automated requests, so a browser check is needed."
+  },
+  {
+    "id": "mp-ph-carousell",
+    "name": "Carousell Philippines",
+    "website": "https://www.carousell.ph/",
+    "country": "philippines",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "unknown",
+    "alsoCovers": [
+      "property",
+      "vehicles"
+    ],
+    "operator": "Carousell Group",
+    "note": "The Philippine classifieds marketplace, which absorbed OLX Philippines. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
+    "id": "mp-ph-lamudi",
+    "name": "Lamudi Philippines",
+    "website": "https://www.lamudi.com.ph/",
+    "country": "philippines",
+    "marketplaceType": "property",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "unknown",
+    "note": "A Philippine property marketplace where agents hold public listings. Returns an authorisation gate, so a browser check is needed."
   },
   {
     "id": "mp-pl-allegro",
@@ -1292,6 +1749,72 @@
     "note": "The main Serbian vehicle marketplace. Live but behind a bot filter, so a browser check is needed."
   },
   {
+    "id": "mp-sg-99co",
+    "name": "99.co",
+    "website": "https://www.99.co/",
+    "country": "singapore",
+    "marketplaceType": "property",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "unknown",
+    "note": "A Singapore property marketplace where agents hold public listings. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
+    "id": "mp-sg-carousell",
+    "name": "Carousell",
+    "website": "https://www.carousell.sg/",
+    "country": "singapore",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "unknown",
+    "alsoCovers": [
+      "property",
+      "vehicles"
+    ],
+    "operator": "Carousell Group",
+    "note": "Singapore's leading classifieds marketplace and the group's home market. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
+    "id": "mp-sg-gumtree",
+    "name": "Gumtree Singapore",
+    "website": "https://www.gumtree.sg/",
+    "country": "singapore",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "jobs",
+      "property",
+      "vehicles"
+    ],
+    "note": "The Singapore arm of the Gumtree classifieds network."
+  },
+  {
+    "id": "mp-sg-propertyguru",
+    "name": "PropertyGuru",
+    "website": "https://www.propertyguru.com.sg/",
+    "country": "singapore",
+    "marketplaceType": "property",
+    "sellerTypes": "business",
+    "costModel": "paid",
+    "currentStatus": "unknown",
+    "operator": "PropertyGuru Group",
+    "note": "Singapore's main property marketplace, where agents hold public listings. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
+    "id": "mp-sg-sgcarmart",
+    "name": "sgCarMart",
+    "website": "https://www.sgcarmart.com/",
+    "country": "singapore",
+    "marketplaceType": "vehicles",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "unknown",
+    "note": "Singapore's main vehicle marketplace, where dealers hold public dealer pages. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
     "id": "mp-sk-bazar",
     "name": "Bazar.sk",
     "website": "https://www.bazar.sk/",
@@ -1344,6 +1867,83 @@
     "note": "Slovenia's largest classifieds marketplace."
   },
   {
+    "id": "mp-kr-albamon",
+    "name": "Albamon",
+    "website": "https://www.albamon.com/",
+    "country": "south-korea",
+    "marketplaceType": "jobs",
+    "sellerTypes": "business",
+    "costModel": "paid",
+    "currentStatus": "active",
+    "note": "A major Korean part-time job marketplace where employers hold public pages."
+  },
+  {
+    "id": "mp-kr-bunjang",
+    "name": "Bunjang",
+    "website": "https://www.bunjang.co.kr/",
+    "country": "south-korea",
+    "marketplaceType": "second-hand",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "note": "A major Korean second-hand marketplace with seller storefronts."
+  },
+  {
+    "id": "mp-kr-encar",
+    "name": "Encar",
+    "website": "https://www.encar.com/",
+    "country": "south-korea",
+    "marketplaceType": "vehicles",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "unknown",
+    "note": "South Korea's main vehicle marketplace. Could not be identified automatically, so a browser check is needed."
+  },
+  {
+    "id": "mp-kr-joongna",
+    "name": "Joongna",
+    "website": "https://www.joongna.com/",
+    "country": "south-korea",
+    "marketplaceType": "second-hand",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "note": "South Korea's largest second-hand marketplace."
+  },
+  {
+    "id": "mp-kr-kbchachacha",
+    "name": "KB Chachacha",
+    "website": "https://www.kbchachacha.com/",
+    "country": "south-korea",
+    "marketplaceType": "vehicles",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "active",
+    "note": "A major Korean vehicle marketplace where dealers hold public pages."
+  },
+  {
+    "id": "mp-kr-saramin",
+    "name": "Saramin",
+    "website": "https://www.saramin.co.kr/",
+    "country": "south-korea",
+    "marketplaceType": "jobs",
+    "sellerTypes": "business",
+    "costModel": "paid",
+    "currentStatus": "active",
+    "note": "A major Korean job marketplace where employers hold public company pages."
+  },
+  {
+    "id": "mp-kr-zigbang",
+    "name": "Zigbang",
+    "website": "https://www.zigbang.com/",
+    "country": "south-korea",
+    "marketplaceType": "property",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "active",
+    "note": "A major Korean property marketplace where agents hold public listings."
+  },
+  {
     "id": "mp-es-milanuncios",
     "name": "Milanuncios",
     "website": "https://www.milanuncios.com/",
@@ -1370,6 +1970,58 @@
     "costModel": "freemium",
     "currentStatus": "active",
     "note": "A major Spanish classifieds marketplace with professional seller accounts."
+  },
+  {
+    "id": "mp-lk-lankapropertyweb",
+    "name": "Lanka Property Web",
+    "website": "https://www.lankapropertyweb.com/",
+    "country": "sri-lanka",
+    "marketplaceType": "property",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "active",
+    "note": "A Sri Lankan property marketplace where agents hold public listings."
+  },
+  {
+    "id": "mp-lk-patpat",
+    "name": "PatPat.lk",
+    "website": "https://www.patpat.lk/",
+    "country": "sri-lanka",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "unknown",
+    "alsoCovers": [
+      "vehicles"
+    ],
+    "note": "A Sri Lankan classifieds marketplace. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
+    "id": "mp-lk-riyasewana",
+    "name": "Riyasewana",
+    "website": "https://www.riyasewana.com/",
+    "country": "sri-lanka",
+    "marketplaceType": "vehicles",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "unknown",
+    "note": "Sri Lanka's main vehicle marketplace. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
+    "id": "mp-lk-ikman",
+    "name": "ikman",
+    "website": "https://www.ikman.lk/",
+    "country": "sri-lanka",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "jobs",
+      "property",
+      "vehicles"
+    ],
+    "note": "Sri Lanka's leading classifieds marketplace."
   },
   {
     "id": "mp-se-blocket",
@@ -1454,6 +2106,102 @@
       "vehicles"
     ],
     "note": "A leading Swiss classifieds marketplace. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
+    "id": "mp-tw-591",
+    "name": "591",
+    "website": "https://www.591.com.tw/",
+    "country": "taiwan",
+    "marketplaceType": "property",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "active",
+    "note": "Taiwan's main property marketplace, where agents hold public listings."
+  },
+  {
+    "id": "mp-tw-8891",
+    "name": "8891",
+    "website": "https://www.8891.com.tw/",
+    "country": "taiwan",
+    "marketplaceType": "vehicles",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "active",
+    "note": "Taiwan's main vehicle marketplace, where dealers hold public pages."
+  },
+  {
+    "id": "mp-tw-ruten",
+    "name": "Ruten",
+    "website": "https://www.ruten.com.tw/",
+    "country": "taiwan",
+    "marketplaceType": "auctions",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "general-classifieds"
+    ],
+    "note": "Taiwan's largest online marketplace, where sellers hold public shops."
+  },
+  {
+    "id": "mp-th-ddproperty",
+    "name": "DDproperty",
+    "website": "https://www.ddproperty.com/",
+    "country": "thailand",
+    "marketplaceType": "property",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "unknown",
+    "operator": "PropertyGuru Group",
+    "note": "Thailand's main property marketplace. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
+    "id": "mp-th-kaidee",
+    "name": "Kaidee",
+    "website": "https://www.kaidee.com/",
+    "country": "thailand",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "property",
+      "vehicles"
+    ],
+    "note": "Thailand's leading classifieds marketplace."
+  },
+  {
+    "id": "mp-th-one2car",
+    "name": "One2car",
+    "website": "https://www.one2car.com/",
+    "country": "thailand",
+    "marketplaceType": "vehicles",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "unknown",
+    "note": "A Thai vehicle marketplace where dealers hold public pages. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
+    "id": "mp-th-tarad",
+    "name": "TARAD",
+    "website": "https://www.tarad.com/",
+    "country": "thailand",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "business",
+    "costModel": "paid",
+    "currentStatus": "active",
+    "note": "A Thai online marketplace where merchants hold public storefronts."
+  },
+  {
+    "id": "mp-th-taladrod",
+    "name": "TaladRod",
+    "website": "https://www.taladrod.com/",
+    "country": "thailand",
+    "marketplaceType": "vehicles",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "active",
+    "note": "A Thai vehicle marketplace where dealers hold public listings."
   },
   {
     "id": "mp-tr-arabam",
@@ -1609,7 +2357,7 @@
     "name": "5miles",
     "website": "https://www.5miles.com/",
     "country": "united-states",
-    "marketplaceType": "general-classifieds",
+    "marketplaceType": "second-hand",
     "sellerTypes": "both",
     "costModel": "freemium",
     "currentStatus": "unknown",
@@ -1656,7 +2404,7 @@
     "name": "Bookoo",
     "website": "https://www.bookoo.com/",
     "country": "united-states",
-    "marketplaceType": "general-classifieds",
+    "marketplaceType": "second-hand",
     "sellerTypes": "both",
     "costModel": "free",
     "currentStatus": "active",
@@ -1842,7 +2590,7 @@
     "name": "Mercari",
     "website": "https://www.mercari.com/",
     "country": "united-states",
-    "marketplaceType": "general-classifieds",
+    "marketplaceType": "second-hand",
     "sellerTypes": "both",
     "costModel": "freemium",
     "currentStatus": "unknown",
@@ -1951,7 +2699,7 @@
     "name": "VarageSale",
     "website": "https://www.varagesale.com/",
     "country": "united-states",
-    "marketplaceType": "general-classifieds",
+    "marketplaceType": "second-hand",
     "sellerTypes": "both",
     "costModel": "free",
     "currentStatus": "active",
@@ -1982,5 +2730,69 @@
       "vehicles"
     ],
     "note": "The largest US auction and fixed-price marketplace, where businesses hold public seller shops."
+  },
+  {
+    "id": "mp-vn-alonhadat",
+    "name": "Alonhadat",
+    "website": "https://www.alonhadat.com.vn/",
+    "country": "vietnam",
+    "marketplaceType": "property",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "note": "A Vietnamese property marketplace."
+  },
+  {
+    "id": "mp-vn-batdongsan",
+    "name": "Batdongsan",
+    "website": "https://batdongsan.com.vn/",
+    "country": "vietnam",
+    "marketplaceType": "property",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "unknown",
+    "note": "Vietnam's main property marketplace. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
+    "id": "mp-vn-chotot",
+    "name": "Chợ Tốt",
+    "website": "https://www.chotot.com/",
+    "country": "vietnam",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "property",
+      "vehicles"
+    ],
+    "note": "Vietnam's leading classifieds marketplace."
+  },
+  {
+    "id": "mp-vn-muaban",
+    "name": "Muaban.net",
+    "website": "https://muaban.net/",
+    "country": "vietnam",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "unknown",
+    "alsoCovers": [
+      "jobs",
+      "property",
+      "vehicles"
+    ],
+    "note": "A Vietnamese classifieds portal. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
+    "id": "mp-vn-vieclam24h",
+    "name": "Việc Làm 24h",
+    "website": "https://www.vieclam24h.vn/",
+    "country": "vietnam",
+    "marketplaceType": "jobs",
+    "sellerTypes": "business",
+    "costModel": "paid",
+    "currentStatus": "active",
+    "note": "A Vietnamese job marketplace where employers hold public company pages."
   }
 ]

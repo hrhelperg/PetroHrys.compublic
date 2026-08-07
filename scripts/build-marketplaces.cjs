@@ -41,6 +41,7 @@ const TYPE_LABELS = {
   services: 'Services',
   'fashion-resale': 'Fashion resale',
   auctions: 'Auctions',
+  'second-hand': 'Second-hand',
 };
 const SELLER_LABELS = { business: 'Businesses only', private: 'Private only', both: 'Businesses and private' };
 const COST_LABELS = { free: 'Free', paid: 'Paid', freemium: 'Free tier', unknown: 'Unknown' };
