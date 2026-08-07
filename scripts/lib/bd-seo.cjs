@@ -312,6 +312,24 @@ function buildRecommendationMeta({ label, slug, blurb, count }) {
   });
 }
 
+// The marketplaces dataset is a sibling section, so it gets its own root trail
+// rather than hanging off the business-directories breadcrumb — the two answer
+// different questions and neither is a child of the other.
+function buildMarketplacesMeta({ count, countries }) {
+  const canonicalPath = '/research/marketplaces/';
+  const title = 'Marketplace and classified platforms in Europe';
+  const description = `${count} platforms across ${countries} European countries where a business `
+    + 'or a person can publish a listing, with type, cost and who may list for each.';
+  const trail = [ROOT_TRAIL[0], { name: 'Marketplaces', path: canonicalPath }];
+  return meta({
+    title, description, canonicalPath, robots: undefined, breadcrumbTrail: trail,
+    graph: [
+      collectionPage({ name: title, description, url: absoluteUrl(canonicalPath) }),
+      breadcrumbList(trail),
+    ],
+  });
+}
+
 function buildOpportunitiesMeta() {
   const canonicalPath = `${routes.BASE}opportunities/`;
   const title = 'Business Listing Opportunities';
@@ -375,4 +393,5 @@ module.exports = {
   breadcrumbList, collectionPage, webPage, itemList, faqPage, organisationAbout,
   buildHubMeta, buildCountryMeta, buildCategoryMeta, buildDirectoryMeta,
   buildArticleMeta, buildArticleIndexMeta, buildOpportunitiesMeta, buildRecommendationMeta,
+  buildMarketplacesMeta,
 };
