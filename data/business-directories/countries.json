@@ -738,5 +738,53 @@
     "entityType": "country",
     "titleName": "Namibia",
     "iso2": "NA"
+  },
+  {
+    "id": "cambodia",
+    "slug": "cambodia",
+    "name": "Cambodia",
+    "entityType": "country",
+    "titleName": "Cambodia",
+    "iso2": "KH"
+  },
+  {
+    "id": "laos",
+    "slug": "laos",
+    "name": "Laos",
+    "entityType": "country",
+    "titleName": "Laos",
+    "iso2": "LA"
+  },
+  {
+    "id": "myanmar",
+    "slug": "myanmar",
+    "name": "Myanmar",
+    "entityType": "country",
+    "titleName": "Myanmar",
+    "iso2": "MM"
+  },
+  {
+    "id": "azerbaijan",
+    "slug": "azerbaijan",
+    "name": "Azerbaijan",
+    "entityType": "country",
+    "titleName": "Azerbaijan",
+    "iso2": "AZ"
+  },
+  {
+    "id": "georgia",
+    "slug": "georgia",
+    "name": "Georgia",
+    "entityType": "country",
+    "titleName": "Georgia",
+    "iso2": "GE"
+  },
+  {
+    "id": "armenia",
+    "slug": "armenia",
+    "name": "Armenia",
+    "entityType": "country",
+    "titleName": "Armenia",
+    "iso2": "AM"
   }
 ]
