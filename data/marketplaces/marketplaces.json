@@ -16,6 +16,158 @@
     "note": "Albania's leading classifieds marketplace."
   },
   {
+    "id": "mp-au-airtasker",
+    "name": "Airtasker",
+    "website": "https://www.airtasker.com/",
+    "country": "australia",
+    "marketplaceType": "services",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "unknown",
+    "note": "An Australian services marketplace where providers hold public profiles. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
+    "id": "mp-au-graysonline",
+    "name": "Grays",
+    "website": "https://www.graysonline.com/",
+    "country": "australia",
+    "marketplaceType": "auctions",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "unknown",
+    "alsoCovers": [
+      "vehicles"
+    ],
+    "note": "An Australian online auction marketplace for industrial and consumer goods. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
+    "id": "mp-au-gumtree",
+    "name": "Gumtree Australia",
+    "website": "https://www.gumtree.com.au/",
+    "country": "australia",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "unknown",
+    "alsoCovers": [
+      "jobs",
+      "property",
+      "vehicles"
+    ],
+    "note": "Australia's main general classifieds marketplace. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
+    "id": "mp-au-pickles",
+    "name": "Pickles",
+    "website": "https://www.pickles.com.au/",
+    "country": "australia",
+    "marketplaceType": "auctions",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "vehicles"
+    ],
+    "note": "An Australian industrial and vehicle auction marketplace."
+  },
+  {
+    "id": "mp-au-seek",
+    "name": "SEEK",
+    "website": "https://www.seek.com.au/",
+    "country": "australia",
+    "marketplaceType": "jobs",
+    "sellerTypes": "business",
+    "costModel": "paid",
+    "currentStatus": "unknown",
+    "note": "Australia's dominant job marketplace, where employers hold public company pages. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
+    "id": "mp-au-tradingpost",
+    "name": "Trading Post",
+    "website": "https://www.tradingpost.com.au/",
+    "country": "australia",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "unknown",
+    "alsoCovers": [
+      "vehicles"
+    ],
+    "note": "A long-running Australian classifieds marketplace. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
+    "id": "mp-au-bikesales",
+    "name": "bikesales",
+    "website": "https://www.bikesales.com.au/",
+    "country": "australia",
+    "marketplaceType": "vehicles",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "active",
+    "note": "An Australian motorcycle marketplace where dealers hold public listings."
+  },
+  {
+    "id": "mp-au-boatsales",
+    "name": "boatsales",
+    "website": "https://www.boatsales.com.au/",
+    "country": "australia",
+    "marketplaceType": "vehicles",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "active",
+    "note": "An Australian boat marketplace where dealers hold public listings."
+  },
+  {
+    "id": "mp-au-carsales",
+    "name": "carsales",
+    "website": "https://www.carsales.com.au/",
+    "country": "australia",
+    "marketplaceType": "vehicles",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "unknown",
+    "note": "Australia's main vehicle marketplace, where dealers hold public dealer pages. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
+    "id": "mp-au-ebay",
+    "name": "eBay Australia",
+    "website": "https://www.ebay.com.au/",
+    "country": "australia",
+    "marketplaceType": "auctions",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "general-classifieds"
+    ],
+    "note": "The Australian storefront of the eBay marketplace, where businesses hold public seller shops."
+  },
+  {
+    "id": "mp-au-farmmachinerysales",
+    "name": "farmmachinerysales",
+    "website": "https://www.farmmachinerysales.com.au/",
+    "country": "australia",
+    "marketplaceType": "b2b",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "vehicles"
+    ],
+    "note": "An Australian farm machinery marketplace where dealers hold public listings."
+  },
+  {
+    "id": "mp-au-realestate",
+    "name": "realestate.com.au",
+    "website": "https://www.realestate.com.au/",
+    "country": "australia",
+    "marketplaceType": "property",
+    "sellerTypes": "business",
+    "costModel": "paid",
+    "currentStatus": "unknown",
+    "note": "Australia's main property marketplace, where agents hold public listings. Rate-limits automated requests, so a browser check is needed."
+  },
+  {
     "id": "mp-at-bazar",
     "name": "bazar.at",
     "website": "https://www.bazar.at/",
@@ -159,6 +311,99 @@
     ],
     "operator": "OLX Group",
     "note": "Bulgaria's leading classifieds marketplace."
+  },
+  {
+    "id": "mp-ca-autotrader",
+    "name": "AutoTrader.ca",
+    "website": "https://www.autotrader.ca/",
+    "country": "canada",
+    "marketplaceType": "vehicles",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "active",
+    "note": "The main Canadian vehicle marketplace, where dealers hold public dealer pages."
+  },
+  {
+    "id": "mp-ca-bunz",
+    "name": "Bunz",
+    "website": "https://www.bunz.com/",
+    "country": "canada",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "free",
+    "currentStatus": "unknown",
+    "note": "A Canadian community trading and buy-and-sell marketplace. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
+    "id": "mp-ca-kijiji",
+    "name": "Kijiji",
+    "website": "https://www.kijiji.ca/",
+    "country": "canada",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "jobs",
+      "property",
+      "services",
+      "vehicles"
+    ],
+    "operator": "Adevinta",
+    "note": "Canada's dominant classifieds marketplace, with commercial seller accounts."
+  },
+  {
+    "id": "mp-ca-lespac",
+    "name": "LesPAC",
+    "website": "https://www.lespac.com/",
+    "country": "canada",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "unknown",
+    "alsoCovers": [
+      "vehicles"
+    ],
+    "note": "The main Quebec French-language classifieds marketplace. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
+    "id": "mp-ca-realtor",
+    "name": "REALTOR.ca",
+    "website": "https://www.realtor.ca/",
+    "country": "canada",
+    "marketplaceType": "property",
+    "sellerTypes": "business",
+    "costModel": "paid",
+    "currentStatus": "active",
+    "note": "The main Canadian property marketplace, operated by the national real estate association."
+  },
+  {
+    "id": "mp-ca-used",
+    "name": "Used.ca",
+    "website": "https://www.usedvictoria.com/",
+    "country": "canada",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "vehicles"
+    ],
+    "note": "A regional Canadian classifieds network."
+  },
+  {
+    "id": "mp-ca-ebay",
+    "name": "eBay Canada",
+    "website": "https://www.ebay.ca/",
+    "country": "canada",
+    "marketplaceType": "auctions",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "general-classifieds"
+    ],
+    "note": "The Canadian storefront of the eBay marketplace, where businesses hold public seller shops."
   },
   {
     "id": "mp-hr-njuskalo",
@@ -1347,5 +1592,395 @@
     "costModel": "freemium",
     "currentStatus": "active",
     "note": "A UK classifieds marketplace for goods and services."
+  },
+  {
+    "id": "mp-us-1stdibs",
+    "name": "1stDibs",
+    "website": "https://www.1stdibs.com/",
+    "country": "united-states",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "business",
+    "costModel": "paid",
+    "currentStatus": "active",
+    "note": "A US marketplace for antique and design dealers, who hold public storefronts."
+  },
+  {
+    "id": "mp-us-5miles",
+    "name": "5miles",
+    "website": "https://www.5miles.com/",
+    "country": "united-states",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "unknown",
+    "note": "A US local marketplace. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
+    "id": "mp-us-abebooks",
+    "name": "AbeBooks",
+    "website": "https://www.abebooks.com/",
+    "country": "united-states",
+    "marketplaceType": "b2b",
+    "sellerTypes": "business",
+    "costModel": "paid",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "general-classifieds"
+    ],
+    "note": "An international marketplace where independent booksellers hold public storefronts."
+  },
+  {
+    "id": "mp-us-adpost",
+    "name": "Adpost",
+    "website": "https://www.adpost.com/",
+    "country": "united-states",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "note": "An international classifieds platform with a large US section."
+  },
+  {
+    "id": "mp-us-apartments",
+    "name": "Apartments.com",
+    "website": "https://www.apartments.com/",
+    "country": "united-states",
+    "marketplaceType": "property",
+    "sellerTypes": "business",
+    "costModel": "paid",
+    "currentStatus": "unknown",
+    "note": "A major US rental property marketplace. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
+    "id": "mp-us-bookoo",
+    "name": "Bookoo",
+    "website": "https://www.bookoo.com/",
+    "country": "united-states",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "free",
+    "currentStatus": "active",
+    "note": "A US community marketplace, historically strongest around military communities."
+  },
+  {
+    "id": "mp-us-bringatrailer",
+    "name": "Bring a Trailer",
+    "website": "https://bringatrailer.com/",
+    "country": "united-states",
+    "marketplaceType": "auctions",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "vehicles"
+    ],
+    "note": "A US collector vehicle auction marketplace."
+  },
+  {
+    "id": "mp-us-cargurus",
+    "name": "CarGurus",
+    "website": "https://www.cargurus.com/",
+    "country": "united-states",
+    "marketplaceType": "vehicles",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "unknown",
+    "note": "A major US vehicle marketplace where dealers hold public dealer pages. Rejects automated requests, so a browser check is needed."
+  },
+  {
+    "id": "mp-us-cars",
+    "name": "Cars.com",
+    "website": "https://www.cars.com/",
+    "country": "united-states",
+    "marketplaceType": "vehicles",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "unknown",
+    "note": "A major US vehicle marketplace where dealers hold public dealer pages. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
+    "id": "mp-us-chairish",
+    "name": "Chairish",
+    "website": "https://www.chairish.com/",
+    "country": "united-states",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "active",
+    "note": "A US vintage furniture and design marketplace with public seller shops."
+  },
+  {
+    "id": "mp-us-classifiedads",
+    "name": "ClassifiedAds.com",
+    "website": "https://www.classifiedads.com/",
+    "country": "united-states",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "free",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "jobs",
+      "property",
+      "vehicles"
+    ],
+    "note": "A free US classifieds platform."
+  },
+  {
+    "id": "mp-us-craigslist",
+    "name": "Craigslist",
+    "website": "https://www.craigslist.org/",
+    "country": "united-states",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "jobs",
+      "property",
+      "services",
+      "vehicles"
+    ],
+    "note": "The dominant US classifieds platform. It runs several hundred city sites, but they are one platform and one account, so this is one row rather than one per city."
+  },
+  {
+    "id": "mp-us-depop",
+    "name": "Depop",
+    "website": "https://www.depop.com/",
+    "country": "united-states",
+    "marketplaceType": "fashion-resale",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "unknown",
+    "note": "A fashion resale marketplace with public seller shops. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
+    "id": "mp-us-etsy",
+    "name": "Etsy",
+    "website": "https://www.etsy.com/",
+    "country": "united-states",
+    "marketplaceType": "auctions",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "unknown",
+    "alsoCovers": [
+      "general-classifieds"
+    ],
+    "note": "A US handmade and vintage marketplace where sellers hold public shops. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
+    "id": "mp-us-faire",
+    "name": "Faire",
+    "website": "https://www.faire.com/",
+    "country": "united-states",
+    "marketplaceType": "b2b",
+    "sellerTypes": "business",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "note": "A wholesale marketplace where brands hold public public-facing storefronts for retail buyers."
+  },
+  {
+    "id": "mp-us-geebo",
+    "name": "Geebo",
+    "website": "https://www.geebo.com/",
+    "country": "united-states",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "jobs",
+      "property",
+      "vehicles"
+    ],
+    "note": "A US classifieds site covering jobs, property and vehicles."
+  },
+  {
+    "id": "mp-us-hoobly",
+    "name": "Hoobly",
+    "website": "https://www.hoobly.com/",
+    "country": "united-states",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "unknown",
+    "note": "A US classifieds platform. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
+    "id": "mp-us-ksl",
+    "name": "KSL Classifieds",
+    "website": "https://www.ksl.com/classifieds/",
+    "country": "united-states",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "unknown",
+    "alsoCovers": [
+      "jobs",
+      "property",
+      "vehicles"
+    ],
+    "note": "A major regional US classifieds platform serving Utah and the Mountain West. The main site answers but the classifieds section returned a transient error, so a browser check is needed."
+  },
+  {
+    "id": "mp-us-locanto",
+    "name": "Locanto",
+    "website": "https://www.locanto.com/",
+    "country": "united-states",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "unknown",
+    "alsoCovers": [
+      "jobs",
+      "property",
+      "services"
+    ],
+    "note": "An international classifieds network with a large US section. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
+    "id": "mp-us-mercari",
+    "name": "Mercari",
+    "website": "https://www.mercari.com/",
+    "country": "united-states",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "unknown",
+    "note": "A major US consumer marketplace. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
+    "id": "mp-us-nextdoor",
+    "name": "Nextdoor",
+    "website": "https://nextdoor.com/",
+    "country": "united-states",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "services"
+    ],
+    "note": "A US neighbourhood network with a for-sale section and business pages."
+  },
+  {
+    "id": "mp-us-offerup",
+    "name": "OfferUp",
+    "website": "https://www.offerup.com/",
+    "country": "united-states",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "unknown",
+    "alsoCovers": [
+      "vehicles"
+    ],
+    "note": "A major US local buy-and-sell marketplace, which absorbed letgo. Live but behind a geolocation gate, so a browser check is needed."
+  },
+  {
+    "id": "mp-us-oodle",
+    "name": "Oodle",
+    "website": "https://www.oodle.com/",
+    "country": "united-states",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "unknown",
+    "alsoCovers": [
+      "property",
+      "vehicles"
+    ],
+    "note": "A US classifieds aggregator and marketplace. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
+    "id": "mp-us-pennysaver",
+    "name": "PennySaver USA",
+    "website": "https://www.pennysaverusa.com/",
+    "country": "united-states",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "note": "A US local classifieds and coupons platform."
+  },
+  {
+    "id": "mp-us-poshmark",
+    "name": "Poshmark",
+    "website": "https://poshmark.com/",
+    "country": "united-states",
+    "marketplaceType": "fashion-resale",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "note": "A US fashion resale marketplace where sellers hold public closets."
+  },
+  {
+    "id": "mp-us-reverb",
+    "name": "Reverb",
+    "website": "https://www.reverb.com/",
+    "country": "united-states",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "unknown",
+    "note": "A US musical instrument marketplace where shops hold public storefronts. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
+    "id": "mp-us-rubylane",
+    "name": "Ruby Lane",
+    "website": "https://www.rubylane.com/",
+    "country": "united-states",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "business",
+    "costModel": "paid",
+    "currentStatus": "active",
+    "note": "A US antiques and collectibles marketplace where dealers hold public shops."
+  },
+  {
+    "id": "mp-us-storenvy",
+    "name": "Storenvy",
+    "website": "https://www.storenvy.com/",
+    "country": "united-states",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "business",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "note": "A US marketplace where independent brands hold public storefronts."
+  },
+  {
+    "id": "mp-us-varagesale",
+    "name": "VarageSale",
+    "website": "https://www.varagesale.com/",
+    "country": "united-states",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "free",
+    "currentStatus": "active",
+    "note": "A North American community buy-and-sell marketplace with verified members."
+  },
+  {
+    "id": "mp-us-zillow",
+    "name": "Zillow",
+    "website": "https://www.zillow.com/",
+    "country": "united-states",
+    "marketplaceType": "property",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "unknown",
+    "note": "The largest US property marketplace, where agents hold public listings. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
+    "id": "mp-us-ebay",
+    "name": "eBay",
+    "website": "https://www.ebay.com/",
+    "country": "united-states",
+    "marketplaceType": "auctions",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "general-classifieds",
+      "vehicles"
+    ],
+    "note": "The largest US auction and fixed-price marketplace, where businesses hold public seller shops."
   }
 ]

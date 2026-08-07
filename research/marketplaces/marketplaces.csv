@@ -1,5 +1,17 @@
 ﻿id,name,website,country,marketplace_type,also_covers,seller_types,cost,operator,current_status,note
 mp-al-merrjep,MerrJep,https://www.merrjep.al/,albania,general-classifieds,jobs; property; vehicles,both,freemium,,active,Albania's leading classifieds marketplace.
+mp-au-airtasker,Airtasker,https://www.airtasker.com/,australia,services,,both,freemium,,unknown,"An Australian services marketplace where providers hold public profiles. Live but behind a bot filter, so a browser check is needed."
+mp-au-graysonline,Grays,https://www.graysonline.com/,australia,auctions,vehicles,both,paid,,unknown,"An Australian online auction marketplace for industrial and consumer goods. Live but behind a bot filter, so a browser check is needed."
+mp-au-gumtree,Gumtree Australia,https://www.gumtree.com.au/,australia,general-classifieds,jobs; property; vehicles,both,freemium,,unknown,"Australia's main general classifieds marketplace. Live but behind a bot filter, so a browser check is needed."
+mp-au-pickles,Pickles,https://www.pickles.com.au/,australia,auctions,vehicles,both,paid,,active,An Australian industrial and vehicle auction marketplace.
+mp-au-seek,SEEK,https://www.seek.com.au/,australia,jobs,,business,paid,,unknown,"Australia's dominant job marketplace, where employers hold public company pages. Live but behind a bot filter, so a browser check is needed."
+mp-au-tradingpost,Trading Post,https://www.tradingpost.com.au/,australia,general-classifieds,vehicles,both,freemium,,unknown,"A long-running Australian classifieds marketplace. Live but behind a bot filter, so a browser check is needed."
+mp-au-bikesales,bikesales,https://www.bikesales.com.au/,australia,vehicles,,both,paid,,active,An Australian motorcycle marketplace where dealers hold public listings.
+mp-au-boatsales,boatsales,https://www.boatsales.com.au/,australia,vehicles,,both,paid,,active,An Australian boat marketplace where dealers hold public listings.
+mp-au-carsales,carsales,https://www.carsales.com.au/,australia,vehicles,,both,paid,,unknown,"Australia's main vehicle marketplace, where dealers hold public dealer pages. Live but behind a bot filter, so a browser check is needed."
+mp-au-ebay,eBay Australia,https://www.ebay.com.au/,australia,auctions,general-classifieds,both,freemium,,active,"The Australian storefront of the eBay marketplace, where businesses hold public seller shops."
+mp-au-farmmachinerysales,farmmachinerysales,https://www.farmmachinerysales.com.au/,australia,b2b,vehicles,both,paid,,active,An Australian farm machinery marketplace where dealers hold public listings.
+mp-au-realestate,realestate.com.au,https://www.realestate.com.au/,australia,property,,business,paid,,unknown,"Australia's main property marketplace, where agents hold public listings. Rate-limits automated requests, so a browser check is needed."
 mp-at-bazar,bazar.at,https://www.bazar.at/,austria,general-classifieds,vehicles,both,free,,active,An Austrian free classifieds portal.
 mp-at-willhaben,willhaben,https://www.willhaben.at/,austria,general-classifieds,jobs; property; vehicles,both,freemium,,active,"Austria's largest classifieds marketplace, with dedicated commercial seller tooling."
 mp-by-kufar,Kufar,https://www.kufar.by/,belarus,general-classifieds,jobs; property; vehicles,both,freemium,,active,Belarus's leading classifieds marketplace.
@@ -10,6 +22,13 @@ mp-ba-olx,OLX Bosnia,https://www.olx.ba/,bosnia-and-herzegovina,general-classifi
 mp-bg-bazar,Bazar.bg,https://www.bazar.bg/,bulgaria,general-classifieds,jobs; property; services; vehicles,both,freemium,,active,"A Bulgarian free classifieds portal covering goods, property, vehicles and jobs."
 mp-bg-mobile-bg,Mobile.bg,https://www.mobile.bg/,bulgaria,vehicles,,both,paid,,active,"The main Bulgarian vehicle marketplace, where dealers hold public pages."
 mp-bg-olx,OLX Bulgaria,https://www.olx.bg/,bulgaria,general-classifieds,jobs; property; vehicles,both,freemium,OLX Group,active,Bulgaria's leading classifieds marketplace.
+mp-ca-autotrader,AutoTrader.ca,https://www.autotrader.ca/,canada,vehicles,,both,paid,,active,"The main Canadian vehicle marketplace, where dealers hold public dealer pages."
+mp-ca-bunz,Bunz,https://www.bunz.com/,canada,general-classifieds,,both,free,,unknown,"A Canadian community trading and buy-and-sell marketplace. Live but behind a bot filter, so a browser check is needed."
+mp-ca-kijiji,Kijiji,https://www.kijiji.ca/,canada,general-classifieds,jobs; property; services; vehicles,both,freemium,Adevinta,active,"Canada's dominant classifieds marketplace, with commercial seller accounts."
+mp-ca-lespac,LesPAC,https://www.lespac.com/,canada,general-classifieds,vehicles,both,freemium,,unknown,"The main Quebec French-language classifieds marketplace. Live but behind a bot filter, so a browser check is needed."
+mp-ca-realtor,REALTOR.ca,https://www.realtor.ca/,canada,property,,business,paid,,active,"The main Canadian property marketplace, operated by the national real estate association."
+mp-ca-used,Used.ca,https://www.usedvictoria.com/,canada,general-classifieds,vehicles,both,freemium,,active,A regional Canadian classifieds network.
+mp-ca-ebay,eBay Canada,https://www.ebay.ca/,canada,auctions,general-classifieds,both,freemium,,active,"The Canadian storefront of the eBay marketplace, where businesses hold public seller shops."
 mp-hr-njuskalo,Njuskalo,https://www.njuskalo.hr/,croatia,general-classifieds,property; vehicles,both,freemium,,active,Croatia's largest classifieds marketplace.
 mp-cy-bazaraki,Bazaraki,https://www.bazaraki.com/,cyprus,general-classifieds,property; vehicles,both,freemium,,unknown,"Cyprus's main classifieds marketplace. Live but behind a bot filter, so a browser check is needed."
 mp-cz-annonce,Annonce.cz,https://www.annonce.cz/,czech-republic,general-classifieds,property; vehicles,both,freemium,,active,A long-running Czech classifieds portal.
@@ -96,3 +115,34 @@ mp-ua-ria,RIA.com,https://www.ria.com/,ukraine,general-classifieds,property; veh
 mp-uk-freeads,Freeads,https://www.freeads.co.uk/,united-kingdom,general-classifieds,vehicles,both,freemium,,unknown,"A UK free classifieds site. Live but behind a bot filter, so a browser check is needed."
 mp-uk-gumtree,Gumtree,https://www.gumtree.com/,united-kingdom,general-classifieds,jobs; property; vehicles,both,freemium,Adevinta,unknown,"The main UK classifieds marketplace. Live but behind a bot filter, so a browser check is needed."
 mp-uk-preloved,Preloved,https://www.preloved.co.uk/,united-kingdom,general-classifieds,,both,freemium,,active,A UK classifieds marketplace for goods and services.
+mp-us-1stdibs,1stDibs,https://www.1stdibs.com/,united-states,general-classifieds,,business,paid,,active,"A US marketplace for antique and design dealers, who hold public storefronts."
+mp-us-5miles,5miles,https://www.5miles.com/,united-states,general-classifieds,,both,freemium,,unknown,"A US local marketplace. Live but behind a bot filter, so a browser check is needed."
+mp-us-abebooks,AbeBooks,https://www.abebooks.com/,united-states,b2b,general-classifieds,business,paid,,active,An international marketplace where independent booksellers hold public storefronts.
+mp-us-adpost,Adpost,https://www.adpost.com/,united-states,general-classifieds,,both,freemium,,active,An international classifieds platform with a large US section.
+mp-us-apartments,Apartments.com,https://www.apartments.com/,united-states,property,,business,paid,,unknown,"A major US rental property marketplace. Live but behind a bot filter, so a browser check is needed."
+mp-us-bookoo,Bookoo,https://www.bookoo.com/,united-states,general-classifieds,,both,free,,active,"A US community marketplace, historically strongest around military communities."
+mp-us-bringatrailer,Bring a Trailer,https://bringatrailer.com/,united-states,auctions,vehicles,both,paid,,active,A US collector vehicle auction marketplace.
+mp-us-cargurus,CarGurus,https://www.cargurus.com/,united-states,vehicles,,both,paid,,unknown,"A major US vehicle marketplace where dealers hold public dealer pages. Rejects automated requests, so a browser check is needed."
+mp-us-cars,Cars.com,https://www.cars.com/,united-states,vehicles,,both,paid,,unknown,"A major US vehicle marketplace where dealers hold public dealer pages. Live but behind a bot filter, so a browser check is needed."
+mp-us-chairish,Chairish,https://www.chairish.com/,united-states,general-classifieds,,both,paid,,active,A US vintage furniture and design marketplace with public seller shops.
+mp-us-classifiedads,ClassifiedAds.com,https://www.classifiedads.com/,united-states,general-classifieds,jobs; property; vehicles,both,free,,active,A free US classifieds platform.
+mp-us-craigslist,Craigslist,https://www.craigslist.org/,united-states,general-classifieds,jobs; property; services; vehicles,both,freemium,,active,"The dominant US classifieds platform. It runs several hundred city sites, but they are one platform and one account, so this is one row rather than one per city."
+mp-us-depop,Depop,https://www.depop.com/,united-states,fashion-resale,,both,freemium,,unknown,"A fashion resale marketplace with public seller shops. Live but behind a bot filter, so a browser check is needed."
+mp-us-etsy,Etsy,https://www.etsy.com/,united-states,auctions,general-classifieds,both,paid,,unknown,"A US handmade and vintage marketplace where sellers hold public shops. Live but behind a bot filter, so a browser check is needed."
+mp-us-faire,Faire,https://www.faire.com/,united-states,b2b,,business,freemium,,active,A wholesale marketplace where brands hold public public-facing storefronts for retail buyers.
+mp-us-geebo,Geebo,https://www.geebo.com/,united-states,general-classifieds,jobs; property; vehicles,both,freemium,,active,"A US classifieds site covering jobs, property and vehicles."
+mp-us-hoobly,Hoobly,https://www.hoobly.com/,united-states,general-classifieds,,both,freemium,,unknown,"A US classifieds platform. Live but behind a bot filter, so a browser check is needed."
+mp-us-ksl,KSL Classifieds,https://www.ksl.com/classifieds/,united-states,general-classifieds,jobs; property; vehicles,both,freemium,,unknown,"A major regional US classifieds platform serving Utah and the Mountain West. The main site answers but the classifieds section returned a transient error, so a browser check is needed."
+mp-us-locanto,Locanto,https://www.locanto.com/,united-states,general-classifieds,jobs; property; services,both,freemium,,unknown,"An international classifieds network with a large US section. Live but behind a bot filter, so a browser check is needed."
+mp-us-mercari,Mercari,https://www.mercari.com/,united-states,general-classifieds,,both,freemium,,unknown,"A major US consumer marketplace. Live but behind a bot filter, so a browser check is needed."
+mp-us-nextdoor,Nextdoor,https://nextdoor.com/,united-states,general-classifieds,services,both,freemium,,active,A US neighbourhood network with a for-sale section and business pages.
+mp-us-offerup,OfferUp,https://www.offerup.com/,united-states,general-classifieds,vehicles,both,freemium,,unknown,"A major US local buy-and-sell marketplace, which absorbed letgo. Live but behind a geolocation gate, so a browser check is needed."
+mp-us-oodle,Oodle,https://www.oodle.com/,united-states,general-classifieds,property; vehicles,both,freemium,,unknown,"A US classifieds aggregator and marketplace. Live but behind a bot filter, so a browser check is needed."
+mp-us-pennysaver,PennySaver USA,https://www.pennysaverusa.com/,united-states,general-classifieds,,both,freemium,,active,A US local classifieds and coupons platform.
+mp-us-poshmark,Poshmark,https://poshmark.com/,united-states,fashion-resale,,both,freemium,,active,A US fashion resale marketplace where sellers hold public closets.
+mp-us-reverb,Reverb,https://www.reverb.com/,united-states,general-classifieds,,both,paid,,unknown,"A US musical instrument marketplace where shops hold public storefronts. Live but behind a bot filter, so a browser check is needed."
+mp-us-rubylane,Ruby Lane,https://www.rubylane.com/,united-states,general-classifieds,,business,paid,,active,A US antiques and collectibles marketplace where dealers hold public shops.
+mp-us-storenvy,Storenvy,https://www.storenvy.com/,united-states,general-classifieds,,business,freemium,,active,A US marketplace where independent brands hold public storefronts.
+mp-us-varagesale,VarageSale,https://www.varagesale.com/,united-states,general-classifieds,,both,free,,active,A North American community buy-and-sell marketplace with verified members.
+mp-us-zillow,Zillow,https://www.zillow.com/,united-states,property,,both,paid,,unknown,"The largest US property marketplace, where agents hold public listings. Live but behind a bot filter, so a browser check is needed."
+mp-us-ebay,eBay,https://www.ebay.com/,united-states,auctions,general-classifieds; vehicles,both,freemium,,active,"The largest US auction and fixed-price marketplace, where businesses hold public seller shops."
