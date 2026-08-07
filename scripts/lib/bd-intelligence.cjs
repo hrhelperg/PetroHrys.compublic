@@ -49,11 +49,21 @@ const APPROVAL_MODES = ['instant', 'manual', 'mixed'];
 // Established by looking at the live site, not by reading its marketing.
 
 const CLASS_A_KEYS = ['hasApi', 'bulkSubmission', 'multipleLocations',
-  'franchiseSupport', 'languages', 'countryReach', 'approvalMode'];
+  'franchiseSupport', 'languages', 'countryReach', 'approvalMode',
+  // v2.2. Four additions, each stated in operator documentation and each about
+  // what happens AFTER a listing exists — the axis the original ten did not
+  // cover. Everything else the v2.2 brief proposed was either already a field
+  // (approval time, verification methods, moderation strictness, difficulty,
+  // review process, required assets) or could not be established without
+  // reading every operator's terms, which would make it invention.
+  'supportsOwnershipTransfer', 'supportsMultipleEditors', 'requiresRenewal',
+  'webhookSupport'];
 const CLASS_B_KEYS = ['profileIndexed', 'profileUrlPattern', 'ranksByCompanyName'];
 
 const BOOLEAN_KEYS = ['hasApi', 'bulkSubmission', 'multipleLocations',
-  'franchiseSupport', 'profileIndexed', 'ranksByCompanyName'];
+  'franchiseSupport', 'profileIndexed', 'ranksByCompanyName',
+  'supportsOwnershipTransfer', 'supportsMultipleEditors', 'requiresRenewal',
+  'webhookSupport'];
 
 const INTELLIGENCE_KEYS = [...CLASS_A_KEYS, ...CLASS_B_KEYS];
 
@@ -73,6 +83,10 @@ const LABELS = {
   profileIndexed: 'Profile pages indexed',
   profileUrlPattern: 'Profile URL pattern',
   ranksByCompanyName: 'Ranks for company name',
+  supportsOwnershipTransfer: 'Ownership transfer',
+  supportsMultipleEditors: 'Multiple editors',
+  requiresRenewal: 'Requires renewal',
+  webhookSupport: 'Webhooks',
 };
 
 // ISO 639-1. Two lowercase letters, nothing else — a language field that accepts

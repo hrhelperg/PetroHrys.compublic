@@ -42,6 +42,14 @@ const directoryPath = (country, directory) =>
   `${countryPath(country)}${requireSlug(directory, 'directory')}/`;
 
 const articlesPath = () => `${BASE}${GUIDES_SEGMENT}/`;
+
+// Directory Intelligence v3 recommendation pages. Routed here rather than
+// interpolated at the call site, because path construction is this module's job
+// and a guard enforces that — one place decides what a URL looks like.
+const RECOMMEND_SEGMENT = 'for';
+const recommendationPath = (slug) => `${BASE}${RECOMMEND_SEGMENT}/${requireSlug(slug, 'profile')}/`;
+const recommendationOut = (slug) => path.join(SECTION_DIR, RECOMMEND_SEGMENT,
+  requireSlug(slug, 'profile'), 'index.html');
 const articlePath = (slug) => `${articlesPath()}${requireSlug(slug, 'article')}/`;
 
 const feedPath = () => `${BASE}feed.xml`;
@@ -80,7 +88,8 @@ const feedOut = () => path.join(SECTION_DIR, 'feed.xml');
 const sitemapOut = () => SITEMAP_FILE;
 
 module.exports = {
-  BASE, SECTION_DIR, SITEMAP_FILE, CATEGORY_SEGMENT, PAGE_SEGMENT, GUIDES_SEGMENT, RouteError,
+  BASE, SECTION_DIR, SITEMAP_FILE, CATEGORY_SEGMENT, PAGE_SEGMENT, GUIDES_SEGMENT,
+  RECOMMEND_SEGMENT, recommendationPath, recommendationOut, RouteError,
   hubPath, countryPath, categoryPath, directoryPath, directoryPathFor,
   feedPath, sitemapPath, pagePath, articlesPath, articlePath,
   hubOut, countryOut, categoryOut, directoryOut, feedOut, sitemapOut, articlesOut, articleOut,

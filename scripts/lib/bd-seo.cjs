@@ -291,6 +291,27 @@ function buildArticleIndexMeta({ articles = [] }) {
 // The employee working list. One page, deliberately: 500-700 opportunities must
 // not become 500-700 thin detail pages, and sixteen new geographies must not
 // become sixteen one-record country pages.
+// One page per business profile. Same shape as the opportunities meta because
+// they are the same kind of page — a collection with a documented selection
+// rule — and the trail keeps the profile pages under Opportunities rather than
+// inventing a second top-level section.
+function buildRecommendationMeta({ label, slug, blurb, count }) {
+  const canonicalPath = routes.recommendationPath(slug);
+  const title = `Best business directories for ${label}`;
+  const description = `${count} platforms ranked for ${label}, scored on fit and platform `
+    + 'quality with the reason for every recommendation shown.';
+  const trail = [...ROOT_TRAIL,
+    { name: 'Opportunities', path: `${routes.BASE}opportunities/` },
+    { name: label, path: canonicalPath }];
+  return meta({
+    title, description, canonicalPath, robots: undefined, breadcrumbTrail: trail,
+    graph: [
+      collectionPage({ name: title, description: blurb, url: absoluteUrl(canonicalPath) }),
+      breadcrumbList(trail),
+    ],
+  });
+}
+
 function buildOpportunitiesMeta() {
   const canonicalPath = `${routes.BASE}opportunities/`;
   const title = 'Business Listing Opportunities';
@@ -353,5 +374,5 @@ module.exports = {
   ORIGIN, SeoError, absoluteUrl, safeExternalUrl, renderJsonLd,
   breadcrumbList, collectionPage, webPage, itemList, faqPage, organisationAbout,
   buildHubMeta, buildCountryMeta, buildCategoryMeta, buildDirectoryMeta,
-  buildArticleMeta, buildArticleIndexMeta, buildOpportunitiesMeta,
+  buildArticleMeta, buildArticleIndexMeta, buildOpportunitiesMeta, buildRecommendationMeta,
 };
