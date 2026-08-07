@@ -21388,19 +21388,19 @@
   {
     "id": "in-ficci",
     "name": "FICCI",
-    "website": "https://www.ficci.in/",
+    "website": "https://ficci.in/",
     "country": "india",
     "category": "industry-associations",
     "tier": "tier1",
     "priority": "P3",
-    "currentStatus": "active",
+    "currentStatus": "unknown",
     "audienceGeography": [
       "india"
     ],
     "publicProfileAvailable": true,
     "listingAction": "unknown",
     "submissionModel": "unknown",
-    "note": "A major Indian industry federation, whose member companies appear in a directory.",
+    "note": "The Federation of Indian Export Organisations, whose member exporters appear in a directory. The www host no longer completes a TLS handshake; the apex answers behind a bot filter, so a browser check is needed.",
     "lastVerified": "2026-08-06"
   },
   {
