@@ -134,7 +134,7 @@
     "category": "review-sites",
     "website": "https://business.trustpilot.com/",
     "submissionUrl": "https://signup.business.trustpilot.com/create-account",
-    "description": "Open consumer review platform where any customer can publish a rating of a business, with a free tier for collecting reviews.",
+    "description": "Open consumer review platform where any customer can publish a rating of a business, with a free tier for collecting reviews. A business can claim its profile and create a free business account.",
     "tier": "tier1",
     "scope": "global",
     "petroHrysScore": 76,
@@ -169,6 +169,7 @@
     "reviewSystem": true,
     "verificationRequired": false,
     "manualReview": false,
+    "listingAction": "create-and-claim",
     "audienceGeography": [
       "global"
     ],
@@ -602,6 +603,13 @@
       "ai": null,
       "mobileApp": null,
       "ecommerce": null
+    },
+    "intelligence": {
+      "countryReach": "global",
+      "approvalMode": "manual",
+      "profileIndexed": true,
+      "profileUrlPattern": "https://www.softwareadvice.com/{category}/{slug}-profile/",
+      "ranksByCompanyName": true
     },
     "backlinkType": null,
     "robots": null,
@@ -1511,6 +1519,12 @@
       "mobileApp": true,
       "ecommerce": true
     },
+    "intelligence": {
+      "countryReach": "global",
+      "approvalMode": "manual",
+      "profileIndexed": true,
+      "ranksByCompanyName": true
+    },
     "backlinkType": null,
     "robots": null,
     "sitemap": null,
@@ -1581,8 +1595,8 @@
     "country": "global",
     "category": "app-directories",
     "website": "https://appexchange.salesforce.com/",
-    "submissionUrl": null,
-    "description": "Salesforce enterprise application marketplace; the storefront now presents itself under the AgentExchange name.",
+    "submissionUrl": "https://appexchange.salesforce.com/partners",
+    "description": "Salesforce enterprise application marketplace; the storefront now presents itself under the AgentExchange name. A partner can create a listing through the AppExchange partner route.",
     "tier": "tier1",
     "scope": "global",
     "petroHrysScore": 85,
@@ -1617,6 +1631,7 @@
     "reviewSystem": null,
     "verificationRequired": true,
     "manualReview": true,
+    "listingAction": "create",
     "audienceGeography": [
       "global"
     ],
@@ -1635,6 +1650,12 @@
       "ai": true,
       "mobileApp": true,
       "ecommerce": null
+    },
+    "intelligence": {
+      "countryReach": "global",
+      "approvalMode": "manual",
+      "profileIndexed": true,
+      "ranksByCompanyName": true
     },
     "backlinkType": null,
     "robots": null,
@@ -1705,8 +1726,8 @@
     "country": "global",
     "category": "app-directories",
     "website": "https://ecosystem.hubspot.com/marketplace/apps",
-    "submissionUrl": null,
-    "description": "Official HubSpot marketplace listing integrations, workflows and templates that connect to the HubSpot platform.",
+    "submissionUrl": "https://ecosystem.hubspot.com/marketplace/solutions/join",
+    "description": "Official HubSpot marketplace listing integrations, workflows and templates that connect to the HubSpot platform. A partner can create a listing through the marketplace join route.",
     "tier": "tier2",
     "scope": "global",
     "petroHrysScore": 77,
@@ -1741,6 +1762,7 @@
     "reviewSystem": null,
     "verificationRequired": true,
     "manualReview": true,
+    "listingAction": "create",
     "audienceGeography": [
       "global"
     ],
@@ -3863,6 +3885,11 @@
       "mobileApp": null,
       "ecommerce": null
     },
+    "intelligence": {
+      "countryReach": "global",
+      "approvalMode": "manual",
+      "profileIndexed": true
+    },
     "backlinkType": null,
     "robots": null,
     "sitemap": null,
@@ -3982,6 +4009,12 @@
       "ai": true,
       "mobileApp": null,
       "ecommerce": null
+    },
+    "intelligence": {
+      "countryReach": "global",
+      "approvalMode": "manual",
+      "profileIndexed": true,
+      "ranksByCompanyName": true
     },
     "backlinkType": null,
     "robots": null,
@@ -6329,8 +6362,8 @@
     "country": "global",
     "category": "local-business",
     "website": "https://www.google.com/business/",
-    "submissionUrl": null,
-    "description": "Google’s free tool for managing how a business appears in Google Search and Maps, covering opening hours, contact details, location, photos and customer reviews once the profile has been verified.",
+    "submissionUrl": "https://business.google.com/",
+    "description": "Google’s free tool for managing how a business appears in Google Search and Maps, covering opening hours, contact details, location, photos and customer reviews once the profile has been verified. A business can add or claim its Business Profile directly.",
     "tier": "tier1",
     "scope": "global",
     "petroHrysScore": 81,
@@ -6358,6 +6391,7 @@
     "reviewSystem": true,
     "verificationRequired": true,
     "manualReview": null,
+    "listingAction": "create-and-claim",
     "audienceGeography": [
       "global"
     ],
@@ -6615,6 +6649,7 @@
     "reviewSystem": true,
     "verificationRequired": true,
     "manualReview": true,
+    "listingAction": "create-and-claim",
     "audienceGeography": [
       "global"
     ],
