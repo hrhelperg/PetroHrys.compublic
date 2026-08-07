@@ -25038,5 +25038,1031 @@
     "submissionModel": "unknown",
     "note": "The Thai national B2B marketplace where exporters hold public supplier profiles.",
     "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "et-addisbiz",
+    "name": "AddisBiz",
+    "website": "https://www.addisbiz.com/",
+    "country": "ethiopia",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The main Ethiopian business directory and product catalogue with public company profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "et-ezega",
+    "name": "Ezega",
+    "website": "https://www.ezega.com/",
+    "country": "ethiopia",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An Ethiopian portal carrying a business directory and classifieds with public company listings.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "et-ethiopianchamber",
+    "name": "Ethiopian Chamber of Commerce",
+    "website": "https://www.ethiopianchamber.com/",
+    "country": "ethiopia",
+    "category": "chambers-of-commerce",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Ethiopian chamber of commerce and sectoral associations, whose members appear in directories.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "gh-agi",
+    "name": "Association of Ghana Industries",
+    "website": "https://www.agighana.org/",
+    "country": "ghana",
+    "category": "industry-associations",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Ghanaian industries association, whose member companies appear in a directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "gh-gncci",
+    "name": "Ghana National Chamber of Commerce",
+    "website": "https://www.ghanachamber.org/",
+    "country": "ghana",
+    "category": "chambers-of-commerce",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Ghanaian national chamber of commerce and industry, whose members appear in a directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ke-kam",
+    "name": "Kenya Association of Manufacturers",
+    "website": "https://www.kam.co.ke/",
+    "country": "kenya",
+    "category": "industry-associations",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Kenyan manufacturers association, whose member companies appear in a public directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ke-kncci",
+    "name": "KNCCI",
+    "website": "https://www.kenyachamber.or.ke/",
+    "country": "kenya",
+    "category": "chambers-of-commerce",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Kenya national chamber of commerce and industry, whose members appear in directories.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ke-kepsa",
+    "name": "KEPSA",
+    "website": "https://www.kepsa.or.ke/",
+    "country": "kenya",
+    "category": "industry-associations",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Kenya private sector alliance, whose member companies appear in a directory. Live but behind a security checkpoint, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ng-connectnigeria",
+    "name": "ConnectNigeria",
+    "website": "https://www.connectnigeria.com/",
+    "country": "nigeria",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Nigerian business information portal carrying a public company directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ng-ngex",
+    "name": "NgEX",
+    "website": "https://www.ngex.com/",
+    "country": "nigeria",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Nigerian business directory and community platform. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ng-nigeriabusinessinfo",
+    "name": "Nigeria Business Info",
+    "website": "https://www.nigeriabusinessinfo.com/",
+    "country": "nigeria",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Nigerian business directory with public company listings. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ug-psfuganda",
+    "name": "Private Sector Foundation Uganda",
+    "website": "https://www.psfuganda.org/",
+    "country": "uganda",
+    "category": "industry-associations",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Ugandan private sector umbrella body, whose member companies appear in a directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "pk-fpcci",
+    "name": "FPCCI",
+    "website": "https://www.fpcci.org.pk/",
+    "country": "pakistan",
+    "category": "chambers-of-commerce",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Federation of Pakistan Chambers of Commerce and Industry, whose members appear in directories.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "pk-olx",
+    "name": "OLX Pakistan",
+    "website": "https://www.olx.com.pk/",
+    "country": "pakistan",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The main Pakistani classifieds marketplace, with professional seller sections.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "pk-daraz",
+    "name": "Daraz Pakistan",
+    "website": "https://www.daraz.pk/",
+    "country": "pakistan",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "asia"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The main Pakistani online marketplace, where sellers hold public storefronts.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "pk-pakwheels",
+    "name": "PakWheels",
+    "website": "https://www.pakwheels.com/",
+    "country": "pakistan",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The main Pakistani vehicle marketplace, where dealers hold public dealer pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "pk-rozee",
+    "name": "Rozee.pk",
+    "website": "https://www.rozee.pk/",
+    "country": "pakistan",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The main Pakistani job platform, where employers hold public company pages. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "pk-mustakbil",
+    "name": "Mustakbil",
+    "website": "https://www.mustakbil.com/",
+    "country": "pakistan",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Pakistani job platform where employers hold public company pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "bd-bdtradeinfo",
+    "name": "BD Trade Info",
+    "website": "https://www.bdtradeinfo.com/",
+    "country": "bangladesh",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The largest Bangladeshi business portal, with public company and supplier profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "bd-bdbusinessdirectory",
+    "name": "BD Business Directory",
+    "website": "https://www.bdbusinessdirectory.com/",
+    "country": "bangladesh",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Bangladeshi business directory with public company listings. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "bd-bgmea",
+    "name": "BGMEA",
+    "website": "https://www.bgmea.com.bd/",
+    "country": "bangladesh",
+    "category": "industry-associations",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Bangladesh garment manufacturers and exporters association, whose members appear in a public directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "bd-bkmea",
+    "name": "BKMEA",
+    "website": "https://www.bkmea.com/",
+    "country": "bangladesh",
+    "category": "industry-associations",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Bangladesh knitwear manufacturers and exporters association, whose members appear in a directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "bd-basis",
+    "name": "BASIS",
+    "website": "https://www.basis.org.bd/",
+    "country": "bangladesh",
+    "category": "industry-associations",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Bangladesh software and IT services association, whose member companies appear in a public directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "bd-fbcci",
+    "name": "FBCCI",
+    "website": "https://www.fbcci.org/",
+    "country": "bangladesh",
+    "category": "chambers-of-commerce",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Federation of Bangladesh Chambers of Commerce and Industry, whose members appear in directories.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "bd-bdjobs",
+    "name": "Bdjobs",
+    "website": "https://www.bdjobs.com/",
+    "country": "bangladesh",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The largest Bangladeshi job site, where employers hold public company pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "bd-bikroy",
+    "name": "Bikroy",
+    "website": "https://www.bikroy.com/",
+    "country": "bangladesh",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The main Bangladeshi classifieds marketplace, with business seller sections. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "bd-daraz",
+    "name": "Daraz Bangladesh",
+    "website": "https://www.daraz.com.bd/",
+    "country": "bangladesh",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "asia"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The main Bangladeshi online marketplace, where sellers hold public storefronts.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "np-fncci",
+    "name": "FNCCI",
+    "website": "https://www.fncci.org/",
+    "country": "nepal",
+    "category": "chambers-of-commerce",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Federation of Nepalese Chambers of Commerce and Industry, whose members appear in directories.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "np-hamrobazaar",
+    "name": "Hamrobazar",
+    "website": "https://www.hamrobazaar.com/",
+    "country": "nepal",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The main Nepali classifieds marketplace, with business seller sections.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "np-merojob",
+    "name": "merojob",
+    "website": "https://www.merojob.com/",
+    "country": "nepal",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The main Nepali job platform, where employers hold public company pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "lk-chamber",
+    "name": "Ceylon Chamber of Commerce",
+    "website": "https://www.chamber.lk/",
+    "country": "sri-lanka",
+    "category": "chambers-of-commerce",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Sri Lankan chamber of commerce, whose member companies appear in a directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "lk-ikman",
+    "name": "ikman",
+    "website": "https://www.ikman.lk/",
+    "country": "sri-lanka",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The main Sri Lankan classifieds marketplace, with business seller sections.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "lk-topjobs",
+    "name": "topjobs",
+    "website": "https://www.topjobs.lk/",
+    "country": "sri-lanka",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The main Sri Lankan job network, where employers hold public company pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "id-bhinneka",
+    "name": "Bhinneka",
+    "website": "https://www.bhinneka.com/",
+    "country": "indonesia",
+    "category": "manufacturing",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An Indonesian B2B marketplace where suppliers hold public storefronts.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "id-blibli",
+    "name": "Blibli",
+    "website": "https://www.blibli.com/",
+    "country": "indonesia",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A major Indonesian marketplace where sellers hold public storefronts. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "my-carlist",
+    "name": "Carlist.my",
+    "website": "https://www.carlist.my/",
+    "country": "malaysia",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The main Malaysian vehicle marketplace, where dealers hold public dealer pages. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "my-malaysianbusiness",
+    "name": "Malaysian Business Directory",
+    "website": "https://www.malaysianbusiness.com.my/",
+    "country": "malaysia",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Malaysian business directory with public company listings.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "my-mia",
+    "name": "Malaysian Institute of Accountants",
+    "website": "https://www.mia.org.my/",
+    "country": "malaysia",
+    "category": "industry-associations",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Malaysian accountants institute, whose member firms appear in a directory. Live but behind a bot filter, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "my-jobstore",
+    "name": "Jobstore Malaysia",
+    "website": "https://www.jobstore.com/",
+    "country": "malaysia",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "asia"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Malaysian job platform where employers hold public company pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "my-maukerja",
+    "name": "Maukerja",
+    "website": "https://www.maukerja.my/",
+    "country": "malaysia",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Malaysian job platform where employers hold public company pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "th-jobthai",
+    "name": "JobThai",
+    "website": "https://www.jobthai.com/",
+    "country": "thailand",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A major Thai job platform where employers hold public company pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "th-jobbkk",
+    "name": "JobBKK",
+    "website": "https://www.jobbkk.com/",
+    "country": "thailand",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Thai job platform where employers hold public company pages.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "th-jobtopgun",
+    "name": "JobTopGun",
+    "website": "https://www.jobtopgun.com/",
+    "country": "thailand",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Thai job platform where employers hold public company pages carrying reviews.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ph-kalibrr",
+    "name": "Kalibrr",
+    "website": "https://www.kalibrr.com/",
+    "country": "philippines",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "asia"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Philippine job platform where employers hold public company profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ph-lazada",
+    "name": "Lazada Philippines",
+    "website": "https://www.lazada.com.ph/",
+    "country": "philippines",
+    "category": "general-business",
+    "tier": "tier1",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "asia"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Philippine storefront of a major Southeast Asian marketplace where sellers hold public stores.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ph-pcci",
+    "name": "Philippine Chamber of Commerce",
+    "website": "https://www.pcci.com.ph/",
+    "country": "philippines",
+    "category": "chambers-of-commerce",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "unknown",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Philippine chamber of commerce and industry, whose members appear in directories. Returns 403 without a challenge page, so a browser check is needed.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ph-philexport",
+    "name": "PHILEXPORT",
+    "website": "https://www.philexport.ph/",
+    "country": "philippines",
+    "category": "industry-associations",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Philippine exporters confederation, whose member companies appear in a directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "global-tridge",
+    "name": "Tridge",
+    "website": "https://www.tridge.com/",
+    "country": "global",
+    "category": "manufacturing",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A global agrifood trade platform where suppliers hold public company profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "cn-ccpit",
+    "name": "CCPIT",
+    "website": "https://www.ccpit.org/",
+    "country": "china",
+    "category": "chambers-of-commerce",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "china"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The China Council for the Promotion of International Trade, whose member companies appear in directories.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "cn-cccme",
+    "name": "CCCME",
+    "website": "https://www.cccme.org.cn/",
+    "country": "china",
+    "category": "industry-associations",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "china"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The China chamber of commerce for machinery and electronic products, whose member exporters appear in a directory.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "cn-cantonfair",
+    "name": "Canton Fair",
+    "website": "https://www.cantonfair.org.cn/",
+    "country": "china",
+    "category": "manufacturing",
+    "tier": "tier1",
+    "priority": "P1",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The China Import and Export Fair, where exhibiting companies hold public exhibitor profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "cn-chinagoods",
+    "name": "Chinagoods",
+    "website": "https://www.chinagoods.com/",
+    "country": "china",
+    "category": "manufacturing",
+    "tier": "tier1",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The official platform of the Yiwu commodity market, where suppliers hold public storefronts.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "cn-yiwugo",
+    "name": "Yiwugo",
+    "website": "https://www.yiwugo.com/",
+    "country": "china",
+    "category": "manufacturing",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An official Yiwu market platform where suppliers hold public storefronts.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "cn-ecvv",
+    "name": "ECVV",
+    "website": "https://www.ecvv.com/",
+    "country": "china",
+    "category": "manufacturing",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A global industrial sourcing platform where Chinese suppliers hold public company profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "in-indiabusinessguide",
+    "name": "India Business Guide",
+    "website": "https://www.indiabusinessguide.in/",
+    "country": "india",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "india"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An Indian business directory with public company listings.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "sg-exporters",
+    "name": "Exporters.SG",
+    "website": "https://www.exporters.sg/",
+    "country": "singapore",
+    "category": "manufacturing",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Singapore-based global exporter and supplier directory with public company profiles.",
+    "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "ge-gcci",
+    "name": "Georgian Chamber of Commerce",
+    "website": "https://www.gcci.ge/",
+    "country": "georgia",
+    "category": "chambers-of-commerce",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Georgian chamber of commerce and industry, whose member companies appear in a directory.",
+    "lastVerified": "2026-08-06"
   }
 ]
