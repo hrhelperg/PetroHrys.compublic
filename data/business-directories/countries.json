@@ -354,5 +354,389 @@
     "entityType": "country",
     "titleName": "Cuba",
     "iso2": "CU"
+  },
+  {
+    "id": "india",
+    "slug": "india",
+    "name": "India",
+    "entityType": "country",
+    "titleName": "India",
+    "iso2": "IN"
+  },
+  {
+    "id": "taiwan",
+    "slug": "taiwan",
+    "name": "Taiwan",
+    "entityType": "country",
+    "titleName": "Taiwan",
+    "iso2": "TW"
+  },
+  {
+    "id": "hong-kong",
+    "slug": "hong-kong",
+    "name": "Hong Kong",
+    "entityType": "country",
+    "titleName": "Hong Kong",
+    "iso2": "HK"
+  },
+  {
+    "id": "malaysia",
+    "slug": "malaysia",
+    "name": "Malaysia",
+    "entityType": "country",
+    "titleName": "Malaysia",
+    "iso2": "MY"
+  },
+  {
+    "id": "thailand",
+    "slug": "thailand",
+    "name": "Thailand",
+    "entityType": "country",
+    "titleName": "Thailand",
+    "iso2": "TH"
+  },
+  {
+    "id": "indonesia",
+    "slug": "indonesia",
+    "name": "Indonesia",
+    "entityType": "country",
+    "titleName": "Indonesia",
+    "iso2": "ID"
+  },
+  {
+    "id": "philippines",
+    "slug": "philippines",
+    "name": "Philippines",
+    "entityType": "country",
+    "titleName": "Philippines",
+    "iso2": "PH"
+  },
+  {
+    "id": "vietnam",
+    "slug": "vietnam",
+    "name": "Vietnam",
+    "entityType": "country",
+    "titleName": "Vietnam",
+    "iso2": "VN"
+  },
+  {
+    "id": "pakistan",
+    "slug": "pakistan",
+    "name": "Pakistan",
+    "entityType": "country",
+    "titleName": "Pakistan",
+    "iso2": "PK"
+  },
+  {
+    "id": "bangladesh",
+    "slug": "bangladesh",
+    "name": "Bangladesh",
+    "entityType": "country",
+    "titleName": "Bangladesh",
+    "iso2": "BD"
+  },
+  {
+    "id": "sri-lanka",
+    "slug": "sri-lanka",
+    "name": "Sri Lanka",
+    "entityType": "country",
+    "titleName": "Sri Lanka",
+    "iso2": "LK"
+  },
+  {
+    "id": "nepal",
+    "slug": "nepal",
+    "name": "Nepal",
+    "entityType": "country",
+    "titleName": "Nepal",
+    "iso2": "NP"
+  },
+  {
+    "id": "kazakhstan",
+    "slug": "kazakhstan",
+    "name": "Kazakhstan",
+    "entityType": "country",
+    "titleName": "Kazakhstan",
+    "iso2": "KZ"
+  },
+  {
+    "id": "uzbekistan",
+    "slug": "uzbekistan",
+    "name": "Uzbekistan",
+    "entityType": "country",
+    "titleName": "Uzbekistan",
+    "iso2": "UZ"
+  },
+  {
+    "id": "mongolia",
+    "slug": "mongolia",
+    "name": "Mongolia",
+    "entityType": "country",
+    "titleName": "Mongolia",
+    "iso2": "MN"
+  },
+  {
+    "id": "argentina",
+    "slug": "argentina",
+    "name": "Argentina",
+    "entityType": "country",
+    "titleName": "Argentina",
+    "iso2": "AR"
+  },
+  {
+    "id": "chile",
+    "slug": "chile",
+    "name": "Chile",
+    "entityType": "country",
+    "titleName": "Chile",
+    "iso2": "CL"
+  },
+  {
+    "id": "colombia",
+    "slug": "colombia",
+    "name": "Colombia",
+    "entityType": "country",
+    "titleName": "Colombia",
+    "iso2": "CO"
+  },
+  {
+    "id": "peru",
+    "slug": "peru",
+    "name": "Peru",
+    "entityType": "country",
+    "titleName": "Peru",
+    "iso2": "PE"
+  },
+  {
+    "id": "uruguay",
+    "slug": "uruguay",
+    "name": "Uruguay",
+    "entityType": "country",
+    "titleName": "Uruguay",
+    "iso2": "UY"
+  },
+  {
+    "id": "paraguay",
+    "slug": "paraguay",
+    "name": "Paraguay",
+    "entityType": "country",
+    "titleName": "Paraguay",
+    "iso2": "PY"
+  },
+  {
+    "id": "bolivia",
+    "slug": "bolivia",
+    "name": "Bolivia",
+    "entityType": "country",
+    "titleName": "Bolivia",
+    "iso2": "BO"
+  },
+  {
+    "id": "ecuador",
+    "slug": "ecuador",
+    "name": "Ecuador",
+    "entityType": "country",
+    "titleName": "Ecuador",
+    "iso2": "EC"
+  },
+  {
+    "id": "venezuela",
+    "slug": "venezuela",
+    "name": "Venezuela",
+    "entityType": "country",
+    "titleName": "Venezuela",
+    "iso2": "VE"
+  },
+  {
+    "id": "saudi-arabia",
+    "slug": "saudi-arabia",
+    "name": "Saudi Arabia",
+    "entityType": "country",
+    "titleName": "Saudi Arabia",
+    "iso2": "SA"
+  },
+  {
+    "id": "qatar",
+    "slug": "qatar",
+    "name": "Qatar",
+    "entityType": "country",
+    "titleName": "Qatar",
+    "iso2": "QA"
+  },
+  {
+    "id": "kuwait",
+    "slug": "kuwait",
+    "name": "Kuwait",
+    "entityType": "country",
+    "titleName": "Kuwait",
+    "iso2": "KW"
+  },
+  {
+    "id": "bahrain",
+    "slug": "bahrain",
+    "name": "Bahrain",
+    "entityType": "country",
+    "titleName": "Bahrain",
+    "iso2": "BH"
+  },
+  {
+    "id": "oman",
+    "slug": "oman",
+    "name": "Oman",
+    "entityType": "country",
+    "titleName": "Oman",
+    "iso2": "OM"
+  },
+  {
+    "id": "israel",
+    "slug": "israel",
+    "name": "Israel",
+    "entityType": "country",
+    "titleName": "Israel",
+    "iso2": "IL"
+  },
+  {
+    "id": "jordan",
+    "slug": "jordan",
+    "name": "Jordan",
+    "entityType": "country",
+    "titleName": "Jordan",
+    "iso2": "JO"
+  },
+  {
+    "id": "lebanon",
+    "slug": "lebanon",
+    "name": "Lebanon",
+    "entityType": "country",
+    "titleName": "Lebanon",
+    "iso2": "LB"
+  },
+  {
+    "id": "south-africa",
+    "slug": "south-africa",
+    "name": "South Africa",
+    "entityType": "country",
+    "titleName": "South Africa",
+    "iso2": "ZA"
+  },
+  {
+    "id": "egypt",
+    "slug": "egypt",
+    "name": "Egypt",
+    "entityType": "country",
+    "titleName": "Egypt",
+    "iso2": "EG"
+  },
+  {
+    "id": "morocco",
+    "slug": "morocco",
+    "name": "Morocco",
+    "entityType": "country",
+    "titleName": "Morocco",
+    "iso2": "MA"
+  },
+  {
+    "id": "tunisia",
+    "slug": "tunisia",
+    "name": "Tunisia",
+    "entityType": "country",
+    "titleName": "Tunisia",
+    "iso2": "TN"
+  },
+  {
+    "id": "algeria",
+    "slug": "algeria",
+    "name": "Algeria",
+    "entityType": "country",
+    "titleName": "Algeria",
+    "iso2": "DZ"
+  },
+  {
+    "id": "nigeria",
+    "slug": "nigeria",
+    "name": "Nigeria",
+    "entityType": "country",
+    "titleName": "Nigeria",
+    "iso2": "NG"
+  },
+  {
+    "id": "kenya",
+    "slug": "kenya",
+    "name": "Kenya",
+    "entityType": "country",
+    "titleName": "Kenya",
+    "iso2": "KE"
+  },
+  {
+    "id": "ghana",
+    "slug": "ghana",
+    "name": "Ghana",
+    "entityType": "country",
+    "titleName": "Ghana",
+    "iso2": "GH"
+  },
+  {
+    "id": "ethiopia",
+    "slug": "ethiopia",
+    "name": "Ethiopia",
+    "entityType": "country",
+    "titleName": "Ethiopia",
+    "iso2": "ET"
+  },
+  {
+    "id": "uganda",
+    "slug": "uganda",
+    "name": "Uganda",
+    "entityType": "country",
+    "titleName": "Uganda",
+    "iso2": "UG"
+  },
+  {
+    "id": "tanzania",
+    "slug": "tanzania",
+    "name": "Tanzania",
+    "entityType": "country",
+    "titleName": "Tanzania",
+    "iso2": "TZ"
+  },
+  {
+    "id": "rwanda",
+    "slug": "rwanda",
+    "name": "Rwanda",
+    "entityType": "country",
+    "titleName": "Rwanda",
+    "iso2": "RW"
+  },
+  {
+    "id": "zambia",
+    "slug": "zambia",
+    "name": "Zambia",
+    "entityType": "country",
+    "titleName": "Zambia",
+    "iso2": "ZM"
+  },
+  {
+    "id": "zimbabwe",
+    "slug": "zimbabwe",
+    "name": "Zimbabwe",
+    "entityType": "country",
+    "titleName": "Zimbabwe",
+    "iso2": "ZW"
+  },
+  {
+    "id": "botswana",
+    "slug": "botswana",
+    "name": "Botswana",
+    "entityType": "country",
+    "titleName": "Botswana",
+    "iso2": "BW"
+  },
+  {
+    "id": "namibia",
+    "slug": "namibia",
+    "name": "Namibia",
+    "entityType": "country",
+    "titleName": "Namibia",
+    "iso2": "NA"
   }
 ]
