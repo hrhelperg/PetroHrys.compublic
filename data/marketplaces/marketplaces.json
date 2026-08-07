@@ -16,6 +16,22 @@
     "note": "Albania's leading classifieds marketplace."
   },
   {
+    "id": "mp-dz-ouedkniss",
+    "name": "Ouedkniss",
+    "website": "https://www.ouedkniss.com/",
+    "country": "algeria",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "jobs",
+      "property",
+      "vehicles"
+    ],
+    "note": "Algeria's dominant classifieds marketplace."
+  },
+  {
     "id": "mp-ar-argenprop",
     "name": "Argenprop",
     "website": "https://www.argenprop.com/",
@@ -941,6 +957,95 @@
     "note": "A major Danish classifieds marketplace."
   },
   {
+    "id": "mp-cd-jiji",
+    "name": "Jiji DR Congo",
+    "website": "https://jiji.cd/",
+    "country": "dr-congo",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "unknown",
+    "alsoCovers": [
+      "property",
+      "vehicles"
+    ],
+    "operator": "Jiji Group",
+    "note": "The DR Congo arm of the Jiji classifieds network. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
+    "id": "mp-eg-aqarmap",
+    "name": "Aqarmap",
+    "website": "https://aqarmap.com.eg/",
+    "country": "egypt",
+    "marketplaceType": "property",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "active",
+    "note": "A major Egyptian property marketplace where agents hold public listings."
+  },
+  {
+    "id": "mp-eg-dubizzle",
+    "name": "Dubizzle Egypt",
+    "website": "https://www.dubizzle.com.eg/",
+    "country": "egypt",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "unknown",
+    "alsoCovers": [
+      "jobs",
+      "property",
+      "vehicles"
+    ],
+    "operator": "Dubizzle Group",
+    "note": "Egypt's dominant classifieds marketplace. OLX Egypt was rebranded into it and olx.com.eg now redirects here. Returns an authorisation gate, so a browser check is needed."
+  },
+  {
+    "id": "mp-eg-hatla2ee",
+    "name": "Hatla2ee",
+    "website": "https://www.hatla2ee.com/",
+    "country": "egypt",
+    "marketplaceType": "vehicles",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "unknown",
+    "note": "Egypt's main vehicle marketplace. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
+    "id": "mp-eg-jumia",
+    "name": "Jumia Egypt",
+    "website": "https://www.jumia.com.eg/",
+    "country": "egypt",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "business",
+    "costModel": "paid",
+    "currentStatus": "unknown",
+    "operator": "Jumia Group",
+    "note": "The Egyptian storefront of Africa's largest online marketplace. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
+    "id": "mp-eg-propertyfinder",
+    "name": "Property Finder Egypt",
+    "website": "https://www.propertyfinder.eg/",
+    "country": "egypt",
+    "marketplaceType": "property",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "active",
+    "note": "The Egyptian arm of a major Middle East property marketplace."
+  },
+  {
+    "id": "mp-eg-wuzzuf",
+    "name": "Wuzzuf",
+    "website": "https://wuzzuf.net/",
+    "country": "egypt",
+    "marketplaceType": "jobs",
+    "sellerTypes": "business",
+    "costModel": "paid",
+    "currentStatus": "active",
+    "note": "Egypt's leading job marketplace, where employers hold public company pages."
+  },
+  {
     "id": "mp-ee-auto24",
     "name": "Auto24.ee",
     "website": "https://www.auto24.ee/",
@@ -972,6 +1077,37 @@
     "costModel": "freemium",
     "currentStatus": "unknown",
     "note": "An Estonian general classifieds marketplace. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
+    "id": "mp-et-engocha",
+    "name": "Engocha",
+    "website": "https://www.engocha.com/",
+    "country": "ethiopia",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "unknown",
+    "alsoCovers": [
+      "property",
+      "vehicles"
+    ],
+    "note": "An Ethiopian classifieds marketplace. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
+    "id": "mp-et-jiji",
+    "name": "Jiji Ethiopia",
+    "website": "https://jiji.com.et/",
+    "country": "ethiopia",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "unknown",
+    "alsoCovers": [
+      "property",
+      "vehicles"
+    ],
+    "operator": "Jiji Group",
+    "note": "Ethiopia's leading classifieds marketplace. Live but behind a bot filter, so a browser check is needed."
   },
   {
     "id": "mp-fi-tori",
@@ -1487,6 +1623,95 @@
     "note": "A major Japanese property marketplace where agents hold public listings."
   },
   {
+    "id": "mp-ke-brightermonday",
+    "name": "BrighterMonday",
+    "website": "https://www.brightermonday.co.ke/",
+    "country": "kenya",
+    "marketplaceType": "jobs",
+    "sellerTypes": "business",
+    "costModel": "paid",
+    "currentStatus": "active",
+    "note": "Kenya's leading job marketplace, where employers hold public company pages."
+  },
+  {
+    "id": "mp-ke-buyrentkenya",
+    "name": "BuyRentKenya",
+    "website": "https://www.buyrentkenya.com/",
+    "country": "kenya",
+    "marketplaceType": "property",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "active",
+    "note": "A major Kenyan property marketplace where agents hold public listings."
+  },
+  {
+    "id": "mp-ke-jiji",
+    "name": "Jiji Kenya",
+    "website": "https://jiji.co.ke/",
+    "country": "kenya",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "unknown",
+    "alsoCovers": [
+      "jobs",
+      "property",
+      "vehicles"
+    ],
+    "operator": "Jiji Group",
+    "note": "Kenya's largest classifieds marketplace. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
+    "id": "mp-ke-jumia",
+    "name": "Jumia Kenya",
+    "website": "https://www.jumia.co.ke/",
+    "country": "kenya",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "business",
+    "costModel": "paid",
+    "currentStatus": "unknown",
+    "operator": "Jumia Group",
+    "note": "The Kenyan storefront of Africa's largest online marketplace. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
+    "id": "mp-ke-kilimall",
+    "name": "Kilimall",
+    "website": "https://www.kilimall.co.ke/",
+    "country": "kenya",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "business",
+    "costModel": "paid",
+    "currentStatus": "active",
+    "note": "A Kenyan online marketplace where merchants hold public storefronts."
+  },
+  {
+    "id": "mp-ke-pigiame",
+    "name": "PigiaMe",
+    "website": "https://www.pigiame.co.ke/",
+    "country": "kenya",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "unknown",
+    "alsoCovers": [
+      "jobs",
+      "property",
+      "vehicles"
+    ],
+    "note": "A Kenyan classifieds marketplace. Returned a maintenance page, so a browser check is needed."
+  },
+  {
+    "id": "mp-ke-property24",
+    "name": "Property24 Kenya",
+    "website": "https://www.property24.co.ke/",
+    "country": "kenya",
+    "marketplaceType": "property",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "active",
+    "note": "The Kenyan arm of a major African property marketplace."
+  },
+  {
     "id": "mp-lv-ss",
     "name": "SS.COM",
     "website": "https://www.ss.com/",
@@ -1736,6 +1961,128 @@
     "costModel": "freemium",
     "currentStatus": "unknown",
     "note": "A Dutch classifieds portal. Could not be identified automatically, so a browser check is needed."
+  },
+  {
+    "id": "mp-global-autochek",
+    "name": "Autochek",
+    "website": "https://www.autochek.africa/",
+    "country": "nigeria",
+    "marketplaceType": "vehicles",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "note": "A pan-African vehicle marketplace which absorbed the Cheki classifieds network."
+  },
+  {
+    "id": "mp-ng-cars45",
+    "name": "Cars45",
+    "website": "https://cars45.com/",
+    "country": "nigeria",
+    "marketplaceType": "vehicles",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "unknown",
+    "note": "A Nigerian used-vehicle marketplace. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
+    "id": "mp-global-coinafrique",
+    "name": "CoinAfrique",
+    "website": "https://www.coinafrique.com/",
+    "country": "nigeria",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "property",
+      "vehicles"
+    ],
+    "note": "A pan-African classifieds marketplace covering francophone and anglophone markets."
+  },
+  {
+    "id": "mp-ng-jiji",
+    "name": "Jiji Nigeria",
+    "website": "https://jiji.ng/",
+    "country": "nigeria",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "unknown",
+    "alsoCovers": [
+      "jobs",
+      "property",
+      "services",
+      "vehicles"
+    ],
+    "operator": "Jiji Group",
+    "note": "Nigeria's largest classifieds marketplace. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
+    "id": "mp-ng-jobberman",
+    "name": "Jobberman",
+    "website": "https://www.jobberman.com/",
+    "country": "nigeria",
+    "marketplaceType": "jobs",
+    "sellerTypes": "business",
+    "costModel": "paid",
+    "currentStatus": "active",
+    "note": "Nigeria's leading job marketplace, where employers hold public company pages."
+  },
+  {
+    "id": "mp-ng-jumia",
+    "name": "Jumia Nigeria",
+    "website": "https://www.jumia.com.ng/",
+    "country": "nigeria",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "business",
+    "costModel": "paid",
+    "currentStatus": "unknown",
+    "operator": "Jumia Group",
+    "note": "Africa's largest online marketplace, where sellers hold public storefronts. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
+    "id": "mp-ng-konga",
+    "name": "Konga",
+    "website": "https://www.konga.com/",
+    "country": "nigeria",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "business",
+    "costModel": "paid",
+    "currentStatus": "active",
+    "note": "A major Nigerian online marketplace where merchants hold public storefronts."
+  },
+  {
+    "id": "mp-ng-myjobmag",
+    "name": "MyJobMag",
+    "website": "https://www.myjobmag.com/",
+    "country": "nigeria",
+    "marketplaceType": "jobs",
+    "sellerTypes": "business",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "note": "A Nigerian job marketplace where employers hold public company pages."
+  },
+  {
+    "id": "mp-ng-npc",
+    "name": "Nigeria Property Centre",
+    "website": "https://nigeriapropertycentre.com/",
+    "country": "nigeria",
+    "marketplaceType": "property",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "unknown",
+    "note": "A major Nigerian property marketplace. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
+    "id": "mp-ng-propertypro",
+    "name": "PropertyPro.ng",
+    "website": "https://www.propertypro.ng/",
+    "country": "nigeria",
+    "marketplaceType": "property",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "unknown",
+    "note": "A major Nigerian property marketplace where agents hold public listings. ToLet.com.ng was absorbed into it and now redirects here. Live but behind a bot filter, so a browser check is needed."
   },
   {
     "id": "mp-mk-pazar3",
@@ -2284,6 +2631,95 @@
     "note": "Slovenia's largest classifieds marketplace."
   },
   {
+    "id": "mp-za-autotrader",
+    "name": "AutoTrader South Africa",
+    "website": "https://www.autotrader.co.za/",
+    "country": "south-africa",
+    "marketplaceType": "vehicles",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "active",
+    "note": "South Africa's main vehicle marketplace, where dealers hold public dealer pages."
+  },
+  {
+    "id": "mp-za-bobshop",
+    "name": "Bob Shop",
+    "website": "https://bobshop.co.za/",
+    "country": "south-africa",
+    "marketplaceType": "auctions",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "general-classifieds"
+    ],
+    "note": "A South African auction and marketplace platform, formerly bidorbuy, with public seller shops."
+  },
+  {
+    "id": "mp-za-careerjunction",
+    "name": "CareerJunction",
+    "website": "https://www.careerjunction.co.za/",
+    "country": "south-africa",
+    "marketplaceType": "jobs",
+    "sellerTypes": "business",
+    "costModel": "paid",
+    "currentStatus": "active",
+    "note": "A South African job marketplace where employers hold public company pages."
+  },
+  {
+    "id": "mp-za-gumtree",
+    "name": "Gumtree South Africa",
+    "website": "https://www.gumtree.co.za/",
+    "country": "south-africa",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "jobs",
+      "property",
+      "vehicles"
+    ],
+    "note": "South Africa's main free classifieds marketplace."
+  },
+  {
+    "id": "mp-za-junkmail",
+    "name": "Junk Mail",
+    "website": "https://www.junkmail.co.za/",
+    "country": "south-africa",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "unknown",
+    "alsoCovers": [
+      "property",
+      "vehicles"
+    ],
+    "note": "A long-running South African classifieds marketplace. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
+    "id": "mp-za-privateproperty",
+    "name": "Private Property",
+    "website": "https://www.privateproperty.co.za/",
+    "country": "south-africa",
+    "marketplaceType": "property",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "active",
+    "note": "A major South African property marketplace."
+  },
+  {
+    "id": "mp-za-property24",
+    "name": "Property24",
+    "website": "https://www.property24.com/",
+    "country": "south-africa",
+    "marketplaceType": "property",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "active",
+    "note": "South Africa's main property marketplace, where agents hold public listings."
+  },
+  {
     "id": "mp-kr-albamon",
     "name": "Albamon",
     "website": "https://www.albamon.com/",
@@ -2441,6 +2877,17 @@
     "note": "Sri Lanka's leading classifieds marketplace."
   },
   {
+    "id": "mp-sd-sudanjob",
+    "name": "Sudanjob",
+    "website": "https://www.sudanjob.net/",
+    "country": "sudan",
+    "marketplaceType": "jobs",
+    "sellerTypes": "business",
+    "costModel": "paid",
+    "currentStatus": "active",
+    "note": "Sudan's main job marketplace, where employers hold public listings."
+  },
+  {
     "id": "mp-se-blocket",
     "name": "Blocket",
     "website": "https://www.blocket.se/",
@@ -2561,6 +3008,22 @@
     "note": "Taiwan's largest online marketplace, where sellers hold public shops."
   },
   {
+    "id": "mp-tz-jiji",
+    "name": "Jiji Tanzania",
+    "website": "https://jiji.co.tz/",
+    "country": "tanzania",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "unknown",
+    "alsoCovers": [
+      "property",
+      "vehicles"
+    ],
+    "operator": "Jiji Group",
+    "note": "Tanzania's leading classifieds marketplace. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
     "id": "mp-th-ddproperty",
     "name": "DDproperty",
     "website": "https://www.ddproperty.com/",
@@ -2657,6 +3120,22 @@
       "vehicles"
     ],
     "note": "Turkey's dominant classifieds marketplace. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
+    "id": "mp-ug-jiji",
+    "name": "Jiji Uganda",
+    "website": "https://jiji.ug/",
+    "country": "uganda",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "unknown",
+    "alsoCovers": [
+      "property",
+      "vehicles"
+    ],
+    "operator": "Jiji Group",
+    "note": "Uganda's leading classifieds marketplace. Live but behind a bot filter, so a browser check is needed."
   },
   {
     "id": "mp-ua-autoria",
