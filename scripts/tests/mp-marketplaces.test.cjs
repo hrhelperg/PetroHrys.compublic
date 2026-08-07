@@ -181,6 +181,30 @@ test('the page states what the dataset excludes', () => {
     'the page does not say that business directories are excluded');
 });
 
+test('a city-sharded platform is one row, not one row per city', () => {
+  // Craigslist runs several hundred city sites from one platform and one
+  // account. Listing them per city would multiply the dataset by 400 and mean
+  // exactly one submission — the same "one submission, one row" rule that
+  // merged the Belgian language mirror, applied at a much larger scale.
+  const craigslist = ROWS.filter((r) => /craigslist/i.test(r.website));
+  assert.strictEqual(craigslist.length, 1,
+    `craigslist has ${craigslist.length} rows; its city sites are one platform`);
+  assert.match(craigslist[0].note || '', /one platform and one account/i,
+    'the craigslist row does not explain why its city sites are not separate rows');
+});
+
+test('no row points at a marketplace that closed or was repurposed', () => {
+  // Both were reachable. recycler.com serves a farewell notice; usfreeads.com
+  // now serves a Japanese lifestyle site under the same domain. A 200 is not
+  // evidence that a domain still hosts the marketplace it is named after.
+  const GONE = ['recycler.com', 'usfreeads.com', 'backpage.com', 'letgo.com'];
+  const websites = ROWS.map((r) => r.website.toLowerCase());
+  for (const bad of GONE) {
+    assert.ok(!websites.some((w) => w.includes(bad)),
+      `${bad} no longer operates as the marketplace it is named after`);
+  }
+});
+
 test('no build-time network call was introduced', () => {
   const source = fs.readFileSync(path.join(ROOT, 'scripts/build-marketplaces.cjs'), 'utf8')
     + fs.readFileSync(path.join(ROOT, 'scripts/lib/mp-schema.cjs'), 'utf8');
