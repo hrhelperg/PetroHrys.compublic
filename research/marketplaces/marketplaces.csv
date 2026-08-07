@@ -1,5 +1,8 @@
 ﻿id,name,website,country,marketplace_type,also_covers,seller_types,cost,operator,current_status,note
 mp-al-merrjep,MerrJep,https://www.merrjep.al/,albania,general-classifieds,jobs; property; vehicles,both,freemium,,active,Albania's leading classifieds marketplace.
+mp-ar-argenprop,Argenprop,https://www.argenprop.com/,argentina,property,,both,paid,,active,A major Argentine property marketplace where agents hold public listings.
+mp-ar-mercadolibre,Mercado Libre Argentina,https://www.mercadolibre.com.ar/,argentina,general-classifieds,vehicles,both,freemium,Mercado Libre,active,"The dominant Argentine marketplace, where sellers hold public storefronts."
+mp-ar-zonaprop,Zonaprop,https://www.zonaprop.com.ar/,argentina,property,,both,paid,,unknown,"Argentina's main property marketplace. Live but behind a bot filter, so a browser check is needed."
 mp-au-airtasker,Airtasker,https://www.airtasker.com/,australia,services,,both,freemium,,unknown,"An Australian services marketplace where providers hold public profiles. Live but behind a bot filter, so a browser check is needed."
 mp-au-graysonline,Grays,https://www.graysonline.com/,australia,auctions,vehicles,both,paid,,unknown,"An Australian online auction marketplace for industrial and consumer goods. Live but behind a bot filter, so a browser check is needed."
 mp-au-gumtree,Gumtree Australia,https://www.gumtree.com.au/,australia,general-classifieds,jobs; property; vehicles,both,freemium,,unknown,"Australia's main general classifieds marketplace. Live but behind a bot filter, so a browser check is needed."
@@ -21,6 +24,18 @@ mp-by-av,av.by,https://www.av.by/,belarus,vehicles,,both,paid,,unknown,"The main
 mp-be-2dehands,2dehands,https://www.2dehands.be/,belgium,general-classifieds,property; vehicles,both,freemium,Adevinta,active,The main Dutch-language Belgian classifieds marketplace.
 mp-be-bizzy-2dehands,Immoweb,https://www.immoweb.be/,belgium,property,,both,paid,,unknown,"The main Belgian property marketplace, where agents hold public listings. Needs a browser check."
 mp-ba-olx,OLX Bosnia,https://www.olx.ba/,bosnia-and-herzegovina,general-classifieds,property; vehicles,both,freemium,OLX Group,unknown,"The leading Bosnian classifieds marketplace. Live but behind a bot filter, so a browser check is needed."
+mp-br-chavesnamao,Chaves na Mão,https://www.chavesnamao.com.br/,brazil,general-classifieds,property; vehicles,both,freemium,,active,A Brazilian classifieds portal covering property and vehicles.
+mp-br-enjoei,Enjoei,https://www.enjoei.com.br/,brazil,second-hand,,both,freemium,,active,A Brazilian resale marketplace where sellers hold public shops.
+mp-br-imovelweb,ImovelWeb,https://www.imovelweb.com.br/,brazil,property,,both,paid,,unknown,"A Brazilian property marketplace where agents hold public listings. Live but behind a bot filter, so a browser check is needed."
+mp-br-infojobs,InfoJobs Brasil,https://www.infojobs.com.br/,brazil,jobs,,business,paid,,unknown,"A Brazilian job marketplace where employers hold public company pages. Live but behind a bot filter, so a browser check is needed."
+mp-br-mercadolivre,Mercado Livre Brasil,https://www.mercadolivre.com.br/,brazil,general-classifieds,vehicles,both,freemium,Mercado Libre,active,"The dominant Brazilian marketplace, where sellers hold public storefronts."
+mp-br-olx,OLX Brasil,https://www.olx.com.br/,brazil,general-classifieds,property; vehicles,both,freemium,OLX Group,unknown,"Brazil's largest classifieds marketplace. Live but behind a bot filter, so a browser check is needed."
+mp-br-quintoandar,QuintoAndar,https://www.quintoandar.com.br/,brazil,property,,both,paid,,active,A Brazilian rental and sales property marketplace.
+mp-br-vagas,Vagas.com.br,https://www.vagas.com.br/,brazil,jobs,,business,paid,,active,A major Brazilian job marketplace where employers hold public company pages.
+mp-br-vivareal,VivaReal,https://www.vivareal.com.br/,brazil,property,,both,paid,,unknown,"A major Brazilian property marketplace. Live but behind a bot filter, so a browser check is needed."
+mp-br-webmotors,Webmotors,https://www.webmotors.com.br/,brazil,vehicles,,both,paid,,unknown,"Brazil's main vehicle marketplace, where dealers hold public dealer pages. Live but behind a bot filter, so a browser check is needed."
+mp-br-zapimoveis,ZAP Imóveis,https://www.zapimoveis.com.br/,brazil,property,,both,paid,,unknown,"A major Brazilian property marketplace where agents hold public listings. Live but behind a bot filter, so a browser check is needed."
+mp-br-icarros,iCarros,https://www.icarros.com.br/,brazil,vehicles,,both,paid,,unknown,"A major Brazilian vehicle marketplace. Live but behind a bot filter, so a browser check is needed."
 mp-bg-bazar,Bazar.bg,https://www.bazar.bg/,bulgaria,general-classifieds,jobs; property; services; vehicles,both,freemium,,active,"A Bulgarian free classifieds portal covering goods, property, vehicles and jobs."
 mp-bg-mobile-bg,Mobile.bg,https://www.mobile.bg/,bulgaria,vehicles,,both,paid,,active,"The main Bulgarian vehicle marketplace, where dealers hold public pages."
 mp-bg-olx,OLX Bulgaria,https://www.olx.bg/,bulgaria,general-classifieds,jobs; property; vehicles,both,freemium,OLX Group,active,Bulgaria's leading classifieds marketplace.
@@ -31,6 +46,10 @@ mp-ca-lespac,LesPAC,https://www.lespac.com/,canada,general-classifieds,vehicles,
 mp-ca-realtor,REALTOR.ca,https://www.realtor.ca/,canada,property,,business,paid,,active,"The main Canadian property marketplace, operated by the national real estate association."
 mp-ca-used,Used.ca,https://www.usedvictoria.com/,canada,general-classifieds,vehicles,both,freemium,,active,A regional Canadian classifieds network.
 mp-ca-ebay,eBay Canada,https://www.ebay.ca/,canada,auctions,general-classifieds,both,freemium,,active,"The Canadian storefront of the eBay marketplace, where businesses hold public seller shops."
+mp-cl-chileautos,Chileautos,https://www.chileautos.cl/,chile,vehicles,,both,paid,,active,"Chile's main vehicle marketplace, where dealers hold public dealer pages."
+mp-cl-mercadolibre,Mercado Libre Chile,https://www.mercadolibre.cl/,chile,general-classifieds,vehicles,both,freemium,Mercado Libre,active,"The dominant Chilean marketplace, where sellers hold public storefronts."
+mp-cl-portalinmobiliario,Portal Inmobiliario,https://www.portalinmobiliario.com/,chile,property,,both,paid,Mercado Libre,active,"Chile's main property marketplace, now operated within Mercado Libre."
+mp-cl-yapo,Yapo.cl,https://www.yapo.cl/,chile,general-classifieds,property; vehicles,both,freemium,,active,Chile's main classifieds marketplace.
 mp-cn-1688,1688,https://www.1688.com/,china,b2b,,business,freemium,Alibaba Group,unknown,"China's dominant domestic B2B wholesale marketplace. Could not be identified automatically, so a browser check is needed."
 mp-cn-58,58.com,https://www.58.com/,china,general-classifieds,jobs; property; services; vehicles,both,freemium,58.com Inc,active,"China's dominant classifieds platform, covering jobs, property, vehicles and local services. Ganji was absorbed into it and now resolves to its login."
 mp-cn-aihuishou,AiHuiShou,https://www.aihuishou.com/,china,second-hand,,both,free,,active,A Chinese electronics trade-in and resale marketplace.
@@ -38,6 +57,11 @@ mp-cn-pinduoduo,Pinduoduo,https://www.pinduoduo.com/,china,general-classifieds,,
 mp-cn-taobao,Taobao,https://www.taobao.com/,china,general-classifieds,,both,freemium,Alibaba Group,active,"China's largest consumer marketplace, where sellers hold public shops."
 mp-cn-goofish,Xianyu,https://www.goofish.com/,china,second-hand,,both,free,Alibaba Group,active,"China's largest second-hand marketplace, where sellers hold public listings."
 mp-cn-zhuanzhuan,Zhuanzhuan,https://www.zhuanzhuan.com/,china,second-hand,,both,freemium,,active,A major Chinese second-hand marketplace with authenticated resale.
+mp-co-fincaraiz,Fincaraíz,https://www.fincaraiz.com.co/,colombia,property,,both,paid,,active,"Colombia's main property marketplace, where agents hold public listings."
+mp-co-mercadolibre,Mercado Libre Colombia,https://www.mercadolibre.com.co/,colombia,general-classifieds,vehicles,both,freemium,Mercado Libre,active,"The dominant Colombian marketplace, where sellers hold public storefronts."
+mp-co-metrocuadrado,Metrocuadrado,https://www.metrocuadrado.com/,colombia,property,,both,paid,,active,A major Colombian property marketplace where agents hold public listings.
+mp-co-tucarro,TuCarro,https://www.tucarro.com/,colombia,vehicles,,both,paid,Mercado Libre,active,"Colombia's main vehicle marketplace, where dealers hold public pages."
+mp-co-elempleo,elempleo,https://www.elempleo.com/,colombia,jobs,,business,paid,,active,A major Colombian job marketplace where employers hold public company pages.
 mp-hr-njuskalo,Njuskalo,https://www.njuskalo.hr/,croatia,general-classifieds,property; vehicles,both,freemium,,active,Croatia's largest classifieds marketplace.
 mp-cy-bazaraki,Bazaraki,https://www.bazaraki.com/,cyprus,general-classifieds,property; vehicles,both,freemium,,unknown,"Cyprus's main classifieds marketplace. Live but behind a bot filter, so a browser check is needed."
 mp-cz-annonce,Annonce.cz,https://www.annonce.cz/,czech-republic,general-classifieds,property; vehicles,both,freemium,,active,A long-running Czech classifieds portal.
@@ -98,6 +122,12 @@ mp-lu-athome,atHome.lu,https://www.athome.lu/,luxembourg,property,,both,paid,,ac
 mp-my-carousell,Carousell Malaysia,https://www.carousell.com.my/,malaysia,general-classifieds,,both,freemium,Carousell Group,unknown,"The Malaysian arm of a Southeast Asian classifieds marketplace. Live but behind a bot filter, so a browser check is needed."
 mp-my-mudah,Mudah.my,https://www.mudah.my/,malaysia,general-classifieds,property; vehicles,both,freemium,,active,Malaysia's largest classifieds marketplace.
 mp-mt-maltapark,Maltapark,https://www.maltapark.com/,malta,general-classifieds,property; vehicles,both,freemium,,active,Malta's main classifieds marketplace.
+mp-mx-autocosmos,Autocosmos México,https://www.autocosmos.com.mx/,mexico,vehicles,,both,paid,,active,A Mexican vehicle marketplace and information portal with dealer listings.
+mp-mx-inmuebles24,Inmuebles24,https://www.inmuebles24.com/,mexico,property,,both,paid,,unknown,"Mexico's main property marketplace, which absorbed Segundamano's audience. Live but behind a bot filter, so a browser check is needed."
+mp-mx-kavak,Kavak,https://www.kavak.com/,mexico,vehicles,,both,freemium,,active,A Latin American used-vehicle marketplace originating in Mexico.
+mp-mx-mercadolibre,Mercado Libre México,https://www.mercadolibre.com.mx/,mexico,general-classifieds,vehicles,both,freemium,Mercado Libre,active,"The dominant Mexican marketplace, where sellers hold public storefronts."
+mp-mx-seminuevos,Seminuevos,https://www.seminuevos.com/,mexico,vehicles,,both,paid,,active,A Mexican used-vehicle marketplace where dealers hold public listings.
+mp-mx-vivanuncios,Vivanuncios,https://www.vivanuncios.com.mx/,mexico,general-classifieds,property; vehicles,both,freemium,,unknown,"A major Mexican classifieds marketplace. Live but behind a bot filter, so a browser check is needed."
 mp-md-999,999.md,https://www.999.md/,moldova,general-classifieds,jobs; property; vehicles,both,freemium,,active,Moldova's dominant classifieds marketplace.
 mp-md-makler,Makler.md,https://www.makler.md/,moldova,general-classifieds,property; vehicles,both,freemium,,active,A Moldovan classifieds portal.
 mp-nl-marktplaats,Marktplaats,https://www.marktplaats.nl/,netherlands,general-classifieds,jobs; property; vehicles,both,freemium,Adevinta,active,"The dominant Dutch classifieds marketplace, with commercial seller accounts."
@@ -110,6 +140,10 @@ mp-pk-olx,OLX Pakistan,https://www.olx.com.pk/,pakistan,general-classifieds,jobs
 mp-pk-pakwheels,PakWheels,https://www.pakwheels.com/,pakistan,vehicles,,both,freemium,,active,"Pakistan's main vehicle marketplace, where dealers hold public pages."
 mp-pk-propertyfinder,PropertyFinder.pk,https://www.propertyfinder.pk/,pakistan,property,,both,paid,,active,A Pakistani property marketplace where agents hold public listings.
 mp-pk-zameen,Zameen,https://www.zameen.com/,pakistan,property,,both,paid,,active,"Pakistan's main property marketplace, where agents hold public listings."
+mp-pe-adondevivir,A Dónde Vivir,https://www.adondevivir.com/,peru,property,,both,paid,,unknown,"A major Peruvian property marketplace. Live but behind a bot filter, so a browser check is needed."
+mp-pe-mercadolibre,Mercado Libre Perú,https://www.mercadolibre.com.pe/,peru,general-classifieds,vehicles,both,freemium,Mercado Libre,active,"The dominant Peruvian marketplace, where sellers hold public storefronts."
+mp-pe-neoauto,Neoauto,https://www.neoauto.com/,peru,vehicles,,both,paid,,unknown,"Peru's main vehicle marketplace. Live but behind a bot filter, so a browser check is needed."
+mp-pe-urbania,Urbania,https://www.urbania.pe/,peru,property,,both,paid,,unknown,"Peru's main property marketplace. Live but behind a bot filter, so a browser check is needed."
 mp-ph-autodeal,AutoDeal,https://www.autodeal.com.ph/,philippines,vehicles,,both,paid,,unknown,"A Philippine vehicle marketplace where dealers hold public pages. Rejects automated requests, so a browser check is needed."
 mp-ph-carousell,Carousell Philippines,https://www.carousell.ph/,philippines,general-classifieds,property; vehicles,both,freemium,Carousell Group,unknown,"The Philippine classifieds marketplace, which absorbed OLX Philippines. Live but behind a bot filter, so a browser check is needed."
 mp-ph-lamudi,Lamudi Philippines,https://www.lamudi.com.ph/,philippines,property,,both,paid,,unknown,"A Philippine property marketplace where agents hold public listings. Returns an authorisation gate, so a browser check is needed."
@@ -207,6 +241,8 @@ mp-us-storenvy,Storenvy,https://www.storenvy.com/,united-states,general-classifi
 mp-us-varagesale,VarageSale,https://www.varagesale.com/,united-states,second-hand,,both,free,,active,A North American community buy-and-sell marketplace with verified members.
 mp-us-zillow,Zillow,https://www.zillow.com/,united-states,property,,both,paid,,unknown,"The largest US property marketplace, where agents hold public listings. Live but behind a bot filter, so a browser check is needed."
 mp-us-ebay,eBay,https://www.ebay.com/,united-states,auctions,general-classifieds; vehicles,both,freemium,,active,"The largest US auction and fixed-price marketplace, where businesses hold public seller shops."
+mp-ve-mercadolibre,Mercado Libre Venezuela,https://www.mercadolibre.com.ve/,venezuela,general-classifieds,vehicles,both,freemium,Mercado Libre,active,"The dominant Venezuelan marketplace, where sellers hold public storefronts."
+mp-ve-tuinmueble,TuInmueble,https://www.tuinmueble.com/,venezuela,property,,both,paid,,active,A Venezuelan property marketplace where agents hold public listings.
 mp-vn-alonhadat,Alonhadat,https://www.alonhadat.com.vn/,vietnam,property,,both,freemium,,active,A Vietnamese property marketplace.
 mp-vn-batdongsan,Batdongsan,https://batdongsan.com.vn/,vietnam,property,,both,paid,,unknown,"Vietnam's main property marketplace. Live but behind a bot filter, so a browser check is needed."
 mp-vn-chotot,Chợ Tốt,https://www.chotot.com/,vietnam,general-classifieds,property; vehicles,both,freemium,,active,Vietnam's leading classifieds marketplace.
