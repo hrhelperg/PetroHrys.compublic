@@ -254,8 +254,8 @@ test('the business-directories build never writes a legacy inline-style page', (
   }
 });
 
-test('the site stylesheet and ecosystem assets are untouched', () => {
-  for (const asset of ['css/petrohrys.css', 'css/ecosystem-banner.css', 'js/ecosystem-banner.js',
+test('the ecosystem assets are untouched', () => {
+  for (const asset of ['css/ecosystem-banner.css', 'js/ecosystem-banner.js',
     'js/ecosystem-registry.js', 'js/ecosystem-config.js', 'scripts/inject-ecosystem-banner.cjs']) {
     assert.strictEqual(git('diff', BASELINE, '--name-only', '--', asset).trim(), '',
       `${asset} was modified`);

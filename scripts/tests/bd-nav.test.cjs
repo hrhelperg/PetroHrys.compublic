@@ -94,9 +94,9 @@ test('no localised page was touched', () => {
   }
 });
 
-test('no legacy inline-style page was touched', () => {
-  for (const page of ['pdf-editor/index.html', 'blog/index.html', 'privacy/index.html',
-    'webmasterid/index.html', 'terms/index.html', 'startups/index.html']) {
+test('no deferred legacy inline-style page was touched', () => {
+  for (const page of ['blog/index.html', 'privacy/index.html', 'terms/index.html',
+    'startups/index.html']) {
     assert.ok(!read(page).includes('Research Center'), `${page} was modified`);
   }
 });
