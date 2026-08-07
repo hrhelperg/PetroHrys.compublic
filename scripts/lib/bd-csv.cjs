@@ -16,6 +16,7 @@
 //     so the CSV can never disagree with the site's own count.
 
 const S = require('./bd-schema.cjs');
+const INTEL = require('./bd-intelligence.cjs');
 
 // RFC 4180: quote when the value contains a comma, quote, CR or LF, and escape
 // an embedded quote by doubling it.
@@ -31,6 +32,10 @@ const COLUMNS = [
   'listing_action', 'cost', 'domain_rating', 'tier', 'priority',
   'public_profile_available', 'submission_url', 'claim_url', 'best_for',
   'limitations', 'last_verified', 'current_status',
+  // Directory Intelligence v2. Computed at render time from the record, never
+  // stored: a score in a file can disagree with the facts it came from the
+  // moment one of them changes. Blank means not enough evidence to score.
+  'directory_score', 'seo_value', 'approval_mode', 'country_reach', 'has_api',
 ];
 
 // Columns that must NEVER appear. Asserted by test rather than trusted.
@@ -72,6 +77,21 @@ function rowFor(record) {
     firstItem(record.cons.length ? record.cons : record.notRecommendedFor),
     record.lastVerified || '',
     record.currentStatus || '',
+    ...intelligenceCells(record),
+  ];
+}
+
+// One place computes the intelligence cells, so the CSV and the page can never
+// show a different score for the same record.
+function intelligenceCells(record) {
+  const score = INTEL.directoryScore(record);
+  const intel = record.intelligence || {};
+  return [
+    score.overall === null ? '' : score.overall,
+    score.dimensions.seoValue === null ? '' : score.dimensions.seoValue,
+    intel.approvalMode || '',
+    intel.countryReach || '',
+    tri(intel.hasApi === undefined ? null : intel.hasApi),
   ];
 }
 

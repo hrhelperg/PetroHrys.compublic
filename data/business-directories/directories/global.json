@@ -188,6 +188,15 @@
       "mobileApp": null,
       "ecommerce": true
     },
+    "intelligence": {
+      "hasApi": true,
+      "multipleLocations": true,
+      "countryReach": "global",
+      "approvalMode": "instant",
+      "profileIndexed": true,
+      "profileUrlPattern": "https://www.trustpilot.com/review/{domain}",
+      "ranksByCompanyName": true
+    },
     "backlinkType": null,
     "robots": null,
     "sitemap": null,
@@ -318,6 +327,14 @@
       "mobileApp": null,
       "ecommerce": null
     },
+    "intelligence": {
+      "multipleLocations": true,
+      "countryReach": "global",
+      "approvalMode": "manual",
+      "profileIndexed": true,
+      "profileUrlPattern": "https://www.yelp.com/biz/{slug}",
+      "ranksByCompanyName": true
+    },
     "backlinkType": null,
     "robots": null,
     "sitemap": null,
@@ -441,6 +458,13 @@
       "ai": true,
       "mobileApp": null,
       "ecommerce": null
+    },
+    "intelligence": {
+      "countryReach": "global",
+      "approvalMode": "manual",
+      "profileIndexed": true,
+      "profileUrlPattern": "https://www.capterra.com/p/{id}/{Name}/",
+      "ranksByCompanyName": true
     },
     "backlinkType": null,
     "robots": null,
@@ -840,6 +864,13 @@
       "mobileApp": null,
       "ecommerce": null
     },
+    "intelligence": {
+      "countryReach": "global",
+      "approvalMode": "manual",
+      "profileIndexed": true,
+      "profileUrlPattern": "https://clutch.co/profile/{slug}",
+      "ranksByCompanyName": true
+    },
     "backlinkType": null,
     "robots": null,
     "sitemap": null,
@@ -1088,6 +1119,14 @@
       "mobileApp": null,
       "ecommerce": null
     },
+    "intelligence": {
+      "hasApi": true,
+      "countryReach": "global",
+      "approvalMode": "manual",
+      "profileIndexed": true,
+      "profileUrlPattern": "https://www.crunchbase.com/organization/{slug}",
+      "ranksByCompanyName": true
+    },
     "backlinkType": null,
     "robots": null,
     "sitemap": null,
@@ -1210,6 +1249,13 @@
       "ai": true,
       "mobileApp": true,
       "ecommerce": null
+    },
+    "intelligence": {
+      "countryReach": "global",
+      "approvalMode": "manual",
+      "profileIndexed": true,
+      "profileUrlPattern": "https://www.producthunt.com/products/{slug}",
+      "ranksByCompanyName": true
     },
     "backlinkType": null,
     "robots": null,
@@ -1713,6 +1759,12 @@
       "ai": null,
       "mobileApp": true,
       "ecommerce": null
+    },
+    "intelligence": {
+      "countryReach": "global",
+      "approvalMode": "manual",
+      "profileIndexed": true,
+      "profileUrlPattern": "https://ecosystem.hubspot.com/marketplace/solutions/{slug}"
     },
     "backlinkType": null,
     "robots": null,
@@ -6325,6 +6377,16 @@
       "mobileApp": null,
       "ecommerce": null
     },
+    "intelligence": {
+      "hasApi": true,
+      "bulkSubmission": true,
+      "multipleLocations": true,
+      "franchiseSupport": true,
+      "countryReach": "global",
+      "approvalMode": "manual",
+      "profileIndexed": true,
+      "ranksByCompanyName": true
+    },
     "backlinkType": null,
     "robots": null,
     "sitemap": null,
@@ -6571,6 +6633,13 @@
       "ai": null,
       "mobileApp": null,
       "ecommerce": null
+    },
+    "intelligence": {
+      "countryReach": "global",
+      "approvalMode": "manual",
+      "profileIndexed": true,
+      "profileUrlPattern": "https://www.g2.com/products/{slug}/reviews",
+      "ranksByCompanyName": true
     },
     "backlinkType": null,
     "robots": null,

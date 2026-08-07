@@ -990,6 +990,10 @@ const KNOWN_RECORD_KEYS = [
   'bestFor', 'notRecommendedFor', 'submissionDifficulty', 'listingQuality',
   'typicalApprovalTime', 'reviewProcess', 'commonMistakes', 'preparationChecklist',
   'requiredAssets', 'recommendedIndustries', 'editorialTags', 'pros', 'cons', 'editorNotes',
+  // Directory Intelligence v2. One nested object rather than ten loose columns:
+  // the attributes are read together, and a single key keeps the projection able
+  // to drop the whole layer while it is unpopulated.
+  'intelligence',
 ];
 
 // --- shared official hosts ---------------------------------------------------

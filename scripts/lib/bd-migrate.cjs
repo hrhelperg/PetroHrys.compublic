@@ -5,6 +5,7 @@ const {
   ACCEPTS_KEYS, RELATION_KINDS, REQUIRED_ASSET_KEYS,
   KNOWN_RECORD_KEYS, PUBLIC_ACCESS_BOOLEANS,
 } = SCHEMA;
+const INTEL = require('./bd-intelligence.cjs');
 
 // Forward-only migration from the pre-expansion record shape. It is applied by
 // the registry loader, so a record written in the old shape keeps working
@@ -309,6 +310,10 @@ function migrateRecord(record) {
 
     accepts: migrateAccepts(record),
 
+    // Directory Intelligence v2. Absence normalises to null and the projection
+    // drops it again on write, so introducing the layer rewrites no record.
+    intelligence: INTEL.normalise(record.intelligence),
+
     backlinkType: isNullish(record.backlinkType) ? null : record.backlinkType,
     robots: isNullish(record.robots) ? null : record.robots,
     sitemap: isNullish(record.sitemap) ? null : record.sitemap,
@@ -355,6 +360,9 @@ function migrateRecord(record) {
 // `officialName` is the special case: it normalises to `name`, so storing it
 // would duplicate a string already on the record.
 const WAVE1_DEFAULTED = {
+  // Unpopulated intelligence is dropped on write, so the layer costs no bytes
+  // on the records that have not been assessed yet.
+  intelligence: (v) => v === null,
   officialName: (v, rec) => v === null || v === rec.name,
   nativeName: (v) => v === null,
   englishName: (v) => v === null,
