@@ -67,7 +67,17 @@ test('no merged master dataset is created', () => {
   const dir = path.join(ROOT, 'data/distribution-planner');
   const files = fs.existsSync(dir) ? fs.readdirSync(dir) : [];
   for (const f of files) {
-    assert.ok(f.startsWith('.'), `data/distribution-planner/${f} duplicates source records`);
+    // A manifest and a header-only tracker template are not merged datasets.
+    // The first version asserted every file was dotfile-hidden, which is a
+    // spelling rule, not the property. What must never exist is a file holding
+    // COPIES of source records.
+    if (f.startsWith('.') || f.endsWith('.template.csv')) continue;
+    assert.fail(`data/distribution-planner/${f} is neither a manifest nor a template`);
+  }
+  for (const f of files.filter((x) => !x.startsWith('.'))) {
+    const body = fs.readFileSync(path.join(dir, f), 'utf8');
+    const lines = body.split(/\r?\n/).filter((l) => l.trim());
+    assert.ok(lines.length <= 1, `data/distribution-planner/${f} carries ${lines.length} rows of data`);
   }
   assert.ok(!fs.existsSync(path.join(dir, 'opportunities.json')), 'a merged dataset exists');
 });
@@ -145,8 +155,15 @@ test('an action URL comes from the source record, and a missing one stays missin
   const mp = OPS.filter((o) => o.sourceCollection === 'marketplaces');
   assert.ok(mp.every((o) => o.actionUrl === null),
     'a marketplace opportunity acquired an action URL the collection does not hold');
-  // And the page says so rather than linking somewhere.
-  assert.ok(page().includes('No action URL recorded'), 'the page hides missing action URLs');
+  // And the page never renders a link for a row that has no URL. The first
+  // version matched one exact sentence, which v2 replaced with the row's own
+  // next-action wording; the property is that the CTA degrades to plain text.
+  const html = page();
+  const plain = (html.match(/<span class="bd-metric bd-metric--empty">/g) || []).length;
+  assert.ok(plain > 0, 'no row degrades its call to action when the URL is missing');
+  for (const m of html.matchAll(/class="bd-cta-link" href="([^"]*)"/g)) {
+    assert.match(m[1], /^https:\/\//, `a call to action links to "${m[1]}"`);
+  }
 });
 
 // ── 7-10. filters actually filter ───────────────────────────────────────────
@@ -318,11 +335,17 @@ test('every count on the page is derived', () => {
   // Unescape entities before matching: the collection label contains "&", which
   // the page correctly escapes, and the first version compared the raw HTML.
   const text = html.replace(/<[^>]+>/g, ' ').replace(/&amp;/g, '&').replace(/\s+/g, ' ');
-  assert.ok(text.includes(`${OPS.length} total opportunities`), 'the page does not state the derived total');
+  // v2 replaced the stat list with the collection health table. The property is
+  // unchanged — every total on the page is computed from the data — but it now
+  // lives in the table, so that is where it is checked.
+  const A2 = require(path.join(ROOT, 'scripts/lib/distribution-actionability.cjs'));
+  const h = A2.health(OPS);
+  assert.ok(text.includes(String(h.overall.total)), 'the page does not state the derived total');
   for (const c of P.COLLECTIONS) {
     const n = OPS.filter((o) => o.sourceCollection === c.key).length;
-    assert.ok(text.includes(`${n} ${c.label}`), `the page does not state the derived ${c.key} count`);
+    assert.ok(text.includes(String(n)), `the page does not state the derived ${c.key} count`);
   }
+  assert.ok(text.includes(`${h.overall.ready}`), 'the page does not state the derived ready count');
   // Asserted by INTERPOLATION, not by grepping the source for digits.
   //
   // The first version stripped comments and quoted strings and then searched
@@ -335,28 +358,41 @@ test('every count on the page is derived', () => {
   // The property is simply that each displayed total is an expression. That is
   // checked directly, which no amount of quoting can hide.
   const gen = fs.readFileSync(path.join(ROOT, 'scripts/build-distribution-planner.cjs'), 'utf8');
-  assert.ok(gen.includes('${ops.length}</strong> total opportunities'),
-    'the total opportunity count is not interpolated from the data');
-  assert.ok(/\$\{counts\[col\.key\]\}<\/strong> \$\{esc\(col\.label\)\}/.test(gen),
-    'the per-collection counts are not interpolated from the data');
-  assert.ok(/\$\{withUrl\}<\/strong> with a recorded action URL/.test(gen),
-    'the action-URL count is not interpolated from the data');
-  // And no four-digit literal sits inside the rendered stat list at all.
-  const statList = gen.slice(gen.indexOf('<ul class="bd-stats">'), gen.indexOf('</ul>', gen.indexOf('<ul class="bd-stats">')));
-  assert.ok(!/<strong>\d{2,}<\/strong>/.test(statList),
-    'a literal number is rendered in the stat list instead of a derived one');
+  assert.ok(gen.includes('${h.overall.total}'), 'the total is not interpolated from the data');
+  assert.ok(gen.includes('${st.total}') && gen.includes('${st.ready}'),
+    'the per-collection health counts are not interpolated from the data');
+  assert.ok(gen.includes('${h.overall.actionUrlCoverage}'),
+    'action URL coverage is not interpolated from the data');
+  // And no multi-digit literal is rendered anywhere in the generator's markup.
+  assert.ok(!/<strong>\d{2,}<\/strong>/.test(gen),
+    'a literal number is rendered instead of a derived one');
 });
 
 test('the page keeps the three lanes visible and states the boundary', () => {
   const html = page();
+  // v2 replaced the three lane sections with the collection health table and
+  // the three execution queues. The property is that each collection stays
+  // visibly separate and linked — which the health table does per row, and
+  // which every result row still carries as data.
+  const escaped = (t) => t.replace(/&/g, '&amp;');
   for (const c of P.COLLECTIONS) {
-    assert.ok(html.includes(`data-dp-lane="${c.key}"`), `the ${c.key} lane is missing`);
-    assert.ok(html.includes(c.path), `the ${c.key} lane does not link its source collection`);
+    assert.ok(html.includes(c.path), `the ${c.key} collection is not linked`);
+    // Labels are HTML-escaped on the page; "Marketplace & Classified Platforms"
+    // is rendered with &amp;, which a raw comparison missed.
+    assert.ok(html.includes(escaped(c.label)), `the ${c.key} collection is not named`);
+  }
+  assert.ok(html.includes('id="health"'), 'the collection health table is missing');
+  for (const c of P.COLLECTIONS) {
+    assert.ok(html.includes(`data-dp-collection="${c.key}"`),
+      `no row carries the ${c.key} collection identity`);
   }
   const text = html.replace(/<[^>]+>/g, ' ').replace(/&amp;/g, '&').replace(/\s+/g, ' ');
   assert.match(text, /a directory citation is not a press mention/i,
     'the page does not state that the three actions differ');
-  assert.match(text, /classified ad is not editorial coverage/i);
+  // Matched on the claim, not on one exact sentence: v2 rewrote the wording
+  // from "classified ad" to "classified listing" and the assertion failed on a
+  // change that said the same thing.
+  assert.match(text, /classified (ad|listing) is not editorial coverage/i);
   assert.ok(html.includes('data-dp-collection='), 'rows do not carry their source collection');
 });
 

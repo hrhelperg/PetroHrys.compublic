@@ -23,6 +23,7 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const P = require('./lib/distribution-planner.cjs');
+const A = require('./lib/distribution-actionability.cjs');
 const REC = require('./lib/media-recommend.cjs');
 const MI = require('./lib/media-intelligence.cjs');
 const c = require('./lib/bd-components.cjs');
@@ -33,6 +34,9 @@ const ROOT = path.join(__dirname, '..');
 const OUT_DIR = path.join(ROOT, 'research', 'distribution-planner');
 const PAGE_FILE = path.join(OUT_DIR, 'index.html');
 const MANIFEST_FILE = path.join(ROOT, 'data', 'distribution-planner', '.build-manifest.json');
+const CSV_FILE = path.join(OUT_DIR, 'execution-opportunities.csv');
+const TRACKER = path.join(ROOT, 'data', 'distribution-planner', 'internal-execution-tracker.template.csv');
+const CAMPAIGN_SIZE = 25;
 
 // The query the page renders statically. Chosen because it exercises all three
 // lanes, so a no-JS reader sees the planner actually working.
@@ -75,67 +79,67 @@ function opportunityRow(op, s, countryName) {
           </tr>`;
 }
 
+// A queue row. Same shape everywhere, so Ready / Research / Browser read alike.
+function queueRow(op, a, countryName, { showAction = true } = {}) {
+  const col = P.COLLECTION_BY_KEY.get(op.sourceCollection);
+  const cta = a.actionUrl
+    ? `<a class="bd-cta-link" href="${esc(a.actionUrl)}" rel="noopener noreferrer" target="_blank">${esc(a.nextAction)}</a>`
+    : `<span class="bd-metric bd-metric--empty">${esc(a.nextAction)}</span>`;
+  return `          <tr class="bd-row" data-dp-status="${esc(a.status)}" data-dp-collection="${esc(op.sourceCollection)}" `
+    + `data-dp-country="${esc(op.country)}" data-dp-cost="${esc(op.cost)}" data-dp-confidence="${esc(a.confidence)}">
+            <td class="bd-cell" data-bd-label="Platform"><a href="${esc(op.website)}" rel="noopener noreferrer" target="_blank">${esc(op.name)}</a></td>
+            <td class="bd-cell" data-bd-label="Where">${esc(col.label)} &middot; ${esc(countryName(op.country))}</td>
+            ${showAction ? `<td class="bd-cell" data-bd-label="Cost">${esc(op.cost)}</td>
+            <td class="bd-cell" data-bd-label="Effort">${esc(a.difficultyLabel)}</td>
+            <td class="bd-cell" data-bd-label="Time to publish">${esc(a.publishingTimeLabel)}</td>
+            <td class="bd-cell" data-bd-label="How sure">${esc(a.confidenceLabel)} &mdash; ${esc(a.confidenceReasons[0])}</td>`
+    : `<td class="bd-cell" data-bd-label="What is missing">${esc(a.missing.length ? a.missing.join(', ') : a.reasons[0] || 'unknown')}</td>
+            <td class="bd-cell" data-bd-label="Why it matters">${esc(a.status === 'NEEDS_BROWSER'
+      ? 'the route may exist; a rendered browser would establish it'
+      : 'without this the opportunity cannot be worked')}</td>
+            <td class="bd-cell" data-bd-label="Suggested research">${esc(a.nextAction)}</td>`}
+            <td class="bd-cell bd-actions" data-bd-label="Do this">${cta}</td>
+          </tr>`;
+}
+
+function queueTable(caption, head, rows) {
+  return `<div class="bd-table-wrap">
+        <table class="bd-table">
+          <caption>${esc(caption)}</caption>
+          <thead><tr>${head.map((h) => `<th class="bd-cell" scope="col">${esc(h)}</th>`).join('')}</tr></thead>
+          <tbody data-bd-rows>
+${rows}
+          </tbody>
+        </table>
+      </div>`;
+}
+
 function renderMain(ops, countryName) {
-  const result = P.plan(ops, DEFAULT_QUERY, { perLane: 20, perGroup: 6 });
-  const counts = Object.fromEntries(P.COLLECTIONS.map((col) =>
-    [col.key, ops.filter((o) => o.sourceCollection === col.key).length]));
-  const withUrl = ops.filter((o) => o.actionUrl).length;
+  const h = A.health(ops);
+  const acts = ops.map((op) => ({ op, a: A.actionability(op) }))
+    .sort((x, y) => P.compareStableName(x.op, y.op));
+  const ready = acts.filter((x) => x.a.status === A.STATUS.READY)
+    .sort((x, y) => (y.op.nativeQuality ?? 0) - (x.op.nativeQuality ?? 0)
+      || P.compareStableName(x.op, y.op));
+  const research = acts.filter((x) => x.a.status === A.STATUS.NEEDS_RESEARCH);
+  const browser = acts.filter((x) => x.a.status === A.STATUS.NEEDS_BROWSER);
+  const camp = P.campaign(ops, DEFAULT_QUERY, { size: CAMPAIGN_SIZE });
   const markets = [...new Set(ops.map((o) => o.country))].sort();
   const defaultProfile = REC.PROFILE_BY_KEY.get(DEFAULT_QUERY.business);
   const defaultObjective = P.OBJECTIVE_BY_KEY.get(DEFAULT_QUERY.objective);
 
-  const laneSections = result.lanes.map((lane) => `<section id="lane-${lane.collection.key}" aria-labelledby="lane-${lane.collection.key}-h" data-dp-lane="${lane.collection.key}">
-      <h3 id="lane-${lane.collection.key}-h">${esc(lane.collection.label)}</h3>
-      <p>${esc(`${lane.collection.question}. ${lane.total} of the ${counts[lane.collection.key]} `
-    + `opportunities in this collection qualify for the query below.`)} <a href="${lane.collection.path}">Open the full collection</a>.</p>
-      ${lane.results.length ? `<div class="bd-table-wrap">
-        <table class="bd-table">
-          <caption>${esc(lane.collection.label)} — ranked for the default query</caption>
-          <thead><tr>${['Priority', 'Platform', 'Collection', 'Action', 'Market', 'Cost', 'Native quality', 'Why', 'Do this']
-    .map((h) => `<th class="bd-cell" scope="col">${esc(h)}</th>`).join('')}</tr></thead>
-          <tbody data-bd-rows>
-${lane.results.map((x) => opportunityRow(x.op, x.s, countryName)).join('\n')}
-          </tbody>
-        </table>
-      </div>` : `<p class="bd-note">${esc('Nothing in this collection can deliver this objective for this kind of business. '
-    + 'That is an answer, not a gap: a classified listing is not press coverage, and a directory citation is not an editorial mention.')}</p>`}
-    </section>`).join('\n\n    ');
-
-  const groupSections = result.groups.map((g) => `      <section id="group-${g.key}" aria-labelledby="group-${g.key}-h">
-        <h3 id="group-${g.key}-h">${esc(g.label)}</h3>
-        <p>${esc(g.blurb)}</p>
-        <ul class="bd-list">
-${g.picks.map((x) => `          <li><strong>${esc(x.op.name)}</strong> &mdash; ${esc(P.ACTION_TYPES[x.op.actionType].label)}, ${esc(P.COLLECTION_BY_KEY.get(x.op.sourceCollection).label)}, priority ${x.s.score}${x.op.actionUrl ? ` &mdash; <a href="${esc(x.op.actionUrl)}" rel="noopener noreferrer" target="_blank">go</a>` : ' &mdash; no action URL recorded'}</li>`).join('\n')}
-        </ul>
-      </section>`).join('\n');
+  const READY_HEAD = ['Platform', 'Where', 'Cost', 'Effort', 'Time to publish', 'How sure', 'Do this'];
+  const QUEUE_HEAD = ['Platform', 'Where', 'What is missing', 'Why it matters', 'Suggested research', 'Do this'];
 
   return [
     c.pageIntro({
       title: 'Distribution Planner',
-      lede: 'Choose a business, an objective, a market and a budget posture, and get a ranked '
-        + 'plan across all three Research Center databases — with the action, the cost, the '
-        + 'evidence behind it and a direct link where one is recorded.',
+      lede: 'Choose a business, an objective, a market and a budget, and get a plan you can work '
+        + 'through today — what to do, where to do it, what it costs and how sure we are.',
     }),
-    `<section id="what" aria-labelledby="what-h" class="bd-hero">
-      <h2 id="what-h">What this combines</h2>
-      <ul class="bd-stats">
-${P.COLLECTIONS.map((col) => `        <li class="bd-stat"><strong>${counts[col.key]}</strong> ${esc(col.label)}</li>`).join('\n')}
-        <li class="bd-stat"><strong>${ops.length}</strong> total opportunities</li>
-        <li class="bd-stat"><strong>${withUrl}</strong> with a recorded action URL</li>
-      </ul>
-      <p>${esc('Three databases, three different questions. Business Directories: where a company '
-        + 'creates or claims a professional profile. Marketplace & Classified Platforms: where it '
-        + 'publishes a listing or an advertisement. Media, PR & Publishing: where it pitches, '
-        + 'publishes, launches or sponsors. The planner chooses across all three and never pretends '
-        + 'the three actions are the same — a directory citation is not a press mention, and a '
-        + 'classified ad is not editorial coverage.')}</p>
-      <p>${esc('Each collection keeps its own quality model. There is no single invented authority '
-        + 'score: a media opportunity carries its Media Score, a directory carries its tier and '
-        + 'priority, a marketplace carries who may list and what it costs. Every row shows which '
-        + 'signal was used.')}</p>
-    </section>`,
-    `<section id="planner" aria-labelledby="planner-h">
-      <h2 id="planner-h">Build a plan</h2>
+
+    `<section id="builder" aria-labelledby="builder-h">
+      <h2 id="builder-h">1. Build a campaign</h2>
       <div class="bd-controls" data-dp-controls>
 ${select({ id: 'dp-business', label: 'Business or product', value: DEFAULT_QUERY.business,
     options: REC.PROFILES.map((p) => ({ value: p.key, label: p.label })) })}
@@ -143,49 +147,161 @@ ${select({ id: 'dp-objective', label: 'Objective', value: DEFAULT_QUERY.objectiv
     options: P.OBJECTIVES.map((o) => ({ value: o.key, label: o.label })) })}
 ${select({ id: 'dp-market', label: 'Market', value: DEFAULT_QUERY.market,
     options: [{ value: '*', label: 'Any market' }, ...markets.map((m) => ({ value: m, label: countryName(m) }))] })}
-${select({ id: 'dp-budget', label: 'Budget posture', value: DEFAULT_QUERY.budget,
+${select({ id: 'dp-budget', label: 'Budget', value: DEFAULT_QUERY.budget,
     options: P.BUDGETS.map((b) => ({ value: b.key, label: b.label })) })}
-${select({ id: 'dp-evidence', label: 'Evidence', value: 'all',
-    options: [{ value: 'all', label: 'Include uncertain opportunities' },
-      { value: 'route', label: 'Verified action URL only' },
-      { value: 'reachable', label: 'Exclude browser-check' }] })}
+${select({ id: 'dp-size', label: 'How many opportunities', value: String(CAMPAIGN_SIZE),
+    options: [10, 25, 50, 100].map((n) => ({ value: String(n), label: `${n}` })) })}
+${select({ id: 'dp-evidence', label: 'Evidence', value: 'ready',
+    options: [{ value: 'ready', label: 'Ready to execute only' },
+      { value: 'high', label: 'High confidence only' },
+      { value: 'research', label: 'Include research needed' },
+      { value: 'all', label: 'Everything' }] })}
       </div>
-      <p class="bd-note" data-dp-status>${esc(`Showing a plan for a ${defaultProfile.label.toLowerCase()} `
-    + `pursuing ${defaultObjective.label.toLowerCase()} in the United States on a free or freemium budget. `
-    + `${result.totalScored} opportunities qualify.`)}</p>
-      <p class="bd-note"><small>${esc('Without JavaScript the default plan below is complete and every link works. '
-    + 'The controls re-rank the same prerendered rows; they load nothing.')}</small></p>
+      <p class="bd-note" data-dp-status>${esc(`Showing a ${CAMPAIGN_SIZE}-opportunity campaign for a `
+    + `${defaultProfile.label.toLowerCase()} pursuing ${defaultObjective.label.toLowerCase()} in the `
+    + `United States on a free or freemium budget. ${camp.totalEligible} opportunities are eligible; `
+    + `${camp.picked.length} were selected.`)}</p>
     </section>`,
-    `<section id="plan" aria-labelledby="plan-h">
-      <h2 id="plan-h">The plan</h2>
-      <p>${esc('Grouped by what the work actually is, so the list reads as a sequence of actions '
-        + 'rather than one ranking repeated six times. Each opportunity appears in one group only.')}</p>
-${groupSections}
+
+    `<section id="ready" aria-labelledby="ready-h">
+      <h2 id="ready-h">2. Ready to execute &mdash; ${ready.length} opportunities</h2>
+      <p>${esc('Everything here has a known action, a recorded route that matches that action, and '
+        + 'no known blocker. Open the link in the last column and do the work. Nothing on this list '
+        + 'is a guess: if we did not establish the route, the platform is in one of the queues below '
+        + 'instead.')}</p>
+${queueTable('Ready to execute', READY_HEAD,
+    ready.slice(0, 60).map((x) => queueRow(x.op, x.a, countryName)).join('\n'))}
+      <p class="bd-note"><a class="bd-button" href="${P.PLANNER_PATH}execution-opportunities.csv" download>Download the full work queue as CSV</a></p>
     </section>`,
-    `<section id="lanes" aria-labelledby="lanes-h">
-      <h2 id="lanes-h">By collection</h2>
-      <p>${esc('The same results, kept in their three lanes. Each row shows its source collection, '
-        + 'its native quality signal, the action it requires and what is uncertain about it.')}</p>
-    ${laneSections}
+
+    `<section id="campaign" aria-labelledby="campaign-h">
+      <h2 id="campaign-h">3. The campaign, grouped by the work it is</h2>
+      <p>${esc('The same opportunities organised by what you would actually be doing, so the plan '
+        + 'reads as a sequence rather than one ranking repeated. Each appears in one group only, and '
+        + 'a group that does not apply to this business simply does not appear.')}</p>
+${camp.groups.map((g) => `      <section id="cg-${g.key}" aria-labelledby="cg-${g.key}-h">
+        <h3 id="cg-${g.key}-h">${esc(g.label)} <span class="bd-count">${g.items.length}</span></h3>
+        <p>${esc(g.blurb)}</p>
+        <ul class="bd-list">
+${g.items.map((r) => `          <li><strong>${esc(r.op.name)}</strong> &mdash; ${esc(r.x.act.nextAction)}, `
+      + `${esc(P.COLLECTION_BY_KEY.get(r.op.sourceCollection).label)}, ${esc(r.op.cost)}`
+      + `${r.x.act.actionUrl ? ` &mdash; <a href="${esc(r.x.act.actionUrl)}" rel="noopener noreferrer" target="_blank">open</a>` : ''}`
+      + `<br><small>${esc(`Selected because: ${r.x.reasons.slice(0, 3).join('; ')}`)}</small></li>`).join('\n')}
+        </ul>
+      </section>`).join('\n')}
     </section>`,
+
+    `<section id="research" aria-labelledby="research-h">
+      <h2 id="research-h">4. Needs research &mdash; ${research.length} opportunities</h2>
+      <p>${esc('Relevant platforms where something operational is missing. These are deliberately '
+        + 'kept out of the Ready queue: an employee should never discover mid-task that the route '
+        + 'was assumed. Each row says exactly what is unknown.')}</p>
+${queueTable('Needs research', QUEUE_HEAD,
+    research.slice(0, 40).map((x) => queueRow(x.op, x.a, countryName, { showAction: false })).join('\n'))}
+    </section>`,
+
+    `<section id="browser" aria-labelledby="browser-h">
+      <h2 id="browser-h">5. Needs browser verification &mdash; ${browser.length} opportunities</h2>
+      <p>${esc('These platforms sit behind a bot filter. The server answered, which proves nothing '
+        + 'about the product, so they are neither dead nor ready — they need a human with a rendered '
+        + 'browser. This is the single largest unlock available to this dataset.')}</p>
+${queueTable('Needs browser verification', QUEUE_HEAD,
+    browser.slice(0, 40).map((x) => queueRow(x.op, x.a, countryName, { showAction: false })).join('\n'))}
+    </section>`,
+
+    `<section id="health" aria-labelledby="health-h">
+      <h2 id="health-h">Collection health</h2>
+      <p>${esc('How much of each database is actually workable today. These are dataset-quality '
+        + 'metrics, not business performance: they measure how much we know, not how well anything '
+        + 'performed. The number worth improving is Ready, not the platform count.')}</p>
+      <div class="bd-table-wrap">
+        <table class="bd-table">
+          <caption>Operational readiness by collection</caption>
+          <thead><tr>${['Collection', 'Total', 'Ready', 'Needs research', 'Needs browser', 'Blocked', 'Action URL coverage', 'High confidence']
+    .map((x) => `<th class="bd-cell" scope="col">${esc(x)}</th>`).join('')}</tr></thead>
+          <tbody>
+${P.COLLECTIONS.map((col) => {
+    const st = h.byCollection[col.key];
+    return `            <tr class="bd-row">
+              <td class="bd-cell" data-bd-label="Collection"><a href="${col.path}">${esc(col.label)}</a></td>
+              <td class="bd-cell" data-bd-label="Total">${st.total}</td>
+              <td class="bd-cell" data-bd-label="Ready"><strong>${st.ready}</strong> (${st.actionabilityRate}%)</td>
+              <td class="bd-cell" data-bd-label="Needs research">${st.needsResearch}</td>
+              <td class="bd-cell" data-bd-label="Needs browser">${st.needsBrowser}</td>
+              <td class="bd-cell" data-bd-label="Blocked">${st.blocked}</td>
+              <td class="bd-cell" data-bd-label="Action URL coverage">${st.actionUrlCoverage}%</td>
+              <td class="bd-cell" data-bd-label="High confidence">${st.highConfidence}</td>
+            </tr>`;
+  }).join('\n')}
+            <tr class="bd-row">
+              <td class="bd-cell" data-bd-label="Collection"><strong>All collections</strong></td>
+              <td class="bd-cell" data-bd-label="Total"><strong>${h.overall.total}</strong></td>
+              <td class="bd-cell" data-bd-label="Ready"><strong>${h.overall.ready}</strong> (${h.overall.actionabilityRate}%)</td>
+              <td class="bd-cell" data-bd-label="Needs research">${h.overall.needsResearch}</td>
+              <td class="bd-cell" data-bd-label="Needs browser">${h.overall.needsBrowser}</td>
+              <td class="bd-cell" data-bd-label="Blocked">${h.overall.blocked}</td>
+              <td class="bd-cell" data-bd-label="Action URL coverage">${h.overall.actionUrlCoverage}%</td>
+              <td class="bd-cell" data-bd-label="High confidence">${h.overall.highConfidence}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>${esc(`Research debt across all three collections is ${h.overall.researchDebt} opportunities: `
+    + `${h.overall.needsResearch} need a route established and ${h.overall.needsBrowser} need a browser. `
+    + 'That is the honest state of the catalogue, and it is reported rather than smoothed over by '
+    + 'lowering what Ready means.')}</p>
+    </section>`,
+
     `<section id="method" aria-labelledby="method-h">
-      <h2 id="method-h">How the ranking works</h2>
-      <p>${esc('Priority combines four things: how well the platform serves this kind of business, '
-        + 'whether it can deliver this objective at all, whether it reaches the target market, and '
-        + 'the quality signal its own collection records. Fit comes first and quality scales it, so '
-        + 'a strong platform that cannot deliver the objective is excluded rather than ranked low.')}</p>
-      <p>${esc('An objective declares which collections can serve it. Press coverage is a media '
-        + 'objective and no directory or classified site can provide it; marketplace exposure is a '
-        + 'marketplace objective and no publication can provide it. Those exclusions are the rule, '
-        + 'not a filter a reader has to remember to set.')}</p>
-      <p>${esc('Nothing here is curated. No platform is named in any profile, objective or group '
-        + 'definition, and no platform receives a manual boost. Where the source collection records '
-        + 'no action URL the row says so rather than sending you to a homepage.')}</p>
-      <p>${esc('Opportunities behind a bot filter are included and marked. A blocked request proves '
-        + 'the server answered and nothing about whether the route exists, so they are penalised '
-        + 'rather than dropped.')}</p>
+      <h2 id="method-h">What Ready means, and what it does not</h2>
+      <p>${esc('Ready means three things are true: we know what action the platform supports, we '
+        + 'have a recorded URL that matches that action, and no known restriction prevents it. It '
+        + 'does not mean the submission will be accepted, that it is free, or that anything will be '
+        + 'published — an editor may still say no.')}</p>
+      <p>${esc('Unknown is never promoted to Ready. A platform whose route we never established is '
+        + 'in Needs research, and a platform behind a bot filter is in Needs browser — separate, '
+        + 'because they need different work from different people. A blocked request proves the '
+        + 'server answered and nothing else, so it never means dead.')}</p>
+      <p>${esc('Confidence is about acting safely, not about prestige. High means the action, route, '
+        + 'cost, moderation and effort are all established. Every band lists what it is still missing '
+        + 'rather than showing a number on its own.')}</p>
+      <p>${esc('The three collections are read through an adaptor and never merged: each row keeps '
+        + 'its source collection, its own quality signal and its own kind of action. A directory '
+        + 'citation is not a press mention and a classified listing is not editorial coverage.')}</p>
+      <p>${esc('There is no completed or submitted state here. Tracking who did what belongs in a '
+        + 'system with per-company storage; this is a knowledge base. A header-only tracker template '
+        + 'is committed for teams that want to keep that state elsewhere.')}</p>
     </section>`,
   ].join('\n\n');
+}
+
+// ── execution export ────────────────────────────────────────────────────────
+// Practical columns for an employee working a queue, not a dump of every field
+// across three schemas. Every projected opportunity is a row, so the export is
+// the complete work queue rather than only the part that happens to be ready.
+const CSV_COLUMNS = ['platform', 'collection', 'country', 'audience', 'actionability_status',
+  'next_action', 'action_url', 'cost', 'execution_confidence', 'difficulty', 'publishing_time',
+  'evidence_action_url', 'blocker', 'missing', 'native_score', 'native_signal',
+  'source_collection_url'];
+
+const csvField = (v) => {
+  if (v === null || v === undefined) return '';
+  const t = Array.isArray(v) ? v.join('; ') : String(v);
+  return /[",\r\n]/.test(t) ? `"${t.replace(/"/g, '""')}"` : t;
+};
+
+function renderCsv(ops, countryName) {
+  const rows = ops.map((op) => ({ op, a: A.actionability(op) }))
+    .sort((x, y) => P.compareStableName(x.op, y.op));
+  const lines = [CSV_COLUMNS.join(',')];
+  for (const { op, a } of rows) {
+    lines.push([op.name, P.COLLECTION_BY_KEY.get(op.sourceCollection).label,
+      countryName(op.country), op.audienceGeography || '', a.status, a.nextAction,
+      a.actionUrl || '', op.cost, a.confidence, a.difficultyLabel, a.publishingTimeLabel,
+      a.evidence.actionUrl, a.blockers, a.missing, op.nativeQuality ?? '', op.nativeSignal,
+      P.COLLECTION_BY_KEY.get(op.sourceCollection).path].map(csvField).join(','));
+  }
+  return `\ufeff${lines.join('\r\n')}\r\n`;
 }
 
 function main() {
@@ -211,9 +327,12 @@ function main() {
     });
     const existing = fs.existsSync(PAGE_FILE) ? fs.readFileSync(PAGE_FILE, 'utf8') : null;
     if (existing !== html) { fs.writeFileSync(PAGE_FILE, html); written.push(PAGE_FILE); }
+    const csv = renderCsv(ops, countryName);
+    const existingCsv = fs.existsSync(CSV_FILE) ? fs.readFileSync(CSV_FILE, 'utf8') : null;
+    if (existingCsv !== csv) { fs.writeFileSync(CSV_FILE, csv); written.push(CSV_FILE); }
   }
 
-  const ownedRel = ops.length ? [path.relative(ROOT, PAGE_FILE)] : [];
+  const ownedRel = ops.length ? [path.relative(ROOT, PAGE_FILE), path.relative(ROOT, CSV_FILE)] : [];
   const OUT_REL = `${path.relative(ROOT, OUT_DIR)}/`;
   let pruned = 0;
   for (const rel of previous) {
@@ -229,6 +348,10 @@ function main() {
   fs.mkdirSync(path.dirname(MANIFEST_FILE), { recursive: true });
   fs.writeFileSync(MANIFEST_FILE, `${JSON.stringify({ files: ownedRel.sort() }, null, 2)}\n`);
 
+  const h = A.health(ops);
+  console.log(`  ready ${h.overall.ready} (${h.overall.actionabilityRate}%), `
+    + `research ${h.overall.needsResearch}, browser ${h.overall.needsBrowser}, `
+    + `blocked ${h.overall.blocked}; action URL coverage ${h.overall.actionUrlCoverage}%`);
   console.log(`Distribution Planner: ${ops.length} opportunities projected from `
     + `${P.COLLECTIONS.length} collections (`
     + `${P.COLLECTIONS.map((col) => `${col.key} ${ops.filter((o) => o.sourceCollection === col.key).length}`).join(', ')}); `
@@ -236,4 +359,4 @@ function main() {
 }
 
 if (require.main === module) main();
-module.exports = { renderMain, DEFAULT_QUERY, opportunityRow };
+module.exports = { renderMain, renderCsv, DEFAULT_QUERY, CSV_COLUMNS, CAMPAIGN_SIZE, TRACKER };

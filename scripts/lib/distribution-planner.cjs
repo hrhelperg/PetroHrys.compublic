@@ -252,7 +252,7 @@ function project({ directories, marketplaces, media }) {
       cost: r.submissionModel || 'unknown',
       nativeQuality: q.value, nativeSignal: q.signal,
       evidence: r.currentStatus === 'unknown' ? 'needs-browser-check' : 'reachable',
-      category: r.category, accepts: r.accepts || {}, priority: r.priority,
+      category: r.category, accepts: r.accepts || {}, priority: r.priority, record: r,
       note: r.description || '', limitations: r.notRecommendedFor || null,
     });
   }
@@ -269,7 +269,7 @@ function project({ directories, marketplaces, media }) {
       cost: r.costModel, nativeQuality: q.value, nativeSignal: q.signal,
       evidence: r.currentStatus === 'unknown' ? 'needs-browser-check' : 'reachable',
       marketplaceType: r.marketplaceType, alsoCovers: r.alsoCovers || [],
-      sellerTypes: r.sellerTypes, priority: null,
+      sellerTypes: r.sellerTypes, priority: null, record: r,
       note: r.note || '', limitations: null,
     });
   }
@@ -496,6 +496,97 @@ function plan(opportunities, ctx, { perLane = 25, perGroup = 8 } = {}) {
   return { lanes, groups, totalScored: scored.length };
 }
 
+// ── campaign ranking (v2) ───────────────────────────────────────────────────
+// v1 ranked on fit and native quality: the right answer to "where should this
+// business be promoted?". An EXECUTION campaign is a different question, and a
+// theoretically excellent platform nobody can act on today must not outrank a
+// strong platform with a working route. Readiness therefore multiplies rather
+// than nudges — but a high-fit unusable platform is not deleted, it lands in
+// the research group instead.
+const A = require('./distribution-actionability.cjs');
+const READINESS_WEIGHT = {
+  READY: 1.0,
+  NEEDS_RESEARCH: 0.45,
+  NEEDS_BROWSER: 0.4,
+  BLOCKED: 0,
+  NOT_APPLICABLE: 0,
+};
+const CONFIDENCE_WEIGHT = { HIGH: 1.08, MEDIUM: 1.0, LOW: 0.94, INSUFFICIENT: 1.0 };
+
+function campaignScore(op, ctx) {
+  const base = scoreOpportunity(op, ctx);
+  if (base.excluded) return { ...base, act: null, campaignScore: 0 };
+  const act = A.actionability(op);
+  const weighted = base.score * READINESS_WEIGHT[act.status] * CONFIDENCE_WEIGHT[act.confidence];
+  return { ...base, act, campaignScore: clamp(weighted) };
+}
+
+// Execution groups. Derived from canonical facts; no group names a platform.
+// An opportunity lands in the FIRST group it satisfies, so the campaign reads as
+// a sequence of work rather than one ranking repeated seven times.
+const CAMPAIGN_GROUPS = [
+  { key: 'quick-wins', label: 'Quick wins',
+    blurb: 'Ready now, free or freemium, and nobody has to approve it.',
+    test: (op, x) => x.act && x.act.status === 'READY' && ['free', 'freemium'].includes(op.cost)
+      && x.act.requirements.moderation !== 'manual' },
+  { key: 'authority', label: 'Authority',
+    blurb: 'Ready now on high-trust directories and professional platforms.',
+    test: (op, x) => x.act && x.act.status === 'READY' && op.sourceCollection === 'directories' },
+  { key: 'media-pr', label: 'Media & PR',
+    blurb: 'Ready now: pitch, contribute, launch or distribute through a publication.',
+    test: (op, x) => x.act && x.act.status === 'READY' && op.sourceCollection === 'media' },
+  { key: 'marketplaces', label: 'Marketplaces & classifieds',
+    blurb: 'Listing and selling surfaces relevant to this business.',
+    test: (op, x) => x.act && x.act.status === 'READY' && op.sourceCollection === 'marketplaces' },
+  { key: 'local', label: 'Local discovery',
+    blurb: 'Ready now and published in the target market.',
+    test: (op, x, ctx) => x.act && x.act.status === 'READY' && ctx.market !== '*' && op.country === ctx.market },
+  { key: 'long-term', label: 'Long term and high effort',
+    blurb: 'Strong opportunities that need an application, a membership or an editor.',
+    test: (op, x) => x.act && x.act.status === 'READY'
+      && (x.act.requirements.moderation === 'manual' || op.cost === 'paid') },
+  { key: 'needs-research', label: 'Needs research',
+    blurb: 'Relevant, but not executable until someone establishes the route.',
+    test: (op, x) => x.act && x.act.status === 'NEEDS_RESEARCH' },
+];
+
+// Diversification is a TIE-BREAK, not a quota. Where scores are close the
+// campaign prefers a collection it has drawn from less, so a fifty-item plan is
+// not fifty near-identical directories — but a collection that genuinely does
+// not fit is never included to fill a slot.
+function campaign(opportunities, ctx, { size = 25 } = {}) {
+  const scored = opportunities
+    .map((op) => ({ op, x: campaignScore(op, ctx) }))
+    .filter((r) => !r.x.excluded && r.x.campaignScore > 0)
+    .sort((a, b) => b.x.campaignScore - a.x.campaignScore
+      || S.compareStable(a.op.name, b.op.name) || S.compareStable(a.op.platformId, b.op.platformId));
+
+  const drawn = { directories: 0, marketplaces: 0, media: 0 };
+  const picked = [];
+  const pool = [...scored];
+  while (picked.length < size && pool.length) {
+    // Among candidates within a small band of the best remaining score, take the
+    // one from the least-drawn collection.
+    const best = pool[0].x.campaignScore;
+    const band = pool.filter((r) => r.x.campaignScore >= best - 4);
+    band.sort((a, b) => drawn[a.op.sourceCollection] - drawn[b.op.sourceCollection]
+      || b.x.campaignScore - a.x.campaignScore);
+    const chosen = band[0];
+    picked.push(chosen);
+    drawn[chosen.op.sourceCollection] += 1;
+    pool.splice(pool.indexOf(chosen), 1);
+  }
+
+  const used = new Set();
+  const groups = [];
+  for (const g of CAMPAIGN_GROUPS) {
+    const items = picked.filter((r) => !used.has(r.op.platformId) && g.test(r.op, r.x, ctx));
+    for (const r of items) used.add(r.op.platformId);
+    if (items.length) groups.push({ ...g, items });
+  }
+  return { picked, groups, drawn, totalEligible: scored.length };
+}
+
 // ── loading, read-only ──────────────────────────────────────────────────────
 function loadAll() {
   const countries = new Set(JSON.parse(
@@ -513,11 +604,17 @@ function loadAll() {
   return { directories, marketplaces, media, countries };
 }
 
+// One comparator for every deterministic ordering in this feature.
+const compareStableName = (a, b) => S.compareStable(a.name, b.name)
+  || S.compareStable(a.sourceCollection, b.sourceCollection)
+  || S.compareStable(a.platformId, b.platformId);
+
 module.exports = {
-  PLANNER_PATH, COLLECTIONS, COLLECTION_BY_KEY, ACTION_TYPES, OBJECTIVES, OBJECTIVE_BY_KEY, BUDGETS,
+  compareStableName, PLANNER_PATH, COLLECTIONS, COLLECTION_BY_KEY, ACTION_TYPES, OBJECTIVES, OBJECTIVE_BY_KEY, BUDGETS,
   BUDGET_BY_KEY, GROUPS, MEDIA_OBJECTIVE, DIRECTORY_ACCEPTS,
   UNRATED_QUALITY, UNRATED_DISCOUNT,
-  project, loadAll, plan, scoreOpportunity, businessFit, objectiveFit, geographyFit, costFit,
+  project, loadAll, plan, scoreOpportunity, campaign, campaignScore,
+  CAMPAIGN_GROUPS, READINESS_WEIGHT, CONFIDENCE_WEIGHT, businessFit, objectiveFit, geographyFit, costFit,
   directoryAction, mediaAction, directoryQuality, marketplaceQuality,
   ACCEPTS_KEYS: BD.ACCEPTS_KEYS,
 };
