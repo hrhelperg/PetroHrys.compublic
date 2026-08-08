@@ -340,6 +340,29 @@ function buildMarketplacesMeta({ count, countries }) {
   });
 }
 
+// Media, PR & Publishing Platforms. A sibling collection, not a child of the
+// business-directory hub — it answers a different question and neither is a
+// parent of the other, so the trail is Home / Research / Media.
+//
+// Every number is derived. The marketplace page hardcoded a geography and kept
+// asserting it through four waves that moved the dataset; nothing here states a
+// count or a coverage claim that the dataset does not compute.
+function buildMediaMeta({ count, countries, p1 }) {
+  const canonicalPath = '/research/media-pr-publishing/';
+  const title = 'Media, PR & Publishing Platforms';
+  const description = `${count} media outlets, press release networks, contributor programmes and `
+    + `journalist-source platforms across ${countries} markets, with the opportunity type, the cost `
+    + `and the submission route for each. ${p1} are top-priority.`;
+  const trail = [ROOT_TRAIL[0], { name: 'Media, PR & Publishing', path: canonicalPath }];
+  return meta({
+    title, description, canonicalPath, robots: undefined, breadcrumbTrail: trail,
+    graph: [
+      collectionPage({ name: title, description, url: absoluteUrl(canonicalPath) }),
+      breadcrumbList(trail),
+    ],
+  });
+}
+
 function buildOpportunitiesMeta() {
   const canonicalPath = `${routes.BASE}opportunities/`;
   const title = 'Business Listing Opportunities';
@@ -404,4 +427,5 @@ module.exports = {
   buildHubMeta, buildCountryMeta, buildCategoryMeta, buildDirectoryMeta,
   buildArticleMeta, buildArticleIndexMeta, buildOpportunitiesMeta, buildRecommendationMeta,
   buildMarketplacesMeta,
+  buildMediaMeta,
 };

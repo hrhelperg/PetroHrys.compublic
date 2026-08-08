@@ -136,14 +136,23 @@
       // matches only 'yes'. 'unknown' is hidden because it is not a confirmed
       // match, NOT because it is a confirmed miss — the fieldset says so in
       // words, and the unknown tally is printed next to each filter label.
-      // Facets are exact-match on a single value, except audience which is a
-      // space-separated list and matches on membership.
+      // A facet whose row attribute holds a space-separated list matches on
+      // MEMBERSHIP; every other facet matches on equality.
+      //
+      // The list-valued facets declare themselves with data-bd-facet-multi
+      // rather than the matcher naming them. 'audience' was hard-coded here,
+      // and the media dataset then needed four more list-valued facets —
+      // category, industry, opportunity type and language — each of which would
+      // have had to be appended to the same growing condition, in a file none
+      // of them owns. The legacy 'audience' name is still honoured because the
+      // business-directory pages emit it without the attribute.
       facets.forEach(function (sel) {
         var want = sel.value;
         if (!want) return;
         var name = String(sel.getAttribute('data-bd-facet'));
         var have = row.getAttribute('data-bd-facet-' + name) || '';
-        if (name === 'audience') {
+        var multi = sel.hasAttribute('data-bd-facet-multi') || name === 'audience';
+        if (multi) {
           if ((' ' + have + ' ').indexOf(' ' + want + ' ') === -1) visible = false;
         } else if (have !== want) {
           visible = false;

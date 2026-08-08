@@ -192,7 +192,15 @@ test('every data attribute the client reads is emitted by the components', () =>
     + components.clearFiltersControl()
     + components.facetSelect({
       idPrefix: 'a', facet: { name: 'country', key: 'country' }, label: 'Market', rows: [DIR],
-    });
+    })
+    // The Media, PR & Publishing page shares this client script and emits one
+    // attribute of its own: data-bd-facet-multi, which marks a facet whose row
+    // value is a space-separated list. The property this audit protects is that
+    // every attribute the client READS is emitted by something the repository
+    // generates. Scanning only bd-components quietly narrowed that to "emitted
+    // by bd-components", and a second legitimate generator then failed a rule
+    // it had not broken.
+    + fs.readFileSync(path.join(root, 'research', 'media-pr-publishing', 'index.html'), 'utf8');
   const read = new Set();
   for (const m of js().matchAll(/'(data-bd-[a-z-]+)'/g)) read.add(m[1]);
   for (const m of js().matchAll(/\[(data-bd-[a-z-]+)\]/g)) read.add(m[1]);
