@@ -83,6 +83,7 @@ const CATEGORY_LABELS = {
   'legal-media': 'Legal media',
   'ecommerce-retail-media': 'Ecommerce & retail media',
   'travel-hospitality-media': 'Travel & hospitality media',
+  'agriculture-food-media': 'Agriculture & food media',
   'automotive-media': 'Automotive media',
   'developer-open-source-media': 'Developer & open source media',
   'press-release-distribution': 'Press release distribution',

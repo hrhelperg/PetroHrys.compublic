@@ -654,3 +654,50 @@ test('an award is an application route, never an article about an award', () => 
     }
   }
 });
+
+test('a distribution wire carries a release route, never a submission route', () => {
+  // Wave 3 added six national press-release wires — PR TIMES, @Press,
+  // ValuePress, DreamNews, Kyodo News PR Wire, Newswire.co.kr — and every one
+  // of them was first written with its route in submissionUrl. The schema
+  // refused the file, because press-release binds to pressReleaseUrl and
+  // submissionUrl means "an editor receives this". Sending a company
+  // announcement down a route labelled as editorial submission is the exact
+  // conflation this dataset exists to prevent, and it is easy to repeat.
+  const wires = ROWS.filter((r) => r.categories.includes('press-release-distribution'));
+  assert.ok(wires.length >= 15, `expected the wire family, found ${wires.length}`);
+  for (const r of wires) {
+    assert.ok(r.opportunityTypes.includes('press-release'),
+      `${r.id} is filed as distribution without a press-release route`);
+    assert.strictEqual(r.pitchUrl, null,
+      `${r.id} is a wire claiming an editorial pitch URL; a wire has no editor to pitch`);
+    if (r.submissionUrl) {
+      assert.ok(r.opportunityTypes.some((t) => ['self-publish', 'company-profile'].includes(t)),
+        `${r.id} carries a submissionUrl but only distributes releases; use pressReleaseUrl`);
+    }
+  }
+});
+
+test('a local-language publication is not labelled English', () => {
+  // Wave 3 was the first to research Japanese, Korean and Chinese surfaces. A
+  // row for a Japanese-language publication that declares languages: ['en']
+  // sends an employee to write a pitch in the wrong language, and the language
+  // filter — the whole point of recording it — then lies.
+  const CJK = /[぀-ヿ㐀-䶿一-鿿가-힯]/;
+  const EXPECTED = { japan: 'ja', 'south-korea': 'ko', china: 'zh' };
+  for (const [country, code] of Object.entries(EXPECTED)) {
+    const rows = ROWS.filter((r) => r.country === country);
+    assert.ok(rows.length >= 8, `${country} has only ${rows.length} rows`);
+    for (const r of rows) {
+      if (r.languages.includes('en') && !r.languages.includes(code)) {
+        // Legitimate only for a publication that genuinely publishes in English.
+        assert.ok(/english/i.test(`${r.shortNote} ${r.limitations || ''}`),
+          `${r.id} is published in ${country} and declares only English without saying so`);
+      }
+    }
+    // And a name written in the local script must carry the local language.
+    for (const r of rows.filter((x) => CJK.test(x.name))) {
+      assert.ok(r.languages.includes(code),
+        `${r.id} has a ${country} name in local script but does not declare "${code}"`);
+    }
+  }
+});
