@@ -382,6 +382,25 @@ function buildMediaProfileMeta({ profile, count, objectiveLabel, canonicalPath, 
   });
 }
 
+// The Distribution Planner. Indexable because it carries substantial static
+// explanatory content and a complete prerendered plan — not because it targets
+// a keyword. Its query combinations are NOT separate pages and never enter the
+// sitemap.
+function buildPlannerMeta({ collections, total, canonicalPath }) {
+  const title = 'Distribution Planner';
+  const description = `Choose a business, objective, market and budget and get a ranked plan across `
+    + `all ${collections} Research Center databases — ${total} opportunities spanning business `
+    + 'directories, marketplaces and media, each with its action, cost, evidence and native quality.';
+  const trail = [ROOT_TRAIL[0], { name: 'Distribution Planner', path: canonicalPath }];
+  return meta({
+    title, description, canonicalPath, robots: undefined, breadcrumbTrail: trail,
+    graph: [
+      collectionPage({ name: title, description, url: absoluteUrl(canonicalPath) }),
+      breadcrumbList(trail),
+    ],
+  });
+}
+
 function buildOpportunitiesMeta() {
   const canonicalPath = `${routes.BASE}opportunities/`;
   const title = 'Business Listing Opportunities';
@@ -448,4 +467,5 @@ module.exports = {
   buildMarketplacesMeta,
   buildMediaMeta,
   buildMediaProfileMeta,
+  buildPlannerMeta,
 };

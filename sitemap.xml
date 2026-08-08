@@ -91,6 +91,12 @@
        business-directories collection has its own sitemap-business-directories.xml
        because it runs to thousands of URLs; this one is a single page. -->
   <url>
+    <loc>https://petrohrys.com/research/distribution-planner/</loc>
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://petrohrys.com/research/media-pr-publishing/</loc>
     <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>

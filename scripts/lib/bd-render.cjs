@@ -103,6 +103,7 @@ ${LANGS('            ')}
 // the two agree so they cannot drift apart silently.
 const MARKETPLACES_PATH = '/research/marketplaces/';
 const MEDIA_PATH = '/research/media-pr-publishing/';
+const PLANNER_PATH = '/research/distribution-planner/';
 
 const FOOTER = (currentPath) => `  <footer role="contentinfo">
     <div class="footer-grid">
@@ -129,6 +130,7 @@ const FOOTER = (currentPath) => `  <footer role="contentinfo">
           <li><a href="${routes.hubPath()}"${currentPath === routes.hubPath() ? ' aria-current="page"' : ''}>Business Directories</a></li>
           <li><a href="${MARKETPLACES_PATH}"${currentPath === MARKETPLACES_PATH ? ' aria-current="page"' : ''}>Marketplaces</a></li>
           <li><a href="${MEDIA_PATH}"${currentPath === MEDIA_PATH ? ' aria-current="page"' : ''}>Media &amp; PR</a></li>
+          <li><a href="${PLANNER_PATH}"${currentPath === PLANNER_PATH ? ' aria-current="page"' : ''}>Distribution Planner</a></li>
           <li><a href="/infrastructure/">Infrastructure</a></li>
           <li><a href="/ai-systems/">AI Systems</a></li>
           <li><a href="/artificial-intelligence/">Artificial Intelligence</a></li>
@@ -232,4 +234,4 @@ ${FOOTER(meta.canonicalPath)}
 `;
 }
 
-module.exports = { renderPage, HEADER, FOOTER, ECO_HEAD, ECO_BODY, MARKETPLACES_PATH, MEDIA_PATH };
+module.exports = { renderPage, HEADER, FOOTER, ECO_HEAD, ECO_BODY, MARKETPLACES_PATH, MEDIA_PATH, PLANNER_PATH };
