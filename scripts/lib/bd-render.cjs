@@ -102,6 +102,7 @@ ${LANGS('            ')}
 // finds. The path is the one build-marketplaces.cjs writes, and a test asserts
 // the two agree so they cannot drift apart silently.
 const MARKETPLACES_PATH = '/research/marketplaces/';
+const MEDIA_PATH = '/research/media-pr-publishing/';
 
 const FOOTER = (currentPath) => `  <footer role="contentinfo">
     <div class="footer-grid">
@@ -127,6 +128,7 @@ const FOOTER = (currentPath) => `  <footer role="contentinfo">
           <li><a href="/research/">Research</a></li>
           <li><a href="${routes.hubPath()}"${currentPath === routes.hubPath() ? ' aria-current="page"' : ''}>Business Directories</a></li>
           <li><a href="${MARKETPLACES_PATH}"${currentPath === MARKETPLACES_PATH ? ' aria-current="page"' : ''}>Marketplaces</a></li>
+          <li><a href="${MEDIA_PATH}"${currentPath === MEDIA_PATH ? ' aria-current="page"' : ''}>Media &amp; PR</a></li>
           <li><a href="/infrastructure/">Infrastructure</a></li>
           <li><a href="/ai-systems/">AI Systems</a></li>
           <li><a href="/artificial-intelligence/">Artificial Intelligence</a></li>
@@ -150,6 +152,17 @@ const FOOTER = (currentPath) => `  <footer role="contentinfo">
     </div>
     <p class="footer-bottom">&copy; 2026 Petro Hrys</p>
   </footer>`;
+
+// The RSS alternate belongs to the Business Directories collection and to
+// nothing else. It used to be emitted unconditionally, so the Marketplace page
+// — and now the Media page — declared a business-directory feed as its own
+// alternate: a page telling a reader and a feed reader that updates to it
+// arrive somewhere they do not. Emitted only for pages inside that collection.
+function feedLink(meta) {
+  const path = typeof meta.canonicalPath === 'string' ? meta.canonicalPath : '';
+  if (!path.startsWith(routes.BASE)) return '';
+  return `\n  <link rel="alternate" type="application/rss+xml" title="Business Directories — Petro Hrys" href="${ORIGIN}${routes.feedPath()}">`;
+}
 
 function metaTag(property, content, kind = 'property') {
   return `  <meta ${kind}="${escapeHtml(property)}" content="${escapeHtml(content)}">`;
@@ -189,8 +202,7 @@ ${ANALYTICS}
 ${social}
 
   <link rel="canonical" href="${escapeHtml(meta.canonical)}">
-  <link rel="sitemap" type="application/xml" href="${ORIGIN}/sitemap.xml">
-  <link rel="alternate" type="application/rss+xml" title="Business Directories — Petro Hrys" href="${ORIGIN}${routes.feedPath()}">
+  <link rel="sitemap" type="application/xml" href="${ORIGIN}/sitemap.xml">${feedLink(meta)}
   <link rel="icon" href="/images/logo-red.svg">
 
 ${FONTS}
@@ -220,4 +232,4 @@ ${FOOTER(meta.canonicalPath)}
 `;
 }
 
-module.exports = { renderPage, HEADER, FOOTER, ECO_HEAD, ECO_BODY, MARKETPLACES_PATH };
+module.exports = { renderPage, HEADER, FOOTER, ECO_HEAD, ECO_BODY, MARKETPLACES_PATH, MEDIA_PATH };
