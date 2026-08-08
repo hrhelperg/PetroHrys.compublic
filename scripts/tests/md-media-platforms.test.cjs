@@ -615,3 +615,42 @@ test('the build refuses to prune a file outside its own directory', () => {
     if (!fs.existsSync(sitemap)) fs.writeFileSync(sitemap, sitemapBefore);
   }
 });
+
+test('a city-sharded network is one opportunity, not one per city', () => {
+  // American City Business Journals publishes in roughly forty metros and Built
+  // In in eight, but each is one platform behind one submission system:
+  // phoenixbusinessjournal.com redirects to bizjournals.com/phoenix/ and
+  // BostInno to bizjournals.com/boston/inno. Listing the city titles separately
+  // would multiply the database by forty and mean exactly one submission — the
+  // same rule that keeps Craigslist to one row in the marketplace dataset.
+  for (const [host, cities] of [['bizjournals.com', ['phoenixbusinessjournal.com', 'bostinno.com']],
+    ['builtin.com', ['builtinchicago.org', 'builtinaustin.com', 'builtincolorado.com']]]) {
+    const rows = ROWS.filter((r) => MD.hostOf(r.website) === host);
+    assert.strictEqual(rows.length, 1, `${host} has ${rows.length} rows; its city titles are one platform`);
+    assert.match(rows[0].limitations || '', /one (opportunity|platform)|not forty|not one per city/i,
+      `${rows[0].id} does not explain why its city titles are not separate rows`);
+    for (const city of cities) {
+      assert.ok(!ROWS.some((r) => MD.hostOf(r.website) === city),
+        `${city} is listed separately from ${host}, which is the same submission system`);
+      assert.ok(rows[0].sources.some((s) => s.includes(city)),
+        `${rows[0].id} claims the city titles are one platform without citing ${city} as evidence`);
+    }
+  }
+});
+
+test('an award is an application route, never an article about an award', () => {
+  // "Awards" is a new category this wave. The failure mode it invites is
+  // listing editorial coverage OF an award — a "best companies" article — as if
+  // a company could enter it. Every award row must carry a real entry route.
+  const awards = ROWS.filter((r) => r.categories.includes('business-awards'));
+  assert.ok(awards.length >= 4, `expected an awards family, found ${awards.length}`);
+  for (const r of awards) {
+    assert.ok(r.opportunityTypes.includes('award-entry') || r.opportunityTypes.includes('company-profile'),
+      `${r.id} is filed under awards without an entry or profile route`);
+    if (r.opportunityTypes.includes('award-entry')) {
+      assert.ok(r.submissionUrl, `${r.id} claims an award entry with no submission URL`);
+      assert.strictEqual(r.requiresEditorialApproval, true,
+        `${r.id} is an award that nobody judges, which is a listing, not an award`);
+    }
+  }
+});

@@ -91,6 +91,7 @@ const CATEGORY_LABELS = {
   'newsletter-platform': 'Newsletter platform',
   'contributor-platform': 'Contributor platform',
   'startup-launch-platform': 'Startup launch platform',
+  'business-awards': 'Business awards',
 };
 const COST_LABELS = {
   free: 'Free', paid: 'Paid', freemium: 'Free tier', mixed: 'Free and paid', unknown: 'Unknown',
