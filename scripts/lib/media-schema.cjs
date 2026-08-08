@@ -101,6 +101,11 @@ const CATEGORIES = [
   'legal-media',
   'ecommerce-retail-media',
   'travel-hospitality-media',
+  // Agriculture, agtech and food production. The only vertical in the Wave 3
+  // matrix with no category at all; `agriculture` already existed as an
+  // INDUSTRY, which is the sector a company pitches about, not the kind of
+  // publication doing the pitching.
+  'agriculture-food-media',
   'automotive-media',
   'developer-open-source-media',
   'press-release-distribution',
