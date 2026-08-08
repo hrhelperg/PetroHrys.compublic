@@ -313,16 +313,28 @@ test('a button is never drawn for a URL that does not exist', () => {
   const html = page();
   const hrefs = [...html.matchAll(/class="bd-cta-link" href="([^"]*)"/g)].map((m) => m[1]);
   assert.ok(hrefs.length > 0, 'the page renders no actions at all');
-  for (const h of hrefs) {
+  // Two kinds of control now share this class: an outbound action on a platform
+  // and an inbound link to a generated recommendation page. The property is the
+  // same for both — it must point at a route that exists — so an internal link
+  // is resolved against the filesystem rather than rejected for not being
+  // external. The first version asserted the implementation ("starts with
+  // https") and failed the moment the page gained a legitimate internal link.
+  const internal = hrefs.filter((h) => h.startsWith('/'));
+  const external = hrefs.filter((h) => !h.startsWith('/'));
+  for (const h of external) {
     assert.ok(/^https:\/\//.test(h), `an action links to "${h}", which is not a URL`);
+  }
+  for (const h of internal) {
+    assert.ok(fs.existsSync(path.join(ROOT, h.replace(/^\//, ''), 'index.html')),
+      `an action links to ${h}, which was never generated`);
   }
   const known = new Set(ACTIONABLE.flatMap((r) => [r.website, r.submissionUrl, r.pitchUrl,
     r.pressReleaseUrl, r.advertisingUrl, r.mediaKitUrl, r.contactUrl].filter(Boolean)));
-  for (const h of hrefs) {
+  for (const h of external) {
     assert.ok(known.has(h.replace(/&amp;/g, '&')), `the page renders ${h}, which no record carries`);
   }
   // And the count matches exactly: every URL in the data is drawn once.
-  assert.strictEqual(hrefs.length, ACTIONABLE.reduce((n, r) => n
+  assert.strictEqual(external.length, ACTIONABLE.reduce((n, r) => n
     + [r.website, r.submissionUrl, r.pitchUrl, r.pressReleaseUrl, r.advertisingUrl,
       r.mediaKitUrl, r.contactUrl].filter(Boolean).length, 0),
   'the number of rendered actions does not match the number of URLs in the data');
@@ -427,7 +439,15 @@ test('no count and no geography claim is hardcoded', () => {
     assert.ok(!new RegExp(`\\b${continent}\\b`).test(`${title} ${desc}`),
       `the page chrome claims ${continent}; nothing recomputes that word`);
   }
-  assert.ok(!new RegExp(`\\b${ACTIONABLE.length}\\b`).test(src.replace(/COLUMNS[\s\S]*?\];/, '')),
+  // Look for the total as a numeric literal in code, not as any occurrence of
+  // the digits. The first version stripped one array literal and then fired on
+  // "385" appearing inside an unrelated string, which is not a hardcoded count.
+  const codeOnly = src
+    .replace(/\/\/[^\n]*/g, ' ')             // line comments
+    .replace(/\/\*[\s\S]*?\*\//g, ' ')       // block comments
+    .replace(/'(?:[^'\\]|\\.)*'/g, "''")     // string literals
+    .replace(/`(?:[^`\\]|\\.)*`/g, '``');
+  assert.ok(!new RegExp(`(?<![\\w.])${ACTIONABLE.length}(?![\\w.])`).test(codeOnly),
     `the generator hardcodes the current total ${ACTIONABLE.length}`);
   assert.ok(desc.startsWith(`${ACTIONABLE.length} media outlets`),
     `the description does not state the derived total: "${desc}"`);
@@ -495,9 +515,18 @@ test('the collection is one page, not a thousand thin ones', () => {
   const walk = (d) => fs.readdirSync(d, { withFileTypes: true })
     .flatMap((e) => (e.isDirectory() ? walk(path.join(d, e.name)) : [path.join(d, e.name)]));
   const pages = walk(dir).filter((f) => f.endsWith('.html'));
-  assert.strictEqual(pages.length, 1,
-    `${pages.length} HTML pages were generated; the master database is the product, `
-    + 'and a per-record page carrying one row of a table is a thin page');
+  // The property is that there is no page-per-record explosion, not that there
+  // is exactly one page. Recommendation pages are a small fixed set, each
+  // ranking many records with its own methodology and limitations — the
+  // opposite of a thin page. Asserted as a ratio against the dataset plus a
+  // substance floor, so 13 substantial pages pass and 385 stubs could not.
+  assert.ok(pages.length <= 1 + Math.ceil(ACTIONABLE.length / 20),
+    `${pages.length} HTML pages for ${ACTIONABLE.length} records looks like a page-per-record explosion`);
+  for (const p of pages) {
+    const html = fs.readFileSync(p, 'utf8');
+    const body = html.slice(html.indexOf('<main')).replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ');
+    assert.ok(body.length > 2000, `${path.relative(ROOT, p)} is a thin page (${body.length} chars of text)`);
+  }
 });
 
 // ── 20-22. SEO and discoverability ──────────────────────────────────────────

@@ -434,8 +434,22 @@ function loadMediaPlatforms(file, knownCountries) {
   }));
 }
 
+// ── routes ──────────────────────────────────────────────────────────────────
+// Every media path is built here and nowhere else. The repository's route
+// contract forbids interpolating a slug into a path inline, and the first
+// version of the recommendation meta builder did exactly that inside bd-seo —
+// which is how a section ends up with two spellings of its own URL.
+const BASE_PATH = '/research/media-pr-publishing/';
+const collectionPath = () => BASE_PATH;
+const profilePath = (slug) => {
+  if (typeof slug !== 'string' || !SLUG_RE.test(slug)) {
+    throw new MediaError(`Invalid profile slug: ${JSON.stringify(slug)}`);
+  }
+  return `${BASE_PATH}for/${slug}/`;
+};
+
 module.exports = {
-  MediaError, OPPORTUNITY_TYPES, CATEGORIES, INDUSTRIES, AUDIENCE_GEOGRAPHIES,
+  MediaError, BASE_PATH, collectionPath, profilePath, OPPORTUNITY_TYPES, CATEGORIES, INDUSTRIES, AUDIENCE_GEOGRAPHIES,
   COST_MODELS, CURRENT_STATUSES, PRIORITIES, GATEKEPT_TYPES, SELF_SERVE_TYPES,
   URL_REQUIRES, URL_FIELDS, PRIORITY_RANK,
   problemsFor, isActionable, loadMediaPlatforms, comparePlatforms, compareStable, hostOf,
