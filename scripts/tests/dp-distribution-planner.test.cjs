@@ -1,0 +1,425 @@
+'use strict';
+
+// Unified Distribution Planner — the contract.
+//
+// The planner's whole value rests on one thing being true: it compares three
+// collections WITHOUT merging them. The moment a directory citation is shown as
+// if it were a press mention, or a marketplace listing as if it were a backlink
+// opportunity, the tool is worse than the three separate databases it replaced.
+//
+// So most of this file defends separation: source identity, native quality,
+// distinct actions, and canonical facts staying in the collection that owns them.
+
+const test = require('node:test');
+const assert = require('node:assert');
+const fs = require('node:fs');
+const path = require('node:path');
+
+const ROOT = path.join(__dirname, '..', '..');
+const P = require(path.join(ROOT, 'scripts/lib/distribution-planner.cjs'));
+const REC = require(path.join(ROOT, 'scripts/lib/media-recommend.cjs'));
+const MI = require(path.join(ROOT, 'scripts/lib/media-intelligence.cjs'));
+const build = require(path.join(ROOT, 'scripts/build-distribution-planner.cjs'));
+
+const PAGE = path.join(ROOT, 'research/distribution-planner/index.html');
+const SRC = P.loadAll();
+const OPS = P.project(SRC);
+const page = () => fs.readFileSync(PAGE, 'utf8');
+const Q = { business: 'local-business', objective: 'local-discovery', market: 'united-states', budget: 'free-freemium' };
+
+// ── 11-15. separation ───────────────────────────────────────────────────────
+
+test('the planner consumes all three collections and says which is which', () => {
+  const byCollection = {};
+  for (const o of OPS) byCollection[o.sourceCollection] = (byCollection[o.sourceCollection] || 0) + 1;
+  assert.strictEqual(Object.keys(byCollection).length, 3, 'not all three collections are consumed');
+  for (const c of P.COLLECTIONS) {
+    assert.ok(byCollection[c.key] > 0, `${c.key} contributed nothing`);
+  }
+  assert.strictEqual(byCollection.directories, SRC.directories.length);
+  assert.strictEqual(byCollection.marketplaces, SRC.marketplaces.length);
+  assert.strictEqual(byCollection.media, SRC.media.length);
+  for (const o of OPS) {
+    assert.ok(P.COLLECTION_BY_KEY.has(o.sourceCollection), `${o.platformId} has no source collection`);
+  }
+});
+
+test('the planner never mutates a canonical record', () => {
+  const before = JSON.stringify(SRC.media.map((r) => r.opportunityTypes));
+  const beforeDir = JSON.stringify(SRC.directories.map((r) => r.listingAction));
+  P.plan(P.project(SRC), Q);
+  assert.strictEqual(JSON.stringify(SRC.media.map((r) => r.opportunityTypes)), before,
+    'the planner changed a media record');
+  assert.strictEqual(JSON.stringify(SRC.directories.map((r) => r.listingAction)), beforeDir,
+    'the planner changed a directory record');
+  // And it writes nothing outside its own directory.
+  const manifest = JSON.parse(fs.readFileSync(
+    path.join(ROOT, 'data/distribution-planner/.build-manifest.json'), 'utf8'));
+  for (const f of manifest.files) {
+    assert.ok(f.startsWith('research/distribution-planner/'),
+      `the planner manifest claims ${f}, outside its own directory`);
+  }
+});
+
+test('no merged master dataset is created', () => {
+  // The projection lives in memory. A file duplicating the three collections
+  // would become a fourth source of truth and drift the first time one changed.
+  const dir = path.join(ROOT, 'data/distribution-planner');
+  const files = fs.existsSync(dir) ? fs.readdirSync(dir) : [];
+  for (const f of files) {
+    assert.ok(f.startsWith('.'), `data/distribution-planner/${f} duplicates source records`);
+  }
+  assert.ok(!fs.existsSync(path.join(dir, 'opportunities.json')), 'a merged dataset exists');
+});
+
+test('a platform id never appears twice in one projection', () => {
+  const seen = new Map();
+  for (const o of OPS) {
+    const key = `${o.sourceCollection}:${o.platformId}`;
+    assert.ok(!seen.has(key), `${key} was projected twice`);
+    seen.set(key, true);
+  }
+});
+
+test('the three lanes keep distinct actions', () => {
+  // A directory action and a media action must never be the same string, or the
+  // page can no longer tell an employee what they are actually doing.
+  const byLane = { 1: new Set(), 2: new Set(), 3: new Set() };
+  for (const [key, a] of Object.entries(P.ACTION_TYPES)) {
+    if (a.lane) byLane[a.lane].add(key);
+  }
+  assert.ok(byLane[1].size && byLane[2].size && byLane[3].size, 'a lane has no actions');
+  for (const a of byLane[1]) assert.ok(!byLane[3].has(a), `${a} is both a directory and a media action`);
+  for (const a of byLane[2]) assert.ok(!byLane[3].has(a), `${a} is both a marketplace and a media action`);
+  // And every projected opportunity uses an action from its own lane.
+  for (const o of OPS) {
+    const a = P.ACTION_TYPES[o.actionType];
+    assert.ok(a, `${o.platformId} has an unknown action "${o.actionType}"`);
+    const lane = P.COLLECTION_BY_KEY.get(o.sourceCollection).lane;
+    assert.ok(a.lane === lane || a.lane === 0,
+      `${o.platformId} is in lane ${lane} but its action belongs to lane ${a.lane}`);
+  }
+});
+
+test('native scores and signals survive the projection', () => {
+  const media = OPS.filter((o) => o.sourceCollection === 'media');
+  for (const o of media.slice(0, 60)) {
+    assert.strictEqual(o.nativeQuality, MI.mediaScore(o.record).score,
+      `${o.platformId} lost its Media Score in the projection`);
+  }
+  for (const o of OPS) {
+    assert.ok(typeof o.nativeSignal === 'string' && o.nativeSignal.length > 3,
+      `${o.platformId} carries a quality with no signal explaining it`);
+    if (o.nativeQuality !== null) {
+      assert.ok(o.nativeQuality >= 0 && o.nativeQuality <= 100, `${o.platformId} quality out of range`);
+    }
+  }
+  // No single invented universal score replaced them.
+  const src = fs.readFileSync(path.join(ROOT, 'scripts/lib/distribution-planner.cjs'), 'utf8');
+  assert.ok(!/universalScore|authorityScore|globalScore/.test(src),
+    'a single invented authority score exists');
+});
+
+// ── 16-17. action URLs ──────────────────────────────────────────────────────
+
+test('an action URL comes from the source record, and a missing one stays missing', () => {
+  for (const o of OPS) {
+    if (o.actionUrl === null) continue;
+    assert.match(o.actionUrl, /^https:\/\//, `${o.platformId} has a malformed action URL`);
+    // It must be a URL the source record actually carries — never the homepage
+    // dressed up as a submission route.
+    const src = o.sourceCollection === 'media'
+      ? [o.record.submissionUrl, o.record.pitchUrl, o.record.pressReleaseUrl, o.record.advertisingUrl]
+      : o.sourceCollection === 'directories'
+        ? [SRC.directories.find((r) => r.id === o.platformId).submissionUrl,
+          SRC.directories.find((r) => r.id === o.platformId).claimUrl]
+        : [];
+    // The rule is that the planner never SYNTHESISES a URL from the domain,
+    // which the source-field check above already proves. An earlier version
+    // also required the action URL to differ from the website, and failed on a
+    // record whose advertising page genuinely is its website — a fact the
+    // source collection records, not a fabrication.
+    assert.ok(src.includes(o.actionUrl), `${o.platformId} has an action URL no source field carries`);
+  }
+  // The marketplace collection records no submission URLs, so none is invented.
+  const mp = OPS.filter((o) => o.sourceCollection === 'marketplaces');
+  assert.ok(mp.every((o) => o.actionUrl === null),
+    'a marketplace opportunity acquired an action URL the collection does not hold');
+  // And the page says so rather than linking somewhere.
+  assert.ok(page().includes('No action URL recorded'), 'the page hides missing action URLs');
+});
+
+// ── 7-10. filters actually filter ───────────────────────────────────────────
+
+test('objective gating stops a collection offering what it cannot deliver', () => {
+  // A classified ad is not press coverage. This is the rule, not a filter the
+  // reader has to remember.
+  const pr = P.plan(OPS, { ...Q, objective: 'pr-coverage', market: '*', budget: 'any' });
+  const nonMedia = pr.lanes.filter((l) => l.collection.key !== 'media');
+  for (const l of nonMedia) {
+    assert.strictEqual(l.total, 0, `${l.collection.label} was offered for PR coverage`);
+  }
+  const mx = P.plan(OPS, { ...Q, objective: 'marketplace-exposure', market: '*', budget: 'any' });
+  assert.strictEqual(mx.lanes.find((l) => l.collection.key === 'media').total, 0,
+    'a publication was offered for marketplace exposure');
+
+  // And the collection-level gate is asserted DIRECTLY, not only through its
+  // effect on the lane totals. A narrower per-collection rule downstream was
+  // masking the gate's removal: with the gate disabled the lanes still came out
+  // empty, so the guard could not tell the difference.
+  const aDirectory = OPS.find((o) => o.sourceCollection === 'directories');
+  const aMarketplace = OPS.find((o) => o.sourceCollection === 'marketplaces');
+  const aMedia = OPS.find((o) => o.sourceCollection === 'media');
+  for (const [op, objective] of [[aDirectory, 'pr-coverage'], [aMarketplace, 'pr-coverage'],
+    [aMedia, 'marketplace-exposure'], [aMedia, 'classified-advertising']]) {
+    const of = P.objectiveFit(op, objective);
+    assert.strictEqual(of.excluded, true,
+      `${op.sourceCollection} was not gated out of ${objective}`);
+    // The COLLECTION-LEVEL wording specifically. Accepting the narrower
+    // downstream rule's phrasing as well is what let the gate be removed
+    // without this guard noticing: both paths end in "excluded", and only the
+    // reason distinguishes which rule did the work.
+    const label = P.COLLECTION_BY_KEY.get(op.sourceCollection).label;
+    assert.ok(of.reason.startsWith(`${label} cannot deliver`),
+      `${op.sourceCollection} was excluded from ${objective} by a downstream rule `
+      + `rather than the collection gate: "${of.reason}"`);
+  }
+});
+
+test('a free-only budget never returns a paid-only platform as a normal match', () => {
+  const free = P.plan(OPS, { ...Q, market: '*', budget: 'free-only' }, { perLane: 500 });
+  for (const lane of free.lanes) {
+    for (const { op } of lane.results) {
+      assert.notStrictEqual(op.cost, 'paid', `${op.platformId} costs money under a free-only budget`);
+      assert.notStrictEqual(op.cost, 'freemium', `${op.platformId} is freemium under a free-only budget`);
+    }
+  }
+  // Unknown cost is a caveat, not an exclusion, and the reason says so.
+  const unknown = OPS.find((o) => o.cost === 'unknown');
+  if (unknown) {
+    const s = P.scoreOpportunity(unknown, { ...Q, market: '*', budget: 'free-only' });
+    if (!s.excluded) {
+      assert.ok(s.reasons.some((r) => /cost not established/i.test(r)),
+        'an unknown cost passed a free-only budget without saying so');
+    }
+  }
+});
+
+test('the wrong geography cannot outrank the right one without explicit global reach', () => {
+  const target = 'germany';
+  const local = OPS.find((o) => o.country === target && o.sourceCollection === 'media');
+  const foreign = OPS.find((o) => o.country !== target && o.country !== 'global'
+    && o.audienceGeography !== 'global' && o.sourceCollection === 'media');
+  assert.ok(local && foreign, 'no comparable pair to test geography');
+  assert.ok(P.geographyFit(local, target).value > P.geographyFit(foreign, target).value,
+    'a foreign platform matched the target market as well as a local one');
+  const globalOp = OPS.find((o) => o.audienceGeography === 'global');
+  assert.ok(P.geographyFit(globalOp, target).value > P.geographyFit(foreign, target).value,
+    'explicit global reach did not beat an unrelated market');
+});
+
+test('explicit exclusion beats a positive generic fit', () => {
+  // A marketplace that accepts private sellers only is excluded however well it
+  // scores on everything else.
+  const priv = OPS.find((o) => o.sellerTypes === 'private');
+  if (priv) {
+    const s = P.scoreOpportunity(priv, { ...Q, business: 'ecommerce', objective: 'marketplace-exposure', market: '*', budget: 'any' });
+    assert.strictEqual(s.excluded, true, 'a private-sellers-only marketplace was recommended to a company');
+    assert.strictEqual(s.score, 0);
+  }
+  // And a directory that explicitly refuses a business type is excluded.
+  const refuses = { sourceCollection: 'directories', platformId: 'x', name: 'X',
+    website: 'https://x.example', country: 'global', accepts: { saas: false }, category: 'saas',
+    actionType: 'create-listing', actionUrl: null, cost: 'free', nativeQuality: 90,
+    nativeSignal: 't', evidence: 'reachable', priority: 'P1' };
+  const s = P.scoreOpportunity(refuses, { business: 'b2b-saas', objective: 'seo-citations', market: '*', budget: 'any' });
+  assert.strictEqual(s.excluded, true, 'a directory that refuses this business type was recommended');
+});
+
+// ── 5-6. no curation ────────────────────────────────────────────────────────
+
+test('no platform is named or boosted anywhere in the planner', () => {
+  const src = fs.readFileSync(path.join(ROOT, 'scripts/lib/distribution-planner.cjs'), 'utf8');
+  const decl = src.slice(0, src.indexOf('function project')).toLowerCase();
+  for (const o of OPS) {
+    assert.ok(!decl.includes(o.platformId.toLowerCase()), `the planner names ${o.platformId}`);
+  }
+  // No identity comparison against a specific platform anywhere in the file.
+  assert.ok(!/\.(platformId|id|name)\s*===\s*['"`]/.test(src),
+    'the planner compares against a specific platform identity');
+  assert.ok(!/boost|handpick|hand-pick|featured\s*=/.test(src), 'the planner contains a manual boost');
+});
+
+test('every group is defined by canonical facts, never by a platform list', () => {
+  for (const g of P.GROUPS) {
+    assert.strictEqual(typeof g.test, 'function', `${g.key} is not a rule`);
+    const body = g.test.toString().toLowerCase();
+    for (const o of OPS.slice(0, 200)) {
+      assert.ok(!body.includes(o.platformId.toLowerCase()), `${g.key} names ${o.platformId}`);
+    }
+    assert.ok(g.blurb && g.blurb.length > 20, `${g.key} does not explain itself`);
+  }
+});
+
+// ── 18-21. the page ─────────────────────────────────────────────────────────
+
+test('the planner is one page and generates no query combinations', () => {
+  const dir = path.join(ROOT, 'research/distribution-planner');
+  const walk = (d) => fs.readdirSync(d, { withFileTypes: true })
+    .flatMap((e) => (e.isDirectory() ? walk(path.join(d, e.name)) : [path.join(d, e.name)]));
+  const pages = walk(dir).filter((f) => f.endsWith('.html'));
+  assert.strictEqual(pages.length, 1,
+    `${pages.length} planner pages exist; query combinations must not become pages`);
+  const sitemap = fs.readFileSync(path.join(ROOT, 'sitemap.xml'), 'utf8');
+  const entries = [...sitemap.matchAll(/distribution-planner[^<]*/g)].map((m) => m[0]);
+  assert.strictEqual(entries.length, 1, `${entries.length} planner URLs are in the sitemap`);
+  assert.ok(!sitemap.includes('distribution-planner/?'), 'a query combination is in the sitemap');
+});
+
+test('the planner is reachable and is not an orphan', () => {
+  const LINK = P.PLANNER_PATH;
+  const hub = fs.readFileSync(path.join(ROOT, 'research/index.html'), 'utf8');
+  // Checked inside the Collections section, not against the whole file: the
+  // footer carries this link on every page and satisfied a whole-file search,
+  // so deleting the planner from the Research Center's own list of tools
+  // changed nothing the first version could see.
+  const at = hub.indexOf('id="collections"');
+  assert.ok(at > -1, 'the Research Center has no Collections section');
+  const collections = hub.slice(at, hub.indexOf('</section>', at));
+  // Asserted on the LIST ENTRY that presents the tool, not on any occurrence of
+  // the link. The section also carries a "more" link, which survived deletion of
+  // the entry and kept a whole-section search green.
+  assert.ok(collections.includes(`<li><a href="${LINK}"><span class="name">Distribution Planner</span>`),
+    'the Research Center does not present the planner among its collections');
+  assert.match(collections, /Select a business, objective, market and budget/,
+    'the planner is listed without explaining what it does');
+  assert.ok(fs.readFileSync(path.join(ROOT, 'sitemap.xml'), 'utf8')
+    .includes(`https://petrohrys.com${LINK}`), 'the planner is missing from the sitemap');
+  for (const rel of ['index.html', 'work/index.html', 'about/index.html', 'research/index.html']) {
+    const html = fs.readFileSync(path.join(ROOT, rel), 'utf8');
+    assert.ok(html.slice(html.indexOf('<footer role="contentinfo">')).includes(LINK),
+      `${rel} has no planner link in its footer`);
+  }
+  let inbound = 0;
+  const walk = (d) => {
+    for (const e of fs.readdirSync(d, { withFileTypes: true })) {
+      const p = path.join(d, e.name);
+      if (e.isDirectory()) walk(p);
+      else if (e.name === 'index.html' && !p.includes('/distribution-planner/')
+        && fs.readFileSync(p, 'utf8').includes(LINK)) inbound += 1;
+    }
+  };
+  walk(path.join(ROOT, 'research'));
+  assert.ok(inbound >= 30, `only ${inbound} pages link the planner`);
+});
+
+test('every count on the page is derived', () => {
+  const html = page();
+  // Unescape entities before matching: the collection label contains "&", which
+  // the page correctly escapes, and the first version compared the raw HTML.
+  const text = html.replace(/<[^>]+>/g, ' ').replace(/&amp;/g, '&').replace(/\s+/g, ' ');
+  assert.ok(text.includes(`${OPS.length} total opportunities`), 'the page does not state the derived total');
+  for (const c of P.COLLECTIONS) {
+    const n = OPS.filter((o) => o.sourceCollection === c.key).length;
+    assert.ok(text.includes(`${n} ${c.label}`), `the page does not state the derived ${c.key} count`);
+  }
+  // Asserted by INTERPOLATION, not by grepping the source for digits.
+  //
+  // The first version stripped comments and quoted strings and then searched
+  // for the total as a numeric literal. Naive quote-stripping pairs any
+  // apostrophe with the next one, so it swallowed whole spans of template
+  // markup between two unrelated apostrophes — and a literal 2234 written
+  // straight into the stat line vanished before the search ever ran. The check
+  // was blind to precisely the thing it existed to catch.
+  //
+  // The property is simply that each displayed total is an expression. That is
+  // checked directly, which no amount of quoting can hide.
+  const gen = fs.readFileSync(path.join(ROOT, 'scripts/build-distribution-planner.cjs'), 'utf8');
+  assert.ok(gen.includes('${ops.length}</strong> total opportunities'),
+    'the total opportunity count is not interpolated from the data');
+  assert.ok(/\$\{counts\[col\.key\]\}<\/strong> \$\{esc\(col\.label\)\}/.test(gen),
+    'the per-collection counts are not interpolated from the data');
+  assert.ok(/\$\{withUrl\}<\/strong> with a recorded action URL/.test(gen),
+    'the action-URL count is not interpolated from the data');
+  // And no four-digit literal sits inside the rendered stat list at all.
+  const statList = gen.slice(gen.indexOf('<ul class="bd-stats">'), gen.indexOf('</ul>', gen.indexOf('<ul class="bd-stats">')));
+  assert.ok(!/<strong>\d{2,}<\/strong>/.test(statList),
+    'a literal number is rendered in the stat list instead of a derived one');
+});
+
+test('the page keeps the three lanes visible and states the boundary', () => {
+  const html = page();
+  for (const c of P.COLLECTIONS) {
+    assert.ok(html.includes(`data-dp-lane="${c.key}"`), `the ${c.key} lane is missing`);
+    assert.ok(html.includes(c.path), `the ${c.key} lane does not link its source collection`);
+  }
+  const text = html.replace(/<[^>]+>/g, ' ').replace(/&amp;/g, '&').replace(/\s+/g, ' ');
+  assert.match(text, /a directory citation is not a press mention/i,
+    'the page does not state that the three actions differ');
+  assert.match(text, /classified ad is not editorial coverage/i);
+  assert.ok(html.includes('data-dp-collection='), 'rows do not carry their source collection');
+});
+
+test('the page works without JavaScript', () => {
+  const html = page();
+  // A complete default plan is prerendered: rows, not an empty shell.
+  const rows = (html.match(/class="bd-row"/g) || []).length;
+  assert.ok(rows >= 20, `only ${rows} rows are prerendered; the page needs JS to say anything`);
+  assert.ok(!/<noscript>/.test(html) || true, 'noscript is optional');
+  for (const m of html.matchAll(/<select class="bd-select" id="([^"]+)"/g)) {
+    assert.ok(html.includes(`for="${m[1]}"`), `the ${m[1]} control has no label`);
+  }
+  const h1 = (html.match(/<h1[^>]*>/g) || []).length;
+  assert.strictEqual(h1, 1, `the page has ${h1} H1 elements`);
+});
+
+// ── 21-29. build properties ─────────────────────────────────────────────────
+
+test('the projection is deterministic and locale-independent', () => {
+  const a = P.plan(P.project(SRC), Q, { perLane: 30 }).lanes
+    .flatMap((l) => l.results.map((x) => `${x.op.platformId}:${x.s.score}`));
+  const reversed = { directories: [...SRC.directories].reverse(),
+    marketplaces: [...SRC.marketplaces].reverse(), media: [...SRC.media].reverse() };
+  const b = P.plan(P.project(reversed), Q, { perLane: 30 }).lanes
+    .flatMap((l) => l.results.map((x) => `${x.op.platformId}:${x.s.score}`));
+  assert.deepStrictEqual(a, b, 'the plan depends on input order');
+  for (const f of ['scripts/lib/distribution-planner.cjs', 'scripts/build-distribution-planner.cjs']) {
+    assert.ok(!/\.localeCompare\s*\(/.test(fs.readFileSync(path.join(ROOT, f), 'utf8')),
+      `${f} calls localeCompare`);
+  }
+});
+
+test('no build-time network and no new dependency', () => {
+  const src = fs.readFileSync(path.join(ROOT, 'scripts/lib/distribution-planner.cjs'), 'utf8')
+    + fs.readFileSync(path.join(ROOT, 'scripts/build-distribution-planner.cjs'), 'utf8');
+  assert.ok(!/\bfetch\s*\(|https?\.request\s*\(|axios\.|node-fetch/.test(src), 'the planner makes a network call');
+  for (const m of src.matchAll(/require\('([^']+)'\)/g)) {
+    assert.ok(m[1].startsWith('.') || m[1].startsWith('node:'),
+      `the planner requires the external module "${m[1]}"`);
+  }
+  assert.ok(!fs.existsSync(path.join(ROOT, 'package.json')), 'a package.json was added');
+});
+
+test('the planner JSON-LD parses and claims nothing it cannot support', () => {
+  const html = page();
+  const blocks = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)]
+    .map((m) => JSON.parse(m[1]));
+  assert.ok(blocks.length >= 1, 'no structured data');
+  const graph = JSON.stringify(blocks);
+  assert.ok(!/aggregateRating|ratingValue|reviewCount/.test(graph),
+    'an internal priority is presented as a public review rating');
+  assert.ok(html.includes('rel="canonical" href="https://petrohrys.com/research/distribution-planner/"'));
+});
+
+test('the source collections are unchanged by this feature', () => {
+  // The planner must not have quietly altered a count anywhere.
+  assert.strictEqual(SRC.marketplaces.length, 286, 'the marketplace count changed');
+  assert.strictEqual(SRC.media.length, 385, 'the media platform count changed');
+  assert.ok(SRC.directories.length > 1500, 'the directory count collapsed');
+  for (const f of ['research/marketplaces/marketplaces.csv',
+    'research/media-pr-publishing/opportunities.csv']) {
+    const csv = fs.readFileSync(path.join(ROOT, f), 'utf8');
+    assert.strictEqual(csv.charCodeAt(0), 0xFEFF, `${f} lost its BOM`);
+    assert.ok(/\r\n/.test(csv), `${f} lost CRLF`);
+  }
+});

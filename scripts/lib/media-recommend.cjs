@@ -186,7 +186,11 @@ const PROFILES = [
     categories: ['marketing-media', 'advertising-media'],
     adjacent: ['ecommerce-retail-media'],
     industries: ['marketing', 'advertising'],
-    keywords: ['marketing', 'advertising', 'search marketing', 'brand', 'agency', 'martech'],
+    // "advertising" and "brand" are deliberately absent: they appear in almost
+    // every platform's description of its OWN advertising sales, so they
+    // matched ad-sales boilerplate rather than marketing coverage and put a
+    // 3D-printing trade title into the marketing agency results.
+    keywords: ['marketing', 'search marketing', 'martech', 'media buying', 'ad agency'],
     markets: ['*'] },
   { key: 'professional-services', slug: 'professional-services', label: 'Professional services',
     categories: ['global-business-media'],

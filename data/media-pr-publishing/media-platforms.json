@@ -674,12 +674,13 @@
     "currentStatus": "active",
     "priority": "P2",
     "opportunityTypes": [
-      "unknown"
+      "editorial-submission",
+      "press-release"
     ],
-    "costModel": "unknown",
-    "submissionUrl": null,
+    "costModel": "free",
+    "submissionUrl": "https://www.americanbanker.com/contact-us",
     "pitchUrl": null,
-    "pressReleaseUrl": null,
+    "pressReleaseUrl": "https://www.americanbanker.com/contact-us",
     "advertisingUrl": null,
     "mediaKitUrl": null,
     "contactUrl": null,
@@ -688,10 +689,11 @@
     "requiresEditorialApproval": null,
     "sponsoredContentAvailable": null,
     "shortNote": "A long-established US banking trade publication read by bank executives and regulators.",
-    "limitations": "No public submission route was established. Largely subscription-gated.",
-    "lastVerified": "2026-08-07",
+    "limitations": "US banking industry. Most reporting is subscription-gated; the submission and release routes are separate asks on one contact page.",
+    "lastVerified": "2026-08-08",
     "sources": [
-      "https://www.americanbanker.com/"
+      "https://www.americanbanker.com/",
+      "https://www.americanbanker.com/contact-us"
     ]
   },
   {
@@ -1022,10 +1024,10 @@
     "currentStatus": "active",
     "priority": "P2",
     "opportunityTypes": [
-      "unknown"
+      "editorial-submission"
     ],
-    "costModel": "unknown",
-    "submissionUrl": null,
+    "costModel": "free",
+    "submissionUrl": "https://www.automationworld.com/contact-us",
     "pitchUrl": null,
     "pressReleaseUrl": null,
     "advertisingUrl": null,
@@ -1033,13 +1035,14 @@
     "contactUrl": null,
     "editorialContact": null,
     "publicProfileAvailable": null,
-    "requiresEditorialApproval": null,
+    "requiresEditorialApproval": true,
     "sponsoredContentAvailable": null,
     "shortNote": "Industrial automation and control systems publication.",
-    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Checked during Wave 2; no submission or pitch page was found at the paths tried.",
+    "limitations": "Industrial automation and control only.",
     "lastVerified": "2026-08-08",
     "sources": [
-      "https://www.automationworld.com/"
+      "https://www.automationworld.com/",
+      "https://www.automationworld.com/contact-us"
     ]
   },
   {
@@ -1407,12 +1410,13 @@
     "currentStatus": "active",
     "priority": "P2",
     "opportunityTypes": [
-      "unknown"
+      "editorial-submission",
+      "press-release"
     ],
-    "costModel": "unknown",
-    "submissionUrl": null,
+    "costModel": "free",
+    "submissionUrl": "https://www.bisnow.com/about",
     "pitchUrl": null,
-    "pressReleaseUrl": null,
+    "pressReleaseUrl": "https://www.bisnow.com/about",
     "advertisingUrl": null,
     "mediaKitUrl": null,
     "contactUrl": null,
@@ -1421,10 +1425,11 @@
     "requiresEditorialApproval": null,
     "sponsoredContentAvailable": null,
     "shortNote": "Commercial real estate news and events across North American and European markets.",
-    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Checked during Wave 2; no submission or pitch page was found at the paths tried.",
+    "limitations": "Commercial real estate only. The release route publishes what you send; the submission route reaches an editor. Different asks.",
     "lastVerified": "2026-08-08",
     "sources": [
-      "https://www.bisnow.com/"
+      "https://www.bisnow.com/",
+      "https://www.bisnow.com/about"
     ]
   },
   {
@@ -1565,9 +1570,9 @@
       "press-release"
     ],
     "costModel": "free",
-    "submissionUrl": "https://www.bizwest.com/",
+    "submissionUrl": "https://bizwest.com/contact-us/",
     "pitchUrl": null,
-    "pressReleaseUrl": null,
+    "pressReleaseUrl": "https://bizwest.com/contact-us/",
     "advertisingUrl": null,
     "mediaKitUrl": null,
     "contactUrl": null,
@@ -1579,6 +1584,7 @@
     "limitations": "Northern Colorado only, and separate from the Denver Business Journal, which sits in the ACBJ network. Two different routes: the news-tip route reaches an editor who decides, the release route publishes what you send.",
     "lastVerified": "2026-08-08",
     "sources": [
+      "https://bizwest.com/contact-us/",
       "https://www.bizwest.com/"
     ]
   },
@@ -1881,7 +1887,7 @@
     "pressReleaseUrl": null,
     "advertisingUrl": null,
     "mediaKitUrl": null,
-    "contactUrl": null,
+    "contactUrl": "https://www.businessinsider.jp/about/",
     "editorialContact": null,
     "publicProfileAvailable": null,
     "requiresEditorialApproval": null,
@@ -1890,7 +1896,8 @@
     "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Reached and identified during Wave 3.",
     "lastVerified": "2026-08-08",
     "sources": [
-      "https://www.businessinsider.jp/"
+      "https://www.businessinsider.jp/",
+      "https://www.businessinsider.jp/about/"
     ]
   },
   {
@@ -2345,7 +2352,7 @@
     "pressReleaseUrl": null,
     "advertisingUrl": null,
     "mediaKitUrl": null,
-    "contactUrl": null,
+    "contactUrl": "https://www.canarymedia.com/about",
     "editorialContact": null,
     "publicProfileAvailable": null,
     "requiresEditorialApproval": null,
@@ -2354,7 +2361,8 @@
     "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Reached and identified during Wave 3.",
     "lastVerified": "2026-08-08",
     "sources": [
-      "https://www.canarymedia.com/"
+      "https://www.canarymedia.com/",
+      "https://www.canarymedia.com/about"
     ]
   },
   {
@@ -3306,24 +3314,26 @@
     "currentStatus": "active",
     "priority": "P2",
     "opportunityTypes": [
-      "unknown"
+      "editorial-pitch",
+      "press-release"
     ],
-    "costModel": "unknown",
+    "costModel": "free",
     "submissionUrl": null,
-    "pitchUrl": null,
+    "pitchUrl": "https://www.dealstreetasia.com/contact-us/",
     "pressReleaseUrl": null,
     "advertisingUrl": null,
     "mediaKitUrl": null,
-    "contactUrl": null,
+    "contactUrl": "https://www.dealstreetasia.com/contact-us/",
     "editorialContact": null,
     "publicProfileAvailable": null,
     "requiresEditorialApproval": null,
     "sponsoredContentAvailable": null,
     "shortNote": "Asian private equity, venture capital and deal-flow reporting.",
-    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Reached and identified during Wave 2; no public submission or pitch page was found.",
+    "limitations": "Asian private equity and venture deals. One contact page carries both a pitch route and a release route; they are different asks, and only the pitch reaches a reporter. Much of the reporting is subscription-gated.",
     "lastVerified": "2026-08-08",
     "sources": [
-      "https://www.dealstreetasia.com"
+      "https://www.dealstreetasia.com",
+      "https://www.dealstreetasia.com/contact-us/"
     ]
   },
   {
@@ -3701,7 +3711,7 @@
       "editorial-submission"
     ],
     "costModel": "free",
-    "submissionUrl": "https://www.digitalcommerce360.com/contact-us/",
+    "submissionUrl": "https://www.digitalcommerce360.com/about-us/",
     "pitchUrl": null,
     "pressReleaseUrl": null,
     "advertisingUrl": null,
@@ -3715,6 +3725,7 @@
     "limitations": "Much of the research is paid; the editorial submission route is separate.",
     "lastVerified": "2026-08-08",
     "sources": [
+      "https://www.digitalcommerce360.com/about-us/",
       "https://www.digitalcommerce360.com/contact-us/"
     ]
   },
@@ -5401,24 +5412,26 @@
     "currentStatus": "active",
     "priority": "P1",
     "opportunityTypes": [
-      "unknown"
+      "editorial-pitch",
+      "press-release"
     ],
-    "costModel": "unknown",
+    "costModel": "free",
     "submissionUrl": null,
     "pitchUrl": null,
-    "pressReleaseUrl": null,
+    "pressReleaseUrl": "https://www.freightwaves.com/contact-us",
     "advertisingUrl": null,
     "mediaKitUrl": null,
-    "contactUrl": null,
+    "contactUrl": "https://www.freightwaves.com/contact-us",
     "editorialContact": null,
     "publicProfileAvailable": null,
     "requiresEditorialApproval": null,
     "sponsoredContentAvailable": null,
     "shortNote": "Freight market news, data and analysis for shippers, brokers and carriers.",
-    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Checked during Wave 2; no submission or pitch page was found at the paths tried.",
+    "limitations": "Freight and supply chain only. The release route and the editorial tip route are different asks and reach different people.",
     "lastVerified": "2026-08-08",
     "sources": [
-      "https://www.freightwaves.com/"
+      "https://www.freightwaves.com/",
+      "https://www.freightwaves.com/contact-us"
     ]
   },
   {
@@ -6725,10 +6738,10 @@
     "currentStatus": "active",
     "priority": "P1",
     "opportunityTypes": [
-      "unknown"
+      "contributed-article"
     ],
-    "costModel": "unknown",
-    "submissionUrl": null,
+    "costModel": "free",
+    "submissionUrl": "https://inc42.com/contact/",
     "pitchUrl": null,
     "pressReleaseUrl": null,
     "advertisingUrl": null,
@@ -6736,13 +6749,14 @@
     "contactUrl": null,
     "editorialContact": null,
     "publicProfileAvailable": null,
-    "requiresEditorialApproval": null,
+    "requiresEditorialApproval": true,
     "sponsoredContentAvailable": null,
     "shortNote": "Indian startup ecosystem publication with funding data and sector reports.",
-    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Reached and identified during Wave 2; no public submission or pitch page was found.",
+    "limitations": "Indian startup ecosystem only. The contributor route is editorial and an editor decides.",
     "lastVerified": "2026-08-08",
     "sources": [
-      "https://inc42.com"
+      "https://inc42.com",
+      "https://inc42.com/contact/"
     ]
   },
   {
@@ -6766,7 +6780,7 @@
       "editorial-submission"
     ],
     "costModel": "free",
-    "submissionUrl": "https://www.ibj.com/",
+    "submissionUrl": "https://www.ibj.com/contact-us",
     "pitchUrl": null,
     "pressReleaseUrl": null,
     "advertisingUrl": null,
@@ -6780,7 +6794,8 @@
     "limitations": "Indiana companies. Independently owned, so this is a genuinely separate submission from the ACBJ network row.",
     "lastVerified": "2026-08-08",
     "sources": [
-      "https://www.ibj.com/"
+      "https://www.ibj.com/",
+      "https://www.ibj.com/contact-us"
     ]
   },
   {
@@ -10325,23 +10340,25 @@
     "priority": "P1",
     "opportunityTypes": [
       "editorial-submission",
-      "press-release"
+      "press-release",
+      "sponsored-content"
     ],
-    "costModel": "free",
+    "costModel": "mixed",
     "submissionUrl": "https://www.pv-magazine.com/info/contact-us/",
     "pitchUrl": null,
     "pressReleaseUrl": null,
-    "advertisingUrl": null,
+    "advertisingUrl": "https://www.pv-magazine.com/info/advertising-contacts/",
     "mediaKitUrl": null,
     "contactUrl": null,
     "editorialContact": null,
     "publicProfileAvailable": null,
     "requiresEditorialApproval": null,
-    "sponsoredContentAvailable": null,
+    "sponsoredContentAvailable": true,
     "shortNote": "The reference international solar photovoltaic trade publication, publishing in English and German with regional editions.",
     "limitations": "Solar PV and storage only. The regional editions share one editorial organisation, so this is one submission and not one per country.",
     "lastVerified": "2026-08-08",
     "sources": [
+      "https://www.pv-magazine.com/info/advertising-contacts/",
       "https://www.pv-magazine.com/info/contact-us/"
     ]
   },
@@ -10871,9 +10888,9 @@
       "press-release"
     ],
     "costModel": "free",
-    "submissionUrl": "https://retailwire.com/contact/",
+    "submissionUrl": "https://retailwire.com/about/",
     "pitchUrl": null,
-    "pressReleaseUrl": null,
+    "pressReleaseUrl": "https://retailwire.com/about/",
     "advertisingUrl": null,
     "mediaKitUrl": null,
     "contactUrl": null,
@@ -10885,6 +10902,7 @@
     "limitations": "The panel format means coverage comes with public expert critique.",
     "lastVerified": "2026-08-08",
     "sources": [
+      "https://retailwire.com/about/",
       "https://retailwire.com/contact/"
     ]
   },
@@ -13665,23 +13683,24 @@
     "currentStatus": "active",
     "priority": "P1",
     "opportunityTypes": [
-      "unknown"
+      "sponsored-content"
     ],
-    "costModel": "unknown",
+    "costModel": "paid",
     "submissionUrl": null,
     "pitchUrl": null,
     "pressReleaseUrl": null,
-    "advertisingUrl": null,
+    "advertisingUrl": "https://advertise.tldr.tech/",
     "mediaKitUrl": null,
     "contactUrl": null,
     "editorialContact": null,
     "publicProfileAvailable": null,
     "requiresEditorialApproval": null,
-    "sponsoredContentAvailable": null,
+    "sponsoredContentAvailable": true,
     "shortNote": "Daily developer and technology newsletter with a large engineer readership and a sponsorship route.",
-    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Reached and identified during Wave 3.",
+    "limitations": "Paid placement only. No editorial submission route was established; the newsletter is written in-house.",
     "lastVerified": "2026-08-08",
     "sources": [
+      "https://advertise.tldr.tech/",
       "https://tldr.tech/"
     ]
   },
@@ -13703,10 +13722,10 @@
     "currentStatus": "active",
     "priority": "P3",
     "opportunityTypes": [
-      "contributed-article"
+      "unknown"
     ],
-    "costModel": "free",
-    "submissionUrl": "https://www.tlnt.com/",
+    "costModel": "unknown",
+    "submissionUrl": null,
     "pitchUrl": null,
     "pressReleaseUrl": null,
     "advertisingUrl": null,
@@ -13714,13 +13733,15 @@
     "contactUrl": null,
     "editorialContact": null,
     "publicProfileAvailable": null,
-    "requiresEditorialApproval": true,
+    "requiresEditorialApproval": null,
     "sponsoredContentAvailable": null,
-    "shortNote": "Talent management and HR leadership publication built largely on practitioner contributions.",
-    "limitations": "Practitioner-authored articles, not company announcements.",
+    "shortNote": "Talent management and HR leadership publication. Its contributor route now redirects to ERE, which is listed separately.",
+    "limitations": "TLNT appears to have been absorbed into ERE: tlnt.com/write-for-us redirects to ere.net/articles/write-for-us. Treat the ERE record as the live desk and confirm before pitching TLNT separately.",
     "lastVerified": "2026-08-08",
     "sources": [
-      "https://www.tlnt.com/"
+      "https://www.ere.net/articles/write-for-us",
+      "https://www.tlnt.com/",
+      "https://www.tlnt.com/write-for-us/"
     ]
   },
   {
@@ -13783,10 +13804,11 @@
     "currentStatus": "active",
     "priority": "P1",
     "opportunityTypes": [
-      "unknown"
+      "contributed-article",
+      "media-partnership"
     ],
-    "costModel": "unknown",
-    "submissionUrl": null,
+    "costModel": "mixed",
+    "submissionUrl": "https://www.tmtpost.com/about/tmtpost",
     "pitchUrl": null,
     "pressReleaseUrl": null,
     "advertisingUrl": null,
@@ -13794,13 +13816,14 @@
     "contactUrl": null,
     "editorialContact": null,
     "publicProfileAvailable": null,
-    "requiresEditorialApproval": null,
+    "requiresEditorialApproval": true,
     "sponsoredContentAvailable": null,
     "shortNote": "Chinese technology, media and telecom business publication with a large contributor network.",
-    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Reached and identified during Wave 3.",
+    "limitations": "Chinese-language submissions. The page carries both a 投稿 (contributed article) route and a 商务合作 (commercial partnership) route; those are different asks and only the first is editorial.",
     "lastVerified": "2026-08-08",
     "sources": [
-      "https://www.tmtpost.com/"
+      "https://www.tmtpost.com/",
+      "https://www.tmtpost.com/about/tmtpost"
     ]
   },
   {
