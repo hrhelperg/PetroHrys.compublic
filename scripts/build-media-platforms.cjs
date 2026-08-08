@@ -20,6 +20,8 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const MD = require('./lib/media-schema.cjs');
+const MI = require('./lib/media-intelligence.cjs');
+const REC = require('./lib/media-recommend.cjs');
 const c = require('./lib/bd-components.cjs');
 const render = require('./lib/bd-render.cjs');
 const seo = require('./lib/bd-seo.cjs');
@@ -31,6 +33,12 @@ const MANIFEST_FILE = path.join(ROOT, 'data', 'media-pr-publishing', '.build-man
 const OUT_DIR = path.join(ROOT, 'research', 'media-pr-publishing');
 const PAGE_FILE = path.join(OUT_DIR, 'index.html');
 const CSV_FILE = path.join(OUT_DIR, 'opportunities.csv');
+const FOR_DIR = path.join(OUT_DIR, 'for');
+// A recommendation page exists only where it has something to recommend. Below
+// this it is a thin page carrying a heading and an apology, so it is not built
+// at all and the sitemap never learns about it.
+const MIN_RECOMMENDATIONS = 5;
+const REC_LIMIT = 25;
 
 const escapeHtml = (s) => String(s)
   .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
@@ -113,8 +121,12 @@ const industryLabel = (s) => s.replace(/-/g, ' ').replace(/^./, (m) => m.toUpper
 const COLUMNS = ['id', 'name', 'website', 'country', 'audience_geography', 'categories',
   'industries', 'languages', 'opportunity_types', 'cost_model', 'priority', 'current_status',
   'submission_url', 'pitch_url', 'press_release_url', 'advertising_url', 'media_kit_url',
-  'requires_editorial_approval', 'sponsored_content_available', 'note', 'limitations',
-  'last_verified'];
+  'requires_editorial_approval', 'sponsored_content_available',
+  // Derived columns. Computed at export time, never stored on a record, and
+  // deliberately only four: the CSV is an employee work queue, not a dump of
+  // every internal dimension.
+  'media_score', 'media_score_band', 'publishing_model', 'best_for',
+  'note', 'limitations', 'last_verified'];
 
 function csvField(value) {
   if (value === null || value === undefined) return '';
@@ -124,6 +136,28 @@ function csvField(value) {
 
 const bool = (v) => (v === true ? 'yes' : v === false ? 'no' : '');
 
+// Memoised so a 385-row export does not recompute the same score six times.
+const SCORE_CACHE = new Map();
+const scoreOf = (r) => {
+  if (!SCORE_CACHE.has(r.id)) SCORE_CACHE.set(r.id, MI.mediaScore(r));
+  return SCORE_CACHE.get(r.id);
+};
+// The business profiles this platform ranks well for, derived from the same
+// engine the recommendation pages use — so the column and the page can never
+// disagree about what a platform is good for.
+const BEST_FOR_CACHE = new Map();
+function bestForOf(r) {
+  if (BEST_FOR_CACHE.has(r.id)) return BEST_FOR_CACHE.get(r.id);
+  const hits = REC.PROFILES
+    .map((p) => ({ p, rec: REC.recommend(r, p.key) }))
+    .filter((x) => !x.rec.excluded && x.rec.score >= 70)
+    .sort((a, b) => b.rec.score - a.rec.score)
+    .slice(0, 3)
+    .map((x) => x.p.slug);
+  BEST_FOR_CACHE.set(r.id, hits);
+  return hits;
+}
+
 function renderCsv(rows) {
   const lines = [COLUMNS.join(',')];
   for (const r of rows) {
@@ -131,6 +165,7 @@ function renderCsv(rows) {
       r.industries, r.languages, r.opportunityTypes, r.costModel, r.priority, r.currentStatus,
       r.submissionUrl, r.pitchUrl, r.pressReleaseUrl, r.advertisingUrl, r.mediaKitUrl,
       bool(r.requiresEditorialApproval), bool(r.sponsoredContentAvailable),
+      scoreOf(r).score ?? '', scoreOf(r).band ?? '', MI.publishingModel(r), bestForOf(r),
       r.shortNote, r.limitations, r.lastVerified].map(csvField).join(','));
   }
   return `﻿${lines.join('\r\n')}\r\n`;
@@ -176,11 +211,24 @@ function actions(r) {
     .join(' ');
 }
 
+// Which profiles earn a page: enough results, and enough of them actually about
+// this kind of business. Computed once and used by BOTH the page emitter and the
+// worklist's link list — the first version let the worklist link all 17 profiles
+// while only 13 pages were generated, so four links went nowhere.
+function eligibleProfiles(rows) {
+  return REC.PROFILES.filter((profile) => {
+    const ranked = REC.rankFor(rows, profile.key, { limit: REC_LIMIT, minLevel: 'Marginal' });
+    const specific = ranked.filter((x) => REC.qualifiesForProfile(x.recommendation)).length;
+    return ranked.length >= MIN_RECOMMENDATIONS && specific >= MIN_RECOMMENDATIONS;
+  });
+}
+
 function renderMain(rows, countryName) {
   const countries = new Set(rows.map((r) => r.country));
   const cats = new Set(rows.flatMap((r) => r.categories));
   const types = new Set(rows.flatMap((r) => r.opportunityTypes));
   const p1 = rows.filter((r) => r.priority === 'P1').length;
+  const cov = MI.coverage(rows);
 
   const tableRows = rows.map((r) => {
     const typeText = r.opportunityTypes.map((t) => OPPORTUNITY_LABELS[t] || t).join(', ');
@@ -197,7 +245,9 @@ function renderMain(rows, countryName) {
       + `data-bd-facet-language="${escapeHtml(r.languages.join(' '))}" `
       + `data-bd-facet-cost="${escapeHtml(r.costModel)}" `
       + `data-bd-facet-priority="${escapeHtml(r.priority)}" `
-      + `data-bd-facet-status="${escapeHtml(r.currentStatus)}">
+      + `data-bd-facet-status="${escapeHtml(r.currentStatus)}" `
+      + `data-bd-facet-band="${escapeHtml(scoreOf(r).band || 'unscored')}" `
+      + `data-bd-facet-bestfor="${escapeHtml(bestForOf(r).join(' '))}">
             <td class="bd-cell" data-bd-label="Platform"><a href="${escapeHtml(r.website)}" rel="noopener noreferrer" target="_blank">${escapeHtml(r.name)}</a></td>
             <td class="bd-cell" data-bd-label="Country">${escapeHtml(countryName(r.country))}</td>
             <td class="bd-cell" data-bd-label="Audience">${escapeHtml(GEO_LABELS[r.audienceGeography])}</td>
@@ -207,6 +257,12 @@ function renderMain(rows, countryName) {
             <td class="bd-cell" data-bd-label="Cost">${escapeHtml(COST_LABELS[r.costModel])}</td>
             <td class="bd-cell" data-bd-label="Priority">${escapeHtml(PRIORITY_LABELS[r.priority] || r.priority)}</td>
             <td class="bd-cell" data-bd-label="Status">${escapeHtml(STATUS_LABELS[r.currentStatus] || r.currentStatus)}</td>
+            <td class="bd-cell" data-bd-label="Media Score">${scoreOf(r).score === null
+    ? '<span class="bd-metric bd-metric--empty">Not yet scored</span>'
+    : `<strong>${scoreOf(r).score}</strong> ${escapeHtml(scoreOf(r).band)}`}</td>
+            <td class="bd-cell" data-bd-label="Best for">${escapeHtml(bestForOf(r)
+    .map((slug) => (REC.PROFILE_BY_KEY.get(slug.replace(/-/g, '-')) || {}).label
+      || (REC.PROFILES.find((p) => p.slug === slug) || {}).label || slug).join(', '))}</td>
             <td class="bd-cell" data-bd-label="What it is">${escapeHtml(r.shortNote)}${
   r.limitations ? ` <em>${escapeHtml(r.limitations)}</em>` : ''}</td>
             <td class="bd-cell bd-actions" data-bd-label="Actions">${actions(r)}</td>
@@ -214,7 +270,7 @@ function renderMain(rows, countryName) {
   }).join('\n');
 
   const head = ['Platform', 'Country', 'Audience', 'Category', 'Industry', 'Opportunity',
-    'Cost', 'Priority', 'Status', 'What it is', 'Actions'];
+    'Cost', 'Priority', 'Status', 'Media Score', 'Best for', 'What it is', 'Actions'];
 
   const countryLabels = Object.fromEntries([...countries].map((s) => [s, countryName(s)]));
   const industryLabels = Object.fromEntries(
@@ -237,6 +293,8 @@ function renderMain(rows, countryName) {
         <li class="bd-stat"><strong>${cats.size}</strong> categories</li>
         <li class="bd-stat"><strong>${types.size}</strong> opportunity types</li>
         <li class="bd-stat"><strong>${p1}</strong> top priority</li>
+        <li class="bd-stat"><strong>${cov.scored}</strong> scored</li>
+        <li class="bd-stat"><strong>${cov.routeVerified}</strong> verified routes</li>
       </ul>
     </section>`,
     `<section id="how-to-read" aria-labelledby="how-to-read-heading">
@@ -272,11 +330,13 @@ ${facet({ name: 'cost', label: 'Cost', values: rows.map((r) => r.costModel), lab
 ${facet({ name: 'language', label: 'Language', values: rows.flatMap((r) => r.languages), labels: languageLabels, multi: true })}
 ${facet({ name: 'priority', label: 'Priority', values: rows.map((r) => r.priority), labels: PRIORITY_LABELS })}
 ${facet({ name: 'status', label: 'Status', values: rows.map((r) => r.currentStatus), labels: STATUS_LABELS })}
+${facet({ name: 'band', label: 'Media Score', values: rows.map((r) => scoreOf(r).band || 'unscored'), labels: Object.fromEntries([...MI.BANDS.map((b) => [b.label, b.label]), ['unscored', 'Not yet scored']]) })}
+${facet({ name: 'bestfor', label: 'Best for (business)', values: rows.flatMap((r) => bestForOf(r)), labels: Object.fromEntries(REC.PROFILES.map((p) => [p.slug, p.label])), multi: true })}
         <div class="bd-control">
           <button class="bd-button bd-button--ghost" type="button" data-bd-clear>Clear filters</button>
         </div>
       </div>
-      <p class="bd-note"><a class="bd-button" href="/research/media-pr-publishing/opportunities.csv" download>Download all ${rows.length} opportunities as CSV</a></p>
+      <p class="bd-note"><a class="bd-button" href="${MD.collectionPath()}opportunities.csv" download>Download all ${rows.length} opportunities as CSV</a></p>
       <div class="bd-table-wrap">
         <table class="bd-table">
           <caption>Media, PR and publishing opportunities, highest priority first</caption>
@@ -287,6 +347,22 @@ ${tableRows}
         </table>
       </div>
     </section>`,
+    `<section id="media-score" aria-labelledby="media-score-heading">
+      <h2 id="media-score-heading">What Media Score means</h2>
+      <p>${escapeHtml(`Media Score rates the opportunity itself, not your business. It is computed `
+        + `from ${MI.DIMENSIONS.length} dimensions — ${MI.DIMENSIONS.map((d) => d.label.toLowerCase()).join(', ')} — `
+        + `weighted to ${MI.TOTAL_WEIGHT}. It is never stored; it is recomputed from the record every build.`)}</p>
+      <p>${escapeHtml(`A platform is scored only when at least ${MI.MIN_DIMENSIONS} dimensions and `
+        + `${MI.MIN_WEIGHT} of the ${MI.TOTAL_WEIGHT} weight are available. Below that it reads `
+        + `"Not yet scored", which is a statement about our research and not about the platform. `
+        + `${cov.scored} of ${cov.total} are scored today; the other ${cov.unscored} have no `
+        + `established opportunity route yet.`)}</p>
+      <p>${escapeHtml('Media Score does not depend on who is asking. Whether a platform suits YOUR '
+        + 'business is a different question, answered by the recommendation pages below, which '
+        + 'combine this score with category fit, campaign objective and target market.')}</p>
+      <p class="bd-note">${eligibleProfiles(rows).map((p) => `<a class="bd-cta-link" href="${MD.profilePath(p.slug)}">${escapeHtml(p.label)}</a>`).join(' ')}</p>
+    </section>`,
+
     `<section id="scope" aria-labelledby="scope-heading">
       <h2 id="scope-heading">What is and is not here</h2>
       <p>${escapeHtml('Included: media outlets with an established publishing, pitching or '
@@ -307,6 +383,79 @@ ${tableRows}
   ].join('\n\n');
 }
 
+
+// ── recommendation pages (PART 18) ──────────────────────────────────────────
+// Same engine as the worklist column and the CSV. There is exactly one place
+// that decides what a platform is good for, so a page and a filter can never
+// disagree.
+function renderProfilePage(profile, ranked, countryName) {
+  const rows = ranked.map(({ record: r, recommendation: rec }, i) => `          <tr class="bd-row" data-bd-rec-level="${escapeHtml(rec.level)}">
+            <td class="bd-cell" data-bd-label="Rank">${i + 1}</td>
+            <td class="bd-cell" data-bd-label="Platform"><a href="${escapeHtml(r.website)}" rel="noopener noreferrer" target="_blank">${escapeHtml(r.name)}</a></td>
+            <td class="bd-cell" data-bd-label="Fit"><strong>${rec.score}</strong> ${escapeHtml(rec.level)}</td>
+            <td class="bd-cell" data-bd-label="Media Score">${rec.mediaScore === null
+    ? '<span class="bd-metric bd-metric--empty">Not yet scored</span>' : `${rec.mediaScore} ${escapeHtml(rec.mediaBand)}`}</td>
+            <td class="bd-cell" data-bd-label="Market">${escapeHtml(countryName(r.country))}</td>
+            <td class="bd-cell" data-bd-label="Opportunity">${escapeHtml(r.opportunityTypes.map((t) => OPPORTUNITY_LABELS[t] || t).join(', '))}</td>
+            <td class="bd-cell" data-bd-label="Cost">${escapeHtml(COST_LABELS[r.costModel])}</td>
+            <td class="bd-cell" data-bd-label="Why">${escapeHtml(rec.reasons.join('; '))}</td>
+            <td class="bd-cell bd-actions" data-bd-label="Action">${actions(r)}</td>
+          </tr>`).join('\n');
+  const head = ['#', 'Platform', 'Fit', 'Media Score', 'Market', 'Opportunity', 'Cost', 'Why', 'Action'];
+  const levels = {};
+  for (const x of ranked) levels[x.recommendation.level] = (levels[x.recommendation.level] || 0) + 1;
+
+  return [
+    c.pageIntro({
+      title: `Media opportunities for ${profile.label}`,
+      lede: `${ranked.length} ranked places where a ${profile.label.toLowerCase()} business can `
+        + 'publish, pitch, submit or sponsor — with the reason for every ranking.',
+    }),
+    `<section id="ranking" aria-labelledby="ranking-heading">
+      <h2 id="ranking-heading">Ranked opportunities</h2>
+      <p>${escapeHtml(`${Object.entries(levels).map(([k, v]) => `${v} ${k.toLowerCase()}`).join(', ')}. `
+        + 'Ranked by fit for this kind of business, not by fame. A platform appears here because '
+        + 'the engine scored it, never because it was placed here by hand.')}</p>
+      <div class="bd-table-wrap">
+        <table class="bd-table">
+          <caption>${escapeHtml(`Media opportunities ranked for ${profile.label}`)}</caption>
+          <thead><tr>${head.map((h) => `<th class="bd-cell" scope="col">${escapeHtml(h)}</th>`).join('')}</tr></thead>
+          <tbody data-bd-rows>
+${rows}
+          </tbody>
+        </table>
+      </div>
+    </section>`,
+    `<section id="method" aria-labelledby="method-heading">
+      <h2 id="method-heading">How these were selected</h2>
+      <p>${escapeHtml(`This profile is declared abstractly: publication categories `
+        + `(${profile.categories.join(', ')})`
+        + `${(profile.adjacent || []).length ? `, adjacent categories (${profile.adjacent.join(', ')})` : ''}`
+        + `, industries (${profile.industries.join(', ')}) and subject keywords. It names no platform. `
+        + 'Every result below is produced by matching those declarations against the registry, so the '
+        + 'same rules that ranked this page rank every other one.')}</p>
+      <p>${escapeHtml('A recommendation combines four things: how well the publication serves this '
+        + 'kind of business, whether its opportunity type delivers the objective, whether it reaches '
+        + 'the target market, and the intrinsic Media Score of the opportunity. A platform with no '
+        + 'Media Score is still recommended, at a discount, because an unscored platform reflects a '
+        + 'gap in our research rather than a fault in the platform.')}</p>
+      <p>${escapeHtml('Explicit negative evidence disqualifies: a platform that has closed, was '
+        + 'rejected on quality grounds, or offers no opportunity type capable of delivering the '
+        + 'objective is excluded outright rather than ranked low. Missing evidence never excludes.')}</p>
+    </section>`,
+    `<section id="limitations" aria-labelledby="limitations-heading">
+      <h2 id="limitations-heading">Limitations</h2>
+      <p>${escapeHtml('The ranking is only as good as the underlying facts. Where a platform sits '
+        + 'behind a bot filter its route could not be read, and the row says so — treat those as '
+        + 'leads to confirm in a browser, not as verified opportunities.')}</p>
+      <p>${escapeHtml('Media Score carries no traffic, Domain Rating or audience figures, because '
+        + 'this repository measures none of those and will not estimate them. It is an editorial '
+        + 'reading of the opportunity, not a prediction of results.')}</p>
+      <p class="bd-note"><a class="bd-button" href="${MD.collectionPath()}">Back to the full database</a></p>
+    </section>`,
+  ].join('\n\n');
+}
+
 // ── build ───────────────────────────────────────────────────────────────────
 function main() {
   const countries = JSON.parse(fs.readFileSync(COUNTRIES_FILE, 'utf8'));
@@ -315,6 +464,8 @@ function main() {
   const all = MD.loadMediaPlatforms(DATA_FILE, new Set(nameBySlug.keys()));
   const rows = all.filter(MD.isActionable).sort(MD.comparePlatforms);
 
+  const profilePages = [];
+  const suppressed = [];
   const previous = fs.existsSync(MANIFEST_FILE)
     ? JSON.parse(fs.readFileSync(MANIFEST_FILE, 'utf8')).files || [] : [];
 
@@ -331,9 +482,34 @@ function main() {
     });
     writeIfChanged(PAGE_FILE, html, written);
     writeIfChanged(CSV_FILE, renderCsv(rows), written);
+
+    const eligible = eligibleProfiles(rows);
+    const eligibleKeys = new Set(eligible.map((p) => p.key));
+    for (const profile of REC.PROFILES) {
+      if (!eligibleKeys.has(profile.key)) {
+        const ranked = REC.rankFor(rows, profile.key, { limit: REC_LIMIT, minLevel: 'Marginal' });
+        const specific = ranked.filter((x) => REC.qualifiesForProfile(x.recommendation)).length;
+        suppressed.push(`${profile.slug} (${specific} specific)`);
+        continue;
+      }
+      const ranked = REC.rankFor(rows, profile.key, { limit: REC_LIMIT, minLevel: 'Marginal' });
+      const file = path.join(ROOT, MD.profilePath(profile.slug).replace(/^\//, ''), 'index.html');
+      fs.mkdirSync(path.dirname(file), { recursive: true });
+      writeIfChanged(file, render.renderPage({
+        meta: seo.buildMediaProfileMeta({
+          profile,
+          count: ranked.length,
+          objectiveLabel: 'brand awareness',
+          canonicalPath: MD.profilePath(profile.slug),
+          collectionPath: MD.collectionPath(),
+        }),
+        main: renderProfilePage(profile, ranked, countryName),
+      }), written);
+      profilePages.push(file);
+    }
   }
 
-  const owned = rows.length ? [PAGE_FILE, CSV_FILE] : [];
+  const owned = rows.length ? [PAGE_FILE, CSV_FILE, ...profilePages] : [];
   const ownedRel = owned.map((f) => path.relative(ROOT, f));
   const OUT_REL = `${path.relative(ROOT, OUT_DIR)}/`;
   let pruned = 0;
@@ -352,11 +528,24 @@ function main() {
     const abs = path.join(ROOT, rel);
     if (fs.existsSync(abs)) { fs.unlinkSync(abs); pruned += 1; }
   }
+  // A pruned page leaves its directory behind, and an empty directory under
+  // /for/ looks like a route that exists and serves nothing. Removed here, and
+  // only ever inside this build's own output.
+  if (fs.existsSync(FOR_DIR)) {
+    for (const entry of fs.readdirSync(FOR_DIR)) {
+      const dir = path.join(FOR_DIR, entry);
+      if (fs.statSync(dir).isDirectory() && fs.readdirSync(dir).length === 0) fs.rmdirSync(dir);
+    }
+  }
+
   fs.mkdirSync(path.dirname(MANIFEST_FILE), { recursive: true });
   fs.writeFileSync(MANIFEST_FILE, `${JSON.stringify({ files: ownedRel.sort() }, null, 2)}\n`);
 
+  const cov = MI.coverage(rows);
   console.log(`Media, PR & Publishing: ${rows.length} opportunity(ies) across `
-    + `${new Set(rows.map((r) => r.country)).size} markets; `
+    + `${new Set(rows.map((r) => r.country)).size} markets; ${cov.scored} scored; `
+    + `${profilePages.length} recommendation page(s)`
+    + `${suppressed.length ? ` (${suppressed.length} suppressed below ${MIN_RECOMMENDATIONS}: ${suppressed.join(', ')})` : ''}; `
     + `${written.length} written, ${pruned} pruned.`);
 }
 
@@ -369,6 +558,6 @@ function writeIfChanged(file, content, written) {
 
 if (require.main === module) main();
 module.exports = {
-  renderCsv, renderMain, COLUMNS, OPPORTUNITY_LABELS, CATEGORY_LABELS, COST_LABELS,
+  renderCsv, renderMain, renderProfilePage, eligibleProfiles, COLUMNS, MIN_RECOMMENDATIONS, REC_LIMIT, OPPORTUNITY_LABELS, CATEGORY_LABELS, COST_LABELS,
   GEO_LABELS, STATUS_LABELS, PRIORITY_LABELS, actions,
 };

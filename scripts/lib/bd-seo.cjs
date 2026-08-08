@@ -363,6 +363,25 @@ function buildMediaMeta({ count, countries, p1 }) {
   });
 }
 
+// A media recommendation page. Indexable only where it carries real utility —
+// the generator refuses to emit one below a minimum recommendation count, so a
+// thin page cannot exist to be indexed in the first place.
+function buildMediaProfileMeta({ profile, count, objectiveLabel, canonicalPath, collectionPath }) {
+  const title = `Media opportunities for ${profile.label}`;
+  const description = `${count} ranked media, PR and publishing opportunities for a `
+    + `${profile.label.toLowerCase()} business, scored on category fit, ${objectiveLabel.toLowerCase()} `
+    + 'fit and the quality of the opportunity itself, with the reason for each ranking.';
+  const trail = [ROOT_TRAIL[0], { name: 'Media, PR & Publishing', path: collectionPath },
+    { name: profile.label, path: canonicalPath }];
+  return meta({
+    title, description, canonicalPath, robots: undefined, breadcrumbTrail: trail,
+    graph: [
+      collectionPage({ name: title, description, url: absoluteUrl(canonicalPath) }),
+      breadcrumbList(trail),
+    ],
+  });
+}
+
 function buildOpportunitiesMeta() {
   const canonicalPath = `${routes.BASE}opportunities/`;
   const title = 'Business Listing Opportunities';
@@ -428,4 +447,5 @@ module.exports = {
   buildArticleMeta, buildArticleIndexMeta, buildOpportunitiesMeta, buildRecommendationMeta,
   buildMarketplacesMeta,
   buildMediaMeta,
+  buildMediaProfileMeta,
 };
