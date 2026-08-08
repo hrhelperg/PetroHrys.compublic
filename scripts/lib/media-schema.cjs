@@ -109,6 +109,10 @@ const CATEGORIES = [
   'newsletter-platform',
   'contributor-platform',
   'startup-launch-platform',
+  // Awards are not a publication: the artefact is a nomination deadline and a
+  // public winner page. The `award-entry` opportunity type already existed in
+  // the vocabulary and is reused; only the platform category was missing.
+  'business-awards',
 ];
 
 // The sector a company would be pitching ABOUT, which is not the same as the

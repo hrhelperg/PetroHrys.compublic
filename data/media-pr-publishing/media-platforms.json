@@ -38,6 +38,123 @@
     ]
   },
   {
+    "id": "md-3d-printing-industry",
+    "name": "3D Printing Industry",
+    "website": "https://3dprintingindustry.com",
+    "country": "united-kingdom",
+    "audienceGeography": "global",
+    "categories": [
+      "manufacturing-media"
+    ],
+    "industries": [
+      "hardware",
+      "manufacturing"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "editorial-pitch",
+      "press-release",
+      "sponsored-content"
+    ],
+    "costModel": "mixed",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": "https://3dprintingindustry.com/contact-us/",
+    "mediaKitUrl": null,
+    "contactUrl": "https://3dprintingindustry.com/contact-us/",
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": true,
+    "sponsoredContentAvailable": true,
+    "shortNote": "Additive manufacturing news covering hardware, materials and industrial adoption, with news and advertising routes on one contact page.",
+    "limitations": "The news route and the advertising route are the same page but different asks; a release is not editorial coverage.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://3dprintingindustry.com/contact-us/"
+    ]
+  },
+  {
+    "id": "md-3dprint-com",
+    "name": "3DPrint.com",
+    "website": "https://3dprint.com",
+    "country": "united-states",
+    "audienceGeography": "global",
+    "categories": [
+      "manufacturing-media"
+    ],
+    "industries": [
+      "manufacturing"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P3",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Additive manufacturing news and market analysis.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Checked during Wave 2; the contact or submission path either 404s, redirects elsewhere, or is behind a bot filter.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://3dprint.com/"
+    ]
+  },
+  {
+    "id": "md-above-the-law",
+    "name": "Above the Law",
+    "website": "https://abovethelaw.com",
+    "country": "united-states",
+    "audienceGeography": "national",
+    "categories": [
+      "legal-media"
+    ],
+    "industries": [
+      "legal"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "unknown",
+    "priority": "P3",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Legal industry news and commentary aimed at practising lawyers.",
+    "limitations": "Reached but behind a bot filter, so the route could not be read from the site. A human needs to open it in a browser and confirm whether a submission or pitch route exists.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://abovethelaw.com/"
+    ]
+  },
+  {
     "id": "md-access-newswire",
     "name": "ACCESS Newswire",
     "website": "https://www.accessnewswire.com",
@@ -78,6 +195,45 @@
     ]
   },
   {
+    "id": "md-accounting-today",
+    "name": "Accounting Today",
+    "website": "https://www.accountingtoday.com",
+    "country": "united-states",
+    "audienceGeography": "national",
+    "categories": [
+      "finance-media"
+    ],
+    "industries": [
+      "finance"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "editorial-submission",
+      "press-release"
+    ],
+    "costModel": "free",
+    "submissionUrl": "https://www.accountingtoday.com/contact-us",
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "The main US accounting-profession trade publication, with a contact page carrying both a submission and a press-release route.",
+    "limitations": "Accounting, tax and firm management. The two routes are different asks and land in different places.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.accountingtoday.com/contact-us"
+    ]
+  },
+  {
     "id": "md-ai-news",
     "name": "AI News",
     "website": "https://www.artificialintelligence-news.com",
@@ -113,6 +269,44 @@
     "lastVerified": "2026-08-07",
     "sources": [
       "https://www.artificialintelligence-news.com/contact-us/"
+    ]
+  },
+  {
+    "id": "md-air-cargo-news",
+    "name": "Air Cargo News",
+    "website": "https://www.aircargonews.net",
+    "country": "united-kingdom",
+    "audienceGeography": "global",
+    "categories": [
+      "logistics-media"
+    ],
+    "industries": [
+      "logistics"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "editorial-pitch"
+    ],
+    "costModel": "free",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": "https://www.aircargonews.net/contact-us/",
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": true,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Air freight and cargo industry news, with published editorial contacts.",
+    "limitations": "Air cargo only.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.aircargonews.net/contact-us/"
     ]
   },
   {
@@ -232,6 +426,84 @@
     ]
   },
   {
+    "id": "md-arabian-business",
+    "name": "Arabian Business",
+    "website": "https://www.arabianbusiness.com",
+    "country": "united-arab-emirates",
+    "audienceGeography": "regional",
+    "categories": [
+      "global-business-media"
+    ],
+    "industries": [
+      "general"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "unknown",
+    "priority": "P2",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Gulf business magazine covering companies, real estate and the regional economy.",
+    "limitations": "Reached but behind a bot filter, so the route could not be read from the site. A human needs to open it in a browser and confirm whether a submission or pitch route exists.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.arabianbusiness.com"
+    ]
+  },
+  {
+    "id": "md-archdaily",
+    "name": "ArchDaily",
+    "website": "https://www.archdaily.com",
+    "country": "chile",
+    "audienceGeography": "global",
+    "categories": [
+      "construction-media"
+    ],
+    "industries": [
+      "construction",
+      "real-estate"
+    ],
+    "languages": [
+      "en",
+      "es"
+    ],
+    "currentStatus": "active",
+    "priority": "P1",
+    "opportunityTypes": [
+      "editorial-submission"
+    ],
+    "costModel": "free",
+    "submissionUrl": "https://www.archdaily.com/submit-a-project",
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": true,
+    "sponsoredContentAvailable": null,
+    "shortNote": "The most-read architecture publication, with an open project submission route that publishes built work with drawings and credits.",
+    "limitations": "Built architecture projects only, with professional photography. Not a route for company news.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.archdaily.com/submit-a-project"
+    ]
+  },
+  {
     "id": "md-arctic-startup",
     "name": "ArcticStartup",
     "website": "https://arcticstartup.com",
@@ -310,6 +582,198 @@
     ]
   },
   {
+    "id": "md-assembly-magazine",
+    "name": "ASSEMBLY Magazine",
+    "website": "https://www.assemblymag.com",
+    "country": "united-states",
+    "audienceGeography": "national",
+    "categories": [
+      "manufacturing-media"
+    ],
+    "industries": [
+      "industrial",
+      "manufacturing"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "editorial-submission"
+    ],
+    "costModel": "free",
+    "submissionUrl": "https://www.assemblymag.com/contactus",
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": true,
+    "sponsoredContentAvailable": null,
+    "shortNote": "US trade magazine for assembly and manufacturing engineering, with a contact page naming an editorial submission route.",
+    "limitations": "Assembly and production engineering only. Technical substance is expected, not company news.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.assemblymag.com/contactus"
+    ]
+  },
+  {
+    "id": "md-austin-startups",
+    "name": "Austin Startups",
+    "website": "https://austinstartups.com",
+    "country": "united-states",
+    "audienceGeography": "local",
+    "categories": [
+      "startup-media"
+    ],
+    "industries": [
+      "saas"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P3",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Austin startup company directory and community publication.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. A submit path was checked and returns 404.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://austinstartups.com/"
+    ]
+  },
+  {
+    "id": "md-automation-world",
+    "name": "Automation World",
+    "website": "https://www.automationworld.com",
+    "country": "united-states",
+    "audienceGeography": "national",
+    "categories": [
+      "industrial-media"
+    ],
+    "industries": [
+      "industrial",
+      "manufacturing"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Industrial automation and control systems publication.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Checked during Wave 2; the contact or submission path either 404s, redirects elsewhere, or is behind a bot filter.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.automationworld.com/"
+    ]
+  },
+  {
+    "id": "md-automotive-news",
+    "name": "Automotive News",
+    "website": "https://www.autonews.com",
+    "country": "united-states",
+    "audienceGeography": "national",
+    "categories": [
+      "automotive-media"
+    ],
+    "industries": [
+      "automotive"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "unknown",
+    "priority": "P1",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "The reference automotive industry trade publication, covering manufacturers, suppliers and dealers.",
+    "limitations": "Reached but behind a bot filter, so the route could not be read from the site. A human needs to open it in a browser and confirm whether a submission or pitch route exists.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.autonews.com/"
+    ]
+  },
+  {
+    "id": "md-bangkok-post-business",
+    "name": "Bangkok Post Business",
+    "website": "https://www.bangkokpost.com/business",
+    "country": "thailand",
+    "audienceGeography": "national",
+    "categories": [
+      "global-business-media"
+    ],
+    "industries": [
+      "general"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P3",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "The business desk of Thailand’s main English-language newspaper.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Reached and identified during Wave 2; no public submission or pitch page was found.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.bangkokpost.com/business"
+    ]
+  },
+  {
     "id": "md-banking-dive",
     "name": "Banking Dive",
     "website": "https://www.bankingdive.com",
@@ -347,6 +811,44 @@
     "lastVerified": "2026-08-07",
     "sources": [
       "https://www.bankingdive.com/about/"
+    ]
+  },
+  {
+    "id": "md-bd-c",
+    "name": "Building Design+Construction",
+    "website": "https://www.bdcnetwork.com",
+    "country": "united-states",
+    "audienceGeography": "national",
+    "categories": [
+      "construction-media"
+    ],
+    "industries": [
+      "construction"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "editorial-submission"
+    ],
+    "costModel": "free",
+    "submissionUrl": "https://www.bdcnetwork.com/contact-us",
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": true,
+    "sponsoredContentAvailable": null,
+    "shortNote": "US commercial building design and construction trade publication, with an editorial submission route on its contact page.",
+    "limitations": "Commercial construction and building design only.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.bdcnetwork.com/contact-us"
     ]
   },
   {
@@ -388,6 +890,45 @@
     ]
   },
   {
+    "id": "md-betakit",
+    "name": "BetaKit",
+    "website": "https://betakit.com",
+    "country": "canada",
+    "audienceGeography": "national",
+    "categories": [
+      "startup-media"
+    ],
+    "industries": [
+      "fintech",
+      "saas"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P1",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Canada’s startup and venture publication of record.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Reached and identified during Wave 2.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://betakit.com/"
+    ]
+  },
+  {
     "id": "md-betalist",
     "name": "BetaList",
     "website": "https://betalist.com",
@@ -424,6 +965,122 @@
     "lastVerified": "2026-08-07",
     "sources": [
       "https://betalist.com/submit"
+    ]
+  },
+  {
+    "id": "md-bisnow",
+    "name": "Bisnow",
+    "website": "https://www.bisnow.com",
+    "country": "united-states",
+    "audienceGeography": "global",
+    "categories": [
+      "real-estate-media"
+    ],
+    "industries": [
+      "real-estate"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Commercial real estate news and events across North American and European markets.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Checked during Wave 2; the contact or submission path either 404s, redirects elsewhere, or is behind a bot filter.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.bisnow.com/"
+    ]
+  },
+  {
+    "id": "md-biz-new-orleans",
+    "name": "Biz New Orleans",
+    "website": "https://www.bizneworleans.com",
+    "country": "united-states",
+    "audienceGeography": "local",
+    "categories": [
+      "local-business-media"
+    ],
+    "industries": [
+      "general"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "unknown",
+    "priority": "P3",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "New Orleans metropolitan business magazine.",
+    "limitations": "Reached but behind a bot filter, so the route could not be read from the site. A human needs to open it in a browser and confirm whether a submission or pitch route exists.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.bizneworleans.com/"
+    ]
+  },
+  {
+    "id": "md-bizjournals",
+    "name": "American City Business Journals",
+    "website": "https://www.bizjournals.com",
+    "country": "united-states",
+    "audienceGeography": "national",
+    "categories": [
+      "local-business-media"
+    ],
+    "industries": [
+      "general"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "unknown",
+    "priority": "P1",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "The largest US metropolitan business-journal network, publishing a title in roughly 40 cities from one platform.",
+    "limitations": "Reached but behind a bot filter, so the route could not be read from the site. A human needs to open it in a browser and confirm whether a submission or pitch route exists. Treated as ONE opportunity, not forty: phoenixbusinessjournal.com redirects to bizjournals.com/phoenix/ and BostInno to bizjournals.com/boston/inno, so the city titles share one system. Submitting to each city separately would be submitting to the same publisher forty times.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.bizjournals.com/",
+      "https://www.phoenixbusinessjournal.com/",
+      "https://www.bostinno.com/"
     ]
   },
   {
@@ -543,6 +1200,241 @@
     ]
   },
   {
+    "id": "md-brutkasten",
+    "name": "brutkasten",
+    "website": "https://www.brutkasten.com",
+    "country": "austria",
+    "audienceGeography": "national",
+    "categories": [
+      "startup-media"
+    ],
+    "industries": [
+      "saas"
+    ],
+    "languages": [
+      "de"
+    ],
+    "currentStatus": "unknown",
+    "priority": "P2",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Austria’s main startup and innovation publication.",
+    "limitations": "Reached but behind a bot filter, so the route could not be read from the site. A human needs to open it in a browser and confirm whether a submission or pitch route exists.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.brutkasten.com/"
+    ]
+  },
+  {
+    "id": "md-built-in",
+    "name": "Built In",
+    "website": "https://builtin.com",
+    "country": "united-states",
+    "audienceGeography": "national",
+    "categories": [
+      "local-business-media",
+      "startup-media"
+    ],
+    "industries": [
+      "saas",
+      "software"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "company-profile"
+    ],
+    "costModel": "paid",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "City-by-city technology and startup community with employer profile pages, covering Chicago, Austin, Colorado, NYC, LA, Boston, Seattle and Texas.",
+    "limitations": "The city sites are one platform and one company profile, so this is one opportunity and not one per city. The profile is an employer-branding product and is paid; editorial coverage is separate and was not established.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.builtin.com/",
+      "https://www.builtinchicago.org/",
+      "https://www.builtinaustin.com/",
+      "https://www.builtincolorado.com/"
+    ]
+  },
+  {
+    "id": "md-business-daily-africa",
+    "name": "Business Daily",
+    "website": "https://www.businessdailyafrica.com",
+    "country": "kenya",
+    "audienceGeography": "national",
+    "categories": [
+      "global-business-media"
+    ],
+    "industries": [
+      "general"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Kenya’s business daily, published by Nation Media Group.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Reached and identified during Wave 2.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.businessdailyafrica.com/"
+    ]
+  },
+  {
+    "id": "md-business-live-za",
+    "name": "Business Day",
+    "website": "https://www.businesslive.co.za",
+    "country": "south-africa",
+    "audienceGeography": "national",
+    "categories": [
+      "global-business-media"
+    ],
+    "industries": [
+      "general"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "South Africa’s business daily, published by Arena Holdings.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Reached and identified during Wave 2.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.businesslive.co.za/"
+    ]
+  },
+  {
+    "id": "md-business-standard",
+    "name": "Business Standard",
+    "website": "https://www.business-standard.com",
+    "country": "india",
+    "audienceGeography": "national",
+    "categories": [
+      "global-business-media"
+    ],
+    "industries": [
+      "finance",
+      "general"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "unknown",
+    "priority": "P3",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Indian business and financial daily.",
+    "limitations": "Reached but behind a bot filter, so the route could not be read from the site. A human needs to open it in a browser and confirm whether a submission or pitch route exists.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.business-standard.com/"
+    ]
+  },
+  {
+    "id": "md-business-times-sg",
+    "name": "The Business Times",
+    "website": "https://www.businesstimes.com.sg",
+    "country": "singapore",
+    "audienceGeography": "national",
+    "categories": [
+      "global-business-media"
+    ],
+    "industries": [
+      "finance",
+      "general"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Singapore’s business and financial daily.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Reached and identified during Wave 2; no public submission or pitch page was found.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.businesstimes.com.sg"
+    ]
+  },
+  {
     "id": "md-business-wire",
     "name": "Business Wire",
     "website": "https://www.businesswire.com",
@@ -578,6 +1470,200 @@
     "lastVerified": "2026-08-07",
     "sources": [
       "https://www.businesswire.com/"
+    ]
+  },
+  {
+    "id": "md-businesscloud",
+    "name": "BusinessCloud",
+    "website": "https://www.businesscloud.co.uk",
+    "country": "united-kingdom",
+    "audienceGeography": "national",
+    "categories": [
+      "startup-media",
+      "technology-media"
+    ],
+    "industries": [
+      "saas"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P3",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "UK technology and scale-up publication, strongest outside London.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Reached and identified during Wave 2.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.businesscloud.co.uk/"
+    ]
+  },
+  {
+    "id": "md-businessday-ng",
+    "name": "BusinessDay",
+    "website": "https://businessday.ng",
+    "country": "nigeria",
+    "audienceGeography": "national",
+    "categories": [
+      "global-business-media"
+    ],
+    "industries": [
+      "finance",
+      "general"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Nigeria’s main business and financial newspaper.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Reached and identified during Wave 2.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://businessday.ng/"
+    ]
+  },
+  {
+    "id": "md-businesstech-za",
+    "name": "BusinessTech",
+    "website": "https://businesstech.co.za",
+    "country": "south-africa",
+    "audienceGeography": "national",
+    "categories": [
+      "global-business-media"
+    ],
+    "industries": [
+      "general"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "unknown",
+    "priority": "P3",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "South African business and consumer-economy news site.",
+    "limitations": "Reached but behind a bot filter, so the route could not be read from the site. A human needs to open it in a browser and confirm whether a submission or pitch route exists.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://businesstech.co.za/"
+    ]
+  },
+  {
+    "id": "md-calcalistech",
+    "name": "CTech",
+    "website": "https://www.calcalistech.com",
+    "country": "israel",
+    "audienceGeography": "national",
+    "categories": [
+      "startup-media",
+      "technology-media"
+    ],
+    "industries": [
+      "ai",
+      "saas"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P1",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "English-language Israeli technology and venture coverage from Calcalist.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Reached and identified during Wave 2.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.calcalistech.com"
+    ]
+  },
+  {
+    "id": "md-cfo-com",
+    "name": "CFO",
+    "website": "https://www.cfo.com",
+    "country": "united-states",
+    "audienceGeography": "national",
+    "categories": [
+      "finance-media"
+    ],
+    "industries": [
+      "finance"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "unknown",
+    "priority": "P2",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Corporate finance publication for CFOs and finance leadership.",
+    "limitations": "Reached but behind a bot filter, so the route could not be read from the site. A human needs to open it in a browser and confirm whether a submission or pitch route exists.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.cfo.com/"
     ]
   },
   {
@@ -620,6 +1706,44 @@
     ]
   },
   {
+    "id": "md-colorado-sun",
+    "name": "The Colorado Sun",
+    "website": "https://coloradosun.com",
+    "country": "united-states",
+    "audienceGeography": "local",
+    "categories": [
+      "local-business-media"
+    ],
+    "industries": [
+      "general"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P3",
+    "opportunityTypes": [
+      "editorial-pitch"
+    ],
+    "costModel": "free",
+    "submissionUrl": null,
+    "pitchUrl": "https://coloradosun.com/tips/",
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": true,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Journalist-owned Colorado newsroom covering state business, politics and housing, with a published tips page for story submissions.",
+    "limitations": "Colorado stories only. A tip is not coverage.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://coloradosun.com/tips/"
+    ]
+  },
+  {
     "id": "md-computerweekly",
     "name": "Computer Weekly",
     "website": "https://www.computerweekly.com",
@@ -656,6 +1780,239 @@
     "lastVerified": "2026-08-07",
     "sources": [
       "https://www.computerweekly.com/"
+    ]
+  },
+  {
+    "id": "md-construction-dive",
+    "name": "Construction Dive",
+    "website": "https://www.constructiondive.com",
+    "country": "united-states",
+    "audienceGeography": "national",
+    "categories": [
+      "construction-media"
+    ],
+    "industries": [
+      "construction"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "unknown",
+    "priority": "P2",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Industry Dive’s construction title, covering contractors, labour and project delivery.",
+    "limitations": "Reached but behind a bot filter, so the route could not be read from the site. A human needs to open it in a browser and confirm whether a submission or pitch route exists.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.constructiondive.com/"
+    ]
+  },
+  {
+    "id": "md-control-engineering",
+    "name": "Control Engineering",
+    "website": "https://www.controleng.com",
+    "country": "united-states",
+    "audienceGeography": "national",
+    "categories": [
+      "industrial-media"
+    ],
+    "industries": [
+      "engineering",
+      "manufacturing"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "unknown",
+    "priority": "P3",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Industrial control and automation engineering publication.",
+    "limitations": "Reached but behind a bot filter, so the route could not be read from the site. A human needs to open it in a browser and confirm whether a submission or pitch route exists.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.controleng.com/"
+    ]
+  },
+  {
+    "id": "md-contxto",
+    "name": "Contxto",
+    "website": "https://contxto.com",
+    "country": "mexico",
+    "audienceGeography": "national",
+    "categories": [
+      "startup-media"
+    ],
+    "industries": [
+      "fintech",
+      "saas"
+    ],
+    "languages": [
+      "en",
+      "es"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Latin American startup and venture capital news in English and Spanish.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Reached and identified during Wave 2; no public submission page was found in the site's own navigation.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://contxto.com"
+    ]
+  },
+  {
+    "id": "md-crains-detroit",
+    "name": "Crain’s Detroit Business",
+    "website": "https://www.crainsdetroit.com",
+    "country": "united-states",
+    "audienceGeography": "local",
+    "categories": [
+      "local-business-media"
+    ],
+    "industries": [
+      "automotive",
+      "manufacturing"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "unknown",
+    "priority": "P3",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Detroit and Michigan business coverage with a strong automotive and manufacturing focus.",
+    "limitations": "Reached but behind a bot filter, so the route could not be read from the site. A human needs to open it in a browser and confirm whether a submission or pitch route exists. A separate Crain title from the New York one, with its own newsroom, so it is not a duplicate.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.crainsdetroit.com/"
+    ]
+  },
+  {
+    "id": "md-crains-new-york",
+    "name": "Crain’s New York Business",
+    "website": "https://www.crainsnewyork.com",
+    "country": "united-states",
+    "audienceGeography": "local",
+    "categories": [
+      "local-business-media"
+    ],
+    "industries": [
+      "general",
+      "real-estate"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "unknown",
+    "priority": "P2",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "New York City business journalism covering companies, real estate and city policy.",
+    "limitations": "Reached but behind a bot filter, so the route could not be read from the site. A human needs to open it in a browser and confirm whether a submission or pitch route exists.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.crainsnewyork.com/"
+    ]
+  },
+  {
+    "id": "md-cronista",
+    "name": "El Cronista",
+    "website": "https://www.cronista.com",
+    "country": "argentina",
+    "audienceGeography": "national",
+    "categories": [
+      "global-business-media"
+    ],
+    "industries": [
+      "finance"
+    ],
+    "languages": [
+      "es"
+    ],
+    "currentStatus": "active",
+    "priority": "P3",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Argentina’s business and financial daily.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Reached and identified during Wave 2; no public submission page was found in the site's own navigation.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.cronista.com"
     ]
   },
   {
@@ -775,6 +2132,45 @@
     ]
   },
   {
+    "id": "md-dailysocial",
+    "name": "DailySocial",
+    "website": "https://dailysocial.id",
+    "country": "indonesia",
+    "audienceGeography": "national",
+    "categories": [
+      "startup-media"
+    ],
+    "industries": [
+      "fintech",
+      "saas"
+    ],
+    "languages": [
+      "id"
+    ],
+    "currentStatus": "active",
+    "priority": "P3",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Indonesian startup and digital economy publication.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Reached and identified during Wave 2; no public submission or pitch page was found.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://dailysocial.id"
+    ]
+  },
+  {
     "id": "md-dark-reading",
     "name": "Dark Reading",
     "website": "https://www.darkreading.com",
@@ -810,6 +2206,84 @@
     "lastVerified": "2026-08-07",
     "sources": [
       "https://www.darkreading.com/about-us"
+    ]
+  },
+  {
+    "id": "md-dealstreetasia",
+    "name": "DealStreetAsia",
+    "website": "https://www.dealstreetasia.com",
+    "country": "singapore",
+    "audienceGeography": "regional",
+    "categories": [
+      "finance-media",
+      "startup-media"
+    ],
+    "industries": [
+      "finance"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Asian private equity, venture capital and deal-flow reporting.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Reached and identified during Wave 2; no public submission or pitch page was found.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.dealstreetasia.com"
+    ]
+  },
+  {
+    "id": "md-design-news",
+    "name": "Design News",
+    "website": "https://www.designnews.com",
+    "country": "united-states",
+    "audienceGeography": "national",
+    "categories": [
+      "engineering-media"
+    ],
+    "industries": [
+      "engineering",
+      "hardware"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Design engineering publication covering materials, electronics and automation.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Checked during Wave 2; the contact or submission path either 404s, redirects elsewhere, or is behind a bot filter.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.designnews.com/"
     ]
   },
   {
@@ -934,6 +2408,240 @@
     ]
   },
   {
+    "id": "md-dezeen",
+    "name": "Dezeen",
+    "website": "https://www.dezeen.com",
+    "country": "united-kingdom",
+    "audienceGeography": "global",
+    "categories": [
+      "construction-media"
+    ],
+    "industries": [
+      "construction"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P1",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "The most-read architecture and design magazine, publishing projects, products and studio news.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Checked during Wave 2; the contact or submission path either 404s, redirects elsewhere, or is behind a bot filter.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.dezeen.com/"
+    ]
+  },
+  {
+    "id": "md-diario-financiero",
+    "name": "Diario Financiero",
+    "website": "https://www.df.cl",
+    "country": "chile",
+    "audienceGeography": "national",
+    "categories": [
+      "global-business-media"
+    ],
+    "industries": [
+      "finance"
+    ],
+    "languages": [
+      "es"
+    ],
+    "currentStatus": "active",
+    "priority": "P3",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Chile’s business and financial daily.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Reached and identified during Wave 2; no public submission page was found in the site's own navigation.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.df.cl"
+    ]
+  },
+  {
+    "id": "md-digitimes",
+    "name": "DIGITIMES",
+    "website": "https://www.digitimes.com",
+    "country": "taiwan",
+    "audienceGeography": "global",
+    "categories": [
+      "manufacturing-media",
+      "technology-media"
+    ],
+    "industries": [
+      "hardware",
+      "manufacturing"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Taiwanese supply chain and semiconductor industry intelligence, widely cited on component and device manufacturing.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Reached and identified during Wave 2; no public submission or pitch page was found.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.digitimes.com"
+    ]
+  },
+  {
+    "id": "md-disrupt-africa",
+    "name": "Disrupt Africa",
+    "website": "https://disrupt-africa.com",
+    "country": "south-africa",
+    "audienceGeography": "regional",
+    "categories": [
+      "startup-media"
+    ],
+    "industries": [
+      "fintech",
+      "saas"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "editorial-submission"
+    ],
+    "costModel": "free",
+    "submissionUrl": "https://disrupt-africa.com/contact/",
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": true,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Pan-African startup news and research, with a contact page inviting startup submissions.",
+    "limitations": "African startups only. The contact page is titled \"Old Disrupt Africa\", so confirm the current desk before relying on it.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://disrupt-africa.com/contact/"
+    ]
+  },
+  {
+    "id": "md-dq-india",
+    "name": "DataQuest",
+    "website": "https://www.dqindia.com",
+    "country": "india",
+    "audienceGeography": "national",
+    "categories": [
+      "technology-media"
+    ],
+    "industries": [
+      "software"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P3",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Indian enterprise IT publication from CyberMedia.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Reached and identified during Wave 2; no public submission or pitch page was found.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.dqindia.com"
+    ]
+  },
+  {
+    "id": "md-e27",
+    "name": "e27",
+    "website": "https://e27.co",
+    "country": "singapore",
+    "audienceGeography": "regional",
+    "categories": [
+      "startup-media"
+    ],
+    "industries": [
+      "fintech",
+      "saas"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P1",
+    "opportunityTypes": [
+      "contributed-article",
+      "press-release",
+      "sponsored-content"
+    ],
+    "costModel": "mixed",
+    "submissionUrl": "https://e27.co/contact-us/",
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": true,
+    "sponsoredContentAvailable": true,
+    "shortNote": "The main Southeast Asian startup publication, with a contact page naming a contributor route and a press-release route.",
+    "limitations": "Southeast Asian companies and founders. The contributor route is editorial; sponsored placement is a separate paid product.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://e27.co/contact-us/"
+    ]
+  },
+  {
     "id": "md-economia-digital",
     "name": "Economía Digital",
     "website": "https://www.economiadigital.es",
@@ -969,6 +2677,83 @@
     "lastVerified": "2026-08-07",
     "sources": [
       "https://www.economiadigital.es/"
+    ]
+  },
+  {
+    "id": "md-economic-times-tech",
+    "name": "ET Tech",
+    "website": "https://economictimes.indiatimes.com/tech",
+    "country": "india",
+    "audienceGeography": "national",
+    "categories": [
+      "technology-media"
+    ],
+    "industries": [
+      "ai",
+      "saas"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "The technology desk of India’s largest business newspaper.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Reached and identified during Wave 2; no public submission or pitch page was found.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://economictimes.indiatimes.com/tech"
+    ]
+  },
+  {
+    "id": "md-edison-awards",
+    "name": "Edison Awards",
+    "website": "https://www.edisonawards.com",
+    "country": "united-states",
+    "audienceGeography": "global",
+    "categories": [
+      "business-awards"
+    ],
+    "industries": [
+      "general"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "award-entry"
+    ],
+    "costModel": "paid",
+    "submissionUrl": "https://www.edisonawards.com/",
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": true,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Innovation awards for new products and services, judged by a panel and producing public finalist and winner pages.",
+    "limitations": "Paid nomination with an annual deadline. Product innovation only.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.edisonawards.com/"
     ]
   },
   {
@@ -1008,6 +2793,44 @@
     "sources": [
       "https://www.einpresswire.com/",
       "https://www.einpresswire.com/pricing/"
+    ]
+  },
+  {
+    "id": "md-el-economista-mx",
+    "name": "El Economista",
+    "website": "https://www.eleconomista.com.mx",
+    "country": "mexico",
+    "audienceGeography": "national",
+    "categories": [
+      "global-business-media"
+    ],
+    "industries": [
+      "finance"
+    ],
+    "languages": [
+      "es"
+    ],
+    "currentStatus": "active",
+    "priority": "P3",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Mexican business and financial daily.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Reached and identified during Wave 2; no public submission page was found in the site's own navigation.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.eleconomista.com.mx"
     ]
   },
   {
@@ -1091,6 +2914,84 @@
     ]
   },
   {
+    "id": "md-enr",
+    "name": "Engineering News-Record",
+    "website": "https://www.enr.com",
+    "country": "united-states",
+    "audienceGeography": "national",
+    "categories": [
+      "construction-media"
+    ],
+    "industries": [
+      "construction",
+      "engineering"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P1",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "The reference US construction and engineering publication, publisher of the ENR contractor rankings.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Checked during Wave 2; the contact or submission path either 404s, redirects elsewhere, or is behind a bot filter.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.enr.com/"
+    ]
+  },
+  {
+    "id": "md-entrackr",
+    "name": "Entrackr",
+    "website": "https://entrackr.com",
+    "country": "india",
+    "audienceGeography": "national",
+    "categories": [
+      "startup-media"
+    ],
+    "industries": [
+      "fintech",
+      "saas"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Indian startup and funding investigative coverage.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Reached and identified during Wave 2; no public submission or pitch page was found.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://entrackr.com"
+    ]
+  },
+  {
     "id": "md-entrepreneur-leadership-network",
     "name": "Entrepreneur Leadership Network",
     "website": "https://www.entrepreneur.com",
@@ -1169,6 +3070,45 @@
     ]
   },
   {
+    "id": "md-exame",
+    "name": "Exame",
+    "website": "https://exame.com",
+    "country": "brazil",
+    "audienceGeography": "national",
+    "categories": [
+      "global-business-media"
+    ],
+    "industries": [
+      "finance",
+      "general"
+    ],
+    "languages": [
+      "pt"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Brazil’s main business magazine, covering companies, markets and management.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Reached and identified during Wave 2; no public submission page was found in the site's own navigation.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://exame.com"
+    ]
+  },
+  {
     "id": "md-expansion",
     "name": "Expansión",
     "website": "https://www.expansion.com",
@@ -1205,6 +3145,44 @@
     "lastVerified": "2026-08-07",
     "sources": [
       "https://www.expansion.com/"
+    ]
+  },
+  {
+    "id": "md-expansion-mx",
+    "name": "Expansión",
+    "website": "https://expansion.mx",
+    "country": "mexico",
+    "audienceGeography": "national",
+    "categories": [
+      "global-business-media"
+    ],
+    "industries": [
+      "general"
+    ],
+    "languages": [
+      "es"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Mexican business magazine covering companies, economy and management.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Reached and identified during Wave 2; no public submission page was found in the site's own navigation.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://expansion.mx"
     ]
   },
   {
@@ -1325,6 +3303,44 @@
     ]
   },
   {
+    "id": "md-fierce-healthcare",
+    "name": "Fierce Healthcare",
+    "website": "https://www.fiercehealthcare.com",
+    "country": "united-states",
+    "audienceGeography": "national",
+    "categories": [
+      "healthcare-media"
+    ],
+    "industries": [
+      "healthcare"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "US healthcare business news covering payers, providers and health technology.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Checked during Wave 2; the contact or submission path either 404s, redirects elsewhere, or is behind a bot filter.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.fiercehealthcare.com/"
+    ]
+  },
+  {
     "id": "md-finextra",
     "name": "Finextra",
     "website": "https://www.finextra.com",
@@ -1361,6 +3377,44 @@
     "lastVerified": "2026-08-07",
     "sources": [
       "https://www.finextra.com/"
+    ]
+  },
+  {
+    "id": "md-for-construction-pros",
+    "name": "ForConstructionPros",
+    "website": "https://www.forconstructionpros.com",
+    "country": "united-states",
+    "audienceGeography": "national",
+    "categories": [
+      "construction-media"
+    ],
+    "industries": [
+      "construction"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P3",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Construction equipment and contractor business publication.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Checked during Wave 2; the contact or submission path either 404s, redirects elsewhere, or is behind a bot filter.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.forconstructionpros.com/"
     ]
   },
   {
@@ -1442,6 +3496,44 @@
     ]
   },
   {
+    "id": "md-forbes-mexico",
+    "name": "Forbes México",
+    "website": "https://forbes.com.mx",
+    "country": "mexico",
+    "audienceGeography": "national",
+    "categories": [
+      "global-business-media"
+    ],
+    "industries": [
+      "general"
+    ],
+    "languages": [
+      "es"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "The Mexican edition of Forbes, with its own newsroom and rankings.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Reached and identified during Wave 2; no public submission page was found in the site's own navigation.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://forbes.com.mx"
+    ]
+  },
+  {
     "id": "md-fortune",
     "name": "Fortune",
     "website": "https://fortune.com",
@@ -1519,6 +3611,44 @@
     ]
   },
   {
+    "id": "md-freightwaves",
+    "name": "FreightWaves",
+    "website": "https://www.freightwaves.com",
+    "country": "united-states",
+    "audienceGeography": "national",
+    "categories": [
+      "logistics-media"
+    ],
+    "industries": [
+      "logistics"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P1",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Freight market news, data and analysis for shippers, brokers and carriers.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Checked during Wave 2; the contact or submission path either 404s, redirects elsewhere, or is behind a bot filter.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.freightwaves.com/"
+    ]
+  },
+  {
     "id": "md-frenchweb",
     "name": "FrenchWeb",
     "website": "https://www.frenchweb.fr",
@@ -1555,6 +3685,85 @@
     "lastVerified": "2026-08-07",
     "sources": [
       "https://www.frenchweb.fr/"
+    ]
+  },
+  {
+    "id": "md-geekwire",
+    "name": "GeekWire",
+    "website": "https://www.geekwire.com",
+    "country": "united-states",
+    "audienceGeography": "national",
+    "categories": [
+      "startup-media",
+      "technology-media"
+    ],
+    "industries": [
+      "ai",
+      "saas"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "unknown",
+    "priority": "P1",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Seattle-based technology and startup publication with national reach, strong on Amazon and Microsoft.",
+    "limitations": "Reached but behind a bot filter, so the route could not be read from the site. A human needs to open it in a browser and confirm whether a submission or pitch route exists. A startup-list submission path is advertised but could not be read.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.geekwire.com/"
+    ]
+  },
+  {
+    "id": "md-gestion-pe",
+    "name": "Gestión",
+    "website": "https://gestion.pe",
+    "country": "peru",
+    "audienceGeography": "national",
+    "categories": [
+      "global-business-media"
+    ],
+    "industries": [
+      "finance",
+      "general"
+    ],
+    "languages": [
+      "es"
+    ],
+    "currentStatus": "active",
+    "priority": "P3",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Peru’s main business and economics newspaper.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Reached and identified during Wave 2; no public submission page was found in the site's own navigation.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://gestion.pe"
     ]
   },
   {
@@ -1598,6 +3807,45 @@
     ]
   },
   {
+    "id": "md-goodfirms",
+    "name": "GoodFirms",
+    "website": "https://www.goodfirms.co",
+    "country": "united-states",
+    "audienceGeography": "global",
+    "categories": [
+      "business-awards"
+    ],
+    "industries": [
+      "marketing",
+      "software"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P3",
+    "opportunityTypes": [
+      "company-profile"
+    ],
+    "costModel": "freemium",
+    "submissionUrl": "https://www.goodfirms.co/",
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "B2B service-provider and software listings with reviews and ranked category leaderboards; a company claims a profile and collects verified reviews.",
+    "limitations": "A listing and a leaderboard, not an editorial award. Rankings are influenced by review volume, and paid placement is available.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.goodfirms.co/"
+    ]
+  },
+  {
     "id": "md-gruenderszene",
     "name": "Gründerszene",
     "website": "https://www.businessinsider.de/gruenderszene",
@@ -1635,6 +3883,44 @@
     "sources": [
       "https://www.gruenderszene.de/",
       "https://www.businessinsider.de/gruenderszene/"
+    ]
+  },
+  {
+    "id": "md-gulf-business",
+    "name": "Gulf Business",
+    "website": "https://gulfbusiness.com",
+    "country": "united-arab-emirates",
+    "audienceGeography": "regional",
+    "categories": [
+      "global-business-media"
+    ],
+    "industries": [
+      "general"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "unknown",
+    "priority": "P2",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Regional Gulf business publication. One regional submission reaches the GCC rather than one per country.",
+    "limitations": "Reached but behind a bot filter, so the route could not be read from the site. A human needs to open it in a browser and confirm whether a submission or pitch route exists.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://gulfbusiness.com"
     ]
   },
   {
@@ -1840,6 +4126,44 @@
     ]
   },
   {
+    "id": "md-healthcare-it-news",
+    "name": "Healthcare IT News",
+    "website": "https://www.healthcareitnews.com",
+    "country": "united-states",
+    "audienceGeography": "national",
+    "categories": [
+      "healthcare-media"
+    ],
+    "industries": [
+      "healthcare"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "unknown",
+    "priority": "P2",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Health IT and hospital technology publication from HIMSS Media.",
+    "limitations": "Reached but behind a bot filter, so the route could not be read from the site. A human needs to open it in a browser and confirm whether a submission or pitch route exists.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.healthcareitnews.com/"
+    ]
+  },
+  {
     "id": "md-help-net-security",
     "name": "Help Net Security",
     "website": "https://www.helpnetsecurity.com",
@@ -1955,6 +4279,44 @@
     ]
   },
   {
+    "id": "md-hypepotamus",
+    "name": "Hypepotamus",
+    "website": "https://www.hypepotamus.com",
+    "country": "united-states",
+    "audienceGeography": "regional",
+    "categories": [
+      "startup-media"
+    ],
+    "industries": [
+      "saas"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P3",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Startup and technology coverage across the US Southeast, centred on Atlanta.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. A contact path was checked and returns 404.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://hypepotamus.com/"
+    ]
+  },
+  {
     "id": "md-il-sole-24-ore",
     "name": "Il Sole 24 Ore",
     "website": "https://www.ilsole24ore.com",
@@ -1991,6 +4353,83 @@
     "lastVerified": "2026-08-07",
     "sources": [
       "https://www.ilsole24ore.com/"
+    ]
+  },
+  {
+    "id": "md-inc-5000",
+    "name": "Inc. 5000",
+    "website": "https://www.inc.com/inc5000",
+    "country": "united-states",
+    "audienceGeography": "national",
+    "categories": [
+      "business-awards"
+    ],
+    "industries": [
+      "general"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P1",
+    "opportunityTypes": [
+      "award-entry"
+    ],
+    "costModel": "paid",
+    "submissionUrl": "https://www.inc.com/inc5000/apply",
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": true,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Inc.’s ranking of the fastest-growing private US companies. Ranked companies get a public profile page and an editorial franchise that is widely cited.",
+    "limitations": "US private companies with verifiable multi-year revenue growth; there is an application fee and a revenue floor. Qualification is arithmetic, not editorial judgement.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.inc.com/inc5000/apply"
+    ]
+  },
+  {
+    "id": "md-inc42",
+    "name": "Inc42",
+    "website": "https://inc42.com",
+    "country": "india",
+    "audienceGeography": "national",
+    "categories": [
+      "startup-media"
+    ],
+    "industries": [
+      "fintech",
+      "saas"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P1",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Indian startup ecosystem publication with funding data and sector reports.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Reached and identified during Wave 2; no public submission or pitch page was found.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://inc42.com"
     ]
   },
   {
@@ -2031,6 +4470,45 @@
     "lastVerified": "2026-08-07",
     "sources": [
       "https://indiehackers.com/"
+    ]
+  },
+  {
+    "id": "md-industryweek",
+    "name": "IndustryWeek",
+    "website": "https://www.industryweek.com",
+    "country": "united-states",
+    "audienceGeography": "national",
+    "categories": [
+      "manufacturing-media"
+    ],
+    "industries": [
+      "industrial",
+      "manufacturing"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "US manufacturing leadership publication covering operations, supply chain and industrial strategy.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Checked during Wave 2; the contact or submission path either 404s, redirects elsewhere, or is behind a bot filter.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.industryweek.com/"
     ]
   },
   {
@@ -2114,6 +4592,82 @@
     ]
   },
   {
+    "id": "md-irish-tech-news",
+    "name": "Irish Tech News",
+    "website": "https://www.irishtechnews.ie",
+    "country": "ireland",
+    "audienceGeography": "national",
+    "categories": [
+      "technology-media"
+    ],
+    "industries": [
+      "saas"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P3",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Irish technology and business news with a contributor-heavy publishing model.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Reached and identified during Wave 2.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.irishtechnews.ie/"
+    ]
+  },
+  {
+    "id": "md-itbusiness-ca",
+    "name": "IT Business",
+    "website": "https://www.itbusiness.ca",
+    "country": "canada",
+    "audienceGeography": "national",
+    "categories": [
+      "technology-media"
+    ],
+    "industries": [
+      "software"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P3",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Canadian enterprise IT and channel publication.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Reached and identified during Wave 2.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.itbusiness.ca/"
+    ]
+  },
+  {
     "id": "md-itpro",
     "name": "ITPro",
     "website": "https://www.itpro.com",
@@ -2151,6 +4705,82 @@
     "lastVerified": "2026-08-07",
     "sources": [
       "https://www.itpro.com/"
+    ]
+  },
+  {
+    "id": "md-itweb",
+    "name": "ITWeb",
+    "website": "https://www.itweb.co.za",
+    "country": "south-africa",
+    "audienceGeography": "national",
+    "categories": [
+      "technology-media"
+    ],
+    "industries": [
+      "software"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "South Africa’s main enterprise IT publication.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Reached and identified during Wave 2.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.itweb.co.za/"
+    ]
+  },
+  {
+    "id": "md-japan-times",
+    "name": "The Japan Times",
+    "website": "https://www.japantimes.co.jp",
+    "country": "japan",
+    "audienceGeography": "national",
+    "categories": [
+      "global-business-media"
+    ],
+    "industries": [
+      "general"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "unknown",
+    "priority": "P3",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Japan’s main English-language daily, with a business desk.",
+    "limitations": "Reached but behind a bot filter, so the route could not be read from the site. A human needs to open it in a browser and confirm whether a submission or pitch route exists.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.japantimes.co.jp/"
     ]
   },
   {
@@ -2233,6 +4863,160 @@
     ]
   },
   {
+    "id": "md-ked-global",
+    "name": "KED Global",
+    "website": "https://www.kedglobal.com",
+    "country": "south-korea",
+    "audienceGeography": "national",
+    "categories": [
+      "global-business-media"
+    ],
+    "industries": [
+      "finance",
+      "general"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "The Korea Economic Daily’s English service, covering Korean companies, chips and capital markets.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Reached and identified during Wave 2; no public submission or pitch page was found.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.kedglobal.com"
+    ]
+  },
+  {
+    "id": "md-korea-tech-desk",
+    "name": "KoreaTechDesk",
+    "website": "https://www.koreatechdesk.com",
+    "country": "south-korea",
+    "audienceGeography": "national",
+    "categories": [
+      "startup-media"
+    ],
+    "industries": [
+      "saas"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "unknown",
+    "priority": "P3",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "English-language coverage of Korean startups and technology companies.",
+    "limitations": "Reached but behind a bot filter, so the route could not be read from the site. A human needs to open it in a browser and confirm whether a submission or pitch route exists.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.koreatechdesk.com/"
+    ]
+  },
+  {
+    "id": "md-kr-asia",
+    "name": "KrASIA",
+    "website": "https://kr-asia.com",
+    "country": "singapore",
+    "audienceGeography": "regional",
+    "categories": [
+      "startup-media"
+    ],
+    "industries": [
+      "saas"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Asian technology and startup coverage, strongest on China and Southeast Asia.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Reached and identified during Wave 2; no public submission or pitch page was found.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://kr-asia.com"
+    ]
+  },
+  {
+    "id": "md-la-republica-co",
+    "name": "La República",
+    "website": "https://www.larepublica.co",
+    "country": "colombia",
+    "audienceGeography": "national",
+    "categories": [
+      "global-business-media"
+    ],
+    "industries": [
+      "finance",
+      "general"
+    ],
+    "languages": [
+      "es"
+    ],
+    "currentStatus": "active",
+    "priority": "P3",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Colombia’s business and economics daily.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Reached and identified during Wave 2; no public submission page was found in the site's own navigation.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.larepublica.co"
+    ]
+  },
+  {
     "id": "md-launching-next",
     "name": "Launching Next",
     "website": "https://www.launchingnext.com",
@@ -2269,6 +5053,44 @@
     "lastVerified": "2026-08-07",
     "sources": [
       "https://www.launchingnext.com/submit/"
+    ]
+  },
+  {
+    "id": "md-law-com",
+    "name": "Law.com",
+    "website": "https://www.law.com",
+    "country": "united-states",
+    "audienceGeography": "national",
+    "categories": [
+      "legal-media"
+    ],
+    "industries": [
+      "legal"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "ALM’s legal industry network, covering law firm business, litigation and legal technology.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Checked during Wave 2; the contact or submission path either 404s, redirects elsewhere, or is behind a bot filter.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.law.com/"
     ]
   },
   {
@@ -2311,6 +5133,83 @@
     ]
   },
   {
+    "id": "md-livemint",
+    "name": "Mint",
+    "website": "https://www.livemint.com",
+    "country": "india",
+    "audienceGeography": "national",
+    "categories": [
+      "global-business-media"
+    ],
+    "industries": [
+      "finance",
+      "general"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Indian business and markets daily from HT Media.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Reached and identified during Wave 2; no public submission or pitch page was found.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.livemint.com"
+    ]
+  },
+  {
+    "id": "md-logistics-management",
+    "name": "Logistics Management",
+    "website": "https://www.logisticsmgmt.com",
+    "country": "united-states",
+    "audienceGeography": "national",
+    "categories": [
+      "logistics-media"
+    ],
+    "industries": [
+      "logistics"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P3",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "US logistics and supply chain trade publication.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Checked during Wave 2; the contact or submission path either 404s, redirects elsewhere, or is behind a bot filter.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.logisticsmgmt.com/"
+    ]
+  },
+  {
     "id": "md-maddyness",
     "name": "Maddyness",
     "website": "https://www.maddyness.com",
@@ -2348,6 +5247,82 @@
     "sources": [
       "https://www.maddyness.com/contact/",
       "https://www.maddyness.com/contactez-nous/"
+    ]
+  },
+  {
+    "id": "md-magnitt",
+    "name": "MAGNiTT",
+    "website": "https://www.magnitt.com",
+    "country": "united-arab-emirates",
+    "audienceGeography": "regional",
+    "categories": [
+      "startup-media"
+    ],
+    "industries": [
+      "saas"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Emerging-venture data platform for MENA, Turkey and Pakistan, with public startup and investor profiles.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Reached and identified during Wave 2.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.magnitt.com"
+    ]
+  },
+  {
+    "id": "md-manufacturing-net",
+    "name": "Manufacturing.net",
+    "website": "https://www.manufacturing.net",
+    "country": "united-states",
+    "audienceGeography": "national",
+    "categories": [
+      "manufacturing-media"
+    ],
+    "industries": [
+      "manufacturing"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "unknown",
+    "priority": "P3",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "US manufacturing industry news and product coverage.",
+    "limitations": "Reached but behind a bot filter, so the route could not be read from the site. A human needs to open it in a browser and confirm whether a submission or pitch route exists.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.manufacturing.net/"
     ]
   },
   {
@@ -2430,6 +5405,44 @@
     ]
   },
   {
+    "id": "md-matchmaker-fm",
+    "name": "MatchMaker.fm",
+    "website": "https://matchmaker.fm",
+    "country": "united-kingdom",
+    "audienceGeography": "global",
+    "categories": [
+      "podcast-platform"
+    ],
+    "industries": [
+      "general"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "podcast-guest"
+    ],
+    "costModel": "freemium",
+    "submissionUrl": "https://matchmaker.fm/",
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": true,
+    "sponsoredContentAvailable": null,
+    "shortNote": "A marketplace connecting podcast shows with guests, where a founder or executive lists themselves and pitches shows directly.",
+    "limitations": "Hosts choose. Free accounts have limited outbound pitches.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://matchmaker.fm/"
+    ]
+  },
+  {
     "id": "md-medium",
     "name": "Medium",
     "website": "https://medium.com",
@@ -2465,6 +5478,83 @@
     "lastVerified": "2026-08-07",
     "sources": [
       "https://medium.com/"
+    ]
+  },
+  {
+    "id": "md-medtech-dive",
+    "name": "MedTech Dive",
+    "website": "https://www.medtechdive.com",
+    "country": "united-states",
+    "audienceGeography": "national",
+    "categories": [
+      "healthcare-media"
+    ],
+    "industries": [
+      "healthcare"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Medical device industry news, regulation and company coverage.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Checked during Wave 2; the contact or submission path either 404s, redirects elsewhere, or is behind a bot filter.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.medtechdive.com/"
+    ]
+  },
+  {
+    "id": "md-menabytes",
+    "name": "MENAbytes",
+    "website": "https://menabytes.com",
+    "country": "united-arab-emirates",
+    "audienceGeography": "regional",
+    "categories": [
+      "startup-media"
+    ],
+    "industries": [
+      "fintech",
+      "saas"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P1",
+    "opportunityTypes": [
+      "editorial-submission"
+    ],
+    "costModel": "free",
+    "submissionUrl": "https://menabytes.com/contact/",
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": true,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Startup and technology news for the Middle East and North Africa, with a contact page carrying a submission route.",
+    "limitations": "MENA companies only. One regional submission covers the Gulf rather than one per country.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://menabytes.com/contact/"
     ]
   },
   {
@@ -2547,6 +5637,82 @@
     ]
   },
   {
+    "id": "md-mobihealthnews",
+    "name": "MobiHealthNews",
+    "website": "https://www.mobihealthnews.com",
+    "country": "united-states",
+    "audienceGeography": "national",
+    "categories": [
+      "healthcare-media"
+    ],
+    "industries": [
+      "healthcare"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "unknown",
+    "priority": "P3",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Digital health and connected-care industry news from HIMSS Media.",
+    "limitations": "Reached but behind a bot filter, so the route could not be read from the site. A human needs to open it in a browser and confirm whether a submission or pitch route exists.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.mobihealthnews.com/"
+    ]
+  },
+  {
+    "id": "md-modern-machine-shop",
+    "name": "Modern Machine Shop",
+    "website": "https://www.mmsonline.com",
+    "country": "united-states",
+    "audienceGeography": "national",
+    "categories": [
+      "manufacturing-media"
+    ],
+    "industries": [
+      "manufacturing"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "editorial-pitch"
+    ],
+    "costModel": "free",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": "https://www.mmsonline.com/contact",
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": true,
+    "sponsoredContentAvailable": null,
+    "shortNote": "The reference US metalworking and machining trade publication, part of Gardner Business Media.",
+    "limitations": "Machining and metalworking only. The contact page reaches the editorial team; it is not a submission form.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.mmsonline.com/contact"
+    ]
+  },
+  {
     "id": "md-mt-sprout",
     "name": "MT/Sprout",
     "website": "https://mtsprout.nl",
@@ -2625,6 +5791,122 @@
     ]
   },
   {
+    "id": "md-nairametrics",
+    "name": "Nairametrics",
+    "website": "https://nairametrics.com",
+    "country": "nigeria",
+    "audienceGeography": "national",
+    "categories": [
+      "finance-media"
+    ],
+    "industries": [
+      "finance"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "press-release"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": "https://nairametrics.com/contact-us/",
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Nigerian business, markets and personal-finance publication, with a contact page naming a press-release route.",
+    "limitations": "Nigerian market. A release route is not an editorial pitch route.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://nairametrics.com/contact-us/"
+    ]
+  },
+  {
+    "id": "md-nashville-post",
+    "name": "Nashville Post",
+    "website": "https://www.nashvillepost.com",
+    "country": "united-states",
+    "audienceGeography": "local",
+    "categories": [
+      "local-business-media"
+    ],
+    "industries": [
+      "general",
+      "healthcare"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "unknown",
+    "priority": "P3",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Nashville business and politics coverage, strong on the local healthcare industry.",
+    "limitations": "Reached but behind a bot filter, so the route could not be read from the site. A human needs to open it in a browser and confirm whether a submission or pitch route exists.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.nashvillepost.com/"
+    ]
+  },
+  {
+    "id": "md-neofeed",
+    "name": "NeoFeed",
+    "website": "https://neofeed.com.br",
+    "country": "brazil",
+    "audienceGeography": "national",
+    "categories": [
+      "global-business-media"
+    ],
+    "industries": [
+      "finance",
+      "general"
+    ],
+    "languages": [
+      "pt"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Brazilian business journalism covering companies, deals and venture capital.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Reached and identified during Wave 2; no public submission page was found in the site's own navigation.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://neofeed.com.br"
+    ]
+  },
+  {
     "id": "md-newswire-com",
     "name": "Newswire",
     "website": "https://www.newswire.com",
@@ -2661,6 +5943,44 @@
     "sources": [
       "https://www.newswire.com/",
       "https://www.newswire.com/press-release-distribution/"
+    ]
+  },
+  {
+    "id": "md-nikkei-asia",
+    "name": "Nikkei Asia",
+    "website": "https://asia.nikkei.com",
+    "country": "japan",
+    "audienceGeography": "regional",
+    "categories": [
+      "global-business-media"
+    ],
+    "industries": [
+      "general"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Pan-Asian business and economics coverage from the Nikkei group.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Reached and identified during Wave 2; no public submission or pitch page was found.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://asia.nikkei.com"
     ]
   },
   {
@@ -2704,6 +6024,44 @@
     ]
   },
   {
+    "id": "md-oregon-business",
+    "name": "Oregon Business",
+    "website": "https://oregonbusiness.com",
+    "country": "united-states",
+    "audienceGeography": "local",
+    "categories": [
+      "local-business-media"
+    ],
+    "industries": [
+      "general"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P3",
+    "opportunityTypes": [
+      "press-release"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": "https://oregonbusiness.com/contact-us/",
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Oregon’s statewide business magazine, with a contact page that names a press-release route.",
+    "limitations": "Oregon companies. A release route is not an editorial pitch route; the two are different asks.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://oregonbusiness.com/contact-us/"
+    ]
+  },
+  {
     "id": "md-ots-at",
     "name": "OTS",
     "website": "https://www.ots.at",
@@ -2739,6 +6097,45 @@
     "lastVerified": "2026-08-07",
     "sources": [
       "https://www.ots.at/"
+    ]
+  },
+  {
+    "id": "md-packaging-digest",
+    "name": "Packaging Digest",
+    "website": "https://www.packagingdigest.com",
+    "country": "united-states",
+    "audienceGeography": "national",
+    "categories": [
+      "manufacturing-media"
+    ],
+    "industries": [
+      "manufacturing",
+      "retail"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P3",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Packaging design, materials and machinery trade coverage.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Checked during Wave 2; the contact or submission path either 404s, redirects elsewhere, or is behind a bot filter.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.packagingdigest.com/"
     ]
   },
   {
@@ -2779,6 +6176,120 @@
     "lastVerified": "2026-08-07",
     "sources": [
       "https://peerlist.io/"
+    ]
+  },
+  {
+    "id": "md-plastics-today",
+    "name": "PlasticsToday",
+    "website": "https://www.plasticstoday.com",
+    "country": "united-states",
+    "audienceGeography": "national",
+    "categories": [
+      "manufacturing-media"
+    ],
+    "industries": [
+      "manufacturing"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "unknown",
+    "priority": "P3",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Plastics processing and materials trade publication.",
+    "limitations": "Reached but behind a bot filter, so the route could not be read from the site. A human needs to open it in a browser and confirm whether a submission or pitch route exists.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.plasticstoday.com/"
+    ]
+  },
+  {
+    "id": "md-podcast-guests",
+    "name": "PodcastGuests.com",
+    "website": "https://podcastguests.com",
+    "country": "united-states",
+    "audienceGeography": "global",
+    "categories": [
+      "podcast-platform"
+    ],
+    "industries": [
+      "general"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "podcast-guest"
+    ],
+    "costModel": "freemium",
+    "submissionUrl": "https://podcastguests.com/",
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": true,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Connects podcasters with guests through a directory and a matching newsletter sent to hosts.",
+    "limitations": "Hosts choose. Volume is lower than the larger marketplaces.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://podcastguests.com/"
+    ]
+  },
+  {
+    "id": "md-podmatch",
+    "name": "PodMatch",
+    "website": "https://www.podmatch.com",
+    "country": "united-states",
+    "audienceGeography": "global",
+    "categories": [
+      "podcast-platform"
+    ],
+    "industries": [
+      "general"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P1",
+    "opportunityTypes": [
+      "podcast-guest"
+    ],
+    "costModel": "freemium",
+    "submissionUrl": "https://www.podmatch.com/",
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": true,
+    "sponsoredContentAvailable": null,
+    "shortNote": "A matching service between podcast hosts and guests: an expert builds a profile and is matched to shows looking for that expertise.",
+    "limitations": "A match is an introduction, not a booking — the host still decides. Paid tiers get more matches.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.podmatch.com/"
     ]
   },
   {
@@ -3131,6 +6642,45 @@
     ]
   },
   {
+    "id": "md-pymnts",
+    "name": "PYMNTS",
+    "website": "https://www.pymnts.com",
+    "country": "united-states",
+    "audienceGeography": "national",
+    "categories": [
+      "fintech-media"
+    ],
+    "industries": [
+      "ecommerce",
+      "fintech"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "unknown",
+    "priority": "P2",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Payments and commerce industry news with a large research arm.",
+    "limitations": "Reached but behind a bot filter, so the route could not be read from the site. A human needs to open it in a browser and confirm whether a submission or pitch route exists.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.pymnts.com/"
+    ]
+  },
+  {
     "id": "md-quartz",
     "name": "Quartz",
     "website": "https://qz.com",
@@ -3206,6 +6756,46 @@
     "lastVerified": "2026-08-07",
     "sources": [
       "https://www.qwoted.com/"
+    ]
+  },
+  {
+    "id": "md-refresh-miami",
+    "name": "Refresh Miami",
+    "website": "https://refreshmiami.com",
+    "country": "united-states",
+    "audienceGeography": "local",
+    "categories": [
+      "local-business-media",
+      "startup-media"
+    ],
+    "industries": [
+      "fintech",
+      "saas"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P3",
+    "opportunityTypes": [
+      "editorial-pitch"
+    ],
+    "costModel": "free",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": "https://refreshmiami.com/contact/",
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": true,
+    "sponsoredContentAvailable": null,
+    "shortNote": "South Florida startup and technology community media, covering the Miami ecosystem and its events.",
+    "limitations": "Miami and South Florida only.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://refreshmiami.com/contact/"
     ]
   },
   {
@@ -3288,6 +6878,45 @@
     ]
   },
   {
+    "id": "md-robotics-business-review",
+    "name": "Robotics Business Review",
+    "website": "https://www.roboticsbusinessreview.com",
+    "country": "united-states",
+    "audienceGeography": "global",
+    "categories": [
+      "industrial-media"
+    ],
+    "industries": [
+      "ai",
+      "manufacturing"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P3",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Business-side robotics coverage for industrial and commercial buyers.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Checked during Wave 2; the contact or submission path either 404s, redirects elsewhere, or is behind a bot filter.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.roboticsbusinessreview.com/"
+    ]
+  },
+  {
     "id": "md-saashub",
     "name": "SaaSHub",
     "website": "https://www.saashub.com",
@@ -3366,6 +6995,45 @@
     ]
   },
   {
+    "id": "md-scmp-tech",
+    "name": "SCMP Tech",
+    "website": "https://www.scmp.com/tech",
+    "country": "hong-kong",
+    "audienceGeography": "regional",
+    "categories": [
+      "technology-media"
+    ],
+    "industries": [
+      "ai",
+      "saas"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "The technology desk of the South China Morning Post, covering Chinese and Hong Kong technology.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Reached and identified during Wave 2; no public submission or pitch page was found.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.scmp.com/tech"
+    ]
+  },
+  {
     "id": "md-search-engine-land",
     "name": "Search Engine Land",
     "website": "https://searchengineland.com",
@@ -3440,6 +7108,44 @@
     "lastVerified": "2026-08-07",
     "sources": [
       "https://www.securityweek.com/"
+    ]
+  },
+  {
+    "id": "md-semiconductor-digest",
+    "name": "Semiconductor Digest",
+    "website": "https://www.semiconductor-digest.com",
+    "country": "united-states",
+    "audienceGeography": "global",
+    "categories": [
+      "manufacturing-media"
+    ],
+    "industries": [
+      "hardware"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P3",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Semiconductor manufacturing and process technology trade coverage.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Checked during Wave 2; the contact or submission path either 404s, redirects elsewhere, or is behind a bot filter.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.semiconductor-digest.com/"
     ]
   },
   {
@@ -3601,6 +7307,83 @@
     ]
   },
   {
+    "id": "md-siliconrepublic",
+    "name": "Silicon Republic",
+    "website": "https://www.siliconrepublic.com",
+    "country": "ireland",
+    "audienceGeography": "national",
+    "categories": [
+      "startup-media",
+      "technology-media"
+    ],
+    "industries": [
+      "saas"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Ireland’s main technology, science and startup publication.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Reached and identified during Wave 2.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.siliconrepublic.com/"
+    ]
+  },
+  {
+    "id": "md-smart-passive-income",
+    "name": "Smart Passive Income",
+    "website": "https://www.smartpassiveincome.com",
+    "country": "united-states",
+    "audienceGeography": "global",
+    "categories": [
+      "podcast-platform"
+    ],
+    "industries": [
+      "general"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P3",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "A long-running entrepreneurship podcast and community for online business operators.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. No guest application route was established; a podcast existing is not a guest opportunity.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.smartpassiveincome.com/"
+    ]
+  },
+  {
     "id": "md-smashing-magazine",
     "name": "Smashing Magazine",
     "website": "https://www.smashingmagazine.com",
@@ -3678,6 +7461,158 @@
     ]
   },
   {
+    "id": "md-splash-247",
+    "name": "Splash 247",
+    "website": "https://splash247.com",
+    "country": "singapore",
+    "audienceGeography": "global",
+    "categories": [
+      "logistics-media"
+    ],
+    "industries": [
+      "logistics"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P3",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Maritime and shipping industry news covering owners, ports and shipbuilding.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Checked during Wave 2; the contact or submission path either 404s, redirects elsewhere, or is behind a bot filter.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://splash247.com/"
+    ]
+  },
+  {
+    "id": "md-startland-news",
+    "name": "Startland News",
+    "website": "https://startlandnews.com",
+    "country": "united-states",
+    "audienceGeography": "local",
+    "categories": [
+      "startup-media"
+    ],
+    "industries": [
+      "saas"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "unknown",
+    "priority": "P3",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Kansas City entrepreneurship and startup coverage.",
+    "limitations": "Reached but behind a bot filter, so the route could not be read from the site. A human needs to open it in a browser and confirm whether a submission or pitch route exists. A submit-a-tip path exists but returned a challenge page.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.startlandnews.com/"
+    ]
+  },
+  {
+    "id": "md-startse",
+    "name": "StartSe",
+    "website": "https://www.startse.com",
+    "country": "brazil",
+    "audienceGeography": "national",
+    "categories": [
+      "startup-media"
+    ],
+    "industries": [
+      "saas"
+    ],
+    "languages": [
+      "pt"
+    ],
+    "currentStatus": "active",
+    "priority": "P3",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Brazilian innovation and entrepreneurship media and education platform.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Reached and identified during Wave 2; no public submission page was found in the site's own navigation.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.startse.com"
+    ]
+  },
+  {
+    "id": "md-startup-story-media",
+    "name": "Startup Story",
+    "website": "https://startupstorymedia.com",
+    "country": "india",
+    "audienceGeography": "national",
+    "categories": [
+      "startup-media"
+    ],
+    "industries": [
+      "saas"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P3",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Indian founder-interview and startup-profile publication.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Reached and identified during Wave 2; no public submission or pitch page was found.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://startupstorymedia.com"
+    ]
+  },
+  {
     "id": "md-startupbase",
     "name": "StartupBase",
     "website": "https://startupbase.io",
@@ -3715,6 +7650,45 @@
     "lastVerified": "2026-08-07",
     "sources": [
       "https://startupbase.io/submit"
+    ]
+  },
+  {
+    "id": "md-startupi",
+    "name": "Startupi",
+    "website": "https://startupi.com.br",
+    "country": "brazil",
+    "audienceGeography": "national",
+    "categories": [
+      "startup-media"
+    ],
+    "industries": [
+      "fintech",
+      "saas"
+    ],
+    "languages": [
+      "pt"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Brazilian startup and innovation publication, one of the longest-running in the market.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Reached and identified during Wave 2; no public submission page was found in the site's own navigation.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://startupi.com.br"
     ]
   },
   {
@@ -3756,6 +7730,124 @@
     ]
   },
   {
+    "id": "md-startups-co-uk",
+    "name": "Startups.co.uk",
+    "website": "https://startups.co.uk",
+    "country": "united-kingdom",
+    "audienceGeography": "national",
+    "categories": [
+      "startup-media"
+    ],
+    "industries": [
+      "general",
+      "saas"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "editorial-pitch",
+      "press-release"
+    ],
+    "costModel": "free",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "UK small business and startup publication covering funding, growth and business ideas, with news and release routes on the site.",
+    "limitations": "UK companies. The release route and the pitch route are different asks.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://startups.co.uk/"
+    ]
+  },
+  {
+    "id": "md-startupticker",
+    "name": "Startupticker.ch",
+    "website": "https://www.startupticker.ch",
+    "country": "switzerland",
+    "audienceGeography": "national",
+    "categories": [
+      "startup-media"
+    ],
+    "industries": [
+      "biotech",
+      "saas"
+    ],
+    "languages": [
+      "de",
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "editorial-submission"
+    ],
+    "costModel": "free",
+    "submissionUrl": "https://www.startupticker.ch/",
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": true,
+    "sponsoredContentAvailable": null,
+    "shortNote": "The Swiss startup news channel, publishing funding rounds and company news submitted by startups themselves.",
+    "limitations": "Swiss startups only.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.startupticker.ch/"
+    ]
+  },
+  {
+    "id": "md-stevie-awards",
+    "name": "Stevie Awards",
+    "website": "https://www.stevieawards.com",
+    "country": "united-states",
+    "audienceGeography": "global",
+    "categories": [
+      "business-awards"
+    ],
+    "industries": [
+      "general"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P1",
+    "opportunityTypes": [
+      "award-entry"
+    ],
+    "costModel": "paid",
+    "submissionUrl": "https://www.stevieawards.com/",
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": true,
+    "sponsoredContentAvailable": null,
+    "shortNote": "A family of international business award programmes — American, International, Asia-Pacific, Women in Business, Great Employers — each with an open entry process and public winner listings.",
+    "limitations": "Entry fees are per submission and per category. Winning produces a public winner page; entering does not.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.stevieawards.com/"
+    ]
+  },
+  {
     "id": "md-substack",
     "name": "Substack",
     "website": "https://substack.com",
@@ -3792,6 +7884,44 @@
     "lastVerified": "2026-08-07",
     "sources": [
       "https://substack.com/"
+    ]
+  },
+  {
+    "id": "md-supply-chain-digital",
+    "name": "Supply Chain Digital",
+    "website": "https://www.supplychaindigital.com",
+    "country": "united-kingdom",
+    "audienceGeography": "global",
+    "categories": [
+      "logistics-media"
+    ],
+    "industries": [
+      "logistics"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P3",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Supply chain publication from BizClik, built around executive interviews and company features.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Checked during Wave 2; the contact or submission path either 404s, redirects elsewhere, or is behind a bot filter.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.supplychaindigital.com/"
     ]
   },
   {
@@ -3950,6 +8080,44 @@
     ]
   },
   {
+    "id": "md-tech-collective-sea",
+    "name": "Tech Collective",
+    "website": "https://techcollectivesea.com",
+    "country": "singapore",
+    "audienceGeography": "regional",
+    "categories": [
+      "technology-media"
+    ],
+    "industries": [
+      "saas"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P3",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Southeast Asian technology and innovation coverage.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Reached and identified during Wave 2; no public submission or pitch page was found.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://techcollectivesea.com"
+    ]
+  },
+  {
     "id": "md-tech-eu",
     "name": "Tech.eu",
     "website": "https://tech.eu",
@@ -3987,6 +8155,124 @@
     "lastVerified": "2026-08-07",
     "sources": [
       "https://tech.eu/advertise/"
+    ]
+  },
+  {
+    "id": "md-tech-in-asia",
+    "name": "Tech in Asia",
+    "website": "https://www.techinasia.com",
+    "country": "singapore",
+    "audienceGeography": "regional",
+    "categories": [
+      "startup-media"
+    ],
+    "industries": [
+      "fintech",
+      "saas"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P1",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Pan-Asian startup, funding and technology publication with a company database.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Reached and identified during Wave 2; no public submission or pitch page was found.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.techinasia.com"
+    ]
+  },
+  {
+    "id": "md-techafricanews",
+    "name": "Tech Africa News",
+    "website": "https://techafricanews.com",
+    "country": "south-africa",
+    "audienceGeography": "regional",
+    "categories": [
+      "technology-media",
+      "telecom-media"
+    ],
+    "industries": [
+      "telecom"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P3",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "African technology and telecommunications industry news.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Reached and identified during Wave 2.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://techafricanews.com/"
+    ]
+  },
+  {
+    "id": "md-techcabal",
+    "name": "TechCabal",
+    "website": "https://techcabal.com",
+    "country": "nigeria",
+    "audienceGeography": "regional",
+    "categories": [
+      "startup-media"
+    ],
+    "industries": [
+      "fintech",
+      "saas"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P1",
+    "opportunityTypes": [
+      "editorial-pitch",
+      "press-release"
+    ],
+    "costModel": "free",
+    "submissionUrl": null,
+    "pitchUrl": "https://techcabal.com/contact/",
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "The leading African technology publication, covering startups, fintech and policy, with a contact page naming both a tips route and a press-release route.",
+    "limitations": "African companies. The tip route and the release route are different asks and go to different desks.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://techcabal.com/contact/"
     ]
   },
   {
@@ -4032,6 +8318,317 @@
     ]
   },
   {
+    "id": "md-technically",
+    "name": "Technical.ly",
+    "website": "https://technical.ly",
+    "country": "united-states",
+    "audienceGeography": "regional",
+    "categories": [
+      "local-business-media",
+      "startup-media"
+    ],
+    "industries": [
+      "saas"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "unknown",
+    "priority": "P2",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Local technology-economy journalism across Philadelphia, Baltimore, DC, Pittsburgh and Delaware.",
+    "limitations": "Reached but behind a bot filter, so the route could not be read from the site. A human needs to open it in a browser and confirm whether a submission or pitch route exists.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://technical.ly/"
+    ]
+  },
+  {
+    "id": "md-technode",
+    "name": "TechNode",
+    "website": "https://technode.com",
+    "country": "china",
+    "audienceGeography": "national",
+    "categories": [
+      "startup-media",
+      "technology-media"
+    ],
+    "industries": [
+      "ai",
+      "saas"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "English-language coverage of Chinese technology companies and startups.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Reached and identified during Wave 2; no public submission or pitch page was found.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://technode.com"
+    ]
+  },
+  {
+    "id": "md-techpoint-africa",
+    "name": "Techpoint Africa",
+    "website": "https://techpoint.africa",
+    "country": "nigeria",
+    "audienceGeography": "regional",
+    "categories": [
+      "startup-media"
+    ],
+    "industries": [
+      "fintech",
+      "saas"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "unknown",
+    "priority": "P2",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Nigerian and pan-African startup and technology publication.",
+    "limitations": "Reached but behind a bot filter, so the route could not be read from the site. A human needs to open it in a browser and confirm whether a submission or pitch route exists.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://techpoint.africa/"
+    ]
+  },
+  {
+    "id": "md-techstory",
+    "name": "TechStory",
+    "website": "https://techstory.in",
+    "country": "india",
+    "audienceGeography": "national",
+    "categories": [
+      "technology-media"
+    ],
+    "industries": [
+      "saas"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "unknown",
+    "priority": "P3",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Indian technology, startup and business news site.",
+    "limitations": "Reached but behind a bot filter, so the route could not be read from the site. A human needs to open it in a browser and confirm whether a submission or pitch route exists.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://techstory.in/"
+    ]
+  },
+  {
+    "id": "md-the-africa-report",
+    "name": "The Africa Report",
+    "website": "https://www.theafricareport.com",
+    "country": "kenya",
+    "audienceGeography": "regional",
+    "categories": [
+      "global-business-media"
+    ],
+    "industries": [
+      "general"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P3",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Pan-African business and politics magazine.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Reached and identified during Wave 2.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.theafricareport.com/"
+    ]
+  },
+  {
+    "id": "md-the-bridge",
+    "name": "The Bridge",
+    "website": "https://www.thebridge.jp/en",
+    "country": "japan",
+    "audienceGeography": "national",
+    "categories": [
+      "startup-media"
+    ],
+    "industries": [
+      "saas"
+    ],
+    "languages": [
+      "en",
+      "ja"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Japanese startup and technology publication with an English edition.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Reached and identified during Wave 2; no public submission or pitch page was found.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.thebridge.jp/en"
+    ]
+  },
+  {
+    "id": "md-the-drum-awards",
+    "name": "The Drum Awards",
+    "website": "https://www.thedrum.com/awards",
+    "country": "united-kingdom",
+    "audienceGeography": "global",
+    "categories": [
+      "business-awards",
+      "marketing-media"
+    ],
+    "industries": [
+      "advertising",
+      "marketing"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "award-entry"
+    ],
+    "costModel": "paid",
+    "submissionUrl": "https://www.thedrum.com/awards",
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": true,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Marketing and advertising award programmes run by The Drum, with entries judged and winners covered editorially.",
+    "limitations": "Paid entry per category. Marketing and creative work, not company news.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.thedrum.com/awards"
+    ]
+  },
+  {
+    "id": "md-the-fabricator",
+    "name": "The Fabricator",
+    "website": "https://www.thefabricator.com",
+    "country": "united-states",
+    "audienceGeography": "national",
+    "categories": [
+      "manufacturing-media"
+    ],
+    "industries": [
+      "manufacturing"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Metal forming and fabricating trade publication from the FMA association.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Checked during Wave 2; the contact or submission path either 404s, redirects elsewhere, or is behind a bot filter.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.thefabricator.com/"
+    ]
+  },
+  {
     "id": "md-the-hacker-news",
     "name": "The Hacker News",
     "website": "https://thehackernews.com",
@@ -4067,6 +8664,82 @@
     "lastVerified": "2026-08-07",
     "sources": [
       "https://thehackernews.com/p/submit-news.html"
+    ]
+  },
+  {
+    "id": "md-the-investor-vn",
+    "name": "The Investor",
+    "website": "https://theinvestor.vn",
+    "country": "vietnam",
+    "audienceGeography": "national",
+    "categories": [
+      "global-business-media"
+    ],
+    "industries": [
+      "finance"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P3",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Vietnamese business and investment news in English, published by VAFIE.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Reached and identified during Wave 2; no public submission or pitch page was found.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://theinvestor.vn"
+    ]
+  },
+  {
+    "id": "md-the-national-business",
+    "name": "The National Business",
+    "website": "https://www.thenationalnews.com/business",
+    "country": "united-arab-emirates",
+    "audienceGeography": "national",
+    "categories": [
+      "global-business-media"
+    ],
+    "industries": [
+      "general"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P3",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "The business desk of the UAE’s main English-language newspaper.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Reached and identified during Wave 2.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.thenationalnews.com/business"
     ]
   },
   {
@@ -4112,6 +8785,44 @@
     ]
   },
   {
+    "id": "md-the-real-deal",
+    "name": "The Real Deal",
+    "website": "https://therealdeal.com",
+    "country": "united-states",
+    "audienceGeography": "national",
+    "categories": [
+      "real-estate-media"
+    ],
+    "industries": [
+      "real-estate"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Commercial and residential real estate news across New York, Florida, Chicago and Los Angeles.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Checked during Wave 2; the contact or submission path either 404s, redirects elsewhere, or is behind a bot filter.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://therealdeal.com/"
+    ]
+  },
+  {
     "id": "md-the-register",
     "name": "The Register",
     "website": "https://www.theregister.com",
@@ -4152,6 +8863,45 @@
     ]
   },
   {
+    "id": "md-the-robot-report",
+    "name": "The Robot Report",
+    "website": "https://www.therobotreport.com",
+    "country": "united-states",
+    "audienceGeography": "global",
+    "categories": [
+      "industrial-media"
+    ],
+    "industries": [
+      "ai",
+      "manufacturing"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Robotics engineering and industry news, part of WTWH Media.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Checked during Wave 2; the contact or submission path either 404s, redirects elsewhere, or is behind a bot filter.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.therobotreport.com/"
+    ]
+  },
+  {
     "id": "md-thenextweb",
     "name": "TNW",
     "website": "https://thenextweb.com",
@@ -4189,6 +8939,44 @@
     "lastVerified": "2026-08-07",
     "sources": [
       "https://thenextweb.com/"
+    ]
+  },
+  {
+    "id": "md-times-of-israel",
+    "name": "The Times of Israel",
+    "website": "https://www.timesofisrael.com",
+    "country": "israel",
+    "audienceGeography": "national",
+    "categories": [
+      "global-business-media"
+    ],
+    "industries": [
+      "general"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P3",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Israeli English-language news with a startup and technology desk.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Reached and identified during Wave 2.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.timesofisrael.com"
     ]
   },
   {
@@ -4271,6 +9059,124 @@
     ]
   },
   {
+    "id": "md-transport-topics",
+    "name": "Transport Topics",
+    "website": "https://www.ttnews.com",
+    "country": "united-states",
+    "audienceGeography": "national",
+    "categories": [
+      "logistics-media"
+    ],
+    "industries": [
+      "logistics"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P3",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "US trucking and freight transport trade news from the American Trucking Associations.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Checked during Wave 2; the contact or submission path either 404s, redirects elsewhere, or is behind a bot filter.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.ttnews.com/"
+    ]
+  },
+  {
+    "id": "md-trending-topics",
+    "name": "Trending Topics",
+    "website": "https://www.trendingtopics.eu",
+    "country": "austria",
+    "audienceGeography": "regional",
+    "categories": [
+      "startup-media"
+    ],
+    "industries": [
+      "ai",
+      "crypto",
+      "saas"
+    ],
+    "languages": [
+      "de",
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Austrian and CEE startup, AI and crypto publication.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Reached and identified during Wave 2.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.trendingtopics.eu/"
+    ]
+  },
+  {
+    "id": "md-uktech-news",
+    "name": "UKTN",
+    "website": "https://www.uktech.news",
+    "country": "united-kingdom",
+    "audienceGeography": "national",
+    "categories": [
+      "startup-media"
+    ],
+    "industries": [
+      "fintech",
+      "saas"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "unknown",
+    "priority": "P2",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "UK technology and startup news covering funding and policy.",
+    "limitations": "Reached but behind a bot filter, so the route could not be read from the site. A human needs to open it in a browser and confirm whether a submission or pitch route exists.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.uktech.news/"
+    ]
+  },
+  {
     "id": "md-uneed",
     "name": "Uneed",
     "website": "https://www.uneed.best",
@@ -4349,6 +9255,237 @@
     ]
   },
   {
+    "id": "md-utah-business",
+    "name": "Utah Business",
+    "website": "https://www.utahbusiness.com",
+    "country": "united-states",
+    "audienceGeography": "local",
+    "categories": [
+      "local-business-media"
+    ],
+    "industries": [
+      "general"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P3",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Utah’s statewide business magazine for executives and entrepreneurs, running awards and lists alongside editorial.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. A contact path was checked and returns 404.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.utahbusiness.com/"
+    ]
+  },
+  {
+    "id": "md-ventureburn",
+    "name": "Ventureburn",
+    "website": "https://ventureburn.com",
+    "country": "south-africa",
+    "audienceGeography": "regional",
+    "categories": [
+      "startup-media"
+    ],
+    "industries": [
+      "saas"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P3",
+    "opportunityTypes": [
+      "editorial-submission"
+    ],
+    "costModel": "free",
+    "submissionUrl": "https://ventureburn.com/contact/",
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": true,
+    "sponsoredContentAvailable": null,
+    "shortNote": "African startup and venture news with a contact page carrying a submission route.",
+    "limitations": "African startups only.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://ventureburn.com/contact/"
+    ]
+  },
+  {
+    "id": "md-vir-vn",
+    "name": "Vietnam Investment Review",
+    "website": "https://vir.com.vn",
+    "country": "vietnam",
+    "audienceGeography": "national",
+    "categories": [
+      "global-business-media"
+    ],
+    "industries": [
+      "general"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P3",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Vietnam’s English-language investment and business newspaper.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Reached and identified during Wave 2; no public submission or pitch page was found.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://vir.com.vn"
+    ]
+  },
+  {
+    "id": "md-virginia-business",
+    "name": "Virginia Business",
+    "website": "https://www.virginiabusiness.com",
+    "country": "united-states",
+    "audienceGeography": "local",
+    "categories": [
+      "local-business-media"
+    ],
+    "industries": [
+      "general"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "unknown",
+    "priority": "P3",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Virginia statewide business magazine and awards publisher.",
+    "limitations": "Reached but behind a bot filter, so the route could not be read from the site. A human needs to open it in a browser and confirm whether a submission or pitch route exists.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.virginiabusiness.com/"
+    ]
+  },
+  {
+    "id": "md-vulcan-post",
+    "name": "Vulcan Post",
+    "website": "https://vulcanpost.com",
+    "country": "singapore",
+    "audienceGeography": "regional",
+    "categories": [
+      "startup-media"
+    ],
+    "industries": [
+      "saas"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P3",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Singapore and Malaysia startup, business and lifestyle-technology coverage.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Reached and identified during Wave 2; no public submission or pitch page was found.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://vulcanpost.com"
+    ]
+  },
+  {
+    "id": "md-wamda",
+    "name": "Wamda",
+    "website": "https://www.wamda.com",
+    "country": "united-arab-emirates",
+    "audienceGeography": "regional",
+    "categories": [
+      "startup-media"
+    ],
+    "industries": [
+      "fintech",
+      "saas"
+    ],
+    "languages": [
+      "ar",
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P1",
+    "opportunityTypes": [
+      "contributed-article",
+      "editorial-pitch"
+    ],
+    "costModel": "free",
+    "submissionUrl": "https://www.wamda.com/contact",
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": true,
+    "sponsoredContentAvailable": null,
+    "shortNote": "MENA entrepreneurship platform combining editorial with an investment arm, accepting pitches and contributed pieces.",
+    "limitations": "MENA scope. Wamda Capital is a separate business from the publication; an investment approach is not a media pitch.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.wamda.com/contact"
+    ]
+  },
+  {
     "id": "md-wirtschaftswoche",
     "name": "WirtschaftsWoche",
     "website": "https://www.wiwo.de",
@@ -4384,6 +9521,124 @@
     "lastVerified": "2026-08-07",
     "sources": [
       "https://www.wiwo.de/"
+    ]
+  },
+  {
+    "id": "md-wral-techwire",
+    "name": "WRAL TechWire",
+    "website": "https://www.wral.com/business/technology",
+    "country": "united-states",
+    "audienceGeography": "local",
+    "categories": [
+      "startup-media",
+      "technology-media"
+    ],
+    "industries": [
+      "saas"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P3",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "North Carolina Triangle technology and startup news. Now published inside WRAL; wraltechwire.com redirects there.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. No longer a standalone site, so pitches go through the WRAL newsroom.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://wraltechwire.com/",
+      "https://www.wral.com/business/technology/"
+    ]
+  },
+  {
+    "id": "md-yourstory",
+    "name": "YourStory",
+    "website": "https://yourstory.com",
+    "country": "india",
+    "audienceGeography": "national",
+    "categories": [
+      "startup-media"
+    ],
+    "industries": [
+      "fintech",
+      "saas"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P1",
+    "opportunityTypes": [
+      "editorial-pitch"
+    ],
+    "costModel": "free",
+    "submissionUrl": null,
+    "pitchUrl": "https://yourstory.com/contact-us",
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": true,
+    "sponsoredContentAvailable": null,
+    "shortNote": "India’s largest startup and entrepreneurship publication, with a contact page inviting story pitches.",
+    "limitations": "Indian companies and founders. Volume of pitches is very high.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://yourstory.com/contact-us"
+    ]
+  },
+  {
+    "id": "md-zawya",
+    "name": "Zawya",
+    "website": "https://www.zawya.com/en",
+    "country": "united-arab-emirates",
+    "audienceGeography": "regional",
+    "categories": [
+      "global-business-media"
+    ],
+    "industries": [
+      "finance"
+    ],
+    "languages": [
+      "ar",
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Middle East business and financial information service, part of LSEG, carrying regional corporate news.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Reached and identified during Wave 2.",
+    "lastVerified": "2026-08-08",
+    "sources": [
+      "https://www.zawya.com/en"
     ]
   },
   {
