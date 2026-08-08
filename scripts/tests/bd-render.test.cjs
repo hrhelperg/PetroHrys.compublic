@@ -107,7 +107,26 @@ test('never contains the unfilled bing verification placeholder', () => {
 test('reuses the site nav and adds exactly one Research Center item per list', () => {
   const html = hub();
   assert.strictEqual((html.match(/class="nav-primary"/g) || []).length, 2, 'desktop + mobile');
-  assert.strictEqual((html.match(/>Research Center</g) || []).length, 2);
+  // The label is now translated per locale, so the English literal only appears
+  // on the English render. The invariant is one Research Center item per nav
+  // LIST — desktop and mobile — which is asserted through the route it points
+  // at rather than through the English words it happens to use.
+  // Counted INSIDE the two nav-primary lists. The label is now translated per
+  // locale, so counting the English words across the whole document also
+  // catches the footer and the breadcrumb; the invariant is one item per nav
+  // list, which is what is asserted.
+  const I18N = require('../lib/i18n.cjs');
+  const navLists = (doc) => [...doc.matchAll(/<ul class="nav-primary">([\s\S]*?)<\/ul>/g)].map((m) => m[1]);
+  const lists = navLists(html);
+  assert.strictEqual(lists.length, 2, 'expected a desktop and a mobile nav list');
+  for (const list of lists) {
+    assert.strictEqual((list.match(/aria-current="true"/g) || []).length, 1,
+      'expected exactly one Research Center item per nav list');
+    assert.ok(list.includes('href="/research/"'), 'the Research Center item lost its route');
+  }
+  // The old count of 2 assumed only the nav used this label. The breadcrumb now
+  // uses the same translation key, which is correct — so the count is no longer
+  // the invariant, and the per-list assertions above are.
   assert.ok(html.includes('href="/work/">Work<'));
   assert.ok(html.includes('>Research &amp; Writing<'));
   assert.ok(html.includes('href="/about/">About<'));

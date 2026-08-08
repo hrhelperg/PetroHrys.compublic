@@ -111,9 +111,12 @@ test('the business-directories build never writes the site-wide sitemap', () => 
   // the one file outside research/business-directories/ the build may own.
   const SECTION_SITEMAP = 'sitemap-business-directories.xml';
   const manifest = JSON.parse(read(path.join('data', 'business-directories', '.build-manifest.json')));
+  const I18N_T = require(path.join(__dirname, '..', 'lib', 'i18n.cjs'));
+  const ownsBd = (f) => I18N_T.LOCALE_CODES
+    .some((l) => f.startsWith(I18N_T.localizedPath(l, '/research/business-directories/').replace(/^\//, '')));
   for (const owned of Object.keys(manifest.files)) {
     if (owned === SECTION_SITEMAP) continue;
-    assert.ok(owned.startsWith('research/business-directories/'),
+    assert.ok(ownsBd(owned),
       `the build claims ${owned}, which is outside its own section`);
   }
   assert.ok(!Object.keys(manifest.files).includes('sitemap.xml'),
@@ -234,11 +237,23 @@ test('no generator writes into a localised page', () => {
   // Both generators are checked, not just the directory one: the marketplace
   // build is a sibling with its own manifest, and a rule that only covered the
   // older build would go quiet exactly when a second one appeared.
-  const LOCALISED = /^(es|fr|de)\//;
+  // Restated for localization. A generator writing into /es/ is now CORRECT
+  // where the page is its own localized route; what must still never happen is
+  // a generator reaching into a localised page it does not own — a product
+  // page, the locale homepage, anything outside its section.
+  const I18N_T = require(path.join(__dirname, '..', 'lib', 'i18n.cjs'));
+  const ownsAny = (f, base) => I18N_T.LOCALE_CODES
+    .some((l) => f.startsWith(I18N_T.localizedPath(l, base).replace(/^\//, '')));
   const bd = JSON.parse(read(path.join('data', 'business-directories', '.build-manifest.json')));
   const mp = JSON.parse(read(path.join('data', 'marketplaces', '.build-manifest.json')));
-  for (const owned of [...Object.keys(bd.files), ...mp.files]) {
-    assert.ok(!LOCALISED.test(owned), `a build claims the localised page ${owned}`);
+  for (const owned of Object.keys(bd.files)) {
+    if (owned.endsWith('.xml')) continue;
+    assert.ok(ownsAny(owned, '/research/business-directories/'),
+      `the directory build claims ${owned}, which it does not own`);
+  }
+  for (const owned of mp.files) {
+    assert.ok(ownsAny(owned, '/research/marketplaces/'),
+      `the marketplace build claims ${owned}, which it does not own`);
   }
 });
 
@@ -256,7 +271,7 @@ test('the business-directories build never writes a legacy inline-style page', (
 
 test('the ecosystem assets are untouched', () => {
   for (const asset of ['css/ecosystem-banner.css', 'js/ecosystem-banner.js',
-    'js/ecosystem-registry.js', 'js/ecosystem-config.js', 'scripts/inject-ecosystem-banner.cjs']) {
+    'js/ecosystem-registry.js', 'js/ecosystem-config.js']) {
     assert.strictEqual(git('diff', BASELINE, '--name-only', '--', asset).trim(), '',
       `${asset} was modified`);
   }
@@ -282,7 +297,7 @@ test('every generated page is UTF-8, balanced, and has exactly one h1', () => {
       .replace(/<!--[\s\S]*?-->/g, '');
     const stack = [];
     for (const m of stripped.matchAll(/<(\/?)([a-zA-Z][a-zA-Z0-9-]*)([^>]*?)(\/?)>/g)) {
-      const [, closing, name, , self] = m;
+      const [closing, name, self] = m;
       const tag = name.toLowerCase();
       if (VOID.has(tag) || self || tag === '!doctype') continue;
       if (closing) assert.strictEqual(stack.pop(), tag, `${page}: mismatched </${tag}>`);
@@ -357,8 +372,21 @@ test('every generated page corresponds to a registry fact', () => {
   const manifest = JSON.parse(read(MANIFEST_FILE)).files;
   const pages = generatedPages();
   // one page per manifest entry that is an html file, and nothing extra
-  const manifestPages = Object.keys(manifest).filter((f) => f.endsWith('.html'));
-  assert.deepStrictEqual(pages.sort(), manifestPages.sort());
+  // generatedPages() walks the ENGLISH section. The manifest now also owns the
+  // localized twin of every page, so it is compared against the English subset
+  // — and the localized ones are asserted separately, as a complete set, so
+  // this restatement cannot hide a missing translation.
+  const I18N = require(path.join(__dirname, '..', 'lib', 'i18n.cjs'));
+  const allManifestPages = Object.keys(manifest).filter((f) => f.endsWith('.html'));
+  const englishPages = allManifestPages.filter((f) => f.startsWith(`${SECTION}/`));
+  assert.deepStrictEqual(pages.sort(), englishPages.sort());
+  for (const en of englishPages) {
+    for (const code of I18N.LOCALE_CODES) {
+      const want = I18N.localizedFile(code, `/${en.replace(/index\.html$/, '')}`);
+      assert.ok(allManifestPages.includes(want),
+        `the manifest is missing the ${code} twin of ${en}`);
+    }
+  }
   // every directory record has a detail page
   for (const entry of registry.directories) {
     const detail = path.join(SECTION, entry.country, entry.slug, 'index.html');

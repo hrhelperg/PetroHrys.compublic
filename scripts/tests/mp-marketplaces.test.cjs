@@ -73,9 +73,13 @@ test('a marketplace row carries no directory-only field', () => {
 test('the marketplace build owns only its own output', () => {
   const manifest = JSON.parse(fs.readFileSync(
     path.join(ROOT, 'data/marketplaces/.build-manifest.json'), 'utf8'));
+  const I18N_T = require(path.join(ROOT, 'scripts/lib/i18n.cjs'));
+  // Localization made the section multi-prefixed: the build now legitimately
+  // writes its OWN page under /es/, /fr/ and /de/. The property is unchanged.
+  const owns = (f) => I18N_T.LOCALE_CODES
+    .some((l) => f.startsWith(I18N_T.localizedPath(l, '/research/marketplaces/').replace(/^\//, '')));
   for (const f of manifest.files) {
-    assert.ok(f.startsWith('research/marketplaces/'),
-      `the marketplace manifest claims ${f}, which is outside its own directory`);
+    assert.ok(owns(f), `the marketplace manifest claims ${f}, which is outside its own routes`);
   }
 });
 

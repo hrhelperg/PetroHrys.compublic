@@ -410,10 +410,16 @@ test('no private workflow state enters the public data or exports', () => {
 
 test('no campaign combination becomes a page or a sitemap entry', () => {
   const dir = path.join(ROOT, 'research/distribution-planner');
+  // One page per LOCALE — four files, one route. The invariant being protected
+  // is that a campaign QUERY never becomes a page, which is independent of how
+  // many languages the one page is published in.
+  const I18N = require(path.join(ROOT, 'scripts/lib/i18n.cjs'));
   const pages = fs.readdirSync(dir).filter((f) => f.endsWith('.html'));
-  assert.strictEqual(pages.length, 1, `${pages.length} planner pages exist`);
+  assert.strictEqual(pages.length, 1, `${pages.length} English planner pages exist`);
   const sitemap = fs.readFileSync(path.join(ROOT, 'sitemap.xml'), 'utf8');
-  assert.strictEqual((sitemap.match(/distribution-planner/g) || []).length, 1);
+  assert.strictEqual((sitemap.match(/distribution-planner/g) || []).length,
+    I18N.LOCALE_CODES.length,
+    'the planner should appear exactly once per supported locale');
   assert.ok(!/distribution-planner\/\?/.test(sitemap), 'a campaign query is in the sitemap');
 });
 

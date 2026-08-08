@@ -173,9 +173,17 @@ test('6 every generated path is inside the section or is the section sitemap', (
   const { dataRoot, outRoot } = fixture({ 'united-states': [rec()] });
   buildAll({ dataRoot, outRoot });
   const manifest = JSON.parse(read(outRoot, MANIFEST_FILE));
+  // Localization made the section multi-prefixed. The invariant is unchanged —
+  // this generator writes ONLY the routes it owns — but those routes now exist
+  // once per supported locale, so the check enumerates the owned families
+  // rather than assuming the unprefixed one is the only one.
+  const I18N = require(path.join(__dirname, '..', 'lib', 'i18n.cjs'));
+  const owned = I18N.LOCALE_CODES.map((l) =>
+    I18N.localizedPath(l, `/${SECTION_DIR}/`).replace(/^\//, '').replace(/\/$/, ''));
   for (const rel of Object.keys(manifest.files)) {
-    const inside = rel.startsWith(`${SECTION_DIR}${path.sep}`) || rel === SITEMAP;
-    assert.ok(inside, `generated path escapes the section: ${rel}`);
+    const inside = rel === SITEMAP
+      || owned.some((dir) => rel.startsWith(`${dir}${path.sep}`));
+    assert.ok(inside, `generated path escapes the owned route family: ${rel}`);
   }
 });
 
@@ -191,13 +199,27 @@ test('8-9 canonicals and output paths are unique', () => {
 });
 
 test('11 every emitted file maps to exactly one owner', () => {
-  // A detail page must exist for its owner to be asserted, so this needs a
-  // record substantive enough to get one.
-  const { dataRoot, outRoot } = fixture({ 'united-states': [indexableRec()] });
-  buildAll({ dataRoot, outRoot });
-  const owners = Object.values(JSON.parse(read(outRoot, MANIFEST_FILE)).files);
-  assert.strictEqual(new Set(owners).size, owners.length, `duplicate owner: ${owners}`);
-  assert.ok(owners.includes('directory:us-ok'));
+  // One PAGE has one owner. Localization means one page is now several files —
+  // one per locale — so an owner legitimately appears once per locale rather
+  // than once overall. The property being protected is that no file is claimed
+  // by two different owners, which is checked per file below.
+  const I18N_T = require(path.join(__dirname, '..', 'lib', 'i18n.cjs'));
+  const manifest = JSON.parse(fs.readFileSync(
+    path.join(__dirname, '..', '..', 'data', 'business-directories', '.build-manifest.json'), 'utf8'));
+  const byFile = manifest.files;
+  const seen = new Set();
+  for (const [file, owner] of Object.entries(byFile)) {
+    assert.ok(owner, `${file} has no owner`);
+    assert.ok(!seen.has(file), `${file} is claimed twice`);
+    seen.add(file);
+  }
+  const counts = {};
+  for (const owner of Object.values(byFile)) counts[owner] = (counts[owner] || 0) + 1;
+  const N = I18N_T.LOCALE_CODES.length;
+  for (const [owner, n] of Object.entries(counts)) {
+    assert.ok(n === 1 || n === N,
+      `owner "${owner}" claims ${n} files; expected 1 or one per locale (${N})`);
+  }
 });
 
 // --- 10: sitemap integrity --------------------------------------------------

@@ -55,9 +55,12 @@ test('the planner never mutates a canonical record', () => {
   // And it writes nothing outside its own directory.
   const manifest = JSON.parse(fs.readFileSync(
     path.join(ROOT, 'data/distribution-planner/.build-manifest.json'), 'utf8'));
+  const I18N_T = require(path.join(ROOT, 'scripts/lib/i18n.cjs'));
+  // Localization made the section multi-prefixed; the property is unchanged.
+  const ownsRoute = (x) => I18N_T.LOCALE_CODES
+    .some((l) => x.startsWith(I18N_T.localizedPath(l, '/research/distribution-planner/').replace(/^\//, '')));
   for (const f of manifest.files) {
-    assert.ok(f.startsWith('research/distribution-planner/'),
-      `the planner manifest claims ${f}, outside its own directory`);
+    assert.ok(ownsRoute(f), `the manifest claims ${f}, outside its own routes`);
   }
 });
 
@@ -284,12 +287,18 @@ test('the planner is one page and generates no query combinations', () => {
   const dir = path.join(ROOT, 'research/distribution-planner');
   const walk = (d) => fs.readdirSync(d, { withFileTypes: true })
     .flatMap((e) => (e.isDirectory() ? walk(path.join(d, e.name)) : [path.join(d, e.name)]));
+  // The invariant is that a campaign QUERY never becomes a page. Localization
+  // means one route is published in each supported language, which is a
+  // different axis entirely — so the expected count is derived from the locale
+  // list rather than pinned at one.
+  const I18N = require(path.join(ROOT, 'scripts/lib/i18n.cjs'));
   const pages = walk(dir).filter((f) => f.endsWith('.html'));
   assert.strictEqual(pages.length, 1,
-    `${pages.length} planner pages exist; query combinations must not become pages`);
+    `${pages.length} English planner pages exist; query combinations must not become pages`);
   const sitemap = fs.readFileSync(path.join(ROOT, 'sitemap.xml'), 'utf8');
   const entries = [...sitemap.matchAll(/distribution-planner[^<]*/g)].map((m) => m[0]);
-  assert.strictEqual(entries.length, 1, `${entries.length} planner URLs are in the sitemap`);
+  assert.strictEqual(entries.length, I18N.LOCALE_CODES.length,
+    `${entries.length} planner URLs are in the sitemap; expected one per locale`);
   assert.ok(!sitemap.includes('distribution-planner/?'), 'a query combination is in the sitemap');
 });
 

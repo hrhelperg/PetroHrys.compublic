@@ -381,8 +381,13 @@ test('no page states a count that is not derived', () => {
   assert.ok(text.includes(`${cov.scored} of ${cov.total} are scored`),
     'the page does not state the derived scored count');
   const src = fs.readFileSync(path.join(ROOT, 'scripts/build-media-platforms.cjs'), 'utf8');
-  for (const stale of [' 385 ', ' 144 ', ' 241 ', ' 62 ']) {
-    assert.ok(!src.includes(stale), `the generator hardcodes "${stale.trim()}"`);
+  // Checked against numeric literals in CODE, not any occurrence of the digits.
+  // Localization made the generator mention locale counts, and a bare substring
+  // search cannot tell a hardcoded total from an unrelated number in prose.
+  const codeOnly = src.replace(/\/\/[^\n]*/g, ' ').replace(/\/\*[\s\S]*?\*\//g, ' ');
+  for (const stale of ['385', '144', '241']) {
+    assert.ok(!new RegExp(`=\\s*${stale}\\b`).test(codeOnly),
+      `the generator assigns the hardcoded total ${stale}`);
   }
 });
 

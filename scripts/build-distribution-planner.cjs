@@ -29,6 +29,7 @@ const MI = require('./lib/media-intelligence.cjs');
 const c = require('./lib/bd-components.cjs');
 const render = require('./lib/bd-render.cjs');
 const seo = require('./lib/bd-seo.cjs');
+const I18N = require('./lib/i18n.cjs');
 
 const ROOT = path.join(__dirname, '..');
 const OUT_DIR = path.join(ROOT, 'research', 'distribution-planner');
@@ -304,6 +305,25 @@ function renderCsv(ops, countryName) {
   return `\ufeff${lines.join('\r\n')}\r\n`;
 }
 
+
+// Pre-write containment. The directory build has had this since it was written;
+// the sibling builds did not, and a mutation that pointed one of them at
+// de/index.html happily overwrote the German homepage. A generator must be
+// unable to write outside the routes it owns, in any locale — not merely
+// unlikely to.
+function assertOwned(file, ownedBases) {
+  const rel = path.relative(ROOT, file);
+  if (rel.startsWith('..') || path.isAbsolute(rel)) {
+    throw new Error(`Refusing to write outside the site root: ${rel}`);
+  }
+  const allowed = ownedBases.flatMap((base) => I18N.LOCALE_CODES
+    .map((l) => I18N.localizedPath(l, base).replace(/^\//, '')));
+  if (!allowed.some((prefix) => rel.startsWith(prefix))) {
+    throw new Error(`Refusing to write ${rel}: outside this build's owned routes `
+      + `(${allowed.join(', ')}).`);
+  }
+}
+
 function main() {
   const src = P.loadAll();
   const countries = JSON.parse(fs.readFileSync(
@@ -312,36 +332,39 @@ function main() {
   const countryName = (slug) => nameBySlug.get(slug) || slug;
   const ops = P.project(src);
 
+  const localePages = [];
   const previous = fs.existsSync(MANIFEST_FILE)
     ? JSON.parse(fs.readFileSync(MANIFEST_FILE, 'utf8')).files || [] : [];
   const written = [];
   if (ops.length) {
     fs.mkdirSync(OUT_DIR, { recursive: true });
-    const html = render.renderPage({
-      meta: seo.buildPlannerMeta({
-        collections: P.COLLECTIONS.length,
-        total: ops.length,
-        canonicalPath: P.PLANNER_PATH,
-      }),
-      main: renderMain(ops, countryName),
+    const plannerMeta = seo.buildPlannerMeta({
+      collections: P.COLLECTIONS.length, total: ops.length, canonicalPath: P.PLANNER_PATH,
     });
-    const existing = fs.existsSync(PAGE_FILE) ? fs.readFileSync(PAGE_FILE, 'utf8') : null;
-    if (existing !== html) { fs.writeFileSync(PAGE_FILE, html); written.push(PAGE_FILE); }
+    for (const locale of I18N.LOCALE_CODES) {
+      const f = path.join(ROOT, I18N.localizedFile(locale, P.PLANNER_PATH));
+      assertOwned(f, [P.PLANNER_PATH]);
+      fs.mkdirSync(path.dirname(f), { recursive: true });
+      const html = render.renderPage({ meta: plannerMeta, main: renderMain(ops, countryName), locale });
+      const prev = fs.existsSync(f) ? fs.readFileSync(f, 'utf8') : null;
+      if (prev !== html) { fs.writeFileSync(f, html); written.push(f); }
+      localePages.push(f);
+    }
     const csv = renderCsv(ops, countryName);
     const existingCsv = fs.existsSync(CSV_FILE) ? fs.readFileSync(CSV_FILE, 'utf8') : null;
     if (existingCsv !== csv) { fs.writeFileSync(CSV_FILE, csv); written.push(CSV_FILE); }
   }
 
-  const ownedRel = ops.length ? [path.relative(ROOT, PAGE_FILE), path.relative(ROOT, CSV_FILE)] : [];
+  const ownedRel = ops.length ? [...localePages.map((f) => path.relative(ROOT, f)), path.relative(ROOT, CSV_FILE)] : [];
   const OUT_REL = `${path.relative(ROOT, OUT_DIR)}/`;
   let pruned = 0;
   for (const rel of previous) {
     if (ownedRel.includes(rel)) continue;
     // Same safety rule as the sibling builds: a corrupt manifest must not let a
     // generator delete a file outside its own directory.
-    if (!rel.startsWith(OUT_REL)) {
-      throw new Error(`Refusing to prune ${rel}: outside ${OUT_REL}. The manifest is corrupt.`);
-    }
+    const owns = I18N.LOCALE_CODES
+      .some((l) => rel.startsWith(I18N.localizedPath(l, P.PLANNER_PATH).replace(/^\//, '')));
+    if (!owns) throw new Error(`Refusing to prune ${rel}: outside this build's own routes.`);
     const abs = path.join(ROOT, rel);
     if (fs.existsSync(abs)) { fs.unlinkSync(abs); pruned += 1; }
   }

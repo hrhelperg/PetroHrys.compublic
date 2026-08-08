@@ -107,9 +107,12 @@ test('the collection is in the site sitemap', () => {
   // And the section sitemap still belongs to the directory build alone: the
   // marketplace build owns only its own directory and must not have reached in.
   const mp = JSON.parse(read('data/marketplaces/.build-manifest.json'));
+  const I18N_T = require(path.join(ROOT, 'scripts/lib/i18n.cjs'));
+  // Localization made the section multi-prefixed; the property is unchanged.
+  const ownsRoute = (x) => I18N_T.LOCALE_CODES
+    .some((l) => x.startsWith(I18N_T.localizedPath(l, '/research/marketplaces/').replace(/^\//, '')));
   for (const f of mp.files) {
-    assert.ok(f.startsWith('research/marketplaces/'),
-      `the marketplace build claims ${f}, which is outside its own directory`);
+    assert.ok(ownsRoute(f), `the manifest claims ${f}, outside its own routes`);
   }
 });
 
