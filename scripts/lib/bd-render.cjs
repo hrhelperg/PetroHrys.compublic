@@ -273,7 +273,19 @@ function renderPage({ meta, main, locale = I18N.DEFAULT_LOCALE }) {
   const social = [
     metaTag('og:title', meta.openGraph.title),
     metaTag('og:description', meta.openGraph.description),
-    metaTag('og:url', meta.openGraph.url),
+    // og:url must be the SELF URL, not the English one.
+    //
+    // meta.openGraph.url comes from the SEO builder, which is locale-independent
+    // and therefore always English. Emitting it unchanged meant 1,248 localized
+    // pages declared a canonical <link> pointing at themselves and an og:url
+    // pointing at the English page — two contradicting canonical signals on the
+    // same document. Google treats og:url as a canonical hint, so a German page
+    // was effectively telling it "I am really the English page", which is
+    // precisely the "Alternate page with proper canonical tag" classification.
+    //
+    // Derived from selfPath, the same value the canonical link uses, so the two
+    // cannot disagree again.
+    metaTag('og:url', `${ORIGIN}${selfPath}`),
     metaTag('og:type', meta.openGraph.type),
     metaTag('og:locale', L.ogLocale),
     metaTag('og:site_name', meta.openGraph.siteName),
