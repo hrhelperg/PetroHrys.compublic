@@ -909,7 +909,20 @@ function validateStage(files, pages) {
   }
 
   // The sitemap may only reference pages that were actually staged.
-  const staged = new Set(pages.map((page) => page.meta.canonical));
+  //
+  // The staged set now covers every LOCALE of every page, not just the English
+  // canonical. The sitemap began emitting localized URLs — 1,200 pages that
+  // existed and were indexable but appeared in no sitemap — and this check
+  // rejected them, correctly by its own logic and wrongly in effect: those
+  // pages are staged, they were simply absent from a set built only from
+  // English canonicals. Derived from the locale registry so it cannot drift.
+  const staged = new Set();
+  for (const page of pages) {
+    for (const locale of I18N.LOCALE_CODES) {
+      staged.add(`${seo.ORIGIN}${I18N.localizedPath(locale, page.meta.canonicalPath)}`);
+    }
+    staged.add(page.meta.canonical);
+  }
   const sitemap = files.get(SITEMAP_FILE) || '';
   for (const match of sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)) {
     if (!staged.has(match[1])) {

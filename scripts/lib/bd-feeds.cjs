@@ -5,14 +5,39 @@ const { absoluteUrl } = require('./bd-seo.cjs');
 
 const FEED_PATH = '/research/business-directories/feed.xml';
 
-function renderSitemap(entries) {
-  const urls = entries.map((entry) => {
+// Emits every locale of every indexable route, each carrying the full
+// alternate cluster.
+//
+// It previously emitted the English URL only, so 1,200 localized Business
+// Directory pages existed, were indexable, were linked from the site — and
+// appeared in no sitemap at all. The locale list comes from the registry rather
+// than being spelled out, so a fifth locale needs no edit here.
+//
+// The xhtml:link alternates are the structure search engines expect for
+// internationalized sitemaps: each URL entry declares the whole cluster,
+// including itself, which is also what makes the reciprocity structural rather
+// than something a maintainer has to keep in sync by hand.
+function renderSitemap(entries, { locales = null } = {}) {
+  const I18N = require('./i18n.cjs');
+  const codes = locales || I18N.LOCALE_CODES;
+
+  const urls = entries.flatMap((entry) => {
     const lastmod = entry.lastmod ? `\n    <lastmod>${escapeXml(entry.lastmod)}</lastmod>` : '';
-    return `  <url>\n    <loc>${escapeXml(absoluteUrl(entry.path))}</loc>${lastmod}\n  </url>`;
+    const alternates = codes.map((code) => {
+      const href = absoluteUrl(I18N.localizedPath(code, entry.path));
+      return `\n    <xhtml:link rel="alternate" hreflang="${code}" href="${escapeXml(href)}"/>`;
+    }).join('')
+      + `\n    <xhtml:link rel="alternate" hreflang="x-default" href="${escapeXml(absoluteUrl(entry.path))}"/>`;
+
+    return codes.map((code) => {
+      const loc = absoluteUrl(I18N.localizedPath(code, entry.path));
+      return `  <url>\n    <loc>${escapeXml(loc)}</loc>${lastmod}${alternates}\n  </url>`;
+    });
   }).join('\n');
+
   const body = urls ? `\n${urls}\n` : '\n';
   return `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${body}</urlset>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">${body}</urlset>
 `;
 }
 

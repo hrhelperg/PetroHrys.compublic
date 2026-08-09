@@ -227,7 +227,22 @@ test('11 every emitted file maps to exactly one owner', () => {
 test('10 the sitemap only references pages that were generated', () => {
   const { dataRoot, outRoot } = fixture({ 'united-states': [indexableRec()] });
   buildAll({ dataRoot, outRoot });
-  const canonicals = new Set(pageModel(loadRegistry(dataRoot)).map((p) => p.meta.canonical));
+  // The expected set covers every LOCALE of every generated page. It used to be
+  // built from English canonicals alone, which was correct only while the
+  // sitemap listed English alone; once it began listing the 1,200 localized
+  // pages that already existed and were already indexable, this guard rejected
+  // them. The property — "every sitemap URL corresponds to a page that was
+  // generated" — is unchanged. Derived from the locale registry so a fifth
+  // locale needs no edit.
+  const I18N = require('../lib/i18n.cjs');
+  const seo = require('../lib/bd-seo.cjs');
+  const canonicals = new Set();
+  for (const page of pageModel(loadRegistry(dataRoot))) {
+    canonicals.add(page.meta.canonical);
+    for (const locale of I18N.LOCALE_CODES) {
+      canonicals.add(`${seo.ORIGIN}${I18N.localizedPath(locale, page.meta.canonicalPath)}`);
+    }
+  }
   const locs = [...read(outRoot, SITEMAP).matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
   assert.ok(locs.length > 0);
   for (const loc of locs) assert.ok(canonicals.has(loc), `sitemap references ungenerated ${loc}`);
@@ -238,9 +253,26 @@ test('10 the sitemap never lists a noindex page', () => {
   buildAll({ dataRoot, outRoot });
   const xml = read(outRoot, SITEMAP);
   assert.ok(!xml.includes('/united-states/'), 'empty reference pages must stay out of the sitemap');
-  const locs = (xml.match(/<loc>/g) || []).length;
-  const guides = walk(path.join(outRoot, SECTION_DIR, 'guides')).filter((f) => f.endsWith('.html'));
-  assert.strictEqual(locs - guides.length, 1, 'only the hub, beyond the guides');
+  // Asserts the PROPERTY — no noindex page is listed — instead of the arithmetic
+  // `locs - guides === 1`, which silently encoded a single-locale site and broke
+  // the moment the sitemap covered four. Counting was always a proxy; this reads
+  // the robots meta of the page each URL actually points at.
+  const I18N = require('../lib/i18n.cjs');
+  const listed = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
+  assert.ok(listed.length > 0, 'sitemap is empty');
+  for (const loc of listed) {
+    const route = loc.replace(/^https?:\/\/[^/]+/, '');
+    const file = path.join(outRoot, route.replace(/^\//, '').replace(/\/$/, ''), 'index.html');
+    if (!fs.existsSync(file)) continue;
+    assert.ok(!/name="robots"[^>]*noindex/.test(fs.readFileSync(file, 'utf8')),
+      `sitemap lists a noindex page: ${loc}`);
+  }
+  // And every locale of the hub is present, which is what the count was really
+  // trying to say.
+  for (const locale of I18N.LOCALE_CODES) {
+    const hub = `${I18N.localizedPath(locale, '/research/business-directories/')}`;
+    assert.ok(listed.some((l) => l.endsWith(hub)), `hub missing for ${locale}`);
+  }
 });
 
 // --- 12, 13: pruning correctness --------------------------------------------
