@@ -323,4 +323,10 @@ ${FOOTER(selfPath, locale, t)}
 `;
 }
 
-module.exports = { renderPage, HEADER, FOOTER, ECO_HEAD, ECO_BODY, MARKETPLACES_PATH, MEDIA_PATH, PLANNER_PATH };
+// ANALYTICS and FONTS are exported so page-shell.cjs can assemble static pages
+// from the SAME constants rather than keeping a second copy of the tracking
+// snippet that drifts the first time one of them is updated.
+module.exports = {
+  renderPage, HEADER, FOOTER, ANALYTICS, FONTS, ECO_HEAD, ECO_BODY,
+  MARKETPLACES_PATH, MEDIA_PATH, PLANNER_PATH,
+};
