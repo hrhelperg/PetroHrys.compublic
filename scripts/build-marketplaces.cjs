@@ -16,7 +16,12 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const MP = require('./lib/mp-schema.cjs');
-const c = require('./lib/bd-components.cjs');
+// Module-level import is the ENGLISH binding; the locale-bound set is derived
+// from the translator each render function already receives. `t.locale` exists
+// precisely so a renderer never has to be told the locale twice and cannot be
+// told it inconsistently.
+const componentsModule = require('./lib/bd-components.cjs');
+const componentsFor = (t) => componentsModule.components(t.locale);
 const render = require('./lib/bd-render.cjs');
 const seo = require('./lib/bd-seo.cjs');
 const I18N = require('./lib/i18n.cjs');
@@ -88,6 +93,7 @@ ${options}
 }
 
 function renderPage(rows, countryName, t) {
+  const c = componentsFor(t);
   const countries = new Set(rows.map((r) => r.country));
   const tableRows = rows.map((r) => {
     const types = [r.marketplaceType, ...(r.alsoCovers || [])]

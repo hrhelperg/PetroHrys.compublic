@@ -1,3 +1,14 @@
+> **Superseded in part.** This document records the audit that opened the
+> programme. Phases 2–4 have since run; the current state, corrected counts and
+> the honest remaining-work list are in
+> [SITE-WIDE-LOCALIZATION-COMPLETION.md](SITE-WIDE-LOCALIZATION-COMPLETION.md).
+>
+> Two numbers here were later found to be wrong when re-derived:
+> the inline-CSS total was 79 KB (EN only) — the real figure across all locales
+> was **91,053 bytes**; and the Business Directories string backlog was
+> estimated at 57 strings, where the real figure is **287** (the estimate counted
+> only markup strings of 9+ characters).
+
 # Site-Wide Migration Audit
 
 Derived inventory of every public route in the repository: locale coverage,

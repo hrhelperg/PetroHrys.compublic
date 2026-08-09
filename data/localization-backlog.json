@@ -1,0 +1,37 @@
+{
+  "_comment": [
+    "Routes whose localized pages carry an English BODY. The shell, navigation,",
+    "titles, metadata and enum labels on these pages are correctly localized —",
+    "the substantive content is not.",
+    "",
+    "This is a ratchet, read by scripts/tests/route-policy.test.cjs. Every entry",
+    "is a route PREFIX. A prefix may only be removed once every route beneath it",
+    "genuinely differs from English; adding a new prefix requires editing this",
+    "file, so the backlog cannot grow silently.",
+    "",
+    "Measured 2026-08-09: 402 of 428 fully-covered routes exceed 85% English",
+    "token overlap in their German body. For contrast, the hand-translated pages",
+    "(/about/, /cv-builder/, /invoice-maker/, /pocket-manager/, /webmasterid/)",
+    "measure 7-9%, so the threshold separates 'translated' from 'not translated'",
+    "with a wide margin rather than splitting hairs.",
+    "",
+    "Cause: scripts/lib/bd-components.cjs and scripts/lib/bd-articles.cjs make",
+    "zero t() calls, so every label, empty state, heading and article paragraph",
+    "they render is English regardless of locale. 287 distinct first-party",
+    "English strings plus ~4,283 words of research prose."
+  ],
+  "prefixes": [
+    "/research/business-directories/",
+    "/research/distribution-planner/",
+    "/research/media-pr-publishing/"
+  ],
+  "measured": {
+    "date": "2026-08-09",
+    "routesExceedingThreshold": 402,
+    "routesMeasured": 428,
+    "threshold": 0.85,
+    "translatedReferenceRange": "0.07-0.09",
+    "firstPartyEnglishStrings": 287,
+    "researchProseWords": 4283
+  }
+}

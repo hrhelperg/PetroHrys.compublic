@@ -7,7 +7,11 @@ const { PATHS, writeIfChanged, escapeHtml } = require('./lib/bd-util.cjs');
 const { loadRegistry, directoriesFor } = require('./lib/bd-registry.cjs');
 const { sortDirectories } = require('./lib/bd-sort.cjs');
 const seo = require('./lib/bd-seo.cjs');
-const c = require('./lib/bd-components.cjs');
+// Bound per locale inside pageModel(), not once at module load. The body of a
+// page used to be built exactly once and then poured into four different
+// shells, which is precisely why all four locales shipped the same English
+// body under a correctly translated header.
+const componentsModule = require('./lib/bd-components.cjs');
 const { renderPage } = require('./lib/bd-render.cjs');
 const I18N = require('./lib/i18n.cjs');
 const { renderSitemap, renderRss } = require('./lib/bd-feeds.cjs');
@@ -65,15 +69,14 @@ function categoryEmitted(registry, country, category) {
 
 // --- approved static copy ---------------------------------------------------
 
-const HUB_FAQS = [
-  { q: 'What is this section?',
-    a: 'A research index of business directories, organised by country and category. Each entry records what a directory accepts, whether listing is free or paid, and how it was verified.' },
-  { q: 'How is the PetroHrys Score produced?',
-    a: 'It is a first-party editorial assessment made by Petro Hrys. It is not supplied by any third party and is not a review rating.' },
-  { q: 'Are Domain Rating and Authority Score your own numbers?',
-    a: 'No. Domain Rating, Authority Score, estimated traffic and referring domains are third-party metrics. Each recorded value stores its provider and the date it was measured.' },
-  { q: 'Why are some pages empty?',
-    a: 'Directories are published only after manual verification. Pages with no verified entries are left empty and excluded from search indexing rather than filled with placeholder data.' },
+// Built per locale rather than frozen at module load: a module-level constant
+// is evaluated once, in whatever locale happened to be first, and would ship
+// that language to all four.
+const hubFaqs = (t) => [
+  { q: t('bdx.faqQ.section'), a: t('bdx.indexDesc') },
+  { q: t('bdx.faqQ.score'), a: t('bdx.faqFirstParty') },
+  { q: t('bdx.faqQ.thirdParty'), a: t('bdx.faqThirdParty') },
+  { q: t('bdx.faqQ.empty'), a: t('bdx.faqVerification') },
 ];
 
 // Renders a country's records grouped by jurisdiction — Federal, then States
@@ -105,7 +108,7 @@ function loadCoverageManifests() {
 }
 const coverageManifests = loadCoverageManifests();
 
-function jurisdictionSections(country, entries, columns) {
+function jurisdictionSections(country, entries, columns, c) {
   const groups = c.jurisdictionGroups(entries, country.slug);
   if (!groups) return null;
   void columns;
@@ -159,16 +162,20 @@ ${c.directoryTable({
   return out;
 }
 
-function countryFaqs(country, count) {
+// Singular and plural are separate keys rather than an English "(s)" or a
+// ternary on the English word: German, Spanish and French inflect the noun and
+// the verb differently, so the sentence has to be written once per form.
+function countryFaqs(country, count, t) {
   return [
-    { q: `Which directories are listed for ${country.titleName}?`,
+    { q: t('bdx.faqQ.whichListed', { country: country.titleName }),
       a: count === 0
-        ? `None yet. No directory for ${country.titleName} has completed manual verification, so nothing is published on this page.`
-        : `${count} verified ${count === 1 ? 'directory is' : 'directories are'} currently published for ${country.titleName}.` },
-    { q: 'Are listings here paid placements?',
-      a: 'No. Nothing on these pages is sold, sponsored, or accepted in exchange for payment.' },
+        ? t('bdx.faqA.noneYet', { country: country.titleName })
+        : t(count === 1 ? 'bdx.faqA.countOne' : 'bdx.faqA.countMany',
+          { count, country: country.titleName }) },
+    { q: t('bdx.faqQ.paidPlacements'), a: t('bdx.faqNotSold') },
   ];
 }
+
 
 function section(id, heading, body) {
   return `    <section class="bd-section" aria-labelledby="${id}">
@@ -181,7 +188,11 @@ ${body}
 // Every page declares an `owner`: the single registry fact responsible for it.
 // Pruning and ownership checks rely on this being one-to-one.
 
-function pageModel(registry) {
+function pageModel(registry, locale = I18N.DEFAULT_LOCALE) {
+  // One implementation, four bindings. `c` is this locale's component set; the
+  // registry it renders is the same 1,563 canonical records for every locale.
+  const c = componentsModule.components(locale);
+  const t = I18N.translator(locale);
   const pages = [];
   // Records demoted to noindex,follow, with the clause each one failed, so the
   // build can report exactly why rather than just how many.
@@ -248,7 +259,7 @@ function pageModel(registry) {
 
   const hubMeta = seo.buildHubMeta({
     countries: [...globalLink, ...supranationalLinks, ...countryLinks.filter((l) => !l.pending)],
-    faqs: HUB_FAQS,
+    faqs: hubFaqs(t),
   });
 
   // Every number is derived. Counts must not reach a meta description — the SEO
@@ -278,7 +289,7 @@ function pageModel(registry) {
       + 'businesses regardless of country. They are listed separately because a scope is not a place.')}</p>`,
     c.directoryTable({
       directories: globalEntries.slice(0, HUB_TOP_COUNT),
-      caption: 'Global directories',
+      caption: t('bdx.globalDirectories'),
       columns: c.tableColumnsFor(globalEntries.slice(0, HUB_TOP_COUNT)),
     }),
     `      <p class="bd-cta"><a href="${routes.countryPath(GLOBAL_SCOPE)}">`
@@ -291,19 +302,17 @@ function pageModel(registry) {
     outPath: routes.hubOut(),
     meta: hubMeta,
     main: [
-      c.pageIntro({ title: 'Business Directories', lede: hubMeta.description }),
+      c.pageIntro({ title: t('collection.directories'), lede: hubMeta.description }),
       // The worklist was an orphan: generated, sitemapped, and linked from
       // nowhere. This hero is the primary entry point, placed above the
       // editorial tables because it is what most readers actually want.
       ...(worklist.length ? [`    <section class="bd-section bd-hero" aria-labelledby="worklist-hero">
-      <p class="bd-eyebrow">Business visibility database</p>
+      <p class="bd-eyebrow">${t('bdx.visibilityDb')}</p>
       <h2 id="worklist-hero">${escapeHtml(`${worklist.length} business listing opportunities`)}</h2>
-      <p>${escapeHtml('Reputable directories, review platforms, supplier databases, software '
-        + 'marketplaces and local-discovery services where a business can create, claim or apply '
-        + 'for a public presence.')}</p>
+      <p>${escapeHtml(t('bdx.hubLede'))}</p>
       <p class="bd-actions">
         <a class="bd-button" href="${OPPORTUNITIES_PATH}">${escapeHtml(`Browse all ${worklist.length} opportunities`)}</a>
-        <a class="bd-button bd-button--ghost" href="${routes.BASE}opportunities.csv" download>Download CSV</a>
+        <a class="bd-button bd-button--ghost" href="${routes.BASE}opportunities.csv" download>${t('bdx.downloadCsv')}</a>
       </p>
       <ul class="bd-list bd-stats">
         <li>${escapeHtml(`${worklist.length} active opportunities`)}</li>
@@ -312,24 +321,21 @@ function pageModel(registry) {
         <li>${escapeHtml(`${worklistRows} compact working-list entries`)}</li>
       </ul>
     </section>`,
-      section('two-levels', 'Two levels of directory intelligence', [
+      section('two-levels', t('bdx.twoLevels'), [
         '      <div class="bd-cards">',
-        `        <div class="bd-card"><h3>Detailed platform guides</h3>`,
-        `          <p>${escapeHtml('In-depth researched pages covering platform workflows, advantages, '
-          + 'limitations and verified listing details.')}</p>`,
+        `        <div class="bd-card"><h3>${t('bdx.detailedGuides')}</h3>`,
+        `          <p>${escapeHtml(t('bdx.detailedDesc'))}</p>`,
         `          <p class="bd-count">${escapeHtml(`${worklistEditorial} guides`)}</p>`,
-        `          <p><a href="${routes.BASE}">Browse detailed guides</a></p></div>`,
-        `        <div class="bd-card"><h3>Operational opportunities</h3>`,
-        `          <p>${escapeHtml('A larger working list of reputable platforms for employees and '
-          + 'business owners to review, prioritise and submit to. Some details are still unverified '
-          + 'and a few entries need a browser check before submitting.')}</p>`,
+        `          <p><a href="${routes.BASE}">${t('bdx.browseGuides')}</a></p></div>`,
+        `        <div class="bd-card"><h3>${t('bdx.operationalOpps')}</h3>`,
+        `          <p>${escapeHtml(t('bdx.workingListDesc'))}</p>`,
         `          <p class="bd-count">${escapeHtml(`${worklist.length} opportunities`)}</p>`,
-        `          <p><a href="${OPPORTUNITIES_PATH}">Open the complete working list</a></p></div>`,
+        `          <p><a href="${OPPORTUNITIES_PATH}">${t('bdx.openWorkingList')}</a></p></div>`,
         '      </div>',
       ].join('\n'))] : []),
       statLine,
       // A. Authority — the domain, measured by a third party.
-      ...(authorityEntries.length ? [section('highest-authority', 'Highest authority business directories', [
+      ...(authorityEntries.length ? [section('highest-authority', t('bdx.highestAuthority'), [
         `      <p>${escapeHtml(`Ranked by Domain Rating, a dated Ahrefs snapshot of the measured `
           + `domain's authority. ${measured.length} of ${allDirectories.length} records carry a `
           + 'measurement. A high Domain Rating describes the domain; it does not guarantee that a '
@@ -337,40 +343,36 @@ function pageModel(registry) {
           + "domain's authority.")}</p>`,
         c.directoryTable({
           directories: authorityEntries,
-          caption: 'Highest authority business directories in the verified dataset',
+          caption: t('bdx.highestAuthorityIn'),
           columns: authorityColumns,
           sortKey: 'domain-rating',
         }),
       ].join('\n'))] : []),
       // B. Value — the directory, assessed editorially.
-      section('best-directories', 'Best business directories', [
-        `      <p>${escapeHtml('Ranked by PetroHrys Score, a first-party editorial assessment of how '
-          + 'useful, trustworthy and relevant a directory is for businesses. It is not a Domain '
-          + 'Rating, an SEO or authority metric, or a review rating.')} `
-          + `<a href="${routes.articlePath('how-petrohrys-score-works')}">How the score is produced</a>.</p>`,
+      section('best-directories', t('bdx.bestDirectories'), [
+        `      <p>${escapeHtml(t('bdx.rankedByScore'))} `
+          + `<a href="${routes.articlePath('how-petrohrys-score-works')}">${t('bdx.howScoreProduced')}</a>.</p>`,
         c.directoryTable({
           directories: bestEntries,
-          caption: 'Best business directories in the verified dataset',
+          caption: t('bdx.bestDirectoriesIn'),
           columns: bestColumns,
         }),
         c.metricNote(activeMetrics),
       ].join('\n')),
-      ...(globalBody ? [section('global', 'Global directories', globalBody)] : []),
-      ...(supranationalLinks.length ? [section('supranational', 'Supranational registries', [
-        `      <p>${escapeHtml('These registries are operated above the level of any single '
-          + 'state, so they are listed apart from the national grid. A supranational system '
-          + 'often provides access to records that national authorities hold and constitute.')}</p>`,
+      ...(globalBody ? [section('global', t('bdx.globalDirectories'), globalBody)] : []),
+      ...(supranationalLinks.length ? [section('supranational', t('bdx.supranational'), [
+        `      <p>${escapeHtml(t('bdx.supranationalDesc'))}</p>`,
         c.cardGrid(supranationalLinks.map((l) => c.countryCard({ ...l, headingLevel: 3 })),
-          { label: 'Supranational registries' }),
+          { label: t('bdx.supranational') }),
       ].join('\n'))] : []),
-      section('countries', 'Directories by country',
+      section('countries', t('bdx.byCountry'),
         c.cardGrid(publishedCountries.map((l) => c.countryCard({ ...l, headingLevel: 3 })),
-          { label: 'Directories by country' })),
-      section('guides', 'Editorial guides',
-        `      <p>Guides drawn from this dataset explain how directories are chosen, scored and verified.</p>\n`
-        + `      <p class="bd-cta"><a href="${routes.articlesPath()}">Browse the editorial guides</a></p>`),
-      section('methodology', 'Methodology', `${c.methodologyNote()}\n${c.metricNote(activeMetrics)}`),
-      section('faq', 'Questions', c.faqSection(HUB_FAQS)),
+          { label: t('bdx.byCountry') })),
+      section('guides', t('bdx.editorialGuides'),
+        `      <p>${t('bdx.guidesIntro')}</p>\n`
+        + `      <p class="bd-cta"><a href="${routes.articlesPath()}">${t('bdx.browseEditorial')}</a></p>`),
+      section('methodology', t('common.methodology'), `${c.methodologyNote()}\n${c.metricNote(activeMetrics)}`),
+      section('faq', t('bdx.questions'), c.faqSection(hubFaqs(t))),
     ].join('\n\n'),
   });
 
@@ -385,12 +387,12 @@ function pageModel(registry) {
     meta: seo.buildArticleIndexMeta({ articles: articleLinks }),
     main: [
       c.pageIntro({
-        title: 'Business Directory Guides',
-        lede: 'Editorial guides drawn from the verified directory dataset. Every list and table is generated from those records at build time.',
+        title: t('bdx.guidesTitle'),
+        lede: t('bdx.guidesDesc'),
       }),
-      section('guides', 'Guides', c.cardGrid(articles.map((a) => c.categoryCard({
+      section('guides', t('bdx.guides'), c.cardGrid(articles.map((a) => c.categoryCard({
         name: a.title, path: routes.articlePath(a.slug), description: a.description, headingLevel: 3,
-      })), { label: 'Guides' })),
+      })), { label: t('bdx.guides') })),
     ].join('\n\n'),
   });
 
@@ -440,36 +442,36 @@ function pageModel(registry) {
     const rowCount = actionable.filter((d) => d.isOperationalRow).length;
     const countryCount = new Set(actionable.map((d) => d.country)).size;
     const FACETS = [
-      { name: 'country', key: 'country', label: 'Market' },
-      { name: 'category', key: 'category', label: 'Platform type' },
-      { name: 'priority', key: 'priority', label: 'Priority', fallback: 'unassessed',
+      { name: 'country', key: 'country', label: t('col.market') },
+      { name: 'category', key: 'category', label: t('bdx.platformType') },
+      { name: 'priority', key: 'priority', label: t('col.priority'), fallback: 'unassessed',
         order: ['P1', 'P2', 'P3', 'hold'],
-        labels: { P1: 'P1 — do first', P2: 'P2 — valuable', P3: 'P3 — optional', hold: 'Hold', unassessed: 'Not assessed' } },
-      { name: 'cost', key: 'submissionModel', label: 'Cost', fallback: 'unknown',
+        labels: { P1: t('bdx.p1'), P2: t('bdx.p2'), P3: t('bdx.p3'), hold: t('priority.hold'), unassessed: t('bdx.notAssessed') } },
+      { name: 'cost', key: 'submissionModel', label: t('col.cost'), fallback: 'unknown',
         order: ['free', 'freemium', 'paid', 'unknown'],
-        labels: { free: 'Free', freemium: 'Freemium', paid: 'Paid', unknown: 'Unknown' } },
-      { name: 'action', key: 'listingAction', label: 'Listing action', fallback: 'unknown',
+        labels: { free: t('cost.free'), freemium: t('bdx.freemium'), paid: t('cost.paid'), unknown: t('common.unknown') } },
+      { name: 'action', key: 'listingAction', label: t('bdx.listingAction'), fallback: 'unknown',
         order: ['create', 'claim', 'create-and-claim', 'apply', 'invite-only', 'unknown'],
-        labels: { create: 'Create', claim: 'Claim', 'create-and-claim': 'Create or claim', apply: 'Apply', 'invite-only': 'Invite only', unknown: 'Unknown' } },
-      { name: 'tier', key: 'tier', label: 'Reputation',
+        labels: { create: t('bdx.create'), claim: t('bdx.claim'), 'create-and-claim': t('bdx.createOrClaim'), apply: t('bdx.apply'), 'invite-only': t('bdx.inviteOnly'), unknown: t('common.unknown') } },
+      { name: 'tier', key: 'tier', label: t('bdx.reputation'),
         order: ['tier1', 'tier2', 'tier3'],
-        labels: { tier1: 'Tier A — exceptional', tier2: 'Tier B — established', tier3: 'Tier C — niche' } },
-      { name: 'status', key: 'currentStatus', label: 'Status', fallback: 'unknown',
+        labels: { tier1: t('bdx.tierA'), tier2: t('bdx.tierB'), tier3: t('bdx.tierC') } },
+      { name: 'status', key: 'currentStatus', label: t('col.status'), fallback: 'unknown',
         order: ['active', 'unknown'],
-        labels: { active: 'Active', unknown: 'Needs browser check' } },
+        labels: { active: t('currentStatus.active'), unknown: t('currentStatus.unknown') } },
       // Directory Intelligence v2 filters. Every value is computed from facts
       // already on the record; a platform with too little evidence to score
       // shows as "Not yet scored" rather than being hidden or guessed at.
-      { name: 'score', key: 'scoreBand', label: 'Directory Score', fallback: 'unscored',
+      { name: 'score', key: 'scoreBand', label: t('bdx.directoryScore'), fallback: 'unscored',
         order: ['strong', 'good', 'moderate', 'limited', 'unscored'],
-        labels: { ...INTEL.BAND_LABELS, unscored: 'Not yet scored' } },
-      { name: 'approval', key: 'approvalMode', label: 'Approval', fallback: 'unknown',
+        labels: { ...INTEL.BAND_LABELS, unscored: t('band.unscored') } },
+      { name: 'approval', key: 'approvalMode', label: t('bdx.approval'), fallback: 'unknown',
         order: ['instant', 'mixed', 'manual', 'unknown'],
-        labels: { instant: 'Instant', mixed: 'Mixed', manual: 'Manual review', unknown: 'Unknown' } },
-      { name: 'reach', key: 'countryReach', label: 'Country reach', fallback: 'unknown',
+        labels: { instant: t('bdx.instant'), mixed: t('bd.mixed'), manual: t('bdx.manualReview'), unknown: t('common.unknown') } },
+      { name: 'reach', key: 'countryReach', label: t('bdx.countryReach'), fallback: 'unknown',
         order: ['global', 'regional', 'single', 'unknown'],
-        labels: { global: 'Global', regional: 'Regional', single: 'Single country', unknown: 'Unknown' } },
-      { name: 'bestfor', key: 'bestForKey', label: 'Best for', fallback: '',
+        labels: { global: t('geo.global'), regional: t('geo.regional'), single: t('bdx.singleCountry'), unknown: t('common.unknown') } },
+      { name: 'bestfor', key: 'bestForKey', label: t('col.bestFor'), fallback: '',
         order: RECOMMEND.PROFILES.map((p) => p.key),
         labels: Object.fromEntries(RECOMMEND.PROFILES.map((p) => [p.key, p.label])) },
     ];
@@ -482,11 +484,9 @@ function pageModel(registry) {
       main: [
         c.pageIntro({
           title: `${actionable.length} Business Listing Opportunities`,
-          lede: 'Find reputable websites where companies, products and professional services can '
-            + 'build visibility through public profiles, directories, reviews, marketplaces and '
-            + 'supplier listings. Every row is a researched platform; nothing here is a ranking.',
+          lede: t('bdx.oppsLede'),
         }),
-        section('worklist', 'Working list', [
+        section('worklist', t('bdx.workingList'), [
           `      <p>${escapeHtml(`${actionable.length} platforms across ${countryCount} markets. `
             + `${editorialCount} carry a detailed guide; ${rowCount} are compact entries for `
             + 'operational review. Records that are shutting down, dormant, redirected into a '
@@ -503,25 +503,25 @@ function pageModel(registry) {
           '      </div>',
           `      <p class="bd-note"><a class="bd-button" href="/research/business-directories/opportunities.csv" download>`
             + `Download all ${actionable.length} opportunities as CSV</a> `
-            + `${escapeHtml('Designed for Excel, Google Sheets and internal submission workflows.')}</p>`,
+            + `${escapeHtml(t('bdx.csvNote'))}</p>`,
           c.directoryTable({
             directories: actionable,
-            caption: 'Business listing opportunities',
+            caption: t('bdx.listingOpps'),
             columns: OPP_COLUMNS,
             sortKey: null,
           }),
           `      <p class="bd-note"><a href="${escapeHtml(SCHEMA.AHREFS_ATTRIBUTION.href)}" `
             + `rel="noopener noreferrer" target="_blank">${escapeHtml(SCHEMA.AHREFS_ATTRIBUTION.text)}</a>. `
-            + `${escapeHtml('A Domain Rating describes the domain, not the value of a listing on it. Most rows are not measured.')}</p>`,
+            + `${escapeHtml(t('bdx.drCaveat'))}</p>`,
         ].join('\n')),
-        ...(other.length ? [section('other-countries', 'Other countries', [
+        ...(other.length ? [section('other-countries', t('bdx.otherCountries'), [
           `      <p>${escapeHtml(`${other.length} of these platforms are based in countries that do `
             + 'not yet have a page of their own here. They are listed together rather than split '
             + 'into single-record country pages. A country gets its own page once it has enough '
             + 'researched platforms to make one worth reading.')}</p>`,
           c.directoryTable({
             directories: other,
-            caption: 'Platforms from other countries',
+            caption: t('bdx.platformsOther'),
             columns: OPP_COLUMNS.filter((col) => col !== 'domainRating'
               || other.some((d) => d.domainRating !== null && d.domainRating !== undefined)),
             sortKey: null,
@@ -563,16 +563,15 @@ function pageModel(registry) {
             title: `Best business directories for ${profile.label}`,
             lede: profile.blurb,
           }),
-          section('ranked', 'Ranked recommendations', [
+          section('ranked', t('bdx.rankedRecs'), [
             `      <p>${escapeHtml(`${ranked.length} platforms, ranked by how well each suits `
               + `${profile.label} rather than by how good it is in general. `
               + `${byLevel('priority')} priority, ${byLevel('recommended')} recommended, `
               + `${byLevel('possible')} possible, ${byLevel('marginal')} marginal. `
-              + 'A Recommendation Score is fit multiplied by platform quality, so a strong '
-              + 'platform for a different kind of business scores low here on purpose.')}</p>`,
+              + t('bdx.recScoreNote'))}</p>`,
             c.recommendationTable({ rows, profileLabel: profile.label }),
           ].join('\n')),
-          section('methodology', 'How these were selected', [
+          section('methodology', t('rec.method'), [
             `      <p>${escapeHtml('Nothing on this page is a curated list. Every actionable '
               + 'platform in the database was scored against one declaration of what '
               + `${profile.label} need, and the ranking is what came back.`)}</p>`,
@@ -581,21 +580,18 @@ function pageModel(registry) {
               + 'types it accepts, that statement is used. Where it does not, the platform\'s '
               + 'category is used, and failing that the words in its own description. Each row '
               + 'shows which of the three applied.')}</li>`,
-            `        <li>${escapeHtml('A platform that states it does NOT accept this kind of '
-              + 'business is excluded outright, however good it is.')}</li>`,
-            `        <li>${escapeHtml('Quality is the Directory Score where there is enough '
-              + 'evidence to compute one, and a discounted fallback from reputation and status '
-              + 'where there is not.')}</li>`,
+            `        <li>${escapeHtml(t('bdx.excludedOutright'))}</li>`,
+            `        <li>${escapeHtml(t('bdx.qualityFallback'))}</li>`,
             '      </ul>',
           ].join('\n')),
-          section('limitations', 'Limitations', [
+          section('limitations', t('common.limitations'), [
             `      <p>${escapeHtml('These rankings reflect evidence recorded, not a survey of '
               + 'outcomes. A well-documented platform can outrank a better one that has been '
               + 'researched less. Rows marked Possible or Marginal rest on a category or a '
               + 'keyword rather than the platform\'s own statement of who it accepts — treat '
               + 'them as candidates to check, not conclusions.')}</p>`,
             `      <p class="bd-note"><a class="bd-button" href="${OPPORTUNITIES_PATH}">`
-              + `${escapeHtml('Browse all opportunities')}</a></p>`,
+              + `${escapeHtml(t('bdx.browseAllOpps'))}</a></p>`,
           ].join('\n')),
         ].join('\n\n'),
       });
@@ -634,7 +630,7 @@ function pageModel(registry) {
       }))
       .sort((a, b) => (b.count - a.count) || (a.name < b.name ? -1 : a.name > b.name ? 1 : 0));
     const countryColumns = c.tableColumnsFor(countryEntries);
-    const faqs = countryFaqs(country, countryEntries.length);
+    const faqs = countryFaqs(country, countryEntries.length, t);
     const meta = seo.buildCountryMeta({
       country,
       categories: categoryLinks.filter((l) => !l.pending),
@@ -660,7 +656,7 @@ function pageModel(registry) {
         // entityType, and it sits beside the heading rather than inside it so
         // the H1 stays the page's own name.
         ...(country.entityType === 'supranational' ? [
-          `      <ul class="bd-badges" aria-label="Geographic scope">\n`
+          `      <ul class="bd-badges" aria-label="${escapeHtml(t('bdx.geographicScope'))}">\n`
           + `        <li class="bd-badge">${escapeHtml(SCHEMA.SCOPE_LABELS[country.scope] || SCHEMA.SCOPE_LABELS.supranational)}</li>\n`
           + `      </ul>`,
         ] : []),
@@ -672,10 +668,10 @@ function pageModel(registry) {
         // actually covered, so 31 state registries never read as 50.
         c.coverageStatement(coverageManifests.get(country.slug),
           new Set(countryEntries.filter((d) => d.jurisdiction).map((d) => d.jurisdiction.code))),
-        ...(categoryLinks.length ? [section('categories', 'Directory categories',
+        ...(categoryLinks.length ? [section('categories', t('bdx.directoryCategories'),
           c.cardGrid(categoryLinks.map((l) => c.categoryCard({ ...l, headingLevel: 3 })),
-            { label: 'Directory categories' }))] : []),
-        section('directories', 'All directories', [
+            { label: t('bdx.directoryCategories') }))] : []),
+        section('directories', t('bdx.allDirectories'), [
           c.searchControls({ idPrefix: country.slug }),
           c.filterControls({ idPrefix: country.slug, directories: countryEntries }),
           c.sortControls({ idPrefix: country.slug, columns: countryColumns }),
@@ -683,7 +679,7 @@ function pageModel(registry) {
           // it always has. Grouping appears only once the coverage exists, so
           // the United States does not carry an empty "States" heading before
           // any state registry is published.
-          ...(jurisdictionSections(country, countryEntries, countryColumns)
+          ...(jurisdictionSections(country, countryEntries, countryColumns, c)
             || [c.directoryTable({
               directories: countryEntries,
               caption: `Directories in ${country.name}`,
@@ -691,7 +687,7 @@ function pageModel(registry) {
             })]),
           c.metricNote(activeMetrics),
         ].join('\n')),
-        section('faq', 'Questions', c.faqSection(faqs)),
+        section('faq', t('bdx.questions'), c.faqSection(faqs)),
       ].join('\n\n'),
     });
 
@@ -710,7 +706,7 @@ function pageModel(registry) {
           c.pageIntro({ title: catMeta.title, lede: category.description }),
           ...(worklist.length ? [`    <p class="bd-note"><a href="${OPPORTUNITIES_PATH}">`
             + escapeHtml(`See all ${worklist.length} business listing opportunities`) + '</a></p>'] : []),
-          section('directories', 'Directories', [
+          section('directories', t('bd.directories'), [
             c.searchControls({ idPrefix: `${country.slug}-${category.slug}` }),
             c.filterControls({ idPrefix: `${country.slug}-${category.slug}`, directories: entries }),
             c.sortControls({ idPrefix: `${country.slug}-${category.slug}`, columns: c.tableColumnsFor(entries) }),
@@ -746,13 +742,13 @@ function pageModel(registry) {
       const guideLinks = guides.length ? [
         `      <ul class="bd-list">\n${guides.map((g) =>
           `        <li><a href="${routes.articlePath(g.slug)}">${escapeHtml(g.title)}</a></li>`).join('\n')}\n      </ul>`,
-      ].join('\n') : '      <p class="bd-empty">No guide covers this directory yet.</p>';
+      ].join('\n') : `      <p class="bd-empty">${t('bdx.noGuideYet')}</p>`;
 
       // Where this record sits, in words rather than slugs, so the reader can
       // climb back out without using the breadcrumb.
       const context = `      <ul class="bd-list">
         <li><a href="${routes.countryPath(country.slug)}">All directories in ${escapeHtml(country.name)}</a></li>
-${category ? `        <li><a href="${routes.categoryPath(country.slug, category.slug)}">${escapeHtml(category.name)} directories in ${escapeHtml(country.name)}</a></li>\n` : ''}        <li><a href="${routes.hubPath()}">Business Directories index</a></li>
+${category ? `        <li><a href="${routes.categoryPath(country.slug, category.slug)}">${escapeHtml(category.name)} directories in ${escapeHtml(country.name)}</a></li>\n` : ''}        <li><a href="${routes.hubPath()}">${t('bdx.indexTitle')}</a></li>
       </ul>`;
 
       pages.push({
@@ -768,23 +764,23 @@ ${category ? `        <li><a href="${routes.categoryPath(country.slug, category.
           c.pageIntro({ title: displayName(directory), lede: directory.description }),
           c.externalLinkCta({ url: directory.website, name: displayName(directory) }),
           c.statusBadges(directory),
-          section('score', 'PetroHrys Score', `${c.metricsBlock(directory, activeMetrics)}\n${c.metricNote(activeMetrics)}`),
-          section('verification', 'Verification', c.verificationBlock(directory)),
+          section('score', t('bd.petrohrysScore'), `${c.metricsBlock(directory, activeMetrics)}\n${c.metricNote(activeMetrics)}`),
+          section('verification', t('bdx.verification'), c.verificationBlock(directory)),
           // Conditional: renders nothing at all for a record that carries none
           // of the structured registry fields, so pre-Wave-1 pages are unchanged.
           ...(c.listingInformation(directory)
-            ? [section('listing-information', 'Listing', c.listingInformation(directory))]
+            ? [section('listing-information', t('bdx.listing'), c.listingInformation(directory))]
             : []),
           ...(c.registryInformation(directory)
-            ? [section('registry-information', 'Registry information', c.registryInformation(directory))]
+            ? [section('registry-information', t('bdx.registryInformation'), c.registryInformation(directory))]
             : []),
-          section('assessment', 'Assessment', c.prosCons({ pros: directory.pros, cons: directory.cons, headingLevel: 3 })),
-          section('guidance', 'Submission guidance',
+          section('assessment', t('bdx.assessment'), c.prosCons({ pros: directory.pros, cons: directory.cons, headingLevel: 3 })),
+          section('guidance', t('bdx.submissionGuidance'),
             `${c.submissionLink(directory)}\n${c.editorialGuidance(directory, activeGuidance)}`),
-          section('audiences', 'What this directory accepts', c.acceptsList(directory)),
-          section('industries', 'Recommended industries', c.bestForTags(directory.recommendedIndustries)),
-          section('breakdown', 'How the PetroHrys Score was reached', c.scoreBreakdown(directory)),
-          section('related', 'Related directories', c.relatedDirectories(
+          section('audiences', t('bdx.whatAccepts'), c.acceptsList(directory)),
+          section('industries', t('bd.recommendedIndustries'), c.bestForTags(directory.recommendedIndustries)),
+          section('breakdown', t('bdx.howScoreReached'), c.scoreBreakdown(directory)),
+          section('related', t('bdx.relatedDirectories'), c.relatedDirectories(
             SCHEMA.RELATION_KINDS.map((kind) => ({
               label: SCHEMA.RELATION_LABELS[kind],
               items: (directory.related[kind] || [])
@@ -792,8 +788,8 @@ ${category ? `        <li><a href="${routes.categoryPath(country.slug, category.
                 .filter(Boolean)
                 .map((target) => ({ name: target.name, path: routes.directoryPathFor(target) })),
             })))),
-          section('guides', 'Guides covering this directory', guideLinks),
-          section('context', 'Where this sits', context),
+          section('guides', t('bdx.guidesCovering'), guideLinks),
+          section('context', t('bdx.whereThisSits'), context),
         ].join('\n\n'),
       });
     }
@@ -817,8 +813,13 @@ function stageBuild(registry, pages) {
   // and the same 1,563 records feed all four renders — no locale gets a copy.
   // The English page keeps its existing outPath so nothing already published
   // moves; the other locales are written under their prefix.
-  for (const page of pages) {
-    for (const locale of I18N.LOCALE_CODES) {
+  // The page MODEL is rebuilt per locale so the body is localized, not just the
+  // shell. Rebuilding is cheap next to the alternative: a single English body
+  // rendered into four shells, which is the defect this replaces.
+  for (const locale of I18N.LOCALE_CODES) {
+    const localePages = locale === I18N.DEFAULT_LOCALE ? pages : pageModel(registry, locale);
+    for (let i = 0; i < localePages.length; i += 1) {
+      const page = localePages[i];
       const out = locale === I18N.DEFAULT_LOCALE
         ? page.outPath
         : I18N.localizedFile(locale, page.meta.canonicalPath);
@@ -908,7 +909,20 @@ function validateStage(files, pages) {
   }
 
   // The sitemap may only reference pages that were actually staged.
-  const staged = new Set(pages.map((page) => page.meta.canonical));
+  //
+  // The staged set now covers every LOCALE of every page, not just the English
+  // canonical. The sitemap began emitting localized URLs — 1,200 pages that
+  // existed and were indexable but appeared in no sitemap — and this check
+  // rejected them, correctly by its own logic and wrongly in effect: those
+  // pages are staged, they were simply absent from a set built only from
+  // English canonicals. Derived from the locale registry so it cannot drift.
+  const staged = new Set();
+  for (const page of pages) {
+    for (const locale of I18N.LOCALE_CODES) {
+      staged.add(`${seo.ORIGIN}${I18N.localizedPath(locale, page.meta.canonicalPath)}`);
+    }
+    staged.add(page.meta.canonical);
+  }
   const sitemap = files.get(SITEMAP_FILE) || '';
   for (const match of sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)) {
     if (!staged.has(match[1])) {

@@ -1,0 +1,42 @@
+{
+  "_comment": [
+    "German hub content. Uncertainty is preserved deliberately: 'where possible'",
+    "stays 'wo möglich' and 'arrive in Phase 2' stays a future statement — neither",
+    "becomes a claim that the work is already done."
+  ],
+  "title": "Forschung — Petro Hrys",
+  "description": "Untersuchungen zu Suchsystemen, Indexierungsverhalten und Crawl-Architektur sowie drei geprüfte Datenbanken und ein Planer, der zwischen ihnen auswählt.",
+  "h1": "Forschung",
+  "lede": "Untersuchungen zu Suchsystemen, Indexierungsverhalten und Crawl-Architektur.",
+  "scope": {
+    "heading": "Umfang",
+    "paragraphs": [
+      "Die Forschung hier befasst sich damit, wie sich Suchsysteme durchgängig verhalten &mdash; wie Crawler URLs entdecken und erneut entdecken, wie Indexer Dokumente speichern und bewerten, wie Retrieval-Systeme Ergebnisse zusammenstellen und wie die Oberfläche des Webs bestimmt, was auffindbar wird. Die Einträge sind wo möglich empirisch: kleine Experimente, Vergleiche des beobachtbaren Verhaltens verschiedener Suchmaschinen und Notizen zu den darunterliegenden Systemen.",
+      "Angrenzende Arbeiten zu Entitätsarchitektur, strukturierten Daten und KI-gestütztem Retrieval werden verlinkt statt dupliziert."
+    ]
+  },
+  "collections": {
+    "heading": "Sammlungen",
+    "intro": "Drei veröffentlichte Datenbanken und ein Werkzeug, das zwischen ihnen auswählt. Jede ist manuell geprüft, als CSV exportierbar und benennt, was sie ausschließt.",
+    "items": {
+      "directories": "Ein Länderindex, der festhält, was jedes Verzeichnis akzeptiert, wie es verlinkt und wann es zuletzt geprüft wurde.",
+      "opportunities": "Die Arbeitsdatenbank: wo ein Unternehmen ein öffentliches Profil anlegen, beanspruchen oder beantragen kann &mdash; jeweils mit Kosten, Eintragungsart und Priorität.",
+      "media": "Wo ein Unternehmen veröffentlicht, einreicht, pitcht, sponsert, launcht oder Fachwissen beisteuert &mdash; Medien, Presseverteiler, Autorenprogramme, Launch-Plattformen und Journalisten-Anfragedienste, jeweils mit Art der Gelegenheit und dem Weg dorthin.",
+      "marketplaces": "Wo ein Unternehmen oder eine Person ein Inserat statt eines Profils veröffentlicht &mdash; Kleinanzeigen, Fahrzeuge, Immobilien, Stellen, Dienstleistungen, B2B-Handel, Auktionen und Wiederverkauf &mdash; mit Art, Kosten der Anzeige und wer inserieren darf."
+    },
+    "chooseHeading": "Über alle drei hinweg auswählen",
+    "chooseBody": "Jede Datenbank oben beantwortet eine andere Frage. <strong>{directories}</strong> ist der Ort, an dem ein Unternehmen ein professionelles Profil anlegt oder beansprucht. <strong>{marketplaces}</strong> ist der Ort, an dem es ein Inserat oder eine Anzeige veröffentlicht. <strong>{media}</strong> ist der Ort, an dem es pitcht, veröffentlicht, launcht oder sponsert. Der Planer wählt die beste Kombination für ein Unternehmen, ein Ziel, einen Markt und ein Budget &mdash; und tut nie so, als wären die drei Handlungen gleichwertig.",
+    "plannerDesc": "Wählen Sie Unternehmen, Ziel, Markt und Budgetrahmen und erhalten Sie einen priorisierten Plan über alle drei Datenbanken hinweg &mdash; mit Handlung, Kosten, Belegen und einem direkten Link, sofern einer erfasst ist.",
+    "plannerCta": "Distributionsplaner öffnen &rarr;"
+  },
+  "entries": {
+    "heading": "Einträge",
+    "body": "Einzelne Studien folgen in Phase 2. Bis dahin sind die obigen Sammlungen die veröffentlichte Arbeit."
+  },
+  "related": {
+    "heading": "Verwandtes",
+    "bodyPrefix": "Vorhandene einschlägige Texte: ",
+    "aiLabel": "Künstliche Intelligenz als praktische Betriebsebene",
+    "blogLabel": "Blog-Archiv"
+  }
+}

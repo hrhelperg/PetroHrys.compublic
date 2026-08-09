@@ -1,0 +1,42 @@
+{
+  "_comment": [
+    "Contenu du hub en français. L'incertitude est préservée volontairement :",
+    "« where possible » reste « lorsque c'est possible » et « arrive in Phase 2 »",
+    "reste une affirmation au futur."
+  ],
+  "title": "Recherche — Petro Hrys",
+  "description": "Études sur les systèmes de recherche, le comportement d'indexation et l'architecture d'exploration, ainsi que trois bases de données vérifiées et un planificateur qui choisit parmi elles.",
+  "h1": "Recherche",
+  "lede": "Études sur les systèmes de recherche, le comportement d'indexation et l'architecture d'exploration.",
+  "scope": {
+    "heading": "Périmètre",
+    "paragraphs": [
+      "La recherche présentée ici porte sur le comportement des systèmes de recherche de bout en bout &mdash; comment les robots découvrent et redécouvrent les URLs, comment les indexeurs stockent et classent les documents, comment les systèmes de recherche composent les résultats et comment la surface du web détermine ce qui devient trouvable. Les entrées sont empiriques lorsque c'est possible : petites expériences, comparaisons du comportement observable entre moteurs et notes sur les systèmes sous-jacents.",
+      "Les travaux connexes sur l'architecture des entités, les données structurées et la recherche assistée par IA sont liés plutôt que dupliqués."
+    ]
+  },
+  "collections": {
+    "heading": "Collections",
+    "intro": "Trois bases de données publiées et un outil qui choisit parmi elles. Chacune est vérifiée manuellement, exportable en CSV et indique ce qu'elle exclut.",
+    "items": {
+      "directories": "Un index pays par pays qui consigne ce que chaque annuaire accepte, comment il établit ses liens et quand il a été vérifié pour la dernière fois.",
+      "opportunities": "La base de données de travail : où une entreprise peut créer, revendiquer ou demander un profil public, avec le coût, le type d'inscription et la priorité pour chacun.",
+      "media": "Où une entreprise publie, soumet, propose des sujets, sponsorise, lance ou apporte son expertise &mdash; médias, réseaux de communiqués de presse, programmes de contributeurs, plateformes de lancement et services de mise en relation avec des journalistes, avec le type d'opportunité et la voie à suivre pour chacun.",
+      "marketplaces": "Où une entreprise ou un particulier publie une annonce plutôt qu'un profil &mdash; petites annonces, véhicules, immobilier, emploi, services, commerce B2B, enchères et revente &mdash; avec le type, le coût de publication et qui peut publier."
+    },
+    "chooseHeading": "Choisir parmi les trois",
+    "chooseBody": "Chaque base de données ci-dessus répond à une question différente. <strong>{directories}</strong> est l'endroit où une entreprise crée ou revendique un profil professionnel. <strong>{marketplaces}</strong> est l'endroit où elle publie une annonce ou une publicité. <strong>{media}</strong> est l'endroit où elle propose des sujets, publie, lance ou sponsorise. Le planificateur retient la meilleure combinaison pour une entreprise, un objectif, un marché et un budget &mdash; et ne prétend jamais que les trois actions sont équivalentes.",
+    "plannerDesc": "Sélectionnez une entreprise, un objectif, un marché et une posture budgétaire, et obtenez un plan hiérarchisé couvrant les trois bases de données, avec l'action, le coût, les preuves et un lien direct lorsqu'il en existe un.",
+    "plannerCta": "Ouvrir le Planificateur de Distribution &rarr;"
+  },
+  "entries": {
+    "heading": "Entrées",
+    "body": "Les études individuelles arriveront en Phase 2. D'ici là, les collections ci-dessus constituent le travail publié."
+  },
+  "related": {
+    "heading": "Connexe",
+    "bodyPrefix": "Textes pertinents existants : ",
+    "aiLabel": "L'intelligence artificielle comme couche opérationnelle pratique",
+    "blogLabel": "Archives du blog"
+  }
+}

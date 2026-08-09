@@ -1,0 +1,142 @@
+{
+  "_comment": [
+    "Localization policy, one entry per canonical route that is not already",
+    "available in all four locales. This is a REGISTRY, not documentation: the",
+    "guards in scripts/tests/route-policy.test.cjs read it, so a route cannot",
+    "quietly appear or disappear without a test failing, and a route cannot sit",
+    "in limbo without a stated disposition.",
+    "",
+    "Dispositions:",
+    "  LOCALIZE            — should have DE/ES/FR; listed with its word count so",
+    "                        the remaining work is quantified rather than vague.",
+    "  INTENTIONALLY_EN_ONLY — defensible editorial/market reason for English only.",
+    "  NOINDEX_TECHNICAL   — not a localization target.",
+    "  REDIRECT_OR_OBSOLETE— should not generate locale copies.",
+    "  DUPLICATE_OR_ALIAS  — canonical route exists elsewhere.",
+    "",
+    "'words' is the measured English body word count, so the translation cost of",
+    "the backlog is a derived number and not an estimate."
+  ],
+  "routes": [
+    {
+      "route": "/esimky/",
+      "disposition": "LOCALIZE",
+      "words": 332,
+      "reason": "Public product page. eSIMky sells international data plans, so a non-English audience is the core audience, not an edge case. Four sibling products (PDF Editor, Invoice Maker, CV Builder, Pocket Manager) are already localized; this is the same class of page and the asymmetry is an oversight, not a decision."
+    },
+    {
+      "route": "/twinphone/",
+      "disposition": "LOCALIZE",
+      "words": 454,
+      "reason": "Public product page in the same family as the already-localized products. Second-number/roaming use cases are strongly international."
+    },
+    {
+      "route": "/fax/",
+      "disposition": "LOCALIZE",
+      "words": 736,
+      "reason": "Public product page. Fax remains in routine business and administrative use in Germany and France specifically, so the DE/FR versions have clearer value than the English one."
+    },
+    {
+      "route": "/smart-printer/",
+      "disposition": "LOCALIZE",
+      "words": 755,
+      "reason": "Public product page, same family and same reasoning as the other localized products."
+    },
+    {
+      "route": "/tcg-scanner/",
+      "disposition": "LOCALIZE",
+      "words": 786,
+      "reason": "Public product page. Trading-card collecting has large German, French and Spanish markets."
+    },
+    {
+      "route": "/unzip/",
+      "disposition": "LOCALIZE",
+      "words": 920,
+      "reason": "Public product page. A file-archive utility is language-neutral in function, which makes it a low-risk translation with broad reach."
+    },
+    {
+      "route": "/blog/",
+      "disposition": "LOCALIZE",
+      "words": 207,
+      "reason": "Index of the blog. Thin and structural — mostly card titles and tags — so it should follow whichever posts get localized rather than lead them."
+    },
+    {
+      "route": "/articles/",
+      "disposition": "LOCALIZE",
+      "words": 193,
+      "reason": "Index page, thin and structural. Same reasoning as /blog/."
+    },
+    {
+      "route": "/templates/",
+      "disposition": "LOCALIZE",
+      "words": 211,
+      "reason": "Index page, thin and structural — the payload is template names and tags rather than prose, so it should follow the templates it lists rather than lead them."
+    },
+    {
+      "route": "/blog/best-pdf-editor-app-iphone-android/",
+      "disposition": "LOCALIZE",
+      "words": 1424,
+      "reason": "Substantive evergreen guide tied to an already-localized product. Highest-value long-form candidate, but it carries FAQ structured data whose answers must be translated in step with the visible text — a partial translation would put German prose above English schema answers."
+    },
+    {
+      "route": "/blog/what-is-business-globalization-open-economies.html",
+      "disposition": "LOCALIZE",
+      "words": 1726,
+      "reason": "Evergreen explanatory essay with no product or market dependency; translates cleanly."
+    },
+    {
+      "route": "/blog/smart-printer-guide.html",
+      "disposition": "LOCALIZE",
+      "words": 1510,
+      "reason": "Evergreen guide tied to an already-listed product page."
+    },
+    {
+      "route": "/blog/pokemon-tcg-card-value-scanner/",
+      "disposition": "LOCALIZE",
+      "words": 2128,
+      "reason": "Largest single article. Card-collecting terminology is partly untranslatable jargon (set names, grading scales, card conditions) and those are protected tokens, so this one needs a translator who knows the domain rather than a general pass."
+    },
+    {
+      "route": "/artificial-intelligence/",
+      "disposition": "LOCALIZE",
+      "words": 622,
+      "reason": "Substantive editorial page already linked from the localized footer, so a German reader currently follows a German label to an English page."
+    },
+    {
+      "route": "/essays/",
+      "disposition": "LOCALIZE",
+      "words": 51,
+      "reason": "Very thin index, linked from the localized footer. Cheap to localize and currently a locale escape."
+    },
+    {
+      "route": "/infrastructure/",
+      "disposition": "LOCALIZE",
+      "words": 46,
+      "reason": "Very thin index, linked from the localized footer."
+    },
+    {
+      "route": "/ai-systems/",
+      "disposition": "LOCALIZE",
+      "words": 48,
+      "reason": "Very thin index, linked from the localized footer."
+    },
+    {
+      "route": "/startups/",
+      "disposition": "INTENTIONALLY_EN_ONLY",
+      "words": 167,
+      "reason": "A directory of startups whose own listings, pitches and company names are English. Translating the surrounding chrome would produce a German page whose entire payload is English — the precise failure this programme exists to remove — while implying the listings themselves are available in German."
+    },
+    {
+      "route": "/startups/raising/",
+      "disposition": "INTENTIONALLY_EN_ONLY",
+      "words": 231,
+      "reason": "Live fundraising listings, same reasoning as /startups/. The content is submitted in English by founders and changes continuously; a localized shell around it would misrepresent what a reader gets."
+    },
+    {
+      "route": "/submit-startup/",
+      "disposition": "INTENTIONALLY_EN_ONLY",
+      "words": 231,
+      "reason": "Submission form for the English-language startup directory. The form is processed in English, so a German page inviting a German submission would set an expectation the pipeline does not honour."
+    }
+  ]
+}

@@ -40,7 +40,18 @@ function walk(dir, acc = []) {
   return acc;
 }
 
-const generatedPages = () => walk(SECTION).filter((f) => f.endsWith('.html'));
+// Every locale of the section, not just the English tree. SECTION points at the
+// English root, so this walked one quarter of what the build produces — fine
+// while the sitemap listed English alone, wrong once it listed all four.
+// Derived from the locale registry rather than listing the prefixes.
+const I18N_T = require('../lib/i18n.cjs');
+const sectionRoots = () => I18N_T.LOCALE_CODES.map((code) => (code === I18N_T.DEFAULT_LOCALE
+  ? SECTION
+  : path.join(code, SECTION)));
+const generatedPages = () => sectionRoots()
+  .filter((sectionRoot) => fs.existsSync(path.join(root, sectionRoot)))
+  .flatMap((sectionRoot) => walk(sectionRoot))
+  .filter((f) => f.endsWith('.html'));
 const locs = () => [...read(SITEMAP).matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
 
 // --- robots.txt -------------------------------------------------------------
@@ -371,15 +382,23 @@ test('every generated page corresponds to a registry fact', () => {
   const registry = loadRegistry();
   const manifest = JSON.parse(read(MANIFEST_FILE)).files;
   const pages = generatedPages();
-  // one page per manifest entry that is an html file, and nothing extra
-  // generatedPages() walks the ENGLISH section. The manifest now also owns the
-  // localized twin of every page, so it is compared against the English subset
-  // — and the localized ones are asserted separately, as a complete set, so
-  // this restatement cannot hide a missing translation.
+  // generatedPages() now walks EVERY locale of the section, so it is compared
+  // against the whole manifest rather than its English subset. The previous
+  // version compared English-to-English and checked the twins separately; that
+  // was correct when the walker saw one locale, and became a half-check the
+  // moment it saw four.
+  //
+  // Compared as complete sets in both directions: a page on disk with no
+  // manifest entry is an orphan, and a manifest entry with no page is a broken
+  // promise. Either is a defect, so neither direction is allowed to slide.
   const I18N = require(path.join(__dirname, '..', 'lib', 'i18n.cjs'));
   const allManifestPages = Object.keys(manifest).filter((f) => f.endsWith('.html'));
+  assert.deepStrictEqual(pages.sort(), allManifestPages.sort());
+
+  // And every English page still has a twin in every locale, asserted
+  // explicitly so a build that silently stopped emitting one language would
+  // fail here rather than merely shrinking both sides of the comparison above.
   const englishPages = allManifestPages.filter((f) => f.startsWith(`${SECTION}/`));
-  assert.deepStrictEqual(pages.sort(), englishPages.sort());
   for (const en of englishPages) {
     for (const code of I18N.LOCALE_CODES) {
       const want = I18N.localizedFile(code, `/${en.replace(/index\.html$/, '')}`);

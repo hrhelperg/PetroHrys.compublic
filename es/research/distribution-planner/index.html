@@ -146,7 +146,7 @@
   </header>
 
   <main id="main">
-    <nav class="breadcrumb bd-breadcrumb" aria-label="Breadcrumb">
+    <nav class="breadcrumb bd-breadcrumb" aria-label="Ruta de navegación">
       <ol class="bd-crumbs">
       <li class="bd-crumb"><a href="/es/">Inicio</a><span class="sep" aria-hidden="true">/</span></li>
       <li class="bd-crumb"><span aria-current="page">Planificador de distribución</span></li>
@@ -154,7 +154,7 @@
     </nav>
 
     <article class="page-hero">
-      <h1>Distribution Planner</h1>
+      <h1>Planificador de distribución</h1>
       <p class="lede">Choose a business, an objective, a market and a budget, and get a plan you can work through today — what to do, where to do it, what it costs and how sure we are.</p>
     </article>
 
@@ -162,7 +162,7 @@
       <h2 id="builder-h">1. Build a campaign</h2>
       <div class="bd-controls" data-dp-controls>
         <div class="bd-control">
-          <label class="bd-label" for="dp-business">Business or product</label>
+          <label class="bd-label" for="dp-business">Empresa o producto</label>
           <select class="bd-select" id="dp-business" data-dp-filter="business">
             <option value="b2b-saas">B2B SaaS</option>
             <option value="ai-startup">AI startup</option>
@@ -184,7 +184,7 @@
           </select>
         </div>
         <div class="bd-control">
-          <label class="bd-label" for="dp-objective">Objective</label>
+          <label class="bd-label" for="dp-objective">Objetivo</label>
           <select class="bd-select" id="dp-objective" data-dp-filter="objective">
             <option value="seo-citations">SEO and citations</option>
             <option value="brand-authority">Brand authority</option>
@@ -200,9 +200,9 @@
           </select>
         </div>
         <div class="bd-control">
-          <label class="bd-label" for="dp-market">Market</label>
+          <label class="bd-label" for="dp-market">Mercado</label>
           <select class="bd-select" id="dp-market" data-dp-filter="market">
-            <option value="*">Any market</option>
+            <option value="*">Cualquier mercado</option>
             <option value="albania">Albania</option>
             <option value="algeria">Algeria</option>
             <option value="argentina">Argentina</option>
@@ -317,7 +317,7 @@
           </select>
         </div>
         <div class="bd-control">
-          <label class="bd-label" for="dp-budget">Budget</label>
+          <label class="bd-label" for="dp-budget">Presupuesto</label>
           <select class="bd-select" id="dp-budget" data-dp-filter="budget">
             <option value="free-only">Free only</option>
             <option value="free-freemium" selected>Free or freemium</option>
@@ -326,7 +326,7 @@
           </select>
         </div>
         <div class="bd-control">
-          <label class="bd-label" for="dp-size">How many opportunities</label>
+          <label class="bd-label" for="dp-size">Cuántas oportunidades</label>
           <select class="bd-select" id="dp-size" data-dp-filter="size">
             <option value="10">10</option>
             <option value="25" selected>25</option>
@@ -335,12 +335,12 @@
           </select>
         </div>
         <div class="bd-control">
-          <label class="bd-label" for="dp-evidence">Evidence</label>
+          <label class="bd-label" for="dp-evidence">Pruebas</label>
           <select class="bd-select" id="dp-evidence" data-dp-filter="evidence">
-            <option value="ready" selected>Ready to execute only</option>
-            <option value="high">High confidence only</option>
-            <option value="research">Include research needed</option>
-            <option value="all">Everything</option>
+            <option value="ready" selected>Solo listas para ejecutar</option>
+            <option value="high">Solo alta confianza</option>
+            <option value="research">Incluir las que requieren investigación</option>
+            <option value="all">Todo</option>
           </select>
         </div>
       </div>
@@ -352,8 +352,8 @@
       <p>Everything here has a known action, a recorded route that matches that action, and no known blocker. Open the link in the last column and do the work. Nothing on this list is a guess: if we did not establish the route, the platform is in one of the queues below instead.</p>
 <div class="bd-table-wrap">
         <table class="bd-table">
-          <caption>Ready to execute</caption>
-          <thead><tr><th class="bd-cell" scope="col">Platform</th><th class="bd-cell" scope="col">Where</th><th class="bd-cell" scope="col">Cost</th><th class="bd-cell" scope="col">Effort</th><th class="bd-cell" scope="col">Time to publish</th><th class="bd-cell" scope="col">How sure</th><th class="bd-cell" scope="col">Do this</th></tr></thead>
+          <caption>Listo para ejecutar</caption>
+          <thead><tr><th class="bd-cell" scope="col">Plataforma</th><th class="bd-cell" scope="col">Dónde</th><th class="bd-cell" scope="col">Coste</th><th class="bd-cell" scope="col">Esfuerzo</th><th class="bd-cell" scope="col">Tiempo de publicación</th><th class="bd-cell" scope="col">Nivel de certeza</th><th class="bd-cell" scope="col">Haz esto</th></tr></thead>
           <tbody data-bd-rows>
           <tr class="bd-row" data-dp-status="READY" data-dp-collection="directories" data-dp-country="global" data-dp-cost="unknown" data-dp-confidence="LOW">
             <td class="bd-cell" data-bd-label="Platform"><a href="https://www.alibaba.com/" rel="noopener noreferrer" target="_blank">Alibaba.com</a></td>
@@ -898,7 +898,7 @@
           </tbody>
         </table>
       </div>
-      <p class="bd-note"><a class="bd-button" href="/research/distribution-planner/execution-opportunities.csv" download>Download the full work queue as CSV</a></p>
+      <p class="bd-note"><a class="bd-button" href="/research/distribution-planner/execution-opportunities.csv" download>Descargar la cola de trabajo completa en CSV</a></p>
     </section>
 
 <section id="campaign" aria-labelledby="campaign-h">
@@ -948,8 +948,8 @@
       <p>Relevant platforms where something operational is missing. These are deliberately kept out of the Ready queue: an employee should never discover mid-task that the route was assumed. Each row says exactly what is unknown.</p>
 <div class="bd-table-wrap">
         <table class="bd-table">
-          <caption>Needs research</caption>
-          <thead><tr><th class="bd-cell" scope="col">Platform</th><th class="bd-cell" scope="col">Where</th><th class="bd-cell" scope="col">What is missing</th><th class="bd-cell" scope="col">Why it matters</th><th class="bd-cell" scope="col">Suggested research</th><th class="bd-cell" scope="col">Do this</th></tr></thead>
+          <caption>Requiere investigación</caption>
+          <thead><tr><th class="bd-cell" scope="col">Plataforma</th><th class="bd-cell" scope="col">Dónde</th><th class="bd-cell" scope="col">Qué falta</th><th class="bd-cell" scope="col">Por qué importa</th><th class="bd-cell" scope="col">Investigación sugerida</th><th class="bd-cell" scope="col">Haz esto</th></tr></thead>
           <tbody data-bd-rows>
           <tr class="bd-row" data-dp-status="NEEDS_RESEARCH" data-dp-collection="directories" data-dp-country="united-states" data-dp-cost="unknown" data-dp-confidence="INSUFFICIENT">
             <td class="bd-cell" data-bd-label="Platform"><a href="https://www.1800dentist.com/" rel="noopener noreferrer" target="_blank">1-800-DENTIST</a></td>
@@ -1281,8 +1281,8 @@
       <p>These platforms sit behind a bot filter. The server answered, which proves nothing about the product, so they are neither dead nor ready — they need a human with a rendered browser. This is the single largest unlock available to this dataset.</p>
 <div class="bd-table-wrap">
         <table class="bd-table">
-          <caption>Needs browser verification</caption>
-          <thead><tr><th class="bd-cell" scope="col">Platform</th><th class="bd-cell" scope="col">Where</th><th class="bd-cell" scope="col">What is missing</th><th class="bd-cell" scope="col">Why it matters</th><th class="bd-cell" scope="col">Suggested research</th><th class="bd-cell" scope="col">Do this</th></tr></thead>
+          <caption>Requiere verificación en navegador</caption>
+          <thead><tr><th class="bd-cell" scope="col">Plataforma</th><th class="bd-cell" scope="col">Dónde</th><th class="bd-cell" scope="col">Qué falta</th><th class="bd-cell" scope="col">Por qué importa</th><th class="bd-cell" scope="col">Investigación sugerida</th><th class="bd-cell" scope="col">Haz esto</th></tr></thead>
           <tbody data-bd-rows>
           <tr class="bd-row" data-dp-status="NEEDS_BROWSER" data-dp-collection="directories" data-dp-country="taiwan" data-dp-cost="unknown" data-dp-confidence="INSUFFICIENT">
             <td class="bd-cell" data-bd-label="Platform"><a href="https://www.104.com.tw/" rel="noopener noreferrer" target="_blank">104 Job Bank</a></td>
@@ -1610,12 +1610,12 @@
     </section>
 
 <section id="health" aria-labelledby="health-h">
-      <h2 id="health-h">Collection health</h2>
+      <h2 id="health-h">Estado de la colección</h2>
       <p>How much of each database is actually workable today. These are dataset-quality metrics, not business performance: they measure how much we know, not how well anything performed. The number worth improving is Ready, not the platform count.</p>
       <div class="bd-table-wrap">
         <table class="bd-table">
-          <caption>Operational readiness by collection</caption>
-          <thead><tr><th class="bd-cell" scope="col">Collection</th><th class="bd-cell" scope="col">Total</th><th class="bd-cell" scope="col">Ready</th><th class="bd-cell" scope="col">Needs research</th><th class="bd-cell" scope="col">Needs browser</th><th class="bd-cell" scope="col">Blocked</th><th class="bd-cell" scope="col">Action URL coverage</th><th class="bd-cell" scope="col">High confidence</th></tr></thead>
+          <caption>Preparación operativa por colección</caption>
+          <thead><tr><th class="bd-cell" scope="col">Colección</th><th class="bd-cell" scope="col">Total</th><th class="bd-cell" scope="col">Listo</th><th class="bd-cell" scope="col">Requiere investigación</th><th class="bd-cell" scope="col">Requiere navegador</th><th class="bd-cell" scope="col">Bloqueado</th><th class="bd-cell" scope="col">Cobertura de URL de acción</th><th class="bd-cell" scope="col">Confianza alta</th></tr></thead>
           <tbody>
             <tr class="bd-row">
               <td class="bd-cell" data-bd-label="Collection"><a href="/research/business-directories/opportunities/">Business Directories</a></td>
@@ -1648,7 +1648,7 @@
               <td class="bd-cell" data-bd-label="High confidence">0</td>
             </tr>
             <tr class="bd-row">
-              <td class="bd-cell" data-bd-label="Collection"><strong>All collections</strong></td>
+              <td class="bd-cell" data-bd-label="Collection"><strong>Todas las colecciones</strong></td>
               <td class="bd-cell" data-bd-label="Total"><strong>2234</strong></td>
               <td class="bd-cell" data-bd-label="Ready"><strong>126</strong> (5.6%)</td>
               <td class="bd-cell" data-bd-label="Needs research">1473</td>
@@ -1664,7 +1664,7 @@
     </section>
 
 <section id="method" aria-labelledby="method-h">
-      <h2 id="method-h">What Ready means, and what it does not</h2>
+      <h2 id="method-h">Qué significa «Listo» y qué no</h2>
       <p>Ready means three things are true: we know what action the platform supports, we have a recorded URL that matches that action, and no known restriction prevents it. It does not mean the submission will be accepted, that it is free, or that anything will be published — an editor may still say no.</p>
       <p>Unknown is never promoted to Ready. A platform whose route we never established is in Needs research, and a platform behind a bot filter is in Needs browser — separate, because they need different work from different people. A blocked request proves the server answered and nothing else, so it never means dead.</p>
       <p>Confidence is about acting safely, not about prestige. High means the action, route, cost, moderation and effort are all established. Every band lists what it is still missing rather than showing a number on its own.</p>

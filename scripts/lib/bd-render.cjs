@@ -2,7 +2,12 @@
 'use strict';
 const { escapeHtml } = require('./bd-util.cjs');
 const { renderJsonLd } = require('./bd-seo.cjs');
-const { breadcrumbs } = require('./bd-components.cjs');
+// Bound per render, not destructured at module load. Destructuring took the
+// module's DEFAULT English binding, so every localized page rendered its
+// breadcrumb — including the aria-label a screen reader announces — in English
+// no matter which locale the page was. The leak detector caught this on all
+// 1,248 localized Research pages.
+const componentsModule = require('./bd-components.cjs');
 const routes = require('./bd-routes.cjs');
 const I18N = require('./i18n.cjs');
 // Reuse the ecosystem injector's own localized banner rather than emitting a
@@ -310,7 +315,7 @@ ${eco.bodyBlock ? eco.bodyBlock(L.htmlLang) : ECO_BODY}
 ${HEADER(canonicalPath, locale, t)}
 
   <main id="main">
-${breadcrumbs(localizeTrail(meta.breadcrumbTrail, locale, t))}
+${componentsModule.components(locale).breadcrumbs(localizeTrail(meta.breadcrumbTrail, locale, t))}
 
 ${main}
   </main>
@@ -323,4 +328,10 @@ ${FOOTER(selfPath, locale, t)}
 `;
 }
 
-module.exports = { renderPage, HEADER, FOOTER, ECO_HEAD, ECO_BODY, MARKETPLACES_PATH, MEDIA_PATH, PLANNER_PATH };
+// ANALYTICS and FONTS are exported so page-shell.cjs can assemble static pages
+// from the SAME constants rather than keeping a second copy of the tracking
+// snippet that drifts the first time one of them is updated.
+module.exports = {
+  renderPage, HEADER, FOOTER, ANALYTICS, FONTS, ECO_HEAD, ECO_BODY,
+  MARKETPLACES_PATH, MEDIA_PATH, PLANNER_PATH,
+};

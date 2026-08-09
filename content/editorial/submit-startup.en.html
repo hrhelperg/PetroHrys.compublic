@@ -1,0 +1,103 @@
+<span class="tag">FREE · No account needed</span>
+    <h1>Submit your startup</h1>
+    <p class="subtitle">Get a dedicated SEO-optimized page reviewed within 48 hours. Reach developers, founders, and early adopters.</p>
+
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-icon">📄</div>
+        <p class="card-title">Free SEO page</p>
+        <p class="card-desc">Your own URL with schema.org structured data and sitemap inclusion.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🔗</div>
+        <p class="card-title">Internal links</p>
+        <p class="card-desc">Linked from category pages and similar startup listings.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🚀</div>
+        <p class="card-title">Raising badge</p>
+        <p class="card-desc">Mark your startup as seeking investment with funding stage and pitch.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">✍️</div>
+        <p class="card-title">Content publishing</p>
+        <p class="card-desc">Link articles, case studies, and guides directly to your listing.</p>
+      </div>
+    </div>
+
+    <div class="form-card">
+      <h2>Early submission</h2>
+      <p class="note">The full self-serve form is launching soon. Submit via email below and we'll create your listing manually — same result, just a bit more personal. ✉️</p>
+
+      <form action="mailto:hrhelperg@gmail.com" method="get" enctype="text/plain" id="submitForm">
+        <div class="form-group">
+          <label for="name">Startup Name * <span class="raising-preview" id="raisingBadge">🚀 Raising</span></label>
+          <input type="text" id="name" name="Startup Name" required placeholder="e.g. Acme Analytics">
+        </div>
+        <div class="form-group">
+          <label for="url">Website URL *</label>
+          <input type="url" id="url" name="Website URL" required placeholder="https://example.com">
+        </div>
+        <div class="form-group">
+          <label for="desc">Description * <span style="font-weight:400;color:#888;">(200–1000 chars)</span></label>
+          <textarea id="desc" name="Description" required placeholder="What does your startup do? Who is it for? What problem does it solve?"></textarea>
+          <p class="hint">Min 200 characters. Be specific — this appears on your public listing.</p>
+        </div>
+        <div class="form-group">
+          <label for="category">Category *</label>
+          <select id="category" name="Category" required>
+            <option value="">Select a category…</option>
+            <option>SaaS</option>
+            <option>Mobile App</option>
+            <option>Developer Tools</option>
+            <option>AI / ML</option>
+            <option>E-commerce</option>
+            <option>Productivity</option>
+            <option>Finance</option>
+            <option>Health &amp; Wellness</option>
+            <option>Education</option>
+            <option>Marketing</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="checkbox-group" onclick="document.getElementById('looking_for_investment').click()">
+          <input type="checkbox" id="looking_for_investment">
+          <label for="looking_for_investment">Looking for venture investment</label>
+        </div>
+
+        <div class="investment-fields" id="investmentFields">
+          <p class="inv-title">Investment details</p>
+          <div class="form-group" style="margin-bottom:1rem;">
+            <label for="funding_stage">Funding Stage</label>
+            <select id="funding_stage">
+              <option value="">Select stage…</option>
+              <option value="Idea">💡 Idea Stage</option>
+              <option value="MVP">🛠️ MVP</option>
+              <option value="Revenue">📈 Revenue Stage</option>
+              <option value="Scaling">🚀 Scaling</option>
+            </select>
+          </div>
+          <div class="form-group" style="margin-bottom:0;">
+            <label for="short_pitch">Short Pitch <span style="font-weight:400;color:#888;">(max 300 chars)</span></label>
+            <textarea id="short_pitch" maxlength="300" rows="3" placeholder="e.g. Raising $200k pre-seed. 150 paying users, 12% MoM growth. Looking for angels with B2B SaaS experience."></textarea>
+            <p class="char-count"><span id="pitchCount">0</span> / 300</p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="founder">Founder Name <span style="font-weight:400;color:#888;">(optional)</span></label>
+          <input type="text" id="founder" name="Founder Name" placeholder="Jane Doe">
+        </div>
+        <div class="form-group">
+          <label for="email">Your Email *</label>
+          <input type="email" id="email" name="Reply-To" required placeholder="you@example.com">
+          <p class="hint">So we can confirm your listing. Not published.</p>
+        </div>
+        <button type="submit" class="btn btn--primary">Send submission →</button>
+        <p class="disclaimer">All submissions are reviewed before going live. No spam, ever.</p>
+      </form>
+    </div>
+
+    <p style="text-align:center;font-size:0.87rem;color:#888;">
+      Want to write about your startup? <a href="/articles/" style="color:#d32f2f;">Publish an article →</a>
+    </p>

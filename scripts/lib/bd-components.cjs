@@ -6,12 +6,35 @@ const { sortDirectories, SORTS, SORT_KEYS, compareByName } = require('./bd-sort.
 const { directoryPathFor } = require('./bd-routes.cjs');
 const S = require('./bd-schema.cjs');
 const { registryTypeLabel } = require('./bd-registry-types.cjs');
+const I18N = require('./i18n.cjs');
+
+// ── LOCALE BY CLOSURE, NOT BY PARAMETER OR BY GLOBAL ────────────────────────
+//
+// This module exports 37 render functions used from ~65 call sites. Three ways
+// to give them a locale were available and two are traps:
+//
+//   1. Thread `t` through all 37 signatures. Correct, but 65 call-site edits
+//      where a single missed one silently renders English into a German page —
+//      the exact failure class this whole programme exists to remove.
+//   2. A module-scoped `let currentLocale`. Small diff, and forbidden: global
+//      mutable locale state means two interleaved renders can produce a page
+//      in two languages, and nothing in the type system stops it.
+//   3. A factory that binds the locale once and returns the API. One
+//      implementation, no per-locale branches, no shared mutable state, and a
+//      function physically cannot read a locale it was not built with.
+//
+// This is (3). The factory is memoized per locale, so the closures are built
+// four times for the whole build rather than once per page.
+//
+// Adding a fifth locale requires no change here at all.
+function createComponents(locale) {
+  const t = I18N.translator(locale);
 
 // ---------------------------------------------------------------------------
 // Helpers
 // ---------------------------------------------------------------------------
 
-const NOT_RECORDED = 'Not recorded';
+const NOT_RECORDED = t('common.notRecorded');
 
 // Editorial references, not paid placements. Every directory page carries
 // original methodology, strengths, limitations and context, so outbound links
@@ -57,7 +80,7 @@ function breadcrumbs(trail) {
     const sep = last ? '' : '<span class="sep" aria-hidden="true">/</span>';
     return `      <li class="bd-crumb">${inner}${sep}</li>`;
   }).join('\n');
-  return `    <nav class="breadcrumb bd-breadcrumb" aria-label="Breadcrumb">
+  return `    <nav class="breadcrumb bd-breadcrumb" aria-label="${escapeHtml(t('bd.breadcrumb'))}">
       <ol class="bd-crumbs">
 ${items}
       </ol>
@@ -134,7 +157,7 @@ function metric(value, provenance, status, emptyLabel) {
   if (isNullish(value)) {
     if (emptyLabel) return `<span class="bd-metric bd-metric--empty">${escapeHtml(emptyLabel)}</span>`;
     return status === 'unknown'
-      ? `<span class="bd-metric bd-metric--empty">Unknown</span>`
+      ? `<span class="bd-metric bd-metric--empty">${t('common.unknown')}</span>`
       : dash();
   }
   const shown = escapeHtml(value);
@@ -150,11 +173,11 @@ function metric(value, provenance, status, emptyLabel) {
 }
 
 const METRIC_ROWS = [
-  ['petroHrysScore', 'PetroHrys Score', false],
-  ['domainRating', 'Domain Rating', true, S.DR_NOT_MEASURED_LABEL],
+  ['petroHrysScore', t('bd.petrohrysScore'), false],
+  ['domainRating', t('bd.domainRating'), true, S.DR_NOT_MEASURED_LABEL],
   ['authorityScore', 'Authority Score', true],
-  ['estimatedTraffic', 'Estimated traffic', true],
-  ['referringDomains', 'Referring domains', true],
+  ['estimatedTraffic', t('bd.estimatedTraffic'), true],
+  ['referringDomains', t('bd.referringDomains'), true],
 ];
 
 // A metric nobody has measured is not a per-record gap, it is a metric the
@@ -207,7 +230,7 @@ function metricNote(active) {
   const parts = [];
   // The distinction the whole two-ranking model rests on. Stated wherever either
   // number appears, so neither can be read as the other.
-  parts.push('Domain Rating is a dated Ahrefs snapshot of domain authority. '
+  parts.push(t('bd.drNote')
     + 'PetroHrys Score is an independent editorial assessment of the directory\u2019s '
     + 'practical business value. They are separate measurements and are never combined.');
   // Stated wherever the column appears, so "Not measured" is never read as a
@@ -257,11 +280,11 @@ function metricNote(active) {
 // reader who sees only this row must not come away believing a listing follows
 // from submitting, which is exactly what "Create a listing" would imply.
 const LISTING_ACTION_LABELS = {
-  create: 'Create a listing',
-  claim: 'Claim an existing profile',
-  'create-and-claim': 'Create or claim a profile',
-  apply: 'Apply for inclusion',
-  'invite-only': 'Invite only',
+  create: t('bd.createListing'),
+  claim: t('bd.claimProfile'),
+  'create-and-claim': t('bd.createOrClaim'),
+  apply: t('action.apply-for-inclusion'),
+  'invite-only': t('bdx.inviteOnly'),
 };
 
 function listingInformation(directory) {
@@ -286,20 +309,20 @@ function listingInformation(directory) {
         </div>`,
   );
 
-  if (actionLabel) row('Listing action', escapeHtml(actionLabel));
+  if (actionLabel) row(t('bdx.listingAction'), escapeHtml(actionLabel));
   // [] and null are different: [] is evidence that nothing is required, null is
   // silence. Only the array form renders.
   if (Array.isArray(vm)) {
-    row('Verification', vm.length ? escapeHtml(vm.join(' · ')) : 'No verification required');
+    row(t('bdx.verification'), vm.length ? escapeHtml(vm.join(' · ')) : t('bd.noVerificationRequired'));
   }
   if (directory.ownerResponseSupport === true) {
-    row('Owner responses', 'The business can respond to reviews');
+    row('Owner responses', t('bd.canRespondReviews'));
   } else if (directory.ownerResponseSupport === false) {
     row('Owner responses', 'Not available');
   }
   const claimHref = safeHref(directory.claimUrl);
   if (claimHref) {
-    row('Official claim page',
+    row(t('bd.officialClaimPage'),
       `<a href="${escapeHtml(claimHref)}" rel="${REL_EXTERNAL}" target="_blank">`
       + `${escapeHtml(claimHref)}${vh(' (opens in a new tab)')}</a>`);
   }
@@ -343,7 +366,7 @@ function registryInformation(directory) {
       ? `<a href="${escapeHtml(href)}" rel="${REL_EXTERNAL}" target="_blank">`
         + `${escapeHtml(operator.name)}${vh(' (opens in a new tab)')}</a>`
       : escapeHtml(operator.name);
-    row('Operator', typeLabel
+    row(t('col.operator'), typeLabel
       ? `${name} <span class="bd-def-note">${escapeHtml(typeLabel)}</span>`
       : name);
   }
@@ -370,10 +393,10 @@ function registryInformation(directory) {
         const sub = S.ISO.subdivision(code);
         return escapeHtml(sub ? sub.name.replace(/\s*\[[^\]]*\]\s*$/, '') : code);
       });
-      row('Jurisdiction', `${escapeHtml(j.name)} <span class="bd-def-note">`
+      row(t('bd.jurisdiction'), `${escapeHtml(j.name)} <span class="bd-def-note">`
         + `Covers ${names.join(' · ')}</span>`);
     } else {
-      row('Jurisdiction', j.code
+      row(t('bd.jurisdiction'), j.code
         ? `${escapeHtml(j.name)} <span class="bd-def-note">${escapeHtml(j.code)}</span>`
         : escapeHtml(j.name));
     }
@@ -404,7 +427,7 @@ function registryInformation(directory) {
     row('Official name', `<span lang="" translate="no">${escapeHtml(directory.nativeName)}</span>`);
   }
   if (S.isEditorialTranslation(directory)) {
-    row('English title', 'Editorial translation');
+    row('English title', t('bd.editorialTranslation'));
   }
   // Shown only where a reader would otherwise assume two records on one host are
   // the same thing. The internal identifiers (systemKey, sharedHostGroup) are
@@ -432,8 +455,8 @@ function statusBadges(directory) {
   const badges = [];
 
   badges.push(directory.lastVerified
-    ? { state: 'verified', text: 'Verified' }
-    : { state: 'unverified', text: 'Not yet verified' });
+    ? { state: 'verified', text: t('bd.verified') }
+    : { state: 'unverified', text: t('bd.notYetVerified') });
 
   // Labels come from the schema so a new submission model can never render as
   // "undefined" or silently fall through to "unknown".
@@ -443,11 +466,11 @@ function statusBadges(directory) {
     : { state: 'unknown', text: S.SUBMISSION_MODEL_LABELS.unknown });
 
   if (directory.verificationRequired === true) {
-    badges.push({ state: 'gated', text: 'Verification required' });
+    badges.push({ state: 'gated', text: t('bd.verificationRequired') });
   } else if (directory.verificationRequired === false) {
-    badges.push({ state: 'open', text: 'No verification required' });
+    badges.push({ state: 'open', text: t('bd.noVerificationRequired') });
   } else {
-    badges.push({ state: 'unknown', text: 'Verification requirement unknown' });
+    badges.push({ state: 'unknown', text: t('bd.verificationReqUnknown') });
   }
 
   // `registrationRequired` answers "must an organisation register in order to
@@ -460,34 +483,34 @@ function statusBadges(directory) {
   const statutory = directory.submissionModel === 'notApplicable';
   if (directory.registrationRequired === true) {
     badges.push(statutory
-      ? { state: 'statutory', text: 'Entity registration required by law' }
-      : { state: 'gated', text: 'Registration required to be listed' });
+      ? { state: 'statutory', text: t('bd.entityRegRequired') }
+      : { state: 'gated', text: t('bd.listingRegRequired') });
   } else if (directory.registrationRequired === false) {
-    badges.push({ state: 'open', text: 'No registration required to be listed' });
+    badges.push({ state: 'open', text: t('bd.listingRegNotRequired') });
   } else {
-    badges.push({ state: 'unknown', text: 'Listing registration requirement unknown' });
+    badges.push({ state: 'unknown', text: t('bd.listingRegUnknown') });
   }
 
   // Whether a READER needs an account is a different question answered by a
   // different field, and on a public register it is the one that matters.
   const login = directory.publicAccess ? directory.publicAccess.loginRequired : undefined;
   if (login === true) {
-    badges.push({ state: 'gated', text: 'User account required to search' });
+    badges.push({ state: 'gated', text: t('bd.accountRequiredSearch') });
   } else if (login === false) {
-    badges.push({ state: 'open', text: 'No user account required to search' });
+    badges.push({ state: 'open', text: t('bd.noAccountRequiredSearch') });
   }
 
   if (directory.reviewSystem === true) {
-    badges.push({ state: 'reviews', text: 'Has a review system' });
+    badges.push({ state: 'reviews', text: t('bd.hasReviewSystem') });
   } else if (directory.reviewSystem === false) {
-    badges.push({ state: 'no-reviews', text: 'No review system' });
+    badges.push({ state: 'no-reviews', text: t('bd.noReviewSystem') });
   } else {
-    badges.push({ state: 'unknown', text: 'Review system unknown' });
+    badges.push({ state: 'unknown', text: t('bd.reviewSystemUnknown') });
   }
 
   const items = badges.map((b) =>
     `        <li class="bd-badge" data-bd-state="${escapeHtml(b.state)}">${escapeHtml(b.text)}</li>`).join('\n');
-  return `      <ul class="bd-badges" aria-label="Listing status">
+  return `      <ul class="bd-badges" aria-label="${escapeHtml(t('bd.listingStatus'))}">
 ${items}
       </ul>`;
 }
@@ -509,10 +532,10 @@ ${rows}
 function prosCons({ pros, cons, headingLevel = 3 }) {
   const h = headingTag(headingLevel);
   return `      <div class="bd-proscons">
-        <${h} class="bd-subhead">Strengths</${h}>
-${bulletList(pros, 'No strengths recorded yet.')}
-        <${h} class="bd-subhead">Limitations</${h}>
-${bulletList(cons, 'No limitations recorded yet.')}
+        <${h} class="bd-subhead">${t('bd.strengths')}</${h}>
+${bulletList(pros, t('bd.noStrengths'))}
+        <${h} class="bd-subhead">${t('common.limitations')}</${h}>
+${bulletList(cons, t('bd.noLimitations'))}
       </div>`;
 }
 
@@ -533,11 +556,11 @@ ${items}
 
 function bestForTags(industries) {
   if (!Array.isArray(industries) || industries.length === 0) {
-    return `      <p class="bd-empty">No recommended industries recorded yet.</p>`;
+    return `      <p class="bd-empty">${t('bd.noIndustries')}</p>`;
   }
   const rows = industries.map((item) =>
     `        <li class="bd-chip">${escapeHtml(item)}</li>`).join('\n');
-  return `      <ul class="bd-chips" aria-label="Recommended industries">
+  return `      <ul class="bd-chips" aria-label="${escapeHtml(t('bd.recommendedIndustries'))}">
 ${rows}
       </ul>`;
 }
@@ -546,7 +569,7 @@ ${rows}
 // 11. Empty state
 // ---------------------------------------------------------------------------
 
-const VERIFICATION_NOTE = 'Entries are published only after manual verification, so this list '
+const VERIFICATION_NOTE = t('bd.verificationNote')
   + 'stays empty until real, checked directories are added.';
 
 function emptyState(message) {
@@ -560,12 +583,12 @@ function emptyState(message) {
 // Filter keys double as data-attribute suffixes: data-bd-<field>. Keeping them
 // lowercase-hyphenated means the client script needs no special casing.
 const FILTERS = [
-  { field: 'free-submission', label: 'Free to submit' },
-  { field: 'accepts-startup', label: 'Accepts startups' },
-  { field: 'accepts-saas', label: 'Accepts SaaS' },
-  { field: 'accepts-localbusiness', label: 'Accepts local businesses' },
-  { field: 'accepts-developer', label: 'Accepts developer tools' },
-  { field: 'accepts-ai', label: 'Accepts AI products' },
+  { field: 'free-submission', label: t('bd.freeToSubmit') },
+  { field: 'accepts-startup', label: t('bd.acceptsStartups') },
+  { field: 'accepts-saas', label: t('bd.acceptsSaas') },
+  { field: 'accepts-localbusiness', label: t('bd.acceptsLocal') },
+  { field: 'accepts-developer', label: t('bd.acceptsDevTools') },
+  { field: 'accepts-ai', label: t('bd.acceptsAi') },
 ];
 
 // Resolves a filter key against a record, so the row attributes and the filter
@@ -604,13 +627,13 @@ const dataKey = (field) => `data-bd-${field.toLowerCase()}`;
 function searchControls({ idPrefix = 'bd' } = {}) {
   const id = `${escapeHtml(idPrefix)}-search`;
   return `      <div class="bd-control" data-bd-search-wrap hidden>
-        <label class="bd-label" for="${id}">Search directories</label>
+        <label class="bd-label" for="${id}">${t('bd.searchDirectories')}</label>
         <input class="bd-input" id="${id}" type="search" data-bd-search
-               placeholder="Filter by name, description or industry" autocomplete="off">
+               placeholder="${escapeHtml(t('bd.filterByText'))}" autocomplete="off">
       </div>`;
 }
 
-const FILTER_DISCLOSURE = 'Filters show confirmed matches only. Records with unknown '
+const FILTER_DISCLOSURE = t('bd.filterDisclosure')
   + 'eligibility are not treated as negative.';
 
 function filterControls({ idPrefix = 'bd', directories = [] } = {}) {
@@ -630,7 +653,7 @@ function filterControls({ idPrefix = 'bd', directories = [] } = {}) {
           </div>`;
   }).join('\n');
   return `      <fieldset class="bd-control" data-bd-filter-wrap hidden>
-        <legend class="bd-label">Filter</legend>
+        <legend class="bd-label">${t('bd.filter')}</legend>
         <p class="bd-note">${escapeHtml(FILTER_DISCLOSURE)}</p>
         <div class="bd-checks">
 ${boxes}
@@ -662,7 +685,7 @@ function sortControls({ idPrefix = 'bd', columns } = {}) {
   const options = keys.map((key) =>
     `          <option value="${escapeHtml(key)}">${escapeHtml(SORTS[key].label)}</option>`).join('\n');
   return `      <div class="bd-control" data-bd-sort-wrap hidden>
-        <label class="bd-label" for="${id}">Sort by</label>
+        <label class="bd-label" for="${id}">${t('bd.sortBy')}</label>
         <select class="bd-select" id="${id}" data-bd-sort>
 ${options}
         </select>
@@ -679,12 +702,12 @@ ${options}
 // the fit rests on, and the reasons — because a recommendation an employee
 // cannot interrogate is one they have to re-research, which defeats the point.
 function recommendationTable({ rows, profileLabel }) {
-  const head = ['Platform', 'Score', 'Level', 'Fit basis', 'Why'];
+  const head = [t('col.platform'), 'Score', 'Level', 'Fit basis', t('col.why')];
   const body = rows.map((r) => {
     const reasons = (r.recommendationReasons || []).length
       ? `<ul class="bd-reasons">${(r.recommendationReasons || [])
         .map((x) => `<li>${escapeHtml(x)}</li>`).join('')}</ul>`
-      : `<span class="bd-muted">${escapeHtml('No supporting evidence recorded.')}</span>`;
+      : `<span class="bd-muted">${escapeHtml(t('bd.noEvidence'))}</span>`;
     return `          <tr data-bd-rec-level="${escapeHtml(String(r.recommendationLevel || ''))}" `
       + `data-bd-rec-basis="${escapeHtml(String(r.recommendationBasis || ''))}">
             <td data-label="Platform"><a href="${escapeHtml(r.website)}" rel="${REL_EXTERNAL}" target="_blank">${escapeHtml(r.name)}</a></td>
@@ -724,7 +747,7 @@ function facetSelect({ idPrefix, facet, label, rows, labels = {}, order = [] }) 
   return `      <div class="bd-control">
         <label class="bd-label" for="${id}">${escapeHtml(label)}</label>
         <select class="bd-select" id="${id}" data-bd-facet="${escapeHtml(facet.name)}">
-          <option value="">All</option>
+          <option value="">${t('common.all')}</option>
 ${options}
         </select>
       </div>`;
@@ -733,7 +756,7 @@ ${options}
 // The reset for search, checkboxes and facets. A component rather than inline
 // markup so the data attribute the client script reads is emitted where the
 // attribute audit can see it.
-function clearFiltersControl({ label = 'Clear filters' } = {}) {
+function clearFiltersControl({ label = t('common.clearFilters') } = {}) {
   return `      <div class="bd-control">
         <button class="bd-button bd-button--ghost" type="button" data-bd-clear>${escapeHtml(label)}</button>
       </div>`;
@@ -775,8 +798,8 @@ function numAttr(value) {
 // dated third-party measurement of the DOMAIN, the score is a first-party
 // editorial assessment of the DIRECTORY.
 const TABLE_METRIC_COLUMNS = [
-  { field: 'domainRating', label: 'Domain Rating', emptyLabel: S.DR_NOT_MEASURED_LABEL },
-  { field: 'petroHrysScore', label: 'PetroHrys Score', always: true },
+  { field: 'domainRating', label: t('bd.domainRating'), emptyLabel: S.DR_NOT_MEASURED_LABEL },
+  { field: 'petroHrysScore', label: t('bd.petrohrysScore'), always: true },
 ];
 
 function tableColumnsFor(directories) {
@@ -1004,25 +1027,25 @@ function coverageStatement(manifest, publishedCodes) {
 // an internal note; this is what a visitor sees, and it says what kind of
 // obstacle it is without narrating the investigation.
 const BLOCKER_LABELS = {
-  'none': 'Pending verification',
-  'connection-blocked': 'Official application unreachable',
-  'waf-blocked': 'Official application blocked to automated access',
-  'geo-blocked': 'Official application restricted by region',
-  'login-required-unverified': 'Access behaviour unconfirmed',
-  'js-only-unverified': 'Access behaviour unconfirmed',
-  'official-url-unresolved': 'Official address unresolved',
-  'system-transition': 'System in transition',
-  'manual-browser-check': 'Access behaviour unconfirmed',
-  'other': 'Pending verification',
+  'none': t('bd.pendingVerification'),
+  'connection-blocked': t('bd.appUnreachable'),
+  'waf-blocked': t('bd.appBlockedAutomated'),
+  'geo-blocked': t('bd.appRegionRestricted'),
+  'login-required-unverified': t('bd.accessBehaviourUnconfirmed'),
+  'js-only-unverified': t('bd.accessBehaviourUnconfirmed'),
+  'official-url-unresolved': t('bd.addressUnresolved'),
+  'system-transition': t('bd.systemInTransition'),
+  'manual-browser-check': t('bd.accessBehaviourUnconfirmed'),
+  'other': t('bd.pendingVerification'),
 };
 
 const ACCESS_BADGE = {
-  open: 'Open',
+  open: t('bd.open'),
   'partially-open': 'Partly open',
-  'login-required': 'Account required',
-  'identity-verification-required': 'Identity check required',
-  restricted: 'Restricted',
-  unknown: 'Access unconfirmed',
+  'login-required': t('bd.accountRequired'),
+  'identity-verification-required': t('bd.identityCheckRequired'),
+  restricted: t('bd.restricted'),
+  unknown: t('bd.accessUnconfirmed'),
 };
 
 // The coverage summary above the grid. Both numbers are counted here and
@@ -1061,7 +1084,7 @@ function stateGrid(entries, { headingId = 'state-coverage' } = {}) {
     const label = BLOCKER_LABELS[e.blockerCode] || BLOCKER_LABELS.other;
     return `        <li class="bd-state" data-bd-state-code="${escapeHtml(e.code)}" data-bd-state-status="pending">
           <span class="bd-state-name">${name}</span>
-          <span class="bd-state-pending">Pending verification</span>
+          <span class="bd-state-pending">${t('bd.pendingVerification')}</span>
           <span class="bd-state-blocker">${escapeHtml(label)}</span>
         </li>`;
   }).join('\n');
@@ -1082,9 +1105,9 @@ function jurisdictionSelect(entries, groups, { idPrefix = 'jurisdiction' } = {})
   const stateOptions = entries.map((e) => `          <option value="state:${escapeHtml(e.code)}">`
     + `${escapeHtml(e.name)}${e.record ? '' : ' — pending verification'}</option>`).join('\n');
   return `      <div class="bd-control" data-bd-jselect-wrap hidden>
-        <label class="bd-label" for="${escapeHtml(id)}">Jurisdiction</label>
+        <label class="bd-label" for="${escapeHtml(id)}">${t('bd.jurisdiction')}</label>
         <select class="bd-select" id="${escapeHtml(id)}" data-bd-jurisdiction-select>
-          <option value="all">All jurisdictions</option>
+          <option value="all">${t('bd.allJurisdictions')}</option>
 ${groupOptions}
 ${stateOptions}
         </select>
@@ -1098,7 +1121,7 @@ function jurisdictionFilter(groups, { idPrefix = 'jurisdiction' } = {}) {
     + `href="#${escapeHtml(`${idPrefix}-${g.key}`)}" data-bd-jurisdiction-filter="${escapeHtml(g.key)}">`
     + `${escapeHtml(g.label)} <span class="bd-jfilter-count">${escapeHtml(registryCount(g.count))}`
     + `</span></a></li>`).join('\n');
-  return `      <nav class="bd-jfilter" aria-label="Jump to jurisdiction">
+  return `      <nav class="bd-jfilter" aria-label="${escapeHtml(t('bd.jumpToJurisdiction'))}">
       <ul class="bd-jfilter-list">
 ${options}
       </ul>
@@ -1107,9 +1130,9 @@ ${options}
 
 // Server order always comes from bd-sort, so the table is correct before any
 // JavaScript runs. No row cap and no pagination logic lives here.
-function directoryTable({ directories, caption = 'Directories', columns, sortKey = 'default' }) {
+function directoryTable({ directories, caption = t('bd.directories'), columns, sortKey = 'default' }) {
   if (!Array.isArray(directories) || directories.length === 0) {
-    return emptyState('No directories are published here yet.');
+    return emptyState(t('bd.noDirectories'));
   }
   const cols = Array.isArray(columns) ? columns : tableColumnsFor(directories);
   const shown = new Set(cols);
@@ -1136,7 +1159,7 @@ function directoryTable({ directories, caption = 'Directories', columns, sortKey
         <caption class="bd-caption">${escapeHtml(caption)}</caption>
         <thead>
           <tr>
-            <th class="bd-cell" scope="col">Directory</th>
+            <th class="bd-cell" scope="col">${t('bd.directory')}</th>
 ${heads}
           </tr>
         </thead>
@@ -1177,7 +1200,7 @@ function pagination({ current, total, basePath }) {
       ? `        <li><span class="bd-page bd-page--current" aria-current="page">${vh('Page ')}${n}</span></li>`
       : `        <li><a class="bd-page" href="${escapeHtml(href)}">${vh('Page ')}${n}</a></li>`);
   }
-  return `      <nav class="bd-pagination" aria-label="Directory pages">
+  return `      <nav class="bd-pagination" aria-label="${escapeHtml(t('bd.directoryPages'))}">
         <ol class="bd-pages">
 ${pages.join('\n')}
         </ol>
@@ -1206,17 +1229,17 @@ function methodologyNote() {
 function provenanceBlock(directory) {
   const verified = directory.lastVerified
     ? `<time datetime="${escapeHtml(directory.lastVerified)}">${escapeHtml(directory.lastVerified)}</time>`
-    : `<span class="bd-metric bd-metric--empty">Not yet verified</span>`;
+    : `<span class="bd-metric bd-metric--empty">${t('bd.notYetVerified')}</span>`;
   const next = directory.nextVerification
     ? `<time datetime="${escapeHtml(directory.nextVerification)}">${escapeHtml(directory.nextVerification)}</time>`
     : dash();
   return `      <dl class="bd-defs bd-provenance">
         <div class="bd-def">
-          <dt class="bd-def-t">Last verified</dt>
+          <dt class="bd-def-t">${t('bd.lastVerified')}</dt>
           <dd class="bd-def-d">${verified}</dd>
         </div>
         <div class="bd-def">
-          <dt class="bd-def-t">Next verification due</dt>
+          <dt class="bd-def-t">${t('bd.nextVerificationDue')}</dt>
           <dd class="bd-def-d">${next}</dd>
         </div>
       </dl>`;
@@ -1227,24 +1250,24 @@ function provenanceBlock(directory) {
 // ---------------------------------------------------------------------------
 
 const VERIFICATION_SOURCE_LABELS = {
-  'official-website': 'Official website',
-  'official-documentation': 'Official documentation',
-  'government-register': 'Government register',
-  'manual-verification': 'Manual verification',
-  other: 'Other',
+  'official-website': t('bd.officialWebsite'),
+  'official-documentation': t('bd.officialDocs'),
+  'government-register': t('bd.governmentRegister'),
+  'manual-verification': t('bd.manualVerification'),
+  other: t('bd.other'),
 };
 
 const VERIFICATION_STATUS_LABELS = {
-  verified: 'Verified',
-  unverified: 'Not yet verified',
-  pending: 'Verification pending',
+  verified: t('bd.verified'),
+  unverified: t('bd.notYetVerified'),
+  pending: t('bd.verificationPending'),
 };
 
 // Exposes who checked the record, how, and when. The reviewers array is
 // rendered as a list so a second reviewer needs no markup change.
 function verificationBlock(directory) {
   const v = directory.verification || {};
-  const status = VERIFICATION_STATUS_LABELS[v.status] || 'Not yet verified';
+  const status = VERIFICATION_STATUS_LABELS[v.status] || t('bd.notYetVerified');
   const source = v.source ? VERIFICATION_SOURCE_LABELS[v.source] || v.source : null;
   const reviewers = Array.isArray(v.reviewers) ? v.reviewers : [];
 
@@ -1256,27 +1279,27 @@ function verificationBlock(directory) {
     : dash();
   const by = reviewers.length
     ? reviewers.map((r) => escapeHtml(r.name)).join(', ')
-    : `<span class="bd-metric bd-metric--empty">Unknown</span>`;
+    : `<span class="bd-metric bd-metric--empty">${t('common.unknown')}</span>`;
 
   return `      <dl class="bd-defs bd-provenance">
         <div class="bd-def">
-          <dt class="bd-def-t">Verification status</dt>
+          <dt class="bd-def-t">${t('bd.verificationStatus')}</dt>
           <dd class="bd-def-d"><span class="bd-metric">${escapeHtml(status)}</span></dd>
         </div>
         <div class="bd-def">
-          <dt class="bd-def-t">Verification source</dt>
+          <dt class="bd-def-t">${t('bd.verificationSource')}</dt>
           <dd class="bd-def-d">${source ? `<span class="bd-metric">${escapeHtml(source)}</span>` : dash()}</dd>
         </div>
         <div class="bd-def">
-          <dt class="bd-def-t">Last verified</dt>
+          <dt class="bd-def-t">${t('bd.lastVerified')}</dt>
           <dd class="bd-def-d">${date}</dd>
         </div>
         <div class="bd-def">
-          <dt class="bd-def-t">Next verification due</dt>
+          <dt class="bd-def-t">${t('bd.nextVerificationDue')}</dt>
           <dd class="bd-def-d">${next}</dd>
         </div>
         <div class="bd-def">
-          <dt class="bd-def-t">Editorial reviewer</dt>
+          <dt class="bd-def-t">${t('bd.editorialReviewer')}</dt>
           <dd class="bd-def-d"><span class="bd-metric">${by}</span></dd>
         </div>
       </dl>`;
@@ -1293,7 +1316,7 @@ function acceptsList(directory) {
   const accepts = directory.accepts || {};
   const rows = S.ACCEPTS_KEYS.map((key) => {
     const value = accepts[key];
-    const text = value === true ? 'Yes' : value === false ? 'No' : 'Unknown';
+    const text = value === true ? 'Yes' : value === false ? 'No' : t('common.unknown');
     const state = value === true ? 'yes' : value === false ? 'no' : 'unknown';
     return `        <div class="bd-def">
           <dt class="bd-def-t">${escapeHtml(S.ACCEPTS_LABELS[key])}</dt>
@@ -1377,7 +1400,7 @@ ${items}
         </div>`;
   });
   if (!sections.length) {
-    return '      <p class="bd-empty">No editorial relationships recorded yet.</p>';
+    return `      <p class="bd-empty">${t('bd.noEditorialRel')}</p>`;
   }
   return `      <div class="bd-relations">\n${sections.join('\n')}\n      </div>`;
 }
@@ -1392,7 +1415,7 @@ function submissionLink(directory) {
   }
   const href = safeHref(directory.submissionUrl);
   if (!href) {
-    return '      <p class="bd-cta bd-cta--unavailable">Official submission page not verified.</p>';
+    return `      <p class="bd-cta bd-cta--unavailable">${t('bd.submissionNotVerified')}</p>`;
   }
   return `      <p class="bd-cta"><a class="bd-cta-link" href="${escapeHtml(href)}" `
     + `rel="${REL_EXTERNAL}" target="_blank">Official submission page`
@@ -1403,11 +1426,11 @@ function submissionLink(directory) {
 // 22. Editorial guidance
 // ---------------------------------------------------------------------------
 
-const DIFFICULTY_LABELS = { 'very-easy': 'Very easy', easy: 'Easy', moderate: 'Moderate', hard: 'Hard' };
-const QUALITY_LABELS = { high: 'High', mixed: 'Mixed', low: 'Low' };
+const DIFFICULTY_LABELS = { 'very-easy': 'Very easy', easy: t('bd.easy'), moderate: t('band.Moderate'), hard: t('bd.hard') };
+const QUALITY_LABELS = { high: t('confidence.HIGH'), mixed: t('bd.mixed'), low: t('confidence.LOW') };
 const ASSET_LABELS = {
-  logo: 'Logo', website: 'Website', description: 'Description', categories: 'Categories',
-  contact: 'Contact information', screenshots: 'Screenshots', businessVerification: 'Business verification',
+  logo: t('bd.logo'), website: t('bd.website'), description: t('bd.description'), categories: t('bd.categories'),
+  contact: t('bd.contactInformation'), screenshots: t('bd.screenshots'), businessVerification: t('bd.businessVerification'),
 };
 
 // Editorial judgement and verified fact are shown side by side, each labelled,
@@ -1463,14 +1486,14 @@ function editorialGuidance(directory, active) {
   const on = (key) => !allowed || allowed.has(key);
 
   const defs = [
-    ['submissionDifficulty', 'Submission difficulty', DIFFICULTY_LABELS[directory.submissionDifficulty]],
-    ['listingQuality', 'Typical listing quality', QUALITY_LABELS[directory.listingQuality]],
-    ['typicalApprovalTime', 'Typical approval time', directory.typicalApprovalTime],
+    ['submissionDifficulty', t('bd.submissionDifficulty'), DIFFICULTY_LABELS[directory.submissionDifficulty]],
+    ['listingQuality', t('bd.listingQuality'), QUALITY_LABELS[directory.listingQuality]],
+    ['typicalApprovalTime', t('bd.approvalTime'), directory.typicalApprovalTime],
     ['reviewProcess', 'Review process', directory.reviewProcess],
   ].filter(([key]) => on(key)).map(([, label, value]) => `        <div class="bd-def">
           <dt class="bd-def-t">${escapeHtml(label)}</dt>
           <dd class="bd-def-d">${value ? `<span class="bd-metric">${escapeHtml(value)}</span>`
-    : '<span class="bd-metric bd-metric--empty">Unknown</span>'}</dd>
+    : `<span class="bd-metric bd-metric--empty">${t('common.unknown')}</span>`}</dd>
         </div>`).join('\n');
 
   const list = (items, empty) => (items && items.length
@@ -1479,25 +1502,25 @@ function editorialGuidance(directory, active) {
 
   const parts = [];
   if (defs) parts.push(`      <dl class="bd-defs">\n${defs}\n      </dl>`);
-  parts.push(`      <h3 class="bd-subhead">Best for</h3>\n${list(directory.bestFor, 'No editorial guidance recorded yet.')}`);
-  parts.push(`      <h3 class="bd-subhead">Not recommended for</h3>\n${list(directory.notRecommendedFor, 'No editorial guidance recorded yet.')}`);
+  parts.push(`      <h3 class="bd-subhead">${t('col.bestFor')}</h3>\n${list(directory.bestFor, t('bd.noGuidance'))}`);
+  parts.push(`      <h3 class="bd-subhead">${t('bd.notRecommendedFor')}</h3>\n${list(directory.notRecommendedFor, t('bd.noGuidance'))}`);
   if (on('preparationChecklist')) {
-    parts.push(`      <h3 class="bd-subhead">Preparation checklist</h3>\n${list(directory.preparationChecklist, 'No checklist recorded yet.')}`);
+    parts.push(`      <h3 class="bd-subhead">${t('bd.prepChecklist')}</h3>\n${list(directory.preparationChecklist, 'No checklist recorded yet.')}`);
   }
   if (on('commonMistakes')) {
-    parts.push(`      <h3 class="bd-subhead">Common mistakes</h3>\n${list(directory.commonMistakes, 'No common mistakes recorded yet.')}`);
+    parts.push(`      <h3 class="bd-subhead">${t('bd.commonMistakes')}</h3>\n${list(directory.commonMistakes, 'No common mistakes recorded yet.')}`);
   }
   if (on('requiredAssets')) {
     const assets = S.REQUIRED_ASSET_KEYS.map((key) => {
       const value = (directory.requiredAssets || {})[key];
-      const text = value === true ? 'Required' : value === false ? 'Not required' : 'Unknown';
+      const text = value === true ? 'Required' : value === false ? 'Not required' : t('common.unknown');
       return `        <div class="bd-def">
           <dt class="bd-def-t">${escapeHtml(ASSET_LABELS[key])}</dt>
           <dd class="bd-def-d"><span class="bd-metric">${text}</span></dd>
         </div>`;
     }).join('\n');
-    parts.push(`      <h3 class="bd-subhead">Required assets</h3>
-      <p class="bd-note">Marked Unknown unless the official submission form was read.</p>
+    parts.push(`      <h3 class="bd-subhead">${t('bd.requiredAssets')}</h3>
+      <p class="bd-note">${t('bd.assetsUnknownNote')}</p>
       <dl class="bd-defs">\n${assets}\n      </dl>`);
   }
   const note = guidanceAbsenceNote(active);
@@ -1505,7 +1528,7 @@ function editorialGuidance(directory, active) {
   return parts.join('\n\n');
 }
 
-module.exports = {
+  return {
   breadcrumbs, pageIntro, countryCard, categoryCard, cardGrid,
   directoryTable, directoryRow, directoryCard, metric, metricsBlock, metricNote,
   statusBadges, prosCons, bestForTags, bulletList, emptyState, faqSection,
@@ -1522,3 +1545,20 @@ module.exports = {
   coverageStatement,
   FILTERS, VERIFICATION_NOTE, REL_EXTERNAL, FILTER_DISCLOSURE,
 };
+}
+
+// Memoized: four closure sets per build, not one per page.
+const cache = new Map();
+function components(locale) {
+  if (!cache.has(locale)) cache.set(locale, createComponents(locale));
+  return cache.get(locale);
+}
+
+// The English binding is exported as the default shape so existing call sites
+// keep working while they migrate. It is NOT a fallback for localized rendering:
+// a generator that wants German must ask for German, and the guards below fail
+// if a localized page is built from this binding.
+module.exports = Object.assign(components(I18N.DEFAULT_LOCALE), {
+  components,
+  createComponents,
+});

@@ -35,31 +35,40 @@ const PRODUCT_SLUGS = CANONICAL.map((page) => page.split('/')[0]);
 // A compact semantic snapshot of the production baseline. It covers product
 // copy, metadata, canonicals/hreflang, JSON-LD, product links and image data,
 // while deliberately excluding the shell and visual-only FAQ toggle glyphs.
+// Re-baselined 2026-08-09. The ONLY change was the canonical host: every page
+// here canonicalized to https://www.petrohrys.com, which 301-redirects to the
+// apex (verified against the live site), so each page pointed search engines at
+// a redirect. All 24 pages were diffed against origin/main and confirmed to
+// differ in canonical and hreflang hrefs alone — visible text, in-content links,
+// images and JSON-LD are byte-identical.
+//
+// A baseline is only ever updated with that kind of evidence. Updating it
+// because a test went red is how a preservation guard becomes decoration.
 const BASELINE_DIGESTS = {
-  'pdf-editor/index.html': 'd790edd8448049287543dcc673b99f6322e6d9f457057932c99dcbf8e60f4983',
-  'pocket-manager/index.html': 'bd3fbc120ab442948f2066b42fcf007d7bb4dd8a9c136450a1eff890bbb6451b',
-  'cv-builder/index.html': '67a7f87ba6355688a03dcd9437237851d75055677ef46eb5ea9ca9ab58980f8a',
-  'unzip/index.html': '4f6c0fca37240a30b9bbd14b370466a9b30dbc6cc2cd3276f7f2b14d0a0bd914',
-  'tcg-scanner/index.html': 'c3d8949d884627d0430ddc1998090147e2de20912669b776d2661c22150f0df1',
-  'fax/index.html': '25c18b7b7a040dd6a9cfdf0c53b5a3064eca710aba18225179fcfd1d0be6961d',
-  'webmasterid/index.html': 'a96b9acd6e329b8bdedf81378354df633d9849a47df816a35f74ec755bf68ee0',
-  'invoice-maker/index.html': 'f2104605abea73576652bf18f7eff400073e88b53c46f785c683745fadc89240',
-  'smart-printer/index.html': 'da7dfdc69c516c190a8eb9c36f23c59a2219168acbfd88828bd8fc36566d8573',
-  'es/pdf-editor/index.html': 'f554e14c561ffcd1ade93e7113bca5d688b63c7144adb179355d3f1c035b3b7b',
-  'es/pocket-manager/index.html': 'fccd93792b3e92f896b725fc39436cfe5d332846f2729f2c7b0c3024cece1e22',
-  'es/cv-builder/index.html': '24ce8aae45241d3037d5039238fb719ed0b025ad54c234cf01864dbf149286f3',
-  'es/webmasterid/index.html': '4762cecf707ab04c67edbf1136bd1588cbd4a05c7f44d56d43fc5a53e0be858a',
-  'es/invoice-maker/index.html': '61ae530dc5741ca37e61acc1308c8ac114a6fc32df1a84984502f000fec26967',
-  'fr/pdf-editor/index.html': '41f76c0b27af38d357b4d36f8c253d6f1146bdcda4e3fdf27c8c32d2e291833a',
-  'fr/pocket-manager/index.html': '80a2f34fb5b69d3fadbe3b08b97133aa4727dad958ca1288a87a205b3e1503f9',
-  'fr/cv-builder/index.html': 'e246b379608cc958c4ce58296d994430fff60296ea0d06d38f01e650fb078c30',
-  'fr/webmasterid/index.html': 'd05b37599e8d6e2bd4297387fc41398732f49a3ea6dac6070361f1913ad51917',
-  'fr/invoice-maker/index.html': 'cc431181cc62c590d251022017b81d0072b6f137c10566368966a204aeeeea4d',
-  'de/pdf-editor/index.html': 'e0d9337e23ae58020ad32a36e30a4d2bf25d93d1e9169aebd2c06e5e06c01b13',
-  'de/pocket-manager/index.html': 'd8fe025b47608062fa8e9a23cda92f23db824439347ff742d51d7f0aefc35b6e',
-  'de/cv-builder/index.html': '2e275a47f0af335ec4fe793a55d7be9e68fd568ffe81c764a74567683a4cb42a',
-  'de/webmasterid/index.html': '95f3c3d8eb85704d963c4e097363277ee8cb3bb9eb05605fdba35f1d9040130f',
-  'de/invoice-maker/index.html': 'ffe0be2988a311ce0d8a4da3d269f9d3b57c58dbeb27b45e5b1d731758f3132a'
+  'pdf-editor/index.html': 'f1c6aa7f8e224c6b7fdcd54c4e3edabd4d3ab6635649b858320151cebfc15537',
+  'pocket-manager/index.html': '0c550678eca6a2abb4b7f5240e5d4225721c49ac37855e9cd60554d581d0afb5',
+  'cv-builder/index.html': 'b255db3b1c32c69aa5a1e35c9660a6b0ce9e1bf10b27fb6705516ed60e7f77c9',
+  'unzip/index.html': '912721a2593ce718907db8e13288093ab58fa3d72fe0035d6ee34b836355ba56',
+  'tcg-scanner/index.html': '90be500b5eddf972af1fa8ef60aec7506dbba9504aeb18edb02eb81e0315dc7f',
+  'fax/index.html': '660e234e36a9c7f11d659c6793690a73773aed35178d2a159f3160939dca55b7',
+  'webmasterid/index.html': '1eb01ed8c9dceefede377a1715a18ec9a0952d937401e465367036a528ac1d4e',
+  'invoice-maker/index.html': 'f7fa06b9f8c82bc81d0914404254053d97363a55551ebc42e1202a5837de9b8e',
+  'smart-printer/index.html': '4061f6d6ef080356ef0e1b94b3491f4889789a1fe3bc68747e643b2fc12cc4e3',
+  'es/pdf-editor/index.html': '10a6cb213c28aadf89cea1eb74647db4e238f890eff1175bef9d26c7e18cb304',
+  'es/pocket-manager/index.html': '7833ecaa3fa4af4922e868a5568bd311b99a43995d99aa872f566ad785f88489',
+  'es/cv-builder/index.html': '8483894dc5b4f240a4da5cea793d47314daabcb614fb6418861b02d107db9a23',
+  'es/webmasterid/index.html': 'af156da8509b79c2ca33044c104c9a1d04b266c609a9029dc7ea56186c7410cd',
+  'es/invoice-maker/index.html': 'dbfbbccbced24e2617dc9fd0552ece8a8d3767a92992b50803007660ecee1f49',
+  'fr/pdf-editor/index.html': '9e072642817b9b3d03d4869d057597db5e8d01a10c4b2f8f77c86df42529a730',
+  'fr/pocket-manager/index.html': '81734f8e8c86b7fcc97fc33819fef1e8ff437a9c0ce620c789ed0647b2544e15',
+  'fr/cv-builder/index.html': '4d46f54891a1f6db609195d29e5ac4ae5c0961b157cb0788686c3a63a1f2b124',
+  'fr/webmasterid/index.html': 'cb69b60d23d682aa04a56b0f6bcb1b1674bca9c1eb1dd66766fe8ae4928c3fcb',
+  'fr/invoice-maker/index.html': 'd7888b00d473f11fc700485e4ca88948198fc9f04d0349f08a5402be38b1dcc5',
+  'de/pdf-editor/index.html': 'ed5895e5b02414719592afcff03134979f1d79741d371351707c9e7c2fd658d7',
+  'de/pocket-manager/index.html': 'dbe3da37405670387bc90796488e38f699f734e7ac20fdb42e7f4d47178cae4b',
+  'de/cv-builder/index.html': 'b76b98c54e7d535198f7a3bd63f3dcb5a1bd87418490f5646c74ffeb623851e5',
+  'de/webmasterid/index.html': '65abd3a37b1c76067824788ba19f6f1fcd30a2b1a505463ecd028288d0d4253c',
+  'de/invoice-maker/index.html': 'd3a0cc32a17584a453a7b85d5843476984453ae8974e80670c3051bd59543390',
 };
 
 function attributes(tag) {

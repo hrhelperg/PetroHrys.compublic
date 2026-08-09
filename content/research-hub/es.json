@@ -1,0 +1,42 @@
+{
+  "_comment": [
+    "Contenido del hub en español. La incertidumbre se conserva de forma",
+    "deliberada: 'where possible' sigue siendo 'cuando es posible' y 'arrive in",
+    "Phase 2' sigue siendo una afirmación en futuro."
+  ],
+  "title": "Investigación — Petro Hrys",
+  "description": "Estudios sobre sistemas de búsqueda, comportamiento de indexación y arquitectura de rastreo, más tres bases de datos verificadas y un planificador que elige entre ellas.",
+  "h1": "Investigación",
+  "lede": "Estudios sobre sistemas de búsqueda, comportamiento de indexación y arquitectura de rastreo.",
+  "scope": {
+    "heading": "Alcance",
+    "paragraphs": [
+      "La investigación aquí se centra en cómo se comportan los sistemas de búsqueda de principio a fin &mdash; cómo los rastreadores descubren y vuelven a descubrir URLs, cómo los indexadores almacenan y clasifican documentos, cómo los sistemas de recuperación componen los resultados y cómo la superficie de la web determina qué llega a ser localizable. Las entradas son empíricas cuando es posible: experimentos pequeños, comparaciones del comportamiento observable entre motores y notas sobre los sistemas subyacentes.",
+      "El trabajo adyacente sobre arquitectura de entidades, datos estructurados y recuperación asistida por IA se enlaza en lugar de duplicarse."
+    ]
+  },
+  "collections": {
+    "heading": "Colecciones",
+    "intro": "Tres bases de datos publicadas y una herramienta que elige entre ellas. Cada una se verifica manualmente, se puede exportar como CSV e indica qué excluye.",
+    "items": {
+      "directories": "Un índice país por país que registra qué acepta cada directorio, cómo enlaza y cuándo se verificó por última vez.",
+      "opportunities": "La base de datos de trabajo: dónde una empresa puede crear, reclamar o solicitar un perfil público, con el coste, la acción de registro y la prioridad de cada uno.",
+      "media": "Dónde una empresa publica, envía, presenta propuestas, patrocina, lanza o aporta experiencia &mdash; medios, redes de notas de prensa, programas de colaboradores, plataformas de lanzamiento y servicios de consulta a periodistas, con el tipo de oportunidad y la vía para cada uno.",
+      "marketplaces": "Dónde una empresa o una persona publica un anuncio en lugar de un perfil &mdash; clasificados, vehículos, inmuebles, empleo, servicios, comercio B2B, subastas y reventa &mdash; con el tipo, el coste de publicar y quién puede hacerlo."
+    },
+    "chooseHeading": "Elegir entre las tres",
+    "chooseBody": "Cada base de datos anterior responde a una pregunta distinta. <strong>{directories}</strong> es donde una empresa crea o reclama un perfil profesional. <strong>{marketplaces}</strong> es donde publica un anuncio o una pieza publicitaria. <strong>{media}</strong> es donde presenta propuestas, publica, lanza o patrocina. El planificador elige la mejor combinación para una empresa, un objetivo, un mercado y un presupuesto &mdash; y nunca finge que las tres acciones sean equivalentes.",
+    "plannerDesc": "Seleccione empresa, objetivo, mercado y postura presupuestaria y obtenga un plan priorizado en las tres bases de datos, con la acción, el coste, la evidencia y un enlace directo cuando exista uno registrado.",
+    "plannerCta": "Abrir el Planificador de Distribución &rarr;"
+  },
+  "entries": {
+    "heading": "Entradas",
+    "body": "Los estudios individuales llegarán en la Fase 2. Hasta entonces, las colecciones anteriores son el trabajo publicado."
+  },
+  "related": {
+    "heading": "Relacionado",
+    "bodyPrefix": "Textos relevantes existentes: ",
+    "aiLabel": "La inteligencia artificial como capa operativa práctica",
+    "blogLabel": "Archivo del blog"
+  }
+}
