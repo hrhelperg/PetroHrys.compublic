@@ -32,6 +32,16 @@ const MANIFEST_FILE = path.join(ROOT, 'data', 'static-pages-manifest.json');
 
 const manifest = JSON.parse(fs.readFileSync(path.join(CONTENT, 'manifest.json'), 'utf8'));
 
+const EDITORIAL_DIR = path.join(ROOT, 'content', 'editorial');
+const editorial = JSON.parse(fs.readFileSync(path.join(EDITORIAL_DIR, 'manifest.json'), 'utf8'));
+
+// Editorial pages are English-only for now; Phase 3 assigns each a localization
+// disposition. Rendering them here already removes eleven inline stylesheets,
+// eleven hand-rolled headers and eleven footers, and puts them behind the same
+// shell as everything else — which is what makes localizing them later a data
+// change rather than another migration.
+const EDITORIAL_LOCALES = ['en'];
+
 // Each document's canonical route and the dictionary key naming it in the
 // breadcrumb. The label is not stored per locale here — it already exists in the
 // footer vocabulary, and a second copy would be a second thing to translate.
@@ -85,12 +95,23 @@ ${body.split('\n').map((l) => (l ? `      ${l}` : l)).join('\n')}
 // This build writes only routes it declares. The assertion below is what stops a
 // generator from stepping on another collection's output — the failure mode that
 // once had a corrupt manifest delete sitemap.xml.
+// Two shapes of route exist. /privacy/ is a directory and gets index.html;
+// /blog/smart-printer-guide.html is a file and must stay exactly that URL —
+// rewriting it to a directory would silently 404 every existing inbound link.
+function fileFor(locale, canonicalPath) {
+  if (canonicalPath.endsWith('.html')) {
+    return I18N.localizedPath(locale, canonicalPath).replace(/^\//, '');
+  }
+  return I18N.localizedFile(locale, canonicalPath);
+}
+
 function ownedFiles() {
   const files = [];
   for (const doc of DOCUMENTS) {
-    for (const locale of I18N.LOCALE_CODES) {
-      files.push(I18N.localizedFile(locale, doc.canonicalPath));
-    }
+    for (const locale of I18N.LOCALE_CODES) files.push(fileFor(locale, doc.canonicalPath));
+  }
+  for (const [, entry] of Object.entries(editorial)) {
+    for (const locale of EDITORIAL_LOCALES) files.push(fileFor(locale, entry.canonicalPath));
   }
   return files;
 }
@@ -102,6 +123,37 @@ function assertOwned(rel) {
   }
 }
 
+// Structured data is carried through from the source page, with the host
+// normalized to the apex. It is NOT regenerated: these blocks contain headlines,
+// dates and FAQ answers that were written by hand, and rebuilding them from
+// page metadata would quietly reword published structured data.
+function buildEditorialPage(id, entry, locale) {
+  const body = fs.readFileSync(path.join(EDITORIAL_DIR, `${id}.${locale}.html`), 'utf8').trim();
+  const t = I18N.translator(locale);
+  const isArticle = entry.canonicalPath.startsWith('/blog/') && entry.canonicalPath !== '/blog/';
+
+  const main = `    <article class="article-prose">
+${body.split('\n').map((l) => (l ? `      ${l}` : l)).join('\n')}
+    </article>`;
+
+  const crumbs = [{ label: t('legal.backHome'), href: I18N.localizedPath(locale, '/') }];
+  if (isArticle) crumbs.push({ label: t('shell.footer.blog'), href: I18N.localizedPath(locale, '/blog/') });
+  crumbs.push({ label: entry.h1 || entry.title });
+
+  return renderStaticPage({
+    canonicalPath: entry.canonicalPath,
+    locale,
+    title: entry.title,
+    description: entry.description,
+    main,
+    breadcrumb: crumbs,
+    availableLocales: EDITORIAL_LOCALES,
+    jsonLd: entry.jsonLd && entry.jsonLd.length
+      ? (entry.jsonLd.length === 1 ? entry.jsonLd[0] : entry.jsonLd)
+      : null,
+  });
+}
+
 function main() {
   const owned = ownedFiles();
   let written = 0;
@@ -109,10 +161,24 @@ function main() {
 
   for (const doc of DOCUMENTS) {
     for (const locale of I18N.LOCALE_CODES) {
-      const rel = I18N.localizedFile(locale, doc.canonicalPath);
+      const rel = fileFor(locale, doc.canonicalPath);
       assertOwned(rel);
       const abs = path.join(ROOT, rel);
       const html = buildPage(doc, locale);
+      const existing = fs.existsSync(abs) ? fs.readFileSync(abs, 'utf8') : null;
+      if (existing === html) { unchanged += 1; continue; }
+      fs.mkdirSync(path.dirname(abs), { recursive: true });
+      fs.writeFileSync(abs, html);
+      written += 1;
+    }
+  }
+
+  for (const [id, entry] of Object.entries(editorial)) {
+    for (const locale of EDITORIAL_LOCALES) {
+      const rel = fileFor(locale, entry.canonicalPath);
+      assertOwned(rel);
+      const abs = path.join(ROOT, rel);
+      const html = buildEditorialPage(id, entry, locale);
       const existing = fs.existsSync(abs) ? fs.readFileSync(abs, 'utf8') : null;
       if (existing === html) { unchanged += 1; continue; }
       fs.mkdirSync(path.dirname(abs), { recursive: true });
@@ -138,10 +204,11 @@ function main() {
   }
 
   fs.writeFileSync(MANIFEST_FILE, `${JSON.stringify({ files: owned.sort() }, null, 2)}\n`);
-  console.log(`Static pages: ${DOCUMENTS.length} document(s) × ${I18N.LOCALE_CODES.length} locale(s); `
+  console.log(`Static pages: ${DOCUMENTS.length} legal × ${I18N.LOCALE_CODES.length} locale(s) + `
+    + `${Object.keys(editorial).length} editorial × ${EDITORIAL_LOCALES.length}; `
     + `${written} written, ${unchanged} unchanged, ${pruned} pruned.`);
 }
 
 if (require.main === module) main();
 
-module.exports = { DOCUMENTS, ownedFiles, buildPage, updatedStamp, manifest };
+module.exports = { DOCUMENTS, ownedFiles, fileFor, buildPage, buildEditorialPage, updatedStamp, manifest, editorial, EDITORIAL_LOCALES };

@@ -62,10 +62,14 @@ function metaTag(key, content, kind = 'property') {
  * @param {object}  [page.jsonLd]       Structured data object, or null.
  * @param {boolean} [page.noindex]
  * @param {string}  [page.ogImage]
+ * @param {string[]} [page.availableLocales]  Locales this route really has.
+ *   Defaults to all four. Pass ['en'] for an English-only page so no phantom
+ *   /es/ or /de/ URL is advertised to search engines.
  */
 function renderStaticPage({
   canonicalPath, locale, title, description, main,
   breadcrumb = null, jsonLd = null, noindex = false, ogImage = DEFAULT_OG_IMAGE,
+  availableLocales = I18N.LOCALE_CODES,
 }) {
   const L = I18N.LOCALE_BY_CODE.get(locale);
   if (!L) throw new Error(`page-shell: unknown locale "${locale}"`);
@@ -75,7 +79,17 @@ function renderStaticPage({
   // Self-canonical, always. A localized page that canonicalizes to English is
   // telling Google the German version should not be indexed — which silently
   // undoes the entire translation effort.
-  const alternates = I18N.hreflangCluster(canonicalPath, absolute)
+  //
+  // hreflang advertises only the locales this route ACTUALLY has. Emitting the
+  // full four-locale cluster for an English-only page would publish phantom
+  // URLs: /es/blog/... would be announced to search engines and then 404. The
+  // caller passes the real set; a single-locale page gets no cluster at all,
+  // because a cluster of one is noise rather than information.
+  const cluster = availableLocales.length > 1
+    ? I18N.hreflangCluster(canonicalPath, absolute)
+      .filter((a) => a.hreflang === 'x-default' || availableLocales.includes(a.hreflang))
+    : [];
+  const alternates = cluster
     .map((a) => `\n  <link rel="alternate" hreflang="${a.hreflang}" href="${a.href}">`)
     .join('');
 

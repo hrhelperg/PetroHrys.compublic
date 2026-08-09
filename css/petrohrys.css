@@ -1372,3 +1372,129 @@ main > section[aria-labelledby="areas"] .area-list li:nth-child(3n) a {
   vertical-align: top;
 }
 .doc-table th { font-weight: 600; }
+
+/* ── Editorial primitives ───────────────────────────────────────────────────
+ *
+ * Added for the eleven legacy editorial pages (blog, articles, templates,
+ * startups, submit-startup, artificial-intelligence). Between them those pages
+ * carried 138 distinct page-local class names for what is really a handful of
+ * repeated shapes: a grid of cards, a button, a tag, a disclosure, a checklist.
+ *
+ * These are named for the SHAPE, not the page, so the next editorial page
+ * reuses them instead of inventing a twelfth card. Tokens only — no raw colour
+ * values, no page-scoped selectors, no second breakpoint system. */
+
+/* A responsive grid of equal cards. min() keeps it from overflowing at 320px,
+ * which is where the old fixed-width grids broke. */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 17rem), 1fr));
+  gap: var(--s-3);
+  padding: 0;
+  list-style: none;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+  padding: var(--s-3);
+  border: var(--rule-w) solid var(--rule);
+  border-radius: 10px;
+  background: var(--surface);
+}
+.card h2,
+.card h3 { font-size: var(--fs-md); margin: 0; }
+.card p { margin: 0; color: var(--text-2); font-family: var(--ff-serif); line-height: 1.55; }
+.card-meta {
+  margin-top: auto;
+  font-family: var(--ff-mono);
+  font-size: var(--fs-xs);
+  color: var(--text-3);
+}
+
+/* A short classifying label. One shape, two tones. */
+.tag {
+  display: inline-block;
+  padding: 0.15em 0.6em;
+  border-radius: 999px;
+  background: var(--surface-blue);
+  color: var(--blue-strong);
+  font-family: var(--ff-mono);
+  font-size: var(--fs-xs);
+  white-space: nowrap;
+}
+.tag--muted { background: var(--bg-soft); color: var(--text-3); }
+
+/* Buttons. The legacy pages had cta-btn, cta-btn-primary, cta-btn-secondary,
+ * btn, btn-red, btn-green, btn-ghost, btn-outline, btn-submit — nine names for
+ * two jobs. Minimum target size is set here so it cannot be forgotten. */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s-1);
+  min-height: 44px;
+  padding: 0 var(--s-3);
+  border: var(--rule-w) solid var(--rule);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--text);
+  font-family: var(--ff-sans);
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+}
+.btn:hover { background: var(--hover-tint); }
+.btn--primary { background: var(--blue); border-color: var(--blue); color: var(--bg); }
+.btn--primary:hover { background: var(--blue-strong); }
+.btn-row { display: flex; flex-wrap: wrap; gap: var(--s-2); }
+
+/* A disclosure. The legacy FAQ was a div that toggled a class from a click
+ * handler — invisible to keyboard and to assistive technology. <details> is
+ * native, focusable and announced, so the JavaScript is deleted rather than
+ * ported. */
+.faq-item {
+  border: var(--rule-w) solid var(--rule);
+  border-radius: 8px;
+  padding: var(--s-2) var(--s-3);
+  background: var(--surface);
+}
+.faq-item + .faq-item { margin-top: var(--s-2); }
+.faq-item > summary {
+  cursor: pointer;
+  font-weight: 600;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+.faq-item > summary:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+.faq-item > :not(summary) { font-family: var(--ff-serif); line-height: 1.65; color: var(--text-2); }
+
+/* A checklist where the marker carries meaning. The marker is a character, not
+ * a colour, so the distinction survives greyscale and colour-blindness. */
+.feature-list { list-style: none; padding: 0; }
+.feature-list li { display: flex; gap: var(--s-2); align-items: baseline; }
+.feature-list li + li { margin-top: var(--s-1); }
+.feature-list li::before { content: "—"; color: var(--text-3); font-family: var(--ff-mono); }
+.feature-list li.is-yes::before { content: "✓"; color: var(--green); }
+.feature-list li.is-no::before { content: "✕"; color: var(--text-3); }
+
+/* A closing call to action at the end of an article. */
+.cta-panel {
+  border: var(--rule-w) solid var(--rule);
+  border-radius: 10px;
+  padding: var(--s-4);
+  background: var(--surface-blue);
+  margin-top: var(--s-5);
+}
+.cta-panel > * + * { margin-top: var(--s-2); }
+
+/* An eyebrow above a heading, and the standing subtitle beneath one. */
+.eyebrow {
+  font-family: var(--ff-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+.subtitle { color: var(--text-2); font-family: var(--ff-serif); font-size: var(--fs-md); }

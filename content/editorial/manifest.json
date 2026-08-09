@@ -1,0 +1,386 @@
+{
+  "blog-index": {
+    "canonicalPath": "/blog/",
+    "sourceFile": "blog/index.html",
+    "title": "Blog — Practical Guides on PDF & Document Tools | Petro Hrys",
+    "description": "Practical guides on business, globalization, PDF editing, Pokemon TCG card scanning, document management, and mobile productivity — from Petro Hrys.",
+    "h1": "Blog",
+    "jsonLd": [
+      {
+        "@context": "https://schema.org",
+        "@type": "Blog",
+        "name": "Petro Hrys Blog",
+        "description": "Practical guides on business, globalization, document tools, and mobile productivity.",
+        "url": "https://petrohrys.com/blog/",
+        "dateModified": "2026-04-30",
+        "author": {
+          "@type": "Person",
+          "name": "Petro Hrys",
+          "url": "https://petrohrys.com"
+        }
+      }
+    ],
+    "links": 4,
+    "images": 0,
+    "textChars": 1212
+  },
+  "articles-index": {
+    "canonicalPath": "/articles/",
+    "sourceFile": "articles/index.html",
+    "title": "Founder Articles &amp; Guides – petrohrys.com",
+    "description": "Founder articles, growth guides, and case studies from indie startup builders. Real stories and practical advice from people shipping products.",
+    "h1": "Articles &amp; Guides",
+    "jsonLd": [],
+    "links": 4,
+    "images": 0,
+    "textChars": 1013
+  },
+  "templates-index": {
+    "canonicalPath": "/templates/",
+    "sourceFile": "templates/index.html",
+    "title": "Templates &amp; Resources – petrohrys.com",
+    "description": "Free templates, frameworks, and resources for indie founders and developers. Pitch decks, pricing pages, launch checklists, and more.",
+    "h1": "Templates &amp; Resources",
+    "jsonLd": [],
+    "links": 1,
+    "images": 0,
+    "textChars": 1279
+  },
+  "startups-index": {
+    "canonicalPath": "/startups/",
+    "sourceFile": "startups/index.html",
+    "title": "Startup Directory – petrohrys.com",
+    "description": "Discover indie startups across SaaS, mobile apps, developer tools, AI, and more. Free listings, curated by humans on petrohrys.com.",
+    "h1": "Startup Directory",
+    "jsonLd": [],
+    "links": 4,
+    "images": 0,
+    "textChars": 904
+  },
+  "startups-raising": {
+    "canonicalPath": "/startups/raising/",
+    "sourceFile": "startups/raising/index.html",
+    "title": "Startups Raising Investment – petrohrys.com",
+    "description": "Discover early-stage and growth-stage startups actively seeking investment on petrohrys.com. Browse by funding stage: idea, MVP, revenue, and scaling.",
+    "h1": "Startups Raising",
+    "jsonLd": [],
+    "links": 2,
+    "images": 0,
+    "textChars": 1292
+  },
+  "submit-startup": {
+    "canonicalPath": "/submit-startup/",
+    "sourceFile": "submit-startup/index.html",
+    "title": "Submit Your Startup – petrohrys.com",
+    "description": "Get a free SEO-optimized listing on petrohrys.com. Reach developers, founders, and early adopters. No cost, no account required.",
+    "h1": "Submit your startup",
+    "jsonLd": [],
+    "links": 1,
+    "images": 0,
+    "textChars": 1327
+  },
+  "artificial-intelligence": {
+    "canonicalPath": "/artificial-intelligence/",
+    "sourceFile": "artificial-intelligence/index.html",
+    "title": "Artificial Intelligence for Digital Products, SEO and SaaS Systems | Petro Hrys",
+    "description": "Petro Hrys uses artificial intelligence as a practical operating layer for software development, SEO systems, analytics, automation, and scalable digital products.",
+    "h1": "Artificial intelligence as practical infrastructure for digital business",
+    "jsonLd": [
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebPage",
+            "name": "Artificial Intelligence for Digital Products, SEO and SaaS Systems",
+            "description": "Petro Hrys uses artificial intelligence as a practical operating layer for software development, SEO systems, analytics, automation, and scalable digital products.",
+            "url": "https://petrohrys.com/artificial-intelligence/",
+            "datePublished": "2026-05-17",
+            "dateModified": "2026-05-17",
+            "inLanguage": "en",
+            "primaryImageOfPage": {
+              "@type": "ImageObject",
+              "url": "https://petrohrys.com/images/petro-hrys-ai-founder.png",
+              "width": 1080,
+              "height": 1440,
+              "caption": "Petro Hrys presenting an artificial intelligence concept in a cinematic dark technology setting."
+            },
+            "isPartOf": {
+              "@type": "WebSite",
+              "name": "Petro Hrys",
+              "url": "https://petrohrys.com"
+            },
+            "about": [
+              "Artificial intelligence",
+              "AI automation",
+              "AI-assisted software development",
+              "SEO automation",
+              "SaaS systems",
+              "Analytics"
+            ]
+          },
+          {
+            "@type": "Person",
+            "name": "Petro Hrys",
+            "url": "https://petrohrys.com",
+            "jobTitle": "App Developer",
+            "description": "Privacy-first app developer using AI as a practical operating layer for software, SEO, analytics, and digital products"
+          }
+        ]
+      }
+    ],
+    "links": 7,
+    "images": 1,
+    "textChars": 4633
+  },
+  "blog-smart-printer": {
+    "canonicalPath": "/blog/smart-printer-guide.html",
+    "sourceFile": "blog/smart-printer-guide.html",
+    "title": "Smart Printer: How to Print from Your Phone Easily (2026 Guide) | Petro Hrys",
+    "description": "Learn how to print from your phone in minutes using the Smart Printer app. Step-by-step guide for iPhone and Android — no drivers, no cables, no hassle.",
+    "h1": "Smart Printer: How to Print from Your Phone Easily",
+    "jsonLd": [
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Smart Printer: How to Print from Your Phone Easily",
+        "description": "Step-by-step guide to wireless printing from iPhone and Android using the Smart Printer app. No drivers, no cables.",
+        "url": "https://petrohrys.com/blog/smart-printer-guide.html",
+        "image": "https://petrohrys.com/og/smart-printer.png",
+        "datePublished": "2026-04-23",
+        "dateModified": "2026-04-23",
+        "author": {
+          "@type": "Person",
+          "name": "Petro Hrys",
+          "url": "https://petrohrys.com"
+        },
+        "publisher": {
+          "@type": "Person",
+          "name": "Petro Hrys",
+          "url": "https://petrohrys.com"
+        }
+      }
+    ],
+    "links": 6,
+    "images": 0,
+    "textChars": 9507
+  },
+  "blog-globalization": {
+    "canonicalPath": "/blog/what-is-business-globalization-open-economies.html",
+    "sourceFile": "blog/what-is-business-globalization-open-economies.html",
+    "title": "What Is Business? Globalization, Open Economies & Growth | Petro Hrys",
+    "description": "What is business really? Learn why trade creates value, how globalization shaped China, Rome, and Egypt, and why open economies grow while closed systems fall behind.",
+    "h1": "What Is Business Really, and Why Open Economies Grow While Closed Systems Fall Behind",
+    "jsonLd": [
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "What Is Business Really, and Why Open Economies Grow While Closed Systems Fall Behind",
+        "description": "A practical guide to business, globalization, open economies, trade, and why entrepreneurs should think beyond borders.",
+        "url": "https://petrohrys.com/blog/what-is-business-globalization-open-economies.html",
+        "image": "https://petrohrys.com/PHOTO1.jpg",
+        "datePublished": "2026-04-30",
+        "dateModified": "2026-04-30",
+        "author": {
+          "@type": "Person",
+          "name": "Petro Hrys",
+          "url": "https://petrohrys.com"
+        },
+        "publisher": {
+          "@type": "Person",
+          "name": "Petro Hrys",
+          "url": "https://petrohrys.com"
+        },
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://petrohrys.com/blog/what-is-business-globalization-open-economies.html"
+        }
+      }
+    ],
+    "links": 4,
+    "images": 0,
+    "textChars": 11868
+  },
+  "blog-pokemon": {
+    "canonicalPath": "/blog/pokemon-tcg-card-value-scanner/",
+    "sourceFile": "blog/pokemon-tcg-card-value-scanner/index.html",
+    "title": "Pokemon TCG Card Value Scanner: How to Check What Your Cards Are Worth | Petro Hrys",
+    "description": "Learn how a Pokemon TCG card value scanner works, how to check what your cards are worth, and which apps give the most accurate market prices. A complete guide for collectors.",
+    "h1": "Pokemon TCG Card Value Scanner: How to Check What Your Cards Are Worth",
+    "jsonLd": [
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Pokemon TCG Card Value Scanner: How to Check What Your Cards Are Worth",
+        "description": "A complete guide to using a Pokemon TCG card value scanner — how AI card recognition works, step-by-step scanning tips, and how to get accurate prices for your collection.",
+        "author": {
+          "@type": "Person",
+          "name": "Petro Hrys",
+          "url": "https://petrohrys.com/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Petro Hrys",
+          "url": "https://petrohrys.com/"
+        },
+        "datePublished": "2026-04-22",
+        "dateModified": "2026-04-22",
+        "url": "https://petrohrys.com/blog/pokemon-tcg-card-value-scanner/",
+        "mainEntityOfPage": "https://petrohrys.com/blog/pokemon-tcg-card-value-scanner/",
+        "image": "https://petrohrys.com/og/tcg-scanner.png",
+        "keywords": [
+          "pokemon tcg card value scanner",
+          "pokemon card scanner app",
+          "pokemon card value",
+          "trading card scanner",
+          "card scanner app"
+        ],
+        "articleSection": "TCG Collecting"
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is the best Pokemon TCG card value scanner app?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The best card scanner apps combine AI-based visual recognition with live market data from TCGPlayer and Cardmarket. Look for apps that update prices in real-time, support multiple card sets, and let you save your scans to a personal collection."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How accurate are Pokemon card scanning apps?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Modern AI-based scanners are highly accurate for identifying cards from major sets — typically above 95% for clean, well-lit cards. Accuracy drops for cards with heavy wear, foil glare, or very old sets with limited training data."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I scan Pokemon cards that are in sleeves or binders?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, most scanner apps handle cards in protective sleeves, though matte sleeves produce better results than glossy ones which can create glare. Scanning through binder pockets works but may slightly reduce recognition accuracy."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How often do Pokemon card prices change?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Pokemon card prices fluctuate constantly — sometimes daily for popular cards. New set releases, tournament results, social media attention, and influencer pulls can cause rapid price swings. Always check current prices before buying or selling."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Are old Pokemon cards worth anything?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Many older Pokemon cards — particularly Base Set holographics, first editions, and shadowless variants — are worth significant amounts. A Base Set Charizard in Near Mint condition can sell for hundreds to thousands of dollars. Always scan or look up older cards before assuming they have no value."
+            }
+          }
+        ]
+      }
+    ],
+    "links": 5,
+    "images": 0,
+    "textChars": 15086
+  },
+  "blog-pdf-editor": {
+    "canonicalPath": "/blog/best-pdf-editor-app-iphone-android/",
+    "sourceFile": "blog/best-pdf-editor-app-iphone-android/index.html",
+    "title": "Best PDF Editor App for iPhone & Android (Scan, Convert, Sign) | Petro Hrys",
+    "description": "Looking for the best PDF editor app for iPhone and Android? This guide covers scan to PDF, file conversion, signing, and why one free app covers everything you actually need.",
+    "h1": "Best PDF Editor App for iPhone &amp; Android (Scan, Convert, Sign)",
+    "jsonLd": [
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Best PDF Editor App for iPhone & Android (Scan, Convert, Sign)",
+        "description": "A practical guide to the best PDF editor app for mobile — scan to PDF, convert files, sign documents and edit on the go. Free, offline, no account needed.",
+        "datePublished": "2026-04-21",
+        "dateModified": "2026-04-21",
+        "author": {
+          "@type": "Person",
+          "name": "Petro Hrys",
+          "url": "https://petrohrys.com"
+        },
+        "publisher": {
+          "@type": "Person",
+          "name": "Petro Hrys",
+          "url": "https://petrohrys.com"
+        },
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://petrohrys.com/blog/best-pdf-editor-app-iphone-android/"
+        }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://petrohrys.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Blog",
+            "item": "https://petrohrys.com/blog/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Best PDF Editor App for iPhone & Android",
+            "item": "https://petrohrys.com/blog/best-pdf-editor-app-iphone-android/"
+          }
+        ]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is the best PDF editor app for iPhone?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "For most iPhone users, the best PDF editor is one that handles everyday tasks — signing, converting, scanning — for free, without uploading documents to servers. PDF Editor by Petro Hrys does exactly that: it's free, works offline, and covers scan to PDF, PDF converter, and e-signature features all in one app."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I edit and sign PDFs on Android for free?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. PDF Editor is available on both Android and iOS. You can sign PDFs, fill forms, annotate, convert files, and scan documents — all free, with no account required."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is there a free PDF converter app for mobile?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. PDF Editor includes a built-in PDF converter app that handles PDF to Word (DOCX), PDF to Excel (XLSX), PDF to JPG/PNG, and the reverse — all on-device without uploading files."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I scan a document to PDF on iPhone?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Open PDF Editor, tap the scan button, and point your camera at the document. The app auto-detects edges, corrects perspective, and creates a clean PDF with searchable OCR text — no internet required."
+            }
+          }
+        ]
+      }
+    ],
+    "links": 4,
+    "images": 0,
+    "textChars": 10372
+  }
+}

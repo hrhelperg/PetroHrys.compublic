@@ -76,39 +76,52 @@ test('both the desktop list and the mobile panel are updated', () => {
   }
 });
 
-test('no localised page was touched', () => {
-  const localised = [];
-  for (const dir of ['es', 'fr', 'de']) {
-    const walk = (d) => {
-      for (const entry of fs.readdirSync(path.join(root, d), { withFileTypes: true })) {
-        const rel = path.join(d, entry.name);
-        if (entry.isDirectory()) walk(rel);
-        else if (entry.name.endsWith('.html')) localised.push(rel);
-      }
-    };
-    walk(dir);
-  }
-  assert.ok(localised.length > 0);
-  // Restated for localization. A generator writing /de/research/** is now the
-  // feature, not a contamination. What must still never happen is a generator
-  // reaching into a localised page it does NOT own — a localised product page,
-  // a locale homepage, anything outside its own Research route family.
-  const I18N = require(path.join(root, 'scripts', 'lib', 'i18n.cjs'));
-  const ownedResearch = I18N.LOCALE_CODES
-    .filter((l) => l !== I18N.DEFAULT_LOCALE)
-    .map((l) => `${l}/research/`);
-  const outside = localised.filter((page) =>
-    !ownedResearch.some((prefix) => page.replace(/\\/g, '/').startsWith(prefix)));
-  for (const page of outside) {
-    assert.ok(!read(page).includes('Research Center'),
-      `${page} is outside every generator's owned routes and was modified`);
-  }
+test('the nav injector never targets a localized or generator-owned page', () => {
+  // This guard has now been restated twice, and both earlier versions were
+  // wrong in the same way: they inferred "who wrote this file" from the file's
+  // CONTENT. That cannot work. A hand-maintained localized page like
+  // /de/research/ legitimately carries the shared nav, and so does a generated
+  // one — the markup is identical by design, which is the whole point of a
+  // shared shell.
+  //
+  // The invariant that actually protects the repository is about WRITERS, not
+  // content: exactly one thing may write any given file. The injector is a
+  // post-processor that rewrites HTML in place, so it must not overlap with any
+  // generator, and it must not reach into the locale trees at all — its whole
+  // target list is English.
+  const nav = require(path.join(root, 'scripts', 'inject-research-nav.cjs'));
+  const owned = require(path.join(root, 'scripts', 'lib', 'owned-routes.cjs'));
+
+  const localeCodes = require(path.join(root, 'scripts', 'lib', 'i18n.cjs')).LOCALE_CODES
+    .filter((c) => c !== 'en');
+
+  const contested = nav.EDITORIAL_PAGES.filter((p) => owned.isGenerated(p));
+  assert.deepStrictEqual(contested, [],
+    `these pages have two writers — the injector and a generator: ${contested.join(', ')}`);
+
+  const localized = nav.EDITORIAL_PAGES
+    .filter((p) => localeCodes.some((c) => p.replace(/\\/g, '/').startsWith(`${c}/`)));
+  assert.deepStrictEqual(localized, [],
+    `the injector targets localized pages, which it must never do: ${localized.join(', ')}`);
 });
 
-test('no deferred legacy inline-style page was touched', () => {
-  for (const page of ['blog/index.html', 'privacy/index.html', 'terms/index.html',
-    'startups/index.html']) {
-    assert.ok(!read(page).includes('Research Center'), `${page} was modified`);
+test('every generator refuses to write outside its own owned routes', () => {
+  // The containment property, asserted against the generator's own declaration
+  // rather than against a list of paths a test author remembered.
+  const staticPages = require(path.join(root, 'scripts', 'build-static-pages.cjs'));
+  const owned = new Set(staticPages.ownedFiles());
+  assert.ok(owned.size > 0);
+
+  // Nothing it owns may live inside another generator's collection roots.
+  const routes = require(path.join(root, 'scripts', 'lib', 'bd-routes.cjs'));
+  const render = require(path.join(root, 'scripts', 'lib', 'bd-render.cjs'));
+  const otherRoots = [routes.hubPath(), render.MARKETPLACES_PATH, render.MEDIA_PATH, render.PLANNER_PATH]
+    .map((p) => p.replace(/^\//, ''));
+  for (const file of owned) {
+    for (const rootPath of otherRoots) {
+      assert.ok(!file.includes(rootPath),
+        `build-static-pages claims ${file}, which belongs to the ${rootPath} collection`);
+    }
   }
 });
 
