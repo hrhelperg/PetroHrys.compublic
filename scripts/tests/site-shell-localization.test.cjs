@@ -150,12 +150,17 @@ test('eSIMky is reachable from the footer of every page that has one', () => {
 // someone adds a new module full of hardcoded English the test fails too. Either
 // way the backlog cannot quietly grow, and it cannot quietly be forgotten.
 
+// Shrunk. bd-components.cjs, build-business-directories.cjs and
+// build-distribution-planner.cjs left this list when they were localized: they
+// now make 132, 120 and 42 t() calls respectively, where all three made zero.
+//
+// The ratchet turned in the direction it is supposed to. It also FORCED this
+// edit — the test failed the moment those modules stopped containing hardcoded
+// English, which is exactly the behaviour that stops a backlog from being
+// quietly declared finished.
 const UNLOCALIZED_BODY_MODULES = [
-  'scripts/lib/bd-articles.cjs',      // 70KB of long-form editorial guides
-  'scripts/lib/bd-components.cjs',    // record-page field labels and empty states
-  'scripts/lib/bd-feeds.cjs',         // RSS channel title/description
-  'scripts/build-business-directories.cjs',
-  'scripts/build-distribution-planner.cjs',
+  'scripts/lib/bd-articles.cjs',  // ~4,283 words of long-form editorial guides
+  'scripts/lib/bd-feeds.cjs',     // RSS channel title and description
 ];
 
 function hardcodedEnglishStrings(rel) {

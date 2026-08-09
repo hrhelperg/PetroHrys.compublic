@@ -61,7 +61,7 @@ function opportunityRow(op, s, countryName) {
   const collection = P.COLLECTION_BY_KEY.get(op.sourceCollection);
   const cta = op.actionUrl
     ? `<a class="bd-cta-link" href="${esc(op.actionUrl)}" rel="noopener noreferrer" target="_blank">${esc(action.label)}</a>`
-    : `<span class="bd-metric bd-metric--empty">No action URL recorded</span>`;
+    : `<span class="bd-metric bd-metric--empty">${t('dp.noActionUrl')}</span>`;
   return `          <tr class="bd-row" data-dp-collection="${esc(op.sourceCollection)}" `
     + `data-dp-country="${esc(op.country)}" data-dp-cost="${esc(op.cost)}" `
     + `data-dp-action="${esc(op.actionType)}" data-dp-score="${s.score}" `
@@ -115,7 +115,11 @@ ${rows}
       </div>`;
 }
 
-function renderMain(ops, countryName) {
+// Takes the locale so the BODY is localized, not only the shell around it.
+// Previously this was called once and its English output rendered into four
+// different <html lang> wrappers — which is why the German planner read English.
+function renderMain(ops, countryName, locale = I18N.DEFAULT_LOCALE) {
+  const t = I18N.translator(locale);
   const h = A.health(ops);
   const acts = ops.map((op) => ({ op, a: A.actionability(op) }))
     .sort((x, y) => P.compareStableName(x.op, y.op));
@@ -129,12 +133,12 @@ function renderMain(ops, countryName) {
   const defaultProfile = REC.PROFILE_BY_KEY.get(DEFAULT_QUERY.business);
   const defaultObjective = P.OBJECTIVE_BY_KEY.get(DEFAULT_QUERY.objective);
 
-  const READY_HEAD = ['Platform', 'Where', 'Cost', 'Effort', 'Time to publish', 'How sure', 'Do this'];
-  const QUEUE_HEAD = ['Platform', 'Where', 'What is missing', 'Why it matters', 'Suggested research', 'Do this'];
+  const READY_HEAD = [t('col.platform'), t('col.where'), t('col.cost'), t('col.effort'), t('col.timeToPublish'), t('col.howSure'), t('col.doThis')];
+  const QUEUE_HEAD = [t('col.platform'), t('col.where'), t('col.whatIsMissing'), t('col.whyItMatters'), t('col.suggestedResearch'), t('col.doThis')];
 
   return [
     c.pageIntro({
-      title: 'Distribution Planner',
+      title: t('collection.planner'),
       lede: 'Choose a business, an objective, a market and a budget, and get a plan you can work '
         + 'through today — what to do, where to do it, what it costs and how sure we are.',
     }),
@@ -142,21 +146,21 @@ function renderMain(ops, countryName) {
     `<section id="builder" aria-labelledby="builder-h">
       <h2 id="builder-h">1. Build a campaign</h2>
       <div class="bd-controls" data-dp-controls>
-${select({ id: 'dp-business', label: 'Business or product', value: DEFAULT_QUERY.business,
+${select({ id: 'dp-business', label: t('dp.businessOrProduct'), value: DEFAULT_QUERY.business,
     options: REC.PROFILES.map((p) => ({ value: p.key, label: p.label })) })}
-${select({ id: 'dp-objective', label: 'Objective', value: DEFAULT_QUERY.objective,
+${select({ id: 'dp-objective', label: t('dp.objective'), value: DEFAULT_QUERY.objective,
     options: P.OBJECTIVES.map((o) => ({ value: o.key, label: o.label })) })}
-${select({ id: 'dp-market', label: 'Market', value: DEFAULT_QUERY.market,
-    options: [{ value: '*', label: 'Any market' }, ...markets.map((m) => ({ value: m, label: countryName(m) }))] })}
-${select({ id: 'dp-budget', label: 'Budget', value: DEFAULT_QUERY.budget,
+${select({ id: 'dp-market', label: t('col.market'), value: DEFAULT_QUERY.market,
+    options: [{ value: '*', label: t('dp.anyMarket') }, ...markets.map((m) => ({ value: m, label: countryName(m) }))] })}
+${select({ id: 'dp-budget', label: t('dp.budget'), value: DEFAULT_QUERY.budget,
     options: P.BUDGETS.map((b) => ({ value: b.key, label: b.label })) })}
-${select({ id: 'dp-size', label: 'How many opportunities', value: String(CAMPAIGN_SIZE),
+${select({ id: 'dp-size', label: t('dp.howMany'), value: String(CAMPAIGN_SIZE),
     options: [10, 25, 50, 100].map((n) => ({ value: String(n), label: `${n}` })) })}
-${select({ id: 'dp-evidence', label: 'Evidence', value: 'ready',
-    options: [{ value: 'ready', label: 'Ready to execute only' },
-      { value: 'high', label: 'High confidence only' },
-      { value: 'research', label: 'Include research needed' },
-      { value: 'all', label: 'Everything' }] })}
+${select({ id: 'dp-evidence', label: t('dp.evidence'), value: 'ready',
+    options: [{ value: 'ready', label: t('dp.readyOnly') },
+      { value: 'high', label: t('dp.highConfidenceOnly') },
+      { value: 'research', label: t('dp.includeResearch') },
+      { value: 'all', label: t('dp.everything') }] })}
       </div>
       <p class="bd-note" data-dp-status>${esc(`Showing a ${CAMPAIGN_SIZE}-opportunity campaign for a `
     + `${defaultProfile.label.toLowerCase()} pursuing ${defaultObjective.label.toLowerCase()} in the `
@@ -170,9 +174,9 @@ ${select({ id: 'dp-evidence', label: 'Evidence', value: 'ready',
         + 'no known blocker. Open the link in the last column and do the work. Nothing on this list '
         + 'is a guess: if we did not establish the route, the platform is in one of the queues below '
         + 'instead.')}</p>
-${queueTable('Ready to execute', READY_HEAD,
+${queueTable(t('status.READY'), READY_HEAD,
     ready.slice(0, 60).map((x) => queueRow(x.op, x.a, countryName)).join('\n'))}
-      <p class="bd-note"><a class="bd-button" href="${P.PLANNER_PATH}execution-opportunities.csv" download>Download the full work queue as CSV</a></p>
+      <p class="bd-note"><a class="bd-button" href="${P.PLANNER_PATH}execution-opportunities.csv" download>${t('dp.downloadQueue')}</a></p>
     </section>`,
 
     `<section id="campaign" aria-labelledby="campaign-h">
@@ -197,7 +201,7 @@ ${g.items.map((r) => `          <li><strong>${esc(r.op.name)}</strong> &mdash; $
       <p>${esc('Relevant platforms where something operational is missing. These are deliberately '
         + 'kept out of the Ready queue: an employee should never discover mid-task that the route '
         + 'was assumed. Each row says exactly what is unknown.')}</p>
-${queueTable('Needs research', QUEUE_HEAD,
+${queueTable(t('status.NEEDS_RESEARCH'), QUEUE_HEAD,
     research.slice(0, 40).map((x) => queueRow(x.op, x.a, countryName, { showAction: false })).join('\n'))}
     </section>`,
 
@@ -206,19 +210,19 @@ ${queueTable('Needs research', QUEUE_HEAD,
       <p>${esc('These platforms sit behind a bot filter. The server answered, which proves nothing '
         + 'about the product, so they are neither dead nor ready — they need a human with a rendered '
         + 'browser. This is the single largest unlock available to this dataset.')}</p>
-${queueTable('Needs browser verification', QUEUE_HEAD,
+${queueTable(t('dp.needsBrowserVerification'), QUEUE_HEAD,
     browser.slice(0, 40).map((x) => queueRow(x.op, x.a, countryName, { showAction: false })).join('\n'))}
     </section>`,
 
     `<section id="health" aria-labelledby="health-h">
-      <h2 id="health-h">Collection health</h2>
+      <h2 id="health-h">${t('dp.collectionHealth')}</h2>
       <p>${esc('How much of each database is actually workable today. These are dataset-quality '
         + 'metrics, not business performance: they measure how much we know, not how well anything '
         + 'performed. The number worth improving is Ready, not the platform count.')}</p>
       <div class="bd-table-wrap">
         <table class="bd-table">
-          <caption>Operational readiness by collection</caption>
-          <thead><tr>${['Collection', 'Total', 'Ready', 'Needs research', 'Needs browser', 'Blocked', 'Action URL coverage', 'High confidence']
+          <caption>${t('dp.readinessByCollection')}</caption>
+          <thead><tr>${[t('col.collection'), t('col.total'), t('dp.ready'), t('status.NEEDS_RESEARCH'), t('dp.needsBrowser'), t('status.BLOCKED'), t('dp.actionUrlCoverage'), t('dp.highConfidence')]
     .map((x) => `<th class="bd-cell" scope="col">${esc(x)}</th>`).join('')}</tr></thead>
           <tbody>
 ${P.COLLECTIONS.map((col) => {
@@ -235,7 +239,7 @@ ${P.COLLECTIONS.map((col) => {
             </tr>`;
   }).join('\n')}
             <tr class="bd-row">
-              <td class="bd-cell" data-bd-label="Collection"><strong>All collections</strong></td>
+              <td class="bd-cell" data-bd-label="Collection"><strong>${t('dp.allCollections')}</strong></td>
               <td class="bd-cell" data-bd-label="Total"><strong>${h.overall.total}</strong></td>
               <td class="bd-cell" data-bd-label="Ready"><strong>${h.overall.ready}</strong> (${h.overall.actionabilityRate}%)</td>
               <td class="bd-cell" data-bd-label="Needs research">${h.overall.needsResearch}</td>
@@ -254,7 +258,7 @@ ${P.COLLECTIONS.map((col) => {
     </section>`,
 
     `<section id="method" aria-labelledby="method-h">
-      <h2 id="method-h">What Ready means, and what it does not</h2>
+      <h2 id="method-h">${t('dp.whatReadyMeans')}</h2>
       <p>${esc('Ready means three things are true: we know what action the platform supports, we '
         + 'have a recorded URL that matches that action, and no known restriction prevents it. It '
         + 'does not mean the submission will be accepted, that it is free, or that anything will be '
@@ -345,7 +349,7 @@ function main() {
       const f = path.join(ROOT, I18N.localizedFile(locale, P.PLANNER_PATH));
       assertOwned(f, [P.PLANNER_PATH]);
       fs.mkdirSync(path.dirname(f), { recursive: true });
-      const html = render.renderPage({ meta: plannerMeta, main: renderMain(ops, countryName), locale });
+      const html = render.renderPage({ meta: plannerMeta, main: renderMain(ops, countryName, locale), locale });
       const prev = fs.existsSync(f) ? fs.readFileSync(f, 'utf8') : null;
       if (prev !== html) { fs.writeFileSync(f, html); written.push(f); }
       localePages.push(f);
