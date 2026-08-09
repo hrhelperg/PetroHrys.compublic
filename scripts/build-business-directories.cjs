@@ -9,6 +9,7 @@ const { sortDirectories } = require('./lib/bd-sort.cjs');
 const seo = require('./lib/bd-seo.cjs');
 const c = require('./lib/bd-components.cjs');
 const { renderPage } = require('./lib/bd-render.cjs');
+const I18N = require('./lib/i18n.cjs');
 const { renderSitemap, renderRss } = require('./lib/bd-feeds.cjs');
 const routes = require('./lib/bd-routes.cjs');
 // One resolver for every surface that names a record.
@@ -812,8 +813,17 @@ function toPubDate(isoDate) {
 function stageBuild(registry, pages) {
   const files = new Map();
 
+  // Each canonical page is rendered once per locale. The registry is read ONCE
+  // and the same 1,563 records feed all four renders — no locale gets a copy.
+  // The English page keeps its existing outPath so nothing already published
+  // moves; the other locales are written under their prefix.
   for (const page of pages) {
-    files.set(page.outPath, renderPage({ meta: page.meta, main: page.main }));
+    for (const locale of I18N.LOCALE_CODES) {
+      const out = locale === I18N.DEFAULT_LOCALE
+        ? page.outPath
+        : I18N.localizedFile(locale, page.meta.canonicalPath);
+      files.set(out, renderPage({ meta: page.meta, main: page.main, locale }));
+    }
   }
 
   const indexable = pages
@@ -855,12 +865,18 @@ function assertContained(relPath) {
   if (path.isAbsolute(normalised) || normalised.split(path.sep).includes('..')) {
     throw new BuildError(`Refusing to write outside the site root: ${relPath}`);
   }
+  // The section, in every supported locale. The property is unchanged — this
+  // build writes only its own pages — but a localized route IS its own page,
+  // one prefix further down. Enumerated from the locale list rather than by
+  // loosening the check, so a stray path outside the section still fails.
+  const sectionDirs = I18N.LOCALE_CODES
+    .map((l) => I18N.localizedPath(l, `/${SECTION_DIR}/`).replace(/^\//, '').replace(/\/$/, ''));
   const inSection = normalised === SITEMAP_FILE
-    || normalised.startsWith(SECTION_DIR + path.sep);
+    || sectionDirs.some((dir) => normalised.startsWith(dir + path.sep));
   if (!inSection) {
     throw new BuildError(
       `Generated path is outside the section: ${relPath}. `
-      + `Only ${SECTION_DIR}/** and ${SITEMAP_FILE} may be written.`);
+      + `Only ${sectionDirs.join('/**, ')}/** and ${SITEMAP_FILE} may be written.`);
   }
 }
 
@@ -930,7 +946,17 @@ function readManifest(outRoot) {
 
 function buildManifest(files, pages) {
   const owners = { [SITEMAP_FILE]: 'sitemap', [FEED_FILE]: 'feed', [CSV_FILE]: 'csv' };
-  for (const page of pages) owners[page.outPath] = page.owner;
+  // Every locale variant of a page is owned by that page. Without this the
+  // localized keys carried an undefined owner, JSON.stringify dropped them, and
+  // the next build refused to overwrite files it had written itself.
+  for (const page of pages) {
+    for (const locale of I18N.LOCALE_CODES) {
+      const out = locale === I18N.DEFAULT_LOCALE
+        ? page.outPath
+        : I18N.localizedFile(locale, page.meta.canonicalPath);
+      owners[out] = page.owner;
+    }
+  }
   const sorted = {};
   for (const key of [...files.keys()].sort()) sorted[key] = owners[key];
   return { version: 1, files: sorted };

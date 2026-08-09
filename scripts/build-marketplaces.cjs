@@ -19,6 +19,7 @@ const MP = require('./lib/mp-schema.cjs');
 const c = require('./lib/bd-components.cjs');
 const render = require('./lib/bd-render.cjs');
 const seo = require('./lib/bd-seo.cjs');
+const I18N = require('./lib/i18n.cjs');
 
 const ROOT = path.join(__dirname, '..');
 const DATA_FILE = path.join(ROOT, 'data', 'marketplaces', 'marketplaces.json');
@@ -70,7 +71,7 @@ function renderCsv(rows) {
 }
 
 // --- page -------------------------------------------------------------------
-function facet({ name, label, values, labels }) {
+function facet({ name, label, values, labels, t }) {
   const counts = new Map();
   for (const v of values) counts.set(v, (counts.get(v) || 0) + 1);
   const options = [...counts.entries()]
@@ -80,60 +81,56 @@ function facet({ name, label, values, labels }) {
   return `      <div class="bd-control">
         <label class="bd-label" for="mp-facet-${name}">${escapeHtml(label)}</label>
         <select class="bd-select" id="mp-facet-${name}" data-bd-facet="${name}">
-          <option value="">All</option>
+          <option value="">${escapeHtml(t('common.all'))}</option>
 ${options}
         </select>
       </div>`;
 }
 
-function renderPage(rows, countryName) {
+function renderPage(rows, countryName, t) {
   const countries = new Set(rows.map((r) => r.country));
   const tableRows = rows.map((r) => {
     const types = [r.marketplaceType, ...(r.alsoCovers || [])]
-      .map((t) => TYPE_LABELS[t] || t).join(', ');
+      .map((x) => t(`mpType.${x}`)).join(', ');
     return `          <tr data-bd-facet-country="${escapeHtml(r.country)}" `
       + `data-bd-facet-type="${escapeHtml(r.marketplaceType)}" `
       + `data-bd-facet-cost="${escapeHtml(r.costModel)}" `
       + `data-bd-facet-sellers="${escapeHtml(r.sellerTypes)}" `
       + `data-bd-facet-status="${escapeHtml(r.currentStatus)}">
-            <td data-label="Platform"><a href="${escapeHtml(r.website)}" rel="noopener noreferrer" target="_blank">${escapeHtml(r.name)}</a></td>
-            <td data-label="Country">${escapeHtml(countryName(r.country))}</td>
-            <td data-label="Type">${escapeHtml(types)}</td>
-            <td data-label="Who can list">${escapeHtml(SELLER_LABELS[r.sellerTypes])}</td>
-            <td data-label="Cost">${escapeHtml(COST_LABELS[r.costModel])}</td>
-            <td data-label="Operator">${escapeHtml(r.operator || '')}</td>
-            <td data-label="Status">${escapeHtml(STATUS_LABELS[r.currentStatus] || r.currentStatus)}</td>
-            <td data-label="Notes">${escapeHtml(r.note || '')}</td>
+            <td data-label="${escapeHtml(t('col.platform'))}"><a href="${escapeHtml(r.website)}" rel="noopener noreferrer" target="_blank">${escapeHtml(r.name)}</a></td>
+            <td data-label="${escapeHtml(t('col.country'))}">${escapeHtml(countryName(r.country))}</td>
+            <td data-label="${escapeHtml(t('col.type'))}">${escapeHtml(types)}</td>
+            <td data-label="${escapeHtml(t('col.whoCanList'))}">${escapeHtml(t(`seller.${r.sellerTypes}`))}</td>
+            <td data-label="${escapeHtml(t('col.cost'))}">${escapeHtml(t(`cost.${r.costModel}`))}</td>
+            <td data-label="${escapeHtml(t('col.operator'))}">${escapeHtml(r.operator || '')}</td>
+            <td data-label="${escapeHtml(t('col.status'))}">${escapeHtml(t(`currentStatus.${r.currentStatus}`))}</td>
+            <td data-label="${escapeHtml(t('col.notes'))}">${escapeHtml(r.note || '')}</td>
           </tr>`;
   }).join('\n');
 
-  const head = ['Platform', 'Country', 'Type', 'Who can list', 'Cost', 'Operator', 'Status', 'Notes'];
+  const head = ['col.platform', 'col.country', 'col.type', 'col.whoCanList', 'col.cost',
+    'col.operator', 'col.status', 'col.notes'].map((k) => t(k));
   return [
     c.pageIntro({
       // Both numbers are derived. An earlier version hardcoded "in Europe" and
       // kept saying it through four waves that took the dataset worldwide.
-      title: `${rows.length} marketplace and classified platforms in ${countries.size} countries`,
-      lede: 'Platforms where a business or a person can publish a listing — goods, vehicles, '
-        + 'property, jobs or services. This is a different question from a business directory, '
-        + 'which is about publishing a company profile, and the two datasets are kept apart.',
+      title: t('mp.title', { n: rows.length, c: countries.size }),
+      lede: t('mp.lede'),
     }),
     `<section id="platforms" aria-labelledby="platforms-heading">
-      <h2 id="platforms-heading">Platforms</h2>
-      <p>${escapeHtml(`${rows.length} platforms across ${countries.size} countries. `
-        + 'A blank cell means the fact was researched and not established — it never means no. '
-        + 'Platforms behind a bot filter are marked "Needs browser check": the server answered, '
-        + 'which says nothing about the product.')}</p>
+      <h2 id="platforms-heading">${escapeHtml(t('mp.platforms'))}</h2>
+      <p>${escapeHtml(t('mp.summary', { n: rows.length, c: countries.size }))}</p>
       <div class="bd-controls">
-${facet({ name: 'country', label: 'Country', values: rows.map((r) => r.country), labels: Object.fromEntries([...countries].map((s) => [s, countryName(s)])) })}
-${facet({ name: 'type', label: 'Marketplace type', values: rows.map((r) => r.marketplaceType), labels: TYPE_LABELS })}
-${facet({ name: 'cost', label: 'Cost to list', values: rows.map((r) => r.costModel), labels: COST_LABELS })}
-${facet({ name: 'sellers', label: 'Who can list', values: rows.map((r) => r.sellerTypes), labels: SELLER_LABELS })}
-${facet({ name: 'status', label: 'Status', values: rows.map((r) => r.currentStatus), labels: STATUS_LABELS })}
+${facet({ name: 'country', t, label: t('mp.f.country'), values: rows.map((r) => r.country), labels: Object.fromEntries([...countries].map((s) => [s, countryName(s)])) })}
+${facet({ name: 'type', t, label: t('mp.f.type'), values: rows.map((r) => r.marketplaceType), labels: Object.fromEntries(MP.MARKETPLACE_TYPES.map((x) => [x, t(`mpType.${x}`)])) })}
+${facet({ name: 'cost', t, label: t('mp.f.cost'), values: rows.map((r) => r.costModel), labels: Object.fromEntries(MP.COST_MODELS.map((x) => [x, t(`cost.${x}`)])) })}
+${facet({ name: 'sellers', t, label: t('mp.f.sellers'), values: rows.map((r) => r.sellerTypes), labels: Object.fromEntries(MP.SELLER_TYPES.map((x) => [x, t(`seller.${x}`)])) })}
+${facet({ name: 'status', t, label: t('mp.f.status'), values: rows.map((r) => r.currentStatus), labels: Object.fromEntries(['active', 'unknown'].map((x) => [x, t(`currentStatus.${x}`)])) })}
       </div>
-      <p class="bd-note"><a class="bd-button" href="/research/marketplaces/marketplaces.csv" download>Download all ${rows.length} platforms as CSV</a></p>
+      <p class="bd-note"><a class="bd-button" href="/research/marketplaces/marketplaces.csv" download>${escapeHtml(t('mp.downloadCsv', { n: rows.length }))}</a></p>
       <div class="bd-table-wrap">
         <table class="bd-table">
-          <caption>Marketplace and classified platforms</caption>
+          <caption>${escapeHtml(t('mp.caption'))}</caption>
           <thead><tr>${head.map((h) => `<th scope="col">${escapeHtml(h)}</th>`).join('')}</tr></thead>
           <tbody>
 ${tableRows}
@@ -142,20 +139,33 @@ ${tableRows}
       </div>
     </section>`,
     `<section id="scope" aria-labelledby="scope-heading">
-      <h2 id="scope-heading">What is and is not here</h2>
-      <p>${escapeHtml('Included: classified portals, local marketplaces, buy and sell sites, and '
-        + 'vehicle, property, job and service classifieds. Excluded: business directories and '
-        + 'company registries, which answer a different question and live in their own dataset; '
-        + 'pure retail shops, price comparison sites, news portals and forums.')}</p>
-      <p>${escapeHtml('Where one operator runs several national sites — OLX, Adevinta, the Bazos '
-        + 'network — each national site is its own row, because each is a separate listing and a '
-        + 'separate account. A second domain serving the same country from the same operator is '
-        + 'not.')}</p>
+      <h2 id="scope-heading">${escapeHtml(t('mp.scope'))}</h2>
+      <p>${escapeHtml(t('mp.scope1'))}</p>
+      <p>${escapeHtml(t('mp.scope2'))}</p>
     </section>`,
   ].join('\n\n');
 }
 
 // --- build ------------------------------------------------------------------
+
+// Pre-write containment. The directory build has had this since it was written;
+// the sibling builds did not, and a mutation that pointed one of them at
+// de/index.html happily overwrote the German homepage. A generator must be
+// unable to write outside the routes it owns, in any locale — not merely
+// unlikely to.
+function assertOwned(file, ownedBases) {
+  const rel = path.relative(ROOT, file);
+  if (rel.startsWith('..') || path.isAbsolute(rel)) {
+    throw new Error(`Refusing to write outside the site root: ${rel}`);
+  }
+  const allowed = ownedBases.flatMap((base) => I18N.LOCALE_CODES
+    .map((l) => I18N.localizedPath(l, base).replace(/^\//, '')));
+  if (!allowed.some((prefix) => rel.startsWith(prefix))) {
+    throw new Error(`Refusing to write ${rel}: outside this build's owned routes `
+      + `(${allowed.join(', ')}).`);
+  }
+}
+
 function main() {
   const countries = JSON.parse(fs.readFileSync(COUNTRIES_FILE, 'utf8'));
   const nameBySlug = new Map(countries.map((x) => [x.slug, x.name]));
@@ -169,25 +179,38 @@ function main() {
   // No empty artefact: with nothing publishable, the page and the export do not
   // exist rather than existing empty.
   const written = [];
+  const ownedPages = [];
   if (rows.length) {
     fs.mkdirSync(OUT_DIR, { recursive: true });
     // Same shell as every other page on the site: one renderer, so the header,
     // footer, canonical and structured data can never drift between sections.
-    const html = render.renderPage({
-      meta: seo.buildMarketplacesMeta({
-        count: rows.length, countries: new Set(rows.map((r) => r.country)).size,
-      }),
-      main: renderPage(rows, countryName),
+    const meta = seo.buildMarketplacesMeta({
+      count: rows.length, countries: new Set(rows.map((r) => r.country)).size,
     });
-    writeIfChanged(PAGE_FILE, html, written);
+    // One canonical route, one file per locale. The 286 records are read once
+    // and rendered four times; no locale receives a copy of the data.
+    for (const locale of I18N.LOCALE_CODES) {
+      const f = path.join(ROOT, I18N.localizedFile(locale, meta.canonicalPath));
+      assertOwned(f, ['/research/marketplaces/']);
+      fs.mkdirSync(path.dirname(f), { recursive: true });
+      writeIfChanged(f, render.renderPage({
+        meta, main: renderPage(rows, countryName, I18N.translator(locale)), locale,
+      }), written);
+      ownedPages.push(f);
+    }
     writeIfChanged(CSV_FILE, renderCsv(rows), written);
   }
 
-  const owned = rows.length ? [PAGE_FILE, CSV_FILE] : [];
+  const owned = rows.length ? [...ownedPages, CSV_FILE] : [];
   const ownedRel = owned.map((f) => path.relative(ROOT, f));
   let pruned = 0;
+  const OWNED = I18N.LOCALE_CODES
+    .map((l) => I18N.localizedPath(l, '/research/marketplaces/').replace(/^\//, ''));
   for (const rel of previous) {
     if (ownedRel.includes(rel)) continue;
+    if (!OWNED.some((pre) => rel.startsWith(pre))) {
+      throw new Error(`Refusing to prune ${rel}: outside this build's own routes.`);
+    }
     const abs = path.join(ROOT, rel);
     if (fs.existsSync(abs)) { fs.unlinkSync(abs); pruned += 1; }
   }

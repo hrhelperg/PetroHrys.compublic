@@ -557,3 +557,24 @@
   .bd-hero { padding: var(--s-3); }
   .bd-actions .bd-button { width: 100%; justify-content: center; }
 }
+
+/* Horizontal scroll container for wide tables.
+ *
+ * The marketplace, media and planner generators have emitted .bd-table-wrap
+ * since they were written, and it was never styled — so a wide table forced the
+ * whole PAGE to scroll sideways on a phone instead of the table scrolling
+ * inside its own box. Localization surfaced it: longer German and French column
+ * labels widen every table, and the directory worklist gained the same wrapper.
+ *
+ * Focusable so a keyboard user can reach the scroll region, with a visible
+ * focus ring, and announced as a region to assistive technology by the
+ * generators' existing table captions. */
+.bd-table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  max-width: 100%;
+}
+.bd-table-wrap:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}

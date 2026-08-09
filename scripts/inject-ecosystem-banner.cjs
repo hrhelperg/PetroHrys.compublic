@@ -183,32 +183,44 @@ function walk(dir, acc) {
 }
 
 const files = walk(ROOT, []);
-const report = { total: files.length, changed: 0, unchanged: 0, failed: [], byLang: {} };
+// Only run the scan when invoked directly. Importing this module for its
+// bodyBlock() must not walk 1,732 files — every generator that needs the
+// localized banner imports it, and an import with side effects turned each
+// build into a full site scan.
+if (require.main === module) {
+  const report = { total: files.length, changed: 0, unchanged: 0, failed: [], byLang: {} };
 
-files.forEach(file => {
-  const before = fs.readFileSync(file, 'utf8');
-  const res = inject(before);
-  const rel = path.relative(ROOT, file);
-  if (!res.ok) { report.failed.push(rel + ' (' + res.reason + ')'); return; }
-  report.byLang[res.lang] = (report.byLang[res.lang] || 0) + 1;
-  if (res.html !== before) {
-    if (!CHECK_ONLY) fs.writeFileSync(file, res.html);
-    report.changed++;
-  } else {
-    report.unchanged++;
+  files.forEach(file => {
+    const before = fs.readFileSync(file, 'utf8');
+    const res = inject(before);
+    const rel = path.relative(ROOT, file);
+    if (!res.ok) { report.failed.push(rel + ' (' + res.reason + ')'); return; }
+    report.byLang[res.lang] = (report.byLang[res.lang] || 0) + 1;
+    if (res.html !== before) {
+      if (!CHECK_ONLY) fs.writeFileSync(file, res.html);
+      report.changed++;
+    } else {
+      report.unchanged++;
+    }
+  });
+
+  /* ---------- report ---------- */
+  console.log('\nHELPERG Ecosystem banner injection' + (CHECK_ONLY ? ' (check only)' : '') + '\n');
+  console.log('  Public HTML files scanned : ' + report.total);
+  console.log('  Written / updated         : ' + report.changed);
+  console.log('  Already up to date        : ' + report.unchanged);
+  console.log('  By language               : ' + JSON.stringify(report.byLang));
+  console.log('  Excluded dirs (no public HTML): ' + Array.from(EXCLUDED_DIRS).join(', '));
+  if (report.failed.length) {
+    console.log('\n  ✗ Failed / ambiguous pages:');
+    report.failed.forEach(f => console.log('    • ' + f));
+    process.exit(1);
   }
-});
+  console.log('\n  ✓ All scanned pages carry the banner.\n');
 
-/* ---------- report ---------- */
-console.log('\nHELPERG Ecosystem banner injection' + (CHECK_ONLY ? ' (check only)' : '') + '\n');
-console.log('  Public HTML files scanned : ' + report.total);
-console.log('  Written / updated         : ' + report.changed);
-console.log('  Already up to date        : ' + report.unchanged);
-console.log('  By language               : ' + JSON.stringify(report.byLang));
-console.log('  Excluded dirs (no public HTML): ' + Array.from(EXCLUDED_DIRS).join(', '));
-if (report.failed.length) {
-  console.log('\n  ✗ Failed / ambiguous pages:');
-  report.failed.forEach(f => console.log('    • ' + f));
-  process.exit(1);
+
+  // Exported so the page generators can emit the SAME localized banner this
+  // injector would, instead of a second English copy the injector then rewrites.
 }
-console.log('\n  ✓ All scanned pages carry the banner.\n');
+
+module.exports = { bodyBlock, labelsFor };

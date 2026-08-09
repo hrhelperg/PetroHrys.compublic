@@ -4,6 +4,12 @@ const { escapeHtml } = require('./bd-util.cjs');
 const { renderJsonLd } = require('./bd-seo.cjs');
 const { breadcrumbs } = require('./bd-components.cjs');
 const routes = require('./bd-routes.cjs');
+const I18N = require('./i18n.cjs');
+// Reuse the ecosystem injector's own localized banner rather than emitting a
+// second English copy. Two modules rendering the same banner from different
+// strings is how a build and its post-processor end up rewriting each other on
+// every run.
+const eco = require('../inject-ecosystem-banner.cjs');
 // The canonical host comes from bd-seo, which is its single source. Hard-coding
 // it here is what let the sitemap and RSS links drift onto a redirecting host.
 const { ORIGIN } = require('./bd-seo.cjs');
@@ -59,37 +65,42 @@ const ECO_BODY = `<!-- helperg-eco:body:start -->
 // It carries aria-current="true" rather than "page": generated pages live inside
 // the Research Center section but are never /research/ itself, and "page" would
 // claim this link points at the document you are reading.
-const NAV_ITEMS = (indent) => [
-  '<li><a href="/work/">Work</a></li>',
-  '<li><a href="/research/" aria-current="true">Research Center</a></li>',
-  '<li><a href="/writing/">Research &amp; Writing</a></li>',
-  '<li><a href="/about/">About</a></li>',
-].map((item) => `${indent}${item}`).join('\n');
+// Nav items are locale-prefixed so a German reader never leaves the German
+// site by clicking a header link.
+const NAV_ITEMS = (indent, locale, t) => {
+  const p = (path) => I18N.localizedPath(locale, path);
+  return [
+    `<li><a href="${p('/work/')}">Work</a></li>`,
+    `<li><a href="${p('/research/')}" aria-current="true">${escapeHtml(t('nav.researchCenter'))}</a></li>`,
+    '<li><a href="/writing/">Research &amp; Writing</a></li>',
+    '<li><a href="/about/">About</a></li>',
+  ].map((item) => `${indent}${item}`).join('\n');
+};
 
-const LANGS = (indent) => [
-  '<li><a href="/">EN</a></li>',
-  '<li><a href="/es/">ES</a></li>',
-  '<li><a href="/fr/">FR</a></li>',
-  '<li><a href="/de/">DE</a></li>',
-].map((item) => `${indent}${item}`).join('\n');
+// Semantic destination. A reader on /research/media-pr-publishing/ who clicks
+// DE lands on the German version of THAT page, not on the German homepage —
+// which is what the shipped switcher did, because it linked locale roots.
+const LANGS = (indent, canonicalPath, locale) => I18N.switcherFor(canonicalPath, locale)
+  .map((l) => `${indent}<li><a href="${l.href}"${l.current ? ' aria-current="page"' : ''}>${l.label}</a></li>`)
+  .join('\n');
 
-const HEADER = `  <header role="banner">
+const HEADER = (canonicalPath, locale, t) => `  <header role="banner">
     <nav aria-label="Primary">
       <a href="/" class="wordmark">Petro Hrys</a>
       <ul class="nav-primary">
-${NAV_ITEMS('        ')}
+${NAV_ITEMS('        ', locale, t)}
       </ul>
-      <ul class="nav-lang" aria-label="Language">
-${LANGS('        ')}
+      <ul class="nav-lang" aria-label="${escapeHtml(t('nav.language'))}">
+${LANGS('        ', canonicalPath, locale)}
       </ul>
       <details class="nav-mobile">
         <summary>Menu</summary>
         <div class="nav-mobile-panel">
           <ul class="nav-primary">
-${NAV_ITEMS('            ')}
+${NAV_ITEMS('            ', locale, t)}
           </ul>
-          <ul class="nav-lang" aria-label="Language">
-${LANGS('            ')}
+          <ul class="nav-lang" aria-label="${escapeHtml(t('nav.language'))}">
+${LANGS('            ', canonicalPath, locale)}
           </ul>
         </div>
       </details>
@@ -105,7 +116,7 @@ const MARKETPLACES_PATH = '/research/marketplaces/';
 const MEDIA_PATH = '/research/media-pr-publishing/';
 const PLANNER_PATH = '/research/distribution-planner/';
 
-const FOOTER = (currentPath) => `  <footer role="contentinfo">
+const FOOTER = (currentPath, locale = 'en', t = null) => `  <footer role="contentinfo">
     <div class="footer-grid">
       <section id="footer-tools">
         <h3>Products</h3>
@@ -166,13 +177,48 @@ function feedLink(meta) {
   return `\n  <link rel="alternate" type="application/rss+xml" title="Business Directories — Petro Hrys" href="${ORIGIN}${routes.feedPath()}">`;
 }
 
+// Breadcrumb labels are translated; the paths are localized so a German reader
+// clicking "Startseite" stays on the German site. The trail itself remains the
+// canonical one — this only changes what the reader sees and where the crumb
+// points, never which page the trail describes.
+const CRUMB_KEYS = {
+  Home: 'nav.home',
+  Research: 'nav.researchCenter',
+  'Media, PR & Publishing': 'collection.media',
+  'Business Directories': 'collection.directories',
+  Marketplaces: 'collection.marketplaces',
+  'Distribution Planner': 'collection.planner',
+};
+function localizeTrail(trail, locale, t) {
+  if (!Array.isArray(trail)) return trail;
+  return trail.map((entry) => {
+    const key = CRUMB_KEYS[entry.name];
+    return {
+      ...entry,
+      name: key && t.has(key) ? t(key) : entry.name,
+      path: entry.path && entry.path.startsWith('/')
+        ? I18N.localizedPath(locale, entry.path) : entry.path,
+    };
+  });
+}
+
 function metaTag(property, content, kind = 'property') {
   return `  <meta ${kind}="${escapeHtml(property)}" content="${escapeHtml(content)}">`;
 }
 
 // Takes a builder result from bd-seo verbatim, so indexability, canonical, and
 // structured data are decided in exactly one place.
-function renderPage({ meta, main }) {
+function renderPage({ meta, main, locale = I18N.DEFAULT_LOCALE }) {
+  const L = I18N.LOCALE_BY_CODE.get(locale);
+  if (!L) throw new Error(`renderPage: unknown locale "${locale}"`);
+  const t = I18N.translator(locale);
+  // The canonical path of the ENGLISH page. Every locale's canonical, hreflang
+  // cluster and switcher are derived from it, which is what makes the cluster
+  // reciprocal by construction rather than by discipline.
+  const canonicalPath = meta.canonicalPath;
+  const selfPath = I18N.localizedPath(locale, canonicalPath);
+  const alternates = I18N.hreflangCluster(canonicalPath, (p) => `${ORIGIN}${p}`)
+    .map((a) => `\n  <link rel="alternate" hreflang="${a.hreflang}" href="${a.href}">`).join('');
   const robotsTag = meta.robots
     ? `\n  <meta name="robots" content="${escapeHtml(meta.robots)}">`
     : '';
@@ -182,6 +228,7 @@ function renderPage({ meta, main }) {
     metaTag('og:description', meta.openGraph.description),
     metaTag('og:url', meta.openGraph.url),
     metaTag('og:type', meta.openGraph.type),
+    metaTag('og:locale', L.ogLocale),
     metaTag('og:site_name', meta.openGraph.siteName),
     metaTag('og:image', meta.openGraph.image),
     metaTag('twitter:card', meta.twitter.card, 'name'),
@@ -192,7 +239,7 @@ function renderPage({ meta, main }) {
   ].join('\n');
 
   return `<!DOCTYPE html>
-<html lang="en">
+<html lang="${L.htmlLang}">
 <head>
   <meta charset="UTF-8">
 ${ANALYTICS}
@@ -203,7 +250,7 @@ ${ANALYTICS}
 
 ${social}
 
-  <link rel="canonical" href="${escapeHtml(meta.canonical)}">
+  <link rel="canonical" href="${ORIGIN}${selfPath}">${alternates}
   <link rel="sitemap" type="application/xml" href="${ORIGIN}/sitemap.xml">${feedLink(meta)}
   <link rel="icon" href="/images/logo-red.svg">
 
@@ -216,17 +263,17 @@ ${ECO_HEAD}
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
-${ECO_BODY}
+${eco.bodyBlock ? eco.bodyBlock(L.htmlLang) : ECO_BODY}
 
-${HEADER}
+${HEADER(canonicalPath, locale, t)}
 
   <main id="main">
-${breadcrumbs(meta.breadcrumbTrail)}
+${breadcrumbs(localizeTrail(meta.breadcrumbTrail, locale, t))}
 
 ${main}
   </main>
 
-${FOOTER(meta.canonicalPath)}
+${FOOTER(selfPath, locale, t)}
   <script src="/js/bd-order.js" defer></script>
   <script src="/js/business-directories.js" defer></script>
 </body>

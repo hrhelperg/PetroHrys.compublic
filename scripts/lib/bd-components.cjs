@@ -1128,7 +1128,11 @@ function directoryTable({ directories, caption = 'Directories', columns, sortKey
     .filter((col) => shown.has(col.field))
     .map((col) => `            <th class="bd-cell" scope="col">${escapeHtml(col.label)}</th>`)
     .join('\n');
-  return `      <table class="bd-table">
+  // Wrapped in the scroll container every other collection uses. Without it a
+  // wide worklist forces the whole PAGE to scroll horizontally on a phone, and
+  // longer German and French column labels make that worse rather than better.
+  return `      <div class="bd-table-wrap">
+      <table class="bd-table">
         <caption class="bd-caption">${escapeHtml(caption)}</caption>
         <thead>
           <tr>
@@ -1139,7 +1143,8 @@ ${heads}
         <tbody data-bd-rows>
 ${rows}
         </tbody>
-      </table>`;
+      </table>
+      </div>`;
 }
 
 // ---------------------------------------------------------------------------

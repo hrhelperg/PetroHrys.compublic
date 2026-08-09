@@ -89,8 +89,19 @@ test('no localised page was touched', () => {
     walk(dir);
   }
   assert.ok(localised.length > 0);
-  for (const page of localised) {
-    assert.ok(!read(page).includes('Research Center'), `${page} was modified`);
+  // Restated for localization. A generator writing /de/research/** is now the
+  // feature, not a contamination. What must still never happen is a generator
+  // reaching into a localised page it does NOT own — a localised product page,
+  // a locale homepage, anything outside its own Research route family.
+  const I18N = require(path.join(root, 'scripts', 'lib', 'i18n.cjs'));
+  const ownedResearch = I18N.LOCALE_CODES
+    .filter((l) => l !== I18N.DEFAULT_LOCALE)
+    .map((l) => `${l}/research/`);
+  const outside = localised.filter((page) =>
+    !ownedResearch.some((prefix) => page.replace(/\\/g, '/').startsWith(prefix)));
+  for (const page of outside) {
+    assert.ok(!read(page).includes('Research Center'),
+      `${page} is outside every generator's owned routes and was modified`);
   }
 });
 

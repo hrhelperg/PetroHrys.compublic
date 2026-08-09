@@ -502,9 +502,11 @@ test('the media build owns only its own output', () => {
   const manifest = JSON.parse(fs.readFileSync(
     path.join(ROOT, 'data/media-pr-publishing/.build-manifest.json'), 'utf8'));
   assert.ok(manifest.files.length > 0, 'the manifest claims nothing');
+  const I18N_T = require(path.join(ROOT, 'scripts/lib/i18n.cjs'));
+  const owns = (f) => I18N_T.LOCALE_CODES
+    .some((l) => f.startsWith(I18N_T.localizedPath(l, '/research/media-pr-publishing/').replace(/^\//, '')));
   for (const f of manifest.files) {
-    assert.ok(f.startsWith('research/media-pr-publishing/'),
-      `the media manifest claims ${f}, which is outside its own directory`);
+    assert.ok(owns(f), `the media manifest claims ${f}, which is outside its own routes`);
   }
 });
 
@@ -520,7 +522,8 @@ test('the collection is one page, not a thousand thin ones', () => {
   // ranking many records with its own methodology and limitations — the
   // opposite of a thin page. Asserted as a ratio against the dataset plus a
   // substance floor, so 13 substantial pages pass and 385 stubs could not.
-  assert.ok(pages.length <= 1 + Math.ceil(ACTIONABLE.length / 20),
+  const LOCALES_N = require(path.join(ROOT, 'scripts/lib/i18n.cjs')).LOCALE_CODES.length;
+  assert.ok(pages.length <= LOCALES_N * (1 + Math.ceil(ACTIONABLE.length / 20)),
     `${pages.length} HTML pages for ${ACTIONABLE.length} records looks like a page-per-record explosion`);
   for (const p of pages) {
     const html = fs.readFileSync(p, 'utf8');
