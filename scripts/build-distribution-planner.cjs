@@ -76,7 +76,7 @@ function opportunityRow(op, s, countryName) {
             <td class="bd-cell" data-bd-label="Market">${esc(countryName(op.country))}</td>
             <td class="bd-cell" data-bd-label="Cost">${esc(op.cost)}</td>
             <td class="bd-cell" data-bd-label="Native quality">${op.nativeQuality === null
-    ? '<span class="bd-metric bd-metric--empty">Not rated</span>'
+    ? `<span class="bd-metric bd-metric--empty">${t('dp.notRated')}</span>`
     : `<strong>${op.nativeQuality}</strong>`} <small>${esc(op.nativeSignal)}</small></td>
             <td class="bd-cell" data-bd-label="Why">${esc(s.reasons.join('; '))}</td>
             <td class="bd-cell bd-actions" data-bd-label="Do this">${cta}</td>
@@ -143,8 +143,7 @@ function renderMain(ops, countryName, locale = I18N.DEFAULT_LOCALE) {
   return [
     c.pageIntro({
       title: t('collection.planner'),
-      lede: 'Choose a business, an objective, a market and a budget, and get a plan you can work '
-        + 'through today — what to do, where to do it, what it costs and how sure we are.',
+      lede: t('dp.lede'),
     }),
 
     `<section id="builder" aria-labelledby="builder-h">
@@ -174,10 +173,7 @@ ${select({ id: 'dp-evidence', label: t('dp.evidence'), value: 'ready',
 
     `<section id="ready" aria-labelledby="ready-h">
       <h2 id="ready-h">2. Ready to execute &mdash; ${ready.length} opportunities</h2>
-      <p>${esc('Everything here has a known action, a recorded route that matches that action, and '
-        + 'no known blocker. Open the link in the last column and do the work. Nothing on this list '
-        + 'is a guess: if we did not establish the route, the platform is in one of the queues below '
-        + 'instead.')}</p>
+      <p>${esc(t('dp.readyIntro'))}</p>
 ${queueTable(t('status.READY'), READY_HEAD,
     ready.slice(0, 60).map((x) => queueRow(x.op, x.a, countryName)).join('\n'))}
       <p class="bd-note"><a class="bd-button" href="${P.PLANNER_PATH}execution-opportunities.csv" download>${t('dp.downloadQueue')}</a></p>
@@ -185,9 +181,7 @@ ${queueTable(t('status.READY'), READY_HEAD,
 
     `<section id="campaign" aria-labelledby="campaign-h">
       <h2 id="campaign-h">3. The campaign, grouped by the work it is</h2>
-      <p>${esc('The same opportunities organised by what you would actually be doing, so the plan '
-        + 'reads as a sequence rather than one ranking repeated. Each appears in one group only, and '
-        + 'a group that does not apply to this business simply does not appear.')}</p>
+      <p>${esc(t('dp.byActionIntro'))}</p>
 ${camp.groups.map((g) => `      <section id="cg-${g.key}" aria-labelledby="cg-${g.key}-h">
         <h3 id="cg-${g.key}-h">${esc(g.label)} <span class="bd-count">${g.items.length}</span></h3>
         <p>${esc(g.blurb)}</p>
@@ -202,27 +196,21 @@ ${g.items.map((r) => `          <li><strong>${esc(r.op.name)}</strong> &mdash; $
 
     `<section id="research" aria-labelledby="research-h">
       <h2 id="research-h">4. Needs research &mdash; ${research.length} opportunities</h2>
-      <p>${esc('Relevant platforms where something operational is missing. These are deliberately '
-        + 'kept out of the Ready queue: an employee should never discover mid-task that the route '
-        + 'was assumed. Each row says exactly what is unknown.')}</p>
+      <p>${esc(t('dp.needsResearchIntro'))}</p>
 ${queueTable(t('status.NEEDS_RESEARCH'), QUEUE_HEAD,
     research.slice(0, 40).map((x) => queueRow(x.op, x.a, countryName, { showAction: false })).join('\n'))}
     </section>`,
 
     `<section id="browser" aria-labelledby="browser-h">
       <h2 id="browser-h">5. Needs browser verification &mdash; ${browser.length} opportunities</h2>
-      <p>${esc('These platforms sit behind a bot filter. The server answered, which proves nothing '
-        + 'about the product, so they are neither dead nor ready — they need a human with a rendered '
-        + 'browser. This is the single largest unlock available to this dataset.')}</p>
+      <p>${esc(t('dp.needsBrowserIntro'))}</p>
 ${queueTable(t('dp.needsBrowserVerification'), QUEUE_HEAD,
     browser.slice(0, 40).map((x) => queueRow(x.op, x.a, countryName, { showAction: false })).join('\n'))}
     </section>`,
 
     `<section id="health" aria-labelledby="health-h">
       <h2 id="health-h">${t('dp.collectionHealth')}</h2>
-      <p>${esc('How much of each database is actually workable today. These are dataset-quality '
-        + 'metrics, not business performance: they measure how much we know, not how well anything '
-        + 'performed. The number worth improving is Ready, not the platform count.')}</p>
+      <p>${esc(t('dp.healthIntro'))}</p>
       <div class="bd-table-wrap">
         <table class="bd-table">
           <caption>${t('dp.readinessByCollection')}</caption>
@@ -257,29 +245,16 @@ ${P.COLLECTIONS.map((col) => {
       </div>
       <p>${esc(`Research debt across all three collections is ${h.overall.researchDebt} opportunities: `
     + `${h.overall.needsResearch} need a route established and ${h.overall.needsBrowser} need a browser. `
-    + 'That is the honest state of the catalogue, and it is reported rather than smoothed over by '
-    + 'lowering what Ready means.')}</p>
+    + t('dp.honestState'))}</p>
     </section>`,
 
     `<section id="method" aria-labelledby="method-h">
       <h2 id="method-h">${t('dp.whatReadyMeans')}</h2>
-      <p>${esc('Ready means three things are true: we know what action the platform supports, we '
-        + 'have a recorded URL that matches that action, and no known restriction prevents it. It '
-        + 'does not mean the submission will be accepted, that it is free, or that anything will be '
-        + 'published — an editor may still say no.')}</p>
-      <p>${esc('Unknown is never promoted to Ready. A platform whose route we never established is '
-        + 'in Needs research, and a platform behind a bot filter is in Needs browser — separate, '
-        + 'because they need different work from different people. A blocked request proves the '
-        + 'server answered and nothing else, so it never means dead.')}</p>
-      <p>${esc('Confidence is about acting safely, not about prestige. High means the action, route, '
-        + 'cost, moderation and effort are all established. Every band lists what it is still missing '
-        + 'rather than showing a number on its own.')}</p>
-      <p>${esc('The three collections are read through an adaptor and never merged: each row keeps '
-        + 'its source collection, its own quality signal and its own kind of action. A directory '
-        + 'citation is not a press mention and a classified listing is not editorial coverage.')}</p>
-      <p>${esc('There is no completed or submitted state here. Tracking who did what belongs in a '
-        + 'system with per-company storage; this is a knowledge base. A header-only tracker template '
-        + 'is committed for teams that want to keep that state elsewhere.')}</p>
+      <p>${esc(t('dp.readyDefinition'))}</p>
+      <p>${esc(t('dp.unknownNeverReady'))}</p>
+      <p>${esc(t('dp.confidenceNote'))}</p>
+      <p>${esc(t('dp.adaptorNote'))}</p>
+      <p>${esc(t('dp.noTrackingNote'))}</p>
     </section>`,
   ].join('\n\n');
 }
