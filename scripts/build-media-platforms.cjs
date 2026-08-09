@@ -22,7 +22,12 @@ const path = require('node:path');
 const MD = require('./lib/media-schema.cjs');
 const MI = require('./lib/media-intelligence.cjs');
 const REC = require('./lib/media-recommend.cjs');
-const c = require('./lib/bd-components.cjs');
+// Module-level import is the ENGLISH binding; the locale-bound set is derived
+// from the translator each render function already receives. `t.locale` exists
+// precisely so a renderer never has to be told the locale twice and cannot be
+// told it inconsistently.
+const componentsModule = require('./lib/bd-components.cjs');
+const componentsFor = (t) => componentsModule.components(t.locale);
 const render = require('./lib/bd-render.cjs');
 const seo = require('./lib/bd-seo.cjs');
 const I18N = require('./lib/i18n.cjs');
@@ -225,6 +230,7 @@ function eligibleProfiles(rows) {
 }
 
 function renderMain(rows, countryName, t) {
+  const c = componentsFor(t);
   const countries = new Set(rows.map((r) => r.country));
   const cats = new Set(rows.flatMap((r) => r.categories));
   const types = new Set(rows.flatMap((r) => r.opportunityTypes));
@@ -359,6 +365,7 @@ ${tableRows}
 // that decides what a platform is good for, so a page and a filter can never
 // disagree.
 function renderProfilePage(profile, ranked, countryName, t) {
+  const c = componentsFor(t);
   const rows = ranked.map(({ record: r, recommendation: rec }, i) => `          <tr class="bd-row" data-bd-rec-level="${escapeHtml(rec.level)}">
             <td class="bd-cell" data-bd-label="${escapeHtml(t('col.rank'))}">${i + 1}</td>
             <td class="bd-cell" data-bd-label="${escapeHtml(t('col.platform'))}"><a href="${escapeHtml(r.website)}" rel="noopener noreferrer" target="_blank">${escapeHtml(r.name)}</a></td>

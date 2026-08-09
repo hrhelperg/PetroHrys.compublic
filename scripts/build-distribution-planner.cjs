@@ -26,7 +26,10 @@ const P = require('./lib/distribution-planner.cjs');
 const A = require('./lib/distribution-actionability.cjs');
 const REC = require('./lib/media-recommend.cjs');
 const MI = require('./lib/media-intelligence.cjs');
-const c = require('./lib/bd-components.cjs');
+// The module-level import is the ENGLISH binding. Using it inside a localized
+// render is how the breadcrumb ended up in English on 1,248 pages, so this file
+// keeps only the module and binds the locale where it renders.
+const componentsModule = require('./lib/bd-components.cjs');
 const render = require('./lib/bd-render.cjs');
 const seo = require('./lib/bd-seo.cjs');
 const I18N = require('./lib/i18n.cjs');
@@ -120,6 +123,7 @@ ${rows}
 // different <html lang> wrappers — which is why the German planner read English.
 function renderMain(ops, countryName, locale = I18N.DEFAULT_LOCALE) {
   const t = I18N.translator(locale);
+  const c = componentsModule.components(locale);
   const h = A.health(ops);
   const acts = ops.map((op) => ({ op, a: A.actionability(op) }))
     .sort((x, y) => P.compareStableName(x.op, y.op));
