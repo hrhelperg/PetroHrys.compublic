@@ -42,6 +42,20 @@ const editorial = JSON.parse(fs.readFileSync(path.join(EDITORIAL_DIR, 'manifest.
 // change rather than another migration.
 const EDITORIAL_LOCALES = ['en'];
 
+// ── the Research Center hub ─────────────────────────────────────────────────
+// Previously four independently hand-maintained HTML files. They had drifted
+// badly: the English hub had four sections, an <h1> and a <main>; the German,
+// Spanish and French hubs had two sections, no <h1>, no <main> at all — so their
+// skip link pointed at a #main that did not exist — an unclosed <header>, and an
+// entirely English navigation with unprefixed links.
+//
+// Now generated for all four locales from content/research-hub/<locale>.json, so
+// the structure cannot drift again: a missing section is a missing key, and the
+// parity test names it.
+const HUB_DIR = path.join(ROOT, 'content', 'research-hub');
+const HUB_PATH = '/research/';
+const hubContent = (locale) => JSON.parse(fs.readFileSync(path.join(HUB_DIR, `${locale}.json`), 'utf8'));
+
 // Each document's canonical route and the dictionary key naming it in the
 // breadcrumb. The label is not stored per locale here — it already exists in the
 // footer vocabulary, and a second copy would be a second thing to translate.
@@ -107,6 +121,7 @@ function fileFor(locale, canonicalPath) {
 
 function ownedFiles() {
   const files = [];
+  for (const locale of I18N.LOCALE_CODES) files.push(fileFor(locale, HUB_PATH));
   for (const doc of DOCUMENTS) {
     for (const locale of I18N.LOCALE_CODES) files.push(fileFor(locale, doc.canonicalPath));
   }
@@ -154,6 +169,96 @@ ${body.split('\n').map((l) => (l ? `      ${l}` : l)).join('\n')}
   });
 }
 
+// Collection names and routes come from the places that already own them: the
+// collection.* dictionary keys and the generators' own route constants. Storing
+// either in the hub content files would create a second name for the same
+// dataset and a link that goes stale when a collection moves.
+function buildHubPage(locale) {
+  const c = hubContent(locale);
+  const t = I18N.translator(locale);
+  const p = (route) => I18N.localizedPath(locale, route);
+  const routes = require('./lib/bd-routes.cjs');
+  const render = require('./lib/bd-render.cjs');
+
+  // Escape bare ampersands. The dictionary is inconsistent by history — some
+  // values store "&" and some store "&amp;" — so emitting a value straight into
+  // markup produced invalid HTML for exactly the collections whose names contain
+  // one. This normalizes without double-escaping an existing entity.
+  const esc = (v) => v.replace(/&(?!(?:[a-zA-Z][a-zA-Z0-9]*|#\d+|#x[0-9a-fA-F]+);)/g, '&amp;');
+
+  // The hub names each collection in full; the footer uses the short form. Both
+  // are real, so they are separate keys rather than one key stretched to serve
+  // two jobs.
+  const names = {
+    directories: esc(t('collection.directories')),
+    marketplaces: esc(t('collection.marketplaces')),
+    media: esc(t('collection.media.full')),
+  };
+  const chooseBody = c.collections.chooseBody
+    .replace('{directories}', names.directories)
+    .replace('{marketplaces}', names.marketplaces)
+    .replace('{media}', names.media);
+
+  const item = (href, name, desc) => `        <li><a href="${href}">`
+    + `<span class="name">${name}</span>`
+    + `<span class="desc">${desc}</span>`
+    + '<span class="arrow" aria-hidden="true">&rarr;</span></a></li>';
+
+  const collectionItems = [
+    item(p(routes.hubPath()), names.directories, c.collections.items.directories),
+    item(p(`${routes.hubPath()}opportunities/`), esc(t('opportunity.workingList')), c.collections.items.opportunities),
+    item(p(render.MEDIA_PATH), names.media, c.collections.items.media),
+    item(p(render.MARKETPLACES_PATH), names.marketplaces, c.collections.items.marketplaces),
+  ].join('\n');
+
+  const main = `    <article class="page-hero">
+      <h1>${c.h1}</h1>
+      <p class="lede">${c.lede}</p>
+    </article>
+
+    <section aria-labelledby="scope" class="prose">
+      <h2 id="scope">${c.scope.heading}</h2>
+${c.scope.paragraphs.map((x) => `      <p>${x}</p>`).join('\n')}
+    </section>
+
+    <section aria-labelledby="collections">
+      <h2 id="collections">${c.collections.heading}</h2>
+      <p>${c.collections.intro}</p>
+      <ul class="product-list">
+${collectionItems}
+      </ul>
+      <h3>${c.collections.chooseHeading}</h3>
+      <p>${chooseBody}</p>
+      <ul class="product-list">
+${item(p(render.PLANNER_PATH), esc(t('collection.planner')), c.collections.plannerDesc)}
+      </ul>
+      <p class="more"><a href="${p(render.PLANNER_PATH)}">${c.collections.plannerCta}</a></p>
+    </section>
+
+    <section aria-labelledby="entries" class="prose">
+      <h2 id="entries">${c.entries.heading}</h2>
+      <p>${c.entries.body}</p>
+    </section>
+
+    <section aria-labelledby="related" class="prose">
+      <h2 id="related">${c.related.heading}</h2>
+      <p>${c.related.bodyPrefix}<a href="${p('/artificial-intelligence/')}">${c.related.aiLabel}</a> &middot; <a href="${p('/blog/')}">${c.related.blogLabel}</a>.</p>
+    </section>`;
+
+  return renderStaticPage({
+    canonicalPath: HUB_PATH,
+    locale,
+    title: c.title,
+    description: c.description,
+    main,
+    breadcrumb: [
+      { label: t('legal.backHome'), href: p('/') },
+      { label: t('shell.nav.writing'), href: p('/writing/') },
+      { label: c.h1 },
+    ],
+  });
+}
+
 function main() {
   const owned = ownedFiles();
   let written = 0;
@@ -187,6 +292,19 @@ function main() {
     }
   }
 
+  for (const locale of I18N.LOCALE_CODES) {
+    const rel = fileFor(locale, HUB_PATH);
+    assertOwned(rel);
+    const abs = path.join(ROOT, rel);
+    const html = buildHubPage(locale);
+    const existing = fs.existsSync(abs) ? fs.readFileSync(abs, 'utf8') : null;
+    if (existing === html) { unchanged += 1; } else {
+      fs.mkdirSync(path.dirname(abs), { recursive: true });
+      fs.writeFileSync(abs, html);
+      written += 1;
+    }
+  }
+
   // Prune scope is this build's own routes and nothing else. A stale entry in
   // the previous manifest that is no longer owned gets removed; a file outside
   // the owned set is never touched, however the manifest is corrupted.
@@ -205,10 +323,10 @@ function main() {
 
   fs.writeFileSync(MANIFEST_FILE, `${JSON.stringify({ files: owned.sort() }, null, 2)}\n`);
   console.log(`Static pages: ${DOCUMENTS.length} legal × ${I18N.LOCALE_CODES.length} locale(s) + `
-    + `${Object.keys(editorial).length} editorial × ${EDITORIAL_LOCALES.length}; `
+    + `${Object.keys(editorial).length} editorial × ${EDITORIAL_LOCALES.length} + hub × ${I18N.LOCALE_CODES.length}; `
     + `${written} written, ${unchanged} unchanged, ${pruned} pruned.`);
 }
 
 if (require.main === module) main();
 
-module.exports = { DOCUMENTS, ownedFiles, fileFor, buildPage, buildEditorialPage, updatedStamp, manifest, editorial, EDITORIAL_LOCALES };
+module.exports = { DOCUMENTS, HUB_PATH, hubContent, buildHubPage, ownedFiles, fileFor, buildPage, buildEditorialPage, updatedStamp, manifest, editorial, EDITORIAL_LOCALES };

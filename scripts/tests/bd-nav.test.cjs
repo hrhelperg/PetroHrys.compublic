@@ -15,10 +15,15 @@ const NAV = `      <ul class="nav-primary">
         <li><a href="/about/">About</a></li>
       </ul>`;
 
-test('exactly the eight English editorial pages are targeted', () => {
+test('exactly the seven remaining English editorial pages are targeted', () => {
+  // Was eight. research/index.html left this list because the Research Center
+  // hub is now GENERATED for all four locales by build-static-pages, which emits
+  // the nav itself. Leaving it here would give one file two writers — an
+  // injector rewriting what a generator had just produced — which the
+  // one-writer-per-file guard below independently forbids.
   assert.deepStrictEqual([...EDITORIAL_PAGES].sort(), [
     'about/index.html', 'ai-systems/index.html', 'essays/index.html',
-    'index.html', 'infrastructure/index.html', 'research/index.html',
+    'index.html', 'infrastructure/index.html',
     'work/index.html', 'writing/index.html',
   ]);
 });

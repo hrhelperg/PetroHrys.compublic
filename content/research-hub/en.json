@@ -1,0 +1,53 @@
+{
+  "_comment": [
+    "Structured content for the Research Center hub, one file per locale.",
+    "",
+    "Structured rather than raw HTML per locale so the four versions cannot drift",
+    "apart structurally: every locale file must carry the same keys, and a test",
+    "asserts it. The English hub had four sections; the German, Spanish and French",
+    "hubs had two, no <h1>, no <main> and an unclosed <header> — precisely the",
+    "drift that four independently hand-maintained HTML files produce.",
+    "",
+    "Collection NAMES are not stored here. They come from the collection.* keys in",
+    "data/i18n/, which the Research Center already uses, so the same dataset is",
+    "never named two different ways in the same language.",
+    "",
+    "URLs are not stored here either — routes come from the generator's own route",
+    "constants, so a moved collection cannot leave a stale link behind."
+  ],
+  "title": "Research — Petro Hrys",
+  "description": "Studies of search systems, indexing behavior, and crawl architecture, plus three verified databases and a planner that chooses across them.",
+  "h1": "Research",
+  "lede": "Studies of search systems, indexing behavior, and crawl architecture.",
+  "scope": {
+    "heading": "Scope",
+    "paragraphs": [
+      "Research here focuses on how search systems behave end-to-end &mdash; how crawlers discover and re-discover URLs, how indexers store and rank documents, how retrieval systems compose results, and how the web's surface area shapes what becomes findable. Entries are empirical where possible: small experiments, comparisons of observable behavior across engines, and notes on the systems beneath them.",
+      "Adjacent work in entity architecture, structured data, and AI-driven retrieval is cross-linked rather than duplicated."
+    ]
+  },
+  "collections": {
+    "heading": "Collections",
+    "intro": "Three published databases and one tool that chooses across them. Each one is manually verified, exportable as CSV, and states what it excludes.",
+    "items": {
+      "directories": "A country-by-country index recording what each directory accepts, how it links, and when it was last verified.",
+      "opportunities": "The working database: where a company can create, claim or apply for a public profile, with cost, listing action and priority for each.",
+      "media": "Where a company publishes, submits, pitches, sponsors, launches or contributes expertise &mdash; media outlets, press release networks, contributor programmes, launch platforms and journalist-source services, with the opportunity type and the route for each.",
+      "marketplaces": "Where a business or a person publishes a listing rather than a profile &mdash; classifieds, vehicles, property, jobs, services, B2B trade, auctions and resale &mdash; with the type, the cost to list and who may list."
+    },
+    "chooseHeading": "Choose across all three",
+    "chooseBody": "Each database above answers a different question. <strong>{directories}</strong> is where a company creates or claims a professional profile. <strong>{marketplaces}</strong> is where it publishes a listing or an advertisement. <strong>{media}</strong> is where it pitches, publishes, launches or sponsors. The planner picks the best combination for one business, one objective, one market and one budget &mdash; and never pretends the three actions are equivalent.",
+    "plannerDesc": "Select a business, objective, market and budget posture and get a ranked plan across all three databases, with the action, the cost, the evidence and a direct link where one is recorded.",
+    "plannerCta": "Open the Distribution Planner &rarr;"
+  },
+  "entries": {
+    "heading": "Entries",
+    "body": "Individual studies arrive in Phase 2. Until then the collections above are the published work."
+  },
+  "related": {
+    "heading": "Related",
+    "bodyPrefix": "Existing relevant writing: ",
+    "aiLabel": "Artificial intelligence as a practical operating layer",
+    "blogLabel": "Blog archive"
+  }
+}
