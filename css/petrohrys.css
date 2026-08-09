@@ -1293,3 +1293,82 @@ main > section[aria-labelledby="areas"] .area-list li:nth-child(3n) a {
 }
 
 /* ===== End ===== */
+
+/* ── Long-form document primitives ──────────────────────────────────────────
+ *
+ * Added for the legacy families that each carried their own ~5KB inline
+ * stylesheet: legal pages, editorial articles, directory-style index pages.
+ * Named for what they ARE, not for the page that first needed them, so the next
+ * legal page or article reuses them instead of inventing a fourth type scale.
+ * No product-scoped selectors, no raw colours — tokens only. */
+
+.legal-prose,
+.article-prose {
+  max-width: 46rem;
+  margin: 0 auto;
+}
+.legal-prose > * + *,
+.article-prose > * + * { margin-top: var(--s-3); }
+.legal-prose h2,
+.article-prose h2 {
+  font-family: var(--ff-serif);
+  font-size: var(--fs-lg);
+  margin-top: var(--s-5);
+}
+.legal-prose h3,
+.article-prose h3 { font-size: var(--fs-md); margin-top: var(--s-4); }
+.legal-prose p,
+.legal-prose li,
+.article-prose p,
+.article-prose li {
+  font-family: var(--ff-serif);
+  line-height: 1.65;
+  color: var(--text);
+}
+.legal-prose ul,
+.legal-prose ol,
+.article-prose ul,
+.article-prose ol { padding-left: var(--s-4); }
+.legal-prose li + li,
+.article-prose li + li { margin-top: var(--s-1); }
+
+/* A dated freshness stamp. Legal pages need it; articles may use it too. */
+.doc-updated {
+  display: block;
+  font-family: var(--ff-mono);
+  font-size: var(--fs-sm);
+  color: var(--text-2);
+}
+
+/* A pulled-out statement of scope or applicability. */
+.doc-callout {
+  border-left: 3px solid var(--blue);
+  background: var(--surface-blue);
+  padding: var(--s-3);
+  border-radius: 0 8px 8px 0;
+}
+
+/* A boxed block of discrete facts — a controller's contact details, a summary
+ * of retention periods. Not a callout: this is reference data, not emphasis. */
+.doc-box {
+  border: var(--rule-w) solid var(--rule);
+  border-radius: 10px;
+  padding: var(--s-3);
+  background: rgba(255, 255, 255, 0.6);
+}
+.doc-box > * + * { margin-top: var(--s-1); }
+
+/* Horizontal scroll container for any wide table outside the Research Center,
+ * so a table scrolls inside its own box rather than scrolling the whole page.
+ * Focusable, so a keyboard user can reach the scroll region. */
+.table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; max-width: 100%; }
+.table-wrap:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+.doc-table { width: 100%; border-collapse: collapse; font-size: var(--fs-sm); }
+.doc-table th,
+.doc-table td {
+  text-align: left;
+  padding: var(--s-2);
+  border-bottom: var(--rule-w) solid var(--rule);
+  vertical-align: top;
+}
+.doc-table th { font-weight: 600; }
