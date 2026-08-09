@@ -4,9 +4,32 @@ State of the site after Phases 2–4 of the localization and design-completion
 programme. Every number is derived from the repository; none is carried over
 from a previous report.
 
-**Status: SITE-WIDE LOCALIZATION NOT YET COMPLETE.** Phase 2 is finished; Phase 3
-is decided but not executed; Phase 4 is diagnosed and guarded but not
-implemented. Exact remaining work is in §9.
+**Status: SITE-WIDE LOCALIZATION NOT YET COMPLETE.**
+
+Updated after the execution phase. Phase 4 is now **implemented**, not merely
+diagnosed: the Business Directories and Distribution Planner bodies are built
+per locale and the two generators plus the shared component module went from
+**0 to 294 `t()` calls**. The Research hubs are repaired and generated. The
+sitemap now carries every localized page.
+
+What remains is the editorial corpus and the 17 approved route translations —
+listed with measured costs in §9. Nothing is described as done that is not.
+
+| Metric | Before | After |
+|---|---:|---:|
+| Legacy design pages | 0 | **0** |
+| Pages with first-party English | 1,248 | **553** |
+| `t()` calls in BD + Planner | 0 | **294** |
+| Dictionary keys per locale | 223 | **447** |
+| Sitemap URLs | 524 | **1,724** |
+| Sitemap missing indexable pages | 1,208 | **8** |
+| Sitemap phantom URLs | 0 | **0** |
+| Canonical errors | 0 | **0** |
+| hreflang errors | 0 | **0** |
+| Invalid JSON-LD | 0 | **0** |
+| Pages with no `<main>` | 3 | **0** |
+| Pages with no `<h1>` | 3 | **0** |
+| Tests | 1,477 | **1,486** |
 
 ---
 
