@@ -1,0 +1,41 @@
+# Netlify response headers.
+#
+# Defence in depth for the internal paths blocked in _redirects. Those rules
+# return a forced 404, so in normal operation nothing here is ever reached —
+# these headers exist so that if a force flag is dropped, a new internal
+# directory is added without a matching rule, or a path is otherwise missed,
+# the material still does not enter a search index.
+#
+# Keep this list in step with the "Internal paths: not published" block in
+# _redirects.
+#
+# Nothing here applies to /LICENSE.md, /README.md, /DATA-RIGHTS.md or
+# /THIRD-PARTY-NOTICES.md, which are published deliberately, nor to any page
+# route or to the /css/, /js/ and /images/ assets.
+
+/site-strategy.md
+  X-Robots-Tag: noindex, nofollow
+
+/seo-content-plan.md
+  X-Robots-Tag: noindex, nofollow
+
+/seo-implementation.md
+  X-Robots-Tag: noindex, nofollow
+
+/link-preservation-audit.md
+  X-Robots-Tag: noindex, nofollow
+
+/docs/*
+  X-Robots-Tag: noindex, nofollow
+
+/scripts/*
+  X-Robots-Tag: noindex, nofollow
+
+/content/*
+  X-Robots-Tag: noindex, nofollow
+
+/startups-app/*
+  X-Robots-Tag: noindex, nofollow
+
+/data/*
+  X-Robots-Tag: noindex, nofollow
