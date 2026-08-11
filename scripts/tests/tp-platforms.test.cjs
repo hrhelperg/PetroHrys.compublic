@@ -264,3 +264,63 @@ test('MUTATION: a required field removed is caught', () => {
     assert.ok(caught(row, f), `${f} is not actually required`);
   }
 });
+
+// ── Wave T2A additions ──────────────────────────────────────────────────────
+// The route-completion pass and the ecosystem deepening created three new ways
+// to go wrong: a homepage shortcut in the two route fields T1 did not guard, a
+// superseded system still calling itself active, and shared infrastructure
+// duplicated across records. Each gets a property and a mutation.
+
+test('T2A: a record naming a successor is never active', () => {
+  const withSuccessor = PLATFORMS.filter((r) => r.replacedBy);
+  assert.ok(withSuccessor.length > 0, 'no replaced record exists: this guard is vacuous');
+  for (const r of withSuccessor) {
+    assert.strictEqual(r.currentStatus, 'replaced',
+      `${r.id} names ${r.replacedBy} as successor but claims to be "${r.currentStatus}"`);
+  }
+});
+
+test('T2A MUTATION: successor-and-active is caught', () => {
+  const row = base();
+  row.replacedBy = 'eu-ted';
+  // currentStatus stays 'active' — the exact lie the guard exists for.
+  assert.ok(caught(row, 'currentStatus'), 'a superseded record posing as active survived');
+});
+
+test('T2A MUTATION: homepage copied into registration or documents route is caught', () => {
+  for (const f of ['supplierRegistrationUrl', 'documentsUrl']) {
+    const row = base();
+    row[f] = row.officialUrl;
+    assert.ok(caught(row, f), `${f} homepage shortcut survived`);
+  }
+});
+
+test('T2A: one host, one system — across the whole dataset, not just per country', () => {
+  // Per-country host uniqueness is enforced at load. This widens the property:
+  // the same full host appearing under two records anywhere means one
+  // operational system was recorded twice (the 26-copies-of-SIMAP failure),
+  // unless the records declare their relationship.
+  const seen = new Map();
+  for (const r of PLATFORMS) {
+    const host = S.hostOf(r.officialUrl);
+    if (seen.has(host)) {
+      const other = seen.get(host);
+      const related = r.partOf === other.id || other.partOf === r.id
+        || r.replacedBy === other.id || other.replacedBy === r.id;
+      assert.ok(related,
+        `${r.id} and ${other.id} both live on ${host} with no declared relationship`);
+    } else seen.set(host, r);
+  }
+});
+
+test('T2A: every ecosystem member and its parent agree on the jurisdiction', () => {
+  const byId = new Map(PLATFORMS.map((r) => [r.id, r]));
+  const members = PLATFORMS.filter((r) => r.partOf);
+  assert.ok(members.length > 0, 'no partOf links exist: this guard is vacuous');
+  for (const r of members) {
+    const parent = byId.get(r.partOf);
+    assert.ok(parent, `${r.id} partOf dangles`);
+    assert.strictEqual(r.country, parent.country,
+      `${r.id} (${r.country}) claims membership of ${parent.id} (${parent.country})`);
+  }
+});

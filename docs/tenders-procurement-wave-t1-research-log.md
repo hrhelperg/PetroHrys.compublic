@@ -68,7 +68,8 @@ regulator's site and the platform are almost never the same system:
 - `ekap.kik.gov.tr` → `ekapv2.kik.gov.tr` (TR platform moved to a v2 app on the
   same authority domain; one record, not two)
 - `zakupki.prom.ua` → `zakupivli.pro` (UA marketplace rebrand, behind a bot
-  wall; **not** published — needs a browser check before any record exists)
+  wall; **not** published in T1 — **resolved and published in T2A** once the
+  operator's authorization table confirmed it)
 
 ### 1.5 `WAF-unverifiable` / transport — not rejections, not death
 
@@ -100,13 +101,15 @@ achizitii.md) · Georgia · Armenia.
 through registered commercial systems. The three published records reflect that
 documented structure rather than contradicting it.
 
-**UNRESOLVED (2):**
-- **Albania** — `app.gov.al` verified live (305 KB) but titled as the
-  procurement *agency*; platform-vs-authority not established by fetch.
-- **Bosnia and Herzegovina** — `e-nabavke.gov.ba` connection failure; needs
-  another vantage or a browser.
-- (Azerbaijan's `etender.gov.az` also failed connection; Azerbaijan is
-  therefore unresolved too — no record was created.)
+**UNRESOLVED at the close of T1 (3) — two since resolved in T2A:**
+- ~~**Albania**~~ — **resolved in T2A**: the platform is `bid.app.gov.al` (SPE,
+  economic-operator section); `app.gov.al` is the agency. Same domain, two
+  different things.
+- ~~**Bosnia and Herzegovina**~~ — **resolved in T2A**: `e-nabavke.gov.ba` was
+  not merely unreachable, it is superseded. The live portal is `ejn.gov.ba`.
+- **Azerbaijan** — still unresolved after a T2A re-investigation:
+  `etender.gov.az` and `tender.gov.az` both resolve in DNS but time out on
+  TCP:443 from this vantage. Transport failure, not death.
 
 **INTENTIONALLY EXCLUDED (2): Russia, Belarus.**
 Official platforms exist (`zakupki.gov.ru` EIS; `goszakupki.by` / `icetrade.by`)
@@ -125,9 +128,8 @@ channels as far as this pass could see; also not a declared country slug in the
 shared geography. Recorded on the Swiss record's limitations.
 
 **EU institutional deep-dive (EIB, EBRD, ECB, Funding & Tenders Portal's
-calls-for-tenders surface):** not completed — the assigned research agent was
-stopped by the spend limit. TED covers the EU-level P0. The institutional P1
-pass moves to T2 with this note so it is not mistaken for a finished area.
+calls-for-tenders surface):** not completed in T1 — the assigned research agent
+was stopped by the spend limit. **Completed in Wave T2A**; see that section.
 
 ## 3. Statistics (derived, not asserted)
 
@@ -179,3 +181,124 @@ pass moves to T2 with this note so it is not mistaken for a finished area.
    German Länder and Swiss cantons.
 6. Ukraine: verify zakupivli.pro (ex-prom.ua) and add 1–2 more authorized
    marketplaces with the same partOf modelling.
+
+---
+
+# Wave T2A — Institutional & Advanced Europe (2026-08-12)
+
+Depth wave, not a breadth wave. 9 research workstreams; 34 records accepted, 40
+rejected, 12 unresolved. Dataset 70 → 104 records (69 → 103 publishable),
+41 → 43 jurisdictions.
+
+## T2A completeness matrix (derived)
+
+| Workstream | Accepted | Rejected | Unresolved | Search | Registration | Submission | Documents | Browser-check |
+|---|---|---|---|---|---|---|---|---|
+| EIB | 1 | 3 | 0 | 1 | 0 | 0 | 0 | 1 |
+| EBRD | 2 | 4 | 1 | 1 | 2 | 1 | 0 | 1 |
+| ECB + EU shared infrastructure | 2 | 5 | 1 | 2 | 2 | 1 | 0 | 1 |
+| German Länder (N/E, 10 states) | 10 | 5 | 3 | 7 | 5 | 2 | 0 | 1 |
+| German Länder (S/W, 6 states) | 9 | 4 | 3 | 8 | 0 | 0 | 0 | 1 |
+| Swiss cantons (26) | 0 | 10 | 0 | 0 | 0 | 0 | 0 | 0 |
+| Prozorro marketplaces | 6 | 2 | 1 | 4 | 2 | 0 | 0 | 4 |
+| MTender ecosystem | 2 | 3 | 1 | 1 | 1 | 0 | 0 | 1 |
+| AL / BA / AZ | 2 | 4 | 2 | 1 | 2 | 0 | 1 | 0 |
+| **Total** | **34** | **40** | **12** | **25** | **14** | **4** | **1** | **10** |
+
+## Route coverage — the T2A KPI
+
+| Route | Before | After |
+|---|---|---|
+| tenderSearchUrl | 32/69 (46%) | 63/103 (61%) |
+| supplierRegistrationUrl | 15/69 (21%) | 30/103 (29%) |
+| submissionUrl | 4/69 (5%) | 8/103 (7%) |
+| documentsUrl | 4/69 (5%) | 5/103 (4%) |
+
+Evidence class A: 36 → 62. Browser-check: 27 → 37. partOf: 7 → 13.
+
+## The findings that mattered
+
+**Swiss cantons: zero records, and that is the result.** simap.ch is the single
+shared publication platform for federal, cantonal and municipal procurement. No
+canton operates a distinct operational platform; Graubünden explicitly migrated
+its cantonal publications to simap. Ten canton candidates rejected as
+`part-of-simap`, `retired-merged-into-simap` or `authority-only`. Creating 26
+canton records would have been the single largest fabrication available in this
+wave.
+
+**EIB: one record, two spheres kept apart.** Corporate & Technical Assistance
+procurement (the Bank buying for itself) is the accepted surface. Procurement
+under EIB-*financed* projects is run by borrowers and promoters — the operator
+states "The EIB is not a party to the resulting contracts" — so it is documented
+as policy, not published as a platform. EIB corporate bids are actually
+submitted on the Commission's eSubmission, which is the EU shared record, not a
+second EIB one.
+
+**EBRD: two records, genuinely distinct.** ECEPP (client/project procurement, on
+BiP Solutions' Delta, with a verified notice search *and* a supplier signup
+route) and corporate procurement on an EBRD instance of GEP SMART. Both verified.
+
+**EU institutions: two records, no agency inflation.** The Funding & Tenders
+Portal (SEDIA) is the operational layer — calls-for-tenders search, Participant
+Register, eSubmission — alongside the existing TED notice record. Frontex,
+Europol, EMA and the rest procure through that shared stack and therefore get
+**zero** records. **TED eTendering is decommissioned** (etendering.ted.europa.eu
+now redirects to the Portal's migration notice) and is not published as live.
+
+**German Länder: 19 records across 16 states, three software families.** cosinex
+Vergabemarktplatz, Administration Intelligence NetServer and Healy Hudson /
+Deutsche eVergabe. Vendor recorded separately from operating authority
+throughout. Mecklenburg-Vorpommern legitimately carries two records — the state
+platform (LAiV, Administration Intelligence) and the municipal Zweckverband
+eGo-MV platform (cosinex) — different operators, hosts, vendors and
+constituencies. Commercial multi-Land portals (vergabe24, vergabeportal-bw,
+DTVP satellites) rejected as `out-of-scope-aggregator`.
+
+**Prozorro: 6 authorized marketplaces**, each verified against the operator's
+current authorization table and linked `partOf` the central system. Two rejected
+as not on the current list, including a PrivatBank-operated one. The T1
+open question — zakupki.prom.ua behind a bot wall — is resolved: it rebranded to
+zakupivli.pro and is now published.
+
+**Albania and Bosnia resolved.** Albania's ambiguity is settled: the platform is
+`bid.app.gov.al` (SPE, economic-operator section), while `app.gov.al` is the
+agency — the two share a domain and are not the same thing. Bosnia's
+`e-nabavke.gov.ba` was not merely unreachable in T1: it is **superseded**, and
+the live portal is `ejn.gov.ba`. Azerbaijan remains genuinely unresolved —
+etender.gov.az and tender.gov.az both resolve in DNS but time out on TCP:443
+from this vantage, which is a transport failure and is recorded as such, not as
+death.
+
+## Rejection classes (40)
+
+authority-only 11 · not-a-platform 2 · software-vendor 2 ·
+authority-only-uses-shared-infrastructure 2 · duplicate-alias 2 ·
+out-of-scope-aggregator 2 · unauthorized-or-unverified 2 · dead-dns 2 ·
+and one each of: post-award-vendor-portal, shared-infrastructure,
+decommissioned-migrated, component-of-shared-platform, documentation-only,
+dead-host, duplicate-surface, info-community-site, retired-merged-into-simap,
+part-of-simap, private-aggregator-analytics, private-aggregator,
+stale-or-unverified, dead-domain-superseded, authority-only-merged.
+
+## Unresolved carried forward (12)
+
+Azerbaijan (2 hosts, TCP timeouts) · EBRD GEP public RFx listing (Angular shell)
+· Europol's current procurement route (old route 404s) · e-vergabe.SH vendor
+identity · Hamburg's in-portal public search (JS shell) · Niedersachsen
+operating body · rlp.vergabekommunal.de · vergabeinfo.bayern.de · Saarland
+state documentation (403 JS challenge) · remaining Prozorro marketplaces beyond
+the six verified · Moldova's planned "e-Achiziții" successor system.
+
+## Method notes
+
+- Route completion was evidence-first, and the failures are as informative as
+  the fills: the European Dynamics ePPS search pattern verified on Ireland does
+  **not** transfer to ARMEPS (HTTP 500), Kosovo's documents route redirects to
+  login, North Macedonia's is a hash route invisible to fetch, and BASE's
+  English search is a soft 404 while its Portuguese one works.
+- Six new records were independently spot-checked against live fetches after
+  merge; all six matched the researching agent's recorded observation.
+- No rendered browser existed in this wave either. 37 records carry
+  browserCheckRequired; not one of them was promoted to verified.
+- Russia and Belarus were not touched, per the wave scope; their T1 exclusion
+  documentation stands unchanged.

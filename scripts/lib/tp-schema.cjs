@@ -210,9 +210,13 @@ function problemsFor(row, knownCountries) {
   // The homepage-as-everything shortcut. If a record claims a distinct
   // discovery or submission surface, that URL must actually differ from the
   // front door; otherwise the record is asserting a capability it has not shown.
-  for (const f of ['tenderSearchUrl', 'submissionUrl']) {
+  // Wave T2A widened this from two route fields to all four. The original rule
+  // covered search and submission; the route-completion pass then began filling
+  // registration and documents routes at scale, and a homepage shortcut is
+  // exactly as dishonest in those fields as in the first two.
+  for (const f of ['tenderSearchUrl', 'submissionUrl', 'supplierRegistrationUrl', 'documentsUrl']) {
     if (row[f] && row.officialUrl && row[f] === row.officialUrl) {
-      at(f, 'repeats officialUrl: a homepage may not stand in for a verified discovery or submission route.');
+      at(f, 'repeats officialUrl: a homepage may not stand in for a verified route.');
     }
   }
 
@@ -222,9 +226,14 @@ function problemsFor(row, knownCountries) {
   }
 
   // A platform that has been replaced must say what replaced it, or the reader
-  // is left on a dead end.
+  // is left on a dead end — and the converse: a record that names a successor
+  // while still calling itself active is presenting a superseded system as a
+  // current destination. Both directions are lies about migration state.
   if (row.currentStatus === 'replaced' && !row.replacedBy) {
     at('replacedBy', 'is required when currentStatus is "replaced".');
+  }
+  if (row.replacedBy && row.currentStatus !== 'replaced') {
+    at('currentStatus', `must be "replaced" when replacedBy is set (got "${row.currentStatus}").`);
   }
 
   // No invented procurement intelligence, ever (PART 35).
