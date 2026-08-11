@@ -1896,7 +1896,8 @@
     "limitations": [
       "JS-dependent with an anti-bot challenge — list content not confirmable via curl",
       "Municipal scope (Reykjavík); above-threshold city notices also appear on utbodsvefur.is/TED",
-      "Software vendor of the shared .aspx tendering product not established"
+      "Software vendor of the shared .aspx tendering product not established",
+      "No ISO 3166-2 subdivision code is recorded: the project allowlist in scripts/lib/iso-3166-2.cjs covers nine countries and Iceland is not among them. Extending it is a deliberate act, not a side effect of this record."
     ]
   },
   {
@@ -2020,7 +2021,8 @@
       "Scotland's national notice portal — Scottish bodies operate under devolved procurement law, distinct from the Procurement Act 2023 regime",
       "Full e-tendering for larger exercises runs on the separate PCS-Tender (Jaggaer) system; PCS itself is primarily notice publication/search (postbox submission not verified)"
     ],
-    "softwareVendor": "Proactis"
+    "softwareVendor": "Proactis",
+    "subnationalJurisdiction": "GB-SCT"
   },
   {
     "id": "uk-public-contracts-scotland-2",
@@ -2059,7 +2061,8 @@
       "No anonymous tender search observed; registration required to participate"
     ],
     "softwareVendor": "Jaggaer",
-    "partOf": "uk-public-contracts-scotland"
+    "partOf": "uk-public-contracts-scotland",
+    "subnationalJurisdiction": "GB-SCT"
   },
   {
     "id": "uk-sell2wales-gwerthwchigymru",
@@ -2099,7 +2102,8 @@
     "limitations": [
       "Wales notice portal; e-tendering exercises for many Welsh bodies run on the separate eTenderWales (Jaggaer) system",
       "Registration flows through Welsh Government single sign-on (Azure B2C); per the site's Procurement Act 2023 help pages, new suppliers first register on the Central Digital Platform (Find a Tender) to obtain a unique identifier"
-    ]
+    ],
+    "subnationalJurisdiction": "GB-WLS"
   },
   {
     "id": "uk-etenderwales",
@@ -2138,7 +2142,8 @@
       "Legacy etenderwales.bravosolution.co.uk address redirects to the ukp.app.jaggaer.com host"
     ],
     "softwareVendor": "Jaggaer",
-    "partOf": "uk-sell2wales-gwerthwchigymru"
+    "partOf": "uk-sell2wales-gwerthwchigymru",
+    "subnationalJurisdiction": "GB-WLS"
   },
   {
     "id": "uk-etendersni",
@@ -2177,7 +2182,8 @@
       "Northern Ireland public-sector portal; registration requires a Dun & Bradstreet D-U-N-S number per Department of Finance guidance",
       "Above-threshold NI notices also publish to Find a Tender; a parallel Jaggaer instance (eSourcing NI) exists for some NI contracting authorities"
     ],
-    "softwareVendor": "European Dynamics"
+    "softwareVendor": "European Dynamics",
+    "subnationalJurisdiction": "GB-NIR"
   },
   {
     "id": "uk-esourcing-ni",
@@ -2215,7 +2221,8 @@
       "Division of labour versus eTendersNI not stated on-page — used by NI public sector and regulated contracting authorities per its own welcome text",
       "Root URL serves a 106 B meta-refresh shell; verified via /web/login.shtml"
     ],
-    "softwareVendor": "Jaggaer"
+    "softwareVendor": "Jaggaer",
+    "subnationalJurisdiction": "GB-NIR"
   },
   {
     "id": "uk-supplier-registration-service",
@@ -2976,7 +2983,8 @@
     "limitations": [
       "Public notice search on berlin.de portal; document access and bid submission require account on separate my.vergabeplattform.berlin.de (RIB eVergabe)"
     ],
-    "softwareVendor": "RIB Software (RIB eVergabe)"
+    "softwareVendor": "RIB Software (RIB eVergabe)",
+    "subnationalJurisdiction": "DE-BE"
   },
   {
     "id": "de-vergabemarktplatz-brandenburg",
@@ -3011,7 +3019,8 @@
     "evidenceNote": "curl 2026-08-12: https://vergabemarktplatz.brandenburg.de/ -> 200, final URL /VMPCenter/company/welcome.do, 51829 bytes, title 'Vergabemarktplatz | service.brandenburg.de'; page lists live projects via /VMPCenter/public/company/projectForwarding.do?pid=... links; footer 'cosinex GmbH, Gesundheitscampus-Süd 31, 44801 Bochum'. Deep route /VMPCenter/company/announcements/categoryOverview.do?method=show -> 200, 60608 bytes, same title, CPV-category browse; on-platform supplier registration route /VMPCenter/company/registration/step1.do?method=step1 observed.",
     "browserCheckRequired": false,
     "limitations": [],
-    "softwareVendor": "cosinex GmbH"
+    "softwareVendor": "cosinex GmbH",
+    "subnationalJurisdiction": "DE-BB"
   },
   {
     "id": "de-vergabeplattform-der-freien",
@@ -3048,7 +3057,8 @@
     "evidenceNote": "curl 2026-08-12: https://vergabe.bremen.de/ -> 200, 641-byte meta-refresh page titled 'Administration Intelligence AG - Vergabe@Net' with copyright meta 'Diese Internet-Seite wurde durch die Administration Intelligence AG erstellt'. /NetServer/ -> 200, 40578 bytes, title 'Vergabeplattform der Freien Hansestadt Bremen'. Search route PublicationSearchControllerServlet?...Category=InvitationToTender -> 200, 118742 bytes, title 'Ausschreibungen - Vergabeplattform Bremen'. LanguageSelectServlet?language=en_US and LoginControllerServlet?function=LoginForm observed (AI Vergabeplattform signature routes).",
     "browserCheckRequired": false,
     "limitations": [],
-    "softwareVendor": "Administration Intelligence AG (AI Vergabeplattform / Vergabe@Net)"
+    "softwareVendor": "Administration Intelligence AG (AI Vergabeplattform / Vergabe@Net)",
+    "subnationalJurisdiction": "DE-HB"
   },
   {
     "id": "de-vergabe-niedersachsen",
@@ -3084,7 +3094,8 @@
     "limitations": [
       "Supplier account registration is handled via the shared cosinex DTVP (Deutsches Vergabeportal) account system, not on the Land domain"
     ],
-    "softwareVendor": "cosinex GmbH"
+    "softwareVendor": "cosinex GmbH",
+    "subnationalJurisdiction": "DE-NI"
   },
   {
     "id": "de-vergabeplattform-des-freistaates",
@@ -3118,7 +3129,8 @@
     "evidenceNote": "curl 2026-08-12: https://evergabe.sachsen.de/ -> 200, final URL /NetServer/, 88749 bytes, title 'Vergabeplattform des Freistaates Sachsen'. Search route /NetServer/PublicationSearchControllerServlet?function=SearchPublications&Gesetzesgrundlage=All&PublicationType=1,4 -> 200, 207196 bytes, same title, results present. On-platform routes observed: 'Register', ParticipationControllerServlet?function=ParticipList, ApplicantLoginForm. NetServer/PublicationSearchControllerServlet URL scheme is the Administration Intelligence AG 'AI Vergabeplattform' signature (identical scheme on vergabe.saarland, tender24.de per AI-branded instances).",
     "browserCheckRequired": false,
     "limitations": [],
-    "softwareVendor": "Administration Intelligence AG (AI Vergabeplattform)"
+    "softwareVendor": "Administration Intelligence AG (AI Vergabeplattform)",
+    "subnationalJurisdiction": "DE-SN"
   },
   {
     "id": "de-vergabemarktplatz-mv",
@@ -3158,7 +3170,8 @@
       "Covers procedures of the MV state administration; municipal MV authorities largely use the separate eGo-MV Vergabemarktplatz (evergabe-mv.de)",
       "Distinct from the municipal Vergabemarktplatz Mecklenburg-Vorpommern (eGo-MV, cosinex): different operator, vendor, host and constituency."
     ],
-    "softwareVendor": "Administration Intelligence AG (AI Vergabeplattform)"
+    "softwareVendor": "Administration Intelligence AG (AI Vergabeplattform)",
+    "subnationalJurisdiction": "DE-MV"
   },
   {
     "id": "de-vergabemarktplatz-mecklenburg-vorpommern",
@@ -3196,7 +3209,8 @@
       "Supplier registration via shared cosinex DTVP account system",
       "Distinct from the state Vergabeplattform der Landesverwaltung MV (LAiV, Administration Intelligence): this one serves the municipal Zweckverband eGo-MV."
     ],
-    "softwareVendor": "cosinex GmbH"
+    "softwareVendor": "cosinex GmbH",
+    "subnationalJurisdiction": "DE-MV"
   },
   {
     "id": "de-evergabe-hamburg",
@@ -3232,7 +3246,8 @@
       "Supplier portal is a JavaScript SPA (2 KB shell via curl) — full title/search require a browser",
       "Notice discovery split across hamburg.de listing pages (VOB vs VgV/UVgO); the fbhh portal is primarily the bidder/e-submission surface"
     ],
-    "softwareVendor": "Healy Hudson GmbH"
+    "softwareVendor": "Healy Hudson GmbH",
+    "subnationalJurisdiction": "DE-HH"
   },
   {
     "id": "de-e-vergabe-sh",
@@ -3268,7 +3283,8 @@
     "browserCheckRequired": false,
     "limitations": [
       "Covers procedures run by GMSH as central procurement/construction body for the state of Schleswig-Holstein (incl. federal building); SH municipalities may publish on other platforms"
-    ]
+    ],
+    "subnationalJurisdiction": "DE-SH"
   },
   {
     "id": "de-e-vergabe-plattform-des-freistaats",
@@ -3305,7 +3321,8 @@
     "limitations": [
       "Notice-publication/discovery surface only: tender details, documents and e-submission are handled on the federal e-Vergabe platform (www.evergabe-online.de)",
       "English UI exists for info pages; notice listing is German"
-    ]
+    ],
+    "subnationalJurisdiction": "DE-TH"
   },
   {
     "id": "de-vergabeplattform-baden-wurttemberg",
@@ -3345,7 +3362,8 @@
       "Covers procurement of the Land's Hochbau- (building) and Straßenbau- (road construction) administrations incl. architect/engineering and related supply/service lots — not an all-of-government BW portal",
       "Day-to-day operation is outsourced to Staatsanzeiger für Baden-Württemberg GmbH & Co. KG (partly state-owned publisher); bidder support runs via staatsanzeiger.de"
     ],
-    "softwareVendor": "Administration Intelligence AG"
+    "softwareVendor": "Administration Intelligence AG",
+    "subnationalJurisdiction": "DE-BW"
   },
   {
     "id": "de-vergabemarktplatz-baden-wurttemberg",
@@ -3386,7 +3404,8 @@
       "Second, newer state-operated surface alongside vergabe.landbw.de — used e.g. by the central purchasing body Logistikzentrum Baden-Württemberg (LZBW); division of coverage between the two BW state platforms is by administration, not documented in one place",
       "cosinex attribution is inferred from product name and URL structure, not stated on-page"
     ],
-    "softwareVendor": "cosinex GmbH (inferred from Vergabemarktplatz product branding and /Center/...search.do URL structure)"
+    "softwareVendor": "cosinex GmbH (inferred from Vergabemarktplatz product branding and /Center/...search.do URL structure)",
+    "subnationalJurisdiction": "DE-BW"
   },
   {
     "id": "de-auftraege-bayern",
@@ -3428,7 +3447,8 @@
       "General platform incl. municipal contracting authorities; the Staatsbauverwaltung uses vergabe.bayern.de instead",
       "Part of the Deutsche eVergabe (portal.deutsche-evergabe.de) multi-tenant platform ecosystem, which is not modelled as a separate record in this dataset."
     ],
-    "softwareVendor": "Healy Hudson GmbH (Deutsche eVergabe)"
+    "softwareVendor": "Healy Hudson GmbH (Deutsche eVergabe)",
+    "subnationalJurisdiction": "DE-BY"
   },
   {
     "id": "de-vergabeplattform-vergabe-bayern-der",
@@ -3469,7 +3489,8 @@
       "Search/listing UI is JavaScript-rendered — notice-list route could not be verified via curl (tenderSearchUrl left null)",
       "RIB software attribution inferred from on-platform RIB service hotline, not an explicit vendor statement"
     ],
-    "softwareVendor": "RIB Software (inferred from 'Service RIB-Hotline' navigation on the platform)"
+    "softwareVendor": "RIB Software (inferred from 'Service RIB-Hotline' navigation on the platform)",
+    "subnationalJurisdiction": "DE-BY"
   },
   {
     "id": "de-vergabeplattform-land-hessen",
@@ -3507,7 +3528,8 @@
     "limitations": [
       "Contains only state-administration (Landesverwaltung) procedures — per ABSt Hessen documentation the comprehensive Hessen notice source is the HAD (recorded separately)"
     ],
-    "softwareVendor": "Administration Intelligence AG"
+    "softwareVendor": "Administration Intelligence AG",
+    "subnationalJurisdiction": "DE-HE"
   },
   {
     "id": "de-had",
@@ -3547,7 +3569,8 @@
       "Operator is a non-profit registered association (e.V.) carried by the state of Hessen and the chambers — 'private-company' is the nearest enum, see note",
       "Search of current notices requires a free login/registration; only the archive search (https://www.had.de/archivsuche_einfach.html) is open without login",
       "Primarily a mandatory publication/discovery database; offer submission generally happens on the contracting authorities' e-procurement platforms linked from notices"
-    ]
+    ],
+    "subnationalJurisdiction": "DE-HE"
   },
   {
     "id": "de-vergabemarktplatz-land-nrw",
@@ -3586,7 +3609,8 @@
     "limitations": [
       "Terms cover the marketplaces 'Land NRW' and 'BLB NRW' (sister instance evergabe.blb.nrw.de); municipal/regional Vergabemarktplätze in NRW are separate instances connected to the Vergabezentrale and not covered by this record's operator obligations"
     ],
-    "softwareVendor": "cosinex GmbH"
+    "softwareVendor": "cosinex GmbH",
+    "subnationalJurisdiction": "DE-NW"
   },
   {
     "id": "de-vergabemarktplatz-rheinland-pfalz",
@@ -3626,7 +3650,8 @@
       "State administration and universities publish via the satellite landesverwaltung.vergabe.rlp.de/VMPSatellite on the same infrastructure (one platform, not a separate record)",
       "RLP municipalities partly use rlp.vergabekommunal.de and commercial portals rather than this marketplace"
     ],
-    "softwareVendor": "cosinex GmbH"
+    "softwareVendor": "cosinex GmbH",
+    "subnationalJurisdiction": "DE-RP"
   },
   {
     "id": "de-vergabe-saarland",
@@ -3665,7 +3690,8 @@
       "Backend for some search views is hosted at saarvpsl.vmstart.de (Staatsanzeiger/AI hosting domain) — same platform, different host",
       "State documentation page on saarland.de returned a 403 JS challenge to curl (browser needed for that doc, platform itself unaffected)"
     ],
-    "softwareVendor": "Administration Intelligence AG"
+    "softwareVendor": "Administration Intelligence AG",
+    "subnationalJurisdiction": "DE-SL"
   },
   {
     "id": "ua-zakupivli-pro",

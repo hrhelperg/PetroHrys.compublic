@@ -22,6 +22,7 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const TP = require('./lib/tp-schema.cjs');
+const ISO = require('./lib/iso-3166-2.cjs');
 const componentsModule = require('./lib/bd-components.cjs');
 const componentsFor = (t) => componentsModule.components(t.locale);
 const render = require('./lib/bd-render.cjs');
@@ -44,7 +45,7 @@ const escapeHtml = (s) => String(s)
 // RFC 4180, CRLF, UTF-8 BOM — the same contract as the other Research exports.
 // Internal research fields (evidence notes, quotes) stay out of the export the
 // same way the other collections keep editor notes internal.
-const COLUMNS = ['id', 'name', 'country', 'platform_type', 'operator', 'operator_type',
+const COLUMNS = ['id', 'name', 'country', 'subnational_jurisdiction', 'platform_type', 'operator', 'operator_type',
   'procurement_scope', 'coverage', 'official_url', 'tender_search_url',
   'supplier_registration_url', 'submission_url', 'documents_url', 'opportunity_types',
   'search_access', 'electronic_submission', 'supplier_registration_required',
@@ -60,7 +61,7 @@ function csvField(value) {
 function renderCsv(rows) {
   const lines = [COLUMNS.join(',')];
   for (const r of rows) {
-    lines.push([r.id, r.name, r.country, r.platformType, r.operator || '', r.operatorType,
+    lines.push([r.id, r.name, r.country, r.subnationalJurisdiction || '', r.platformType, r.operator || '', r.operatorType,
       r.procurementScope, r.coverage, r.officialUrl, r.tenderSearchUrl || '',
       r.supplierRegistrationUrl || '', r.submissionUrl || '', r.documentsUrl || '',
       r.opportunityTypes.join('; '), r.searchAccess || 'unknown',
@@ -105,6 +106,36 @@ function actionLinks(r, t) {
     .join('<br>');
 }
 
+// "United States · California". The country name is localized; the subdivision
+// name is not — it is the ISO 3166-2 register's own name for the place, a
+// factual identifier of the same kind as a platform name, and translating it
+// would mean this project inventing subdivision names in four languages.
+function jurisdictionLabel(row, countryName) {
+  const base = countryName(row.country);
+  if (!row.subnationalJurisdiction) return base;
+  const sub = ISO.subdivision(row.subnationalJurisdiction);
+  return sub ? `${base} · ${sub.name}` : base;
+}
+
+// The subdivision filter earns its place only when there is something to
+// filter. Below the threshold it is not rendered at all, which is the same rule
+// the rest of the Research Center uses to keep a control panel from filling up
+// with facets that have one option each.
+const SUBNATIONAL_FACET_MIN = 5;
+
+function subnationalFacet(rows, t) {
+  const coded = rows.filter((r) => r.subnationalJurisdiction);
+  if (coded.length < SUBNATIONAL_FACET_MIN) return '';
+  const labels = Object.fromEntries(coded.map((r) => {
+    const sub = ISO.subdivision(r.subnationalJurisdiction);
+    return [r.subnationalJurisdiction, sub ? sub.name : r.subnationalJurisdiction];
+  }));
+  return facet({
+    name: 'subnational', t, label: t('tp.f.subnational'),
+    values: coded.map((r) => r.subnationalJurisdiction), labels,
+  });
+}
+
 function renderMain(rows, countryName, t) {
   const c = componentsFor(t);
   const countries = new Set(rows.map((r) => r.country));
@@ -115,13 +146,14 @@ function renderMain(rows, countryName, t) {
       : t(`tp.evidence.${r.evidenceClass}`);
     const partOf = r.partOf ? t('tp.partOf', { name: idToName.get(r.partOf) || r.partOf }) : '';
     return `          <tr data-bd-facet-country="${escapeHtml(r.country)}" `
+      + `data-bd-facet-subnational="${escapeHtml(r.subnationalJurisdiction || '')}" `
       + `data-bd-facet-type="${escapeHtml(r.platformType)}" `
       + `data-bd-facet-scope="${escapeHtml(r.procurementScope)}" `
       + `data-bd-facet-esub="${escapeHtml(r.electronicSubmission || 'unknown')}" `
       + `data-bd-facet-foreign="${escapeHtml(r.foreignSuppliersAccepted || 'unknown')}" `
       + `data-bd-facet-evidence="${escapeHtml(r.browserCheckRequired ? 'browser-check' : r.evidenceClass)}">
             <td data-label="${escapeHtml(t('col.platform'))}"><a href="${escapeHtml(r.officialUrl)}" rel="noopener noreferrer" target="_blank">${escapeHtml(r.name)}</a>${partOf ? `<br><small>${escapeHtml(partOf)}</small>` : ''}</td>
-            <td data-label="${escapeHtml(t('col.country'))}">${escapeHtml(countryName(r.country))}</td>
+            <td data-label="${escapeHtml(t('col.country'))}">${escapeHtml(jurisdictionLabel(r, countryName))}</td>
             <td data-label="${escapeHtml(t('col.type'))}">${escapeHtml(t(`tpType.${r.platformType}`))}</td>
             <td data-label="${escapeHtml(t('tp.col.operator'))}">${escapeHtml(r.operator || t('common.notRecorded'))}</td>
             <td data-label="${escapeHtml(t('tp.col.actions'))}">${actionLinks(r, t)}</td>
@@ -144,6 +176,7 @@ function renderMain(rows, countryName, t) {
       <p>${escapeHtml(t('tp.summary', { n: rows.length, c: countries.size }))}</p>
       <div class="bd-controls">
 ${facet({ name: 'country', t, label: t('tp.f.country'), values: rows.map((r) => r.country), labels: Object.fromEntries([...countries].map((s) => [s, countryName(s)])) })}
+${subnationalFacet(rows, t)}
 ${facet({ name: 'type', t, label: t('tp.f.type'), values: rows.map((r) => r.platformType), labels: Object.fromEntries(TP.PLATFORM_TYPES.map((x) => [x, t(`tpType.${x}`)])) })}
 ${facet({ name: 'scope', t, label: t('tp.f.scope'), values: rows.map((r) => r.procurementScope), labels: Object.fromEntries(TP.PROCUREMENT_SCOPES.map((x) => [x, t(`tpScope.${x}`)])) })}
 ${facet({ name: 'esub', t, label: t('tp.f.esub'), values: rows.map((r) => r.electronicSubmission || 'unknown'), labels: Object.fromEntries(TP.TRI_STATE.map((x) => [x, t(`tri.${x}`)])) })}
@@ -209,7 +242,13 @@ function main() {
   const countries = JSON.parse(fs.readFileSync(COUNTRIES_FILE, 'utf8'));
   const nameBySlug = new Map(countries.map((x) => [x.slug, x.name]));
   const countryName = (slug) => nameBySlug.get(slug) || slug;
-  const all = TP.loadPlatforms(DATA_FILE, new Set(nameBySlug.keys()));
+  // A Map of slug -> ISO 3166-1 alpha-2, not a bare Set of slugs. Membership
+  // still works identically (Map.has), and the codes let the schema catch a
+  // subdivision assigned to the wrong country — "California" filed under
+  // Canada. `global` and `european-union` legitimately have no alpha-2 and map
+  // to null, which the check reads as "no country claim to contradict".
+  const countryIso = new Map(countries.map((x) => [x.slug, x.iso2 || null]));
+  const all = TP.loadPlatforms(DATA_FILE, countryIso);
   const rows = all.filter(TP.isPublishable).sort(TP.comparePlatforms);
 
   const previous = fs.existsSync(MANIFEST_FILE)

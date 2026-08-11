@@ -212,6 +212,30 @@
         </select>
       </div>
       <div class="bd-control">
+        <label class="bd-label" for="tp-facet-subnational">Bundesland / Provinz</label>
+        <select class="bd-select" id="tp-facet-subnational" data-bd-facet="subnational">
+          <option value="">Alle</option>
+          <option value="DE-BW">Baden-Württemberg (2)</option>
+          <option value="DE-BY">Bayern (2)</option>
+          <option value="DE-HE">Hessen (2)</option>
+          <option value="DE-MV">Mecklenburg-Vorpommern (2)</option>
+          <option value="GB-NIR">Northern Ireland (2)</option>
+          <option value="GB-SCT">Scotland (2)</option>
+          <option value="GB-WLS">Wales [Cymru GB-CYM] (2)</option>
+          <option value="DE-BB">Brandenburg (1)</option>
+          <option value="DE-BE">Berlin (1)</option>
+          <option value="DE-HB">Bremen (1)</option>
+          <option value="DE-HH">Hamburg (1)</option>
+          <option value="DE-NI">Niedersachsen (1)</option>
+          <option value="DE-NW">Nordrhein-Westfalen (1)</option>
+          <option value="DE-RP">Rheinland-Pfalz (1)</option>
+          <option value="DE-SH">Schleswig-Holstein (1)</option>
+          <option value="DE-SL">Saarland (1)</option>
+          <option value="DE-SN">Sachsen (1)</option>
+          <option value="DE-TH">Thüringen (1)</option>
+        </select>
+      </div>
+      <div class="bd-control">
         <label class="bd-label" for="tp-facet-type">Plattformtyp</label>
         <select class="bd-select" id="tp-facet-type" data-bd-facet="type">
           <option value="">Alle</option>
@@ -264,7 +288,7 @@
           <caption>Ausschreibungs- und Beschaffungsplattformen mit Rechtsraum, Betreiber, verifizierten Wegen und Belegstatus.</caption>
           <thead><tr><th scope="col">Plattform</th><th scope="col">Land</th><th scope="col">Typ</th><th scope="col">Betreiber</th><th scope="col">Verifizierte Wege</th><th scope="col">E-Abgabe</th><th scope="col">Ausländische Anbieter</th><th scope="col">Beleg</th></tr></thead>
           <tbody>
-          <tr data-bd-facet-country="albania" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="yes" data-bd-facet-evidence="A">
+          <tr data-bd-facet-country="albania" data-bd-facet-subnational="" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="yes" data-bd-facet-evidence="A">
             <td data-label="Plattform"><a href="https://bid.app.gov.al" rel="noopener noreferrer" target="_blank">Sistemi i Prokurimit Elektronik (SPE) — Albanian Electronic Public Procurement System</a></td>
             <td data-label="Land">Albania</td>
             <td data-label="Typ">Nationales Vergabesystem</td>
@@ -274,7 +298,7 @@
             <td data-label="Ausländische Anbieter">Ja</td>
             <td data-label="Beleg">Vom Betreiber oder der Behörde erklärt</td>
           </tr>
-          <tr data-bd-facet-country="armenia" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="unknown" data-bd-facet-foreign="unknown" data-bd-facet-evidence="B">
+          <tr data-bd-facet-country="armenia" data-bd-facet-subnational="" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="unknown" data-bd-facet-foreign="unknown" data-bd-facet-evidence="B">
             <td data-label="Plattform"><a href="https://www.armeps.am/" rel="noopener noreferrer" target="_blank">ARMEPS</a></td>
             <td data-label="Land">Armenia</td>
             <td data-label="Typ">Nationales Vergabesystem</td>
@@ -284,7 +308,7 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Auf der laufenden Plattform beobachtet</td>
           </tr>
-          <tr data-bd-facet-country="austria" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="browser-check">
+          <tr data-bd-facet-country="austria" data-bd-facet-subnational="" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="browser-check">
             <td data-label="Plattform"><a href="https://www.vergabeportal.at/" rel="noopener noreferrer" target="_blank">ANKÖ Vergabeportal (vergabeportal.at)</a></td>
             <td data-label="Land">Austria</td>
             <td data-label="Typ">Nationales Vergabesystem</td>
@@ -294,7 +318,7 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Browser-Prüfung nötig</td>
           </tr>
-          <tr data-bd-facet-country="austria" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="no" data-bd-facet-foreign="unknown" data-bd-facet-evidence="A">
+          <tr data-bd-facet-country="austria" data-bd-facet-subnational="" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="no" data-bd-facet-foreign="unknown" data-bd-facet-evidence="A">
             <td data-label="Plattform"><a href="https://ausschreibungen.usp.gv.at/" rel="noopener noreferrer" target="_blank">USP Ausschreibungssuche (eProcurement Bekanntmachungsservice)</a></td>
             <td data-label="Land">Austria</td>
             <td data-label="Typ">Nationales Vergabesystem</td>
@@ -304,7 +328,7 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Vom Betreiber oder der Behörde erklärt</td>
           </tr>
-          <tr data-bd-facet-country="belgium" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="browser-check">
+          <tr data-bd-facet-country="belgium" data-bd-facet-subnational="" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="browser-check">
             <td data-label="Plattform"><a href="https://www.publicprocurement.be/" rel="noopener noreferrer" target="_blank">e-Procurement (publicprocurement.be, BOSA)</a></td>
             <td data-label="Land">Belgium</td>
             <td data-label="Typ">Nationales Vergabesystem</td>
@@ -314,7 +338,7 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Browser-Prüfung nötig</td>
           </tr>
-          <tr data-bd-facet-country="bosnia-and-herzegovina" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="A">
+          <tr data-bd-facet-country="bosnia-and-herzegovina" data-bd-facet-subnational="" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="A">
             <td data-label="Plattform"><a href="https://www.ejn.gov.ba/" rel="noopener noreferrer" target="_blank">Portal javnih nabavki/nabava Bosne i Hercegovine (e-Nabavke)</a></td>
             <td data-label="Land">Bosnia and Herzegovina</td>
             <td data-label="Typ">Nationales Vergabesystem</td>
@@ -324,7 +348,7 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Vom Betreiber oder der Behörde erklärt</td>
           </tr>
-          <tr data-bd-facet-country="bulgaria" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="browser-check">
+          <tr data-bd-facet-country="bulgaria" data-bd-facet-subnational="" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="browser-check">
             <td data-label="Plattform"><a href="https://app.eop.bg/" rel="noopener noreferrer" target="_blank">ЦАИС ЕОП (CAIS EOP) – Централизирана автоматизирана информационна система &#39;Електронни обществени поръчки&#39;</a></td>
             <td data-label="Land">Bulgaria</td>
             <td data-label="Typ">Nationales Vergabesystem</td>
@@ -334,7 +358,7 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Browser-Prüfung nötig</td>
           </tr>
-          <tr data-bd-facet-country="croatia" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="A">
+          <tr data-bd-facet-country="croatia" data-bd-facet-subnational="" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="A">
             <td data-label="Plattform"><a href="https://eojn.hr/" rel="noopener noreferrer" target="_blank">EOJN RH – Elektronički oglasnik javne nabave Republike Hrvatske</a></td>
             <td data-label="Land">Croatia</td>
             <td data-label="Typ">Nationales Vergabesystem</td>
@@ -344,7 +368,7 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Vom Betreiber oder der Behörde erklärt</td>
           </tr>
-          <tr data-bd-facet-country="croatia" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="no" data-bd-facet-foreign="unknown" data-bd-facet-evidence="browser-check">
+          <tr data-bd-facet-country="croatia" data-bd-facet-subnational="" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="no" data-bd-facet-foreign="unknown" data-bd-facet-evidence="browser-check">
             <td data-label="Plattform"><a href="https://eojn.nn.hr/Oglasnik/" rel="noopener noreferrer" target="_blank">Oglasnik javne nabave (legacy EOJN, eojn.nn.hr)</a><br><small>Teil des Ökosystems EOJN RH – Elektronički oglasnik javne nabave Republike Hrvatske</small></td>
             <td data-label="Land">Croatia</td>
             <td data-label="Typ">Nationales Vergabesystem</td>
@@ -354,7 +378,7 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Browser-Prüfung nötig</td>
           </tr>
-          <tr data-bd-facet-country="cyprus" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="A">
+          <tr data-bd-facet-country="cyprus" data-bd-facet-subnational="" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="A">
             <td data-label="Plattform"><a href="https://www.eprocurement.gov.cy/" rel="noopener noreferrer" target="_blank">eProcurement System of the Republic of Cyprus (e-PPS)</a></td>
             <td data-label="Land">Cyprus</td>
             <td data-label="Typ">Nationales Vergabesystem</td>
@@ -364,7 +388,7 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Vom Betreiber oder der Behörde erklärt</td>
           </tr>
-          <tr data-bd-facet-country="czech-republic" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="B">
+          <tr data-bd-facet-country="czech-republic" data-bd-facet-subnational="" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="B">
             <td data-label="Plattform"><a href="https://nen.nipez.cz/" rel="noopener noreferrer" target="_blank">NEN — Národní elektronický nástroj</a></td>
             <td data-label="Land">Czech Republic</td>
             <td data-label="Typ">Nationales Vergabesystem</td>
@@ -374,7 +398,7 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Auf der laufenden Plattform beobachtet</td>
           </tr>
-          <tr data-bd-facet-country="denmark" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="unknown" data-bd-facet-foreign="unknown" data-bd-facet-evidence="browser-check">
+          <tr data-bd-facet-country="denmark" data-bd-facet-subnational="" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="unknown" data-bd-facet-foreign="unknown" data-bd-facet-evidence="browser-check">
             <td data-label="Plattform"><a href="https://udbud.dk/" rel="noopener noreferrer" target="_blank">Udbud.dk</a></td>
             <td data-label="Land">Denmark</td>
             <td data-label="Typ">Nationales Vergabesystem</td>
@@ -384,7 +408,7 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Browser-Prüfung nötig</td>
           </tr>
-          <tr data-bd-facet-country="estonia" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="browser-check">
+          <tr data-bd-facet-country="estonia" data-bd-facet-subnational="" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="browser-check">
             <td data-label="Plattform"><a href="https://riigihanked.riik.ee/" rel="noopener noreferrer" target="_blank">Riigihangete register (RHR — Estonian Public Procurement Register)</a></td>
             <td data-label="Land">Estonia</td>
             <td data-label="Typ">Nationales Vergabesystem</td>
@@ -394,7 +418,7 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Browser-Prüfung nötig</td>
           </tr>
-          <tr data-bd-facet-country="european-union" data-bd-facet-type="institutional-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="browser-check">
+          <tr data-bd-facet-country="european-union" data-bd-facet-subnational="" data-bd-facet-type="institutional-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="browser-check">
             <td data-label="Plattform"><a href="https://eu.smart.gep.com/publicrfx/ebrd?oloc=215" rel="noopener noreferrer" target="_blank">EBRD Corporate Procurement portal (SMART by GEP - EBRD instance)</a></td>
             <td data-label="Land">European Union</td>
             <td data-label="Typ">Institutionelle Beschaffung</td>
@@ -404,7 +428,7 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Browser-Prüfung nötig</td>
           </tr>
-          <tr data-bd-facet-country="european-union" data-bd-facet-type="institutional-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="A">
+          <tr data-bd-facet-country="european-union" data-bd-facet-subnational="" data-bd-facet-type="institutional-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="A">
             <td data-label="Plattform"><a href="https://www.ecb.europa.eu/ecb/jobsproc/sourcing/html/index.en.html" rel="noopener noreferrer" target="_blank">ECB Electronic Tendering System (SAP Ariba Sourcing)</a></td>
             <td data-label="Land">European Union</td>
             <td data-label="Typ">Institutionelle Beschaffung</td>
@@ -414,7 +438,7 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Vom Betreiber oder der Behörde erklärt</td>
           </tr>
-          <tr data-bd-facet-country="european-union" data-bd-facet-type="development-bank" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="yes" data-bd-facet-evidence="A">
+          <tr data-bd-facet-country="european-union" data-bd-facet-subnational="" data-bd-facet-type="development-bank" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="yes" data-bd-facet-evidence="A">
             <td data-label="Plattform"><a href="https://ecepp.ebrd.com/" rel="noopener noreferrer" target="_blank">ECEPP - EBRD Client e-Procurement Portal</a></td>
             <td data-label="Land">European Union</td>
             <td data-label="Typ">Entwicklungsbank</td>
@@ -424,7 +448,7 @@
             <td data-label="Ausländische Anbieter">Ja</td>
             <td data-label="Beleg">Vom Betreiber oder der Behörde erklärt</td>
           </tr>
-          <tr data-bd-facet-country="european-union" data-bd-facet-type="development-bank" data-bd-facet-scope="public" data-bd-facet-esub="no" data-bd-facet-foreign="yes" data-bd-facet-evidence="browser-check">
+          <tr data-bd-facet-country="european-union" data-bd-facet-subnational="" data-bd-facet-type="development-bank" data-bd-facet-scope="public" data-bd-facet-esub="no" data-bd-facet-foreign="yes" data-bd-facet-evidence="browser-check">
             <td data-label="Plattform"><a href="https://www.eib.org/en/about/procurement/index.htm" rel="noopener noreferrer" target="_blank">EIB Group Procurement portal (eib.org — Corporate &amp; Technical Assistance procurement)</a></td>
             <td data-label="Land">European Union</td>
             <td data-label="Typ">Entwicklungsbank</td>
@@ -434,7 +458,7 @@
             <td data-label="Ausländische Anbieter">Ja</td>
             <td data-label="Beleg">Browser-Prüfung nötig</td>
           </tr>
-          <tr data-bd-facet-country="european-union" data-bd-facet-type="eu-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="yes" data-bd-facet-evidence="browser-check">
+          <tr data-bd-facet-country="european-union" data-bd-facet-subnational="" data-bd-facet-type="eu-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="yes" data-bd-facet-evidence="browser-check">
             <td data-label="Plattform"><a href="https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/home" rel="noopener noreferrer" target="_blank">EU Funding &amp; Tenders Portal (SEDIA) — Calls for Tenders</a></td>
             <td data-label="Land">European Union</td>
             <td data-label="Typ">EU-Vergabesystem</td>
@@ -444,7 +468,7 @@
             <td data-label="Ausländische Anbieter">Ja</td>
             <td data-label="Beleg">Browser-Prüfung nötig</td>
           </tr>
-          <tr data-bd-facet-country="european-union" data-bd-facet-type="eu-procurement" data-bd-facet-scope="public" data-bd-facet-esub="no" data-bd-facet-foreign="unknown" data-bd-facet-evidence="A">
+          <tr data-bd-facet-country="european-union" data-bd-facet-subnational="" data-bd-facet-type="eu-procurement" data-bd-facet-scope="public" data-bd-facet-esub="no" data-bd-facet-foreign="unknown" data-bd-facet-evidence="A">
             <td data-label="Plattform"><a href="https://ted.europa.eu/" rel="noopener noreferrer" target="_blank">TED — Tenders Electronic Daily</a></td>
             <td data-label="Land">European Union</td>
             <td data-label="Typ">EU-Vergabesystem</td>
@@ -454,7 +478,7 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Vom Betreiber oder der Behörde erklärt</td>
           </tr>
-          <tr data-bd-facet-country="finland" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="B">
+          <tr data-bd-facet-country="finland" data-bd-facet-subnational="" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="B">
             <td data-label="Plattform"><a href="https://tarjouspalvelu.fi/" rel="noopener noreferrer" target="_blank">Cloudia Tarjouspalvelu (tarjouspalvelu.fi supplier portal)</a></td>
             <td data-label="Land">Finland</td>
             <td data-label="Typ">Nationales Vergabesystem</td>
@@ -464,7 +488,7 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Auf der laufenden Plattform beobachtet</td>
           </tr>
-          <tr data-bd-facet-country="finland" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="browser-check">
+          <tr data-bd-facet-country="finland" data-bd-facet-subnational="" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="browser-check">
             <td data-label="Plattform"><a href="https://www.hankintailmoitukset.fi/" rel="noopener noreferrer" target="_blank">Hilma (hankintailmoitukset.fi)</a></td>
             <td data-label="Land">Finland</td>
             <td data-label="Typ">Nationales Vergabesystem</td>
@@ -474,7 +498,7 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Browser-Prüfung nötig</td>
           </tr>
-          <tr data-bd-facet-country="france" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="no" data-bd-facet-foreign="unknown" data-bd-facet-evidence="browser-check">
+          <tr data-bd-facet-country="france" data-bd-facet-subnational="" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="no" data-bd-facet-foreign="unknown" data-bd-facet-evidence="browser-check">
             <td data-label="Plattform"><a href="https://projets-achats.marches-publics.gouv.fr" rel="noopener noreferrer" target="_blank">APProch — portail des projets d&#39;achats publics</a><br><small>Teil des Ökosystems PLACE — Plateforme des achats de l&#39;État / Portail des marchés publics</small></td>
             <td data-label="Land">France</td>
             <td data-label="Typ">Nationales Vergabesystem</td>
@@ -484,7 +508,7 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Browser-Prüfung nötig</td>
           </tr>
-          <tr data-bd-facet-country="france" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="no" data-bd-facet-foreign="unknown" data-bd-facet-evidence="A">
+          <tr data-bd-facet-country="france" data-bd-facet-subnational="" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="no" data-bd-facet-foreign="unknown" data-bd-facet-evidence="A">
             <td data-label="Plattform"><a href="https://www.boamp.fr" rel="noopener noreferrer" target="_blank">BOAMP — Bulletin officiel des annonces de marchés publics</a></td>
             <td data-label="Land">France</td>
             <td data-label="Typ">Nationales Vergabesystem</td>
@@ -494,7 +518,7 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Vom Betreiber oder der Behörde erklärt</td>
           </tr>
-          <tr data-bd-facet-country="france" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="A">
+          <tr data-bd-facet-country="france" data-bd-facet-subnational="" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="A">
             <td data-label="Plattform"><a href="https://www.marches-publics.gouv.fr" rel="noopener noreferrer" target="_blank">PLACE — Plateforme des achats de l&#39;État / Portail des marchés publics</a></td>
             <td data-label="Land">France</td>
             <td data-label="Typ">Nationales Vergabesystem</td>
@@ -504,7 +528,7 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Vom Betreiber oder der Behörde erklärt</td>
           </tr>
-          <tr data-bd-facet-country="georgia" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="unknown" data-bd-facet-foreign="unknown" data-bd-facet-evidence="browser-check">
+          <tr data-bd-facet-country="georgia" data-bd-facet-subnational="" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="unknown" data-bd-facet-foreign="unknown" data-bd-facet-evidence="browser-check">
             <td data-label="Plattform"><a href="https://tenders.procurement.gov.ge/" rel="noopener noreferrer" target="_blank">Georgian eProcurement (SPA)</a></td>
             <td data-label="Land">Georgia</td>
             <td data-label="Typ">Nationales Vergabesystem</td>
@@ -514,9 +538,9 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Browser-Prüfung nötig</td>
           </tr>
-          <tr data-bd-facet-country="germany" data-bd-facet-type="regional-procurement" data-bd-facet-scope="public" data-bd-facet-esub="no" data-bd-facet-foreign="unknown" data-bd-facet-evidence="A">
+          <tr data-bd-facet-country="germany" data-bd-facet-subnational="DE-TH" data-bd-facet-type="regional-procurement" data-bd-facet-scope="public" data-bd-facet-esub="no" data-bd-facet-foreign="unknown" data-bd-facet-evidence="A">
             <td data-label="Plattform"><a href="https://verwaltung.thueringen.de/evergabe" rel="noopener noreferrer" target="_blank">E-Vergabe-Plattform des Freistaats Thüringen (Zentrale Landesvergabeplattform)</a></td>
-            <td data-label="Land">Germany</td>
+            <td data-label="Land">Germany · Thüringen</td>
             <td data-label="Typ">Regionale Beschaffung</td>
             <td data-label="Betreiber">Freistaat Thüringen (Thüringer Finanzministerium / Landesportal)</td>
             <td data-label="Verifizierte Wege">Nicht erfasst</td>
@@ -524,9 +548,9 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Vom Betreiber oder der Behörde erklärt</td>
           </tr>
-          <tr data-bd-facet-country="germany" data-bd-facet-type="regional-procurement" data-bd-facet-scope="public" data-bd-facet-esub="unknown" data-bd-facet-foreign="unknown" data-bd-facet-evidence="A">
+          <tr data-bd-facet-country="germany" data-bd-facet-subnational="DE-HE" data-bd-facet-type="regional-procurement" data-bd-facet-scope="public" data-bd-facet-esub="unknown" data-bd-facet-foreign="unknown" data-bd-facet-evidence="A">
             <td data-label="Plattform"><a href="https://www.had.de/" rel="noopener noreferrer" target="_blank">HAD — Hessische Ausschreibungsdatenbank (had.de)</a></td>
-            <td data-label="Land">Germany</td>
+            <td data-label="Land">Germany · Hessen</td>
             <td data-label="Typ">Regionale Beschaffung</td>
             <td data-label="Betreiber">Auftragsberatungsstelle Hessen e.V. (ABSt Hessen), im Auftrag des Landes Hessen und der hessischen Kammern</td>
             <td data-label="Verifizierte Wege"><a href="https://www.had.de/onlinesuche_login.html" rel="noopener noreferrer" target="_blank">Ausschreibungen suchen</a></td>
@@ -534,9 +558,9 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Vom Betreiber oder der Behörde erklärt</td>
           </tr>
-          <tr data-bd-facet-country="germany" data-bd-facet-type="regional-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="B">
+          <tr data-bd-facet-country="germany" data-bd-facet-subnational="DE-BW" data-bd-facet-type="regional-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="B">
             <td data-label="Plattform"><a href="https://ausschreibungen.landbw.de/Center/company/welcome.do" rel="noopener noreferrer" target="_blank">Vergabemarktplatz Baden-Württemberg (ausschreibungen.landbw.de)</a></td>
-            <td data-label="Land">Germany</td>
+            <td data-label="Land">Germany · Baden-Württemberg</td>
             <td data-label="Typ">Regionale Beschaffung</td>
             <td data-label="Betreiber">IT Baden-Württemberg (BITBW) für das Land Baden-Württemberg</td>
             <td data-label="Verifizierte Wege"><a href="https://ausschreibungen.landbw.de/Center/common/project/search.do?method=showExtendedSearch&amp;fromExternal=true" rel="noopener noreferrer" target="_blank">Ausschreibungen suchen</a></td>
@@ -544,9 +568,9 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Auf der laufenden Plattform beobachtet</td>
           </tr>
-          <tr data-bd-facet-country="germany" data-bd-facet-type="regional-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="B">
+          <tr data-bd-facet-country="germany" data-bd-facet-subnational="DE-BB" data-bd-facet-type="regional-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="B">
             <td data-label="Plattform"><a href="https://vergabemarktplatz.brandenburg.de/" rel="noopener noreferrer" target="_blank">Vergabemarktplatz Brandenburg</a></td>
-            <td data-label="Land">Germany</td>
+            <td data-label="Land">Germany · Brandenburg</td>
             <td data-label="Typ">Regionale Beschaffung</td>
             <td data-label="Betreiber">Land Brandenburg</td>
             <td data-label="Verifizierte Wege"><a href="https://vergabemarktplatz.brandenburg.de/VMPCenter/company/announcements/categoryOverview.do?method=show" rel="noopener noreferrer" target="_blank">Ausschreibungen suchen</a><br><a href="https://vergabemarktplatz.brandenburg.de/VMPCenter/company/registration/step1.do?method=step1" rel="noopener noreferrer" target="_blank">Als Anbieter registrieren</a></td>
@@ -554,9 +578,9 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Auf der laufenden Plattform beobachtet</td>
           </tr>
-          <tr data-bd-facet-country="germany" data-bd-facet-type="regional-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="A">
+          <tr data-bd-facet-country="germany" data-bd-facet-subnational="DE-NW" data-bd-facet-type="regional-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="A">
             <td data-label="Plattform"><a href="https://www.evergabe.nrw.de/VMPCenter" rel="noopener noreferrer" target="_blank">Vergabemarktplatz Land NRW (evergabe.nrw.de)</a></td>
-            <td data-label="Land">Germany</td>
+            <td data-label="Land">Germany · Nordrhein-Westfalen</td>
             <td data-label="Typ">Regionale Beschaffung</td>
             <td data-label="Betreiber">Land Nordrhein-Westfalen (Ministerium der Finanzen NRW); technischer Betrieb: d-NRW AöR</td>
             <td data-label="Verifizierte Wege"><a href="https://www.evergabe.nrw.de/VMPCenter/common/project/search.do?method=showExtendedSearch&amp;fromExternal=true" rel="noopener noreferrer" target="_blank">Ausschreibungen suchen</a></td>
@@ -564,9 +588,9 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Vom Betreiber oder der Behörde erklärt</td>
           </tr>
-          <tr data-bd-facet-country="germany" data-bd-facet-type="regional-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="B">
+          <tr data-bd-facet-country="germany" data-bd-facet-subnational="DE-MV" data-bd-facet-type="regional-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="B">
             <td data-label="Plattform"><a href="https://www.evergabe-mv.de/" rel="noopener noreferrer" target="_blank">Vergabemarktplatz Mecklenburg-Vorpommern (eGo-MV)</a></td>
-            <td data-label="Land">Germany</td>
+            <td data-label="Land">Germany · Mecklenburg-Vorpommern</td>
             <td data-label="Typ">Regionale Beschaffung</td>
             <td data-label="Betreiber">Zweckverband Elektronische Verwaltung in Mecklenburg-Vorpommern (eGo-MV)</td>
             <td data-label="Verifizierte Wege"><a href="https://www.evergabe-mv.de/Satellite/company/announcements/categoryOverview.do?method=show" rel="noopener noreferrer" target="_blank">Ausschreibungen suchen</a><br><a href="https://www.dtvp.de/Center/linkDistribution.do?lang=de&amp;show=registration" rel="noopener noreferrer" target="_blank">Als Anbieter registrieren</a></td>
@@ -574,9 +598,9 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Auf der laufenden Plattform beobachtet</td>
           </tr>
-          <tr data-bd-facet-country="germany" data-bd-facet-type="regional-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="A">
+          <tr data-bd-facet-country="germany" data-bd-facet-subnational="DE-RP" data-bd-facet-type="regional-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="A">
             <td data-label="Plattform"><a href="https://www.vergabe.rlp.de/" rel="noopener noreferrer" target="_blank">Vergabemarktplatz Rheinland-Pfalz (vergabe.rlp.de)</a></td>
-            <td data-label="Land">Germany</td>
+            <td data-label="Land">Germany · Rheinland-Pfalz</td>
             <td data-label="Typ">Regionale Beschaffung</td>
             <td data-label="Betreiber">Land Rheinland-Pfalz — Landesbetrieb Daten und Information (LDI), im Auftrag des zuständigen Ministeriums</td>
             <td data-label="Verifizierte Wege"><a href="https://www.vergabe.rlp.de/VMPCenter/common/project/search.do?method=showExtendedSearch&amp;fromExternal=true" rel="noopener noreferrer" target="_blank">Ausschreibungen suchen</a></td>
@@ -584,9 +608,9 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Vom Betreiber oder der Behörde erklärt</td>
           </tr>
-          <tr data-bd-facet-country="germany" data-bd-facet-type="regional-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="browser-check">
+          <tr data-bd-facet-country="germany" data-bd-facet-subnational="DE-BY" data-bd-facet-type="regional-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="browser-check">
             <td data-label="Plattform"><a href="https://www.vergabe.bayern.de/" rel="noopener noreferrer" target="_blank">Vergabeplattform &quot;vergabe.bayern&quot; der Bayerischen Staatsbauverwaltung (vergabe.bayern.de)</a></td>
-            <td data-label="Land">Germany</td>
+            <td data-label="Land">Germany · Bayern</td>
             <td data-label="Typ">Regionale Beschaffung</td>
             <td data-label="Betreiber">Bayerische Staatsbauverwaltung / Bayerisches Staatsministerium für Wohnen, Bau und Verkehr (StMB)</td>
             <td data-label="Verifizierte Wege">Nicht erfasst</td>
@@ -594,9 +618,9 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Browser-Prüfung nötig</td>
           </tr>
-          <tr data-bd-facet-country="germany" data-bd-facet-type="regional-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="A">
+          <tr data-bd-facet-country="germany" data-bd-facet-subnational="DE-BW" data-bd-facet-type="regional-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="A">
             <td data-label="Plattform"><a href="https://vergabe.landbw.de/NetServer/" rel="noopener noreferrer" target="_blank">Vergabeplattform Baden-Württemberg (vergabe.landbw.de)</a></td>
-            <td data-label="Land">Germany</td>
+            <td data-label="Land">Germany · Baden-Württemberg</td>
             <td data-label="Typ">Regionale Beschaffung</td>
             <td data-label="Betreiber">Land Baden-Württemberg (Hochbau- und Straßenbauverwaltungen); Betreiber des Portals: Staatsanzeiger für Baden-Württemberg GmbH &amp; Co. KG</td>
             <td data-label="Verifizierte Wege"><a href="https://vergabe.landbw.de/NetServer/PublicationSearchControllerServlet?function=SearchPublications&amp;Gesetzesgrundlage=All&amp;Category=InvitationToTender&amp;thContext=publications" rel="noopener noreferrer" target="_blank">Ausschreibungen suchen</a></td>
@@ -604,9 +628,9 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Vom Betreiber oder der Behörde erklärt</td>
           </tr>
-          <tr data-bd-facet-country="germany" data-bd-facet-type="regional-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="B">
+          <tr data-bd-facet-country="germany" data-bd-facet-subnational="DE-BE" data-bd-facet-type="regional-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="B">
             <td data-label="Plattform"><a href="https://www.berlin.de/vergabeplattform/" rel="noopener noreferrer" target="_blank">Vergabeplattform Berlin</a></td>
-            <td data-label="Land">Germany</td>
+            <td data-label="Land">Germany · Berlin</td>
             <td data-label="Typ">Regionale Beschaffung</td>
             <td data-label="Betreiber">Land Berlin (Senatsverwaltung für Stadtentwicklung, Bauen und Wohnen)</td>
             <td data-label="Verifizierte Wege"><a href="https://www.berlin.de/vergabeplattform/veroeffentlichungen/bekanntmachungen/" rel="noopener noreferrer" target="_blank">Ausschreibungen suchen</a><br><a href="https://my.vergabeplattform.berlin.de/" rel="noopener noreferrer" target="_blank">Angebote einreichen</a></td>
@@ -614,9 +638,9 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Auf der laufenden Plattform beobachtet</td>
           </tr>
-          <tr data-bd-facet-country="germany" data-bd-facet-type="regional-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="A">
+          <tr data-bd-facet-country="germany" data-bd-facet-subnational="DE-HE" data-bd-facet-type="regional-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="A">
             <td data-label="Plattform"><a href="https://vergabe.hessen.de/NetServer/" rel="noopener noreferrer" target="_blank">Vergabeplattform Land Hessen (vergabe.hessen.de)</a></td>
-            <td data-label="Land">Germany</td>
+            <td data-label="Land">Germany · Hessen</td>
             <td data-label="Typ">Regionale Beschaffung</td>
             <td data-label="Betreiber">Hessische Zentrale für Datenverarbeitung (HZD), Landesbetrieb des Landes Hessen</td>
             <td data-label="Verifizierte Wege"><a href="https://vergabe.hessen.de/NetServer/PublicationSearchControllerServlet?function=Search&amp;Order=desc&amp;OrderBy=Publishing&amp;Max=25" rel="noopener noreferrer" target="_blank">Ausschreibungen suchen</a></td>
@@ -624,9 +648,9 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Vom Betreiber oder der Behörde erklärt</td>
           </tr>
-          <tr data-bd-facet-country="germany" data-bd-facet-type="regional-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="B">
+          <tr data-bd-facet-country="germany" data-bd-facet-subnational="DE-HB" data-bd-facet-type="regional-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="B">
             <td data-label="Plattform"><a href="https://vergabe.bremen.de/NetServer/" rel="noopener noreferrer" target="_blank">Vergabeplattform der Freien Hansestadt Bremen</a></td>
-            <td data-label="Land">Germany</td>
+            <td data-label="Land">Germany · Bremen</td>
             <td data-label="Typ">Regionale Beschaffung</td>
             <td data-label="Betreiber">Freie Hansestadt Bremen</td>
             <td data-label="Verifizierte Wege"><a href="https://vergabe.bremen.de/NetServer/PublicationSearchControllerServlet?function=SearchPublications&amp;Gesetzesgrundlage=All&amp;Category=InvitationToTender&amp;thContext=publications" rel="noopener noreferrer" target="_blank">Ausschreibungen suchen</a></td>
@@ -634,9 +658,9 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Auf der laufenden Plattform beobachtet</td>
           </tr>
-          <tr data-bd-facet-country="germany" data-bd-facet-type="regional-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="A">
+          <tr data-bd-facet-country="germany" data-bd-facet-subnational="DE-MV" data-bd-facet-type="regional-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="A">
             <td data-label="Plattform"><a href="https://vergabe.mv-regierung.de/NetServer/" rel="noopener noreferrer" target="_blank">Vergabeplattform der Landesverwaltung Mecklenburg-Vorpommern</a></td>
-            <td data-label="Land">Germany</td>
+            <td data-label="Land">Germany · Mecklenburg-Vorpommern</td>
             <td data-label="Typ">Regionale Beschaffung</td>
             <td data-label="Betreiber">Landesamt für innere Verwaltung Mecklenburg-Vorpommern (LAiV)</td>
             <td data-label="Verifizierte Wege"><a href="https://vergabe.mv-regierung.de/NetServer/PublicationSearchControllerServlet?function=SearchPublications&amp;Gesetzesgrundlage=All&amp;Category=InvitationToTender&amp;thContext=publications" rel="noopener noreferrer" target="_blank">Ausschreibungen suchen</a></td>
@@ -644,9 +668,9 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Vom Betreiber oder der Behörde erklärt</td>
           </tr>
-          <tr data-bd-facet-country="germany" data-bd-facet-type="regional-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="B">
+          <tr data-bd-facet-country="germany" data-bd-facet-subnational="DE-SN" data-bd-facet-type="regional-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="B">
             <td data-label="Plattform"><a href="https://evergabe.sachsen.de/" rel="noopener noreferrer" target="_blank">Vergabeplattform des Freistaates Sachsen (eVergabe Sachsen)</a></td>
-            <td data-label="Land">Germany</td>
+            <td data-label="Land">Germany · Sachsen</td>
             <td data-label="Typ">Regionale Beschaffung</td>
             <td data-label="Betreiber">Freistaat Sachsen</td>
             <td data-label="Verifizierte Wege"><a href="https://evergabe.sachsen.de/NetServer/PublicationSearchControllerServlet?function=SearchPublications&amp;Gesetzesgrundlage=All&amp;PublicationType=1,4" rel="noopener noreferrer" target="_blank">Ausschreibungen suchen</a><br><a href="https://evergabe.sachsen.de/NetServer/Register" rel="noopener noreferrer" target="_blank">Als Anbieter registrieren</a></td>
@@ -654,9 +678,9 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Auf der laufenden Plattform beobachtet</td>
           </tr>
-          <tr data-bd-facet-country="germany" data-bd-facet-type="regional-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="A">
+          <tr data-bd-facet-country="germany" data-bd-facet-subnational="DE-BY" data-bd-facet-type="regional-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="A">
             <td data-label="Plattform"><a href="https://www.auftraege.bayern.de/" rel="noopener noreferrer" target="_blank">auftraege.bayern — Bayerische Vergabeplattform (auftraege.bayern.de)</a></td>
-            <td data-label="Land">Germany</td>
+            <td data-label="Land">Germany · Bayern</td>
             <td data-label="Typ">Regionale Beschaffung</td>
             <td data-label="Betreiber">Freistaat Bayern (branded instance of Deutsche eVergabe; technical operation Healy Hudson GmbH)</td>
             <td data-label="Verifizierte Wege"><a href="https://portal.deutsche-evergabe.de/dashboards/dashboard_off?BL=09" rel="noopener noreferrer" target="_blank">Ausschreibungen suchen</a></td>
@@ -664,7 +688,7 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Vom Betreiber oder der Behörde erklärt</td>
           </tr>
-          <tr data-bd-facet-country="germany" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="unknown" data-bd-facet-foreign="unknown" data-bd-facet-evidence="browser-check">
+          <tr data-bd-facet-country="germany" data-bd-facet-subnational="" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="unknown" data-bd-facet-foreign="unknown" data-bd-facet-evidence="browser-check">
             <td data-label="Plattform"><a href="https://www.evergabe-online.de/" rel="noopener noreferrer" target="_blank">e-Vergabe — Vergabeplattform des Bundes</a></td>
             <td data-label="Land">Germany</td>
             <td data-label="Typ">Nationales Vergabesystem</td>
@@ -674,9 +698,9 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Browser-Prüfung nötig</td>
           </tr>
-          <tr data-bd-facet-country="germany" data-bd-facet-type="regional-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="B">
+          <tr data-bd-facet-country="germany" data-bd-facet-subnational="DE-SH" data-bd-facet-type="regional-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="B">
             <td data-label="Plattform"><a href="https://www.e-vergabe-sh.de/" rel="noopener noreferrer" target="_blank">e-vergabe.SH (Vergabeportal der GMSH für Schleswig-Holstein)</a></td>
-            <td data-label="Land">Germany</td>
+            <td data-label="Land">Germany · Schleswig-Holstein</td>
             <td data-label="Typ">Regionale Beschaffung</td>
             <td data-label="Betreiber">Gebäudemanagement Schleswig-Holstein AöR (GMSH)</td>
             <td data-label="Verifizierte Wege"><a href="https://www.e-vergabe-sh.de/vergabeverfahren/aktuelle-vergabeverfahren" rel="noopener noreferrer" target="_blank">Ausschreibungen suchen</a><br><a href="https://www.e-vergabe-sh.de/vergabeverfahren/registrieren" rel="noopener noreferrer" target="_blank">Als Anbieter registrieren</a><br><a href="https://www.e-vergabe-sh.de/vergabeverfahren/login" rel="noopener noreferrer" target="_blank">Angebote einreichen</a></td>
@@ -684,9 +708,9 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Auf der laufenden Plattform beobachtet</td>
           </tr>
-          <tr data-bd-facet-country="germany" data-bd-facet-type="regional-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="browser-check">
+          <tr data-bd-facet-country="germany" data-bd-facet-subnational="DE-HH" data-bd-facet-type="regional-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="browser-check">
             <td data-label="Plattform"><a href="https://fbhh-evergabe.web.hamburg.de/evergabe.bieter/eva/supplierportal/fhh/tabs/home" rel="noopener noreferrer" target="_blank">eVergabe Hamburg (Vergabeportal der Freien und Hansestadt Hamburg)</a></td>
-            <td data-label="Land">Germany</td>
+            <td data-label="Land">Germany · Hamburg</td>
             <td data-label="Typ">Regionale Beschaffung</td>
             <td data-label="Betreiber">Freie und Hansestadt Hamburg</td>
             <td data-label="Verifizierte Wege">Nicht erfasst</td>
@@ -694,9 +718,9 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Browser-Prüfung nötig</td>
           </tr>
-          <tr data-bd-facet-country="germany" data-bd-facet-type="regional-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="B">
+          <tr data-bd-facet-country="germany" data-bd-facet-subnational="DE-NI" data-bd-facet-type="regional-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="B">
             <td data-label="Plattform"><a href="https://vergabe.niedersachsen.de/" rel="noopener noreferrer" target="_blank">vergabe.Niedersachsen (Vergabeplattform Niedersachsen)</a></td>
-            <td data-label="Land">Germany</td>
+            <td data-label="Land">Germany · Niedersachsen</td>
             <td data-label="Typ">Regionale Beschaffung</td>
             <td data-label="Betreiber">Land Niedersachsen</td>
             <td data-label="Verifizierte Wege"><a href="https://vergabe.niedersachsen.de/Satellite/company/announcements/categoryOverview.do?method=show" rel="noopener noreferrer" target="_blank">Ausschreibungen suchen</a><br><a href="https://www.dtvp.de/Center/linkDistribution.do?lang=de&amp;show=registration" rel="noopener noreferrer" target="_blank">Als Anbieter registrieren</a></td>
@@ -704,9 +728,9 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Auf der laufenden Plattform beobachtet</td>
           </tr>
-          <tr data-bd-facet-country="germany" data-bd-facet-type="regional-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="A">
+          <tr data-bd-facet-country="germany" data-bd-facet-subnational="DE-SL" data-bd-facet-type="regional-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="A">
             <td data-label="Plattform"><a href="https://vergabe.saarland/" rel="noopener noreferrer" target="_blank">vergabe.saarland — Zentrale E-Vergabeplattform für das Saarland</a></td>
-            <td data-label="Land">Germany</td>
+            <td data-label="Land">Germany · Saarland</td>
             <td data-label="Typ">Regionale Beschaffung</td>
             <td data-label="Betreiber">Zweckverband Elektronische Verwaltung im Saarland (eGo-Saar, Körperschaft des öffentlichen Rechts); technische Umsetzung: Staatsanzeiger für Baden-Württemberg GmbH &amp; Co. KG</td>
             <td data-label="Verifizierte Wege"><a href="https://vergabe.saarland/NetServer/PublicationSearchControllerServlet?function=SearchPublications&amp;Gesetzesgrundlage=All&amp;Category=InvitationToTender&amp;thContext=publications" rel="noopener noreferrer" target="_blank">Ausschreibungen suchen</a></td>
@@ -714,7 +738,7 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Vom Betreiber oder der Behörde erklärt</td>
           </tr>
-          <tr data-bd-facet-country="greece" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="browser-check">
+          <tr data-bd-facet-country="greece" data-bd-facet-subnational="" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="browser-check">
             <td data-label="Plattform"><a href="https://portal.eprocurement.gov.gr/esidisportal/" rel="noopener noreferrer" target="_blank">ESIDIS – National Electronic Public Procurement System (ΕΣΗΔΗΣ / Promitheus)</a></td>
             <td data-label="Land">Greece</td>
             <td data-label="Typ">Nationales Vergabesystem</td>
@@ -724,7 +748,7 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Browser-Prüfung nötig</td>
           </tr>
-          <tr data-bd-facet-country="greece" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="no" data-bd-facet-foreign="unknown" data-bd-facet-evidence="browser-check">
+          <tr data-bd-facet-country="greece" data-bd-facet-subnational="" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="no" data-bd-facet-foreign="unknown" data-bd-facet-evidence="browser-check">
             <td data-label="Plattform"><a href="https://cerpp.eprocurement.gov.gr/upgkimdis/unprotected/home.xhtml" rel="noopener noreferrer" target="_blank">KIMDIS – Central Electronic Registry of Public Contracts (ΚΗΜΔΗΣ)</a><br><small>Teil des Ökosystems ESIDIS – National Electronic Public Procurement System (ΕΣΗΔΗΣ / Promitheus)</small></td>
             <td data-label="Land">Greece</td>
             <td data-label="Typ">Nationales Vergabesystem</td>
@@ -734,7 +758,7 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Browser-Prüfung nötig</td>
           </tr>
-          <tr data-bd-facet-country="hungary" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="browser-check">
+          <tr data-bd-facet-country="hungary" data-bd-facet-subnational="" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="browser-check">
             <td data-label="Plattform"><a href="https://ekr.gov.hu/" rel="noopener noreferrer" target="_blank">EKR — Elektronikus Közbeszerzési Rendszer (Electronic Public Procurement System)</a></td>
             <td data-label="Land">Hungary</td>
             <td data-label="Typ">Nationales Vergabesystem</td>
@@ -744,7 +768,7 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Browser-Prüfung nötig</td>
           </tr>
-          <tr data-bd-facet-country="hungary" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="no" data-bd-facet-foreign="unknown" data-bd-facet-evidence="A">
+          <tr data-bd-facet-country="hungary" data-bd-facet-subnational="" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="no" data-bd-facet-foreign="unknown" data-bd-facet-evidence="A">
             <td data-label="Plattform"><a href="https://kozbeszerzes.hu/" rel="noopener noreferrer" target="_blank">Közbeszerzési Hatóság notice databases — Hirdetménykereső / Közbeszerzési Értesítő (kozbeszerzes.hu)</a></td>
             <td data-label="Land">Hungary</td>
             <td data-label="Typ">Nationales Vergabesystem</td>
@@ -754,7 +778,7 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Vom Betreiber oder der Behörde erklärt</td>
           </tr>
-          <tr data-bd-facet-country="iceland" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="A">
+          <tr data-bd-facet-country="iceland" data-bd-facet-subnational="" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="A">
             <td data-label="Plattform"><a href="https://tendsign.is/" rel="noopener noreferrer" target="_blank">Mercell TendSign Iceland (rafrænt útboðskerfi Fjársýslunnar)</a></td>
             <td data-label="Land">Iceland</td>
             <td data-label="Typ">Nationales Vergabesystem</td>
@@ -764,7 +788,7 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Vom Betreiber oder der Behörde erklärt</td>
           </tr>
-          <tr data-bd-facet-country="iceland" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="no" data-bd-facet-foreign="unknown" data-bd-facet-evidence="A">
+          <tr data-bd-facet-country="iceland" data-bd-facet-subnational="" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="no" data-bd-facet-foreign="unknown" data-bd-facet-evidence="A">
             <td data-label="Plattform"><a href="https://utbodsvefur.is/" rel="noopener noreferrer" target="_blank">Útboðsvefur (utbodsvefur.is) — national tender publication site</a></td>
             <td data-label="Land">Iceland</td>
             <td data-label="Typ">Nationales Vergabesystem</td>
@@ -774,7 +798,7 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Vom Betreiber oder der Behörde erklärt</td>
           </tr>
-          <tr data-bd-facet-country="iceland" data-bd-facet-type="regional-procurement" data-bd-facet-scope="public" data-bd-facet-esub="unknown" data-bd-facet-foreign="unknown" data-bd-facet-evidence="browser-check">
+          <tr data-bd-facet-country="iceland" data-bd-facet-subnational="" data-bd-facet-type="regional-procurement" data-bd-facet-scope="public" data-bd-facet-esub="unknown" data-bd-facet-foreign="unknown" data-bd-facet-evidence="browser-check">
             <td data-label="Plattform"><a href="https://utbod.reykjavik.is/" rel="noopener noreferrer" target="_blank">Útboðsvefur Reykjavíkurborgar (City of Reykjavík e-tendering site)</a></td>
             <td data-label="Land">Iceland</td>
             <td data-label="Typ">Regionale Beschaffung</td>
@@ -784,7 +808,7 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Browser-Prüfung nötig</td>
           </tr>
-          <tr data-bd-facet-country="ireland" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="unknown" data-bd-facet-foreign="unknown" data-bd-facet-evidence="B">
+          <tr data-bd-facet-country="ireland" data-bd-facet-subnational="" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="unknown" data-bd-facet-foreign="unknown" data-bd-facet-evidence="B">
             <td data-label="Plattform"><a href="https://www.etenders.gov.ie/" rel="noopener noreferrer" target="_blank">eTenders</a></td>
             <td data-label="Land">Ireland</td>
             <td data-label="Typ">Nationales Vergabesystem</td>
@@ -794,7 +818,7 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Auf der laufenden Plattform beobachtet</td>
           </tr>
-          <tr data-bd-facet-country="italy" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="no" data-bd-facet-foreign="unknown" data-bd-facet-evidence="browser-check">
+          <tr data-bd-facet-country="italy" data-bd-facet-subnational="" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="no" data-bd-facet-foreign="unknown" data-bd-facet-evidence="browser-check">
             <td data-label="Plattform"><a href="https://pubblicitalegale.anticorruzione.it" rel="noopener noreferrer" target="_blank">ANAC Piattaforma di Pubblicità a Valore Legale (PVL) — national legal-publicity notice platform</a></td>
             <td data-label="Land">Italy</td>
             <td data-label="Typ">Nationales Vergabesystem</td>
@@ -804,7 +828,7 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Browser-Prüfung nötig</td>
           </tr>
-          <tr data-bd-facet-country="italy" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="yes" data-bd-facet-evidence="A">
+          <tr data-bd-facet-country="italy" data-bd-facet-subnational="" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="yes" data-bd-facet-evidence="A">
             <td data-label="Plattform"><a href="https://www.acquistinretepa.it" rel="noopener noreferrer" target="_blank">Acquisti in Rete PA — Consip e-procurement portal (MePA, convenzioni, accordi quadro, SDAPA, gare in ASP)</a></td>
             <td data-label="Land">Italy</td>
             <td data-label="Typ">Nationales Vergabesystem</td>
@@ -814,7 +838,7 @@
             <td data-label="Ausländische Anbieter">Ja</td>
             <td data-label="Beleg">Vom Betreiber oder der Behörde erklärt</td>
           </tr>
-          <tr data-bd-facet-country="kosovo" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="unknown" data-bd-facet-foreign="unknown" data-bd-facet-evidence="B">
+          <tr data-bd-facet-country="kosovo" data-bd-facet-subnational="" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="unknown" data-bd-facet-foreign="unknown" data-bd-facet-evidence="B">
             <td data-label="Plattform"><a href="https://e-prokurimi.rks-gov.net/" rel="noopener noreferrer" target="_blank">e-Prokurimi</a></td>
             <td data-label="Land">Kosovo</td>
             <td data-label="Typ">Nationales Vergabesystem</td>
@@ -824,7 +848,7 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Auf der laufenden Plattform beobachtet</td>
           </tr>
-          <tr data-bd-facet-country="latvia" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="yes" data-bd-facet-evidence="A">
+          <tr data-bd-facet-country="latvia" data-bd-facet-subnational="" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="yes" data-bd-facet-evidence="A">
             <td data-label="Plattform"><a href="https://www.eis.gov.lv/" rel="noopener noreferrer" target="_blank">EIS — Elektronisko iepirkumu sistēma (Electronic Procurement System)</a></td>
             <td data-label="Land">Latvia</td>
             <td data-label="Typ">Nationales Vergabesystem</td>
@@ -834,7 +858,7 @@
             <td data-label="Ausländische Anbieter">Ja</td>
             <td data-label="Beleg">Vom Betreiber oder der Behörde erklärt</td>
           </tr>
-          <tr data-bd-facet-country="latvia" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="no" data-bd-facet-foreign="unknown" data-bd-facet-evidence="browser-check">
+          <tr data-bd-facet-country="latvia" data-bd-facet-subnational="" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="no" data-bd-facet-foreign="unknown" data-bd-facet-evidence="browser-check">
             <td data-label="Plattform"><a href="https://pvs.iub.gov.lv/" rel="noopener noreferrer" target="_blank">IUB Publikāciju vadības sistēma (PVS) — notice publication system</a></td>
             <td data-label="Land">Latvia</td>
             <td data-label="Typ">Nationales Vergabesystem</td>
@@ -844,7 +868,7 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Browser-Prüfung nötig</td>
           </tr>
-          <tr data-bd-facet-country="lithuania" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="A">
+          <tr data-bd-facet-country="lithuania" data-bd-facet-subnational="" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="A">
             <td data-label="Plattform"><a href="https://viesiejipirkimai.lt/" rel="noopener noreferrer" target="_blank">CVP IS — Centrinė viešųjų pirkimų informacinė sistema (new system, mandatory since 2024-12-01)</a></td>
             <td data-label="Land">Lithuania</td>
             <td data-label="Typ">Nationales Vergabesystem</td>
@@ -854,7 +878,7 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Vom Betreiber oder der Behörde erklärt</td>
           </tr>
-          <tr data-bd-facet-country="lithuania" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="no" data-bd-facet-foreign="unknown" data-bd-facet-evidence="A">
+          <tr data-bd-facet-country="lithuania" data-bd-facet-subnational="" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="no" data-bd-facet-foreign="unknown" data-bd-facet-evidence="A">
             <td data-label="Plattform"><a href="https://cvpp.eviesiejipirkimai.lt/" rel="noopener noreferrer" target="_blank">CVPP — Centrinis viešųjų pirkimų portalas (Central Public Procurement Portal)</a></td>
             <td data-label="Land">Lithuania</td>
             <td data-label="Typ">Nationales Vergabesystem</td>
@@ -864,7 +888,7 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Vom Betreiber oder der Behörde erklärt</td>
           </tr>
-          <tr data-bd-facet-country="luxembourg" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="A">
+          <tr data-bd-facet-country="luxembourg" data-bd-facet-subnational="" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="A">
             <td data-label="Plattform"><a href="https://pmp.b2g.etat.lu/" rel="noopener noreferrer" target="_blank">Portail des marchés publics du Grand-Duché de Luxembourg (PMP)</a></td>
             <td data-label="Land">Luxembourg</td>
             <td data-label="Typ">Nationales Vergabesystem</td>
@@ -874,7 +898,7 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Vom Betreiber oder der Behörde erklärt</td>
           </tr>
-          <tr data-bd-facet-country="malta" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="A">
+          <tr data-bd-facet-country="malta" data-bd-facet-subnational="" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="A">
             <td data-label="Plattform"><a href="https://www.etenders.gov.mt/" rel="noopener noreferrer" target="_blank">eTenders Malta – electronic Public Procurement System (ePPS)</a></td>
             <td data-label="Land">Malta</td>
             <td data-label="Typ">Nationales Vergabesystem</td>
@@ -884,7 +908,7 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Vom Betreiber oder der Behörde erklärt</td>
           </tr>
-          <tr data-bd-facet-country="moldova" data-bd-facet-type="national-procurement" data-bd-facet-scope="mixed" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="B">
+          <tr data-bd-facet-country="moldova" data-bd-facet-subnational="" data-bd-facet-type="national-procurement" data-bd-facet-scope="mixed" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="B">
             <td data-label="Plattform"><a href="https://achizitii.md/" rel="noopener noreferrer" target="_blank">Achizitii.md</a><br><small>Teil des Ökosystems MTender</small></td>
             <td data-label="Land">Moldova</td>
             <td data-label="Typ">Nationales Vergabesystem</td>
@@ -894,7 +918,7 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Auf der laufenden Plattform beobachtet</td>
           </tr>
-          <tr data-bd-facet-country="moldova" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="unknown" data-bd-facet-foreign="unknown" data-bd-facet-evidence="B">
+          <tr data-bd-facet-country="moldova" data-bd-facet-subnational="" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="unknown" data-bd-facet-foreign="unknown" data-bd-facet-evidence="B">
             <td data-label="Plattform"><a href="https://mtender.gov.md/" rel="noopener noreferrer" target="_blank">MTender</a></td>
             <td data-label="Land">Moldova</td>
             <td data-label="Typ">Nationales Vergabesystem</td>
@@ -904,7 +928,7 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Auf der laufenden Plattform beobachtet</td>
           </tr>
-          <tr data-bd-facet-country="moldova" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="browser-check">
+          <tr data-bd-facet-country="moldova" data-bd-facet-subnational="" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="browser-check">
             <td data-label="Plattform"><a href="https://mtender.md/" rel="noopener noreferrer" target="_blank">MTender state e-procurement platform (mtender.md)</a></td>
             <td data-label="Land">Moldova</td>
             <td data-label="Typ">Nationales Vergabesystem</td>
@@ -914,7 +938,7 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Browser-Prüfung nötig</td>
           </tr>
-          <tr data-bd-facet-country="moldova" data-bd-facet-type="national-procurement" data-bd-facet-scope="mixed" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="A">
+          <tr data-bd-facet-country="moldova" data-bd-facet-subnational="" data-bd-facet-type="national-procurement" data-bd-facet-scope="mixed" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="A">
             <td data-label="Plattform"><a href="https://e-licitatie.md/" rel="noopener noreferrer" target="_blank">e-Licitație (e-licitatie.md)</a></td>
             <td data-label="Land">Moldova</td>
             <td data-label="Typ">Nationales Vergabesystem</td>
@@ -924,7 +948,7 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Vom Betreiber oder der Behörde erklärt</td>
           </tr>
-          <tr data-bd-facet-country="montenegro" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="unknown" data-bd-facet-foreign="unknown" data-bd-facet-evidence="browser-check">
+          <tr data-bd-facet-country="montenegro" data-bd-facet-subnational="" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="unknown" data-bd-facet-foreign="unknown" data-bd-facet-evidence="browser-check">
             <td data-label="Plattform"><a href="https://cejn.gov.me/" rel="noopener noreferrer" target="_blank">CeJN — Crnogorski elektronski sistem javnih nabavki</a></td>
             <td data-label="Land">Montenegro</td>
             <td data-label="Typ">Nationales Vergabesystem</td>
@@ -934,7 +958,7 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Browser-Prüfung nötig</td>
           </tr>
-          <tr data-bd-facet-country="netherlands" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="unknown" data-bd-facet-foreign="unknown" data-bd-facet-evidence="browser-check">
+          <tr data-bd-facet-country="netherlands" data-bd-facet-subnational="" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="unknown" data-bd-facet-foreign="unknown" data-bd-facet-evidence="browser-check">
             <td data-label="Plattform"><a href="https://www.tenderned.nl/" rel="noopener noreferrer" target="_blank">TenderNed</a></td>
             <td data-label="Land">Netherlands</td>
             <td data-label="Typ">Nationales Vergabesystem</td>
@@ -944,7 +968,7 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Browser-Prüfung nötig</td>
           </tr>
-          <tr data-bd-facet-country="north-macedonia" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="unknown" data-bd-facet-foreign="unknown" data-bd-facet-evidence="B">
+          <tr data-bd-facet-country="north-macedonia" data-bd-facet-subnational="" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="unknown" data-bd-facet-foreign="unknown" data-bd-facet-evidence="B">
             <td data-label="Plattform"><a href="https://e-nabavki.gov.mk/" rel="noopener noreferrer" target="_blank">ЕСЈН — Електронски систем за јавни набавки</a></td>
             <td data-label="Land">North Macedonia</td>
             <td data-label="Typ">Nationales Vergabesystem</td>
@@ -954,7 +978,7 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Auf der laufenden Plattform beobachtet</td>
           </tr>
-          <tr data-bd-facet-country="norway" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="no" data-bd-facet-foreign="unknown" data-bd-facet-evidence="browser-check">
+          <tr data-bd-facet-country="norway" data-bd-facet-subnational="" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="no" data-bd-facet-foreign="unknown" data-bd-facet-evidence="browser-check">
             <td data-label="Plattform"><a href="https://www.doffin.no/" rel="noopener noreferrer" target="_blank">Doffin — Database for offentlige innkjøp</a></td>
             <td data-label="Land">Norway</td>
             <td data-label="Typ">Nationales Vergabesystem</td>
@@ -964,7 +988,7 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Browser-Prüfung nötig</td>
           </tr>
-          <tr data-bd-facet-country="poland" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="unknown" data-bd-facet-foreign="unknown" data-bd-facet-evidence="browser-check">
+          <tr data-bd-facet-country="poland" data-bd-facet-subnational="" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="unknown" data-bd-facet-foreign="unknown" data-bd-facet-evidence="browser-check">
             <td data-label="Plattform"><a href="https://ezamowienia.gov.pl/" rel="noopener noreferrer" target="_blank">Platforma e-Zamówienia</a></td>
             <td data-label="Land">Poland</td>
             <td data-label="Typ">Nationales Vergabesystem</td>
@@ -974,7 +998,7 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Browser-Prüfung nötig</td>
           </tr>
-          <tr data-bd-facet-country="portugal" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="unknown" data-bd-facet-foreign="unknown" data-bd-facet-evidence="A">
+          <tr data-bd-facet-country="portugal" data-bd-facet-subnational="" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="unknown" data-bd-facet-foreign="unknown" data-bd-facet-evidence="A">
             <td data-label="Plattform"><a href="https://www.base.gov.pt/" rel="noopener noreferrer" target="_blank">BASE — Contratos Públicos Online</a></td>
             <td data-label="Land">Portugal</td>
             <td data-label="Typ">Nationales Vergabesystem</td>
@@ -984,7 +1008,7 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Vom Betreiber oder der Behörde erklärt</td>
           </tr>
-          <tr data-bd-facet-country="romania" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="unknown" data-bd-facet-foreign="unknown" data-bd-facet-evidence="A">
+          <tr data-bd-facet-country="romania" data-bd-facet-subnational="" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="unknown" data-bd-facet-foreign="unknown" data-bd-facet-evidence="A">
             <td data-label="Plattform"><a href="https://www.e-licitatie.ro/" rel="noopener noreferrer" target="_blank">SEAP / SICAP</a></td>
             <td data-label="Land">Romania</td>
             <td data-label="Typ">Nationales Vergabesystem</td>
@@ -994,7 +1018,7 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Vom Betreiber oder der Behörde erklärt</td>
           </tr>
-          <tr data-bd-facet-country="serbia" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="unknown" data-bd-facet-foreign="unknown" data-bd-facet-evidence="browser-check">
+          <tr data-bd-facet-country="serbia" data-bd-facet-subnational="" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="unknown" data-bd-facet-foreign="unknown" data-bd-facet-evidence="browser-check">
             <td data-label="Plattform"><a href="https://jnportal.ujn.gov.rs/" rel="noopener noreferrer" target="_blank">Portal javnih nabavki</a></td>
             <td data-label="Land">Serbia</td>
             <td data-label="Typ">Nationales Vergabesystem</td>
@@ -1004,7 +1028,7 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Browser-Prüfung nötig</td>
           </tr>
-          <tr data-bd-facet-country="slovakia" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="A">
+          <tr data-bd-facet-country="slovakia" data-bd-facet-subnational="" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="A">
             <td data-label="Plattform"><a href="https://www.eks.sk/" rel="noopener noreferrer" target="_blank">EKS – Elektronický kontraktačný systém (elektronické trhovisko)</a></td>
             <td data-label="Land">Slovakia</td>
             <td data-label="Typ">Nationales Vergabesystem</td>
@@ -1014,7 +1038,7 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Vom Betreiber oder der Behörde erklärt</td>
           </tr>
-          <tr data-bd-facet-country="slovakia" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="A">
+          <tr data-bd-facet-country="slovakia" data-bd-facet-subnational="" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="A">
             <td data-label="Plattform"><a href="https://www.isepvo.sk/" rel="noopener noreferrer" target="_blank">IS EVO – Elektronická platforma verejného obstarávania (EPVO)</a></td>
             <td data-label="Land">Slovakia</td>
             <td data-label="Typ">Nationales Vergabesystem</td>
@@ -1024,7 +1048,7 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Vom Betreiber oder der Behörde erklärt</td>
           </tr>
-          <tr data-bd-facet-country="slovakia" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="no" data-bd-facet-foreign="unknown" data-bd-facet-evidence="A">
+          <tr data-bd-facet-country="slovakia" data-bd-facet-subnational="" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="no" data-bd-facet-foreign="unknown" data-bd-facet-evidence="A">
             <td data-label="Plattform"><a href="https://www.uvo.gov.sk/" rel="noopener noreferrer" target="_blank">Vestník verejného obstarávania (ÚVO portal – notices and registers)</a></td>
             <td data-label="Land">Slovakia</td>
             <td data-label="Typ">Nationales Vergabesystem</td>
@@ -1034,7 +1058,7 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Vom Betreiber oder der Behörde erklärt</td>
           </tr>
-          <tr data-bd-facet-country="slovenia" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="unknown" data-bd-facet-foreign="unknown" data-bd-facet-evidence="A">
+          <tr data-bd-facet-country="slovenia" data-bd-facet-subnational="" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="unknown" data-bd-facet-foreign="unknown" data-bd-facet-evidence="A">
             <td data-label="Plattform"><a href="https://ejn.gov.si/" rel="noopener noreferrer" target="_blank">e-JN — Elektronsko javno naročanje</a></td>
             <td data-label="Land">Slovenia</td>
             <td data-label="Typ">Nationales Vergabesystem</td>
@@ -1044,7 +1068,7 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Vom Betreiber oder der Behörde erklärt</td>
           </tr>
-          <tr data-bd-facet-country="spain" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="A">
+          <tr data-bd-facet-country="spain" data-bd-facet-subnational="" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="A">
             <td data-label="Plattform"><a href="https://contrataciondelestado.es/wps/portal/plataforma" rel="noopener noreferrer" target="_blank">Plataforma de Contratación del Sector Público (PLACSP)</a></td>
             <td data-label="Land">Spain</td>
             <td data-label="Typ">Nationales Vergabesystem</td>
@@ -1054,7 +1078,7 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Vom Betreiber oder der Behörde erklärt</td>
           </tr>
-          <tr data-bd-facet-country="spain" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="no" data-bd-facet-foreign="unknown" data-bd-facet-evidence="browser-check">
+          <tr data-bd-facet-country="spain" data-bd-facet-subnational="" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="no" data-bd-facet-foreign="unknown" data-bd-facet-evidence="browser-check">
             <td data-label="Plattform"><a href="https://registrodelicitadores.gob.es/" rel="noopener noreferrer" target="_blank">ROLECSP / ROLECE – Registro Oficial de Licitadores y Empresas Clasificadas del Sector Público</a></td>
             <td data-label="Land">Spain</td>
             <td data-label="Typ">Nationales Vergabesystem</td>
@@ -1064,7 +1088,7 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Browser-Prüfung nötig</td>
           </tr>
-          <tr data-bd-facet-country="sweden" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="no" data-bd-facet-foreign="unknown" data-bd-facet-evidence="A">
+          <tr data-bd-facet-country="sweden" data-bd-facet-subnational="" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="no" data-bd-facet-foreign="unknown" data-bd-facet-evidence="A">
             <td data-label="Plattform"><a href="https://www.kommersannons.se/" rel="noopener noreferrer" target="_blank">KommersAnnons.se</a></td>
             <td data-label="Land">Sweden</td>
             <td data-label="Typ">Nationales Vergabesystem</td>
@@ -1074,7 +1098,7 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Vom Betreiber oder der Behörde erklärt</td>
           </tr>
-          <tr data-bd-facet-country="sweden" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="browser-check">
+          <tr data-bd-facet-country="sweden" data-bd-facet-subnational="" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="browser-check">
             <td data-label="Plattform"><a href="https://app.mercell.com/" rel="noopener noreferrer" target="_blank">Mercell Annonsdatabas (TendSign)</a></td>
             <td data-label="Land">Sweden</td>
             <td data-label="Typ">Nationales Vergabesystem</td>
@@ -1084,7 +1108,7 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Browser-Prüfung nötig</td>
           </tr>
-          <tr data-bd-facet-country="sweden" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="A">
+          <tr data-bd-facet-country="sweden" data-bd-facet-subnational="" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="A">
             <td data-label="Plattform"><a href="https://www.e-avrop.com/" rel="noopener noreferrer" target="_blank">e-Avrop</a></td>
             <td data-label="Land">Sweden</td>
             <td data-label="Typ">Nationales Vergabesystem</td>
@@ -1094,7 +1118,7 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Vom Betreiber oder der Behörde erklärt</td>
           </tr>
-          <tr data-bd-facet-country="switzerland" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="unknown" data-bd-facet-foreign="unknown" data-bd-facet-evidence="browser-check">
+          <tr data-bd-facet-country="switzerland" data-bd-facet-subnational="" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="unknown" data-bd-facet-foreign="unknown" data-bd-facet-evidence="browser-check">
             <td data-label="Plattform"><a href="https://www.simap.ch/" rel="noopener noreferrer" target="_blank">simap.ch</a></td>
             <td data-label="Land">Switzerland</td>
             <td data-label="Typ">Nationales Vergabesystem</td>
@@ -1104,7 +1128,7 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Browser-Prüfung nötig</td>
           </tr>
-          <tr data-bd-facet-country="turkey" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="unknown" data-bd-facet-foreign="unknown" data-bd-facet-evidence="browser-check">
+          <tr data-bd-facet-country="turkey" data-bd-facet-subnational="" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="unknown" data-bd-facet-foreign="unknown" data-bd-facet-evidence="browser-check">
             <td data-label="Plattform"><a href="https://ekap.kik.gov.tr/" rel="noopener noreferrer" target="_blank">EKAP — Elektronik Kamu Alımları Platformu</a></td>
             <td data-label="Land">Turkey</td>
             <td data-label="Typ">Nationales Vergabesystem</td>
@@ -1114,7 +1138,7 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Browser-Prüfung nötig</td>
           </tr>
-          <tr data-bd-facet-country="ukraine" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="browser-check">
+          <tr data-bd-facet-country="ukraine" data-bd-facet-subnational="" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="browser-check">
             <td data-label="Plattform"><a href="https://www.dzo.com.ua/" rel="noopener noreferrer" target="_blank">Derzhzakupivli.Online (Держзакупівлі.Онлайн / DZO)</a><br><small>Teil des Ökosystems Prozorro</small></td>
             <td data-label="Land">Ukraine</td>
             <td data-label="Typ">Nationales Vergabesystem</td>
@@ -1124,7 +1148,7 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Browser-Prüfung nötig</td>
           </tr>
-          <tr data-bd-facet-country="ukraine" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="browser-check">
+          <tr data-bd-facet-country="ukraine" data-bd-facet-subnational="" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="browser-check">
             <td data-label="Plattform"><a href="https://e-tender.ua/" rel="noopener noreferrer" target="_blank">E-tender</a><br><small>Teil des Ökosystems Prozorro</small></td>
             <td data-label="Land">Ukraine</td>
             <td data-label="Typ">Nationales Vergabesystem</td>
@@ -1134,7 +1158,7 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Browser-Prüfung nötig</td>
           </tr>
-          <tr data-bd-facet-country="ukraine" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="browser-check">
+          <tr data-bd-facet-country="ukraine" data-bd-facet-subnational="" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="browser-check">
             <td data-label="Plattform"><a href="https://izi.trade/" rel="noopener noreferrer" target="_blank">IZI.TRADE</a><br><small>Teil des Ökosystems Prozorro</small></td>
             <td data-label="Land">Ukraine</td>
             <td data-label="Typ">Nationales Vergabesystem</td>
@@ -1144,7 +1168,7 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Browser-Prüfung nötig</td>
           </tr>
-          <tr data-bd-facet-country="ukraine" data-bd-facet-type="national-procurement" data-bd-facet-scope="mixed" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="A">
+          <tr data-bd-facet-country="ukraine" data-bd-facet-subnational="" data-bd-facet-type="national-procurement" data-bd-facet-scope="mixed" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="A">
             <td data-label="Plattform"><a href="https://playtender.com.ua/" rel="noopener noreferrer" target="_blank">PlayTender</a><br><small>Teil des Ökosystems Prozorro</small></td>
             <td data-label="Land">Ukraine</td>
             <td data-label="Typ">Nationales Vergabesystem</td>
@@ -1154,7 +1178,7 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Vom Betreiber oder der Behörde erklärt</td>
           </tr>
-          <tr data-bd-facet-country="ukraine" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="no" data-bd-facet-foreign="unknown" data-bd-facet-evidence="browser-check">
+          <tr data-bd-facet-country="ukraine" data-bd-facet-subnational="" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="no" data-bd-facet-foreign="unknown" data-bd-facet-evidence="browser-check">
             <td data-label="Plattform"><a href="https://prozorro.gov.ua/" rel="noopener noreferrer" target="_blank">Prozorro</a></td>
             <td data-label="Land">Ukraine</td>
             <td data-label="Typ">Nationales Vergabesystem</td>
@@ -1164,7 +1188,7 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Browser-Prüfung nötig</td>
           </tr>
-          <tr data-bd-facet-country="ukraine" data-bd-facet-type="national-procurement" data-bd-facet-scope="mixed" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="B">
+          <tr data-bd-facet-country="ukraine" data-bd-facet-subnational="" data-bd-facet-type="national-procurement" data-bd-facet-scope="mixed" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="B">
             <td data-label="Plattform"><a href="https://smarttender.biz/" rel="noopener noreferrer" target="_blank">SmartTender</a><br><small>Teil des Ökosystems Prozorro</small></td>
             <td data-label="Land">Ukraine</td>
             <td data-label="Typ">Nationales Vergabesystem</td>
@@ -1174,7 +1198,7 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Auf der laufenden Plattform beobachtet</td>
           </tr>
-          <tr data-bd-facet-country="ukraine" data-bd-facet-type="national-procurement" data-bd-facet-scope="mixed" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="A">
+          <tr data-bd-facet-country="ukraine" data-bd-facet-subnational="" data-bd-facet-type="national-procurement" data-bd-facet-scope="mixed" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="A">
             <td data-label="Plattform"><a href="https://tender-online.com.ua/" rel="noopener noreferrer" target="_blank">TENDER-online (ТЕНДЕР-online)</a><br><small>Teil des Ökosystems Prozorro</small></td>
             <td data-label="Land">Ukraine</td>
             <td data-label="Typ">Nationales Vergabesystem</td>
@@ -1184,7 +1208,7 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Vom Betreiber oder der Behörde erklärt</td>
           </tr>
-          <tr data-bd-facet-country="ukraine" data-bd-facet-type="national-procurement" data-bd-facet-scope="mixed" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="browser-check">
+          <tr data-bd-facet-country="ukraine" data-bd-facet-subnational="" data-bd-facet-type="national-procurement" data-bd-facet-scope="mixed" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="browser-check">
             <td data-label="Plattform"><a href="https://zakupivli.pro/" rel="noopener noreferrer" target="_blank">Zakupivli.PRO (ex Zakupki.prom.ua)</a><br><small>Teil des Ökosystems Prozorro</small></td>
             <td data-label="Land">Ukraine</td>
             <td data-label="Typ">Nationales Vergabesystem</td>
@@ -1194,7 +1218,7 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Browser-Prüfung nötig</td>
           </tr>
-          <tr data-bd-facet-country="united-kingdom" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="unknown" data-bd-facet-foreign="unknown" data-bd-facet-evidence="A">
+          <tr data-bd-facet-country="united-kingdom" data-bd-facet-subnational="" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="unknown" data-bd-facet-foreign="unknown" data-bd-facet-evidence="A">
             <td data-label="Plattform"><a href="https://www.contractsfinder.service.gov.uk/" rel="noopener noreferrer" target="_blank">Contracts Finder</a></td>
             <td data-label="Land">United Kingdom</td>
             <td data-label="Typ">Nationales Vergabesystem</td>
@@ -1204,7 +1228,7 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Vom Betreiber oder der Behörde erklärt</td>
           </tr>
-          <tr data-bd-facet-country="united-kingdom" data-bd-facet-type="sector-procurement" data-bd-facet-scope="public" data-bd-facet-esub="unknown" data-bd-facet-foreign="unknown" data-bd-facet-evidence="A">
+          <tr data-bd-facet-country="united-kingdom" data-bd-facet-subnational="" data-bd-facet-type="sector-procurement" data-bd-facet-scope="public" data-bd-facet-esub="unknown" data-bd-facet-foreign="unknown" data-bd-facet-evidence="A">
             <td data-label="Plattform"><a href="https://www.applytosupply.digitalmarketplace.service.gov.uk/" rel="noopener noreferrer" target="_blank">Digital Marketplace (Apply to Supply)</a></td>
             <td data-label="Land">United Kingdom</td>
             <td data-label="Typ">Sektorbeschaffung</td>
@@ -1214,7 +1238,7 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Vom Betreiber oder der Behörde erklärt</td>
           </tr>
-          <tr data-bd-facet-country="united-kingdom" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="no" data-bd-facet-foreign="yes" data-bd-facet-evidence="A">
+          <tr data-bd-facet-country="united-kingdom" data-bd-facet-subnational="" data-bd-facet-type="national-procurement" data-bd-facet-scope="public" data-bd-facet-esub="no" data-bd-facet-foreign="yes" data-bd-facet-evidence="A">
             <td data-label="Plattform"><a href="https://www.find-tender.service.gov.uk/" rel="noopener noreferrer" target="_blank">Find a Tender (FTS) / Central Digital Platform</a></td>
             <td data-label="Land">United Kingdom</td>
             <td data-label="Typ">Nationales Vergabesystem</td>
@@ -1224,9 +1248,9 @@
             <td data-label="Ausländische Anbieter">Ja</td>
             <td data-label="Beleg">Vom Betreiber oder der Behörde erklärt</td>
           </tr>
-          <tr data-bd-facet-country="united-kingdom" data-bd-facet-type="regional-procurement" data-bd-facet-scope="public" data-bd-facet-esub="unknown" data-bd-facet-foreign="unknown" data-bd-facet-evidence="A">
+          <tr data-bd-facet-country="united-kingdom" data-bd-facet-subnational="GB-SCT" data-bd-facet-type="regional-procurement" data-bd-facet-scope="public" data-bd-facet-esub="unknown" data-bd-facet-foreign="unknown" data-bd-facet-evidence="A">
             <td data-label="Plattform"><a href="https://www.publiccontractsscotland.gov.uk/" rel="noopener noreferrer" target="_blank">Public Contracts Scotland (PCS)</a></td>
-            <td data-label="Land">United Kingdom</td>
+            <td data-label="Land">United Kingdom · Scotland</td>
             <td data-label="Typ">Regionale Beschaffung</td>
             <td data-label="Betreiber">Scottish Government</td>
             <td data-label="Verifizierte Wege"><a href="https://www.publiccontractsscotland.gov.uk/Search/Search_MainPage.aspx" rel="noopener noreferrer" target="_blank">Ausschreibungen suchen</a><br><a href="https://www.publiccontractsscotland.gov.uk/Register/Register_Start.aspx" rel="noopener noreferrer" target="_blank">Als Anbieter registrieren</a></td>
@@ -1234,9 +1258,9 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Vom Betreiber oder der Behörde erklärt</td>
           </tr>
-          <tr data-bd-facet-country="united-kingdom" data-bd-facet-type="regional-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="B">
+          <tr data-bd-facet-country="united-kingdom" data-bd-facet-subnational="GB-SCT" data-bd-facet-type="regional-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="B">
             <td data-label="Plattform"><a href="https://www.publictendersscotland.publiccontractsscotland.gov.uk/" rel="noopener noreferrer" target="_blank">Public Contracts Scotland - Tender (PCS-Tender)</a><br><small>Teil des Ökosystems Public Contracts Scotland (PCS)</small></td>
-            <td data-label="Land">United Kingdom</td>
+            <td data-label="Land">United Kingdom · Scotland</td>
             <td data-label="Typ">Regionale Beschaffung</td>
             <td data-label="Betreiber">Scottish Government</td>
             <td data-label="Verifizierte Wege">Nicht erfasst</td>
@@ -1244,9 +1268,9 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Auf der laufenden Plattform beobachtet</td>
           </tr>
-          <tr data-bd-facet-country="united-kingdom" data-bd-facet-type="regional-procurement" data-bd-facet-scope="public" data-bd-facet-esub="unknown" data-bd-facet-foreign="unknown" data-bd-facet-evidence="A">
+          <tr data-bd-facet-country="united-kingdom" data-bd-facet-subnational="GB-WLS" data-bd-facet-type="regional-procurement" data-bd-facet-scope="public" data-bd-facet-esub="unknown" data-bd-facet-foreign="unknown" data-bd-facet-evidence="A">
             <td data-label="Plattform"><a href="https://www.sell2wales.gov.wales/" rel="noopener noreferrer" target="_blank">Sell2Wales / GwerthwchiGymru</a></td>
-            <td data-label="Land">United Kingdom</td>
+            <td data-label="Land">United Kingdom · Wales [Cymru GB-CYM]</td>
             <td data-label="Typ">Regionale Beschaffung</td>
             <td data-label="Betreiber">Welsh Government</td>
             <td data-label="Verifizierte Wege"><a href="https://www.sell2wales.gov.wales/Search/Search_MainPage.aspx" rel="noopener noreferrer" target="_blank">Ausschreibungen suchen</a><br><a href="https://www.sell2wales.gov.wales/Register/Register_Start.aspx" rel="noopener noreferrer" target="_blank">Als Anbieter registrieren</a></td>
@@ -1254,7 +1278,7 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Vom Betreiber oder der Behörde erklärt</td>
           </tr>
-          <tr data-bd-facet-country="united-kingdom" data-bd-facet-type="institutional-procurement" data-bd-facet-scope="public" data-bd-facet-esub="unknown" data-bd-facet-foreign="unknown" data-bd-facet-evidence="B">
+          <tr data-bd-facet-country="united-kingdom" data-bd-facet-subnational="" data-bd-facet-type="institutional-procurement" data-bd-facet-scope="public" data-bd-facet-esub="unknown" data-bd-facet-foreign="unknown" data-bd-facet-evidence="B">
             <td data-label="Plattform"><a href="https://supplierregistration.cabinetoffice.gov.uk/" rel="noopener noreferrer" target="_blank">Supplier Registration Service (Cabinet Office / central government eSourcing)</a></td>
             <td data-label="Land">United Kingdom</td>
             <td data-label="Typ">Institutionelle Beschaffung</td>
@@ -1264,9 +1288,9 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Auf der laufenden Plattform beobachtet</td>
           </tr>
-          <tr data-bd-facet-country="united-kingdom" data-bd-facet-type="regional-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="B">
+          <tr data-bd-facet-country="united-kingdom" data-bd-facet-subnational="GB-NIR" data-bd-facet-type="regional-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="B">
             <td data-label="Plattform"><a href="https://e-sourcingni.ukp.app.jaggaer.com/" rel="noopener noreferrer" target="_blank">eSourcing NI</a></td>
-            <td data-label="Land">United Kingdom</td>
+            <td data-label="Land">United Kingdom · Northern Ireland</td>
             <td data-label="Typ">Regionale Beschaffung</td>
             <td data-label="Betreiber">Nicht erfasst</td>
             <td data-label="Verifizierte Wege">Nicht erfasst</td>
@@ -1274,9 +1298,9 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Auf der laufenden Plattform beobachtet</td>
           </tr>
-          <tr data-bd-facet-country="united-kingdom" data-bd-facet-type="regional-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="browser-check">
+          <tr data-bd-facet-country="united-kingdom" data-bd-facet-subnational="GB-WLS" data-bd-facet-type="regional-procurement" data-bd-facet-scope="public" data-bd-facet-esub="yes" data-bd-facet-foreign="unknown" data-bd-facet-evidence="browser-check">
             <td data-label="Plattform"><a href="https://etenderwales.ukp.app.jaggaer.com/" rel="noopener noreferrer" target="_blank">eTenderWales</a><br><small>Teil des Ökosystems Sell2Wales / GwerthwchiGymru</small></td>
-            <td data-label="Land">United Kingdom</td>
+            <td data-label="Land">United Kingdom · Wales [Cymru GB-CYM]</td>
             <td data-label="Typ">Regionale Beschaffung</td>
             <td data-label="Betreiber">Welsh Government (Value Wales)</td>
             <td data-label="Verifizierte Wege">Nicht erfasst</td>
@@ -1284,9 +1308,9 @@
             <td data-label="Ausländische Anbieter">Unbekannt</td>
             <td data-label="Beleg">Browser-Prüfung nötig</td>
           </tr>
-          <tr data-bd-facet-country="united-kingdom" data-bd-facet-type="regional-procurement" data-bd-facet-scope="public" data-bd-facet-esub="unknown" data-bd-facet-foreign="unknown" data-bd-facet-evidence="A">
+          <tr data-bd-facet-country="united-kingdom" data-bd-facet-subnational="GB-NIR" data-bd-facet-type="regional-procurement" data-bd-facet-scope="public" data-bd-facet-esub="unknown" data-bd-facet-foreign="unknown" data-bd-facet-evidence="A">
             <td data-label="Plattform"><a href="https://etendersni.gov.uk/" rel="noopener noreferrer" target="_blank">eTendersNI</a></td>
-            <td data-label="Land">United Kingdom</td>
+            <td data-label="Land">United Kingdom · Northern Ireland</td>
             <td data-label="Typ">Regionale Beschaffung</td>
             <td data-label="Betreiber">Department of Finance (Northern Ireland)</td>
             <td data-label="Verifizierte Wege"><a href="https://etendersni.gov.uk/epps/prepareCurrentOpportunities.do?currentType=cft" rel="noopener noreferrer" target="_blank">Ausschreibungen suchen</a><br><a href="https://etendersni.gov.uk/epps/prepareRegisterEOOrg.do?registerEO=true" rel="noopener noreferrer" target="_blank">Als Anbieter registrieren</a></td>
