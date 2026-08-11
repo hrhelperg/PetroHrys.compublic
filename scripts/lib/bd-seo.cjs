@@ -382,6 +382,26 @@ function buildMediaProfileMeta({ profile, count, objectiveLabel, canonicalPath, 
   });
 }
 
+// Tender & Procurement Platforms. A fourth sibling collection, same trail shape
+// as marketplaces and media. Every number is derived from the dataset: a
+// hardcoded count is a claim the data cannot correct, which is the lesson the
+// marketplace description already paid for once.
+function buildTendersMeta({ count, countries }) {
+  const canonicalPath = '/research/tenders-procurement/';
+  const title = 'Tender & Procurement Platforms';
+  const description = `${count} verified public and institutional procurement platforms, tender `
+    + `portals and supplier systems across ${countries} jurisdictions, with the discovery, `
+    + 'registration and submission route for each where evidence establishes it.';
+  const trail = [ROOT_TRAIL[0], { name: 'Tenders & Procurement', path: canonicalPath }];
+  return meta({
+    title, description, canonicalPath, robots: undefined, breadcrumbTrail: trail,
+    graph: [
+      collectionPage({ name: title, description, url: absoluteUrl(canonicalPath) }),
+      breadcrumbList(trail),
+    ],
+  });
+}
+
 // The Distribution Planner. Indexable because it carries substantial static
 // explanatory content and a complete prerendered plan — not because it targets
 // a keyword. Its query combinations are NOT separate pages and never enter the
@@ -468,4 +488,5 @@ module.exports = {
   buildMediaMeta,
   buildMediaProfileMeta,
   buildPlannerMeta,
+  buildTendersMeta,
 };

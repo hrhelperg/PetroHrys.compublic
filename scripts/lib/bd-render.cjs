@@ -141,6 +141,7 @@ const PRODUCT_LINKS = (locale) => PRODUCTS
 const MARKETPLACES_PATH = '/research/marketplaces/';
 const MEDIA_PATH = '/research/media-pr-publishing/';
 const PLANNER_PATH = '/research/distribution-planner/';
+const TENDERS_PATH = '/research/tenders-procurement/';
 
 // Every label comes from the dictionary and every internal link is
 // locale-prefixed, so a German reader clicking "Datenschutz" reaches /de/privacy/
@@ -161,6 +162,7 @@ const RESEARCH_LINKS = (currentPath, locale, t) => {
     [routes.hubPath(), t('collection.directories'), true],
     [MARKETPLACES_PATH, t('collection.marketplaces'), true],
     [MEDIA_PATH, t('collection.media'), true],
+    [TENDERS_PATH, t('collection.tenders'), true],
     [PLANNER_PATH, t('collection.planner'), true],
     ['/infrastructure/', t('shell.footer.infrastructure'), false],
     ['/ai-systems/', t('shell.footer.aiSystems'), false],
@@ -345,5 +347,5 @@ ${FOOTER(selfPath, locale, t)}
 // snippet that drifts the first time one of them is updated.
 module.exports = {
   renderPage, HEADER, FOOTER, ANALYTICS, FONTS, ECO_HEAD, ECO_BODY,
-  MARKETPLACES_PATH, MEDIA_PATH, PLANNER_PATH,
+  MARKETPLACES_PATH, MEDIA_PATH, PLANNER_PATH, TENDERS_PATH,
 };

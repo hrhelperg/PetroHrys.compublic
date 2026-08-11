@@ -242,7 +242,8 @@ test('every localized Research route is in the sitemap exactly once', () => {
 
 test('no dataset is copied per locale', () => {
   // The whole point. One canonical record set; four renders.
-  for (const dir of ['data/business-directories', 'data/marketplaces', 'data/media-pr-publishing']) {
+  for (const dir of ['data/business-directories', 'data/marketplaces', 'data/media-pr-publishing',
+    'data/tenders-procurement']) {
     for (const code of I.LOCALE_CODES.filter((c) => c !== 'en')) {
       assert.ok(!fs.existsSync(path.join(ROOT, dir, code)), `${dir}/${code} duplicates the dataset`);
       assert.ok(!fs.existsSync(path.join(ROOT, `${dir}-${code}`)), `${dir}-${code} duplicates the dataset`);
@@ -252,10 +253,17 @@ test('no dataset is copied per locale', () => {
     const d = path.join(ROOT, code, 'data');
     assert.ok(!fs.existsSync(d), `/${code}/data duplicates the dataset`);
   }
-  // The dictionaries hold UI strings only — never platform records.
+  // The dictionaries hold UI strings only — never platform records. Two checks
+  // guard that property. The URL check is the direct one: a record always
+  // carries its website, so a dataset cannot arrive without tripping it. The
+  // key ceiling is the blunt one, and it is calibrated to UI growth: it stood
+  // at 500 when three collections used ~450 keys, and the fourth collection
+  // (tenders-procurement) legitimately added ~50 UI keys. A real dataset copy
+  // is hundreds of records times a dozen fields — thousands of keys — so the
+  // recalibrated ceiling still catches it by an order of magnitude.
   for (const code of I.LOCALE_CODES) {
     const dict = I.dictionary(code);
-    assert.ok(Object.keys(dict).length < 500, `${code}.json has ${Object.keys(dict).length} keys; that is a dataset`);
+    assert.ok(Object.keys(dict).length < 750, `${code}.json has ${Object.keys(dict).length} keys; that is a dataset`);
     for (const v of Object.values(dict)) {
       assert.ok(!/^https?:\/\//.test(v), `${code}.json contains a URL: ${v}`);
     }
