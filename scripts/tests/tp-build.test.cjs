@@ -33,6 +33,45 @@ const PAGES = I18N.LOCALE_CODES.map((l) => ({
   html: read(I18N.localizedFile(l, CANONICAL)),
 }));
 
+// URLs are HTML-escaped by the renderer before they reach an href, so every
+// presence check must compare against the escaped form. The first version of
+// this file compared raw URLs and passed — until the first record whose search
+// route carried a query string, at which point `&` vs `&amp;` made a genuinely
+// present link look lost.
+const escapeHtml = (s) => String(s)
+  .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+  .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+const hrefOf = (url) => `href="${escapeHtml(url)}"`;
+
+// The <tr> that publishes a given record, found by its official URL. Row-level
+// assertions must be anchored to the row: a lazy regex from the first matching
+// attribute in the document happily spans thirty rows and reads someone else's
+// facet value.
+function rowFor(html, record) {
+  const rows = html.match(/<tr data-bd-facet-country="[\s\S]*?<\/tr>/g) || [];
+  return rows.find((r) => r.includes(hrefOf(record.officialUrl))) || null;
+}
+
+// Minimal RFC 4180 parser. The naive comma split lasted exactly until the
+// first operator name containing a comma arrived in a quoted field.
+function parseCsv(text) {
+  const rows = [];
+  let row = [], field = '', inQuotes = false;
+  for (let i = 0; i < text.length; i += 1) {
+    const ch = text[i];
+    if (inQuotes) {
+      if (ch === '"' && text[i + 1] === '"') { field += '"'; i += 1; }
+      else if (ch === '"') inQuotes = false;
+      else field += ch;
+    } else if (ch === '"') inQuotes = true;
+    else if (ch === ',') { row.push(field); field = ''; }
+    else if (ch === '\r' && text[i + 1] === '\n') { row.push(field); field = ''; rows.push(row); row = []; i += 1; }
+    else field += ch;
+  }
+  if (field.length || row.length) { row.push(field); rows.push(row); }
+  return rows.filter((r) => r.length > 1 || (r.length === 1 && r[0] !== ''));
+}
+
 // ── preconditions ───────────────────────────────────────────────────────────
 
 test('the collection has publishable rows and four rendered pages', () => {
@@ -46,7 +85,7 @@ test('the collection has publishable rows and four rendered pages', () => {
 test('every publishable record appears on every locale page, by official URL', () => {
   for (const p of PAGES) {
     for (const r of ROWS) {
-      assert.ok(p.html.includes(`href="${r.officialUrl}"`),
+      assert.ok(p.html.includes(hrefOf(r.officialUrl)),
         `${p.rel} is missing ${r.id} (${r.officialUrl})`);
     }
   }
@@ -54,9 +93,10 @@ test('every publishable record appears on every locale page, by official URL', (
 
 test('no unpublishable record leaks onto any page', () => {
   const hidden = ALL.filter((r) => !S.isPublishable(r));
+  assert.ok(hidden.length > 0, 'no unpublishable record exists: this guard is vacuous');
   for (const p of PAGES) {
     for (const r of hidden) {
-      assert.ok(!p.html.includes(`href="${r.officialUrl}"`),
+      assert.ok(!p.html.includes(hrefOf(r.officialUrl)),
         `${p.rel} publishes ${r.id}, which is not publishable`);
     }
   }
@@ -97,7 +137,7 @@ test('a homepage is never labelled as a deeper action', () => {
       for (const f of ['tenderSearchUrl', 'submissionUrl']) {
         if (!r[f]) continue;
         assert.notStrictEqual(r[f], r.officialUrl);
-        assert.ok(p.html.includes(`href="${r[f]}"`), `${p.rel} lost the verified ${f} of ${r.id}`);
+        assert.ok(p.html.includes(hrefOf(r[f])), `${p.rel} lost the verified ${f} of ${r.id}`);
       }
     }
   }
@@ -105,14 +145,15 @@ test('a homepage is never labelled as a deeper action', () => {
 
 test('unknown renders as unknown, never as no', () => {
   // Records whose foreign-supplier status is unknown must not display the
-  // localized "No". The facet value on the row carries the canonical value, so
-  // it can be checked mechanically per record.
+  // localized "No". The facet attribute on the record's own <tr> carries the
+  // canonical value, so it can be checked mechanically per record.
   for (const p of PAGES) {
     for (const r of ROWS) {
+      const row = rowFor(p.html, r);
+      assert.ok(row, `${p.rel}: row for ${r.id} not found`);
+      const m = row.match(/data-bd-facet-foreign="([^"]+)"/);
       const want = r.foreignSuppliersAccepted || 'unknown';
-      const rowRe = new RegExp(`data-bd-facet-foreign="([^"]+)"[^>]*>[\\s\\S]*?href="${r.officialUrl.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}"`);
-      const m = p.html.match(rowRe);
-      assert.ok(m, `${p.rel}: row for ${r.id} not found`);
+      assert.ok(m, `${p.rel}: ${r.id} row carries no foreign facet`);
       assert.strictEqual(m[1], want, `${p.rel}: ${r.id} renders foreign="${m[1]}", data says "${want}"`);
     }
   }
@@ -166,24 +207,32 @@ test('JSON-LD parses and describes this collection', () => {
 test('the CSV has exact row parity with the publishable dataset', () => {
   const csv = read('research/tenders-procurement/platforms.csv');
   assert.ok(csv.startsWith('﻿'), 'missing UTF-8 BOM');
-  const lines = csv.slice(1).split('\r\n').filter((l) => l.length);
-  assert.strictEqual(lines.length, ROWS.length + 1,
-    `CSV has ${lines.length - 1} data rows; dataset has ${ROWS.length}`);
-  assert.strictEqual(lines[0], build.COLUMNS.join(','));
-  // Determinstic order: same comparator as the page.
-  const ids = lines.slice(1).map((l) => l.split(',')[0]);
+  const rows = parseCsv(csv.slice(1));
+  assert.strictEqual(rows.length, ROWS.length + 1,
+    `CSV has ${rows.length - 1} data rows; dataset has ${ROWS.length}`);
+  assert.deepStrictEqual(rows[0], build.COLUMNS);
+  // Deterministic order: same comparator as the page.
+  const ids = rows.slice(1).map((r) => r[0]);
   assert.deepStrictEqual(ids, ROWS.map((r) => r.id), 'CSV order differs from dataset order');
 });
 
 test('the CSV never invents a value — unknowns stay unknown and blanks stay blank', () => {
   const csv = read('research/tenders-procurement/platforms.csv');
-  const lines = csv.slice(1).split('\r\n').filter((l) => l.length).slice(1);
-  const idx = build.COLUMNS.indexOf('foreign_suppliers_accepted');
+  const rows = parseCsv(csv.slice(1)).slice(1);
+  const col = (name) => build.COLUMNS.indexOf(name);
   for (let i = 0; i < ROWS.length; i += 1) {
-    // Naive split is safe for these columns: URLs and enums carry no commas.
-    const cells = lines[i].split(',');
-    assert.strictEqual(cells[idx], ROWS[i].foreignSuppliersAccepted || 'unknown',
+    const cells = rows[i];
+    assert.strictEqual(cells.length, build.COLUMNS.length, `${ROWS[i].id}: cell count`);
+    assert.strictEqual(cells[col('foreign_suppliers_accepted')],
+      ROWS[i].foreignSuppliersAccepted || 'unknown',
       `${ROWS[i].id}: CSV foreign_suppliers_accepted drifted`);
+    assert.strictEqual(cells[col('official_url')], ROWS[i].officialUrl,
+      `${ROWS[i].id}: CSV official_url drifted`);
+    assert.strictEqual(cells[col('operator')], ROWS[i].operator || '',
+      `${ROWS[i].id}: CSV operator drifted`);
+    assert.strictEqual(cells[col('electronic_submission')],
+      ROWS[i].electronicSubmission || 'unknown',
+      `${ROWS[i].id}: CSV electronic_submission drifted`);
   }
 });
 

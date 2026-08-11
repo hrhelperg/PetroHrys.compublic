@@ -11,8 +11,15 @@
     "coverage": "national",
     "currentStatus": "active",
     "lastVerified": "2026-08-11",
-    "languages": ["cs", "en"],
-    "opportunityTypes": ["contract-notice", "framework-agreement", "tender"],
+    "languages": [
+      "cs",
+      "en"
+    ],
+    "opportunityTypes": [
+      "contract-notice",
+      "framework-agreement",
+      "tender"
+    ],
     "tenderSearchUrl": "https://nen.nipez.cz/en/verejne-zakazky",
     "supplierRegistrationUrl": null,
     "submissionUrl": null,
@@ -41,8 +48,13 @@
     "coverage": "national",
     "currentStatus": "active",
     "lastVerified": "2026-08-11",
-    "languages": ["de"],
-    "opportunityTypes": ["contract-notice", "tender"],
+    "languages": [
+      "de"
+    ],
+    "opportunityTypes": [
+      "contract-notice",
+      "tender"
+    ],
     "tenderSearchUrl": null,
     "supplierRegistrationUrl": null,
     "submissionUrl": null,
@@ -72,8 +84,13 @@
     "coverage": "national",
     "currentStatus": "active",
     "lastVerified": "2026-08-11",
-    "languages": ["da"],
-    "opportunityTypes": ["contract-notice", "tender"],
+    "languages": [
+      "da"
+    ],
+    "opportunityTypes": [
+      "contract-notice",
+      "tender"
+    ],
     "tenderSearchUrl": null,
     "supplierRegistrationUrl": null,
     "submissionUrl": null,
@@ -102,8 +119,38 @@
     "coverage": "supranational",
     "currentStatus": "active",
     "lastVerified": "2026-08-11",
-    "languages": ["bg", "cs", "da", "de", "el", "en", "es", "et", "fi", "fr", "ga", "hr", "hu", "it", "lt", "lv", "mt", "nl", "pl", "pt", "ro", "sk", "sl", "sv"],
-    "opportunityTypes": ["award-notice", "contract-notice", "prior-information-notice", "tender"],
+    "languages": [
+      "bg",
+      "cs",
+      "da",
+      "de",
+      "el",
+      "en",
+      "es",
+      "et",
+      "fi",
+      "fr",
+      "ga",
+      "hr",
+      "hu",
+      "it",
+      "lt",
+      "lv",
+      "mt",
+      "nl",
+      "pl",
+      "pt",
+      "ro",
+      "sk",
+      "sl",
+      "sv"
+    ],
+    "opportunityTypes": [
+      "award-notice",
+      "contract-notice",
+      "prior-information-notice",
+      "tender"
+    ],
     "tenderSearchUrl": "https://ted.europa.eu/en/advanced-search",
     "supplierRegistrationUrl": null,
     "submissionUrl": null,
@@ -133,8 +180,14 @@
     "coverage": "national",
     "currentStatus": "active",
     "lastVerified": "2026-08-11",
-    "languages": ["en"],
-    "opportunityTypes": ["award-notice", "contract-notice", "tender"],
+    "languages": [
+      "en"
+    ],
+    "opportunityTypes": [
+      "award-notice",
+      "contract-notice",
+      "tender"
+    ],
     "tenderSearchUrl": null,
     "supplierRegistrationUrl": null,
     "submissionUrl": null,
@@ -164,8 +217,13 @@
     "coverage": "national",
     "currentStatus": "active",
     "lastVerified": "2026-08-11",
-    "languages": ["nl"],
-    "opportunityTypes": ["contract-notice", "tender"],
+    "languages": [
+      "nl"
+    ],
+    "opportunityTypes": [
+      "contract-notice",
+      "tender"
+    ],
     "tenderSearchUrl": null,
     "supplierRegistrationUrl": null,
     "submissionUrl": null,
@@ -194,8 +252,13 @@
     "coverage": "national",
     "currentStatus": "active",
     "lastVerified": "2026-08-11",
-    "languages": ["pl"],
-    "opportunityTypes": ["contract-notice", "tender"],
+    "languages": [
+      "pl"
+    ],
+    "opportunityTypes": [
+      "contract-notice",
+      "tender"
+    ],
     "tenderSearchUrl": "https://ezamowienia.gov.pl/mp-client/",
     "supplierRegistrationUrl": null,
     "submissionUrl": null,
@@ -224,8 +287,14 @@
     "coverage": "national",
     "currentStatus": "active",
     "lastVerified": "2026-08-11",
-    "languages": ["pt", "en"],
-    "opportunityTypes": ["award-notice", "contract-notice"],
+    "languages": [
+      "pt",
+      "en"
+    ],
+    "opportunityTypes": [
+      "award-notice",
+      "contract-notice"
+    ],
     "tenderSearchUrl": null,
     "supplierRegistrationUrl": null,
     "submissionUrl": null,
@@ -254,8 +323,14 @@
     "coverage": "national",
     "currentStatus": "active",
     "lastVerified": "2026-08-11",
-    "languages": ["ro"],
-    "opportunityTypes": ["award-notice", "contract-notice", "tender"],
+    "languages": [
+      "ro"
+    ],
+    "opportunityTypes": [
+      "award-notice",
+      "contract-notice",
+      "tender"
+    ],
     "tenderSearchUrl": "https://www.e-licitatie.ro/pub/notices/contract-notices/list/0/0",
     "supplierRegistrationUrl": null,
     "submissionUrl": null,
@@ -284,8 +359,13 @@
     "coverage": "national",
     "currentStatus": "active",
     "lastVerified": "2026-08-11",
-    "languages": ["sl"],
-    "opportunityTypes": ["contract-notice", "tender"],
+    "languages": [
+      "sl"
+    ],
+    "opportunityTypes": [
+      "contract-notice",
+      "tender"
+    ],
     "tenderSearchUrl": null,
     "supplierRegistrationUrl": null,
     "submissionUrl": null,
@@ -300,6 +380,2355 @@
     "browserCheckRequired": false,
     "limitations": [
       "The /eJN2 path redirects back to the site root, so it is a homepage fallback rather than a distinct discovery route and is not published as one."
+    ]
+  },
+  {
+    "id": "hr-eojn-rh",
+    "name": "EOJN RH – Elektronički oglasnik javne nabave Republike Hrvatske",
+    "officialUrl": "https://eojn.hr/",
+    "country": "croatia",
+    "platformType": "national-procurement",
+    "operator": "Ministarstvo gospodarstva Republike Hrvatske (implementation lead); Narodne novine d.d. (provedbeni partner)",
+    "operatorType": "government",
+    "procurementScope": "public",
+    "coverage": "national",
+    "currentStatus": "active",
+    "lastVerified": "2026-08-11",
+    "languages": [
+      "hr"
+    ],
+    "opportunityTypes": [
+      "award-notice",
+      "contract-notice",
+      "dynamic-purchasing-system",
+      "framework-agreement",
+      "prior-information-notice",
+      "procurement-plan",
+      "supplier-registration",
+      "tender"
+    ],
+    "tenderSearchUrl": "https://eojn.hr/procurements-all",
+    "supplierRegistrationUrl": null,
+    "submissionUrl": null,
+    "documentsUrl": null,
+    "searchAccess": "free",
+    "electronicSubmission": "yes",
+    "supplierRegistrationRequired": "yes",
+    "foreignSuppliersAccepted": "unknown",
+    "evidenceClass": "A",
+    "evidenceUrl": "https://eojn.hr/procurements-all",
+    "evidenceNote": "2026-08-11: https://eojn.hr/ 200, 83693 bytes, title 'EOJN RH'; /procurements-all 200, 76909 B; /notices-all 200, 75262 B (procurement terms present in body); /wizard/2001 200, 68218 B. gov.hr (official state portal) states: 'EOJN RH potencijalnim ponuditeljima omogućuje registraciju, uvid u dokumentacije o nabavi, preuzimanje istih, komunikaciju s naručiteljem... slanje ponude'. mingo.gov.hr: 'Nositelj provedbe ove investicije je Ministarstvo gospodarstva i održivog razvoja, a provedbeni partner su Narodne novine d.d.' New platform mandatory for all buyers and economic operators since 2024-01-01.",
+    "browserCheckRequired": false,
+    "limitations": [
+      "Data grids on search pages load via XHR/JS; static HTML confirms the app but not row-level data",
+      "Submission and supplier console are behind login at /konzola (not directly verifiable)",
+      "Markup contains lang=\"en\" attributes suggesting an English UI toggle, but EN coverage was not verified",
+      "Homepage markup includes a dormant maintenance-banner template ('EOJN RH trenutno nije dostupan!') — banner text, not an actual outage"
+    ]
+  },
+  {
+    "id": "hr-oglasnik-javne-nabave",
+    "name": "Oglasnik javne nabave (legacy EOJN, eojn.nn.hr)",
+    "officialUrl": "https://eojn.nn.hr/Oglasnik/",
+    "country": "croatia",
+    "platformType": "national-procurement",
+    "operator": "Narodne novine d.d.",
+    "operatorType": "state-owned-enterprise",
+    "procurementScope": "public",
+    "coverage": "national",
+    "currentStatus": "active",
+    "lastVerified": "2026-08-11",
+    "languages": [
+      "hr"
+    ],
+    "opportunityTypes": [
+      "award-notice",
+      "contract-notice",
+      "procurement-plan"
+    ],
+    "tenderSearchUrl": null,
+    "supplierRegistrationUrl": null,
+    "submissionUrl": null,
+    "documentsUrl": null,
+    "searchAccess": "free",
+    "electronicSubmission": "no",
+    "supplierRegistrationRequired": "unknown",
+    "foreignSuppliersAccepted": "unknown",
+    "evidenceClass": "B",
+    "evidenceUrl": "https://eojn.nn.hr/Oglasnik/",
+    "evidenceNote": "2026-08-11: https://eojn.nn.hr/ 200 redirect to /Oglasnik/, 54921 bytes, title 'Oglasnik javne nabave'. Deep ASP.NET route /SPIN/application/ipn/DocumentManagement/NewPreglediDokumenataFrm.aspx returned 200 but only 6411 B postback shell with empty title. eojn.hr still links here for the legacy contract register (RptRegistarUgovora.aspx) and procurement plans (RptPlanoviNabave.aspx).",
+    "browserCheckRequired": true,
+    "limitations": [
+      "Legacy system: superseded by eojn.hr, which is mandatory since 2024-01-01; serves as archive of pre-2024 notices, contract register and procurement plans",
+      "ASP.NET postback UI — deep pages are not directly addressable via plain GET"
+    ],
+    "partOf": "hr-eojn-rh"
+  },
+  {
+    "id": "bg-cais-eop",
+    "name": "ЦАИС ЕОП (CAIS EOP) – Централизирана автоматизирана информационна система 'Електронни обществени поръчки'",
+    "officialUrl": "https://app.eop.bg/",
+    "country": "bulgaria",
+    "platformType": "national-procurement",
+    "operator": "Агенция по обществени поръчки (Public Procurement Agency, AOP)",
+    "operatorType": "government",
+    "procurementScope": "public",
+    "coverage": "national",
+    "currentStatus": "active",
+    "lastVerified": "2026-08-11",
+    "languages": [
+      "bg"
+    ],
+    "opportunityTypes": [
+      "award-notice",
+      "contract-notice",
+      "dynamic-purchasing-system",
+      "framework-agreement",
+      "prior-information-notice",
+      "supplier-registration",
+      "tender"
+    ],
+    "tenderSearchUrl": null,
+    "supplierRegistrationUrl": null,
+    "submissionUrl": null,
+    "documentsUrl": null,
+    "searchAccess": "free",
+    "electronicSubmission": "yes",
+    "supplierRegistrationRequired": "yes",
+    "foreignSuppliersAccepted": "unknown",
+    "evidenceClass": "B",
+    "evidenceUrl": "https://app.eop.bg/",
+    "evidenceNote": "2026-08-11: https://app.eop.bg/ 200 but only 7500 bytes — Angular SPA shell, title 'ЦАИС ЕОП'; /today (public procurement register route) returns the identical 7500 B shell (client-side routing), so no distinct route could be verified by curl. Operator statement (AOP, https://www2.aop.bg/startira-elektronnoto-vazlagane/, 200, 135111 B): e-awarding via CAIS EOP started 2020-01-01; 'Всеки стопански субект следва да има регистрация в ЦАИС ЕОП, за да може да кандидатства/участва в процедури'; 'задължително прилагане на квалифицирани цифрови подписи'. Supplier manual: https://help.eop.bg/supplier/index.htm 200, ~2.7 MB.",
+    "browserCheckRequired": true,
+    "limitations": [
+      "Single-page application: public tender register/search lives at app.eop.bg/today but requires JavaScript — verify search and registration routes in a browser",
+      "Qualified electronic signature is mandatory for participation (AOP statement)",
+      "Mandatory environment for all ZOP procedures since 2020 (central executive bodies 2020-01-01, all other buyers 2020-07-01)",
+      "AOP portal has a BG/EN toggle, but English coverage of the app itself was not verified"
+    ],
+    "softwareVendor": "Consortium 'EOP Bulgaria' (Negometrix Bulgaria EOOD core, with Information Services AD / Информационно обслужване, Sirma Solutions, ScaleFocus)"
+  },
+  {
+    "id": "sk-is-evo",
+    "name": "IS EVO – Elektronická platforma verejného obstarávania (EPVO)",
+    "officialUrl": "https://www.isepvo.sk/",
+    "country": "slovakia",
+    "platformType": "national-procurement",
+    "operator": "Úrad podpredsedu vlády SR pre Plán obnovy a znalostnú ekonomiku (správca elektronickej platformy)",
+    "operatorType": "government",
+    "procurementScope": "public",
+    "coverage": "national",
+    "currentStatus": "active",
+    "lastVerified": "2026-08-11",
+    "languages": [
+      "sk"
+    ],
+    "opportunityTypes": [
+      "contract-notice",
+      "dynamic-purchasing-system",
+      "framework-agreement",
+      "tender"
+    ],
+    "tenderSearchUrl": "https://evo.isepvo.sk/evoportal/public/OrderSearch/Index",
+    "supplierRegistrationUrl": null,
+    "submissionUrl": null,
+    "documentsUrl": "https://evo.isepvo.sk/evoportal/public/DocumentSearch/Index",
+    "searchAccess": "free",
+    "electronicSubmission": "yes",
+    "supplierRegistrationRequired": "yes",
+    "foreignSuppliersAccepted": "unknown",
+    "evidenceClass": "A",
+    "evidenceUrl": "https://evo.isepvo.sk/evoportal/public/OrderSearch/Index",
+    "evidenceNote": "2026-08-11: public OrderSearch 200, 66842 bytes, title 'Vyhľadávanie zákaziek - UVSR Portál'; DocumentSearch 200, 64836 B; ProfileSearch 200, 50406 B; private zone (evo.isepvo.sk/evoportal/private/home/index) redirects to Keycloak SSO at am.isepvo.sk (title 'Prihlásenie - UVSR Portál') — account required for participation. Official platform site isepvo.sk 200, 61720 B, states: 'Správcom elektronickej platformy je Úrad podpredsedu vlády Slovenskej republiky pre Plán obnovy a znalostnú ekonomiku' and that the platform serves 'zabezpečenie zadávania zákazky na dodanie tovaru, uskutočnenie stavebných prác a na poskytnutie služby, evidenciu týchto zákaziek'.",
+    "browserCheckRequired": false,
+    "limitations": [
+      "Formal notice publication happens in the ÚVO Vestník (uvo.gov.sk); IS EVO is the process/e-submission environment",
+      "Submission is behind Keycloak login (am.isepvo.sk); registration flow itself not verifiable without an account",
+      "Former portal address eplatforma.vlada.gov.sk currently unreachable — isepvo.sk is the working official site",
+      "Declared part of the \"Elektronická platforma (EPVO) — statutory platform comprising IS EVO and the EKS electronic marketplace\" ecosystem; the parent record was not resolvable at merge time."
+    ]
+  },
+  {
+    "id": "sk-eks",
+    "name": "EKS – Elektronický kontraktačný systém (elektronické trhovisko)",
+    "officialUrl": "https://www.eks.sk/",
+    "country": "slovakia",
+    "platformType": "national-procurement",
+    "operator": "Úrad podpredsedu vlády SR pre Plán obnovy a znalostnú ekonomiku (správca elektronickej platformy; ET/trhovisko is its marketplace component)",
+    "operatorType": "government",
+    "procurementScope": "public",
+    "coverage": "national",
+    "currentStatus": "active",
+    "lastVerified": "2026-08-11",
+    "languages": [
+      "sk"
+    ],
+    "opportunityTypes": [
+      "framework-agreement",
+      "rfq",
+      "supplier-registration",
+      "tender"
+    ],
+    "tenderSearchUrl": "https://eo.eks.sk/Prehlady/ZakazkyVerejnost",
+    "supplierRegistrationUrl": "https://portal.eks.sk/SpravaDodavatelov/RegistraciaDodavatela/RegistraciaDodavatela",
+    "submissionUrl": null,
+    "documentsUrl": null,
+    "searchAccess": "free",
+    "electronicSubmission": "yes",
+    "supplierRegistrationRequired": "yes",
+    "foreignSuppliersAccepted": "unknown",
+    "evidenceClass": "A",
+    "evidenceUrl": "https://eo.eks.sk/Prehlady/ZakazkyVerejnost",
+    "evidenceNote": "2026-08-11: eks.sk 200, 301100 bytes, title 'Elektronický kontraktačný systém'; public order overview eo.eks.sk/Prehlady/ZakazkyVerejnost 200, 43324 B, title 'Prehľad zákaziek'; supplier registration page portal.eks.sk/.../RegistraciaDodavatela 200, 40445 B, title 'Registrácia dodávateľa'. eks.sk carries the notice 'trhovisko pokracuje ako sucast elektronickej platformy aj po 30-6-2022'; isepvo.sk states platform functionalities are provided via ET (elektronické trhovisko) and IS EVO.",
+    "browserCheckRequired": false,
+    "limitations": [
+      "Marketplace scope: simplified procedure for commonly available goods and services (podlimitné zákazky) and framework agreements — not full above-threshold tendering (that is IS EVO)",
+      "Contact addresses still reference vicepremier.gov.sk; operator attribution follows the isepvo.sk statement on the platform administrator",
+      "Declared part of the \"Elektronická platforma (EPVO) / isepvo.sk — ET (trhovisko) is one of its two components alongside IS EVO\" ecosystem; the parent record was not resolvable at merge time."
+    ]
+  },
+  {
+    "id": "sk-vestnik-verejneho-obstaravania",
+    "name": "Vestník verejného obstarávania (ÚVO portal – notices and registers)",
+    "officialUrl": "https://www.uvo.gov.sk/",
+    "country": "slovakia",
+    "platformType": "national-procurement",
+    "operator": "Úrad pre verejné obstarávanie (ÚVO)",
+    "operatorType": "regulator",
+    "procurementScope": "public",
+    "coverage": "national",
+    "currentStatus": "active",
+    "lastVerified": "2026-08-11",
+    "languages": [
+      "sk"
+    ],
+    "opportunityTypes": [
+      "award-notice",
+      "contract-notice",
+      "prior-information-notice"
+    ],
+    "tenderSearchUrl": "https://www.uvo.gov.sk/vestnik-a-registre/vestnik",
+    "supplierRegistrationUrl": null,
+    "submissionUrl": null,
+    "documentsUrl": null,
+    "searchAccess": "free",
+    "electronicSubmission": "no",
+    "supplierRegistrationRequired": "no",
+    "foreignSuppliersAccepted": "unknown",
+    "evidenceClass": "A",
+    "evidenceUrl": "https://www.uvo.gov.sk/vestnik-a-registre/vestnik",
+    "evidenceNote": "2026-08-11: uvo.gov.sk 200, 87080 bytes, title 'Úvod - ÚVO'; Vestník section /vestnik-a-registre/vestnik 200, 142365 B, title 'Vestník - ÚVO' (journal browsing/search, publicly accessible without registration); portal also hosts buyer-profile search (/zaujemca-uchadzac/vyhladavanie-v-profiloch-vo-o) and registers (register osôb so zákazom, register konečných užívateľov výhod).",
+    "browserCheckRequired": false,
+    "limitations": [
+      "ÚVO is primarily the procurement regulator; this record covers only its gazette/register surface (Vestník) — no e-submission here",
+      "Gazette-and-submission split: notices are published in the Vestník while bids are submitted via the elektronická platforma (IS EVO/EKS) or other certified means"
+    ]
+  },
+  {
+    "id": "gr-esidis",
+    "name": "ESIDIS – National Electronic Public Procurement System (ΕΣΗΔΗΣ / Promitheus)",
+    "officialUrl": "https://portal.eprocurement.gov.gr/esidisportal/",
+    "country": "greece",
+    "platformType": "national-procurement",
+    "operator": "General Secretariat of Information Systems & Digital Governance, Ministry of Digital Governance (Directorate of ESIDIS Management, Development and Support)",
+    "operatorType": "government",
+    "procurementScope": "public",
+    "coverage": "national",
+    "currentStatus": "active",
+    "lastVerified": "2026-08-11",
+    "languages": [
+      "el",
+      "en"
+    ],
+    "opportunityTypes": [
+      "contract-notice",
+      "supplier-registration",
+      "tender"
+    ],
+    "tenderSearchUrl": "https://nepps-search.eprocurement.gov.gr/actSearch/faces/active_search_main.jspx",
+    "supplierRegistrationUrl": null,
+    "submissionUrl": "https://nepps.eprocurement.gov.gr/OA_HTML/AppsLocalLogin.jsp",
+    "documentsUrl": null,
+    "searchAccess": "free",
+    "electronicSubmission": "yes",
+    "supplierRegistrationRequired": "yes",
+    "foreignSuppliersAccepted": "unknown",
+    "evidenceClass": "A",
+    "evidenceUrl": "https://portal.eprocurement.gov.gr/esidisportal/",
+    "evidenceNote": "2026-08-11: HTTP 200, 417,819 bytes, title 'Αρχική ΕΣΗΔΗΣ | ΕΣΗΔΗΣ'; English version /esidisportal/en/node/24 200/380,304 bytes. Host drift: promitheus.gov.gr redirects to portal.eprocurement.gov.gr (200, 1,712-byte meta-refresh page pointing to /webcenter/portal/TestPortal, an Oracle ADF JS shell, 8,281 bytes, F5-protected). Goods/services tender search nepps-search.eprocurement.gov.gr/actSearch/faces/active_search_main.jspx 200/8,357 bytes (Oracle ADF JS shell); public-works search pwgopendata.eprocurement.gov.gr/actSearchErgwn/faces/active_search_main.jspx 200/6,801 bytes; supplier login nepps.eprocurement.gov.gr/OA_HTML/AppsLocalLogin.jsp 200/6,327 bytes (Oracle EBS). Portal footer carries 'Υπουργείο Ψηφιακής Διακυβέρνησης' (Ministry of Digital Governance); portal news node/366 (2026-08-06) states the system is implemented by the General Secretariat of Information Systems & Digital Governance with Information Society S.A. and the General Secretariat of Commerce, and reports '449,000 bids submitted' since 2014. Operator-published manual directory portal_files/elearning/manuals/esidis_p_y_of/ includes 'hlektroniki_ypovoli_prosforas.pdf' (electronic bid submission manual, 200).",
+    "browserCheckRequired": true,
+    "limitations": [
+      "Tender-search UIs (nepps-search, pwgopendata) and the legacy WebCenter portal are Oracle ADF apps that render only with JavaScript — curl receives loopback JS shells",
+      "Supplier registration flow runs inside the ADF apps; no distinct registration URL could be verified by curl (Greek operators use TAXISnet credentials; a separate application path for EU operators is described in operator manuals dated 2013, current process unverified)",
+      "A new unified OPS ESIDIS platform covering the full procurement lifecycle was announced 2026-08-06 (dev instance live at portal-dev.eshdhs.gr); hosts/URLs may change"
+    ]
+  },
+  {
+    "id": "gr-kimdis",
+    "name": "KIMDIS – Central Electronic Registry of Public Contracts (ΚΗΜΔΗΣ)",
+    "officialUrl": "https://cerpp.eprocurement.gov.gr/upgkimdis/unprotected/home.xhtml",
+    "country": "greece",
+    "platformType": "national-procurement",
+    "operator": "Directorate of Management, Development and Support of ESIDIS (Διεύθυνση Διαχείρισης, Ανάπτυξης και Υποστήριξης ΕΣΗΔΗΣ), Ministry of Digital Governance",
+    "operatorType": "government",
+    "procurementScope": "public",
+    "coverage": "national",
+    "currentStatus": "active",
+    "lastVerified": "2026-08-11",
+    "languages": [
+      "el",
+      "en"
+    ],
+    "opportunityTypes": [
+      "award-notice",
+      "contract-notice"
+    ],
+    "tenderSearchUrl": null,
+    "supplierRegistrationUrl": null,
+    "submissionUrl": null,
+    "documentsUrl": null,
+    "searchAccess": "free",
+    "electronicSubmission": "no",
+    "supplierRegistrationRequired": "no",
+    "foreignSuppliersAccepted": "unknown",
+    "evidenceClass": "A",
+    "evidenceUrl": "https://cerpp.eprocurement.gov.gr/upgkimdis/unprotected/home.xhtml",
+    "evidenceNote": "2026-08-11: HTTP 200, 16,041 bytes (no <title> tag); body header 'Κεντρικό Ηλεκτρονικό Μητρώο ΔΗμοσίων Συμβάσεων' with EN/GR toggle and public search tabs for Αιτήματα (requests), Προσκλήσεις-Προκηρύξεις-Διακηρύξεις (calls/notices), Αναθέσεις (awards), Συμβάσεις (contracts), Εντολές Πληρωμών (payment orders); footer '© 2022 - Διεύθυνση Διαχείρισης, Ανάπτυξης και Υποστήριξης ΕΣΗΔΗΣ'. Linked as the KIMDIS entry point from the official ESIDIS portal. Legacy route cerpp.eprocurement.gov.gr/kimds2/unprotected/searchContracts.htm returned 503 'Weblogic Bridge Message' (250 bytes) the same day.",
+    "browserCheckRequired": true,
+    "limitations": [
+      "Publication/registry system only — notices, awards, contracts and payment orders; no bid submission",
+      "Interactive search within the JSF app requires a JavaScript/session-capable browser; the unprotected home.xhtml is itself the public search entry point, so no separate search route is reported",
+      "Legacy kimds2 search route (widely linked by third parties) returned 503 on 2026-08-11 — superseded by the upgkimdis UI"
+    ],
+    "partOf": "gr-esidis"
+  },
+  {
+    "id": "cy-eprocurement-system-of",
+    "name": "eProcurement System of the Republic of Cyprus (e-PPS)",
+    "officialUrl": "https://www.eprocurement.gov.cy/",
+    "country": "cyprus",
+    "platformType": "national-procurement",
+    "operator": "Public Procurement Directorate, Treasury of the Republic of Cyprus",
+    "operatorType": "government",
+    "procurementScope": "public",
+    "coverage": "national",
+    "currentStatus": "active",
+    "lastVerified": "2026-08-11",
+    "languages": [
+      "el",
+      "en"
+    ],
+    "opportunityTypes": [
+      "contract-notice",
+      "procurement-plan",
+      "supplier-registration",
+      "tender"
+    ],
+    "tenderSearchUrl": "https://www.eprocurement.gov.cy/epps/prepareAdvancedSearch.do?type=cftFTS",
+    "supplierRegistrationUrl": "https://www.eprocurement.gov.cy/epps/prepareRegisterEOOrg.do?registerEO=true",
+    "submissionUrl": "https://www.eprocurement.gov.cy/epps/authenticate/login",
+    "documentsUrl": null,
+    "searchAccess": "free",
+    "electronicSubmission": "yes",
+    "supplierRegistrationRequired": "yes",
+    "foreignSuppliersAccepted": "unknown",
+    "evidenceClass": "A",
+    "evidenceUrl": "https://www.eprocurement.gov.cy/",
+    "evidenceNote": "2026-08-11: HTTP 200 → final URL https://www.eprocurement.gov.cy/epps/home.do, 25,715 bytes, title 'eProcurement - Καλώς ήρθατε στο e-PPS' (EL/EN toggle). Advanced tender search 200/62,238 bytes 'eProcurement - Σύνθετη Αναζήτηση'; economic-operator registration 200/67,943 bytes 'eProcurement - Εγγραφή Οικονομικού Φορέα'; login redirects to CAS (200/34,342 bytes, 'cyprus Login'). Footer 'Copyright © European Dynamics'. Operator statement in the platform's User Agreement (viewUserAgreement.do, 200/34,429 bytes): 'This User Agreement ... is between the Public Procurement Directorate of the Treasury of the Republic of Cyprus (hereafter referred as the \"PPD\") and any registered user ... in the e-Procurement system'. Homepage news 2026-02-02 announces the 'New eProcurement System'; the Treasury launched the new national system on 2026-02-03 at the same address (per Treasury announcement on gov.cy, curl-blocked 403, corroborated by multiple Cypriot legal/consulting bulletins).",
+    "browserCheckRequired": false,
+    "limitations": [
+      "Site states full functionality requires JavaScript; news item bodies load via JS and are not readable by curl",
+      "A new national eProcurement system replaced the previous platform on 2026-02-03 at the same URL — older guides/manuals may describe superseded workflows",
+      "gov.cy Treasury announcement pages return 403 to non-browser clients"
+    ],
+    "softwareVendor": "European Dynamics"
+  },
+  {
+    "id": "mt-etenders-malta",
+    "name": "eTenders Malta – electronic Public Procurement System (ePPS)",
+    "officialUrl": "https://www.etenders.gov.mt/",
+    "country": "malta",
+    "platformType": "national-procurement",
+    "operator": "Department of Contracts (Ministry for Finance), Government of Malta",
+    "operatorType": "government",
+    "procurementScope": "public",
+    "coverage": "national",
+    "currentStatus": "active",
+    "lastVerified": "2026-08-11",
+    "languages": [
+      "en"
+    ],
+    "opportunityTypes": [
+      "contract-notice",
+      "procurement-plan",
+      "supplier-registration",
+      "tender"
+    ],
+    "tenderSearchUrl": "https://www.etenders.gov.mt/epps/prepareAdvancedSearch.do?type=cftFTS",
+    "supplierRegistrationUrl": "https://www.etenders.gov.mt/epps/prepareRegisterEOOrg.do?registerEO=true",
+    "submissionUrl": "https://www.etenders.gov.mt/epps/authenticate/login",
+    "documentsUrl": null,
+    "searchAccess": "free",
+    "electronicSubmission": "yes",
+    "supplierRegistrationRequired": "yes",
+    "foreignSuppliersAccepted": "unknown",
+    "evidenceClass": "A",
+    "evidenceUrl": "https://www.etenders.gov.mt/",
+    "evidenceNote": "2026-08-11: HTTP 200 → final URL https://www.etenders.gov.mt/epps/home.do, 21,875 bytes, title 'Electronic Tendering - Welcome to e-PPS'. Advanced tender search 200/51,495 bytes 'Electronic Tendering - Advanced search'; supplier registration 200/53,698 bytes 'Electronic Tendering - Register Supplier'; login redirects to CAS (200/22,091 bytes, 'malta Login'). Platform about text: 'Created & Supported by: EUROPEAN DYNAMICS SA' (version 5.0.1). Department of Contracts is the platform's principal organisation record (prepareViewCAOrganisation.do?id=1000, 200/17,821 bytes: 'Organisation Name: Department of Contracts ... Notre Dame Ravelin ... Floriana ... info.contracts@gov.mt ... Website: http://www.contracts.gov.mt'); the DoC's own site states its tenders are published on this Government of Malta tendering portal (contracts.gov.mt FAQ, indexed content — direct fetch blocked by Cloudflare 403). Homepage news notes 'Deployment of the New ePPS' (2026-01-16).",
+    "browserCheckRequired": false,
+    "limitations": [
+      "Site states full functionality requires JavaScript",
+      "Operator attribution rests on the platform's own organisation record and DoC's indexed FAQ; contracts.gov.mt itself is Cloudflare-403 to non-browser clients so the exact 'operated by' sentence was not directly retrievable",
+      "A new ePPS version was deployed in January 2026 — screenshots in older guidance may be outdated"
+    ],
+    "softwareVendor": "European Dynamics"
+  },
+  {
+    "id": "hu-ekr",
+    "name": "EKR — Elektronikus Közbeszerzési Rendszer (Electronic Public Procurement System)",
+    "officialUrl": "https://ekr.gov.hu/",
+    "country": "hungary",
+    "platformType": "national-procurement",
+    "operator": "Új Világ Nonprofit Szolgáltató Kft. (state-owned; develops and operates EKR in cooperation with the Miniszterelnökség / Prime Minister's Office)",
+    "operatorType": "state-owned-enterprise",
+    "procurementScope": "public",
+    "coverage": "national",
+    "currentStatus": "active",
+    "lastVerified": "2026-08-11",
+    "languages": [
+      "hu"
+    ],
+    "opportunityTypes": [
+      "award-notice",
+      "contract-notice",
+      "framework-agreement",
+      "tender"
+    ],
+    "tenderSearchUrl": null,
+    "supplierRegistrationUrl": null,
+    "submissionUrl": null,
+    "documentsUrl": null,
+    "searchAccess": "unknown",
+    "electronicSubmission": "yes",
+    "supplierRegistrationRequired": "unknown",
+    "foreignSuppliersAccepted": "unknown",
+    "evidenceClass": "B",
+    "evidenceUrl": "https://ekr.gov.hu/",
+    "evidenceNote": "2026-08-11: 200, 215,349 bytes, title 'Elektronikus Közbeszerzési Rendszer'. Angular SPA with <base href=\"/portal\">; deep routes /portal/kozbeszerzes (215,353 B), /portal/kereses (215,354 B) and a deliberately invalid route /portal/xyznotaroute123 (215,354 B) all return the identical shell, so no server-verifiable deep route exists. Backend is live: /api probe returned HTTP 406 with structured Hungarian JSON error ('PROCESS_FAIL...Nem talalhato a felhasznalo'). Operator confirmed on ujvilag.gov.hu/ekr (200, 48,441 B, title 'EKR | Új Világ Nonprofit Szolgáltató Kft.'): 'a cég a Miniszterelnökséggel kooperációban fejleszti és üzemelteti az EKR-t'.",
+    "browserCheckRequired": true,
+    "limitations": [
+      "Public procedure search (documented at /portal/kozbeszerzes) is client-side rendered; identical SPA shell served for every route including garbage routes, so it could not be verified via curl",
+      "Hungarian-only interface observed (no language switch in shell)",
+      "Secondary sources state EKR use has been mandatory for bidders and contracting authorities since 2018-04-15 (Kbt.); no operator-page statement was directly captured, hence supplierRegistrationRequired left unknown",
+      "A system-usage fee applies to contracting authorities per procedure (ujvilag.gov.hu/ekr/rendszerhasznalati-dij); no supplier-side paywall observed"
+    ]
+  },
+  {
+    "id": "hu-kozbeszerzesi-hatosag-notice",
+    "name": "Közbeszerzési Hatóság notice databases — Hirdetménykereső / Közbeszerzési Értesítő (kozbeszerzes.hu)",
+    "officialUrl": "https://kozbeszerzes.hu/",
+    "country": "hungary",
+    "platformType": "national-procurement",
+    "operator": "Közbeszerzési Hatóság (Public Procurement Authority of Hungary)",
+    "operatorType": "regulator",
+    "procurementScope": "public",
+    "coverage": "national",
+    "currentStatus": "active",
+    "lastVerified": "2026-08-11",
+    "languages": [
+      "hu"
+    ],
+    "opportunityTypes": [
+      "award-notice",
+      "contract-notice",
+      "prior-information-notice"
+    ],
+    "tenderSearchUrl": "https://kozbeszerzes.hu/adatbazis/keres/hirdetmeny/",
+    "supplierRegistrationUrl": null,
+    "submissionUrl": null,
+    "documentsUrl": null,
+    "searchAccess": "free",
+    "electronicSubmission": "no",
+    "supplierRegistrationRequired": "no",
+    "foreignSuppliersAccepted": "unknown",
+    "evidenceClass": "A",
+    "evidenceUrl": "https://kozbeszerzes.hu/adatbazis/keres/hirdetmeny/",
+    "evidenceNote": "2026-08-11: homepage 200, 318,590 bytes, title 'Nyitólap - Főportál', with server-rendered links to /adatbazis/keres/hirdetmeny/, /adatbazisok/kozbeszerzesi-ertesito/, /adatbazisok/hirdetmenyfigyelo/ etc. Notice search route 200, 224,339 bytes (distinct from homepage body), containing search UI terms 'Keresés', 'Hirdetmények', 'Ajánlatkérő', 'Hirdetményfigyelő' — a functioning public notice search without login.",
+    "browserCheckRequired": false,
+    "limitations": [
+      "Notice publication/search and gazette (Közbeszerzési Értesítő) only — bid submission takes place in EKR (ekr.gov.hu)",
+      "Above-EU-threshold Hungarian notices are also published on TED",
+      "'English' anchor present on homepage but https://kozbeszerzes.hu/en/ returned 404 (with a rendered 212,235-byte body), so English coverage unverified"
+    ]
+  },
+  {
+    "id": "lv-eis",
+    "name": "EIS — Elektronisko iepirkumu sistēma (Electronic Procurement System)",
+    "officialUrl": "https://www.eis.gov.lv/",
+    "country": "latvia",
+    "platformType": "national-procurement",
+    "operator": "Valsts digitālās attīstības aģentūra (VDAA, State Digital Development Agency; successor of VRAA — Valsts reģionālās attīstības aģentūras Elektronisko iepirkumu departaments)",
+    "operatorType": "government",
+    "procurementScope": "public",
+    "coverage": "national",
+    "currentStatus": "active",
+    "lastVerified": "2026-08-11",
+    "languages": [
+      "en",
+      "lv"
+    ],
+    "opportunityTypes": [
+      "contract-notice",
+      "electronic-auction",
+      "framework-agreement",
+      "tender"
+    ],
+    "tenderSearchUrl": "https://www.eis.gov.lv/EKEIS/Supplier",
+    "supplierRegistrationUrl": "https://www.eis.gov.lv/EIS/Publications/PublicationView.aspx?PublicationId=1203&systemCode=CORE",
+    "submissionUrl": null,
+    "documentsUrl": null,
+    "searchAccess": "free",
+    "electronicSubmission": "yes",
+    "supplierRegistrationRequired": "yes",
+    "foreignSuppliersAccepted": "yes",
+    "evidenceClass": "A",
+    "evidenceUrl": "https://www.eis.gov.lv/EKEIS/Supplier",
+    "evidenceNote": "2026-08-11: homepage 200 → https://www.eis.gov.lv/EIS/, 73,702 bytes, title 'EIS - Sākumlapa' (ASP.NET). E-tender subsystem https://www.eis.gov.lv/EKEIS/Supplier 200, 383,711 bytes, title 'EIS - Iepirkumi' with live procurement content ('iepirkumi', 'konkurss', 'izsludināti'). English UI verified via /EIS/?NewLang=ENG → 200, 50,605 bytes, title 'EPS - Home', with subsystem nav 'e-orders', 'e-auctions' (/EKEIS/SupplierAuction/), 'e-tenders' (/EKEIS/Supplier/). Registration info page 200, 66,833 bytes: 'If the registration blanks are filled in without errors, the participant is registered within three working days'; contacts @vdaa.gov.lv confirm VDAA as current operator.",
+    "browserCheckRequired": false,
+    "limitations": [
+      "Supplier registration is manual: forms submitted on paper by post or e-signed by email to pasts@vdaa.gov.lv, approval within ~3 working days (per Cabinet Regulation of 20.12.2022 'Public electronic procurement regulations', annexes 2 and 3)",
+      "Official notice publication runs through IUB's PVS; EIS is the e-submission / e-catalogue / e-auction environment",
+      "Homepage carries a footer 'VRAA (c) 2009' while contacts point to VDAA — agency was reorganized, naming on pages is mixed"
+    ],
+    "foreignEvidenceQuote": "https://www.eis.gov.lv/EIS/Publications/PublicationView.aspx?PublicationId=1203&systemCode=CORE — 'In the e-procurement system, registered users have the opportunity to log-in with electronic identification cards issued in EU Member States.' and 'The site to verify the electronic signature must be specified if the files are signed with non-Latvian e-signature.'"
+  },
+  {
+    "id": "lv-iub-publikaciju-vadibas",
+    "name": "IUB Publikāciju vadības sistēma (PVS) — notice publication system",
+    "officialUrl": "https://pvs.iub.gov.lv/",
+    "country": "latvia",
+    "platformType": "national-procurement",
+    "operator": "Iepirkumu uzraudzības birojs (IUB, Procurement Monitoring Bureau)",
+    "operatorType": "regulator",
+    "procurementScope": "public",
+    "coverage": "national",
+    "currentStatus": "active",
+    "lastVerified": "2026-08-11",
+    "languages": [
+      "lv"
+    ],
+    "opportunityTypes": [
+      "award-notice",
+      "contract-notice",
+      "prior-information-notice"
+    ],
+    "tenderSearchUrl": null,
+    "supplierRegistrationUrl": null,
+    "submissionUrl": null,
+    "documentsUrl": null,
+    "searchAccess": "unknown",
+    "electronicSubmission": "no",
+    "supplierRegistrationRequired": "unknown",
+    "foreignSuppliersAccepted": "unknown",
+    "evidenceClass": "B",
+    "evidenceUrl": "https://pvs.iub.gov.lv/",
+    "evidenceNote": "2026-08-11: 200 after redirect to https://eforms.pvs.iub.gov.lv/ (host drift indicates eForms migration), 628 bytes, title 'Publikāciju vadības sistēma' — Vite/JS SPA shell; identity confirmed by title and gov.lv domain but content requires a browser. Companion public notice search UI https://info.iub.gov.lv/lv/meklet/ also 200 but a 1,346-byte JS shell with generic title 'Iepirkumu uzraudzības birojs'.",
+    "browserCheckRequired": true,
+    "limitations": [
+      "JS-only SPA — no notice content verifiable via curl; needs browser check",
+      "PVS is primarily the notice preparation/publication channel for contracting authorities; the supplier-facing public search at info.iub.gov.lv/lv/meklet/ could not be content-verified and is therefore not recorded as a search route"
+    ]
+  },
+  {
+    "id": "lt-cvp-is",
+    "name": "CVP IS — Centrinė viešųjų pirkimų informacinė sistema (new system, mandatory since 2024-12-01)",
+    "officialUrl": "https://viesiejipirkimai.lt/",
+    "country": "lithuania",
+    "platformType": "national-procurement",
+    "operator": "Viešųjų pirkimų tarnyba (VPT, Public Procurement Office of Lithuania)",
+    "operatorType": "regulator",
+    "procurementScope": "public",
+    "coverage": "national",
+    "currentStatus": "active",
+    "lastVerified": "2026-08-11",
+    "languages": [
+      "en",
+      "lt"
+    ],
+    "opportunityTypes": [
+      "award-notice",
+      "contract-notice",
+      "tender"
+    ],
+    "tenderSearchUrl": "https://viesiejipirkimai.lt/epps/prepareCurrentOpportunities.do?currentType=cft",
+    "supplierRegistrationUrl": "https://viesiejipirkimai.lt/epps/prepareRegisterEOOrg.do?registerEO=true",
+    "submissionUrl": null,
+    "documentsUrl": null,
+    "searchAccess": "free",
+    "electronicSubmission": "yes",
+    "supplierRegistrationRequired": "yes",
+    "foreignSuppliersAccepted": "unknown",
+    "evidenceClass": "A",
+    "evidenceUrl": "https://viesiejipirkimai.lt/",
+    "evidenceNote": "2026-08-11: 200 → https://viesiejipirkimai.lt/epps/home.do, 20,210 bytes, title 'European Dynamics - Centrinė viešųjų pirkimų informacinė sistema'. Current-opportunities route /epps/prepareCurrentOpportunities.do?currentType=cft → 200 at quickSearchAction.do?searchType=cftFTS&latest=true, 37,974 bytes, title 'Išplėstinė paieška', containing live tender rows (/epps/cft/prepareViewCfTWS.do?resourceId=8897652 etc.). Supplier registration route 200, 75,329 bytes, title 'European Dynamics - Registruotis tiekėju...'. English toggle link /epps/changeLanguage.do?language=en present on homepage. VPT states (vpt.lrv.lt/en, surfaced via search; site is Cloudflare-gated): registration in the new CVP IS is mandatory and VPT approves registrations within up to three working days; since 2024-12-01 all public procurements are carried out in this system.",
+    "browserCheckRequired": false,
+    "limitations": [
+      "English UI persistence depends on session cookies; curl always fell back to Lithuanian",
+      "VPT authority pages (vpt.lrv.lt / vpt.lt) serve Cloudflare 403 to non-browser clients, so VPT statements are cited from search-indexed VPT pages rather than direct fetches",
+      "/epps/quickSearchAction.do without a session returned 0 bytes and /epps/cft/listContractNotices.do returned 500 — use the prepareCurrentOpportunities/prepareAdvancedSearch entry points"
+    ],
+    "softwareVendor": "European Dynamics"
+  },
+  {
+    "id": "lt-cvpp",
+    "name": "CVPP — Centrinis viešųjų pirkimų portalas (Central Public Procurement Portal)",
+    "officialUrl": "https://cvpp.eviesiejipirkimai.lt/",
+    "country": "lithuania",
+    "platformType": "national-procurement",
+    "operator": "Viešųjų pirkimų tarnyba (VPT, Public Procurement Office of Lithuania)",
+    "operatorType": "regulator",
+    "procurementScope": "public",
+    "coverage": "national",
+    "currentStatus": "active",
+    "lastVerified": "2026-08-11",
+    "languages": [
+      "en",
+      "lt"
+    ],
+    "opportunityTypes": [
+      "award-notice",
+      "contract-notice",
+      "procurement-plan"
+    ],
+    "tenderSearchUrl": "https://cvpp.eviesiejipirkimai.lt/?pageNumber=1&pageSize=20&OrderingType=2&OrderingDirection=1&IncludeExpired=false",
+    "supplierRegistrationUrl": null,
+    "submissionUrl": null,
+    "documentsUrl": null,
+    "searchAccess": "free",
+    "electronicSubmission": "no",
+    "supplierRegistrationRequired": "no",
+    "foreignSuppliersAccepted": "unknown",
+    "evidenceClass": "A",
+    "evidenceUrl": "https://cvpp.eviesiejipirkimai.lt/",
+    "evidenceNote": "2026-08-11: 200, 61,319 bytes, title 'CVPP'; search form has action=\"/\" so the search endpoint is the root path with GET parameters — a parameterized query (Query=vanduo) returned 200, 62,846 bytes with notice links /Notice/Details/2023-631154, /Notice/Details/2022-675339 etc.; ordered listing (OrderingType=2&OrderingDirection=1) returned 200, 83,545 bytes. Procurement-plans route /PlannedProcurement/List 200, 45,532 bytes. English toggle /Home/SetCulture?code=EN present. Note: /Notice/List is a hard 404 (1,922 bytes 'The resource cannot be found.').",
+    "browserCheckRequired": false,
+    "limitations": [
+      "All notice IDs observed in default and ordered listings were 2017–2024; no 2025/2026 notices found — new notices are published in the new CVP IS (viesiejipirkimai.lt), so CVPP now serves mainly as the searchable portal/archive of the pre-2024-12 system (some long-running DPS deadlines extend to 2033–2034)",
+      "The tenderSearchUrl is the root path with query parameters because the search form posts to '/' — there is no separate search route",
+      "Declared part of the \"CVP IS (legacy eviesiejipirkimai.lt ecosystem)\" ecosystem; the parent record was not resolvable at merge time."
+    ]
+  },
+  {
+    "id": "lt-cvp-is-legacy",
+    "name": "CVP IS legacy e-submission portal (EU-Supply CTM)",
+    "officialUrl": "https://pirkimai.eviesiejipirkimai.lt/",
+    "country": "lithuania",
+    "platformType": "national-procurement",
+    "operator": "Viešųjų pirkimų tarnyba (VPT, Public Procurement Office of Lithuania)",
+    "operatorType": "regulator",
+    "procurementScope": "public",
+    "coverage": "national",
+    "currentStatus": "replaced",
+    "lastVerified": "2026-08-11",
+    "languages": [
+      "en",
+      "lt"
+    ],
+    "opportunityTypes": [
+      "dynamic-purchasing-system",
+      "tender"
+    ],
+    "tenderSearchUrl": "https://pirkimai.eviesiejipirkimai.lt/ctm/Supplier/PublicTenders",
+    "supplierRegistrationUrl": null,
+    "submissionUrl": null,
+    "documentsUrl": null,
+    "searchAccess": "free",
+    "electronicSubmission": "yes",
+    "supplierRegistrationRequired": "yes",
+    "foreignSuppliersAccepted": "unknown",
+    "evidenceClass": "B",
+    "evidenceUrl": "https://pirkimai.eviesiejipirkimai.lt/ctm/Supplier/PublicTenders",
+    "evidenceNote": "2026-08-11: root URL 302 → /login.asp (login-gated system, observed). Public tender list /ctm/Supplier/PublicTenders 200, 28,212 bytes, title 'eu-supply.com' — EU-Supply CTM public tenders page whose result table loads via JS calls to Supplier/PublicTenders/PublicFilters and .../PublicTenders; eight /ssi/changelanguage.asp language options observed. Per VPT (search-indexed statement), since 2024-12-01 the old system remains available only for searching old public procurement information.",
+    "browserCheckRequired": true,
+    "limitations": [
+      "Legacy platform: all new procurements run in the new CVP IS at viesiejipirkimai.lt since 2024-12-01; this system holds pre-migration procedures and data",
+      "Tender rows on PublicTenders render via JavaScript AJAX calls, so listing content could not be captured with curl",
+      "Root redirects straight to login.asp — everything beyond the public tender list requires an account",
+      "Declared part of the \"CVP IS (legacy eviesiejipirkimai.lt ecosystem)\" ecosystem; the parent record was not resolvable at merge time.",
+      "Marked replaced per the migration to viesiejipirkimai.lt; retained for canonicalisation, not published as an active destination."
+    ],
+    "softwareVendor": "EU-Supply (Mercell Group)",
+    "replacedBy": "lt-cvp-is"
+  },
+  {
+    "id": "es-plataforma-de-contratacion",
+    "name": "Plataforma de Contratación del Sector Público (PLACSP)",
+    "officialUrl": "https://contrataciondelestado.es/wps/portal/plataforma",
+    "country": "spain",
+    "platformType": "national-procurement",
+    "operator": "Dirección General del Patrimonio del Estado, Ministerio de Hacienda",
+    "operatorType": "government",
+    "procurementScope": "public",
+    "coverage": "national",
+    "currentStatus": "active",
+    "lastVerified": "2026-08-11",
+    "languages": [
+      "ca",
+      "en",
+      "es",
+      "va"
+    ],
+    "opportunityTypes": [
+      "award-notice",
+      "contract-notice",
+      "prior-information-notice",
+      "tender"
+    ],
+    "tenderSearchUrl": "https://contrataciondelestado.es/wps/portal/licitaciones",
+    "supplierRegistrationUrl": null,
+    "submissionUrl": null,
+    "documentsUrl": "https://contrataciondelestado.es/wps/portal/guiasAyuda",
+    "searchAccess": "free",
+    "electronicSubmission": "yes",
+    "supplierRegistrationRequired": "yes",
+    "foreignSuppliersAccepted": "unknown",
+    "evidenceClass": "A",
+    "evidenceUrl": "https://contrataciondelestado.es/wps/portal/plataforma",
+    "evidenceNote": "2026-08-11: plain curl fails with TLS error 'self signed certificate in certificate chain' (Spanish government CA not in standard trust store) — earlier 'connection failed' reports were this, not a dead site. With chain check bypassed: 200, 97,442 bytes, title 'Plataforma de Contratación del Sector Público'. Search route /wps/portal/licitaciones 200 -> resolves to distinct buscadores/busqueda page, 65,088 bytes, same title. Guides route /wps/portal/guiasAyuda 200, 60,586 bytes, body lists 'Licitación Electrónica' service guides (operator-published e-submission guides, e.g. Guía de Servicios de Licitación Electrónica: Preparación y Presentación de ofertas). Homepage credits 'Dirección General del Patrimonio del Estado' (Ministerio de Hacienda) and links regional platforms (e.g. Generalitat de Cataluña, Generalitat Valenciana). Homepage exposes locale=en switch plus Català/Valencià mentions.",
+    "browserCheckRequired": false,
+    "limitations": [
+      "Server certificate chain (Spanish government CA) is not in standard OS trust stores — curl/browsers may need the FNMT/gov CA imported or show warnings",
+      "Supplier registration (Empresas > Registrarse) and an electronic certificate are required for e-bidding and notifications; notice search is open without registration",
+      "Aggregates State sector and many regional/local buyer profiles, but several autonomous communities also run their own platforms (linked from PLACSP)",
+      "Bid preparation/submission uses the platform's Herramienta de Preparación y Presentación de ofertas behind login — no distinct public submission URL to verify"
+    ]
+  },
+  {
+    "id": "es-rolecsp-rolece",
+    "name": "ROLECSP / ROLECE – Registro Oficial de Licitadores y Empresas Clasificadas del Sector Público",
+    "officialUrl": "https://registrodelicitadores.gob.es/",
+    "country": "spain",
+    "platformType": "national-procurement",
+    "operator": "Ministerio de Hacienda (Dirección General del Patrimonio del Estado)",
+    "operatorType": "government",
+    "procurementScope": "public",
+    "coverage": "national",
+    "currentStatus": "active",
+    "lastVerified": "2026-08-11",
+    "languages": [
+      "es"
+    ],
+    "opportunityTypes": [
+      "supplier-registration"
+    ],
+    "tenderSearchUrl": null,
+    "supplierRegistrationUrl": "https://registrodelicitadores.gob.es/rolece/public/inicio.action",
+    "submissionUrl": null,
+    "documentsUrl": null,
+    "searchAccess": "unknown",
+    "electronicSubmission": "no",
+    "supplierRegistrationRequired": "no",
+    "foreignSuppliersAccepted": "unknown",
+    "evidenceClass": "B",
+    "evidenceUrl": "https://registrodelicitadores.gob.es/rolece/public/inicio.action",
+    "evidenceNote": "2026-08-11: root 200 (122-byte meta-refresh to /rolece), then /rolece 200 (196-byte refresh to public/inicio.action), final 200, 49,246 bytes. JS-heavy certificate-login app; body references 'Certificado ROLECE y Documento Europeo DEUC' and lists admitted Spanish CAs (AC FNMT Usuarios, AC Camerfirma) for 'Acceso con certificado'. Ministerio de Hacienda's own page (hacienda.gob.es, Patrimonio del Estado > ROLECE) identifies this as the official state bidder/classified-companies registry; search snippet of the site itself titles it 'ROLECSP - Registro Oficial de Licitadores y Empresas Clasificadas del Sector Público'.",
+    "browserCheckRequired": true,
+    "limitations": [
+      "Registration and certificate retrieval require a Spanish-recognized digital certificate (FNMT/Camerfirma etc.)",
+      "Inscription is voluntary in general procedures but mandatory for the procedimiento abierto simplificado",
+      "This is a supplier registry companion to PLACSP — it has no tender search or bid submission function",
+      "Page identity is JS-embedded; no <title> tag served, so classified B despite official gob.es domain"
+    ]
+  },
+  {
+    "id": "lu-portail-des-marches",
+    "name": "Portail des marchés publics du Grand-Duché de Luxembourg (PMP)",
+    "officialUrl": "https://pmp.b2g.etat.lu/",
+    "country": "luxembourg",
+    "platformType": "national-procurement",
+    "operator": "Ministère de la Mobilité et des Travaux publics – Département des travaux publics (coordination); hosted by Centre des technologies de l'information de l'État (CTIE)",
+    "operatorType": "government",
+    "procurementScope": "public",
+    "coverage": "national",
+    "currentStatus": "active",
+    "lastVerified": "2026-08-11",
+    "languages": [
+      "de",
+      "fr"
+    ],
+    "opportunityTypes": [
+      "award-notice",
+      "contract-notice",
+      "prior-information-notice",
+      "tender"
+    ],
+    "tenderSearchUrl": "https://pmp.b2g.etat.lu/?page=Entreprise.EntrepriseAdvancedSearch&AllCons",
+    "supplierRegistrationUrl": null,
+    "submissionUrl": null,
+    "documentsUrl": "https://marches.public.lu/fr/procedures/dematerialisation/authentification-signature.html",
+    "searchAccess": "free",
+    "electronicSubmission": "yes",
+    "supplierRegistrationRequired": "yes",
+    "foreignSuppliersAccepted": "unknown",
+    "evidenceClass": "A",
+    "evidenceUrl": "https://pmp.b2g.etat.lu/?page=Entreprise.EntrepriseAdvancedSearch&AllCons",
+    "evidenceNote": "2026-08-11: root 200 -> /entreprise, 33,615 bytes, title 'Portail des marchés publics du Grand-Duché de Luxembourg' (lang switch fr/de). Advanced search route 200, 224,058 bytes, title 'Recherche avancée - Portail des marchés publics'; nav exposes distinct notice filters AllCons (open consultations), AllAnn (all notices), AvisInformation (prior information), AvisAttribution (award notices). Mentions légales (/entreprise/footer/info-site, 200, 33,259 bytes) states hosting by 'Centre des technologies de l'information de l'Etat (CTIE)' under coordination of 'Ministère de la Mobilité et des Travaux publics - Département des Travaux publics' and credits ATEXO. Official guidance page on marches.public.lu (200, 39,257 bytes) states offers must be signed electronically with LUXTRUST devices or a 'Certificat qualifié pour signature électronique de la \"Trusted List\" européenne' before deposit on the portal.",
+    "browserCheckRequired": false,
+    "limitations": [
+      "Interface primarily French (partial German); no English UI observed",
+      "Bid submission requires prior account registration and a mandatory qualified electronic signature (LUXTRUST or EU Trusted List 'QCert for eSig' certificate)",
+      "Submission itself happens behind login — no distinct public submission URL to verify"
+    ],
+    "softwareVendor": "ATEXO"
+  },
+  {
+    "id": "be-e-procurement",
+    "name": "e-Procurement (publicprocurement.be, BOSA)",
+    "officialUrl": "https://www.publicprocurement.be/",
+    "country": "belgium",
+    "platformType": "national-procurement",
+    "operator": "FPS BOSA (Federal Public Service Policy and Support)",
+    "operatorType": "government",
+    "procurementScope": "public",
+    "coverage": "national",
+    "currentStatus": "active",
+    "lastVerified": "2026-08-11",
+    "languages": [
+      "de",
+      "en",
+      "fr",
+      "nl"
+    ],
+    "opportunityTypes": [
+      "award-notice",
+      "contract-notice",
+      "prior-information-notice",
+      "tender"
+    ],
+    "tenderSearchUrl": null,
+    "supplierRegistrationUrl": null,
+    "submissionUrl": null,
+    "documentsUrl": "https://bosa.belgium.be/en/applications/e-procurement",
+    "searchAccess": "free",
+    "electronicSubmission": "yes",
+    "supplierRegistrationRequired": "yes",
+    "foreignSuppliersAccepted": "unknown",
+    "evidenceClass": "B",
+    "evidenceUrl": "https://www.publicprocurement.be/",
+    "evidenceNote": "2026-08-11: 200, 1,196 bytes — Vue SPA shell with title 'BOSA - eProcurement' (noscript: 'doesn't work properly without JavaScript'). /env.config.js (200) exposes the platform architecture: public portal /, buyer portal /buyer/, supplier portal /supplier/, admin /admin/, search API /api/sea/, dossier/lexicon/audit APIs, Keycloak auth realm 'supplier', and TED eForms notice download integration (ted.europa.eu/udl). Public JS bundle (15,051 bytes) contains public router paths publication-workspaces/:publicationWorkspaceId, enterprise-search, opening-reports, bda (Bulletin der Aanbestedingen/Bulletin des Adjudications) — confirming public notice search/detail routes exist client-side. Authority statement (bosa.belgium.be/en/applications/e-procurement, fetched 2026-08-11): platform operated by FPS BOSA where users 'access or submit public procurement contracts electronically'; registration 'in less than 5 minutes' is required to submit; described as the unique mandatory Belgian platform for publication and receipt of offers across federal, regional and local authorities.",
+    "browserCheckRequired": true,
+    "limitations": [
+      "Pure JS single-page app: curl only sees a 1.2 KB shell, so the public notice search (root '/', publication-workspaces, bda routes) could not be content-verified without a browser — tenderSearchUrl left null rather than pointing at the homepage",
+      "Deep SPA routes (e.g. /publication-workspaces) serve the same shell bytes, indistinguishable from soft-404 via curl",
+      "Registration (email-based account + company linking) required for submission; search is public",
+      "Legacy module hosts enot/eten/my.publicprocurement.be are unreachable (decommissioned after the 2023 platform redesign)"
+    ]
+  },
+  {
+    "id": "at-usp-ausschreibungssuche",
+    "name": "USP Ausschreibungssuche (eProcurement Bekanntmachungsservice)",
+    "officialUrl": "https://ausschreibungen.usp.gv.at/",
+    "country": "austria",
+    "platformType": "national-procurement",
+    "operator": "Austrian federal government via the Unternehmensserviceportal (USP); technical operation Bundesrechenzentrum GmbH (BRZ)",
+    "operatorType": "government",
+    "procurementScope": "public",
+    "coverage": "national",
+    "currentStatus": "active",
+    "lastVerified": "2026-08-11",
+    "languages": [
+      "de"
+    ],
+    "opportunityTypes": [
+      "award-notice",
+      "contract-notice",
+      "prior-information-notice",
+      "tender"
+    ],
+    "tenderSearchUrl": "https://ausschreibungen.usp.gv.at/at.gv.bmdw.eproc-p/public/tenderlist",
+    "supplierRegistrationUrl": null,
+    "submissionUrl": null,
+    "documentsUrl": null,
+    "searchAccess": "free",
+    "electronicSubmission": "no",
+    "supplierRegistrationRequired": "no",
+    "foreignSuppliersAccepted": "unknown",
+    "evidenceClass": "A",
+    "evidenceUrl": "https://ausschreibungen.usp.gv.at/at.gv.bmdw.eproc-p/public/tenderlist",
+    "evidenceNote": "2026-08-11: GET https://ausschreibungen.usp.gv.at/ -> 200, redirected to /at.gv.bmdw.eproc-p/public/tenderlist, 147,121 bytes, title 'eProcurement - Ausschreibungsliste - Ausschreibungssuche'. Page assets reference BRZ GmbH. Official USP statement (usp.gv.at publication-media page): with the call-for-tenders search 'it is possible to search for and view all calls for tenders published in accordance with the Austrian Bundesvergabegesetz (Federal Procurement Act) in one place without additional registration.'",
+    "browserCheckRequired": false,
+    "limitations": [
+      "Publication/search service only: electronic bid submission takes place on the e-Vergabe platform named in each notice (e.g. ANKOe Vergabeportal, auftrag.at), not on this site",
+      "Interface observed in German only",
+      "Legacy deep route /at.gv.bmdw.eproc-p/public returns 404 (109 bytes); the working route is /public/tenderlist",
+      "Statutory machine-readable Kerndaten metadata is published in parallel via data.gv.at (since 1 March 2019)",
+      "Declared part of the \"Unternehmensserviceportal (USP, usp.gv.at)\" ecosystem; the parent record was not resolvable at merge time."
+    ],
+    "softwareVendor": "Bundesrechenzentrum GmbH (BRZ)"
+  },
+  {
+    "id": "at-anko-vergabeportal",
+    "name": "ANKÖ Vergabeportal (vergabeportal.at)",
+    "officialUrl": "https://www.vergabeportal.at/",
+    "country": "austria",
+    "platformType": "national-procurement",
+    "operator": "ANKÖ - Auftragnehmerkataster Österreich (ANKÖ Service GmbH)",
+    "operatorType": "private-company",
+    "procurementScope": "public",
+    "coverage": "national",
+    "currentStatus": "active",
+    "lastVerified": "2026-08-11",
+    "languages": [
+      "de"
+    ],
+    "opportunityTypes": [
+      "award-notice",
+      "contract-notice",
+      "supplier-registration",
+      "tender"
+    ],
+    "tenderSearchUrl": null,
+    "supplierRegistrationUrl": "https://identity.vergabeportal.at/Registration/Index",
+    "submissionUrl": null,
+    "documentsUrl": null,
+    "searchAccess": "paid",
+    "electronicSubmission": "yes",
+    "supplierRegistrationRequired": "yes",
+    "foreignSuppliersAccepted": "unknown",
+    "evidenceClass": "B",
+    "evidenceUrl": "https://www.vergabeportal.at/",
+    "evidenceNote": "2026-08-11: GET https://www.vergabeportal.at/ -> 200, 1,586 bytes client-rendered JS shell, title 'ANKÖ - Vergabeportal'. Registration route https://identity.vergabeportal.at/Registration/Index -> 200, redirected to /NewAccount/SelectPlan, 11,324 bytes, title 'Vergabeportal'. Corroboration: BBG (federal central purchasing body) lists all its current tenders on bbg.gv.at/information/aktuelle-ausschreibungen (200, 1,157,037 bytes) as links to vergabeportal.at/Detail/{id}. Operator states (hallo.ankoe.at/vergabeportal/): 'die umfassendste Ausschreibungs-Datenbank Österreichs', up to 2,500 notices per day, and 'Signieren Sie Ihr Angebot elektronisch und geben es online ab'.",
+    "browserCheckRequired": true,
+    "limitations": [
+      "Homepage and tender Detail/{id} pages serve the same 1,586-byte JS shell; content is client-rendered, so search/detail routes could not be verified over plain HTTP (browser check required)",
+      "Freemium model: 30-day free trial, ongoing search access via paid plans (registration flow lands on /NewAccount/SelectPlan); extent of any free tier unverified",
+      "Association/private-run platform, not the statutory publication channel (that is the USP Ausschreibungssuche / data.gv.at Kerndaten); it is however where major authorities incl. BBG, Stadt Wien, ÖBB, ASFINAG run e-submission"
+    ],
+    "softwareVendor": "ANKÖ (in-house eVergabe+ platform)"
+  },
+  {
+    "id": "ee-riigihangete-register",
+    "name": "Riigihangete register (RHR — Estonian Public Procurement Register)",
+    "officialUrl": "https://riigihanked.riik.ee/",
+    "country": "estonia",
+    "platformType": "national-procurement",
+    "operator": "Riigi Tugiteenuste Keskus (State Shared Service Centre), administrator since 01.01.2024; policy owner Ministry of Finance (Rahandusministeerium)",
+    "operatorType": "government",
+    "procurementScope": "public",
+    "coverage": "national",
+    "currentStatus": "active",
+    "lastVerified": "2026-08-11",
+    "languages": [
+      "en",
+      "et"
+    ],
+    "opportunityTypes": [
+      "award-notice",
+      "contract-notice",
+      "prior-information-notice",
+      "tender"
+    ],
+    "tenderSearchUrl": null,
+    "supplierRegistrationUrl": null,
+    "submissionUrl": null,
+    "documentsUrl": null,
+    "searchAccess": "free",
+    "electronicSubmission": "yes",
+    "supplierRegistrationRequired": "unknown",
+    "foreignSuppliersAccepted": "unknown",
+    "evidenceClass": "A",
+    "evidenceUrl": "https://riigihanked.riik.ee/rhr-web/",
+    "evidenceNote": "2026-08-11: GET https://riigihanked.riik.ee/ -> 200, redirected to /rhr-web/, 2,606 bytes AngularJS shell, title 'Riigihangete register'. Ministry of Finance (fin.ee, fetched 2026-08-11): 'a free self-service environment for contracting authorities to conduct and economic operators to participate in public procurements'; 'Since 01.01.2024 Public Procurement Register is administered by Riigi Tugiteenuste Keskus'; services for economic operators include eSubmission and eCommunication with contracting authorities; 'Anyone can freely browse published procurements, notices, contract information and review committee's decisions.'",
+    "browserCheckRequired": true,
+    "limitations": [
+      "Single-page AngularJS application: all functional routes (search, registration, workspaces) are hash fragments served from the same 2.6 KB shell, so distinct routes could not be verified over plain HTTP — browser check required",
+      "Administered by Riigi Tugiteenuste Keskus since 01.01.2024 (previously by the Ministry of Finance directly); operator naming may continue to shift with machinery-of-government changes",
+      "No explicit operator statement on foreign-supplier registration was located; foreign-access status left unknown"
+    ]
+  },
+  {
+    "id": "fi-hilma",
+    "name": "Hilma (hankintailmoitukset.fi)",
+    "officialUrl": "https://www.hankintailmoitukset.fi/",
+    "country": "finland",
+    "platformType": "national-procurement",
+    "operator": "Ministry of Finance (owner); maintained and developed under contract by Hansel Ltd (central purchasing body)",
+    "operatorType": "government",
+    "procurementScope": "public",
+    "coverage": "national",
+    "currentStatus": "active",
+    "lastVerified": "2026-08-11",
+    "languages": [
+      "en",
+      "fi",
+      "sv"
+    ],
+    "opportunityTypes": [
+      "award-notice",
+      "contract-notice",
+      "prior-information-notice",
+      "tender"
+    ],
+    "tenderSearchUrl": null,
+    "supplierRegistrationUrl": null,
+    "submissionUrl": null,
+    "documentsUrl": null,
+    "searchAccess": "free",
+    "electronicSubmission": "yes",
+    "supplierRegistrationRequired": "unknown",
+    "foreignSuppliersAccepted": "unknown",
+    "evidenceClass": "A",
+    "evidenceUrl": "https://www.hankintailmoitukset.fi/en/",
+    "evidenceNote": "2026-08-11: GET https://www.hankintailmoitukset.fi/en/ -> 200, 9,684 bytes (React SPA shell), title 'Hilma'. Ministry of Finance (vm.fi article, 9.6.2023): 'Hilma is a statutory service owned by the Ministry of Finance'; 'The Ministry has contracted Hansel Ltd, the central purchasing body for central and local government agencies, to handle the maintenance and development of Hilma'; 'Tenderers can use Hilma to find suitable tendering processes and to submit tenders.'",
+    "browserCheckRequired": true,
+    "limitations": [
+      "React SPA: /en/search returned a byte-identical 9,684-byte shell to /en/ (same md5), so the search route could not be verified over plain HTTP — browser check required; /sitemap.xml returns 404",
+      "Statutory notice channel; for many procedures actual bid submission still happens on the external e-tendering platform named in each notice (e.g. Cloudia Tarjouspalvelu, Mercell), while Hilma itself supports tender submission per the Ministry of Finance",
+      "Above-EU-threshold notices are forwarded to TED"
+    ]
+  },
+  {
+    "id": "fi-cloudia-tarjouspalvelu",
+    "name": "Cloudia Tarjouspalvelu (tarjouspalvelu.fi supplier portal)",
+    "officialUrl": "https://tarjouspalvelu.fi/",
+    "country": "finland",
+    "platformType": "national-procurement",
+    "operator": "Cloudia Oy (part of Mercell Group)",
+    "operatorType": "private-company",
+    "procurementScope": "public",
+    "coverage": "national",
+    "currentStatus": "active",
+    "lastVerified": "2026-08-11",
+    "languages": [
+      "fi"
+    ],
+    "opportunityTypes": [
+      "rfq",
+      "supplier-registration",
+      "tender"
+    ],
+    "tenderSearchUrl": null,
+    "supplierRegistrationUrl": null,
+    "submissionUrl": null,
+    "documentsUrl": null,
+    "searchAccess": "free",
+    "electronicSubmission": "yes",
+    "supplierRegistrationRequired": "yes",
+    "foreignSuppliersAccepted": "unknown",
+    "evidenceClass": "B",
+    "evidenceUrl": "https://tarjouspalvelu.fi/",
+    "evidenceNote": "2026-08-11: GET https://tarjouspalvelu.fi/ -> 200, redirected to /Default/Index, 320,964 bytes, title 'Cloudia Tarjouspalvelu'. Server-rendered directory of participating contracting organizations (per-organization portals such as tarjouspalvelu.fi/{org}); page text includes 'maksuton' (free of charge), 'REKISTERÖIDY' (register), 'Rekisteröityminen ja käyttäjätunnukset' (registration and user credentials) and 'tarjouksen jättäminen ... sähköisesti' (submitting a tender electronically). Hilma notices commonly name tarjouspalvelu.fi as the bid-submission channel.",
+    "browserCheckRequired": false,
+    "limitations": [
+      "Vendor-operated multi-authority portal, not the statutory notice channel — notices are published in Hilma and link here for document access and bid submission",
+      "Tender listings are organized per contracting organization (tarjouspalvelu.fi/{org}) rather than a single verified global search route",
+      "Interface observed in Finnish; a language selector ('Kieli'/'language') is present but other language versions were not verified"
+    ],
+    "softwareVendor": "Cloudia (Mercell Group)"
+  },
+  {
+    "id": "fr-boamp",
+    "name": "BOAMP — Bulletin officiel des annonces de marchés publics",
+    "officialUrl": "https://www.boamp.fr",
+    "country": "france",
+    "platformType": "national-procurement",
+    "operator": "Direction de l'information légale et administrative (DILA), Prime Minister's services",
+    "operatorType": "government",
+    "procurementScope": "public",
+    "coverage": "national",
+    "currentStatus": "active",
+    "lastVerified": "2026-08-11",
+    "languages": [
+      "fr"
+    ],
+    "opportunityTypes": [
+      "award-notice",
+      "contract-notice",
+      "prior-information-notice"
+    ],
+    "tenderSearchUrl": "https://www.boamp.fr/pages/recherche/",
+    "supplierRegistrationUrl": null,
+    "submissionUrl": null,
+    "documentsUrl": null,
+    "searchAccess": "free",
+    "electronicSubmission": "no",
+    "supplierRegistrationRequired": "no",
+    "foreignSuppliersAccepted": "unknown",
+    "evidenceClass": "A",
+    "evidenceUrl": "https://www.boamp.fr/pages/recherche/",
+    "evidenceNote": "2026-08-11: https://www.boamp.fr HTTP 200 -> final URL https://www.boamp.fr/pages/entreprise-accueil/ (78,736 B). Search route /pages/recherche/ HTTP 200, gzip body decompressed to 506,474 B, title 'Recherche BOAMP | boamp.fr' — served without authentication. /pages/mentions-legales/ HTTP 200 (297,387 B) names DILA as the site operator. acheteur.boamp.fr/pages/plateformes-de-dematerialisation/ HTTP 200 (79,689 B, title 'Plateformes de dématérialisation — boamp.fr') lists the external e-submission platforms, confirming BOAMP is publication-only.",
+    "browserCheckRequired": false,
+    "limitations": [
+      "Official notice bulletin only — no e-submission and no tender documents; bids and DCE downloads happen on buyer-profile platforms (profils d'acheteur) such as PLACE, which BOAMP itself lists on its 'plateformes de dématérialisation' page",
+      "Notice search is open without account; an account is only needed for alerts/saved searches",
+      "Above-EU-threshold French notices are also published on TED; BOAMP is the national gazette layer under DILA"
+    ]
+  },
+  {
+    "id": "fr-place",
+    "name": "PLACE — Plateforme des achats de l'État / Portail des marchés publics",
+    "officialUrl": "https://www.marches-publics.gouv.fr",
+    "country": "france",
+    "platformType": "national-procurement",
+    "operator": "Direction des achats de l'État (DAE), Ministry of Economy; IT build-and-run delegated to Agence pour l'informatique financière de l'État (AIFE)",
+    "operatorType": "government",
+    "procurementScope": "public",
+    "coverage": "national",
+    "currentStatus": "active",
+    "lastVerified": "2026-08-11",
+    "languages": [
+      "fr"
+    ],
+    "opportunityTypes": [
+      "award-notice",
+      "contract-notice",
+      "electronic-auction",
+      "tender"
+    ],
+    "tenderSearchUrl": "https://www.marches-publics.gouv.fr/?page=Entreprise.EntrepriseAdvancedSearch&AllCons",
+    "supplierRegistrationUrl": "https://www.marches-publics.gouv.fr/index.php?page=Entreprise.EntrepriseHome&goto=%3Fpage%3DEntreprise.AccueilEntreprise",
+    "submissionUrl": null,
+    "documentsUrl": null,
+    "searchAccess": "free",
+    "electronicSubmission": "yes",
+    "supplierRegistrationRequired": "unknown",
+    "foreignSuppliersAccepted": "unknown",
+    "evidenceClass": "A",
+    "evidenceUrl": "https://www.marches-publics.gouv.fr/?page=Entreprise.EntrepriseAdvancedSearch&AllCons",
+    "evidenceNote": "2026-08-11: homepage HTTP 200 -> final URL https://www.marches-publics.gouv.fr/entreprise (59,656 B), title 'Accueil - Portail des marchés publics'. Consultation search route '?page=Entreprise.EntrepriseAdvancedSearch&AllCons' HTTP 200 (264,818 B), title 'Recherche avancée - Portail des marchés publics'; distinct routes for AvisAttribution, AvisInformation and Entreprise.EntrepriseParticipationEnchere (e-auction) observed in page HTML. Legal-notice page /entreprise/footer/info-site HTTP 200 (7,461 B) names 'Direction des achats de l'Etat (DAE)' and links 'Agence pour l'informatique financière de l'Etat (AIFE)'. Operator page aife.economie.gouv.fr/nos-applications/place/ HTTP 200 (18,476 B) states 36,101 consultations published in 2025 and '163 000 offres ont été déposées sous format électronique' — confirms e-submission. Registration entry 'index.php?page=Entreprise.EntrepriseHome&goto=...' HTTP 200 (21,094 B), title 'Connexion/Inscription - Portail des marchés publics'.",
+    "browserCheckRequired": false,
+    "limitations": [
+      "Buyer profile of the French State and its public establishments — local authorities and many hospitals use separate (often commercial) buyer profiles; law no. 2026-403 of 26 May 2026 plans gradual centralization of more entities onto PLACE",
+      "Bid deposit happens inside the authenticated company space — submission route not verifiable by curl",
+      "Interface observed in French only"
+    ],
+    "softwareVendor": "Atexo (LOCAL TRUST MPE module, open-sourced under CeCILL v2.1 since Jan 2024)"
+  },
+  {
+    "id": "fr-approch",
+    "name": "APProch — portail des projets d'achats publics",
+    "officialUrl": "https://projets-achats.marches-publics.gouv.fr",
+    "country": "france",
+    "platformType": "national-procurement",
+    "operator": "Direction des achats de l'État (DAE), Ministry of Economy",
+    "operatorType": "government",
+    "procurementScope": "public",
+    "coverage": "national",
+    "currentStatus": "active",
+    "lastVerified": "2026-08-11",
+    "languages": [
+      "fr"
+    ],
+    "opportunityTypes": [
+      "procurement-plan"
+    ],
+    "tenderSearchUrl": null,
+    "supplierRegistrationUrl": null,
+    "submissionUrl": null,
+    "documentsUrl": null,
+    "searchAccess": "free",
+    "electronicSubmission": "no",
+    "supplierRegistrationRequired": "unknown",
+    "foreignSuppliersAccepted": "unknown",
+    "evidenceClass": "B",
+    "evidenceUrl": "https://projets-achats.marches-publics.gouv.fr/",
+    "evidenceNote": "2026-08-11: HTTP 200 (5,135 B), title 'Les projets d'achats publics, accessibles maintenant - APProch' — small JS shell, content requires browser render. Former host approch.numerique.gouv.fr no longer resolves (curl exit code 000, 0 B, same date). economie.gouv.fr (DAE pages) describes APProch as the single portal where companies consult upcoming purchasing projects of State services, public establishments, hospitals and local authorities; contact is contact-approch.dae@finances.gouv.fr, tying it to the DAE.",
+    "browserCheckRequired": true,
+    "limitations": [
+      "Pre-tender sourcing portal (future purchase projects only) — no notices, documents or bids",
+      "SPA shell: project search routes could not be verified with curl"
+    ],
+    "partOf": "fr-place"
+  },
+  {
+    "id": "it-acquisti-in-rete",
+    "name": "Acquisti in Rete PA — Consip e-procurement portal (MePA, convenzioni, accordi quadro, SDAPA, gare in ASP)",
+    "officialUrl": "https://www.acquistinretepa.it",
+    "country": "italy",
+    "platformType": "national-procurement",
+    "operator": "Consip S.p.A. on behalf of the Ministry of Economy and Finance (MEF)",
+    "operatorType": "central-purchasing-body",
+    "procurementScope": "public",
+    "coverage": "national",
+    "currentStatus": "active",
+    "lastVerified": "2026-08-11",
+    "languages": [
+      "en",
+      "it"
+    ],
+    "opportunityTypes": [
+      "dynamic-purchasing-system",
+      "framework-agreement",
+      "rfq",
+      "supplier-registration",
+      "tender"
+    ],
+    "tenderSearchUrl": "https://www.acquistinretepa.it/opencms/opencms/vetrina_bandi.html",
+    "supplierRegistrationUrl": null,
+    "submissionUrl": null,
+    "documentsUrl": null,
+    "searchAccess": "free",
+    "electronicSubmission": "yes",
+    "supplierRegistrationRequired": "yes",
+    "foreignSuppliersAccepted": "yes",
+    "evidenceClass": "A",
+    "evidenceUrl": "https://www.acquistinretepa.it/opencms/opencms/vetrina_bandi.html",
+    "evidenceNote": "2026-08-11: homepage HTTP 200 -> /opencms/opencms/ (312,250 B), title 'Homepage | Acquisti in rete'. Tender showcase /opencms/opencms/vetrina_bandi.html HTTP 200 (291,979 B), title 'Bandi | Acquisti in rete', with live filters AQ (accordi quadro), CO (convenzioni), ME (mercato elettronico/MePA), RDO, SD (sistema dinamico) and a 'Gare in ASP' section — a real supplier-facing discovery surface. English 'Foreign Firms' page /opencms/opencms/english/foreign_firms_new.html HTTP 200 (244,415 B), title 'Foreign Firms'. Direct /opencms/opencms/registrazione.html returns a genuine 404 ('Pagina non disponibile') — registration flow sits behind SPID/CIE/CNS/eIDAS login, so no distinct registration URL is reported.",
+    "browserCheckRequired": false,
+    "limitations": [
+      "Central-purchasing channel — hosts MePA negotiations (RDO), convenzioni, accordi quadro, SDAPA and Consip-hosted 'gare in ASP', but ordinary tenders of individual contracting authorities run on their own ANAC-certified platforms, not here",
+      "Supplier registration/abilitazione is required to operate and requires SPID/CIE/CNS or eIDAS digital identity; foreign firms must appoint an Italian fiscal representative or elect tax domicile in Italy",
+      "Direct registration URL not reportable (flow behind authentication; legacy registrazione.html is a real 404)"
+    ],
+    "foreignEvidenceQuote": "\"Foreign firms can register to Acquisti in rete PA and qualify to operate on the MePA.\" — https://www.acquistinretepa.it/opencms/opencms/english/foreign_firms_new.html (Consip also documents eIDAS login for EU citizens and a dedicated contact impresaestera@consip.it; a fiscal representative / tax domicile in Italy is required for MePA enablement)"
+  },
+  {
+    "id": "it-anac-piattaforma-di",
+    "name": "ANAC Piattaforma di Pubblicità a Valore Legale (PVL) — national legal-publicity notice platform",
+    "officialUrl": "https://pubblicitalegale.anticorruzione.it",
+    "country": "italy",
+    "platformType": "national-procurement",
+    "operator": "Autorità Nazionale Anticorruzione (ANAC)",
+    "operatorType": "regulator",
+    "procurementScope": "public",
+    "coverage": "national",
+    "currentStatus": "active",
+    "lastVerified": "2026-08-11",
+    "languages": [
+      "it"
+    ],
+    "opportunityTypes": [
+      "award-notice",
+      "contract-notice"
+    ],
+    "tenderSearchUrl": null,
+    "supplierRegistrationUrl": null,
+    "submissionUrl": null,
+    "documentsUrl": null,
+    "searchAccess": "free",
+    "electronicSubmission": "no",
+    "supplierRegistrationRequired": "no",
+    "foreignSuppliersAccepted": "unknown",
+    "evidenceClass": "B",
+    "evidenceUrl": "https://pubblicitalegale.anticorruzione.it/",
+    "evidenceNote": "2026-08-11: HTTP 200 (37,779 B), title 'ANAC | Piattaforma di Pubblicità a Valore Legale' — Angular SPA (runtime/polyfills/main bundles). Deep route /bandi HTTP 200 but byte-identical to the homepage shell, so client-side sections (/bandi, /esiti, /avvisi — indexed by search engines) are not reported as verified routes. ANAC's own pages (anticorruzione.it, 'Pubblicità a Valore Legale (PVL)') state the service is available at this URL from 2 Jan 2024, is a public service requiring no login credentials, and that from 1 Jan 2024 legal publicity of contract notices moved from the Gazzetta Ufficiale to this platform under d.lgs. 36/2023 arts. 27, 84, 85.",
+    "browserCheckRequired": true,
+    "limitations": [
+      "Publication/consultation only (bandi, esiti, altri avvisi) — bids are submitted on the ANAC-certified digital procurement platform of each contracting authority (e.g. Acquisti in Rete, regional platforms)",
+      "Angular SPA: search UI requires JavaScript; /bandi, /esiti, /avvisi serve the same shell body under curl, so no distinct search route is claimed",
+      "Notices are fed via interoperability from certified platforms through ANAC's PCP/BDNCP, not entered directly by suppliers",
+      "Declared part of the \"ANAC Banca Dati Nazionale dei Contratti Pubblici (BDNCP) ecosystem\" ecosystem; the parent record was not resolvable at merge time."
+    ]
+  },
+  {
+    "id": "se-e-avrop",
+    "name": "e-Avrop",
+    "officialUrl": "https://www.e-avrop.com/",
+    "country": "sweden",
+    "platformType": "national-procurement",
+    "operator": "Antirio AB",
+    "operatorType": "private-company",
+    "procurementScope": "public",
+    "coverage": "national",
+    "currentStatus": "active",
+    "lastVerified": "2026-08-11",
+    "languages": [
+      "en",
+      "sv"
+    ],
+    "opportunityTypes": [
+      "award-notice",
+      "prior-information-notice",
+      "procurement-plan",
+      "rfi",
+      "tender"
+    ],
+    "tenderSearchUrl": "https://www.e-avrop.com/e-upphandling/Default.aspx",
+    "supplierRegistrationUrl": "https://www.e-avrop.com/register.aspx",
+    "submissionUrl": null,
+    "documentsUrl": null,
+    "searchAccess": "free",
+    "electronicSubmission": "yes",
+    "supplierRegistrationRequired": "yes",
+    "foreignSuppliersAccepted": "unknown",
+    "evidenceClass": "A",
+    "evidenceUrl": "https://www.e-avrop.com/e-upphandling/Default.aspx",
+    "evidenceNote": "2026-08-11: 200, 231290 B, server-rendered notice search with live filters (Förhandsannonser/Planerade/Aktuella annonser/Efterannonser, LOV, RFI) and real notices. Homepage 200 redirects to info.e-avrop.com (109295 B, title 'Offentliga upphandlingar | e-Avrop'), which states: 'En stor andel av den offentliga sektorn annonserar sina upphandlingar i e-Avrops annonsdatabas. Det är här ni kan hitta upphandlingar, lägga anbud och föra en dialog med inköparna. Tjänsten är helt kostnadsfri.' Registration page (200, 91019 B) says 'En gratistjänst från e-Avrop' with SV/EN toggle. Listed as registered annonsdatabas (id SE, operator Antirio AB) in Konkurrensverket's official register.",
+    "browserCheckRequired": false,
+    "limitations": [
+      "Covers only contracting authorities that publish via e-Avrop — Sweden has no single national notice database",
+      "Bid submission and dialogue require a (free) supplier account",
+      "Homepage host drift: e-avrop.com redirects to info.e-avrop.com marketing site; the working platform lives under www.e-avrop.com paths"
+    ],
+    "softwareVendor": "e-Avrop (Antirio AB)"
+  },
+  {
+    "id": "se-mercell-annonsdatabas",
+    "name": "Mercell Annonsdatabas (TendSign)",
+    "officialUrl": "https://app.mercell.com/",
+    "country": "sweden",
+    "platformType": "national-procurement",
+    "operator": "Mercell Sverige AB",
+    "operatorType": "private-company",
+    "procurementScope": "public",
+    "coverage": "national",
+    "currentStatus": "active",
+    "lastVerified": "2026-08-11",
+    "languages": [
+      "sv"
+    ],
+    "opportunityTypes": [
+      "award-notice",
+      "contract-notice",
+      "prior-information-notice",
+      "tender"
+    ],
+    "tenderSearchUrl": "https://app.mercell.com/search?filter=delivery_place_code%3ASE",
+    "supplierRegistrationUrl": "https://tendsign.com/public/register_seller.aspx",
+    "submissionUrl": "https://tendsign.com/",
+    "documentsUrl": null,
+    "searchAccess": "free",
+    "electronicSubmission": "yes",
+    "supplierRegistrationRequired": "yes",
+    "foreignSuppliersAccepted": "unknown",
+    "evidenceClass": "B",
+    "evidenceUrl": "https://www.konkurrensverket.se/upphandling/registrerade-annonsdatabaser/annonsdatabasregistret/",
+    "evidenceNote": "2026-08-11: Konkurrensverket's official annonsdatabasregister (200, 244317 B) lists 'Mercell Annonsdatabas', operator Mercell Sverige AB, id MT, addresses www.mercell.com/upphandlingar / upphandling.com / upphandlingar.se. www.mercell.com/upphandlingar 301-redirects to https://app.mercell.com/search?filter=delivery_place_code%3ASE — 200 but 857 B JS shell, title 'Mercell' (content requires browser). Submission tool tendsign.com (200, 20886 B) states: 'Om du är en leverantör som vill hämta upphandlingsdokument eller lämna anbud måste du först logga in i upphandlingsverktyget TendSign. Skapa konto'; register_seller.aspx verified 200, 135487 B.",
+    "browserCheckRequired": true,
+    "limitations": [
+      "Search UI is a JS single-page app (857 B shell via curl) — needs browser verification for content",
+      "Tender documents and bid submission require a TendSign account",
+      "Mercell also sells paid monitoring services (former Opic brand) — out of scope; the registered annonsdatabas itself is the free notice layer",
+      "Covers authorities publishing via Mercell/TendSign only"
+    ],
+    "softwareVendor": "Mercell (TendSign)"
+  },
+  {
+    "id": "se-kommersannons-se",
+    "name": "KommersAnnons.se",
+    "officialUrl": "https://www.kommersannons.se/",
+    "country": "sweden",
+    "platformType": "national-procurement",
+    "operator": "Antirio System AB",
+    "operatorType": "private-company",
+    "procurementScope": "public",
+    "coverage": "national",
+    "currentStatus": "active",
+    "lastVerified": "2026-08-11",
+    "languages": [
+      "en",
+      "sv"
+    ],
+    "opportunityTypes": [
+      "award-notice",
+      "itt",
+      "prior-information-notice",
+      "tender"
+    ],
+    "tenderSearchUrl": "https://www.kommersannons.se/Notices/TenderNotices",
+    "supplierRegistrationUrl": null,
+    "submissionUrl": null,
+    "documentsUrl": null,
+    "searchAccess": "free",
+    "electronicSubmission": "no",
+    "supplierRegistrationRequired": "unknown",
+    "foreignSuppliersAccepted": "unknown",
+    "evidenceClass": "A",
+    "evidenceUrl": "https://www.kommersannons.se/Notices/TenderNotices",
+    "evidenceNote": "2026-08-11: homepage 200, 7443 B, title 'Home page - Antirio Supplier Hub'; self-describes: 'KommersAnnons.se — Registrerad annonsdatabas för offentliga upphandlingar i Sverige... hittar du publika annonser från myndigheter och enheter som annonserar via upphandlings- och inköpssystemet Kommers', with live counts (572 förhandsannonser, 21798 anbudsansökningar/anbudsinfordran, 17063 efterannonser). /Notices/TenderNotices 200, 1435166 B, title 'Ansökningsinbjudningar och anbudsinfordran'; /Notices/PriorInfoNotices 200, 1369312 B. Listed in Konkurrensverket's register (id KA, operator Antirio System AB). SV/EN culture switch present.",
+    "browserCheckRequired": false,
+    "limitations": [
+      "Notices published before 2021-01-01 are not shown (operator statement)",
+      "Covers only authorities using the Kommers procurement system",
+      "Bids are not submitted on this site — the operator directs suppliers to the buyer-specific Kommers supplier portals linked from each notice"
+    ],
+    "softwareVendor": "Kommers (Antirio System AB, formerly Primona)"
+  },
+  {
+    "id": "no-doffin",
+    "name": "Doffin — Database for offentlige innkjøp",
+    "officialUrl": "https://www.doffin.no/",
+    "country": "norway",
+    "platformType": "national-procurement",
+    "operator": "Direktoratet for forvaltning og økonomistyring (DFØ), on behalf of Nærings- og fiskeridepartementet",
+    "operatorType": "government",
+    "procurementScope": "public",
+    "coverage": "national",
+    "currentStatus": "active",
+    "lastVerified": "2026-08-11",
+    "languages": [
+      "en",
+      "nb"
+    ],
+    "opportunityTypes": [
+      "award-notice",
+      "contract-notice",
+      "dynamic-purchasing-system",
+      "framework-agreement",
+      "prior-information-notice",
+      "tender"
+    ],
+    "tenderSearchUrl": "https://www.doffin.no/search",
+    "supplierRegistrationUrl": null,
+    "submissionUrl": null,
+    "documentsUrl": null,
+    "searchAccess": "free",
+    "electronicSubmission": "no",
+    "supplierRegistrationRequired": "no",
+    "foreignSuppliersAccepted": "unknown",
+    "evidenceClass": "A",
+    "evidenceUrl": "https://www.doffin.no/",
+    "evidenceNote": "2026-08-11: 200, 1308 B React SPA shell, title 'Doffin, database for offentlige innkjøp'; /search returns the same shell (client-side routing). Site's own about-content (embedded in /assets/index-iNEpnWfA.js, 1461359 B, surfaced at /about) states: 'Doffin er den norske databasen for kunngjøringer av offentlige anskaffelser og anskaffelser til forsyningssektoren i Norge' and 'Direktoratet for forvaltning og økonomistyring (DFØ) sitt ansvar i forbindelse med Doffin er å drifte og videreutvikler konseptet, på vegne av Nærings- og fiskeridepartementet.' Also: 'Innloggingsfunksjonalitet på Doffin er nå avviklet og brukere får direkte tilgang uten å måtte logge seg inn' — no supplier login exists; notices can no longer be authored directly on Doffin.",
+    "browserCheckRequired": true,
+    "limitations": [
+      "JS single-page app — curl sees only a 1308 B shell; /search is a client-side route serving the identical shell, so content needs browser verification",
+      "Notice publication only: no tender documents hosting or bid submission — buyers author notices in commercial KGV tools (Mercell, Artifik, etc.) which push to Doffin and TED (eForms since Oct 2023)",
+      "English available as interface locale; notices are predominantly Norwegian"
+    ]
+  },
+  {
+    "id": "is-utbosvefur",
+    "name": "Útboðsvefur (utbodsvefur.is) — national tender publication site",
+    "officialUrl": "https://utbodsvefur.is/",
+    "country": "iceland",
+    "platformType": "national-procurement",
+    "operator": "Fjársýslan (Financial Management Authority of Iceland; absorbed Ríkiskaup)",
+    "operatorType": "central-purchasing-body",
+    "procurementScope": "public",
+    "coverage": "national",
+    "currentStatus": "active",
+    "lastVerified": "2026-08-11",
+    "languages": [
+      "is"
+    ],
+    "opportunityTypes": [
+      "contract-notice",
+      "dynamic-purchasing-system",
+      "framework-agreement",
+      "rfi",
+      "tender"
+    ],
+    "tenderSearchUrl": "https://utbodsvefur.is/?s=innkaupakerfi",
+    "supplierRegistrationUrl": null,
+    "submissionUrl": null,
+    "documentsUrl": null,
+    "searchAccess": "free",
+    "electronicSubmission": "no",
+    "supplierRegistrationRequired": "no",
+    "foreignSuppliersAccepted": "unknown",
+    "evidenceClass": "A",
+    "evidenceUrl": "https://island.is/en/tender-website",
+    "evidenceNote": "2026-08-11: utbodsvefur.is 200, 87272 B, title 'Útboðsvefur'; homepage is the live notice list (state, municipal and utility tenders, DPS and framework notices from Vegagerðin, Isavia, Landspítali, Reykjavíkurborg, etc.); WordPress-based (wp-admin link visible); search route ?s=innkaupakerfi verified 200, 87550 B, title 'Leitarniðurstöður | Útboðsvefur'. Official description on the government portal (island.is/en/tender-website, 200, 106384 B, under 'The Financial Management Authority — Procurement'): 'Utbodsvefur.is is a public tenders publicity platform... Only public entities can request access and advertise tenders on this website... Advertisements that enter the website www.utbodsvefur.is must be in Icelandic (Act No. 61/2011).'",
+    "browserCheckRequired": false,
+    "limitations": [
+      "Publication-only: no tender documents or bid submission — access to documents and bidding happens in Fjársýslan's TendSign system",
+      "Notices must be in Icelandic by law (Act 61/2011), even when tender documents are in English",
+      "Homepage doubles as the notice list; search is a WordPress ?s= query"
+    ]
+  },
+  {
+    "id": "is-mercell-tendsign-iceland",
+    "name": "Mercell TendSign Iceland (rafrænt útboðskerfi Fjársýslunnar)",
+    "officialUrl": "https://tendsign.is/",
+    "country": "iceland",
+    "platformType": "national-procurement",
+    "operator": "Fjársýslan (Financial Management Authority of Iceland)",
+    "operatorType": "central-purchasing-body",
+    "procurementScope": "public",
+    "coverage": "national",
+    "currentStatus": "active",
+    "lastVerified": "2026-08-11",
+    "languages": [
+      "is"
+    ],
+    "opportunityTypes": [
+      "dynamic-purchasing-system",
+      "framework-agreement",
+      "tender"
+    ],
+    "tenderSearchUrl": null,
+    "supplierRegistrationUrl": "https://tendsign.is/public/register_seller.aspx",
+    "submissionUrl": null,
+    "documentsUrl": null,
+    "searchAccess": "unknown",
+    "electronicSubmission": "yes",
+    "supplierRegistrationRequired": "yes",
+    "foreignSuppliersAccepted": "unknown",
+    "evidenceClass": "A",
+    "evidenceUrl": "https://island.is/ad-taka-thatt-i-utbodi",
+    "evidenceNote": "2026-08-11: tendsign.is 200, 20794 B, 'Mercell TendSign' login page in Icelandic: 'Sértu seljandi sem vilt hlaða niður samingsskjölum eða leggja fram tilboð, þá þarftu fyrst að skrá þig inn á innkaupaverkfærið TendSign. Stofnaðu aðgang.' Supplier registration route /public/register_seller.aspx verified 200, 133603 B. Government guide island.is/ad-taka-thatt-i-utbodi (200, 305514 B) states: 'Fyrst þarf að skrá sig inn í rafrænt útboðskerfi Fjársýslunnar sem heitir TendSign' — registration gives access to tender documents and enables bid participation; bids are submitted electronically in the system.",
+    "browserCheckRequired": false,
+    "limitations": [
+      "All supplier-facing functions (document access, notice browsing, bid submission) sit behind login — could not verify a public search route",
+      "Icelandic UI on a Mercell-hosted shared platform (same product as Swedish tendsign.com)"
+    ],
+    "softwareVendor": "Mercell (TendSign)"
+  },
+  {
+    "id": "is-utbosvefur-reykjavikurborgar",
+    "name": "Útboðsvefur Reykjavíkurborgar (City of Reykjavík e-tendering site)",
+    "officialUrl": "https://utbod.reykjavik.is/",
+    "country": "iceland",
+    "platformType": "regional-procurement",
+    "operator": "Reykjavíkurborg (City of Reykjavík)",
+    "operatorType": "contracting-authority",
+    "procurementScope": "public",
+    "coverage": "regional",
+    "currentStatus": "active",
+    "lastVerified": "2026-08-11",
+    "languages": [
+      "en",
+      "is"
+    ],
+    "opportunityTypes": [
+      "tender"
+    ],
+    "tenderSearchUrl": "https://utbod.reykjavik.is/aspx/Tenders/Current",
+    "supplierRegistrationUrl": "https://utbod.reykjavik.is/aspx/Registration",
+    "submissionUrl": null,
+    "documentsUrl": null,
+    "searchAccess": "free",
+    "electronicSubmission": "unknown",
+    "supplierRegistrationRequired": "unknown",
+    "foreignSuppliersAccepted": "unknown",
+    "evidenceClass": "B",
+    "evidenceUrl": "https://utbod.reykjavik.is/aspx/Tenders/Current",
+    "evidenceNote": "2026-08-11: /aspx/Tenders/Current 200, 132455 B, title 'Útboðsvefur Reykjavíkurborgar - Tenders - Current'; page body warns 'This page is not functional with Javascript disabled' and shows an anti-bot check ('please confirm you are not a robot'), so the live tender list needs browser verification. Company registration form /aspx/Registration verified 200, 603789 B. Same e-tendering product family as Isavia's utbod.isavia.is.",
+    "browserCheckRequired": true,
+    "limitations": [
+      "JS-dependent with an anti-bot challenge — list content not confirmable via curl",
+      "Municipal scope (Reykjavík); above-threshold city notices also appear on utbodsvefur.is/TED",
+      "Software vendor of the shared .aspx tendering product not established"
+    ]
+  },
+  {
+    "id": "uk-find-a-tender",
+    "name": "Find a Tender (FTS) / Central Digital Platform",
+    "officialUrl": "https://www.find-tender.service.gov.uk/",
+    "country": "united-kingdom",
+    "platformType": "national-procurement",
+    "operator": null,
+    "operatorType": "government",
+    "procurementScope": "public",
+    "coverage": "national",
+    "currentStatus": "active",
+    "lastVerified": "2026-08-11",
+    "languages": [
+      "cy",
+      "en"
+    ],
+    "opportunityTypes": [
+      "award-notice",
+      "contract-notice",
+      "dynamic-purchasing-system",
+      "framework-agreement",
+      "prior-information-notice",
+      "supplier-registration",
+      "tender"
+    ],
+    "tenderSearchUrl": "https://www.find-tender.service.gov.uk/Search/Results",
+    "supplierRegistrationUrl": null,
+    "submissionUrl": null,
+    "documentsUrl": null,
+    "searchAccess": "free",
+    "electronicSubmission": "no",
+    "supplierRegistrationRequired": "yes",
+    "foreignSuppliersAccepted": "yes",
+    "evidenceClass": "A",
+    "evidenceUrl": "https://www.find-tender.service.gov.uk/Search/Results",
+    "evidenceNote": "2026-08-11: homepage 200 redirects to /Search (35,244 B, title 'Find a Tender', header has a Cymraeg language toggle); /Search/Results 200, 170,932 B, title 'Search results - Find a Tender' with live notices, anonymously accessible. GOV.UK Central Digital Platform factsheet: the enhanced FTS launched 24 Feb 2025 as the central digital platform under the Procurement Act 2023; bids go to buyers' systems ('...by pasting the share code into the eSender system against the opportunity or by downloading and emailing the file directly to the buyer'), so FTS itself hosts no bid submission. GOV.UK supplier short guide: 'Find a Tender is free to use for everyone.' and 'you will need to re-register and enter your organisation information at Find a Tender Service'. Operator not named on-site (GOV.UK service; Procurement Act guidance published by Cabinet Office), so operator left null.",
+    "browserCheckRequired": false,
+    "limitations": [
+      "Above-threshold UK-wide notices; below-threshold England notices sit on Contracts Finder",
+      "No bid submission on-platform: tenders are submitted via buyers' own eSender/e-tendering systems (CDP share code model)",
+      "Supplier registration (mandatory before bidding under the Procurement Act 2023) is via sign-in on FTS; no distinct public registration URL verified — the supplier-information.find-tender.service.gov.uk subdomain redirects to /Search",
+      "Scottish devolved bodies continue to run their own regime on Public Contracts Scotland"
+    ],
+    "foreignEvidenceQuote": "GOV.UK supplier registration guide (https://www.gov.uk/government/publications/procurement-act-2023-short-guides/suppliers-how-to-register-your-organisation-and-first-administrator-on-find-a-tender-in-three-easy-steps-html): \"If you do not have a Companies House number, select 'No' and you will be prompted with the below alternative options.\" and \"You also have the option to enter a non-UK address on this page.\""
+  },
+  {
+    "id": "uk-contracts-finder",
+    "name": "Contracts Finder",
+    "officialUrl": "https://www.contractsfinder.service.gov.uk/",
+    "country": "united-kingdom",
+    "platformType": "national-procurement",
+    "operator": null,
+    "operatorType": "government",
+    "procurementScope": "public",
+    "coverage": "national",
+    "currentStatus": "active",
+    "lastVerified": "2026-08-11",
+    "languages": [
+      "en"
+    ],
+    "opportunityTypes": [
+      "award-notice",
+      "contract-notice",
+      "prior-information-notice",
+      "tender"
+    ],
+    "tenderSearchUrl": "https://www.contractsfinder.service.gov.uk/Search/Results",
+    "supplierRegistrationUrl": null,
+    "submissionUrl": null,
+    "documentsUrl": null,
+    "searchAccess": "free",
+    "electronicSubmission": "unknown",
+    "supplierRegistrationRequired": "no",
+    "foreignSuppliersAccepted": "unknown",
+    "evidenceClass": "A",
+    "evidenceUrl": "https://www.contractsfinder.service.gov.uk/Search/Results",
+    "evidenceNote": "2026-08-11: homepage 200 redirects to /Search (43,542 B, title 'Contracts Finder'); /Search/Results 200, 196,612 B, title 'Search results - Contracts Finder', anonymously accessible. GOV.UK start page (gov.uk/contracts-finder): 'Contracts Finder lets you search for information about contracts worth over £12,000 (including VAT) with the government and its agencies' and users 'can still search and apply for contracts without an account'. No operator named on the service pages or the GOV.UK start page; footer names no organisation — operator left null.",
+    "browserCheckRequired": false,
+    "limitations": [
+      "Lower-value notices (over £12,000 incl. VAT) for England/non-devolved bodies; above-threshold procurement is on Find a Tender",
+      "Notice publication and search only — application/submission happens via links to buyers' systems; no e-submission observed on-platform"
+    ]
+  },
+  {
+    "id": "uk-public-contracts-scotland",
+    "name": "Public Contracts Scotland (PCS)",
+    "officialUrl": "https://www.publiccontractsscotland.gov.uk/",
+    "country": "united-kingdom",
+    "platformType": "regional-procurement",
+    "operator": "Scottish Government",
+    "operatorType": "government",
+    "procurementScope": "public",
+    "coverage": "regional",
+    "currentStatus": "active",
+    "lastVerified": "2026-08-11",
+    "languages": [
+      "en"
+    ],
+    "opportunityTypes": [
+      "award-notice",
+      "contract-notice",
+      "prior-information-notice",
+      "supplier-registration",
+      "tender"
+    ],
+    "tenderSearchUrl": "https://www.publiccontractsscotland.gov.uk/Search/Search_MainPage.aspx",
+    "supplierRegistrationUrl": "https://www.publiccontractsscotland.gov.uk/Register/Register_Start.aspx",
+    "submissionUrl": null,
+    "documentsUrl": null,
+    "searchAccess": "free",
+    "electronicSubmission": "unknown",
+    "supplierRegistrationRequired": "unknown",
+    "foreignSuppliersAccepted": "unknown",
+    "evidenceClass": "A",
+    "evidenceUrl": "https://www.publiccontractsscotland.gov.uk/Search/Search_MainPage.aspx",
+    "evidenceNote": "2026-08-11: homepage 200, 25,061 B, title 'Home - Public Contracts Scotland'; meta description: \"Scottish Government's official national portal for public sector contract opportunities\"; footer '©2023 Proactis' (software vendor). Notice search /Search/Search_MainPage.aspx 200, 4,666,750 B, title 'Search for Notices - Public Contracts Scotland', anonymously accessible. Supplier registration /Register/Register_Start.aspx 200, 19,539 B, title 'Register - Public Contracts Scotland'. Note: an initial fetch appeared to return an Italian portal title — traced to a /tmp file collision with a parallel process; a clean re-fetch confirmed the correct PCS content.",
+    "browserCheckRequired": false,
+    "limitations": [
+      "Scotland's national notice portal — Scottish bodies operate under devolved procurement law, distinct from the Procurement Act 2023 regime",
+      "Full e-tendering for larger exercises runs on the separate PCS-Tender (Jaggaer) system; PCS itself is primarily notice publication/search (postbox submission not verified)"
+    ],
+    "softwareVendor": "Proactis"
+  },
+  {
+    "id": "uk-public-contracts-scotland-2",
+    "name": "Public Contracts Scotland - Tender (PCS-Tender)",
+    "officialUrl": "https://www.publictendersscotland.publiccontractsscotland.gov.uk/",
+    "country": "united-kingdom",
+    "platformType": "regional-procurement",
+    "operator": "Scottish Government",
+    "operatorType": "government",
+    "procurementScope": "public",
+    "coverage": "regional",
+    "currentStatus": "active",
+    "lastVerified": "2026-08-11",
+    "languages": [
+      "en"
+    ],
+    "opportunityTypes": [
+      "itt",
+      "supplier-registration",
+      "tender"
+    ],
+    "tenderSearchUrl": null,
+    "supplierRegistrationUrl": null,
+    "submissionUrl": null,
+    "documentsUrl": null,
+    "searchAccess": "unknown",
+    "electronicSubmission": "yes",
+    "supplierRegistrationRequired": "yes",
+    "foreignSuppliersAccepted": "unknown",
+    "evidenceClass": "B",
+    "evidenceUrl": "https://www.publictendersscotland.publiccontractsscotland.gov.uk/",
+    "evidenceNote": "2026-08-11: 200, redirects to /esop/pts-host/public/pts/web/login.html (Jaggaer esop stack), 7,279 B, title 'PCS - Tender'. On-page operator statement: 'PCS-Tender is the national eTendering system, and is centrally funded by the Scottish Government. The system is a secure and efficient means for buyers and suppliers to manage tender exercises online.' Page carries 'Register as a Supplier' link and Jaggaer support/accessibility links (jaggaer.com, jaggaer.my.site.com), confirming vendor. All tender functions behind login — no distinct public search route to record.",
+    "browserCheckRequired": false,
+    "limitations": [
+      "Login-gated e-tendering environment — opportunities are discovered on Public Contracts Scotland, then tender exercises are conducted here",
+      "No anonymous tender search observed; registration required to participate"
+    ],
+    "softwareVendor": "Jaggaer",
+    "partOf": "uk-public-contracts-scotland"
+  },
+  {
+    "id": "uk-sell2wales-gwerthwchigymru",
+    "name": "Sell2Wales / GwerthwchiGymru",
+    "officialUrl": "https://www.sell2wales.gov.wales/",
+    "country": "united-kingdom",
+    "platformType": "regional-procurement",
+    "operator": "Welsh Government",
+    "operatorType": "government",
+    "procurementScope": "public",
+    "coverage": "regional",
+    "currentStatus": "active",
+    "lastVerified": "2026-08-11",
+    "languages": [
+      "cy",
+      "en"
+    ],
+    "opportunityTypes": [
+      "award-notice",
+      "contract-notice",
+      "prior-information-notice",
+      "supplier-registration",
+      "tender"
+    ],
+    "tenderSearchUrl": "https://www.sell2wales.gov.wales/Search/Search_MainPage.aspx",
+    "supplierRegistrationUrl": "https://www.sell2wales.gov.wales/Register/Register_Start.aspx",
+    "submissionUrl": null,
+    "documentsUrl": null,
+    "searchAccess": "free",
+    "electronicSubmission": "unknown",
+    "supplierRegistrationRequired": "unknown",
+    "foreignSuppliersAccepted": "unknown",
+    "evidenceClass": "A",
+    "evidenceUrl": "https://www.sell2wales.gov.wales/Search/Search_MainPage.aspx",
+    "evidenceNote": "2026-08-11: homepage 200, 58,936 B, title 'Sell2Wales: Welcome to Sell2Wales - Sell2Wales'; meta description 'Welsh Government helping SMEs work successfully with the public sector', Welsh Government logo in header. Notice search /Search/Search_MainPage.aspx 200, 206,401 B, title 'Search for notices - Sell2Wales', anonymous. Welsh-language mirror https://www.gwerthwchigymru.llyw.cymru/ 200, 59,422 B, Welsh title 'Croeso i GwerthwchiGymru'. Registration route /Register/Register_Start.aspx 200 but redirects into the Welsh Government single sign-on (wgsoclive.b2clogin.com Azure AD B2C, ui_locales=en-GB with alternate-language redirect to gwerthwchigymru.llyw.cymru) — live but auth-flow-gated. Site architecture (Search/Search_MainPage.aspx, Register/Register_Start.aspx) matches the same platform family as Public Contracts Scotland, but no vendor is named on-page, so softwareVendor left null.",
+    "browserCheckRequired": false,
+    "limitations": [
+      "Wales notice portal; e-tendering exercises for many Welsh bodies run on the separate eTenderWales (Jaggaer) system",
+      "Registration flows through Welsh Government single sign-on (Azure B2C); per the site's Procurement Act 2023 help pages, new suppliers first register on the Central Digital Platform (Find a Tender) to obtain a unique identifier"
+    ]
+  },
+  {
+    "id": "uk-etenderwales",
+    "name": "eTenderWales",
+    "officialUrl": "https://etenderwales.ukp.app.jaggaer.com/",
+    "country": "united-kingdom",
+    "platformType": "regional-procurement",
+    "operator": "Welsh Government (Value Wales)",
+    "operatorType": "government",
+    "procurementScope": "public",
+    "coverage": "regional",
+    "currentStatus": "active",
+    "lastVerified": "2026-08-11",
+    "languages": [
+      "en"
+    ],
+    "opportunityTypes": [
+      "supplier-registration",
+      "tender"
+    ],
+    "tenderSearchUrl": null,
+    "supplierRegistrationUrl": null,
+    "submissionUrl": null,
+    "documentsUrl": null,
+    "searchAccess": "unknown",
+    "electronicSubmission": "yes",
+    "supplierRegistrationRequired": "unknown",
+    "foreignSuppliersAccepted": "unknown",
+    "evidenceClass": "B",
+    "evidenceUrl": "https://etenderwales.ukp.app.jaggaer.com/home.html",
+    "evidenceNote": "2026-08-11: legacy URL https://etenderwales.bravosolution.co.uk/ 200 redirects to https://etenderwales.ukp.app.jaggaer.com/ (host drift = BravoSolution-to-Jaggaer platform migration), serving a 97 B meta-refresh shell to home.html; /home.html 200, 1,280 B, title 'etenderwales: e-tendering portal for Value Wales' (Value Wales is the Welsh Government procurement division). Portal content is JS/login-driven — needs a browser check for full function.",
+    "browserCheckRequired": true,
+    "limitations": [
+      "Login-gated Jaggaer e-tendering environment; opportunities are advertised on Sell2Wales and exercises conducted here",
+      "Root URL serves a tiny meta-refresh shell (97 B) — curl cannot exercise the portal; verified via /home.html title only",
+      "Legacy etenderwales.bravosolution.co.uk address redirects to the ukp.app.jaggaer.com host"
+    ],
+    "softwareVendor": "Jaggaer",
+    "partOf": "uk-sell2wales-gwerthwchigymru"
+  },
+  {
+    "id": "uk-etendersni",
+    "name": "eTendersNI",
+    "officialUrl": "https://etendersni.gov.uk/",
+    "country": "united-kingdom",
+    "platformType": "regional-procurement",
+    "operator": "Department of Finance (Northern Ireland)",
+    "operatorType": "government",
+    "procurementScope": "public",
+    "coverage": "regional",
+    "currentStatus": "active",
+    "lastVerified": "2026-08-11",
+    "languages": [
+      "en"
+    ],
+    "opportunityTypes": [
+      "award-notice",
+      "contract-notice",
+      "supplier-registration",
+      "tender"
+    ],
+    "tenderSearchUrl": "https://etendersni.gov.uk/epps/prepareCurrentOpportunities.do?currentType=cft",
+    "supplierRegistrationUrl": "https://etendersni.gov.uk/epps/prepareRegisterEOOrg.do?registerEO=true",
+    "submissionUrl": null,
+    "documentsUrl": null,
+    "searchAccess": "free",
+    "electronicSubmission": "unknown",
+    "supplierRegistrationRequired": "yes",
+    "foreignSuppliersAccepted": "unknown",
+    "evidenceClass": "A",
+    "evidenceUrl": "https://etendersni.gov.uk/epps/prepareCurrentOpportunities.do?currentType=cft",
+    "evidenceNote": "2026-08-11: homepage 200 redirects to /epps/home.do, 27,512 B, title 'European Dynamics - Welcome to eTendersNI' (vendor: European Dynamics EPPS suite). Current-opportunities search /epps/prepareCurrentOpportunities.do?currentType=cft 200, 15,470 B, title 'European Dynamics - Simple search', anonymous. Supplier registration /epps/prepareRegisterEOOrg.do?registerEO=true 200, 56,114 B, title 'European Dynamics - Register Supplier'. Homepage guides suppliers to 'register as a supplier organisation'. Department of Finance NI guidance page (finance-ni.gov.uk/topics/procurement/etendersni): 'Public sector bodies in Northern Ireland advertise their tender opportunities on the eTendersNI portal' and 'all eTendersNI suppliers will require a Dun & Bradstreet number (D-U-N-S) to complete their eTendersNI registration'. No explicit on-page statement about electronic bid submission was captured, so that is left unknown despite the platform being an e-sourcing suite.",
+    "browserCheckRequired": false,
+    "limitations": [
+      "Northern Ireland public-sector portal; registration requires a Dun & Bradstreet D-U-N-S number per Department of Finance guidance",
+      "Above-threshold NI notices also publish to Find a Tender; a parallel Jaggaer instance (eSourcing NI) exists for some NI contracting authorities"
+    ],
+    "softwareVendor": "European Dynamics"
+  },
+  {
+    "id": "uk-esourcing-ni",
+    "name": "eSourcing NI",
+    "officialUrl": "https://e-sourcingni.ukp.app.jaggaer.com/",
+    "country": "united-kingdom",
+    "platformType": "regional-procurement",
+    "operator": null,
+    "operatorType": "government",
+    "procurementScope": "public",
+    "coverage": "regional",
+    "currentStatus": "active",
+    "lastVerified": "2026-08-11",
+    "languages": [
+      "en"
+    ],
+    "opportunityTypes": [
+      "supplier-registration",
+      "tender"
+    ],
+    "tenderSearchUrl": null,
+    "supplierRegistrationUrl": null,
+    "submissionUrl": null,
+    "documentsUrl": null,
+    "searchAccess": "unknown",
+    "electronicSubmission": "yes",
+    "supplierRegistrationRequired": "yes",
+    "foreignSuppliersAccepted": "unknown",
+    "evidenceClass": "B",
+    "evidenceUrl": "https://e-sourcingni.ukp.app.jaggaer.com/web/login.shtml",
+    "evidenceNote": "2026-08-11: legacy https://e-sourcingni.bravosolution.co.uk/ 200 redirects to https://e-sourcingni.ukp.app.jaggaer.com/ (106 B meta-refresh shell to /web/login.shtml); /web/login.shtml 200, 8,537 B, title 'eSourcing NI'. On-page statement: 'Welcome to eSourcing NI, the Electronic Tendering site which allows supplying organisations to take part in tender opportunities led by Northern Ireland Public Sector and Regulated Contracting Authorities, through which all procurement is channelled.' Page links to the Central Procurement Directorate (CPD) site, but no explicit operator attribution on-page, so operator left null. Still linked from the Find a Tender footer alongside eTendersNI.",
+    "browserCheckRequired": false,
+    "limitations": [
+      "Login-gated Jaggaer e-tendering instance; no anonymous opportunity search observed",
+      "Division of labour versus eTendersNI not stated on-page — used by NI public sector and regulated contracting authorities per its own welcome text",
+      "Root URL serves a 106 B meta-refresh shell; verified via /web/login.shtml"
+    ],
+    "softwareVendor": "Jaggaer"
+  },
+  {
+    "id": "uk-supplier-registration-service",
+    "name": "Supplier Registration Service (Cabinet Office / central government eSourcing)",
+    "officialUrl": "https://supplierregistration.cabinetoffice.gov.uk/",
+    "country": "united-kingdom",
+    "platformType": "institutional-procurement",
+    "operator": null,
+    "operatorType": "central-purchasing-body",
+    "procurementScope": "public",
+    "coverage": "institutional",
+    "currentStatus": "active",
+    "lastVerified": "2026-08-11",
+    "languages": [
+      "en"
+    ],
+    "opportunityTypes": [
+      "framework-agreement",
+      "supplier-registration"
+    ],
+    "tenderSearchUrl": null,
+    "supplierRegistrationUrl": null,
+    "submissionUrl": null,
+    "documentsUrl": null,
+    "searchAccess": "unknown",
+    "electronicSubmission": "unknown",
+    "supplierRegistrationRequired": "yes",
+    "foreignSuppliersAccepted": "unknown",
+    "evidenceClass": "B",
+    "evidenceUrl": "https://supplierregistration.cabinetoffice.gov.uk/",
+    "evidenceNote": "2026-08-11: 200, 29,745 B, title 'Supplier Registration Service', GOV.UK-styled register/sign-in portal on the cabinetoffice.gov.uk domain (historically the front door to the Crown Commercial Service eSourcing suite). On-page statement now redirects the general registration role: '[Find a Tender] is now where all suppliers and buyers can find and register for all public procurement, under the Procurement Act 2023.' No operator organisation named on-page, so operator left null; the associated CPB's corporate domain (crowncommercial.gov.uk) now redirects to the Government Commercial Agency (gca.gov.uk).",
+    "browserCheckRequired": false,
+    "limitations": [
+      "Account registration/sign-in gateway for central government framework eSourcing — no tender search surface",
+      "Its universal-registration role has moved to Find a Tender under the Procurement Act 2023 per its own on-page statement",
+      "The eSourcing environment behind the login could not be verified from outside"
+    ]
+  },
+  {
+    "id": "uk-digital-marketplace",
+    "name": "Digital Marketplace (Apply to Supply)",
+    "officialUrl": "https://www.applytosupply.digitalmarketplace.service.gov.uk/",
+    "country": "united-kingdom",
+    "platformType": "sector-procurement",
+    "operator": "Government Commercial Agency (formerly Crown Commercial Service)",
+    "operatorType": "central-purchasing-body",
+    "procurementScope": "public",
+    "coverage": "national",
+    "currentStatus": "active",
+    "lastVerified": "2026-08-11",
+    "languages": [
+      "en"
+    ],
+    "opportunityTypes": [
+      "framework-agreement",
+      "supplier-registration"
+    ],
+    "tenderSearchUrl": null,
+    "supplierRegistrationUrl": null,
+    "submissionUrl": null,
+    "documentsUrl": null,
+    "searchAccess": "free",
+    "electronicSubmission": "unknown",
+    "supplierRegistrationRequired": "unknown",
+    "foreignSuppliersAccepted": "unknown",
+    "evidenceClass": "A",
+    "evidenceUrl": "https://www.applytosupply.digitalmarketplace.service.gov.uk/",
+    "evidenceNote": "2026-08-11: https://www.digitalmarketplace.service.gov.uk/ 200 redirects to https://www.applytosupply.digitalmarketplace.service.gov.uk/ (host drift), 22,990 B, title 'Digital Marketplace'. Content shows live G-Cloud framework surfaces: 'View G-Cloud 14 supplier services', 'G-Cloud 15 supplier A to Z', 'Applying to sell on the G-Cloud framework', 'Buying on the G-Cloud framework'. Footer: 'Built by the Government Commercial Agency' with an 'About Government Commercial Agency' link pointing to the GOV.UK Crown Commercial Service organisation page — evidencing the CCS-to-GCA transition.",
+    "browserCheckRequired": false,
+    "limitations": [
+      "Scope limited to cloud/digital-services frameworks (G-Cloud) — a framework application and supplier-catalogue portal, not a general tender board",
+      "The original buyer-facing Digital Marketplace was restructured; current site centres on 'apply to supply' and supplier catalogues"
+    ]
+  },
+  {
+    "id": "ch-simap",
+    "name": "simap.ch",
+    "officialUrl": "https://www.simap.ch/",
+    "country": "switzerland",
+    "platformType": "national-procurement",
+    "operator": null,
+    "operatorType": "government",
+    "procurementScope": "public",
+    "coverage": "national",
+    "currentStatus": "active",
+    "lastVerified": "2026-08-11",
+    "languages": [
+      "de",
+      "fr",
+      "it"
+    ],
+    "opportunityTypes": [
+      "award-notice",
+      "contract-notice",
+      "tender"
+    ],
+    "tenderSearchUrl": null,
+    "supplierRegistrationUrl": null,
+    "submissionUrl": null,
+    "documentsUrl": null,
+    "searchAccess": "unknown",
+    "electronicSubmission": "unknown",
+    "supplierRegistrationRequired": "unknown",
+    "foreignSuppliersAccepted": "unknown",
+    "evidenceClass": "unknown",
+    "evidenceUrl": "https://www.simap.ch/",
+    "evidenceNote": "Fetched 2026-08-11: HTTP 200 but a 567-byte cookie gate titled \"Cookie Not accepted\", redirecting to /cookie-check/CookieCheckError.html. Reachability established; content not. The operating body was not verifiable through the gate and is recorded as null.",
+    "browserCheckRequired": true,
+    "limitations": [
+      "Cookie gate prevents non-browser verification of every route and of the operator identity.",
+      "Liechtenstein: no separate Liechtenstein procurement platform was verified in this pass, and Liechtenstein is not a declared country in this registry; its treatment is an open research question, not an omission by accident."
+    ]
+  },
+  {
+    "id": "ua-prozorro",
+    "name": "Prozorro",
+    "officialUrl": "https://prozorro.gov.ua/",
+    "country": "ukraine",
+    "platformType": "national-procurement",
+    "operator": "ДП «Прозорро» (State Enterprise Prozorro, Ministry of Economy)",
+    "operatorType": "state-owned-enterprise",
+    "procurementScope": "public",
+    "coverage": "national",
+    "currentStatus": "active",
+    "lastVerified": "2026-08-11",
+    "languages": [
+      "uk",
+      "en"
+    ],
+    "opportunityTypes": [
+      "award-notice",
+      "contract-notice",
+      "electronic-auction",
+      "tender"
+    ],
+    "tenderSearchUrl": null,
+    "supplierRegistrationUrl": null,
+    "submissionUrl": null,
+    "documentsUrl": null,
+    "searchAccess": "free",
+    "electronicSubmission": "no",
+    "supplierRegistrationRequired": "no",
+    "foreignSuppliersAccepted": "unknown",
+    "evidenceClass": "A",
+    "evidenceUrl": "https://prozorro.gov.ua/about",
+    "evidenceNote": "The central e-procurement system of Ukraine, administered by State Enterprise Prozorro under the Ministry of Economy. Fetched 2026-08-11: the site serves an 842-byte client-rendered shell titled \"Публічні закупівлі України | Prozorro\", so routes were not verifiable by fetch. The authority documentation (prozorro.gov.ua/about, /for-places) states that registration and bid submission happen exclusively through authorized commercial marketplaces (майданчики) accredited by the administrator — which is why electronicSubmission is \"no\" on the central system itself and \"supplier registration\" is not a central-system action.",
+    "browserCheckRequired": true,
+    "limitations": [
+      "The public site is a JS shell; search routes need rendered-browser verification.",
+      "Suppliers act through authorized marketplaces, not on the central system; see records linked via partOf."
+    ]
+  },
+  {
+    "id": "ua-smarttender",
+    "name": "SmartTender",
+    "officialUrl": "https://smarttender.biz/",
+    "country": "ukraine",
+    "platformType": "national-procurement",
+    "operator": null,
+    "operatorType": "private-company",
+    "procurementScope": "mixed",
+    "coverage": "national",
+    "currentStatus": "active",
+    "lastVerified": "2026-08-11",
+    "languages": [
+      "uk"
+    ],
+    "opportunityTypes": [
+      "contract-notice",
+      "electronic-auction",
+      "supplier-registration",
+      "tender"
+    ],
+    "tenderSearchUrl": null,
+    "supplierRegistrationUrl": null,
+    "submissionUrl": null,
+    "documentsUrl": null,
+    "searchAccess": "free",
+    "electronicSubmission": "yes",
+    "supplierRegistrationRequired": "yes",
+    "foreignSuppliersAccepted": "unknown",
+    "partOf": "ua-prozorro",
+    "evidenceClass": "B",
+    "evidenceUrl": "https://smarttender.biz/",
+    "evidenceNote": "Fetched 2026-08-11: HTTP 200, 383 KB, title \"SmartTender — відкриті тендери в Україні, державні та комерційні закупівлі Prozorro\" — a live, content-rich authorized-marketplace surface identifying itself as a Prozorro marketplace carrying both public and commercial tenders. Electronic submission and registration are the defining functions of an authorized marketplace in the Prozorro model (class-A ecosystem documentation on the parent record).",
+    "browserCheckRequired": false,
+    "limitations": [
+      "Operator legal entity not established from the fetched page and recorded as null.",
+      "One of several authorized marketplaces; inclusion is not an endorsement over its peers. zakupki.prom.ua, another major marketplace, now redirects to zakupivli.pro behind a bot wall and is logged as needing a browser check rather than published."
+    ]
+  },
+  {
+    "id": "tr-ekap",
+    "name": "EKAP — Elektronik Kamu Alımları Platformu",
+    "officialUrl": "https://ekap.kik.gov.tr/",
+    "country": "turkey",
+    "platformType": "national-procurement",
+    "operator": "Kamu İhale Kurumu (Public Procurement Authority)",
+    "operatorType": "regulator",
+    "procurementScope": "public",
+    "coverage": "national",
+    "currentStatus": "active",
+    "lastVerified": "2026-08-11",
+    "languages": [
+      "tr"
+    ],
+    "opportunityTypes": [
+      "award-notice",
+      "contract-notice",
+      "tender"
+    ],
+    "tenderSearchUrl": null,
+    "supplierRegistrationUrl": null,
+    "submissionUrl": null,
+    "documentsUrl": null,
+    "searchAccess": "unknown",
+    "electronicSubmission": "unknown",
+    "supplierRegistrationRequired": "unknown",
+    "foreignSuppliersAccepted": "unknown",
+    "evidenceClass": "B",
+    "evidenceUrl": "https://ekapv2.kik.gov.tr/",
+    "evidenceNote": "Fetched 2026-08-11: ekap.kik.gov.tr answers 200 and redirects to ekapv2.kik.gov.tr (13 KB, title \"EKAP\") — the platform has moved to a v2 application on the authority's own domain. The kik.gov.tr host ties the platform to the Public Procurement Authority. The v2 surface is application-rendered, so no deeper route was verifiable by fetch.",
+    "browserCheckRequired": true,
+    "limitations": [
+      "The v2 application requires rendered-browser verification for search, registration and submission routes."
+    ]
+  },
+  {
+    "id": "ge-spa-eprocurement",
+    "name": "Georgian eProcurement (SPA)",
+    "officialUrl": "https://tenders.procurement.gov.ge/",
+    "country": "georgia",
+    "platformType": "national-procurement",
+    "operator": "სახელმწიფო შესყიდვების სააგენტო (State Procurement Agency)",
+    "operatorType": "government",
+    "procurementScope": "public",
+    "coverage": "national",
+    "currentStatus": "active",
+    "lastVerified": "2026-08-11",
+    "languages": [
+      "ka"
+    ],
+    "opportunityTypes": [
+      "contract-notice",
+      "tender"
+    ],
+    "tenderSearchUrl": null,
+    "supplierRegistrationUrl": null,
+    "submissionUrl": null,
+    "documentsUrl": null,
+    "searchAccess": "unknown",
+    "electronicSubmission": "unknown",
+    "supplierRegistrationRequired": "unknown",
+    "foreignSuppliersAccepted": "unknown",
+    "evidenceClass": "B",
+    "evidenceUrl": "https://tenders.procurement.gov.ge/",
+    "evidenceNote": "Fetched 2026-08-11: HTTP 200 redirecting to /login.php, 12 KB, title naming the State Procurement Agency (Georgian). The system exists and identifies its operator; its public pre-login surface was not sufficient to verify search or registration routes.",
+    "browserCheckRequired": true,
+    "limitations": [
+      "Root redirects to a login page; the extent of anonymous public search needs a rendered browser."
+    ]
+  },
+  {
+    "id": "am-armeps",
+    "name": "ARMEPS",
+    "officialUrl": "https://www.armeps.am/",
+    "country": "armenia",
+    "platformType": "national-procurement",
+    "operator": null,
+    "operatorType": "government",
+    "procurementScope": "public",
+    "coverage": "national",
+    "currentStatus": "active",
+    "lastVerified": "2026-08-11",
+    "languages": [
+      "hy"
+    ],
+    "opportunityTypes": [
+      "contract-notice",
+      "tender"
+    ],
+    "tenderSearchUrl": null,
+    "supplierRegistrationUrl": null,
+    "submissionUrl": null,
+    "documentsUrl": null,
+    "searchAccess": "unknown",
+    "electronicSubmission": "unknown",
+    "supplierRegistrationRequired": "unknown",
+    "foreignSuppliersAccepted": "unknown",
+    "softwareVendor": "European Dynamics",
+    "evidenceClass": "B",
+    "evidenceUrl": "https://www.armeps.am/epps/home.do",
+    "evidenceNote": "Fetched 2026-08-11: HTTP 200 resolving to /epps/home.do, 34 KB, Armenian title welcoming to ARMEPS. The /epps/ path is the same European Dynamics ePPS application family as Ireland's eTenders and eTendersNI; the vendor is recorded, the operating authority was not named on the fetched page and stays null.",
+    "browserCheckRequired": false,
+    "limitations": [
+      "Operating authority not established from the platform surface; routes beyond the home application not verified."
+    ]
+  },
+  {
+    "id": "md-mtender",
+    "name": "MTender",
+    "officialUrl": "https://mtender.gov.md/",
+    "country": "moldova",
+    "platformType": "national-procurement",
+    "operator": null,
+    "operatorType": "government",
+    "procurementScope": "public",
+    "coverage": "national",
+    "currentStatus": "active",
+    "lastVerified": "2026-08-11",
+    "languages": [
+      "ro"
+    ],
+    "opportunityTypes": [
+      "contract-notice",
+      "tender"
+    ],
+    "tenderSearchUrl": null,
+    "supplierRegistrationUrl": null,
+    "submissionUrl": null,
+    "documentsUrl": null,
+    "searchAccess": "free",
+    "electronicSubmission": "unknown",
+    "supplierRegistrationRequired": "unknown",
+    "foreignSuppliersAccepted": "unknown",
+    "evidenceClass": "B",
+    "evidenceUrl": "https://mtender.gov.md/",
+    "evidenceNote": "Fetched 2026-08-11: HTTP 200, 28 KB, title \"MTender Public Portal\" on the gov.md host — the central public portal of Moldova's MTender system, which follows the Prozorro-style model of a central unit plus authorized marketplaces.",
+    "browserCheckRequired": false,
+    "limitations": [
+      "Operating unit not named on the fetched surface; recorded as null."
+    ]
+  },
+  {
+    "id": "md-achizitii",
+    "name": "Achizitii.md",
+    "officialUrl": "https://achizitii.md/",
+    "country": "moldova",
+    "platformType": "national-procurement",
+    "operator": null,
+    "operatorType": "private-company",
+    "procurementScope": "mixed",
+    "coverage": "national",
+    "currentStatus": "active",
+    "lastVerified": "2026-08-11",
+    "languages": [
+      "ro",
+      "ru"
+    ],
+    "opportunityTypes": [
+      "contract-notice",
+      "supplier-registration",
+      "tender"
+    ],
+    "tenderSearchUrl": null,
+    "supplierRegistrationUrl": null,
+    "submissionUrl": null,
+    "documentsUrl": null,
+    "searchAccess": "free",
+    "electronicSubmission": "yes",
+    "supplierRegistrationRequired": "yes",
+    "foreignSuppliersAccepted": "unknown",
+    "partOf": "md-mtender",
+    "evidenceClass": "B",
+    "evidenceUrl": "https://achizitii.md/ro/",
+    "evidenceNote": "Fetched 2026-08-11: HTTP 200 resolving to /ro/, 103 KB, title \"Achiziţii publice şi private din Moldova\" — a live authorized-marketplace surface of the MTender ecosystem carrying public and private tenders. Submission and registration are the defining marketplace functions in that model.",
+    "browserCheckRequired": false,
+    "limitations": [
+      "Operator legal entity not established from the fetched page.",
+      "One of the MTender authorized marketplaces; inclusion is not an endorsement over its peers."
+    ]
+  },
+  {
+    "id": "xk-e-prokurimi",
+    "name": "e-Prokurimi",
+    "officialUrl": "https://e-prokurimi.rks-gov.net/",
+    "country": "kosovo",
+    "platformType": "national-procurement",
+    "operator": null,
+    "operatorType": "government",
+    "procurementScope": "public",
+    "coverage": "national",
+    "currentStatus": "active",
+    "lastVerified": "2026-08-11",
+    "languages": [
+      "sq",
+      "sr"
+    ],
+    "opportunityTypes": [
+      "contract-notice",
+      "tender"
+    ],
+    "tenderSearchUrl": null,
+    "supplierRegistrationUrl": null,
+    "submissionUrl": null,
+    "documentsUrl": null,
+    "searchAccess": "unknown",
+    "electronicSubmission": "unknown",
+    "supplierRegistrationRequired": "unknown",
+    "foreignSuppliersAccepted": "unknown",
+    "evidenceClass": "B",
+    "evidenceUrl": "https://e-prokurimi.rks-gov.net/",
+    "evidenceNote": "Fetched 2026-08-11: HTTP 200, 59 KB, title \"E-Prokurimi\" on the rks-gov.net state domain, resolving to a content page of the platform. Deeper routes not verified by fetch.",
+    "browserCheckRequired": false,
+    "limitations": [
+      "Operating authority not named on the fetched page; recorded as null."
+    ]
+  },
+  {
+    "id": "mk-esjn",
+    "name": "ЕСЈН — Електронски систем за јавни набавки",
+    "officialUrl": "https://e-nabavki.gov.mk/",
+    "country": "north-macedonia",
+    "platformType": "national-procurement",
+    "operator": null,
+    "operatorType": "government",
+    "procurementScope": "public",
+    "coverage": "national",
+    "currentStatus": "active",
+    "lastVerified": "2026-08-11",
+    "languages": [
+      "mk"
+    ],
+    "opportunityTypes": [
+      "contract-notice",
+      "tender"
+    ],
+    "tenderSearchUrl": null,
+    "supplierRegistrationUrl": null,
+    "submissionUrl": null,
+    "documentsUrl": null,
+    "searchAccess": "unknown",
+    "electronicSubmission": "unknown",
+    "supplierRegistrationRequired": "unknown",
+    "foreignSuppliersAccepted": "unknown",
+    "evidenceClass": "B",
+    "evidenceUrl": "https://e-nabavki.gov.mk/PublicAccess/Home.aspx",
+    "evidenceNote": "Fetched 2026-08-11: HTTP 200 resolving to /PublicAccess/Home.aspx, 31 KB, title \"Електронски систем за јавни набавки | ЕСЈН\" — the platform's own public-access surface on the gov.mk domain.",
+    "browserCheckRequired": false,
+    "limitations": [
+      "Operating bureau not named on the fetched page; recorded as null."
+    ]
+  },
+  {
+    "id": "rs-portal-javnih-nabavki",
+    "name": "Portal javnih nabavki",
+    "officialUrl": "https://jnportal.ujn.gov.rs/",
+    "country": "serbia",
+    "platformType": "national-procurement",
+    "operator": "Канцеларија за јавне набавке (Public Procurement Office)",
+    "operatorType": "government",
+    "procurementScope": "public",
+    "coverage": "national",
+    "currentStatus": "active",
+    "lastVerified": "2026-08-11",
+    "languages": [
+      "sr"
+    ],
+    "opportunityTypes": [
+      "contract-notice",
+      "tender"
+    ],
+    "tenderSearchUrl": null,
+    "supplierRegistrationUrl": null,
+    "submissionUrl": null,
+    "documentsUrl": null,
+    "searchAccess": "unknown",
+    "electronicSubmission": "unknown",
+    "supplierRegistrationRequired": "unknown",
+    "foreignSuppliersAccepted": "unknown",
+    "evidenceClass": "B",
+    "evidenceUrl": "https://jnportal.ujn.gov.rs/",
+    "evidenceNote": "Fetched 2026-08-11: HTTP 200, 119 KB, title \"Portal javnih nabavki\" on the ujn.gov.rs host of the Public Procurement Office. A bot-mitigation marker was present in the body, so deeper routes were not probed.",
+    "browserCheckRequired": true,
+    "limitations": [
+      "Search and submission routes require rendered-browser verification behind the bot mitigation."
+    ]
+  },
+  {
+    "id": "me-cejn",
+    "name": "CeJN — Crnogorski elektronski sistem javnih nabavki",
+    "officialUrl": "https://cejn.gov.me/",
+    "country": "montenegro",
+    "platformType": "national-procurement",
+    "operator": null,
+    "operatorType": "government",
+    "procurementScope": "public",
+    "coverage": "national",
+    "currentStatus": "active",
+    "lastVerified": "2026-08-11",
+    "languages": [
+      "cnr"
+    ],
+    "opportunityTypes": [
+      "contract-notice",
+      "tender"
+    ],
+    "tenderSearchUrl": null,
+    "supplierRegistrationUrl": null,
+    "submissionUrl": null,
+    "documentsUrl": null,
+    "searchAccess": "unknown",
+    "electronicSubmission": "unknown",
+    "supplierRegistrationRequired": "unknown",
+    "foreignSuppliersAccepted": "unknown",
+    "evidenceClass": "unknown",
+    "evidenceUrl": "https://cejn.gov.me/",
+    "evidenceNote": "Fetched 2026-08-11: HTTP 200 but a 1.1 KB client-rendered shell titled \"CeJN\" on the gov.me domain. Identity is consistent with Montenegro's electronic public procurement system; content was not verifiable by fetch.",
+    "browserCheckRequired": true,
+    "limitations": [
+      "JS shell: every route and the operator identity need rendered-browser verification."
     ]
   }
 ]
