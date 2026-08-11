@@ -45,6 +45,7 @@ const COLLECTION_ROOTS = [
   render.MARKETPLACES_PATH,
   render.MEDIA_PATH,
   render.PLANNER_PATH,
+  render.TENDERS_PATH,
 ].map((p) => p.replace(/^\//, ''));
 const GENERATED_PREFIXES = COLLECTION_ROOTS;
 
