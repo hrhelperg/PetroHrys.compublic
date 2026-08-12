@@ -11836,5 +11836,851 @@
       "No internal route verified beyond the root, so no deep routes published."
     ],
     "partOf": "py-portal-de-contrataciones-publicas"
+  },
+  {
+    "id": "sg-gebiz",
+    "name": "GeBIZ (Government Electronic Business System)",
+    "officialUrl": "https://www.gebiz.gov.sg/",
+    "country": "singapore",
+    "platformType": "national-procurement",
+    "operator": "Ministry of Finance (MOF), Singapore",
+    "operatorType": "government",
+    "procurementScope": "public",
+    "coverage": "national",
+    "currentStatus": "active",
+    "lastVerified": "2026-08-12",
+    "languages": [
+      "en"
+    ],
+    "opportunityTypes": [
+      "award-notice",
+      "contract-notice",
+      "itt",
+      "rfp",
+      "rfq",
+      "supplier-registration",
+      "tender"
+    ],
+    "tenderSearchUrl": "https://www.gebiz.gov.sg/ptn/opportunity/BOListing.xhtml?origin=menu",
+    "supplierRegistrationUrl": "https://www.gebiz.gov.sg/ptn/gtpregistration/signup.xhtml",
+    "submissionUrl": null,
+    "documentsUrl": null,
+    "searchAccess": "free",
+    "electronicSubmission": "yes",
+    "supplierRegistrationRequired": "yes",
+    "foreignSuppliersAccepted": "yes",
+    "evidenceClass": "A",
+    "evidenceUrl": "https://www.gebiz.gov.sg/",
+    "evidenceNote": "2026-08-12 curl: 200 https://www.gebiz.gov.sg/ 99084 bytes, title 'Government Electronic Business System (GeBIZ)'. Homepage body confirms the three supplier functions: 'Search for Opportunities - Find procurement opportunities from different government agencies', 'Bid for Opportunities - Select items for bidding and submit your documents', 'Manage Opportunities'. Route check 2026-08-12: https://www.gebiz.gov.sg/ptn/opportunity/BOListing.xhtml?origin=menu -> 200, 161570 bytes, title 'GeBIZ | Opportunities' (real listing, not a homepage redirect). Route check 2026-08-12: https://www.gebiz.gov.sg/ptn/gtpregistration/signup.xhtml -> 200, 77444 bytes, title 'GeBIZ | Sign Up'. Login options rendered in page source: Singpass, Corppass, GeBIZ ID.",
+    "browserCheckRequired": false,
+    "limitations": [
+      "Bid submission and document download sit behind Singpass / Corppass / GeBIZ ID authentication",
+      "A paid GeBIZ Trading Partner (GTP) subscription is required to respond to opportunities; browsing the opportunity list is open",
+      "No official-source confirmation found for the system integrator; secondary sources name GovTech as technical manager and CrimsonLogic as system operator / overseas registration agent, so softwareVendor left null"
+    ],
+    "foreignEvidenceQuote": "GeBIZ ID is for foreign companies or foreign individuals WITHOUT Unique Entity Number (UEN)"
+  },
+  {
+    "id": "my-eperolehan",
+    "name": "ePerolehan",
+    "officialUrl": "https://www.eperolehan.gov.my/",
+    "country": "malaysia",
+    "platformType": "national-procurement",
+    "operator": "Kementerian Kewangan Malaysia (Ministry of Finance Malaysia)",
+    "operatorType": "government",
+    "procurementScope": "public",
+    "coverage": "national",
+    "currentStatus": "active",
+    "lastVerified": "2026-08-12",
+    "languages": [
+      "en",
+      "ms"
+    ],
+    "opportunityTypes": [
+      "contract-notice",
+      "rfq",
+      "supplier-registration",
+      "tender"
+    ],
+    "tenderSearchUrl": null,
+    "supplierRegistrationUrl": null,
+    "submissionUrl": null,
+    "documentsUrl": null,
+    "searchAccess": "unknown",
+    "electronicSubmission": "yes",
+    "supplierRegistrationRequired": "yes",
+    "foreignSuppliersAccepted": "unknown",
+    "evidenceClass": "B",
+    "evidenceUrl": "https://www.eperolehan.gov.my/",
+    "evidenceNote": "2026-08-12 curl: 403 https://www.eperolehan.gov.my/ 1676 bytes, title 'ePerolehan' — the WAF block page is itself ePerolehan-branded, confirming the host serves the ePerolehan system. Retried once at https://www.eperolehan.gov.my/en/ -> 403, 1676 bytes, same title; WebFetch of https://www.eperolehan.gov.my/en/home also returned 403. Host is hard-gated to non-browser clients from outside Malaysia. Function evidence is from official ePerolehan documentation indexed at https://www.eperolehan.gov.my/en/supplier-registration-guide and the ePerolehan supplier-registration user manual PDF hosted on the same domain, which names Commerce Dot Com Sdn. Bhd. (Tingkat 2, Wisma Amtek, Jalan Tandang, Petaling Jaya) as the system development partner.",
+    "browserCheckRequired": true,
+    "limitations": [
+      "HTTP 403 WAF gate on every probe from this network; no page body observed",
+      "Deep routes (supplier registration, tender listing) could not be verified, so all route fields left null rather than guessed",
+      "MOF supplier registration in practice requires an SSM-registered Malaysian entity; a CPTPP 'Syarikat Asing' foreign route is described only in secondary commentary, not confirmed from an official source"
+    ],
+    "softwareVendor": "Commerce Dot Com Sdn. Bhd."
+  },
+  {
+    "id": "my-myprocurement",
+    "name": "MyProcurement (Pusat Maklumat Perolehan Kerajaan)",
+    "officialUrl": "https://myprocurement.treasury.gov.my/",
+    "country": "malaysia",
+    "platformType": "national-procurement",
+    "operator": "Kementerian Kewangan Malaysia (Ministry of Finance Malaysia)",
+    "operatorType": "government",
+    "procurementScope": "public",
+    "coverage": "national",
+    "currentStatus": "active",
+    "lastVerified": "2026-08-12",
+    "languages": [
+      "ms"
+    ],
+    "opportunityTypes": [
+      "award-notice",
+      "contract-notice",
+      "procurement-plan",
+      "rfq",
+      "tender"
+    ],
+    "tenderSearchUrl": null,
+    "supplierRegistrationUrl": null,
+    "submissionUrl": null,
+    "documentsUrl": null,
+    "searchAccess": "unknown",
+    "electronicSubmission": "unknown",
+    "supplierRegistrationRequired": "unknown",
+    "foreignSuppliersAccepted": "unknown",
+    "evidenceClass": "unknown",
+    "evidenceUrl": "https://myprocurement.treasury.gov.my/",
+    "evidenceNote": "2026-08-12: NOT observed live from this network. curl https://myprocurement.treasury.gov.my/ -> 000, 0 bytes; http:// -> 000, 0 bytes; WebFetch -> connect ECONNREFUSED 203.217.178.108:443. DNS resolves (dig +short = 203.217.178.108) but TCP probes to both 443 and 80 timed out/were filtered, i.e. network-level geo-restriction rather than a dead host. Existence and structure corroborated only by search-engine-indexed live pages on the domain: root titled 'MYPROCUREMENT – Pusat Maklumat Perolehan Kerajaan|Kementerian Kewangan Malaysia', plus live sections /keputusan/tender/ ('Tender'), /keputusan/ ('Keputusan') and /arkib/keputusan-tender/ ('Keputusan Tender'), and site sections for Perancangan Perolehan, Iklan, Sebut Harga, Tender, Keputusan.",
+    "browserCheckRequired": true,
+    "limitations": [
+      "Zero bytes retrieved — accepted on indexed-title corroboration only; must be re-verified from inside Malaysia before publication",
+      "No route published: the indexed deep paths were never fetched by me",
+      "Notice-publication / information-centre surface; transactional bidding happens in ePerolehan, not here"
+    ]
+  },
+  {
+    "id": "my-sarawak-government-etender-notices",
+    "name": "Sarawak Government eTender Notices",
+    "officialUrl": "https://etendernotice.sarawak.gov.my/",
+    "country": "malaysia",
+    "platformType": "regional-procurement",
+    "operator": "Sarawak State Government",
+    "operatorType": "government",
+    "procurementScope": "public",
+    "coverage": "regional",
+    "currentStatus": "active",
+    "lastVerified": "2026-08-12",
+    "languages": [
+      "en",
+      "ms"
+    ],
+    "opportunityTypes": [
+      "contract-notice",
+      "rfq",
+      "tender"
+    ],
+    "tenderSearchUrl": "https://etendernotice.sarawak.gov.my/etender/public/public_search.jsp",
+    "supplierRegistrationUrl": null,
+    "submissionUrl": null,
+    "documentsUrl": null,
+    "searchAccess": "free",
+    "electronicSubmission": "unknown",
+    "supplierRegistrationRequired": "unknown",
+    "foreignSuppliersAccepted": "unknown",
+    "evidenceClass": "B",
+    "evidenceUrl": "https://etendernotice.sarawak.gov.my/etender/public/public_search.jsp",
+    "evidenceNote": "2026-08-12 curl: https://etendernotice.sarawak.gov.my/ -> 200, final URL https://etendernotice.sarawak.gov.my/etender/public/public_tender.jsp, 13289 bytes, title 'Sarawak Government eTender Notices' (root redirects forward into the notice listing). Distinct search route verified 2026-08-12: https://etendernotice.sarawak.gov.my/etender/public/public_search.jsp -> 200, 30161 bytes, same title — a separate search-form page, not the listing and not a homepage bounce. Malay-language result view also live: /etender/bm/public/public_searchResult.jsp?current_index=0 -> 200, 21264 bytes.",
+    "browserCheckRequired": false,
+    "limitations": [
+      "State of Sarawak only — not federal; Malaysia has no ISO 3166-2 entry in this project's allowlist so subnationalCode is null",
+      "This is the tender-notice surface; the transactional Sarawak State e-Procurement (contractor/supplier registration, catalogue, bidding, quotation and tender submission) is a separate system whose supplier-facing URL I could not resolve — see unresolved",
+      "Support for the state e-procurement service is routed to cats.sains.com.my, suggesting SAINS (Sarawak Information Systems Sdn Bhd) as integrator, but no official statement found, so softwareVendor left null",
+      "Sub-national system recorded without an ISO 3166-2 code: the project allowlist does not cover this country, and the jurisdiction is named in the record title instead."
+    ]
+  },
+  {
+    "id": "ph-philgeps",
+    "name": "PhilGEPS (Philippine Government Electronic Procurement System)",
+    "officialUrl": "https://philgeps.gov.ph/",
+    "country": "philippines",
+    "platformType": "national-procurement",
+    "operator": "Procurement Service – Department of Budget and Management (PS-DBM)",
+    "operatorType": "central-purchasing-body",
+    "procurementScope": "public",
+    "coverage": "national",
+    "currentStatus": "active",
+    "lastVerified": "2026-08-12",
+    "languages": [
+      "en"
+    ],
+    "opportunityTypes": [
+      "award-notice",
+      "contract-notice",
+      "procurement-plan",
+      "rfq",
+      "supplier-registration",
+      "tender"
+    ],
+    "tenderSearchUrl": "https://philgeps.gov.ph/Indexes/index",
+    "supplierRegistrationUrl": "https://philgeps.gov.ph/Suppliers/add",
+    "submissionUrl": null,
+    "documentsUrl": null,
+    "searchAccess": "free",
+    "electronicSubmission": "yes",
+    "supplierRegistrationRequired": "yes",
+    "foreignSuppliersAccepted": "unknown",
+    "evidenceClass": "B",
+    "evidenceUrl": "https://philgeps.gov.ph/Indexes/index",
+    "evidenceNote": "2026-08-12 curl: https://www.philgeps.gov.ph/ -> 200, final URL https://philgeps.gov.ph/, 19542 bytes, title 'PS-PhilGEPS'. Route check 2026-08-12: https://philgeps.gov.ph/Indexes/index -> 200, 122756 bytes, empty <title> but rendered body confirms the live Bulletin Board with 'Open Opportunities', 'Former Opportunities', 'Award Notices', 'AMP Award Notices', 'Annual Procurement Plan', a Mode-of-Procurement filter (Competitive Bidding, Competitive Dialogue, Limited Source Bidding, Negotiated Procurement variants, etc.), plus 'Merchant Registration', 'Observer Registration', 'e-Catalogue', 'Merchant Registry'. Route check 2026-08-12: https://philgeps.gov.ph/Suppliers/add -> 200, 72134 bytes, live merchant sign-up page. Page date stamp observed on the estate: Wednesday, August 12, 2026.",
+    "browserCheckRequired": false,
+    "limitations": [
+      "Pages serve an empty <title> element; identity confirmed from body content and header branding instead",
+      "Mid-migration: procuring entities could post NEW opportunities on the legacy PhilGEPS 1.5 notice board only until 31 July 2026, moving to the mPhilGEPS eBidding facility from 01 August 2026 — so opportunity flow is currently split across two surfaces",
+      "No dedicated mphilgeps.gov.ph domain exists (DNS does not resolve); mPhilGEPS is served from the philgeps.gov.ph estate",
+      "Supersedes PhilGEPS 1.5 (notices.philgeps.gov.ph), which is not published as a record here."
+    ]
+  },
+  {
+    "id": "ph-philgeps-bid-notices",
+    "name": "PhilGEPS Bid Notices (PhilGEPS 1.5)",
+    "officialUrl": "https://notices.philgeps.gov.ph/",
+    "country": "philippines",
+    "platformType": "national-procurement",
+    "operator": "Procurement Service – Department of Budget and Management (PS-DBM)",
+    "operatorType": "central-purchasing-body",
+    "procurementScope": "public",
+    "coverage": "national",
+    "currentStatus": "active",
+    "lastVerified": "2026-08-12",
+    "languages": [
+      "en"
+    ],
+    "opportunityTypes": [
+      "award-notice",
+      "contract-notice",
+      "tender"
+    ],
+    "tenderSearchUrl": "https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/SplashOpenOpportunitiesUI.aspx?ClickFrom=OpenOpp&menuIndex=3",
+    "supplierRegistrationUrl": null,
+    "submissionUrl": null,
+    "documentsUrl": null,
+    "searchAccess": "free",
+    "electronicSubmission": "unknown",
+    "supplierRegistrationRequired": "yes",
+    "foreignSuppliersAccepted": "unknown",
+    "evidenceClass": "B",
+    "evidenceUrl": "https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/SplashOpenOpportunitiesUI.aspx?ClickFrom=OpenOpp&menuIndex=3",
+    "evidenceNote": "2026-08-12 curl: https://notices.philgeps.gov.ph/ -> 200, 60967 bytes, title 'PhilGEPS'. Open-opportunities route discovered via the site's own sitemap (/GEPSNONPILOT/Sitemap/Sitemap.aspx -> 200, 9819 bytes, title 'Sitemap') and verified 2026-08-12: https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/SplashOpenOpportunitiesUI.aspx?ClickFrom=OpenOpp&menuIndex=3 -> 200, 53925 bytes, title 'SplashOpenOpportunitiesUI', body shows 'Open Opportunities' / 'Recent Award' tabs and the live date 'Wednesday, August 12, 2026'. Award search also live: /GEPSNONPILOT/Tender/RecentAwardNoticeUI.aspx?menuIndex=3 -> 200, 51636 bytes, title 'AwardNoticeSearch'. Guessed routes were checked and discarded: SplashBidNoticeAbstractUI.aspx and OpenOpportunitiesUI.aspx both soft-404 to /GEPSNONPILOT/ErrorPage/ErrorPage.aspx, and /GEPSNONPILOT/R3/R3_RegisterAs.html returns a hard 404 — none published.",
+    "browserCheckRequired": false,
+    "limitations": [
+      "Being decommissioned: per PS-PhilGEPS advisories (ADV2025-017, Advisory 2026-09, PSADVISORY 2026-19) no new procurement opportunities may be published here from 01 August 2026; the board remains live for legacy notices and award data",
+      "Login route /GEPSNONPILOT/... log-in.aspx redirects to an error page and was not published"
+    ],
+    "partOf": "ph-philgeps"
+  },
+  {
+    "id": "ph-philgeps-emarketplace",
+    "name": "PhilGEPS eMarketplace",
+    "officialUrl": "https://emarket.philgeps.gov.ph/",
+    "country": "philippines",
+    "platformType": "national-procurement",
+    "operator": "Procurement Service – Department of Budget and Management (PS-DBM)",
+    "operatorType": "central-purchasing-body",
+    "procurementScope": "public",
+    "coverage": "national",
+    "currentStatus": "active",
+    "lastVerified": "2026-08-12",
+    "languages": [
+      "en"
+    ],
+    "opportunityTypes": [
+      "supplier-registration"
+    ],
+    "tenderSearchUrl": null,
+    "supplierRegistrationUrl": null,
+    "submissionUrl": null,
+    "documentsUrl": null,
+    "searchAccess": "unknown",
+    "electronicSubmission": "unknown",
+    "supplierRegistrationRequired": "yes",
+    "foreignSuppliersAccepted": "unknown",
+    "evidenceClass": "B",
+    "evidenceUrl": "https://emarket.philgeps.gov.ph/",
+    "evidenceNote": "2026-08-12 curl: 200 https://emarket.philgeps.gov.ph/ 897 bytes, title 'PhilGEPS - WEB'. Body is a create-react-app SPA shell (<div id=\"root\">, /static/js/main.ff750b0f.js) carrying PhilGEPS branding assets (/philgeps192.png, /favicon.ico), which confirms it is the PhilGEPS eMarketplace application host and not a parked domain. Cross-referenced from the PS-PhilGEPS 'eMarketplace General Information and User Guide' FAQ.",
+    "browserCheckRequired": true,
+    "limitations": [
+      "Client-rendered SPA — no server-rendered content is visible to non-browser clients; catalogue and merchant functions could not be observed",
+      "Login-gated; merchant catalogue listing rather than open tender discovery"
+    ],
+    "partOf": "ph-philgeps"
+  },
+  {
+    "id": "th-e-gp-electronic-governme",
+    "name": "ระบบการจัดซื้อจัดจ้างภาครัฐ (e-GP – Electronic Government Procurement)",
+    "officialUrl": "https://www.gprocurement.go.th/",
+    "country": "thailand",
+    "platformType": "national-procurement",
+    "operator": "กรมบัญชีกลาง (Comptroller General's Department), Ministry of Finance",
+    "operatorType": "government",
+    "procurementScope": "public",
+    "coverage": "national",
+    "currentStatus": "active",
+    "lastVerified": "2026-08-12",
+    "languages": [
+      "en",
+      "th"
+    ],
+    "opportunityTypes": [
+      "award-notice",
+      "contract-notice",
+      "procurement-plan",
+      "rfq",
+      "supplier-registration",
+      "tender"
+    ],
+    "tenderSearchUrl": null,
+    "supplierRegistrationUrl": null,
+    "submissionUrl": null,
+    "documentsUrl": null,
+    "searchAccess": "free",
+    "electronicSubmission": "yes",
+    "supplierRegistrationRequired": "yes",
+    "foreignSuppliersAccepted": "unknown",
+    "evidenceClass": "B",
+    "evidenceUrl": "https://www.gprocurement.go.th/wps/portal/egp",
+    "evidenceNote": "2026-08-12 curl: https://www.gprocurement.go.th/ -> 200, 427 bytes, title 'INETPIS' — a JS interstitial that redirects to /homepage.html (200, 1953 bytes, title 'Homepage'), currently showing a royal-mourning splash image (/content/queen.jpg) with a single Thai button 'เข้าสู่เว็บไซต์ระบบจัดซื้อจัดจ้างภาครัฐ'. The live portal itself verified 2026-08-12: https://www.gprocurement.go.th/wps/portal/egp -> 200, 582165 bytes, title 'Electronic Government Procurement' (IBM WebSphere Portal). Portal body confirms operator linkage (cgd.go.th, mof.go.th) and the e-GP sub-application map: process3.gprocurement.go.th/eGPTraderSearch/TRAI0001 (200, 58985 bytes), process3.gprocurement.go.th/BlackListWeb/..., process5.gprocurement.go.th/egp-login-keycloak-web/login (200, 696 bytes, title 'EgpLoginKeycloakWeb'), costthailand.gprocurement.go.th. https://process3.gprocurement.go.th/ -> 200, 2271 bytes, JS redirect to www.gprocurement.go.th, wrapped in an F5 ASM script.",
+    "browserCheckRequired": true,
+    "limitations": [
+      "Announcement-search route NOT published: https://process3.gprocurement.go.th/egp2procmainWeb/jsp/procsearch.sch returns 200 with only a 1551-byte F5 ASM challenge script and no title, on both a cold request and a cookie-jar retry with referer",
+      "https://process3.gprocurement.go.th/EGPWeb/jsp/index_new.jsp is live (200, 138320 bytes, title 'gprocurement', header 'ระบบการจัดซื้อจัดจ้างภาครัฐ / กรมบัญชีกลาง') but its visible content is stale legacy notices dated 2559 (2016), so it was rejected as a current tender-search route",
+      "Root domain currently serves a mourning interstitial; /new_index.html redirects back to /homepage.html",
+      "F5 WAF fronting the process3/process5 application hosts"
+    ]
+  },
+  {
+    "id": "th-thai-sme-gp",
+    "name": "THAI SME-GP",
+    "officialUrl": "https://thaismegp.sme.go.th/",
+    "country": "thailand",
+    "platformType": "national-procurement",
+    "operator": "สำนักงานส่งเสริมวิสาหกิจขนาดกลางและขนาดย่อม (OSMEP – Office of Small and Medium Enterprises Promotion)",
+    "operatorType": "government",
+    "procurementScope": "public",
+    "coverage": "national",
+    "currentStatus": "active",
+    "lastVerified": "2026-08-12",
+    "languages": [
+      "th"
+    ],
+    "opportunityTypes": [
+      "supplier-registration"
+    ],
+    "tenderSearchUrl": null,
+    "supplierRegistrationUrl": null,
+    "submissionUrl": null,
+    "documentsUrl": null,
+    "searchAccess": "unknown",
+    "electronicSubmission": "unknown",
+    "supplierRegistrationRequired": "yes",
+    "foreignSuppliersAccepted": "no",
+    "evidenceClass": "unknown",
+    "evidenceUrl": "https://thaismegp.sme.go.th/",
+    "evidenceNote": "2026-08-12 curl: https://thaismegp.com -> 200, final URL https://thaismegp.sme.go.th/, 2293 bytes, title 'SME-GP | Loading....' — a JS application shell. /Home/Index and /Login both return the same 2293-byte shell (200), i.e. client-side routing rather than soft-404s. WebFetch of the root returned only 'SME-GP | Loading....' with no content. Function evidence is documentary: OSMEP operates THAI SME-GP as the registration system through which SMEs enrol to obtain the government-procurement support certificate, which grants registered SMEs a price preference of up to 15% over the lowest ordinary bid; certificates are annual (2569/2026 renewal campaign observed). The platform is also linked to the Federation of Thai Industries 'Made in Thailand' (MiT) registry, and is cross-linked from the e-GP portal itself (https://thaismegp.com appears in the gprocurement.go.th portal link list).",
+    "browserCheckRequired": true,
+    "limitations": [
+      "JS shell only — no server-rendered content observed; all functional description is documentary, hence evidenceClass unknown",
+      "Supplier registration / certification surface. Whether it also surfaces tender opportunities could not be confirmed — if a browser check shows registration only, it may belong under supplier-database-only instead",
+      "Thai-language only as far as observed"
+    ]
+  },
+  {
+    "id": "th-ptt-procurement",
+    "name": "PTT Procurement",
+    "officialUrl": "https://procurement.pttplc.com/",
+    "country": "thailand",
+    "platformType": "sector-procurement",
+    "operator": "PTT Public Company Limited (บริษัท ปตท. จำกัด (มหาชน))",
+    "operatorType": "state-owned-enterprise",
+    "procurementScope": "mixed",
+    "coverage": "institutional",
+    "currentStatus": "active",
+    "lastVerified": "2026-08-12",
+    "languages": [
+      "en",
+      "th"
+    ],
+    "opportunityTypes": [
+      "contract-notice",
+      "supplier-registration",
+      "tender"
+    ],
+    "tenderSearchUrl": null,
+    "supplierRegistrationUrl": null,
+    "submissionUrl": null,
+    "documentsUrl": null,
+    "searchAccess": "free",
+    "electronicSubmission": "unknown",
+    "supplierRegistrationRequired": "unknown",
+    "foreignSuppliersAccepted": "unknown",
+    "evidenceClass": "B",
+    "evidenceUrl": "https://procurement.pttplc.com/",
+    "evidenceNote": "2026-08-12 curl: 200 https://procurement.pttplc.com/ 73381 bytes, title 'Home - PTT Procurement'. English locale route also live: https://procurement.pttplc.com/en -> 200, 68605 bytes, same title (and /en/Home resolves identically, so no distinct route was published). Domain serves procurement announcement documents under /en/AnnounceFile/Download?d=PTTDP/procurement_web&f=/smart_procurement/... confirming it is PTT's operational procurement announcement surface, not a corporate brochure page.",
+    "browserCheckRequired": false,
+    "limitations": [
+      "Single state-owned enterprise (energy), not a whole-of-government system; PTT also transacts through the national e-GP",
+      "Sub-routes for supplier registration and bid submission not individually verified, so left null",
+      "PTT is majority state-held but SET-listed, hence scope recorded as mixed"
+    ]
+  },
+  {
+    "id": "th-egat-fprocurement",
+    "name": "EGAT FProcurement",
+    "officialUrl": "https://fprocurement.egat.co.th/",
+    "country": "thailand",
+    "platformType": "public-utility",
+    "operator": "การไฟฟ้าฝ่ายผลิตแห่งประเทศไทย (Electricity Generating Authority of Thailand, EGAT)",
+    "operatorType": "state-owned-enterprise",
+    "procurementScope": "public",
+    "coverage": "institutional",
+    "currentStatus": "active",
+    "lastVerified": "2026-08-12",
+    "languages": [
+      "en",
+      "th"
+    ],
+    "opportunityTypes": [
+      "contract-notice",
+      "electronic-auction",
+      "tender"
+    ],
+    "tenderSearchUrl": null,
+    "supplierRegistrationUrl": null,
+    "submissionUrl": null,
+    "documentsUrl": null,
+    "searchAccess": "free",
+    "electronicSubmission": "unknown",
+    "supplierRegistrationRequired": "unknown",
+    "foreignSuppliersAccepted": "unknown",
+    "evidenceClass": "B",
+    "evidenceUrl": "https://fprocurement.egat.co.th/",
+    "evidenceNote": "2026-08-12 curl: https://www4.egat.co.th/fprocurement/ -> 200 but only a 246-byte meta-refresh shell (title 'EGAT Website') pointing at http://fprocurement.egat.co.th. Following it: https://fprocurement.egat.co.th -> 200, final URL https://fprocurement.egat.co.th/en, 22880 bytes, title 'FProcurement' — the live EGAT procurement portal. Legacy e-bidding listing on the old host also verified 2026-08-12: https://www4.egat.co.th/fprocurement/biddingeng -> 200, final URL .../biddingeng/, 34459 bytes, title 'Bidding Eng'.",
+    "browserCheckRequired": false,
+    "limitations": [
+      "Two hosts in play (legacy www4.egat.co.th/fprocurement redirects to fprocurement.egat.co.th); the verified 'Bidding Eng' listing sits on the legacy host so it was not published as a route of the canonical host",
+      "Single state enterprise (electricity), not a whole-of-government system; EGAT also publishes through the national e-GP",
+      "'electronic-auction' recorded from EGAT's own 'E-Procurement -> E-Bidding' section naming; not independently confirmed inside the application"
+    ]
+  },
+  {
+    "id": "in-government-e-marketplace",
+    "name": "Government e Marketplace (GeM)",
+    "officialUrl": "https://gem.gov.in",
+    "country": "india",
+    "platformType": "national-procurement",
+    "operator": "GeM SPV (Government e Marketplace Special Purpose Vehicle), Ministry of Commerce and Industry",
+    "operatorType": "government",
+    "procurementScope": "public",
+    "coverage": "national",
+    "currentStatus": "active",
+    "lastVerified": "2026-08-12",
+    "languages": [
+      "en"
+    ],
+    "opportunityTypes": [
+      "electronic-auction",
+      "rfq",
+      "supplier-registration",
+      "tender"
+    ],
+    "tenderSearchUrl": null,
+    "supplierRegistrationUrl": null,
+    "submissionUrl": null,
+    "documentsUrl": null,
+    "searchAccess": "unknown",
+    "electronicSubmission": "yes",
+    "supplierRegistrationRequired": "yes",
+    "foreignSuppliersAccepted": "unknown",
+    "evidenceClass": "B",
+    "evidenceUrl": "https://eprocure.gov.in/cppp/gemtender",
+    "evidenceNote": "2026-08-12: gem.gov.in DNS resolves (160.187.232.12) but TCP connect is REFUSED from two independent egress paths (curl exit 7 on https/http and on mkp.gem.gov.in, bidplus.gem.gov.in, www.gem.gov.in; WebFetch ECONNREFUSED 160.187.232.12:443). Geo-fenced to India, not dead. Verified indirectly on an official Government of India portal: GET https://eprocure.gov.in/cppp/gemtender -> 200, 456434 bytes, title 'Gem Tenders | GeM-CPPP | Tenders Portal of Government of India | Government eTenders', showing 'Total Bid(s) : 38803' live GeM bids with GEM/2026/B/... numbering (e.g. GEM/2026/B/7619530, South Eastern Coalfields Limited / Coal India Limited, bid end 15-Sep-2026; GEM/2026/B/7720113, Export Inspection Council of India). The GeM platform surface itself was NOT directly observed, so no GeM route is published here.",
+    "browserCheckRequired": true,
+    "limitations": [
+      "gem.gov.in refuses TCP connections from non-Indian egress (verified from two separate networks) — all platform routes require an in-country browser check",
+      "No GeM-hosted route (bid search, seller registration) could be verified, so tenderSearchUrl/supplierRegistrationUrl/submissionUrl are left null rather than guessed",
+      "GFR 2017 Rule 144(xi) restricts bidders from countries sharing a land border with India unless registered with the Competent Authority — applies to Indian public procurement generally, not verified as a GeM platform rule"
+    ]
+  },
+  {
+    "id": "in-central-public-procurement-portal",
+    "name": "Central Public Procurement Portal (GeM-CPPP)",
+    "officialUrl": "https://eprocure.gov.in/cppp",
+    "country": "india",
+    "platformType": "national-procurement",
+    "operator": "National Informatics Centre (NIC) for the Department of Expenditure, Ministry of Finance",
+    "operatorType": "government",
+    "procurementScope": "public",
+    "coverage": "national",
+    "currentStatus": "active",
+    "lastVerified": "2026-08-12",
+    "languages": [
+      "en",
+      "hi"
+    ],
+    "opportunityTypes": [
+      "award-notice",
+      "contract-notice",
+      "electronic-auction",
+      "procurement-plan",
+      "tender"
+    ],
+    "tenderSearchUrl": "https://eprocure.gov.in/cppp/latestactivetendersnew/cpppdata",
+    "supplierRegistrationUrl": null,
+    "submissionUrl": null,
+    "documentsUrl": null,
+    "searchAccess": "free",
+    "electronicSubmission": "no",
+    "supplierRegistrationRequired": "unknown",
+    "foreignSuppliersAccepted": "unknown",
+    "evidenceClass": "B",
+    "evidenceUrl": "https://eprocure.gov.in/cppp/",
+    "evidenceNote": "2026-08-12: GET https://eprocure.gov.in/cppp/ -> 200, 66210 bytes, title 'Central Public Procurement Portal | Home en | GeM-CPPP | Tenders Portal of Government of India | Government eTenders'. Hindi surface verified: /cppp/hi/home -> 200, 73955 bytes, title '... Home hi | GeM-CPPP ...'. Tender search verified: /cppp/latestactivetendersnew -> 200, final URL /cppp/latestactivetendersnew/cpppdata, 112797 bytes, title 'Tender Search | GeM-CPPP ...'. Global Tenders category verified: /cppp/globaltenders -> 200, final URL /cppp/globaltenders/cpppdata, 65694 bytes, title 'Global Tender | GeM-CPPP ...'. About page /cppp/aboutus -> 200, 40376 bytes, heading 'Welcome to GeM-CPPP'. Official operator documentation retrieved: /cppp/sites/default/files/eproc/OrgnUsing-eProcuremen.pdf -> 200, 693524 bytes, 44-page PDF listing tender-floating organisations with columns 'Tender Floating Organisation / Ministry / Organisation Type / User Account Created', rows spanning central ministries, PSUs, autonomous bodies, statutory bodies and 'State Govt' entities.",
+    "browserCheckRequired": false,
+    "limitations": [
+      "Publication and aggregation layer — bidding itself happens on the linked GePNIC eProcurement application (separate record) or on GeM",
+      "A dedicated 'Global Tender' category was observed live, but no operator statement on foreign supplier eligibility was found, so foreignSuppliersAccepted stays unknown",
+      "Bidder enrollment is session-gated; no stable public registration route exists"
+    ],
+    "softwareVendor": "National Informatics Centre (NIC) — GePNIC",
+    "partOf": "in-government-e-marketplace"
+  },
+  {
+    "id": "in-indian-railways-e-procurement-system",
+    "name": "Indian Railways E-Procurement System (IREPS)",
+    "officialUrl": "https://www.ireps.gov.in",
+    "country": "india",
+    "platformType": "sector-procurement",
+    "operator": "Centre for Railway Information Systems (CRIS), Ministry of Railways",
+    "operatorType": "government",
+    "procurementScope": "public",
+    "coverage": "national",
+    "currentStatus": "active",
+    "lastVerified": "2026-08-12",
+    "languages": [
+      "en"
+    ],
+    "opportunityTypes": [
+      "contract-notice",
+      "electronic-auction",
+      "eoi",
+      "supplier-registration",
+      "tender"
+    ],
+    "tenderSearchUrl": "https://www.ireps.gov.in/epsn/anonymSearch.do",
+    "supplierRegistrationUrl": null,
+    "submissionUrl": null,
+    "documentsUrl": null,
+    "searchAccess": "free",
+    "electronicSubmission": "yes",
+    "supplierRegistrationRequired": "yes",
+    "foreignSuppliersAccepted": "unknown",
+    "evidenceClass": "B",
+    "evidenceUrl": "https://www.ireps.gov.in",
+    "evidenceNote": "2026-08-12: GET https://www.ireps.gov.in -> 200, 104970 bytes, title 'Indian Railways E-Procurement System (IREPS)'. Page links confirm operator lineage: cris.org.in, www.indianrailways.gov.in, plus an EOI notice PDF (EOI_notice_RSAAS.pdf), 'Standard Conditions of Contract Version 2.0.pdf', e-auction leasing prerequisites PDF, and an STQC certificate. Guest tender search https://www.ireps.gov.in/epsn/anonymSearch.do -> 200, 45219 bytes, but body is a JS shell (no <title>, no <form>, no option/input elements) — content renders client-side, browser check required. https://www.ireps.gov.in/epsn/regHome.do -> 200, 31463 bytes, title 'Login-Indian Railways tenders for Goods,Works and Services' (login page, not an open registration form) — not published as supplierRegistrationUrl. https://www.ireps.gov.in/epsn/ -> 404.",
+    "browserCheckRequired": true,
+    "limitations": [
+      "Tender search endpoint is a client-side rendered shell; listings could not be confirmed without a browser",
+      "Distinct software from GePNIC — separate bidder registration from CPPP and from state portals",
+      "Bidding requires an Indian Class III Digital Signature Certificate"
+    ],
+    "softwareVendor": "Centre for Railway Information Systems (CRIS)"
+  },
+  {
+    "id": "in-eprocurement-system-government-of",
+    "name": "eProcurement System Government of Maharashtra (MahaTenders)",
+    "officialUrl": "https://mahatenders.gov.in/nicgep/app",
+    "country": "india",
+    "platformType": "regional-procurement",
+    "operator": "Government of Maharashtra",
+    "operatorType": "government",
+    "procurementScope": "public",
+    "coverage": "regional",
+    "currentStatus": "active",
+    "lastVerified": "2026-08-12",
+    "languages": [
+      "en"
+    ],
+    "opportunityTypes": [
+      "award-notice",
+      "contract-notice",
+      "supplier-registration",
+      "tender"
+    ],
+    "tenderSearchUrl": "https://mahatenders.gov.in/nicgep/app?page=FrontEndAdvancedSearch&service=page",
+    "supplierRegistrationUrl": null,
+    "submissionUrl": null,
+    "documentsUrl": null,
+    "searchAccess": "free",
+    "electronicSubmission": "yes",
+    "supplierRegistrationRequired": "yes",
+    "foreignSuppliersAccepted": "unknown",
+    "evidenceClass": "B",
+    "evidenceUrl": "https://mahatenders.gov.in/nicgep/app",
+    "evidenceNote": "2026-08-12: GET https://mahatenders.gov.in -> 200, 113 bytes, HTML meta-refresh to https://mahatenders.gov.in/nicgep/app. GET https://mahatenders.gov.in/nicgep/app -> 200, 54626 bytes, title 'eProcurement System Government of Maharashtra'; page carries its own 'Online Bidder Enrollment' link, confirming an independent supplier register. Advanced search verified: ?page=FrontEndAdvancedSearch&service=page -> 200, 63821 bytes, contains 'Product Category' search field. Own route set observed (FrontEndLatestActiveTenders, FrontEndTendersByOrganisation, ResultOfTenders, BiddersManualKit, DSCInfo).",
+    "browserCheckRequired": false,
+    "limitations": [
+      "Instance of the shared NIC GePNIC codebase — same software as CPPP and other state portals, but a separate deployment with its own bidder database and tender universe",
+      "Bidder enrollment route is session-gated; no stable public registration URL",
+      "Requires an Indian Class III Digital Signature Certificate to bid",
+      "Sub-national system recorded without an ISO 3166-2 code: the project allowlist does not cover this country, and the jurisdiction is named in the record title instead."
+    ],
+    "softwareVendor": "National Informatics Centre (NIC) — GePNIC"
+  },
+  {
+    "id": "in-eprocurement-system-government-of-2",
+    "name": "eProcurement System Government of Uttar Pradesh",
+    "officialUrl": "https://etender.up.nic.in/nicgep/app",
+    "country": "india",
+    "platformType": "regional-procurement",
+    "operator": "Government of Uttar Pradesh",
+    "operatorType": "government",
+    "procurementScope": "public",
+    "coverage": "regional",
+    "currentStatus": "active",
+    "lastVerified": "2026-08-12",
+    "languages": [
+      "en"
+    ],
+    "opportunityTypes": [
+      "award-notice",
+      "contract-notice",
+      "supplier-registration",
+      "tender"
+    ],
+    "tenderSearchUrl": "https://etender.up.nic.in/nicgep/app?page=FrontEndAdvancedSearch&service=page",
+    "supplierRegistrationUrl": null,
+    "submissionUrl": null,
+    "documentsUrl": null,
+    "searchAccess": "free",
+    "electronicSubmission": "yes",
+    "supplierRegistrationRequired": "yes",
+    "foreignSuppliersAccepted": "unknown",
+    "evidenceClass": "B",
+    "evidenceUrl": "https://etender.up.nic.in/nicgep/app",
+    "evidenceNote": "2026-08-12: GET https://etender.up.nic.in -> 200, 112 bytes, HTML meta-refresh to https://etender.up.nic.in/nicgep/app. GET https://etender.up.nic.in/nicgep/app -> 200, 55066 bytes, title 'eProcurement System Government of Uttar Pradesh'. Advanced search verified: ?page=FrontEndAdvancedSearch&service=page -> 200, 66489 bytes, contains 'Product Category' search field.",
+    "browserCheckRequired": false,
+    "limitations": [
+      "Instance of the shared NIC GePNIC codebase — separate deployment with its own bidder database and tender universe",
+      "Bidder enrollment route is session-gated; no stable public registration URL",
+      "Requires an Indian Class III Digital Signature Certificate to bid",
+      "Sub-national system recorded without an ISO 3166-2 code: the project allowlist does not cover this country, and the jurisdiction is named in the record title instead."
+    ],
+    "softwareVendor": "National Informatics Centre (NIC) — GePNIC"
+  },
+  {
+    "id": "in-eprocurement-system-government-of-3",
+    "name": "eProcurement System Government of Tamil Nadu (TN e-Procurement)",
+    "officialUrl": "https://tntenders.gov.in/nicgep/app",
+    "country": "india",
+    "platformType": "regional-procurement",
+    "operator": "Government of Tamil Nadu",
+    "operatorType": "government",
+    "procurementScope": "public",
+    "coverage": "regional",
+    "currentStatus": "active",
+    "lastVerified": "2026-08-12",
+    "languages": [
+      "en"
+    ],
+    "opportunityTypes": [
+      "award-notice",
+      "contract-notice",
+      "supplier-registration",
+      "tender"
+    ],
+    "tenderSearchUrl": "https://tntenders.gov.in/nicgep/app?page=FrontEndAdvancedSearch&service=page",
+    "supplierRegistrationUrl": null,
+    "submissionUrl": null,
+    "documentsUrl": null,
+    "searchAccess": "free",
+    "electronicSubmission": "yes",
+    "supplierRegistrationRequired": "yes",
+    "foreignSuppliersAccepted": "unknown",
+    "evidenceClass": "B",
+    "evidenceUrl": "https://tntenders.gov.in/nicgep/app",
+    "evidenceNote": "2026-08-12: GET https://tntenders.gov.in -> 200, 145 bytes, title ' TN e-Procurement ', HTML meta-refresh to https://tntenders.gov.in/nicgep/app. GET https://tntenders.gov.in/nicgep/app -> 200, 56423 bytes, title 'eProcurement System Government of Tamil Nadu'. Advanced search verified: ?page=FrontEndAdvancedSearch&service=page -> 200, 61435 bytes, contains 'Product Category' search field.",
+    "browserCheckRequired": false,
+    "limitations": [
+      "Instance of the shared NIC GePNIC codebase — separate deployment with its own bidder database and tender universe",
+      "Bidder enrollment route is session-gated; no stable public registration URL",
+      "Requires an Indian Class III Digital Signature Certificate to bid",
+      "Sub-national system recorded without an ISO 3166-2 code: the project allowlist does not cover this country, and the jurisdiction is named in the record title instead."
+    ],
+    "softwareVendor": "National Informatics Centre (NIC) — GePNIC"
+  },
+  {
+    "id": "in-eprocurement-system-of-government",
+    "name": "eProcurement System of Government of West Bengal (WBTenders)",
+    "officialUrl": "https://wbtenders.gov.in/nicgep/app",
+    "country": "india",
+    "platformType": "regional-procurement",
+    "operator": "Government of West Bengal",
+    "operatorType": "government",
+    "procurementScope": "public",
+    "coverage": "regional",
+    "currentStatus": "active",
+    "lastVerified": "2026-08-12",
+    "languages": [
+      "en"
+    ],
+    "opportunityTypes": [
+      "award-notice",
+      "contract-notice",
+      "supplier-registration",
+      "tender"
+    ],
+    "tenderSearchUrl": "https://wbtenders.gov.in/nicgep/app?page=FrontEndAdvancedSearch&service=page",
+    "supplierRegistrationUrl": null,
+    "submissionUrl": null,
+    "documentsUrl": null,
+    "searchAccess": "free",
+    "electronicSubmission": "yes",
+    "supplierRegistrationRequired": "yes",
+    "foreignSuppliersAccepted": "unknown",
+    "evidenceClass": "B",
+    "evidenceUrl": "https://wbtenders.gov.in/nicgep/app",
+    "evidenceNote": "2026-08-12: GET https://wbtenders.gov.in -> 200, 140 bytes, title 'E-Procurement', HTML meta-refresh to https://wbtenders.gov.in/nicgep/app. GET https://wbtenders.gov.in/nicgep/app -> 200, 54759 bytes, title 'eProcurement System of Government of West Bengal'. Advanced search verified: ?page=FrontEndAdvancedSearch&service=page -> 200, 58827 bytes, contains 'Product Category' search field.",
+    "browserCheckRequired": false,
+    "limitations": [
+      "Instance of the shared NIC GePNIC codebase — separate deployment with its own bidder database and tender universe",
+      "Bidder enrollment route is session-gated; no stable public registration URL",
+      "Requires an Indian Class III Digital Signature Certificate to bid",
+      "Sub-national system recorded without an ISO 3166-2 code: the project allowlist does not cover this country, and the jurisdiction is named in the record title instead."
+    ],
+    "softwareVendor": "National Informatics Centre (NIC) — GePNIC"
+  },
+  {
+    "id": "in-eprocurement-system-government-of-4",
+    "name": "eProcurement System Government of Madhya Pradesh (MPTenders)",
+    "officialUrl": "https://mptenders.gov.in/nicgep/app",
+    "country": "india",
+    "platformType": "regional-procurement",
+    "operator": "Government of Madhya Pradesh",
+    "operatorType": "government",
+    "procurementScope": "public",
+    "coverage": "regional",
+    "currentStatus": "active",
+    "lastVerified": "2026-08-12",
+    "languages": [
+      "en"
+    ],
+    "opportunityTypes": [
+      "award-notice",
+      "contract-notice",
+      "supplier-registration",
+      "tender"
+    ],
+    "tenderSearchUrl": "https://mptenders.gov.in/nicgep/app?page=FrontEndAdvancedSearch&service=page",
+    "supplierRegistrationUrl": null,
+    "submissionUrl": null,
+    "documentsUrl": null,
+    "searchAccess": "free",
+    "electronicSubmission": "yes",
+    "supplierRegistrationRequired": "yes",
+    "foreignSuppliersAccepted": "unknown",
+    "evidenceClass": "B",
+    "evidenceUrl": "https://mptenders.gov.in/nicgep/app",
+    "evidenceNote": "2026-08-12: GET https://mptenders.gov.in -> 200, 110 bytes, HTML meta-refresh to http://mptenders.gov.in/nicgep/app (note: refresh target is plain http). GET https://mptenders.gov.in/nicgep/app -> 200, 55138 bytes, title 'eProcurement System Government of Madhya Pradesh'. Advanced search verified: ?page=FrontEndAdvancedSearch&service=page -> 200, 57628 bytes, contains 'Product Category' search field.",
+    "browserCheckRequired": false,
+    "limitations": [
+      "Instance of the shared NIC GePNIC codebase — separate deployment with its own bidder database and tender universe",
+      "Root meta-refresh points to an http:// (non-TLS) target, though the https app route serves correctly",
+      "Requires an Indian Class III Digital Signature Certificate to bid",
+      "Sub-national system recorded without an ISO 3166-2 code: the project allowlist does not cover this country, and the jurisdiction is named in the record title instead."
+    ],
+    "softwareVendor": "National Informatics Centre (NIC) — GePNIC"
+  },
+  {
+    "id": "in-eprocurement-system-government-of-5",
+    "name": "eProcurement System Government of Rajasthan",
+    "officialUrl": "https://eproc.rajasthan.gov.in/nicgep/app",
+    "country": "india",
+    "platformType": "regional-procurement",
+    "operator": "Government of Rajasthan",
+    "operatorType": "government",
+    "procurementScope": "public",
+    "coverage": "regional",
+    "currentStatus": "active",
+    "lastVerified": "2026-08-12",
+    "languages": [
+      "en"
+    ],
+    "opportunityTypes": [
+      "award-notice",
+      "contract-notice",
+      "supplier-registration",
+      "tender"
+    ],
+    "tenderSearchUrl": "https://eproc.rajasthan.gov.in/nicgep/app?page=FrontEndAdvancedSearch&service=page",
+    "supplierRegistrationUrl": null,
+    "submissionUrl": null,
+    "documentsUrl": null,
+    "searchAccess": "free",
+    "electronicSubmission": "yes",
+    "supplierRegistrationRequired": "yes",
+    "foreignSuppliersAccepted": "unknown",
+    "evidenceClass": "B",
+    "evidenceUrl": "https://eproc.rajasthan.gov.in/nicgep/app",
+    "evidenceNote": "2026-08-12: GET https://eproc.rajasthan.gov.in -> 200, 163 bytes, title ' Rajasthan eProcurement System' (redirect shell). GET https://eproc.rajasthan.gov.in/nicgep/app -> 200, 56869 bytes, title 'eProcurement System Government of Rajasthan'. Advanced search verified: ?page=FrontEndAdvancedSearch&service=page -> 200, 60784 bytes, contains 'Product Category' search field. Note: the separate Rajasthan State Public Procurement Portal https://sppp.rajasthan.gov.in timed out from this egress (curl exit 28) and is NOT published here.",
+    "browserCheckRequired": false,
+    "limitations": [
+      "Instance of the shared NIC GePNIC codebase — separate deployment with its own bidder database and tender universe",
+      "A companion notice portal (sppp.rajasthan.gov.in) exists but was unreachable from this egress and is not modelled",
+      "Requires an Indian Class III Digital Signature Certificate to bid",
+      "Sub-national system recorded without an ISO 3166-2 code: the project allowlist does not cover this country, and the jurisdiction is named in the record title instead."
+    ],
+    "softwareVendor": "National Informatics Centre (NIC) — GePNIC"
+  },
+  {
+    "id": "in-telangana-state-eprocurement-portal",
+    "name": "Telangana State eProcurement Portal",
+    "officialUrl": "https://tender.telangana.gov.in/",
+    "country": "india",
+    "platformType": "regional-procurement",
+    "operator": "Government of Telangana (Information Technology, Electronics & Communications Department)",
+    "operatorType": "government",
+    "procurementScope": "public",
+    "coverage": "regional",
+    "currentStatus": "active",
+    "lastVerified": "2026-08-12",
+    "languages": [
+      "en"
+    ],
+    "opportunityTypes": [
+      "contract-notice",
+      "electronic-auction",
+      "supplier-registration",
+      "tender"
+    ],
+    "tenderSearchUrl": null,
+    "supplierRegistrationUrl": null,
+    "submissionUrl": null,
+    "documentsUrl": null,
+    "searchAccess": "free",
+    "electronicSubmission": "yes",
+    "supplierRegistrationRequired": "yes",
+    "foreignSuppliersAccepted": "unknown",
+    "evidenceClass": "B",
+    "evidenceUrl": "https://tender.telangana.gov.in/login.html",
+    "evidenceNote": "2026-08-12: GET https://tender.telangana.gov.in/ -> 200, 1110 bytes, JS auto-POST shell (CSRFToken, jsessionid suffix '.inst4tms') submitting to login.html. GET https://tender.telangana.gov.in/login.html -> 200, 64282 bytes, title ' Telangana State eProcurement Portal '. Live opportunities rendered server-side and confirmed: 'Live Tenders' block with Tender ID 724707 (Procurement of different types of Printers, bid closing August 31 05:00 PM), Tender ID 724646 (Ink Bottles/Maintenance Boxes/Cartridges rate contract), Tender ID 723580 (Hiring of 12KL truck mounted water sprinkler, closing August 25). Distinct software from NIC GePNIC — JSP/Struts application, no /nicgep/app path. Supplier registration guide PDF verified: /views/tsPages/downloads/supplier-registration.pdf -> 200, 2166153 bytes, application/pdf. Companion guidance site https://eprocurement.telangana.gov.in/ -> 200, 25919 bytes, title ':: Telangana eProcurement Portal ::' (guidelines/G.O.s/FAQ only, no live tenders). Related e-auction surface https://auction.telangana.gov.in/ -> 200, 706 bytes (redirect shell).",
+    "browserCheckRequired": false,
+    "limitations": [
+      "Tender listings render on the landing/login page itself; no distinct public tender-search route exists, so tenderSearchUrl is left null rather than duplicating officialUrl",
+      "Not a GePNIC instance — separate software and separate bidder registration from CPPP and from other state portals",
+      "Requires an Indian Class III Digital Signature Certificate to bid",
+      "Sub-national system recorded without an ISO 3166-2 code: the project allowlist does not cover this country, and the jurisdiction is named in the record title instead."
+    ]
   }
 ]
