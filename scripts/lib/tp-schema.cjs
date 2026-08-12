@@ -179,7 +179,14 @@ function problemsFor(row, knownCountries) {
   for (const f of URL_FIELDS) {
     const v = row[f];
     if (v === undefined || v === null) continue;
-    if (typeof v !== 'string' || !/^https:\/\//.test(v)) at(f, 'must be an https URL, or null.');
+    if (f === 'evidenceUrl') {
+      // A citation, not a surface we send anyone to. Some authoritative
+      // government sources are genuinely http-only; citing one is honest, and
+      // refusing to would push research toward worse sources.
+      if (typeof v !== 'string' || !/^https?:\/\//.test(v)) at(f, 'must be an http(s) URL.');
+    } else if (typeof v !== 'string' || !/^https:\/\//.test(v)) {
+      at(f, 'must be an https URL, or null.');
+    }
   }
   if (row.country && !knownCountries.has(row.country)) {
     at('country', `"${row.country}" is not a declared country.`);
@@ -282,8 +289,12 @@ function problemsFor(row, knownCountries) {
   // e-licitatie.md by Esempla Systems — and an absolute rule flagged all three
   // as defects on its first run. The defect is specifically a vendor name
   // standing where a government authority belongs.
+  // Deliberately excludes state-owned-enterprise: an SOE is a company, and a
+  // company that builds and runs its own platform is the FedConnect/Unison
+  // arrangement, not a vendor displacing an authority. Indonesia's PaDi UMKM is
+  // operated by PT Telkom, which also built it.
   const PUBLIC_OPERATORS = ['government', 'contracting-authority', 'central-purchasing-body',
-    'regulator', 'state-owned-enterprise', 'eu-institution', 'international-organization'];
+    'regulator', 'eu-institution', 'international-organization'];
   if (row.softwareVendor && row.operator && PUBLIC_OPERATORS.includes(row.operatorType)
       && String(row.softwareVendor).trim().toLowerCase() === String(row.operator).trim().toLowerCase()) {
     at('softwareVendor', `is identical to operator on a "${row.operatorType}" record: the software vendor has displaced the operating authority.`);
