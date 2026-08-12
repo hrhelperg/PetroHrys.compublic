@@ -779,3 +779,165 @@ plus regional bodies (AU, ECOWAS, EAC, SADC, MERCOSUR) and bilateral donors
 (JICA, KOICA, AFD, GIZ). These are architecturally global rather than
 jurisdictional and were deliberately **not** forced into country records. A
 dedicated wave is justified.
+
+---
+
+# Wave T4 — International & Multilateral Procurement (2026-08-12)
+
+19 research workstreams launched; **13 returned and were integrated**. Dataset
+314 → 355 records (313 → 354 publishable). 45 accepted from 154 candidates
+examined, 109 rejected, 38 unresolved.
+
+The wave's thesis: **organization count is not platform count.** Roughly 36 of
+the 109 rejections are `organization-page-only` — an institution with a
+procurement webpage but no supplier-facing operational system.
+
+## The schema question, answered by auditing rather than adding
+
+T4 was expected to need a `scopeType` field. It did not. The model already
+carried both axes:
+
+- `coverage: supranational` — the scope axis, already used by TED, ECEPP and
+  the EU Funding & Tenders Portal;
+- `platformType: development-bank | international-organization` — the
+  institutional-nature axis.
+
+And the shared geography file already marked its two non-country entries,
+`global` and `european-union`, with `entityType: "supranational"` and no ISO
+alpha-2. So the missing piece was a **rule**, not a field, and the rule needed no
+new vocabulary:
+
+> A record claiming supranational coverage must sit on a supranational slug.
+> A real country is exactly a slug that has an ISO alpha-2.
+
+Verified to reject the World Bank under `united-states` (it is headquartered in
+Washington), AIIB under `china` (Beijing) and NSPA under `luxembourg` — while
+accepting both legitimate homes, **and** still accepting a bilateral donor agency
+as `institutional` coverage on its own country. That last case matters as much
+as the blocks: GIZ and JICA are arms of one government, and filing them as
+multilateral would be the mirror-image error.
+
+## Structural findings
+
+**UNGM is ONE record, not thirty-two.** It is simultaneously the shared supplier
+registration system (one registration reaching up to 32 organizations) and the
+shared notice board. SAP Ariba and In-Tend, both reached from UN agency pages,
+are rejected as software vendors rather than published as UN platforms. The UNGM
+Help Center is documentation; the Vendor Review Committee is a debarment
+mechanism. The Quantum Supplier Portal is likewise recorded **once** for UNDP,
+UNFPA and UN Women rather than three times.
+
+**WORLD BANK — the distinction that decides the wave.** Two records: Procurement
+Notices (project-financed) and WBGeProcure RFx Now (corporate). *A supplier never
+submits a World Bank-financed bid to the World Bank* — the borrower issues the
+tender, usually on a national system already in this dataset. **STEP is rejected
+as `not-supplier-facing`**: it is a borrower planning and tracking tool, and
+publishing it as a tender board was the single most plausible error available
+here. eConsultant2 is decommissioned; IFC and MIGA have no independent
+supplier-facing platform.
+
+**EBRD / EIB RE-AUDIT — zero records emitted**, which is the correct outcome for
+a re-audit. All three existing rows confirmed live and correctly scoped. A
+hypothesised "EBRD Consultant Portal" was rejected as `system-does-not-exist`
+rather than invented, and the European Investment Fund resolves to the shared
+EIB Group supplier portal rather than a fourth record.
+
+**BILATERAL DONORS mostly are not platforms.** Sida, Norad, Danida, SDC, Global
+Affairs Canada and DFAT each publish supplier tenders on infrastructure already
+in this dataset — 1 accepted against 16 rejected. Their grant portals are
+rejected as `grants-only`. USAID's residual portfolio publishes on SAM.gov,
+already recorded. This is the finding, not a failure.
+
+**NATO / SECURITY — six records, eligibility never inflated.** NSPA, NCI Agency
+Neo, NATO HQ BizOpps, ACO e-Bidding and the NATO Front Door are genuine
+operational surfaces; every one carries its member-nation and clearance
+restrictions in limitations, and none claims open foreign eligibility.
+
+## Entity resolution
+
+- **0 duplicate hosts** across 355 records.
+- Four cross-workstream collisions were auto-deduplicated by host: ADB, IDB, the
+  UK Supplier Registration Service and OSCE each surfaced in two workstreams.
+- **0 supranational records filed under a nation.** 35 multilateral records sit
+  on `global`; bilateral donors stay national (GIZ/KfW → germany, AFD → france,
+  AusConnect → australia).
+- 19 existing-record notes were returned and **none auto-applied** — printed for
+  review, because silently rewriting T1–T3 rows is the drift PART 27 prohibits.
+  One flagged a Crown Commercial Service rebrand; no such record exists in the
+  dataset, so no correction was required.
+
+## Factual drift audit
+
+**0 pre-existing records changed. 0 removed. 41 added.** The diff is purely
+additive; the three sibling collections are byte-identical.
+
+## Completeness matrix (13 of 19 workstreams)
+
+| Workstream | Accepted | Rejected | Unresolved | Search | Registration | Submission | Documents | Browser-check | Enrichment notes |
+|---|---|---|---|---|---|---|---|---|---|
+| adb | 3 | 8 | 4 | 1 | 1 | 0 | 2 | 2 | 0 |
+| afdb | 2 | 8 | 4 | 2 | 1 | 1 | 2 | 2 | 0 |
+| donors-de-fr | 3 | 8 | 3 | 3 | 2 | 0 | 0 | 1 | 1 |
+| donors-nordic-ch-ca-au | 1 | 16 | 5 | 1 | 0 | 0 | 0 | 1 | 6 |
+| donors-us-uk | 2 | 14 | 2 | 1 | 1 | 0 | 1 | 1 | 4 |
+| ebrd-eib-reaudit | 0 | 4 | 1 | 0 | 0 | 0 | 0 | 0 | 3 |
+| idb | 5 | 6 | 3 | 3 | 1 | 1 | 0 | 2 | 0 |
+| nato-security | 6 | 7 | 4 | 6 | 5 | 1 | 4 | 4 | 3 |
+| other-international-orgs | 9 | 9 | 1 | 8 | 5 | 0 | 3 | 7 | 0 |
+| regional-banks | 5 | 5 | 2 | 1 | 3 | 3 | 3 | 3 | 2 |
+| un-agencies-b | 5 | 9 | 2 | 2 | 3 | 1 | 0 | 3 | 0 |
+| ungm-core | 2 | 8 | 4 | 2 | 2 | 0 | 2 | 0 | 0 |
+| world-bank | 2 | 7 | 3 | 2 | 1 | 1 | 2 | 2 | 0 |
+| **Total (13 of 19)** | **45** | **109** | **38** | **32** | **25** | **8** | **19** | **28** | **19** |
+
+## Rejection classes (top)
+
+```
+   29  organization-page-only
+    6  shared-platform-duplicate
+    4  grants-only
+    3  organization-page-only / shared-platfo
+    2  no-independent-platform
+    2  dead-route
+    2  software-vendor-not-operator
+    2  shared-platform-user
+    2  organization-page-only / covered by sh
+    2  organization-page-only / shared UN inf
+    2  uses-existing-national-system
+    1  not-supplier-facing
+    1  decommissioned
+    1  alternate-interface-same-corpus-modell
+    1  debarment-not-procurement
+    1  debarment-register-not-a-procurement-p
+    1  post-award-payment-tool-not-opportunit
+    1  statistics-dashboard-not-a-procurement
+    1  notification-subscription-not-a-procur
+    1  dead-route-soft-404
+    1  not-operated-by-this-institution
+    1  decommissioned-system
+```
+
+## Workstreams that did not return
+
+Six of the nineteen were still running when the wave was closed and are
+**unresearched, not empty**:
+
+- `un-agencies-a` — UNOPS, UNICEF, WFP, WHO. Load-bearing: it was designed to
+  test the "shared infrastructure, modelled once" claim at agency level. UNGM
+  and UNDP are covered by other workstreams, but these four are not.
+- `isdb-aiib` — Islamic Development Bank, Asian Infrastructure Investment Bank.
+- `caf-latam-banks` — CAF, CABEI/BCIE, Caribbean Development Bank, FONPLATA.
+- `donors-jp-kr` — JICA, KOICA.
+- `multilateral-aggregators` — DevelopmentAid, DgMarket and similar.
+- `mention-resolution-audit` — the regional intergovernmental bodies (African
+  Union, ECOWAS, EAC, SADC, MERCOSUR, GCC) and the binational hydroelectric
+  entities.
+
+Consequently the **85-mention resolution table is partial**: the multilateral
+development banks, UN core, NATO and donor clusters are resolved, but the
+regional-body cluster and the aggregator cluster are not.
+
+## Browser verification
+
+**None was performed** — no rendered browser exists in this environment. T4
+records carrying `browserCheckRequired` were flagged, never promoted.
