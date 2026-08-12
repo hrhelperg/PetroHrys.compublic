@@ -272,6 +272,45 @@ function problemsFor(row, knownCountries) {
     }
   }
 
+  // A software vendor must not displace a PUBLIC operator. Recording the same
+  // name in both fields is how "JAGGAER" ends up presented as the operator of a
+  // state's procurement rather than as the software underneath it.
+  //
+  // Scoped to public operator types on purpose. A private company that both
+  // builds and runs its own platform is a real and common arrangement —
+  // FedConnect and Unison Marketplace are operated by Unison, Moldova's
+  // e-licitatie.md by Esempla Systems — and an absolute rule flagged all three
+  // as defects on its first run. The defect is specifically a vendor name
+  // standing where a government authority belongs.
+  const PUBLIC_OPERATORS = ['government', 'contracting-authority', 'central-purchasing-body',
+    'regulator', 'state-owned-enterprise', 'eu-institution', 'international-organization'];
+  if (row.softwareVendor && row.operator && PUBLIC_OPERATORS.includes(row.operatorType)
+      && String(row.softwareVendor).trim().toLowerCase() === String(row.operator).trim().toLowerCase()) {
+    at('softwareVendor', `is identical to operator on a "${row.operatorType}" record: the software vendor has displaced the operating authority.`);
+  }
+
+  // Mojibake — UTF-8 bytes decoded as Latin-1. The result is still valid text,
+  // so it round-trips through JSON, parses as CSV and renders in HTML; nothing
+  // else in the pipeline can notice. Wave T3 brought Chinese, Japanese, Korean
+  // and Arabic names into the dataset, and a platform name is a factual
+  // identifier: a mangled one is a false statement about what the system is
+  // called.
+  //
+  // Detected by reversing the corruption rather than by pattern-matching. A
+  // signature list caught "Ã©"-style damage to accented Latin text and missed
+  // CJK entirely, because three-byte sequences corrupt to a different lead
+  // range. This asks the actual question: if every character fits in Latin-1,
+  // do those bytes decode as valid non-ASCII UTF-8? Only mojibake does.
+  for (const f of ['name', 'operator']) {
+    const v = row[f];
+    if (typeof v !== 'string' || !v || !/[\u0080-\u00ff]/.test(v)) continue;
+    if ([...v].some((ch) => ch.codePointAt(0) > 0xff)) continue; // real non-Latin text
+    const reread = Buffer.from(v, 'latin1').toString('utf8');
+    if (!reread.includes('\ufffd') && reread !== v && /[^\u0000-\u007f]/.test(reread)) {
+      at(f, `appears to be mojibake: its bytes decode as "${reread.slice(0, 40)}". The value is corrupted, not merely unusual.`);
+    }
+  }
+
   // An unverifiable fetch is publishable only when it says so out loud.
   if (row.evidenceClass === 'unknown' && row.browserCheckRequired !== true) {
     at('evidenceClass', 'is "unknown", so browserCheckRequired must be true.');
