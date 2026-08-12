@@ -324,3 +324,97 @@ test('T2A: every ecosystem member and its parent agree on the jurisdiction', () 
       `${r.id} (${r.country}) claims membership of ${parent.id} (${parent.country})`);
   }
 });
+
+// ── Wave T2B: subnational integrity ─────────────────────────────────────────
+// The wave's structural risk was pretending a US state is a country. The model
+// answer was one optional ISO 3166-2 field, so these guards protect the three
+// ways that field can lie and the one way the migration could have been
+// non-additive.
+
+const ISO = require('../lib/iso-3166-2.cjs');
+const COUNTRY_ISO = new Map(countryList.map((c) => [
+  typeof c === 'string' ? c : c.slug,
+  typeof c === 'string' ? null : (c.iso2 || null),
+]));
+const problemsWithIso = (row) => S.problemsFor(row, COUNTRY_ISO);
+const caughtIso = (row, field) => problemsWithIso(row).some(([f]) => f.includes(field));
+const REGIONAL = PLATFORMS.filter((r) => r.subnationalJurisdiction);
+
+test('T2B: every subdivision code is a real ISO 3166-2 code on the allowlist', () => {
+  assert.ok(REGIONAL.length > 0, 'no coded records: these guards are vacuous');
+  for (const r of REGIONAL) {
+    assert.ok(ISO.isKnownCode(r.subnationalJurisdiction),
+      `${r.id} carries ${r.subnationalJurisdiction}, which is not on the allowlist`);
+  }
+});
+
+test('T2B: a subdivision always belongs to its record\'s own country', () => {
+  for (const r of REGIONAL) {
+    const want = COUNTRY_ISO.get(r.country);
+    const got = ISO.countryOf(r.subnationalJurisdiction);
+    if (!want) continue; // global / european-union have no alpha-2 to contradict
+    assert.strictEqual(got, want,
+      `${r.id} is in ${r.country} (${want}) but claims subdivision ${r.subnationalJurisdiction} (${got})`);
+  }
+});
+
+test('T2B: only regional or municipal records name a subdivision', () => {
+  for (const r of REGIONAL) {
+    assert.ok(['regional', 'municipal'].includes(r.coverage),
+      `${r.id} is "${r.coverage}" coverage yet names subdivision ${r.subnationalJurisdiction}`);
+  }
+  // And the converse direction that matters: a national system must not carry one.
+  for (const r of PLATFORMS) {
+    if (['supranational', 'national'].includes(r.coverage)) {
+      assert.ok(!r.subnationalJurisdiction,
+        `${r.id} is ${r.coverage} but carries ${r.subnationalJurisdiction}`);
+    }
+  }
+});
+
+test('T2B: the subnational field is optional — the model stayed additive', () => {
+  // The migration promise was that adding this field forced zero rewrites on
+  // records that predate it. Proven by construction: records without the field
+  // must still validate.
+  const without = PLATFORMS.filter((r) => !r.subnationalJurisdiction);
+  assert.ok(without.length > 0, 'every record now has a subdivision: the optionality is untested');
+  for (const r of without.slice(0, 20)) {
+    assert.strictEqual(problemsWithIso(r).length, 0,
+      `${r.id} fails validation without a subdivision code`);
+  }
+});
+
+test('T2B MUTATION: California filed under Canada is caught', () => {
+  const row = base();
+  row.country = 'canada'; row.coverage = 'regional'; row.subnationalJurisdiction = 'US-CA';
+  assert.ok(caughtIso(row, 'subnationalJurisdiction'), 'a US state under Canada survived');
+});
+
+test('T2B MUTATION: an invented or deprecated subdivision code is caught', () => {
+  for (const code of ['US-ZZ', 'GB-EAW', 'XX-YY', 'california']) {
+    const row = base();
+    row.coverage = 'regional'; row.subnationalJurisdiction = code;
+    assert.ok(caughtIso(row, 'subnationalJurisdiction'), `${code} survived`);
+  }
+});
+
+test('T2B MUTATION: a subdivision on a national record is caught', () => {
+  const row = base();
+  row.coverage = 'national'; row.country = 'germany'; row.subnationalJurisdiction = 'DE-BE';
+  assert.ok(caughtIso(row, 'subnationalJurisdiction'), 'a national system claiming a Land survived');
+});
+
+test('T2B MUTATION: a shared platform duplicated per state is caught', () => {
+  // The pathology this wave was most exposed to: one supplier account, one
+  // system, five rows because five states use it. Host identity is what
+  // detects it, and it must fire even when the states differ.
+  const shared = PLATFORMS[0];
+  const a = { ...JSON.parse(JSON.stringify(shared)), id: 'dup-state-a', country: 'united-states', coverage: 'regional', subnationalJurisdiction: 'US-CA' };
+  const b = { ...JSON.parse(JSON.stringify(shared)), id: 'dup-state-b', country: 'united-states', coverage: 'regional', subnationalJurisdiction: 'US-TX' };
+  const file = path.join(require('node:os').tmpdir(), `tp-dupstate-${process.pid}.json`);
+  fs.writeFileSync(file, JSON.stringify([a, b]));
+  try {
+    assert.throws(() => S.loadPlatforms(file, COUNTRY_ISO), /shares a host/,
+      'one platform published once per state survived');
+  } finally { fs.unlinkSync(file); }
+});

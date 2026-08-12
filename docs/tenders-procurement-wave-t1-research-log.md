@@ -302,3 +302,199 @@ the six verified · Moldova's planned "e-Achiziții" successor system.
   browserCheckRequired; not one of them was promoted to verified.
 - Russia and Belarus were not touched, per the wave scope; their T1 exclusion
   documentation stands unchanged.
+
+---
+
+# Wave T2B — North America & Oceania (2026-08-12)
+
+Dataset 104 → 173 records (103 → 172 publishable), 43 → 47 countries. 69 records
+now name an ISO 3166-2 subdivision. 8 research workstreams; 69 accepted, 91
+rejected, 31 unresolved.
+
+## The architectural decision: subnational modelling
+
+Before T2B, `coverage: 'regional'` said a platform served a sub-national area
+without saying which one. Fine for German Länder whose names carry the answer;
+useless for twenty US states.
+
+Rejected: giving California a country slug. That puts a lie in the field the
+whole dataset joins on.
+
+Adopted: one optional field, `subnationalJurisdiction`, holding an ISO 3166-2
+code validated against `scripts/lib/iso-3166-2.cjs` — the allowlist this
+repository **already maintained**, generated from an ISO-derived source with a
+recorded digest, already covering US (57), CA (13), AU (8), DE (16), GB. No new
+vocabulary was invented.
+
+**The migration was additive and that was tested, not asserted:** the field is
+optional, the 104 pre-existing records were byte-identical after the schema
+landed, and a guard asserts records without the field still validate.
+
+Four guards, four ways the field can lie — all with passing mutations: unknown
+code (`US-ZZ`), deprecated code (`GB-EAW`, which looks real because CLDR still
+carries a display name), country contradiction (California under Canada), and a
+subdivision on a national/supranational record.
+
+Enrichment, reported not silent: 25 pre-existing European regional records were
+given codes (19 German Länder platforms, 6 UK devolved systems), derived
+mechanically from each record's own verified name, so the page does not show
+"United States · California" beside a bare "Germany". Reykjavík keeps no code
+and says why — the allowlist covers nine countries and Iceland is not one.
+
+## The deduplication decision
+
+North American public buyers share commercial procurement infrastructure, and
+the available failure was twenty rows for one supplier account. The
+classification was made on operator sentences in both directions:
+
+**Accepted as shared platforms** — one supplier account spanning many public
+buyers, on that platform's own identity: BidNet Direct ("Access all Member
+Agency bid opportunities" on a $0 account), MERX, Periscope S2G ("respond to all
+bids from 1,000+ government organizations"), DemandStar/Euna OpenBids ("the same
+platform and login you use today" across 1,400+ agencies), Euna Supplier
+Network, bids&tenders, Biddingo, Public Purchase, OpenGov supplier portal,
+QuestCDN.
+
+**Rejected as software vendors** on a white-label tenant model, where each buyer
+is a separate tenant and there is no cross-buyer supplier identity: **Ion Wave,
+PlanetBids, JAGGAER**, SAP Ariba Discovery, Periscope BuySpeed (buyer-side), and
+three corporate marketing sites.
+
+**Rebrand caught:** Bonfire → Euna Supplier Network, published once under the
+current name rather than twice.
+
+**The guard earned its keep during the merge:** MERX arrived from both the
+Canada and shared-platform workstreams and was silently deduplicated by host
+identity instead of becoming two records. `softwareVendor` is now populated on
+65 records, keeping "who operates this" and "whose software runs it" separately
+answerable — Cal eProcure records InFlight, BidBuy records Periscope, OhioBuys
+records Ivalua, PA Supplier Portal records SAP, and none of them is published as
+a vendor platform.
+
+## US federal: an ecosystem, not a row
+
+Eight records. **SAM.gov is ONE platform**, not two: Contract Opportunities and
+Entity Registration are one domain, one Login.gov identity, one workspace, and
+GSA's own About page documents them as functions of the same site — so they are
+captured as `tenderSearchUrl` and `supplierRegistrationUrl` on a single record.
+Alongside it: GSA eBuy, eOffer/eMod, FedConnect, Unison Marketplace, PIEE
+Solicitation Module, DLA DIBBS, SBA SUBNet.
+
+Rejected: FPDS and USAspending (`award-data-only`), acquisition.gov
+(`authority-only`), GSA Advantage (buyer catalogue, no supplier opportunity
+surface). FBO.gov plus six other decommissioned systems recorded as superseded
+by SAM.gov.
+
+## Foreign vs out-of-state — a distinction held
+
+Ten records carry `foreignSuppliersAccepted: yes`, every one class A with an
+operator quote. 153 say unknown. The US state research repeatedly found sources
+addressing **out-of-state** vendors and correctly refused to read that as
+foreign eligibility — Texas CMBL documentation covers Texas and out-of-state
+vendors and delivery zones, California materials address out-of-state vendors;
+in both cases the field stayed unknown and the limitation says why.
+
+## Coverage matrices (derived)
+
+### United States (20 P0 states targeted)
+
+| Jurisdiction | Records | Search | Registration | Submission | Documents | Browser-check |
+|---|---|---|---|---|---|---|
+| **National / federal** | 15 | 4 | 9 | 1 | 0 | 9 |
+| Arizona (US-AZ) | 1 | 1 | 1 | 0 | 0 | 1 |
+| California (US-CA) | 1 | 1 | 0 | 0 | 0 | 0 |
+| Colorado (US-CO) | 1 | 0 | 0 | 0 | 0 | 1 |
+| Florida (US-FL) | 1 | 0 | 0 | 0 | 0 | 1 |
+| Georgia (US-GA) | 1 | 0 | 0 | 0 | 0 | 0 |
+| Illinois (US-IL) | 2 | 2 | 1 | 1 | 0 | 0 |
+| Indiana (US-IN) | 1 | 1 | 1 | 0 | 0 | 1 |
+| Massachusetts (US-MA) | 1 | 1 | 0 | 0 | 0 | 1 |
+| Michigan (US-MI) | 1 | 0 | 0 | 0 | 0 | 1 |
+| Minnesota (US-MN) | 1 | 1 | 1 | 0 | 0 | 1 |
+| Missouri (US-MO) | 1 | 1 | 1 | 0 | 0 | 1 |
+| North Carolina (US-NC) | 1 | 1 | 1 | 0 | 0 | 0 |
+| New Jersey (US-NJ) | 1 | 1 | 0 | 0 | 0 | 0 |
+| New York (US-NY) | 1 | 1 | 1 | 0 | 0 | 0 |
+| Ohio (US-OH) | 1 | 0 | 0 | 0 | 0 | 1 |
+| Pennsylvania (US-PA) | 2 | 1 | 0 | 0 | 0 | 1 |
+| Tennessee (US-TN) | 1 | 1 | 1 | 0 | 0 | 1 |
+| Texas (US-TX) | 1 | 1 | 1 | 0 | 0 | 0 |
+| Virginia (US-VA) | 1 | 1 | 1 | 1 | 0 | 0 |
+| Washington (US-WA) | 1 | 1 | 0 | 0 | 0 | 0 |
+| **Total** | 37 | 20 | 19 | 3 | 0 | 20 |
+
+### Canada (10 provinces + 3 territories)
+
+| Jurisdiction | Records | Search | Registration | Submission | Documents | Browser-check |
+|---|---|---|---|---|---|---|
+| **National / federal** | 4 | 3 | 3 | 1 | 0 | 2 |
+| Alberta (CA-AB) | 1 | 1 | 1 | 0 | 0 | 1 |
+| British Columbia (CA-BC) | 1 | 0 | 0 | 0 | 0 | 1 |
+| New Brunswick (CA-NB) | 1 | 0 | 0 | 0 | 0 | 1 |
+| Nova Scotia (CA-NS) | 1 | 0 | 0 | 0 | 0 | 1 |
+| Northwest Territories (CA-NT) | 1 | 0 | 0 | 0 | 0 | 1 |
+| Nunavut (CA-NU) | 1 | 0 | 1 | 0 | 0 | 0 |
+| Ontario (CA-ON) | 1 | 0 | 0 | 0 | 0 | 1 |
+| Prince Edward Island (CA-PE) | 1 | 0 | 0 | 0 | 0 | 1 |
+| Quebec (CA-QC) | 1 | 0 | 0 | 0 | 0 | 1 |
+| Saskatchewan (CA-SK) | 1 | 1 | 1 | 0 | 0 | 0 |
+| Yukon (CA-YT) | 1 | 0 | 0 | 0 | 0 | 0 |
+| **Total** | 15 | 5 | 6 | 1 | 0 | 10 |
+
+**Not covered:** Manitoba (CA-MB), Newfoundland and Labrador (CA-NL)
+
+### Australia (6 states + 2 territories)
+
+| Jurisdiction | Records | Search | Registration | Submission | Documents | Browser-check |
+|---|---|---|---|---|---|---|
+| **National / federal** | 4 | 3 | 2 | 0 | 1 | 1 |
+| Australian Capital Territory (AU-ACT) | 1 | 1 | 1 | 0 | 0 | 1 |
+| New South Wales (AU-NSW) | 2 | 2 | 2 | 0 | 0 | 2 |
+| Northern Territory (AU-NT) | 1 | 1 | 1 | 0 | 0 | 0 |
+| Queensland (AU-QLD) | 2 | 1 | 1 | 0 | 0 | 1 |
+| South Australia (AU-SA) | 1 | 1 | 1 | 0 | 0 | 1 |
+| Tasmania (AU-TAS) | 1 | 1 | 1 | 0 | 0 | 0 |
+| Victoria (AU-VIC) | 2 | 1 | 1 | 0 | 0 | 2 |
+| Western Australia (AU-WA) | 1 | 1 | 1 | 0 | 0 | 0 |
+| **Total** | 15 | 12 | 11 | 0 | 1 | 8 |
+
+### New Zealand (national architecture)
+
+| Jurisdiction | Records | Search | Registration | Submission | Documents | Browser-check |
+|---|---|---|---|---|---|---|
+| **National / federal** | 2 | 1 | 2 | 0 | 1 | 0 |
+| **Total** | 2 | 1 | 2 | 0 | 1 | 0 |
+
+## Rejection classes (91 across all workstreams)
+
+authority-only (dominant, as in Europe) · award-data-only · software-vendor /
+white-label-tenant · grant-only · surplus-not-procurement ·
+buyer-catalog-no-supplier-opportunity-surface · vendor-directory-not-solicitation
+· legacy-superseded · retired-superseded · duplicate-alias · dead-host ·
+soft-404 · not-the-platform-parked-domain · tender-alert-reseller ·
+out-of-scope-global-private-b2b · framework-information-only ·
+buyer-instance-of-shared-vendor-software · grants-and-payments-self-service.
+
+## Unresolved (31)
+
+Notably: GSA eBuy and the Vendor Support Center are unreachable from this
+network vantage (DNS resolves publicly to GSA address space; direct connection
+times out) — an egress restriction, recorded as such rather than as a dead host.
+Manitoba and Newfoundland and Labrador have no accepted record: both appear to
+route suppliers to shared commercial platforms rather than operating a
+provincial supplier identity, which is recorded as a finding rather than filled
+with a fabricated provincial portal. 72 records carry browserCheckRequired: many
+US and Australian state portals are script-rendered, and not one was promoted to
+verified on the strength of a 200.
+
+## Method notes
+
+- One workstream (the seven largest US states) died mid-run on a connection
+  error and was re-run as a focused single-agent workflow rather than dropped.
+  A workflow resume then mis-slotted and produced a thinner duplicate of the
+  shared-platform workstream; the original, richer result was kept and the
+  duplicate discarded — noted here because "the tooling glitched" is exactly the
+  kind of thing that silently loses research.
+- No rendered browser in this wave either. Nothing labelled browser-check was
+  checked in a browser.
+- Russia and Belarus untouched; T1 exclusion documentation stands.

@@ -55,6 +55,7 @@
 // of dead, and it never on its own justifies publishing the record at all.
 
 const fs = require('node:fs');
+const ISO = require('./iso-3166-2.cjs');
 
 class TenderPlatformError extends Error {}
 
@@ -103,6 +104,33 @@ const PROCUREMENT_SCOPES = ['public', 'private', 'mixed'];
 
 // How far the platform's remit reaches.
 const COVERAGE_LEVELS = ['supranational', 'national', 'regional', 'municipal', 'institutional'];
+
+// WHICH region, when coverage is regional or municipal.
+//
+// Wave T2B added this and nothing else to the model. Until then `coverage:
+// 'regional'` said a platform served a sub-national area without ever saying
+// which one — fine while the regional records were German Länder and UK
+// devolved administrations whose names carry the answer, useless the moment
+// twenty US states arrive and a reader wants to filter for Texas.
+//
+// The alternative was to give California a country slug, which would have been
+// a lie in the one field the whole dataset joins on. This field is the smaller
+// truth: the country stays the country, and the subdivision is named in the
+// international standard for naming subdivisions.
+//
+// Values are ISO 3166-2 codes validated against scripts/lib/iso-3166-2.cjs —
+// the allowlist this repository already maintains, already covering US, CA, AU
+// and DE, already generated from an ISO-derived source with a recorded digest.
+// A format check would have accepted US-ZZ; the allowlist does not.
+//
+// OPTIONAL, deliberately. Adding it forced zero rewrites on the 104 European
+// records that existed when it landed, which is the property that makes this an
+// additive migration rather than a schema change.
+//
+// Permitted only on regional/municipal coverage: a national or supranational
+// system does not have a subdivision, and a record claiming both is confused
+// about what it is.
+const SUBNATIONAL_COVERAGE = ['regional', 'municipal'];
 
 // Cost to SEARCH. Never inferred from a page being publicly viewable: plenty of
 // systems show notice headlines free and gate the documents.
@@ -217,6 +245,30 @@ function problemsFor(row, knownCountries) {
   for (const f of ['tenderSearchUrl', 'submissionUrl', 'supplierRegistrationUrl', 'documentsUrl']) {
     if (row[f] && row.officialUrl && row[f] === row.officialUrl) {
       at(f, 'repeats officialUrl: a homepage may not stand in for a verified route.');
+    }
+  }
+
+  // ── subnational integrity ────────────────────────────────────────────────
+  // Three ways a subdivision code can lie, all guarded: it can not exist, it
+  // can belong to a different country than the record, and it can sit on a
+  // record that has no subdivision to name.
+  if (row.subnationalJurisdiction !== undefined && row.subnationalJurisdiction !== null) {
+    const code = row.subnationalJurisdiction;
+    if (typeof code !== 'string' || !ISO.isKnownCode(code)) {
+      at('subnationalJurisdiction',
+        `"${code}" ${typeof code === 'string' ? ISO.unknownCodeProblem(code) : 'must be an ISO 3166-2 code string'}.`);
+    } else if (!SUBNATIONAL_COVERAGE.includes(row.coverage)) {
+      at('subnationalJurisdiction',
+        `is set on a "${row.coverage}" record: only ${SUBNATIONAL_COVERAGE.join(' or ')} coverage names a subdivision.`);
+    } else if (knownCountries instanceof Map) {
+      // knownCountries carries slug -> iso2 when the caller can supply it, which
+      // is what makes the "California in Canada" check possible at all.
+      const want = knownCountries.get(row.country);
+      const got = ISO.countryOf(code);
+      if (want && got && want !== got) {
+        at('subnationalJurisdiction',
+          `is ${code} (${got}) but the record's country "${row.country}" is ${want}.`);
+      }
     }
   }
 
