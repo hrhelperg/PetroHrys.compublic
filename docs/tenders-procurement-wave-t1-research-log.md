@@ -498,3 +498,251 @@ verified on the strength of a 200.
 - No rendered browser in this wave either. Nothing labelled browser-check was
   checked in a browser.
 - Russia and Belarus untouched; T1 exclusion documentation stands.
+
+---
+
+# Wave T3 — Asia, Middle East, Latin America & Africa (2026-08-12)
+
+16 research workstreams. Dataset 173 → 310 records (172 → 309 publishable),
+47 → 96 countries. 140 accepted, 174 rejected, 81 unresolved.
+
+## Dataset
+
+| Metric | Before | After |
+|---|---|---|
+| records | 173 | 310 |
+| publishable | 172 | 309 |
+| countries | 47 | 96 |
+| evidence A | 110 | 163 |
+| evidence B | 57 | 132 |
+| evidence unknown | 5 | 14 |
+| browser-check | 75 | 152 |
+
+## Routes (denominator = publishable)
+
+| Route | Before | After |
+|---|---|---|
+| tenderSearchUrl | 101/172 (58%) | 170/309 (55%) |
+| supplierRegistrationUrl | 68/172 (39%) | 116/309 (37%) |
+| submissionUrl | 12/172 (6%) | 19/309 (6%) |
+| documentsUrl | 7/172 (4%) | 13/309 (4%) |
+
+## Geography (T3 scope)
+
+| Region | Records | Countries with >=1 |
+|---|---|---|
+| East Asia | 25 | 3/3 |
+| South Asia | 10 | 1/5 |
+| Southeast Asia | 20 | 6/9 |
+| Middle East | 17 | 9/10 |
+| Latin America | 41 | 16/16 |
+| Africa | 24 | 14/14 |
+| **T3 total** | **137** | |
+
+### Country detail
+
+| Region | Country | Records |
+|---|---|---|
+| East Asia | china | 9 |
+| East Asia | japan | 10 |
+| East Asia | south-korea | 6 |
+| South Asia | india | 10 |
+| South Asia | pakistan | 0 *(zero — reported, not padded)* |
+| South Asia | bangladesh | 0 *(zero — reported, not padded)* |
+| South Asia | nepal | 0 *(zero — reported, not padded)* |
+| South Asia | sri-lanka | 0 *(zero — reported, not padded)* |
+| Southeast Asia | indonesia | 7 |
+| Southeast Asia | vietnam | 2 |
+| Southeast Asia | philippines | 3 |
+| Southeast Asia | malaysia | 3 |
+| Southeast Asia | singapore | 1 |
+| Southeast Asia | thailand | 4 |
+| Southeast Asia | cambodia | 0 *(zero — reported, not padded)* |
+| Southeast Asia | laos | 0 *(zero — reported, not padded)* |
+| Southeast Asia | myanmar | 0 *(zero — reported, not padded)* |
+| Middle East | saudi-arabia | 1 |
+| Middle East | united-arab-emirates | 6 |
+| Middle East | qatar | 1 |
+| Middle East | kuwait | 1 |
+| Middle East | oman | 1 |
+| Middle East | bahrain | 1 |
+| Middle East | jordan | 2 |
+| Middle East | israel | 3 |
+| Middle East | lebanon | 1 |
+| Middle East | iraq | 0 *(zero — reported, not padded)* |
+| Latin America | brazil | 13 |
+| Latin America | mexico | 3 |
+| Latin America | argentina | 4 |
+| Latin America | colombia | 5 |
+| Latin America | chile | 1 |
+| Latin America | peru | 3 |
+| Latin America | ecuador | 1 |
+| Latin America | bolivia | 2 |
+| Latin America | uruguay | 1 |
+| Latin America | paraguay | 2 |
+| Latin America | guatemala | 1 |
+| Latin America | costa-rica | 1 |
+| Latin America | panama | 1 |
+| Latin America | honduras | 1 |
+| Latin America | el-salvador | 1 |
+| Latin America | dominican-republic | 1 |
+| Africa | south-africa | 5 |
+| Africa | nigeria | 3 |
+| Africa | egypt | 1 |
+| Africa | kenya | 3 |
+| Africa | ethiopia | 1 |
+| Africa | ghana | 2 |
+| Africa | tanzania | 1 |
+| Africa | uganda | 1 |
+| Africa | morocco | 1 |
+| Africa | algeria | 1 |
+| Africa | rwanda | 1 |
+| Africa | zambia | 1 |
+| Africa | botswana | 1 |
+| Africa | namibia | 2 |
+
+## Foreign-supplier evidence
+
+yes **25** · no **1** · unknown **283**
+
+Every `yes`, with its class-A basis:
+
+- **Sistemi i Prokurimit Elektronik (SPE) — Albanian Electronic Public Procurement System** (albania, class A) — "Theksojmë se, kjo dritare është e vlefshme vetëm për operatorët ekonomikë të huaj." (We emphasize that this window is valid only for foreign economic...
+- **Bahrain Tender Board e-Tendering System** (bahrain, class A) — Supplier Type: Local | Individual (GCC) Supplier | International Supplier — Registration For: Tender Participation (Will Be Eligible To Participate In...
+- **Compras.gov.br** (brazil, class A) — As empresas estrangeiras que não funcionem no país para participarem de licitações, devem se cadastrar no Sicaf — art. 20-A da Instrução Normativa nº ...
+- **Portal de Compras Públicas** (brazil, class A) — Com o perfil internacional, você acessa oportunidades no Brasil de forma simples, transparente e segura. (operator's own 'Empresas internacionais' adh...
+- **CanadaBuys / AchatsCanada** (canada, class A) — For Canadian businesses: Register for a CRA business number. For businesses outside of Canada: Register for a non-resident CRA business number...
+- **Mercado Público** (chile, class A) — Persona natural o jurídica, chilena o extranjera, o agrupación de las mismas, que puedan proporcionar bienes y/o servicios a las instituciones del Est...
+- **中国国际招标网 (China International Bidding Network)** (china, class A) — 《机电产品国际招标投标实施办法》第三十八条：「投标人在招标文件要求的投标截止时间前，应当在招标网免费注册，注册时应当在招标网在线填写招投标注册登记表，并将由投标人加盖公章的招投标注册登记表及工商营业执照（复印件）提交至招标网；境外投标人提交所在地登记证明材料（复印件）……投标截止时间前，投标人未在招...
+- **SICOP** (costa-rica, class A) — registrar e inscribir todas las personas físicas y jurídicas, nacionales y extranjeras que deseen ofrecer bienes y servicios a las Instituciones Usuar...
+- **Portal Transaccional** (dominican-republic, class A) — las personas físicas o jurídicas extranjeras no necesitan estar inscritos en el Registro de Proveedor del Estado (RPE) para participar en los procedim...
+- **EIB Group Procurement portal (eib.org — Corporate & Technical Assistance procurement)** (european-union, class A) — Participation in the tender is open to all natural and legal persons. If the financing is exclusively provided by the European Commission, participati...
+- **ECEPP - EBRD Client e-Procurement Portal** (european-union, class A) — The Bank welcomes individuals and companies from all countries of the world to take part in its projects as suppliers, contractors, service providers ...
+- **EU Funding & Tenders Portal (SEDIA) — Calls for Tenders** (european-union, class A) — Participation in calls for tenders is open on equal terms to all natural and legal persons coming within the scope of the Treaties, as well as to inte...
+- **HonduCompras** (honduras, class A) — Proveedores, ya sea nacionales o extranjeros: Para consultar nuevas oportunidades de negocio y participar de las mismas, así como recibir notificacion...
+- **Acquisti in Rete PA — Consip e-procurement portal (MePA, convenzioni, accordi quadro, SDAPA, gare in ASP)** (italy, class A) — "Foreign firms can register to Acquisti in rete PA and qualify to operate on the MePA." — https://www.acquistinretepa.it/opencms/opencms/english/forei...
+- **EIS — Elektronisko iepirkumu sistēma (Electronic Procurement System)** (latvia, class A) — https://www.eis.gov.lv/EIS/Publications/PublicationView.aspx?PublicationId=1203&systemCode=CORE — 'In the e-procurement system, registered users have ...
+- **Portail Marocain des Marchés Publics** (morocco, class A) — Entreprise non établie au Maroc — Les informations nécessaires ainsi que les étapes à suivre pour l'inscription sont indiquées dans le formulaire suiv...
+- **Pae Hokohoko | Marketplace (New Zealand Government Marketplace)** (new-zealand, class A) — All suppliers are welcome to apply to join the Marketplace, whether you are a New Zealand or overseas company....
+- **إسناد (Esnad)** (oman, class A) — شركة عالمية … رقم التسجيل الدولي (مورد غير عماني)...
+- **SEACE** (peru, class A) — Estar inscrito en el Registro Nacional de Proveedores (RNP) es un requisito para ser proveedor del Estado. Puedes hacerlo como persona natural o juríd...
+- **Registro Nacional de Proveedores (RNP)** (peru, class A) — Puedes hacerlo como persona natural o jurídica, nacional o extranjera....
+- **GeBIZ (Government Electronic Business System)** (singapore, class A) — GeBIZ ID is for foreign companies or foreign individuals WITHOUT Unique Entity Number (UEN)...
+- **나라장터 (KONEPS)** (south-korea, class A) — All bidders who wish to participate in PPS's bidding must register with PPS at least one day prior to submitting their bids, however, foreign bidders ...
+- **Find a Tender (FTS) / Central Digital Platform** (united-kingdom, class A) — GOV.UK supplier registration guide (https://www.gov.uk/government/publications/procurement-act-2023-short-guides/suppliers-how-to-register-your-organi...
+- **Edison Supplier Portal (State of Tennessee)** (united-states, class A) — International suppliers, however, cannot be created through this online registration process. The supplier's IRS W-8 must be submitted via email to Su...
+- **Hệ thống mạng đấu thầu quốc gia (Vietnam National Electronic Procurement System, VNEPS)** (vietnam, class A) — Register → 'Register as foreign contractors, investors' and 'Register as foreign individual bidder' (operator's own English navigation on https://muas...
+
+## Ecosystem relationships
+
+- `partOf`: 15 -> 29
+- `replacedBy`: 1 -> 1
+- `softwareVendor` recorded: 107
+- records with zero verified routes (homepage-only, legitimate): 108
+
+## Scripts represented
+
+- Arabic: 10 records
+- Cyrillic: 4 records
+- Han (Chinese/Japanese): 18 records
+- Hangul (Korean): 5 records
+- Kana (Japanese): 9 records
+
+## Structural findings — the point of the wave
+
+**BRAZIL — publication and transaction are different systems.** PNCP
+(pncp.gov.br) is the mandatory national publication portal created by Lei
+14.133/2021 art. 174, covering União, Estados and Municípios; it has no supplier
+registration and no bidding. Compras.gov.br is the federal transactional system
+where suppliers register through SICAF and bid. Two records, related but not
+merged. ComprasNet's supersession was **observed** — comprasnet.gov.br 301s to
+gov.br/compras — not inferred. Brazil also carries accredited *private* bidding
+platforms (Portal de Compras Públicas, BLL, BNC, Licitanet) typed as
+private-company, because in Brazil a public buyer may lawfully run its
+procurement on one.
+
+**COLOMBIA — three systems, one authority.** SECOP I (publication), SECOP II
+(transactional, "con cuentas para entidades y proveedores" in the operator's own
+words), and the Tienda Virtual del Estado Colombiano (catalogue) are three
+records; colombiacompra.gov.co is rejected as the authority. Mi Mercado Popular
+is `partOf` the Tienda. Vendors recorded separately: VORTAL powers SECOP II,
+Coupa powers the Tienda — neither is published as a platform.
+
+**CHINA — four national tracks, not one portal.** The MOF track
+(中国政府采购网, ccgp.gov.cn) under the Government Procurement Law; the NDRC
+public-resource trading track (全国公共资源交易平台, ggzy.gov.cn) operated by the
+State Information Center; the tendering/bidding public service platform; and
+institutional systems (中央政府采购网, 军队采购网, 中国人民银行采购网). Provincial
+layers (Beijing, Guangdong) recorded where structurally distinct. Generic
+Chinese B2B marketplaces rejected.
+
+**INDONESIA — one ecosystem, not hundreds of LPSE rows.** INAPROC is the parent;
+SPSE, Katalog Elektronik, SIRUP and SIKaP are `partOf` it. The hundreds of
+agency LPSE deployments are instances of SPSE and are described in notes rather
+than published as records — the single largest padding opportunity in this wave,
+declined.
+
+**INDIA — GeM and CPPP are not the same thing.** A transactional marketplace and
+a tender-publication/eProcurement system, modelled separately. The GePNIC
+central instance was deduplicated by host against CPPP rather than published
+twice — the NIC-instance trap.
+
+**NIGERIA — the honest structural answer.** There is no single mature national
+tender platform of the SECOP II or Compras.gov.br type. bpp.gov.ng is purely the
+regulator and is rejected as `authority-not-platform`. What exists is a set of
+narrow federal surfaces plus state fragmentation, and the record set says that
+rather than inventing a national portal.
+
+**SOUTH AFRICA — lifecycle stages split.** eTender Publication Portal is
+discovery; the Central Supplier Database is registration. Both published,
+because they answer different supplier questions; a supplier database is not a
+tender platform.
+
+**UAE — genuinely separate emirate systems.** Federal eSupply, Dubai's Digital
+Procurement Platform, Abu Dhabi's ADGPG, Sharjah Finance and Sharjah Airport.
+JAGGAER appears as `softwareVendor` on four of them and as operator on none.
+
+## Schema decisions
+
+**No subdivision codes were invented.** The project ISO 3166-2 allowlist in
+`scripts/lib/iso-3166-2.cjs` covers US, CA, AU, DE, ES, IT, JP, CN and GB.
+Chinese provincial and Japanese prefectural systems may therefore carry real
+codes; Indian, Brazilian, Indonesian and Nigerian state systems carry
+`coverage: regional` with **no** code and a limitation saying why. Regenerating
+the allowlist from its documented source is a deliberate future act, not
+something to improvise mid-wave.
+
+**Three violations were caught at the merge gate and fixed at rule level:**
+- PaDi UMKM is operated by PT Telkom, which also built it. `state-owned-enterprise`
+  was removed from the vendor-displacement guard: an SOE is a company, and a
+  company running its own product is the FedConnect arrangement.
+- A CJK-only name slugified to nothing, leaving a trailing hyphen in an id.
+- Egypt's General Authority for Government Services is http-only. The https rule
+  had conflated a platform's own surfaces (must be TLS — these are links we send
+  suppliers to) with a **citation** (cite what exists). Citations may now be
+  http, must record it in limitations, and a test enforces that.
+
+## Unicode integrity
+
+Guards were written **before** the data arrived: CSV round-trip, page render,
+no \u escapes in the source file, byte-stable sorting, and a mojibake detector
+that reverses the corruption rather than pattern-matching signatures (the
+signature version caught "Ã©"-style damage to accented Latin and missed Chinese
+entirely). Han, Kana, Hangul, Arabic and Cyrillic all verified end to end.
+
+## Browser verification
+
+**None was performed.** No rendered browser exists in this environment.
+browser-check rose 75 → 152 because T3 added many login-gated and script-rendered
+systems; not one was promoted to verified on the strength of a 200. HTTP fetching
+is not browser verification and is never recorded as such.
+
+## T4 candidates — International & Multilateral Procurement
+
+81 distinct mentions across the workstreams, clustering hard: **UNGM**, **World
+Bank** (STEP / eConsultant2 / Business Opportunities), **IDB/BID**, **AfDB**,
+**ADB**, **IsDB**, **AIIB**, **EBRD**, **CAF**, **FONPLATA**, **BCIE/CABEI**,
+plus regional bodies (AU, ECOWAS, EAC, SADC, MERCOSUR) and bilateral donors
+(JICA, KOICA, AFD, GIZ). These are architecturally global rather than
+jurisdictional and were deliberately **not** forced into country records. A
+dedicated wave is justified.
