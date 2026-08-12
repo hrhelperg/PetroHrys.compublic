@@ -58,12 +58,33 @@ test('ids are unique and slug-shaped', () => {
   for (const id of ids) assert.match(id, /^[a-z0-9]+(-[a-z0-9]+)*$/);
 });
 
-test('every declared URL is https', () => {
+test('every platform surface is https; a citation may be what it is', () => {
+  // Two different things were conflated here until Wave T3. A platform's own
+  // URLs — the front door and the four lifecycle routes — must be https: a
+  // procurement system not on TLS is a finding about that system, and these are
+  // links we send suppliers to. evidenceUrl is a CITATION, and some
+  // authoritative government sources are genuinely http-only (Egypt's General
+  // Authority for Government Services among them). Refusing to cite one would
+  // push research toward a worse source to satisfy a rule aimed at something
+  // else, so the citation is allowed to be http and the record records it.
+  const SURFACES = S.URL_FIELDS.filter((f) => f !== 'evidenceUrl');
   for (const r of PLATFORMS) {
-    for (const f of S.URL_FIELDS) {
+    for (const f of SURFACES) {
       if (r[f] == null) continue;
-      assert.match(r[f], /^https:\/\//, `${r.id}.${f} is not https`);
+      assert.match(r[f], /^https:\/\//, `${r.id}.${f} is a platform surface and must be https`);
     }
+    if (r.evidenceUrl != null) {
+      assert.match(r.evidenceUrl, /^https?:\/\//, `${r.id}.evidenceUrl must be an http(s) URL`);
+    }
+  }
+});
+
+test('an http citation says so in its own limitations', () => {
+  // The relaxation above is only honest if the reader can see it on the record.
+  for (const r of PLATFORMS) {
+    if (!r.evidenceUrl || !r.evidenceUrl.startsWith('http://')) continue;
+    assert.ok((r.limitations || []).some((l) => /HTTP|http/.test(l)),
+      `${r.id} cites an http source without recording that in limitations`);
   }
 });
 

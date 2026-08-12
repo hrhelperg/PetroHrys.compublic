@@ -343,3 +343,83 @@ test('MUTATION: a localized page canonicalized to EN would be caught', () => {
   const expected = `https://petrohrys.com${I18N.localizedPath('de', CANONICAL)}`;
   assert.notStrictEqual(canonical, expected, 'mutation was a no-op');
 });
+
+
+// ---- Wave T3: non-Latin script integrity -----------------------------------
+// T3 brings Chinese, Japanese, Korean and Arabic platform names into a pipeline
+// that had only ever carried Latin and Cyrillic text. A platform name is a
+// factual identifier: if it survives JSON but the CSV writer mangles it, or the
+// HTML escaper turns it into numeric entities, the dataset is quietly lying
+// about what the platform is called. These run against synthetic fixtures so
+// they hold whether or not a given script is present in today's data.
+
+const SCRIPT_SAMPLES = [
+  ['Chinese', "中国政府采购网"],
+  ['Japanese', "政府電子調達"],
+  ['Korean', "나라장터"],
+  ['Arabic', "اعتماد"],
+  ['Portuguese', "Licitações Públicas"],
+  ['Spanish', "Mercado Público"],
+];
+
+function syntheticRow(id, name) {
+  return {
+    id, name, country: 'global', officialUrl: 'https://example.org/',
+    platformType: 'national-procurement', operator: name, operatorType: 'government',
+    procurementScope: 'public', coverage: 'national', currentStatus: 'active',
+    lastVerified: '2026-08-12', languages: ['en'], opportunityTypes: ['tender'],
+    evidenceClass: 'B', evidenceUrl: 'https://example.org/',
+    evidenceNote: 'synthetic fixture for script-integrity testing, not a real record',
+    browserCheckRequired: false, limitations: [],
+  };
+}
+
+test('T3: every supported script survives the CSV writer and an RFC 4180 read', () => {
+  const rows = SCRIPT_SAMPLES.map(([, name], i) => syntheticRow('fx-' + i, name));
+  const csv = build.renderCsv(rows);
+  const parsed = parseCsv(csv.slice(1));
+  for (let i = 0; i < SCRIPT_SAMPLES.length; i += 1) {
+    const [label, name] = SCRIPT_SAMPLES[i];
+    assert.strictEqual(parsed[i + 1][1], name, label + ' name corrupted through CSV');
+  }
+});
+
+test('T3: non-Latin names reach every rendered page intact', () => {
+  // The property is "intact modulo correct HTML escaping", not "byte-identical
+  // to the raw string". Bulgaria's CAIS EOP record carries an apostrophe inside
+  // its Cyrillic name, and escaping that to &#39; is correct behaviour — the
+  // first version of this assertion compared raw text against escaped HTML and
+  // called that corruption. What must never happen is the SCRIPT ITSELF being
+  // escaped: Cyrillic, CJK and Arabic characters have to arrive as characters,
+  // not as numeric entities.
+  const nonLatin = ROWS.filter((r) => /[^\u0000-\u024F]/.test(r.name));
+  if (!nonLatin.length) return; // none in the data yet; the CSV guard still runs
+  for (const p of PAGES) {
+    for (const r of nonLatin) {
+      assert.ok(p.html.includes(escapeHtml(r.name)),
+        p.rel + ': ' + r.id + ' name is missing or mangled beyond HTML escaping');
+      const firstNonLatin = [...r.name].find((ch) => ch.codePointAt(0) > 0x24F);
+      assert.ok(!p.html.includes('&#' + firstNonLatin.codePointAt(0) + ';'),
+        p.rel + ': ' + r.id + ' had its non-Latin characters entity-escaped');
+    }
+  }
+});
+
+test('T3: the data file stores real characters, not unicode escapes', () => {
+  // A writer with ensure_ascii would store the Korean name as six \uXXXX
+  // sequences. Still valid JSON, still round-trips — and unreviewable in a diff,
+  // which defeats the purpose of keeping a research dataset in Git.
+  const raw = read('data/tenders-procurement/platforms.json');
+  const escapes = raw.match(/\\u[0-9a-fA-F]{4}/g) || [];
+  assert.strictEqual(escapes.length, 0,
+    'platforms.json contains ' + escapes.length + ' unicode escapes, e.g. ' + escapes.slice(0, 3).join(' '));
+});
+
+test('T3: sorting is byte-stable across scripts', () => {
+  // compareStable is code-unit ordering precisely so that a Chinese or Arabic
+  // name cannot make generated output depend on the host's collation.
+  const names = SCRIPT_SAMPLES.map((s) => s[1]);
+  const once = [...names].sort(S.compareStable);
+  const twice = [...names].reverse().sort(S.compareStable);
+  assert.deepStrictEqual(once, twice, 'sort is not a total order across scripts');
+});
