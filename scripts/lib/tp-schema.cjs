@@ -414,11 +414,44 @@ function loadPlatforms(file, knownCountries) {
     // host ONLY when one declares itself part of the other's ecosystem, which
     // is how a national gazette and its e-submission tool can both be published
     // when they genuinely differ in function.
+    // ONE OPERATIONAL SYSTEM, ONE ROW — but "one host" is not the same thing as
+    // "one system", and Wave T4B proved it twice.
+    //
+    // WHO, UNICEF and WFP each run their own tendering site as a separate tenant
+    // of one In-tend deployment: ungm.in-tend.co.uk/who, /unicef, /wfp. Three
+    // institutions, three tender universes, one vendor hostname. Keying purely
+    // on host silently deleted two of them. IsDB likewise publishes corporate
+    // and project-financed procurement on one domain, and those are the very
+    // functions this collection exists to keep apart.
+    //
+    // So the key stays host-based — that is what catches www/apex variants and
+    // the same platform re-listed — and two records may share a host only when
+    // something real distinguishes them:
+    //   * a declared partOf relationship (a component of a parent system), or
+    //   * a different operator (a multi-tenant vendor deployment), or
+    //   * a different procurement nature (a corporate surface beside a
+    //     project-financed one), read from the record's own nature statement.
+    // A bare duplicate — same host, same operator, same nature, no declared
+    // relationship — is still rejected.
+    const natureOf = (r) => {
+      const m = (r.limitations || []).map((l) => /^(Project-financed|Corporate|Consulting)/.exec(l))
+        .find(Boolean);
+      return m ? m[1] : '';
+    };
     const key = `${row.country}|${hostOf(row.officialUrl)}`;
     if (hosts.has(key)) {
-      const prior = hosts.get(key);
-      if (row.partOf !== prior && prior !== row.partOf) {
-        problems.push([`${row.id}`, `shares a host with ${prior} without declaring an ecosystem relationship via partOf.`]);
+      const priorId = hosts.get(key);
+      const prior = raw.find((x) => x.id === priorId);
+      const related = row.partOf === priorId || (prior && prior.partOf === row.id);
+      const differentOperator = prior
+        && String(row.operator || '').trim().toLowerCase()
+           !== String(prior.operator || '').trim().toLowerCase();
+      const differentNature = prior && natureOf(row) && natureOf(prior)
+        && natureOf(row) !== natureOf(prior);
+      const differentUrl = prior && row.officialUrl !== prior.officialUrl;
+      if (!(related || ((differentOperator || differentNature) && differentUrl))) {
+        problems.push([`${row.id}`, `shares a host with ${priorId} and is indistinguishable from it: `
+          + 'declare a partOf relationship, or establish a different operator or procurement nature.']);
       }
     } else hosts.set(key, row.id);
   }

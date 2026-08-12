@@ -316,21 +316,61 @@ test('T2A MUTATION: homepage copied into registration or documents route is caug
   }
 });
 
-test('T2A: one host, one system — across the whole dataset, not just per country', () => {
-  // Per-country host uniqueness is enforced at load. This widens the property:
-  // the same full host appearing under two records anywhere means one
-  // operational system was recorded twice (the 26-copies-of-SIMAP failure),
-  // unless the records declare their relationship.
-  const seen = new Map();
+test('T2A/T4B: one host may carry several systems only when something real distinguishes them', () => {
+  // Originally: "one host, one system", which caught the 26-copies-of-SIMAP
+  // failure. Wave T4B proved the rule was stated one level too coarsely.
+  //
+  // WHO, UNICEF and WFP each operate their own tendering site as a separate
+  // tenant of a single In-tend deployment — ungm.in-tend.co.uk/who, /unicef,
+  // /wfp. Three institutions, three tender universes, one vendor hostname.
+  // IsDB likewise runs corporate and project-financed procurement on one
+  // domain, and those are the very functions this collection exists to keep
+  // apart. Host-only uniqueness silently deleted two UN agencies.
+  //
+  // The property is therefore: a host may carry several records when they are
+  // genuinely different systems — a declared partOf/replacedBy relationship, a
+  // different operator (multi-tenant vendor deployment), or a different
+  // procurement nature — and their URLs differ. A bare duplicate is still a bug.
+  const natureOf = (r) => {
+    const m = (r.limitations || [])
+      .map((l) => /^(Project-financed|Corporate|Consulting)/.exec(l)).find(Boolean);
+    return m ? m[1] : '';
+  };
+  const byHost = new Map();
   for (const r of PLATFORMS) {
     const host = S.hostOf(r.officialUrl);
-    if (seen.has(host)) {
-      const other = seen.get(host);
-      const related = r.partOf === other.id || other.partOf === r.id
-        || r.replacedBy === other.id || other.replacedBy === r.id;
-      assert.ok(related,
-        `${r.id} and ${other.id} both live on ${host} with no declared relationship`);
-    } else seen.set(host, r);
+    if (!byHost.has(host)) byHost.set(host, []);
+    byHost.get(host).push(r);
+  }
+  for (const [host, group] of byHost) {
+    if (group.length < 2) continue;
+    for (let i = 0; i < group.length; i += 1) {
+      for (let j = i + 1; j < group.length; j += 1) {
+        const [a, b] = [group[i], group[j]];
+        const related = a.partOf === b.id || b.partOf === a.id
+          || a.replacedBy === b.id || b.replacedBy === a.id;
+        const differentOperator = String(a.operator || '').trim().toLowerCase()
+          !== String(b.operator || '').trim().toLowerCase();
+        const differentNature = natureOf(a) && natureOf(b) && natureOf(a) !== natureOf(b);
+        const differentUrl = a.officialUrl !== b.officialUrl;
+        assert.ok(related || ((differentOperator || differentNature) && differentUrl),
+          `${a.id} and ${b.id} both live on ${host} and are indistinguishable: `
+          + 'no relationship, same operator, same procurement nature');
+      }
+    }
+  }
+});
+
+test('T4B: the In-tend tenants are modelled as separate institutions', () => {
+  // The concrete case the rule above exists for. If these ever collapse back
+  // into one record, two UN agencies have been silently deleted.
+  const tenants = PLATFORMS.filter((r) => S.hostOf(r.officialUrl) === 'ungm.in-tend.co.uk');
+  if (!tenants.length) return; // dataset may legitimately not carry them
+  const operators = new Set(tenants.map((r) => r.operator));
+  assert.strictEqual(operators.size, tenants.length,
+    `${tenants.length} In-tend tenants but only ${operators.size} distinct operators`);
+  for (const r of tenants) {
+    assert.ok(r.officialUrl.includes('/'), `${r.id} has no tenant path`);
   }
 });
 
