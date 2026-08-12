@@ -491,10 +491,34 @@ verified on the strength of a 200.
 
 - One workstream (the seven largest US states) died mid-run on a connection
   error and was re-run as a focused single-agent workflow rather than dropped.
-  A workflow resume then mis-slotted and produced a thinner duplicate of the
-  shared-platform workstream; the original, richer result was kept and the
-  duplicate discarded — noted here because "the tooling glitched" is exactly the
-  kind of thing that silently loses research.
+
+### Workflow resume safety rule (adopted after the T2B incident)
+
+A resume or retry **must not replace previously completed research** unless the
+new run is proven at least as complete on three axes:
+
+1. **record count** — accepted / rejected / unresolved per workstream;
+2. **evidence coverage** — evidence-note depth, evidence URLs present;
+3. **workstream identity** — the retry returned the workstream that actually
+   failed.
+
+Never extract results with last-write-wins. That is the direction that loses
+work.
+
+What happened here: a resume launched to recover the failed `us-states-1`
+instead re-ran `shared-commercial` and returned **8** accepted records where the
+original pass had **10**. A last-wins extraction would have silently deleted two
+verified platforms *and* left the genuinely-failed workstream still missing. The
+mis-slotting was caught only by comparing result shapes by hand, so the rule
+exists to make that check systematic rather than lucky.
+
+The same resume later reported five further agent failures. Those were failures
+of the *retry*, not of the original research, and the merged dataset was
+reconciled against each original workstream's reported counts to prove it —
+us-federal 8/8, Australia 15/15, New Zealand 2/2, US states 22/22, with zero
+thin evidence notes and zero missing evidence URLs across all 172 publishable
+records. A late "N agents failed" notification is a claim about a run, not about
+the dataset; verify which before acting on it.
 - No rendered browser in this wave either. Nothing labelled browser-check was
   checked in a browser.
 - Russia and Belarus untouched; T1 exclusion documentation stands.
