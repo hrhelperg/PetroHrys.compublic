@@ -12682,5 +12682,176 @@
       "Requires an Indian Class III Digital Signature Certificate to bid",
       "Sub-national system recorded without an ISO 3166-2 code: the project allowlist does not cover this country, and the jurisdiction is named in the record title instead."
     ]
+  },
+  {
+    "id": "pk-e-pak-acquisition-and-disposal",
+    "name": "e-Pak Acquisition and Disposal System (EPADS)",
+    "officialUrl": "https://epads.gov.pk/",
+    "country": "pakistan",
+    "platformType": "national-procurement",
+    "operator": "Public Procurement Regulatory Authority (PPRA), Cabinet Division, Government of Pakistan",
+    "operatorType": "regulator",
+    "procurementScope": "public",
+    "coverage": "national",
+    "currentStatus": "active",
+    "lastVerified": "2026-08-12",
+    "languages": [
+      "en"
+    ],
+    "opportunityTypes": [
+      "contract-notice",
+      "procurement-plan",
+      "supplier-registration",
+      "tender"
+    ],
+    "tenderSearchUrl": null,
+    "supplierRegistrationUrl": "https://vendors.epads.gov.pk/register",
+    "submissionUrl": "https://vendors.epads.gov.pk/login",
+    "documentsUrl": null,
+    "searchAccess": "free",
+    "electronicSubmission": "yes",
+    "supplierRegistrationRequired": "yes",
+    "foreignSuppliersAccepted": "unknown",
+    "evidenceClass": "A",
+    "evidenceUrl": "https://ppra.gov.pk/",
+    "evidenceNote": "2026-08-12: https://epads.gov.pk/ -> 200, final https://epads.gov.pk/, 826556 bytes, title 'Open Opportunities (Procurements) | e-Pak Acquisition and Disposal System (EPADS)'. Page body confirmed as a live opportunity board (~1,112 open opportunities, procuring-agency filter listing federal ministries/divisions/SOEs, per-lot countdown timers; sample rows 'Tender No 4424 IT Cybersecurity Audit & NEPRA Comp...' (Lahore Electric Supply Company) closing in ~21h and 'CONSTRUCTION OF 32 NO. JS APARTMENTS (02 BED) FOR...' (Islamabad International Airport) closing 2026-08-17). Footer states 'Powered by Federal Public Procurement Regulatory Authority (c) 2026'. Class A operator statement: PPRA's own site https://ppra.gov.pk/ -> 200, 114640 bytes, title 'Home | PPRA :: Public Procurement Regulatory Authority' presents e-PADS as its system ('developed in-house to meet international standards'), links https://epads.gov.pk/ and https://vendors.epads.gov.pk/register. Companion surfaces verified same day: https://vendors.epads.gov.pk/register -> 200, 19084 bytes, title 'Vendor Registration - EPADS v2.0'; https://vendors.epads.gov.pk/login -> 200, 16304 bytes, title 'Login - E-Pak Acquisition & Disposal System (EPADS)'; https://pa.epads.gov.pk/ -> 200 (final /login), 16686 bytes, 'Login - e-Pak Acquisition and Disposal System (EPADS)'; https://epads.gov.pk/disposals -> 200, 127455 bytes, 'Open Opportunities (Disposals)'. https://epads.gov.pk/opportunities and /login both -> 404 'Page Not Found', so no invented routes published.",
+    "browserCheckRequired": false,
+    "limitations": [
+      "Public opportunity board at epads.gov.pk is scoped to FEDERAL procuring agencies only (all indexed detail routes are /opportunities/federal/procurements/<id>); provincial procurement runs on separate per-jurisdiction EPADS instances (see notes).",
+      "Vendor registration form states 'Email Address & NTN serve as unique identifiers within EPADS v2.0' - a Pakistani National Tax Number appears to be required, which was NOT confirmed to be waivable for foreign firms.",
+      "No distinct tender-search route exists: the homepage itself is the opportunity list, so tenderSearchUrl left null rather than duplicating officialUrl.",
+      "Bid documents and submission are behind vendor login; not observable anonymously."
+    ]
+  },
+  {
+    "id": "bd-bangladesh-e-government-procurement",
+    "name": "Bangladesh e-Government Procurement (e-GP) System",
+    "officialUrl": "https://www.eprocure.gov.bd/",
+    "country": "bangladesh",
+    "platformType": "national-procurement",
+    "operator": "Bangladesh Public Procurement Authority (BPPA) / বাংলাদেশ পাবলিক প্রকিউরমেন্ট অথরিটি, IMED, Ministry of Planning",
+    "operatorType": "regulator",
+    "procurementScope": "public",
+    "coverage": "national",
+    "currentStatus": "active",
+    "lastVerified": "2026-08-12",
+    "languages": [
+      "bn",
+      "en"
+    ],
+    "opportunityTypes": [
+      "award-notice",
+      "contract-notice",
+      "eoi",
+      "procurement-plan",
+      "rfp",
+      "supplier-registration",
+      "tender"
+    ],
+    "tenderSearchUrl": "https://www.eprocure.gov.bd/resources/common/AllTenders.jsp?h=t",
+    "supplierRegistrationUrl": "https://www.eprocure.gov.bd/RegistrationSteps.jsp",
+    "submissionUrl": null,
+    "documentsUrl": null,
+    "searchAccess": "free",
+    "electronicSubmission": "yes",
+    "supplierRegistrationRequired": "yes",
+    "foreignSuppliersAccepted": "yes",
+    "evidenceClass": "A",
+    "evidenceUrl": "https://www.eprocure.gov.bd/aboutUs.jsp",
+    "evidenceNote": "2026-08-12: https://www.eprocure.gov.bd/ -> 200, 66258 bytes, title 'Welcome to e-GP'; apex https://eprocure.gov.bd/ -> 200 redirecting to https://www.eprocure.gov.bd:443/Index.jsp. Class A operator statement on https://www.eprocure.gov.bd/aboutUs.jsp -> 200, 49753 bytes, title 'About e-GP': 'Bangladesh e-Government Procurement (e-GP) portal ( i.e. https://eprocure.gov.bd ) of the Government of the People's Republic of Bangladesh is developed, owned, being operated and maintained by Bangladesh Public Procurement Authority (BPPA), IME Division under the Ministry of Planning.' and 'The entire procurement cycle is now conducted online. Both the e-Tendering and e-CMS (e-GP) have been successfully rolled out'. Institutional name confirmed current: https://www.bppa.gov.bd/about-cptu/central-procurement-technical-unit.html -> 200 (title 'BPPA | Bangladesh Public Procurement Authority'), stating CPTU became BPPA under the Bangladesh Public Procurement Authority Act 2023 (presidential assent 18 Sep 2023) and listing 'Operation and management of the e-GP System' among BPPA's functions. Deep routes verified same day: /resources/common/AllTenders.jsp?h=t -> 200, 86707 bytes, 'Advanced Search for eTenders/eProposals'; /resources/common/StdTenderSearch.jsp?h=t -> 200, 51769 bytes, 'eTender/eProposal Search Results'; /RegistrationSteps.jsp -> 200, 43425 bytes, 'e-GP New User Registration Steps'; /resources/common/SearchAPP.jsp -> 200, 61528 bytes, 'Annual Procurement Plan Search'; /resources/common/SearchNOA.jsp -> 200, 50913 bytes, 'eContracts Search Results'; /resources/common/SearchTenderOffline.jsp -> 200, 60683 bytes, 'Offline Tender/Proposal Search'. Bangla UI evidenced by SolaimanLipi font and Bangla registration manual (/help/manuals/eGP_NewUserRegManual_Bangla.pdf).",
+    "browserCheckRequired": false,
+    "limitations": [
+      "Paid registration: BDT 5,000 for national tenderers and BDT 12,000 for international tenderers, payable at an e-GP member scheduled bank before document upload; tender search itself is free and anonymous.",
+      "Operator restricts supported browsers ('Browsers Tested & Certified by BPPA: Microsoft Edge 109.x or above and Mozilla Firefox 113.x or above and Google Chrome 109.x or above').",
+      "Bid preparation/submission and e-CMS modules are behind login; submissionUrl left null because the login form sits on the homepage (Index.jsp = officialUrl).",
+      "Legacy authority domain cptu.gov.bd no longer resolves/connects (curl 000 on 2026-08-12); use bppa.gov.bd."
+    ],
+    "foreignEvidenceQuote": "Registration fee for International Tenderers is BDT 12000/- (Bangladesh Taka Twelve Thousand Only)",
+    "softwareVendor": "Dohatec New Media"
+  },
+  {
+    "id": "np-electronic-government-procurement",
+    "name": "Electronic Government Procurement (e-GP) System (Bolpatra)",
+    "officialUrl": "https://bolpatra.gov.np/egp/",
+    "country": "nepal",
+    "platformType": "national-procurement",
+    "operator": "Public Procurement Monitoring Office (PPMO) / सार्वजनिक खरिद अनुगमन कार्यालय, Government of Nepal",
+    "operatorType": "regulator",
+    "procurementScope": "public",
+    "coverage": "national",
+    "currentStatus": "active",
+    "lastVerified": "2026-08-12",
+    "languages": [
+      "en",
+      "ne"
+    ],
+    "opportunityTypes": [
+      "award-notice",
+      "contract-notice",
+      "eoi",
+      "procurement-plan",
+      "rfp",
+      "supplier-registration",
+      "tender"
+    ],
+    "tenderSearchUrl": "https://bolpatra.gov.np/egp/searchOpportunity",
+    "supplierRegistrationUrl": "https://bolpatra.gov.np/egp/signup-bidder",
+    "submissionUrl": null,
+    "documentsUrl": null,
+    "searchAccess": "free",
+    "electronicSubmission": "yes",
+    "supplierRegistrationRequired": "yes",
+    "foreignSuppliersAccepted": "unknown",
+    "evidenceClass": "A",
+    "evidenceUrl": "https://www.ppmo.gov.np/",
+    "evidenceNote": "2026-08-12: https://bolpatra.gov.np/egp/ -> 200, 47085 bytes, title 'PPMO'; apex https://bolpatra.gov.np/ -> 302 to /egp/. Body text (operator's own words): 'Public Procurement Monitoring Office (PPMO) has the vision to establish a centralized e-Government Procurement (e-GP) System for nation wide public procurement management. This is a web based one stop procurement portal covering various activities of public procurement life cycle including registration of bidders, procurement planning, e-tendering, on-line evaluation, contract management etc'; footer 'Copyright (c) 2025 Public Procurement Monitoring Office'. Class A cross-confirmation: https://www.ppmo.gov.np/ -> 200, 304071 bytes (empty <title>), navigation lists 'e-GP System' pointing to https://www.bolpatra.gov.np/egp/ plus 'e-GP सहायताको लागि सम्पर्क नम्बरहरु' helpdesk numbers, and offers NEP/ENG language toggle. Deep routes verified same day: /egp/searchOpportunity -> 200, 41037 bytes; /egp/signup-bidder -> 200, 290282 bytes (bidder self-registration form with Country Of Registration, Company Registration No., VAT/PAN fields); /egp/loadContractRecordsListPublic -> 200, 3086254 bytes; /egp/annual-pro-plan -> 200, 23110 bytes; /egp/egpStatistics -> 200, 17048 bytes. Guessed routes /egp/registration and /egp/userRegistration both returned 404, so only observed routes are published. Bidder/consultant/PE user manuals served from /egp/downloadHelpDoc (e.g. USER_REGISTRATION -> 200, 1182143 bytes, 12-page PDF headed 'National Electronic Government Procurement System / National Portal for e-Procurement, Public Procurement Monitoring Office, Red Cross Marg, Tahachal, Kathmandu, Nepal').",
+    "browserCheckRequired": false,
+    "limitations": [
+      "Bid preparation/submission is behind bidder login; submissionUrl left null (login form is on the homepage).",
+      "Tender documents are downloadable only after login and, for many notices, after bid-document fee payment through a registered bank (see /egp/RegisteredBankList).",
+      "The signup form exposes a full Country Of Registration list, but per project rules a country selector is NOT treated as evidence of foreign eligibility - left unknown.",
+      "Nepali-language content is present but most transactional screens observed rendered in English."
+    ]
+  },
+  {
+    "id": "lk-promise",
+    "name": "PROMISe (Sri Lanka e-Government Procurement System)",
+    "officialUrl": "https://promise.lk/",
+    "country": "sri-lanka",
+    "platformType": "national-procurement",
+    "operator": "Department of Public Finance (e-GP Secretariat), Ministry of Finance, Sri Lanka",
+    "operatorType": "government",
+    "procurementScope": "public",
+    "coverage": "national",
+    "currentStatus": "active",
+    "lastVerified": "2026-08-12",
+    "languages": [
+      "en"
+    ],
+    "opportunityTypes": [
+      "contract-notice",
+      "supplier-registration",
+      "tender"
+    ],
+    "tenderSearchUrl": null,
+    "supplierRegistrationUrl": null,
+    "submissionUrl": null,
+    "documentsUrl": null,
+    "searchAccess": "unknown",
+    "electronicSubmission": "unknown",
+    "supplierRegistrationRequired": "yes",
+    "foreignSuppliersAccepted": "unknown",
+    "evidenceClass": "A",
+    "evidenceUrl": "https://www.pucsl.gov.lk/notices/supplier-registration-in-e-gp-platform/",
+    "evidenceNote": "2026-08-12: promise.lk and its mirror www.egp.gov.lk are NOT reachable from this probe egress - DNS resolves (promise.lk and egp.gov.lk -> 124.43.177.184) but curl returns 000 ('Connection timed out after 40006 ms' on both https and http) and WebFetch returns 'connect ECONNREFUSED 124.43.177.184:443'. A single text-proxy attempt (r.jina.ai) returned 403 'Just a moment...' (Cloudflare interstitial). Same network behaviour for procurement.gov.lk (DNS 124.43.163.65, curl 000); www.procurement.gov.lk does not resolve at all. Probed once each, then moved on; browserCheckRequired set. Class A supporting documentation from a Sri Lankan public authority: https://www.pucsl.gov.lk/notices/supplier-registration-in-e-gp-platform/ -> 200, notice by Thushani Haputhantri, Deputy Director-Finance, Public Utilities Commission of Sri Lanka (~Oct 2024), instructing suppliers to register on the e-GP platform and stating 'You may get all the information by visiting to the e-GP portal at promise.lk and follow the e-learning, vendor user guidelines' and 'Registration on the platform will enable us to streamline submissions and adhere to government regulations. https://promise.lk', citing a Department of Public Finance circular (PFD 08/2019 'Implementation of e-GP in Sri Lanka'). Independently, https://www.treasury.gov.lk/procurement/procurement-notices -> 200, 214286 bytes, title 'Ministry of Finance - Sri lanka' carries an active Department of Public Finance notice 'Procurement of System Implementation Partner (SIP) for Design, Development, Implementation, Rollout, and Maintenance of the Electronic Government Procurement (e-GP) System in Sri Lanka', reference LK-EGP SECRETARIAT-545908-GO-RFP (deadline-extension Notice No. 03, attachments eGPS.pdf / eGPS_2.pdf), confirming both the e-GP Secretariat under the Department of Public Finance and that a full replacement national e-GP system is still under procurement.",
+    "browserCheckRequired": true,
+    "limitations": [
+      "Host unreachable from this egress on 2026-08-12 (timeout / ECONNREFUSED on 124.43.177.184:443); every field below rests on Sri Lankan government documentation rather than live observation - re-verify in a browser.",
+      "Could NOT establish whether PROMISe supports full electronic bid submission or is limited to vendor registration, notice publication and document access; electronicSubmission left unknown. This was the core question for Sri Lanka and it remains open.",
+      "Deep routes indexed by search engines (a vendor-registration route and an e-procurement search route under promise.lk/?p=...) were deliberately NOT published because they could not be verified and must not be asserted as working routes.",
+      "A mirror hostname www.egp.gov.lk serves the same 'Promise' application on the same IP; canonical host not confirmed.",
+      "A successor national e-GP system is currently being procured by the Department of Public Finance (LK-EGP SECRETARIAT-545908-GO-RFP), so this record is likely to be superseded.",
+      "Sinhala/Tamil interface availability not confirmed; only English evidenced."
+    ]
   }
 ]

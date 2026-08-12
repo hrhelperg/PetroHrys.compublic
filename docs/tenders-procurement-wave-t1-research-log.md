@@ -503,8 +503,17 @@ verified on the strength of a 200.
 
 # Wave T3 — Asia, Middle East, Latin America & Africa (2026-08-12)
 
-16 research workstreams. Dataset 173 → 310 records (172 → 309 publishable),
-47 → 96 countries. 140 accepted, 174 rejected, 81 unresolved.
+16 research workstreams, all 16 completed. Dataset 173 → 314 records
+(172 → 313 publishable), 47 → 100 countries. 144 accepted, 186 rejected,
+87 unresolved.
+
+**South Asia note.** The `south-asia-rest` workstream returned after the wave was
+first closed, and Pakistan, Bangladesh, Nepal and Sri Lanka were briefly reported
+as unresearched. They are not: all four have class-A national e-GP records —
+EPADS (PK), the Bangladesh e-GP System, Nepal's e-GP under PPMO, and PROMISe
+(LK). Pakistan's provincial layer (Punjab, KP, Balochistan PPRA portals) is
+unresolved from this egress: the hostnames resolve but refuse or time out on
+TLS, which is a transport finding rather than absence.
 
 ## Dataset
 
