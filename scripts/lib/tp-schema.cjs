@@ -322,6 +322,29 @@ function problemsFor(row, knownCountries) {
     }
   }
 
+  // A multilateral body is not a country.
+  //
+  // Wave T4 added the international layer — UNGM, the World Bank, the regional
+  // development banks, NATO agencies. The available shortcut was to file each
+  // under whichever country slug validated: the World Bank under united-states
+  // because it is headquartered in Washington, AIIB under china because it sits
+  // in Beijing, NSPA under luxembourg. Every one of those would be a false
+  // statement about who the buyer is and which law applies.
+  //
+  // No new field was needed to prevent it. The shared geography file already
+  // marks its two non-country entries — "global" and "european-union" — with
+  // entityType "supranational", and that is the distinction this guard reads.
+  // A record claiming supranational coverage must sit on a supranational slug;
+  // a real country cannot host one.
+  //
+  // knownCountries carries slug -> alpha-2 when the caller can supply it, and a
+  // real country is exactly a slug that HAS an alpha-2. That is why this works
+  // without teaching the schema a second list it would have to keep in step.
+  if (row.coverage === 'supranational' && knownCountries instanceof Map
+      && knownCountries.has(row.country) && knownCountries.get(row.country)) {
+    at('country', `is "${row.country}", a country with an ISO alpha-2 code, but the record claims supranational coverage: a multilateral body may not be filed under a nation.`);
+  }
+
   // An unverifiable fetch is publishable only when it says so out loud.
   if (row.evidenceClass === 'unknown' && row.browserCheckRequired !== true) {
     at('evidenceClass', 'is "unknown", so browserCheckRequired must be true.');

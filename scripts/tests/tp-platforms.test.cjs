@@ -439,3 +439,57 @@ test('T2B MUTATION: a shared platform duplicated per state is caught', () => {
       'one platform published once per state survived');
   } finally { fs.unlinkSync(file); }
 });
+
+
+// ── Wave T4: the multilateral layer is not a geography ──────────────────────
+// T4 added UNGM, the World Bank, the regional development banks and the NATO
+// agencies. The tempting shortcut was to file each under whichever country slug
+// validated — the World Bank under united-states because it is headquartered in
+// Washington, AIIB under china, NSPA under luxembourg. Each would be a false
+// statement about who the buyer is and which law applies.
+//
+// No new field was needed. The shared geography file already marks its two
+// non-country entries, "global" and "european-union", with
+// entityType "supranational".
+
+const SUPRANATIONAL_SLUGS = new Set(
+  countryList.filter((c) => typeof c !== 'string' && c.entityType === 'supranational')
+    .map((c) => c.slug));
+
+test('T4: the geography file still distinguishes supranational entries', () => {
+  // If this ever empties, the guard below silently stops protecting anything.
+  assert.ok(SUPRANATIONAL_SLUGS.size >= 2,
+    `expected supranational slugs in countries.json, found ${[...SUPRANATIONAL_SLUGS]}`);
+  assert.ok(SUPRANATIONAL_SLUGS.has('global'));
+});
+
+test('T4: no supranational record is filed under a real country', () => {
+  const supra = PLATFORMS.filter((r) => r.coverage === 'supranational');
+  assert.ok(supra.length > 0, 'no supranational records: this guard is vacuous');
+  for (const r of supra) {
+    assert.ok(SUPRANATIONAL_SLUGS.has(r.country),
+      `${r.id} claims supranational coverage but is filed under "${r.country}", a nation`);
+  }
+});
+
+test('T4 MUTATION: a multilateral body filed under a nation is caught', () => {
+  for (const c of ['united-states', 'china', 'luxembourg']) {
+    const row = base();
+    row.coverage = 'supranational'; row.country = c;
+    assert.ok(caughtIso(row, 'country'), `a supranational record under ${c} survived`);
+  }
+});
+
+test('T4 MUTATION: the legitimate supranational homes still validate', () => {
+  // A guard that also rejects the correct case is not a guard, it is an outage.
+  for (const c of ['global', 'european-union']) {
+    const row = base();
+    row.coverage = 'supranational'; row.country = c;
+    assert.strictEqual(problemsWithIso(row).length, 0,
+      `a supranational record on ${c} was wrongly rejected`);
+  }
+  // And a bilateral donor agency is institutional on its own country.
+  const donor = base();
+  donor.coverage = 'institutional'; donor.country = 'germany';
+  assert.strictEqual(problemsWithIso(donor).length, 0, 'a national institutional record was rejected');
+});
