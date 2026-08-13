@@ -521,6 +521,19 @@ function pageModel(registry, locale = I18N.DEFAULT_LOCALE) {
           `      <p class="bd-note"><a class="bd-button" href="/research/business-directories/opportunities.csv" download>`
             + `Download all ${actionable.length} opportunities as CSV</a> `
             + `${escapeHtml(t('bdx.csvNote'))}</p>`,
+          // The second action. "Download all" above is a static file and stays
+          // that way; this one is the current selection, and only the browser
+          // knows what that is.
+          //
+          // The count is every ROW this page renders, not every opportunity:
+          // the "other countries" table below repeats a subset of the worklist,
+          // so the page shows 2,167 rows for 1,563 opportunities and the export
+          // mirrors the page. Anything else and the button would open holding a
+          // number the file does not match.
+          c.filteredExportControl({
+            name: 'business-listing-opportunities',
+            count: actionable.length + other.length,
+          }),
           c.directoryTable({
             directories: actionable,
             caption: t('bdx.listingOpps'),
@@ -692,6 +705,7 @@ function pageModel(registry, locale = I18N.DEFAULT_LOCALE) {
           c.searchControls({ idPrefix: country.slug }),
           c.filterControls({ idPrefix: country.slug, directories: countryEntries }),
           c.sortControls({ idPrefix: country.slug, columns: countryColumns }),
+          c.filteredExportControl({ name: country.slug, count: countryEntries.length }),
           // A country with no subnational record renders exactly one table, as
           // it always has. Grouping appears only once the coverage exists, so
           // the United States does not carry an empty "States" heading before
@@ -727,6 +741,7 @@ function pageModel(registry, locale = I18N.DEFAULT_LOCALE) {
             c.searchControls({ idPrefix: `${country.slug}-${category.slug}` }),
             c.filterControls({ idPrefix: `${country.slug}-${category.slug}`, directories: entries }),
             c.sortControls({ idPrefix: `${country.slug}-${category.slug}`, columns: c.tableColumnsFor(entries) }),
+            c.filteredExportControl({ name: `${country.slug}-${category.slug}`, count: entries.length }),
             c.directoryTable({
               directories: entries,
               caption: `${category.name} directories in ${country.name}`,

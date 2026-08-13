@@ -780,6 +780,50 @@ function clearFiltersControl({ label = t('common.clearFilters') } = {}) {
       </div>`;
 }
 
+// ── THE FILTERED EXPORT BUTTON ─────────────────────────────────────────────
+//
+// The SECOND download action, and deliberately a different one. Every Research
+// Center CSV is a build-time artefact of the WHOLE collection, linked as a
+// plain file — "Download all 383 platforms as CSV" — and that link keeps
+// working with JavaScript switched off, because it is a file on disk. This
+// button exports the rows a reader is looking at after their search, facets and
+// sort, which only the browser knows. So it ships `hidden` and is revealed only
+// once the client has proved it can build a file at all: a button that cannot
+// do the thing it names is worse than no button.
+//
+// {n} survives into the markup on purpose. The count must be the length of the
+// array that is actually written, recomputed after every render, so the label
+// is a template the client fills — not a number the generator guessed once.
+//
+// ── WHY THESE FOUR STRINGS ARE NOT IN data/i18n ────────────────────────────
+//
+// Every other string on these pages comes from the dictionaries and this one
+// should too; the migration is one `common.downloadFiltered` key and the
+// deletion of this map. It does not today for a reason that is specific to it:
+// I18N.t() refuses to emit a string with an unsubstituted placeholder and
+// throws, because a page reading "{n}" is exactly the failure it exists to
+// prevent — and this is the one string that must reach the browser WITH its
+// placeholder intact.
+const EXPORT_LABEL = {
+  en: 'Download filtered results ({n})',
+  es: 'Descargar los resultados filtrados ({n})',
+  fr: 'Télécharger les résultats filtrés ({n})',
+  de: 'Gefilterte Ergebnisse herunterladen ({n})',
+};
+
+function filteredExportControl({ name, count = 0 } = {}) {
+  const label = EXPORT_LABEL[locale] || EXPORT_LABEL[I18N.DEFAULT_LOCALE];
+  // Rendered with the real row count rather than a placeholder, so the markup
+  // is truthful in the moment before the client rewrites it.
+  const initial = label.split('{n}').join(String(count));
+  // `hidden` sits on the paragraph, not on the button: .bd-note draws a left
+  // rule and a margin, so a hidden button inside a visible paragraph would
+  // leave a stray vertical line on every page a reader has no script for.
+  return `      <p class="bd-note" data-bd-export-wrap hidden><button class="bd-button bd-button--ghost" type="button" `
+    + `data-bd-export data-bd-export-name="${escapeHtml(String(name || ''))}" `
+    + `data-bd-export-label="${escapeHtml(label)}">${escapeHtml(initial)}</button></p>`;
+}
+
 // ---------------------------------------------------------------------------
 // 5. Directory table
 // ---------------------------------------------------------------------------
@@ -1554,6 +1598,7 @@ function editorialGuidance(directory, active) {
   listingInformation,
   recommendationTable,
   searchControls, filterControls, sortControls, pagination, facetSelect, clearFiltersControl,
+  filteredExportControl,
   verificationBlock, acceptsList, scoreBreakdown, filterValue, filterAttr,
   relatedDirectories, submissionLink, editorialGuidance,
   methodologyNote, provenanceBlock, externalLinkCta,

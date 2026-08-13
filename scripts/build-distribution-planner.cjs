@@ -24,6 +24,11 @@ const fs = require('node:fs');
 const path = require('node:path');
 const P = require('./lib/distribution-planner.cjs');
 const A = require('./lib/distribution-actionability.cjs');
+// The engine directly, for the surface distribution-planner.cjs does not
+// re-export: the default state, the size vocabulary and the CSV field escape.
+// It is the same module object either way — the re-export is a view onto this
+// one — so nothing here is a second implementation.
+const E = require('./lib/dp-engine.cjs');
 const REC = require('./lib/media-recommend.cjs');
 const MI = require('./lib/media-intelligence.cjs');
 // The module-level import is the ENGLISH binding. Using it inside a localized
@@ -47,7 +52,7 @@ const CSV_FILE = path.join(OUT_DIR, 'execution-opportunities.csv');
 // set of opportunities in the shape the page's own engine reads.
 const DATA_FILE = path.join(OUT_DIR, P.PLANNER_DATA_FILE);
 const TRACKER = path.join(ROOT, 'data', 'distribution-planner', 'internal-execution-tracker.template.csv');
-const CAMPAIGN_SIZE = 25;
+const CAMPAIGN_SIZE = E.PLANNER_DEFAULTS.size;
 
 // Loaded on the planner and nowhere else. The shared shell already ships the
 // Research Center's row-filtering scripts to all 23,628 generated pages; the
@@ -61,8 +66,12 @@ const PAGE_SCRIPTS = ['/js/dp-engine.js', '/js/distribution-planner.js'];
 // lanes, so a no-JS reader sees the planner actually working. `evidence` is part
 // of it because the control is real now: the prerendered campaign and the
 // campaign the client computes from the untouched controls must be the same one.
-const DEFAULT_QUERY = { business: 'local-business', objective: 'local-discovery',
-  market: 'united-states', budget: 'free-freemium', evidence: 'ready' };
+//
+// Owned by the engine rather than declared here, because a THIRD reader of it
+// arrived with the URL state: the generator renders from it, the controls carry
+// it as their selected options, and a bare planner URL means it. Three copies
+// that agree today is the exact shape the hardcoded market name had.
+const DEFAULT_QUERY = E.PLANNER_DEFAULTS;
 
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
   .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
@@ -182,7 +191,7 @@ ${select({ id: 'dp-market', label: t('col.market'), value: DEFAULT_QUERY.market,
 ${select({ id: 'dp-budget', label: t('dp.budget'), value: DEFAULT_QUERY.budget,
     options: P.BUDGETS.map((b) => ({ value: b.key, label: b.label })) })}
 ${select({ id: 'dp-size', label: t('dp.howMany'), value: String(CAMPAIGN_SIZE),
-    options: [10, 25, 50, 100].map((n) => ({ value: String(n), label: `${n}` })) })}
+    options: E.PLANNER_SIZES.map((n) => ({ value: String(n), label: `${n}` })) })}
 ${select({ id: 'dp-evidence', label: t('dp.evidence'), value: DEFAULT_QUERY.evidence,
     options: P.EVIDENCE_MODES.map((m) => ({ value: m.key, label: EVIDENCE_LABEL[m.key] })) })}
       </div>
@@ -206,9 +215,18 @@ ${queueTable(t('status.READY'), READY_HEAD,
       <p class="bd-note"><a class="bd-button" href="${P.PLANNER_PATH}execution-opportunities.csv" download>${t('dp.downloadQueue')}</a></p>
     </section>`,
 
+    // The download button ships HIDDEN and is adopted by the client. It exports
+    // the campaign the CONTROLS are in, which the server cannot know and a
+    // no-JS reader cannot change — for them section 2 already links the full
+    // queue, and a button that handed them a different campaign from the one on
+    // screen is the class of defect this page was repaired for. The label comes
+    // from the dictionary and the count from the client, so it stays a
+    // localized string with a number appended rather than an English sentence
+    // assembled in the browser.
     `<section id="campaign" aria-labelledby="campaign-h">
       <h2 id="campaign-h">3. The campaign, grouped by the work it is</h2>
       <p>${esc(t('dp.byActionIntro'))}</p>
+      <p class="bd-note"><button class="bd-button" type="button" data-dp-download hidden>${esc(t('common.download'))}</button></p>
 ${camp.groups.map((g) => `      <section id="cg-${g.key}" data-dp-group="${esc(g.key)}" aria-labelledby="cg-${g.key}-h">
         <h3 id="cg-${g.key}-h">${esc(g.label)} <span class="bd-count">${g.items.length}</span></h3>
         <p>${esc(g.blurb)}</p>
@@ -295,11 +313,12 @@ const CSV_COLUMNS = ['platform', 'collection', 'country', 'audience', 'actionabi
   'evidence_action_url', 'blocker', 'missing', 'native_score', 'native_signal',
   'source_collection_url'];
 
-const csvField = (v) => {
-  if (v === null || v === undefined) return '';
-  const t = Array.isArray(v) ? v.join('; ') : String(v);
-  return /[",\r\n]/.test(t) ? `"${t.replace(/"/g, '""')}"` : t;
-};
+// The engine's escape, not a local copy. This file's copy was RFC 4180 correct
+// and NOT formula-hardened, so one platform name in the 2,234-row export — the
+// only value in the whole file that begins with "@" — opened in Excel as a
+// formula. The client-side campaign export needs the same escape; two copies of
+// it is how one of them stays unhardened.
+const csvField = E.csvField;
 
 function renderCsv(ops, countryName) {
   const rows = ops.map((op) => ({ op, a: A.actionability(op) }))

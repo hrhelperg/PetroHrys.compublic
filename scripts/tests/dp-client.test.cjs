@@ -145,7 +145,12 @@ function recordedReads() {
       for (const market of markets) {
         for (const budget of E.BUDGETS.map((b) => b.key)) {
           for (const evidence of E.EVIDENCE_MODES.map((m) => m.key)) {
-            E.campaign(watched, { business, objective, market, budget }, { size: 10, evidence });
+            // The CSV export is walked with the campaign, not beside it: it
+            // reads the same opportunities, and a column added from a field the
+            // payload does not carry would export an empty column in the
+            // browser and a full one on the build machine.
+            E.campaignCsv(E.campaign(watched, { business, objective, market, budget },
+              { size: 10, evidence }));
           }
         }
       }

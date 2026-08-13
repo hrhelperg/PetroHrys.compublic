@@ -15,6 +15,17 @@
  * export and the test suite use. A second scoring implementation living here is
  * how a page starts calling something Ready that the CSV calls Needs research.
  *
+ * That state is also the URL, and the URL is also that state. Six controls make
+ * 29,920 combinations and none of them was addressable, so a campaign could not
+ * be sent to the colleague who has to work it. History is wired here; the
+ * PARSING is in the engine, next to the vocabularies a value has to be checked
+ * against — the engine THROWS on a business profile it does not know, so a
+ * hostile or stale ?business= must be rejected before it reaches campaign().
+ *
+ * And what the page computed can now be downloaded. The static CSV in section 2
+ * is the whole 2,234-row queue and stays that; the button in section 3 exports
+ * the campaign these controls are in, which the server never saw.
+ *
  * Only section 3 and the summary paragraph depend on the controls. Sections 2,
  * 4, 5 and 6 are computed over the whole corpus and are control-independent, so
  * this file does not touch them.
@@ -49,6 +60,35 @@
   var selects = Array.prototype.slice.call(controls.querySelectorAll('[data-dp-filter]'));
   if (!selects.length) return;
 
+  // URL state is an enhancement of an enhancement. A browser without history or
+  // URLSearchParams still gets a planner that recomputes; it simply cannot share
+  // what it computed, which is a smaller loss than standing down entirely.
+  var historyOk = typeof window !== 'undefined' && typeof URLSearchParams === 'function'
+    && !!window.history && typeof window.history.pushState === 'function'
+    && !!window.location;
+
+  function controlFor(key) {
+    for (var i = 0; i < selects.length; i += 1) {
+      if (String(selects[i].getAttribute('data-dp-filter')) === key) return selects[i];
+    }
+    return null;
+  }
+
+  // Five of the six vocabularies are fixed and the engine owns them. The sixth —
+  // market — is whichever countries the corpus contains, so it is read off the
+  // control's own options and handed to the engine. A URL can then only ever
+  // name a market the reader could have chosen from the control itself.
+  function knownVocabulary() {
+    var select = controlFor('market');
+    var markets = [];
+    if (select && select.options) {
+      for (var i = 0; i < select.options.length; i += 1) markets.push(select.options[i].value);
+    }
+    return { markets: markets };
+  }
+
+  var known = knownVocabulary();
+
   function labelOf(select) {
     var option = select.options[select.selectedIndex];
     return option ? option.textContent : select.value;
@@ -67,7 +107,22 @@
     return state;
   }
 
+  // Writes a state the engine has already validated back onto the controls. A
+  // value no option carries would leave a select at selectedIndex -1 with an
+  // empty value, and the page would then compute a campaign for a state nothing
+  // on screen describes — which is why parseState whitelists rather than
+  // sanitizes, and why nothing else is allowed to call this.
+  function writeState(values) {
+    selects.forEach(function (select) {
+      var key = String(select.getAttribute('data-dp-filter'));
+      if (values[key] === undefined || values[key] === null) return;
+      select.value = String(values[key]);
+    });
+  }
+
   var data = null;
+  var lastResult = null;
+  var lastValues = null;
 
   function el(tag, className, text) {
     var node = document.createElement(tag);
@@ -77,8 +132,9 @@
   }
 
   function renderGroups(groups) {
-    // Remove the previously rendered groups only. The heading and the intro
-    // paragraph are the section's own furniture and survive every recompute.
+    // Remove the previously rendered groups only. The heading, the intro
+    // paragraph and the download button are the section's own furniture and
+    // survive every recompute.
     var stale = Array.prototype.slice.call(section.querySelectorAll('[data-dp-group]'));
     stale.forEach(function (node) {
       if (node.parentNode) node.parentNode.removeChild(node);
@@ -123,7 +179,50 @@
     });
   }
 
-  function apply() {
+  // ── the campaign, downloaded ────────────────────────────────────────────────
+
+  // Shipped hidden by the generator and adopted here, so a no-JS reader is never
+  // offered a button that would hand them a campaign other than the one they can
+  // see. The label is the dictionary's, localized at build time; only the count
+  // is appended, so nothing assembles an English sentence in the browser.
+  var downloadEl = section.querySelector('[data-dp-download]');
+  var downloadLabel = downloadEl ? downloadEl.textContent : '';
+  var canDownload = !!downloadEl && typeof Blob === 'function'
+    && typeof URL !== 'undefined' && typeof URL.createObjectURL === 'function';
+
+  function updateDownload(result) {
+    if (!canDownload) return;
+    // Rows, not picks. They are the same number unless a picked opportunity
+    // satisfied no group, and the button must never promise a count the file
+    // does not contain.
+    downloadEl.textContent = downloadLabel + ' (' + E.campaignRows(result).length + ')';
+    downloadEl.hidden = false;
+  }
+
+  function download() {
+    if (!canDownload || !lastResult) return;
+    var blob = new Blob([E.campaignCsv(lastResult)], { type: 'text/csv;charset=utf-8' });
+    var href = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = href;
+    a.download = E.campaignFilename(lastValues, known);
+    // In the document for the length of the click: a detached anchor is ignored
+    // by some browsers, and leaving it there would put a stray link inside the
+    // campaign section.
+    var host = downloadEl.parentNode;
+    if (host) host.appendChild(a);
+    a.click();
+    if (host) host.removeChild(a);
+    // Deferred: revoking in the same tick cancels the download in some browsers.
+    setTimeout(function () { URL.revokeObjectURL(href); }, 0);
+  }
+
+  // ── recompute ──────────────────────────────────────────────────────────────
+
+  // `mode` is what to do with history: 'replace' on boot and 'push' on a control
+  // change. A popstate passes nothing — the browser has already moved the entry,
+  // and pushing there would bury the history it just navigated.
+  function apply(mode) {
     if (!data) return;
     var state = readState();
     var ctx = {
@@ -153,6 +252,22 @@
       picked: result.picked.length
     });
     renderGroups(result.groups);
+    lastResult = result;
+    lastValues = state.values;
+    updateDownload(result);
+
+    // The URL is written only after the campaign it describes is on screen, so
+    // there is no moment where the address bar promises a plan the page has not
+    // rendered.
+    if (mode && historyOk) {
+      var url = window.location.pathname + E.serializeState(state.values, known);
+      if (mode === 'replace') window.history.replaceState(null, '', url);
+      else window.history.pushState(null, '', url);
+    }
+  }
+
+  function stateFromUrl() {
+    return E.parseState(new URLSearchParams(window.location.search), known);
   }
 
   // The payload lives beside the CSV inside the planner's own route: /data/* is
@@ -182,8 +297,27 @@
       });
     });
     data = payload.opportunities;
-    selects.forEach(function (select) { select.addEventListener('change', apply); });
-    apply();
+
+    // The URL is read only now. Moving the controls first and discovering the
+    // payload missing second would leave six controls describing a campaign the
+    // page is not showing — the defect this file exists to remove, reintroduced
+    // through the address bar.
+    if (historyOk) writeState(stateFromUrl());
+    selects.forEach(function (select) {
+      select.addEventListener('change', function () { apply('push'); });
+    });
+    if (canDownload) downloadEl.addEventListener('click', download);
+    // 'replace' rather than 'push': the boot render is not a navigation, and it
+    // rewrites whatever arrived — a stale parameter, a hostile one, a partial
+    // link — as the canonical form of the state actually rendered.
+    apply('replace');
+
+    if (historyOk) {
+      window.addEventListener('popstate', function () {
+        writeState(stateFromUrl());
+        apply(null);
+      });
+    }
   }).catch(function () {
     // Deliberately silent and deliberately inert. The page is already correct.
   });

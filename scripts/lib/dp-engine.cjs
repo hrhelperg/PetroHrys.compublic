@@ -1041,6 +1041,193 @@
       + `${eligible}; ${chosen}.`;
   }
 
+  // ── URL state ─────────────────────────────────────────────────────────────
+  //
+  // A campaign nobody can send to a colleague has to be rebuilt by hand at the
+  // other end, and six controls are six chances to rebuild it slightly wrong.
+  // So the whole state lives in the URL. It is parsed HERE, beside the
+  // vocabularies it has to be checked against, for the same reason the score is
+  // here: a parser in the browser and a vocabulary in the engine drift, and the
+  // query string is the one input to this page that arrives from outside it.
+  //
+  // Parameters are canonical VALUES, never labels. The planner ships in four
+  // locales from one render path, so a German reader whose URL said
+  // market=Vereinigte+Staaten would hand an English reader a link their page
+  // cannot resolve. These six strings are identical in every locale.
+  //
+  // HOSTILE AND STALE INPUT IS THE NORMAL CASE, and it is not merely untidy:
+  // businessFit THROWS on a profile it does not know, so ?business=<script>
+  // reaching the engine is an exception thrown inside the render, not a value
+  // that scores badly. Every parameter is therefore checked against the
+  // vocabulary that owns it and anything else falls back to the default. The
+  // parsed state is a WHITELIST, not a cleaned copy of what arrived — no
+  // fragment of the query string is ever echoed into the page or back into the
+  // URL.
+  const PLANNER_PARAMS = ['business', 'objective', 'market', 'budget', 'size', 'evidence'];
+
+  // The sizes the control offers. Here rather than in the generator so the
+  // select, the URL and the validator cannot offer three different sets.
+  const PLANNER_SIZES = [10, 25, 50, 100];
+
+  const ANY_MARKET = '*';
+
+  // The state the page is rendered in when no URL asks for another. The
+  // generator renders its static campaign from this, the controls carry it as
+  // their selected options, and a bare planner URL means exactly it — one
+  // default, not three that agree until someone edits one of them.
+  const PLANNER_DEFAULTS = { business: 'local-business', objective: 'local-discovery',
+    market: 'united-states', budget: 'free-freemium', size: 25, evidence: 'ready' };
+
+  // Five of the six vocabularies are owned by this module. The sixth — market —
+  // is whichever countries the corpus actually contains, so the caller passes
+  // the list its control was built from and a URL can only ever name a market
+  // the reader could have chosen from the control itself.
+  function plannerVocabulary(known) {
+    const markets = known && Array.isArray(known.markets) ? known.markets : [];
+    return {
+      business: MEDIA_PROFILES.map((p) => p.key),
+      objective: OBJECTIVES.map((o) => o.key),
+      market: [ANY_MARKET].concat(markets),
+      budget: BUDGETS.map((b) => b.key),
+      size: PLANNER_SIZES.map(String),
+      evidence: EVIDENCE_MODES.map((m) => m.key),
+    };
+  }
+
+  // One validator for both directions, so a value that cannot be parsed can
+  // never be serialized either — including a value read back off a control that
+  // some future markup change let drift out of vocabulary.
+  function normalizeState(state, known) {
+    const vocab = plannerVocabulary(known);
+    const out = {};
+    for (const key of PLANNER_PARAMS) {
+      const raw = state && state[key] !== undefined && state[key] !== null
+        ? String(state[key]) : null;
+      out[key] = raw !== null && vocab[key].indexOf(raw) !== -1
+        ? raw : String(PLANNER_DEFAULTS[key]);
+    }
+    out.size = Number(out.size);
+    return out;
+  }
+
+  function parseState(searchParams, known) {
+    const get = (k) => {
+      if (!searchParams) return null;
+      // Duplicates: the FIRST wins, deterministically. Taking the last would let
+      // ?market=united-states&market=germany show one market to a reader
+      // skimming the link and compute the campaign for another.
+      if (typeof searchParams.getAll === 'function') {
+        const all = searchParams.getAll(k);
+        return all.length ? all[0] : null;
+      }
+      if (typeof searchParams.get === 'function') return searchParams.get(k);
+      return Object.prototype.hasOwnProperty.call(searchParams, k) ? searchParams[k] : null;
+    };
+    const raw = {};
+    for (const key of PLANNER_PARAMS) raw[key] = get(key);
+    return normalizeState(raw, known);
+  }
+
+  // All six parameters, or none at all. A link carrying only what differs from
+  // today's default changes meaning the day the default changes, and the entire
+  // value of a shared campaign URL is that it still selects the same platforms
+  // next month. The default state serializes to the empty string, so the
+  // planner's own address stays clean and no query combination can ever be
+  // mistaken for a page worth indexing.
+  function serializeState(state, known) {
+    const s = normalizeState(state, known);
+    if (PLANNER_PARAMS.every((k) => String(s[k]) === String(PLANNER_DEFAULTS[k]))) return '';
+    return `?${PLANNER_PARAMS
+      .map((k) => `${encodeURIComponent(k)}=${encodeURIComponent(String(s[k]))}`).join('&')}`;
+  }
+
+  // ── the campaign, as a spreadsheet ────────────────────────────────────────
+  //
+  // execution-opportunities.csv is the whole 2,234-row queue, written once at
+  // build time. It answers "what is in the catalogue?" and it should stay. It
+  // cannot answer "what did the planner just pick for me?", because that
+  // depends on six controls the server never saw — and handing someone the full
+  // queue when they asked for their 25-row campaign is the same class of defect
+  // as showing them one market's campaign under another market's heading.
+  //
+  // So this exports the CURRENT result object, the one the page rendered, in
+  // the order the page rendered it. It lives here rather than in the client
+  // because the rows must be chosen by the engine that chose the campaign, not
+  // by a second pass over the DOM that could disagree with it.
+
+  // Spreadsheet formula hardening, the rule the tender exports already use. A
+  // platform whose name begins with "=", "+", "-" or "@" is a formula to Excel
+  // and Sheets; a leading apostrophe neutralises it as text. Applied only at
+  // this projection boundary — the record keeps its own characters, because the
+  // problem belongs to the spreadsheet and not to the platform.
+  const CSV_FORMULA_PREFIX = /^[=+\-@\t\r]/;
+
+  // RFC 4180: quote when the value contains a comma, a quote, CR or LF, and
+  // escape an embedded quote by doubling it.
+  function csvField(v) {
+    if (v === null || v === undefined) return '';
+    let s = Array.isArray(v) ? v.join('; ') : String(v);
+    if (CSV_FORMULA_PREFIX.test(s)) s = `'${s}`;
+    return /[",\r\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
+  }
+
+  // `country` is the canonical slug rather than a country name: the browser
+  // payload carries only the fields this engine reads, so a client has no
+  // name table, and the slug is the same string the shared URL carries.
+  const CAMPAIGN_CSV_COLUMNS = ['group', 'platform', 'collection', 'country', 'cost',
+    'actionability_status', 'execution_confidence', 'next_action', 'action_url',
+    'difficulty', 'publishing_time', 'campaign_score', 'why'];
+
+  // A picked opportunity that satisfied no group test. Reachable: under the
+  // "Everything" evidence level a NEEDS_BROWSER opportunity still scores
+  // (READINESS_WEIGHT 0.4) and every group test requires READY or
+  // NEEDS_RESEARCH. Dropping those rows would export fewer than the campaign
+  // contains, which is the one thing this export must never do.
+  const UNGROUPED = 'unassigned';
+
+  function campaignRows(result) {
+    const rows = [];
+    const placed = new Set();
+    for (const g of result.groups) {
+      for (const r of g.items) { placed.add(r.op.platformId); rows.push({ group: g.key, r }); }
+    }
+    for (const r of result.picked) {
+      if (!placed.has(r.op.platformId)) rows.push({ group: UNGROUPED, r });
+    }
+    return rows;
+  }
+
+  // An empty campaign exports the header and no rows. A control combination
+  // with no eligible platform — a software business asked for marketplace
+  // exposure, which the marketplace vocabulary genuinely cannot serve — is a
+  // real answer, and quietly substituting the 2,234-row queue for it would tell
+  // the reader the opposite of what the page just told them.
+  function campaignCsv(result) {
+    const lines = [CAMPAIGN_CSV_COLUMNS.join(',')];
+    for (const { group, r } of campaignRows(result)) {
+      const act = r.x.act || {};
+      lines.push([group, r.op.name, COLLECTION_BY_KEY.get(r.op.sourceCollection).label,
+        r.op.country, r.op.cost, act.status, act.confidence, act.nextAction, act.actionUrl,
+        act.difficultyLabel, act.publishingTimeLabel, r.x.campaignScore, r.x.reasons]
+        .map(csvField).join(','));
+    }
+    return `﻿${lines.join('\r\n')}\r\n`;
+  }
+
+  // Deterministic and made only of canonical values, so two people who share a
+  // URL and both download get the same file name for the same campaign, and a
+  // folder of exports sorts into something readable.
+  function campaignFilename(state, known) {
+    const s = normalizeState(state, known);
+    const part = (v) => String(v).replace(/[^a-z0-9]+/gi, '-').replace(/^-+|-+$/g, '')
+      .toLowerCase() || 'any';
+    // '*' is not a file name character on any platform, and it is the one value
+    // in the six vocabularies that is punctuation rather than a slug.
+    const market = s.market === ANY_MARKET ? 'any-market' : part(s.market);
+    return `campaign-${part(s.business)}-${part(s.objective)}-${market}`
+      + `-${part(s.budget)}-${s.size}-${part(s.evidence)}.csv`;
+  }
+
   // ── the field contract ────────────────────────────────────────────────────
   //
   // Exactly what this engine reads. The generator projects these fields and no
@@ -1158,6 +1345,20 @@
     EVIDENCE_MODE_BY_KEY,
     campaign,
     summaryText,
+    PLANNER_PARAMS,
+    PLANNER_SIZES,
+    PLANNER_DEFAULTS,
+    ANY_MARKET,
+    plannerVocabulary,
+    normalizeState,
+    parseState,
+    serializeState,
+    csvField,
+    CAMPAIGN_CSV_COLUMNS,
+    UNGROUPED,
+    campaignRows,
+    campaignCsv,
+    campaignFilename,
     FIELD_CONTRACT,
     projectForClient,
   };

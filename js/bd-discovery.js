@@ -20,9 +20,12 @@
 //
 // This module holds only GENERIC mechanics: canonical-value equality,
 // membership for list-valued facets, tri-state filters, AND composition and
-// substring search over a prepared haystack. Anything dataset-specific — which
-// facets exist, what the haystack contains — is decided by the generator that
-// emits the row, not here.
+// substring search over a prepared haystack — plus, for the same reason, the
+// two things that have to agree with the predicate exactly and would rot if
+// they were written twice: the URL state a selection serializes to, and the CSV
+// projection of the rows that selection leaves visible. Anything
+// dataset-specific — which facets exist, what the haystack contains — is
+// decided by the generator that emits the row, not here.
 
 (function (root, factory) {
   if (typeof module === 'object' && module.exports) module.exports = factory();
@@ -141,6 +144,338 @@
     return { rows: kept, unknownHidden: unknownHidden, total: rows.length };
   }
 
+  // ── URL STATE ─────────────────────────────────────────────────────────────
+  //
+  // A selection nobody can link to is a selection that has to be described in
+  // prose — "open the media page, then pick Germany, then press releases, then
+  // sort by score" — and re-made by hand at the other end.
+  //
+  // ── WHY THE PARAMETER SET IS DERIVED AND NOT DECLARED ─────────────────────
+  //
+  // scripts/lib/to-search.cjs declares its parameters as a literal PARAM_ORDER,
+  // and for that page it is right: one page, one control panel, both changed by
+  // the same hand at the same time.
+  //
+  // FIVE page families share this module and they do not agree about what a
+  // control panel is. Counted from the generated pages:
+  //
+  //   tenders-procurement     7 facet selects + search
+  //   marketplaces            5 facet selects + search
+  //   media, PR & publishing 11 facet selects (5 list-valued) + search
+  //   listing opportunities  11 facet selects + search + sort
+  //   directory country page  0 facet selects — 6 tri-state checkboxes,
+  //                           a sort, and a jurisdiction select whose values
+  //                           are composite: "group:national", "state:US-AL"
+  //
+  // One hand-written list would have to be right about all five at once and
+  // stay right as the generators move. It would not: the media page grew from
+  // 7 facets to 11 in one change, and nothing about adding a facet would have
+  // reminded anyone to come back here. A parameter that quietly stopped
+  // existing does not fail — it drops silently out of every shared link.
+  //
+  // So the parameters are READ FROM THE CONTROLS THE PAGE RENDERED: one
+  // parameter per data-bd-facet select, plus q, filters, jurisdiction and sort
+  // where those controls exist. A control the page does not render has no
+  // parameter at all, and a facet added to a generator becomes shareable the
+  // day it ships with no edit to this file.
+  //
+  // The price is that `known` — the control schema, built from the DOM by the
+  // client and from the markup by the tests — must be passed to both functions.
+  // That price is the point: neither function can invent a parameter, a value,
+  // or a sort key the page does not offer.
+
+  // A hostile query is expected. It is bounded on the way IN, so nothing
+  // downstream has to remember to bound it: 200 characters is the same cap
+  // to-search.cjs applies to its own q.
+  const Q_MAX = 200;
+
+  // Names the state machinery owns. A facet may not be called one of these or
+  // the two would fight over one key; the generators name facets after data
+  // dimensions (country, type, cost), and a test asserts the collision cannot
+  // happen rather than trusting that it will not.
+  const RESERVED = ['q', 'filters', 'jurisdiction', 'sort'];
+
+  function facetsOf(known) { return (known && known.facets) || []; }
+  function filtersOf(known) { return (known && known.filters) || []; }
+  function sortsOf(known) { return (known && known.sorts) || []; }
+  function jurisdictionsOf(known) { return (known && known.jurisdictions) || []; }
+
+  // The default is what the page shows before anyone touches it: the first sort
+  // option, because that is what a <select> selects on its own.
+  function defaultSort(known) {
+    const sorts = sortsOf(known);
+    return sorts.length ? sorts[0] : '';
+  }
+
+  function defaultJurisdiction(known) {
+    const values = jurisdictionsOf(known);
+    if (!values.length) return '';
+    return values.indexOf('all') !== -1 ? 'all' : values[0];
+  }
+
+  // The clean state: what the page renders with no query string at all.
+  function emptyState(known) {
+    return {
+      q: '',
+      facets: {},
+      filters: [],
+      jurisdiction: defaultJurisdiction(known),
+      sort: defaultSort(known),
+    };
+  }
+
+  // Serialized in one fixed order, so the same selection always produces the
+  // same URL. Without it a "shareable link" would differ depending on which
+  // control was touched first, and two identical selections would look like two
+  // different ones in a log, a bookmark or a bug report.
+  function paramOrder(known) {
+    const order = ['q'];
+    for (const facet of facetsOf(known)) order.push(facet.name);
+    if (filtersOf(known).length) order.push('filters');
+    if (jurisdictionsOf(known).length) order.push('jurisdiction');
+    if (sortsOf(known).length) order.push('sort');
+    return order;
+  }
+
+  // Reading one parameter. Duplicates resolve to the FIRST, deterministically:
+  // taking the last would let ?country=france&country=albania smuggle a value
+  // past a reader who saw only the first one in the link they were sent.
+  function readParam(searchParams, key) {
+    if (!searchParams) return null;
+    let value = null;
+    if (typeof searchParams.getAll === 'function') value = searchParams.getAll(key)[0];
+    else if (typeof searchParams.get === 'function') value = searchParams.get(key);
+    else value = searchParams[key];
+    return value === undefined || value === null ? null : String(value);
+  }
+
+  // ── PARSE IS A WHITELIST ──────────────────────────────────────────────────
+  //
+  // Not a sanitizer. An unknown key is never read, an unrecognised value is
+  // dropped rather than cleaned, and nothing that arrived in the URL is ever
+  // carried in the returned state unless the page itself offers it. ?country=
+  // <script> does not produce an escaped country: it produces no country, and
+  // the select stays on "All".
+  //
+  // That is what makes the client's rule — write textContent, never markup —
+  // hold at the boundary as well as at the sink. The one free-text value, q, is
+  // capped and goes to input.value and to the search predicate; it is never
+  // written into markup anywhere.
+  function parseState(searchParams, known) {
+    const state = emptyState(known);
+
+    const q = readParam(searchParams, 'q');
+    if (q) state.q = q.slice(0, Q_MAX);
+
+    for (const facet of facetsOf(known)) {
+      const value = readParam(searchParams, facet.name);
+      if (value === null || value === '') continue;
+      // The page's own options are the whitelist. A value no option carries
+      // would filter the table to nothing, which is indistinguishable from a
+      // broken page — so it is refused here instead.
+      if ((facet.values || []).indexOf(value) === -1) continue;
+      state.facets[facet.name] = value;
+    }
+
+    const filters = filtersOf(known);
+    if (filters.length) {
+      const asked = String(readParam(searchParams, 'filters') || '').split(',');
+      // Iterating the KNOWN list rather than what arrived does three things at
+      // once: unknown names cannot enter, duplicates collapse, and the result
+      // is in the page's own order — so serialize(parse(x)) is stable however
+      // the link was written.
+      for (const name of filters) {
+        if (asked.indexOf(name) !== -1) state.filters.push(name);
+      }
+    }
+
+    const jurisdictions = jurisdictionsOf(known);
+    if (jurisdictions.length) {
+      const value = readParam(searchParams, 'jurisdiction');
+      if (value !== null && jurisdictions.indexOf(value) !== -1) state.jurisdiction = value;
+    }
+
+    const sorts = sortsOf(known);
+    if (sorts.length) {
+      const value = readParam(searchParams, 'sort');
+      if (value !== null && sorts.indexOf(value) !== -1) state.sort = value;
+    }
+
+    return state;
+  }
+
+  // Defaults are omitted, so a clean selection yields a clean URL and the page
+  // a reader arrives on has the address they can copy. The same validation runs
+  // here as in parseState: a state carrying a value the page does not offer
+  // cannot be turned into a link that would only be dropped when it is opened.
+  function serializeState(state, known) {
+    const s = state || {};
+    const facets = s.facets || {};
+    const parts = [];
+
+    for (const key of paramOrder(known)) {
+      let value = '';
+      if (key === 'q') {
+        value = s.q === null || s.q === undefined ? '' : String(s.q).slice(0, Q_MAX);
+      } else if (key === 'filters') {
+        const chosen = [];
+        for (const name of filtersOf(known)) {
+          if ((s.filters || []).indexOf(name) !== -1) chosen.push(name);
+        }
+        value = chosen.join(',');
+      } else if (key === 'jurisdiction') {
+        const want = s.jurisdiction === null || s.jurisdiction === undefined ? '' : String(s.jurisdiction);
+        value = (want !== defaultJurisdiction(known) && jurisdictionsOf(known).indexOf(want) !== -1)
+          ? want : '';
+      } else if (key === 'sort') {
+        const want = s.sort === null || s.sort === undefined ? '' : String(s.sort);
+        value = (want !== defaultSort(known) && sortsOf(known).indexOf(want) !== -1) ? want : '';
+      } else {
+        const facet = findFacet(known, key);
+        const want = facets[key] === null || facets[key] === undefined ? '' : String(facets[key]);
+        value = (facet && (facet.values || []).indexOf(want) !== -1) ? want : '';
+      }
+      if (value === '') continue;
+      parts.push(encodeURIComponent(key) + '=' + encodeURIComponent(value));
+    }
+    return parts.length ? '?' + parts.join('&') : '';
+  }
+
+  function findFacet(known, name) {
+    for (const facet of facetsOf(known)) if (facet.name === name) return facet;
+    return null;
+  }
+
+  // The state, in the shape evaluate() reads. One conversion in one place, so a
+  // URL and a control panel can never be turned into two different selections.
+  function selectionFor(state, known) {
+    const selection = { query: (state && state.q) || '', facets: {}, flags: [] };
+    for (const facet of facetsOf(known)) {
+      selection.facets[facet.name] = {
+        value: ((state && state.facets) || {})[facet.name] || '',
+        multi: facet.multi === true,
+      };
+    }
+    for (const name of ((state && state.filters) || [])) selection.flags.push(name);
+    return selection;
+  }
+
+  // ── FILTERED EXPORT ───────────────────────────────────────────────────────
+  //
+  // The static CSV each collection publishes is the WHOLE collection, built at
+  // build time and linked as a plain file — it needs no JavaScript and it does
+  // not change here. This is the other half: the records a reader is looking at
+  // right now, after search, facets and sort.
+  //
+  // ── ONE CSV CONTRACT ──────────────────────────────────────────────────────
+  //
+  // RFC 4180 with CRLF and a UTF-8 BOM, exactly as the collection generators
+  // write it, plus the formula guard scripts/build-tender-monitoring.cjs
+  // already applies. Neither rule is reinvented here: a browser-side export
+  // that quoted differently would be a second CSV dialect for the same
+  // collection, and the difference would only show up in someone's spreadsheet.
+  //
+  // The three generators that write a Research Center collection now call
+  // csvQuote below instead of keeping a copy each. scripts/lib/bd-csv.cjs still
+  // holds its own — it belongs to the directory export and moving it is not
+  // this change's to make.
+
+  const BOM = '﻿';
+
+  // RFC 4180 quoting, and nothing else. Quote when the value contains a comma,
+  // a quote, a CR or an LF; escape an embedded quote by doubling it. Arrays
+  // become a semicolon-separated string, which is what the four collection
+  // exports already do, so the common case needs no quoting at all.
+  //
+  // This is the function the generators call. It is here rather than copied
+  // into each of them because it was copied into each of them: five files held
+  // five spellings of one rule, and a sixth was about to be written for the
+  // browser.
+  function csvQuote(value) {
+    if (value === null || value === undefined) return '';
+    const s = Array.isArray(value) ? value.join('; ') : String(value);
+    return /[",\r\n]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s;
+  }
+
+  // A cell starting with = + - @ or a tab is executed as a formula by Excel,
+  // Sheets and LibreOffice. "=cmd|' /c calc'!A1" in a platform name is the
+  // classic; a leading apostrophe neutralises it as text. The rule and the
+  // character class are scripts/build-tender-monitoring.cjs's, which has had
+  // this since it was written — asserted equal by test, not by resemblance.
+  //
+  // Applied at the PROJECTION boundary only. The record keeps its own
+  // characters — the problem belongs to the spreadsheet, not to the platform —
+  // which is why this defuses the string on its way into a cell and never
+  // touches the row it came from.
+  //
+  // ── WHY THE STATIC COLLECTION EXPORTS DO NOT USE THIS ONE ─────────────────
+  //
+  // They are asserted, record by record, to carry the registry's own values
+  // verbatim: md-media-platforms.test.cjs compares every exported name with
+  // rec.name. Those files are a machine-readable copy of the collection as much
+  // as they are a spreadsheet, and adding an apostrophe to one of them changes
+  // published data for every consumer — a decision about the data, not about
+  // this feature. The filtered export has no such contract: it is built in a
+  // browser, for a person, to be opened in a spreadsheet, and that is exactly
+  // the case the guard exists for.
+  const FORMULA_PREFIX = /^[=+\-@\t\r]/;
+
+  function csvField(value) {
+    if (value === null || value === undefined) return '';
+    let s = Array.isArray(value) ? value.join('; ') : String(value);
+    if (FORMULA_PREFIX.test(s)) s = "'" + s;
+    return csvQuote(s);
+  }
+
+  // The columns are derived from the same control schema the URL is: the record
+  // identity, then every dimension this page lets a reader filter by. An export
+  // whose columns were listed by hand would drift from the controls exactly the
+  // way a hand-written PARAM_ORDER would, and the failure would be quieter —
+  // a column that silently stopped being exported.
+  function exportColumns(known) {
+    const columns = [{ key: 'name', from: 'name' }];
+    for (const facet of facetsOf(known)) columns.push({ key: facet.name, from: 'facet' });
+    for (const name of filtersOf(known)) columns.push({ key: name, from: 'flag' });
+    return columns;
+  }
+
+  function exportCell(row, column) {
+    if (!row || !column) return '';
+    if (column.from === 'facet') return (row.facets || {})[column.key];
+    if (column.from === 'flag') return (row.flags || {})[column.key];
+    return row[column.key];
+  }
+
+  // Rows in, CSV out. The caller passes the rows it is SHOWING, in the order it
+  // is showing them, so this cannot disagree with the table: there is no filter
+  // and no limit here to disagree with one.
+  //
+  // An empty selection produces a header and no data rows. It must never fall
+  // back to the whole collection — a reader who filtered to nothing and pressed
+  // export would silently receive 2,167 records they did not ask for and have
+  // no way to notice.
+  function renderFilteredCsv(rows, columns) {
+    const cols = (columns && columns.length) ? columns : [{ key: 'name', from: 'name' }];
+    const lines = [cols.map(function (c) { return csvField(c.key); }).join(',')];
+    for (const row of rows || []) {
+      lines.push(cols.map(function (c) { return csvField(exportCell(row, c)); }).join(','));
+    }
+    return BOM + lines.join('\r\n') + '\r\n';
+  }
+
+  // Deterministic and sanitized, and it carries NO query text: a filename is
+  // written to a filesystem and shown in a downloads list, and neither is a
+  // place to put whatever a reader typed into a search box.
+  function exportFilename(name) {
+    const slug = String(name === null || name === undefined ? '' : name)
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-+/, '')
+      .slice(0, 64)
+      .replace(/-+$/, '');
+    return (slug || 'research') + '-filtered.csv';
+  }
+
   return {
     normalize: normalize,
     terms: terms,
@@ -149,5 +484,21 @@
     triState: triState,
     evaluate: evaluate,
     filter: filter,
+    Q_MAX: Q_MAX,
+    RESERVED: RESERVED,
+    emptyState: emptyState,
+    paramOrder: paramOrder,
+    parseState: parseState,
+    serializeState: serializeState,
+    selectionFor: selectionFor,
+    defaultSort: defaultSort,
+    defaultJurisdiction: defaultJurisdiction,
+    BOM: BOM,
+    csvQuote: csvQuote,
+    csvField: csvField,
+    exportColumns: exportColumns,
+    exportCell: exportCell,
+    renderFilteredCsv: renderFilteredCsv,
+    exportFilename: exportFilename,
   };
 }));
