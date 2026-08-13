@@ -118,19 +118,38 @@ function localizedFile(locale, canonicalPath) {
 // other one INCLUDING itself, plus x-default at the English route — the
 // convention already shipped on /work/. Reciprocity is structural here: the
 // cluster is generated from one list, so a one-way link is not expressible.
-function hreflangCluster(canonicalPath, absolute) {
-  const alternates = LOCALES.map((l) => ({
+//
+// `availableLocales` names the locales that ACTUALLY have a page. It defaults
+// to all four, so every existing caller is unchanged. A generator that emits
+// one canonical route passes ['en'] and gets no cluster at all — which is the
+// correct semantics, not an omission: hreflang describes alternate language
+// versions, and a page with no alternates has nothing to describe. Emitting a
+// self-referential pair instead would be tags for the sake of tags.
+//
+// This exists because a run of 6,817 single-locale pages advertised 20,451
+// DE/ES/FR URLs that were never generated.
+function hreflangCluster(canonicalPath, absolute, availableLocales) {
+  const available = availableLocales || LOCALE_CODES;
+  const locales = LOCALES.filter((l) => available.includes(l.code));
+  if (locales.length < 2) return [];
+  const alternates = locales.map((l) => ({
     hreflang: l.code, href: absolute(localizedPath(l.code, canonicalPath)),
   }));
-  alternates.push({ hreflang: 'x-default', href: absolute(canonicalPath) });
+  // x-default is the unprefixed route, which only exists when English does.
+  if (available.includes(DEFAULT_LOCALE)) {
+    alternates.push({ hreflang: 'x-default', href: absolute(canonicalPath) });
+  }
   return alternates;
 }
 
 // Where the language switcher sends a reader. Semantic destination: from
 // /research/media-pr-publishing/ the DE link goes to the German version of THAT
 // page, never to the German homepage.
-function switcherFor(canonicalPath, currentLocale) {
-  return LOCALES.map((l) => ({
+// The switcher offers the same set the hreflang cluster declares: a reader
+// must never be sent to a page that was not generated.
+function switcherFor(canonicalPath, currentLocale, availableLocales) {
+  const available = availableLocales || LOCALE_CODES;
+  return LOCALES.filter((l) => available.includes(l.code)).map((l) => ({
     code: l.code, label: l.label, name: l.name,
     href: localizedPath(l.code, canonicalPath),
     current: l.code === currentLocale,

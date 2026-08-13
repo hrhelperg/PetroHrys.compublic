@@ -1,135 +1,190 @@
-# Tender Opportunity Detail Pages v1 — domain layer
+# Tender Opportunity Detail Pages v1
 
-**Status: NOT COMPLETE.** The projection, identity/routing rule and
-indexability rule are built, tested and committed. **No pages are published.**
-
-Detail pages were generated in full during this phase, measured, and then
-withdrawn. What follows is why — the numbers are the deliverable.
+**Status: COMPLETE.** 6,817 canonical procurement records published, one route
+each, with source provenance, supplier-profile relevance and an explicit
+account of what the source did *not* establish.
 
 ---
 
-## What was built
+## What a detail page is
 
-`scripts/lib/to-detail.cjs` — the canonical detail projection:
+The human-readable layer between Discovery and the official notice. Discovery
+answers *which tenders exist*; the official notice is authoritative; this page
+sits between them and says what was published, where it came from, what we
+derived, and what nobody established.
 
-- **Identity**: the canonical opportunity id, not the title. A retitle, a new
-  source occurrence, a status transition, a deadline change and a value
-  correction all leave the route untouched; the slug is cosmetic.
-- **Indexability**: explicit booleans, never a score — meaningful title (≥15
-  chars), buyer, official URL, ≥6 distinct facts, and current status. Each
-  failure returns a reason code.
-- **Layer separation**: source fact / normalized fact / provenance / derived,
-  kept apart so a computed supplier match can never be rendered with the
-  authority of a published deadline.
-- **Field contract**: every canonical field is consumed or explicitly declared
-  unused; a new one throws rather than vanishing.
-- **Safety**: only `http(s)` URLs survive projection; titles are copied
-  verbatim with no redaction rule that could rewrite them.
+```
+canonical corpus ──► detail projection ──► one page per opportunity
+                          │                        │
+                    to-match.cjs (FROZEN)    official notice (authoritative)
+```
 
-Measured over the real corpus: **9,577 records projected in 350 ms, 6,817
-indexable, 2,760 not** (2,613 not current, 1,056 too few facts, 194 no
-meaningful title, 31 no buyer). No route collisions.
+## Route identity
 
-## What was measured, and why publishing stopped
+```
+/research/tenders-procurement/opportunities/{slug}-{canonical-id}/
+```
 
-All 6,817 indexable pages were generated and inspected. Four findings, in
-order of severity:
+The **canonical opportunity id** is the identity; the slug is cosmetic. A
+retitle, a new source occurrence, a status transition, a deadline change and a
+value correction all leave the URL untouched — each is covered by a test. Two
+opportunities whose titles normalize identically still get different routes,
+because the id is in the path.
 
-### 1. Phantom hreflang — a real defect, 20,451 bad URLs
+The rule lives once, in `scripts/lib/to-route.cjs`, a UMD module used by the
+generator, the browser and the tests. A second slug implementation is how a
+link and the page it points at drift apart.
 
-`bd-render.renderPage` always emits the full four-locale `hreflang` cluster;
-it has no option to restrict it. Every generated page therefore advertised
-`/de/`, `/es/` and `/fr/` versions of itself that **do not exist** — 6,817
-pages × 3 = **20,451 URLs pointing at nothing**. Three existing site guards
-caught it. Fixing it means adding locale restriction to `renderPage`, which is
-a shared component used by every Research Center page.
+## One route, not four — and why
 
-### 2. Route policy is built for exceptions, not for thousands
+The material facts on these pages are **source facts in the source's own
+language**: tender title, buyer, dates, classifications, declared value,
+source and official URLs. Translating them would be inventing them.
 
-`data/route-policy.json` requires a written disposition for every route that
-lacks DE/ES/FR coverage. It currently holds **20** entries, each with a
-human-authored reason. English-only detail pages would require **6,817** more.
-The registry is an anti-drift guard for a handful of deliberate exceptions;
-filling it programmatically would defeat its purpose.
+Measured: 9,577 records × 4 locales is **~531 MB** of near-identical files —
+eight times the site's entire HTML — differing only in field labels. So v1
+publishes **one canonical route**, and the genuinely localized products
+(Discovery and Monitoring, EN/DE/ES/FR) all link to it.
 
-### 3. Weight
+Reported accurately: **Discovery and Monitoring are four-locale. Detail pages
+are a single root-language shell around source-language procurement facts.**
+Because identity is the canonical id and never the English title, localized
+shells remain possible later without moving a single URL.
 
-| | measured |
+## The three blockers, and how they were resolved
+
+### 1. Phantom hreflang → the renderer can now declare reality
+
+`bd-render.renderPage` always emitted a four-locale cluster, so an earlier run
+advertised **20,451 DE/ES/FR URLs that did not exist**.
+
+`renderPage` and `I18N.hreflangCluster`/`switcherFor` now accept
+`availableLocales`, defaulting to all four so **every existing caller is
+unchanged**. A single-locale page gets *no* cluster — which is the correct
+semantics, not an omission: hreflang describes alternate language versions, and
+a page with no alternates has nothing to describe. The language switcher is
+filtered by the same list, so a reader is never sent to a missing page.
+
+Verified: Discovery hub still emits 5 tags in all four locales; detail pages
+emit **0**, with **0** phantom locale links.
+
+### 2. Route policy → a generated family, not 6,817 rows
+
+`data/route-policy.json` keeps its 20 human-authored `routes` untouched, and
+gains `generatedFamilies` — a second, narrower mechanism. One family:
+
+| field | value |
 |---|---|
-| mean page | 18,933 B (median 18,952, max 23,271) |
-| shared shell alone | 11,525 B — 61% of a page before it says anything |
-| 6,817 indexable, EN only | **123 MB** |
-| 9,577 all, × 4 locales | **531 MB** |
-| site today | 66.8 MB across 1,767 HTML files |
+| id | `tender-opportunity-detail` |
+| prefix | `/research/tenders-procurement/opportunities/` |
+| segments | 1 |
+| generator | `scripts/build-tender-detail.cjs` |
+| locales | `["en"]` |
+| identity | canonical TenderOpportunity id |
 
-Publishing the indexable set alone roughly **triples the site's HTML**. Four
-locales would be eight times it, for pages whose title, buyer, dates, codes,
-currency and URLs are all source facts that must not be translated — that is
-near-duplicate content at scale.
+Authorization in `scripts/lib/route-family.cjs` needs **three independent
+things**: shape (single segment, no nesting, no traversal, no query), declared
+locale, and **membership** — the route must be in the set the owning generator
+derives from canonical data. Shape alone would authorize any invented id, so it
+is deliberately insufficient.
 
-Rendering is not the problem: 6,817 pages build in **1.48 s**.
+The registry cannot be widened: `validateFamily` rejects a `/` or `/research/`
+prefix, wildcards, multi-segment families and families without a reason.
 
-### 4. Discovery integration costs the search payload
+### 3. Route strings in the search index → derive, don't store
 
-Linking Discovery results to detail pages means carrying the route in the
-search index — the alternative, re-deriving the slug in the browser, is a
-second implementation that can drift. Measured cost: the index grows from
-**0.90 MB to 1.11 MB gzip (+188 KB, +20%)** on a payload every visitor
-downloads.
+Storing a route per record cost **188 KB gzip (+20%)** on a payload every
+visitor downloads, to carry information already present. The index now carries
+a **one-byte eligibility flag** and the browser derives the route with the
+shared rule.
 
-## The conclusion
+Measured overhead: **+2,035 bytes gzip** (949,302 → 951,337) — 99% less.
 
-At ~9,600 opportunities with an 11.5 KB shared shell, **per-opportunity static
-pages are past the point where this repository's architecture carries them
-well**. That is a threshold, not a defect in the design: identity, indexability
-and the fact-layer separation are all sound and are committed.
+## Publication universe
 
-Publishing them needs three decisions that are larger than this phase:
+| | count |
+|---|---|
+| canonical opportunities | 9,577 |
+| **published pages** | **6,817** |
+| not published | 2,760 |
 
-1. **Restrict the hreflang cluster** in `bd-render.renderPage` for
-   single-locale routes — a change to a component every page depends on.
-2. **Extend the route policy** to express a rule ("this generated family is
-   English-only, for this reason") instead of one entry per URL.
-3. **Accept ~123 MB of generated HTML**, or reduce the eligible set on a
-   product basis — closing-soon only, or matched-profile only — rather than an
-   arbitrary cap.
+The rule is the indexability rule, so there is never a page that exists only to
+be hidden: current status, meaningful title (≥15 chars), buyer, official URL,
+and ≥6 distinct facts. Failures carry reason codes — 2,613 `NOT_CURRENT`,
+1,056 `TOO_FEW_FACTS`, 194 `NO_MEANINGFUL_TITLE`, 31 `NO_BUYER`.
 
-None of those should be decided inside a page-rendering phase.
+**Model B was chosen**: publish what is worth finding, and never delete a URL
+once published. Historical records are retained in the projection and simply
+stop being crawl targets; nothing is erased when a tender closes, so no URL
+churns.
 
-## What is deliberately NOT in this layer
+## What the page refuses to say
 
 - **No platform fact restated as a tender fact.** `documentsUrl`,
   `foreignSuppliersAccepted` and `supplierRegistrationRequired` are never read.
-  The only platform field consumed is `browserCheckRequired`, which is
-  explicitly a property of the source surface.
-- **No currency conversion.** Values keep the source's currency and the
-  source's own basis word.
+  The only platform field consumed is `browserCheckRequired`, which is a
+  property of the source surface and is labelled as such. Both limitations are
+  stated on every page.
+- **No currency conversion.** Values keep the source's currency and basis.
 - **No fabricated deadline.** A zoneless date keeps its wording and gets no
   instant; an unparseable one keeps its wording too. A deadline past while the
-  source still says OPEN keeps **both** facts.
-- **No invented industry**, and no match threshold of its own — bands are read
-  from the frozen matching engine.
-- **No search-index dependency.** The Discovery projection truncates
-  descriptions at 120 characters; a detail record built from it would publish a
-  preview as though it were the notice.
+  source still says OPEN shows **both** facts.
+- **No probability of winning.** Supplier matches are relevance to a profile,
+  read from the frozen engine, with the engine's own reason codes.
+- **No bidding.** Buttons say what their URL does. A platform homepage is never
+  labelled a submission route, and the page states that this site is not
+  affiliated with the buyer and submits nothing.
+- **No search-index dependency.** Discovery's projection truncates descriptions
+  at 120 characters; a page built from it would publish a preview as the notice.
 
-## Lifecycle (designed, not yet exercised)
+## Integration
 
-Historical records — awarded, cancelled, closed, unknown — are **retained in
-the projection and never indexable**. Nothing is deleted when a tender closes,
-so no URL churns; the record simply stops being a crawl target.
+- **Discovery** — result titles link to the detail page when one exists,
+  derived from the id; the official notice stays available separately.
+- **Monitoring** — alert rows link to the detail page when one was published
+  and fall back to the official notice otherwise, decided by the same
+  indexability rule rather than guessed. (0 alerts today, so no rows render.)
+- **Related opportunities** — reuse Relevance v1.1 families; a member is linked
+  only if its page exists, and each states its own deadline and status.
+
+## Measurements
+
+| | |
+|---|---|
+| generator runtime | **1.67 s** for 6,817 pages |
+| total detail HTML | **112.6 MB** |
+| median page | 17,174 B |
+| p95 page | 19,199 B |
+| largest page | 29,166 B |
+| sitemap | 6,817 URLs, **1.14 MB** (limits: 50,000 / 50 MB) |
+| Discovery index | 951,337 B gzip (+2,035) |
+
+Site HTML goes from 66.8 MB to ~179 MB. Accepted for v1: no deployment,
+memory or generator-latency failure was observed, and 1.67 s is not a build
+problem. Projected: **25k opportunities ≈ 290 MB / ~4 s**; **50k ≈ 580 MB /
+~9 s** — at which point the sitemap still fits but repository weight becomes
+the reason to move to prebuilt shards, not rendering cost.
 
 ## Freshness
 
-Phase 5B remains unverified. Nothing here claims a refresh cadence.
+Phase 5B remains unverified; no page claims a refresh cadence. Copy is "based
+on the latest validated procurement snapshot" and "not a live feed".
+
+## Known limitations
+
+- Non-published opportunities have no page; Discovery links them straight to
+  the official notice.
+- 404 behaviour for unknown ids is the static host's (no file, no route). It is
+  asserted structurally — no soft-404 page is generated — but not verified
+  against a live deployment.
+- Detail pages carry no `hreflang`, by design; revisit only if localized shells
+  are ever built.
+- No page-change history section: Monitoring owns change events, and
+  duplicating them here would fork that product.
 
 ## Tests
 
-25 property tests in `scripts/tests/to-detail.test.cjs`, covering identity
-stability, route collisions, indexability determinism, the platform/tender
-firewall, tri-state preservation, URL-scheme safety, the field contract and
-canonical drift. One asserts the tree matches this report: no sitemap, no
-per-opportunity directories.
-
-Full suite: **1,977 passing.** Canonical corpus, platforms and match weights
+45 in `scripts/tests/to-detail.test.cjs` — projection rules, publication, SEO,
+route-family authorization, derived routing, plus 10 infrastructure mutations.
+Suite: **1,997 passing**. Canonical corpus, platforms and match weights
 unchanged.

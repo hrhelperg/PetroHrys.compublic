@@ -486,8 +486,11 @@ test('39. no new indexable route or sitemap entry was created', () => {
   const occurrences = (sitemap.match(/research\/tenders-procurement\/opportunities\//g) || []).length;
   assert.strictEqual(occurrences, I18N.LOCALE_CODES.length);
   const dir = path.join(ROOT, 'research', 'tenders-procurement', 'opportunities');
-  assert.deepStrictEqual(fs.readdirSync(dir).sort(),
-    ['index.html', 'opportunities.csv', 'tender-index.json']);
+  const files = fs.readdirSync(dir).filter((f) => !fs.statSync(path.join(dir, f)).isDirectory());
+  assert.deepStrictEqual(files.sort(), ['index.html', 'opportunities.csv', 'tender-index.json']);
+  // Detail pages are a separate authorized family; this phase added no route.
+  assert.ok(!read('sitemap-tender-opportunities.xml').includes('fam_'),
+    'a retrieval family became a route');
   // Diversity leaves no trace in the URL: no seed, no toggle.
   for (const p of S.PARAM_ORDER) {
     assert.ok(!/seed|diversity|random/i.test(p), `an unstable parameter was added: ${p}`);

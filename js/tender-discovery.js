@@ -81,11 +81,29 @@
 
     var h = el('h3', 'td-card-title');
     var a = el('a', null, rec.ti);
-    a.href = rec.u || '#';
-    a.rel = 'noopener noreferrer';
-    a.target = '_blank';
+    // The route is DERIVED from the canonical id and title with the same
+    // shared rule the generator uses, so no route string is stored per record.
+    var detail = rec.dp && typeof TenderRoute !== 'undefined'
+      ? TenderRoute.detailPath(rec.i, rec.ti) : null;
+    if (detail) {
+      a.href = detail;   // our record: provenance, relevance, and its limits
+    } else {
+      a.href = rec.u || '#';
+      a.rel = 'noopener noreferrer';
+      a.target = '_blank';
+    }
     h.appendChild(a);
     li.appendChild(h);
+    // The official notice is never hidden behind our page.
+    if (detail && rec.u) {
+      var official = el('p', 'td-official');
+      var oa = el('a', null, T.viewOfficial);
+      oa.href = rec.u;
+      oa.rel = 'noopener noreferrer';
+      oa.target = '_blank';
+      official.appendChild(oa);
+      li.appendChild(official);
+    }
 
     var facts = el('dl', 'td-fact');
     function fact(label, value) {

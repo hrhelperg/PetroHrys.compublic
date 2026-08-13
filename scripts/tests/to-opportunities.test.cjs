@@ -623,10 +623,14 @@ test('32. one indexable route per locale, and no page per tender', () => {
   // One page, one dataset, one search index. A data file the page fetches is
   // not a crawlable route, so it is named explicitly rather than the
   // assertion being loosened to a pattern that would let a route slip in.
-  assert.deepStrictEqual(entries.sort(), ['index.html', 'opportunities.csv', 'tender-index.json'],
-    `the opportunities route owns unexpected files: ${entries.join(', ')}`);
-  assert.deepStrictEqual(entries.filter((f) => f.endsWith('.html')), ['index.html'],
-    'a second HTML route appeared under the opportunities path');
+  const files = entries.filter((f) => !fs.statSync(path.join(dir, f)).isDirectory());
+  assert.deepStrictEqual(files.sort(), ['index.html', 'opportunities.csv', 'tender-index.json'],
+    `the opportunities route owns unexpected files: ${files.join(', ')}`);
+  assert.deepStrictEqual(files.filter((f) => f.endsWith('.html')), ['index.html'],
+    'a second HTML route appeared at the hub level');
+  // Per-opportunity directories are an authorized family; every one must
+  // resolve to a real canonical opportunity.
+  assertAuthorizedDetailDirs(dir, assert);
   // And no filter permutation became a URL.
   const html = read(I18N.localizedFile('en', BUILD.CANONICAL_PATH));
   const selfLinks = [...html.matchAll(/href="(\/(?:de|es|fr)?\/?research\/tenders-procurement\/opportunities\/[^"]+)"/g)]
@@ -1125,11 +1129,16 @@ mutate('changing canonical or hreflang is caught', () => {
 
 mutate('a filter crawl-space route would be caught', () => {
   const dir = path.join(ROOT, 'research', 'tenders-procurement', 'opportunities');
-  const actual = fs.readdirSync(dir).sort();
-  const withCrawlSpace = [...actual, 'country-germany'].sort();
-  assert.notDeepStrictEqual(withCrawlSpace, actual);
+  const actual = fs.readdirSync(dir).filter((f) => !fs.statSync(path.join(dir, f)).isDirectory()).sort();
   assert.deepStrictEqual(actual, ['index.html', 'opportunities.csv', 'tender-index.json'],
-    'the route already owns more than one page, one dataset and one search index');
+    'the hub owns more than one page, one dataset and one search index');
+  // A facet route like `country-germany` has the right SHAPE but no canonical
+  // record behind it, so the family refuses to authorize it.
+  const RF = require('../lib/route-family.cjs');
+  const verdict = RF.authorize('/research/tenders-procurement/opportunities/country-germany/',
+    RF.load(), { knownRoutes: new Set(), locale: 'en' });
+  assert.strictEqual(verdict.authorized, false, 'a facet crawl-space route would be authorized');
+  assert.strictEqual(verdict.reason, 'NOT_A_CANONICAL_RECORD');
 });
 
 mutate('breaking the sourcePlatform reference is caught', () => {
@@ -2076,3 +2085,33 @@ mutate('P5-M8: the match model and canonical platform data did not move in an op
   const platforms = JSON.parse(read('data/tenders-procurement/platforms.json'));
   assert.strictEqual(platforms.length, 384, 'the platform count changed during an operations phase');
 });
+
+// Detail-page directories are an authorized generated route family, not a
+// crawl-space explosion. The guard therefore asserts AUTHORIZATION rather than
+// absence: every directory must be a route the detail generator can prove
+// corresponds to a real canonical opportunity.
+function assertAuthorizedDetailDirs(dir, assert) {
+  const RF = require('../lib/route-family.cjs');
+  const DETAIL = require('../lib/to-detail.cjs');
+  const CORPUS = require('../lib/to-corpus.cjs');
+  const TPS = require('../lib/tp-schema.cjs');
+  const R = path.join(__dirname, '..', '..');
+  const corpus = CORPUS.decode(JSON.parse(fs.readFileSync(
+    path.join(R, 'data/tender-opportunities/opportunities.json'), 'utf8')));
+  const cs = JSON.parse(fs.readFileSync(path.join(R, 'data/business-directories/countries.json'), 'utf8'));
+  const platformsById = new Map(TPS.loadPlatforms(
+    path.join(R, 'data/tenders-procurement/platforms.json'),
+    new Map(cs.map((c) => [c.slug, c.iso2 || null])),
+  ).map((x) => [x.id, x]));
+  const known = new Set(DETAIL.build(corpus, { platformsById }).pages
+    .filter((p) => p.indexable).map((p) => p.route));
+  const families = RF.load();
+  const dirs = fs.readdirSync(dir, { withFileTypes: true })
+    .filter((e) => e.isDirectory()).map((e) => e.name);
+  for (const name of dirs) {
+    const route = `/research/tenders-procurement/opportunities/${name}/`;
+    const verdict = RF.authorize(route, families, { knownRoutes: known, locale: 'en' });
+    assert.ok(verdict.authorized, `unauthorized generated route: ${route} (${verdict.reason})`);
+  }
+  return dirs.length;
+}

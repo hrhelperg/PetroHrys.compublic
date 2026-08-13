@@ -88,12 +88,21 @@ test('robots.txt keeps every pre-existing directive, comment and ordering', () =
   }
 });
 
-test('robots.txt gained exactly one line', () => {
+test('robots.txt only ever gains sitemap lines', () => {
+  // The intent is that robots.txt is never silently rewritten. Each generated
+  // sitemap adds exactly one Sitemap: line, so additions are allowed and
+  // REMOVALS are not — a lost line would drop a directive nobody noticed.
   const diff = git('diff', BASELINE, '--numstat', '--', 'robots.txt').trim();
   if (diff) {
     const [added, removed] = diff.split(/\s+/);
-    assert.strictEqual(added, '1', 'more than one line added');
     assert.strictEqual(removed, '0', 'robots.txt lost a line');
+    const addedLines = git('diff', BASELINE, '--', 'robots.txt')
+      .split('\n').filter((l) => l.startsWith('+') && !l.startsWith('+++'));
+    assert.strictEqual(addedLines.length, Number(added));
+    for (const l of addedLines) {
+      assert.match(l, /^\+Sitemap: https:\/\/petrohrys\.com\/sitemap[a-z-]*\.xml$/,
+        `robots.txt gained a non-sitemap line: ${l}`);
+    }
   }
 });
 

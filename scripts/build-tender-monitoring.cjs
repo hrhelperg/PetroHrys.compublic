@@ -53,6 +53,7 @@ const CANONICAL_PATH = '/research/tenders-procurement/monitoring/';
 // renders an unbounded ledger becomes a megabyte of table nobody scrolls.
 const RENDER_LIMIT = 60;
 
+const DETAIL = require('./lib/to-detail.cjs');
 const escapeHtml = (s) => String(s)
   .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
   .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
@@ -84,6 +85,20 @@ function csvField(v) {
   let s = String(v);
   if (FORMULA_PREFIX.test(s)) s = `'${s}`;
   return /[",\r\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
+}
+
+
+// An alert links to our canonical record when one was published, and straight
+// to the official notice when it was not. A link to a detail page that does
+// not exist would be worse than no link at all, so eligibility is decided by
+// the same indexability rule the generator uses rather than guessed.
+function opportunityLink(o, fallbackId) {
+  const label = escapeHtml(o.title || fallbackId);
+  if (o.id && DETAIL.indexability(o).indexable) {
+    return `<a href="${escapeHtml(DETAIL.routeFor(o))}">${label}</a>`;
+  }
+  const url = o.sourceUrl ? escapeHtml(o.sourceUrl) : '#';
+  return `<a href="${url}" rel="noopener noreferrer" target="_blank">${label}</a>`;
 }
 
 function renderCsv(rows) {
@@ -157,7 +172,7 @@ function alertRows(alerts, byId, t, countryName) {
     const act = a.actionable ? t('mon.actionable') : t('mon.informational');
     return `          <tr>
             <td data-label="${escapeHtml(t('mon.col.change'))}">${escapeHtml(t(`mon.change.${a.changeType}`))}<br><span class="bd-note">${escapeHtml(t(`mon.severity.${a.severity}`))} · ${escapeHtml(act)}</span></td>
-            <td data-label="${escapeHtml(t('mon.col.opportunity'))}"><a href="${escapeHtml(o.sourceUrl || '#')}" rel="noopener noreferrer" target="_blank">${escapeHtml(o.title || a.opportunityId)}</a></td>
+            <td data-label="${escapeHtml(t('mon.col.opportunity'))}">${opportunityLink(o, a.opportunityId)}</td>
             <td data-label="${escapeHtml(t('mon.col.buyer'))}">${escapeHtml(o.buyerName || t('mon.buyerUnknown'))}</td>
             <td data-label="${escapeHtml(t('mon.col.where'))}">${escapeHtml(where)}</td>
             <td data-label="${escapeHtml(t('mon.col.profile'))}">${escapeHtml(t(`tpi.profile.${a.supplierProfile}`))}</td>

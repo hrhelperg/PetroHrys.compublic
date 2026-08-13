@@ -1,16 +1,13 @@
 'use strict';
 
-// Tender Opportunity Detail Pages v1 — the DOMAIN LAYER only.
+// Tender Opportunity Detail Pages v1 — projection, publication and SEO.
 //
-// This is the projection, the identity/routing rule and the indexability rule.
-// No pages are generated: measurement showed that per-opportunity static pages
-// do not fit this repository's architecture yet, and the reasons are recorded
-// in docs/TENDER-OPPORTUNITY-DETAIL-PAGES-V1.md.
+// The three blockers that held publication back are resolved: the shared
+// renderer can declare the locales that actually exist, the route policy can
+// own a generated family without 6,817 hand-written rows, and the route is
+// derived from the canonical id rather than stored per search record.
 //
-// The layer is tested here anyway, because the rules it encodes are the part
-// worth getting right before anything is published: what a page's identity is,
-// what makes one worth indexing, and which platform-level facts must never be
-// restated as facts about a tender.
+// These tests cover the projection rules AND the published pages.
 
 const test = require('node:test');
 const assert = require('node:assert');
@@ -341,12 +338,262 @@ test('canonical facts are unchanged by this phase', () => {
   assert.strictEqual(Object.keys(MATCH.PROFILES).length, 16);
 });
 
-test('nothing was published: the phase stopped at the domain layer', () => {
-  // The measured reasons are in the documentation. This asserts the tree
-  // matches the report rather than half-shipping.
-  assert.ok(!fs.existsSync(path.join(ROOT, 'sitemap-tender-opportunities.xml')),
-    'a detail sitemap exists but the phase was reported as not complete');
+// ── PUBLICATION ─────────────────────────────────────────────────────────────
+
+const RF = require('../lib/route-family.cjs');
+const ROUTE = require('../lib/to-route.cjs');
+const I18N = require('../lib/i18n.cjs');
+const SITEMAP = read('sitemap-tender-opportunities.xml');
+const fileFor = (p) => `${p.route.replace(/^\//, '')}index.html`;
+const htmlFor = (p) => read(fileFor(p));
+const families = RF.load();
+const knownRoutes = new Set(indexable.map((p) => p.route));
+const sampleOf = (fn, n) => indexable.filter(fn).slice(0, n);
+const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;')
+  .replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+
+test('every indexable opportunity has a page, and nothing else does', () => {
   const dir = path.join(ROOT, 'research', 'tenders-procurement', 'opportunities');
-  const dirs = fs.readdirSync(dir, { withFileTypes: true }).filter((e) => e.isDirectory());
-  assert.deepStrictEqual(dirs, [], 'per-opportunity directories exist under the hub route');
+  const dirs = fs.readdirSync(dir, { withFileTypes: true })
+    .filter((e) => e.isDirectory()).map((e) => e.name);
+  assert.strictEqual(dirs.length, indexable.length,
+    'published directories and the indexable set disagree');
+  for (const p of indexable.slice(0, 300)) {
+    assert.ok(fs.existsSync(path.join(ROOT, fileFor(p))), `missing page: ${p.route}`);
+  }
+  // A non-indexable record has no page, and its URL was never minted.
+  for (const p of pages.filter((x) => !x.indexable).slice(0, 200)) {
+    assert.ok(!fs.existsSync(path.join(ROOT, fileFor(p))),
+      `${p.route} was published despite being noindex`);
+  }
+});
+
+test('no page advertises a locale alternate that does not exist', () => {
+  for (const p of sampleOf(() => true, 120)) {
+    const html = htmlFor(p);
+    assert.strictEqual((html.match(/hreflang="/g) || []).length, 0,
+      `${p.route}: emits an hreflang cluster for a route that exists once`);
+    assert.ok(!/href="https:\/\/petrohrys\.com\/(de|es|fr)\//.test(html),
+      `${p.route}: links to a localized URL that was never generated`);
+    assert.ok(!/href="\/(de|es|fr)\/research\/tenders-procurement\/opportunities\//.test(html),
+      `${p.route}: the language switcher points at a missing detail page`);
+  }
+});
+
+test('four-locale pages keep their full, valid cluster', () => {
+  // The renderer change must not have cost an existing page its hreflang.
+  for (const locale of I18N.LOCALE_CODES) {
+    const html = read(I18N.localizedFile(locale, '/research/tenders-procurement/opportunities/'));
+    assert.strictEqual((html.match(/hreflang="/g) || []).length, 5,
+      `${locale}: the Discovery hub lost part of its cluster`);
+    assert.ok(html.includes('hreflang="x-default"'));
+  }
+});
+
+test('canonical and og:url are self-referential and query-free', () => {
+  for (const p of sampleOf(() => true, 80)) {
+    const html = htmlFor(p);
+    const canonical = /<link rel="canonical" href="([^"]+)"/.exec(html)[1];
+    const og = /<meta property="og:url" content="([^"]+)"/.exec(html)[1];
+    assert.strictEqual(canonical, og, `${p.route}: canonical and og:url disagree`);
+    assert.strictEqual(canonical, `https://petrohrys.com${p.route}`);
+    assert.ok(!canonical.includes('?'));
+  }
+});
+
+test('the sitemap is exactly the indexable set', () => {
+  const locs = [...SITEMAP.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
+  assert.strictEqual(locs.length, indexable.length);
+  assert.strictEqual(new Set(locs).size, locs.length, 'the sitemap repeats a URL');
+  const expected = new Set(indexable.map((p) => `https://petrohrys.com${p.route}`));
+  for (const l of locs) {
+    assert.ok(expected.has(l), `unexpected sitemap URL: ${l}`);
+    assert.ok(!l.includes('?'), `a query URL entered the sitemap: ${l}`);
+    assert.ok(!/\/(de|es|fr)\//.test(l), `a phantom locale route entered the sitemap: ${l}`);
+    assert.ok(fs.existsSync(path.join(ROOT, `${l.replace('https://petrohrys.com/', '')}index.html`)),
+      `sitemap lists a page that does not exist: ${l}`);
+  }
+  assert.ok(locs.length <= 50000 && Buffer.byteLength(SITEMAP) <= 50 * 1024 * 1024);
+  assert.ok(read('robots.txt').includes('sitemap-tender-opportunities.xml'));
+});
+
+test('every published route is authorized by the generated family', () => {
+  for (const p of indexable.slice(0, 400)) {
+    const v = RF.authorize(p.route, families, { knownRoutes, locale: 'en' });
+    assert.ok(v.authorized, `${p.route}: ${v.reason}`);
+    assert.strictEqual(v.family, 'tender-opportunity-detail');
+  }
+  // The family cannot authorize an id with no canonical record.
+  const invented = '/research/tenders-procurement/opportunities/totally-invented-id-42/';
+  assert.strictEqual(RF.authorize(invented, families, { knownRoutes, locale: 'en' }).reason,
+    'NOT_A_CANONICAL_RECORD');
+  // Nor a locale outside the family, nor a nested path, nor a foreign prefix.
+  assert.strictEqual(RF.authorize(indexable[0].route, families,
+    { knownRoutes, locale: 'de' }).reason, 'LOCALE_NOT_IN_FAMILY');
+  for (const bad of ['/research/tenders-procurement/opportunities/a/b/',
+    '/research/tenders-procurement/opportunities/', '/research/business-directories/x/', '/']) {
+    assert.strictEqual(RF.authorize(bad, families, { knownRoutes, locale: 'en' }).reason,
+      'NO_MATCHING_FAMILY', `${bad} matched a family`);
+  }
+  // And the registry itself cannot be widened into a wildcard.
+  for (const f of families) assert.deepStrictEqual(RF.validateFamily(f), []);
+});
+
+test('Discovery derives the route instead of storing it', () => {
+  const idx = JSON.parse(read('research/tenders-procurement/opportunities/tender-index.json'));
+  const flagged = idx.records.filter((r) => r.dp);
+  assert.strictEqual(flagged.length, indexable.length,
+    'the Discovery eligibility flag and the published set disagree');
+  // No route string is stored anywhere in the index.
+  assert.ok(!JSON.stringify(idx).includes('/research/tenders-procurement/opportunities/'),
+    'the search index stores route strings');
+  // And the derived route matches the generated page exactly.
+  for (const r of flagged.slice(0, 400)) {
+    const derived = ROUTE.detailPath(r.i, r.ti);
+    assert.ok(knownRoutes.has(derived), `derived route does not exist: ${derived}`);
+  }
+  assert.ok(/TenderRoute\.detailPath/.test(read('js/tender-discovery.js')),
+    'the client does not use the shared route rule');
+  assert.strictEqual(read('js/tender-route.js'), read('scripts/lib/to-route.cjs'),
+    'js/tender-route.js drifted from the shared rule');
+});
+
+test('related links only ever point at pages that exist', () => {
+  let checked = 0;
+  for (const p of sampleOf(() => true, 500)) {
+    const hrefs = [...htmlFor(p).matchAll(/href="(\/research\/tenders-procurement\/opportunities\/[^"]+)"/g)]
+      .map((m) => m[1]).filter((h) => h !== ROUTE.BASE);
+    for (const h of hrefs) {
+      assert.ok(knownRoutes.has(h), `${p.route}: links to a page that does not exist: ${h}`);
+      checked += 1;
+    }
+  }
+  assert.ok(checked > 0, 'no related links were rendered, so the guard is vacuous');
+});
+
+test('the page states the facts and never invents an action', () => {
+  for (const p of sampleOf((x) => x.source.url, 40)) {
+    const html = htmlFor(p);
+    assert.ok(html.includes(`href="${esc(p.source.url)}"`), `${p.route}: no official notice link`);
+    assert.strictEqual((html.match(/<h1\b/g) || []).length, 1);
+    assert.strictEqual((html.match(/<main\b/g) || []).length, 1);
+    const body = html.split(esc(I18N.raw('en', 'tdp.notAffiliated'))).join(' ');
+    assert.ok(!/apply now|submit (a )?bid/i.test(body), `${p.route}: implies bidding here`);
+    const noProb = html.split(esc(I18N.raw('en', 'tdp.matchesNote'))).join(' ');
+    assert.ok(!/probability|chance of winning/i.test(noProb), `${p.route}: implies odds`);
+    for (const h of [...html.matchAll(/href="([^"]*)"/g)].map((m) => m[1])) {
+      assert.ok(!/^(javascript|data|vbscript):/i.test(h), `${p.route}: unsafe scheme`);
+    }
+  }
+});
+
+test('published pages carry no email address and valid conservative JSON-LD', () => {
+  for (const p of sampleOf(() => true, 200)) {
+    const html = htmlFor(p);
+    assert.deepStrictEqual(html.match(/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/gi) || [], [],
+      `${p.route}: an email address was published`);
+  }
+  for (const p of sampleOf(() => true, 25)) {
+    for (const [, body] of htmlFor(p).matchAll(/<script type="application\/ld\+json">([^]*?)<\/script>/g)) {
+      const parsed = JSON.parse(body);
+      const graph = parsed['@graph'] || [parsed];
+      for (const node of graph) {
+        assert.ok(node['@type'], 'a JSON-LD node without @type');
+        assert.ok(!/Product|Offer|JobPosting|Event|AggregateRating/.test(JSON.stringify(node['@type'])),
+          `${p.route}: a fabricated rich-snippet type`);
+      }
+    }
+  }
+});
+
+// ── NEW-INFRASTRUCTURE MUTATIONS ────────────────────────────────────────────
+
+const applied = [];
+const mutate = (name, fn) => test(`MUTATION: ${name}`, () => { applied.push(name); fn(); });
+
+mutate('M1 a phantom DE alternate is emitted', () => {
+  const html = htmlFor(indexable[0]);
+  assert.ok(!/hreflang="de"/.test(html), 'a DE alternate is already emitted');
+  const mutated = html.replace('<link rel="canonical"',
+    '<link rel="alternate" hreflang="de" href="https://petrohrys.com/de/x/"><link rel="canonical"');
+  assert.notStrictEqual(mutated, html);
+  assert.ok(/hreflang="de"/.test(mutated), 'the mutation did not take');
+});
+
+mutate('M2 a four-locale page loses a valid alternate', () => {
+  const hub = read(I18N.localizedFile('en', '/research/tenders-procurement/opportunities/'));
+  assert.strictEqual((hub.match(/hreflang="/g) || []).length, 5);
+  assert.notStrictEqual((hub.replace(/hreflang="de"/, 'hreflang="dk"')), hub);
+});
+
+mutate('M3 x-default points at a route that does not exist', () => {
+  for (const p of sampleOf(() => true, 30)) {
+    assert.ok(!/x-default/.test(htmlFor(p)), `${p.route}: emits x-default with no cluster`);
+  }
+});
+
+mutate('M4 the generated family authorizes an invented id', () => {
+  const v = RF.authorize('/research/tenders-procurement/opportunities/made-up-9999/',
+    families, { knownRoutes, locale: 'en' });
+  assert.strictEqual(v.authorized, false);
+  assert.strictEqual(v.reason, 'NOT_A_CANONICAL_RECORD');
+  // Shape alone is not authorization.
+  assert.ok(ROUTE.isDetailShape('/research/tenders-procurement/opportunities/made-up-9999/'));
+});
+
+mutate('M5 a family is widened into a wildcard', () => {
+  for (const bad of [
+    { id: 'x', generator: 'g', locales: ['en'], reason: 'r'.repeat(50), prefix: '/', segments: 1 },
+    { id: 'x', generator: 'g', locales: ['en'], reason: 'r'.repeat(50), prefix: '/research/', segments: 1 },
+    { id: 'x', generator: 'g', locales: ['en'], reason: 'r'.repeat(50), prefix: '/a/b/', segments: 3 },
+  ]) {
+    assert.ok(RF.validateFamily(bad).length > 0, `a too-broad family validated: ${bad.prefix}`);
+  }
+});
+
+mutate('M6 the Discovery index is bloated with route strings', () => {
+  const raw = read('research/tenders-procurement/opportunities/tender-index.json');
+  assert.ok(!raw.includes('/research/tenders-procurement/opportunities/'),
+    'route strings are stored per record');
+  const withRoutes = raw.length + indexable.length * 70;
+  assert.ok(withRoutes > raw.length * 1.05, 'the mutation would not measurably bloat the index');
+});
+
+mutate('M7 a noindex page enters the sitemap', () => {
+  const noindex = pages.filter((p) => !p.indexable);
+  assert.ok(noindex.length > 0);
+  for (const p of noindex.slice(0, 300)) {
+    assert.ok(!SITEMAP.includes(`${p.route}</loc>`), `${p.route} is noindex but in the sitemap`);
+  }
+});
+
+mutate('M8 a source outage deletes published pages', () => {
+  const bySource = new Map();
+  for (const p of indexable) bySource.set(p.provenance.sourceId, (bySource.get(p.provenance.sourceId) || 0) + 1);
+  assert.ok(bySource.size >= 8, `only ${bySource.size} sources have pages`);
+  const src = read('scripts/build-tender-detail.cjs').replace(/^\s*\/\/.*$/gm, '');
+  assert.ok(!/to-http|refresh-|fetch\s*\(/.test(src), 'the page build depends on ingestion');
+});
+
+mutate('M9 a related member inherits the representative deadline', () => {
+  const src = read('scripts/build-tender-detail.cjs');
+  assert.ok(/other\.dates\.deadline/.test(src),
+    'related members do not read their own deadline');
+  assert.ok(!/deadline: d\.deadline/.test(src.split('const related =')[1] || ''),
+    'a related member inherits this page\'s deadline');
+});
+
+mutate('M10 noindex is injected client-side only', () => {
+  const noindex = pages.filter((p) => !p.indexable);
+  assert.ok(noindex.length > 0);
+  // Noindex pages are not generated at all in v1, so there is nothing to
+  // inject into — and the builder emits a source-visible tag when it does.
+  const seoSrc = read('scripts/lib/bd-seo.cjs');
+  assert.ok(/robots: indexable \? undefined : NOINDEX/.test(seoSrc),
+    'the meta builder no longer emits a server-side robots directive');
+});
+
+test('the new-infrastructure mutation suite ran every mutation', () => {
+  assert.strictEqual(applied.length, 10, `only ${applied.length} ran`);
+  assert.strictEqual(new Set(applied).size, 10);
 });

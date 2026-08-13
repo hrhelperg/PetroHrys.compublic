@@ -85,11 +85,11 @@ const NAV_ITEMS = (indent, locale, t) => {
 // Semantic destination. A reader on /research/media-pr-publishing/ who clicks
 // DE lands on the German version of THAT page, not on the German homepage —
 // which is what the shipped switcher did, because it linked locale roots.
-const LANGS = (indent, canonicalPath, locale) => I18N.switcherFor(canonicalPath, locale)
+const LANGS = (indent, canonicalPath, locale, availableLocales) => I18N.switcherFor(canonicalPath, locale, availableLocales)
   .map((l) => `${indent}<li><a href="${l.href}"${l.current ? ' aria-current="page"' : ''}>${l.label}</a></li>`)
   .join('\n');
 
-const HEADER = (canonicalPath, locale, t) => {
+const HEADER = (canonicalPath, locale, t, availableLocales) => {
   if (typeof t !== 'function') {
     throw new TypeError(`HEADER requires a translator for locale "${locale}"; refusing to render English into a localized page`);
   }
@@ -100,7 +100,7 @@ const HEADER = (canonicalPath, locale, t) => {
 ${NAV_ITEMS('        ', locale, t)}
       </ul>
       <ul class="nav-lang" aria-label="${escapeHtml(t('nav.language'))}">
-${LANGS('        ', canonicalPath, locale)}
+${LANGS('        ', canonicalPath, locale, availableLocales)}
       </ul>
       <details class="nav-mobile">
         <summary>${t('shell.menu')}</summary>
@@ -109,7 +109,7 @@ ${LANGS('        ', canonicalPath, locale)}
 ${NAV_ITEMS('            ', locale, t)}
           </ul>
           <ul class="nav-lang" aria-label="${escapeHtml(t('nav.language'))}">
-${LANGS('            ', canonicalPath, locale)}
+${LANGS('            ', canonicalPath, locale, availableLocales)}
           </ul>
         </div>
       </details>
@@ -257,7 +257,11 @@ function metaTag(property, content, kind = 'property') {
 
 // Takes a builder result from bd-seo verbatim, so indexability, canonical, and
 // structured data are decided in exactly one place.
-function renderPage({ meta, main, locale = I18N.DEFAULT_LOCALE }) {
+// `availableLocales` defaults to every locale, so existing callers are
+// untouched. A generator that produces one canonical route per record passes
+// ['en'] and gets neither a phantom hreflang cluster nor a switcher pointing
+// at pages that do not exist.
+function renderPage({ meta, main, locale = I18N.DEFAULT_LOCALE, availableLocales = null }) {
   const L = I18N.LOCALE_BY_CODE.get(locale);
   if (!L) throw new Error(`renderPage: unknown locale "${locale}"`);
   const t = I18N.translator(locale);
@@ -266,7 +270,10 @@ function renderPage({ meta, main, locale = I18N.DEFAULT_LOCALE }) {
   // reciprocal by construction rather than by discipline.
   const canonicalPath = meta.canonicalPath;
   const selfPath = I18N.localizedPath(locale, canonicalPath);
-  const alternates = I18N.hreflangCluster(canonicalPath, (p) => `${ORIGIN}${p}`)
+  if (availableLocales && !availableLocales.includes(locale)) {
+    throw new Error(`renderPage: rendering "${locale}" but it is not in availableLocales`);
+  }
+  const alternates = I18N.hreflangCluster(canonicalPath, (p) => `${ORIGIN}${p}`, availableLocales)
     .map((a) => `\n  <link rel="alternate" hreflang="${a.hreflang}" href="${a.href}">`).join('');
   const robotsTag = meta.robots
     ? `\n  <meta name="robots" content="${escapeHtml(meta.robots)}">`
@@ -326,7 +333,7 @@ ${ECO_HEAD}
   <a class="skip" href="#main">${t('shell.skip')}</a>
 ${eco.bodyBlock ? eco.bodyBlock(L.htmlLang) : ECO_BODY}
 
-${HEADER(canonicalPath, locale, t)}
+${HEADER(canonicalPath, locale, t, availableLocales)}
 
   <main id="main">
 ${componentsModule.components(locale).breadcrumbs(localizeTrail(meta.breadcrumbTrail, locale, t))}
