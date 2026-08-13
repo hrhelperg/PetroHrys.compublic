@@ -28,6 +28,7 @@ const SCHEMA = require('./lib/to-schema.cjs');
 const MATCH = require('./lib/to-match.cjs');
 const SOURCES = require('./lib/to-sources.cjs');
 const CORPUS = require('./lib/to-corpus.cjs');
+const INDEX = require('./lib/to-index.cjs');
 const TP = require('./lib/tp-schema.cjs');
 const componentsModule = require('./lib/bd-components.cjs');
 const render = require('./lib/bd-render.cjs');
@@ -204,7 +205,189 @@ ${rows}
       </div>`;
 }
 
-function renderMain(corpus, { locale, t, countryName, platformsById }) {
+// ── DISCOVERY ───────────────────────────────────────────────────────────────
+//
+// The search product. The server renders the CONTROLS and the methodology; the
+// browser renders the RESULTS, from a committed index, using the same engine
+// Node tests. Nothing here decides what matches or what ranks first.
+//
+// Controls are built from the index facets, never from a hardcoded list, so a
+// control can only offer a value that has records behind it. A select offering
+// an option that returns nothing is a dead control.
+const DISCOVERY_INDEX_FILE = 'tender-index.json';
+
+// The deadline windows the UI offers. Three, because each has to mean a real
+// decidable comparison and the engine's enum accepts exactly these.
+const DEADLINE_WINDOWS = [7, 30, 90];
+
+function selectControl(id, label, options, t) {
+  const opts = [`<option value="">${escapeHtml(t('tds.any'))}</option>`]
+    .concat(options.map((o) => `<option value="${escapeHtml(o.value)}">${escapeHtml(o.label)}</option>`));
+  return `        <p class="td-field">
+          <label for="${id}">${escapeHtml(label)}</label>
+          <select id="${id}">${opts.join('')}</select>
+        </p>`;
+}
+
+// The strings and lookups the browser needs, delivered as inert JSON rather
+// than as generated JavaScript: nothing here is executable, and no translated
+// string is ever interpolated into code.
+function discoveryConfig({ t, countryName, facets, locale }) {
+  const names = {};
+  for (const key of ['country', 'projectCountry']) {
+    for (const f of facets[key]) names[f.value] = countryName(f.value);
+  }
+  const map = (list, fn) => list.reduce((acc, v) => { acc[v] = fn(v); return acc; }, {});
+  // Six strings carry a placeholder the BROWSER fills, because only the
+  // browser knows the number — how many results, how many days, which page.
+  // t() refuses to emit an unsubstituted {n}, correctly, since one reaching a
+  // rendered page would be a visible bug. These are not rendered by the build;
+  // they are data handed to the client, so they come through raw() and a test
+  // asserts the client substitutes every one of them.
+  const tpl = (key) => I18N.raw(locale, key);
+  return {
+    locale,
+    indexUrl: `${CANONICAL_PATH}${DISCOVERY_INDEX_FILE}`,
+    countryNames: names,
+    t: {
+      status: map(facets.status.map((x) => x.value), (v) => t(`toi.status.${v}`)),
+      source: map(facets.source.map((x) => x.value), (v) => t(`toi.source.${v}`)),
+      profile: map(facets.profile.map((x) => x.value), (v) => t(`tpi.profile.${v}`)),
+      band: map(['STRONG', 'GOOD'], (v) => t(`toi.band.${v}`)),
+      esub: map(['yes', 'no', 'unknown'], (v) => t(`tds.esub.${v}`)),
+      filterLabel: map(['status', 'country', 'projectCountry', 'source', 'scheme', 'profile',
+        'matchBand', 'deadlineDays', 'esubmission', 'currency', 'browserCheck'],
+      (v) => t(`tds.f.${v}`)),
+      notice: { VALUE_SORT_REQUIRES_CURRENCY: t('tds.notice.valueSortNeedsCurrency') },
+      fQuery: t('tds.f.q'),
+      fBuyer: t('toi.col.buyer'),
+      fBuyerCountry: t('tds.f.country'),
+      fProjectCountry: t('tds.f.projectCountry'),
+      fStatus: t('toi.col.status'),
+      fDeadline: t('toi.col.deadline'),
+      fPublished: t('tds.fact.published'),
+      fSource: t('toi.col.source'),
+      fClassification: t('toi.col.classification'),
+      fValue: t('tds.fact.value'),
+      fEsubmission: t('tds.f.esubmission'),
+      derivedTag: t('tds.derivedTag'),
+      verifyTag: t('tds.verifyTag'),
+      browserCheckNote: t('tds.browserCheckNote'),
+      multiSourceNote: tpl('tds.multiSourceNote'),
+      deadlineDays: tpl('tds.deadlineDays'),
+      deadlinePassed: t('tds.deadlinePassed'),
+      deadlineNone: t('tds.deadlineNone'),
+      deadlineNotComparable: t('tds.deadlineNotComparable'),
+      deadlineWithin: tpl('tds.deadlineWithinShort'),
+      countOne: t('tds.countOne'),
+      countMany: tpl('tds.countMany'),
+      pageOf: tpl('tds.pageOf'),
+      prev: t('tds.prev'),
+      next: t('tds.next'),
+      emptyTitle: t('tds.emptyTitle'),
+      emptyHint: t('tds.emptyHint'),
+      loadFailed: t('tds.loadFailed'),
+      removeFilter: tpl('tds.removeFilter'),
+      yes: t('tds.yes'),
+      no: t('tds.no'),
+    },
+  };
+}
+
+// JSON destined for a <script> element. `<` and `>` are escaped so a value can
+// never close the element early and turn data into markup — the one way an
+// application/json block becomes an injection.
+function jsonForScript(obj) {
+  return JSON.stringify(obj).replace(/</g, '\\u003c').replace(/>/g, '\\u003e')
+    .replace(/\u2028/g, '\\u2028').replace(/\u2029/g, '\\u2029');
+}
+
+function discoverySection(corpus, { t, countryName, facets, locale }) {
+  const cfg = discoveryConfig({ t, countryName, facets, locale });
+  const label = (list, fn) => list.map((x) => ({ value: x.value, label: `${fn(x.value)} (${x.count})` }));
+  const cn = (v) => countryName(v);
+  const indexed = facets.status.reduce((a, x) => a + x.count, 0);
+
+  return `<section id="discovery" aria-labelledby="discovery-heading">
+      <h2 id="discovery-heading">${escapeHtml(t('tds.heading'))}</h2>
+      <p>${escapeHtml(t('tds.intro', { n: indexed }))}</p>
+      <p class="bd-note">${escapeHtml(t('tds.defaultSort'))}</p>
+
+      <form id="td-form" role="search" aria-labelledby="discovery-heading">
+        <p class="td-field td-field-q">
+          <label for="td-q">${escapeHtml(t('tds.f.q'))}</label>
+          <input type="search" id="td-q" name="q" autocomplete="off"
+            placeholder="${escapeHtml(t('tds.searchPlaceholder'))}">
+          <button type="submit" class="bd-button">${escapeHtml(t('tds.searchButton'))}</button>
+        </p>
+
+        <fieldset class="td-group">
+          <legend>${escapeHtml(t('tds.groupWhere'))}</legend>
+${selectControl('td-country', t('tds.f.country'), label(facets.country, cn), t)}
+${selectControl('td-project-country', t('tds.f.projectCountry'), label(facets.projectCountry, cn), t)}
+        </fieldset>
+
+        <fieldset class="td-group">
+          <legend>${escapeHtml(t('tds.groupWhat'))}</legend>
+${selectControl('td-scheme', t('tds.f.scheme'), label(facets.scheme, (v) => v), t)}
+${selectControl('td-profile', t('tds.f.profile'), label(facets.profile, (v) => t(`tpi.profile.${v}`)), t)}
+${selectControl('td-band', t('tds.f.matchBand'), ['STRONG', 'GOOD'].map((v) => ({ value: v, label: t(`toi.band.${v}`) })), t)}
+        </fieldset>
+
+        <fieldset class="td-group">
+          <legend>${escapeHtml(t('tds.groupHow'))}</legend>
+${selectControl('td-status-f', t('tds.f.status'), label(facets.status, (v) => t(`toi.status.${v}`)), t)}
+${selectControl('td-deadline', t('tds.f.deadlineDays'), DEADLINE_WINDOWS.map((d) => ({ value: String(d), label: t('tds.deadlineWithin', { n: d }) })), t)}
+${selectControl('td-source', t('tds.f.source'), label(facets.source, (v) => t(`toi.source.${v}`)), t)}
+${selectControl('td-currency', t('tds.f.currency'), label(facets.currency, (v) => v), t)}
+${selectControl('td-esub', t('tds.f.esubmission'), label(facets.esubmission, (v) => t(`tds.esub.${v}`)), t)}
+${selectControl('td-browser', t('tds.f.browserCheck'), label(facets.browserCheck, (v) => t(`tds.${v}`)), t)}
+        </fieldset>
+
+        <p class="td-field">
+          <label for="td-sort">${escapeHtml(t('tds.sortLabel'))}</label>
+          <select id="td-sort">
+            <option value="relevance">${escapeHtml(t('tds.sort.relevance'))}</option>
+            <option value="deadline">${escapeHtml(t('tds.sort.deadline'))}</option>
+            <option value="published">${escapeHtml(t('tds.sort.published'))}</option>
+            <option value="value">${escapeHtml(t('tds.sort.value'))}</option>
+          </select>
+          <button type="button" id="td-clear" class="bd-button" hidden>${escapeHtml(t('tds.clearAll'))}</button>
+        </p>
+      </form>
+
+      <p id="td-loading">${escapeHtml(t('tds.loading'))}</p>
+      <div id="td-app" hidden>
+        <p id="td-status" role="status" aria-live="polite"></p>
+        <div id="td-notice"></div>
+        <div id="td-active" class="td-active"></div>
+        <div id="td-results"></div>
+        <nav id="td-pagination" class="td-pagination" aria-label="${escapeHtml(t('tds.paginationLabel'))}"></nav>
+      </div>
+      <noscript>
+        <p>${escapeHtml(t('tds.noscript'))}</p>
+      </noscript>
+
+      <h3>${escapeHtml(t('tds.methodHeading'))}</h3>
+      <p>${escapeHtml(t('tds.methodSearchable'))}</p>
+      <p>${escapeHtml(t('tds.methodFactVsDerived'))}</p>
+      <p>${escapeHtml(t('tds.methodRelevance'))}</p>
+      <p>${escapeHtml(t('tds.methodClassification'))}</p>
+      <p>${escapeHtml(t('tds.methodCurrency'))}</p>
+      <p>${escapeHtml(t('tds.methodDeadline'))}</p>
+      <p>${escapeHtml(t('tds.methodUnknown'))}</p>
+      <p>${escapeHtml(t('tds.methodDocuments'))}</p>
+      <p>${escapeHtml(t('tds.methodBrowserCheck'))}</p>
+      <p>${escapeHtml(t('tds.methodSourcePlatform'))}</p>
+      <p class="bd-note">${escapeHtml(t('tds.methodIndexing'))}</p>
+
+      <script type="application/json" id="td-config">${jsonForScript(cfg)}</script>
+      <script src="/js/tender-search.js" defer></script>
+      <script src="/js/tender-discovery.js" defer></script>
+    </section>`;
+}
+
+function renderMain(corpus, { locale, t, countryName, platformsById, facets = null }) {
   const nowIso = corpusNow(corpus);
   const all = corpus.opportunities;
   const current = all.filter(SCHEMA.isCurrent);
@@ -246,6 +429,13 @@ ${opportunityTable(ranked, { locale, t, countryName, withMatch: true })}`;
       <p class="bd-note">${escapeHtml(t('toi.verifyDisclaimer'))}</p>
     </section>`,
 
+    // Search comes first: it is the product. The curated tables below it are
+    // the durable content that makes the page worth reading before anyone
+    // types anything, and the only content a reader without JavaScript gets.
+    // `facets` is absent when renderMain is called directly by a determinism
+    // test, and the section is then omitted rather than half-rendered.
+    facets ? discoverySection(corpus, { t, countryName, facets, locale }) : '',
+
     `<section id="sources" aria-labelledby="sources-heading">
       <h2 id="sources-heading">${escapeHtml(t('toi.sourcesHeading'))}</h2>
       <p>${escapeHtml(t('toi.sourcesIntro'))}</p>
@@ -278,7 +468,7 @@ ${profileSections}
       <p class="bd-note"><a class="bd-button" href="${CANONICAL_PATH}opportunities.csv" download>${escapeHtml(t('toi.downloadCsv', { n: all.length }))}</a></p>
       <p><a href="/research/tenders-procurement/">${escapeHtml(t('toi.backToCollection'))}</a> · <a href="/research/tenders-procurement/intelligence/">${escapeHtml(t('toi.toIntelligence'))}</a></p>
     </section>`,
-  ].join('\n\n');
+  ].filter(Boolean).join('\n\n');
 }
 
 // ── build ───────────────────────────────────────────────────────────────────
@@ -331,6 +521,15 @@ function main() {
     const meta = seo.buildOpportunitiesIntelligenceMeta({
       current: current.length, sources: corpus.sources.length, canonicalPath: CANONICAL_PATH,
     });
+    // The Discovery index. Built once and shared by all four locales: one data
+    // layer, four presentation layers. A per-locale copy would be four copies
+    // of the same canonical facts that could drift apart.
+    const searchIndex = INDEX.build(corpus, { platformsById });
+    const indexFile = path.join(OUT_DIR, DISCOVERY_INDEX_FILE);
+    assertOwned(indexFile);
+    writeIfChanged(indexFile, INDEX.serialize(searchIndex), written);
+    owned.push(indexFile);
+
     for (const locale of I18N.LOCALE_CODES) {
       const f = path.join(ROOT, I18N.localizedFile(locale, CANONICAL_PATH));
       assertOwned(f);
@@ -339,6 +538,7 @@ function main() {
         meta,
         main: renderMain(corpus, {
           locale, t: I18N.translator(locale), countryName, platformsById,
+          facets: searchIndex.facets,
         }),
         locale,
       }), written);
@@ -385,6 +585,7 @@ function main() {
 
 if (require.main === module) main();
 module.exports = {
-  renderCsv, renderMain, COLUMNS, CANONICAL_PATH, FEATURED, ROWS_PER_PROFILE,
+  renderCsv, renderMain, discoverySection, discoveryConfig, jsonForScript,
+  COLUMNS, CANONICAL_PATH, DISCOVERY_INDEX_FILE, DEADLINE_WINDOWS, FEATURED, ROWS_PER_PROFILE,
   CLOSING_SOON_ROWS, titleFor, deadlineLabel, corpusNow,
 };

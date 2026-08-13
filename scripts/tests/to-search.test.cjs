@@ -316,3 +316,96 @@ test('the search core is environment-neutral and network-free', () => {
   // One implementation: it must be shippable to the browser unchanged.
   assert.ok(!/process\.|__dirname|\bfs\./.test(CODE), 'the search core depends on Node');
 });
+
+// ── REGRESSIONS FROM THE RELEVANCE AUDIT ────────────────────────────────────
+//
+// Seven defects the audit found by reading real results rather than fixtures.
+// Each fix is a general rule; each test states the rule and the number that
+// exposed it.
+
+test('a term matches at a token start, never inside a word', () => {
+  const idx = { records: [
+    rec({ i: 'a', t: 'ice control services' }),
+    rec({ i: 'b', t: 'catering services for the office', l: '', c: '' }),
+    rec({ i: 'c', t: 'police vehicle maintenance', l: '', c: '' }),
+    rec({ i: 'd', t: 'construction of a bridge', l: '', c: '' }),
+  ] };
+  // "ice" matched servICEs, offICE and polICE — 3,994 of 6,964 real records.
+  assert.deepStrictEqual(S.search(idx, { q: 'ice' }).results.map((x) => x.i), ['a']);
+  // But a genuine prefix still matches, so "construct" finds "construction".
+  assert.deepStrictEqual(S.search(idx, { q: 'construct' }).results.map((x) => x.i), ['d']);
+});
+
+test('a partial code does not earn the exact-code weight', () => {
+  const idx = { records: [
+    rec({ i: 'exact', c: '45', t: 'unrelated' }),
+    rec({ i: 'longer', c: '45000000 45220000', t: 'unrelated' }),
+  ] };
+  // "45" scored the full 40 points against 45000000 and 33645000 alike: 906
+  // records matched, not one of which carried the code 45.
+  const hits = S.search(idx, { q: '45' }).results.map((x) => x.i);
+  assert.deepStrictEqual(hits, ['exact'], 'a substring of a longer code still matches');
+  // The full code still matches exactly.
+  assert.deepStrictEqual(S.search(idx, { q: '45000000' }).results.map((x) => x.i), ['longer']);
+});
+
+test('an expired deadline never outranks a live one', () => {
+  const idx = { records: [
+    rec({ i: 'expired-long', t: 'roof works', dl: -86 }),
+    rec({ i: 'expired-recent', t: 'roof works', dl: -1 }),
+    rec({ i: 'live', t: 'roof works', dl: 30 }),
+    rec({ i: 'closing', t: 'roof works', dl: 1 }),
+    rec({ i: 'undated', t: 'roof works', dl: null }),
+  ] };
+  // Sorting on the raw number put the MOST expired notice first.
+  for (const sort of ['relevance', 'deadline']) {
+    assert.deepStrictEqual(S.search(idx, { q: 'roof works', sort }).results.map((x) => x.i),
+      ['closing', 'live', 'expired-recent', 'expired-long', 'undated'],
+      `${sort}: expired notices are not ordered after live ones`);
+  }
+});
+
+test('an inherited prototype key is not a supplier profile', () => {
+  const idx = { records: [rec({ i: 'a', m: {} }), rec({ i: 'b', m: { telecom: 'STRONG' } })] };
+  // rec.m comes from JSON.parse, so rec.m['__proto__'] is truthy and every
+  // record answered to a profile nobody defined.
+  for (const bogus of ['__proto__', 'constructor', 'toString', 'valueOf']) {
+    assert.strictEqual(S.search(idx, { filters: { profile: bogus } }).total, 0,
+      `profile "${bogus}" matched records`);
+  }
+  assert.strictEqual(S.search(idx, { filters: { profile: 'telecom' } }).total, 1);
+});
+
+test('a classification scheme filter is equality, not substring', () => {
+  const idx = { records: [rec({ i: 'a', sch: 'CPV' }), rec({ i: 'b', sch: 'UNSPSC' })] };
+  assert.strictEqual(S.search(idx, { filters: { scheme: 'C' } }).total, 0, '"C" matched CPV and UNSPSC');
+  assert.strictEqual(S.search(idx, { filters: { scheme: 'SP' } }).total, 0, '"SP" matched UNSPSC');
+  assert.strictEqual(S.search(idx, { filters: { scheme: 'CPV' } }).total, 1);
+  assert.strictEqual(S.search(idx, { filters: { scheme: 'UNSPSC' } }).total, 1);
+});
+
+test('an unknown sort is not echoed back as though it were honoured', () => {
+  for (const bad of ['__proto__', 'magic', 'DROP TABLE']) {
+    const r = S.search(INDEX, { sort: bad });
+    assert.strictEqual(r.sort, 'relevance', `"${bad}" was reported back as the sort`);
+  }
+  assert.strictEqual(S.search(INDEX, { sort: 'deadline' }).sort, 'deadline');
+});
+
+test('hydration restores the defaults the serializer omits', () => {
+  // The published artifact drops false, null and default values to save bytes.
+  const raw = { records: [{ i: 'x', ti: 'Title', s: 'OPEN' }] };
+  const h = S.hydrate(raw).records[0];
+  assert.deepStrictEqual(h.m, {}, 'a record with no bands hydrates without a band map');
+  assert.strictEqual(h.bc, false);
+  assert.strictEqual(h.ms, false);
+  assert.strictEqual(h.oc, 1);
+  assert.strictEqual(h.dl, null, 'an omitted deadline hydrates as undefined rather than null');
+  assert.strictEqual(h.doc, null);
+  assert.strictEqual(h.t, 'title', 'the title was not normalized for search');
+  assert.strictEqual(h.ti, 'Title', 'hydration overwrote the original title');
+  // Idempotent.
+  const before = JSON.stringify(h);
+  S.hydrate(raw);
+  assert.strictEqual(JSON.stringify(raw.records[0]), before, 'hydration is not idempotent');
+});
