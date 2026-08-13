@@ -120,6 +120,7 @@ const BUILD_ENTRY_POINTS = [
   'scripts/build-marketplaces.cjs',
   'scripts/build-media-platforms.cjs',
   'scripts/build-static-pages.cjs',
+  'scripts/build-tender-monitoring.cjs',
   'scripts/build-tender-opportunities.cjs',
   'scripts/build-tenders-intelligence.cjs',
   'scripts/build-tenders-procurement.cjs',

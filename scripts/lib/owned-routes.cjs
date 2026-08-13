@@ -52,6 +52,7 @@ const COLLECTION_ROOTS = [
   // generators, which already require bd-render and would close a cycle.
   '/research/tenders-procurement/intelligence/',
   '/research/tenders-procurement/opportunities/',
+  '/research/tenders-procurement/monitoring/',
 ].map((p) => p.replace(/^\//, ''));
 const GENERATED_PREFIXES = COLLECTION_ROOTS;
 
