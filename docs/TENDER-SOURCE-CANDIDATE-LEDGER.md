@@ -133,11 +133,33 @@ statement is published. Lower priority than the four structured sources above.
 | Italy — HUB Contratti Pubblici (MIT) | HTML_ONLY | Legacy SCP application retired; replacement appears to consult BDNCP rather than publish. Low priority — ANAC PPVL covers Italy. |
 | United States — SAM.gov API v2 | API_KEY_REQUIRED | Docs are explicit; key needs a registered account. The bulk extract above serves the same data unauthenticated, so this is a provisioning task, not a blocker. |
 
-## Not yet reported
+## Poland, Czech Republic, Romania — now terminal
 
-Poland, Czech Republic and Romania were probed in the same wave; their results
-are in the run transcript and are **not yet triaged into this ledger**. They
-must be recorded terminally before B3 can be called complete.
+Recovered from the probe transcript rather than re-probed.
+
+| candidate | country | class | decision |
+|---|---|---|---|
+| Biuletyn Zamówień Publicznych (BZP) API, e-Zamówienia | Poland | PUBLIC_STRUCTURED | **ACCEPT_CANDIDATE** |
+| Věstník veřejných zakázek (VVZ) submissions API | Czech Republic | PUBLIC_STRUCTURED | **ACCEPT_CANDIDATE** |
+| ISVZ Open Data bulk export | Czech Republic | PUBLIC_STRUCTURED | DEFER — second Czech route; VVZ preferred |
+| NEN — Národní elektronický nástroj | Czech Republic | HTML_ONLY | REJECT |
+| SICAP / SEAP public notices API (api-pub) | Romania | PUBLIC_STRUCTURED | **ACCEPT_CANDIDATE** |
+| data.gov.ro procurement datasets | Romania | STALE | REJECT |
+
+**Every researched candidate is now terminal.** No candidate exists only in a
+transcript.
+
+## Terminality summary
+
+| decision | count |
+|---|---|
+| ACCEPT_CANDIDATE (qualified, none yet activated) | 8 |
+| REJECT | 7 |
+| DEFER | 5 |
+| UNRESOLVED | 2 |
+
+ACCEPT_CANDIDATE: Spain, Italy ANAC PPVL, United States SAM.gov bulk, Brazil
+PNCP, Lithuania, Poland BZP, Czech VVZ, Romania SICAP.
 
 ---
 

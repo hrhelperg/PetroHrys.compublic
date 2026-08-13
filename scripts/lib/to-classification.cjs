@@ -46,7 +46,35 @@
 // the official published file with its own version stamp — not to deepen this
 // table by hand.
 
-const SCHEMES = ['CPV', 'UNSPSC', 'GSIN'];
+// ── SUPPORTED TAXONOMIES ────────────────────────────────────────────────────
+//
+// "Not CPV" is not "not classified". Global procurement does not use one
+// vocabulary: the EU publishes CPV, Colombia and Canada publish UNSPSC, Canada
+// also publishes GSIN, and the United States publishes NAICS and PSC. Each is
+// an official classification assigned by the buyer, and each stays in the
+// vocabulary it was written in.
+//
+// There is no crosswalk here and there must never be one. A NAICS code is not
+// a CPV code with an accent, and inventing an equivalence would fabricate a
+// procurement fact the buyer never asserted.
+const SCHEMES = ['CPV', 'UNSPSC', 'GSIN', 'NAICS', 'PSC'];
+
+// What a valid code looks like in each vocabulary, and what its top level
+// means. Written per scheme rather than as one shared regex, because the
+// vocabularies genuinely differ:
+//
+//   CPV     8 digits, optional check digit    top = 2-digit division
+//   UNSPSC  8 digits, hierarchical            top = 2-digit segment
+//   GSIN    alphanumeric (N5895, D304A)       no published top level we assert
+//   NAICS   2-6 digits, 2-digit = sector      top = 2-digit sector
+//   PSC     4 chars, digits or letter-led     top = first character (group)
+const FORMATS = {
+  CPV: { pattern: /^\d{2,10}$/, top: (c) => c.slice(0, 2) },
+  UNSPSC: { pattern: /^\d{2,10}$/, top: (c) => c.slice(0, 2) },
+  GSIN: { pattern: /^[A-Z0-9]{2,10}$/, top: () => null },
+  NAICS: { pattern: /^\d{2,6}$/, top: (c) => c.slice(0, 2) },
+  PSC: { pattern: /^[A-Z0-9]{4}$/, top: (c) => c.slice(0, 1) },
+};
 
 // CPV 2008 divisions — Commission Regulation (EC) No 213/2008, Annex I.
 const CPV_DIVISIONS = {
@@ -179,15 +207,14 @@ function normalizeCode(scheme, rawCode) {
   code = code.replace(/^V\d+\./, '');
   // CPV codes may carry a "-9" style check digit suffix.
   code = code.replace(/-\d$/, '');
-  if (!/^\d{2,10}$/.test(code)) {
-    // GSIN is alphanumeric (e.g. "N5895"). Retained as an opaque identity.
-    if (scheme === 'GSIN' && /^[A-Z0-9]{2,10}$/.test(code)) {
-      return { scheme, code, top: null, label: null };
-    }
-    return null;
-  }
 
-  const top = code.slice(0, 2);
+  const format = FORMATS[scheme];
+  if (!format || !format.pattern.test(code)) return null;
+  const top = format.top(code);
+
+  // Labels exist only where we hold the official division/segment list. A
+  // scheme without one keeps a null label rather than borrowing another
+  // vocabulary's words.
   let label = null;
   if (scheme === 'CPV') label = CPV_DIVISIONS[top] || CPV_DIVISIONS[Number(top)] || null;
   if (scheme === 'UNSPSC') label = UNSPSC_SEGMENTS[top] || UNSPSC_SEGMENTS[Number(top)] || null;
@@ -220,6 +247,6 @@ function topsByScheme(classifications) {
 }
 
 module.exports = {
-  SCHEMES, CPV_DIVISIONS, UNSPSC_SEGMENTS, REFERENCE_PROVENANCE,
+  SCHEMES, FORMATS, CPV_DIVISIONS, UNSPSC_SEGMENTS, REFERENCE_PROVENANCE,
   normalizeCode, normalizeCodes, topsByScheme,
 };

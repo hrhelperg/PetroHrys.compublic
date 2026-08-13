@@ -1,6 +1,12 @@
 # Tender Opportunity Coverage — Phase A
 
-**Status: PHASE A, B1 and B2 COMPLETE. STAGE B3 RESEARCH DONE, NO SOURCE ACTIVATED.**
+**Status: PHASE A, B1, B2 COMPLETE. B3A (native taxonomy) COMPLETE. B3B
+(research terminality) COMPLETE. NO SOURCE ACTIVATED.**
+
+> **Metric correction.** Earlier phases of this document counted "classified"
+> as "carries CPV or UNSPSC". That is wrong for global procurement and is
+> corrected below: a record carrying NAICS, PSC or GSIN is **classified**, it
+> is simply not mapped into the 19 analytical sectors.
 
 Measured against the committed corpus at `cca4f5af`: 9,577 canonical
 opportunities, 6,964 current, 10 sources, 5,324 buyers.
@@ -295,3 +301,51 @@ plan before any is:
 corpus 10.20 MB raw / 2.06 MB gzip · Discovery index 4.60 MB raw / **0.92 MB
 gzip** · 6,817 detail pages. Unchanged in kind by B1; **storage verdict
 KEEP_GIT_FOR_NOW**.
+
+
+---
+
+# Stage B3A — native taxonomy architecture
+
+The classification model was already generic: one `SCHEMES` list, one
+validation point, per-scheme label lookup. **NAICS and PSC were added through
+it**, not around it, with per-vocabulary format rules:
+
+| scheme | format | top level |
+|---|---|---|
+| CPV | 2–10 digits, optional check digit | 2-digit division |
+| UNSPSC | 2–10 digits | 2-digit segment |
+| GSIN | alphanumeric, 2–10 | none asserted |
+| NAICS | 2–6 digits | 2-digit sector |
+| PSC | exactly 4 chars, digits or letter-led | first character |
+
+**No crosswalk exists and a test forbids one.** NAICS 54 does not borrow the
+CPV division-54 wording; PSC 7030 does not borrow UNSPSC segment 70. Only CPV
+and UNSPSC are read into sectors, and that limit is declared in
+`SECTOR_MAPPED_SCHEMES` rather than hidden.
+
+## The corrected classification metric
+
+| | current opportunities |
+|---|---|
+| **ANY_OFFICIAL_CLASSIFICATION** | **5,869 (84.3%)** |
+| no classification at all | 1,095 (15.7%) |
+| classified but not sector-mapped | 45 |
+
+By scheme: CPV 3,861 records / 2,783 unique codes · UNSPSC 1,964 / 1,572 ·
+GSIN 44 / 34.
+
+The previously reported "1,140 unclassified (16.4%)" conflated two states: 1,095
+records with no code at all and 45 carrying only GSIN. The corpus was slightly
+better classified than reported.
+
+# Stage B3B — research terminality
+
+All researched candidates are terminal: **8 ACCEPT_CANDIDATE, 7 REJECT,
+5 DEFER, 2 UNRESOLVED**. Poland (BZP), Czech Republic (VVZ) and Romania
+(SICAP) all qualified as PUBLIC_STRUCTURED and are recorded in the ledger.
+
+# Not done
+
+No adapter written, no source activated, no A→B→C expansion matrix, Brazil
+licence unresolved. The architecture that had to precede activation now exists.
