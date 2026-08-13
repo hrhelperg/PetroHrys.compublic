@@ -205,28 +205,53 @@ test('a deadline past while the source says open keeps both facts', () => {
 });
 
 test('a zoneless deadline is never given an instant', () => {
-  // Two different things are undecidable: a date the source wrote without a
-  // time zone, and no date at all. Only the first has wording to preserve.
-  const undecidable = pages.filter((p) => p.dates.deadline && !p.dates.deadline.decidable);
-  const zoneless = undecidable.filter((p) => p.dates.deadline.precision !== 'NONE');
-  const absent = undecidable.filter((p) => p.dates.deadline.precision === 'NONE');
+  // Two different things lack an instant: a date the source wrote without a
+  // time zone, and no parseable date at all. Only the first has wording worth
+  // preserving, and only the first can be compared as a band.
+  const noInstant = pages.filter((p) => p.dates.deadline && !p.dates.deadline.decidable);
+  const zoneless = noInstant.filter((p) => p.dates.deadline.precision !== 'NONE');
+  const absent = noInstant.filter((p) => p.dates.deadline.precision === 'NONE');
   assert.ok(zoneless.length > 0 && absent.length > 0, 'both cases must be exercised');
-  for (const p of undecidable) {
-    assert.strictEqual(p.dates.deadline.daysRemaining, null,
-      `${p.id}: an undecidable deadline was counted in days`);
+
+  // THE invariant. Whatever we compute from a zoneless deadline, we never
+  // publish an instant for it — that would be inventing an offset the source
+  // did not state.
+  for (const p of noInstant) {
+    assert.strictEqual(p.dates.deadline.iso, null,
+      `${p.id}: an instant was derived from a deadline that has none`);
+    assert.notStrictEqual(p.dates.deadline.precision, 'INSTANT',
+      `${p.id}: a deadline without an instant claims INSTANT precision`);
   }
   for (const p of zoneless) {
     assert.ok(p.dates.deadline.raw, `${p.id}: the source wording was lost`);
   }
-  // precision NONE means the deadline could not be parsed, not that the source
-  // published nothing: some sources write a deadline as prose. The wording is
-  // kept; what must never appear is an instant we invented from it.
-  for (const p of absent) {
-    assert.strictEqual(p.dates.deadline.iso, null,
-      `${p.id}: an instant was derived from an unparseable deadline`);
-  }
   assert.ok(absent.some((p) => p.dates.deadline.raw),
     'no unparseable-but-present deadline in the corpus, so the case is untested');
+
+  // A day count MAY be reported for a zoneless deadline — it is bounded, not
+  // unknown (see zonelessBand in to-time.cjs). What must never happen is that
+  // count being presented as if we knew the instant, so the basis is required
+  // and must say which of the two it is.
+  for (const p of noInstant) {
+    const d = p.dates.deadline;
+    if (d.daysRemaining == null) {
+      assert.strictEqual(d.daysRemainingBasis, null,
+        `${p.id}: a basis was stated for a count that does not exist`);
+      continue;
+    }
+    assert.strictEqual(d.daysRemainingBasis, 'ZONE_INDEPENDENT_BOUND',
+      `${p.id}: a zoneless count was labelled as an instant`);
+    assert.notStrictEqual(d.precision, 'NONE',
+      `${p.id}: an unparseable deadline was counted in days`);
+  }
+  // And the converse: an instant-backed count is never labelled as a bound.
+  for (const p of pages.filter((x) => x.dates.deadline && x.dates.deadline.decidable)) {
+    const d = p.dates.deadline;
+    if (d.daysRemaining != null) {
+      assert.strictEqual(d.daysRemainingBasis, 'INSTANT',
+        `${p.id}: an instant-backed count was labelled as a bound`);
+    }
+  }
 });
 
 // ── DERIVED ─────────────────────────────────────────────────────────────────
@@ -332,7 +357,17 @@ test('the layer reaches no network and is deterministic', () => {
 test('canonical facts are unchanged by this phase', () => {
   const fp = (rel) => require('node:crypto').createHash('sha256')
     .update(fs.readFileSync(path.join(ROOT, rel))).digest('hex').slice(0, 8);
-  assert.strictEqual(fp('data/tender-opportunities/opportunities.json'), '9754062f');
+  // ── PIN MOVED: 9754062f -> 3898183f, Expansion v2 / SAM.gov activation ────
+  //
+  // Two intended changes, both recorded rather than absorbed:
+  //   1. SAM.gov became an active source, adding 10,514 unique current US
+  //      federal opportunities after canonical dedup.
+  //   2. Merge groups now resolve field conflicts by RECENCY rather than by
+  //      lexicographic notice id. 337 real merge groups were publishing a
+  //      superseded deadline; see the amendment note in to-dedupe.cjs.
+  //
+  // What this pin still guards is that the DETAIL layer changed none of it.
+  assert.strictEqual(fp('data/tender-opportunities/opportunities.json'), '3898183f');
   assert.strictEqual(fp('data/tenders-procurement/platforms.json'), 'f24a9edc');
   assert.strictEqual(fp('scripts/lib/to-match.cjs'), '5de543fb');
   assert.strictEqual(Object.keys(MATCH.PROFILES).length, 16);

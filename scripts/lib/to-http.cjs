@@ -147,7 +147,29 @@ async function getBuffer(url, { headers = {}, timeoutMs = 90000 } = {}) {
         lastErr = err;
       } else {
         // eslint-disable-next-line no-await-in-loop
-        return Buffer.from(await res.arrayBuffer());
+        const buf = Buffer.from(await res.arrayBuffer());
+        // ── TRUNCATION ────────────────────────────────────────────────────
+        //
+        // A connection dropped at 60% delivers a valid Buffer holding 60% of a
+        // file. For a CSV that parses cleanly and looks exactly like a quiet
+        // week at the procurement office; for a ZIP it fails loudly, which is
+        // why this went unnoticed until a 251 MB CSV joined the registry.
+        //
+        // The server states a length. Comparing against it is the only check
+        // that can tell a short file from a small one — no heuristic about
+        // record counts can, because both shapes are "fewer records".
+        //
+        // Enforced only when the body arrived unencoded: with Content-Encoding
+        // the declared length describes the compressed stream while `buf`
+        // holds the decompressed bytes, and comparing them would reject every
+        // gzipped response.
+        const declared = Number(res.headers.get('content-length'));
+        const encoded = res.headers.get('content-encoding');
+        if (!encoded && Number.isFinite(declared) && declared > 0 && buf.length !== declared) {
+          throw new Error(`Truncated response from ${url}: received ${buf.length} bytes, `
+            + `server declared ${declared}`);
+        }
+        return buf;
       }
     } catch (e) {
       if (e instanceof HttpError && e.status >= 400 && e.status < 500 && e.status !== 429) throw e;

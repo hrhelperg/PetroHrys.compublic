@@ -197,12 +197,28 @@ test('CanadaBuys multi-code cells are parsed, not silently dropped', () => {
 });
 
 test('classification recovery changed content, not canonical identity', () => {
-  // 822 source records were rewritten and the canonical count did not move:
-  // enrichment must not create, merge or destroy an opportunity.
-  assert.strictEqual(opportunities.length, 9577,
-    'the canonical opportunity count moved during classification recovery');
+  // ── COUNT MOVED 9,577 -> 20,091, Expansion v2 / SAM.gov activation ────────
+  //
+  // The original assertion pinned an absolute number to prove that B1's
+  // classification recovery rewrote 822 CanadaBuys records without creating,
+  // merging or destroying an opportunity. Adding a SOURCE legitimately moves
+  // that number, so pinning it again would only record when the corpus last
+  // changed size — which is not the property this test is for.
+  //
+  // The property is restated directly instead: enrichment adds codes to
+  // records that already exist, so every classified record must still be one
+  // canonical opportunity with a unique identity.
   const ids = new Set(opportunities.map((o) => o.id));
   assert.strictEqual(ids.size, opportunities.length, 'a canonical id was duplicated');
+  assert.ok(opportunities.length >= 9577,
+    'the corpus lost opportunities that classification recovery was supposed to enrich');
+
+  // And the enrichment itself is still there: CanadaBuys records carry the
+  // UNSPSC and GSIN codes their source always published.
+  const canada = opportunities.filter((o) => o.sourceId === 'canadabuys');
+  const classified = canada.filter((o) => (o.classifications || []).length);
+  assert.ok(classified.length > canada.length * 0.5,
+    `only ${classified.length} of ${canada.length} CanadaBuys records carry codes — B1 regressed`);
 });
 
 test('protected layers are unchanged by this phase', () => {
@@ -215,4 +231,96 @@ test('protected layers are unchanged by this phase', () => {
   assert.strictEqual(fp('scripts/lib/to-match.cjs'), '5de543fb');
   assert.strictEqual(fp('scripts/lib/to-search.cjs'), 'e11b8246');
   assert.strictEqual(fp('scripts/lib/to-related.cjs'), '001af59b');
+});
+
+// ── NATIVE TAXONOMY ARCHITECTURE (B3A) ──────────────────────────────────────
+//
+// "Not CPV" is not "not classified". These guard the boundary between
+// preserving a source's own vocabulary and inventing an equivalence.
+
+const CLASS = require('../lib/to-classification.cjs');
+
+test('five official taxonomies are supported and none is a synonym for another', () => {
+  assert.deepStrictEqual(CLASS.SCHEMES, ['CPV', 'UNSPSC', 'GSIN', 'NAICS', 'PSC']);
+  const cases = [
+    ['NAICS', '541512', '54'], ['NAICS', '54', '54'],
+    ['PSC', 'D302', 'D'], ['PSC', '7030', '7'],
+    ['CPV', '45000000-7', '45'], ['UNSPSC', 'V1.72101500', '72'], ['GSIN', 'N5895', null],
+  ];
+  for (const [scheme, raw, top] of cases) {
+    const c = CLASS.normalizeCode(scheme, raw);
+    assert.ok(c, `${scheme} ${raw} was rejected`);
+    assert.strictEqual(c.scheme, scheme, `${raw} changed vocabulary`);
+    assert.strictEqual(c.top, top, `${scheme} ${raw} top level wrong`);
+  }
+  // Format rules are per scheme and actually reject bad codes.
+  assert.strictEqual(CLASS.normalizeCode('NAICS', '5415121'), null, 'a 7-digit NAICS was accepted');
+  assert.strictEqual(CLASS.normalizeCode('PSC', 'D30'), null, 'a 3-character PSC was accepted');
+  assert.strictEqual(CLASS.normalizeCode('NOT_A_SCHEME', '1234'), null);
+});
+
+test('no vocabulary borrows another vocabulary label', () => {
+  // NAICS 54 and PSC 7 must not pick up the CPV or UNSPSC division wording for
+  // the same leading digits. That would be a crosswalk by the back door.
+  assert.strictEqual(CLASS.normalizeCode('NAICS', '541512').label, null);
+  assert.strictEqual(CLASS.normalizeCode('PSC', '7030').label, null);
+  assert.strictEqual(CLASS.normalizeCode('GSIN', 'N5895').label, null);
+  // CPV and UNSPSC keep their own, from their own official lists.
+  assert.ok(CLASS.normalizeCode('CPV', '45000000').label);
+  assert.ok(CLASS.normalizeCode('UNSPSC', '72101500').label);
+  assert.notStrictEqual(CLASS.normalizeCode('CPV', '45000000').label,
+    CLASS.normalizeCode('UNSPSC', '45000000').label);
+});
+
+test('no crosswalk exists anywhere in the classification or coverage layer', () => {
+  for (const f of ['scripts/lib/to-classification.cjs', 'scripts/lib/to-coverage.cjs']) {
+    const code = read(f).replace(/^\s*\/\/.*$/gm, '');
+    assert.ok(!/naicsTo|pscTo|toCpv|toUnspsc|crosswalk|equivalent/i.test(code),
+      `${f} introduces a taxonomy crosswalk`);
+  }
+});
+
+test('a natively classified record is not called unclassified', () => {
+  const naicsOnly = { classifications: [{ scheme: 'NAICS', code: '541512' }] };
+  const nothing = { classifications: [] };
+  // The record IS classified; it is simply not mapped to a sector.
+  assert.deepStrictEqual([...V.sectorsOf(naicsOnly).keys()], [V.NOT_SECTOR_MAPPED]);
+  assert.strictEqual(V.sectorsOf(naicsOnly).get(V.NOT_SECTOR_MAPPED), 'CLASSIFIED_IN_UNMAPPED_SCHEME');
+  assert.deepStrictEqual([...V.sectorsOf(nothing).keys()], [V.UNCLASSIFIED]);
+  assert.notStrictEqual(V.NOT_SECTOR_MAPPED, V.UNCLASSIFIED);
+  // And the coverage metric counts it as classified.
+  const cov = V.classificationCoverage([naicsOnly, nothing]);
+  assert.strictEqual(cov.anyOfficialClassification, 1);
+  assert.strictEqual(cov.noClassification, 1);
+  assert.deepStrictEqual(cov.recordsByScheme, { NAICS: 1 });
+  assert.deepStrictEqual(cov.sectorMappedSchemes, ['CPV', 'UNSPSC']);
+});
+
+test('only CPV and UNSPSC are read into sectors, and that limit is declared', () => {
+  assert.deepStrictEqual(V.SECTOR_MAPPED_SCHEMES, ['CPV', 'UNSPSC']);
+  for (const scheme of ['NAICS', 'PSC', 'GSIN']) {
+    const rec = { classifications: [{ scheme, code: scheme === 'PSC' ? 'D302' : '541512' }] };
+    assert.ok(!V.SECTORS.some((s) => V.sectorsOf(rec).has(s)),
+      `${scheme} was silently interpreted into a sector cohort`);
+  }
+});
+
+test('a supported scheme survives the corpus round trip', () => {
+  // A scheme that encodes but does not decode is silent loss, which is how
+  // publishedEuWide vanished twice.
+  const CORPUSLIB = require('../lib/to-corpus.cjs');
+  const sample = opportunities[0];
+  const withNative = Object.assign({}, sample, {
+    classifications: [
+      { scheme: 'NAICS', code: '541512', top: '54', label: null },
+      { scheme: 'PSC', code: 'D302', top: 'D', label: null },
+      { scheme: 'CPV', code: '45000000', top: '45', label: 'Construction work' },
+    ],
+  });
+  const round = CORPUSLIB.decodeRow(CORPUSLIB.encodeRow(withNative));
+  const schemes = (round.classifications || []).map((c) => c.scheme).sort();
+  assert.deepStrictEqual(schemes, ['CPV', 'NAICS', 'PSC'],
+    'a classification scheme was lost in the columnar round trip');
+  const naics = round.classifications.find((c) => c.scheme === 'NAICS');
+  assert.strictEqual(naics.code, '541512', 'the NAICS code changed on rehydration');
 });

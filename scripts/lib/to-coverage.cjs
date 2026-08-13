@@ -147,7 +147,26 @@ const UNSPSC_SEGMENT = {
   95: 'facilities',
 };
 
-const UNCLASSIFIED = 'unclassified';
+// Two different states that Phase A wrongly counted as one.
+//
+// NO_CLASSIFICATION  — the source published no code at all.
+// NOT_SECTOR_MAPPED  — the source published an official code in a vocabulary
+//                      this analysis does not interpret into sectors (NAICS,
+//                      PSC, GSIN). The record IS classified; we simply decline
+//                      to guess which of the 19 cohorts it belongs to.
+//
+// Calling the second "unclassified" understates the corpus and would penalise
+// a US or Canadian source for not being European. Preserving the taxonomy and
+// admitting the analytical limit is the honest pair.
+const UNCLASSIFIED = 'no-classification';
+const NOT_SECTOR_MAPPED = 'not-sector-mapped';
+
+// Vocabularies this analysis can read into sectors. NAICS, PSC and GSIN are
+// preserved as canonical facts but deliberately NOT interpreted: a defensible
+// NAICS-to-cohort reading would need the official hierarchy and its own
+// documented methodology, and inventing one to raise a coverage percentage is
+// exactly the failure this file exists to avoid.
+const SECTOR_MAPPED_SCHEMES = ['CPV', 'UNSPSC'];
 
 // The cohorts a single opportunity belongs to, with the evidence that put it
 // there. A procurement with codes in two divisions genuinely spans two
@@ -167,7 +186,11 @@ function sectorsOf(o) {
       if (sector) out.set(sector, 'UNSPSC_SEGMENT');
     }
   }
-  if (!out.size) out.set(UNCLASSIFIED, 'NO_CLASSIFICATION');
+  if (!out.size) {
+    const hasNative = (o.classifications || []).length > 0;
+    out.set(hasNative ? NOT_SECTOR_MAPPED : UNCLASSIFIED,
+      hasNative ? 'CLASSIFIED_IN_UNMAPPED_SCHEME' : 'NO_CLASSIFICATION');
+  }
   return out;
 }
 
@@ -233,7 +256,7 @@ function sectorMatrix(opportunities, { isCurrent }) {
     }
     return rows.get(s);
   };
-  for (const s of [...SECTORS, UNCLASSIFIED]) ensure(s);
+  for (const s of [...SECTORS, UNCLASSIFIED, NOT_SECTOR_MAPPED]) ensure(s);
 
   for (const o of opportunities) {
     const cur = isCurrent(o);
@@ -299,7 +322,7 @@ function geographyMatrix(opportunities, { isCurrent }) {
     if (o.buyerName) r.buyers.add(o.buyerName);
     r.sources.add(o.sourceId);
     r._bySource.push(o.sourceId);
-    for (const s of sectorsOf(o).keys()) if (s !== UNCLASSIFIED) r.sectors.add(s);
+    for (const s of sectorsOf(o).keys()) if (s !== UNCLASSIFIED && s !== NOT_SECTOR_MAPPED) r.sectors.add(s);
   }
   return [...rows.values()].map((r) => ({
     country: r.country,
@@ -338,7 +361,7 @@ function sourceContribution(opportunities, { isCurrent }) {
       if (o.buyerName) r.buyers.add(o.buyerName);
       const geo = o.projectCountry || o.country;
       if (geo) r.countries.add(geo);
-      for (const s of sectorsOf(o).keys()) if (s !== UNCLASSIFIED) r.sectors.add(s);
+      for (const s of sectorsOf(o).keys()) if (s !== UNCLASSIFIED && s !== NOT_SECTOR_MAPPED) r.sectors.add(s);
       for (const c of o.classifications || []) {
         if (c.scheme === 'CPV') r.cpv.add(c.code);
         else if (c.scheme === 'UNSPSC') r.unspsc.add(c.code);
@@ -373,6 +396,34 @@ function dependencyRisk(matrix, key) {
     .sort((a, b) => b.current - a.current);
 }
 
+// Classification coverage, per vocabulary. This replaces the binary
+// "classified" figure, which silently meant "carries CPV or UNSPSC".
+function classificationCoverage(opportunities) {
+  const bySchemeRecords = {};
+  const bySchemeCodes = {};
+  let anyOfficial = 0;
+  let none = 0;
+  for (const o of opportunities) {
+    const schemes = new Set();
+    for (const c of o.classifications || []) {
+      schemes.add(c.scheme);
+      (bySchemeCodes[c.scheme] = bySchemeCodes[c.scheme] || new Set()).add(c.code);
+    }
+    if (schemes.size) anyOfficial += 1; else none += 1;
+    for (const s of schemes) bySchemeRecords[s] = (bySchemeRecords[s] || 0) + 1;
+  }
+  const codes = {};
+  for (const [k, v] of Object.entries(bySchemeCodes)) codes[k] = v.size;
+  return {
+    total: opportunities.length,
+    anyOfficialClassification: anyOfficial,
+    noClassification: none,
+    recordsByScheme: bySchemeRecords,
+    uniqueCodesByScheme: codes,
+    sectorMappedSchemes: SECTOR_MAPPED_SCHEMES.slice(),
+  };
+}
+
 function classificationBreadth(opportunities) {
   const cpv = { codes: new Set(), divisions: new Set(), coded: 0 };
   const unspsc = { codes: new Set(), segments: new Set(), coded: 0 };
@@ -397,7 +448,8 @@ function classificationBreadth(opportunities) {
 }
 
 module.exports = {
-  SECTORS, UNCLASSIFIED, CPV_DIVISION, UNSPSC_SEGMENT, STATUS_RULES,
+  SECTORS, UNCLASSIFIED, NOT_SECTOR_MAPPED, SECTOR_MAPPED_SCHEMES,
+  CPV_DIVISION, UNSPSC_SEGMENT, STATUS_RULES, classificationCoverage,
   sectorsOf, statusFor, priorityFor, sectorMatrix, geographyMatrix,
   sourceContribution, dependencyRisk, classificationBreadth,
 };

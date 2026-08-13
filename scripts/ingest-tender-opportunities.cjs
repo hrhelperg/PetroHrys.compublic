@@ -269,9 +269,23 @@ function rebuildCorpus({ nowIso, dryRun = false, log: out = defaultLog }) {
     ? CORPUS.decode(JSON.parse(fs.readFileSync(CORPUS_FILE, 'utf8'))) : null;
   const lastGood = STATE.lastGoodBySource(existing);
 
+  // ── A DISABLED SOURCE CONTRIBUTES NOTHING ────────────────────────────────
+  //
+  // `enabled: false` marks a source that is registered and adapter-complete
+  // but not yet cleared to publish. That has to be enforced HERE, because this
+  // is the only function that decides what reaches the corpus — reading every
+  // registered source's snapshot would have let a staged source into the
+  // published dataset the moment someone ran a one-off ingest against it,
+  // which is the opposite of what staging is for.
+  //
+  // It applies to retained last-good too: disabling a source removes its
+  // records, which is a deliberate scope reduction and trips the collapse
+  // guard unless an operator says --accept-shrink. That is the intended shape.
+  const contributing = SOURCES.ENABLED();
+
   const all = [];
   const provenance = {};
-  for (const s of SOURCES.SOURCES) {
+  for (const s of contributing) {
     const snap = readJson(path.join(SNAPSHOT_DIR, `${s.id}.json`), null);
     if (snap && Array.isArray(snap.records)) {
       all.push(...snap.records);
@@ -290,7 +304,7 @@ function rebuildCorpus({ nowIso, dryRun = false, log: out = defaultLog }) {
   const corpus = CORPUS.encode({
     generatedAt: nowIso,
     adapterVersion: ADAPTER_VERSION,
-    sources: SOURCES.SOURCES.map((s) => {
+    sources: contributing.map((s) => {
       const snap = readJson(path.join(SNAPSHOT_DIR, `${s.id}.json`), null);
       return {
         id: s.id,

@@ -46,8 +46,13 @@ const ukContractsFinder = makeOcdsAdapter({
 });
 const deVergabe = require('./de-vergabe.cjs');
 
+// Expansion v2. The United States, from GSA's daily bulk extract — one 251 MB
+// CSV rather than a paged API, which is why it streams and projects columns
+// instead of materialising whole rows like every adapter above it.
+const samGov = require('./sam-gov.cjs');
+
 const ADAPTERS = [ted, ukFts, canadabuys, worldbank, secop2, tenderned, boamp, zaEtenders,
-  ukContractsFinder, deVergabe];
+  ukContractsFinder, deVergabe, samGov];
 const BY_ID = new Map(ADAPTERS.map((a) => [a.id, a]));
 
 function adapterFor(sourceId) {

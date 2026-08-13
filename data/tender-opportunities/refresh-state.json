@@ -19,6 +19,24 @@
         "note": "the published open-notice set"
       }
     },
+    "sam-gov": {
+      "completeness": "COMPLETE",
+      "consecutiveFailures": 0,
+      "lastAttemptAt": "2026-08-13T19:29:12.848Z",
+      "lastErrorClass": null,
+      "lastSuccessAt": "2026-08-13T19:29:12.848Z",
+      "promoted": true,
+      "promotedRecordCount": 14765,
+      "retainedRecordCount": null,
+      "snapshotHash": "673800e7f36e1e27695af01591c0173e8ba36aed8168c199b34cb92fb8dab73a",
+      "sourceId": "sam-gov",
+      "state": "HEALTHY",
+      "window": {
+        "kind": "source-defined",
+        "days": null,
+        "note": "the current-opportunity slice of the daily full extract (awards and lapsed notices excluded)"
+      }
+    },
     "tenderned": {
       "completeness": "COMPLETE",
       "consecutiveFailures": 0,
