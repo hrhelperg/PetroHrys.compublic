@@ -25,6 +25,8 @@
 
   var index = null;
   var facets = null;
+  var familyOf = new Map();   // opportunity id -> family id
+  var familyMembers = new Map(); // family id -> [record]
   var els = {};
   var lastState = null;
 
@@ -129,6 +131,43 @@
       vfy.appendChild(el('span', 'td-tag', T.verifyTag));
       vfy.appendChild(text(' ' + notes.join(' · ')));
       li.appendChild(vfy);
+    }
+
+    // Related opportunities. A native <details> so it is keyboard operable and
+    // announces its own expanded state without any ARIA of ours.
+    //
+    // These are DISTINCT procurements that happen to look alike, never
+    // duplicates: each keeps its own deadline, status and notice link, and
+    // each is still counted in the result total.
+    var fam = rec.f && familyMembers.get(rec.f);
+    if (fam && fam.length > 1) {
+      var others = [];
+      for (var fi = 0; fi < fam.length; fi += 1) if (fam[fi].i !== rec.i) others.push(fam[fi]);
+      if (others.length) {
+        var det = document.createElement('details');
+        det.className = 'td-related';
+        var sum = document.createElement('summary');
+        sum.appendChild(text(T.relatedCount.replace('{n}', others.length)));
+        det.appendChild(sum);
+        det.appendChild(el('p', 'td-note', T.relatedNote));
+        var rl = el('ul', 'td-related-list');
+        for (var oi = 0; oi < others.length; oi += 1) {
+          var o = others[oi];
+          var rli = el('li');
+          var ra = el('a', null, o.ti);
+          ra.href = o.u || '#';
+          ra.rel = 'noopener noreferrer';
+          ra.target = '_blank';
+          rli.appendChild(ra);
+          // Each member states its own facts rather than inheriting the
+          // representative's.
+          var od = deadlineLabel(o);
+          rli.appendChild(el('span', 'td-note', ' — ' + (T.status[o.s] || o.s) + ' · ' + od.text));
+          rl.appendChild(rli);
+        }
+        det.appendChild(rl);
+        li.appendChild(det);
+      }
     }
     return li;
   }
@@ -265,8 +304,24 @@
     run(state, replace);
   }
 
+  // One place where a search is issued, so the reranker can never be applied
+  // to one code path and forgotten on another.
+  function query(state) {
+    var params = {
+      q: state.q, filters: state.filters, sort: state.sort, page: state.page,
+      rerank: function (rows, ctx) {
+        if (typeof TenderRelated === 'undefined') return rows;
+        var act = TenderRelated.diversityApplies({
+          sort: ctx.sort, query: ctx.query, results: rows, filters: state.filters || {},
+        });
+        return TenderRelated.diversify(rows, { enabled: act.enabled, familyOf: familyOf });
+      },
+    };
+    return S.search(index, params);
+  }
+
   function run(state, replace) {
-    var result = S.search(index, state);
+    var result = query(state);
     // The engine clamps an out-of-range page; the URL must agree with what was
     // actually rendered rather than keep a page number nothing is on.
     state.page = result.page;
@@ -295,6 +350,15 @@
   function boot(data) {
     index = S.hydrate(data);
     facets = data.facets;
+    // Families are precomputed in the index, so the browser reads them rather
+    // than recomputing 165,000 comparisons on load.
+    for (var fr = 0; fr < index.records.length; fr += 1) {
+      var frec = index.records[fr];
+      if (!frec.f) continue;
+      familyOf.set(frec.i, frec.f);
+      if (!familyMembers.has(frec.f)) familyMembers.set(frec.f, []);
+      familyMembers.get(frec.f).push(frec);
+    }
 
     els.q = $('td-q');
     els.sort = $('td-sort');
@@ -343,7 +407,7 @@
 
     var initial = S.parseState(new URLSearchParams(location.search), known);
     writeControls(initial);
-    render(initial, S.search(index, initial));
+    render(initial, query(initial));
     history.replaceState(null, '', location.pathname + S.serializeState(initial));
     lastState = initial;
 
@@ -368,7 +432,7 @@
     window.addEventListener('popstate', function () {
       var s = S.parseState(new URLSearchParams(location.search), known);
       writeControls(s);
-      render(s, S.search(index, s));
+      render(s, query(s));
       lastState = s;
     });
 

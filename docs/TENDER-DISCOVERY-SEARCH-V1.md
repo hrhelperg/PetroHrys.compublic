@@ -273,6 +273,14 @@ occurred. The page therefore says "based on the latest validated snapshot" and
 *continuously monitored*. A test strips the page's own disclaimers and then
 fails on any such claim, in all four locales.
 
+## Result diversity
+
+The relevance audit's remaining finding — one buyer's near-identical notices
+filling the first window — is addressed in
+[Tender Discovery Relevance v1.1](TENDER-DISCOVERY-RELEVANCE-V1.1.md), which
+adds retrieval families and within-tie result diversity as a presentation
+layer. It changes no canonical fact and no relevance score.
+
 ## Known limitations
 
 - **Snapshot, not a feed.** Deadlines are counted from ingestion time.
@@ -282,7 +290,7 @@ fails on any such claim, in all four locales.
   the source's claim and Discovery does not overrule it.
 - **Descriptions are truncated to 120 characters**, so a word appearing deep in
   a description is invisible to the description signal.
-- **No near-duplicate collapse and no per-buyer diversity cap** (see above).
+- **Near-duplicate collapse and buyer diversity** are handled in v1.1; see above.
 - **No documents filter and no platform filter** (see above).
 - **Search runs in the browser**, so it needs JavaScript. Without it the
   server-rendered tables and the CSV still list opportunities.
