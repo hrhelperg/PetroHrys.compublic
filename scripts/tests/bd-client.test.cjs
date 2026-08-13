@@ -12,6 +12,7 @@ const { verifiedRecord } = require('./helpers/fixtures.cjs');
 
 const root = path.resolve(__dirname, '..', '..');
 const ORDER_SRC = fs.readFileSync(path.join(root, 'js', 'bd-order.js'), 'utf8');
+const DISCOVERY_SRC = fs.readFileSync(path.join(root, 'js', 'bd-discovery.js'), 'utf8');
 const CLIENT_SRC = fs.readFileSync(path.join(root, 'js', 'business-directories.js'), 'utf8');
 
 const dir = (over = {}) => verifiedRecord({ id: over.slug || 'x', name: 'X', slug: 'x',
@@ -32,6 +33,7 @@ function boot(directories) {
   sandbox.window.document = document;
   vm.createContext(sandbox);
   vm.runInContext(ORDER_SRC, sandbox);
+  vm.runInContext(DISCOVERY_SRC, sandbox);
   vm.runInContext(CLIENT_SRC, sandbox);
 
   const tbody = document.querySelector('[data-bd-rows]');
@@ -191,6 +193,7 @@ test('the script no-ops safely on a page with no table', () => {
   const sandbox = { document, window: {} };
   vm.createContext(sandbox);
   vm.runInContext(ORDER_SRC, sandbox);
+  vm.runInContext(DISCOVERY_SRC, sandbox);
   assert.doesNotThrow(() => vm.runInContext(CLIENT_SRC, sandbox));
   assert.strictEqual(document.querySelector('.bd-status'), null);
 });

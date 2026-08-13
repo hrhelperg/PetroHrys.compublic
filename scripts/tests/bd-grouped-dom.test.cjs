@@ -17,6 +17,9 @@ const vm = require('node:vm');
 
 const c = require('../lib/bd-components.cjs');
 const order = require('../../js/bd-order.js');
+// The shared matching predicate the client delegates to, provided the same way
+// BDOrder is: the sandbox has no <script> tags to load it for us.
+const discovery = require('../../js/bd-discovery.js');
 const { createDocument } = require('./helpers/mini-dom.cjs');
 const { verifiedRecord } = require('./helpers/fixtures.cjs');
 
@@ -82,7 +85,7 @@ function groupedPage(records) {
 // Runs the real client against the real markup and returns handles for probing.
 function boot(html, { clientSource = CLIENT } = {}) {
   const document = createDocument(html);
-  const sandbox = { document, BDOrder: order, window: {} };
+  const sandbox = { document, BDOrder: order, BDDiscovery: discovery, window: {} };
   vm.createContext(sandbox);
   vm.runInContext(clientSource, sandbox);
   const rows = document.querySelectorAll('.bd-row');

@@ -16,6 +16,7 @@ const S = require('../lib/bd-schema.cjs');
 const T = require('../lib/bd-registry-types.cjs');
 const c = require('../lib/bd-components.cjs');
 const order = require('../../js/bd-order.js');
+const discovery = require('../../js/bd-discovery.js');
 const { validateRegistry } = require('../validate-business-directories.cjs');
 const { loadRegistry } = require('../lib/bd-registry.cjs');
 const { createDocument } = require('./helpers/mini-dom.cjs');
@@ -38,7 +39,7 @@ const CLIENT = fs.readFileSync(path.join(ROOT, 'js', 'business-directories.js'),
 
 function boot(html, clientSource = CLIENT) {
   const document = createDocument(html);
-  vm.runInContext(clientSource, vm.createContext({ document, BDOrder: order, window: {} }));
+  vm.runInContext(clientSource, vm.createContext({ document, BDOrder: order, BDDiscovery: discovery, window: {} }));
   const rows = document.querySelectorAll('.bd-row');
   return {
     document,

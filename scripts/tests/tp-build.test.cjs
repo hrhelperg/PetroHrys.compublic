@@ -48,7 +48,11 @@ const hrefOf = (url) => `href="${escapeHtml(url)}"`;
 // attribute in the document happily spans thirty rows and reads someone else's
 // facet value.
 function rowFor(html, record) {
-  const rows = html.match(/<tr data-bd-facet-country="[\s\S]*?<\/tr>/g) || [];
+  // Anchored on the row CLASS rather than on whichever attribute happens to
+  // come first. The previous locator matched `<tr data-bd-facet-country=`, so
+  // it found nothing the moment the discovery attributes were emitted ahead of
+  // it — the locator breaking, not the invariant it guards.
+  const rows = html.match(/<tr class="bd-row"[\s\S]*?<\/tr>/g) || [];
   return rows.find((r) => r.includes(hrefOf(record.officialUrl))) || null;
 }
 
