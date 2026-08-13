@@ -330,6 +330,18 @@
 
     out.sort(comparator(sort, hasQuery));
 
+    // Presentation reranking happens here: after ordering, before slicing.
+    // Doing it per page would let a record appear on two pages or on none,
+    // because each page would be reordered against a different neighbourhood.
+    // The hook is a parameter rather than a dependency so the engine stays
+    // agnostic about presentation policy.
+    if (typeof p.rerank === 'function') {
+      var reranked = p.rerank(out, { sort: sort, query: q, hasQuery: hasQuery });
+      // A rerank may only permute. If it returned a different number of
+      // records it has dropped or invented one, and the original order stands.
+      if (reranked && reranked.length === out.length) out = reranked;
+    }
+
     var total = out.length;
     var pages = Math.max(1, Math.ceil(total / PAGE_SIZE));
     var page = Math.floor(Number(p.page) || 1);

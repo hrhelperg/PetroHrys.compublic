@@ -288,6 +288,8 @@ function discoveryConfig({ t, countryName, facets, locale }) {
       emptyHint: t('tds.emptyHint'),
       loadFailed: t('tds.loadFailed'),
       removeFilter: tpl('tds.removeFilter'),
+      relatedCount: tpl('tds.relatedCount'),
+      relatedNote: t('tds.relatedNote'),
       yes: t('tds.yes'),
       no: t('tds.no'),
     },
@@ -379,10 +381,13 @@ ${selectControl('td-browser', t('tds.f.browserCheck'), label(facets.browserCheck
       <p>${escapeHtml(t('tds.methodDocuments'))}</p>
       <p>${escapeHtml(t('tds.methodBrowserCheck'))}</p>
       <p>${escapeHtml(t('tds.methodSourcePlatform'))}</p>
+      <p>${escapeHtml(t('tds.methodRelated'))}</p>
+      <p>${escapeHtml(t('tds.methodDiversity'))}</p>
       <p class="bd-note">${escapeHtml(t('tds.methodIndexing'))}</p>
 
       <script type="application/json" id="td-config">${jsonForScript(cfg)}</script>
       <script src="/js/tender-search.js" defer></script>
+      <script src="/js/tender-related.js" defer></script>
       <script src="/js/tender-discovery.js" defer></script>
     </section>`;
 }

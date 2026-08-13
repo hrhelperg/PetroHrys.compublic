@@ -31,6 +31,7 @@
 const MATCH = require('./to-match.cjs');
 const SCHEMA = require('./to-schema.cjs');
 const TIME = require('./to-time.cjs');
+const RELATED = require('./to-related.cjs');
 
 const FORMAT = 'discovery-1';
 
@@ -68,6 +69,7 @@ const FIELDS = [
   'ms',  // observed by more than one source
   'oc',  // occurrence count
   'm',   // derived supplier-profile match bands — DERIVED, not canonical
+  'f',   // retrieval family id — DERIVED presentation grouping, never a merge
 ];
 
 const KNOWN = new Set(FIELDS);
@@ -256,6 +258,18 @@ function build(corpus, { platformsById, profiles = Object.keys(MATCH.PROFILES).s
     // Deterministic order by canonical id, so two builds of the same corpus
     // produce a byte-identical artifact regardless of corpus array order.
     .sort((a, b) => (a.i < b.i ? -1 : a.i > b.i ? 1 : 0));
+  const byId = new Map(records.map((r) => [r.i, r]));
+
+  // Retrieval families are a property of the corpus, not of a query, so they
+  // are computed once here rather than in every browser on every keystroke.
+  // Only members carry the field: 235 of 6,964 records, so the artifact grows
+  // by the families that exist rather than by the records that do not.
+  const search = require('./to-search.cjs');
+  search.hydrate({ records });
+  const { families } = RELATED.detectFamilies(records);
+  for (const fam of families) {
+    for (const id of fam.memberIds) byId.get(id).f = fam.familyId;
+  }
 
   return {
     format: FORMAT,
