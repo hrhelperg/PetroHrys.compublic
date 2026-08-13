@@ -402,6 +402,29 @@ function buildTendersMeta({ count, countries }) {
   });
 }
 
+// Procurement Intelligence. ONE page, deliberately. The brief sketched a dozen
+// candidate routes (/best/foreign-suppliers/, /best/telecom/, ...) and warned in
+// the same breath against near-duplicate SEO pages. Those answers share one
+// dataset, one methodology and one set of caveats; split across twelve routes
+// they would be twelve thin pages differing by a sort order. Kept together they
+// are one substantial page a supplier can actually work through.
+function buildTendersIntelligenceMeta({ scored, profiles, canonicalPath }) {
+  const title = 'Procurement Intelligence';
+  const description = `Which procurement systems to investigate first, by supplier type and `
+    + `objective. ${scored} platforms scored on discoverability, onboarding, submission `
+    + `capability and evidence certainty, across ${profiles} supplier profiles — with the `
+    + 'evidence level and the reason shown for every recommendation.';
+  const trail = [ROOT_TRAIL[0], { name: 'Tenders & Procurement', path: '/research/tenders-procurement/' },
+    { name: title, path: canonicalPath }];
+  return meta({
+    title, description, canonicalPath, robots: undefined, breadcrumbTrail: trail,
+    graph: [
+      collectionPage({ name: title, description, url: absoluteUrl(canonicalPath) }),
+      breadcrumbList(trail),
+    ],
+  });
+}
+
 // The Distribution Planner. Indexable because it carries substantial static
 // explanatory content and a complete prerendered plan — not because it targets
 // a keyword. Its query combinations are NOT separate pages and never enter the
@@ -489,4 +512,5 @@ module.exports = {
   buildMediaProfileMeta,
   buildPlannerMeta,
   buildTendersMeta,
+  buildTendersIntelligenceMeta,
 };

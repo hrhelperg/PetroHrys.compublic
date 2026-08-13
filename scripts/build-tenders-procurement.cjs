@@ -209,6 +209,7 @@ ${tableRows}
       <h2 id="limitations-heading">${escapeHtml(t('common.limitations'))}</h2>
       <p>${escapeHtml(t('tp.limit1'))}</p>
       <p>${escapeHtml(t('tp.limit2'))}</p>
+      <p><a href="/research/tenders-procurement/intelligence/">${escapeHtml(t('tp.intelligenceLink'))}</a></p>
     </section>`,
   ].join('\n\n');
 }
