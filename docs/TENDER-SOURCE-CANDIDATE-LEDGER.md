@@ -234,3 +234,86 @@ agencies, 585 NAICS codes and 977 PSC codes.
 
 State: **ACCEPT_CANDIDATE, qualified, not activated.** No hard blocker; the
 adapter and operational proofs remain to be built.
+
+---
+
+# Source #2 — SELECTED: Poland, Biuletyn Zamówień Publicznych (eZamówienia)
+
+Selected on C1 evidence, not on the ledger's ordering. Adapter NOT built.
+
+## Why Poland, against the two alternatives
+
+The three ACCEPT_CANDIDATEs were Poland BZP, Czech VVZ and Romania SICAP. C1
+separates them on the criteria the brief asks for:
+
+| | current records | buyers | sources | top-source share |
+|---|---|---|---|---|
+| **Poland** | **577** | **402** | 2 | **100% TED** |
+| Czech Republic | 148 | 102 | 2 | 99% TED |
+| Romania | 117 | 96 | 1 | 100% TED |
+
+Poland is **3.9× the Czech volume and 4.9× Romania's**, and it is the largest
+single-source dependency in Europe: 577 current Polish opportunities, every one
+of them reaching this corpus through TED. If TED has a bad week, Polish
+coverage goes to zero — the same exposure the United States had before SAM, at
+European scale.
+
+Czech and Romania remain ACCEPT_CANDIDATE and are the natural #3 and #4. Nothing
+about them was disqualified; they are simply smaller versions of the same case.
+
+## Probe — 2026-08-13, one request, keyless
+
+```
+GET https://ezamowienia.gov.pl/mo-board/api/v1/Board/Search
+      ?SortingColumnName=PublicationDate&SortingDirection=DESC
+      &PageNumber=1&PageSize=5
+  -> 200  application/json; charset=utf-8  6,930 bytes
+```
+
+A JSON array of notices, unauthenticated, no key, nothing bypassed. The first
+record carries `noticeNumber "2026/BZP 00392343/01"`, `noticeType
+"ContractNotice"`, `publicationDate` as a full UTC instant, and a Polish
+`orderObject` title.
+
+## The field that decides the case
+
+```json
+"isTenderAmountBelowEU": true
+```
+
+BZP states, per notice, whether the procurement is **below the EU publication
+threshold**. Below-threshold Polish procurement is not published in TED at all —
+it is not required to be. That is the source of the unique contribution, and it
+is now an observed source fact rather than an assumption about overlap.
+
+It also means the expected UNIQUE CURRENT cannot be estimated from the 577
+records TED already carries: those are the above-threshold ones. The below-
+threshold population is the part TED cannot supply, and its size must be
+measured from BZP itself before any promise is made about it.
+
+## What is NOT yet established
+
+Deliberately listed so the next session starts from the gaps rather than
+rediscovering them:
+
+- **Window semantics.** Whether `Board/Search` is a current-opportunity view or
+  a chronological publication stream. Spain was terminally deferred on exactly
+  this question, and it must be answered before an adapter is written, not
+  after.
+- **Reuse terms.** No licence statement has been read. BZP is the statutory
+  Polish publication register, which is suggestive and is not a licence.
+- **Platform record.** Whether `pl-ezamowienia` (or equivalent) exists in the
+  canonical TenderPlatform collection. An adapter may not mint one.
+- **Deadline and status vocabulary**, CPV presence per notice, and whether the
+  list endpoint carries them or needs one request per notice — the constraint
+  that deferred Prozorro on rate respect.
+- **Personal data.** Polish notices name a contact person; the columns must be
+  identified and dropped before parsing completes.
+
+## The constraint that applies to source #2 regardless
+
+C1's storage verdict: the Discovery browser index is **1.81 MB gzip** and is the
+binding constraint on this corpus, ahead of the build, the repository and search
+latency. Poland at roughly 600–3,000 current records is a far smaller addition
+than SAM's 10,511 and does not by itself force the issue, but the index strategy
+should be decided before a third source of SAM's scale is considered.
