@@ -263,7 +263,14 @@ test('the sitemap lists no phantom and no redirect for this collection', () => {
   const sitemap = read('sitemap.xml');
   const urls = [...sitemap.matchAll(/<loc>(https:\/\/petrohrys\.com[^<]*tenders-procurement[^<]*)<\/loc>/g)]
     .map((m) => m[1]);
-  assert.strictEqual(urls.length, 4);
+  // Originally "exactly 4" — one per locale, when the collection had one route.
+  // Procurement Intelligence added a legitimate child route, and a hardcoded
+  // count turned that into a failure. The property was never the number: it is
+  // that every listed URL resolves to a real page, on the canonical host, once
+  // per locale. So assert the shape and let the route set grow.
+  assert.ok(urls.length >= 4 && urls.length % 4 === 0,
+    `expected a whole number of locale clusters, got ${urls.length}`);
+  assert.strictEqual(new Set(urls).size, urls.length, 'a tenders URL is listed twice');
   for (const u of urls) {
     const rel = u.replace('https://petrohrys.com/', '');
     assert.ok(fs.existsSync(path.join(ROOT, rel, 'index.html')), `${u} is a phantom`);

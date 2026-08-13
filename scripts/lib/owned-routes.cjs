@@ -46,6 +46,9 @@ const COLLECTION_ROOTS = [
   render.MEDIA_PATH,
   render.PLANNER_PATH,
   render.TENDERS_PATH,
+  // The Procurement Intelligence page is a child route of the tenders
+  // collection but is written by its own generator, so it declares itself.
+  '/research/tenders-procurement/intelligence/',
 ].map((p) => p.replace(/^\//, ''));
 const GENERATED_PREFIXES = COLLECTION_ROOTS;
 
