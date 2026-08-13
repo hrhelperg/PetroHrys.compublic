@@ -13,7 +13,7 @@ into something a supplier can use.
 |---|---|---|---|
 | Tender & Procurement Platforms | Where does procurement happen? | 382 platforms | years |
 | Procurement Intelligence | Which of those are worth a supplier's time? | derived over platforms | years |
-| **Tender Opportunities** | **What is actually open right now?** | **8,582 notices** | **weeks** |
+| **Tender Opportunities** | **What is actually open right now?** | **8,682 notices** | **weeks** |
 
 The third is not an extension of the first. A platform is infrastructure; an
 opportunity is an event with a deadline. Mixing them would give the platforms
@@ -435,6 +435,18 @@ The UK adapter is deliberately NOT migrated onto it. UK FTS reads several
 fields the generic mapping does not — electronic-submission policy, framework
 technique, submission route — and rewriting a working, tested adapter to prove
 a point about reuse is how a refactor becomes an outage.
+
+## Phase 3 — source expansion and refresh
+
+Covered in full in `TENDER-OPPORTUNITY-PHASE3.md`. In short: 65 further
+candidates probed, **one** new active source (UK Contracts Finder), one
+adapter-ready but blocked on a missing platform record (Germany), a refresh
+orchestrator with per-source health and failure isolation, and a measured
+storage decision to **keep Git** through roughly 25 sources.
+
+The phase's main result is a finding rather than a feature: **9 active sources
+from ~100 probed candidates.** The ceiling on this product is the supply of
+machine-accessible official procurement data, not the architecture.
 
 ## Scaling
 

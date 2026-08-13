@@ -425,6 +425,96 @@ const SOURCES = [
     ],
     noticeUrl: (r) => `https://www.etenders.gov.za/Home/TenderDetails?id=${encodeURIComponent(r.ocid || '')}`,
   },
+  // ── PHASE 3 ───────────────────────────────────────────────────────────────
+  {
+    id: 'uk-contracts-finder',
+    name: 'Contracts Finder (UK)',
+    platformId: 'uk-contracts-finder',
+    operator: 'UK Cabinet Office',
+    acquisition: 'OFFICIAL_API',
+    endpoint: 'https://www.contractsfinder.service.gov.uk/Published/Notices/OCDS/Search',
+    method: 'GET',
+    authRequired: false,
+    javascriptRequired: false,
+    browserRequired: false,
+    // The API declares its own licence in every response package:
+    // nationalarchives.gov.uk/doc/open-government-licence/version/3/, with
+    // publisher "Cabinet Office". Declared rather than inferred, which is why
+    // this is PERMITTED where Find a Tender is LIKELY_PERMITTED.
+    reuse: 'PERMITTED',
+    reuseBasis: 'Open Government Licence v3.0, declared in the API response package',
+    attributionRequired: true,
+    storage: 'FULL_METADATA',
+    robotsRelevant: false,
+    stableIdentifier: 'ocid',
+    exposesModifiedDate: true,
+    exposesStatus: true,
+    exposesAttachments: true,
+    classificationScheme: 'CPV',
+    updateFrequency: 'continuous, business days',
+    // Added for what it adds beyond Find a Tender, not for a second UK logo:
+    // Contracts Finder carries BELOW-threshold procurement that never reaches
+    // the Official Journal or FTS, and it publishes CPV and real contract
+    // values. It also overlaps FTS on above-threshold notices, which gives the
+    // deduplication graph a second live cross-source pair to resolve.
+    window: { kind: 'publication', days: 3 },
+    pageSize: 100,
+    maxPages: 20,
+    rateLimitNote: 'No published quota. Cursor paging via links.next, hard page cap.',
+    knownRestrictions: [],
+  },
+  {
+    id: 'de-vergabe',
+    name: 'Datenservice Öffentlicher Einkauf (oeffentlichevergabe.de)',
+    platformId: null,
+    operator: 'Beschaffungsamt des BMI (Germany)',
+    acquisition: 'OFFICIAL_EXPORT',
+    endpoint: 'https://oeffentlichevergabe.de/api/notice-exports',
+    method: 'GET',
+    authRequired: false,
+    javascriptRequired: false,
+    browserRequired: false,
+    reuse: 'LIKELY_PERMITTED',
+    reuseBasis: 'German federal open notice service; data published for reuse, no restrictive licence found',
+    attributionRequired: true,
+    storage: 'FULL_METADATA',
+    robotsRelevant: false,
+    stableIdentifier: 'ocid',
+    exposesModifiedDate: false,
+    exposesStatus: true, // in the ocds2 variant only
+    exposesAttachments: true,
+    classificationScheme: 'CPV',
+    updateFrequency: 'daily',
+    window: { kind: 'publication', days: 3 },
+    pageSize: null, // one ZIP archive per published day
+    maxPages: 3,
+    rateLimitNote: 'One archive per day requested; no published quota.',
+    // ── WHY THIS SOURCE IS READY BUT NOT ACTIVE ─────────────────────────────
+    //
+    // The adapter is written and verified against 1,153 real releases. It is
+    // not ingesting, and the reason is referential integrity rather than
+    // capability: oeffentlichevergabe.de is NOT in the canonical platforms
+    // collection. The closest record, de-evergabe-bund, is evergabe-online.de
+    // — the federal e-procurement PLATFORM, a different system from the
+    // federal NOTICE SERVICE.
+    //
+    // Part 43 is explicit that a source must not auto-create a platform, and
+    // the platforms collection has its own evidence standard — operator
+    // verification, evidence class, browser check — that belongs to a
+    // platforms wave, not to a source-expansion phase. Ingesting Germany would
+    // mean either pointing at the wrong platform or minting a record to a
+    // lower standard than the other 382.
+    //
+    // So it waits. This is the single highest-value unblock available to
+    // Phase 4, and it is one platform record away.
+    enabled: false,
+    readyState: 'ADAPTER_READY_PLATFORM_MISSING',
+    knownRestrictions: [
+      'Only ZIP content types are served; application/json returns 406.',
+      'The `ocds` variant publishes NO status and NO deadline on any record; the `ocds2` variant must be used.',
+      'No canonical TenderPlatform record exists for this notice service yet.',
+    ],
+  },
 ];
 
 // Sources probed and NOT selected. Kept as data because "we checked and it
@@ -517,7 +607,13 @@ function shortSummary(text) {
   return `${(lastSpace > SUMMARY_MAX_CHARS * 0.6 ? cut.slice(0, lastSpace) : cut).trim()}…`;
 }
 
-function sourceIds() { return SOURCES.map((s) => s.id); }
+// A source may be registered, governed and adapter-complete without being
+// ingested. `enabled: false` says so out loud, so the registry stays truthful
+// about which sources actually contribute records (Part 61).
+const ENABLED = () => SOURCES.filter((s) => s.enabled !== false);
+
+function sourceIds() { return ENABLED().map((s) => s.id); }
+function allSourceIds() { return SOURCES.map((s) => s.id); }
 
 module.exports = {
   ACQUISITION_MODES,
@@ -528,6 +624,8 @@ module.exports = {
   REJECTED_SOURCES,
   SOURCE_BY_ID,
   sourceIds,
+  allSourceIds,
+  ENABLED,
   mayStoreDescription,
   stripPersonalFields,
   redactPersonalText,

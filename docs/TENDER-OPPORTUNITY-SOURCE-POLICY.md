@@ -23,9 +23,12 @@ Two questions, both answered by evidence rather than reputation:
 2. **Do its published terms permit what we intend to store?** Metadata and a
    link, always; description text only where reuse terms are clear.
 
-Fourteen candidates were probed for v1 by issuing real requests; five
-qualified. Phase 2 probed a further twenty-one and added three, for **eight
-sources**. The qualification rate across both rounds is 8 of 35 — 23%.
+Fourteen candidates were probed for v1; five qualified. Phase 2 probed
+twenty-one more and added three. Phase 3 probed sixty-five and added one active
+source plus one adapter-ready.
+
+**9 active sources from ~100 probed candidates — a 9% qualification rate.**
+The full Phase 3 blocker taxonomy is in `TENDER-OPPORTUNITY-PHASE3.md`.
 
 ## Acquisition modes
 
@@ -218,6 +221,47 @@ That matters more than the record count: South Africa, Moldova, Paraguay,
 Uganda, Kenya and Georgia all emit the same format, so the next OCDS publisher
 is a configuration block rather than a new file.
 
+### Contracts Finder — United Kingdom *(Phase 3)*
+
+| | |
+|---|---|
+| Platform | `uk-contracts-finder` |
+| Access | `OFFICIAL_API` — OCDS 1.1, via the shared OCDS adapter (`publishedFromCursor`) |
+| Auth | none |
+| Reuse | **PERMITTED** — Open Government Licence v3.0, declared in every API response package, publisher "Cabinet Office" |
+| Window | published in the last **3 days**, `stages=tender` |
+| Stored | ocid, title, description, buyer, tender period, CPV, declared value, procurement method |
+
+Added for what it adds beyond Find a Tender rather than for a second UK entry:
+**below-threshold** procurement that never reaches the Official Journal or FTS,
+plus CPV and real contract values. It also overlaps FTS on above-threshold
+notices, which gives deduplication a second live cross-source pair.
+
+### Datenservice Öffentlicher Einkauf — Germany *(Phase 3, ADAPTER-READY)*
+
+| | |
+|---|---|
+| Platform | **none — this is why it is not active** |
+| Access | `OFFICIAL_EXPORT` — one ZIP archive per published day |
+| Auth | none |
+| Reuse | **LIKELY_PERMITTED** — federal open notice service, no restrictive licence found |
+| Window | last **3 days**, one archive each |
+| State | `ADAPTER_READY_PLATFORM_MISSING` — written, verified against 1,153 real releases, **not ingesting** |
+
+Blocked on referential integrity, not capability. `oeffentlichevergabe.de` has
+no canonical `TenderPlatform` record; the closest, `de-evergabe-bund`, is
+evergabe-online.de — the federal e-procurement *platform*, a different system
+from the federal *notice service*. Part 43 forbids a source auto-creating a
+platform.
+
+Two probe findings worth recording:
+
+- Only ZIP content types are served; `application/json` returns **406**.
+- The `ocds` variant publishes **no status and no deadline on any record** —
+  ingesting it would have added 697 permanently-unusable German notices. The
+  `ocds2` variant carries `tender.status` and lot-level deadlines and is the
+  one the adapter reads.
+
 ---
 
 ## Probed and not selected
@@ -239,7 +283,37 @@ is a configuration block rather than a new file.
 | Ireland eTenders | `UNKNOWN` | OCDS path returned 404 *(Phase 2)* |
 | Italy ANAC | `STRUCTURED_PUBLIC_DATA` | CKAN catalogue reachable; the open datasets are awards and contracts rather than open notices, and need a dataset study *(Phase 2)* |
 | Lithuania, Estonia, Denmark, Philippines, Albania | `UNKNOWN` | probed API paths returned 404 *(Phase 2)* |
-| Greece, Uganda, Nigeria, Mexico | `UNKNOWN` | hosts did not resolve from this environment; not a capability judgement *(Phase 2)* |
+| Greece, Uganda, Nigeria, Mexico | `UNKNOWN_FROM_CURRENT_EGRESS` | hosts did not resolve; re-probed in Phase 3 with the same result. Not a capability judgement |
+
+### Phase 3 re-audit of every previously deferred source
+
+Each was re-probed because access conditions change. None had.
+
+| Source | Phase 3 verdict | Evidence |
+|---|---|---|
+| SAM.gov | `STILL_DEFERRED` | 404 without a key; no key in this environment |
+| AusTender | `STILL_DEFERRED` | Atom feed still 403 |
+| ADB | `STILL_DEFERRED` | tender RSS still 403 |
+| EBRD ECEPP | `STILL_DEFERRED` | returns HTML, not data |
+| NZ GETS | `NOT_SUITABLE` | HTML only |
+| UNGM | `NOT_SUITABLE` | HTML only |
+| Singapore GeBIZ | `NOT_SUITABLE` | dataset is awards; newest record predates the current window |
+| Prozorro | `STILL_DEFERRED` | feed is current and reachable, but still one request per notice for usable metadata |
+| Brazil PNCP | `STILL_DEFERRED` | request timed out; needs a further access study |
+
+### Phase 3 new rejections
+
+| Source | Class | Evidence |
+|---|---|---|
+| Moldova MTender | `STALE_OR_HISTORICAL` | responds; newest record **2018** |
+| Poland eZamówienia | `STALE_OR_HISTORICAL` | responds; newest record **2024** |
+| Norway Doffin | `AUTH_REQUIRED` | 401 without a key |
+| Paraguay DNCP | `STILL_DEFERRED` | OCDS and current, but 10 items/page over 1,000 pages; status not populated |
+| Spain PLACSP, Uruguay, service.bund.de | `NON_JSON_STRUCTURED` | ATOM/XML; needs a parser, not a blocker |
+| Chile, Argentina, Philippines, Tanzania, Kenya, Italy ANAC, Denmark, Belgium, AIIB | `HTML_NOT_DATA` | endpoint returns a page, not a dataset |
+| Indonesia INAPROC, IADB, AfDB | `WAF` | 403 to a non-browser client |
+| Korea KONEPS, India CPPP, Vietnam, Rwanda, Ghana, Hungary, Slovenia, Croatia, Czechia, Finland, Estonia, Lithuania, Switzerland, Sweden, Ireland, Portugal, Brazil ComprasNet, UNDP, UNOPS, World Bank corporate | `HTTP_FAIL` | documented or guessed paths return 404/400/500 |
+| Georgia, Peru, Ecuador, Ghana | `UNKNOWN_FROM_CURRENT_EGRESS` | host did not resolve |
 
 Prozorro is deferred on **rate respect, not capability**. Assembling a bounded
 current window would mean thousands of individual requests against a public

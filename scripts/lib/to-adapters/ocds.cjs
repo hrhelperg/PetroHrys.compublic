@@ -84,6 +84,16 @@ const PAGERS = {
       return `${source.endpoint}?page=${page + 1}&size=${source.pageSize}`;
     },
   },
+  // ?publishedFrom=…, then follow links.next (UK Contracts Finder). The first
+  // URL is computed; every later one comes from the server.
+  publishedFromCursor: {
+    url({ source, page, nowIso, previous }) {
+      if (page > 0) return previous && previous.links && previous.links.next ? previous.links.next : null;
+      const from = new Date(Date.parse(nowIso) - source.window.days * 86400000);
+      return `${source.endpoint}?publishedFrom=${isoDateOnly(from)}&stages=tender`;
+    },
+    usesCursor: true,
+  },
 };
 
 const releasesOf = (res) => {
@@ -107,17 +117,23 @@ function makeOcdsAdapter({ id, pager = 'pageNumberDateRange', country, coverage 
     let pages = 0;
     let complete = false;
 
+    let previous = null;
     for (let page = 0; page < source.maxPages; page += 1) {
-      const url = dialect.url({ source, page, nowIso });
+      const url = dialect.url({ source, page, nowIso, previous });
+      // A cursor dialect signals exhaustion by having no next link at all.
+      if (!url) { complete = true; break; }
       if (seen.has(url)) { log(`${id}: paging repeated a URL; stopping to avoid a loop.`); break; }
       seen.add(url);
       // eslint-disable-next-line no-await-in-loop
       const res = await http.getJson(url);
+      previous = res;
       pages += 1;
       const releases = releasesOf(res);
       if (!releases.length) { complete = true; break; }
       raw.push(...releases);
-      if (releases.length < source.pageSize) { complete = true; break; }
+      // Only a page-numbered dialect can conclude anything from a short page;
+      // a cursor keeps going until the server stops offering one.
+      if (!dialect.usesCursor && releases.length < source.pageSize) { complete = true; break; }
     }
 
     if (!complete) {
