@@ -60,7 +60,8 @@ const COUNTRIES_FILE = path.join(ROOT, 'data', 'business-directories', 'countrie
 // identifiable rather than mysterious.
 const ADAPTER_VERSION = '1.0.0';
 
-const log = (msg) => { process.stdout.write(`${msg}\n`); };
+const defaultLog = (msg) => { process.stdout.write(`${msg}\n`); };
+const log = defaultLog;
 
 function readJson(file, fallback) {
   if (!fs.existsSync(file)) return fallback;
@@ -88,6 +89,7 @@ function writeIfChanged(file, content) {
 }
 
 async function ingestSource(source, ctx) {
+  const log = ctx.log || defaultLog;
   const adapter = ADAPTERS.adapterFor(source.id);
   const snapshotFile = path.join(SNAPSHOT_DIR, `${source.id}.json`);
   const previous = readJson(snapshotFile, null);
@@ -100,7 +102,7 @@ async function ingestSource(source, ctx) {
     log(`  ✗ ${source.id}: fetch failed — ${e.message}`);
     log(`    keeping the previous snapshot (${previous ? previous.recordCount : 0} records, `
       + `retrieved ${previous ? previous.retrievedAt : 'never'}).`);
-    return { source, ok: false, kept: true, previous, error: e.message };
+    return { source, ok: false, kept: true, previous, error: e.message, errorObject: e };
   }
 
   // Personal fields go before anything else touches the record, so no code
@@ -234,9 +236,23 @@ async function main() {
     results.push(await ingestSource(source, ctx));
   }
 
-  // Rebuild the merged corpus from EVERY snapshot on disk — including the
-  // ones this run kept rather than replaced. A single-source run must not
-  // silently drop the other four sources from the corpus.
+  const rebuilt = rebuildCorpus({ nowIso, dryRun, log });
+  const { stats } = rebuilt;
+
+  const failed = results.filter((r) => !r.ok);
+  if (failed.length) {
+    log(`\n${failed.length} source(s) failed and kept their previous snapshot: `
+      + `${failed.map((f) => f.source.id).join(', ')}`);
+    process.exitCode = 1;
+  }
+}
+
+// Rebuild the merged corpus from EVERY snapshot on disk — including the ones a
+// run kept rather than replaced. A single-source run must not silently drop
+// the other eight sources from the corpus.
+//
+// Returns { canonical, input, written }.
+function rebuildCorpus({ nowIso, dryRun = false, log: out = defaultLog }) {
   const all = [];
   for (const s of SOURCES.SOURCES) {
     const snap = readJson(path.join(SNAPSHOT_DIR, `${s.id}.json`), null);
@@ -272,25 +288,65 @@ async function main() {
     opportunities: canonical,
   });
 
-  if (!dryRun) {
-    const changed = writeIfChanged(CORPUS_FILE, `${stableStringify(corpus)}\n`);
-    log(`\nCorpus: ${stats.canonical} canonical opportunities from ${stats.input} source records `
-      + `(${stats.groupsMerged} merge group(s), ${stats.multiSource} multi-source, `
-      + `${stats.possiblePairs} possible duplicate(s) left separate). ${changed ? 'written' : 'unchanged'}.`);
-  } else {
-    log(`\nCorpus (dry run): ${stats.canonical} canonical from ${stats.input} source records.`);
-  }
+  let written = false;
+  if (!dryRun) written = writeCorpusIfFactsChanged(corpus);
+  out(`\nCorpus: ${stats.canonical} canonical opportunities from ${stats.input} source records `
+    + `(${stats.groupsMerged} merge group(s), ${stats.multiSource} multi-source, `
+    + `${stats.possiblePairs} possible duplicate(s) left separate). `
+    + `${dryRun ? 'dry run' : (written ? 'written' : 'unchanged')}.`);
+  return { canonical: stats.canonical, input: stats.input, written, stats };
+}
 
-  const failed = results.filter((r) => !r.ok);
-  if (failed.length) {
-    log(`\n${failed.length} source(s) failed and kept their previous snapshot: `
-      + `${failed.map((f) => f.source.id).join(', ')}`);
-    process.exitCode = 1;
+// ── PART 21: A REFRESH THAT CHANGED NOTHING WRITES NOTHING ──────────────────
+//
+// The corpus carries `generatedAt` and a `retrievedAt` per source. Both change
+// on every run by definition, so a byte comparison would report a diff after
+// every refresh even when no procurement fact moved — and the git history would
+// fill with commits that say only "this ran again".
+//
+// So the comparison masks the timestamps. If the facts are identical, the
+// existing file is kept, timestamps and all: a stale-looking `generatedAt` on
+// an unchanged corpus is accurate, because nothing was in fact regenerated.
+const TIMESTAMP_KEYS = new Set(['generatedAt', 'retrievedAt', 'updatedAt']);
+
+function maskTimestamps(value) {
+  if (Array.isArray(value)) return value.map(maskTimestamps);
+  if (value && typeof value === 'object') {
+    const out = {};
+    for (const [k, v] of Object.entries(value)) out[k] = TIMESTAMP_KEYS.has(k) ? null : maskTimestamps(v);
+    return out;
   }
+  return value;
+}
+
+function writeCorpusIfFactsChanged(corpus) {
+  const next = `${stableStringify(corpus)}\n`;
+  if (fs.existsSync(CORPUS_FILE)) {
+    const existing = fs.readFileSync(CORPUS_FILE, 'utf8');
+    if (existing === next) return false;
+    try {
+      const a = stableStringify(maskTimestamps(JSON.parse(existing)));
+      const b = stableStringify(maskTimestamps(corpus));
+      if (a === b) return false; // only the clock moved
+    } catch { /* unreadable existing corpus: fall through and replace it */ }
+  }
+  fs.mkdirSync(path.dirname(CORPUS_FILE), { recursive: true });
+  fs.writeFileSync(CORPUS_FILE, next);
+  return true;
+}
+
+function knownPlatformIds() {
+  return new Set(readJson(PLATFORMS_FILE, []).map((p) => p.id));
+}
+function knownCountrySlugs() {
+  return new Set(readJson(COUNTRIES_FILE, []).map((c) => c.slug));
 }
 
 if (require.main === module) {
   main().catch((e) => { log(`FATAL: ${e.stack || e.message}`); process.exitCode = 1; });
 }
 
-module.exports = { ADAPTER_VERSION, stableStringify };
+module.exports = {
+  ADAPTER_VERSION, stableStringify, ingestSource, rebuildCorpus,
+  knownPlatformIds, knownCountrySlugs, maskTimestamps, writeCorpusIfFactsChanged,
+};

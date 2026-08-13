@@ -38,7 +38,16 @@ const zaEtenders = makeOcdsAdapter({
   id: 'za-etenders', pager: 'pageNumberDateRange', country: 'south-africa',
 });
 
-const ADAPTERS = [ted, ukFts, canadabuys, worldbank, secop2, tenderned, boamp, zaEtenders];
+// Phase 3. Contracts Finder is OCDS 1.1 with a cursor, so it is another
+// configuration of the same factory. Germany is not — see de-vergabe.cjs for
+// why "both say OCDS" was not sufficient reason to share an adapter.
+const ukContractsFinder = makeOcdsAdapter({
+  id: 'uk-contracts-finder', pager: 'publishedFromCursor', country: 'united-kingdom',
+});
+const deVergabe = require('./de-vergabe.cjs');
+
+const ADAPTERS = [ted, ukFts, canadabuys, worldbank, secop2, tenderned, boamp, zaEtenders,
+  ukContractsFinder, deVergabe];
 const BY_ID = new Map(ADAPTERS.map((a) => [a.id, a]));
 
 function adapterFor(sourceId) {

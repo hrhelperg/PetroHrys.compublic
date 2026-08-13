@@ -122,12 +122,51 @@ async function postJson(url, payload, opts) {
   }
 }
 
+// Binary-safe retrieval. Germany publishes OCDS only as a ZIP, and decoding
+// those bytes as UTF-8 — which every other helper here does — silently
+// corrupts the archive rather than failing. Kept separate so the text helpers
+// stay simple and nobody has to remember which one is safe for binary.
+async function getBuffer(url, { headers = {}, timeoutMs = 90000 } = {}) {
+  const host = new URL(url).host;
+  let lastErr = null;
+  for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt += 1) {
+    // eslint-disable-next-line no-await-in-loop
+    await pace(host);
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), timeoutMs);
+    try {
+      // eslint-disable-next-line no-await-in-loop
+      const res = await fetch(url, {
+        headers: { 'User-Agent': USER_AGENT, ...headers },
+        signal: controller.signal,
+        redirect: 'follow',
+      });
+      if (!res.ok) {
+        const err = new HttpError(res.status, url, '');
+        if (res.status >= 400 && res.status < 500 && res.status !== 429) throw err;
+        lastErr = err;
+      } else {
+        // eslint-disable-next-line no-await-in-loop
+        return Buffer.from(await res.arrayBuffer());
+      }
+    } catch (e) {
+      if (e instanceof HttpError && e.status >= 400 && e.status < 500 && e.status !== 429) throw e;
+      lastErr = e;
+    } finally {
+      clearTimeout(timer);
+    }
+    // eslint-disable-next-line no-await-in-loop
+    if (attempt < MAX_ATTEMPTS) await sleep(BASE_BACKOFF_MS * (2 ** (attempt - 1)));
+  }
+  throw lastErr;
+}
+
 async function getText(url, opts) {
   const res = await request(url, { ...opts, headers: { Accept: 'text/csv, */*', ...(opts && opts.headers) } });
   return res.text;
 }
 
 module.exports = {
-  HttpError, request, getJson, postJson, getText,
+  HttpError, request, getJson, postJson, getText, getBuffer,
   MAX_ATTEMPTS, BASE_BACKOFF_MS, USER_AGENT, HOST_MIN_GAP_MS,
 };

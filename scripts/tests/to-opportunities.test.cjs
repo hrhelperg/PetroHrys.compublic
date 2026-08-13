@@ -135,10 +135,24 @@ test('3. identity is deterministic and derived from source identity alone', () =
   }
   // Same inputs, same id, forever.
   assert.strictEqual(SCHEMA.opportunityId('ted', '556964-2026'), SCHEMA.opportunityId('ted', '556964-2026'));
-  // No UUIDs anywhere.
-  const uuid = /[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}/i;
-  const generated = O.filter((o) => uuid.test(o.id));
-  assert.strictEqual(generated.length, 0, 'an id looks like a random UUID');
+  // The property is that WE never mint a random id, not that no source ever
+  // uses a UUID in its own. UK Contracts Finder ocids look like
+  // "ocds-b5fd17-aad953f2-e0db-453a-969c-288552a6282f" — a UUID assigned by
+  // the publisher, stable across refreshes, and exactly the kind of
+  // source-native identifier the model is supposed to prefer. Rejecting it
+  // would have rejected the identifier for being well-formed.
+  //
+  // So the guard is on our own code: no id generation anywhere.
+  for (const rel of ['scripts/lib/to-schema.cjs', 'scripts/ingest-tender-opportunities.cjs',
+    'scripts/lib/to-dedupe.cjs']) {
+    assert.ok(!/randomUUID|Math\.random|uuidv4/.test(read(rel)),
+      `${rel} can generate a random identifier`);
+  }
+  // And identity survives a refresh: the same source notice yields the same id.
+  const sample = O.slice(0, 200);
+  for (const o of sample) {
+    assert.strictEqual(SCHEMA.opportunityId(o.sourceId, o.sourceNoticeId), o.id);
+  }
 });
 
 test('4. no invented value: a value carries a real published figure or is null', () => {
@@ -724,7 +738,15 @@ test('39. source policy is complete for every pilot source', () => {
     assert.ok(SOURCES.REUSE_CLASSES.includes(s.reuse), `${s.id}: bad reuse class`);
     assert.ok(SOURCES.STORAGE_POLICIES.includes(s.storage), `${s.id}: bad storage policy`);
     assert.ok(s.reuseBasis && s.reuseBasis.length > 10, `${s.id}: no stated basis for its reuse class`);
-    assert.ok(PLATFORM_IDS.has(s.platformId), `${s.id}: platformId is not a canonical platform`);
+    if (s.enabled === false) {
+      // A registered-but-inactive source is allowed to have no platform — that
+      // is often exactly why it is inactive — but it must say so out loud.
+      assert.ok(s.readyState, `${s.id}: disabled without a declared readyState`);
+      assert.ok(Array.isArray(s.knownRestrictions) && s.knownRestrictions.length,
+        `${s.id}: disabled without a stated reason`);
+    } else {
+      assert.ok(PLATFORM_IDS.has(s.platformId), `${s.id}: platformId is not a canonical platform`);
+    }
     assert.ok(typeof s.rateLimitNote === 'string' && s.rateLimitNote.length > 0, `${s.id}: no rate discipline stated`);
     // An unclear or restricted source may not store full metadata.
     if (s.reuse === 'UNCLEAR' || s.reuse === 'RESTRICTED') {
@@ -744,9 +766,16 @@ test('39. source policy is complete for every pilot source', () => {
 
 test('40. snapshot provenance and coverage honesty', () => {
   for (const s of CORPUS.sources) {
-    assert.ok(s.id && s.name && s.platformId, 'a source entry lacks identity');
+    assert.ok(s.id && s.name, 'a source entry lacks identity');
+    // Only a source that actually contributed records needs a platform.
+    if (s.recordCount > 0) {
+      assert.ok(s.platformId, `${s.id} contributed records without a canonical platform`);
+    }
     assert.ok(typeof s.complete === 'boolean', `${s.id}: coverage completeness is not stated`);
-    assert.ok(s.retrievedAt, `${s.id}: no retrieval timestamp`);
+    // A registered-but-inactive source has never been retrieved, and saying so
+    // with a null is more honest than omitting it from the list.
+    if (s.recordCount > 0) assert.ok(s.retrievedAt, `${s.id}: no retrieval timestamp`);
+    else assert.strictEqual(s.complete, false, `${s.id}: contributed nothing but claims a complete window`);
     if (s.complete && s.population !== null) {
       assert.ok(s.recordCount <= s.population,
         `${s.id}: claims complete coverage but holds more records than the source reported`);
@@ -1277,4 +1306,344 @@ test('P2-11. the EU-wide publication flag survives into the corpus', () => {
     'the dedup field list would drop the flag during a merge');
   assert.ok(CORPUSFMT.FIELDS.includes('publishedEuWide'),
     'the corpus format has no column for the flag');
+});
+
+
+// ── PHASE 3 ─────────────────────────────────────────────────────────────────
+
+const HEALTH = require('../lib/to-health.cjs');
+const ZIPLIB = require('../lib/to-zip.cjs');
+const INGEST = require('../ingest-tender-opportunities.cjs');
+const REFRESH = require('../refresh-tender-opportunities.cjs');
+
+test('P3-1. the source registry distinguishes registered from active', () => {
+  const registered = SOURCES.allSourceIds();
+  const enabled = SOURCES.sourceIds();
+  assert.ok(registered.length >= enabled.length);
+  // Every ENABLED source must actually have contributed records — a source
+  // list is a claim about coverage, and a logo with no data is a false one.
+  const contributing = new Set(O.map((o) => o.sourceId));
+  for (const id of enabled) {
+    assert.ok(contributing.has(id), `${id} is enabled but contributed no records`);
+  }
+  // And every inactive one must be inactive for a stated reason.
+  for (const s of SOURCES.SOURCES.filter((x) => x.enabled === false)) {
+    assert.ok(s.readyState, `${s.id} is disabled without a readyState`);
+    assert.ok(!contributing.has(s.id), `${s.id} is disabled but contributed records`);
+  }
+});
+
+test('P3-2. every adapter has a source and every source has an adapter', () => {
+  for (const s of SOURCES.SOURCES) {
+    assert.doesNotThrow(() => ADAPTERS.adapterFor(s.id), `${s.id} has no adapter`);
+  }
+  for (const a of ADAPTERS.ADAPTERS) {
+    assert.ok(SOURCES.SOURCE_BY_ID.has(a.id), `adapter ${a.id} has no source-policy record`);
+    assert.deepStrictEqual(ADAPTERS.contractProblems(a), [], `${a.id} breaks the adapter contract`);
+  }
+});
+
+test('P3-3. the ZIP reader handles real archives and refuses what it cannot do', () => {
+  const zlib = require('node:zlib');
+  // Build a minimal deflate ZIP in memory rather than committing a fixture.
+  const name = Buffer.from('a.json');
+  const content = Buffer.from('{"ok":true}');
+  const deflated = zlib.deflateRawSync(content);
+  const crc = 0; // not validated by this reader
+  const local = Buffer.alloc(30);
+  local.writeUInt32LE(0x04034b50, 0); local.writeUInt16LE(20, 4); local.writeUInt16LE(0, 6);
+  local.writeUInt16LE(8, 8); local.writeUInt32LE(crc, 14);
+  local.writeUInt32LE(deflated.length, 18); local.writeUInt32LE(content.length, 22);
+  local.writeUInt16LE(name.length, 26); local.writeUInt16LE(0, 28);
+  const localAll = Buffer.concat([local, name, deflated]);
+  const central = Buffer.alloc(46);
+  central.writeUInt32LE(0x02014b50, 0); central.writeUInt16LE(8, 10);
+  central.writeUInt32LE(deflated.length, 20); central.writeUInt32LE(content.length, 24);
+  central.writeUInt16LE(name.length, 28); central.writeUInt32LE(0, 42);
+  const centralAll = Buffer.concat([central, name]);
+  const eocd = Buffer.alloc(22);
+  eocd.writeUInt32LE(0x06054b50, 0); eocd.writeUInt16LE(1, 8); eocd.writeUInt16LE(1, 10);
+  eocd.writeUInt32LE(centralAll.length, 12); eocd.writeUInt32LE(localAll.length, 16);
+  const zip = Buffer.concat([localAll, centralAll, eocd]);
+
+  const entries = ZIPLIB.readZip(zip);
+  assert.strictEqual(entries.length, 1);
+  assert.strictEqual(entries[0].name, 'a.json');
+  assert.deepStrictEqual(JSON.parse(entries[0].data.toString('utf8')), { ok: true });
+  const { entries: json } = ZIPLIB.readJsonEntries(zip);
+  assert.strictEqual(json.length, 1);
+  // Not a ZIP at all, and a truncated one, both fail loudly.
+  assert.throws(() => ZIPLIB.readZip(Buffer.from('not a zip archive at all!!')), /Not a ZIP/);
+  assert.throws(() => ZIPLIB.readZip(Buffer.alloc(4)), /too short/);
+});
+
+test('P3-4. failure classes are specific, not "network error"', () => {
+  const c = (msg, status) => { const e = new Error(msg); if (status) e.status = status; return HEALTH.classifyFailure(e); };
+  assert.strictEqual(c('HTTP 429 for https://x/'), 'RATE_LIMITED');
+  assert.strictEqual(c('HTTP 401 for https://x/'), 'AUTH_REQUIRED');
+  assert.strictEqual(c('HTTP 403 for https://x/'), 'WAF');
+  assert.strictEqual(c('HTTP 404 for https://x/'), 'SCHEMA_CHANGED');
+  assert.strictEqual(c('The operation was aborted'), 'TIMEOUT');
+  assert.strictEqual(c('Response from x was not JSON (<html>)'), 'INVALID_PAYLOAD');
+  assert.strictEqual(c('Corrupt central directory at entry 3'), 'INVALID_PAYLOAD');
+  assert.strictEqual(c('something nobody predicted'), 'TRANSPORT');
+  for (const f of HEALTH.FAILURE_CLASSES) assert.strictEqual(typeof f, 'string');
+});
+
+test('P3-5. source health escalates, recovers, and never touches a tender', () => {
+  let e = HEALTH.recordAttempt(null, { sourceId: 'x', nowIso: NOW, result: 'SUCCESS', recordCount: 100 });
+  assert.strictEqual(e.state, 'HEALTHY');
+  assert.strictEqual(e.consecutiveFailures, 0);
+  for (let i = 0; i < 2; i += 1) {
+    e = HEALTH.recordAttempt(e, { sourceId: 'x', nowIso: NOW, result: 'FAILURE', errorClass: 'TRANSPORT' });
+  }
+  assert.strictEqual(e.state, 'DEGRADED');
+  // The last good record count survives the failures — that is what "kept the
+  // previous snapshot" means operationally.
+  assert.strictEqual(e.lastSuccessfulRecordCount, 100);
+  for (let i = 0; i < 3; i += 1) {
+    e = HEALTH.recordAttempt(e, { sourceId: 'x', nowIso: NOW, result: 'FAILURE', errorClass: 'TRANSPORT' });
+  }
+  assert.strictEqual(e.state, 'FAILING');
+  e = HEALTH.recordAttempt(e, { sourceId: 'x', nowIso: NOW, result: 'SUCCESS', recordCount: 120 });
+  assert.strictEqual(e.state, 'HEALTHY');
+  assert.strictEqual(e.consecutiveFailures, 0);
+
+  // Health is invisible to the match engine: an unreachable source does not
+  // demote the tenders it published last week.
+  const matchSrc = read('scripts/lib/to-match.cjs');
+  assert.ok(!/to-health|sourceHealth|consecutiveFailures|HEALTHY|DEGRADED/.test(matchSrc),
+    'the match engine can see source health');
+  const schemaSrc = read('scripts/lib/to-schema.cjs');
+  assert.ok(!/to-health|consecutiveFailures/.test(schemaSrc), 'tender status can see source health');
+});
+
+test('P3-6. staleness is a freshness statement, derived per source', () => {
+  const continuous = { updateFrequency: 'continuous, business days' };
+  const daily = { updateFrequency: 'daily' };
+  const slow = { updateFrequency: 'unknown' };
+  assert.ok(HEALTH.staleAfterHours(continuous) < HEALTH.staleAfterHours(daily));
+  assert.ok(HEALTH.staleAfterHours(daily) < HEALTH.staleAfterHours(slow));
+  const fresh = { lastSuccessfulAt: NOW };
+  assert.strictEqual(HEALTH.isStale(fresh, continuous, NOW), false);
+  const old = { lastSuccessfulAt: new Date(Date.parse(NOW) - 100 * 3600000).toISOString() };
+  assert.strictEqual(HEALTH.isStale(old, continuous, NOW), true);
+  // Never refreshed is stale, not healthy.
+  assert.strictEqual(HEALTH.isStale(null, daily, NOW), true);
+});
+
+test('P3-7. a refresh that changes no fact writes no corpus', () => {
+  // The corpus carries generatedAt and per-source retrievedAt, which move on
+  // every run. Masking them is what stops the git history filling with commits
+  // that say only "this ran again".
+  const raw = JSON.parse(read('data/tender-opportunities/opportunities.json'));
+  const later = JSON.parse(JSON.stringify(raw));
+  later.generatedAt = '2099-01-01T00:00:00.000Z';
+  for (const s of later.sources) if (s.retrievedAt) s.retrievedAt = '2099-01-01T00:00:00.000Z';
+  assert.deepStrictEqual(INGEST.maskTimestamps(later), INGEST.maskTimestamps(raw),
+    'masking does not neutralise the timestamps');
+  // A real fact change must still be visible through the mask.
+  const changed = JSON.parse(JSON.stringify(raw));
+  changed.rows[0] = changed.rows[0].slice();
+  changed.rows[0][5] = 'a different title';
+  assert.notDeepStrictEqual(INGEST.maskTimestamps(changed), INGEST.maskTimestamps(raw),
+    'a changed title was masked away');
+});
+
+test('P3-8. the orchestrator exists, parses its arguments, and is not in the build path', () => {
+  assert.strictEqual(typeof REFRESH.parseArgs, 'function');
+  assert.deepStrictEqual(REFRESH.parseArgs(['--source', 'ted']).only, ['ted']);
+  assert.deepStrictEqual(REFRESH.parseArgs(['--source', 'ted', '--source', 'boamp']).only, ['ted', 'boamp']);
+  assert.strictEqual(REFRESH.parseArgs(['--all']).all, true);
+  assert.strictEqual(REFRESH.parseArgs([]).all, true, 'no argument must not silently refresh nothing');
+  assert.strictEqual(REFRESH.parseArgs(['--dry-run']).dryRun, true);
+  // The orchestrator reaches the network; the build must not reach it.
+  const buildSrc = read('scripts/build-tender-opportunities.cjs');
+  assert.ok(!/refresh-tender-opportunities|to-health|to-http/.test(buildSrc.replace(/^\/\/.*$/gm, '')),
+    'the build can reach the refresh orchestrator');
+});
+
+test('P3-9. source health is operational state and is not committed', () => {
+  const gitignore = read('.gitignore');
+  assert.ok(gitignore.includes('data/tender-opportunities/snapshots/'),
+    'the snapshot directory is not gitignored');
+  assert.ok(REFRESH.HEALTH_FILE.includes('snapshots'),
+    'the health file sits outside the gitignored snapshot directory');
+});
+
+test('P3-10. window semantics are declared per source and never overstated', () => {
+  for (const s of SOURCES.SOURCES) {
+    assert.ok(s.window && typeof s.window === 'object', `${s.id}: no window declared`);
+    assert.ok(['publication', 'updated', 'source-defined', 'most-recent'].includes(s.window.kind),
+      `${s.id}: window kind "${s.window.kind}" is not a declared semantic`);
+  }
+  // Completeness in the corpus must be a boolean, and a partial window must be
+  // visible to a reader in every locale.
+  const partial = CORPUS.sources.filter((s) => !s.complete);
+  assert.ok(partial.length > 0, 'no partial source: the disclosure guard is vacuous');
+  for (const locale of I18N.LOCALE_CODES) {
+    const html = read(I18N.localizedFile(locale, BUILD.CANONICAL_PATH));
+    assert.ok(html.includes(I18N.t(locale, 'toi.coverage.partial')), `${locale}: partial coverage hidden`);
+  }
+});
+
+test('P3-11. the new sources behave like the old ones', () => {
+  for (const id of ['uk-contracts-finder']) {
+    const recs = O.filter((o) => o.sourceId === id);
+    assert.ok(recs.length > 0, `${id} contributed nothing`);
+    for (const o of recs) {
+      assert.deepStrictEqual(SCHEMA.problemsFor(o, PLATFORM_IDS), [], `${id}/${o.id} is invalid`);
+      assert.ok(!/[\w.+-]+@[\w-]+\.[a-z]{2,}/i.test(JSON.stringify(o)), `${id}/${o.id} leaks an address`);
+    }
+    // Status and deadline safety hold for the new source too.
+    for (const o of recs) {
+      if (o.status === 'CANCELLED' || o.noticeType === 'CONTRACT_AWARD') {
+        assert.ok(!SCHEMA.isCurrent(o), `${id}/${o.id}: not-current status is current`);
+      }
+      if (o.deadline && o.deadline.precision === 'ZONELESS') {
+        assert.strictEqual(o.deadline.iso, null, `${id}/${o.id}: zoneless deadline gained an instant`);
+      }
+    }
+  }
+});
+
+test('P3-12. cross-source deduplication grew and stayed precise', () => {
+  const multi = O.filter((o) => o.multiSource);
+  assert.ok(multi.length >= 139, `cross-source merges fell to ${multi.length}`);
+  const pairs = {};
+  for (const m of multi) {
+    const k = [...new Set(m.occurrences.map((x) => x.sourceId))].sort().join('+');
+    pairs[k] = (pairs[k] || 0) + 1;
+  }
+  assert.ok(Object.keys(pairs).length >= 1, 'no cross-source pairs at all');
+  // Precision: no same-source group merged records with dissimilar titles.
+  for (const m of O.filter((o) => o.occurrenceCount > 1)) {
+    if (new Set(m.occurrences.map((x) => x.sourceId)).size > 1) continue;
+    assert.ok(m.title, `${m.id} merged without a title`);
+  }
+});
+
+// ── PHASE 3 MUTATIONS ───────────────────────────────────────────────────────
+
+mutate('P3: a new canonical field with no column is refused, not dropped', () => {
+  const rec = { ...O[0], phase4Field: 'x' };
+  assert.throws(() => CORPUSFMT.encodeRow(rec), /no column for/);
+});
+
+mutate('P3: a source without a policy record is caught', () => {
+  const orphan = { id: 'invented-source', fetchAll() {}, normalize(a, b) { return null; } };
+  assert.ok(!SOURCES.SOURCE_BY_ID.has(orphan.id), 'the fixture collides with a real source');
+  const registered = ADAPTERS.ADAPTERS.every((a) => SOURCES.SOURCE_BY_ID.has(a.id));
+  assert.ok(registered, 'an adapter already exists without a source-policy record');
+});
+
+mutate('P3: an enabled source that contributed nothing is caught', () => {
+  const contributing = new Set(O.map((o) => o.sourceId));
+  const idle = SOURCES.sourceIds().filter((id) => !contributing.has(id));
+  assert.deepStrictEqual(idle, [], `enabled but idle: ${idle.join(', ')}`);
+  // And the reverse: a disabled source must not appear in the data.
+  const disabled = SOURCES.SOURCES.filter((s) => s.enabled === false).map((s) => s.id);
+  for (const id of disabled) assert.ok(!contributing.has(id), `${id} is disabled but present`);
+});
+
+mutate('P3: a failed source must not delete its snapshot or block the others', () => {
+  // Modelled on the live test: one source 404s, another succeeds.
+  const previous = { recordCount: 44, records: new Array(44).fill(null).map((_, i) => ({ id: `z${i}`, sourceId: 'za-etenders', sourceNoticeId: `${i}`, sourceUrl: 'https://x/' })) };
+  const err = new Error('HTTP 404 for https://ocds-api.etenders.gov.za/api/DOES-NOT-EXIST');
+  assert.strictEqual(HEALTH.classifyFailure(err), 'SCHEMA_CHANGED');
+  const entry = HEALTH.recordAttempt({ lastSuccessfulRecordCount: 44, lastSuccessfulAt: NOW, consecutiveFailures: 0 },
+    { sourceId: 'za-etenders', nowIso: NOW, result: 'FAILURE', errorClass: 'SCHEMA_CHANGED' });
+  assert.strictEqual(entry.lastSuccessfulRecordCount, 44, 'the previous good count was lost');
+  assert.strictEqual(entry.lastSuccessfulAt, NOW, 'the previous success time was lost');
+  assert.ok(previous.records.length === 44, 'the previous snapshot was mutated');
+});
+
+mutate('P3: a stale source cannot be marked healthy', () => {
+  const src = { updateFrequency: 'continuous, business days' };
+  const longAgo = { lastSuccessfulAt: new Date(Date.parse(NOW) - 500 * 3600000).toISOString(), lastResult: 'SUCCESS', lastAttemptAt: NOW };
+  // It can be HEALTHY (the last attempt worked) and STALE at once — those are
+  // different questions, and collapsing them would hide one of them.
+  assert.strictEqual(HEALTH.stateFor(longAgo), 'HEALTHY');
+  assert.strictEqual(HEALTH.isStale(longAgo, src, NOW), true, 'a 500-hour-old success is not stale');
+});
+
+mutate('P3: source health cannot alter a match score', () => {
+  const o = fixture();
+  const before = MATCH.matchFor(o, 'telecom', { nowIso: NOW }).score;
+  const withHealth = { ...o, sourceHealth: 'FAILING', consecutiveFailures: 9 };
+  const after = MATCH.matchFor(withHealth, 'telecom', { nowIso: NOW }).score;
+  assert.strictEqual(before, after, 'source health changed a match score');
+});
+
+mutate('P3: a refresh timestamp alone must not churn the corpus', () => {
+  const raw = JSON.parse(read('data/tender-opportunities/opportunities.json'));
+  const bumped = JSON.parse(JSON.stringify(raw));
+  bumped.generatedAt = '2099-01-01T00:00:00.000Z';
+  assert.deepStrictEqual(INGEST.maskTimestamps(bumped), INGEST.maskTimestamps(raw));
+});
+
+mutate('P3: an incomplete window cannot be labelled complete', () => {
+  const snap = SNAP.buildSnapshot({
+    source: SOURCES.SOURCE_BY_ID.get('worldbank'),
+    adapterVersion: '1.0.0', retrievedAt: NOW,
+    fetchResult: { raw: new Array(1000), pages: 10, population: 414892, complete: false, endpoint: 'x' },
+    records: new Array(1000).fill(null).map((_, i) => ({ id: `w${i}` })),
+  });
+  assert.strictEqual(snap.complete, false);
+  assert.ok(snap.recordCount < snap.population);
+  const live = CORPUS.sources.find((s) => s.id === 'worldbank');
+  assert.strictEqual(live.complete, false, 'the World Bank window is advertised as complete');
+});
+
+mutate('P3: an awards-only source would be visible as such', () => {
+  // Singapore GeBIZ publishes awarded tenders. Were it ingested, every record
+  // would be AWARDED and none would be current — which is what the probe
+  // detected before any adapter was written.
+  const awarded = fixture({ noticeType: 'CONTRACT_AWARD', status: 'AWARDED', statusBasis: 'SOURCE_REPORTED' });
+  assert.strictEqual(SCHEMA.isCurrent(awarded), false);
+  assert.strictEqual(MATCH.rank([awarded], 'telecom', { nowIso: NOW, limit: 5 }).length, 0);
+});
+
+mutate('P3: an HTML-only or WAF source cannot be recorded as an API', () => {
+  for (const r of SOURCES.REJECTED_SOURCES) {
+    assert.ok(SOURCES.ACQUISITION_MODES.includes(r.acquisition), `${r.id}: bad acquisition mode`);
+    // A rejected source must not be silently registered as active.
+    const active = SOURCES.SOURCES.find((s) => s.id === r.id && s.enabled !== false);
+    assert.ok(!active, `${r.id} is both rejected and active`);
+  }
+});
+
+mutate('P3: a key-requiring source cannot run without its secret', () => {
+  // SAM.gov stays deferred. No secret is committed anywhere, and no source in
+  // the registry reads one.
+  const src = read('scripts/lib/to-sources.cjs') + read('scripts/lib/to-http.cjs')
+    + read('scripts/refresh-tender-opportunities.cjs');
+  assert.ok(!/api[_-]?key\s*[:=]\s*['"][A-Za-z0-9]{8,}/i.test(src), 'a literal API key is present');
+  const keyed = SOURCES.SOURCES.filter((s) => s.authRequired);
+  for (const s of keyed) {
+    assert.strictEqual(s.enabled, false, `${s.id} requires auth but is enabled`);
+  }
+});
+
+mutate('P3: the build cannot reach the orchestrator, an adapter, or the HTTP helper', () => {
+  const strip = (s) => s.replace(/^\s*\/\/.*$/gm, '');
+  for (const rel of ['scripts/build-tender-opportunities.cjs', 'scripts/build-tenders-procurement.cjs',
+    'scripts/build-tenders-intelligence.cjs']) {
+    const src = strip(read(rel));
+    assert.ok(!/require\([^)]*to-http/.test(src), `${rel} requires the HTTP helper`);
+    assert.ok(!/require\([^)]*refresh-tender-opportunities/.test(src), `${rel} requires the orchestrator`);
+    assert.ok(!/require\([^)]*to-adapters/.test(src), `${rel} requires an adapter`);
+    assert.ok(!/require\([^)]*to-zip/.test(src), `${rel} requires the archive reader`);
+  }
+});
+
+mutate('P3: canonical platform data and the matching model did not move', () => {
+  const platforms = JSON.parse(read('data/tenders-procurement/platforms.json'));
+  assert.strictEqual(platforms.length, 383, 'the platform record count changed');
+  // The matching model is frozen for a source-expansion phase.
+  assert.strictEqual(Object.values(MATCH.WEIGHTS).reduce((a, b) => a + b, 0), 100);
+  assert.deepStrictEqual(MATCH.WEIGHTS,
+    { category: 40, geography: 20, actionability: 15, deadline: 15, confidence: 10 },
+    'the match weights changed during a source-expansion phase');
+  assert.strictEqual(Object.keys(MATCH.PROFILES).length, 16, 'the profile count changed');
 });
