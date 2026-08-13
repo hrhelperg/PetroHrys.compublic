@@ -1,6 +1,6 @@
 # Tender Opportunity Coverage — Phase A
 
-**Status: PHASE A COMPLETE. PHASE B NOT STARTED.**
+**Status: PHASE A COMPLETE. STAGE B1 COMPLETE. STAGE B2 COMPLETE. STAGE B3 NOT STARTED.**
 
 Measured against the committed corpus at `cca4f5af`: 9,577 canonical
 opportunities, 6,964 current, 10 sources, 5,324 buyers.
@@ -76,15 +76,10 @@ classification-based supplier matching.
 Closing this is worth more than any new source: it would reclassify a quarter
 of the current corpus into sectors that already exist.
 
-**Verified by probe (2026-08-13).** CanadaBuys' open-data export *does* publish
-classification — the payload carries `unspsc`, `unspscDescription`, `gsin` and
-`gsinDescription`. **Our adapter reads none of them.** So 915 current Canadian
-opportunities, 13% of the whole current corpus, are unclassified because of a
-reader gap, not a source gap. This is the single highest-value action available
-and it requires no new source.
-
-TenderNed's list endpoint returns no CPV in its summary payload; whether the
-per-notice detail record carries one is unresolved and worth one more probe.
+**Root cause found and fixed in Stage B1 — see below.** The Phase A summary
+said "our adapter reads none of them". That was imprecise: the adapter read the
+right columns and the classification layer already supported UNSPSC and GSIN.
+The loss was one line further in.
 
 ## Source contribution — unique *current* after dedup
 
@@ -173,3 +168,106 @@ are the input. Network egress from this environment is confirmed working
 (TED, BOAMP reachable), so the research is feasible.
 
 The corpus is untouched by this phase: `cca4f5af` before and after.
+
+
+---
+
+# Stage B1 — Existing-source classification recovery
+
+## The defect
+
+CanadaBuys serializes a multi-code cell as a **newline-separated list with an
+asterisk on each entry**:
+
+```
+"*10191500\n*77121608"
+```
+
+The adapter split on `/[,;]\s*/` only. The whole cell therefore survived as a
+single token, failed the `^\d{2,10}$` check in `normalizeCode`, and was
+dropped without a word.
+
+**778 of 921 rows — 84.5% — carry a UNSPSC code, and every one was discarded.**
+
+Both the adapter's column names (`unspsc`, `gsin-nibs`) and the classification
+layer (which already supported UNSPSC and GSIN as distinct schemes) were
+correct. The bug sat between them, in the splitter, and had been there since
+the original ingestion phase.
+
+## The fix
+
+Split on commas, semicolons **and newlines**, then strip the leading asterisk.
+GSIN stays GSIN: it is Canada's own goods-and-services identifier, kept as an
+opaque code with no division, and is never rewritten as UNSPSC or CPV.
+
+## Measured recovery
+
+| | before | after |
+|---|---|---|
+| CanadaBuys records classified | 0 / 915 | **816 / 915** |
+| UNSPSC codes attached | 0 | 1,865 (1,082 unique) |
+| GSIN codes attached | 0 | 50 (34 unique) |
+| corpus UNSPSC-coded | 1,192 | **1,964** |
+| corpus CPV-coded | 4,585 | 4,585 *(unchanged — no crosswalk)* |
+| **unclassified current** | **1,912 (27.5%)** | **1,140 (16.4%)** |
+
+99 CanadaBuys records remain unclassified because the source publishes no code
+for them.
+
+**822 source records were rewritten and the canonical count did not move**:
+9,577 before, 9,577 after. Enrichment changed content, never identity.
+
+# Stage B2 — Re-baseline
+
+Identical methodology, recomputed. **The priority list materially changed** —
+which is exactly why this stage is mandatory before adding any source.
+
+| sector | A (Phase A) | B (after recovery) | delta | status | priority |
+|---|---|---|---|---|---|
+| construction | 1,418 | 1,562 | +144 | STRONG | SUFFICIENT |
+| professional-services | 716 | 918 | +202 | STRONG | SUFFICIENT |
+| healthcare | 598 | 629 | +31 | STRONG | SUFFICIENT |
+| **automotive** | 326 | 422 | +96 | ADEQUATE → **STRONG** | PRIORITY_3 → SUFFICIENT |
+| **office-supplies** | 360 | 417 | +57 | ADEQUATE → **STRONG** | SUFFICIENT |
+| facilities | 361 | 399 | +38 | ADEQUATE | SUFFICIENT |
+| it-software | 362 | 397 | +35 | ADEQUATE | SUFFICIENT |
+| environment | 316 | 332 | +16 | ADEQUATE | PRIORITY_3 |
+| manufacturing | 223 | 288 | +65 | ADEQUATE | SUFFICIENT |
+| **electronics-electrical** | 260 | 287 | +27 | ADEQUATE | PRIORITY_3 → SUFFICIENT |
+| education | 152 | 233 | +81 | ADEQUATE | SUFFICIENT |
+| logistics | 162 | 221 | +59 | ADEQUATE | SUFFICIENT |
+| agriculture-food | 187 | 213 | +26 | ADEQUATE | SUFFICIENT |
+| hospitality | 177 | 191 | +14 | ADEQUATE | SUFFICIENT |
+| **energy** | 147 | 177 | +30 | WEAK → **ADEQUATE** | PRIORITY_2 → SUFFICIENT |
+| security-defence | 94 | 132 | +38 | WEAK | **PRIORITY_2** |
+| **telecom** | 106 | 106 | **+0** | WEAK | **PRIORITY_2** |
+| chemicals-materials | 73 | 86 | +13 | WEAK | **PRIORITY_2** |
+| textiles-ppe | 67 | 74 | +7 | WEAK | **PRIORITY_2** |
+
+**Four sectors left the priority list** without a single new source: energy,
+automotive, electronics-electrical and office-supplies. They were never weak —
+we simply were not reading the classifications we already had.
+
+**Telecom is the only sector that gained nothing** (+0). Canada's UNSPSC
+segment 43 maps to it-software under the existing rules, and no Canadian
+records landed in telecom. Telecom is now unambiguously the clearest
+remaining gap, which is the opposite of where Phase A's brief pointed.
+
+## Re-baselined priorities for Stage B3
+
+**PRIORITY_2:** telecom (106), security-defence (132), chemicals-materials
+(86), textiles-ppe (74).
+**PRIORITY_3:** environment.
+**Geographic:** unchanged by B1 — classification recovery adds no country.
+109 of 113 countries remain single-source.
+
+# Stage B3 — not started
+
+Nothing was researched or added. The re-baselined priorities above are its
+input, and they differ materially from Phase A's.
+
+## Scale at this checkpoint
+
+corpus 10.20 MB raw / 2.06 MB gzip · Discovery index 4.60 MB raw / **0.92 MB
+gzip** · 6,817 detail pages. Unchanged in kind by B1; **storage verdict
+KEEP_GIT_FOR_NOW**.

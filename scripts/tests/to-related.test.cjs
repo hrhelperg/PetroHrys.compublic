@@ -63,7 +63,7 @@ const rec = (over) => Object.assign({
 test('1. the canonical corpus is unchanged by this phase', () => {
   const fp = (rel) => require('node:crypto').createHash('sha256')
     .update(fs.readFileSync(path.join(ROOT, rel))).digest('hex').slice(0, 8);
-  assert.strictEqual(fp('data/tender-opportunities/opportunities.json'), 'cca4f5af');
+  assert.strictEqual(fp('data/tender-opportunities/opportunities.json'), '9754062f');
   assert.strictEqual(fp('data/tenders-procurement/platforms.json'), 'f24a9edc');
   assert.strictEqual(fp('scripts/lib/to-match.cjs'), '5de543fb');
 });
@@ -702,7 +702,7 @@ mutate('M23 English related-opportunity copy leaks into a localized page', () =>
 mutate('M24 the canonical corpus fingerprint changes', () => {
   const fp = require('node:crypto').createHash('sha256')
     .update(fs.readFileSync(path.join(ROOT, 'data/tender-opportunities/opportunities.json'))).digest('hex').slice(0, 8);
-  assert.strictEqual(fp, 'cca4f5af');
+  assert.strictEqual(fp, '9754062f');
 });
 
 mutate('M25 the matching weights change', () => {
