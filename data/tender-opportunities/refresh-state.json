@@ -1,0 +1,56 @@
+{
+  "version": 1,
+  "sources": {
+    "tenderned": {
+      "completeness": "COMPLETE",
+      "consecutiveFailures": 0,
+      "lastAttemptAt": "2026-08-13T11:31:02.596Z",
+      "lastErrorClass": null,
+      "lastSuccessAt": "2026-08-13T11:31:02.596Z",
+      "promoted": true,
+      "promotedRecordCount": 207,
+      "retainedRecordCount": null,
+      "snapshotHash": "77a8a10a91a5c8e72a8c2fcbfd8e8665ef747cc242cf95f1076b671eff0b1ab0",
+      "sourceId": "tenderned",
+      "state": "HEALTHY",
+      "window": {
+        "kind": "publication",
+        "days": 3
+      }
+    },
+    "uk-contracts-finder": {
+      "completeness": "COMPLETE",
+      "consecutiveFailures": 0,
+      "lastAttemptAt": "2026-08-13T11:31:02.596Z",
+      "lastErrorClass": null,
+      "lastSuccessAt": "2026-08-13T11:31:02.596Z",
+      "promoted": true,
+      "promotedRecordCount": 33,
+      "retainedRecordCount": null,
+      "snapshotHash": "62a367a8d4b266788d536592ac3231bf673fc92c1ac7e2d794cb3247d5bbf224",
+      "sourceId": "uk-contracts-finder",
+      "state": "HEALTHY",
+      "window": {
+        "kind": "publication",
+        "days": 3
+      }
+    },
+    "za-etenders": {
+      "completeness": "COMPLETE",
+      "consecutiveFailures": 1,
+      "lastAttemptAt": "2026-08-13T11:31:02.596Z",
+      "lastErrorClass": "SCHEMA_CHANGED",
+      "lastSuccessAt": "2026-08-13T11:26:05.722Z",
+      "promoted": false,
+      "promotedRecordCount": null,
+      "retainedRecordCount": 46,
+      "snapshotHash": "109a9414f3fa800d1a7e553ed84978f0976161d7c291200b456dbca3c5294243",
+      "sourceId": "za-etenders",
+      "state": "DEGRADED",
+      "window": {
+        "kind": "publication",
+        "days": 21
+      }
+    }
+  }
+}
