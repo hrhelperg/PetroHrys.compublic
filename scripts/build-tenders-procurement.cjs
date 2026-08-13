@@ -210,6 +210,7 @@ ${tableRows}
       <p>${escapeHtml(t('tp.limit1'))}</p>
       <p>${escapeHtml(t('tp.limit2'))}</p>
       <p><a href="/research/tenders-procurement/intelligence/">${escapeHtml(t('tp.intelligenceLink'))}</a></p>
+      <p><a href="/research/tenders-procurement/opportunities/">${escapeHtml(t('tp.opportunitiesLink'))}</a></p>
     </section>`,
   ].join('\n\n');
 }

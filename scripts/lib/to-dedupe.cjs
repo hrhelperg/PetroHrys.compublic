@@ -1,0 +1,371 @@
+'use strict';
+
+// Cross-source deduplication — and why it deletes nothing.
+//
+// ── THE REAL SHAPE OF THE PROBLEM ───────────────────────────────────────────
+//
+// One procurement can be published several times: a German notice appears on
+// TED and on the Land's own portal; a World Bank project notice appears on the
+// Bank's system and on the borrowing ministry's national portal. Treating
+// those as separate tenders inflates the corpus and makes a supplier chase the
+// same contract twice.
+//
+// But collapsing them into one record and keeping "the best" one is worse,
+// because the sources disagree about DIFFERENT THINGS and each is right about
+// its own part. TED carries excellent CPV metadata and links to a read-only
+// notice page. The national portal carries the submission route — the place a
+// bid is actually filed. Merging into TED loses the way to bid; merging into
+// the national portal loses the classification.
+//
+// So the model is a GRAPH, not a merge:
+//
+//   CanonicalOpportunity
+//     ├─ occurrences[]     every source that published it, all retained
+//     └─ fieldSources{}    which occurrence each canonical field came from
+//
+// Nothing is deleted. A duplicate becomes a second occurrence of one canonical
+// opportunity, and the canonical record can take its CPV from TED and its
+// submission route from the national system, with both attributions kept.
+//
+// ── EVIDENCE TIERS, AND WHY ONLY TWO OF THEM MERGE ──────────────────────────
+//
+//   EXACT   the same official procurement identifier, or the same source and
+//           notice id. Merged.
+//   STRONG  same buyer AND same official reference AND compatible deadline.
+//           Merged.
+//   POSSIBLE similar title, same buyer, near dates. NOT merged — recorded as a
+//           candidate link and shown as "may be the same procurement".
+//
+// POSSIBLE never merges automatically. A false negative leaves two rows that a
+// human can see are the same; a false positive silently destroys a real second
+// tender and there is no way for a reader to notice. Given that asymmetry the
+// conservative choice is not close.
+//
+// ── WHAT IS NOT A DUPLICATE ─────────────────────────────────────────────────
+//
+// A LOT is not a duplicate of its notice. Ten lots under one contract notice
+// are one opportunity with lotCount 10 — the adapters never expand them into
+// ten records, so there is nothing here to re-collapse.
+//
+// An AMENDMENT is not a new tender. It carries the same reference with a new
+// version, so it lands on the same canonical opportunity and updates it. A
+// corpus that treats every amendment as a new opportunity fills with phantoms
+// and every deadline extension looks like fresh demand.
+//
+// A REISSUE after cancellation IS a new tender: new reference, new procedure,
+// and the cancelled one must stay cancelled rather than being resurrected by
+// its replacement's dates.
+
+const MATCH_TIERS = ['EXACT', 'STRONG', 'POSSIBLE'];
+
+// Words that carry no procurement meaning and must not create similarity.
+// "Provision of services" vs "Provision of services" is not evidence.
+const STOPWORDS = new Set([
+  'the', 'and', 'for', 'of', 'to', 'in', 'on', 'a', 'an', 'with', 'by',
+  'service', 'services', 'supply', 'supplies', 'provision', 'contract',
+  'tender', 'framework', 'agreement', 'procurement', 'purchase', 'works',
+  'de', 'la', 'el', 'los', 'las', 'del', 'y', 'para', 'con', 'servicio', 'servicios',
+  'prestacion', 'prestación', 'contratacion', 'contratación',
+]);
+
+function tokens(text) {
+  return new Set(String(text || '')
+    .toLowerCase()
+    .normalize('NFD').replace(/[̀-ͯ]/g, '')
+    .split(/[^a-z0-9]+/)
+    .filter((w) => w.length > 2 && !STOPWORDS.has(w)));
+}
+
+function jaccard(a, b) {
+  if (!a.size || !b.size) return 0;
+  let inter = 0;
+  for (const t of a) if (b.has(t)) inter += 1;
+  return inter / (a.size + b.size - inter);
+}
+
+// A normalized official reference — and a deliberately narrow idea of which
+// references count as evidence.
+//
+// The pilot merged a Milton Keynes NHS health-check contract with a Colombian
+// procurement process. Both buyers had written reference "2026-078", which
+// normalizes to "2026078": a year and a sequence number, the most collision-
+// prone string a procurement office can produce. Two unrelated procedures on
+// two continents shared it, and a rule that treated any six-character
+// reference as a global identifier merged them.
+//
+// So a reference is evidence only when it is DISTINCTIVE: it must contain a
+// letter, or be long enough that a bare sequence is implausible. A plain
+// "2026078" is discarded — not because it is wrong, but because it identifies
+// a procurement only within the office that issued it.
+function referenceKey(o) {
+  const ref = String(o.officialReference || '').toUpperCase().replace(/[^A-Z0-9]/g, '');
+  if (ref.length < 6) return null;
+  const distinctive = /[A-Z]/.test(ref) || ref.length >= 12;
+  return distinctive ? ref : null;
+}
+
+function buyerKey(o) {
+  return String(o.buyerName || '').toLowerCase()
+    .normalize('NFD').replace(/[̀-ͯ]/g, '')
+    .replace(/[^a-z0-9]+/g, ' ').trim() || null;
+}
+
+// Deadlines are COMPATIBLE when neither contradicts the other, and they AGREE
+// only when both are decidable and land on the same UTC day.
+//
+// The distinction matters and the pilot proved it. The first version treated a
+// missing deadline as compatible and let title similarity merge on that alone.
+// SECOP II publishes no deadline at all, so every pair of similarly-titled
+// notices from one Colombian hospital looked mergeable — and 163 of them were
+// merged. They were different contracts.
+//
+// So: absence is not agreement. Title-based merging now requires deadlines to
+// actively AGREE, which is a coincidence, not a default.
+function deadlinesCompatible(a, b) {
+  const ai = a.deadline && a.deadline.iso;
+  const bi = b.deadline && b.deadline.iso;
+  if (!ai || !bi) return true;
+  return ai.slice(0, 10) === bi.slice(0, 10);
+}
+
+function deadlinesAgree(a, b) {
+  const ai = a.deadline && a.deadline.iso;
+  const bi = b.deadline && b.deadline.iso;
+  if (!ai || !bi) return false;
+  return ai.slice(0, 10) === bi.slice(0, 10);
+}
+
+// ── WHY SAME-SOURCE AND CROSS-SOURCE ARE JUDGED DIFFERENTLY ─────────────────
+//
+// The phenomenon this module exists for is CROSS-PUBLICATION: one procurement
+// announced through several systems. Two similar notices inside ONE system are
+// something else entirely — a department that buys oscilloscopes twice, a
+// hospital that hires three physiotherapists — and they are separate contracts
+// a supplier can separately win.
+//
+// The pilot's first run merged "Material Handling Equipment" from the
+// Department of National Defence with another DND notice of the same title.
+// Nothing about that was a duplicate publication; it was two procurements.
+//
+// Within one source, therefore, only a shared OFFICIAL REFERENCE merges —
+// the buyer's own solicitation number, which is the buyer saying "this is the
+// same procedure". Title resemblance never merges within a source.
+function classify(a, b) {
+  if (a.sourceId === b.sourceId && a.sourceNoticeId === b.sourceNoticeId) return 'EXACT';
+
+  const ra = referenceKey(a);
+  const rb = referenceKey(b);
+  const ba = buyerKey(a);
+  const bb = buyerKey(b);
+  const sameSource = a.sourceId === b.sourceId;
+
+  if (sameSource) {
+    // Same solicitation number, same buyer, republished under two portal ids:
+    // an amendment or a re-issue of one procedure. That is a duplicate.
+    if (ra && rb && ra === rb && ba && bb && ba === bb) return 'STRONG';
+    // A very high title match with agreeing deadlines is a strong enough
+    // coincidence to flag — but never strong enough to merge.
+    if (ba && bb && ba === bb && deadlinesAgree(a, b)
+      && jaccard(tokens(a.title), tokens(b.title)) >= 0.85) return 'POSSIBLE';
+    return null;
+  }
+
+  // The same official procurement identifier across two independent systems is
+  // the strongest evidence available — but only when something else agrees
+  // that these are the same procurement. A shared reference and nothing else
+  // is how a British council and a Colombian agency ended up as one record.
+  const sameCountry = a.country && b.country && a.country === b.country;
+  if (ra && rb && ra === rb && (sameCountry || (ba && bb && ba === bb))) return 'EXACT';
+
+  if (ba && bb && ba === bb) {
+    const sim = jaccard(tokens(a.title), tokens(b.title));
+    // Title similarity alone does not merge. It merges when the deadline
+    // independently agrees, which two unrelated contracts rarely do.
+    if (sim >= 0.85 && deadlinesAgree(a, b)) return 'STRONG';
+    if (sim >= 0.6 && deadlinesCompatible(a, b)) return 'POSSIBLE';
+  }
+  return null;
+}
+
+// Field-level provenance (Part 13). Precedence differs BY FIELD, because no
+// single source is best at everything:
+//
+//   submissionUrl / electronicSubmission — the transactional system wins. It
+//     is where a bid is filed, and only it knows.
+//   classifications — the source that actually published codes wins; between
+//     two that did, the richer set wins.
+//   everything else — the source that published a non-null value wins, ties
+//     broken by the source order below, which runs national-transactional →
+//     supranational-aggregator.
+//
+// The order is not a quality ranking. It is a statement about which system is
+// closest to the procurement.
+const SOURCE_PRECEDENCE = ['uk-fts', 'canadabuys', 'secop2', 'worldbank', 'ted'];
+
+const rank = (sourceId) => {
+  const i = SOURCE_PRECEDENCE.indexOf(sourceId);
+  return i === -1 ? SOURCE_PRECEDENCE.length : i;
+};
+
+const CANONICAL_FIELDS = [
+  'title', 'titles', 'descriptionSummary', 'buyerName', 'country',
+  'subnationalJurisdiction', 'projectCountry', 'coverage', 'classifications',
+  'publicationDate', 'deadline', 'sourceModifiedDate', 'status', 'statusBasis',
+  'noticeType', 'procedureType', 'value', 'language', 'lotCount',
+  'officialReference', 'electronicSubmission', 'electronicSubmissionBasis',
+  'submissionUrl', 'frameworkAgreement', 'projectId',
+];
+
+const present = (v) => v !== null && v !== undefined
+  && !(Array.isArray(v) && v.length === 0)
+  && !(typeof v === 'object' && !Array.isArray(v) && v.precision === 'NONE');
+
+function chooseField(field, members) {
+  const candidates = members.filter((m) => present(m[field]));
+  if (!candidates.length) return { value: null, from: null };
+
+  if (field === 'classifications') {
+    const best = candidates.slice().sort((x, y) => (y.classifications.length - x.classifications.length)
+      || (rank(x.sourceId) - rank(y.sourceId)))[0];
+    return { value: best.classifications, from: best.sourceId };
+  }
+
+  // A CANCELLED status from any source outranks every other status, whatever
+  // the precedence order says. One system reporting a cancellation and another
+  // still listing the procedure as active is exactly the case where the
+  // cancellation must win.
+  if (field === 'status') {
+    const cancelled = candidates.find((m) => m.status === 'CANCELLED');
+    if (cancelled) return { value: 'CANCELLED', from: cancelled.sourceId };
+  }
+  if (field === 'statusBasis') {
+    const cancelled = members.find((m) => m.status === 'CANCELLED');
+    if (cancelled) return { value: cancelled.statusBasis, from: cancelled.sourceId };
+  }
+
+  const best = candidates.slice().sort((x, y) => rank(x.sourceId) - rank(y.sourceId))[0];
+  return { value: best[field], from: best.sourceId };
+}
+
+// Union-find over the EXACT/STRONG edges. Blocked by buyer key and reference
+// key so this stays linear-ish instead of comparing every pair of several
+// thousand records to every other.
+function group(records) {
+  const parent = new Map(records.map((r) => [r.id, r.id]));
+  const find = (x) => {
+    let root = x;
+    while (parent.get(root) !== root) root = parent.get(root);
+    let cur = x;
+    while (parent.get(cur) !== root) { const nxt = parent.get(cur); parent.set(cur, root); cur = nxt; }
+    return root;
+  };
+  const union = (a, b) => {
+    const ra = find(a);
+    const rb = find(b);
+    if (ra !== rb) parent.set(ra < rb ? rb : ra, ra < rb ? ra : rb);
+  };
+
+  const blocks = new Map();
+  const addTo = (key, r) => {
+    if (!key) return;
+    if (!blocks.has(key)) blocks.set(key, []);
+    blocks.get(key).push(r);
+  };
+  for (const r of records) {
+    addTo(referenceKey(r) && `ref:${referenceKey(r)}`, r);
+    addTo(buyerKey(r) && `buyer:${buyerKey(r)}`, r);
+  }
+
+  const possible = [];
+  for (const bucket of blocks.values()) {
+    // A buyer with hundreds of notices would make this quadratic. Reference
+    // blocks stay tiny; buyer blocks are capped, and the cap is reported
+    // rather than silent.
+    if (bucket.length > 200) continue;
+    for (let i = 0; i < bucket.length; i += 1) {
+      for (let j = i + 1; j < bucket.length; j += 1) {
+        const tier = classify(bucket[i], bucket[j]);
+        if (tier === 'EXACT' || tier === 'STRONG') union(bucket[i].id, bucket[j].id);
+        else if (tier === 'POSSIBLE') possible.push({ a: bucket[i].id, b: bucket[j].id, tier });
+      }
+    }
+  }
+
+  const byRoot = new Map();
+  for (const r of records) {
+    const root = find(r.id);
+    if (!byRoot.has(root)) byRoot.set(root, []);
+    byRoot.get(root).push(r);
+  }
+  return { groups: [...byRoot.values()], possible };
+}
+
+// Build one canonical opportunity from a group of source records.
+function collapse(members) {
+  const ordered = members.slice().sort((a, b) => rank(a.sourceId) - rank(b.sourceId)
+    || (a.id < b.id ? -1 : 1));
+  const primary = ordered[0];
+
+  const out = {
+    id: primary.id,
+    sourceId: primary.sourceId,
+    sourcePlatformId: primary.sourcePlatformId,
+    sourceNoticeId: primary.sourceNoticeId,
+    sourceUrl: primary.sourceUrl,
+  };
+  const fieldSources = {};
+  for (const f of CANONICAL_FIELDS) {
+    const { value, from } = chooseField(f, ordered);
+    if (value !== null) { out[f] = value; fieldSources[f] = from; }
+    else out[f] = f === 'classifications' ? [] : null;
+  }
+
+  // Provenance survives the collapse. This is the array Part 12 asks for and
+  // the reason nothing had to be thrown away.
+  out.occurrences = ordered.map((m) => ({
+    sourceId: m.sourceId,
+    sourcePlatformId: m.sourcePlatformId,
+    sourceNoticeId: m.sourceNoticeId,
+    sourceUrl: m.sourceUrl,
+    status: m.status,
+    statusBasis: m.statusBasis,
+  }));
+  // fieldSources answers "which system said this?" and only has an answer
+  // worth storing when more than one system was involved. For a single-source
+  // opportunity every entry would repeat that one source id, 25 times, on
+  // every record — 5.7 MB of redundancy across the pilot corpus. The single
+  // occurrence already carries the provenance.
+  if (new Set(ordered.map((m) => m.sourceId)).size > 1) out.fieldSources = fieldSources;
+  // "Multi-source" means published by more than one SYSTEM, not merged from
+  // more than one record. The first version conflated them and reported 307
+  // multi-source opportunities when the real number was zero — every group was
+  // one source merging with itself.
+  out.multiSource = new Set(ordered.map((m) => m.sourceId)).size > 1;
+  out.occurrenceCount = ordered.length;
+  return out;
+}
+
+function dedupe(records) {
+  const { groups, possible } = group(records);
+  const canonical = groups.map(collapse)
+    .sort((a, b) => (a.id < b.id ? -1 : 1));
+  const merged = groups.filter((g) => g.length > 1);
+  return {
+    canonical,
+    stats: {
+      input: records.length,
+      canonical: canonical.length,
+      groupsMerged: merged.length,
+      recordsMerged: merged.reduce((n, g) => n + g.length, 0),
+      multiSource: canonical.filter((c) => c.multiSource).length,
+      possiblePairs: possible.length,
+    },
+    possible,
+  };
+}
+
+module.exports = {
+  MATCH_TIERS, STOPWORDS, SOURCE_PRECEDENCE, CANONICAL_FIELDS,
+  tokens, jaccard, referenceKey, buyerKey, deadlinesCompatible, deadlinesAgree,
+  classify, chooseField, group, collapse, dedupe,
+};

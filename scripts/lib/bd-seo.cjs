@@ -408,6 +408,29 @@ function buildTendersMeta({ count, countries }) {
 // dataset, one methodology and one set of caveats; split across twelve routes
 // they would be twelve thin pages differing by a sort order. Kept together they
 // are one substantial page a supplier can actually work through.
+// Tender Opportunities. ONE page again, and for a sharper reason than the
+// Intelligence page: these records EXPIRE. A per-tender route would mint
+// thousands of URLs whose content is dead in six weeks, and a site that
+// publishes ten thousand expired pages has not built an index, it has built a
+// graveyard with a sitemap. The page is indexable because it carries durable
+// explanatory content — what the sources are, what is knowable, what is not —
+// and the volatile part lives in a CSV rather than in the crawl surface.
+function buildOpportunitiesIntelligenceMeta({ current, sources, canonicalPath }) {
+  const title = 'Tender Opportunities';
+  const description = `${current} currently open procurement opportunities ingested from `
+    + `${sources} official sources, matched to supplier profiles by published classification `
+    + 'codes — with the source, deadline, status basis and remaining uncertainty shown for each.';
+  const trail = [ROOT_TRAIL[0], { name: 'Tenders & Procurement', path: '/research/tenders-procurement/' },
+    { name: title, path: canonicalPath }];
+  return meta({
+    title, description, canonicalPath, robots: undefined, breadcrumbTrail: trail,
+    graph: [
+      collectionPage({ name: title, description, url: absoluteUrl(canonicalPath) }),
+      breadcrumbList(trail),
+    ],
+  });
+}
+
 function buildTendersIntelligenceMeta({ scored, profiles, canonicalPath }) {
   const title = 'Procurement Intelligence';
   const description = `Which procurement systems to investigate first, by supplier type and `
@@ -513,4 +536,5 @@ module.exports = {
   buildPlannerMeta,
   buildTendersMeta,
   buildTendersIntelligenceMeta,
+  buildOpportunitiesIntelligenceMeta,
 };
