@@ -309,3 +309,298 @@ test('discovery reaches no network', () => {
       `${f} reaches the network`);
   }
 });
+
+// ── NO CONTROL MAY OFFER A DEAD CHOICE ──────────────────────────────────────
+//
+// The general form of a bug the opportunities worklist shipped: its "Best for"
+// select offered value="saas" while every row carrying that token spelled it
+// inside a space-separated set — "saas ai-startup cloud fintech" — and the
+// select never declared data-bd-facet-multi, so matchesFacet compared the whole
+// list for equality. Three of its six options matched 0 of 1563 rows; the other
+// three matched only the rows whose entire set was one token, 2 of 26 for
+// local-business. Nothing failed, because no test ever asked a control whether
+// the choices it offers lead anywhere.
+//
+// Pages are discovered from disk rather than listed here, so a collection added
+// later is covered the day it ships. The four locale roots hold 23,632
+// index.html files and the walk takes about 1.2s; 16 of them carry facets.
+// Memoized so that cost is paid once however many tests below ask for the set.
+let facetPageCache = null;
+function facetPages() {
+  if (facetPageCache) return facetPageCache;
+  const out = [];
+  const walk = (dir) => {
+    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+      const p = path.join(dir, entry.name);
+      if (entry.isDirectory()) walk(p);
+      else if (entry.name === 'index.html') {
+        const html = fs.readFileSync(p, 'utf8');
+        if (html.includes('data-bd-facet="')) out.push({ file: path.relative(ROOT, p), html });
+      }
+    }
+  };
+  for (const root of ['research', 'de/research', 'es/research', 'fr/research']) {
+    const dir = path.join(ROOT, root);
+    if (fs.existsSync(dir)) walk(dir);
+  }
+  facetPageCache = out;
+  return out;
+}
+
+// Every facet select with the values it offers and whether it is list-valued,
+// resolved EXACTLY the way js/business-directories.js resolves it — including
+// the legacy 'audience' name it still honours without the attribute. A test
+// that decided `multi` by its own rule would certify pages the browser gets
+// wrong, which is the failure mode being closed here.
+function facetControlsOf(html) {
+  const out = [];
+  const re = /<select[^>]*data-bd-facet="([a-z]+)"([^>]*)>([\s\S]*?)<\/select>/g;
+  let m;
+  while ((m = re.exec(html)) !== null) {
+    out.push({
+      name: m[1],
+      multi: m[2].includes('data-bd-facet-multi') || m[1] === 'audience',
+      values: [...m[3].matchAll(/<option value="([^"]*)">/g)].map((o) => o[1]).filter(Boolean),
+    });
+  }
+  return out;
+}
+
+test('no facet control anywhere offers an option that matches zero rows', () => {
+  const pages = facetPages();
+  assert.ok(pages.length >= 16, `only ${pages.length} pages carry facet controls`);
+  let checked = 0;
+  for (const { file, html } of pages) {
+    const rows = rowsOf(html);
+    assert.ok(rows.length > 0, `${file}: facet controls over a page with no rows`);
+    const controls = facetControlsOf(html);
+    assert.ok(controls.length > 0, `${file}: the select regex matched nothing`);
+    for (const control of controls) {
+      for (const value of control.values) {
+        const hits = rows.filter((r) => D.matchesFacet(r.facets[control.name], value, control.multi));
+        checked += 1;
+        assert.ok(hits.length > 0,
+          `${file}: the ${control.name} filter offers "${value}", which matches `
+          + `0 of ${rows.length} rows — the reader picks it and the table empties`);
+      }
+    }
+  }
+  // A floor, not the exact figure: 2,348 options are live today and the number
+  // moves with the data. Without it, a regex that matched nothing would pass.
+  assert.ok(checked >= 1500, `only ${checked} options were checked; the walk found too little to prove anything`);
+});
+
+test('a facet whose rows hold a set declares itself list-valued', () => {
+  // The root cause rather than the symptom. An undeclared list-valued facet can
+  // still pass the test above by accident — "cloud" matched 8 rows only because
+  // those 8 rows happen to be recommended for cloud companies and nothing else,
+  // while the other 24 cloud rows stayed hidden.
+  let listValued = 0;
+  for (const { file, html } of facetPages()) {
+    const rows = rowsOf(html);
+    for (const control of facetControlsOf(html)) {
+      const values = rows.map((r) => r.facets[control.name] || '');
+      if (!values.some((v) => v.indexOf(' ') !== -1)) continue;
+      listValued += 1;
+      assert.ok(control.multi,
+        `${file}: rows carry a space-separated set in data-bd-facet-${control.name} `
+        + 'but the select does not declare data-bd-facet-multi, so it matches by equality');
+    }
+  }
+  assert.ok(listValued >= 20, `only ${listValued} list-valued facets were found; the guard is not exercised`);
+});
+
+// ── SORT, AND HOW IT COMPOSES WITH SEARCH AND FACETS ────────────────────────
+//
+// The opportunities worklist emitted no sort control at all, which did not mean
+// it was unsorted: js/business-directories.js reads
+//   var key = sortSelect ? sortSelect.value : 'default';
+// so 1563 rows were reordered on load by a PetroHrys Score the table does not
+// show, and a reader had no way to name or change that order. These tests hold
+// the control that was added, and the properties that make adding one safe.
+const ORDER = require('../../js/bd-order.js');
+
+const OPP_HTML = read('research/business-directories/opportunities/index.html');
+// The worklist tbody only. The page carries a second table for countries with
+// no page of their own, whose rows are a SUBSET of the first — counting across
+// both would double-count every record in it.
+const OPP_BODY = /<tbody data-bd-rows>([\s\S]*?)<\/tbody>/.exec(OPP_HTML)[1];
+
+// The record the client rebuilds from a row's attributes, carrying the discovery
+// shape and the comparator shape at once — because that is what the browser
+// holds: one object per row that both D.evaluate and ORDER.sortRecords read.
+function recordsOf(bodyHtml) {
+  const out = [];
+  const re = /<tr class="bd-row"([^>]*)>/g;
+  const attr = (a, k) => (new RegExp(`data-bd-${k}="([^"]*)"`).exec(a) || [, ''])[1];
+  const num = (a, k) => (attr(a, k) === '' ? null : Number(attr(a, k)));
+  let m;
+  while ((m = re.exec(bodyHtml)) !== null) {
+    const a = m[1];
+    const facets = {};
+    for (const f of a.matchAll(/data-bd-facet-([a-z]+)="([^"]*)"/g)) facets[f[1]] = f[2];
+    out.push({
+      name: decode(attr(a, 'name')),
+      haystack: attr(a, 'haystack'),
+      facets,
+      flags: {},
+      petroHrysScore: num(a, 'score'),
+      domainRating: num(a, 'dr'),
+      authorityScore: num(a, 'as'),
+      estimatedTraffic: num(a, 'traffic'),
+    });
+  }
+  return out;
+}
+
+const OPP_ROWS = recordsOf(OPP_BODY);
+// The bug this facet had, stated as data: 16 rows are recommended for SaaS
+// companies and not one of them carries "saas" as its whole attribute.
+const SAAS = { query: '', facets: { bestfor: { value: 'saas', multi: true } }, flags: [] };
+// A composite selection with enough rows to order and enough null metrics to tie.
+const COMPOSITE = {
+  query: 'directory',
+  facets: { bestfor: { value: 'enterprise-software', multi: true }, status: 'active' },
+  flags: [],
+};
+
+function sortKeysOffered(html) {
+  const block = /<select[^>]*data-bd-sort[^>]*>([\s\S]*?)<\/select>/.exec(html);
+  return block ? [...block[1].matchAll(/<option value="([^"]+)"/g)].map((m) => m[1]) : [];
+}
+
+test('the worklist offers a sort control, and only keys its own records support', () => {
+  const offered = sortKeysOffered(OPP_HTML);
+  assert.ok(offered.length >= 2, 'the worklist emits no sort control');
+  for (const key of offered) {
+    assert.ok(ORDER.SORT_KEYS.includes(key), `"${key}" is not a key js/bd-order.js defines`);
+  }
+  assert.ok(offered.includes('alphabetical'), 'name order is not offered');
+
+  // A metric key may be offered only where the page HOLDS the number and SHOWS
+  // the column that number ranks by. Sorting by a metric no row carries does
+  // not fail — nullLastDesc returns 0 for every pair and the order collapses to
+  // name — so the reader picks "Estimated Traffic" and the table does not move.
+  const COLUMN = {
+    default: ['petroHrysScore', 'PetroHrys Score'],
+    'domain-rating': ['domainRating', 'Domain Rating'],
+    'authority-score': ['authorityScore', 'Authority Score'],
+    traffic: ['estimatedTraffic', 'Estimated traffic'],
+  };
+  const heads = [...OPP_HTML.matchAll(/<th class="bd-cell" scope="col">([^<]+)<\/th>/g)].map((m) => m[1]);
+  let withheldForNoData = 0;
+  for (const [key, [field, label]] of Object.entries(COLUMN)) {
+    const withData = OPP_ROWS.filter((r) => r[field] !== null).length;
+    if (offered.includes(key)) {
+      assert.ok(withData > 0, `"${key}" is offered but no row of ${OPP_ROWS.length} carries ${field}`);
+      assert.ok(heads.includes(label), `"${key}" is offered but no "${label}" column is rendered`);
+    } else if (withData === 0) withheldForNoData += 1;
+  }
+  assert.ok(withheldForNoData >= 1,
+    'every metric has data on this page, so the withholding rule is not exercised');
+});
+
+test('search, facets and sort compose — the identities are the filtered set, reordered', () => {
+  const filtered = D.filter(OPP_ROWS, COMPOSITE).rows;
+  assert.ok(filtered.length >= 5, `only ${filtered.length} rows survive the composite selection`);
+
+  for (const key of ORDER.SORT_KEYS) {
+    const sorted = ORDER.sortRecords(filtered, key);
+    // Identity, not count: the same records, no more and no fewer.
+    assert.deepStrictEqual([...sorted].map((r) => r.name).sort(),
+      filtered.map((r) => r.name).sort(), `${key} changed which records are present`);
+    for (const r of sorted) {
+      assert.ok(D.evaluate(r, COMPOSITE).visible, `${key} kept a record the selection excludes`);
+    }
+  }
+
+  // And the order is the comparator's, derived independently here.
+  const byDr = ORDER.sortRecords(filtered, 'domain-rating');
+  const expected = filtered.map((r, i) => ({ r, i }))
+    .sort((a, b) => ORDER.nullLastDesc(a.r.domainRating, b.r.domainRating)
+      || ORDER.nullLastDesc(a.r.petroHrysScore, b.r.petroHrysScore)
+      || ORDER.compareByName(a.r, b.r) || (a.i - b.i))
+    .map((x) => x.r.name);
+  assert.deepStrictEqual(byDr.map((r) => r.name), expected);
+  // Nulls last, never treated as zero: a record with no measurement is not a
+  // record with a bad one.
+  const firstNull = byDr.findIndex((r) => r.domainRating === null);
+  if (firstNull !== -1) {
+    assert.ok(byDr.slice(firstNull).every((r) => r.domainRating === null),
+      'a measured Domain Rating sorted below an unmeasured one');
+  }
+});
+
+test('changing the sort key resets no filter and reveals no hidden row', () => {
+  // What the client does on every change: sort the whole set, then re-run the
+  // predicate over it. Sorting must not touch the verdict for any record.
+  const base = D.filter(OPP_ROWS, SAAS);
+  assert.strictEqual(base.rows.length, 16,
+    `expected the 16 SaaS-recommended rows, got ${base.rows.length}`);
+  const baseNames = base.rows.map((r) => r.name).sort();
+
+  for (const key of ORDER.SORT_KEYS) {
+    const reordered = ORDER.sortRecords(OPP_ROWS, key);
+    assert.strictEqual(reordered.length, OPP_ROWS.length, `${key} lost or added rows`);
+    const after = D.filter(reordered, SAAS);
+    assert.deepStrictEqual(after.rows.map((r) => r.name).sort(), baseNames,
+      `${key} changed which records the selection shows`);
+    assert.strictEqual(after.unknownHidden, base.unknownHidden,
+      `${key} changed how many records were withheld for unknown evidence`);
+    // Nothing outside the selection may become visible.
+    const hidden = reordered.filter((r) => !D.evaluate(r, SAAS).visible);
+    assert.strictEqual(hidden.length, OPP_ROWS.length - baseNames.length,
+      `${key} revealed rows the selection hides`);
+  }
+});
+
+test('ties break stably, so two builds of the same data agree', () => {
+  // Stability is the explicit index tiebreak in sortRecords, not the engine's.
+  // Records identical in every compared field must come out in input order.
+  const tied = ['a', 'b', 'c', 'd'].map((tag) => ({
+    tag, name: 'Same Name', petroHrysScore: null, domainRating: null,
+    authorityScore: null, estimatedTraffic: null,
+  }));
+  for (const key of ORDER.SORT_KEYS) {
+    assert.deepStrictEqual(ORDER.sortRecords(tied, key).map((r) => r.tag), ['a', 'b', 'c', 'd'],
+      `${key} reordered records it cannot tell apart`);
+  }
+
+  // On the real page: 1513 of 1563 worklist rows carry no Domain Rating, so
+  // ordering by it ties almost everything and falls to name. Sorting an already
+  // sorted list must be a no-op, or the order would drift on every interaction.
+  for (const key of ORDER.SORT_KEYS) {
+    const once = ORDER.sortRecords(OPP_ROWS, key);
+    const twice = ORDER.sortRecords(once, key);
+    assert.deepStrictEqual(twice.map((r) => r.name), once.map((r) => r.name),
+      `${key} is not idempotent — the order drifts on re-sort`);
+  }
+
+  // Two rows really do share a display name on this page, which is what makes
+  // the index tiebreak load-bearing rather than theoretical.
+  const names = OPP_ROWS.map((r) => r.name);
+  const repeated = names.filter((n, i) => names.indexOf(n) !== i);
+  assert.ok(repeated.length > 0, 'no display name repeats, so the tiebreak is untested by real data');
+});
+
+test('sorting never mutates the array it is given, or the canonical records', () => {
+  const before = OPP_ROWS.map((r) => r.name);
+  const snapshot = JSON.stringify(OPP_ROWS);
+  for (const key of ORDER.SORT_KEYS) {
+    const out = ORDER.sortRecords(OPP_ROWS, key);
+    assert.notStrictEqual(out, OPP_ROWS, `${key} returned the input array itself`);
+  }
+  assert.deepStrictEqual(OPP_ROWS.map((r) => r.name), before, 'the input array was reordered in place');
+  assert.strictEqual(JSON.stringify(OPP_ROWS), snapshot, 'a record was mutated');
+
+  // The canonical file itself: the generator sorts what it loads, and a sort
+  // that wrote back through its input would corrupt the source of record.
+  const CANON = JSON.parse(read('data/business-directories/opportunities.json'));
+  const canonBefore = JSON.stringify(CANON);
+  const { sortDirectories } = require('../lib/bd-sort.cjs');
+  for (const key of ORDER.SORT_KEYS) sortDirectories(CANON, key);
+  assert.strictEqual(JSON.stringify(CANON), canonBefore, 'sorting mutated the canonical array');
+  assert.strictEqual(JSON.stringify(CANON),
+    JSON.stringify(JSON.parse(read('data/business-directories/opportunities.json'))),
+    'the canonical file no longer round-trips');
+});

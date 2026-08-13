@@ -422,7 +422,6 @@ function pageModel(registry, locale = I18N.DEFAULT_LOCALE) {
         approvalMode: intel.approvalMode || null,
         countryReach: intel.countryReach || null,
         bestForProfiles,
-        bestForKey: bestForProfiles[0] || '',
       };
     });
     // countryLinks previously carried no slug, so this Set was {undefined} and
@@ -471,7 +470,12 @@ function pageModel(registry, locale = I18N.DEFAULT_LOCALE) {
       { name: 'reach', key: 'countryReach', label: t('bdx.countryReach'), fallback: 'unknown',
         order: ['global', 'regional', 'single', 'unknown'],
         labels: { global: t('geo.global'), regional: t('geo.regional'), single: t('bdx.singleCountry'), unknown: t('common.unknown') } },
-      { name: 'bestfor', key: 'bestForKey', label: t('col.bestFor'), fallback: '',
+      // List-valued: a platform is a strong choice for several profiles at once,
+      // and the row attribute is the whole set. It reads bestForProfiles, not a
+      // single derived key — deriving one from the first entry made the control
+      // offer 6 of the 10 profiles that actually have rows, and equality then
+      // matched the 16 saas rows zero times because none of them is saas alone.
+      { name: 'bestfor', key: 'bestForProfiles', multi: true, label: t('col.bestFor'), fallback: '',
         order: RECOMMEND.PROFILES.map((p) => p.key),
         labels: Object.fromEntries(RECOMMEND.PROFILES.map((p) => [p.key, p.label])) },
     ];
@@ -499,6 +503,19 @@ function pageModel(registry, locale = I18N.DEFAULT_LOCALE) {
             idPrefix: 'opp', facet: f, label: f.label, rows: actionable,
             labels: f.labels || {}, order: f.order || [],
           })),
+          // The same control the country pages use, given the same column set
+          // the table below renders. Without a select the client still sorts —
+          // js/business-directories.js falls back to 'default' — so the page
+          // was already reordered by a PetroHrys Score it does not show, with
+          // no way for a reader to change or even name the order.
+          //
+          // Passing OPP_COLUMNS is what withholds the dead keys: of 1563 rows,
+          // 50 carry a Domain Rating and 77 a PetroHrys Score, while authority
+          // score and estimated traffic are null on every one — sorting by
+          // either would silently collapse to name order. Only Domain Rating is
+          // a rendered column here, so the offered keys are domain-rating and
+          // alphabetical.
+          c.sortControls({ idPrefix: 'opp', columns: OPP_COLUMNS }),
           c.clearFiltersControl(),
           '      </div>',
           `      <p class="bd-note"><a class="bd-button" href="/research/business-directories/opportunities.csv" download>`

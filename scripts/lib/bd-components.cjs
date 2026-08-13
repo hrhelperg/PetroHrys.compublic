@@ -728,13 +728,31 @@ ${body}
       </div>`;
 }
 
+// `facet.multi` marks a facet whose row attribute holds a SPACE-SEPARATED SET
+// rather than one value, so bd-discovery matches it by membership instead of
+// equality. Declaring it is not cosmetic: the opportunities worklist offered
+// bestfor="saas" against rows reading "saas ai-startup cloud fintech", and
+// equality matched 0 of the 16 rows that carry the token. Three of its six
+// options matched nothing at all; the other three matched only the rows whose
+// whole list happened to be one token — 2 of 26 for local-business.
+//
+// A multi facet counts TOKENS, so the number beside an option is the number of
+// rows selecting it will show. Counting joined strings advertised 24 for
+// local-business where 2 rows matched, which is a second, quieter lie.
 function facetSelect({ idPrefix, facet, label, rows, labels = {}, order = [] }) {
   const id = `${escapeHtml(idPrefix)}-facet-${escapeHtml(facet.name)}`;
+  const multi = facet.multi === true;
   const counts = new Map();
   for (const r of rows) {
-    const v = String(r[facet.key] ?? facet.fallback ?? '');
-    if (!v) continue;
-    counts.set(v, (counts.get(v) || 0) + 1);
+    const raw = r[facet.key];
+    const values = multi
+      ? (Array.isArray(raw) ? raw : String(raw ?? '').split(' '))
+      : [String(raw ?? facet.fallback ?? '')];
+    for (const value of values) {
+      const v = String(value);
+      if (!v) continue;
+      counts.set(v, (counts.get(v) || 0) + 1);
+    }
   }
   const rank = (v) => {
     const i = order.indexOf(v);
@@ -746,7 +764,7 @@ function facetSelect({ idPrefix, facet, label, rows, labels = {}, order = [] }) 
     `          <option value="${escapeHtml(v)}">${escapeHtml(labels[v] || v)} (${n})</option>`).join('\n');
   return `      <div class="bd-control">
         <label class="bd-label" for="${id}">${escapeHtml(label)}</label>
-        <select class="bd-select" id="${id}" data-bd-facet="${escapeHtml(facet.name)}">
+        <select class="bd-select" id="${id}" data-bd-facet="${escapeHtml(facet.name)}"${multi ? ' data-bd-facet-multi' : ''}>
           <option value="">${t('common.all')}</option>
 ${options}
         </select>
