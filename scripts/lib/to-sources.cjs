@@ -466,16 +466,21 @@ const SOURCES = [
   {
     id: 'de-vergabe',
     name: 'Datenservice Öffentlicher Einkauf (oeffentlichevergabe.de)',
-    platformId: null,
-    operator: 'Beschaffungsamt des BMI (Germany)',
+    platformId: 'de-bekanntmachungsservice',
+    operator: 'Beschaffungsamt des Bundesministeriums des Innern und für Heimat',
     acquisition: 'OFFICIAL_EXPORT',
     endpoint: 'https://oeffentlichevergabe.de/api/notice-exports',
     method: 'GET',
     authRequired: false,
     javascriptRequired: false,
     browserRequired: false,
-    reuse: 'LIKELY_PERMITTED',
-    reuseBasis: 'German federal open notice service; data published for reuse, no restrictive licence found',
+    // Upgraded from LIKELY_PERMITTED in Phase 4. The API does not merely
+    // permit reuse by implication — every OCDS package it emits declares
+    // license https://opendefinition.org/licenses/cc-zero/, a public domain
+    // dedication, alongside publisher "Bekanntmachungsservice" and a
+    // publicationPolicy URL. Declared, machine-readable, per response.
+    reuse: 'PERMITTED',
+    reuseBasis: 'CC0 public domain dedication, declared in every OCDS package the API emits',
     attributionRequired: true,
     storage: 'FULL_METADATA',
     robotsRelevant: false,
@@ -489,30 +494,30 @@ const SOURCES = [
     pageSize: null, // one ZIP archive per published day
     maxPages: 3,
     rateLimitNote: 'One archive per day requested; no published quota.',
-    // ── WHY THIS SOURCE IS READY BUT NOT ACTIVE ─────────────────────────────
+    // ── ACTIVATED IN PHASE 4 ────────────────────────────────────────────────
     //
-    // The adapter is written and verified against 1,153 real releases. It is
-    // not ingesting, and the reason is referential integrity rather than
-    // capability: oeffentlichevergabe.de is NOT in the canonical platforms
-    // collection. The closest record, de-evergabe-bund, is evergabe-online.de
-    // — the federal e-procurement PLATFORM, a different system from the
-    // federal NOTICE SERVICE.
+    // Phase 3 held this source back because oeffentlichevergabe.de had no
+    // canonical platform record, and a source may not mint one. Phase 4 did
+    // the platform research first, in the right order.
     //
-    // Part 43 is explicit that a source must not auto-create a platform, and
-    // the platforms collection has its own evidence standard — operator
-    // verification, evidence class, browser check — that belongs to a
-    // platforms wave, not to a source-expansion phase. Ingesting Germany would
-    // mean either pointing at the wrong platform or minting a record to a
-    // lower standard than the other 382.
+    // The question was whether the Bekanntmachungsservice has platform
+    // identity at all, or is merely an open-data endpoint. It has: it is the
+    // federal notice publication and discovery service, operated by the
+    // Beschaffungsamt des BMI, aggregating federal, Länder, municipal and
+    // Bremen notices — reachable without registration, and carrying no
+    // bidding function. That is precisely the class TED already occupies in
+    // this collection, and de-had at Land level. Suppliers search here and
+    // submit on e-Vergabe or the issuing Land portal, each already a separate
+    // canonical record.
     //
-    // So it waits. This is the single highest-value unblock available to
-    // Phase 4, and it is one platform record away.
-    enabled: false,
-    readyState: 'ADAPTER_READY_PLATFORM_MISSING',
+    // So the record was created to the collection's own standard (evidence
+    // class A, from the service's machine-readable self-declaration), and only
+    // then was this source linked to it.
+    readyState: 'ACTIVE',
     knownRestrictions: [
       'Only ZIP content types are served; application/json returns 406.',
       'The `ocds` variant publishes NO status and NO deadline on any record; the `ocds2` variant must be used.',
-      'No canonical TenderPlatform record exists for this notice service yet.',
+      'A discovery surface, not a bidding platform: the submission route is the issuing platform, not this one.',
     ],
   },
 ];

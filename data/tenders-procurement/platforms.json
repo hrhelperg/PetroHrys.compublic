@@ -15990,5 +15990,44 @@
       "A researcher reported open supplier eligibility without class-A operator evidence and a quotation; recorded as unknown pending verification."
     ],
     "softwareVendor": "In-tend"
+  },
+  {
+    "id": "de-bekanntmachungsservice",
+    "name": "Bekanntmachungsservice (Datenservice Öffentlicher Einkauf)",
+    "officialUrl": "https://oeffentlichevergabe.de/",
+    "country": "germany",
+    "platformType": "national-procurement",
+    "operator": "Beschaffungsamt des Bundesministeriums des Innern und für Heimat",
+    "operatorType": "central-purchasing-body",
+    "procurementScope": "public",
+    "coverage": "national",
+    "currentStatus": "active",
+    "lastVerified": "2026-08-13",
+    "languages": [
+      "de",
+      "en"
+    ],
+    "opportunityTypes": [
+      "award-notice",
+      "contract-notice",
+      "prior-information-notice",
+      "tender"
+    ],
+    "tenderSearchUrl": "https://oeffentlichevergabe.de/ui/de",
+    "supplierRegistrationUrl": null,
+    "submissionUrl": null,
+    "documentsUrl": null,
+    "searchAccess": "free",
+    "electronicSubmission": "no",
+    "supplierRegistrationRequired": "no",
+    "foreignSuppliersAccepted": "unknown",
+    "evidenceClass": "A",
+    "evidenceUrl": "https://oeffentlichevergabe.de/ui/de/publicationPolicy",
+    "evidenceNote": "The service declares its own identity and terms machine-readably: every OCDS package it publishes carries publisher \"Bekanntmachungsservice\", license https://opendefinition.org/licenses/cc-zero/ (CC0) and a publicationPolicy URL. Operated by the Beschaffungsamt des BMI as part of the Datenservice Öffentlicher Einkauf; it aggregates federal (e-Vergabe), Länder, municipal and Bremen notices plus service.bund.de data, and is reachable without registration. Verified 2026-08-13 by retrieving 1,153 real notice releases from its OCDS export.",
+    "browserCheckRequired": true,
+    "limitations": [
+      "A notice publication and discovery service, not a bidding platform: suppliers search here without registering and submit on the platform that issued the notice (e-Vergabe or the relevant Land portal), each of which is a separate record in this collection. Same ontological class as TED.",
+      "The web interface is a JavaScript application whose paths all return HTTP 200 with the same shell, so the specific search route could not be independently distinguished; the machine-readable export was verified directly."
+    ]
   }
 ]

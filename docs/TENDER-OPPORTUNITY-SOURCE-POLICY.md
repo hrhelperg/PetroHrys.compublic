@@ -241,18 +241,27 @@ notices, which gives deduplication a second live cross-source pair.
 
 | | |
 |---|---|
-| Platform | **none — this is why it is not active** |
+| Platform | `de-bekanntmachungsservice` — created in Phase 4, evidence class A |
 | Access | `OFFICIAL_EXPORT` — one ZIP archive per published day |
 | Auth | none |
-| Reuse | **LIKELY_PERMITTED** — federal open notice service, no restrictive licence found |
+| Reuse | **PERMITTED** — CC0 public domain dedication, declared in every OCDS package the API emits |
 | Window | last **3 days**, one archive each |
-| State | `ADAPTER_READY_PLATFORM_MISSING` — written, verified against 1,153 real releases, **not ingesting** |
+| State | **ACTIVE** since Phase 4 |
 
-Blocked on referential integrity, not capability. `oeffentlichevergabe.de` has
-no canonical `TenderPlatform` record; the closest, `de-evergabe-bund`, is
-evergabe-online.de — the federal e-procurement *platform*, a different system
-from the federal *notice service*. Part 43 forbids a source auto-creating a
-platform.
+Activated in Phase 4, in the correct order: platform identity research first,
+canonical record second, source link third, ingestion fourth.
+
+The service is a **notice publication and discovery service**, not a bidding
+platform — reachable without registration, aggregating federal, Länder,
+municipal and Bremen notices. It qualifies as a platform on the TED precedent:
+TED is likewise search-only with no submission route and has been a canonical
+record since Wave T1. Bidding happens on e-Vergabe or the issuing Land portal,
+each already a separate record, and the notice service did not absorb them.
+
+Contributed 1,058 records, **874 of them (83%) existing nowhere else in the
+corpus** — below-threshold and national-only procurement that never reaches the
+Official Journal. 184 merged with TED. Full analysis in
+`TENDER-OPPORTUNITY-PHASE4.md`.
 
 Two probe findings worth recording:
 
