@@ -46,6 +46,7 @@ const SCHEMA = require('./lib/to-schema.cjs');
 const SNAP = require('./lib/to-snapshot.cjs');
 const DEDUPE = require('./lib/to-dedupe.cjs');
 const CORPUS = require('./lib/to-corpus.cjs');
+const STATE = require('./lib/to-state.cjs');
 const TP = require('./lib/tp-schema.cjs');
 
 const ROOT = path.join(__dirname, '..');
@@ -253,13 +254,38 @@ async function main() {
 //
 // Returns { canonical, input, written }.
 function rebuildCorpus({ nowIso, dryRun = false, log: out = defaultLog }) {
+  // ── LAST-GOOD COMES FROM THE COMMITTED CORPUS, NOT ONLY FROM SNAPSHOTS ────
+  //
+  // Snapshots are gitignored, so a fresh clone — which is what a CI runner is
+  // — has none. Reading snapshots alone produced "0 canonical opportunities.
+  // written." on a fresh checkout: a scheduled job would have destroyed the
+  // whole corpus on its first run and reported success.
+  //
+  // The committed corpus already holds every promoted record with its source
+  // and occurrence provenance, so it IS the durable last-good store. A source
+  // with a fresh snapshot contributes that; a source without one contributes
+  // what it contributed last time.
+  const existing = fs.existsSync(CORPUS_FILE)
+    ? CORPUS.decode(JSON.parse(fs.readFileSync(CORPUS_FILE, 'utf8'))) : null;
+  const lastGood = STATE.lastGoodBySource(existing);
+
   const all = [];
+  const provenance = {};
   for (const s of SOURCES.SOURCES) {
     const snap = readJson(path.join(SNAPSHOT_DIR, `${s.id}.json`), null);
-    if (snap && Array.isArray(snap.records)) all.push(...snap.records);
+    if (snap && Array.isArray(snap.records)) {
+      all.push(...snap.records);
+      provenance[s.id] = { from: 'snapshot', records: snap.records.length };
+    } else if (lastGood.has(s.id)) {
+      const retained = lastGood.get(s.id);
+      all.push(...retained);
+      provenance[s.id] = { from: 'retained-last-good', records: retained.length };
+      out(`  · ${s.id}: no fresh snapshot; retaining ${retained.length} last-good record(s) from the corpus.`);
+    }
   }
 
   const { canonical, stats, possible } = DEDUPE.dedupe(all);
+  stats.provenance = provenance;
 
   const corpus = CORPUS.encode({
     generatedAt: nowIso,
@@ -288,6 +314,22 @@ function rebuildCorpus({ nowIso, dryRun = false, log: out = defaultLog }) {
     opportunities: canonical,
   });
 
+  // ── PHASE B: THE CORPUS-LEVEL PROMOTION GATE ─────────────────────────────
+  //
+  // Source-level validation decides whether one snapshot may be promoted. It
+  // cannot see the corpus. This gate can, and it is the last thing standing
+  // between a plausible-looking set of source promotions and a published
+  // corpus that has lost most of its tenders.
+  const verdict = corpusPromotionProblems(canonical, existing);
+  if (verdict.length) {
+    out('\n  ✗ CORPUS PROMOTION REFUSED:');
+    for (const v of verdict) out(`      ${v}`);
+    out('    The previously published corpus remains in place.');
+    return {
+      canonical: stats.canonical, input: stats.input, written: false, stats, refused: verdict,
+    };
+  }
+
   let written = false;
   if (!dryRun) written = writeCorpusIfFactsChanged(corpus);
   out(`\nCorpus: ${stats.canonical} canonical opportunities from ${stats.input} source records `
@@ -295,6 +337,41 @@ function rebuildCorpus({ nowIso, dryRun = false, log: out = defaultLog }) {
     + `${stats.possiblePairs} possible duplicate(s) left separate). `
     + `${dryRun ? 'dry run' : (written ? 'written' : 'unchanged')}.`);
   return { canonical: stats.canonical, input: stats.input, written, stats };
+}
+
+// Refuse to publish a corpus that has collapsed against the one already
+// published. Deliberately not a percentage tuned to look clever: the failure
+// this catches is catastrophic loss, and the shapes that produce it — an empty
+// rebuild, a source layer that returned nothing, a decode that silently failed
+// — all land far below any sane floor.
+//
+// A genuine decline is allowed. Procurement volume falls over Christmas, and a
+// window narrowing is an operator's decision. Losing three quarters of the
+// corpus is not either of those.
+const CORPUS_COLLAPSE_FLOOR = 0.5;
+const CORPUS_MIN_RECORDS = 100;
+
+function corpusPromotionProblems(candidate, existing) {
+  const problems = [];
+  if (!Array.isArray(candidate)) return ['candidate corpus is not an array'];
+  if (candidate.length < CORPUS_MIN_RECORDS) {
+    problems.push(`candidate corpus holds only ${candidate.length} opportunities `
+      + `(floor ${CORPUS_MIN_RECORDS}) — this is the shape of a rebuild from nothing`);
+  }
+  const prior = existing && Array.isArray(existing.opportunities) ? existing.opportunities.length : 0;
+  if (prior >= CORPUS_MIN_RECORDS) {
+    const floor = Math.floor(prior * CORPUS_COLLAPSE_FLOOR);
+    if (candidate.length < floor) {
+      problems.push(`candidate corpus collapsed from ${prior} to ${candidate.length} `
+        + `opportunities (floor ${floor})`);
+    }
+  }
+  // Every record must still resolve to a canonical platform. A corpus that
+  // validates per-source can still be wrong as a whole.
+  const known = knownPlatformIds();
+  const orphans = candidate.filter((o) => !known.has(o.sourcePlatformId));
+  if (orphans.length) problems.push(`${orphans.length} opportunity(ies) reference an unknown platform`);
+  return problems;
 }
 
 // ── PART 21: A REFRESH THAT CHANGED NOTHING WRITES NOTHING ──────────────────
@@ -349,4 +426,5 @@ if (require.main === module) {
 module.exports = {
   ADAPTER_VERSION, stableStringify, ingestSource, rebuildCorpus,
   knownPlatformIds, knownCountrySlugs, maskTimestamps, writeCorpusIfFactsChanged,
+  corpusPromotionProblems, CORPUS_COLLAPSE_FLOOR, CORPUS_MIN_RECORDS,
 };

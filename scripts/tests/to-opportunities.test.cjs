@@ -1835,3 +1835,239 @@ mutate('P4: public counts are derived, never hardcoded', () => {
   assert.ok(!/\b(9|10) sources\b|\b\d{4,} (tenders|opportunities)\b/.test(src),
     'a count is hardcoded in the generator');
 });
+
+// ── PHASE 5: PRODUCTION REFRESH ─────────────────────────────────────────────
+
+const P5STATE = require('../lib/to-state.cjs');
+
+test('P5-1. last-good survives a clone that has never seen a snapshot', () => {
+  // The bug this guards: snapshots are gitignored, so a CI runner has none,
+  // and reading snapshots alone rebuilt the corpus to ZERO and wrote it.
+  const lastGood = P5STATE.lastGoodBySource(CORPUS);
+  assert.ok(lastGood.size >= 9, `only ${lastGood.size} sources reconstructable from the corpus`);
+  let total = 0;
+  for (const [sourceId, recs] of lastGood) {
+    assert.ok(recs.length > 0, `${sourceId} reconstructed to nothing`);
+    total += recs.length;
+    for (const r of recs.slice(0, 20)) {
+      assert.strictEqual(r.sourceId, sourceId);
+      assert.ok(r.sourceNoticeId, `${sourceId}: a reconstructed record lost its notice id`);
+      assert.ok(r.sourceUrl, `${sourceId}: a reconstructed record lost its source URL`);
+      assert.ok(r.id.startsWith(`${sourceId}:`), `${sourceId}: reconstructed id is not source-scoped`);
+    }
+  }
+  // A merged opportunity must return a record to EVERY source that published
+  // it, or one side is deleted the first time the other refreshes alone.
+  const multi = O.find((o) => o.multiSource);
+  assert.ok(multi, 'no multi-source opportunity to test against');
+  for (const occ of multi.occurrences) {
+    assert.ok(lastGood.get(occ.sourceId).some((r) => r.sourceNoticeId === occ.sourceNoticeId),
+      `${occ.sourceId} lost its side of a merged opportunity`);
+  }
+  assert.ok(total >= O.length, 'reconstruction lost records overall');
+});
+
+test('P5-2. the corpus promotion gate refuses a collapse', () => {
+  const existing = { opportunities: new Array(9000).fill(null).map((_, i) => ({ id: `x${i}`, sourcePlatformId: 'eu-ted' })) };
+  const healthy = new Array(8800).fill(null).map((_, i) => ({ id: `y${i}`, sourcePlatformId: 'eu-ted' }));
+  assert.deepStrictEqual(INGEST.corpusPromotionProblems(healthy, existing), [],
+    'a normal refresh was refused');
+  // Zero — the fresh-clone bug's actual output.
+  const empty = [];
+  assert.ok(INGEST.corpusPromotionProblems(empty, existing).length > 0, 'an empty corpus was promotable');
+  // A catastrophic but non-zero collapse.
+  const collapsed = new Array(500).fill(null).map((_, i) => ({ id: `z${i}`, sourcePlatformId: 'eu-ted' }));
+  assert.ok(INGEST.corpusPromotionProblems(collapsed, existing).some((p) => /collapsed/.test(p)));
+  // An orphaned platform reference is a corpus-level fault a per-source check
+  // cannot see.
+  const orphaned = healthy.map((o) => ({ ...o, sourcePlatformId: 'nope' }));
+  assert.ok(INGEST.corpusPromotionProblems(orphaned, existing).some((p) => /unknown platform/.test(p)));
+});
+
+test('P5-3. durable state is committed, small, and free of secrets', () => {
+  const file = 'data/tender-opportunities/refresh-state.json';
+  assert.ok(fs.existsSync(path.join(ROOT, file)), 'no durable refresh state on disk');
+  const raw = read(file);
+  const state = JSON.parse(raw);
+  assert.ok(state.sources && Object.keys(state.sources).length > 0, 'durable state carries no sources');
+  // It must survive a fresh clone, which means it must be tracked.
+  assert.ok(!/refresh-state\.json/.test(read('.gitignore')), 'durable state is gitignored');
+  // Small: this is operational memory, not a second copy of the corpus.
+  assert.ok(raw.length < 20000, `durable state is ${raw.length} bytes — it is holding data it should not`);
+  assert.ok(!/records|opportunities"\s*:\s*\[/.test(raw), 'durable state contains record data');
+  // No credentials, ever.
+  assert.ok(!/token|secret|api[_-]?key|authorization|bearer/i.test(raw), 'durable state may contain a credential');
+  for (const s of Object.values(state.sources)) {
+    assert.ok(['COMPLETE', 'PARTIAL', 'UNKNOWN'].includes(s.completeness),
+      `${s.sourceId}: completeness "${s.completeness}" is not a declared value`);
+  }
+});
+
+test('P5-4. completeness is never upgraded by transport success', () => {
+  const state = JSON.parse(read('data/tender-opportunities/refresh-state.json'));
+  const wb = state.sources.worldbank;
+  if (wb) {
+    // The World Bank window is bounded by design and can never be COMPLETE,
+    // however many successful fetches it strings together.
+    assert.strictEqual(wb.completeness, 'PARTIAL',
+      'a deliberately bounded window was upgraded to COMPLETE by a successful fetch');
+    assert.strictEqual(wb.promoted, true, 'the precondition — a successful fetch — did not happen');
+  }
+  // And the corpus agrees.
+  const live = CORPUS.sources.find((s) => s.id === 'worldbank');
+  if (live) assert.strictEqual(live.complete, false);
+});
+
+test('P5-5. a refresh that changed no fact writes no durable state', () => {
+  const state = P5STATE.read();
+  const bumped = JSON.parse(JSON.stringify(state));
+  for (const s of Object.values(bumped.sources)) s.lastAttemptAt = '2099-01-01T00:00:00.000Z';
+  assert.deepStrictEqual(P5STATE.factualState(bumped), P5STATE.factualState(state),
+    'an attempt timestamp alone counts as a factual change');
+  // A real operational change must still be visible.
+  const degraded = JSON.parse(JSON.stringify(state));
+  const first = Object.keys(degraded.sources)[0];
+  degraded.sources[first].state = 'DEGRADED';
+  assert.notDeepStrictEqual(P5STATE.factualState(degraded), P5STATE.factualState(state),
+    'a health change was masked away');
+});
+
+test('P5-6. the refresh lock prevents a second concurrent run', () => {
+  const now = '2026-08-13T12:00:00.000Z';
+  const held = { pid: 999999, startedAt: now };
+  fs.mkdirSync(path.dirname(REFRESH.LOCK_FILE), { recursive: true });
+  const had = fs.existsSync(REFRESH.LOCK_FILE) ? fs.readFileSync(REFRESH.LOCK_FILE, 'utf8') : null;
+  try {
+    fs.writeFileSync(REFRESH.LOCK_FILE, JSON.stringify(held));
+    const blocked = REFRESH.acquireLock({ nowIso: now });
+    assert.strictEqual(blocked.ok, false, 'a second refresh acquired the lock');
+    assert.strictEqual(blocked.held.pid, 999999);
+    // A dead holder must not lock the repository forever.
+    const later = new Date(Date.parse(now) + REFRESH.LOCK_STALE_MS + 60000).toISOString();
+    const reclaimed = REFRESH.acquireLock({ nowIso: later });
+    assert.strictEqual(reclaimed.ok, true, 'a stale lock was never reclaimable');
+    assert.ok(reclaimed.reclaimed, 'reclaiming a stale lock happened silently');
+  } finally {
+    if (had) fs.writeFileSync(REFRESH.LOCK_FILE, had); else REFRESH.releaseLock();
+  }
+});
+
+test('P5-7. the workflow is thin, scoped, and cannot be raced', () => {
+  const wf = read('.github/workflows/tender-opportunity-refresh.yml');
+  // One at a time, and never cancelled mid-promotion.
+  assert.match(wf, /concurrency:/);
+  assert.match(wf, /cancel-in-progress:\s*false/,
+    'cancelling a refresh mid-promotion is how a half-written corpus reaches a branch');
+  // Least privilege.
+  assert.match(wf, /permissions:/);
+  assert.ok(!/permissions:\s*write-all/.test(wf), 'the workflow grants write-all');
+  for (const forbidden of ['administration:', 'packages:', 'deployments:', 'id-token:']) {
+    assert.ok(!wf.includes(forbidden), `the workflow requests ${forbidden}`);
+  }
+  // Never triggered by untrusted code with write credentials.
+  assert.ok(!/pull_request_target/.test(wf), 'pull_request_target with write permissions');
+  assert.ok(!/on:\s*\n\s*pull_request/.test(wf), 'refresh runs on pull_request');
+  // No secrets: all ten sources are keyless.
+  assert.ok(!/secrets\.(?!GITHUB_TOKEN)/.test(wf), 'the workflow references a repository secret');
+  // Thin: orchestration lives in Node, not YAML.
+  assert.match(wf, /node scripts\/refresh-tender-opportunities\.cjs/);
+  assert.ok(!/for source in|adapters|dedupe|normalize/i.test(wf), 'business logic leaked into YAML');
+  // Never force-push main.
+  assert.ok(!/push --force[^-]/.test(wf), 'an unguarded force push is present');
+  assert.ok(!/force-with-lease origin main|push --force origin main/.test(wf), 'the workflow can force-push main');
+  assert.match(wf, /force-with-lease/, 'the machine branch push is not lease-guarded');
+  // The refresh branch is rebuilt from main, so a stale bot branch cannot win.
+  assert.match(wf, /checkout -B/, 'the refresh branch is not reset from main');
+  assert.match(wf, /timeout-minutes:/, 'the job has no time bound');
+});
+
+test('P5-8. the build still cannot reach the network after Phase 5', () => {
+  const strip = (s) => s.replace(/^\s*\/\/.*$/gm, '');
+  for (const rel of ['scripts/build-tender-opportunities.cjs', 'scripts/build-tenders-procurement.cjs',
+    'scripts/build-tenders-intelligence.cjs']) {
+    const src = strip(read(rel));
+    for (const forbidden of ['to-http', 'refresh-tender-opportunities', 'to-adapters', 'to-zip']) {
+      assert.ok(!new RegExp(`require\\([^)]*${forbidden}`).test(src), `${rel} requires ${forbidden}`);
+    }
+  }
+  // to-state is shared between ingestion and rebuild, so it must itself stay
+  // network-free rather than being exempted.
+  assert.ok(!/\bfetch\s*\(|require\('node:https?'\)/.test(read('scripts/lib/to-state.cjs')),
+    'the durable-state module can reach the network');
+});
+
+// ── PHASE 5 MUTATIONS ───────────────────────────────────────────────────────
+
+mutate('P5-M1: a failed candidate cannot replace last-good', () => {
+  const previous = { recordCount: 500, records: new Array(500).fill(null).map((_, i) => ({ id: `a${i}`, sourceId: 'ted', sourceNoticeId: `${i}`, sourceUrl: 'https://x/' })) };
+  const bad = { recordCount: 0, records: [] };
+  assert.strictEqual(SNAP.validateReplacement(bad, previous).accept, false);
+  assert.strictEqual(previous.records.length, 500, 'the previous snapshot was mutated');
+});
+
+mutate('P5-M2: a rebuild from nothing cannot be promoted', () => {
+  // The exact failure measured on a fresh clone before Phase 5.
+  const existing = { opportunities: O };
+  assert.ok(INGEST.corpusPromotionProblems([], existing).length > 0,
+    'a zero-record corpus was promotable — the fresh-clone bug is back');
+});
+
+mutate('P5-M3: 429 is not HEALTHY', () => {
+  const e = HEALTH.recordAttempt({ consecutiveFailures: 0, lastSuccessfulAt: NOW, lastSuccessfulRecordCount: 33 },
+    { sourceId: 'x', nowIso: NOW, result: 'FAILURE', errorClass: 'RATE_LIMITED' });
+  assert.notStrictEqual(e.state, 'HEALTHY');
+  assert.strictEqual(e.state, 'RATE_LIMITED');
+  assert.strictEqual(e.lastSuccessfulRecordCount, 33, 'the retained count was lost');
+});
+
+mutate('P5-M4: completeness cannot be upgraded by a successful fetch', () => {
+  const partial = SNAP.buildSnapshot({
+    source: SOURCES.SOURCE_BY_ID.get('worldbank'),
+    adapterVersion: '1.0.0', retrievedAt: NOW,
+    fetchResult: { raw: new Array(1000), pages: 10, population: 414892, complete: false, endpoint: 'x' },
+    records: new Array(1000).fill(null).map((_, i) => ({ id: `w${i}` })),
+  });
+  assert.strictEqual(partial.complete, false, 'a bounded window became complete on a 200');
+});
+
+mutate('P5-M5: two concurrent promotions cannot both proceed', () => {
+  const now = '2026-08-13T12:00:00.000Z';
+  const had = fs.existsSync(REFRESH.LOCK_FILE) ? fs.readFileSync(REFRESH.LOCK_FILE, 'utf8') : null;
+  try {
+    fs.mkdirSync(path.dirname(REFRESH.LOCK_FILE), { recursive: true });
+    fs.writeFileSync(REFRESH.LOCK_FILE, JSON.stringify({ pid: 1, startedAt: now }));
+    assert.strictEqual(REFRESH.acquireLock({ nowIso: now }).ok, false);
+  } finally {
+    if (had) fs.writeFileSync(REFRESH.LOCK_FILE, had); else REFRESH.releaseLock();
+  }
+});
+
+mutate('P5-M6: a stale refresh branch cannot overwrite newer main', () => {
+  const wf = read('.github/workflows/tender-opportunity-refresh.yml');
+  // Two independent protections: the branch is reset from the main just
+  // checked out, and the push is lease-guarded.
+  assert.match(wf, /ref:\s*main/);
+  assert.match(wf, /checkout -B/);
+  assert.match(wf, /--force-with-lease/);
+  assert.ok(!/git push .*origin main/.test(wf), 'the workflow pushes to main');
+});
+
+mutate('P5-M7: source health cannot mutate an opportunity fact', () => {
+  const state = P5STATE.read();
+  const anySource = Object.keys(state.sources)[0];
+  assert.ok(anySource, 'no durable state to test with');
+  const o = fixture();
+  const before = JSON.stringify(o);
+  const scored = MATCH.matchFor(o, 'telecom', { nowIso: NOW });
+  assert.strictEqual(JSON.stringify(o), before, 'matching mutated the opportunity');
+  // And no scoring path reads durable state.
+  assert.ok(!/to-state|refresh-state|consecutiveFailures/.test(read('scripts/lib/to-match.cjs')));
+  assert.ok(scored.score >= 0);
+});
+
+mutate('P5-M8: the match model and canonical platform data did not move in an ops phase', () => {
+  assert.deepStrictEqual(MATCH.WEIGHTS,
+    { category: 40, geography: 20, actionability: 15, deadline: 15, confidence: 10 });
+  const platforms = JSON.parse(read('data/tenders-procurement/platforms.json'));
+  assert.strictEqual(platforms.length, 384, 'the platform count changed during an operations phase');
+});

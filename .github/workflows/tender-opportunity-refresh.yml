@@ -1,0 +1,206 @@
+# Scheduled refresh of the Tender Opportunity corpus.
+#
+# ── WHY THIS IS THE FIRST WORKFLOW IN THE REPOSITORY ────────────────────────
+#
+# PetroHrys.com is static files with no build step, so it has never needed CI.
+# This workflow exists for one reason: ten procurement sources refreshed by
+# hand go stale, and two of them failed unprompted during Phase 4.
+#
+# ── WHY IT DOES NOT COMMIT TO MAIN ─────────────────────────────────────────
+#
+# Four promotion models were considered (see docs/TENDER-OPPORTUNITY-PHASE5.md).
+# This is Model B: refresh a machine-owned branch, open a PR, leave the merge
+# to a human.
+#
+# Direct-to-main was rejected on a specific, measured risk rather than a
+# feeling. The corpus is a 10 MB single file. A bot committing it directly
+# would, on any day a human is also working, produce a conflict on a file no
+# human can meaningfully resolve by hand — and the tempting fix for that is a
+# force push, which would destroy work. A PR costs one click and removes the
+# entire class of failure.
+#
+# The validation gate below is strong enough that auto-merge would probably be
+# safe. It is deliberately not enabled: the gate can prove the data is
+# STRUCTURALLY sound, and cannot prove a procurement source has not started
+# publishing subtly wrong facts. That last judgement stays with a person until
+# there is evidence it can be automated away.
+#
+# ── WHAT KEEPS IT SAFE ─────────────────────────────────────────────────────
+#
+#   concurrency        one refresh at a time, never cancelled mid-promotion
+#   permissions        contents + pull-requests write, nothing else
+#   no secrets         all ten sources are keyless by design
+#   branch reset       the refresh branch is rebuilt from current main each run,
+#                      so a stale bot branch can never overwrite newer work
+#   no-change exit     a refresh that changed no fact opens no PR
+
+name: Tender Opportunity refresh
+
+on:
+  schedule:
+    # 05:40 UTC daily. Chosen from the sources, not from habit: TED, BOAMP,
+    # TenderNed and the German Bekanntmachungsservice all publish on business
+    # mornings in CET/CEST, so an early-UTC run catches the previous day
+    # complete. The odd minute avoids the top-of-hour scheduling crush that
+    # makes GitHub's scheduler drift.
+    - cron: '40 5 * * *'
+  workflow_dispatch:
+    inputs:
+      source:
+        description: 'Single source id to refresh (blank = all)'
+        required: false
+        type: string
+      dry_run:
+        description: 'Fetch and validate, promote nothing'
+        required: false
+        type: boolean
+        default: false
+
+# One production refresh at a time. cancel-in-progress is deliberately FALSE:
+# cancelling a job that is mid-promotion is exactly how a half-written corpus
+# reaches a branch. A queued run waits; it does not race.
+concurrency:
+  group: tender-opportunity-refresh
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    # The full ten-source refresh measured ~57 seconds. This is generous
+    # headroom for a slow source, and still bounded so a hung endpoint cannot
+    # hold a runner for six hours.
+    timeout-minutes: 20
+
+    steps:
+      - name: Check out main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          # Full history: the promotion step compares against main, and a
+          # shallow clone cannot.
+          fetch-depth: 0
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          # The project has no package.json and no dependencies by design.
+          # Node 20 is the floor for the fetch() and zlib APIs the ingester uses.
+          node-version: '20'
+
+      - name: Baseline tests
+        # If the repository is already broken, a refresh must not run. This is
+        # cheap (~5s) and prevents a bad main from being blamed on the data.
+        run: node --test "scripts/tests/*.test.cjs"
+
+      - name: Refresh sources
+        id: refresh
+        # The YAML stays thin on purpose. All orchestration — fetching,
+        # validation, promotion decisions, health, last-good retention — lives
+        # in the Node orchestrator, which is testable and runnable locally.
+        # Duplicating any of it here would create a second implementation that
+        # only ever runs in CI.
+        run: |
+          node scripts/refresh-tender-opportunities.cjs \
+            ${{ inputs.source && format('--source {0}', inputs.source) || '--all' }} \
+            ${{ inputs.dry_run && '--dry-run' || '' }}
+
+      - name: Rebuild generated pages
+        if: ${{ !inputs.dry_run }}
+        # Offline by construction: the generators read the committed corpus and
+        # a test asserts they cannot reach the network.
+        run: |
+          node scripts/build-tenders-procurement.cjs
+          node scripts/build-tenders-intelligence.cjs
+          node scripts/build-tender-opportunities.cjs
+
+      - name: Validation gate
+        if: ${{ !inputs.dry_run }}
+        # The full suite again, now against the refreshed data. This is the
+        # gate that decides whether the new corpus is publishable: schema,
+        # provenance, dedup, lot safety, PII, determinism, canonical drift.
+        run: node --test "scripts/tests/*.test.cjs"
+
+      - name: Determinism check
+        if: ${{ !inputs.dry_run }}
+        # A second generator pass must write nothing. If it does, the output is
+        # not deterministic and must not be promoted.
+        run: |
+          node scripts/build-tenders-procurement.cjs > /tmp/pass2a.log
+          node scripts/build-tenders-intelligence.cjs > /tmp/pass2b.log
+          node scripts/build-tender-opportunities.cjs > /tmp/pass2c.log
+          if grep -qE '[1-9][0-9]* written' /tmp/pass2a.log /tmp/pass2b.log /tmp/pass2c.log; then
+            echo "Second pass wrote files — output is not deterministic."
+            cat /tmp/pass2a.log /tmp/pass2b.log /tmp/pass2c.log
+            exit 1
+          fi
+
+      - name: Detect factual change
+        if: ${{ !inputs.dry_run }}
+        id: changed
+        run: |
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "No factual change — nothing to promote."
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            git status --porcelain
+          fi
+
+      - name: Open promotion PR
+        if: ${{ !inputs.dry_run && steps.changed.outputs.changed == 'true' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+          STATUS: ${{ steps.refresh.outputs.status }}
+          PROMOTED: ${{ steps.refresh.outputs.promoted }}
+          RETAINED: ${{ steps.refresh.outputs.retained }}
+          CANONICAL: ${{ steps.refresh.outputs.canonical }}
+        run: |
+          set -euo pipefail
+          BRANCH="data/tender-opportunity-refresh"
+          # The refresh branch is RESET from the main we checked out, never
+          # merged into. A bot branch that has drifted behind main cannot
+          # therefore overwrite newer work: it is rebuilt from it.
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -B "$BRANCH"
+          git add -A
+          git commit -m "data(tenders): refresh opportunity corpus
+
+          status: ${STATUS}
+          sources promoted: ${PROMOTED}
+          sources retaining last-good: ${RETAINED}
+          canonical opportunities: ${CANONICAL}"
+          # force-with-lease, scoped to a branch no human works on: it refuses
+          # if someone else has moved the branch since we read it.
+          git push --force-with-lease origin "$BRANCH"
+          if [ -z "$(gh pr list --head "$BRANCH" --state open --json number --jq '.[].number')" ]; then
+            gh pr create --head "$BRANCH" --base main \
+              --title "data(tenders): scheduled opportunity refresh" \
+              --body "Automated refresh of the Tender Opportunity corpus.
+
+          - status: **${STATUS}**
+          - sources promoted: ${PROMOTED}
+          - sources retaining last-good: ${RETAINED}
+          - canonical opportunities: ${CANONICAL}
+
+          The full test suite, the determinism check and the corpus promotion
+          gate all passed before this branch was pushed. Review the source
+          health summary in \`data/tender-opportunities/refresh-state.json\`
+          before merging."
+          fi
+
+      - name: Run summary
+        if: always()
+        run: |
+          {
+            echo "### Tender Opportunity refresh"
+            echo ""
+            echo "- status: ${{ steps.refresh.outputs.status || 'unknown' }}"
+            echo "- promoted: ${{ steps.refresh.outputs.promoted || '-' }}"
+            echo "- retaining last-good: ${{ steps.refresh.outputs.retained || '-' }}"
+            echo "- canonical opportunities: ${{ steps.refresh.outputs.canonical || '-' }}"
+          } >> "$GITHUB_STEP_SUMMARY"
