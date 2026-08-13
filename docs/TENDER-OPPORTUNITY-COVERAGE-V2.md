@@ -746,3 +746,158 @@ well. Corpus 10.7 MB → **18.2 MB**.
 added, the Discovery index needs a size strategy — a narrower record projection,
 a split index, or server-side search. That is a Discovery decision and it should
 not be made by quietly changing what Search does to accommodate new data.
+
+---
+
+# C2 — Poland BZP ACTIVE
+
+**POLAND_UNIQUE_CURRENT = 5,426.** **POLAND_TED_OVERLAP = 0.**
+**POLAND_BELOW_EU_UNIQUE_CURRENT = 5,426 — every single record.**
+
+Source #2 of the European national wave is active.
+
+## The hypothesis, and what the measurement did to it
+
+Poland was selected because C1 showed 577 current Polish opportunities, 100% of
+them arriving through TED, and because BZP states per notice whether a
+procurement is below the EU publication threshold. Below-threshold procurement
+is not required to be published in TED and largely is not — that was the
+argument for expecting unique value.
+
+It held, completely. Of 5,977 notices walked, **5,977 carry
+`isTenderAmountBelowEU: true`**. Not most: all of them. The native BZP contract
+notice IS the below-threshold instrument, and the above-threshold Polish
+procurement on the same board is TED's own notices mirrored back, which this
+adapter excludes at the query.
+
+Overlap with TED after canonical dedup is **zero**, measured rather than
+assumed, and that is the expected consequence rather than a lucky result.
+
+## A → B → C1 → C2
+
+| | B (pre-wave) | C1 (SAM) | C2 (Poland) |
+|---|---|---|---|
+| canonical | 9,577 | 20,088 | **26,065** |
+| current | 6,964 | 17,475 | **22,901** |
+| active sources | 10 | 11 | **12** |
+| buyers (all) | 5,324 | 6,314 | **9,568** |
+| buyers (current) | 5,324 | 5,161 | **8,194** |
+| records with an official classification | 5,869 | 16,380 | **21,806** |
+| distinct CPV codes | 2,783 | 2,783 | **3,673** |
+| CPV-coded records | 3,861 | 3,861 | **9,287** |
+
+Poland adds **+5,426 current opportunities and +3,254 buyers**. It is the
+second largest unique contributor in the corpus:
+
+```
+sam-gov  10,511    pl-bzp  5,426    ted       2,748    secop2      1,287
+canadabuys  915    de-vergabe 441   uk-fts      336    boamp         332
+worldbank   297    tenderned  207   za-etenders  46    uk-contracts-finder 29
+```
+
+## Sectors — four of the five priority gaps closed
+
+The 19-sector methodology was not touched. What changed is the data underneath
+it, and below-threshold municipal procurement is exactly the kind that fills
+the categories a supranational aggregator under-represents.
+
+| sector | C1 | C2 | status change |
+|---|---|---|---|
+| telecom | 106 | **291** | WEAK / PRIORITY_2 → ADEQUATE / SUFFICIENT |
+| security-defence | 132 | **200** | WEAK / PRIORITY_2 → ADEQUATE / SUFFICIENT |
+| chemicals-materials | 86 | **161** | WEAK / PRIORITY_2 → ADEQUATE / SUFFICIENT |
+| environment | 332 | **435** | ADEQUATE / PRIORITY_3 → STRONG / SUFFICIENT |
+| textiles-ppe | 74 | **112** | WEAK / PRIORITY_2 — **still the one remaining gap** |
+| construction | 1,562 | 4,961 | STRONG |
+| electronics-electrical | 287 | 626 | ADEQUATE → STRONG |
+
+**textiles-ppe is now the only WEAK sector in the corpus.**
+
+## Source concentration — reduced, and honestly still concentrated
+
+Poland's single-source share went from **100% to 90.4%**, with three sources
+now publishing Polish opportunities instead of two, and 6,003 current records
+where there were 577.
+
+That is a real reduction and it is not a solved problem. The dependency has
+moved rather than dissolved: Poland is no longer dependent on TED, it is now
+90.4% dependent on BZP. Adding a national source ten times the size of the TED
+slice necessarily makes the national source dominant. The count of countries
+above the 90% band with at least 100 current opportunities is **unchanged at
+nine** — Poland is still in it, barely.
+
+Saying "we fixed Poland's single-source dependency" would be wrong. What was
+fixed is that Polish coverage no longer disappears if TED has a bad week.
+
+## Qualification — the gate Spain failed
+
+The unfiltered board is a chronological stream over the entire archive:
+**3,272,748 notices, ten per page, 327,275 pages**. Walking it would be Spain's
+failure at a hundred times the scale.
+
+But the board accepts a DEADLINE filter, and that changes the question.
+Requesting notices whose offer-submission date is today or later, ordered by
+publication date ascending, returns on its FIRST PAGE a tender published
+**2022-08-12** closing 2026-12-11. An old, still-open tender is reachable in one
+request. The current universe is addressable directly.
+
+**Window: FULL_CURRENT_WINDOW**, exhaustible — 598 pages, and the walk agreed
+with the count the server reports (5,977 against 5,976, the difference being
+notices published during the walk itself and appended past the read point,
+which is why the traversal is ascending and not descending).
+
+Platform `pl-ezamowienia` already existed and was not minted.
+Reuse: **LIKELY_PERMITTED** — statutory register under the Polish Act on Open
+Data and Reuse of Public Sector Information (2021), implementing Directive (EU)
+2019/1024; `robots.txt` declares no restriction. Classified the same way
+TenderNed is, and for the same reason: the framework is clear and the API
+carries no licence text to point at.
+
+## What the source actually gives
+
+5,977 records: 5,426 OPEN, 551 CLOSED. **100% carry CPV** (2,607 distinct
+codes), **100% carry a NUTS voivodeship across all 16** of Poland's regions,
+**100% have an INSTANT deadline** with an explicit UTC offset, and every one has
+an official notice URL. 3,368 buyers from one source.
+
+Two things are deliberately not ingested. The **4,763 TED notices mirrored onto
+the Polish board** as `eforms-16`/`eforms-17` — importing them would duplicate
+TED with worse metadata and then need deduplication to undo. And **procurement
+plans**, which announce an intention rather than a tender.
+
+## The notice URL, which had to be read rather than guessed
+
+eZamówienia is an Angular SPA: every path returns the same 2,343-byte shell,
+and a real notice id and a fabricated one produce **byte-identical responses**.
+A constructed link could not be verified by fetching it, and a wrong pattern
+would give 5,426 records a dead link with nothing to detect it.
+
+So the route table was read out of the application's own lazy-loaded bundle:
+
+```
+path: "tender-details/:noticeNumber"
+path: "notice-details/:noticeNumber"
+path: "notice-details/id/:noticeId"
+
+planOptionsDictionary.find(t => t.value === e.noticeType)
+  ? navigate(["bzp","tender-details", e.noticeNumber])
+  : redirectTo(["bzp","notice-details","id", e.noticeId])
+```
+
+The first branch is for plan notices; a contract notice resolves through
+`notice-details`, keyed by **notice number**. The first draft of this adapter
+had guessed `notice-details/{objectId}` — wrong in the parameter, and for plan
+notices wrong in the path too.
+
+## Rate — the source stated it, and we slowed down
+
+The server caps a page at ten records and ignores every attempt to raise it
+(`PageSize`, `pageSize`, `Size`, `Limit`, `PerPage` were each tried). One
+refresh is therefore ~600 requests.
+
+Two full walks inside twenty minutes were refused at the transport layer. The
+fail-closed machinery did exactly what it exists for — **the previous snapshot
+was retained, the corpus rebuilt from it at full size, and the run reported
+DEGRADED rather than success** — and the response was to add a 1,200 ms
+per-host gap, not to retry harder. That is the find-tender precedent: a service
+refusing traffic is a service telling you its rate.

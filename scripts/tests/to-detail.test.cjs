@@ -357,7 +357,7 @@ test('the layer reaches no network and is deterministic', () => {
 test('canonical facts are unchanged by this phase', () => {
   const fp = (rel) => require('node:crypto').createHash('sha256')
     .update(fs.readFileSync(path.join(ROOT, rel))).digest('hex').slice(0, 8);
-  // ── PIN MOVED: 9754062f -> 3898183f, Expansion v2 / SAM.gov activation ────
+  // ── PIN MOVED: 9754062f -> 3c341d60, Expansion v2 / SAM.gov activation ────
   //
   // Two intended changes, both recorded rather than absorbed:
   //   1. SAM.gov became an active source, adding 10,514 unique current US
@@ -367,7 +367,7 @@ test('canonical facts are unchanged by this phase', () => {
   //      superseded deadline; see the amendment note in to-dedupe.cjs.
   //
   // What this pin still guards is that the DETAIL layer changed none of it.
-  assert.strictEqual(fp('data/tender-opportunities/opportunities.json'), '3898183f');
+  assert.strictEqual(fp('data/tender-opportunities/opportunities.json'), '3c341d60');
   assert.strictEqual(fp('data/tenders-procurement/platforms.json'), 'f24a9edc');
   assert.strictEqual(fp('scripts/lib/to-match.cjs'), '5de543fb');
   assert.strictEqual(Object.keys(MATCH.PROFILES).length, 16);

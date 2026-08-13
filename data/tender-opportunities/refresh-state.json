@@ -19,6 +19,24 @@
         "note": "the published open-notice set"
       }
     },
+    "pl-bzp": {
+      "completeness": "COMPLETE",
+      "consecutiveFailures": 1,
+      "lastAttemptAt": "2026-08-13T20:44:49.580Z",
+      "lastErrorClass": "TRANSPORT",
+      "lastSuccessAt": "2026-08-13T20:28:32.875Z",
+      "promoted": false,
+      "promotedRecordCount": null,
+      "retainedRecordCount": 5979,
+      "snapshotHash": "b65def219d52006c9ddc6d8facd2a04d69d9c9ed0ddc8bb194a1247b9b942ca7",
+      "sourceId": "pl-bzp",
+      "state": "DEGRADED",
+      "window": {
+        "kind": "source-defined",
+        "days": null,
+        "note": "notices still accepting offers (SubmittingOffersDateFrom = run date), native BZP contract notices only"
+      }
+    },
     "sam-gov": {
       "completeness": "COMPLETE",
       "consecutiveFailures": 0,

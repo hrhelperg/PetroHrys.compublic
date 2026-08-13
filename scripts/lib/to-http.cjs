@@ -35,6 +35,12 @@ const MIN_GAP_MS = 250; // floor between any two requests, all sources
 const HOST_MIN_GAP_MS = {
   'www.datos.gov.co': 1000,
   'www.find-tender.service.gov.uk': 1500,
+  // Poland's board caps a page at ten records, so one refresh is ~600
+  // requests. Two full walks inside twenty minutes were refused at the
+  // transport layer — the service telling us its rate, exactly as find-tender
+  // did with a 429. The last-good snapshot was retained and nothing was lost,
+  // and the answer is to slow down rather than to retry harder.
+  'ezamowienia.gov.pl': 1200,
 };
 
 const USER_AGENT = 'PetroHrys-Research/1.0 (+https://petrohrys.com/research/; procurement opportunity index; contact via site)';
