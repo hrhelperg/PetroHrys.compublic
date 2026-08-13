@@ -1,0 +1,303 @@
+'use strict';
+
+// Tender Opportunity Detail Pages v1 — the canonical detail projection.
+//
+// ── WHY THIS DOES NOT READ THE SEARCH INDEX ─────────────────────────────────
+//
+// The Discovery index is a deliberately lossy projection: descriptions are cut
+// to 120 characters, provenance is dropped, and only STRONG/GOOD match bands
+// survive. It is built to be downloaded, not to be authoritative. Building a
+// detail page from it would publish a truncated description as though it were
+// the notice, and would silently lose every source occurrence.
+//
+// So this reads the canonical corpus, and a test asserts it never imports the
+// index.
+//
+// ── THREE KINDS OF STATEMENT ────────────────────────────────────────────────
+//
+// SOURCE FACT      — what the buyer published.
+// NORMALIZED FACT  — the same fact in a canonical format (an ISO date).
+// DERIVED          — what our engines computed (supplier match, families).
+// PROVENANCE       — how we came to observe it, and how fresh that is.
+//
+// The projection keeps them in separate groups so the renderer cannot present
+// a computed match with the same authority as a published deadline.
+
+const SCHEMA = require('./to-schema.cjs');
+const TIME = require('./to-time.cjs');
+const MATCH = require('./to-match.cjs');
+
+const FORMAT = 'detail-1';
+
+// ── FIELD CONTRACT ──────────────────────────────────────────────────────────
+//
+// Canonical fields this projection reads. Discovery's projection lost
+// `publishedEuWide` twice by having no column for it, so the same guard
+// applies here: a canonical field must be consumed or explicitly declared
+// unused, and anything else is a crash.
+const CONSUMED = [
+  'id', 'sourceId', 'sourcePlatformId', 'sourceNoticeId', 'sourceUrl',
+  'title', 'titles', 'descriptionSummary', 'buyerName', 'country',
+  'subnationalJurisdiction', 'projectCountry', 'coverage', 'classifications',
+  'publicationDate', 'deadline', 'sourceModifiedDate', 'status', 'statusBasis',
+  'noticeType', 'procedureType', 'value', 'language', 'lotCount',
+  'officialReference', 'projectId', 'electronicSubmission',
+  'electronicSubmissionBasis', 'submissionUrl', 'frameworkAgreement',
+  'occurrenceCount', 'multiSource', 'occurrences', 'publishedEuWide',
+];
+
+// Deliberately unused. Named so that "why is this missing" has an answer.
+const OMITTED = [
+  'fieldSources',   // per-field provenance; the occurrence list carries what a
+                    // reader can act on, and this is ingestion bookkeeping
+  'hasAmendments',  // not modelled well enough to state on a public page
+  'isAmendment',
+];
+
+const ACCOUNTED = new Set([...CONSUMED, ...OMITTED]);
+
+function unaccountedFields(o) {
+  return Object.keys(o).filter((k) => !ACCOUNTED.has(k)).sort();
+}
+
+// ── IDENTITY ────────────────────────────────────────────────────────────────
+//
+// The canonical opportunity id IS the identity. It survives a title
+// correction, a new source occurrence, a deadline change and a status
+// transition, which is exactly what a URL must survive.
+//
+// The slug is cosmetic and never consulted for routing: two opportunities
+// whose titles normalize identically still get different directories, because
+// the id is in the path.
+const SLUG_MAX = 60;
+
+function slugify(text) {
+  return String(text || '')
+    .normalize('NFD').replace(/[̀-ͯ]/g, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+    .slice(0, SLUG_MAX)
+    .replace(/-+$/g, '');
+}
+
+// A canonical id looks like "ted:558691-2026" or
+// "de-vergabe:ocds-mnwr74-11074342-20a2-...". It has to become one path
+// segment that is stable, unique and reversible enough to detect a mismatch.
+function idSegment(id) {
+  return String(id).replace(/[^A-Za-z0-9]+/g, '-').replace(/^-+|-+$/g, '').toLowerCase();
+}
+
+function routeFor(o) {
+  const slug = slugify(o.title);
+  const seg = idSegment(o.id);
+  return `/research/tenders-procurement/opportunities/${slug ? `${slug}-` : ''}${seg}/`;
+}
+
+// ── INDEXABILITY ────────────────────────────────────────────────────────────
+//
+// Explicit boolean conditions, never a score. An opaque 0–100 "SEO quality"
+// number cannot be argued with, cannot be tested, and drifts.
+//
+// Every canonical opportunity gets a PUBLIC page — a procurement record that
+// exists should be readable, and deleting URLs when a tender closes churns the
+// crawl surface for no one's benefit. Only a qualified subset is INDEXABLE.
+const MIN_TITLE = 15;
+const MIN_FACTS = 6;
+
+// The facts that make a page worth a search result. Counted, not weighted:
+// each is a distinct thing a reader might have come for.
+function factCount(o) {
+  let n = 0;
+  if ((o.title || '').trim().length >= MIN_TITLE) n += 1;
+  if (o.buyerName) n += 1;
+  if (o.sourceUrl) n += 1;
+  if (o.publicationDate && (o.publicationDate.iso || o.publicationDate.raw)) n += 1;
+  if (o.deadline && (o.deadline.iso || o.deadline.raw)) n += 1;
+  if ((o.classifications || []).length) n += 1;
+  if (o.value) n += 1;
+  if (o.descriptionSummary) n += 1;
+  if (o.country || o.projectCountry) n += 1;
+  return n;
+}
+
+// Why a page is not indexable, as codes rather than prose, so a test can
+// assert the distribution and a human can audit it.
+function indexability(o) {
+  const reasons = [];
+  if ((o.title || '').trim().length < MIN_TITLE) reasons.push('NO_MEANINGFUL_TITLE');
+  if (!o.buyerName) reasons.push('NO_BUYER');
+  if (!o.sourceUrl) reasons.push('NO_OFFICIAL_URL');
+  if (factCount(o) < MIN_FACTS) reasons.push('TOO_FEW_FACTS');
+  // Historical records stay public and stay linked, but a closed, awarded or
+  // cancelled procurement is not something a searcher should be sent to: the
+  // action it describes is no longer available. This is the lifecycle rule,
+  // and it is reversible without changing any URL.
+  if (!SCHEMA.isCurrent(o)) reasons.push('NOT_CURRENT');
+  return { indexable: reasons.length === 0, reasons };
+}
+
+// ── SAFETY ──────────────────────────────────────────────────────────────────
+
+// Only these schemes may ever reach an href. A source is untrusted input.
+const SAFE_URL = /^https?:\/\//i;
+
+function safeUrl(url) {
+  if (!url) return null;
+  const s = String(url).trim();
+  return SAFE_URL.test(s) ? s : null;
+}
+
+// ── PROJECTION ──────────────────────────────────────────────────────────────
+
+function project(o, { nowIso, platform, profiles = Object.keys(MATCH.PROFILES).slice().sort() }) {
+  const unaccounted = unaccountedFields(o);
+  if (unaccounted.length) {
+    throw new Error(`Detail projection has no place for: ${unaccounted.join(', ')} `
+      + `(record ${o.id}). Consume it or list it in OMITTED rather than losing the fact.`);
+  }
+
+  const idx = indexability(o);
+
+  // Supplier matches come from the frozen engine. This module does not know
+  // what score makes a match Strong and never will.
+  const matches = [];
+  for (const key of profiles) {
+    const m = MATCH.matchFor(o, key, { nowIso, platform });
+    if (m.band === 'STRONG' || m.band === 'GOOD') {
+      matches.push({
+        profile: key,
+        band: m.band,
+        score: m.score,
+        reasons: m.reasons.slice(0, 3).map((r) => r.key),
+        uncertainty: m.uncertainty.slice(),
+      });
+    }
+  }
+  matches.sort((a, b) => (b.score - a.score) || (a.profile < b.profile ? -1 : 1));
+
+  const days = TIME.daysUntil(o.deadline, nowIso);
+
+  return {
+    id: o.id,
+    route: routeFor(o),
+    indexable: idx.indexable,
+    notIndexableBecause: idx.reasons,
+    facts: factCount(o),
+
+    // ── SOURCE FACTS ────────────────────────────────────────────────────────
+    source: {
+      title: o.title,
+      // The source's own translations, where a source publishes them (TED and
+      // CanadaBuys do). Never our translation.
+      titles: o.titles || null,
+      buyerName: o.buyerName || null,
+      description: o.descriptionSummary || null,
+      country: o.country || null,
+      projectCountry: o.projectCountry || null,
+      subnational: o.subnationalJurisdiction || null,
+      coverage: o.coverage || null,
+      classifications: (o.classifications || []).map((c) => ({
+        scheme: c.scheme, code: c.code, label: c.label || null,
+      })),
+      // Value keeps the source's currency and the source's own basis word.
+      // Nothing is converted and nothing is relabelled.
+      value: o.value ? {
+        amount: o.value.amount != null ? o.value.amount : null,
+        amountMin: o.value.amountMin != null ? o.value.amountMin : null,
+        amountMax: o.value.amountMax != null ? o.value.amountMax : null,
+        currency: o.value.currency,
+        basis: o.value.basis || null,
+        scope: o.value.scope || null,
+      } : null,
+      // Tri-state. `null` means the notice did not say — never "no".
+      electronicSubmission: o.electronicSubmission || null,
+      electronicSubmissionBasis: o.electronicSubmissionBasis || null,
+      noticeType: o.noticeType || null,
+      procedureType: o.procedureType || null,
+      officialReference: o.officialReference || null,
+      projectId: o.projectId || null,
+      language: o.language || null,
+      lotCount: o.lotCount != null ? o.lotCount : null,
+      frameworkAgreement: o.frameworkAgreement != null ? o.frameworkAgreement : null,
+      publishedEuWide: o.publishedEuWide != null ? o.publishedEuWide : null,
+      url: safeUrl(o.sourceUrl),
+      // Only a notice-level submission route counts. A platform homepage is
+      // not a way to submit this bid.
+      submissionUrl: safeUrl(o.submissionUrl),
+    },
+
+    // ── NORMALIZED FACTS ────────────────────────────────────────────────────
+    dates: {
+      published: o.publicationDate ? {
+        iso: o.publicationDate.iso || null,
+        raw: o.publicationDate.raw || null,
+        precision: o.publicationDate.precision,
+      } : null,
+      deadline: o.deadline ? {
+        iso: o.deadline.iso || null,
+        raw: o.deadline.raw || null,
+        precision: o.deadline.precision,
+        decidable: TIME.isDecidable(o.deadline),
+        daysRemaining: days,
+        // A source may still call a notice OPEN after its own deadline. Both
+        // facts are kept; neither overrides the other.
+        passedButSourceOpen: days != null && days < 0 && o.status === 'OPEN',
+      } : null,
+      sourceModified: o.sourceModifiedDate ? {
+        iso: o.sourceModifiedDate.iso || null, raw: o.sourceModifiedDate.raw || null,
+      } : null,
+    },
+
+    status: {
+      value: o.status,
+      basis: o.statusBasis || 'UNKNOWN',
+      current: SCHEMA.isCurrent(o),
+    },
+
+    // ── PROVENANCE ──────────────────────────────────────────────────────────
+    provenance: {
+      sourceId: o.sourceId,
+      platformId: o.sourcePlatformId,
+      // A property of the platform surface, never a verdict on the tender.
+      browserCheckRequired: platform ? platform.browserCheckRequired === true : false,
+      multiSource: o.multiSource === true,
+      occurrenceCount: o.occurrenceCount || 1,
+      occurrences: (o.occurrences || []).map((x) => ({
+        sourceId: x.sourceId,
+        platformId: x.sourcePlatformId || null,
+        noticeId: x.sourceNoticeId || null,
+        url: safeUrl(x.sourceUrl),
+      })),
+    },
+
+    // ── DERIVED ─────────────────────────────────────────────────────────────
+    derived: { matches },
+  };
+}
+
+function build(corpus, { platformsById, profiles } = {}) {
+  const nowIso = corpus.generatedAt;
+  const pages = corpus.opportunities
+    .map((o) => project(o, {
+      nowIso, platform: platformsById.get(o.sourcePlatformId) || null, profiles,
+    }))
+    .sort((a, b) => (a.id < b.id ? -1 : a.id > b.id ? 1 : 0));
+
+  // Two opportunities must never claim one route. The id is in the path, so a
+  // collision means the id segmentation lost information.
+  const seen = new Map();
+  for (const p of pages) {
+    if (seen.has(p.route)) {
+      throw new Error(`Route collision: ${p.route} claimed by ${seen.get(p.route)} and ${p.id}`);
+    }
+    seen.set(p.route, p.id);
+  }
+  return { format: FORMAT, generatedAt: nowIso, pages };
+}
+
+module.exports = {
+  FORMAT, CONSUMED, OMITTED, MIN_TITLE, MIN_FACTS, SLUG_MAX, SAFE_URL,
+  unaccountedFields, slugify, idSegment, routeFor, factCount, indexability,
+  safeUrl, project, build,
+};
