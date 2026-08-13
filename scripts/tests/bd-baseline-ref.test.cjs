@@ -21,9 +21,21 @@ const path = require('node:path');
 const { execFileSync } = require('node:child_process');
 
 const {
-  BASELINE_BRANCH, CANDIDATES, READ_ONLY_SUBCOMMANDS,
+  BASELINE_COMMIT, BASELINE_BRANCH, CANDIDATES, READ_ONLY_SUBCOMMANDS,
   resolveRef, resolveBaseline, unresolvedMessage,
 } = require('./helpers/baseline-ref.cjs');
+
+// Real, read-only git against this working copy. Returns null for a ref that
+// does not resolve, so a guard can distinguish "absent" from "broken".
+function git(...args) {
+  try {
+    return execFileSync('git', args, { cwd: ROOT, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] });
+  } catch {
+    return null;
+  }
+}
+const resolvesRef = (ref) => git('rev-parse', '--verify', '--quiet', `${ref}^{commit}`);
+const mainRefName = () => ['origin/main', 'main'].find((r) => resolvesRef(r));
 
 const ROOT = path.resolve(__dirname, '..', '..');
 const HEAD_SHA = 'a'.repeat(40);
@@ -61,11 +73,17 @@ test('resolves from the remote-tracking ref when no local branch exists', () => 
   assert.strictEqual(result.sha, REMOTE_SHA);
   assert.strictEqual(result.mergeBase, HEAD_SHA);
 
-  // Non-vacuity: the local name must genuinely have been tried and missed,
-  // otherwise this proves nothing about the fresh-clone case.
+  // Non-vacuity: every earlier candidate must genuinely have been tried and
+  // missed, otherwise this proves nothing about the fresh-clone case. The
+  // immutable commit now leads the list, so it is attempted first — the
+  // fall-through property being tested is unchanged, the sequence is one
+  // entry longer.
   const tried = calls.filter((c) => c[0] === 'rev-parse').map((c) => c[c.length - 1]);
-  assert.deepStrictEqual(tried, [`${BASELINE_BRANCH}^{commit}`, `origin/${BASELINE_BRANCH}^{commit}`],
-    'the local branch was not attempted before the remote-tracking ref');
+  assert.deepStrictEqual(tried, [
+    `${BASELINE_COMMIT}^{commit}`,
+    `${BASELINE_BRANCH}^{commit}`,
+    `origin/${BASELINE_BRANCH}^{commit}`,
+  ], 'the candidates were not attempted in the declared order');
 });
 
 test('prefers a local branch when the maintainer has one', () => {
@@ -149,8 +167,103 @@ test('the baseline resolves in this working copy with no local branch required',
   const result = resolveBaseline({ cwd: ROOT });
   assert.match(result.mergeBase, /^[0-9a-f]{40}$/, 'the resolved merge-base is not a commit sha');
 
-  if (!localExists) {
-    assert.strictEqual(result.ref, `origin/${BASELINE_BRANCH}`,
-      'no local branch exists, so the remote-tracking ref should have been used');
+  // The point of this guard is that resolution NEVER needs a local branch —
+  // originally because the remote-tracking ref was available, and now because
+  // the immutable commit leads the candidate list. Either way the property is
+  // the same: a fresh clone resolves without anyone creating a branch.
+  assert.strictEqual(result.ref, BASELINE_COMMIT,
+    'the pinned commit should resolve before either branch name');
+  assert.strictEqual(result.sha, BASELINE_COMMIT);
+
+  // And the branch names, when present, still agree with the pin — so this
+  // stays a test about resolution rather than about which name won.
+  if (localExists) {
+    const local = execFileSync('git', ['rev-parse', '--verify', `refs/heads/${BASELINE_BRANCH}^{commit}`],
+      { cwd: ROOT, encoding: 'utf8' }).trim();
+    assert.strictEqual(local, BASELINE_COMMIT, 'the local branch has moved off the pinned commit');
   }
+});
+
+// ── THE IMMUTABLE BASELINE PIN ──────────────────────────────────────────────
+//
+// The baseline used to be resolved by BRANCH NAME, which made a deletable
+// feature branch load-bearing for the whole suite — and, once the scheduled
+// refresh began running the suite as its first step, for every scheduled run.
+// Deleting the branch in ordinary post-merge cleanup would have aborted the
+// scheduler before it fetched a single source.
+//
+// The pin is a commit id, and these guards exist because a pin is only as good
+// as the reachability of what it points at.
+
+test('the pinned baseline resolves even when the feature branch is absent', () => {
+  // Only the immutable commit is offered — the branch names are withheld
+  // exactly as they would be if someone had deleted the branch.
+  const resolved = resolveBaseline({
+    cwd: ROOT,
+    candidates: [BASELINE_COMMIT],
+  });
+  assert.strictEqual(resolved.ref, BASELINE_COMMIT);
+  assert.strictEqual(resolved.sha, BASELINE_COMMIT);
+});
+
+test('the pinned commit is the intended stack base, not some other commit', () => {
+  // Resolving through the full candidate list and through the pin alone must
+  // agree: the pin is a more durable name for the same commit, not a
+  // different baseline smuggled in.
+  const viaAll = resolveBaseline({ cwd: ROOT });
+  const viaPin = resolveBaseline({ cwd: ROOT, candidates: [BASELINE_COMMIT] });
+  assert.strictEqual(viaAll.sha, viaPin.sha, 'the pin points at a different commit than the branch');
+  assert.strictEqual(viaAll.mergeBase, viaPin.mergeBase, 'the pin yields a different merge base');
+
+  // And it still agrees with the branch itself while the branch exists, which
+  // is what makes this a rename rather than a change of meaning.
+  const branchRef = resolvesRef(`origin/${BASELINE_BRANCH}`);
+  if (branchRef) {
+    assert.strictEqual(branchRef.trim(), BASELINE_COMMIT,
+      'the feature branch has moved away from the pinned commit — the pin is now stale');
+  }
+});
+
+test('the pinned commit is an ancestor of main, so it cannot be collected', () => {
+  // This is the property that makes pinning safe at all. A commit reachable
+  // only from a deletable branch would be garbage-collectable, and the pin
+  // would become the very fragility it replaced.
+  const mainRef = mainRefName();
+  assert.ok(mainRef, 'neither origin/main nor main resolves: this guard cannot run');
+  const isAncestor = git('merge-base', '--is-ancestor', BASELINE_COMMIT, mainRef) !== null;
+  assert.ok(isAncestor,
+    `${BASELINE_COMMIT.slice(0, 12)} is no longer an ancestor of ${mainRef}. `
+    + 'The pin is only safe while the commit is reachable from main; re-pin to the '
+    + 'current stack base before this becomes a deletable reference again.');
+});
+
+test('the pin is ordered first, ahead of the deletable names', () => {
+  assert.strictEqual(CANDIDATES[0], BASELINE_COMMIT,
+    'a deletable branch name is tried before the immutable commit');
+  assert.ok(CANDIDATES.includes(BASELINE_BRANCH),
+    'the local branch fallback was dropped');
+  assert.ok(CANDIDATES.includes(`origin/${BASELINE_BRANCH}`),
+    'the remote branch fallback was dropped');
+});
+
+test('main is still never an acceptable baseline', () => {
+  // The whole reason this resolver exists: the stack base differs from main,
+  // and diffing against main would attribute another branch's changes to this
+  // one. The pin must not have quietly reintroduced that fallback.
+  assert.ok(!CANDIDATES.some((c) => /(^|\/)main$/.test(c)),
+    'main appears in the candidate list');
+  const src = require('node:fs')
+    .readFileSync(path.join(ROOT, 'scripts/tests/helpers/baseline-ref.cjs'), 'utf8');
+  assert.ok(!/\|\|\s*'main'|\?\?\s*'main'|candidates.*push\('main'\)/.test(src),
+    'the resolver can fall back to main');
+  // And an unresolvable baseline still throws rather than degrading.
+  assert.throws(() => resolveBaseline({ cwd: ROOT, candidates: ['refs/heads/definitely-not-a-ref'] }),
+    /Cannot resolve the diff baseline/);
+  // The pinned baseline must genuinely differ from main, or the guard it feeds
+  // would be measuring nothing.
+  const viaPin = resolveBaseline({ cwd: ROOT, candidates: [BASELINE_COMMIT] });
+  const mainBase = git('merge-base', 'HEAD', mainRefName()).trim();
+  assert.notStrictEqual(viaPin.mergeBase, mainBase,
+    'the pinned baseline now equals the main baseline: the stack has landed and the '
+    + 'guard needs re-pinning rather than silently measuring against main');
 });
