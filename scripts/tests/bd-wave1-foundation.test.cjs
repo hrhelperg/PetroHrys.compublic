@@ -548,14 +548,35 @@ test('migration is idempotent', () => {
 
 // --- no network --------------------------------------------------------------
 
-test('nothing in the build path can reach the network', () => {
+// Scoped to what this file is actually about: the business-directories build.
+//
+// It used to assert that NO library in scripts/lib could reach the network,
+// using the directory as a stand-in for "the build path". That stand-in broke
+// when scripts/lib gained to-http.cjs, which exists to reach the network and is
+// reached only by hand-run ingestion, never by a build.
+//
+// The repository-wide version of this property — walking the require graph of
+// every build entry point — lives in bd-open-source-policy.test.cjs. Here the
+// question is narrower and the answer is checked directly: whatever this build
+// can reach, it cannot fetch.
+test('nothing the business-directories build can reach touches the network', () => {
   const network = /\bfetch\s*\(|require\('node:https?'\)|api\.ahrefs\.com|XMLHttpRequest/;
-  const libs = fs.readdirSync(path.join(ROOT, 'scripts', 'lib')).filter((f) => f.endsWith('.cjs'));
-  assert.ok(libs.length > 0, 'no libraries found: the guard is vacuous');
-  for (const lib of libs) {
-    assert.ok(!network.test(fs.readFileSync(path.join(ROOT, 'scripts', 'lib', lib), 'utf8')),
-      `scripts/lib/${lib} can reach the network`);
+  const seen = new Set();
+  const stack = [path.join(ROOT, 'scripts', 'build-business-directories.cjs')];
+  while (stack.length) {
+    const abs = stack.pop();
+    if (!fs.existsSync(abs) || fs.statSync(abs).isDirectory() || seen.has(abs)) continue;
+    seen.add(abs);
+    const src = fs.readFileSync(abs, 'utf8');
+    assert.ok(!network.test(src),
+      `${path.relative(ROOT, abs)} is reachable from the build and can reach the network`);
+    for (const m of src.matchAll(/require\(\s*['"](\.[^'"]+)['"]\s*\)/g)) {
+      let target = path.resolve(path.dirname(abs), m[1]);
+      if (!fs.existsSync(target)) target = `${target}.cjs`;
+      stack.push(target);
+    }
   }
+  assert.ok(seen.size > 5, `the build reached only ${seen.size} files: the guard is vacuous`);
 });
 
 // --- regressions found by the adversarial review -----------------------------

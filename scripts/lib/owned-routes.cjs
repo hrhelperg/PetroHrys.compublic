@@ -46,9 +46,12 @@ const COLLECTION_ROOTS = [
   render.MEDIA_PATH,
   render.PLANNER_PATH,
   render.TENDERS_PATH,
-  // The Procurement Intelligence page is a child route of the tenders
-  // collection but is written by its own generator, so it declares itself.
+  // The Procurement Intelligence and Tender Opportunities pages are child
+  // routes of the tenders collection but are written by their own generators,
+  // so they declare themselves. Spelled out rather than required from those
+  // generators, which already require bd-render and would close a cycle.
   '/research/tenders-procurement/intelligence/',
+  '/research/tenders-procurement/opportunities/',
 ].map((p) => p.replace(/^\//, ''));
 const GENERATED_PREFIXES = COLLECTION_ROOTS;
 

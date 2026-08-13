@@ -31,3 +31,18 @@ Icon?
 node_modules/
 .env
 .env.*
+
+# Tender opportunity ingestion cache.
+#
+# scripts/ingest-tender-opportunities.cjs writes one snapshot per source under
+# data/tender-opportunities/snapshots/. Those are the RAW normalized records —
+# 43 MB across five sources, rewritten on every refresh — and committing them
+# would add tens of megabytes of history per ingestion run for data that is
+# already carried, deduplicated, in opportunities.json.
+#
+# The corpus IS committed: it is what the site build reads, and the build must
+# work from git alone with no network. The snapshots are a local cache that
+# ingestion rebuilds by fetching. See docs/TENDER-OPPORTUNITY-INTELLIGENCE-V1.md
+# for what this costs (the collapse guard falls back to the committed corpus's
+# per-source counts on a fresh clone) and why it is the right trade for v1.
+data/tender-opportunities/snapshots/

@@ -47,7 +47,9 @@ test('no build, validator or test reads AHREFS_API_KEY', () => {
     'scripts/build-business-directories.cjs',
     'scripts/validate-business-directories.cjs',
     'scripts/migrate-business-directories.cjs',
-    ...fs.readdirSync(path.join(ROOT, 'scripts', 'lib')).map((f) => `scripts/lib/${f}`),
+    // Recursive: scripts/lib now contains a subdirectory (to-adapters), and a
+    // flat readdir handed a directory path to readFileSync.
+    ...libFilesRecursive(path.join(ROOT, 'scripts', 'lib')),
     ...fs.readdirSync(path.join(ROOT, 'scripts', 'tests'))
       .filter((f) => f.endsWith('.cjs'))
       .map((f) => `scripts/tests/${f}`),
@@ -83,17 +85,104 @@ test('no operator documentation instructs a maintainer to obtain or configure a 
 
 // --- 2. generation performs no network call ---------------------------------
 
-test('no build library can make a network request', () => {
-  const libs = fs.readdirSync(path.join(ROOT, 'scripts', 'lib')).filter((f) => f.endsWith('.cjs'));
-  assert.ok(libs.length > 0, 'no build libraries were found: the guard is vacuous');
-  const network = /\bfetch\s*\(|require\('node:https?'\)|require\("node:https?"\)|api\.ahrefs\.com|XMLHttpRequest/;
-  for (const lib of libs) {
-    assert.ok(!network.test(read(`scripts/lib/${lib}`)),
-      `scripts/lib/${lib} can perform a network request during generation`);
+// The property is "GENERATION performs no network call". It used to be checked
+// by listing scripts/lib/*.cjs and asserting none of them could fetch — exact
+// for as long as every library in that directory was a build library, and no
+// longer exact once Tender Opportunity ingestion added one that is not.
+//
+// scripts/lib/to-http.cjs exists to make network requests. It is reached only
+// from scripts/ingest-tender-opportunities.cjs, which is run by hand and is not
+// part of any build. Adding it to an exemption list would have been the easy
+// fix and the wrong one: exemption lists grow, and the second entry is the one
+// that quietly puts a fetch back into the build.
+//
+// So the guard now walks the ACTUAL require graph from every build entry point.
+// That is strictly stronger than the directory listing: it follows requires
+// into subdirectories, catches a build that reaches a network module through
+// three intermediaries, and needs no maintenance when a library is added.
+const NETWORK = /\bfetch\s*\(|require\('node:https?'\)|require\("node:https?"\)|api\.ahrefs\.com|XMLHttpRequest/;
+
+function libFilesRecursive(dir, base = dir) {
+  const out = [];
+  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    const abs = path.join(dir, entry.name);
+    if (entry.isDirectory()) out.push(...libFilesRecursive(abs, base));
+    else if (entry.name.endsWith('.cjs')) out.push(path.relative(ROOT, abs));
   }
-  for (const entry of ['scripts/build-business-directories.cjs', 'scripts/validate-business-directories.cjs']) {
-    assert.ok(!network.test(read(entry)), `${entry} can perform a network request`);
+  return out.sort();
+}
+
+// Every generator and validator a release runs. A test below asserts this list
+// matches the scripts on disk, so it cannot silently fall behind.
+const BUILD_ENTRY_POINTS = [
+  'scripts/build-business-directories.cjs',
+  'scripts/build-distribution-planner.cjs',
+  'scripts/build-marketplaces.cjs',
+  'scripts/build-media-platforms.cjs',
+  'scripts/build-static-pages.cjs',
+  'scripts/build-tender-opportunities.cjs',
+  'scripts/build-tenders-intelligence.cjs',
+  'scripts/build-tenders-procurement.cjs',
+  'scripts/validate-business-directories.cjs',
+  'scripts/validate-ecosystem-registry.cjs',
+];
+
+// Resolve the transitive local require graph of a script.
+function requireGraph(entryRel) {
+  const seen = new Set();
+  const stack = [path.join(ROOT, entryRel)];
+  while (stack.length) {
+    const abs = stack.pop();
+    if (!fs.existsSync(abs) || fs.statSync(abs).isDirectory()) continue;
+    const rel = path.relative(ROOT, abs);
+    if (seen.has(rel)) continue;
+    seen.add(rel);
+    for (const m of fs.readFileSync(abs, 'utf8').matchAll(/require\(\s*['"](\.[^'"]+)['"]\s*\)/g)) {
+      let target = path.resolve(path.dirname(abs), m[1]);
+      if (fs.existsSync(target) && fs.statSync(target).isDirectory()) target = path.join(target, 'index.cjs');
+      else if (!fs.existsSync(target)) target = `${target}.cjs`;
+      stack.push(target);
+    }
   }
+  return seen;
+}
+
+test('nothing reachable from a build entry point can make a network request', () => {
+  assert.ok(BUILD_ENTRY_POINTS.length > 0, 'no build entry points declared: the guard is vacuous');
+  // Asserted over the union, not per entry: validate-ecosystem-registry.cjs is
+  // legitimately standalone, and demanding that every script require something
+  // would fail an honest script rather than an unsafe one.
+  const union = new Set();
+  for (const entry of BUILD_ENTRY_POINTS) for (const rel of requireGraph(entry)) union.add(rel);
+  assert.ok(union.size > BUILD_ENTRY_POINTS.length,
+    'the require walk resolved no libraries: the guard is vacuous');
+  for (const entry of BUILD_ENTRY_POINTS) {
+    const graph = requireGraph(entry);
+    for (const rel of graph) {
+      assert.ok(!NETWORK.test(read(rel)),
+        `${entry} can reach ${rel}, which can perform a network request during generation`);
+    }
+  }
+});
+
+test('the build entry point list has not fallen behind the scripts on disk', () => {
+  const onDisk = fs.readdirSync(path.join(ROOT, 'scripts'))
+    .filter((f) => /^(build|validate)-.*\.cjs$/.test(f))
+    .map((f) => `scripts/${f}`).sort();
+  const missing = onDisk.filter((f) => !BUILD_ENTRY_POINTS.includes(f));
+  assert.deepStrictEqual(missing, [],
+    `these generators are not covered by the network guard: ${missing.join(', ')}`);
+});
+
+// The guard above would pass trivially if nothing in the repository could make
+// a request. Something can, deliberately — this asserts the detector still
+// recognises it, so a broken regex cannot read as a clean build path.
+test('the network detector still fires on the module that does use the network', () => {
+  assert.ok(NETWORK.test(read('scripts/lib/to-http.cjs')),
+    'to-http.cjs no longer looks like a network client: the detector may be broken');
+  const ingest = requireGraph('scripts/ingest-tender-opportunities.cjs');
+  assert.ok([...ingest].some((rel) => NETWORK.test(read(rel))),
+    'the ingestion entry point cannot reach the network: the graph walk is not working');
 });
 
 // --- 3 & 4. the snapshots are frozen ----------------------------------------
