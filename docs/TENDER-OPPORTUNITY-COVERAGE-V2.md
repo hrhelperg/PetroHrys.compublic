@@ -468,3 +468,82 @@ daily file with an explicit `Active` column**, refreshed the morning of the
 probe. A complete file that states its own current-state flag is a snapshot by
 construction, which is precisely what a chronological feed can never be. That
 is why the US is next and Spain is not.
+
+
+---
+
+# US SAM.gov bulk — whole-file audit (2026-08-13). NOT ACTIVATED.
+
+Platform already exists in the registry as **`us-sam-gov`** — reused, none minted.
+
+## The complete file, not a head sample
+
+`ContractOpportunitiesFullCSV.csv` downloaded in full: **251,608,326 bytes,
+exactly matching the declared `content-length`**, `ETag
+"43d5577fff489cd40549b44d39503f79-30"`, `Last-Modified` 2026-08-13 03:30 GMT,
+SHA-256 captured. Parsed with a streaming RFC 4180 reader (quoted commas,
+quoted newlines, escaped quotes) — **82,960 rows, 82,960 distinct `NoticeId`,
+zero duplicates**.
+
+The raw file lives in a scratch directory outside the repository and is not
+committed.
+
+## `Active` is worthless as a current-state flag
+
+**Every one of the 82,960 rows is `Active=Yes`.** The column is constant and
+carries no information. Worse:
+
+- all **12,645 Award Notices** are `Active=Yes`
+- **10,183** rows are `Active=Yes` with an `ArchiveDate` already in the past
+
+The previous session's plan was to "prove `Active` is authoritative across the
+whole file". It is not authoritative — it is constant. Trusting it would have
+imported 82,960 records, awards included, as open tenders. `Active` in SAM's
+sense means "not yet archived", not "open".
+
+Actionability therefore comes from `Type` plus `ResponseDeadLine`.
+
+## Notice types, whole file
+
+| Type | rows |
+|---|---|
+| Combined Synopsis/Solicitation | 25,155 |
+| Solicitation | 23,749 |
+| Award Notice | 12,645 |
+| Presolicitation | 7,938 |
+| Special Notice | 6,071 |
+| Sources Sought | 5,900 |
+| Justification | 750 |
+| Modification/Amendment/Cancel | 648 |
+| Justification and Approval (J&A) | 81 |
+| Sale of Surplus Property | 14 |
+| Consolidate/(Substantially) Bundle | 9 |
+
+## The actionable set
+
+Solicitation + Combined Synopsis/Solicitation = 48,904 tender-type rows, of
+which:
+
+- **12,894 have a future deadline — the actionable current set**
+- 35,780 have a deadline already passed
+- 230 have no deadline
+
+Presolicitation adds **1,663** with a future deadline as UPCOMING candidates.
+
+Of the 12,894 actionable records: **39 agencies · 585 unique NAICS codes across
+23 two-digit sectors · 977 unique PSC codes · zero records with neither**.
+Deadlines: 9,710 carry an offset, 3,109 are date-only, 75 have a time with no
+offset — so precision must be preserved per record, not assumed uniform.
+
+## Why this is not activated
+
+The qualification evidence is strong and there is **no hard blocker**. What is
+missing is the work itself: adapter, canonical ingest, cross-source overlap,
+UNIQUE CURRENT after dedup, health integration, six failure proofs, durable
+last-good, fresh-clone recovery, and the C1 re-baseline.
+
+One scale fact the next session must confront first: 12,894 actionable records
+would take the current corpus from 6,964 to roughly **19,858**, nearly tripling
+the Discovery browser index (0.92 MB gzip today). That is below the ~25,000
+threshold estimated in Discovery v1 but close enough that the index must be
+measured before promotion, not after.

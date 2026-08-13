@@ -224,6 +224,13 @@ A full daily file carrying its own current-state flag is a **complete snapshot
 by construction** — exactly the property the Spanish feeds do not have. Range
 requests are honoured, so ingestion need not hold 251 MB in memory.
 
-Still to prove before activation: that `Active` is authoritative across the
-whole file rather than the sampled head, the notice-type mapping, and every
-operational gate. **This is the next session's starting point.**
+**Whole-file audit done (2026-08-13).** `Active` proved **not** authoritative:
+all 82,960 rows are `Active=Yes`, including 12,645 award notices and 10,183
+rows already past their `ArchiveDate`. The flag means "not archived", not
+"open". Actionability comes from `Type` + `ResponseDeadLine`:
+**12,894 actionable current** (Solicitation + Combined Synopsis/Solicitation
+with a future deadline) plus 1,663 upcoming presolicitations, across 39
+agencies, 585 NAICS codes and 977 PSC codes.
+
+State: **ACCEPT_CANDIDATE, qualified, not activated.** No hard blocker; the
+adapter and operational proofs remain to be built.
