@@ -1,7 +1,8 @@
 # Tender Opportunity Coverage — Phase A
 
 **Status: PHASE A, B1, B2 COMPLETE. B3A (native taxonomy) COMPLETE. B3B
-(research terminality) COMPLETE. NO SOURCE ACTIVATED.**
+(research terminality) COMPLETE. B3 SOURCE #1 — SAM.gov — ACTIVE. C1
+RE-BASELINE COMPLETE.**
 
 > **Metric correction.** Earlier phases of this document counted "classified"
 > as "carries CPV or UNSPSC". That is wrong for global procurement and is
@@ -542,39 +543,206 @@ missing is the work itself: adapter, canonical ingest, cross-source overlap,
 UNIQUE CURRENT after dedup, health integration, six failure proofs, durable
 last-good, fresh-clone recovery, and the C1 re-baseline.
 
-One scale fact the next session must confront first: 12,894 actionable records
-would take the current corpus from 6,964 to roughly **19,858**, nearly tripling
-the Discovery browser index (0.92 MB gzip today). That is below the ~25,000
-threshold estimated in Discovery v1 but close enough that the index must be
-measured before promotion, not after.
-
-
 ---
 
-# SAM.gov adapter — built, NOT registered, two known defects
+# C1 — SAM.gov ACTIVE
 
-The adapter runs against the real artefact and the type mapping holds. It is
-**not in the source registry** and nothing has been ingested.
+**SAM_UNIQUE_CURRENT = 10,511.** Source #1 of Expansion v2 B3 is active and
+contributing to the published corpus.
 
-Measured on the full 251 MB file: **82,960 rows parsed, 69,487 carried**
-(tender, presolicitation and award types), then normalized to
-**OPEN 10,430 · UPCOMING 1,721 · CLOSED 28,175 · AWARDED 12,645 ·
-UNKNOWN 16,516**.
+## A → B → C1
 
-What works: **zero awards leak into OPEN**; every OPEN record carries NAICS
-(10,430) and nearly all carry PSC (10,318); 39 agencies; every OPEN record has
-a notice URL; 727 carry a non-US place of performance and are not stamped US.
+| | A (Phase A) | B (post-B1/B2) | C1 (SAM active) |
+|---|---|---|---|
+| canonical opportunities | 9,572 | 9,577 | **20,088** |
+| current opportunities | 6,964 | 6,964 | **17,475** |
+| sources | 10 | 10 | **11** |
+| buyers (all) | — | 5,324 | **6,314** |
+| buyers (current) | — | 5,324 | **5,161** |
+| countries (current) | — | 72 | **73** |
+| geography rows | — | ~150 | **200** |
+| records with an official classification | — | 5,869 | **16,380** |
+| Discovery index, raw | — | 4,823,339 B | **8,970,862 B** |
+| Discovery index, gzip | — | 982,396 B | **1,806,721 B** |
+| Detail pages published | — | 6,817 | **16,526** |
 
-**Two defects, unfixed:**
+Corpus growth is **+10,511 canonical, all of it unique and all of it current**.
+Nothing was displaced: every pre-existing source contributes exactly what it
+contributed before.
 
-1. **`SolicitationNumber` is not a column here.** The projected-column guard
-   refused the schema — the guard doing its job — but the real column name has
-   not been identified.
-2. **Only `INSTANT` deadlines resolve.** The 3,109 date-only deadlines and
-   other non-instant forms fall to UNKNOWN, so OPEN reads 10,430 against the
-   ~12,894 the whole-file audit measured. Date precision is comparable and must
-   be handled without inventing a time of day.
+## Where SAM sits against the other ten
 
-Memory needed attention: projecting 15 of 47 columns during the parse brought
-the run inside the heap; materialising all 47 for 69,487 rows on top of the
-buffer exhausted it.
+Unique current contribution after canonical dedup:
+
+```
+sam-gov      10,511      ted     2,748      secop2     1,287
+canadabuys      915      de-vergabe 441     uk-fts       336
+boamp           332      worldbank  297     tenderned    207
+za-etenders      46      uk-contracts-finder 29
+```
+
+SAM contributes **3.8× the whole previous corpus's current opportunities**.
+Cross-source overlap is **zero**, which is the expected result rather than a
+pleasant one: no other registered source publishes US federal procurement, so
+there was nothing for it to duplicate. The dedup graph confirmed it rather than
+assumed it.
+
+## What SAM is
+
+One 251,608,326-byte CSV, republished daily by GSA for data.gov, fetched with
+no key and nothing bypassed. 82,960 rows → 56,842 carried (tender and
+presolicitation types only) → **14,761 current opportunities** → **10,511
+canonical after same-source dedup**.
+
+The v1 registry recorded SAM as `LOGIN_REQUIRED` on the evidence of
+`/opportunities/v2/search` returning empty without a key. That was true of the
+endpoint and false of the platform, and it kept this source closed for two
+phases. The finding is now recorded against the endpoint it was about.
+
+## The four defects this activation fixed
+
+**1. `Sol#`, not `SolicitationNumber`.** Read from the header. The
+projected-column guard had been refusing the whole schema rather than carrying
+a silent null, which is the guard working.
+
+**2. Zoneless deadlines are comparable.** A deadline with no offset names a
+26-hour BAND on the timeline — UTC+14 to UTC-12 — not a point. Outside that
+band every zone on Earth agrees on whether it has passed; inside it the answer
+stays `null`. No offset is invented, `iso` stays null, and the deadline is
+still displayed exactly as the source printed it. This recovered 9,428 date-only
+SAM deadlines and is a **general** fix: CanadaBuys, SECOP II and TenderNed
+publish zoneless deadlines and were losing the same records.
+
+**3. The file is Windows-1252, not UTF-8.** Measured across the whole artefact:
+104,047 bytes cannot be UTF-8 against 1,846 that can, and the invalid ones are
+the cp1252 punctuation block — en dash 22,487, curly quotes 33,726, bullet
+8,498, ellipsis 6,888. Decoding as UTF-8 replaced **103,907 characters** with
+U+FFFD and nothing failed, because `PATRIOT SPARES <?> LOCKHEED MARTIN` is
+still legible. That is the whole danger: silent corruption of exactly the field
+a human reads.
+
+The guard now inspects the BYTES before they become text, because the symmetric
+failure — SAM switching to UTF-8 — would produce `â€"` mojibake with no
+replacement character anywhere for a downstream check to find.
+
+**4. A merge group published an arbitrary deadline.** SAM publishes amendments
+as new notice ids, so one procurement arrives as several records that dedup
+correctly merges. The collapse then chose between their fields by
+**lexicographic notice id**. 337 real merge groups carried the wrong deadline:
+**267 earlier** than the buyer's actual date — hiding a still-open tender, one
+advertised as closing 2026-08-17 when it had been extended to 2026-09-03 — and
+**64 later**, telling a supplier to prepare a bid for a shut procedure.
+
+Recency now breaks the tie, using the source's modification stamp or its
+publication date. That took 337 down to 60, and all 60 are groups whose notices
+were posted on the same day; SAM publishes no clock time on `PostedDate`, so
+nothing in the data orders them. They stay deterministic and arbitrary rather
+than guessed, and every version remains in `occurrences`.
+
+## Deduplication and the modification chain
+
+14,761 source records → 10,511 canonical. **4,250 records merged into 2,376
+groups**, every one of them a same-source amendment chain: shared solicitation
+number, shared contracting office, title similarity ≥ 0.85. No cross-source
+merge occurred and none was expected.
+
+The existing rules were used unchanged. A shared `Sol#` alone never merges —
+that matters here, because one solicitation number, `47QSMD20R0001`, is borne
+by **6,919 notices** across the file. It is a government-wide acquisition
+vehicle, not a procedure reference. 13,026 solicitation numbers are shared by
+more than one notice.
+
+`Modification/Amendment/Cancel` notices (648) are excluded by type, so an
+administrative change can never appear as a second live tender.
+
+The deduplication block cap now **reports what it did not compare**. Seven
+blocks exceeded it, holding 5,750 records, the largest being one contracting
+office with 2,440 current notices. Only same-source title resemblance was
+skipped, and that can never merge anything on its own — reference blocks are
+separate and were all compared — but a bounded search that says "no duplicates"
+without saying what it skipped reads as an exhaustive one.
+
+## Native US taxonomy — NOT mapped into the 19 sectors
+
+10,511 current US records, **every one carrying at least one official
+classification**: 10,217 with NAICS, 7,382 with PSC, **598 distinct NAICS codes
+across 23 two-digit sectors** and **965 distinct PSC codes across 33 groups**.
+
+These are `ANY_OFFICIAL_CLASSIFICATION = YES` and `NOT_SECTOR_MAPPED = YES`
+simultaneously, and that is the correct answer. The 19-sector matrix reads CPV
+and UNSPSC only, and **it was not widened to make SAM appear in sector totals**
+— inventing a NAICS→CPV crosswalk would manufacture equivalences that no
+standards body publishes. The `not-sector-mapped` row grew to 10,559 current
+records, which is a truthful statement about our analytical mapping and not a
+statement about American procurement being unclassified.
+
+Largest NAICS sectors: 33 (manufacturing, 6,131), 23 (construction, 1,430),
+54 (professional/scientific/technical, 625), 56 (administrative support, 441),
+81 (other services, 286). Largest PSC groups: 5 (weapons/ammunition and
+subsistence, 845), 6 (chemicals and lab equipment, 818), Z (maintenance and
+repair of real property, 775), J (maintenance and repair of equipment, 604).
+
+## Geography
+
+`projectCountry` resolves to the corpus's own country vocabulary. Emitting the
+raw ISO alpha-3 put a country called **`jpn`** into the coverage geography
+matrix beside `united-states` and `germany`, because that layer reads
+`projectCountry || country`. All 103 codes present in the file are transcribed;
+anything unresolved — including `AX1`, which is not an ISO code — yields null,
+so the record keeps its US country and makes no claim about where the work
+happens. 18 codes name countries this site's collection does not cover and
+correctly resolve to null rather than being deleted from the table.
+
+584 current records name a non-US place of performance. Japan is now the 12th
+largest geography in the corpus at 146 current records.
+
+## Operational state
+
+**ACTIVE**, run status HEALTHY, durable state written. Registered STAGED first —
+`enabled: false`, enforced in `rebuildCorpus` rather than merely documented —
+and activated only once every gate was green.
+
+Fifteen failure proofs pass, each driving the real ingestion path:
+
+| failure | outcome |
+|---|---|
+| transport error / 403 | last-good retained, failure classified |
+| truncated download | refused against the server's declared `Content-Length` |
+| truncated at a row boundary | collapse guard refuses; last-good retained |
+| empty but successful response | refused |
+| schema change (renamed column) | fails closed, `SCHEMA_CHANGED` |
+| parser corruption / mass row loss | refused above a 1% short-row ratio |
+| records missing identity | refused as a set |
+| native classification loss | content hash moves; coverage measurable |
+| encoding switch to UTF-8 | refused on byte evidence |
+| fresh clone | recovers 14,761 occurrences from the committed corpus |
+| failure after fresh-clone recovery | recovered data retained |
+
+**Durable last-good is the committed corpus**, not the gitignored snapshot.
+A fresh clone reconstructs 14,761 SAM source records from occurrence provenance
+and re-deduplicates them to exactly the 10,511 canonical opportunities the
+corpus publishes — verified, not asserted. ACTIVE never depends on the local
+251 MB file, which is not committed and is not read by any build script.
+
+## Scale and the storage verdict
+
+Search stays fast: **hydration 72 ms, JSON.parse 17 ms, mean query 17.7 ms,
+worst 26.9 ms** across ten representative queries at 17,475 records. The
+~25,000-record figure from Discovery v1 was an estimate, and measurement does
+not support it as a limit on CPU.
+
+**The cost is transfer, not compute.** The browser index went from 982 KB to
+**1.81 MB gzip**. That is the real finding of this phase's scale work, and it
+is the constraint the next source runs into first — not the corpus, not the
+build, not search latency.
+
+Repository: working tree 522 MB, of which 308 MB is the detail-page tree
+(16,526 pages). Git is far smaller than that suggests — the packed repository is
+**56 MB**, because these pages share almost all of their structure and delta
+well. Corpus 10.7 MB → **18.2 MB**.
+
+**Verdict: sustainable for one more source of this size, not for several.** The
+1.81 MB index is the binding constraint. Before a source of comparable volume is
+added, the Discovery index needs a size strategy — a narrower record projection,
+a split index, or server-side search. That is a Discovery decision and it should
+not be made by quietly changing what Search does to accommodate new data.

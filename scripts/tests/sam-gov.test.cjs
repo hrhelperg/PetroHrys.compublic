@@ -263,9 +263,50 @@ test('the buyer is the contracting office, falling back only when it is absent',
 });
 
 test('a US platform does not make every place of performance American', () => {
-  assert.strictEqual(byId.get('a14').projectCountry, 'deu');
+  // The code resolves to the corpus's own country vocabulary, not to itself.
+  // Emitting the raw alpha-3 put a country called "jpn" into the coverage
+  // geography matrix, because that layer reads projectCountry || country.
+  assert.strictEqual(byId.get('a14').projectCountry, 'germany');
   assert.strictEqual(byId.get('a1').projectCountry, null, 'a US location was recorded as foreign');
   assert.ok(records.every((r) => r.country === 'united-states'));
+});
+
+test('an unresolvable place-of-performance code yields null, never a coined country', () => {
+  const countries = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/business-directories/countries.json'), 'utf8'));
+  const slugs = new Set(countries.map((c) => c.slug));
+  const mk = (pop) => A.normalize(
+    { NoticeId: 'p', Title: 'T', Type: 'Solicitation', BaseType: 'Solicitation',
+      Link: 'https://sam.gov/opp/p/view', ResponseDeadLine: '2026-12-01T15:00:00-05:00' },
+    { source, nowIso: NOW, knownCountrySlugs: slugs },
+  );
+  // AX1 is in the real file and is not an ISO code at all.
+  const raw = { NoticeId: 'p', Title: 'T', Type: 'Solicitation', BaseType: 'Solicitation',
+    Link: 'https://sam.gov/opp/p/view', ResponseDeadLine: '2026-12-01T15:00:00-05:00' };
+  for (const bad of ['AX1', 'ZZZ', '', 'Narnia']) {
+    const rec = A.normalize({ ...raw, PopCountry: bad }, { source, nowIso: NOW, knownCountrySlugs: slugs });
+    assert.strictEqual(rec.projectCountry, null, `"${bad}" was published as a country`);
+    assert.strictEqual(rec.country, 'united-states', 'the record lost its own country');
+  }
+  assert.ok(mk('JPN') !== null);
+
+  // The table states what an ISO code MEANS; the guard decides what may be
+  // published. 18 of the 103 codes name countries this site's collection does
+  // not cover — Senegal, Fiji, Timor-Leste and so on — and those must resolve
+  // to null rather than being dropped from the table, so they start working
+  // the day the collection grows instead of silently staying absent.
+  const outside = Object.entries(A.ALPHA3_TO_SLUG).filter(([, s]) => !slugs.has(s));
+  assert.ok(outside.length > 0, 'this test assumes some codes fall outside the collection');
+  for (const [code] of outside) {
+    const rec = A.normalize({ ...raw, PopCountry: code }, { source, nowIso: NOW, knownCountrySlugs: slugs });
+    assert.strictEqual(rec.projectCountry, null,
+      `${code} resolved to a slug the country collection does not contain`);
+  }
+  // And every code the collection DOES cover resolves to it.
+  const inside = Object.entries(A.ALPHA3_TO_SLUG).filter(([, s]) => slugs.has(s));
+  for (const [code, slug] of inside) {
+    const rec = A.normalize({ ...raw, PopCountry: code }, { source, nowIso: NOW, knownCountrySlugs: slugs });
+    assert.strictEqual(rec.projectCountry, slug, `${code} did not resolve to ${slug}`);
+  }
 });
 
 test('a subdivision is recorded only when it is a real ISO code', () => {

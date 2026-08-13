@@ -283,6 +283,44 @@ function* chunksOf(buffer, size = 1 << 20) {
 
 const trim = (v) => (typeof v === 'string' && v.trim() ? v.trim() : null);
 
+// ── PLACE OF PERFORMANCE IS A COUNTRY, NOT A CODE ───────────────────────────
+//
+// PopCountry is ISO 3166-1 alpha-3. The corpus identifies countries by SLUG,
+// and the coverage layer reads `projectCountry || country` as the geography of
+// a procurement — so emitting the raw code put a country called "jpn" into the
+// geography matrix alongside "united-states" and "germany".
+//
+// All 103 codes that appear across the file are transcribed here. Anything not
+// listed, and anything whose slug is not in the canonical country collection,
+// yields NULL: the record then keeps its US country and simply makes no claim
+// about where the work happens. A missing signal is recoverable; a country we
+// invented is not. `AX1` is in the file and is not an ISO code at all.
+const ALPHA3_TO_SLUG = {
+  ALB: 'albania', ARG: 'argentina', ARM: 'armenia', AUS: 'australia', AUT: 'austria',
+  AZE: 'azerbaijan', BDI: 'burundi', BEL: 'belgium', BGD: 'bangladesh', BHR: 'bahrain',
+  BRA: 'brazil', BRB: 'barbados', CAN: 'canada', CHE: 'switzerland', CHL: 'chile',
+  COL: 'colombia', CYP: 'cyprus', CZE: 'czech-republic', DEU: 'germany', DJI: 'djibouti',
+  DOM: 'dominican-republic', DZA: 'algeria', ECU: 'ecuador', EGY: 'egypt', ESP: 'spain',
+  EST: 'estonia', ETH: 'ethiopia', FJI: 'fiji', FRA: 'france', FSM: 'micronesia',
+  GAB: 'gabon', GBR: 'united-kingdom', GEO: 'georgia', GHA: 'ghana', GIN: 'guinea',
+  GRC: 'greece', GRL: 'greenland', GTM: 'guatemala', HKG: 'hong-kong', HND: 'honduras',
+  HRV: 'croatia', HUN: 'hungary', IDN: 'indonesia', IND: 'india', IRQ: 'iraq',
+  ITA: 'italy', JAM: 'jamaica', JOR: 'jordan', JPN: 'japan', KEN: 'kenya',
+  KGZ: 'kyrgyzstan', KHM: 'cambodia', KOR: 'south-korea', KWT: 'kuwait', LAO: 'laos',
+  LBN: 'lebanon', LBR: 'liberia', LKA: 'sri-lanka', LTU: 'lithuania', LVA: 'latvia',
+  MAR: 'morocco', MDG: 'madagascar', MEX: 'mexico', MKD: 'north-macedonia', MMR: 'myanmar',
+  MNE: 'montenegro', MWI: 'malawi', MYS: 'malaysia', NAM: 'namibia', NGA: 'nigeria',
+  NLD: 'netherlands', NOR: 'norway', NPL: 'nepal', PAK: 'pakistan', PAN: 'panama',
+  PER: 'peru', PHL: 'philippines', PNG: 'papua-new-guinea', POL: 'poland', PRT: 'portugal',
+  PRY: 'paraguay', QAT: 'qatar', RWA: 'rwanda', SAU: 'saudi-arabia', SEN: 'senegal',
+  SGP: 'singapore', SLE: 'sierra-leone', SLV: 'el-salvador', SRB: 'serbia', SUR: 'suriname',
+  SVK: 'slovakia', SWE: 'sweden', THA: 'thailand', TKM: 'turkmenistan', TLS: 'timor-leste',
+  TUN: 'tunisia', TUR: 'turkey', UKR: 'ukraine', UZB: 'uzbekistan', VEN: 'venezuela',
+  VNM: 'vietnam', ZAF: 'south-africa',
+};
+
+const US_CODES = /^(USA|US|UNITED STATES)$/i;
+
 // Codes arrive as single values in this feed, but the splitter tolerates the
 // delimiters SAM uses elsewhere rather than assuming one value forever.
 const codeList = (value) => String(value == null ? '' : value)
@@ -395,7 +433,7 @@ function parseBuffer(buffer, { source, log = () => {} } = {}) {
   };
 }
 
-function normalize(r, { source, nowIso }) {
+function normalize(r, { source, nowIso, knownCountrySlugs = null }) {
   const noticeId = trim(r.NoticeId);
   if (!noticeId) return null;
   const title = trim(r.Title);
@@ -464,11 +502,14 @@ function normalize(r, { source, nowIso }) {
   const buyerName = trim(r.Office) || trim(r['Sub-Tier']) || trim(r['Department/Ind.Agency']);
 
   // Place of performance, where the source gives one. A US platform does not
-  // make every contract's work location American — 3,203 rows name somewhere
-  // else. `projectCountry` is set only when the source says NOT the US.
+  // make every contract's work location American. `projectCountry` is set only
+  // when the source names somewhere that is NOT the US and that resolves to a
+  // country this corpus already knows.
   const popCountry = trim(r.PopCountry);
-  const projectCountry = popCountry && !/^(USA|US|UNITED STATES)$/i.test(popCountry)
-    ? popCountry.toLowerCase() : null;
+  const mapped = popCountry && !US_CODES.test(popCountry)
+    ? ALPHA3_TO_SLUG[popCountry.toUpperCase()] : null;
+  const projectCountry = mapped
+    && (!knownCountrySlugs || knownCountrySlugs.has(mapped)) ? mapped : null;
 
   // The office's own jurisdiction, kept only when it is a real ISO subdivision.
   // 250 distinct strings appear in this column and they are not all states.
@@ -521,6 +562,6 @@ function normalize(r, { source, nowIso }) {
 module.exports = {
   id: ID, ID, PLATFORM_ID,
   TENDER_TYPES, UPCOMING_TYPES, AWARD_TYPES, NON_OPPORTUNITY_TYPES,
-  KNOWN_TYPES, CARRIED_TYPES, NOTICE_TYPE, PROJECTED,
-  parseCsvStream, chunksOf, parseBuffer, codeList, fetchAll, normalize,
+  KNOWN_TYPES, CARRIED_TYPES, NOTICE_TYPE, PROJECTED, ALPHA3_TO_SLUG, ENCODING,
+  parseCsvStream, chunksOf, parseBuffer, utf8Evidence, codeList, fetchAll, normalize,
 };
