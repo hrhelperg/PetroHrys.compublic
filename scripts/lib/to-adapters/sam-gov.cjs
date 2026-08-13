@@ -1,54 +1,89 @@
 'use strict';
 
-// United States — SAM.gov Contract Opportunities, official bulk extract.
+// United States — SAM.gov Contract Opportunities, official daily bulk extract.
 //
-// ── STATUS: INCOMPLETE. NOT REGISTERED. NOT ACTIVE. ─────────────────────────
+// ── WHAT THE ARTEFACT IS ────────────────────────────────────────────────────
 //
-// This adapter parses the real 251 MB artefact and maps notice types
-// correctly, but it has TWO KNOWN DEFECTS and must not be registered until
-// both are fixed:
+// One 251 MB CSV, 47 columns, 82,960 rows, republished daily by the General
+// Services Administration. It is every contract-opportunity notice SAM has not
+// yet archived — which is NOT the same thing as every open tender, and the gap
+// between those two sentences is most of this file.
 //
-//   1. `SolicitationNumber` is not a column in this file. The projected-column
-//      guard below correctly refuses the schema, which is the guard working —
-//      the real column name has not yet been identified.
-//
-//   2. Only deadlines that resolve to an INSTANT become OPEN or CLOSED. The
-//      3,109 date-only deadlines and other non-instant forms fall through to
-//      UNKNOWN, so a run yields 10,430 OPEN and 16,516 UNKNOWN where the
-//      whole-file audit measured roughly 12,894 actionable. Date precision is
-//      comparable and must be handled, without inventing a time of day.
-//
-// Everything else measured correctly against real data: 82,960 rows parsed,
-// 69,487 carried, zero awards leaked into OPEN, every OPEN record carrying
-// NAICS (10,430) and nearly all carrying PSC (10,318), 39 agencies, every OPEN
-// record with a notice URL, and 727 with a non-US place of performance.
+// Every number in the comments below was counted across the complete file, not
+// sampled. Where a figure is a decision input it is stated so the next reader
+// can check the decision rather than trust it.
 //
 // ── WHY `Active` IS NOT USED FOR ACTIONABILITY ──────────────────────────────
 //
-// The whole file was audited, not a sample: 82,960 rows, and EVERY ONE carries
-// `Active=Yes`. The column is constant. It includes all 12,645 award notices
-// and 10,183 rows whose ArchiveDate has already passed. In SAM's vocabulary it
-// means "not yet archived", not "open".
+// All 82,960 rows carry `Active=Yes`. The column is constant. It includes all
+// 12,645 award notices. In SAM's vocabulary it means "not yet archived", not
+// "open for bids", and trusting it would have imported the entire file — every
+// award among it — as live tenders.
 //
-// Trusting it would have imported 82,960 records — every award among them — as
-// live tenders. So actionability comes from the notice TYPE plus the response
-// deadline, and `Active` is recorded but never decides anything.
+// So actionability comes from the notice TYPE and the response deadline.
+// `Active` is recorded as a source fact and decides nothing.
 //
-// ── THE TYPE TABLE IS EVIDENCE, NOT INTUITION ───────────────────────────────
+// ── TYPE IS CURRENT STATE; BaseType IS ORIGINAL STATE ───────────────────────
 //
-// Every value below was counted across the complete file. A type absent from
-// this table is UNKNOWN and never actionable, so a new SAM notice type cannot
-// silently become an open tender.
+// The two disagree on 13,459 rows, and the pattern says which is which:
+// 7,657 rows are `Type=Award Notice, BaseType=Combined Synopsis/Solicitation`
+// — a solicitation that has since been awarded. 2,182 are `Type=Solicitation,
+// BaseType=Presolicitation` — an intention that has since become a tender.
+// BaseType is where the notice started; Type is where it is now.
+//
+// Type therefore decides. BaseType gets one job: a veto. Twelve rows say
+// `Type=Combined Synopsis/Solicitation, BaseType=Award Notice`, and when the
+// source's two type fields disagree in the direction of "this is an award" we
+// decline to advertise it as open. Twelve records is a negligible price for a
+// guarantee that no award can reach a supplier as an opportunity.
+//
+// ── WHAT THIS ADAPTER INGESTS ───────────────────────────────────────────────
+//
+// The CURRENT-OPPORTUNITY SLICE, not the archive. Award notices and lapsed
+// solicitations are not carried into the corpus, for the same reason TED is
+// queried with scope=ACTIVE and CanadaBuys publishes an open-notice file: the
+// corpus is a current view. Retaining SAM's 12,645 awards and ~28,000 expired
+// notices would make four fifths of this repository's tender corpus dead US
+// paperwork.
+//
+// Award types are excluded STRUCTURALLY — they never enter `raw` at all — and
+// `normalize` independently refuses them a second time. Two guards, because
+// this is the failure with the worst consequence.
+//
+// ── DEADLINES, AND THE DEFECT THAT HID 9,428 TENDERS ────────────────────────
+//
+// Response deadlines arrive in three shapes among the tender types:
+//
+//   INSTANT      38,605   "2026-09-02T15:00:00-04:00"  explicit offset
+//   BARE_DATE     9,428   "2026-09-02"                 no time, no zone
+//   ZONELESS_DT     641   "2026-09-02T15:00:00"        time, no zone
+//
+// An earlier version could only decide INSTANT deadlines, so 16,516 records
+// fell to UNKNOWN — including 9,428 that state a perfectly clear date. The fix
+// is NOT to attach a US timezone to them. It is in to-time.cjs: a zoneless
+// deadline names a 26-hour BAND on the timeline, and outside that band every
+// zone on Earth agrees on whether it has passed. No offset is invented, and
+// the deadline is still displayed exactly as SAM printed it.
+//
+// ── PERSONAL DATA ───────────────────────────────────────────────────────────
+//
+// The file carries ten contact columns — title, full name, email, phone and
+// fax for a primary and a secondary officer, on every row. None is projected.
+// Building a contact database for federal contracting officers as a side
+// effect of building a tender index is not a thing this repository does.
 
 const TIME = require('../to-time.cjs');
 const CLASS = require('../to-classification.cjs');
+const SCHEMA = require('../to-schema.cjs');
+const ISO = require('../iso-3166-2.cjs');
 const http = require('../to-http.cjs');
 
 const ID = 'sam-gov';
+// Resolved from the existing TenderPlatform registry, never minted here.
 const PLATFORM_ID = 'us-sam-gov';
 
-// Whole-file counts at the 2026-08-13 snapshot, kept beside each mapping so a
-// future reader can see what the decision was made from.
+// Whole-file type counts at the 2026-08-13 snapshot, kept beside the mapping
+// so a reader can see what the decision was made from.
 //
 //   Combined Synopsis/Solicitation      25,155  a tender open for bids
 //   Solicitation                        23,749  a tender open for bids
@@ -65,9 +100,13 @@ const TENDER_TYPES = new Set(['Solicitation', 'Combined Synopsis/Solicitation'])
 const UPCOMING_TYPES = new Set(['Presolicitation']);
 const AWARD_TYPES = new Set(['Award Notice']);
 
-// Types that are real SAM publications but are not procurements a supplier can
-// bid on. They are recognised so they can be excluded deliberately rather than
-// falling through an unknown branch.
+// Real SAM publications that are not procurements anyone can bid on. Listed so
+// they are excluded deliberately rather than by falling through a default.
+//
+// `Modification/Amendment/Cancel` earns its place here: it is an administrative
+// change to a notice that already exists. Carrying it would create a second
+// live tender for one procurement — exactly the phantom this corpus must not
+// grow — and the amended notice itself is already in the file under its own id.
 const NON_OPPORTUNITY_TYPES = new Set([
   'Special Notice', 'Sources Sought', 'Justification',
   'Justification and Approval (J&A)', 'Modification/Amendment/Cancel',
@@ -78,53 +117,69 @@ const KNOWN_TYPES = new Set([
   ...TENDER_TYPES, ...UPCOMING_TYPES, ...AWARD_TYPES, ...NON_OPPORTUNITY_TYPES,
 ]);
 
-// Rows the adapter carries forward at all. Everything else is a real SAM
-// record that is simply not a tender opportunity, and is dropped with a count
-// rather than silently.
-const CARRIED_TYPES = new Set([...TENDER_TYPES, ...UPCOMING_TYPES, ...AWARD_TYPES]);
+// Rows carried out of the parser at all. Awards are excluded here, structurally.
+const CARRIED_TYPES = new Set([...TENDER_TYPES, ...UPCOMING_TYPES]);
+
+const NOTICE_TYPE = {
+  Solicitation: 'CONTRACT_NOTICE',
+  'Combined Synopsis/Solicitation': 'CONTRACT_NOTICE',
+  Presolicitation: 'PRIOR_INFORMATION',
+  'Award Notice': 'CONTRACT_AWARD',
+};
 
 // ── THE COLUMN CONTRACT ─────────────────────────────────────────────────────
 //
-// The file has 47 columns and ~83,000 rows. Materialising every column for
-// every carried row exhausts the heap on top of the 251 MB body, so the parser
-// projects ONLY these fields and discards the rest of each row immediately.
+// 47 columns × 82,960 rows will not be materialised. The parser projects ONLY
+// these and discards the rest of each row immediately; without that the heap
+// is exhausted on top of the 251 MB body.
 //
-// PROJECTED — read and carried into the canonical record:
+// Every name here was read from the file's own header. `Sol#` is spelled
+// exactly that way — an earlier version guessed `SolicitationNumber`, which is
+// not a column in this file, and the missing-column guard below correctly
+// refused the whole schema rather than carrying a silent null.
 const PROJECTED = [
   'NoticeId',            // stable source identity
   'Title',
-  'SolicitationNumber',  // procedure reference; never identity on its own
+  'Sol#',                // the buyer's solicitation number; never identity alone
   'Department/Ind.Agency',
   'Sub-Tier',
+  'Office',              // the contracting office — the actual buying entity
   'Type',                // decides actionability
-  'BaseType',
+  'BaseType',            // original state; used only as an award veto
   'PostedDate',
   'ResponseDeadLine',
-  'ArchiveDate',
+  'ArchiveDate',         // narrows actionability, never widens it
   'Active',              // recorded, never decisive: it is constant
   'NaicsCode',
   'ClassificationCode',  // PSC
+  'State',               // the contracting office's jurisdiction
   'Link',
   'PopCountry',          // place of performance
 ];
 //
 // OMITTED_WITH_REASON — real columns this adapter deliberately does not read:
-//   Description            long free text; the canonical model keeps a short
-//                          summary and this feed's descriptions are frequently
-//                          whole solicitations
-//   Award$, Awardee, …     award facts; attaching them to an open solicitation
-//                          would state a value the buyer never advertised
-//   PrimaryContact*,       named contact people; publishing them would broaden
-//   SecondaryContact*      personal-data exposure with no procurement gain
+//   Description            frequently an entire solicitation document; the
+//                          canonical model carries a short summary and this
+//                          feed cannot supply one without mirroring the notice
+//   Award$, Awardee,       award facts; attaching them to an open solicitation
+//   AwardNumber, AwardDate would state a value the buyer never advertised
+//   PrimaryContact*,       ten columns of named officers, their emails, phones
+//   SecondaryContact*      and faxes. Never projected. See the header.
 //   SetASide, SetASideCode US set-aside programmes have no safe canonical
 //                          destination and are not foreign-eligibility facts
-//   Office, PopCity,       finer geography with no canonical field today
-//   PopState, PopZip
-//   ArchiveType, FPDS…     archival and downstream-reporting bookkeeping
+//   PopStreetAddress,      finer place-of-performance geography with no
+//   PopCity, PopState,     canonical destination in this model
+//   PopZip
+//   Office address fields  City, ZipCode, CountryCode — the office's postal
+//                          address, not a procurement fact
+//   ArchiveType, FPDS      archival and downstream-reporting bookkeeping
+//   Code, CGAC, AAC Code,
+//   OrganizationType,
+//   AdditionalInfoLink
 
 // ── STREAMING RFC 4180 ──────────────────────────────────────────────────────
 //
-// 251 MB will not be held as one JavaScript string. Descriptions in this feed
+// 251 MB is not held as one JavaScript string. Descriptions in this feed
 // contain commas, quotes and newlines, so `split(',')` is not a parser; this
 // handles quoted separators, quoted newlines and doubled quotes.
 function* parseCsvStream(readable) {
@@ -155,80 +210,175 @@ function* parseCsvStream(readable) {
   if (field.length || row.length) { row.push(field); yield row; }
 }
 
-// ── DEADLINES ───────────────────────────────────────────────────────────────
+// ── THE FILE IS NOT UTF-8 ───────────────────────────────────────────────────
 //
-// Three shapes occur, measured across the actionable cohort: 9,710 with an
-// explicit offset, 3,109 date-only, 75 with a time but no offset. Precision is
-// therefore decided per record. No US-wide timezone is applied and no agency's
-// location is used to guess one.
-function deadlineOf(raw) {
-  const v = (raw || '').trim();
-  if (!v) return TIME.EMPTY;
-  return TIME.normalizeTimestamp(v);
+// It is Windows-1252, and this was measured across the whole artefact rather
+// than assumed from a failure:
+//
+//   bytes >= 0x80                       108,336
+//   valid UTF-8 multi-byte sequences      1,846
+//   bytes that cannot be UTF-8          104,047
+//
+// and the invalid ones are not random. The top of the distribution is
+// 0x96 (22,487), 0x92 (21,644), 0x94 (12,082), 0x93 (11,387), 0x95 (8,498),
+// 0x85 (6,888), 0x97 (3,730) — en dash, curly quotes, bullet, ellipsis, em
+// dash. That is the Windows-1252 punctuation block, exactly what a Windows
+// desktop produces when a contracting officer pastes a title out of Word.
+//
+// Decoding it as UTF-8 replaced 103,907 characters with U+FFFD, and it looked
+// harmless: "PATRIOT SPARES <?> LOCKHEED MARTIN SOLE SOURCE" is still legible,
+// so nothing failed and every one of those titles was quietly wrong.
+//
+// Windows-1252 is single-byte, so slicing a buffer can never split a character
+// — the boundary problem that made this a streaming decoder in the first place
+// does not exist in this encoding. `stream: true` is kept anyway so the
+// contract holds if the encoding ever changes.
+const ENCODING = 'windows-1252';
+
+// ── PROVING THE ENCODING RATHER THAN ASSUMING IT ────────────────────────────
+//
+// Windows-1252 maps all 256 byte values, so decoding it can never produce a
+// replacement character. That makes "look for U+FFFD" useless as a guard here:
+// if SAM switched to UTF-8 tomorrow, this decoder would emit "â€“" where the
+// file said "–" — readable-looking nonsense, no error, no replacement char,
+// and 100,000 quietly wrong titles. The same silent-corruption failure as
+// before, with the encodings swapped.
+//
+// So the assumption is checked against the bytes. Every non-ASCII byte either
+// begins a valid UTF-8 multi-byte sequence or it cannot be UTF-8 at all, and
+// the two counts separate the encodings cleanly. Measured on the real file:
+// 1,846 valid sequences against 104,047 impossible bytes. A UTF-8 file would
+// invert that completely.
+function utf8Evidence(buffer) {
+  let valid = 0;
+  let impossible = 0;
+  for (let i = 0; i < buffer.length; i += 1) {
+    const b = buffer[i];
+    if (b < 0x80) continue;
+    let len = 0;
+    if (b >= 0xC2 && b <= 0xDF) len = 2;
+    else if (b >= 0xE0 && b <= 0xEF) len = 3;
+    else if (b >= 0xF0 && b <= 0xF4) len = 4;
+    if (len) {
+      let ok = true;
+      for (let k = 1; k < len; k += 1) {
+        const c = buffer[i + k];
+        if (c === undefined || c < 0x80 || c > 0xBF) { ok = false; break; }
+      }
+      if (ok) { valid += 1; i += len - 1; continue; }
+    }
+    impossible += 1;
+  }
+  return { valid, impossible };
 }
 
-// Decode a Buffer in slices without splitting a multi-byte character across
-// two chunks, which would corrupt any non-ASCII agency or title.
 function* chunksOf(buffer, size = 1 << 20) {
-  const { StringDecoder } = require('node:string_decoder');
-  const decoder = new StringDecoder('utf8');
+  const decoder = new TextDecoder(ENCODING);
   for (let i = 0; i < buffer.length; i += size) {
-    yield decoder.write(buffer.subarray(i, Math.min(i + size, buffer.length)));
+    yield decoder.decode(buffer.subarray(i, Math.min(i + size, buffer.length)), { stream: true });
   }
-  const tail = decoder.end();
+  const tail = decoder.decode();
   if (tail) yield tail;
 }
 
 const trim = (v) => (typeof v === 'string' && v.trim() ? v.trim() : null);
 
-// Codes arrive as single values in this feed, but the splitter is tolerant of
-// the delimiters SAM uses elsewhere rather than assuming one value forever.
+// Codes arrive as single values in this feed, but the splitter tolerates the
+// delimiters SAM uses elsewhere rather than assuming one value forever.
 const codeList = (value) => String(value == null ? '' : value)
   .split(/[,;|\n\r]+/)
   .map((c) => c.trim())
   .filter(Boolean);
 
 async function fetchAll({ source, log }) {
-  // One artefact, one GET. Range support exists but is not needed: a single
-  // complete response with a verified length is simpler and has fewer ways to
-  // assemble a hybrid snapshot.
+  // One artefact, one GET. The body is held as a Buffer and decoded in slices
+  // rather than turned into one 251 MB JavaScript string, which would cost
+  // roughly double in UTF-16.
   //
-  // The body is held as a Buffer and decoded in slices rather than turned into
-  // one 251 MB JavaScript string, which would cost roughly double in UTF-16.
-  const buffer = await http.getBuffer(source.endpoint);
+  // The default 90-second budget is sized for API responses. A quarter of a
+  // gigabyte is not one, and letting it time out would misreport a slow link
+  // as a transport failure — which retains last-good, correctly, but for the
+  // wrong reason and forever. Ten minutes, still bounded, still fails closed.
+  //
+  // A truncated download is the failure this source is most exposed to, and it
+  // is caught in getBuffer against the server's declared length rather than
+  // here — half a CSV parses cleanly and no record-count heuristic can tell it
+  // from a quiet week.
+  const buffer = await http.getBuffer(source.endpoint, { timeoutMs: 600000 });
+  log(`sam-gov: ${buffer.length} bytes received.`);
+  return parseBuffer(buffer, { source, log });
+}
+
+// Split out from fetchAll so the parse can be exercised — and its failure modes
+// proven — against a fixture with no network involved.
+function parseBuffer(buffer, { source, log = () => {} } = {}) {
+  // Checked BEFORE decoding: once the bytes are text the evidence is gone.
+  const enc = utf8Evidence(buffer);
+  if (enc.valid > enc.impossible) {
+    throw new Error(`sam-gov: the bulk file looks like UTF-8, not ${ENCODING} `
+      + `(${enc.valid} valid UTF-8 sequences vs ${enc.impossible} impossible bytes). `
+      + 'Decoding it with the wrong table would silently corrupt every accented '
+      + 'title, so this refuses rather than publishing mojibake.');
+  }
+
   const rows = [];
   let header = null;
   let total = 0;
   let typeAt = -1;
   let index = [];
+  let short = 0;
   const byType = new Map();
   for (const r of parseCsvStream(chunksOf(buffer))) {
     if (!header) {
       header = r.map((h) => h.replace(/^﻿/, ''));
-      index = PROJECTED.map((name) => [name, header.indexOf(name)]).filter(([, at]) => at >= 0);
       const missing = PROJECTED.filter((name) => header.indexOf(name) < 0);
       if (missing.length) {
-        // A projected column vanishing is a schema change, not zero
+        // A projected column vanishing is a SCHEMA CHANGE, not zero
         // opportunities. Fail closed so last-good is retained.
         throw new Error(`sam-gov: bulk schema changed, missing column(s): ${missing.join(', ')}`);
       }
+      index = PROJECTED.map((name) => [name, header.indexOf(name)]);
       typeAt = header.indexOf('Type');
       continue;
     }
-    if (r.length < 5) continue;
+    // A row shorter than the header is a truncated or corrupted line. Counted,
+    // never silently absorbed — see the ratio guard below.
+    if (r.length < header.length) { short += 1; continue; }
     total += 1;
     const type = (r[typeAt] || '').trim();
     byType.set(type, (byType.get(type) || 0) + 1);
-    // Only carry the types that can become an opportunity or an award, and
-    // keep only the projected columns: the discarded 32 columns per row are
-    // what makes this fit in memory at all.
     if (!CARRIED_TYPES.has(type)) continue;
     const rec = {};
     for (const [name, at] of index) rec[name] = r[at];
     rows.push(rec);
   }
-  const unknown = [...byType.keys()].filter((t) => !KNOWN_TYPES.has(t));
-  log(`sam-gov: ${total} rows, ${rows.length} carried; types ${byType.size}`
+
+  if (!header) throw new Error('sam-gov: bulk file contained no header row');
+
+  // A replacement character cannot come out of the Windows-1252 table, so if
+  // one is here the SOURCE published it — the corruption happened upstream and
+  // republishing it would launder someone else's mojibake into our corpus.
+  const damaged = rows.filter((r) => String(r.Title || '').includes('�')).length;
+  if (damaged) {
+    throw new Error(`sam-gov: ${damaged} title(s) arrived containing a replacement `
+      + 'character. Refusing to publish text that is already corrupted at the source.');
+  }
+
+  // ── PARSER CORRUPTION GUARD ───────────────────────────────────────────────
+  //
+  // A mangled quote can turn thousands of rows into one giant field, and the
+  // result looks exactly like a quiet day. If a material share of lines did not
+  // yield a full row, the parse is not trustworthy and must not replace
+  // last-good.
+  const seen = total + short;
+  if (seen && short / seen > 0.01) {
+    throw new Error(`sam-gov: ${short} of ${seen} lines did not parse to a full row `
+      + '— refusing a corrupt parse rather than publishing a partial file');
+  }
+
+  const unknown = [...byType.keys()].filter((t) => t && !KNOWN_TYPES.has(t));
+  log(`sam-gov: ${total} rows, ${rows.length} carried; ${byType.size} type(s)`
+    + (short ? `; ${short} short row(s)` : '')
     + (unknown.length ? `; UNKNOWN TYPES: ${unknown.join(', ')}` : ''));
   return {
     raw: rows,
@@ -236,12 +386,12 @@ async function fetchAll({ source, log }) {
     population: total,
     // A single full artefact of every non-archived notice is complete by
     // construction: there is no page two to miss. What it is NOT is a list of
-    // open tenders — that is a derived subset, and the distinction is recorded
-    // in the registry window note.
+    // open tenders — that is a derived subset, recorded in the registry window.
     complete: true,
-    endpoint: source.endpoint,
+    endpoint: source && source.endpoint,
     typeCounts: Object.fromEntries(byType),
     unknownTypes: unknown,
+    shortRows: short,
   };
 }
 
@@ -252,78 +402,125 @@ function normalize(r, { source, nowIso }) {
   if (!title) return null;
 
   const type = trim(r.Type) || '';
-  const deadline = deadlineOf(r.ResponseDeadLine);
-  const days = TIME.daysUntil(deadline, nowIso);
+  const baseType = trim(r.BaseType) || '';
+  // Awards never become opportunities. The parser already excluded them; this
+  // is the second, independent guard, and it also catches the twelve rows whose
+  // BaseType says award while Type does not.
+  if (AWARD_TYPES.has(type) || AWARD_TYPES.has(baseType)) return null;
+  if (!CARRIED_TYPES.has(type)) return null;
 
-  // Status comes from the notice type first. A deadline can only narrow an
-  // already-qualified tender; it can never promote a record into OPEN.
+  const deadline = TIME.normalizeTimestamp(trim(r.ResponseDeadLine));
+  const passed = TIME.hasPassed(deadline, nowIso);
+
+  // SAM publishes no usable status string, so the notice TYPE is the source's
+  // own statement about the stage this procurement has reached.
+  //
+  // A presolicitation announces an intention to procure. That is UPCOMING while
+  // its stated response date is still ahead; once the date has gone the
+  // intention has lapsed and we say nothing rather than guessing.
   let reportedStatus = null;
-  let noticeType = 'UNKNOWN';
-  if (AWARD_TYPES.has(type)) {
-    reportedStatus = 'AWARDED';
-    noticeType = 'CONTRACT_AWARD';
-  } else if (TENDER_TYPES.has(type)) {
-    noticeType = 'CONTRACT_NOTICE';
-    // A qualified tender with no deadline is not assumed open. 230 such rows
-    // exist and the source gives nothing to decide them with.
-    if (days == null) reportedStatus = null;
-    else reportedStatus = days >= 0 ? 'OPEN' : 'CLOSED';
-  } else if (UPCOMING_TYPES.has(type)) {
-    // A presolicitation states an intention to procure. It is UPCOMING only
-    // while its own stated response date is still ahead; otherwise the
-    // intention has lapsed and we say nothing.
-    noticeType = 'PRIOR_INFORMATION';
-    reportedStatus = days != null && days >= 0 ? 'UPCOMING' : null;
-  }
+  if (UPCOMING_TYPES.has(type) && passed === false) reportedStatus = 'UPCOMING';
+
+  const noticeType = NOTICE_TYPE[type] || 'UNKNOWN';
+  const { status, statusBasis } = SCHEMA.resolveStatus({
+    reportedStatus, deadline, nowIso, noticeType,
+  });
+
+  // ── ARCHIVE DATE NARROWS, NEVER WIDENS ────────────────────────────────────
+  //
+  // SAM archives a notice on this date. A notice whose archive date has passed
+  // is no longer being offered, whatever its response deadline says. This is
+  // only ever allowed to remove a record from the current view — it can never
+  // promote one into it.
+  const archived = TIME.hasPassed(TIME.normalizeTimestamp(trim(r.ArchiveDate)), nowIso);
+  if (archived === true) return null;
+
+  // The current-opportunity slice. Everything else is a real SAM record that is
+  // simply not a live tender, and is dropped with a count rather than silently.
+  if (!SCHEMA.isCurrent({ status })) return null;
 
   const codes = [];
   for (const c of codeList(r.NaicsCode)) codes.push(['NAICS', c]);
-  // ClassificationCode is SAM's Product Service Code. It stays PSC and is
-  // never rewritten as UNSPSC or CPV.
+  // ClassificationCode is SAM's Product Service Code. It stays PSC and is never
+  // rewritten as UNSPSC or CPV — five taxonomies in this repository, no
+  // crosswalk between any of them.
   for (const c of codeList(r.ClassificationCode)) codes.push(['PSC', c]);
 
   const link = trim(r.Link);
   const url = link && /^https?:\/\//i.test(link) ? link : null;
+  if (!url) return null; // sourceUrl is required; a notice we cannot link to is not publishable
 
-  // The buyer is the publishing agency. The office and sub-tier are part of
-  // the same organisation, not separate buyers, so they are not counted as
-  // extra buyer identities.
-  const buyerName = trim(r['Department/Ind.Agency']) || trim(r['Sub-Tier']) || null;
+  // ── WHO THE BUYER IS ──────────────────────────────────────────────────────
+  //
+  // `Department/Ind.Agency` holds 56 distinct values across the whole file —
+  // "DEPT OF DEFENSE" covers tens of thousands of notices from hundreds of
+  // separate contracting activities. `Office` holds 1,636, and the office is
+  // the entity that actually issues the solicitation and receives the bid.
+  //
+  // Using the department would have reported 56 American buyers and would have
+  // put every DoD notice in one deduplication bucket. The office is both the
+  // more truthful answer and the more useful one; 1,084 rows carry no office
+  // and fall back to the sub-tier, then the department.
+  const buyerName = trim(r.Office) || trim(r['Sub-Tier']) || trim(r['Department/Ind.Agency']);
 
   // Place of performance, where the source gives one. A US platform does not
-  // make every contract's work location American.
-  const popCountry = trim(r['PopCountry']);
+  // make every contract's work location American — 3,203 rows name somewhere
+  // else. `projectCountry` is set only when the source says NOT the US.
+  const popCountry = trim(r.PopCountry);
   const projectCountry = popCountry && !/^(USA|US|UNITED STATES)$/i.test(popCountry)
     ? popCountry.toLowerCase() : null;
 
+  // The office's own jurisdiction, kept only when it is a real ISO subdivision.
+  // 250 distinct strings appear in this column and they are not all states.
+  const stateCode = trim(r.State) ? `US-${trim(r.State).toUpperCase()}` : null;
+  const subnationalJurisdiction = stateCode && ISO.isKnownCode(stateCode)
+    ? { scheme: 'ISO-3166-2', code: stateCode } : null;
+
   return {
+    id: SCHEMA.opportunityId(source.id, noticeId),
+    sourceId: source.id,
+    sourcePlatformId: source.platformId,
     sourceNoticeId: noticeId,
     sourceUrl: url,
     title,
+    titles: null,
+    // The Description column is an entire solicitation document. Not stored.
+    descriptionSummary: null,
     buyerName,
     country: 'united-states',
+    subnationalJurisdiction,
     projectCountry,
-    officialReference: trim(r.SolicitationNumber),
+    coverage: 'national',
     classifications: CLASS.normalizeCodes(codes),
-    deadline,
     publicationDate: TIME.normalizeTimestamp(trim(r.PostedDate)),
-    reportedStatus,
+    deadline,
+    sourceModifiedDate: null, // the bulk file states no modification stamp
+    status,
+    statusBasis,
     noticeType,
-    sourceType: type,
+    procedureType: null,
+    value: null, // the extract publishes an award amount only; see the header
+    language: 'en',
+    lotCount: null,
+    amendsNoticeId: null,
+    isAmendment: false,
+    // The buyer's own solicitation number. Distinct from the notice id, and
+    // deliberately NOT identity on its own: 13,026 of these are borne by more
+    // than one notice, and one — a government-wide acquisition vehicle — is
+    // borne by 6,919. See the reference-collision rule in to-dedupe.cjs.
+    officialReference: trim(r['Sol#']),
+    electronicSubmission: null,
+    submissionUrl: null,
     // Recorded because it is a real source fact, and deliberately not used to
     // decide anything: every row in the file carries Active=Yes.
     sourceActive: trim(r.Active),
-    // The bulk file carries an award amount only. Attaching it to an open
-    // solicitation would state a value the buyer never advertised.
-    value: null,
-    electronicSubmission: null,
-    submissionUrl: null,
+    sourceType: type,
   };
 }
 
 module.exports = {
-  ID, PLATFORM_ID,
+  id: ID, ID, PLATFORM_ID,
   TENDER_TYPES, UPCOMING_TYPES, AWARD_TYPES, NON_OPPORTUNITY_TYPES,
-  KNOWN_TYPES, CARRIED_TYPES, PROJECTED,
-  parseCsvStream, chunksOf, deadlineOf, codeList, fetchAll, normalize,
+  KNOWN_TYPES, CARRIED_TYPES, NOTICE_TYPE, PROJECTED,
+  parseCsvStream, chunksOf, parseBuffer, codeList, fetchAll, normalize,
 };

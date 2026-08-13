@@ -58,6 +58,10 @@
 
 const MATCH_TIERS = ['EXACT', 'STRONG', 'POSSIBLE'];
 
+// The largest block compared pairwise. Above this the block is skipped and
+// REPORTED — see the note at the cap itself.
+const BLOCK_CAP = 200;
+
 // Words that carry no procurement meaning and must not create similarity.
 // "Provision of services" vs "Provision of services" is not evidence.
 const STOPWORDS = new Set([
@@ -259,6 +263,47 @@ const rank = (sourceId) => {
   return i === -1 ? SOURCE_PRECEDENCE.length : i;
 };
 
+// ── WHEN TWO RECORDS RANK EQUALLY, THE NEWER ONE IS THE CURRENT ONE ─────────
+//
+// Source precedence answers "which SYSTEM is closest to this procurement". It
+// has nothing to say when both records come from the same system — and that is
+// exactly the amendment case, because a source that publishes an amendment as
+// a NEW notice id puts several versions of one procurement into one merge
+// group.
+//
+// SAM.gov does this on every amendment: same solicitation number, same office,
+// same title, a new NoticeId and a moved deadline. Measured across the real
+// snapshot, 337 of 2,376 merge groups disagreed about the deadline, and the
+// collapse was picking between them by LEXICOGRAPHIC NOTICE ID — which is to
+// say, arbitrarily. 267 published a deadline earlier than the buyer's current
+// one and 64 published a later one.
+//
+// Both are wrong and both cost a supplier something real: "Provide Open Frame
+// Laboratory Furniture" was published as closing 2026-08-17 when the buyer had
+// already extended it to 2026-09-03, and the opposite error tells someone to
+// prepare a bid for a procedure that shut last week.
+//
+// So recency breaks the tie: the source's own modification stamp when it has
+// one, its publication date otherwise. That took the 337 disagreements down to
+// 60, and every one of those 60 is a group whose notices were all posted on the
+// SAME DAY — SAM publishes no clock time on PostedDate and no modification
+// stamp at all, so nothing in the data says which came last.
+//
+// Those 60 fall through to identity order, which is deterministic and
+// arbitrary, and they stay that way on purpose: picking the later deadline
+// because buyers usually extend would be manufacturing evidence the source
+// declined to give. Every version remains in `occurrences`.
+const stampOf = (r) => (r.sourceModifiedDate && r.sourceModifiedDate.iso)
+  || (r.publicationDate && r.publicationDate.iso)
+  || (r.publicationDate && r.publicationDate.localDate)
+  || '';
+
+function byAuthority(x, y) {
+  return rank(x.sourceId) - rank(y.sourceId)
+    || (stampOf(x) < stampOf(y) ? 1 : (stampOf(x) > stampOf(y) ? -1 : 0))
+    || (x.id < y.id ? -1 : (x.id > y.id ? 1 : 0));
+}
+
 const CANONICAL_FIELDS = [
   'title', 'titles', 'descriptionSummary', 'buyerName', 'country',
   'subnationalJurisdiction', 'projectCountry', 'coverage', 'classifications',
@@ -283,7 +328,7 @@ function chooseField(field, members) {
 
   if (field === 'classifications') {
     const best = candidates.slice().sort((x, y) => (y.classifications.length - x.classifications.length)
-      || (rank(x.sourceId) - rank(y.sourceId)))[0];
+      || byAuthority(x, y))[0];
     return { value: best.classifications, from: best.sourceId };
   }
 
@@ -300,7 +345,7 @@ function chooseField(field, members) {
     if (cancelled) return { value: cancelled.statusBasis, from: cancelled.sourceId };
   }
 
-  const best = candidates.slice().sort((x, y) => rank(x.sourceId) - rank(y.sourceId))[0];
+  const best = candidates.slice().sort(byAuthority)[0];
   return { value: best[field], from: best.sourceId };
 }
 
@@ -334,11 +379,20 @@ function group(records) {
   }
 
   const possible = [];
-  for (const bucket of blocks.values()) {
-    // A buyer with hundreds of notices would make this quadratic. Reference
-    // blocks stay tiny; buyer blocks are capped, and the cap is reported
-    // rather than silent.
-    if (bucket.length > 200) continue;
+  const skipped = [];
+  for (const [key, bucket] of blocks) {
+    // A buyer with hundreds of notices would make this quadratic.
+    //
+    // The cap is real and it now bites: SAM.gov's largest contracting office
+    // carries 2,440 current notices, and six offices exceed 200. Comparing
+    // 2,440 records pairwise is ~3M comparisons for a block where same-source
+    // title resemblance cannot merge anything anyway — only a shared official
+    // reference can, and reference blocks are separate and small.
+    //
+    // So the cap stays, and it is REPORTED. An earlier version claimed in this
+    // very comment that it was reported and then `continue`d in silence, which
+    // is how a bounded search starts reading as an exhaustive one.
+    if (bucket.length > BLOCK_CAP) { skipped.push({ key, size: bucket.length }); continue; }
     for (let i = 0; i < bucket.length; i += 1) {
       for (let j = i + 1; j < bucket.length; j += 1) {
         const tier = classify(bucket[i], bucket[j]);
@@ -354,13 +408,12 @@ function group(records) {
     if (!byRoot.has(root)) byRoot.set(root, []);
     byRoot.get(root).push(r);
   }
-  return { groups: [...byRoot.values()], possible };
+  return { groups: [...byRoot.values()], possible, skippedBlocks: skipped.sort((a, b) => b.size - a.size) };
 }
 
 // Build one canonical opportunity from a group of source records.
 function collapse(members) {
-  const ordered = members.slice().sort((a, b) => rank(a.sourceId) - rank(b.sourceId)
-    || (a.id < b.id ? -1 : 1));
+  const ordered = members.slice().sort(byAuthority);
   const primary = ordered[0];
 
   const out = {
@@ -403,7 +456,7 @@ function collapse(members) {
 }
 
 function dedupe(records) {
-  const { groups, possible } = group(records);
+  const { groups, possible, skippedBlocks } = group(records);
   const canonical = groups.map(collapse)
     .sort((a, b) => (a.id < b.id ? -1 : 1));
   const merged = groups.filter((g) => g.length > 1);
@@ -416,13 +469,20 @@ function dedupe(records) {
       recordsMerged: merged.reduce((n, g) => n + g.length, 0),
       multiSource: canonical.filter((c) => c.multiSource).length,
       possiblePairs: possible.length,
+      // What the block cap did NOT compare. Published so "no duplicates found"
+      // can be read as the bounded claim it is.
+      blocksSkipped: skippedBlocks.length,
+      recordsInSkippedBlocks: skippedBlocks.reduce((n, b) => n + b.size, 0),
+      largestSkippedBlock: skippedBlocks.length ? skippedBlocks[0].size : 0,
     },
     possible,
+    skippedBlocks,
   };
 }
 
 module.exports = {
-  MATCH_TIERS, STOPWORDS, SOURCE_PRECEDENCE, CANONICAL_FIELDS,
+  MATCH_TIERS, BLOCK_CAP, STOPWORDS, SOURCE_PRECEDENCE, CANONICAL_FIELDS,
+  rank, stampOf, byAuthority,
   tokens, jaccard, referenceKey, buyerKey, deadlinesCompatible, deadlinesAgree,
   comparableTitle, titleSimilarity,
   classify, chooseField, group, collapse, dedupe,

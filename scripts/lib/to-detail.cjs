@@ -225,8 +225,15 @@ function project(o, { nowIso, platform, profiles = Object.keys(MATCH.PROFILES).s
         iso: o.deadline.iso || null,
         raw: o.deadline.raw || null,
         precision: o.deadline.precision,
+        // "We know the instant this closes." That is NOT the same question as
+        // "can we count the days", and the two came apart once zoneless
+        // deadlines became comparable as a 26-hour band (see to-time.cjs). A
+        // page showing a bounded count as an exact one would overstate what we
+        // know, so the basis travels with the number.
         decidable: TIME.isDecidable(o.deadline),
         daysRemaining: days,
+        daysRemainingBasis: days == null ? null
+          : (TIME.isDecidable(o.deadline) ? 'INSTANT' : 'ZONE_INDEPENDENT_BOUND'),
         // A source may still call a notice OPEN after its own deadline. Both
         // facts are kept; neither overrides the other.
         passedButSourceOpen: days != null && days < 0 && o.status === 'OPEN',

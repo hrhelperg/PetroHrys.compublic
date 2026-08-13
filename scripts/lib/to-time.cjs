@@ -30,10 +30,12 @@
 //   precision — INSTANT | DATE | ZONELESS | NONE
 //
 // When the zone is not knowable, `iso` stays null and `precision` is ZONELESS.
-// Downstream, a ZONELESS deadline is never used to claim a tender is still
-// open — it can only be shown as the source printed it. Losing a few records
-// from the "closing soon" view is the correct trade against telling anyone a
-// closed tender is open.
+// A ZONELESS deadline is always DISPLAYED exactly as the source printed it —
+// no offset is ever attached to it. For deciding open-or-closed it is compared
+// as a 26-hour BAND rather than a point, and answers only when every zone on
+// Earth agrees; see zonelessBand below. That distinction is the whole design:
+// bounded uncertainty is not the same as no information, but neither is it a
+// licence to pick a zone.
 //
 // DATE precision (TED's "2026-09-16+02:00") is a real date in a real offset
 // with no clock time. It is resolved to the END of that day in the stated
@@ -100,28 +102,79 @@ function normalizeTimestamp(value) {
   return { raw, iso: null, precision: 'NONE', derived: false };
 }
 
-// Is this timestamp usable for an OPEN/CLOSED decision?
+// Does this timestamp name a known INSTANT?
 //
-// Only INSTANT and DATE are. ZONELESS is displayable but not decidable: the
-// window between the earliest and latest plausible zone is 26 hours, which is
-// wider than the "closing soon" threshold this product uses.
+// Only INSTANT and DATE do. ZONELESS does not, and this predicate is used
+// wherever code needs a real `iso` string — sorting lot deadlines, comparing
+// two deadlines to each other — so it must keep meaning exactly that. It is
+// NOT the same question as "can we decide whether this has passed": see below.
 function isDecidable(ts) {
   return Boolean(ts) && (ts.precision === 'INSTANT' || ts.precision === 'DATE') && Boolean(ts.iso);
 }
 
+// ── ZONE-INDEPENDENT COMPARISON ─────────────────────────────────────────────
+//
+// A ZONELESS deadline has no instant. It does have BOUNDS. "2026-09-16" or
+// "2026-09-16T14:00:00", read in every zone that exists, spans from UTC+14 to
+// UTC-12 — a 26-hour band on the timeline rather than a point.
+//
+// The original code refused to say anything about such a deadline, which was
+// right about the band and wrong about the conclusion. For a deadline three
+// weeks away, EVERY zone agrees it has not passed; for one three weeks gone,
+// every zone agrees it has. The 26 hours of genuine ambiguity is 26 hours
+// wide, not unbounded, and outside it the answer does not depend on a zone we
+// were never told.
+//
+// So: answer only when the band lies entirely on one side of now, and return
+// null while now is inside it. No offset is invented, no local time is
+// invented, and `iso` stays null — a zoneless timestamp is still displayed
+// exactly as the source printed it.
+//
+// This recovered 16,516 SAM.gov records that had fallen to UNKNOWN, but it is
+// a general rule: CanadaBuys, SECOP II and TenderNed all publish zoneless
+// deadlines and all had the same records discarded.
+const ZONE_EARLIEST = '+14:00'; // Kiritimati — the day starts here
+const ZONE_LATEST = '-12:00';   // Baker Island — and ends here
+
+function zonelessBand(ts) {
+  if (!ts || ts.precision !== 'ZONELESS' || !ts.localDate) return null;
+  // A deadline stated as a date alone runs to the END of that day — the same
+  // reading DATE precision already gets, and for the same reason: a submission
+  // deadline dated the 16th is not over at 00:00 on the 16th.
+  const clock = ts.localTime
+    ? (ts.localTime.length === 5 ? `${ts.localTime}:00` : ts.localTime)
+    : '23:59:59';
+  const earliest = Date.parse(`${ts.localDate}T${clock}${ZONE_EARLIEST}`);
+  const latest = Date.parse(`${ts.localDate}T${clock}${ZONE_LATEST}`);
+  if (Number.isNaN(earliest) || Number.isNaN(latest)) return null;
+  return { earliest, latest };
+}
+
 // Whole days from `nowIso` to the deadline, or null when undecidable.
 // Deliberately floor()ed: 1.9 days left is "1 day", never "2".
+//
+// For a zoneless deadline the answer is bounded rather than exact, so the
+// bound that CANNOT overstate the time remaining is the one returned.
 function daysUntil(ts, nowIso) {
-  if (!isDecidable(ts)) return null;
-  const then = Date.parse(ts.iso);
   const now = Date.parse(nowIso);
-  if (Number.isNaN(then) || Number.isNaN(now)) return null;
-  return Math.floor((then - now) / 86400000);
+  if (Number.isNaN(now)) return null;
+  if (isDecidable(ts)) return Math.floor((Date.parse(ts.iso) - now) / 86400000);
+  const band = zonelessBand(ts);
+  if (!band) return null;
+  if (now < band.earliest) return Math.floor((band.earliest - now) / 86400000);
+  if (now > band.latest) return Math.floor((band.latest - now) / 86400000);
+  return null; // now is inside the 26-hour band: genuinely unknown
 }
 
 function hasPassed(ts, nowIso) {
-  if (!isDecidable(ts)) return null; // null means "cannot say", not "no"
-  return Date.parse(ts.iso) < Date.parse(nowIso);
+  const now = Date.parse(nowIso);
+  if (Number.isNaN(now)) return null;
+  if (isDecidable(ts)) return Date.parse(ts.iso) < now;
+  const band = zonelessBand(ts);
+  if (!band) return null; // null means "cannot say", not "no"
+  if (now < band.earliest) return false; // not passed in ANY zone
+  if (now > band.latest) return true;    // passed in EVERY zone
+  return null;                           // inside the band: cannot say
 }
 
 // A source may split date and time across two fields — the World Bank does
@@ -142,5 +195,6 @@ function combineDateAndTime(dateValue, timeValue) {
 }
 
 module.exports = {
-  PRECISIONS, EMPTY, normalizeTimestamp, isDecidable, daysUntil, hasPassed, combineDateAndTime,
+  PRECISIONS, EMPTY, ZONE_EARLIEST, ZONE_LATEST,
+  normalizeTimestamp, isDecidable, zonelessBand, daysUntil, hasPassed, combineDateAndTime,
 };

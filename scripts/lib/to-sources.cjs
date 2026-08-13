@@ -520,13 +520,93 @@ const SOURCES = [
       'A discovery surface, not a bidding platform: the submission route is the issuing platform, not this one.',
     ],
   },
+  // ── EXPANSION v2 ──────────────────────────────────────────────────────────
+  {
+    id: 'sam-gov',
+    name: 'SAM.gov Contract Opportunities',
+    platformId: 'us-sam-gov',
+    operator: 'General Services Administration (United States)',
+    acquisition: 'OFFICIAL_EXPORT',
+    endpoint: 'https://sam.gov/api/prod/fileextractservices/v1/api/download/Contract%20Opportunities/datagov/ContractOpportunitiesFullCSV.csv?privacy=Public',
+    method: 'GET',
+    // ── THE CORRECTION THAT UNBLOCKED THIS SOURCE ───────────────────────────
+    //
+    // v1 probed /opportunities/v2/search, got an empty response without a key,
+    // and recorded SAM as LOGIN_REQUIRED. That finding was true about the
+    // SEARCH API and false about SAM.gov: the daily bulk extract published for
+    // data.gov is served to an unauthenticated GET, and it is the complete
+    // file rather than a paged query. 251,608,326 bytes, 82,960 rows, no key,
+    // no session, nothing bypassed.
+    //
+    // The lesson is narrower than "re-probe everything". An access finding is
+    // about the ENDPOINT that was probed, and filing it against the whole
+    // platform is what kept this source closed for two phases.
+    authRequired: false,
+    javascriptRequired: false,
+    browserRequired: false,
+    // Works of the United States Government are not subject to copyright
+    // within the United States (17 U.S.C. § 105), and this extract is the
+    // artefact GSA publishes for data.gov redistribution.
+    reuse: 'PERMITTED',
+    reuseBasis: '17 U.S.C. § 105 — US Government works; published as the data.gov bulk extract',
+    attributionRequired: true,
+    storage: 'FULL_METADATA',
+    robotsRelevant: false, // a published open-data artefact, not a crawled page
+    stableIdentifier: 'NoticeId',
+    exposesModifiedDate: false, // the extract carries no modification stamp
+    exposesStatus: false,       // `Active` is constant across all 82,960 rows
+    exposesAttachments: false,
+    // NAICS is the primary scheme. PSC is published alongside it on 96% of
+    // rows and is carried natively — both are official US taxonomies, and
+    // NEITHER is converted to CPV or UNSPSC.
+    classificationScheme: 'NAICS',
+    classificationSchemes: ['NAICS', 'PSC'],
+    updateFrequency: 'daily',
+    // ── THE WINDOW ──────────────────────────────────────────────────────────
+    //
+    // The artefact is every notice SAM has not yet archived — awards, expired
+    // solicitations, market research and all. What is INGESTED is the current-
+    // opportunity slice of it: 14,765 of 82,960 rows on the pilot date.
+    //
+    // Stated as source-defined rather than as a day count because no date
+    // range describes it. Records in this file close years out; a publication
+    // cut-off would discard them for having been posted early.
+    window: {
+      kind: 'source-defined',
+      days: null,
+      note: 'the current-opportunity slice of the daily full extract (awards and lapsed notices excluded)',
+    },
+    pageSize: null, // single file
+    maxPages: 1,
+    rateLimitNote: 'One 251 MB file per refresh, never fetched more than once per run. No published quota.',
+    // ── ACTIVATED ───────────────────────────────────────────────────────────
+    //
+    // Registered STAGED first — `enabled: false`, enforced in rebuildCorpus
+    // rather than merely documented — and activated only once the gates were
+    // green: the whole file fetched and parsed from the live endpoint, 14,765
+    // current opportunities validated against the canonical schema with zero
+    // rejections, dedup measured against the existing corpus, and every
+    // failure mode proven to keep last-good (see sam-activation.test.cjs).
+    readyState: 'ACTIVE',
+    knownRestrictions: [
+      'Active=Yes on all 82,960 rows; it means "not archived" and is never read as OPEN.',
+      'The file carries ten contact-person columns; none is projected.',
+      'Description is frequently an entire solicitation document and is not stored.',
+      'The solicitation number is spelled `Sol#`, and 13,026 of them are borne by more than one notice.',
+      'No modification stamp is published, so supersession relies on the notice id alone.',
+    ],
+  },
 ];
 
 // Sources probed and NOT selected. Kept as data because "we checked and it
 // does not work" is the finding most likely to be lost, and the one most
 // likely to be re-litigated next quarter.
+//
+// SAM.gov used to head this list, on a finding about /opportunities/v2/search
+// that was correct about that endpoint and wrong about the platform. It is now
+// an active source; the entry is not deleted quietly but moved, with the
+// correction recorded above.
 const REJECTED_SOURCES = [
-  { id: 'sam-gov', name: 'SAM.gov Contract Opportunities', acquisition: 'LOGIN_REQUIRED', reason: 'Requires an api.data.gov key. No key available in this environment; v1 is not blocked on one vendor.' },
   { id: 'austender', name: 'AusTender', acquisition: 'BROWSER_REQUIRED', reason: 'Atom feed returns 403 to a non-browser client (WAF).' },
   { id: 'adb', name: 'Asian Development Bank', acquisition: 'BROWSER_REQUIRED', reason: 'Tender RSS returns 403 to a non-browser client (WAF).' },
   { id: 'ecepp', name: 'EBRD ECEPP', acquisition: 'BROWSER_REQUIRED', reason: 'API path returns 403 to a non-browser client (WAF).' },

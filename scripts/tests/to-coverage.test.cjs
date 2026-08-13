@@ -197,12 +197,28 @@ test('CanadaBuys multi-code cells are parsed, not silently dropped', () => {
 });
 
 test('classification recovery changed content, not canonical identity', () => {
-  // 822 source records were rewritten and the canonical count did not move:
-  // enrichment must not create, merge or destroy an opportunity.
-  assert.strictEqual(opportunities.length, 9577,
-    'the canonical opportunity count moved during classification recovery');
+  // ── COUNT MOVED 9,577 -> 20,091, Expansion v2 / SAM.gov activation ────────
+  //
+  // The original assertion pinned an absolute number to prove that B1's
+  // classification recovery rewrote 822 CanadaBuys records without creating,
+  // merging or destroying an opportunity. Adding a SOURCE legitimately moves
+  // that number, so pinning it again would only record when the corpus last
+  // changed size — which is not the property this test is for.
+  //
+  // The property is restated directly instead: enrichment adds codes to
+  // records that already exist, so every classified record must still be one
+  // canonical opportunity with a unique identity.
   const ids = new Set(opportunities.map((o) => o.id));
   assert.strictEqual(ids.size, opportunities.length, 'a canonical id was duplicated');
+  assert.ok(opportunities.length >= 9577,
+    'the corpus lost opportunities that classification recovery was supposed to enrich');
+
+  // And the enrichment itself is still there: CanadaBuys records carry the
+  // UNSPSC and GSIN codes their source always published.
+  const canada = opportunities.filter((o) => o.sourceId === 'canadabuys');
+  const classified = canada.filter((o) => (o.classifications || []).length);
+  assert.ok(classified.length > canada.length * 0.5,
+    `only ${classified.length} of ${canada.length} CanadaBuys records carry codes — B1 regressed`);
 });
 
 test('protected layers are unchanged by this phase', () => {
