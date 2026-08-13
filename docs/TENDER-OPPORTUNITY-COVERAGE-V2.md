@@ -445,3 +445,26 @@ adapter's own constant was wrong; and a sixth status code, **`PRE`**
 (anuncio previo), was observed live and is deliberately left out of the status
 map so it resolves to UNKNOWN rather than being promoted to UPCOMING on our
 authority.
+
+
+---
+
+# Spain: terminally deferred, and why the next source is the US
+
+A bounded search of both official PLACSP syndication feeds settled it. The
+second feed, `PlataformasAgregadasSinMenores`, is **also a chronological delta
+stream** — 274 entries across ~13 hours, ordered by `updated`, with a dated
+continuation file. The guessed "EnPlazo" endpoint does not exist, and the
+syndication index returns 403.
+
+**No official PLACSP endpoint enumerates the currently open universe**, so
+Spain is deferred with the reason
+`CURRENT_UNIVERSE_NOT_ENUMERABLE_FROM_QUALIFIED_OFFICIAL_SOURCE`. The validated
+adapter stays in the tree as evidence and as the basis for later change
+observation; it is not a current-corpus bootstrap.
+
+The contrast is the whole point. SAM.gov's bulk extract is a **251 MB full
+daily file with an explicit `Active` column**, refreshed the morning of the
+probe. A complete file that states its own current-state flag is a snapshot by
+construction, which is precisely what a chronological feed can never be. That
+is why the US is next and Spain is not.

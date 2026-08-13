@@ -41,7 +41,12 @@ chemicals-materials, textiles-ppe (PRIORITY_2), environment (PRIORITY_3), and
 
 ## ACCEPT_CANDIDATE — qualified, not yet implemented
 
-### Spain — Plataforma de Contratación del Sector Público
+### Spain — Plataforma de Contratación del Sector Público — **DEFER**
+
+**Terminal state: DEFER — `CURRENT_UNIVERSE_NOT_ENUMERABLE_FROM_QUALIFIED_OFFICIAL_SOURCE`.**
+The adapter is built, validated and committed; the source cannot bootstrap a
+current corpus. See the window finding below and in the coverage doc.
+
 `PUBLIC_STRUCTURED` · ATOM + CODICE (Spanish UBL 2) XML · operator Dirección
 General del Patrimonio del Estado.
 
@@ -155,12 +160,12 @@ transcript.
 
 | decision | count |
 |---|---|
-| ACCEPT_CANDIDATE (qualified, none yet activated) | 8 |
+| ACCEPT_CANDIDATE (qualified, none yet activated) | 7 |
 | REJECT | 7 |
-| DEFER | 5 |
+| DEFER | 6 |
 | UNRESOLVED | 2 |
 
-ACCEPT_CANDIDATE: Spain, Italy ANAC PPVL, United States SAM.gov bulk, Brazil
+ACCEPT_CANDIDATE: Italy ANAC PPVL, United States SAM.gov bulk, Brazil
 PNCP, Lithuania, Poland BZP, Czech VVZ, Romania SICAP.
 
 ---
@@ -181,3 +186,44 @@ The two findings that most affect the plan:
 2. **Brazil's CC BY-ND licence is a genuine blocker**, not a formality. It must
    be resolved before ingestion, and the site-wide gov.br footer is not a
    dataset licence.
+
+
+---
+
+## Spain — bounded current-window search, 2026-08-13
+
+Both official PLACSP syndication feeds were probed for a current-opportunity
+view. Neither provides one.
+
+| endpoint | HTTP | finding |
+|---|---|---|
+| `sindicacion_643/licitacionesPerfilesContratanteCompleto3.atom` | 200 | chronological delta; 1,677 entries over ten hours of one day |
+| `sindicacion_1044/PlataformasAgregadasSinMenores.atom` | 200 | **also chronological**; 274 entries over ~13 hours, dated `next` file |
+| `sindicacion_643/licitacionesPerfilesContratanteEnPlazo.atom` | 200 | redirect page, not a feed — the name was a guess and it does not exist |
+| `/sindicacion/` (index) | 403 | not enumerable |
+
+Both real feeds are ordered by `updated` descending with dated continuation
+files. **No official PLACSP syndication endpoint enumerates the currently open
+universe.**
+
+**Spain terminal state: DEFER.** The delta feed remains valuable later — for
+change observation, enrichment and second-source provenance on opportunities
+already known from TED — but it cannot bootstrap a current corpus, and
+activating it would advertise partial Spanish coverage while generating false
+closures.
+
+## United States — SAM.gov bulk: the completeness property Spain lacks
+
+Re-probed the same day. `ContractOpportunitiesFullCSV.csv`:
+**HTTP 206, 251,608,326 bytes, `Last-Modified` 2026-08-13 03:30 GMT**, 47
+columns including an explicit **`Active`** flag (col 24) alongside
+`ArchiveDate`, `ArchiveType`, `ResponseDeadLine`, `NoticeId`, `Type`,
+`BaseType`, `NaicsCode`, `ClassificationCode`, `Link`, `PostedDate`.
+
+A full daily file carrying its own current-state flag is a **complete snapshot
+by construction** — exactly the property the Spanish feeds do not have. Range
+requests are honoured, so ingestion need not hold 251 MB in memory.
+
+Still to prove before activation: that `Active` is authoritative across the
+whole file rather than the sampled head, the notice-type mapping, and every
+operational gate. **This is the next session's starting point.**
