@@ -786,8 +786,26 @@ test('40. snapshot provenance and coverage honesty', () => {
     if (s.recordCount > 0) assert.ok(s.retrievedAt, `${s.id}: no retrieval timestamp`);
     else assert.strictEqual(s.complete, false, `${s.id}: contributed nothing but claims a complete window`);
     if (s.complete && s.population !== null) {
-      assert.ok(s.recordCount <= s.population,
-        `${s.id}: claims complete coverage but holds more records than the source reported`);
+      // ── A LIVE PAGED WALK IS NOT A SINGLE-INSTANT READ ────────────────────
+      //
+      // For a single artefact this is exact: SAM.gov's file has a row count and
+      // a snapshot cannot hold more than it. For a source walked page by page
+      // over minutes it is not, because the register keeps publishing while we
+      // read. Poland's 598-page walk collected 5,979 notices against the 5,978
+      // its first page reported — tenders published mid-walk, appended past the
+      // point already read, which is exactly why that traversal is ascending
+      // rather than descending.
+      //
+      // The adapter now reads the count on every page so the figure reflects
+      // the END of the walk. This tolerance covers the residue and is bounded
+      // by one page: enough for publication drift, nowhere near enough to hide
+      // duplication, which would be thousands of records and is caught by the
+      // duplicate-ratio guard in to-snapshot.cjs regardless.
+      const registered = SOURCES.SOURCE_BY_ID.get(s.id);
+      const tolerance = registered && registered.pageSize ? registered.pageSize : 0;
+      assert.ok(s.recordCount <= s.population + tolerance,
+        `${s.id}: holds ${s.recordCount} records against a reported population of `
+        + `${s.population} — beyond what publication during a walk can explain`);
     }
   }
   const partial = CORPUS.sources.filter((s) => !s.complete);

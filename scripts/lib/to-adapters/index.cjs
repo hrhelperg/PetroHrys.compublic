@@ -51,8 +51,14 @@ const deVergabe = require('./de-vergabe.cjs');
 // instead of materialising whole rows like every adapter above it.
 const samGov = require('./sam-gov.cjs');
 
+// Poland's statutory below-EU-threshold bulletin. A paged JSON board rather
+// than a bulk file, and the first source whose window is defined by a DEADLINE
+// filter instead of a publication date — which is what makes its current
+// universe addressable at all.
+const plBzp = require('./pl-bzp.cjs');
+
 const ADAPTERS = [ted, ukFts, canadabuys, worldbank, secop2, tenderned, boamp, zaEtenders,
-  ukContractsFinder, deVergabe, samGov];
+  ukContractsFinder, deVergabe, samGov, plBzp];
 const BY_ID = new Map(ADAPTERS.map((a) => [a.id, a]));
 
 function adapterFor(sourceId) {

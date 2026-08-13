@@ -317,3 +317,69 @@ binding constraint on this corpus, ahead of the build, the repository and search
 latency. Poland at roughly 600–3,000 current records is a far smaller addition
 than SAM's 10,511 and does not by itself force the issue, but the index strategy
 should be decided before a third source of SAM's scale is considered.
+
+---
+
+# Czech Republic VVZ — QUALIFIED, NOT ACTIVATED
+
+Probed 2026-08-13. Recorded so the next session starts from a reachable
+endpoint rather than from the ledger's one-line note.
+
+## What was established
+
+`vvz.nipez.cz` is a React SPA and returns `text/html` for every path, so the
+API had to be read out of the app's own bundle rather than guessed — the same
+method the Polish notice URL needed.
+
+```
+GET https://api.vvz.nipez.cz/api/submissions/search?itemsPerPage=2
+  -> 400  application/problem+json
+     {"detail":"Query parameter \"formGroup\" is required",
+      "code":"FILTER_CONSTRAINT_VIOLATION"}
+```
+
+Three things follow, and they are the ones that decide qualification:
+
+1. **The endpoint is public.** A 400 naming a missing filter is not a 401 or a
+   403. Nothing challenged for a credential, and nothing needs bypassing.
+2. **It is a real structured API**, answering RFC-7807 problem documents with
+   machine-readable error codes.
+3. **`robots.txt` declares `Disallow:` with an empty value** — no restriction.
+
+The client also declares Keycloak configuration (`REACT_APP_KEYCLOAK_URL`,
+`_REALM`, `_CLIENT_ID`). That is for the AUTHORING side of the register —
+contracting authorities filing notices — and the earlier ledger note that "only
+a token stands between us and the data" appears to have conflated the two. The
+public search path answered without one.
+
+Related endpoints declared by the same bundle: `/api/submissions`,
+`/api/submissions/public/{id}`, `/api/submissions/children/search`,
+`/api/organizations`, `/api/enumerations/search`.
+
+## What remains before an adapter
+
+- The `formGroup` vocabulary, obtainable from `/api/enumerations/search`.
+- Window semantics — the Poland gate. Whether the search can be constrained to
+  notices still accepting offers, or only to a publication range.
+- Page size and whether a full current window is reachable inside a sane cap.
+- Status and deadline fields, CPV presence, and the contact-person columns.
+- Reuse terms. VVZ is the statutory Czech register; the Czech implementation of
+  Directive (EU) 2019/1024 is the likely basis, and it has not been read.
+
+## Why it was not activated in this wave
+
+Time, not capability. Poland was taken through to ACTIVE first because C1
+evidence ranked it 3.9× larger, and the wave ended with Czech qualified rather
+than half-built. `ISVZ Open Data bulk export` remains DEFER — VVZ is still the
+preferred Czech route and this probe strengthens that.
+
+**State: ACCEPT_CANDIDATE, endpoint confirmed reachable and unauthenticated.**
+
+---
+
+# Romania SICAP — NOT RE-PROBED IN THIS WAVE
+
+Unchanged from the ledger: **ACCEPT_CANDIDATE**, `api-pub` SICAP/SEAP public
+notices API. C1 measured Romania at 117 current opportunities, 100% via TED —
+the same single-source dependency as Poland and Czech, at the smallest scale of
+the three. It stays third in the ordering for that reason.

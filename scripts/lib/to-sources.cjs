@@ -596,6 +596,72 @@ const SOURCES = [
       'No modification stamp is published, so supersession relies on the notice id alone.',
     ],
   },
+  {
+    id: 'pl-bzp',
+    name: 'Biuletyn Zamówień Publicznych (eZamówienia)',
+    platformId: 'pl-ezamowienia',
+    operator: 'Urząd Zamówień Publicznych (Poland)',
+    acquisition: 'OFFICIAL_API',
+    endpoint: 'https://ezamowienia.gov.pl/mo-board/api/v1/Board/Search',
+    method: 'GET',
+    authRequired: false,
+    javascriptRequired: false, // the API is JSON; only the human UI is an SPA
+    browserRequired: false,
+    // BZP is the statutory Polish procurement bulletin, published by the
+    // Public Procurement Office under the Prawo zamówień publicznych. Reuse of
+    // information from Polish public registers is governed by the 2021 Act on
+    // Open Data and the Reuse of Public Sector Information, which implements
+    // EU Directive 2019/1024 and makes register information reusable including
+    // commercially.
+    //
+    // Classified LIKELY_PERMITTED rather than PERMITTED for the same reason
+    // TenderNed is: the statutory framework is clear, and the API itself
+    // carries no licence statement to point at. robots.txt exists and declares
+    // no restriction.
+    reuse: 'LIKELY_PERMITTED',
+    reuseBasis: 'Statutory Polish procurement register; Act on Open Data and Reuse of Public Sector Information (2021), implementing Directive (EU) 2019/1024',
+    attributionRequired: true,
+    storage: 'FULL_METADATA',
+    robotsRelevant: false, // robots.txt declares no directives; this is an API client
+    stableIdentifier: 'bzpNumber',
+    exposesModifiedDate: false, // versions are a suffix on noticeNumber, not a date
+    exposesStatus: false,       // no status string; result/contractors are the evidence
+    exposesAttachments: false,
+    classificationScheme: 'CPV',
+    updateFrequency: 'continuous, business days',
+    // ── FULL_CURRENT_WINDOW ─────────────────────────────────────────────────
+    //
+    // Defined by a DEADLINE filter, not a publication date: every notice still
+    // accepting offers. A tender published in 2022 and closing in December
+    // 2026 is on page one under publication-ascending order, which is the
+    // property Spain lacked and the reason this source qualified.
+    window: {
+      kind: 'source-defined',
+      days: null,
+      note: 'notices still accepting offers (SubmittingOffersDateFrom = run date), native BZP contract notices only',
+    },
+    // The server caps a page at ten and ignores every attempt to raise it.
+    pageSize: 10,
+    // ~600 pages covers the observed 5,975-record window; the cap is a runaway
+    // guard with headroom, and reaching it marks the window PARTIAL.
+    maxPages: 800,
+    rateLimitNote: 'No published quota. Sequential paging, one request per ten notices, hard page cap.',
+    // ── ACTIVATED ───────────────────────────────────────────────────────────
+    //
+    // Staged first, then activated on measurement: 5,977 notices walked over
+    // 598 pages against the 5,976 the source itself reports, zero schema
+    // rejections, and 5,426 current opportunities of which EVERY ONE is below
+    // the EU threshold. Overlap with TED is zero, which is the hypothesis this
+    // source was selected on and is now a measured fact rather than a guess.
+    readyState: 'ACTIVE',
+    knownRestrictions: [
+      'Page size is capped at 10 by the server; PageSize, pageSize, Size, Limit and PerPage were each tried.',
+      'The unfiltered board is the whole 3,272,748-notice archive; only the deadline-filtered view is a current window.',
+      'TED notices are mirrored onto the board as eforms-16/17 and are excluded at the query.',
+      'No status string is published; a procedure result or a named contractor is the evidence a notice is decided.',
+      'The human UI is an Angular SPA, so notice URLs are built from the route table the app itself declares.',
+    ],
+  },
 ];
 
 // Sources probed and NOT selected. Kept as data because "we checked and it
