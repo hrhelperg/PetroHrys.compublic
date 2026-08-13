@@ -290,6 +290,7 @@ function discoveryConfig({ t, countryName, facets, locale }) {
       removeFilter: tpl('tds.removeFilter'),
       relatedCount: tpl('tds.relatedCount'),
       relatedNote: t('tds.relatedNote'),
+      viewOfficial: t('tds.viewOfficial'),
       yes: t('tds.yes'),
       no: t('tds.no'),
     },
@@ -386,6 +387,7 @@ ${selectControl('td-browser', t('tds.f.browserCheck'), label(facets.browserCheck
       <p class="bd-note">${escapeHtml(t('tds.methodIndexing'))}</p>
 
       <script type="application/json" id="td-config">${jsonForScript(cfg)}</script>
+      <script src="/js/tender-route.js" defer></script>
       <script src="/js/tender-search.js" defer></script>
       <script src="/js/tender-related.js" defer></script>
       <script src="/js/tender-discovery.js" defer></script>

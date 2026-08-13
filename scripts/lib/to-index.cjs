@@ -32,6 +32,7 @@ const MATCH = require('./to-match.cjs');
 const SCHEMA = require('./to-schema.cjs');
 const TIME = require('./to-time.cjs');
 const RELATED = require('./to-related.cjs');
+const DETAIL = require('./to-detail.cjs');
 
 const FORMAT = 'discovery-1';
 
@@ -70,6 +71,7 @@ const FIELDS = [
   'oc',  // occurrence count
   'm',   // derived supplier-profile match bands — DERIVED, not canonical
   'f',   // retrieval family id — DERIVED presentation grouping, never a merge
+  'dp',  // 1 when a canonical detail page exists; the ROUTE is derived, never stored
 ];
 
 const KNOWN = new Set(FIELDS);
@@ -264,6 +266,16 @@ function build(corpus, { platformsById, profiles = Object.keys(MATCH.PROFILES).s
   // are computed once here rather than in every browser on every keystroke.
   // Only members carry the field: 235 of 6,964 records, so the artifact grows
   // by the families that exist rather than by the records that do not.
+  // Eligibility only — one byte per record. The route itself is a pure
+  // function of the id and title, both already present, so the browser derives
+  // it with the same shared rule the generator uses. Storing 6,817 route
+  // strings instead cost 188 KB gzip, a 20% increase on a payload every
+  // visitor downloads, to carry information already in the record.
+  for (const o of corpus.opportunities) {
+    const r = byId.get(o.id);
+    if (r && DETAIL.indexability(o).indexable) r.dp = 1;
+  }
+
   const search = require('./to-search.cjs');
   search.hydrate({ records });
   const { families } = RELATED.detectFamilies(records);

@@ -454,6 +454,48 @@ function buildOpportunitiesIntelligenceMeta({ current, sources, canonicalPath })
   });
 }
 
+// One canonical procurement record.
+//
+// The title is the buyer's own, in the buyer's own language, and is never
+// translated. Because many procurements share a title, the buyer is appended
+// as a FACT rather than as padding, so two pages with the same title are still
+// distinguishable in a result list.
+function buildOpportunityDetailMeta({
+  title, buyer, where, deadline, sourceName, reference, canonicalPath, indexable,
+}) {
+  const parts = [title];
+  if (buyer) parts.push(buyer);
+  const fullTitle = `${parts.join(' — ')} | Tender opportunity`;
+  const facts = [];
+  if (buyer) facts.push(`Buyer: ${buyer}`);
+  if (where) facts.push(`Location: ${where}`);
+  if (deadline) facts.push(`Closes: ${deadline}`);
+  if (reference) facts.push(`Reference: ${reference}`);
+  if (sourceName) facts.push(`Published by ${sourceName}`);
+  const description = facts.length
+    ? `${facts.join('. ')}. Source record, provenance and supplier-profile relevance.`
+    : 'Procurement opportunity record with source provenance and supplier-profile relevance.';
+  const trail = [ROOT_TRAIL[0],
+    { name: 'Tenders & Procurement', path: '/research/tenders-procurement/' },
+    { name: 'Tender Opportunities', path: '/research/tenders-procurement/opportunities/' },
+    { name: title, path: canonicalPath }];
+  return meta({
+    title: fullTitle,
+    description: description.slice(0, 300),
+    canonicalPath,
+    // Source-visible noindex: a crawler reads the HTML, so a client-injected
+    // tag would be worth nothing.
+    robots: indexable ? undefined : NOINDEX,
+    breadcrumbTrail: trail,
+    // Conservative schema only. There is no schema.org type for a tender, and
+    // Product/Offer/Event would be a fabricated rich snippet.
+    graph: [
+      webPage({ name: fullTitle, description, url: absoluteUrl(canonicalPath) }),
+      breadcrumbList(trail),
+    ],
+  });
+}
+
 function buildTendersIntelligenceMeta({ scored, profiles, canonicalPath }) {
   const title = 'Procurement Intelligence';
   const description = `Which procurement systems to investigate first, by supplier type and `
@@ -560,5 +602,6 @@ module.exports = {
   buildTendersMeta,
   buildTendersIntelligenceMeta,
   buildOpportunitiesIntelligenceMeta,
+  buildOpportunityDetailMeta,
   buildMonitoringMeta,
 };

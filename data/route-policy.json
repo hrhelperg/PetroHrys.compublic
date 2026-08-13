@@ -138,5 +138,21 @@
       "words": 231,
       "reason": "Submission form for the English-language startup directory. The form is processed in English, so a German page inviting a German submission would set an expectation the pipeline does not honour."
     }
+  ],
+  "_generatedFamiliesComment": "EXPLICIT `routes` above are individually maintained exceptions, each with a human-authored reason. `generatedFamilies` below are narrowly scoped route families owned by one generator. The distinction is deliberate: a family is permission for a DEFINED generator to emit routes it can prove correspond to real canonical records, not permission to emit arbitrary paths. A family that could match globally, or that authorized an id with no canonical record behind it, would defeat the registry it lives in. Membership is verified in scripts/lib/route-family.cjs against the generator's own canonical route set.",
+  "generatedFamilies": [
+    {
+      "id": "tender-opportunity-detail",
+      "prefix": "/research/tenders-procurement/opportunities/",
+      "segments": 1,
+      "generator": "scripts/build-tender-detail.cjs",
+      "identitySource": "canonical TenderOpportunity id",
+      "routeRule": "scripts/lib/to-route.cjs detailPath(id, title)",
+      "locales": [
+        "en"
+      ],
+      "disposition": "INTENTIONALLY_EN_ONLY",
+      "reason": "One canonical record per procurement opportunity. The material facts — tender title, buyer, dates, classifications, declared value, source and official URLs — are source facts in the source's own language and are never translated. Four locale copies would be ~531 MB of near-identical files differing only in field labels, so v1 publishes one canonical route and the localized Discovery and Monitoring pages in all four locales link to it. Route identity is the canonical opportunity id, never the English title, so localized shells remain possible later without moving a single URL."
+    }
   ]
 }

@@ -21,6 +21,35 @@ const I18N = require('../lib/i18n.cjs');
 
 const read = (rel) => fs.readFileSync(path.join(ROOT, rel), 'utf8');
 const policy = JSON.parse(read('data/route-policy.json'));
+const RF = require('../lib/route-family.cjs');
+const ROUTE = require('../lib/to-route.cjs');
+const DETAIL = require('../lib/to-detail.cjs');
+const CORPUS = require('../lib/to-corpus.cjs');
+const TP = require('../lib/tp-schema.cjs');
+
+// Routes a declared generator can prove correspond to real canonical records.
+// This is membership EVIDENCE, not a pattern: an invented id under the same
+// prefix is not in this set and is therefore not authorized.
+const families = RF.load();
+const authorizedGenerated = (() => {
+  const set = new Set();
+  const file = path.join(ROOT, 'data/tender-opportunities/opportunities.json');
+  if (!fs.existsSync(file)) return set;
+  const corpus = CORPUS.decode(JSON.parse(fs.readFileSync(file, 'utf8')));
+  const countries = JSON.parse(read('data/business-directories/countries.json'));
+  const platformsById = new Map(TP.loadPlatforms(
+    path.join(ROOT, 'data/tenders-procurement/platforms.json'),
+    new Map(countries.map((c) => [c.slug, c.iso2 || null])),
+  ).map((x) => [x.id, x]));
+  for (const p of DETAIL.build(corpus, { platformsById }).pages) {
+    if (p.indexable) set.add(p.route);
+  }
+  return set;
+})();
+
+const isAuthorizedGenerated = (route) => RF.authorize(route, families, {
+  knownRoutes: authorizedGenerated, locale: 'en',
+}).authorized;
 
 const VALID_DISPOSITIONS = new Set([
   'LOCALIZE', 'INTENTIONALLY_EN_ONLY', 'NOINDEX_TECHNICAL',
@@ -89,7 +118,13 @@ test('the policy covers exactly the routes that lack full locale coverage', () =
   }
 
   const declared = new Set(policy.routes.map((r) => r.route));
-  const undeclared = incomplete.filter((r) => !declared.has(r)).sort();
+  // A route may be covered EITHER by an explicit human-authored entry or by a
+  // generated family that can prove the route corresponds to a real canonical
+  // record. The two mechanisms stay separate on purpose: the explicit registry
+  // keeps its value because every row in it was thought about, and adding
+  // 6,817 generated rows would have destroyed exactly that.
+  const undeclared = incomplete
+    .filter((r) => !declared.has(r) && !isAuthorizedGenerated(r)).sort();
   const stale = [...declared].filter((r) => !incomplete.includes(r)).sort();
 
   assert.deepStrictEqual(undeclared, [],
