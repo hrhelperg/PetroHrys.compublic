@@ -45,6 +45,7 @@ const ADAPTERS = require('./lib/to-adapters/index.cjs');
 const SCHEMA = require('./lib/to-schema.cjs');
 const SNAP = require('./lib/to-snapshot.cjs');
 const DEDUPE = require('./lib/to-dedupe.cjs');
+const CORPUS = require('./lib/to-corpus.cjs');
 const TP = require('./lib/tp-schema.cjs');
 
 const ROOT = path.join(__dirname, '..');
@@ -244,7 +245,7 @@ async function main() {
 
   const { canonical, stats, possible } = DEDUPE.dedupe(all);
 
-  const corpus = {
+  const corpus = CORPUS.encode({
     generatedAt: nowIso,
     adapterVersion: ADAPTER_VERSION,
     sources: SOURCES.SOURCES.map((s) => {
@@ -269,7 +270,7 @@ async function main() {
     // decision is inspectable rather than invisible.
     possibleDuplicates: possible,
     opportunities: canonical,
-  };
+  });
 
   if (!dryRun) {
     const changed = writeIfChanged(CORPUS_FILE, `${stableStringify(corpus)}\n`);

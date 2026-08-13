@@ -27,8 +27,18 @@ const ukFts = require('./uk-fts.cjs');
 const canadabuys = require('./canadabuys.cjs');
 const worldbank = require('./worldbank.cjs');
 const secop2 = require('./secop2.cjs');
+const tenderned = require('./tenderned.cjs');
+const boamp = require('./boamp.cjs');
+const { makeOcdsAdapter } = require('./ocds.cjs');
 
-const ADAPTERS = [ted, ukFts, canadabuys, worldbank, secop2];
+// Phase 2. South Africa is built from the shared OCDS factory rather than
+// hand-written: it is the first of several OCDS publishers, and the second one
+// should cost a configuration block rather than a file.
+const zaEtenders = makeOcdsAdapter({
+  id: 'za-etenders', pager: 'pageNumberDateRange', country: 'south-africa',
+});
+
+const ADAPTERS = [ted, ukFts, canadabuys, worldbank, secop2, tenderned, boamp, zaEtenders];
 const BY_ID = new Map(ADAPTERS.map((a) => [a.id, a]));
 
 function adapterFor(sourceId) {

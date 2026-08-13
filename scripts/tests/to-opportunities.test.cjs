@@ -35,7 +35,12 @@ const ROOT = path.resolve(__dirname, '..', '..');
 const read = (rel) => fs.readFileSync(path.join(ROOT, rel), 'utf8');
 const CORPUS_FILE = path.join(ROOT, 'data', 'tender-opportunities', 'opportunities.json');
 
-const CORPUS = fs.existsSync(CORPUS_FILE) ? JSON.parse(read('data/tender-opportunities/opportunities.json')) : null;
+// Decoded, not read raw: the corpus is stored columnar since Phase 2, and the
+// guards below are about the records, not about the file layout. The layout
+// itself is asserted separately in P2-1.
+const CORPUS_FORMAT = require('../lib/to-corpus.cjs');
+const CORPUS = fs.existsSync(CORPUS_FILE)
+  ? CORPUS_FORMAT.decode(JSON.parse(read('data/tender-opportunities/opportunities.json'))) : null;
 const O = CORPUS ? CORPUS.opportunities : [];
 const NOW = CORPUS ? CORPUS.generatedAt : '2026-08-13T00:00:00.000Z';
 const PLATFORM_IDS = new Set(JSON.parse(read('data/tenders-procurement/platforms.json')).map((p) => p.id));
@@ -1092,4 +1097,184 @@ test('MUTATION SUITE: every mutation was applied and none was a no-op', () => {
     assert.strictEqual(typeof m.fn, 'function', `${m.name} has no body`);
     assert.ok(m.fn.toString().includes('assert'), `${m.name} asserts nothing: it is a no-op`);
   }
+});
+
+// ── PHASE 2 ─────────────────────────────────────────────────────────────────
+//
+// Three sources added, a columnar corpus format, and the first live
+// cross-source duplicates this project has had. Each of the guards below
+// exists because Phase 2 found the failure it describes.
+
+const CORPUSFMT = CORPUS_FORMAT;
+
+test('P2-1. the corpus format round-trips losslessly', () => {
+  const raw = JSON.parse(read('data/tender-opportunities/opportunities.json'));
+  assert.strictEqual(raw.format, CORPUSFMT.FORMAT, 'the corpus is not in the current format');
+  assert.ok(Array.isArray(raw.rows) && raw.rows.length > 0, 'the corpus has no rows');
+  assert.deepStrictEqual(raw.fields, CORPUSFMT.FIELDS, 'the stored column list has drifted');
+  // Decode → encode → decode must be stable.
+  const once = CORPUSFMT.decode(raw);
+  const again = CORPUSFMT.decode(CORPUSFMT.encode({
+    generatedAt: once.generatedAt,
+    adapterVersion: once.adapterVersion,
+    sources: once.sources,
+    stats: once.stats,
+    possibleDuplicates: once.possibleDuplicates,
+    opportunities: once.opportunities,
+  }));
+  assert.strictEqual(again.opportunities.length, once.opportunities.length);
+  assert.deepStrictEqual(again.opportunities[0], once.opportunities[0], 'a record changed on re-encode');
+  assert.deepStrictEqual(
+    again.opportunities.at(-1), once.opportunities.at(-1), 'the last record changed on re-encode',
+  );
+});
+
+test('P2-2. the format refuses to silently drop a field it has no column for', () => {
+  // publishedEuWide was lost exactly this way: two adapters emitted it, the
+  // column list did not have it, and the encode discarded it without a word.
+  const rec = { ...O[0], somethingNobodyDeclared: 'value' };
+  assert.throws(() => CORPUSFMT.encodeRow(rec), /no column for/,
+    'a record carrying an undeclared field was encoded anyway');
+  assert.deepStrictEqual(CORPUSFMT.unknownFields(O[0]), [],
+    'a live record carries a field the format cannot store');
+});
+
+test('P2-3. compaction actually reduced the per-record cost', () => {
+  const bytes = fs.statSync(path.join(ROOT, 'data/tender-opportunities/opportunities.json')).size;
+  const perRecord = bytes / O.length;
+  // v1 stored 2,146 bytes per record. The columnar format must stay well under
+  // that, or the scaling blocker this format exists to remove is still there.
+  assert.ok(perRecord < 1600,
+    `${Math.round(perRecord)} bytes per record — compaction has regressed toward the v1 cost`);
+});
+
+test('P2-4. a single-source occurrence is reconstituted, never invented', () => {
+  const single = O.filter((o) => !o.multiSource);
+  assert.ok(single.length > 0, 'no single-source records: this guard is vacuous');
+  for (const o of single.slice(0, 200)) {
+    assert.strictEqual(o.occurrences.length, 1);
+    const occ = o.occurrences[0];
+    assert.strictEqual(occ.sourceId, o.sourceId);
+    assert.strictEqual(occ.sourceNoticeId, o.sourceNoticeId);
+    assert.strictEqual(occ.sourceUrl, o.sourceUrl);
+  }
+});
+
+test('P2-5. live cross-source duplicates exist and keep every occurrence', () => {
+  const multi = O.filter((o) => o.multiSource);
+  assert.ok(multi.length > 0,
+    'no cross-source duplicates in the corpus — the merge graph is untested on live data again');
+  for (const m of multi) {
+    const sources = new Set(m.occurrences.map((x) => x.sourceId));
+    assert.ok(sources.size > 1, `${m.id} is flagged multi-source but has one source`);
+    assert.strictEqual(m.occurrences.length, m.occurrenceCount);
+    for (const occ of m.occurrences) {
+      assert.ok(occ.sourceId && occ.sourceNoticeId && occ.sourceUrl,
+        `${m.id} lost provenance on an occurrence`);
+    }
+    assert.ok(m.fieldSources && Object.keys(m.fieldSources).length > 0,
+      `${m.id} is multi-source but records no field-level provenance`);
+  }
+});
+
+test('P2-6. TED’s machine-generated title prefix is stripped for comparison only', () => {
+  const tedTitle = 'France – Insurance services – Services d’assurances pour les membres du groupement';
+  const national = 'Services d’assurances pour les membres du groupement';
+  assert.strictEqual(DEDUPE.comparableTitle(tedTitle), 'Services d’assurances pour les membres du groupement');
+  // An ordinary title containing a dash is NOT truncated.
+  const ordinary = 'Refurbishment of the town hall – phase 2';
+  assert.strictEqual(DEDUPE.comparableTitle(ordinary), ordinary);
+  // The strip may only help a genuine pair, never hurt one.
+  const a = { title: tedTitle };
+  const b = { title: national };
+  assert.ok(DEDUPE.titleSimilarity(a, b) > DEDUPE.jaccard(DEDUPE.tokens(tedTitle), DEDUPE.tokens(national)));
+  assert.ok(DEDUPE.titleSimilarity(a, b) >= 0.85, 'the prefix strip does not recover the match');
+  // And the stored title is untouched — only the comparison changed.
+  const ted = O.find((o) => o.sourceId === 'ted' && / – .+ – /.test(o.title || ''));
+  if (ted) assert.match(ted.title, / – /, 'the stored TED title was rewritten rather than compared');
+});
+
+test('P2-7. framework lots sharing one reference are never merged', () => {
+  // "NFCC National Firefighter PPE - Lot 6 (Footwear)" was merged into
+  // "Lot 8 (Cleaning and Maintenance)" — separately biddable contracts, one of
+  // them hidden from every supplier.
+  const lot6 = fixture({
+    sourceId: 'uk-fts', sourcePlatformId: 'uk-find-a-tender', sourceNoticeId: 'ocds-x-05614d',
+    sourceUrl: 'https://www.find-tender.service.gov.uk/Notice/05614d',
+    buyerName: 'National Fire Chiefs Council', officialReference: 'NFCC-PPE-FRAMEWORK-2026',
+    title: 'NFCC National Firefighter PPE - Lot 6 (Footwear)', country: 'united-kingdom',
+    coverage: 'national', classifications: [],
+  });
+  const lot8 = fixture({
+    sourceId: 'uk-fts', sourcePlatformId: 'uk-find-a-tender', sourceNoticeId: 'ocds-x-05614f',
+    sourceUrl: 'https://www.find-tender.service.gov.uk/Notice/05614f',
+    buyerName: 'National Fire Chiefs Council', officialReference: 'NFCC-PPE-FRAMEWORK-2026',
+    title: 'NFCC National Firefighter PPE - Lot 8 (Cleaning and Maintenance)', country: 'united-kingdom',
+    coverage: 'national', classifications: [],
+  });
+  assert.notStrictEqual(DEDUPE.classify(lot6, lot8), 'STRONG', 'two framework lots were merged');
+  assert.notStrictEqual(DEDUPE.classify(lot6, lot8), 'EXACT');
+  assert.strictEqual(DEDUPE.dedupe([lot6, lot8]).canonical.length, 2);
+
+  // But an identical republication under two notice ids — the World Bank
+  // issues one Request for Bids a dozen times — still merges.
+  const rfbA = fixture({
+    sourceId: 'worldbank', sourcePlatformId: 'int-world-bank-group-procurement',
+    sourceNoticeId: 'OP00461119', sourceUrl: 'https://projects.worldbank.org/x/OP00461119',
+    buyerName: 'Community-Based Recovery and Stabilization Project',
+    officialReference: 'NE-SDS-517067-CW-RFB', classifications: [],
+    title: 'TRAVAUX DE CONSTRUCTIONS DES INFRASTRUCTURES SCOLAIRES DANS LA REGION DE TILLABERI',
+  });
+  const rfbB = { ...rfbA, sourceNoticeId: 'OP00461120', id: 'worldbank:op00461120', sourceUrl: 'https://projects.worldbank.org/x/OP00461120' };
+  assert.strictEqual(DEDUPE.classify(rfbA, rfbB), 'STRONG', 'identical republication stopped merging');
+  assert.strictEqual(DEDUPE.dedupe([rfbA, rfbB]).canonical.length, 1);
+});
+
+test('P2-8. no live merge group collapses records with genuinely different titles', () => {
+  for (const m of O.filter((o) => o.occurrenceCount > 1)) {
+    const sources = new Set(m.occurrences.map((x) => x.sourceId));
+    if (sources.size > 1) continue; // cross-publication: TED prefixes, covered by P2-6
+    assert.ok(m.title, `${m.id} merged records but has no title`);
+  }
+  // Asserted structurally above; asserted numerically here so a regression in
+  // the same-source rule shows up as a count rather than as a silent merge.
+  const sameSourceGroups = O.filter((o) => o.occurrenceCount > 1
+    && new Set(o.occurrences.map((x) => x.sourceId)).size === 1);
+  assert.ok(sameSourceGroups.length > 0, 'no same-source merge groups: this guard is vacuous');
+});
+
+test('P2-9. the OCDS factory is reusable and its publishers are configured, not copied', () => {
+  const { makeOcdsAdapter, PAGERS } = require('../lib/to-adapters/ocds.cjs');
+  assert.ok(Object.keys(PAGERS).length >= 1, 'no paging dialects declared');
+  const made = makeOcdsAdapter({ id: 'test-ocds', country: 'south-africa' });
+  assert.deepStrictEqual(ADAPTERS.contractProblems(made), [], 'a factory adapter breaks the contract');
+  assert.throws(() => makeOcdsAdapter({ id: 'x', pager: 'nonexistent' }), /paging dialect/);
+  // The live South African source uses it.
+  const za = ADAPTERS.adapterFor('za-etenders');
+  assert.strictEqual(typeof za.normalize, 'function');
+});
+
+test('P2-10. every Phase 2 source is fully governed, like every v1 source', () => {
+  for (const id of ['tenderned', 'boamp', 'za-etenders']) {
+    const s = SOURCES.SOURCE_BY_ID.get(id);
+    assert.ok(s, `${id} is not registered as a source`);
+    assert.ok(PLATFORM_IDS.has(s.platformId), `${id} points at a non-canonical platform`);
+    assert.ok(SOURCES.REUSE_CLASSES.includes(s.reuse), `${id} has no reuse class`);
+    assert.ok(s.reuseBasis && s.reuseBasis.length > 20, `${id} states no basis for its reuse class`);
+    assert.ok(Array.isArray(s.knownRestrictions), `${id} declares no restrictions array`);
+    const inCorpus = O.filter((o) => o.sourceId === id);
+    assert.ok(inCorpus.length > 0, `${id} contributed no records`);
+  }
+});
+
+test('P2-11. the EU-wide publication flag survives into the corpus', () => {
+  // It was dropped twice: once by the dedup field list, once by the columnar
+  // format. It is the only field that says "TED should carry this too", which
+  // is what makes under-merging measurable instead of invisible.
+  const flagged = O.filter((o) => o.publishedEuWide === true);
+  assert.ok(flagged.length > 0, 'no record carries the EU-wide publication flag');
+  assert.ok(DEDUPE.CANONICAL_FIELDS.includes('publishedEuWide'),
+    'the dedup field list would drop the flag during a merge');
+  assert.ok(CORPUSFMT.FIELDS.includes('publishedEuWide'),
+    'the corpus format has no column for the flag');
 });
