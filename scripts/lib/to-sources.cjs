@@ -310,6 +310,121 @@ const SOURCES = [
       'No submission deadline is published in this dataset at all.',
     ],
   },
+  // ── PHASE 2 ───────────────────────────────────────────────────────────────
+  //
+  // Three sources added after v1, chosen against the finding v1 produced
+  // rather than against a wish list. v1 reported ZERO cross-source duplicates
+  // because its five sources covered disjoint jurisdictions, which left the
+  // deduplication graph tested only against fixtures. Two of the three below
+  // are EU national portals that deliberately overlap TED — they publish a
+  // flag saying so — and the third widens African coverage through a format
+  // that makes the next OCDS publisher nearly free.
+  {
+    id: 'tenderned',
+    name: 'TenderNed',
+    platformId: 'nl-tenderned',
+    operator: 'Ministerie van Economische Zaken (Netherlands)',
+    acquisition: 'OFFICIAL_API',
+    endpoint: 'https://www.tenderned.nl/papi/tenderned-rs-tns/v2/publicaties',
+    method: 'GET',
+    authRequired: false,
+    javascriptRequired: false,
+    browserRequired: false,
+    // TenderNed is the statutory Dutch publication platform; its publication
+    // API is public and unauthenticated. No explicit reuse licence is
+    // published against the API itself, so this is classified on the basis of
+    // it being the mandated public register rather than on a licence text.
+    reuse: 'LIKELY_PERMITTED',
+    reuseBasis: 'Statutory Dutch public procurement register; public unauthenticated publication API',
+    attributionRequired: true,
+    storage: 'FULL_METADATA',
+    robotsRelevant: false,
+    stableIdentifier: 'publicatieId',
+    exposesModifiedDate: true,
+    exposesStatus: true,
+    exposesAttachments: false,
+    classificationScheme: null, // the list endpoint publishes no CPV
+    updateFrequency: 'continuous, business days',
+    window: { kind: 'publication', days: 3 },
+    pageSize: 100,
+    maxPages: 12,
+    rateLimitNote: 'No published quota. Sequential paging, hard page cap.',
+    knownRestrictions: [
+      'Deadlines are published without a time zone.',
+      'The list endpoint carries no CPV; contract nature only.',
+    ],
+  },
+  {
+    id: 'boamp',
+    name: 'BOAMP — Bulletin officiel des annonces des marchés publics',
+    platformId: 'fr-boamp',
+    operator: 'Direction de l’information légale et administrative (France)',
+    acquisition: 'OFFICIAL_API',
+    endpoint: 'https://www.boamp.fr/api/explore/v2.1/catalog/datasets/boamp/records',
+    method: 'GET',
+    authRequired: false,
+    javascriptRequired: false,
+    browserRequired: false,
+    // boamp.fr states in its own footer: "Sauf mention contraire, tous les
+    // contenus de ce site sont sous licence etalab-2.0" — the Licence Ouverte
+    // 2.0, which permits commercial reuse with attribution. The dataset
+    // metadata itself declares no licence field, which is why this is
+    // LIKELY_PERMITTED rather than PERMITTED.
+    reuse: 'LIKELY_PERMITTED',
+    reuseBasis: 'Licence Ouverte / Etalab 2.0 stated site-wide; dataset metadata declares no licence field',
+    attributionRequired: true,
+    storage: 'FULL_METADATA',
+    robotsRelevant: false,
+    stableIdentifier: 'idweb',
+    exposesModifiedDate: false,
+    exposesStatus: true, // `etat`
+    exposesAttachments: false,
+    classificationScheme: null, // CPV is buried in an eForms blob; see the adapter
+    updateFrequency: 'daily, business days',
+    window: { kind: 'publication', days: 3 },
+    pageSize: 100,
+    maxPages: 15,
+    rateLimitNote: 'No published quota. Sequential offset paging, hard page cap.',
+    knownRestrictions: [
+      'CPV is not addressable in the flat record; no classification is stored.',
+      'Department numbers are INSEE codes, not ISO 3166-2 subdivisions.',
+    ],
+  },
+  {
+    id: 'za-etenders',
+    name: 'eTender Publication Portal (South Africa)',
+    platformId: 'za-etender-publication-portal',
+    operator: 'National Treasury (South Africa)',
+    acquisition: 'OFFICIAL_API',
+    endpoint: 'https://ocds-api.etenders.gov.za/api/OCDSReleases',
+    method: 'GET',
+    authRequired: false,
+    javascriptRequired: false,
+    browserRequired: false,
+    // The API declares its own licence in every response package:
+    // opendatacommons.org/licenses/pddl/1-0 — a public domain dedication, the
+    // most permissive classification any source in this project carries.
+    reuse: 'PERMITTED',
+    reuseBasis: 'PDDL 1.0 public domain dedication, declared in the API response package',
+    attributionRequired: true,
+    storage: 'FULL_METADATA',
+    robotsRelevant: false,
+    stableIdentifier: 'ocid',
+    exposesModifiedDate: true,
+    exposesStatus: true,
+    exposesAttachments: true, // linked, never mirrored
+    classificationScheme: null, // no coded classification published
+    updateFrequency: 'daily',
+    window: { kind: 'publication', days: 21 },
+    pageSize: 100,
+    maxPages: 12,
+    rateLimitNote: 'No published quota. Sequential page paging, hard page cap.',
+    knownRestrictions: [
+      'tender.title is often a bare reference; the subject is in tender.description.',
+      'Every release carries a contactPerson object; dropped at normalization.',
+    ],
+    noticeUrl: (r) => `https://www.etenders.gov.za/Home/TenderDetails?id=${encodeURIComponent(r.ocid || '')}`,
+  },
 ];
 
 // Sources probed and NOT selected. Kept as data because "we checked and it

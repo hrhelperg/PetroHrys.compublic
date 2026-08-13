@@ -23,7 +23,9 @@ Two questions, both answered by evidence rather than reputation:
 2. **Do its published terms permit what we intend to store?** Metadata and a
    link, always; description text only where reuse terms are clear.
 
-Fourteen candidates were probed by issuing real requests. Five qualified.
+Fourteen candidates were probed for v1 by issuing real requests; five
+qualified. Phase 2 probed a further twenty-one and added three, for **eight
+sources**. The qualification rate across both rounds is 8 of 35 — 23%.
 
 ## Acquisition modes
 
@@ -157,6 +159,65 @@ Three window qualifiers, all load-bearing:
 This source publishes **no submission deadline at all**. Not a null column:
 none. It is why status resolution puts the source's own word first.
 
+### TenderNed — Netherlands *(Phase 2)*
+
+| | |
+|---|---|
+| Platform | `nl-tenderned` |
+| Access | `OFFICIAL_API` — `GET /papi/tenderned-rs-tns/v2/publicaties` |
+| Auth | none |
+| Reuse | **LIKELY_PERMITTED** — statutory Dutch publication register, public unauthenticated API; no explicit licence text published against the API |
+| Window | published in the last **3 days** (~200 notices of 145,058 total) |
+| Stored | publication id, title, description, buyer, closing date, procedure, publication status, buyer reference, EU-wide flag |
+| Not stored | no CPV is published on the list endpoint; contract nature is not filed as one |
+
+Added because it publishes `europees: true` on notices that also go to the
+Official Journal. v1 had **zero** cross-source duplicates and could only test
+the merge graph against fixtures; TenderNed and BOAMP are in the corpus so that
+the graph has real cross-publication to resolve.
+
+Deadlines are published without a time zone and are treated accordingly.
+
+### BOAMP — France *(Phase 2)*
+
+| | |
+|---|---|
+| Platform | `fr-boamp` |
+| Access | `OFFICIAL_API` — Opendatasoft Explore v2.1, 1.7 M records |
+| Auth | none |
+| Reuse | **LIKELY_PERMITTED** — boamp.fr states site-wide "tous les contenus de ce site sont sous licence etalab-2.0" (Licence Ouverte 2.0); the dataset metadata itself declares no licence field, which is why this is not PERMITTED |
+| Attribution | required |
+| Window | published in the last **3 days** (~880 notices) |
+| Stored | idweb, objet, buyer, publication and response-deadline dates, notice nature, procedure, EU-wide flag (`famille: JOUE`) |
+| Not stored | **no classification** — see below |
+
+BOAMP's flat record carries `descripteur_code`, which is BOAMP's own descriptor
+vocabulary and not CPV. The real CPV sits inside `donnees`, an eForms document
+serialised to JSON under a single `EFORMS` key whose internal path varies by
+schema version. Guessing at that path would produce a classification that is
+right until the schema moves and wrong silently, so BOAMP records carry none
+and matching falls back to title terms with `NO_CLASSIFICATION` shown.
+
+Department numbers are INSEE codes, not ISO 3166-2 subdivisions, and are not
+stored as though they were.
+
+### eTender Publication Portal — South Africa *(Phase 2)*
+
+| | |
+|---|---|
+| Platform | `za-etender-publication-portal` |
+| Access | `OFFICIAL_API` — OCDS releases, via the **shared OCDS adapter** |
+| Auth | none |
+| Reuse | **PERMITTED** — PDDL 1.0, a public domain dedication, declared by the API in every response package |
+| Window | published in the last **21 days** |
+| Stored | ocid, title, description, buyer, tender period, method, value where non-zero |
+| Not stored | `contactPerson`, present on every release |
+
+The first source built on the reusable OCDS adapter rather than a bespoke one.
+That matters more than the record count: South Africa, Moldova, Paraguay,
+Uganda, Kenya and Georgia all emit the same format, so the next OCDS publisher
+is a configuration block rather than a new file.
+
 ---
 
 ## Probed and not selected
@@ -172,6 +233,13 @@ none. It is why status resolution puts the source's own word first.
 | Singapore GeBIZ | `STRUCTURED_PUBLIC_DATA` | the open dataset publishes **awarded** tenders, not open opportunities — wrong entity for this layer |
 | Prozorro | `OFFICIAL_API` | open API is a sequential changes feed; `opt_fields` yields only status and tender id, so usable metadata needs **one request per notice** |
 | Brazil PNCP | `OFFICIAL_API` | responds, but returned no records for the probed window; needs a further access study |
+| Norway Doffin | `LOGIN_REQUIRED` | API returns 401 without a key *(Phase 2)* |
+| Spain PLACSP | `UNKNOWN` | ATOM syndication host did not resolve from this environment; needs re-probing *(Phase 2)* |
+| Portugal BASE | `UNKNOWN` | documented REST paths returned 404 *(Phase 2)* |
+| Ireland eTenders | `UNKNOWN` | OCDS path returned 404 *(Phase 2)* |
+| Italy ANAC | `STRUCTURED_PUBLIC_DATA` | CKAN catalogue reachable; the open datasets are awards and contracts rather than open notices, and need a dataset study *(Phase 2)* |
+| Lithuania, Estonia, Denmark, Philippines, Albania | `UNKNOWN` | probed API paths returned 404 *(Phase 2)* |
+| Greece, Uganda, Nigeria, Mexico | `UNKNOWN` | hosts did not resolve from this environment; not a capability judgement *(Phase 2)* |
 
 Prozorro is deferred on **rate respect, not capability**. Assembling a bounded
 current window would mean thousands of individual requests against a public

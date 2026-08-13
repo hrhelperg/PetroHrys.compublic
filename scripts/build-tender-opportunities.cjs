@@ -27,6 +27,7 @@ const path = require('node:path');
 const SCHEMA = require('./lib/to-schema.cjs');
 const MATCH = require('./lib/to-match.cjs');
 const SOURCES = require('./lib/to-sources.cjs');
+const CORPUS = require('./lib/to-corpus.cjs');
 const TP = require('./lib/tp-schema.cjs');
 const componentsModule = require('./lib/bd-components.cjs');
 const render = require('./lib/bd-render.cjs');
@@ -308,7 +309,7 @@ function main() {
     console.log('Tender Opportunities: no corpus at data/tender-opportunities/opportunities.json; nothing to build.');
     return;
   }
-  const corpus = JSON.parse(fs.readFileSync(CORPUS_FILE, 'utf8'));
+  const corpus = CORPUS.decode(JSON.parse(fs.readFileSync(CORPUS_FILE, 'utf8')));
   const countries = JSON.parse(fs.readFileSync(COUNTRIES_FILE, 'utf8'));
   const nameBySlug = new Map(countries.map((x) => [x.slug, x.name]));
   const countryName = (slug) => nameBySlug.get(slug) || slug;
