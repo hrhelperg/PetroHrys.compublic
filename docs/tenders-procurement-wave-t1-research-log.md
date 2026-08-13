@@ -941,3 +941,126 @@ regional-body cluster and the aggregator cluster are not.
 
 **None was performed** — no rendered browser exists in this environment. T4
 records carrying `browserCheckRequired` were flagged, never promoted.
+
+---
+
+# Wave T4B — Multilateral Closeout (2026-08-12)
+
+Closes the six T4 workstreams that had not returned. Dataset 355 → 383 records
+(354 → 382 publishable). 28 new records; 4 existing records enriched.
+
+**Workstream state, checked before assuming.** The six were RUNNING, not failed —
+7/10 and 6/9 agents had returned from the T4 workflows and six were still
+executing. Rather than resume (which mis-slotted a retry in T2B), a fresh
+six-agent workflow was launched and reconciled against any late originals on four
+axes: workstream identity, evidence depth, accepted/rejected/unresolved coverage,
+and mention-resolution completeness. All six resolved from the fresh run; no late
+original arrived to contest them.
+
+## The UNGM shared-infrastructure question — answered
+
+The central T4B question was whether UNOPS, UNICEF, WFP and WHO use UNGM or their
+own systems. **The answer is BOTH, and the split is operational:**
+
+- **UNGM is the shared front door** — supplier registration and notice discovery
+  across the UN system. It remains ONE record.
+- **Each agency runs its own solicitation and bid-submission surface.** UNOPS
+  eSourcing (self-hosted AngularJS on unops.org) and WHO, UNICEF and WFP as
+  three separate tenants of one In-tend deployment at ungm.in-tend.co.uk/who,
+  /unicef and /wfp.
+
+So the supplier journey is: **discover and register on UNGM → express interest →
+land on the agency's own system to obtain documents and submit.** Four new
+records, none of them a duplicate of UNGM, and UNGM itself unchanged.
+
+## Two guards restated because the data proved them too coarse
+
+**Host uniqueness.** "One host, one system" caught the 26-copies-of-SIMAP failure
+in T2A, but it silently deleted UNICEF and WFP here: three institutions, three
+tender universes, one vendor hostname. The property is now stated correctly — a
+host may carry several records when they are genuinely different systems (a
+declared relationship, a different operator, or a different procurement nature)
+and their URLs differ. A bare duplicate is still rejected, and a dedicated test
+asserts the In-tend tenants stay separate.
+
+**Financier submission routes.** The PART 16 audit flagged ECEPP as a
+project-financed record carrying a submission route on ebrd.com. That is not an
+error: EBRD *hosts* the platform its borrowers tender on, unlike the World Bank
+model where borrowers use national systems. ECEPP's nature statement now says so
+explicitly, and the audit treats a hosted-client model as a documented exception
+a record must declare rather than a loophole.
+
+## Corporate vs project-financed audit
+
+30 development-bank and international-organization records audited.
+**0 project-financed records assert a submission route on the financier.**
+5 lack an explicit nature statement (BOAD, EDCF, CAF, CDB, CDB BRIDGE) and are
+flagged rather than guessed — assigning a nature without evidence is exactly the
+financier/operator confusion the audit exists to catch.
+
+## Aggregators
+
+**0 accepted, 14 rejected.** No commercial aggregator met the collection
+contract: republishers, paywalled scrapers and newsletters do not provide the
+official supplier action.
+
+## Mention-resolution ledger — 113 mentions, every one terminal
+
+REJECTED 48 · NEW_RECORD 36 · UNRESOLVED 16 · EXISTING_RECORD 13
+
+| Workstream | Mention | Institution | Resolution | Canonical | Reason |
+|---|---|---|---|---|---|
+| donors-jp-kr | KOICA headquarters bid notices (원조조달입찰 / 일반행 | Korea International Cooperatio | **EXISTING_RECORD** | KONEPS | shared-platform-duplicate. KOICA states all bid announcements are now  |
+| donors-jp-kr | KEXIM / Korea Eximbank corporate procurement | Export-Import Bank of Korea | **EXISTING_RECORD** | KONEPS | shared-platform-duplicate. KEXIM's own institutional buying is tendere |
+| donors-jp-kr | EDCF consultant / F-S tenders also announced | Export-Import Bank of Korea | **EXISTING_RECORD** | KONEPS | The subset of EDCF notices where Korea Eximbank is itself the 발주처 is a |
+| donors-jp-kr | UNGM (linked from KOICA 입찰정보) | United Nations | **EXISTING_RECORD** | int-united-nations-global-marketpl | KOICA links ungm.org purely as an external reference for the internati |
+| isdb-aiib | UNGM / UN shared procurement infrastructure | IsDB and AIIB | **EXISTING_RECORD** | UNGM (int-united-nations-global-ma | Checked deliberately for the shared-infrastructure case: neither bank  |
+| mention-resolution-audit | UNRWA | United Nations Relief and Work | **EXISTING_RECORD** | int-united-nations-global-marketpl | ZERO new records. UNRWA publishes its ITBs, RFPs, RFIs and EOIs on UNG |
+| mention-resolution-audit | UNOPS — tender notices and vendor registrati | United Nations Office for Proj | **EXISTING_RECORD** | int-united-nations-global-marketpl | Shared infrastructure, modelled once. UNOPS routes 'Current business o |
+| multilateral-aggregators | UNGM Pro | United Nations Global Marketpl | **EXISTING_RECORD** | int-united-nations-global-marketpl | Not a new platform — a new paid subscription tier of the already-recor |
+| multilateral-aggregators | UNDP Procurement Notices | United Nations Development Pro | **EXISTING_RECORD** | UNDP Procurement Notices | Already recorded. Touched here only because UNDB's phase-down page nam |
+| multilateral-aggregators | World Bank Procurement Notices / WBGeProcure | World Bank Group | **EXISTING_RECORD** | World Bank Procurement Notices | Already recorded. Named on UNDB's phase-down page as the destination f |
+| multilateral-aggregators | Inter-American Development Bank procurement  | Inter-American Development Ban | **EXISTING_RECORD** | IDB project + BEO portals | Already recorded (project + BEO portals). Touched only as one of the f |
+| un-agencies-a | UNGM / United Nations Global Marketplace | UNGM (inter-agency, hosted by  | **EXISTING_RECORD** | int-united-nations-global-marketpl | Already in the dataset and modelled once. All four agencies use it as  |
+| un-agencies-a | Quantum / UNDP Supplier Portal | United Nations Development Pro | **EXISTING_RECORD** | Quantum Supplier Portal (UNDP/UNFP | Surfaced in UNGM's e-Procurement Systems taxonomy. Already in the data |
+| caf-latam-banks | CAF — Banco de Desarrollo de América Latina  | CAF | **NEW_RECORD** | CAF — Licitaciones y Convocatorias | Operational opportunity publication section confirmed via CAF's own ro |
+| caf-latam-banks | Caribbean Development Bank procurement / pro | Caribbean Development Bank (CD | **NEW_RECORD** | Caribbean Development Bank — Procu | Live server-rendered board with seven open notices carrying future dea |
+| caf-latam-banks | CDB BRIDGE (online vendor registry and procu | Caribbean Development Bank (CD | **NEW_RECORD** | CDB BRIDGE — Caribbean Development | Distinct operational system on its own host, built on Microsoft Power  |
+| caf-latam-banks | BCIE/CABEI institutional procurement ('Porta | BCIE / CABEI — Banco Centroame | **NEW_RECORD** | Portal de Adquisiciones Institucio | Class A operator statement scopes it to the Bank's own functioning ('b |
+| caf-latam-banks | BCIE/CABEI project procurement ('Adquisicion | BCIE / CABEI — Banco Centroame | **NEW_RECORD** | BCIE Adquisiciones en Proyectos | Architecturally separate from institutional procurement, with a Class  |
+| caf-latam-banks | FONPLATA adquisiciones / licitaciones | FONPLATA — Banco de Desarrollo | **NEW_RECORD** | FONPLATA Adquisiciones en Proyecto | Live per-country board with two active Bolivian notices (LPI 007/2026- |
+| caf-latam-banks | FONPLATA registro de consultores | FONPLATA — Banco de Desarrollo | **NEW_RECORD** | FONPLATA Registro de Consultores | Operational intake for the Bank's own consultant roster, with a Class  |
+| caf-latam-banks | CARICOM Secretariat procurement notices / Pu | Caribbean Community (CARICOM)  | **NEW_RECORD** | Caribbean Community (CARICOM) Publ | Class A self-description as a regional board publishing opportunities  |
+| caf-latam-banks | OECS Commission procurements / current tende | Organisation of Eastern Caribb | **NEW_RECORD** | OECS Commission — Procurements (Cu | Class A Procurement Procedures page documents the Commission's own buy |
+| donors-jp-kr | JICA (Japan International Cooperation Agency | Japan International Cooperatio | **NEW_RECORD** | JICA Procurement Information (JICA | JICA operates its own procurement stack rather than publishing on a Ja |
+| donors-jp-kr | JICA コンサルタント等契約案件公示 (www2.jica.go.jp/ja/anno | Japan International Cooperatio | **NEW_RECORD** | JICA Procurement Information (JICA | This is the tender-search surface of the JICA record, not a separate p |
+| donors-jp-kr | JICA 電子入札システム (electronic bidding system) | Japan International Cooperatio | **NEW_RECORD** | JICA Procurement Information (JICA | Folded into the JICA record as submissionUrl plus softwareVendor rathe |
+| donors-jp-kr | JICA 団体情報の登録 (organization/supplier registra | Japan International Cooperatio | **NEW_RECORD** | JICA Procurement Information (JICA | Recorded as supplierRegistrationUrl on the JICA record. Also supplies  |
+| donors-jp-kr | KOICA (Korea International Cooperation Agenc | Korea International Cooperatio | **NEW_RECORD** | KOICA e-Procurement System (KOICA  | Split outcome. KOICA's Korea-side notice lists on this system are now  |
+| donors-jp-kr | ebid.koica.go.kr (legacy KOICA e-procurement | Korea International Cooperatio | **NEW_RECORD** | KOICA e-Procurement System (KOICA  | Superseded host, captured as replacesHint on the KOICA record rather t |
+| donors-jp-kr | EDCF (Economic Development Cooperation Fund) | Export-Import Bank of Korea | **NEW_RECORD** | EDCF Bid Information (EDCF 입찰정보, E | A Korea Eximbank-operated notice board for EDCF-financed procurement:  |
+| isdb-aiib | IsDB project procurement notices / tenders | Islamic Development Bank (IsDB | **NEW_RECORD** | IsDB Project Procurement Portal | Distinct operational sub-site at /project-procurement with a filterabl |
+| isdb-aiib | IsDB consultant registration / DACON Consult | Islamic Development Bank (IsDB | **NEW_RECORD** | IsDB Project Procurement Portal | Not a separate platform — DACON is the consultant-roster registration  |
+| isdb-aiib | IsDB corporate procurement / Suppliers Gatew | Islamic Development Bank (IsDB | **NEW_RECORD** | IsDB Corporate Procurement — Suppl | Genuinely separate from project procurement: CPD buys for the Bank its |
+| isdb-aiib | AIIB project procurement notices / business  | Asian Infrastructure Investmen | **NEW_RECORD** | AIIB Project Procurement Opportuni | Live operational notice board: ~1,080 records across 36 member countri |
+| isdb-aiib | AIIB corporate procurement opportunities / e | Asian Infrastructure Investmen | **NEW_RECORD** | AIIB Corporate Procurement Opportu | AIIB's own public RFx API (rfxrestapi.aiib.org) returned 229 records,  |
+| mention-resolution-audit | African Union | African Union Commission | **NEW_RECORD** | African Union Bids (AUC Procuremen | Not organization-page-only. /en/procurement is the policy hub, but /en |
+| mention-resolution-audit | ECOWAS Commission | Economic Community of West Afr | **NEW_RECORD** | ECOWAS Procurement Notices | Live categorised notice board (Goods / Works / Intellectual Services / |
+| mention-resolution-audit | ECOWAS Bank for Investment and Development ( | EBID/BIDC | **NEW_RECORD** | EBID Procurement (ECOWAS Bank for  | Distinct operator from the ECOWAS Commission. Live procurement table w |
+| mention-resolution-audit | East African Community Secretariat | East African Community | **NEW_RECORD** | EAC Supplier Portal (e-Procurement | The one genuine e-procurement system in this cluster: a named 'EAC Sup |
+
+**The 16 UNRESOLVED, each with a concrete blocker:** MERCOSUR Secretariat and
+the Arab Fund (Cloudflare 403), SICA and SIECA (WAF hard block), GCC Secretariat
+(JS shell), CARICOM vendors database, UN Development Business (ceased 31 March
+2025), UN Web Buy Plus (UNOPS-operated, scope undetermined), JICA borrower-executed
+loan/grant tendering (no JICA-operated board), JETRO's WTO-GPA database, the
+Japanese central qualification portal, GTAI, UK Export Opportunities, SAP Ariba
+(software, never publishable), and three regional links reached only as outbound
+references.
+
+## Drift
+
+4 existing records changed — all four the reported nature-statement enrichments
+(eu-ecepp, eu-ebrd-corporate-procurement, eu-eib-group-procurement,
+int-tdb-consulting-procurement). 28 added, 0 removed. Sibling collections
+byte-identical.
