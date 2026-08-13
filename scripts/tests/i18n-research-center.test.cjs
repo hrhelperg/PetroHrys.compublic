@@ -257,13 +257,26 @@ test('no dataset is copied per locale', () => {
   // guard that property. The URL check is the direct one: a record always
   // carries its website, so a dataset cannot arrive without tripping it. The
   // key ceiling is the blunt one, and it is calibrated to UI growth: it stood
-  // at 500 when three collections used ~450 keys, and the fourth collection
-  // (tenders-procurement) legitimately added ~50 UI keys. A real dataset copy
-  // is hundreds of records times a dozen fields — thousands of keys — so the
-  // recalibrated ceiling still catches it by an order of magnitude.
+  // at 500 when three collections used ~450 keys, then 750 when
+  // tenders-procurement added ~50, and now 1000 because Tender Monitoring
+  // added ~127 first-party UI keys — change-type, severity, health, coverage,
+  // reason and uncertainty labels, each of which is a rendered string and none
+  // of which is a record. A real dataset copy is hundreds of records times a
+  // dozen fields — thousands of keys — so the ceiling still catches it by an
+  // order of magnitude.
+  //
+  // The shape check below is the one that actually matters: a per-record key
+  // is what a dataset copy looks like, whatever the count.
   for (const code of I.LOCALE_CODES) {
     const dict = I.dictionary(code);
-    assert.ok(Object.keys(dict).length < 750, `${code}.json has ${Object.keys(dict).length} keys; that is a dataset`);
+    assert.ok(Object.keys(dict).length < 1000, `${code}.json has ${Object.keys(dict).length} keys; that is a dataset`);
+    // No key may be scoped to an individual record. UI keys name a concept
+    // ("mon.severity.CRITICAL"); a dataset copy names an instance
+    // ("platform.eu-ted.name"), and that is detectable regardless of volume.
+    for (const key of Object.keys(dict)) {
+      assert.ok(!/\.(eu|uk|de|fr|nl|ca|co|za|int)-[a-z0-9-]{4,}\./.test(key),
+        `${code}.json key "${key}" is scoped to a single record`);
+    }
     for (const v of Object.values(dict)) {
       assert.ok(!/^https?:\/\//.test(v), `${code}.json contains a URL: ${v}`);
     }

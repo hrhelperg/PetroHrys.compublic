@@ -415,6 +415,29 @@ function buildTendersMeta({ count, countries }) {
 // graveyard with a sitemap. The page is indexable because it carries durable
 // explanatory content — what the sources are, what is knowable, what is not —
 // and the volatile part lives in a CSV rather than in the crawl surface.
+// Tender Monitoring. Indexable, and for a reason that survives a quiet day:
+// the page carries durable first-party methodology — what change detection
+// tracks, why a disappearance is not a cancellation, what "newly observed"
+// means — independently of how many alerts happen to exist this morning. A
+// page whose only content is a volatile list is a thin page most of the time.
+//
+// Filter states are NOT routes and never enter the sitemap.
+function buildMonitoringMeta({ alerts, sources, canonicalPath }) {
+  const title = 'Tender Monitoring';
+  const description = 'What changed in public procurement between validated snapshots: new '
+    + `notices, deadline changes, cancellations and awards across ${sources} official sources, `
+    + 'matched to supplier profiles with the reason and the remaining uncertainty shown.';
+  const trail = [ROOT_TRAIL[0], { name: 'Tenders & Procurement', path: '/research/tenders-procurement/' },
+    { name: title, path: canonicalPath }];
+  return meta({
+    title, description, canonicalPath, robots: undefined, breadcrumbTrail: trail,
+    graph: [
+      collectionPage({ name: title, description, url: absoluteUrl(canonicalPath) }),
+      breadcrumbList(trail),
+    ],
+  });
+}
+
 function buildOpportunitiesIntelligenceMeta({ current, sources, canonicalPath }) {
   const title = 'Tender Opportunities';
   const description = `${current} currently open procurement opportunities ingested from `
@@ -537,4 +560,5 @@ module.exports = {
   buildTendersMeta,
   buildTendersIntelligenceMeta,
   buildOpportunitiesIntelligenceMeta,
+  buildMonitoringMeta,
 };

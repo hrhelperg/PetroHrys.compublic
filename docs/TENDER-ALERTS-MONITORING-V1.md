@@ -1,8 +1,7 @@
 # Tender Alerts & Monitoring v1 — engine
 
-**Status: PARTIAL.** The change-detection and alert-derivation engine is built,
-tested and committed. The public monitoring UI, its i18n, CSV export, SEO
-wiring and the formal mutation suite are **not built**. See "What remains".
+**Status: COMPLETE.** Engine, public product, i18n, CSV and the formal mutation
+suite are all in place.
 
 ---
 
@@ -95,23 +94,90 @@ recent runs, not an archive.
   Every `utm_source` sailed through, so a rotating campaign id would have fired
   a submission-route alert on every refresh.
 
-## What remains
+## The public product
 
-Engineering debt, not an external blocker:
+**One route**, four locales: `/research/tenders-procurement/monitoring/`. Not
+`/alerts/` and `/changes/` as well — those would be the same data sorted
+differently, four thin pages competing with each other instead of one worth
+reading.
 
-1. **Public monitoring route** under `/research/tenders-procurement/` — page,
-   filters (change type, severity, profile, country, source, deadline window),
-   KPIs.
-2. **i18n** for that page across EN/DE/ES/FR.
-3. **CSV export** with formula-injection protection.
-4. **SEO wiring** — canonical, og:url, reciprocal hreflang, sitemap entry, and
-   a decision on indexability.
-5. **Formal mutation suite** (Part 47): the property tests cover the same
-   invariants, but the applied/caught/restored discipline used in Phases 2–5
-   has not been run for this layer.
-6. **Wiring into the scheduled workflow**, which should wait for Phase 5B.
+The renderer calls the engine and displays the result. There is no second
+ranking implementation in the page or in client JavaScript, because two
+implementations of "which alert matters most" drift and then nobody can say
+which page is right.
 
-Until 1–5 land this is an engine with tests, not a product.
+**KPIs** (11 cards) show zeroes honestly. Hiding a zero to look busier is the
+first lie a monitoring product tells.
+
+**Durable content.** Procurement is quiet most days and the engine currently
+reports zero changes, so the page's methodology half — what "newly observed"
+means, why a disappearance is not a cancellation, how deadline comparability
+works, how supplier matching works — stands on its own. A page whose only
+content is a volatile list is thin most of the time.
+
+**Empty state** is truthful: the baseline is initialised and changes appear
+after the next validated refresh. No synthetic sample alerts in production
+output; synthetic fixtures live in tests only.
+
+**Filters** were deliberately NOT added. Today's alert cardinality is zero and
+recent-run cardinality is bounded at 60 rendered rows; a filter bar over an
+empty or short list is a dead control, and Part 7 rules out dead filters. The
+CSV carries every field for anyone who wants to slice it. Filters become
+worthwhile once a scheduled cadence produces steady change volume.
+
+**Indexable**, because the methodology content is durable. Self-canonical,
+`og:url` matching, reciprocal hreflang plus `x-default`, one `H1`, one `main`,
+sitemap entry per locale, inbound link from the collection page. No query state
+is ever a route.
+
+## CSV
+
+`/research/tenders-procurement/monitoring/alerts.csv` — RFC 4180, UTF-8 BOM,
+CRLF, 19 columns, round-trip tested against commas, quotes, newlines and
+Unicode.
+
+**Formula hardening**: a cell beginning `=`, `+`, `-`, `@` or a tab is prefixed
+with a single quote. A buyer can legitimately name a procedure `=- Lot 3 -=`,
+and a title beginning `=` opens in Excel as a formula. Applied only at the CSV
+projection boundary — the canonical title keeps its characters, because the
+problem belongs to the spreadsheet, not to the procurement.
+
+Reason codes are exported **canonical**, not translated: this is a machine file,
+and a locale-dependent export would make two downloads disagree.
+
+## i18n
+
+127 first-party keys per locale across EN/DE/ES/FR — headings, KPI labels,
+change types, severities, health and coverage states, reason codes,
+uncertainty copy, empty states, methodology.
+
+Canonical enums are never stored translated. `DEADLINE_EXTENDED` stays
+`DEADLINE_EXTENDED` in data and renders as *Frist verlängert* / *Plazo ampliado*
+/ *Délai prolongé*. A mutation asserts no translated label reaches a canonical
+value, and another asserts no English first-party copy leaks into a localized
+page.
+
+## Mutation coverage
+
+16 formal mutations, applied/caught/restored, plus a suite-level guard that
+every mutation actually asserts something. Zero survivors, zero no-ops.
+
+## Delivery status
+
+`EMAIL_NOT_CONFIGURED` · `WEBHOOK_NOT_CONFIGURED`. Monitoring is available on
+the page and as CSV. The page says so rather than advertising what does not
+exist.
+
+## Known limitations
+
+- **Zero changes today.** The corpus and baseline agree, so the page renders its
+  empty state. That is the honest current state, not a defect.
+- **Phase 5B is still unverified** — no schedule-triggered run has occurred. The
+  page therefore says "compares validated snapshots" and "run manually", never
+  "continuously monitored".
+- Retained last-good records lose `fieldSources`, so a text-change alert cannot
+  quote previous wording.
+- No filters yet; see above.
 
 ## Delivery channels
 
