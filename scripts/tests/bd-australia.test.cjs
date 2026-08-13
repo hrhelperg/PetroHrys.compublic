@@ -23,6 +23,7 @@ const ISO = require('../lib/iso-3166-2.cjs');
 const T = require('../lib/bd-registry-types.cjs');
 const c = require('../lib/bd-components.cjs');
 const order = require('../../js/bd-order.js');
+const discovery = require('../../js/bd-discovery.js');
 const { loadRegistry } = require('../lib/bd-registry.cjs');
 const { createDocument } = require('./helpers/mini-dom.cjs');
 
@@ -349,7 +350,7 @@ test('no state landing route was created', () => {
 
 function boot() {
   const document = createDocument(PAGE);
-  vm.runInContext(CLIENT, vm.createContext({ document, BDOrder: order, window: {} }));
+  vm.runInContext(CLIENT, vm.createContext({ document, BDOrder: order, BDDiscovery: discovery, window: {} }));
   return {
     document,
     rows: document.querySelectorAll('.bd-row'),

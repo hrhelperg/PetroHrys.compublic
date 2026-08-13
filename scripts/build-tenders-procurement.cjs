@@ -145,7 +145,29 @@ function renderMain(rows, countryName, t) {
       ? t('tp.evidence.browserCheck')
       : t(`tp.evidence.${r.evidenceClass}`);
     const partOf = r.partOf ? t('tp.partOf', { name: idToName.get(r.partOf) || r.partOf }) : '';
-    return `          <tr data-bd-facet-country="${escapeHtml(r.country)}" `
+    // ── WHAT THE ROW HAS TO CARRY ─────────────────────────────────────────
+    //
+    // `class="bd-row"`, and `data-bd-rows` on the tbody below, are not
+    // decoration. The shared discovery script collects rows by that class and
+    // returns on its THIRD STATEMENT if no tbody declares itself:
+    //
+    //     var bodies = document.querySelectorAll('[data-bd-rows]');
+    //     if (!bodies.length) return;
+    //
+    // This page emitted seven working facet SELECTS and seven matching row
+    // attributes, and then rendered a plain <tbody> and a plain <tr>. So the
+    // script bailed before binding a single listener and every filter on the
+    // page was a no-op: selecting Czech Republic left all 383 rows on screen,
+    // Albania and Algeria among them.
+    //
+    // The haystack is the search corpus, lower-cased once here rather than on
+    // every keystroke in the browser. It carries the fields a person searches
+    // by — platform, jurisdiction, type, operator — and deliberately not the
+    // explanatory prose around the table.
+    const haystack = [r.name, jurisdictionLabel(r, countryName),
+      t(`tpType.${r.platformType}`), r.operator || ''].join(' ').toLowerCase();
+    return `          <tr class="bd-row" data-bd-haystack="${escapeHtml(haystack)}" `
+      + `data-bd-facet-country="${escapeHtml(r.country)}" `
       + `data-bd-facet-subnational="${escapeHtml(r.subnationalJurisdiction || '')}" `
       + `data-bd-facet-type="${escapeHtml(r.platformType)}" `
       + `data-bd-facet-scope="${escapeHtml(r.procurementScope)}" `
@@ -175,6 +197,10 @@ function renderMain(rows, countryName, t) {
       <h2 id="platforms-heading">${escapeHtml(t('tp.platforms'))}</h2>
       <p>${escapeHtml(t('tp.summary', { n: rows.length, c: countries.size }))}</p>
       <div class="bd-controls">
+        <div class="bd-control">
+          <label class="bd-label" for="tp-search">${escapeHtml(t('common.search'))}</label>
+          <input class="bd-input" id="tp-search" type="search" data-bd-search placeholder="${escapeHtml(t('tp.searchPlaceholder'))}">
+        </div>
 ${facet({ name: 'country', t, label: t('tp.f.country'), values: rows.map((r) => r.country), labels: Object.fromEntries([...countries].map((s) => [s, countryName(s)])) })}
 ${subnationalFacet(rows, t)}
 ${facet({ name: 'type', t, label: t('tp.f.type'), values: rows.map((r) => r.platformType), labels: Object.fromEntries(TP.PLATFORM_TYPES.map((x) => [x, t(`tpType.${x}`)])) })}
@@ -182,13 +208,16 @@ ${facet({ name: 'scope', t, label: t('tp.f.scope'), values: rows.map((r) => r.pr
 ${facet({ name: 'esub', t, label: t('tp.f.esub'), values: rows.map((r) => r.electronicSubmission || 'unknown'), labels: Object.fromEntries(TP.TRI_STATE.map((x) => [x, t(`tri.${x}`)])) })}
 ${facet({ name: 'foreign', t, label: t('tp.f.foreign'), values: rows.map((r) => r.foreignSuppliersAccepted || 'unknown'), labels: Object.fromEntries(TP.TRI_STATE.map((x) => [x, t(`tri.${x}`)])) })}
 ${facet({ name: 'evidence', t, label: t('tp.f.evidence'), values: rows.map((r) => (r.browserCheckRequired ? 'browser-check' : r.evidenceClass)), labels: { A: t('tp.evidence.A'), B: t('tp.evidence.B'), C: t('tp.evidence.C'), unknown: t('tp.evidence.unknown'), 'browser-check': t('tp.evidence.browserCheck') } })}
+        <div class="bd-control">
+          <button class="bd-button bd-button--ghost" type="button" data-bd-clear>${escapeHtml(t('common.clearFilters'))}</button>
+        </div>
       </div>
       <p class="bd-note"><a class="bd-button" href="/research/tenders-procurement/platforms.csv" download>${escapeHtml(t('tp.downloadCsv', { n: rows.length }))}</a></p>
       <div class="bd-table-wrap">
         <table class="bd-table">
           <caption>${escapeHtml(t('tp.caption'))}</caption>
           <thead><tr>${head.map((h) => `<th scope="col">${escapeHtml(h)}</th>`).join('')}</tr></thead>
-          <tbody>
+          <tbody data-bd-rows>
 ${tableRows}
           </tbody>
         </table>

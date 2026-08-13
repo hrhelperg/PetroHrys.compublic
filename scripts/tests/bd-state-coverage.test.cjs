@@ -16,6 +16,7 @@ const vm = require('node:vm');
 
 const c = require('../lib/bd-components.cjs');
 const order = require('../../js/bd-order.js');
+const discovery = require('../../js/bd-discovery.js');
 const { loadRegistry } = require('../lib/bd-registry.cjs');
 const { createDocument } = require('./helpers/mini-dom.cjs');
 
@@ -33,7 +34,7 @@ const PUBLISHED = new Map(loadRegistry().directories
 
 function boot() {
   const document = createDocument(HTML);
-  vm.runInContext(CLIENT, vm.createContext({ document, BDOrder: order, window: {} }));
+  vm.runInContext(CLIENT, vm.createContext({ document, BDOrder: order, BDDiscovery: discovery, window: {} }));
   return {
     document,
     rows: document.querySelectorAll('.bd-row'),

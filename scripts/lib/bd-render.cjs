@@ -343,6 +343,7 @@ ${main}
 
 ${FOOTER(selfPath, locale, t)}
   <script src="/js/bd-order.js" defer></script>
+  <script src="/js/bd-discovery.js" defer></script>
   <script src="/js/business-directories.js" defer></script>
 </body>
 </html>

@@ -14,6 +14,14 @@
     : (typeof window !== 'undefined' ? window.BDOrder : null);
   if (!order) return; // ordering model unavailable: leave the server order alone
 
+  // The matching decision lives in BDDiscovery, shipped verbatim from
+  // scripts/lib/bd-discovery.cjs, so the browser and the test suite cannot
+  // disagree about what "matching" means. If it is missing the page keeps its
+  // prerendered order rather than filtering by a second implementation.
+  var D = typeof BDDiscovery !== 'undefined' ? BDDiscovery
+    : (typeof window !== 'undefined' ? window.BDDiscovery : null);
+  if (!D) return;
+
   // Every group's tbody. Once a country page groups by jurisdiction there is
   // one per group, and a singular query would leave search, filter and sort
   // touching only the first — with a status count for the whole page.
@@ -123,10 +131,25 @@
     var wantGroup = jValue.indexOf('group:') === 0 ? jValue.slice(6) : null;
     var wantState = jValue.indexOf('state:') === 0 ? jValue.slice(6) : null;
 
+    // The current facet selection, read once per apply rather than per row.
+    var facetState = {};
+    facets.forEach(function (sel) {
+      var name = String(sel.getAttribute('data-bd-facet'));
+      facetState[name] = {
+        value: sel.value,
+        // List-valued facets declare themselves. The legacy 'audience' name is
+        // still honoured because the business-directory pages emit it without
+        // the attribute.
+        multi: sel.hasAttribute('data-bd-facet-multi') || name === 'audience'
+      };
+    });
+    var flagNames = active.map(function (f) {
+      return String(f.getAttribute('data-bd-filter')).toLowerCase();
+    });
+
     records.forEach(function (record) {
       var row = record.row;
       var visible = true;
-      if (query && (row.getAttribute('data-bd-haystack') || '').indexOf(query) === -1) visible = false;
       // Selecting one state shows that state's registries and nothing else;
       // selecting a group shows that group. The two never combine, because the
       // control offers one value.
@@ -146,30 +169,29 @@
       // have had to be appended to the same growing condition, in a file none
       // of them owns. The legacy 'audience' name is still honoured because the
       // business-directory pages emit it without the attribute.
-      facets.forEach(function (sel) {
-        var want = sel.value;
-        if (!want) return;
-        var name = String(sel.getAttribute('data-bd-facet'));
-        var have = row.getAttribute('data-bd-facet-' + name) || '';
-        var multi = sel.hasAttribute('data-bd-facet-multi') || name === 'audience';
-        if (multi) {
-          if ((' ' + have + ' ').indexOf(' ' + want + ' ') === -1) visible = false;
-        } else if (have !== want) {
-          visible = false;
-        }
+      // ── ONE PREDICATE, SHARED WITH THE TESTS ────────────────────────────
+      //
+      // Search, facets and tri-state filters all compose with AND inside
+      // BDDiscovery.evaluate. Reading the row's attributes into a plain object
+      // is the only work left here; the deciding is not done in this file.
+      var rowFacets = {};
+      Object.keys(facetState).forEach(function (name) {
+        rowFacets[name] = row.getAttribute('data-bd-facet-' + name) || '';
       });
-      var hiddenUnknown = 0;
-      active.forEach(function (f) {
-        var attr = 'data-bd-' + String(f.getAttribute('data-bd-filter')).toLowerCase();
-        var value = row.getAttribute(attr);
-        if (value !== 'yes') {
-          if (value === 'unknown') hiddenUnknown += 1;
-          visible = false;
-        }
+      var rowFlags = {};
+      flagNames.forEach(function (name) {
+        rowFlags[name] = row.getAttribute('data-bd-' + name);
       });
+
+      var verdict = D.evaluate(
+        { haystack: row.getAttribute('data-bd-haystack') || '', facets: rowFacets, flags: rowFlags },
+        { query: query, facets: facetState, flags: flagNames }
+      );
+      if (!verdict.visible) visible = false;
+
       row.hidden = !visible;
       if (visible) shown += 1;
-      if (!visible && hiddenUnknown > 0) unknownHidden += 1;
+      if (!visible && verdict.hiddenForUnknown) unknownHidden += 1;
     });
 
     // The state grid narrows with the selection. Selecting a PENDING state must

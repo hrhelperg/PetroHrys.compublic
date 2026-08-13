@@ -98,7 +98,16 @@ function renderPage(rows, countryName, t) {
   const tableRows = rows.map((r) => {
     const types = [r.marketplaceType, ...(r.alsoCovers || [])]
       .map((x) => t(`mpType.${x}`)).join(', ');
-    return `          <tr data-bd-facet-country="${escapeHtml(r.country)}" `
+    // The row must declare itself to the shared discovery script, which
+    // collects by `.bd-row` and gives up entirely when no tbody carries
+    // `data-bd-rows`. Five working facet selects sat above a table it never
+    // bound to, so Country = India moved the control and left all 286 rows on
+    // screen. Same defect and same two attributes as the procurement page —
+    // see the longer note in build-tenders-procurement.cjs.
+    const haystack = [r.name, countryName(r.country), types,
+      t(`seller.${r.sellerTypes}`), t(`cost.${r.costModel}`)].join(' ').toLowerCase();
+    return `          <tr class="bd-row" data-bd-haystack="${escapeHtml(haystack)}" `
+      + `data-bd-facet-country="${escapeHtml(r.country)}" `
       + `data-bd-facet-type="${escapeHtml(r.marketplaceType)}" `
       + `data-bd-facet-cost="${escapeHtml(r.costModel)}" `
       + `data-bd-facet-sellers="${escapeHtml(r.sellerTypes)}" `
@@ -127,18 +136,25 @@ function renderPage(rows, countryName, t) {
       <h2 id="platforms-heading">${escapeHtml(t('mp.platforms'))}</h2>
       <p>${escapeHtml(t('mp.summary', { n: rows.length, c: countries.size }))}</p>
       <div class="bd-controls">
+        <div class="bd-control">
+          <label class="bd-label" for="mp-search">${escapeHtml(t('common.search'))}</label>
+          <input class="bd-input" id="mp-search" type="search" data-bd-search placeholder="${escapeHtml(t('mp.searchPlaceholder'))}">
+        </div>
 ${facet({ name: 'country', t, label: t('mp.f.country'), values: rows.map((r) => r.country), labels: Object.fromEntries([...countries].map((s) => [s, countryName(s)])) })}
 ${facet({ name: 'type', t, label: t('mp.f.type'), values: rows.map((r) => r.marketplaceType), labels: Object.fromEntries(MP.MARKETPLACE_TYPES.map((x) => [x, t(`mpType.${x}`)])) })}
 ${facet({ name: 'cost', t, label: t('mp.f.cost'), values: rows.map((r) => r.costModel), labels: Object.fromEntries(MP.COST_MODELS.map((x) => [x, t(`cost.${x}`)])) })}
 ${facet({ name: 'sellers', t, label: t('mp.f.sellers'), values: rows.map((r) => r.sellerTypes), labels: Object.fromEntries(MP.SELLER_TYPES.map((x) => [x, t(`seller.${x}`)])) })}
 ${facet({ name: 'status', t, label: t('mp.f.status'), values: rows.map((r) => r.currentStatus), labels: Object.fromEntries(['active', 'unknown'].map((x) => [x, t(`currentStatus.${x}`)])) })}
+        <div class="bd-control">
+          <button class="bd-button bd-button--ghost" type="button" data-bd-clear>${escapeHtml(t('common.clearFilters'))}</button>
+        </div>
       </div>
       <p class="bd-note"><a class="bd-button" href="/research/marketplaces/marketplaces.csv" download>${escapeHtml(t('mp.downloadCsv', { n: rows.length }))}</a></p>
       <div class="bd-table-wrap">
         <table class="bd-table">
           <caption>${escapeHtml(t('mp.caption'))}</caption>
           <thead><tr>${head.map((h) => `<th scope="col">${escapeHtml(h)}</th>`).join('')}</tr></thead>
-          <tbody>
+          <tbody data-bd-rows>
 ${tableRows}
           </tbody>
         </table>
