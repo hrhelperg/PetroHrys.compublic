@@ -1,6 +1,6 @@
 # Tender Opportunity Coverage — Phase A
 
-**Status: PHASE A COMPLETE. STAGE B1 COMPLETE. STAGE B2 COMPLETE. STAGE B3 NOT STARTED.**
+**Status: PHASE A, B1 and B2 COMPLETE. STAGE B3 RESEARCH DONE, NO SOURCE ACTIVATED.**
 
 Measured against the committed corpus at `cca4f5af`: 9,577 canonical
 opportunities, 6,964 current, 10 sources, 5,324 buyers.
@@ -261,10 +261,34 @@ remaining gap, which is the opposite of where Phase A's brief pointed.
 **Geographic:** unchanged by B1 — classification recovery adds no country.
 109 of 113 countries remain single-source.
 
-# Stage B3 — not started
+# Stage B3 — research complete, no source activated
 
-Nothing was researched or added. The re-baselined priorities above are its
-input, and they differ materially from Phase A's.
+Candidates were probed against the B2 priorities with live requests. Full
+terminal ledger: [TENDER-SOURCE-CANDIDATE-LEDGER.md](TENDER-SOURCE-CANDIDATE-LEDGER.md).
+
+**Five qualified:** Spain (ATOM/CODICE, CPV, verified future deadlines), Italy
+ANAC PPVL (JSON, same-day notices), United States SAM.gov bulk extract (no key,
+refreshed daily), Brazil PNCP (17,389 open in one modality), Lithuania (HTML,
+last resort).
+
+**Rejected on evidence:** Sweden — structurally impossible, since SFS 2019:668
+places notice publication in privately-run databases the state only aggregates.
+Lithuania's legacy CVPP (20 months stale) and its data.gov.lt feed
+(awards-only). **Deferred:** Australia's OCDS API is the best-engineered feed
+probed but publishes contract notices only, so it cannot supply one open
+deadline; Belgium needs a token; SAM.gov's API needs a key its bulk extract
+does not.
+
+**No adapter was written and no source activated.** Two findings change the
+plan before any is:
+
+1. **Two of the four best candidates carry no CPV or UNSPSC.** Brazil has no
+   commodity code at all; the US has NAICS/PSC. Ingesting them would grow the
+   corpus and the *unclassified* share simultaneously — the metric B1 just
+   improved by 40%. The coverage methodology needs a way to represent native
+   taxonomies honestly first. Not by crosswalk.
+2. **Brazil's CC BY-ND licence is a real blocker.** NoDerivatives sits badly
+   with a derived corpus, and the gov.br site footer is not a dataset licence.
 
 ## Scale at this checkpoint
 
