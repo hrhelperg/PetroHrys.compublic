@@ -409,10 +409,39 @@ The reader matches on **local name** and ignores prefixes.
 The `next` link is followed only when it stays on the platform's own host over
 https, so a feed cannot redirect ingestion at an arbitrary server.
 
-## Not activated
+## The window is the blocker — measured, not assumed
 
-The adapter parses correctly and is fully tested, but it is **not in the source
-registry**. Still required: platform record, controlled ingest, TED overlap,
-unique-current contribution, health integration, failure isolation,
-fresh-clone recovery and the C1 re-baseline. A test asserts Spain is not
-enabled, so the tree cannot drift into a half-activated state.
+Walking four pages settled it:
+
+| page | entries | `updated` range |
+|---|---|---|
+| 1 | 182 | 2026-08-10 14:51 → 19:34 |
+| 2 | 499 | 13:01 → 14:50 |
+| 3 | 498 | 11:12 → 13:01 |
+| 4 | 498 | 09:34 → 11:12 |
+
+1,677 distinct entries covering **ten hours of one day**, ordered by `updated`
+descending. This is a **`DELTA_FEED`** — a chronological update stream — not a
+list of open opportunities. A tender published last month and still accepting
+bids appears only if it was recently updated.
+
+Two consequences:
+
+1. **Traversing to the end would not yield the currently open Spanish
+   tenders.** Feed completeness and current-opportunity completeness are
+   different facts, and only the first is reachable here.
+2. **Absence proves nothing**, so Spain must never feed disappearance
+   detection — a tender missing from today's window would become a false
+   closure. A test asserts the health layer refuses a partial-window source for
+   removal detection.
+
+**Spain is therefore NOT activated.** Activation needs either a bounded-window
+ingest design with disappearance suppression, or a different official endpoint
+that is genuinely a current-opportunity view.
+
+Two further corrections from this pass: the platform **already existed** in the
+registry as `es-plataforma-de-contratacion` (PLACSP), so it is reused and the
+adapter's own constant was wrong; and a sixth status code, **`PRE`**
+(anuncio previo), was observed live and is deliberately left out of the status
+map so it resolves to UNKNOWN rather than being promoted to UPCOMING on our
+authority.

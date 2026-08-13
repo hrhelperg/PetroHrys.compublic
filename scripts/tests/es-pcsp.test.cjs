@@ -172,6 +172,48 @@ test('the XML reader cannot resolve an external entity', () => {
   assert.strictEqual(r.title, '&x;', 'an external entity was expanded');
 });
 
+test('the platform is resolved from the registry, never minted', () => {
+  const TP = require('../lib/tp-schema.cjs');
+  const countries = JSON.parse(read('data/business-directories/countries.json'));
+  const platforms = TP.loadPlatforms(
+    path.join(ROOT, 'data/tenders-procurement/platforms.json'),
+    new Map(countries.map((c) => [c.slug, c.iso2 || null])),
+  );
+  const platform = platforms.find((p) => p.id === A.PLATFORM_ID);
+  assert.ok(platform, `the adapter names a platform that does not exist: ${A.PLATFORM_ID}`);
+  assert.strictEqual(platform.country, 'spain');
+  // The feed is not the platform and the format is not the operator.
+  assert.ok(!/atom|codice/i.test(platform.name), 'a feed or format was recorded as the platform');
+  const code = SRC.replace(/^\s*\/\/.*$/gm, '');
+  assert.ok(!/platformType|operator\s*:|officialUrl/.test(code),
+    'the adapter carries platform fields and could mint one');
+});
+
+test('the feed window is a delta stream, so absence can never close a tender', () => {
+  // Measured, not assumed: four pages covered ten hours of one day, ordered by
+  // `updated` descending. Feed completeness is not current-opportunity
+  // completeness.
+  assert.strictEqual(A.WINDOW, 'DELTA_FEED');
+  assert.notStrictEqual(A.WINDOW, 'FULL_CURRENT_WINDOW',
+    'a chronological update stream was labelled a full current window');
+  // The health layer must treat this window as unsafe for removal detection.
+  const HEALTH = require('../lib/to-health.cjs');
+  const ALERTS = require('../lib/to-alerts.cjs');
+  assert.strictEqual(ALERTS.sourceIsTrustworthyForRemoval(A.ID,
+    { [A.ID]: { state: 'HEALTHY', promoted: true, completeness: 'PARTIAL' } }), false,
+  'a partial-window source was trusted for disappearance detection');
+});
+
+test('a prior-information notice is not promoted to an opportunity', () => {
+  // PRE was observed live. It is intentionally absent from the status map so
+  // it resolves to UNKNOWN rather than being called UPCOMING on our authority.
+  assert.ok(!('PRE' in A.STATUS), 'PRE was given an opportunity status');
+  assert.strictEqual(A.NOTICE_TYPE.PRE, 'PRIOR_INFORMATION');
+  const r = A.normalizeEntry('<id>x/7</id><cbc-place-ext:ContractFolderStatusCode>PRE</cbc-place-ext:ContractFolderStatusCode>', { nowIso: NOW });
+  assert.strictEqual(r.reportedStatus, null);
+  assert.strictEqual(r.noticeType, 'PRIOR_INFORMATION');
+});
+
 test('the adapter is not wired into the source registry yet', () => {
   // Activation is deliberately incomplete: the adapter parses correctly but
   // has not been through ingest, TED overlap, health and fresh-clone proof.

@@ -30,13 +30,46 @@
 // feed alongside one still accepting bids. Treating "has a future deadline" as
 // "open" would import awarded procurements as opportunities, so status is read
 // first and the deadline is never allowed to override it.
+//
+// ── THE WINDOW, WHICH IS WHY THIS SOURCE IS NOT ACTIVE ──────────────────────
+//
+// Measured by walking four pages: the feed is a CHRONOLOGICAL UPDATE STREAM
+// ordered by `updated` descending, not a list of open opportunities.
+//
+//   page 1  182 entries  2026-08-10 14:51 -> 19:34
+//   page 2  499 entries  2026-08-10 13:01 -> 14:50
+//   page 3  498 entries  2026-08-10 11:12 -> 13:01
+//   page 4  498 entries  2026-08-10 09:34 -> 11:12
+//
+// 1,677 distinct entries covering ten hours of ONE DAY. A tender published
+// last month and still accepting bids appears only if it happened to be
+// updated recently; reaching it means walking back through every intervening
+// publication.
+//
+// Two consequences, and they are the reason this adapter is registered but
+// disabled:
+//
+//   1. Traversing to the end of the chain would NOT yield the set of currently
+//      open Spanish tenders. Feed completeness and current-opportunity
+//      completeness are different facts, and only the first is achievable here.
+//   2. Absence from any bounded traversal therefore means nothing. Spain must
+//      never feed disappearance detection, or a tender missing from today's
+//      window becomes a false closure.
+//
+// The window is DELTA_FEED. Activation needs either a bounded-window ingest
+// design with disappearance suppression, or a different official endpoint that
+// is genuinely a current-opportunity view.
 
 const TIME = require('../to-time.cjs');
 const SCHEMA = require('../to-schema.cjs');
 const CLASS = require('../to-classification.cjs');
 
 const ID = 'es-pcsp';
-const PLATFORM_ID = 'es-plataforma-contratacion';
+
+// Chronological update stream. NOT a current-opportunity window: see below.
+const WINDOW = 'DELTA_FEED';
+// Resolved from the existing TenderPlatform registry, not minted here.
+const PLATFORM_ID = 'es-plataforma-de-contratacion';
 
 // ── XML READING ─────────────────────────────────────────────────────────────
 //
@@ -102,6 +135,10 @@ const STATUS = {
   ADJ: 'AWARDED',
   RES: 'AWARDED',
   ANUL: 'CANCELLED',
+  // PRE (anuncio previo) is a prior-information notice: an intention, not a
+  // procedure anyone can bid on. It is deliberately absent from this map so it
+  // resolves to UNKNOWN rather than being promoted to UPCOMING on our own
+  // authority. Observed live on pages 3 and 4.
 };
 
 // A prior-information notice announces an intention, not a procedure a
@@ -218,7 +255,7 @@ function nextLink(xml, currentUrl) {
 }
 
 module.exports = {
-  ID, PLATFORM_ID, STATUS, NOTICE_TYPE,
+  ID, PLATFORM_ID, WINDOW, STATUS, NOTICE_TYPE,
   localTag, decode, pick, pickAll, attr, block,
   entriesOf, nextLink, normalizeEntry,
 };
