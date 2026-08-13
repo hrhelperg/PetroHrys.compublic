@@ -349,3 +349,70 @@ All researched candidates are terminal: **8 ACCEPT_CANDIDATE, 7 REJECT,
 
 No adapter written, no source activated, no A→B→C expansion matrix, Brazil
 licence unresolved. The architecture that had to precede activation now exists.
+
+
+---
+
+# Stage B3C — Spain: adapter built and validated, not activated
+
+## TLS: the research finding was wrong, in our favour
+
+The probe reported that the Spanish chain fails validation. That was `curl`.
+**Node validates it with verification ON** (`authorized: true`, no
+`authorizationError`), because AC RAIZ FNMT-RCM ships in Node's bundled
+Mozilla trust store. So there is **no custom CA bundle, no
+`NODE_EXTRA_CA_CERTS`, and no agent override** — the adapter simply uses
+default verification, which is the safest position and the one the spec most
+wanted. A test asserts the adapter never touches `rejectUnauthorized`,
+`checkServerIdentity` or ships certificate material.
+
+## Platform, feed and format are three different things
+
+- **Platform** — Plataforma de Contratación del Sector Público, operated by the
+  Dirección General del Patrimonio del Estado.
+- **Feed** — an ATOM syndication of that platform's notices.
+- **Format** — CODICE, Spain's UBL 2 profile, embedded per entry.
+
+The adapter records the platform id and mints nothing.
+
+## What the feed actually contains
+
+Of 28 live entries, by the platform's own `ContractFolderStatusCode`:
+
+| code | meaning | count | mapped to |
+|---|---|---|---|
+| EV | en evaluación | 10 | CLOSED |
+| **PUB** | **publicada** | **8** | **OPEN** |
+| RES | resuelta | 5 | AWARDED |
+| ADJ | adjudicada | 4 | AWARDED |
+| ANUL | anulada | 1 | CANCELLED |
+
+**Only 29% are open.** A "future deadline means open" rule would have imported
+20 awarded, closed and cancelled procurements as live opportunities. Status is
+read first and the deadline never overrides it; an unlisted code stays UNKNOWN.
+
+## Field coverage on live data
+
+buyer 28/28 · CPV 28/28 · deadline 27/28 · value 28/28 · reference 28/28 ·
+region 26/28.
+
+Deadlines are **date + time with no offset anywhere** — recorded as `ZONELESS`
+with the source wording kept and `iso` left null. No timezone is invented.
+Values keep the platform's stated `currencyID="EUR"`.
+
+## Two parsing facts worth recording
+
+Namespace prefixes vary *within one document*: the status arrives as
+`cbc-place-ext:ContractFolderStatusCode` while its siblings are plain `cbc:`.
+The reader matches on **local name** and ignores prefixes.
+
+The `next` link is followed only when it stays on the platform's own host over
+https, so a feed cannot redirect ingestion at an arbitrary server.
+
+## Not activated
+
+The adapter parses correctly and is fully tested, but it is **not in the source
+registry**. Still required: platform record, controlled ingest, TED overlap,
+unique-current contribution, health integration, failure isolation,
+fresh-clone recovery and the C1 re-baseline. A test asserts Spain is not
+enabled, so the tree cannot drift into a half-activated state.

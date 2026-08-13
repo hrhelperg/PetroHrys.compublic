@@ -51,10 +51,12 @@ future**; status mix PUB 47 / EV 57 / ADJ 32 / RES 45 — live notices, not
 awards. **CPV present as `cbc:ItemClassificationCode`.** Paginated via
 `rel="next"`.
 
-*Caveat:* the TLS chain does not validate against the default trust store. The
-certificate is legitimate (issuer FNMT-RCM, subject DIRECCIÓN GENERAL DEL
-PATRIMONIO DEL ESTADO) — ingestion must **add the FNMT-RCM root**, never
-disable verification.
+**TLS finding corrected (2026-08-13).** The research note said the chain does
+not validate. That was `curl` on one machine. **Node validates it with
+verification ON** — `authorized: true`, no `authorizationError` — because
+AC RAIZ FNMT-RCM is in Node's bundled Mozilla trust store. No CA bundle, no
+`NODE_EXTRA_CA_CERTS`, no agent override is needed. The safest possible
+position was available and is what the adapter uses.
 
 Target gap: Spain is TED-only with 171 current opportunities.
 
