@@ -547,3 +547,34 @@ would take the current corpus from 6,964 to roughly **19,858**, nearly tripling
 the Discovery browser index (0.92 MB gzip today). That is below the ~25,000
 threshold estimated in Discovery v1 but close enough that the index must be
 measured before promotion, not after.
+
+
+---
+
+# SAM.gov adapter — built, NOT registered, two known defects
+
+The adapter runs against the real artefact and the type mapping holds. It is
+**not in the source registry** and nothing has been ingested.
+
+Measured on the full 251 MB file: **82,960 rows parsed, 69,487 carried**
+(tender, presolicitation and award types), then normalized to
+**OPEN 10,430 · UPCOMING 1,721 · CLOSED 28,175 · AWARDED 12,645 ·
+UNKNOWN 16,516**.
+
+What works: **zero awards leak into OPEN**; every OPEN record carries NAICS
+(10,430) and nearly all carry PSC (10,318); 39 agencies; every OPEN record has
+a notice URL; 727 carry a non-US place of performance and are not stamped US.
+
+**Two defects, unfixed:**
+
+1. **`SolicitationNumber` is not a column here.** The projected-column guard
+   refused the schema — the guard doing its job — but the real column name has
+   not been identified.
+2. **Only `INSTANT` deadlines resolve.** The 3,109 date-only deadlines and
+   other non-instant forms fall to UNKNOWN, so OPEN reads 10,430 against the
+   ~12,894 the whole-file audit measured. Date precision is comparable and must
+   be handled without inventing a time of day.
+
+Memory needed attention: projecting 15 of 47 columns during the parse brought
+the run inside the heap; materialising all 47 for 69,487 rows on top of the
+buffer exhausted it.
