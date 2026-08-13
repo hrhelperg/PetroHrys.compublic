@@ -620,8 +620,13 @@ test('32. one indexable route per locale, and no page per tender', () => {
   // The crawl surface is exactly the locale cluster: no per-opportunity route.
   const dir = path.join(ROOT, 'research', 'tenders-procurement', 'opportunities');
   const entries = fs.readdirSync(dir);
-  assert.deepStrictEqual(entries.sort(), ['index.html', 'opportunities.csv'],
+  // One page, one dataset, one search index. A data file the page fetches is
+  // not a crawlable route, so it is named explicitly rather than the
+  // assertion being loosened to a pattern that would let a route slip in.
+  assert.deepStrictEqual(entries.sort(), ['index.html', 'opportunities.csv', 'tender-index.json'],
     `the opportunities route owns unexpected files: ${entries.join(', ')}`);
+  assert.deepStrictEqual(entries.filter((f) => f.endsWith('.html')), ['index.html'],
+    'a second HTML route appeared under the opportunities path');
   // And no filter permutation became a URL.
   const html = read(I18N.localizedFile('en', BUILD.CANONICAL_PATH));
   const selfLinks = [...html.matchAll(/href="(\/(?:de|es|fr)?\/?research\/tenders-procurement\/opportunities\/[^"]+)"/g)]
@@ -1123,8 +1128,8 @@ mutate('a filter crawl-space route would be caught', () => {
   const actual = fs.readdirSync(dir).sort();
   const withCrawlSpace = [...actual, 'country-germany'].sort();
   assert.notDeepStrictEqual(withCrawlSpace, actual);
-  assert.deepStrictEqual(actual, ['index.html', 'opportunities.csv'],
-    'the route already owns more than one page and one dataset');
+  assert.deepStrictEqual(actual, ['index.html', 'opportunities.csv', 'tender-index.json'],
+    'the route already owns more than one page, one dataset and one search index');
 });
 
 mutate('breaking the sourcePlatform reference is caught', () => {
