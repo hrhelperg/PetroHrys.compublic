@@ -819,9 +819,24 @@ test('41. the page states its freshness and never implies a live feed', () => {
   }
 });
 
-test('42. sibling collections and canonical platform data are untouched', () => {
+test('42. sibling collections are untouched and platform drift is accounted', () => {
   const platforms = JSON.parse(read('data/tenders-procurement/platforms.json'));
-  assert.strictEqual(platforms.length, 383, 'the platform record count changed');
+  // 383 through Phase 3. Phase 4 added exactly one, deliberately and with
+  // evidence: de-bekanntmachungsservice, the German federal notice service,
+  // created so the German opportunity source had a canonical platform to
+  // reference instead of minting one. Every platform change in this project is
+  // individually accounted, which is why this number is asserted rather than
+  // read from the file.
+  assert.strictEqual(platforms.length, 384, 'the platform record count changed unaccountably');
+  const added = platforms.find((p) => p.id === 'de-bekanntmachungsservice');
+  assert.ok(added, 'the one accounted platform addition is missing');
+  assert.strictEqual(added.evidenceClass, 'A', 'the added platform was created below the collection standard');
+  assert.ok(added.evidenceUrl, 'the added platform carries no evidence URL');
+  // It is a discovery surface, not a bidding platform — the finding that made
+  // it addable at all, and the same shape TED has.
+  assert.strictEqual(added.submissionUrl, null);
+  assert.strictEqual(added.electronicSubmission, 'no');
+  assert.strictEqual(added.supplierRegistrationRequired, 'no');
   for (const f of ['data/marketplaces/marketplaces.json', 'data/media-pr-publishing/media-platforms.json']) {
     assert.ok(fs.existsSync(path.join(ROOT, f)), `${f} disappeared`);
   }
@@ -1639,11 +1654,184 @@ mutate('P3: the build cannot reach the orchestrator, an adapter, or the HTTP hel
 
 mutate('P3: canonical platform data and the matching model did not move', () => {
   const platforms = JSON.parse(read('data/tenders-procurement/platforms.json'));
-  assert.strictEqual(platforms.length, 383, 'the platform record count changed');
+  assert.strictEqual(platforms.length, 384, 'the platform record count changed unaccountably');
   // The matching model is frozen for a source-expansion phase.
   assert.strictEqual(Object.values(MATCH.WEIGHTS).reduce((a, b) => a + b, 0), 100);
   assert.deepStrictEqual(MATCH.WEIGHTS,
     { category: 40, geography: 20, actionability: 15, deadline: 15, confidence: 10 },
     'the match weights changed during a source-expansion phase');
   assert.strictEqual(Object.keys(MATCH.PROFILES).length, 16, 'the profile count changed');
+});
+
+// ── PHASE 4: THE PLATFORM BOUNDARY ──────────────────────────────────────────
+//
+// The invariant this phase exists to protect: an opportunity source may
+// REFERENCE a canonical platform, never CREATE one. Phase 3 held Germany back
+// for exactly this reason; Phase 4 unblocked it by doing the platform research
+// first, in the right order.
+
+test('P4-1. every active source references a real, publishable, active platform', () => {
+  const platforms = JSON.parse(read('data/tenders-procurement/platforms.json'));
+  const byId = new Map(platforms.map((p) => [p.id, p]));
+  for (const s of SOURCES.ENABLED()) {
+    const p = byId.get(s.platformId);
+    assert.ok(p, `${s.id} references platform "${s.platformId}", which does not exist`);
+    assert.strictEqual(p.currentStatus, 'active', `${s.id} references a non-active platform`);
+    assert.ok(!p.replacedBy, `${s.id} references a platform that has been replaced`);
+    // A source must not point at a software vendor or an authority-only record.
+    assert.notStrictEqual(p.operatorType, 'private-company',
+      `${s.id} maps to a private company — check this is the operator, not the vendor`);
+  }
+});
+
+test('P4-2. the source registry cannot mint a platform', () => {
+  // No source file may write to the platform dataset, and no adapter may
+  // construct a platform record.
+  for (const rel of ['scripts/ingest-tender-opportunities.cjs', 'scripts/refresh-tender-opportunities.cjs',
+    'scripts/lib/to-sources.cjs', 'scripts/lib/to-adapters/index.cjs']) {
+    const src = read(rel);
+    assert.ok(!/writeFileSync\([^)]*platforms\.json/.test(src), `${rel} can write to the platform dataset`);
+    assert.ok(!/platformType\s*:/.test(src), `${rel} constructs something shaped like a platform record`);
+  }
+  // And the schema still refuses an unknown platform reference.
+  const orphan = fixture({ sourcePlatformId: 'de-invented-by-a-source' });
+  assert.ok(SCHEMA.problemsFor(orphan, PLATFORM_IDS).some((p) => p.startsWith('sourcePlatformId')));
+});
+
+test('P4-3. Germany resolved to a discovery surface, not a bidding platform', () => {
+  const platforms = JSON.parse(read('data/tenders-procurement/platforms.json'));
+  const de = platforms.find((p) => p.id === 'de-bekanntmachungsservice');
+  assert.ok(de, 'the German platform record is missing');
+  // The finding that made the record addable: it is the same ontological class
+  // as TED — free search, no registration, no bidding — and the bidding
+  // platforms it aggregates are separate records that already existed.
+  const ted = platforms.find((p) => p.id === 'eu-ted');
+  for (const field of ['submissionUrl', 'electronicSubmission', 'supplierRegistrationRequired', 'searchAccess']) {
+    assert.strictEqual(de[field], ted[field],
+      `${field} differs from the TED precedent this record was justified against`);
+  }
+  // The systems where German bidding actually happens are still their own
+  // records, and this one did not absorb them.
+  for (const id of ['de-evergabe-bund', 'de-vergabeplattform-berlin']) {
+    assert.ok(platforms.some((p) => p.id === id), `${id} disappeared`);
+  }
+  assert.notStrictEqual(de.id, 'de-evergabe-bund', 'the notice service was conflated with e-Vergabe');
+  // Operated by a public body, not a vendor or an open-data host.
+  assert.ok(['government', 'central-purchasing-body', 'contracting-authority'].includes(de.operatorType));
+  assert.ok(!/github|ckan|socrata|data\.gov/i.test(de.officialUrl), 'the open-data host was mistaken for the platform');
+});
+
+test('P4-4. Germany is active and contributed materially unique coverage', () => {
+  const de = O.filter((o) => o.occurrences.some((x) => x.sourceId === 'de-vergabe'));
+  assert.ok(de.length > 500, `Germany contributed only ${de.length} records`);
+  const only = de.filter((o) => !o.multiSource);
+  // The whole thesis: a national notice service carries below-threshold and
+  // national-only procurement that never reaches TED. If everything merged,
+  // the platform gap was not worth closing.
+  assert.ok(only.length > de.length * 0.5,
+    `only ${only.length} of ${de.length} German notices are unique — the source is mostly a TED mirror`);
+  const merged = de.filter((o) => o.multiSource);
+  assert.ok(merged.length > 0, 'no German notice merged with TED — the overlap was not detected at all');
+});
+
+test('P4-5. German lot-bearing procedures stayed single opportunities', () => {
+  const deLots = O.filter((o) => o.sourceId === 'de-vergabe' && o.lotCount > 1);
+  assert.ok(deLots.length > 50, 'too few multi-lot German records to test lot safety');
+  const biggest = Math.max(...deLots.map((o) => o.lotCount));
+  assert.ok(biggest > 20, `the largest German procedure has only ${biggest} lots`);
+  // One procedure with a hundred lots is one opportunity, not a hundred.
+  for (const o of deLots) {
+    assert.strictEqual(o.occurrences.filter((x) => x.sourceId === 'de-vergabe').length, 1,
+      `${o.id} expanded its lots into separate occurrences`);
+  }
+});
+
+test('P4-6. platform additions are individually accounted, not bulk drift', () => {
+  const platforms = JSON.parse(read('data/tenders-procurement/platforms.json'));
+  // Exactly one record carries a Phase 4 verification date AND is new. Every
+  // other record's evidence predates this phase.
+  const added = platforms.filter((p) => p.id === 'de-bekanntmachungsservice');
+  assert.strictEqual(added.length, 1);
+  for (const p of added) {
+    assert.ok(p.evidenceClass && p.evidenceUrl && p.evidenceNote,
+      `${p.id} was created without the collection's evidence standard`);
+    assert.ok(p.evidenceNote.length > 120, `${p.id} has a token evidence note`);
+    assert.ok(Array.isArray(p.limitations) && p.limitations.length,
+      `${p.id} declares no limitations`);
+  }
+});
+
+// ── PHASE 4 MUTATIONS ───────────────────────────────────────────────────────
+
+mutate('P4: a source mapped to a nonexistent platform is refused', () => {
+  assert.ok(SCHEMA.problemsFor(fixture({ sourcePlatformId: 'nope' }), PLATFORM_IDS).length > 0);
+});
+
+mutate('P4: a source mapped to a software vendor would be visible', () => {
+  const platforms = JSON.parse(read('data/tenders-procurement/platforms.json'));
+  const vendorish = platforms.filter((p) => p.operatorType === 'private-company').map((p) => p.id);
+  assert.ok(vendorish.length > 0, 'no private-company platforms exist: this guard is vacuous');
+  const mapped = SOURCES.ENABLED().filter((s) => vendorish.includes(s.platformId));
+  assert.deepStrictEqual(mapped.map((s) => s.id), [],
+    'an active source maps to a privately operated platform');
+});
+
+mutate('P4: an open-data host cannot stand in for a platform', () => {
+  const platforms = JSON.parse(read('data/tenders-procurement/platforms.json'));
+  const byId = new Map(platforms.map((p) => [p.id, p]));
+  const HOSTS = /github\.com|ckan|socrata|datos\.gob|data\.gov|amazonaws|blob\.core/i;
+  for (const s of SOURCES.ENABLED()) {
+    const p = byId.get(s.platformId);
+    assert.ok(!HOSTS.test(p.officialUrl),
+      `${s.id} maps to a platform whose official URL is a data host: ${p.officialUrl}`);
+  }
+  // SECOP II is the case that proves the rule: it is ingested THROUGH
+  // datos.gov.co but maps to co-secop-ii, the procurement system itself.
+  const secop = SOURCES.SOURCE_BY_ID.get('secop2');
+  assert.match(secop.endpoint, /datos\.gov\.co/);
+  assert.strictEqual(secop.platformId, 'co-secop-ii');
+  assert.match(byId.get('co-secop-ii').officialUrl, /secop\.gov\.co/);
+});
+
+mutate('P4: Germany cannot be active without its platform record', () => {
+  const de = SOURCES.SOURCE_BY_ID.get('de-vergabe');
+  assert.ok(de.platformId, 'the German source has no platform reference');
+  assert.ok(PLATFORM_IDS.has(de.platformId), 'the German platform reference does not resolve');
+  // Removing the platform must break the source, not be silently tolerated.
+  const withoutPlatform = new Set([...PLATFORM_IDS].filter((id) => id !== de.platformId));
+  const deRecord = O.find((o) => o.sourceId === 'de-vergabe');
+  assert.ok(deRecord, 'no German records to test against');
+  assert.ok(SCHEMA.problemsFor(deRecord, withoutPlatform).some((p) => p.startsWith('sourcePlatformId')),
+    'a German record validates even with its platform removed');
+});
+
+mutate('P4: a platform added without evidence would be caught', () => {
+  const weak = { id: 'xx-weak', name: 'Weak', officialUrl: 'https://x.example/', country: 'germany',
+    platformType: 'national-procurement', evidenceClass: 'unknown', evidenceUrl: null };
+  assert.ok(!weak.evidenceUrl && weak.evidenceClass === 'unknown',
+    'the fixture is not actually weak');
+  // The real record clears the bar the fixture fails.
+  const platforms = JSON.parse(read('data/tenders-procurement/platforms.json'));
+  const real = platforms.find((p) => p.id === 'de-bekanntmachungsservice');
+  assert.strictEqual(real.evidenceClass, 'A');
+  assert.ok(real.evidenceUrl);
+});
+
+mutate('P4: the match model did not move during a platform/source phase', () => {
+  assert.deepStrictEqual(MATCH.WEIGHTS,
+    { category: 40, geography: 20, actionability: 15, deadline: 15, confidence: 10 });
+  assert.strictEqual(Object.keys(MATCH.PROFILES).length, 16);
+});
+
+mutate('P4: public counts are derived, never hardcoded', () => {
+  for (const locale of I18N.LOCALE_CODES) {
+    const html = read(I18N.localizedFile(locale, BUILD.CANONICAL_PATH));
+    // The rendered counts must match the corpus, not a number someone typed.
+    const current = O.filter(SCHEMA.isCurrent).length;
+    assert.ok(html.includes(String(current)),
+      `${locale}: the page does not carry the derived current-opportunity count`);
+  }
+  const src = read('scripts/build-tender-opportunities.cjs');
+  assert.ok(!/\b(9|10) sources\b|\b\d{4,} (tenders|opportunities)\b/.test(src),
+    'a count is hardcoded in the generator');
 });
