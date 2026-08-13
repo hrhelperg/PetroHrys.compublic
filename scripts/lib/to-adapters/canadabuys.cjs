@@ -127,9 +127,27 @@ function normalize(r, { source, nowIso }) {
   if (titleEn) titles.en = titleEn;
   if (titleFr) titles.fr = titleFr;
 
+  // CanadaBuys serializes a multi-code cell as a NEWLINE-separated list with a
+  // leading asterisk on each entry:
+  //
+  //     "*10191500\n*77121608"
+  //
+  // Splitting on commas and semicolons alone left that as a single token,
+  // which then failed the numeric check in normalizeCode and was dropped
+  // without a word. 778 of 921 rows — 84.5% — carry a UNSPSC code, and every
+  // one was being discarded. That is most of the reason Canada showed zero
+  // classified opportunities in the coverage analysis: a reader gap, not a
+  // source gap.
+  const codeList = (value) => String(value == null ? '' : value)
+    .split(/[,;\n\r]+/)
+    .map((c) => c.trim().replace(/^\*+/, '').trim())
+    .filter(Boolean);
+
   const codes = [];
-  for (const c of (trim(r.unspsc) || '').split(/[,;]\s*/)) if (c) codes.push(['UNSPSC', c]);
-  for (const c of (trim(r['gsin-nibs']) || '').split(/[,;]\s*/)) if (c) codes.push(['GSIN', c]);
+  for (const c of codeList(r.unspsc)) codes.push(['UNSPSC', c]);
+  // GSIN is Canada's own goods-and-services identifier. It stays GSIN and is
+  // never rewritten as UNSPSC or CPV: three taxonomies, no crosswalk.
+  for (const c of codeList(r['gsin-nibs'])) codes.push(['GSIN', c]);
 
   const deadline = TIME.normalizeTimestamp(r['tenderClosingDate-appelOffresDateCloture']);
   const published = TIME.normalizeTimestamp(r['publicationDate-datePublication']);

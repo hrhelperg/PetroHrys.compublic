@@ -332,7 +332,7 @@ test('the layer reaches no network and is deterministic', () => {
 test('canonical facts are unchanged by this phase', () => {
   const fp = (rel) => require('node:crypto').createHash('sha256')
     .update(fs.readFileSync(path.join(ROOT, rel))).digest('hex').slice(0, 8);
-  assert.strictEqual(fp('data/tender-opportunities/opportunities.json'), 'cca4f5af');
+  assert.strictEqual(fp('data/tender-opportunities/opportunities.json'), '9754062f');
   assert.strictEqual(fp('data/tenders-procurement/platforms.json'), 'f24a9edc');
   assert.strictEqual(fp('scripts/lib/to-match.cjs'), '5de543fb');
   assert.strictEqual(Object.keys(MATCH.PROFILES).length, 16);

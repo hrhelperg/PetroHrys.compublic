@@ -1,6 +1,24 @@
 {
   "version": 1,
   "sources": {
+    "canadabuys": {
+      "completeness": "COMPLETE",
+      "consecutiveFailures": 0,
+      "lastAttemptAt": "2026-08-13T17:08:50.303Z",
+      "lastErrorClass": null,
+      "lastSuccessAt": "2026-08-13T17:08:50.303Z",
+      "promoted": true,
+      "promotedRecordCount": 921,
+      "retainedRecordCount": null,
+      "snapshotHash": "ed9820492b94e64269a9f6bccd09d3f980488e72ae9e47141eda01f5d5743fae",
+      "sourceId": "canadabuys",
+      "state": "HEALTHY",
+      "window": {
+        "kind": "source-defined",
+        "days": null,
+        "note": "the published open-notice set"
+      }
+    },
     "tenderned": {
       "completeness": "COMPLETE",
       "consecutiveFailures": 0,

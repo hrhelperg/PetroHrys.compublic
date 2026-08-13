@@ -154,10 +154,63 @@ test('the analysis reads no network and touches no engine', () => {
     { category: 40, geography: 20, actionability: 15, deadline: 15, confidence: 10 });
 });
 
+test('CanadaBuys multi-code cells are parsed, not silently dropped', () => {
+  // The real serialization: newline-separated, each entry asterisk-prefixed.
+  // Splitting on commas and semicolons alone left the whole cell as one token,
+  // which failed the numeric check and vanished. 778 of 921 rows carried a
+  // code; every one was lost.
+  const CB = require('../lib/to-adapters/canadabuys.cjs');
+  const CLASS = require('../lib/to-classification.cjs');
+  const src = read('scripts/lib/to-adapters/canadabuys.cjs');
+  assert.match(src, /\[,;\\n\\r\]/, 'the code splitter no longer handles newlines');
+  assert.match(src, /replace\(\/\^\\\*\+\//, 'the asterisk bullet is no longer stripped');
+
+  const corpusCb = opportunities.filter((o) => o.sourceId === 'canadabuys');
+  const classified = corpusCb.filter((o) => (o.classifications || []).length);
+  assert.ok(classified.length > 700,
+    `only ${classified.length} of ${corpusCb.length} CanadaBuys records carry a classification`);
+  // Multi-code cells really do produce several codes.
+  assert.ok(classified.some((o) => o.classifications.length > 1),
+    'no CanadaBuys record has more than one code, so the split is untested');
+  // And the codes are real UNSPSC, normalized.
+  for (const o of classified.slice(0, 200)) {
+    for (const c of o.classifications) {
+      assert.ok(['UNSPSC', 'GSIN'].includes(c.scheme), `unexpected scheme ${c.scheme}`);
+      if (c.scheme === 'UNSPSC') assert.match(c.code, /^\d{2,10}$/, `bad UNSPSC ${c.code}`);
+      assert.ok(!c.code.includes('*'), 'an asterisk survived into a code');
+      assert.ok(!/\s/.test(c.code), 'whitespace survived into a code');
+    }
+  }
+  // GSIN stays GSIN. It is Canada's own taxonomy and is never rewritten.
+  const gsin = corpusCb.flatMap((o) => (o.classifications || []).filter((c) => c.scheme === 'GSIN'));
+  assert.ok(gsin.length > 0, 'no GSIN codes, so the no-crosswalk guard is untested');
+  for (const c of gsin) {
+    assert.strictEqual(c.top, null, 'a GSIN code was given a CPV/UNSPSC division');
+  }
+  // The asterisk is a CanadaBuys serialization artefact and is stripped in the
+  // ADAPTER; the classification layer receives a clean code. Asserting the
+  // boundary that actually exists rather than the one that would be convenient.
+  assert.deepStrictEqual(CLASS.normalizeCodes([['GSIN', 'D304A']]).map((c) => c.scheme), ['GSIN']);
+  assert.deepStrictEqual(CLASS.normalizeCodes([['GSIN', '*D304A']]), [],
+    'the classification layer silently accepted an unstripped source artefact');
+  assert.ok(CB.parseCsv, 'the adapter no longer exposes its parser for testing');
+});
+
+test('classification recovery changed content, not canonical identity', () => {
+  // 822 source records were rewritten and the canonical count did not move:
+  // enrichment must not create, merge or destroy an opportunity.
+  assert.strictEqual(opportunities.length, 9577,
+    'the canonical opportunity count moved during classification recovery');
+  const ids = new Set(opportunities.map((o) => o.id));
+  assert.strictEqual(ids.size, opportunities.length, 'a canonical id was duplicated');
+});
+
 test('protected layers are unchanged by this phase', () => {
   const fp = (rel) => require('node:crypto').createHash('sha256')
     .update(fs.readFileSync(path.join(ROOT, rel))).digest('hex').slice(0, 8);
-  assert.strictEqual(fp('data/tender-opportunities/opportunities.json'), 'cca4f5af');
+  // The corpus fingerprint MOVES in this phase, and that is the point: 822
+  // CanadaBuys records gained the classifications their source always
+  // published. What must not move is anything that decides meaning.
   assert.strictEqual(fp('data/tenders-procurement/platforms.json'), 'f24a9edc');
   assert.strictEqual(fp('scripts/lib/to-match.cjs'), '5de543fb');
   assert.strictEqual(fp('scripts/lib/to-search.cjs'), 'e11b8246');
