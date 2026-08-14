@@ -146,7 +146,9 @@ test('an action URL comes from the source record, and a missing one stays missin
       : o.sourceCollection === 'directories'
         ? [SRC.directories.find((r) => r.id === o.platformId).submissionUrl,
           SRC.directories.find((r) => r.id === o.platformId).claimUrl]
-        : [];
+        // Marketplaces gained a route field of their own. One field, one
+        // meaning: whatever the projection carries must be exactly it.
+        : [SRC.marketplaces.find((r) => r.id === o.platformId).sellerActionUrl];
     // The rule is that the planner never SYNTHESISES a URL from the domain,
     // which the source-field check above already proves. An earlier version
     // also required the action URL to differ from the website, and failed on a
@@ -154,10 +156,16 @@ test('an action URL comes from the source record, and a missing one stays missin
     // source collection records, not a fabrication.
     assert.ok(src.includes(o.actionUrl), `${o.platformId} has an action URL no source field carries`);
   }
-  // The marketplace collection records no submission URLs, so none is invented.
+  // The marketplace collection now records seller routes. The rule is
+  // unchanged and simply has something to bite on: the projected route is the
+  // one the record holds, and a record holding none is projected with none.
   const mp = OPS.filter((o) => o.sourceCollection === 'marketplaces');
-  assert.ok(mp.every((o) => o.actionUrl === null),
-    'a marketplace opportunity acquired an action URL the collection does not hold');
+  for (const o of mp) {
+    const held = SRC.marketplaces.find((r) => r.id === o.platformId).sellerActionUrl || null;
+    assert.strictEqual(o.actionUrl || null, held,
+      `${o.platformId}: the projected route is not the one the collection holds`);
+  }
+  assert.ok(mp.some((o) => o.actionUrl), 'no marketplace carries a route at all');
   // And the page never renders a link for a row that has no URL. The first
   // version matched one exact sentence, which v2 replaced with the row's own
   // next-action wording; the property is that the CTA degrades to plain text.

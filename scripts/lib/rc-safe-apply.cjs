@@ -53,7 +53,17 @@ const OWNERSHIP = {
   // pass that establishes one may not quietly restate the other.
   actionability: {
     directories: ['listingAction', 'submissionUrl', 'claimUrl', 'lastVerified', 'note'],
-    marketplaces: ['note'],
+    // Seller actionability owns the two structured fields and NOTHING ELSE —
+    // deliberately not `note`.
+    //
+    // The marketplace collection PRINTS its notes in the product, in four
+    // languages. A first version wrote research prose there and put 271
+    // English sentences onto the German page, which the localisation guard
+    // caught as "86% English tokens". The finding belongs in the committed
+    // evidence file; the record carries the fact, not the account of how it was
+    // found. currentStatus is excluded too: a route hunt does not get to revise
+    // whether the site is reachable.
+    marketplaces: ['sellerAction', 'sellerActionUrl'],
     media: ['opportunityTypes', 'submissionUrl', 'pitchUrl', 'pressReleaseUrl',
       'advertisingUrl', 'mediaKitUrl', 'contactUrl', 'lastVerified', 'shortNote', 'limitations'],
   },

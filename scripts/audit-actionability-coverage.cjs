@@ -28,8 +28,10 @@ const COLLECTIONS = [
   {
     key: 'marketplaces',
     file: 'data/marketplaces/marketplaces.json',
-    routes: [],
-    action: () => null,
+    // Empty until the collection had somewhere to record a seller route. This
+    // report said "0%" truthfully and for a structural reason.
+    routes: ['sellerActionUrl'],
+    action: (r) => (r.sellerAction && r.sellerAction !== 'unknown' ? r.sellerAction : null),
   },
   {
     key: 'media',
