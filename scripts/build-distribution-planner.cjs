@@ -24,6 +24,11 @@ const fs = require('node:fs');
 const path = require('node:path');
 const P = require('./lib/distribution-planner.cjs');
 const A = require('./lib/distribution-actionability.cjs');
+// The engine directly, for the surface distribution-planner.cjs does not
+// re-export: the default state, the size vocabulary and the CSV field escape.
+// It is the same module object either way — the re-export is a view onto this
+// one — so nothing here is a second implementation.
+const E = require('./lib/dp-engine.cjs');
 const REC = require('./lib/media-recommend.cjs');
 const MI = require('./lib/media-intelligence.cjs');
 // The module-level import is the ENGLISH binding. Using it inside a localized
@@ -39,13 +44,34 @@ const OUT_DIR = path.join(ROOT, 'research', 'distribution-planner');
 const PAGE_FILE = path.join(OUT_DIR, 'index.html');
 const MANIFEST_FILE = path.join(ROOT, 'data', 'distribution-planner', '.build-manifest.json');
 const CSV_FILE = path.join(OUT_DIR, 'execution-opportunities.csv');
+// The browser payload, beside the CSV inside the route this build owns. It
+// cannot live under /data/, which _redirects turns into a forced 404 so the raw
+// collections are never downloadable whole. This route already publishes the
+// whole projection deliberately — execution-opportunities.csv is 2,234 rows and
+// a download button — so the payload widens no rights position; it is the same
+// set of opportunities in the shape the page's own engine reads.
+const DATA_FILE = path.join(OUT_DIR, P.PLANNER_DATA_FILE);
 const TRACKER = path.join(ROOT, 'data', 'distribution-planner', 'internal-execution-tracker.template.csv');
-const CAMPAIGN_SIZE = 25;
+const CAMPAIGN_SIZE = E.PLANNER_DEFAULTS.size;
+
+// Loaded on the planner and nowhere else. The shared shell already ships the
+// Research Center's row-filtering scripts to all 23,628 generated pages; the
+// planner's controller re-RANKS from a data file rather than hiding prerendered
+// rows, and putting its 61 KB engine in the shell would download it on 23,627
+// pages with no planner controls to drive it. The engine comes first — the
+// controller stands down when DPEngine is not defined.
+const PAGE_SCRIPTS = ['/js/dp-engine.js', '/js/distribution-planner.js'];
 
 // The query the page renders statically. Chosen because it exercises all three
-// lanes, so a no-JS reader sees the planner actually working.
-const DEFAULT_QUERY = { business: 'local-business', objective: 'local-discovery',
-  market: 'united-states', budget: 'free-freemium' };
+// lanes, so a no-JS reader sees the planner actually working. `evidence` is part
+// of it because the control is real now: the prerendered campaign and the
+// campaign the client computes from the untouched controls must be the same one.
+//
+// Owned by the engine rather than declared here, because a THIRD reader of it
+// arrived with the URL state: the generator renders from it, the controls carry
+// it as their selected options, and a bare planner URL means it. Three copies
+// that agree today is the exact shape the hardcoded market name had.
+const DEFAULT_QUERY = E.PLANNER_DEFAULTS;
 
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
   .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
@@ -132,10 +158,17 @@ function renderMain(ops, countryName, locale = I18N.DEFAULT_LOCALE) {
       || P.compareStableName(x.op, y.op));
   const research = acts.filter((x) => x.a.status === A.STATUS.NEEDS_RESEARCH);
   const browser = acts.filter((x) => x.a.status === A.STATUS.NEEDS_BROWSER);
-  const camp = P.campaign(ops, DEFAULT_QUERY, { size: CAMPAIGN_SIZE });
+  const camp = P.campaign(ops, DEFAULT_QUERY,
+    { size: CAMPAIGN_SIZE, evidence: DEFAULT_QUERY.evidence });
   const markets = [...new Set(ops.map((o) => o.country))].sort();
   const defaultProfile = REC.PROFILE_BY_KEY.get(DEFAULT_QUERY.business);
   const defaultObjective = P.OBJECTIVE_BY_KEY.get(DEFAULT_QUERY.objective);
+  const defaultEvidence = P.EVIDENCE_MODE_BY_KEY.get(DEFAULT_QUERY.evidence);
+  // Option labels come from the dictionary; the summary reuses the SAME strings
+  // the controls show, so the sentence can never describe a state the controls
+  // are not in.
+  const EVIDENCE_LABEL = { ready: t('dp.readyOnly'), high: t('dp.highConfidenceOnly'),
+    research: t('dp.includeResearch'), all: t('dp.everything') };
 
   const READY_HEAD = [t('col.platform'), t('col.where'), t('col.cost'), t('col.effort'), t('col.timeToPublish'), t('col.howSure'), t('col.doThis')];
   const QUEUE_HEAD = [t('col.platform'), t('col.where'), t('col.whatIsMissing'), t('col.whyItMatters'), t('col.suggestedResearch'), t('col.doThis')];
@@ -158,17 +191,20 @@ ${select({ id: 'dp-market', label: t('col.market'), value: DEFAULT_QUERY.market,
 ${select({ id: 'dp-budget', label: t('dp.budget'), value: DEFAULT_QUERY.budget,
     options: P.BUDGETS.map((b) => ({ value: b.key, label: b.label })) })}
 ${select({ id: 'dp-size', label: t('dp.howMany'), value: String(CAMPAIGN_SIZE),
-    options: [10, 25, 50, 100].map((n) => ({ value: String(n), label: `${n}` })) })}
-${select({ id: 'dp-evidence', label: t('dp.evidence'), value: 'ready',
-    options: [{ value: 'ready', label: t('dp.readyOnly') },
-      { value: 'high', label: t('dp.highConfidenceOnly') },
-      { value: 'research', label: t('dp.includeResearch') },
-      { value: 'all', label: t('dp.everything') }] })}
+    options: E.PLANNER_SIZES.map((n) => ({ value: String(n), label: `${n}` })) })}
+${select({ id: 'dp-evidence', label: t('dp.evidence'), value: DEFAULT_QUERY.evidence,
+    options: P.EVIDENCE_MODES.map((m) => ({ value: m.key, label: EVIDENCE_LABEL[m.key] })) })}
       </div>
-      <p class="bd-note" data-dp-status>${esc(`Showing a ${CAMPAIGN_SIZE}-opportunity campaign for a `
-    + `${defaultProfile.label.toLowerCase()} pursuing ${defaultObjective.label.toLowerCase()} in the `
-    + `United States on a free or freemium budget. ${camp.totalEligible} opportunities are eligible; `
-    + `${camp.picked.length} were selected.`)}</p>
+      <p class="bd-note" data-dp-status>${esc(P.summaryText({
+    size: CAMPAIGN_SIZE,
+    business: defaultProfile.label,
+    objective: defaultObjective.label,
+    market: countryName(DEFAULT_QUERY.market),
+    budget: P.BUDGET_BY_KEY.get(DEFAULT_QUERY.budget).label,
+    evidence: EVIDENCE_LABEL[defaultEvidence.key],
+    totalEligible: camp.totalEligible,
+    picked: camp.picked.length,
+  }))}</p>
     </section>`,
 
     `<section id="ready" aria-labelledby="ready-h">
@@ -179,10 +215,19 @@ ${queueTable(t('status.READY'), READY_HEAD,
       <p class="bd-note"><a class="bd-button" href="${P.PLANNER_PATH}execution-opportunities.csv" download>${t('dp.downloadQueue')}</a></p>
     </section>`,
 
+    // The download button ships HIDDEN and is adopted by the client. It exports
+    // the campaign the CONTROLS are in, which the server cannot know and a
+    // no-JS reader cannot change — for them section 2 already links the full
+    // queue, and a button that handed them a different campaign from the one on
+    // screen is the class of defect this page was repaired for. The label comes
+    // from the dictionary and the count from the client, so it stays a
+    // localized string with a number appended rather than an English sentence
+    // assembled in the browser.
     `<section id="campaign" aria-labelledby="campaign-h">
       <h2 id="campaign-h">3. The campaign, grouped by the work it is</h2>
       <p>${esc(t('dp.byActionIntro'))}</p>
-${camp.groups.map((g) => `      <section id="cg-${g.key}" aria-labelledby="cg-${g.key}-h">
+      <p class="bd-note"><button class="bd-button" type="button" data-dp-download hidden>${esc(t('common.download'))}</button></p>
+${camp.groups.map((g) => `      <section id="cg-${g.key}" data-dp-group="${esc(g.key)}" aria-labelledby="cg-${g.key}-h">
         <h3 id="cg-${g.key}-h">${esc(g.label)} <span class="bd-count">${g.items.length}</span></h3>
         <p>${esc(g.blurb)}</p>
         <ul class="bd-list">
@@ -268,11 +313,12 @@ const CSV_COLUMNS = ['platform', 'collection', 'country', 'audience', 'actionabi
   'evidence_action_url', 'blocker', 'missing', 'native_score', 'native_signal',
   'source_collection_url'];
 
-const csvField = (v) => {
-  if (v === null || v === undefined) return '';
-  const t = Array.isArray(v) ? v.join('; ') : String(v);
-  return /[",\r\n]/.test(t) ? `"${t.replace(/"/g, '""')}"` : t;
-};
+// The engine's escape, not a local copy. This file's copy was RFC 4180 correct
+// and NOT formula-hardened, so one platform name in the 2,234-row export — the
+// only value in the whole file that begins with "@" — opened in Excel as a
+// formula. The client-side campaign export needs the same escape; two copies of
+// it is how one of them stays unhardened.
+const csvField = E.csvField;
 
 function renderCsv(ops, countryName) {
   const rows = ops.map((op) => ({ op, a: A.actionability(op) }))
@@ -307,6 +353,22 @@ function assertOwned(file, ownedBases) {
   }
 }
 
+// The browser payload. Only the fields dp-engine declares it reads, so the page
+// receives no contact detail, no internal note and no provenance it cannot use —
+// and a test records every property access the engine makes over all 2,234
+// opportunities and fails if the two sets differ in either direction.
+//
+// `fields` travels with the data so a client running a newer engine against a
+// cached older payload can see the mismatch and stand down rather than score
+// silently on missing facts.
+function renderData(ops) {
+  return `${JSON.stringify({
+    total: ops.length,
+    fields: P.FIELD_CONTRACT,
+    opportunities: P.projectForClient(ops),
+  })}\n`;
+}
+
 function main() {
   const src = P.loadAll();
   const countries = JSON.parse(fs.readFileSync(
@@ -319,6 +381,17 @@ function main() {
   const previous = fs.existsSync(MANIFEST_FILE)
     ? JSON.parse(fs.readFileSync(MANIFEST_FILE, 'utf8')).files || [] : [];
   const written = [];
+  // One write path for every artifact this build owns. Before this the pages
+  // went through the containment check and the CSV did not, and each carried its
+  // own copy of the read-compare-write dance; a third artifact would have been a
+  // third copy, and the one that forgot assertOwned would be the one that could
+  // write outside the route.
+  const writeIfChanged = (file, body) => {
+    assertOwned(file, [P.PLANNER_PATH]);
+    fs.mkdirSync(path.dirname(file), { recursive: true });
+    const prev = fs.existsSync(file) ? fs.readFileSync(file, 'utf8') : null;
+    if (prev !== body) { fs.writeFileSync(file, body); written.push(file); }
+  };
   if (ops.length) {
     fs.mkdirSync(OUT_DIR, { recursive: true });
     const plannerMeta = seo.buildPlannerMeta({
@@ -326,19 +399,19 @@ function main() {
     });
     for (const locale of I18N.LOCALE_CODES) {
       const f = path.join(ROOT, I18N.localizedFile(locale, P.PLANNER_PATH));
-      assertOwned(f, [P.PLANNER_PATH]);
-      fs.mkdirSync(path.dirname(f), { recursive: true });
-      const html = render.renderPage({ meta: plannerMeta, main: renderMain(ops, countryName, locale), locale });
-      const prev = fs.existsSync(f) ? fs.readFileSync(f, 'utf8') : null;
-      if (prev !== html) { fs.writeFileSync(f, html); written.push(f); }
+      writeIfChanged(f, render.renderPage({
+        meta: plannerMeta, main: renderMain(ops, countryName, locale), locale, scripts: PAGE_SCRIPTS,
+      }));
       localePages.push(f);
     }
-    const csv = renderCsv(ops, countryName);
-    const existingCsv = fs.existsSync(CSV_FILE) ? fs.readFileSync(CSV_FILE, 'utf8') : null;
-    if (existingCsv !== csv) { fs.writeFileSync(CSV_FILE, csv); written.push(CSV_FILE); }
+    writeIfChanged(CSV_FILE, renderCsv(ops, countryName));
+    writeIfChanged(DATA_FILE, renderData(ops));
   }
 
-  const ownedRel = ops.length ? [...localePages.map((f) => path.relative(ROOT, f)), path.relative(ROOT, CSV_FILE)] : [];
+  const ownedRel = ops.length
+    ? [...localePages.map((f) => path.relative(ROOT, f)),
+      path.relative(ROOT, CSV_FILE), path.relative(ROOT, DATA_FILE)]
+    : [];
   const OUT_REL = `${path.relative(ROOT, OUT_DIR)}/`;
   let pruned = 0;
   for (const rel of previous) {

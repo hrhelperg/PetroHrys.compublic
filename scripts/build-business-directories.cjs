@@ -422,7 +422,6 @@ function pageModel(registry, locale = I18N.DEFAULT_LOCALE) {
         approvalMode: intel.approvalMode || null,
         countryReach: intel.countryReach || null,
         bestForProfiles,
-        bestForKey: bestForProfiles[0] || '',
       };
     });
     // countryLinks previously carried no slug, so this Set was {undefined} and
@@ -471,7 +470,12 @@ function pageModel(registry, locale = I18N.DEFAULT_LOCALE) {
       { name: 'reach', key: 'countryReach', label: t('bdx.countryReach'), fallback: 'unknown',
         order: ['global', 'regional', 'single', 'unknown'],
         labels: { global: t('geo.global'), regional: t('geo.regional'), single: t('bdx.singleCountry'), unknown: t('common.unknown') } },
-      { name: 'bestfor', key: 'bestForKey', label: t('col.bestFor'), fallback: '',
+      // List-valued: a platform is a strong choice for several profiles at once,
+      // and the row attribute is the whole set. It reads bestForProfiles, not a
+      // single derived key — deriving one from the first entry made the control
+      // offer 6 of the 10 profiles that actually have rows, and equality then
+      // matched the 16 saas rows zero times because none of them is saas alone.
+      { name: 'bestfor', key: 'bestForProfiles', multi: true, label: t('col.bestFor'), fallback: '',
         order: RECOMMEND.PROFILES.map((p) => p.key),
         labels: Object.fromEntries(RECOMMEND.PROFILES.map((p) => [p.key, p.label])) },
     ];
@@ -499,11 +503,37 @@ function pageModel(registry, locale = I18N.DEFAULT_LOCALE) {
             idPrefix: 'opp', facet: f, label: f.label, rows: actionable,
             labels: f.labels || {}, order: f.order || [],
           })),
+          // The same control the country pages use, given the same column set
+          // the table below renders. Without a select the client still sorts —
+          // js/business-directories.js falls back to 'default' — so the page
+          // was already reordered by a PetroHrys Score it does not show, with
+          // no way for a reader to change or even name the order.
+          //
+          // Passing OPP_COLUMNS is what withholds the dead keys: of 1563 rows,
+          // 50 carry a Domain Rating and 77 a PetroHrys Score, while authority
+          // score and estimated traffic are null on every one — sorting by
+          // either would silently collapse to name order. Only Domain Rating is
+          // a rendered column here, so the offered keys are domain-rating and
+          // alphabetical.
+          c.sortControls({ idPrefix: 'opp', columns: OPP_COLUMNS }),
           c.clearFiltersControl(),
           '      </div>',
           `      <p class="bd-note"><a class="bd-button" href="/research/business-directories/opportunities.csv" download>`
             + `Download all ${actionable.length} opportunities as CSV</a> `
             + `${escapeHtml(t('bdx.csvNote'))}</p>`,
+          // The second action. "Download all" above is a static file and stays
+          // that way; this one is the current selection, and only the browser
+          // knows what that is.
+          //
+          // The count is every ROW this page renders, not every opportunity:
+          // the "other countries" table below repeats a subset of the worklist,
+          // so the page shows 2,167 rows for 1,563 opportunities and the export
+          // mirrors the page. Anything else and the button would open holding a
+          // number the file does not match.
+          c.filteredExportControl({
+            name: 'business-listing-opportunities',
+            count: actionable.length + other.length,
+          }),
           c.directoryTable({
             directories: actionable,
             caption: t('bdx.listingOpps'),
@@ -675,6 +705,7 @@ function pageModel(registry, locale = I18N.DEFAULT_LOCALE) {
           c.searchControls({ idPrefix: country.slug }),
           c.filterControls({ idPrefix: country.slug, directories: countryEntries }),
           c.sortControls({ idPrefix: country.slug, columns: countryColumns }),
+          c.filteredExportControl({ name: country.slug, count: countryEntries.length }),
           // A country with no subnational record renders exactly one table, as
           // it always has. Grouping appears only once the coverage exists, so
           // the United States does not carry an empty "States" heading before
@@ -710,6 +741,7 @@ function pageModel(registry, locale = I18N.DEFAULT_LOCALE) {
             c.searchControls({ idPrefix: `${country.slug}-${category.slug}` }),
             c.filterControls({ idPrefix: `${country.slug}-${category.slug}`, directories: entries }),
             c.sortControls({ idPrefix: `${country.slug}-${category.slug}`, columns: c.tableColumnsFor(entries) }),
+            c.filteredExportControl({ name: `${country.slug}-${category.slug}`, count: entries.length }),
             c.directoryTable({
               directories: entries,
               caption: `${category.name} directories in ${country.name}`,

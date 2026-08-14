@@ -374,14 +374,25 @@
       </div>
       <div class="bd-control">
         <label class="bd-label" for="opp-facet-bestfor">Ideal para</label>
-        <select class="bd-select" id="opp-facet-bestfor" data-bd-facet="bestfor">
+        <select class="bd-select" id="opp-facet-bestfor" data-bd-facet="bestfor" data-bd-facet-multi>
           <option value="">Todos</option>
           <option value="saas">SaaS companies (16)</option>
-          <option value="ai-startup">AI startups (8)</option>
-          <option value="local-business">local businesses (24)</option>
-          <option value="agency">agencies (3)</option>
-          <option value="enterprise-software">enterprise software vendors (4)</option>
-          <option value="cloud">cloud companies (8)</option>
+          <option value="ai-startup">AI startups (17)</option>
+          <option value="local-business">local businesses (26)</option>
+          <option value="agency">agencies (6)</option>
+          <option value="enterprise-software">enterprise software vendors (47)</option>
+          <option value="ecommerce">ecommerce stores (2)</option>
+          <option value="cybersecurity">cybersecurity companies (16)</option>
+          <option value="cloud">cloud companies (32)</option>
+          <option value="fintech">fintech companies (20)</option>
+          <option value="hr">HR companies (21)</option>
+        </select>
+      </div>
+      <div class="bd-control" data-bd-sort-wrap hidden>
+        <label class="bd-label" for="opp-sort">Ordenar por</label>
+        <select class="bd-select" id="opp-sort" data-bd-sort>
+          <option value="domain-rating">Domain Rating</option>
+          <option value="alphabetical">Alphabetical</option>
         </select>
       </div>
       <div class="bd-control">
@@ -389,6 +400,7 @@
       </div>
       </div>
       <p class="bd-note"><a class="bd-button" href="/research/business-directories/opportunities.csv" download>Download all 1563 opportunities as CSV</a> Diseñado para Excel, Google Sheets y flujos de trabajo internos de envío.</p>
+      <p class="bd-note" data-bd-export-wrap hidden><button class="bd-button bd-button--ghost" type="button" data-bd-export data-bd-export-name="business-listing-opportunities" data-bd-export-label="Descargar los resultados filtrados ({n})">Descargar los resultados filtrados (2167)</button></p>
       <div class="bd-table-wrap">
       <table class="bd-table">
         <caption class="bd-caption">Oportunidades de registro para empresas</caption>

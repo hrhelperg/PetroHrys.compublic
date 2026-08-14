@@ -181,9 +181,18 @@ test('the bands are exhaustive, non-overlapping and actually discriminate', () =
 
 test('no recommendation profile names a platform', () => {
   // The rule that keeps this an engine rather than a curated list.
-  const src = fs.readFileSync(path.join(ROOT, 'scripts/lib/media-recommend.cjs'), 'utf8');
-  const start = src.indexOf('const PROFILES = [');
-  const decl = src.slice(start, src.indexOf('\n];', start)).toLowerCase();
+  //
+  // The profiles moved to dp-engine.cjs when the Distribution Planner started
+  // recomputing in the browser: the planner scores its media lane with this same
+  // model, so the model has to live in the one module that is pure and
+  // shippable. This guard followed them. Left pointing at media-recommend.cjs it
+  // would have read an empty slice and passed while guarding nothing — which is
+  // why the length of what it read is now asserted.
+  const src = fs.readFileSync(path.join(ROOT, 'scripts/lib/dp-engine.cjs'), 'utf8');
+  const start = src.indexOf('const MEDIA_PROFILES = [');
+  assert.ok(start > -1, 'the profile declaration moved again; this guard points at nothing');
+  const decl = src.slice(start, src.indexOf('\n  ];', start)).toLowerCase();
+  assert.ok(decl.length > 2000, `the profile block read as only ${decl.length} characters`);
   for (const r of ROWS) {
     assert.ok(!decl.includes(r.id.toLowerCase()), `a profile names the id ${r.id}`);
     assert.ok(!decl.includes(MD.hostOf(r.website)), `a profile names the host of ${r.id}`);
@@ -392,7 +401,11 @@ test('no page states a count that is not derived', () => {
 });
 
 test('no fabricated audience, traffic or authority metric appears anywhere', () => {
+  // dp-engine.cjs joined the list when the profiles and the two fits moved into
+  // it; without that the guard would have stopped covering the half of the
+  // recommendation model that actually declares numbers.
   const sources = ['scripts/lib/media-intelligence.cjs', 'scripts/lib/media-recommend.cjs',
+    'scripts/lib/dp-engine.cjs',
     'scripts/build-media-platforms.cjs'].map((f) => fs.readFileSync(path.join(ROOT, f), 'utf8')).join('');
   for (const banned of [/domainRating\s*[:=]\s*\d/, /domainAuthority/, /monthlyTraffic/,
     /estimatedTraffic\s*[:=]\s*\d/, /subscriberCount/, /openRate/]) {

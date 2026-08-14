@@ -134,11 +134,13 @@ const COLUMNS = ['id', 'name', 'website', 'country', 'audience_geography', 'cate
   'media_score', 'media_score_band', 'publishing_model', 'best_for',
   'note', 'limitations', 'last_verified'];
 
-function csvField(value) {
-  if (value === null || value === undefined) return '';
-  const s = Array.isArray(value) ? value.join('; ') : String(value);
-  return /[",\r\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
-}
+// One CSV cell writer for the whole Research Center, shared with the browser —
+// see the note in scripts/lib/bd-discovery.cjs. RFC 4180 quoting, arrays joined
+// with semicolons, and the published values kept verbatim: this export is
+// asserted record by record against the registry, so it quotes and never
+// rewrites. The filtered export in the page defuses formulas as well, which is
+// where "@Press" — a real platform in this registry — matters.
+const { csvQuote: csvField } = require('./lib/bd-discovery.cjs');
 
 const bool = (v) => (v === true ? 'yes' : v === false ? 'no' : '');
 
@@ -243,7 +245,8 @@ function renderMain(rows, countryName, t) {
     const indText = r.industries.map(industryLabel).join(', ');
     const haystack = [r.name, countryName(r.country), catText, indText, typeText,
       r.shortNote].join(' ').toLowerCase();
-    return `          <tr class="bd-row" data-bd-haystack="${escapeHtml(haystack)}" `
+    return `          <tr class="bd-row" data-bd-name="${escapeHtml(r.name)}" `
+      + `data-bd-haystack="${escapeHtml(haystack)}" `
       + `data-bd-facet-country="${escapeHtml(r.country)}" `
       + `data-bd-facet-audience="${escapeHtml(r.audienceGeography)}" `
       + `data-bd-facet-category="${escapeHtml(r.categories.join(' '))}" `
@@ -332,6 +335,7 @@ ${facet({ name: 'bestfor', t, label: t('md.f.bestfor'), values: rows.flatMap((r)
         </div>
       </div>
       <p class="bd-note"><a class="bd-button" href="${MD.collectionPath()}opportunities.csv" download>${escapeHtml(t('md.downloadCsv', { n: rows.length }))}</a></p>
+${c.filteredExportControl({ name: 'media-pr-publishing', count: rows.length })}
       <div class="bd-table-wrap">
         <table class="bd-table">
           <caption>${escapeHtml(t('md.caption'))}</caption>

@@ -59,11 +59,10 @@ const STATUS_LABELS = { active: 'Active', unknown: 'Needs browser check' };
 const COLUMNS = ['id', 'name', 'website', 'country', 'marketplace_type', 'also_covers',
   'seller_types', 'cost', 'operator', 'current_status', 'note'];
 
-function csvField(value) {
-  if (value === null || value === undefined) return '';
-  const s = String(value);
-  return /[",\r\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
-}
+// One CSV cell writer for the whole Research Center, shared with the browser —
+// see the note in scripts/lib/bd-discovery.cjs. RFC 4180 quoting plus the
+// formula guard, so the static export and the filtered one agree.
+const { csvQuote: csvField } = require('./lib/bd-discovery.cjs');
 
 function renderCsv(rows) {
   const lines = [COLUMNS.join(',')];
@@ -106,7 +105,8 @@ function renderPage(rows, countryName, t) {
     // see the longer note in build-tenders-procurement.cjs.
     const haystack = [r.name, countryName(r.country), types,
       t(`seller.${r.sellerTypes}`), t(`cost.${r.costModel}`)].join(' ').toLowerCase();
-    return `          <tr class="bd-row" data-bd-haystack="${escapeHtml(haystack)}" `
+    return `          <tr class="bd-row" data-bd-name="${escapeHtml(r.name)}" `
+      + `data-bd-haystack="${escapeHtml(haystack)}" `
       + `data-bd-facet-country="${escapeHtml(r.country)}" `
       + `data-bd-facet-type="${escapeHtml(r.marketplaceType)}" `
       + `data-bd-facet-cost="${escapeHtml(r.costModel)}" `
@@ -150,6 +150,7 @@ ${facet({ name: 'status', t, label: t('mp.f.status'), values: rows.map((r) => r.
         </div>
       </div>
       <p class="bd-note"><a class="bd-button" href="/research/marketplaces/marketplaces.csv" download>${escapeHtml(t('mp.downloadCsv', { n: rows.length }))}</a></p>
+${c.filteredExportControl({ name: 'marketplaces', count: rows.length })}
       <div class="bd-table-wrap">
         <table class="bd-table">
           <caption>${escapeHtml(t('mp.caption'))}</caption>

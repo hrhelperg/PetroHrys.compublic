@@ -52,11 +52,12 @@ const COLUMNS = ['id', 'name', 'country', 'subnational_jurisdiction', 'platform_
   'foreign_suppliers_accepted', 'languages', 'part_of', 'current_status',
   'browser_check_required', 'evidence_class', 'last_verified'];
 
-function csvField(value) {
-  if (value === null || value === undefined) return '';
-  const s = String(value);
-  return /[",\r\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
-}
+// One CSV cell writer for the whole Research Center, shared with the browser.
+// RFC 4180 quoting plus the formula guard, from scripts/lib/bd-discovery.cjs —
+// the same function the filtered export in the page uses, so the file a reader
+// downloads from the button and the file they download from the link cannot
+// quote the same value two different ways.
+const { csvQuote: csvField } = require('./lib/bd-discovery.cjs');
 
 function renderCsv(rows) {
   const lines = [COLUMNS.join(',')];
@@ -166,7 +167,8 @@ function renderMain(rows, countryName, t) {
     // explanatory prose around the table.
     const haystack = [r.name, jurisdictionLabel(r, countryName),
       t(`tpType.${r.platformType}`), r.operator || ''].join(' ').toLowerCase();
-    return `          <tr class="bd-row" data-bd-haystack="${escapeHtml(haystack)}" `
+    return `          <tr class="bd-row" data-bd-name="${escapeHtml(r.name)}" `
+      + `data-bd-haystack="${escapeHtml(haystack)}" `
       + `data-bd-facet-country="${escapeHtml(r.country)}" `
       + `data-bd-facet-subnational="${escapeHtml(r.subnationalJurisdiction || '')}" `
       + `data-bd-facet-type="${escapeHtml(r.platformType)}" `
@@ -213,6 +215,7 @@ ${facet({ name: 'evidence', t, label: t('tp.f.evidence'), values: rows.map((r) =
         </div>
       </div>
       <p class="bd-note"><a class="bd-button" href="/research/tenders-procurement/platforms.csv" download>${escapeHtml(t('tp.downloadCsv', { n: rows.length }))}</a></p>
+${c.filteredExportControl({ name: 'tenders-procurement', count: rows.length })}
       <div class="bd-table-wrap">
         <table class="bd-table">
           <caption>${escapeHtml(t('tp.caption'))}</caption>

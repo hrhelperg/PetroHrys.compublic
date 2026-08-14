@@ -261,7 +261,13 @@ function metaTag(property, content, kind = 'property') {
 // untouched. A generator that produces one canonical route per record passes
 // ['en'] and gets neither a phantom hreflang cluster nor a switcher pointing
 // at pages that do not exist.
-function renderPage({ meta, main, locale = I18N.DEFAULT_LOCALE, availableLocales = null }) {
+// `scripts` are EXTRA client modules for this page only, appended after the
+// shared block. It defaults to none, so every existing caller is untouched. The
+// alternative — adding a page's module to the shared block — is what this
+// parameter exists to avoid: 23,628 generated pages carry that block, and the
+// Distribution Planner's engine alone is 61 KB.
+function renderPage({ meta, main, locale = I18N.DEFAULT_LOCALE, availableLocales = null,
+  scripts = [] }) {
   const L = I18N.LOCALE_BY_CODE.get(locale);
   if (!L) throw new Error(`renderPage: unknown locale "${locale}"`);
   const t = I18N.translator(locale);
@@ -344,7 +350,8 @@ ${main}
 ${FOOTER(selfPath, locale, t)}
   <script src="/js/bd-order.js" defer></script>
   <script src="/js/bd-discovery.js" defer></script>
-  <script src="/js/business-directories.js" defer></script>
+  <script src="/js/business-directories.js" defer></script>${scripts
+  .map((src) => `\n  <script src="${escapeHtml(src)}" defer></script>`).join('')}
 </body>
 </html>
 `;
