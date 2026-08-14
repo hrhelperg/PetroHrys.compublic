@@ -162,6 +162,11 @@ async function openPage(wsUrl) {
     console: [],
     errors: [],
     requests: [],
+    // Every URL the page ASKED for, recorded when the request is issued rather
+    // than when it answers. `requests` only sees responses, so a request that
+    // fails leaves no URL behind — which would let "nothing was requested" pass
+    // for a page that requested plenty and merely got no reply.
+    attempts: [],
     _id: 0,
     _pending: new Map(),
   };
@@ -200,6 +205,9 @@ async function openPage(wsUrl) {
       const d = msg.params.exceptionDetails;
       page.errors.push(d.exception ? (d.exception.description || d.exception.value || d.text) : d.text);
     }
+    if (msg.method === 'Network.requestWillBeSent') {
+      page.attempts.push({ url: msg.params.request.url, type: msg.params.type });
+    }
     if (msg.method === 'Network.responseReceived') {
       page.requests.push({ url: msg.params.response.url, status: msg.params.response.status });
     }
@@ -217,6 +225,7 @@ async function openPage(wsUrl) {
     page.console.length = 0;
     page.errors.length = 0;
     page.requests.length = 0;
+    page.attempts.length = 0;
     await rawSend('Page.navigate', { url });
     // Wait for the document to finish and for deferred scripts to run.
     const deadline = Date.now() + 30000;

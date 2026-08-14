@@ -2,12 +2,12 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-<script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/af075fab2c66644b181224ee/script.js"></script>
-<!-- WebmasterID analytics — consent-gated via CookieYes (analytics category); fires only after consent -->
-<script id="webmasterid-tracker" type="text/plain" data-cookieyes="cookieyes-analytics" defer src="https://webmasterid.com/tracker.iife.min.js" data-wmid="wm_bktqqtd7heom5nkl" data-endpoint="https://webmasterid-ingest-api.vercel.app/api/events"></script>
+  <script src="/js/consent.js" defer></script>
+  <!-- Analytics below is inert until a visitor accepts. See js/consent.js. -->
+<script id="webmasterid-tracker" type="text/plain" data-consent="analytics" defer src="https://webmasterid.com/tracker.iife.min.js" data-wmid="wm_bktqqtd7heom5nkl" data-endpoint="https://webmasterid-ingest-api.vercel.app/api/events"></script>
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-4RE6YCJZBD"></script>
-<script>
+<script type="text/plain" data-consent="analytics" async src="https://www.googletagmanager.com/gtag/js?id=G-4RE6YCJZBD"></script>
+<script type="text/plain" data-consent="analytics">
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
@@ -165,7 +165,7 @@
                         <div class="feature-card">
                             <div class="feature-icon">✅</div>
                             <h3>Respeta el consentimiento</h3>
-                            <p>Funciona con gestores de consentimiento como CookieYes. El rastreador se carga únicamente después de que un visitante otorga su consentimiento para la analítica.</p>
+                            <p>Funciona con cualquier gestor de consentimiento. El rastreador se carga únicamente después de que un visitante otorga su consentimiento para la analítica.</p>
                             <div class="feature-highlight">Se carga solo tras el consentimiento</div>
                         </div>
 
@@ -254,7 +254,7 @@
 
                         <details class="faq-item">
       <summary class="faq-question"><span class="faq-title">¿Funciona con gestores de consentimiento?</span></summary>
-      <div class="faq-answer"><p>Sí. WebmasterID se integra con herramientas de consentimiento como CookieYes, y el rastreador se activa únicamente después de que se otorga el consentimiento para la analítica.</p></div>
+      <div class="faq-answer"><p>Sí. WebmasterID se integra con cualquier herramienta de consentimiento, y el rastreador se activa únicamente después de que se otorga el consentimiento para la analítica.</p></div>
     </details>
 
                         <details class="faq-item">
@@ -377,7 +377,7 @@
                 "name": "¿Funciona con gestores de consentimiento?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Sí. WebmasterID se integra con herramientas de consentimiento como CookieYes, y el rastreador se activa únicamente después de que se otorga el consentimiento para la analítica."
+                    "text": "Sí. WebmasterID se integra con cualquier herramienta de consentimiento, y el rastreador se activa únicamente después de que se otorga el consentimiento para la analítica."
                 }
             },
             {

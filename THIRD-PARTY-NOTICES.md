@@ -89,8 +89,15 @@ the site's page shell.
 |---|---|---|
 | Google Fonts — DM Sans, JetBrains Mono, Source Serif 4 | `fonts.googleapis.com`, `fonts.gstatic.com` | Loaded remotely; no font files are bundled in this repository. Each family is distributed by Google Fonts under the licence stated on its own family page. |
 | Google Analytics 4 / Google Tag Manager | `www.googletagmanager.com` | Analytics service. Named as a processor in the site's Privacy Policy §6 (Google Ireland Ltd.). |
-| CookieYes | `cdn-cookieyes.com` | Consent-management script. |
 | WebmasterID analytics tracker | `webmasterid.com` | Loaded behind consent. WebmasterID is a HELPERG-ecosystem product; the footer credit "Analytics powered by WebmasterID." is an existing attribution and is retained. |
+
+Consent is handled by this site's own `js/consent.js` — there is no third-party
+consent-management service, and nothing is fetched to ask the question. Both
+analytics providers above ship as `type="text/plain" data-consent="analytics"`
+and stay inert until a visitor accepts; declining loads nothing at all. The site
+previously used CookieYes, whose script began answering 403, leaving the gate
+permanently shut while Google Analytics ran ungated beside it. See the header
+comment in `js/consent.js` for the measurement and the reasoning.
 
 The site's Privacy Policy (`content/legal/privacy.en.html` §6) is the
 authoritative description of these providers as data processors.

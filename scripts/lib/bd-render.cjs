@@ -23,12 +23,33 @@ const { ORIGIN } = require('./bd-seo.cjs');
 // byte-comparable with the rest of the site. The msvalidate.01 meta is
 // deliberately omitted: on existing pages it still holds an unfilled
 // PASTE_YOUR_... placeholder, and replicating that would be a defect.
-const ANALYTICS = `  <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/af075fab2c66644b181224ee/script.js"></script>
-  <!-- WebmasterID analytics — consent-gated via CookieYes (analytics category); fires only after consent -->
-  <script id="webmasterid-tracker" type="text/plain" data-cookieyes="cookieyes-analytics" defer src="https://webmasterid.com/tracker.iife.min.js" data-wmid="wm_bktqqtd7heom5nkl" data-endpoint="https://webmasterid-ingest-api.vercel.app/api/events"></script>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4RE6YCJZBD"></script>
-  <script>
+// ── ANALYTICS, BEHIND THIS SITE'S OWN CONSENT ───────────────────────────────
+//
+// There was a third-party consent service here. It stopped existing: its script
+// answered 403 with CookieYes's own "We can't find the page you are looking
+// for", which is the same response a fabricated client id gets — the site key
+// was gone, not blocked. Because the WebmasterID tracker was emitted as
+// `type="text/plain" data-cookieyes="cookieyes-analytics"`, and only that
+// service ever rewrote the type, the tracker never executed. Measured in a real
+// browser against production: zero requests for tracker.iife.min.js, zero
+// events posted, `type` still text/plain minutes after load.
+//
+// Google Analytics sat directly beneath it as a plain `<script async>` and ran
+// unconditionally. So one analytics tool was gated behind a gate that could
+// never open while the other collected regardless.
+//
+// Both are now gated by js/consent.js, on identical terms. `text/plain` is what
+// stops the browser executing them; the data-consent attribute is what the
+// consent script looks for. The GA config block is gated too — loading gtag.js
+// without its config would fetch the library and measure nothing.
+//
+// Order is preserved on activation, so gtag.js still precedes the config that
+// calls it.
+const ANALYTICS = `  <script src="/js/consent.js" defer></script>
+  <!-- Analytics below is inert until a visitor accepts. See js/consent.js. -->
+  <script id="webmasterid-tracker" type="text/plain" data-consent="analytics" defer src="https://webmasterid.com/tracker.iife.min.js" data-wmid="wm_bktqqtd7heom5nkl" data-endpoint="https://webmasterid-ingest-api.vercel.app/api/events"></script>
+  <script type="text/plain" data-consent="analytics" async src="https://www.googletagmanager.com/gtag/js?id=G-4RE6YCJZBD"></script>
+  <script type="text/plain" data-consent="analytics">
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
