@@ -358,7 +358,21 @@
   // bar stops following along. Nothing is written into markup either way: the
   // one free-text value reaches input.value and the predicate, and every other
   // value has already been checked against the options this page offers.
-  var canSyncUrl = typeof window !== 'undefined'
+  //
+  // AND THE URL BELONGS TO WHOEVER OWNS THE CONTROLS. This file adopts any page
+  // carrying a [data-bd-rows] table. The Distribution Planner carries three of
+  // them and none of these controls: its state lives in [data-dp-filter] selects
+  // and is serialized by its own client, which cannot boot until a 1.2 MB
+  // payload has arrived. Measured in Chrome — the boot below ran first, read an
+  // empty state out of a page with no controls to read, and REPLACED
+  //   /research/distribution-planner/?business=ai-startup&market=germany&…
+  // with the bare path. Every shared campaign link therefore opened as the
+  // default campaign, with the address bar quietly agreeing. A page whose
+  // controls this file does not render has no state here to serialize, so it
+  // has no business rewriting that page's address.
+  var ownsState = !!(searchInput || jSelect || sortSelect) || !!filters.length || !!facets.length;
+  var canSyncUrl = ownsState
+    && typeof window !== 'undefined'
     && !!window.history && typeof window.history.pushState === 'function'
     && typeof window.history.replaceState === 'function'
     && typeof window.URLSearchParams === 'function'

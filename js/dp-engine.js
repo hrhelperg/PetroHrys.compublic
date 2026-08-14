@@ -1020,6 +1020,167 @@
     return { picked, groups, drawn, totalEligible: scored.length };
   }
 
+  // ── the worklist: sections 2, 4 and 5 ─────────────────────────────────────
+  //
+  // ── WHAT WAS WRONG ────────────────────────────────────────────────────────
+  //
+  // The page numbers itself "1. Build a campaign / 2. Ready to execute / 3. The
+  // campaign / 4. Needs research / 5. Needs browser verification", so 2, 4 and 5
+  // read as OUTPUTS of the builder. They were not. The generator computed them
+  // over the whole corpus once and the client never touched them.
+  //
+  // Measured in Chrome, switching Market from United States to United Kingdom:
+  // the summary moved, section 3 moved (MerchantCircle/ProvenExpert/Trustpilot
+  // became Approved Business/Bizify/FreeIndex) and the URL moved, while
+  // "2. Ready to execute — 126 opportunities" kept its 60 rows led by
+  // Alibaba.com, Apple App Store and AussieWeb Local Search, "4. Needs research
+  // — 1473" kept its 40, "5. Needs browser verification — 634" kept its 40. 140
+  // rows and three headline counts describing a state nobody selected — the same
+  // defect the hardcoded "United States" in the summary was, somewhere nobody
+  // looked.
+  //
+  // ── WHAT ELIGIBLE MEANS, AND WHY IT IS THE CAMPAIGN'S OWN DEFINITION ──────
+  //
+  // The candidate pool here is exactly the one campaign() builds — not excluded
+  // by business fit, objective, budget or a dead platform, and scoring above
+  // zero — MINUS the evidence floor. Sharing the definition is the point: with
+  // the default evidence level the summary's "N opportunities are eligible" IS
+  // section 2's count, by construction rather than by coincidence, and a test
+  // asserts that identity over the whole state matrix. Two definitions of
+  // eligible on one page is how the page got here.
+  //
+  // ── WHY THE EVIDENCE CONTROL DOES NOT SCOPE THESE SECTIONS ────────────────
+  //
+  // Because sections 4 and 5 exist to show what the evidence floor is keeping
+  // out. Scoping them by it would empty both at the DEFAULT level ("Ready to
+  // execute only"), and the page would report zero research debt for a state
+  // that has over a thousand rows of it — trading a lie about the market for a
+  // lie about how much is known. The floor is an admission rule for the
+  // CAMPAIGN, which is what it says on the control; the worklist is the whole
+  // eligible set, partitioned by what can honestly be done with each row today.
+  // Section 3 is therefore always a subset of these three sections.
+  //
+  // ── WHY THE ORDER IS THE CAMPAIGN SCORE ───────────────────────────────────
+  //
+  // No weight, formula, group test or selection rule is touched here; this is
+  // only about WHICH opportunities each section is computed over. But a section
+  // shows at most 60 rows out of as many as 1,701, so the truncation window is
+  // part of "which": cutting it by a corpus-level fact — it was native quality,
+  // then name — leaves a window that barely moves when the state does, and
+  // market never excludes anything (a global platform legitimately reaches every
+  // market), so market would have moved nothing at all. Ordering by the
+  // campaignScore the engine ALREADY computes is what makes the visible rows
+  // belong to the selected state. Ties fall back to the same name/platformId
+  // comparator the campaign uses, so the order is total and reproducible.
+  const WORKLIST_SECTIONS = [
+    // `key` is also the id of the section element the generator emits and the
+    // client re-renders, so neither side carries a status literal of its own.
+    { key: 'ready', status: STATUS.READY, limit: 60 },
+    { key: 'research', status: STATUS.NEEDS_RESEARCH, limit: 40 },
+    { key: 'browser', status: STATUS.NEEDS_BROWSER, limit: 40 },
+  ];
+
+  function worklist(opportunities, ctx) {
+    const eligible = opportunities
+      .map((op) => ({ op, x: campaignScore(op, ctx) }))
+      .filter((r) => !r.x.excluded && r.x.campaignScore > 0)
+      .sort((a, b) => b.x.campaignScore - a.x.campaignScore
+        || compareStable(a.op.name, b.op.name) || compareStable(a.op.platformId, b.op.platformId));
+    const sections = WORKLIST_SECTIONS.map((s) => {
+      const entries = eligible.filter((r) => r.x.act && r.x.act.status === s.status);
+      return { key: s.key, status: s.status, limit: s.limit,
+        total: entries.length, entries, rows: entries.slice(0, s.limit) };
+    });
+    const byKey = {};
+    for (const s of sections) byKey[s.key] = s;
+    return { eligible, sections, byKey, totalEligible: eligible.length };
+  }
+
+  // The heading is part of the answer, not decoration: it carried a corpus count
+  // under a builder number. It states what the section is a count OF, in the
+  // same labelled-clause style as summaryText and for the same reason — every
+  // value is a LABEL the caller resolved, because the caller knows its locale
+  // and this module does not.
+  function worklistHeading({ title, count, totalEligible, business, objective, market, budget }) {
+    return `${title} — ${count} of ${totalEligible} eligible opportunities: `
+      + `${business}, ${objective}, ${market}, ${budget}`;
+  }
+
+  // ── one row, rendered twice ───────────────────────────────────────────────
+  //
+  // The generator writes HTML and the client writes DOM nodes, so the row is
+  // described here once and rendered by both. A cell is { label, text, url,
+  // external, action }; `label` is the English data-bd-label the markup has
+  // always carried (it is not a dictionary string and is identical in every
+  // locale), and `url` is null when the row has no route.
+  //
+  // The platform name is TEXT and not a link, which the server-rendered rows
+  // used to be. The browser payload deliberately carries no `website` — it is on
+  // the banned list, and shipping 2,234 platform URLs as one JSON file would
+  // widen this route's data-rights position — so a client-rendered row cannot
+  // reproduce that link, and a row that is a link for the 140 prerendered
+  // opportunities and text for every other state is exactly the server/client
+  // drift this module exists to prevent. Every row instead links its source
+  // COLLECTION, which is where that platform's own record is published, plus its
+  // action URL where one is recorded.
+  const WORKLIST_WHY = {
+    NEEDS_BROWSER: 'the route may exist; a rendered browser would establish it',
+    NEEDS_RESEARCH: 'without this the opportunity cannot be worked',
+  };
+
+  function worklistRow(entry, sectionKey, countryName) {
+    const op = entry.op;
+    const a = entry.x.act;
+    const collection = COLLECTION_BY_KEY.get(op.sourceCollection);
+    const country = typeof countryName === 'function' ? countryName(op.country) : op.country;
+    const cells = [
+      { label: 'Platform', text: op.name, url: null },
+      { label: 'Where', text: `${collection.label} · ${country}`, url: collection.path },
+    ];
+    if (sectionKey === WORKLIST_SECTIONS[0].key) {
+      cells.push({ label: 'Cost', text: op.cost, url: null });
+      cells.push({ label: 'Effort', text: a.difficultyLabel, url: null });
+      cells.push({ label: 'Time to publish', text: a.publishingTimeLabel, url: null });
+      cells.push({ label: 'How sure',
+        text: `${a.confidenceLabel} — ${a.confidenceReasons[0]}`, url: null });
+    } else {
+      cells.push({ label: 'What is missing',
+        text: a.missing.length ? a.missing.join(', ') : (a.reasons[0] || 'unknown'), url: null });
+      cells.push({ label: 'Why it matters', text: WORKLIST_WHY[a.status] || '', url: null });
+      cells.push({ label: 'Suggested research', text: a.nextAction, url: null });
+    }
+    cells.push({ label: 'Do this', text: a.nextAction, url: a.actionUrl || null,
+      external: true, action: true });
+    return {
+      platformId: op.platformId,
+      attrs: {
+        'data-dp-status': a.status,
+        'data-dp-collection': op.sourceCollection,
+        'data-dp-country': op.country,
+        'data-dp-cost': op.cost,
+        'data-dp-confidence': a.confidence,
+      },
+      cells,
+    };
+  }
+
+  // Section 6 is a property of the CATALOGUE and not of the campaign: it counts
+  // what is established about every record, which is a dataset-quality question
+  // the six controls have no bearing on. That is a legitimate thing to publish
+  // and the wrong thing to publish silently at the bottom of a numbered builder
+  // flow, where a reader has every reason to read it as the sixth output of the
+  // five steps above it. So it says so, in its own copy.
+  //
+  // Assembled here rather than in the dictionary because this task may not edit
+  // data/, and it appears in every locale for the same reason the research-debt
+  // sentence beneath the same table already does.
+  function healthScopeNote(total) {
+    return `These figures cover the whole catalogue — all ${total} opportunities in all three `
+      + 'collections — and do not move with the six controls above. They measure how much is '
+      + 'established about the data, not what is eligible for the campaign you just built. '
+      + 'The numbered sections above answer that question and recompute with every control.';
+  }
+
   // ── the sentence the page reports its state with ──────────────────────────
   //
   // Built here so the generator and the browser cannot describe the same
@@ -1344,6 +1505,12 @@
     EVIDENCE_MODES,
     EVIDENCE_MODE_BY_KEY,
     campaign,
+    WORKLIST_SECTIONS,
+    WORKLIST_WHY,
+    worklist,
+    worklistHeading,
+    worklistRow,
+    healthScopeNote,
     summaryText,
     PLANNER_PARAMS,
     PLANNER_SIZES,

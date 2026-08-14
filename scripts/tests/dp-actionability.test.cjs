@@ -346,13 +346,33 @@ test('an excluded opportunity never reaches the Ready queue', () => {
 test('every count on the page is derived, not written down', () => {
   const html = page();
   const h = A.health(OPS);
-  const text = html.replace(/<[^>]+>/g, ' ').replace(/&mdash;/g, '-').replace(/\s+/g, ' ');
-  assert.ok(text.includes(`Ready to execute - ${h.overall.ready} opportunities`),
-    'the Ready heading does not state the derived count');
-  assert.ok(text.includes(`Needs research - ${h.overall.needsResearch} opportunities`));
-  assert.ok(text.includes(`Needs browser verification - ${h.overall.needsBrowser} opportunities`));
+  // The headings the engine builds carry a real em dash rather than an entity,
+  // because they are escaped as text; both forms normalize to the same hyphen.
+  const text = html.replace(/<[^>]+>/g, ' ').replace(/&mdash;|—/g, '-').replace(/\s+/g, ' ');
+  // These three headings used to state h.overall.ready / needsResearch /
+  // needsBrowser — a corpus count under a numbered builder step. It was derived,
+  // and it was still wrong: it described 2,234 opportunities while the campaign
+  // beneath it described the state the controls were in, and it did not move
+  // when they did. The count they must state is the one for THIS state.
+  const wl = P.worklist(OPS, build.DEFAULT_QUERY);
+  for (const [key, title] of [['ready', 'Ready to execute'],
+    ['research', 'Needs research'], ['browser', 'Needs browser verification']]) {
+    assert.ok(text.includes(`${title} - ${wl.byKey[key].total} of ${wl.totalEligible} `
+      + 'eligible opportunities'), `the ${key} heading does not state the derived count `
+      + `(expected ${wl.byKey[key].total} of ${wl.totalEligible})`);
+  }
+  // The corpus counts belong to the health table and nowhere else on the page.
+  assert.ok(!text.includes(`Ready to execute - ${h.overall.ready} opportunities`),
+    'the Ready heading is a corpus count again');
+  // The summary and section 2 count the same set by construction: both are the
+  // engine's eligible pool, and the default evidence level admits exactly READY.
+  assert.strictEqual(wl.byKey.ready.total,
+    P.campaign(OPS, build.DEFAULT_QUERY, { size: build.CAMPAIGN_SIZE,
+      evidence: build.DEFAULT_QUERY.evidence }).totalEligible,
+    'the summary and the Ready heading disagree about what is eligible');
   const gen = fs.readFileSync(path.join(ROOT, 'scripts/build-distribution-planner.cjs'), 'utf8');
-  assert.ok(gen.includes('${ready.length} opportunities'), 'the Ready count is not interpolated');
+  assert.ok(gen.includes('count: section.total') && gen.includes('totalEligible: wl.totalEligible'),
+    'the worklist counts are not interpolated');
   assert.ok(gen.includes('${h.overall.ready}'), 'the health table does not interpolate its counts');
   assert.ok(!/<strong>\d{2,}<\/strong>/.test(gen), 'a literal number is rendered in the generator');
 });

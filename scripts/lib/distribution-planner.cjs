@@ -220,6 +220,9 @@ module.exports = {
   businessFit: E.businessFit, objectiveFit: E.objectiveFit, geographyFit: E.geographyFit,
   costFit: E.costFit, summaryText: E.summaryText, projectForClient: E.projectForClient,
   FIELD_CONTRACT: E.FIELD_CONTRACT,
+  WORKLIST_SECTIONS: E.WORKLIST_SECTIONS, worklist: E.worklist,
+  worklistHeading: E.worklistHeading, worklistRow: E.worklistRow,
+  healthScopeNote: E.healthScopeNote,
   directoryAction, mediaAction, directoryQuality, marketplaceQuality,
   ACCEPTS_KEYS: BD.ACCEPTS_KEYS,
 };

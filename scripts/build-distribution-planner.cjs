@@ -109,26 +109,23 @@ function opportunityRow(op, s, countryName) {
           </tr>`;
 }
 
-// A queue row. Same shape everywhere, so Ready / Research / Browser read alike.
-function queueRow(op, a, countryName, { showAction = true } = {}) {
-  const col = P.COLLECTION_BY_KEY.get(op.sourceCollection);
-  const cta = a.actionUrl
-    ? `<a class="bd-cta-link" href="${esc(a.actionUrl)}" rel="noopener noreferrer" target="_blank">${esc(a.nextAction)}</a>`
-    : `<span class="bd-metric bd-metric--empty">${esc(a.nextAction)}</span>`;
-  return `          <tr class="bd-row" data-dp-status="${esc(a.status)}" data-dp-collection="${esc(op.sourceCollection)}" `
-    + `data-dp-country="${esc(op.country)}" data-dp-cost="${esc(op.cost)}" data-dp-confidence="${esc(a.confidence)}">
-            <td class="bd-cell" data-bd-label="Platform"><a href="${esc(op.website)}" rel="noopener noreferrer" target="_blank">${esc(op.name)}</a></td>
-            <td class="bd-cell" data-bd-label="Where">${esc(col.label)} &middot; ${esc(countryName(op.country))}</td>
-            ${showAction ? `<td class="bd-cell" data-bd-label="Cost">${esc(op.cost)}</td>
-            <td class="bd-cell" data-bd-label="Effort">${esc(a.difficultyLabel)}</td>
-            <td class="bd-cell" data-bd-label="Time to publish">${esc(a.publishingTimeLabel)}</td>
-            <td class="bd-cell" data-bd-label="How sure">${esc(a.confidenceLabel)} &mdash; ${esc(a.confidenceReasons[0])}</td>`
-    : `<td class="bd-cell" data-bd-label="What is missing">${esc(a.missing.length ? a.missing.join(', ') : a.reasons[0] || 'unknown')}</td>
-            <td class="bd-cell" data-bd-label="Why it matters">${esc(a.status === 'NEEDS_BROWSER'
-      ? 'the route may exist; a rendered browser would establish it'
-      : 'without this the opportunity cannot be worked')}</td>
-            <td class="bd-cell" data-bd-label="Suggested research">${esc(a.nextAction)}</td>`}
-            <td class="bd-cell bd-actions" data-bd-label="Do this">${cta}</td>
+// A queue row. Same shape everywhere, so Ready / Research / Browser read alike —
+// and the shape is the ENGINE'S, not this file's. The client re-renders these
+// three sections on every control change, and a row model that lived here would
+// be a second row model the moment it did.
+function queueRow(row) {
+  const cell = (c) => {
+    const inner = c.url
+      ? `<a${c.action ? ' class="bd-cta-link"' : ''} href="${esc(c.url)}"${c.external
+        ? ' rel="noopener noreferrer" target="_blank"' : ''}>${esc(c.text)}</a>`
+      : (c.action ? `<span class="bd-metric bd-metric--empty">${esc(c.text)}</span>` : esc(c.text));
+    return `            <td class="bd-cell${c.action ? ' bd-actions' : ''}" `
+      + `data-bd-label="${esc(c.label)}">${inner}</td>`;
+  };
+  const attrs = Object.keys(row.attrs)
+    .map((k) => `${k}="${esc(row.attrs[k])}"`).join(' ');
+  return `          <tr class="bd-row" ${attrs}>
+${row.cells.map(cell).join('\n')}
           </tr>`;
 }
 
@@ -151,13 +148,6 @@ function renderMain(ops, countryName, locale = I18N.DEFAULT_LOCALE) {
   const t = I18N.translator(locale);
   const c = componentsModule.components(locale);
   const h = A.health(ops);
-  const acts = ops.map((op) => ({ op, a: A.actionability(op) }))
-    .sort((x, y) => P.compareStableName(x.op, y.op));
-  const ready = acts.filter((x) => x.a.status === A.STATUS.READY)
-    .sort((x, y) => (y.op.nativeQuality ?? 0) - (x.op.nativeQuality ?? 0)
-      || P.compareStableName(x.op, y.op));
-  const research = acts.filter((x) => x.a.status === A.STATUS.NEEDS_RESEARCH);
-  const browser = acts.filter((x) => x.a.status === A.STATUS.NEEDS_BROWSER);
   const camp = P.campaign(ops, DEFAULT_QUERY,
     { size: CAMPAIGN_SIZE, evidence: DEFAULT_QUERY.evidence });
   const markets = [...new Set(ops.map((o) => o.country))].sort();
@@ -169,6 +159,36 @@ function renderMain(ops, countryName, locale = I18N.DEFAULT_LOCALE) {
   // are not in.
   const EVIDENCE_LABEL = { ready: t('dp.readyOnly'), high: t('dp.highConfidenceOnly'),
     research: t('dp.includeResearch'), all: t('dp.everything') };
+  const marketLabel = DEFAULT_QUERY.market === E.ANY_MARKET
+    ? t('dp.anyMarket') : countryName(DEFAULT_QUERY.market);
+
+  // Sections 2, 4 and 5, for the state this page is rendered in. The same four
+  // labels the summary and the controls carry, so a heading cannot describe one
+  // state while the sentence above it describes another.
+  const wl = P.worklist(ops, DEFAULT_QUERY);
+  const STATE_LABELS = {
+    business: defaultProfile.label,
+    objective: defaultObjective.label,
+    market: marketLabel,
+    budget: P.BUDGET_BY_KEY.get(DEFAULT_QUERY.budget).label,
+  };
+  const worklistSection = ({ key, number, title, intro, caption, head, extra = '' }) => {
+    // The section's id IS the engine's section key, so the client finds each
+    // one without holding a status vocabulary of its own.
+    const id = key;
+    const section = wl.byKey[key];
+    const heading = P.worklistHeading({ title: `${number}. ${title}`, count: section.total,
+      totalEligible: wl.totalEligible, ...STATE_LABELS });
+    // data-dp-title carries the part the client may not invent — the number and
+    // the localized title — so the browser rebuilds the same heading through the
+    // same engine function rather than assembling a sentence of its own.
+    return `<section id="${id}" aria-labelledby="${id}-h">
+      <h2 id="${id}-h" data-dp-title="${esc(`${number}. ${title}`)}">${esc(heading)}</h2>
+      <p>${esc(intro)}</p>
+${queueTable(caption, head, section.rows
+    .map((entry) => queueRow(P.worklistRow(entry, key, countryName))).join('\n'))}${extra}
+    </section>`;
+  };
 
   const READY_HEAD = [t('col.platform'), t('col.where'), t('col.cost'), t('col.effort'), t('col.timeToPublish'), t('col.howSure'), t('col.doThis')];
   const QUEUE_HEAD = [t('col.platform'), t('col.where'), t('col.whatIsMissing'), t('col.whyItMatters'), t('col.suggestedResearch'), t('col.doThis')];
@@ -207,13 +227,13 @@ ${select({ id: 'dp-evidence', label: t('dp.evidence'), value: DEFAULT_QUERY.evid
   }))}</p>
     </section>`,
 
-    `<section id="ready" aria-labelledby="ready-h">
-      <h2 id="ready-h">2. Ready to execute &mdash; ${ready.length} opportunities</h2>
-      <p>${esc(t('dp.readyIntro'))}</p>
-${queueTable(t('status.READY'), READY_HEAD,
-    ready.slice(0, 60).map((x) => queueRow(x.op, x.a, countryName)).join('\n'))}
-      <p class="bd-note"><a class="bd-button" href="${P.PLANNER_PATH}execution-opportunities.csv" download>${t('dp.downloadQueue')}</a></p>
-    </section>`,
+    // The CSV link stays the WHOLE queue and says so on the button: it is the
+    // catalogue export, not this state's, and section 3 is where a reader
+    // downloads the campaign the controls are in.
+    worklistSection({ key: P.WORKLIST_SECTIONS[0].key, number: 2, title: t('status.READY'),
+      intro: t('dp.readyIntro'), caption: t('status.READY'), head: READY_HEAD,
+      extra: `
+      <p class="bd-note"><a class="bd-button" href="${P.PLANNER_PATH}execution-opportunities.csv" download>${t('dp.downloadQueue')}</a></p>` }),
 
     // The download button ships HIDDEN and is adopted by the client. It exports
     // the campaign the CONTROLS are in, which the server cannot know and a
@@ -239,22 +259,24 @@ ${g.items.map((r) => `          <li><strong>${esc(r.op.name)}</strong> &mdash; $
       </section>`).join('\n')}
     </section>`,
 
-    `<section id="research" aria-labelledby="research-h">
-      <h2 id="research-h">4. Needs research &mdash; ${research.length} opportunities</h2>
-      <p>${esc(t('dp.needsResearchIntro'))}</p>
-${queueTable(t('status.NEEDS_RESEARCH'), QUEUE_HEAD,
-    research.slice(0, 40).map((x) => queueRow(x.op, x.a, countryName, { showAction: false })).join('\n'))}
-    </section>`,
+    worklistSection({ key: P.WORKLIST_SECTIONS[1].key, number: 4,
+      title: t('status.NEEDS_RESEARCH'), intro: t('dp.needsResearchIntro'),
+      caption: t('status.NEEDS_RESEARCH'), head: QUEUE_HEAD }),
 
-    `<section id="browser" aria-labelledby="browser-h">
-      <h2 id="browser-h">5. Needs browser verification &mdash; ${browser.length} opportunities</h2>
-      <p>${esc(t('dp.needsBrowserIntro'))}</p>
-${queueTable(t('dp.needsBrowserVerification'), QUEUE_HEAD,
-    browser.slice(0, 40).map((x) => queueRow(x.op, x.a, countryName, { showAction: false })).join('\n'))}
-    </section>`,
+    worklistSection({ key: P.WORKLIST_SECTIONS[2].key, number: 5,
+      title: t('dp.needsBrowserVerification'), intro: t('dp.needsBrowserIntro'),
+      caption: t('dp.needsBrowserVerification'), head: QUEUE_HEAD }),
 
-    `<section id="health" aria-labelledby="health-h">
+    // Deliberately NOT state-scoped, and deliberately saying so. Readiness by
+    // collection is a fact about the catalogue, not about the campaign — it is
+    // the number the data work is judged by, and recomputing it per campaign
+    // would turn a dataset metric into a search result. But it sat unlabelled
+    // under five numbered builder steps, where a reader has every reason to read
+    // it as the sixth output of them, so the scope note is now the first thing
+    // in the section and the table carries the same marker.
+    `<section id="health" aria-labelledby="health-h" data-dp-scope="corpus">
       <h2 id="health-h">${t('dp.collectionHealth')}</h2>
+      <p class="bd-note" data-dp-scope="corpus">${esc(P.healthScopeNote(h.overall.total))}</p>
       <p>${esc(t('dp.healthIntro'))}</p>
       <div class="bd-table-wrap">
         <table class="bd-table">

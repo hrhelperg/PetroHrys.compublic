@@ -391,9 +391,33 @@ test('the page keeps the three lanes visible and states the boundary', () => {
     assert.ok(html.includes(escaped(c.label)), `the ${c.key} collection is not named`);
   }
   assert.ok(html.includes('id="health"'), 'the collection health table is missing');
+  // Every row still carries its source collection, and now every row's
+  // collection is one the SELECTED OBJECTIVE can actually be served by. The
+  // three queues used to be the whole corpus, so all three collections appeared
+  // whatever was selected — including under an objective the collection cannot
+  // deliver, which is the rule objectiveFit exists to enforce. The prerendered
+  // state (local discovery) is served by directories and marketplaces; media
+  // cannot deliver it, so no media row appears, and that is the page being
+  // right rather than the page losing a lane.
+  const admitted = P.OBJECTIVE_BY_KEY.get(build.DEFAULT_QUERY.objective).collections;
+  const rowCollections = new Set([...html.matchAll(/data-dp-collection="([^"]+)"/g)]
+    .map((m) => m[1]));
+  assert.ok(rowCollections.size > 0, 'no row carries a collection identity at all');
+  for (const key of rowCollections) {
+    assert.ok(admitted.includes(key),
+      `a ${key} row is offered for an objective ${key} cannot deliver`);
+  }
+  for (const key of admitted) {
+    assert.ok(rowCollections.has(key),
+      `no row carries the ${key} collection identity, which this objective admits`);
+  }
+  // And all three are named and linked by the health table, which is a
+  // catalogue-level fact and stays whole-corpus by design.
+  const at = html.indexOf('id="health"');
+  const health = html.slice(at, html.indexOf('</section>', at));
   for (const c of P.COLLECTIONS) {
-    assert.ok(html.includes(`data-dp-collection="${c.key}"`),
-      `no row carries the ${c.key} collection identity`);
+    assert.ok(health.includes(c.path) && health.includes(escaped(c.label)),
+      `the ${c.key} collection is missing from the health table`);
   }
   const text = html.replace(/<[^>]+>/g, ' ').replace(/&amp;/g, '&').replace(/\s+/g, ' ');
   assert.match(text, /a directory citation is not a press mention/i,
