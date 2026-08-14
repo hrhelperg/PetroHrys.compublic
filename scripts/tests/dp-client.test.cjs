@@ -300,7 +300,11 @@ test('actionability is identical on the slim payload for every opportunity', () 
       `${OPS[i].platformId}: the browser derives a different actionability`);
     compared += 1;
   }
-  assert.strictEqual(compared, 2234, `compared ${compared} opportunities, expected the full 2,234`);
+  // 2,234 -> 2,255 when the marketplace dataset gained 21 researched rows in the
+  // Gulf, the Levant, the Maghreb and New Zealand. The per-row parity above is
+  // what proves the engines agree; this total only proves the loop saw the whole
+  // corpus rather than a sample, so it moves with the corpus.
+  assert.strictEqual(compared, 2255, `compared ${compared} opportunities, expected the full 2,255`);
 });
 
 test('the market control actually changes which platforms are picked', () => {

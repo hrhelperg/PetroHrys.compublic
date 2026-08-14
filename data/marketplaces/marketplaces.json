@@ -251,6 +251,24 @@
     "note": "Austria's largest classifieds marketplace, with dedicated commercial seller tooling."
   },
   {
+    "id": "mp-bh-opensooq",
+    "name": "OpenSooq Bahrain",
+    "website": "https://bh.opensooq.com/",
+    "country": "bahrain",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "free",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "jobs",
+      "property",
+      "services",
+      "vehicles"
+    ],
+    "operator": "OpenSooq",
+    "note": "The Bahrain site of OpenSooq, the Arabic-language classifieds platform that says on its own about page that it runs in 20 countries with more than 120 buying and selling sections. It states free ad posting and carries cars, property, jobs and services."
+  },
+  {
     "id": "mp-bd-bikroy",
     "name": "Bikroy",
     "website": "https://www.bikroy.com/",
@@ -1532,6 +1550,21 @@
     "note": "Ireland's largest classifieds marketplace. Live but behind a security check, so a browser check is needed."
   },
   {
+    "id": "mp-il-ad",
+    "name": "ad.co.il",
+    "website": "https://www.ad.co.il/",
+    "country": "israel",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "unknown",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "property",
+      "vehicles"
+    ],
+    "note": "An Israeli classifieds board covering second-hand goods, property for sale and rent, and vehicles, with an open \"add a listing\" flow. Brokerage agencies list alongside private sellers; the cost of publishing is not stated."
+  },
+  {
     "id": "mp-it-subito",
     "name": "Subito",
     "website": "https://www.subito.it/",
@@ -1623,6 +1656,24 @@
     "note": "A major Japanese property marketplace where agents hold public listings."
   },
   {
+    "id": "mp-jo-opensooq",
+    "name": "OpenSooq Jordan",
+    "website": "https://jo.opensooq.com/",
+    "country": "jordan",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "free",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "jobs",
+      "property",
+      "services",
+      "vehicles"
+    ],
+    "operator": "OpenSooq",
+    "note": "The Jordan site of OpenSooq, the Arabic-language classifieds platform that says on its own about page that it runs in 20 countries with more than 120 buying and selling sections. It states free ad posting and carries cars, property, jobs and services."
+  },
+  {
     "id": "mp-ke-brightermonday",
     "name": "BrighterMonday",
     "website": "https://www.brightermonday.co.ke/",
@@ -1712,6 +1763,24 @@
     "note": "The Kenyan arm of a major African property marketplace."
   },
   {
+    "id": "mp-kw-opensooq",
+    "name": "OpenSooq Kuwait",
+    "website": "https://kw.opensooq.com/",
+    "country": "kuwait",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "free",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "jobs",
+      "property",
+      "services",
+      "vehicles"
+    ],
+    "operator": "OpenSooq",
+    "note": "The Kuwait site of OpenSooq, the Arabic-language classifieds platform that says on its own about page that it runs in 20 countries with more than 120 buying and selling sections. It states free ad posting and carries cars, property, jobs and services."
+  },
+  {
     "id": "mp-lv-ss",
     "name": "SS.COM",
     "website": "https://www.ss.com/",
@@ -1726,6 +1795,24 @@
       "vehicles"
     ],
     "note": "Latvia's dominant classifieds portal, covering goods, property, vehicles and jobs."
+  },
+  {
+    "id": "mp-lb-opensooq",
+    "name": "OpenSooq Lebanon",
+    "website": "https://lb.opensooq.com/",
+    "country": "lebanon",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "free",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "jobs",
+      "property",
+      "services",
+      "vehicles"
+    ],
+    "operator": "OpenSooq",
+    "note": "The Lebanon site of OpenSooq, the Arabic-language classifieds platform that says on its own about page that it runs in 20 countries with more than 120 buying and selling sections. It states free ad posting and carries cars, property, jobs and services."
   },
   {
     "id": "mp-lt-aruodas",
@@ -1935,6 +2022,43 @@
     "note": "A Moldovan classifieds portal."
   },
   {
+    "id": "mp-ma-marocannonces",
+    "name": "MarocAnnonces",
+    "website": "https://www.marocannonces.com/",
+    "country": "morocco",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "unknown",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "jobs",
+      "property"
+    ],
+    "note": "A long-running Moroccan classifieds site carrying job offers and job requests, property and general goods, with listings posted the same day. Employers and private individuals both publish; the cost of publishing is not stated."
+  },
+  {
+    "id": "mp-ma-moteur",
+    "name": "Moteur.ma",
+    "website": "https://www.moteur.ma/",
+    "country": "morocco",
+    "marketplaceType": "vehicles",
+    "sellerTypes": "both",
+    "costModel": "free",
+    "currentStatus": "active",
+    "note": "A Moroccan vehicle marketplace for new and used cars, motorcycles and trucks, which calls itself the largest automotive platform in Morocco. It states that posting a listing is free, and runs a separate advertiser registration for dealers and rental agencies."
+  },
+  {
+    "id": "mp-ma-mubawab",
+    "name": "Mubawab",
+    "website": "https://www.mubawab.ma/",
+    "country": "morocco",
+    "marketplaceType": "property",
+    "sellerTypes": "both",
+    "costModel": "unknown",
+    "currentStatus": "active",
+    "note": "A Moroccan property marketplace that calls itself the country’s leading property site, covering sale, rental and holiday lets. It offers both a personal account for publishing a listing and a separate business registration; the cost of either is not stated."
+  },
+  {
     "id": "mp-nl-marktplaats",
     "name": "Marktplaats",
     "website": "https://www.marktplaats.nl/",
@@ -1961,6 +2085,28 @@
     "costModel": "freemium",
     "currentStatus": "unknown",
     "note": "A Dutch classifieds portal. Could not be identified automatically, so a browser check is needed."
+  },
+  {
+    "id": "mp-nz-autotrader",
+    "name": "Auto Trader NZ",
+    "website": "https://www.autotrader.co.nz/",
+    "country": "new-zealand",
+    "marketplaceType": "vehicles",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "note": "A New Zealand vehicle marketplace of over 40 years standing, carrying used, new, electric, hybrid and commercial vehicles. It states that a private listing is free with no success or sale fees and stays live until removed, while dealers buy a tailored advertising package."
+  },
+  {
+    "id": "mp-nz-oneroof",
+    "name": "OneRoof",
+    "website": "https://www.oneroof.co.nz/",
+    "country": "new-zealand",
+    "marketplaceType": "property",
+    "sellerTypes": "business",
+    "costModel": "unknown",
+    "currentStatus": "active",
+    "note": "A New Zealand property marketplace covering residential, new-build, commercial and rural listings as well as businesses for sale. Listings reach it through real-estate agencies, which it surfaces in a find-an-agent directory; no private-seller route and no published price were found."
   },
   {
     "id": "mp-global-autochek",
@@ -2140,6 +2286,24 @@
     "costModel": "free",
     "currentStatus": "active",
     "note": "A Nordic second-hand fashion marketplace."
+  },
+  {
+    "id": "mp-om-opensooq",
+    "name": "OpenSooq Oman",
+    "website": "https://om.opensooq.com/",
+    "country": "oman",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "free",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "jobs",
+      "property",
+      "services",
+      "vehicles"
+    ],
+    "operator": "OpenSooq",
+    "note": "The Oman site of OpenSooq, the Arabic-language classifieds platform that says on its own about page that it runs in 20 countries with more than 120 buying and selling sections. The site calls itself the number one classifieds site in Oman with more than 500,000 ads, and states free ad posting."
   },
   {
     "id": "mp-pk-olx",
@@ -2392,6 +2556,41 @@
     "note": "The main Portuguese vehicle marketplace, where dealers hold public dealer pages."
   },
   {
+    "id": "mp-qa-opensooq",
+    "name": "OpenSooq Qatar",
+    "website": "https://qa.opensooq.com/",
+    "country": "qatar",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "free",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "jobs",
+      "property",
+      "services",
+      "vehicles"
+    ],
+    "operator": "OpenSooq",
+    "note": "The Qatar site of OpenSooq, the Arabic-language classifieds platform that says on its own about page that it runs in 20 countries with more than 120 buying and selling sections. It states free ad posting and carries cars, property, jobs and services."
+  },
+  {
+    "id": "mp-qa-qatarliving",
+    "name": "Qatar Living",
+    "website": "https://www.qatarliving.com/",
+    "country": "qatar",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "unknown",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "jobs",
+      "property",
+      "services",
+      "vehicles"
+    ],
+    "note": "A Qatari community portal running since 2005 that states it has nearly 900,000 registered members. Its classifieds section carries items, vehicles, property, jobs and services, with business stores alongside private \"preloved\" sellers. A premium subscription is offered; the cost of a standard ad is not stated."
+  },
+  {
     "id": "mp-ro-autovit",
     "name": "Autovit",
     "website": "https://www.autovit.ro/",
@@ -2474,6 +2673,50 @@
     "costModel": "freemium",
     "currentStatus": "active",
     "note": "A major Russian classifieds marketplace."
+  },
+  {
+    "id": "mp-sa-aqar",
+    "name": "Aqar",
+    "website": "https://sa.aqar.fm/",
+    "country": "saudi-arabia",
+    "marketplaceType": "property",
+    "sellerTypes": "both",
+    "costModel": "unknown",
+    "currentStatus": "active",
+    "note": "A Saudi property marketplace covering Riyadh, Jeddah, Dammam, Mecca and Medina, with tens of thousands of live listings per city. Listings come from owners directly as well as from brokers and project developers; the cost of publishing is not stated publicly."
+  },
+  {
+    "id": "mp-sa-haraj",
+    "name": "Haraj",
+    "website": "https://haraj.com.sa/",
+    "country": "saudi-arabia",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "unknown",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "property",
+      "vehicles"
+    ],
+    "note": "Saudi Arabia's best-known classifieds platform, strongest in vehicles and property. It sells a paid campaign that boosts a published listing's views, and states that buying campaign points does not exempt a seller from fees; the cost of posting itself is not stated publicly."
+  },
+  {
+    "id": "mp-sa-opensooq",
+    "name": "OpenSooq Saudi Arabia",
+    "website": "https://sa.opensooq.com/",
+    "country": "saudi-arabia",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "free",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "jobs",
+      "property",
+      "services",
+      "vehicles"
+    ],
+    "operator": "OpenSooq",
+    "note": "The Saudi Arabia site of OpenSooq, the Arabic-language classifieds platform that says on its own about page that it runs in 20 countries with more than 120 buying and selling sections. It states free ad posting and carries cars, property, jobs and services."
   },
   {
     "id": "mp-rs-halooglasi",
@@ -3084,6 +3327,33 @@
     "note": "A Thai vehicle marketplace where dealers hold public listings."
   },
   {
+    "id": "mp-tn-automobiletn",
+    "name": "Automobile.tn",
+    "website": "https://www.automobile.tn/",
+    "country": "tunisia",
+    "marketplaceType": "vehicles",
+    "sellerTypes": "both",
+    "costModel": "unknown",
+    "currentStatus": "active",
+    "note": "A Tunisian vehicle marketplace carrying new-car prices alongside used-car listings by governorate. Its own seller filter separates professionals from private sellers and shows both in volume; publishing requires an account and the cost is not stated."
+  },
+  {
+    "id": "mp-tn-tayara",
+    "name": "Tayara",
+    "website": "https://www.tayara.tn/",
+    "country": "tunisia",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "free",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "property",
+      "services",
+      "vehicles"
+    ],
+    "note": "Tunisia's main classifieds marketplace, covering vehicles, property, electronics and household goods. It states that posting a listing is free, and separates private sellers from professionals, who can run branded shops."
+  },
+  {
     "id": "mp-tr-arabam",
     "name": "Arabam.com",
     "website": "https://www.arabam.com/",
@@ -3194,6 +3464,46 @@
       "vehicles"
     ],
     "note": "A Ukrainian classifieds network covering vehicles, property and goods."
+  },
+  {
+    "id": "mp-ae-dubicars",
+    "name": "DubiCars",
+    "website": "https://www.dubicars.com/",
+    "country": "united-arab-emirates",
+    "marketplaceType": "vehicles",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "active",
+    "note": "A UAE vehicle marketplace that describes itself as the country’s largest automotive portal with 30,000+ verified new and used cars, carrying dealer stock alongside verified private sellers. Its sell-your-car page advertises pricing plans and \"transparent rates\", so publishing is paid."
+  },
+  {
+    "id": "mp-ae-opensooq",
+    "name": "OpenSooq UAE",
+    "website": "https://ae.opensooq.com/",
+    "country": "united-arab-emirates",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "free",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "jobs",
+      "property",
+      "services",
+      "vehicles"
+    ],
+    "operator": "OpenSooq",
+    "note": "The UAE site of OpenSooq, the Arabic-language classifieds platform that says on its own about page that it runs in 20 countries with more than 120 buying and selling sections. It states free ad posting and carries cars, property, jobs and services."
+  },
+  {
+    "id": "mp-ae-propertyfinder",
+    "name": "Property Finder",
+    "website": "https://www.propertyfinder.ae/",
+    "country": "united-arab-emirates",
+    "marketplaceType": "property",
+    "sellerTypes": "business",
+    "costModel": "unknown",
+    "currentStatus": "active",
+    "note": "The UAE's main property portal, covering Dubai, Abu Dhabi, Sharjah and Ajman for both sale and rent. Listings are held by real-estate agencies, which the site surfaces through its own agent directory; no private-seller route and no published subscription price were found."
   },
   {
     "id": "mp-uk-freeads",

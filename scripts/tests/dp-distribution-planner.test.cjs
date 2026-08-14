@@ -482,7 +482,11 @@ test('the planner JSON-LD parses and claims nothing it cannot support', () => {
 
 test('the source collections are unchanged by this feature', () => {
   // The planner must not have quietly altered a count anywhere.
-  assert.strictEqual(SRC.marketplaces.length, 286, 'the marketplace count changed');
+  // 286 -> 307 was a deliberate research expansion of the marketplace dataset
+  // (the Gulf, Levant, Maghreb and New Zealand — declared countries that held
+  // zero rows), not a planner side effect. The guard still does its job: it
+  // fails the moment a count moves without someone meaning it to.
+  assert.strictEqual(SRC.marketplaces.length, 307, 'the marketplace count changed');
   assert.strictEqual(SRC.media.length, 385, 'the media platform count changed');
   assert.ok(SRC.directories.length > 1500, 'the directory count collapsed');
   for (const f of ['research/marketplaces/marketplaces.csv',
