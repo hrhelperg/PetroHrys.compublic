@@ -497,7 +497,7 @@
   "operator": "OLX Group",
   "note": "Brazil's largest classifieds marketplace. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
   "sellerAction": "publish-classified",
-  "sellerActionUrl": "https://vender.olx.com.br/clkg/https/www2.olx.com.br/desapega"
+  "sellerActionUrl": null
  },
  {
   "id": "mp-br-quintoandar",
@@ -1022,7 +1022,7 @@
   ],
   "note": "Cuba's dominant classifieds marketplace. Cloudflare blocks plain HTTPS requests; the live listings and the publish flow were confirmed in a real browser.",
   "sellerAction": "publish-classified",
-  "sellerActionUrl": "https://www.revolico.com/item/publish"
+  "sellerActionUrl": "https://www.revolico.com/auth?redirectToPath=%2Fitem%2Fpublish"
  },
  {
   "id": "mp-cy-bazaraki",
@@ -1039,7 +1039,7 @@
   ],
   "note": "Cyprus's main classifieds marketplace. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
   "sellerAction": "publish-classified",
-  "sellerActionUrl": "https://www.bazaraki.com/post_ad/"
+  "sellerActionUrl": "https://www.bazaraki.com/profile/login/?next=/post_ad/"
  },
  {
   "id": "mp-cy-ergodotisi",
@@ -1460,7 +1460,7 @@
   "operator": "Vinted UAB",
   "note": "A pan-European second-hand fashion marketplace. Primarily private sellers.",
   "sellerAction": "create-seller-profile",
-  "sellerActionUrl": "https://www.vinted.fr/member/signup/select_type?ref_url=%2Fitems%2Fnew"
+  "sellerActionUrl": null
  },
  {
   "id": "mp-fr-leboncoin",
@@ -1528,7 +1528,7 @@
   ],
   "note": "A long-running German free classifieds portal.",
   "sellerAction": "publish-classified",
-  "sellerActionUrl": "https://www.quoka.de/inserieren"
+  "sellerActionUrl": null
  },
  {
   "id": "mp-de-kalaydo",
@@ -1973,7 +1973,7 @@
   "currentStatus": "active",
   "note": "The main Irish property marketplace, where agents hold public listings. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
   "sellerAction": "post-advertisement",
-  "sellerActionUrl": "https://www.sell.daft.ie/?utm_source=Daft+Sell+Nav&utm_medium=Sell+Menu+button"
+  "sellerActionUrl": null
  },
  {
   "id": "mp-ie-donedeal",
@@ -1990,7 +1990,7 @@
   ],
   "note": "Ireland's largest classifieds marketplace. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
   "sellerAction": "publish-classified",
-  "sellerActionUrl": "https://www.donedeal.ie/publish"
+  "sellerActionUrl": null
  },
  {
   "id": "mp-il-ad",
@@ -2370,7 +2370,7 @@
   "currentStatus": "active",
   "note": "A Luxembourg vehicle marketplace where dealers hold public listings.",
   "sellerAction": "post-advertisement",
-  "sellerActionUrl": "https://www.luxauto.lu/en/sell"
+  "sellerActionUrl": null
  },
  {
   "id": "mp-lu-athome",
@@ -2525,7 +2525,7 @@
   "currentStatus": "active",
   "note": "A Mexican used-vehicle marketplace where dealers hold public listings.",
   "sellerAction": "create-seller-profile",
-  "sellerActionUrl": "https://www.seminuevos.com/particulares/tablero"
+  "sellerActionUrl": null
  },
  {
   "id": "mp-mx-vivanuncios",
@@ -3193,7 +3193,7 @@
   "operator": "OLX Group",
   "note": "Poland's dominant classifieds marketplace. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
   "sellerAction": "publish-classified",
-  "sellerActionUrl": "https://www.olx.pl/adding"
+  "sellerActionUrl": null
  },
  {
   "id": "mp-pl-otomoto",
@@ -3268,7 +3268,7 @@
   "operator": "OLX Group",
   "note": "The main Portuguese vehicle marketplace, where dealers hold public dealer pages.",
   "sellerAction": "publish-classified",
-  "sellerActionUrl": "https://www.standvirtual.com/carros/anunciar"
+  "sellerActionUrl": null
  },
  {
   "id": "mp-pr-clasificadosonline",
@@ -3395,7 +3395,7 @@
   "currentStatus": "active",
   "note": "A major Russian vehicle marketplace.",
   "sellerAction": "publish-classified",
-  "sellerActionUrl": "https://auto.drom.ru/addbull/"
+  "sellerActionUrl": null
  },
  {
   "id": "mp-ru-youla",
@@ -3544,7 +3544,7 @@
   "operator": "PropertyGuru Group",
   "note": "Singapore's main property marketplace, where agents hold public listings. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
   "sellerAction": "post-advertisement",
-  "sellerActionUrl": "https://agentofferings.propertyguru.com.sg/"
+  "sellerActionUrl": null
  },
  {
   "id": "mp-sg-sgcarmart",
@@ -4114,7 +4114,7 @@
   ],
   "note": "Tunisia's main classifieds marketplace, covering vehicles, property, electronics and household goods. It states that posting a listing is free, and separates private sellers from professionals, who can run branded shops.",
   "sellerAction": "publish-classified",
-  "sellerActionUrl": "https://www.tayara.tn/post-listing/"
+  "sellerActionUrl": "https://www.tayara.tn/login/?redirect=%2Fpost-listing%2F"
  },
  {
   "id": "mp-tr-arabam",

@@ -165,7 +165,7 @@
   "submissionModel": "unknown",
   "note": "A neighbourhood social platform where businesses hold public pages; the operator states millions of businesses have claimed one. The legal entity is behind an authenticated page, so the operator is not recorded.",
   "lastVerified": "2026-08-14",
-  "submissionUrl": "https://business.nextdoor.com/en-us/getting-started/business-page?hsLang=en-us"
+  "submissionUrl": "https://business.nextdoor.com/en-us/getting-started/business-page"
  },
  {
   "id": "us-superpages",
@@ -257,7 +257,7 @@
   "submissionModel": "unknown",
   "note": "The UK market-leading directory. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
   "lastVerified": "2026-08-14",
-  "submissionUrl": "https://www.yell.com/free-listing"
+  "submissionUrl": "https://www.yell.com/free-listing/"
  },
  {
   "id": "uk-cylex",
@@ -350,7 +350,7 @@
   "submissionModel": "unknown",
   "note": "A Canadian local search engine with public business profiles, operated by 411 Local Search Corp. Its add-business route sends businesses to the Yellow Pages form, so its own listing action is unresolved.",
   "lastVerified": "2026-08-14",
-  "submissionUrl": "https://solutions.yp.ca/free-listing"
+  "submissionUrl": "https://solutions.yp.ca/free-online-listing"
  },
  {
   "id": "ca-canadaone",
@@ -1239,7 +1239,7 @@
    "approvalMode": "manual",
    "profileIndexed": true
   },
-  "submissionUrl": "https://supplier.alibaba.com/"
+  "submissionUrl": null
  },
  {
   "id": "global-industrystock",
@@ -3449,7 +3449,7 @@
    "approvalMode": "manual",
    "profileIndexed": true
   },
-  "submissionUrl": "https://www.microsoft.com/en-us/isv"
+  "submissionUrl": "https://www.microsoft.com/en-us/software-development-companies"
  },
  {
   "id": "global-zapier-apps",
@@ -5951,7 +5951,7 @@
   "submissionModel": "unknown",
   "note": "A leading European hair and beauty booking marketplace with public salon profiles.",
   "lastVerified": "2026-08-14",
-  "submissionUrl": "https://www.treatwell.co.uk/partners/"
+  "submissionUrl": null
  },
  {
   "id": "global-booksy",
@@ -5971,7 +5971,7 @@
   "submissionModel": "unknown",
   "note": "A global beauty and wellness booking marketplace with public provider profiles.",
   "lastVerified": "2026-08-14",
-  "submissionUrl": "https://biz.booksy.com/en-us/?utm_source=cust_web&utm_medium=button&utm_campaign=b2bb2csection"
+  "submissionUrl": null
  },
  {
   "id": "global-fresha",
@@ -6573,7 +6573,7 @@
   "submissionModel": "unknown",
   "note": "A large Indian local services marketplace with public business profiles.",
   "lastVerified": "2026-08-14",
-  "submissionUrl": "https://www.sulekha.com/list-your-business"
+  "submissionUrl": null
  },
  {
   "id": "global-tradeford",
@@ -8554,7 +8554,7 @@
   "submissionModel": "unknown",
   "note": "An Italian portal listing companies with public profiles.",
   "lastVerified": "2026-08-14",
-  "submissionUrl": "https://www.italiaimprese.it/?add-to-cart=136"
+  "submissionUrl": null
  },
  {
   "id": "it-guidamonaci",
@@ -11492,7 +11492,7 @@
   "submissionModel": "unknown",
   "note": "A US local business directory accepting self-submitted listings. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
   "lastVerified": "2026-08-14",
-  "submissionUrl": "https://www.citysquares.com/add_business"
+  "submissionUrl": "https://citysquares.com/add_business"
  },
  {
   "id": "us-us-info",
@@ -11511,7 +11511,7 @@
   "submissionModel": "unknown",
   "note": "The US arm of the Infobel directory network. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
   "lastVerified": "2026-08-14",
-  "submissionUrl": "https://www.us-info.com/en/usa/Packages/Pricing"
+  "submissionUrl": null
  },
  {
   "id": "us-americantowns",
@@ -11604,7 +11604,7 @@
   "submissionModel": "unknown",
   "note": "A US business review directory where companies hold public profiles.",
   "lastVerified": "2026-08-14",
-  "submissionUrl": "https://www.trustlink.org/NewBusiness.aspx"
+  "submissionUrl": "https://www.trustlink.org/NewBusiness.aspx?AspxAutoDetectCookieSupport=1"
  },
  {
   "id": "us-networx",
@@ -11752,7 +11752,7 @@
   "submissionModel": "unknown",
   "note": "A fitness class marketplace where studios hold public pages. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
   "lastVerified": "2026-08-14",
-  "submissionUrl": "https://classpass.com/partners?utm_content=consumer_nav"
+  "submissionUrl": null
  },
  {
   "id": "ca-canpages",
@@ -12115,7 +12115,7 @@
   "submissionModel": "unknown",
   "note": "An international food delivery platform where restaurants hold public pages. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
   "lastVerified": "2026-08-14",
-  "submissionUrl": "https://www.uber.com/business/eats"
+  "submissionUrl": "https://www.uber.com/cz/en/business/solutions/eats/overview/"
  },
  {
   "id": "pa-paginasamarillas",
@@ -12879,7 +12879,7 @@
   "submissionModel": "unknown",
   "note": "A US care marketplace where childcare, senior care and pet care providers hold public profiles.",
   "lastVerified": "2026-08-14",
-  "submissionUrl": "https://www.care.com/app/pn-business"
+  "submissionUrl": "https://www.care.com/app/pn-business/early-learning-centers"
  },
  {
   "id": "us-sittercity",
@@ -13677,7 +13677,7 @@
   "submissionModel": "unknown",
   "note": "The US staffing industry association, whose member agencies appear in a searchable directory. Membership is eligibility-gated.",
   "lastVerified": "2026-08-14",
-  "submissionUrl": "https://asamarketplace.net/get-listed"
+  "submissionUrl": null
  },
  {
   "id": "us-pestworld",
@@ -14367,7 +14367,7 @@
   "submissionModel": "unknown",
   "note": "A Canadian business directory with contact details and reviews.",
   "lastVerified": "2026-08-14",
-  "submissionUrl": "https://cdnpages.ca/Business/AddBusiness"
+  "submissionUrl": null
  },
  {
   "id": "ca-canadianplanet",
@@ -17606,7 +17606,7 @@
   "submissionModel": "unknown",
   "note": "The leading South African company review platform, where businesses hold public profiles.",
   "lastVerified": "2026-08-14",
-  "submissionUrl": "https://blog.hellopeter.com/faqs/hellopeter-packages"
+  "submissionUrl": null
  },
  {
   "id": "za-cylex",
