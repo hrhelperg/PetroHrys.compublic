@@ -159,7 +159,80 @@ survived it untouched. The assertion now looks for the one signature pure
 score-ordering cannot produce — a picked opportunity scoring strictly less than
 an eligible one left out — and that mutant now dies.
 
-## 6. Unresolved, deliberately
+## 6. Expansion — 69 candidates proposed, 8 accepted
+
+Expansion runs the pipeline backwards: recovery asks "is this record still
+true", expansion asks "does this proposed record deserve to exist at all".
+
+69 national directories were proposed from memory for the 68 countries holding
+two records or fewer, and every one was put in front of a browser.
+
+**8 were accepted. 61 were not.** That ratio is the result, not a failure of it.
+
+| Outcome | Count |
+|---|---:|
+| unreachable — the domain does not exist | 29 |
+| already in the collection | 16 |
+| blocked by a live bot filter | 6 |
+| inconclusive — too little rendered | 4 |
+| redirected elsewhere | 3 |
+| parked domain for sale | 1 |
+| failed a country or category evidence test | 2 |
+| **accepted** | **8** |
+
+29 of the proposals were domains that simply do not exist. A knowledge-driven
+list of national directories is roughly one part fact to four parts plausible
+guess, and the only reason that is safe is that nothing reaches the corpus on
+the strength of being plausible.
+
+### 6.1 The parked-domain hole, found by reading the output
+
+`belizedirectory.com` **passed** the first evidence run. Its page is titled
+*"belizedirectory.com for sale | Spaceship.com"* — which names Belize and says
+"directory", satisfying both tests, because **the domain name being sold does**.
+Every signal on that page was circular.
+
+The check now rejects domains for sale, parking pages, "coming soon"
+placeholders and unconfigured default server pages, and it runs *before* the
+evidence test and cannot be overridden by it. Re-running dropped acceptance from
+9 to 8, and only that record moved.
+
+### 6.2 What was accepted
+
+| Country | Record | What the page says it is |
+|---|---|---|
+| Bosnia and Herzegovina | `ba-yellowpages` | Poslovni imenik Bosanske Žute strane |
+| Greece | `gr-vrisko` | Vrisko.gr — Κατάλογος Επαγγελματιών, Επιχειρήσεων |
+| Iceland | `is-ja` | Já.is |
+| Luxembourg | `lu-yellow` | Guide local Yellow.lu |
+| Latvia | `lv-firmas` | Firmas.lv |
+| Malta | `mt-yellow` | Businesses in Malta and Gozo — with a published "List Your Business" route |
+| Russia | `ru-rusprofile` | Проверка и анализ российских юридических лиц |
+| Zambia | `zm-yellowpages` | Zambia Yellow Pages |
+
+Luxembourg and Russia had **no** directory record before this. Countries with
+zero directory coverage fell from 16 to 14; the collection stands at 1,541
+records across 111 countries.
+
+Malta's route carried UTM parameters. They are analytics-only and were stripped;
+the destination is unchanged.
+
+Directory vocabulary is matched in the languages these markets publish in —
+Greek, Cyrillic, Baltic and South Slavic forms included. Matching English alone
+would have rejected most of the accepted set for being foreign, which is exactly
+backwards.
+
+### 6.3 Why the remaining gaps stay gaps
+
+Armenia is skipped by instruction. Cuba, Laos, DR Congo, Sudan, Cambodia,
+Kosovo, Belarus, Kuwait, Lebanon, Zimbabwe, Botswana and Cyprus produced no
+proposal that survived a browser. The European Union is supranational and a
+directory record there would be a category error, not a gap.
+
+These are honestly empty. Filling them would mean recording platforms nobody has
+seen, which is the one thing this collection is built not to do.
+
+## 7. Unresolved, deliberately
 
 - **192 directories behind live bot protection.** Reachable only by a human or
   by evasion. The first is welcome; the second is not.

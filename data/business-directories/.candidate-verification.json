@@ -1,0 +1,1089 @@
+{
+ "probedAt": "2026-08-14",
+ "results": [
+  {
+   "id": "al-yellowpages",
+   "name": "Yellow Pages Albania",
+   "website": "https://www.yellowpages.al/",
+   "country": "albania",
+   "category": "local-business",
+   "accepted": false,
+   "why": "blocked: http 502",
+   "evidence": [],
+   "observed": {
+    "status": 502,
+    "finalUrl": "https://www.yellowpages.al/",
+    "title": "yellowpages.al | 502: Bad gateway",
+    "textLen": 385
+   },
+   "routes": {}
+  },
+  {
+   "id": "az-yellowpages",
+   "name": "Yellow Pages Azerbaijan",
+   "website": "https://www.yellowpages.az/",
+   "country": "azerbaijan",
+   "category": "local-business",
+   "accepted": false,
+   "why": "already in the collection"
+  },
+  {
+   "id": "ba-yellowpages",
+   "name": "Yellow Pages Bosnia",
+   "website": "https://www.yellowpages.ba/",
+   "country": "bosnia-and-herzegovina",
+   "category": "local-business",
+   "accepted": true,
+   "why": "ccTLD .ba; describes itself as a directory",
+   "evidence": [
+    "ccTLD .ba",
+    "describes itself as a directory"
+   ],
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://yellowpages.ba/",
+    "title": "Poslovni imenik Bosanske Žute strane | Bosnian Yellow Pages",
+    "textLen": 48641
+   },
+   "routes": {}
+  },
+  {
+   "id": "bb-yellowpages",
+   "name": "Yellow Pages Barbados",
+   "website": "https://www.yellowpages.bb/",
+   "country": "barbados",
+   "category": "local-business",
+   "accepted": false,
+   "why": "unreachable: the browser could not open the site at all",
+   "evidence": [],
+   "observed": {
+    "status": 0,
+    "finalUrl": "chrome-error://chromewebdata/",
+    "title": "www.yellowpages.bb",
+    "textLen": 111
+   },
+   "routes": {}
+  },
+  {
+   "id": "bg-zlatnistranici",
+   "name": "Zlatni Stranici",
+   "website": "https://www.zlatnistranici.bg/",
+   "country": "bulgaria",
+   "category": "local-business",
+   "accepted": false,
+   "why": "unreachable: the browser could not open the site at all",
+   "evidence": [],
+   "observed": {
+    "status": 0,
+    "finalUrl": "chrome-error://chromewebdata/",
+    "title": "www.zlatnistranici.bg",
+    "textLen": 114
+   },
+   "routes": {}
+  },
+  {
+   "id": "bh-yellowpages",
+   "name": "Bahrain Yellow Pages",
+   "website": "https://www.bahrainyellowpages.com/",
+   "country": "bahrain",
+   "category": "local-business",
+   "accepted": false,
+   "why": "already in the collection"
+  },
+  {
+   "id": "bo-paginasamarillas",
+   "name": "Páginas Amarillas Bolivia",
+   "website": "https://www.paginasamarillas.com.bo/",
+   "country": "bolivia",
+   "category": "local-business",
+   "accepted": false,
+   "why": "unreachable: the browser could not open the site at all",
+   "evidence": [],
+   "observed": {
+    "status": 0,
+    "finalUrl": "chrome-error://chromewebdata/",
+    "title": "www.paginasamarillas.com.bo",
+    "textLen": 120
+   },
+   "routes": {}
+  },
+  {
+   "id": "bw-yellowpages",
+   "name": "Yellow Pages Botswana",
+   "website": "https://www.yellowpages.co.bw/",
+   "country": "botswana",
+   "category": "local-business",
+   "accepted": false,
+   "why": "unreachable: the browser could not open the site at all",
+   "evidence": [],
+   "observed": {
+    "status": 0,
+    "finalUrl": "chrome-error://chromewebdata/",
+    "title": "www.yellowpages.co.bw",
+    "textLen": 114
+   },
+   "routes": {}
+  },
+  {
+   "id": "by-yellowpages",
+   "name": "Yellow Pages Belarus",
+   "website": "https://www.yellowpages.by/",
+   "country": "belarus",
+   "category": "local-business",
+   "accepted": false,
+   "why": "blocked: cloudflare-interstitial",
+   "evidence": [],
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://b2b.by/",
+    "title": "Just a moment...",
+    "textLen": 254
+   },
+   "routes": {}
+  },
+  {
+   "id": "bz-belizedirectory",
+   "name": "Belize Business Directory",
+   "website": "https://www.belizedirectory.com/",
+   "country": "belize",
+   "category": "local-business",
+   "accepted": false,
+   "why": "domain for sale, not a business behind it",
+   "evidence": [
+    "names the country",
+    "describes itself as a directory"
+   ],
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.belizedirectory.com/",
+    "title": "belizedirectory.com for sale | Spaceship.com",
+    "textLen": 499
+   },
+   "routes": {}
+  },
+  {
+   "id": "cr-paginasamarillas",
+   "name": "Páginas Amarillas Costa Rica",
+   "website": "https://www.paginasamarillas.co.cr/",
+   "country": "costa-rica",
+   "category": "local-business",
+   "accepted": false,
+   "why": "unreachable: the browser could not open the site at all",
+   "evidence": [],
+   "observed": {
+    "status": 0,
+    "finalUrl": "chrome-error://chromewebdata/",
+    "title": "www.paginasamarillas.co.cr",
+    "textLen": 119
+   },
+   "routes": {}
+  },
+  {
+   "id": "cy-cyprusyellowpages",
+   "name": "Cyprus Yellow Pages",
+   "website": "https://www.cyprusyellowpages.com/",
+   "country": "cyprus",
+   "category": "local-business",
+   "accepted": false,
+   "why": "inconclusive: only 0 characters rendered",
+   "evidence": [],
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.cyprusyellowpages.com/",
+    "title": "Cyprus Yellow Pages",
+    "textLen": 0
+   },
+   "routes": {}
+  },
+  {
+   "id": "cy-yellowpages",
+   "name": "Yellow Pages Cyprus",
+   "website": "https://www.yellowpages.com.cy/",
+   "country": "cyprus",
+   "category": "local-business",
+   "accepted": false,
+   "why": "unreachable: the browser could not open the site at all",
+   "evidence": [],
+   "observed": {
+    "status": 0,
+    "finalUrl": "chrome-error://chromewebdata/",
+    "title": "Privacy error",
+    "textLen": 323
+   },
+   "routes": {}
+  },
+  {
+   "id": "do-paginasamarillas",
+   "name": "Páginas Amarillas Dominicana",
+   "website": "https://www.paginasamarillas.com.do/",
+   "country": "dominican-republic",
+   "category": "local-business",
+   "accepted": false,
+   "why": "already in the collection"
+  },
+  {
+   "id": "dz-algerieyp",
+   "name": "Algérie Pages Jaunes",
+   "website": "https://www.pagesjaunes-algerie.com/",
+   "country": "algeria",
+   "category": "local-business",
+   "accepted": false,
+   "why": "unreachable: the browser could not open the site at all",
+   "evidence": [],
+   "observed": {
+    "status": 0,
+    "finalUrl": "chrome-error://chromewebdata/",
+    "title": "www.pagesjaunes-algerie.com",
+    "textLen": 120
+   },
+   "routes": {}
+  },
+  {
+   "id": "ec-paginasamarillas",
+   "name": "Páginas Amarillas Ecuador",
+   "website": "https://www.paginasamarillas.com.ec/",
+   "country": "ecuador",
+   "category": "local-business",
+   "accepted": false,
+   "why": "unreachable: the browser could not open the site at all",
+   "evidence": [],
+   "observed": {
+    "status": 0,
+    "finalUrl": "chrome-error://chromewebdata/",
+    "title": "www.paginasamarillas.com.ec",
+    "textLen": 120
+   },
+   "routes": {}
+  },
+  {
+   "id": "ee-inforegister",
+   "name": "Inforegister",
+   "website": "https://www.inforegister.ee/",
+   "country": "estonia",
+   "category": "general-business",
+   "accepted": false,
+   "why": "already in the collection"
+  },
+  {
+   "id": "ee-teatmik",
+   "name": "Teatmik",
+   "website": "https://www.teatmik.ee/",
+   "country": "estonia",
+   "category": "general-business",
+   "accepted": false,
+   "why": "inconclusive: only 308 characters rendered",
+   "evidence": [],
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.teatmik.ee/en/captcha",
+    "title": "teatmik.ee",
+    "textLen": 308
+   },
+   "routes": {}
+  },
+  {
+   "id": "eg-yellowpageseg",
+   "name": "Yellow Pages Egypt",
+   "website": "https://www.yellowpages.com.eg/",
+   "country": "egypt",
+   "category": "local-business",
+   "accepted": false,
+   "why": "already in the collection"
+  },
+  {
+   "id": "ge-yellowpages",
+   "name": "Yellow Pages Georgia",
+   "website": "https://www.yellowpages.ge/",
+   "country": "georgia",
+   "category": "local-business",
+   "accepted": false,
+   "why": "unreachable: the browser could not open the site at all",
+   "evidence": [],
+   "observed": {
+    "status": 0,
+    "finalUrl": "chrome-error://chromewebdata/",
+    "title": "Privacy error",
+    "textLen": 317
+   },
+   "routes": {}
+  },
+  {
+   "id": "gr-vrisko",
+   "name": "Vrisko.gr",
+   "website": "https://www.vrisko.gr/",
+   "country": "greece",
+   "category": "local-business",
+   "accepted": true,
+   "why": "ccTLD .gr; describes itself as a directory",
+   "evidence": [
+    "ccTLD .gr",
+    "describes itself as a directory"
+   ],
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.vrisko.gr/",
+    "title": "Vrisko.gr - Κατάλογος Επαγγελματιών, Επιχειρήσεων, Υπηρεσιών",
+    "textLen": 5730
+   },
+   "routes": {}
+  },
+  {
+   "id": "gr-xo",
+   "name": "XO.gr",
+   "website": "https://www.xo.gr/",
+   "country": "greece",
+   "category": "local-business",
+   "accepted": false,
+   "why": "blocked: cloudflare-interstitial",
+   "evidence": [],
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.xo.gr/",
+    "title": "Just a moment...",
+    "textLen": 257
+   },
+   "routes": {}
+  },
+  {
+   "id": "gt-paginasamarillas",
+   "name": "Páginas Amarillas Guatemala",
+   "website": "https://www.paginasamarillas.com.gt/",
+   "country": "guatemala",
+   "category": "local-business",
+   "accepted": false,
+   "why": "already in the collection"
+  },
+  {
+   "id": "hn-paginasamarillas",
+   "name": "Páginas Amarillas Honduras",
+   "website": "https://www.paginasamarillas.hn/",
+   "country": "honduras",
+   "category": "local-business",
+   "accepted": false,
+   "why": "unreachable: the browser could not open the site at all",
+   "evidence": [],
+   "observed": {
+    "status": 0,
+    "finalUrl": "chrome-error://chromewebdata/",
+    "title": "www.paginasamarillas.hn",
+    "textLen": 116
+   },
+   "routes": {}
+  },
+  {
+   "id": "hr-zutestranice",
+   "name": "Žute Stranice",
+   "website": "https://www.zutestranice.com/",
+   "country": "croatia",
+   "category": "local-business",
+   "accepted": false,
+   "why": "inconclusive: only 133 characters rendered",
+   "evidence": [],
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://go2net.com/zutestranice.com?segment=rsoc.ron.mamma.001&s1paid=1057086",
+    "title": "zutestranice.com",
+    "textLen": 133
+   },
+   "routes": {}
+  },
+  {
+   "id": "hu-cegjegyzek",
+   "name": "Céginformáció",
+   "website": "https://www.ceginformacio.hu/",
+   "country": "hungary",
+   "category": "general-business",
+   "accepted": false,
+   "why": "the page does not describe itself as a directory",
+   "evidence": [
+    "ccTLD .hu"
+   ],
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.ceginformacio.hu/",
+    "title": "Céginformáció - Cégkereső, hiteles cégkivonat letöltése",
+    "textLen": 4206
+   },
+   "routes": {}
+  },
+  {
+   "id": "is-ja",
+   "name": "Já.is",
+   "website": "https://ja.is/",
+   "country": "iceland",
+   "category": "local-business",
+   "accepted": true,
+   "why": "ccTLD .is; describes itself as a directory",
+   "evidence": [
+    "ccTLD .is",
+    "describes itself as a directory"
+   ],
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://ja.is/",
+    "title": "Já.is",
+    "textLen": 910
+   },
+   "routes": {}
+  },
+  {
+   "id": "jo-jordanyp",
+   "name": "Jordan Yellow Pages",
+   "website": "https://www.jordanyellowpages.com/",
+   "country": "jordan",
+   "category": "local-business",
+   "accepted": false,
+   "why": "unreachable: the browser could not open the site at all",
+   "evidence": [],
+   "observed": {
+    "status": 0,
+    "finalUrl": "chrome-error://chromewebdata/",
+    "title": "www.jordanyellowpages.com",
+    "textLen": 118
+   },
+   "routes": {}
+  },
+  {
+   "id": "kh-yellowpages",
+   "name": "Yellow Pages Cambodia",
+   "website": "https://www.yellowpages-cambodia.com/",
+   "country": "cambodia",
+   "category": "local-business",
+   "accepted": false,
+   "why": "unreachable: the browser could not open the site at all",
+   "evidence": [],
+   "observed": {
+    "status": 0,
+    "finalUrl": "chrome-error://chromewebdata/",
+    "title": "www.yellowpages-cambodia.com",
+    "textLen": 121
+   },
+   "routes": {}
+  },
+  {
+   "id": "kw-kuwaitpages",
+   "name": "Kuwait Yellow Pages",
+   "website": "https://www.kuwaityellowpages.com/",
+   "country": "kuwait",
+   "category": "local-business",
+   "accepted": false,
+   "why": "unreachable: the browser could not open the site at all",
+   "evidence": [],
+   "observed": {
+    "status": 0,
+    "finalUrl": "chrome-error://chromewebdata/",
+    "title": "www.kuwaityellowpages.com",
+    "textLen": 118
+   },
+   "routes": {}
+  },
+  {
+   "id": "kz-goldenpages",
+   "name": "Golden Pages Kazakhstan",
+   "website": "https://www.goldenpages.kz/",
+   "country": "kazakhstan",
+   "category": "local-business",
+   "accepted": false,
+   "why": "unreachable: the browser could not open the site at all",
+   "evidence": [],
+   "observed": {
+    "status": 0,
+    "finalUrl": "chrome-error://chromewebdata/",
+    "title": "www.goldenpages.kz",
+    "textLen": 171
+   },
+   "routes": {}
+  },
+  {
+   "id": "la-laoyp",
+   "name": "Laos Yellow Pages",
+   "website": "https://www.yellowpages.la/",
+   "country": "laos",
+   "category": "local-business",
+   "accepted": false,
+   "why": "unreachable: the browser could not open the site at all",
+   "evidence": [],
+   "observed": {
+    "status": 0,
+    "finalUrl": "chrome-error://chromewebdata/",
+    "title": "www.yellowpages.la",
+    "textLen": 111
+   },
+   "routes": {}
+  },
+  {
+   "id": "lb-yellowpages",
+   "name": "Yellow Pages Lebanon",
+   "website": "https://www.yellowpages.com.lb/",
+   "country": "lebanon",
+   "category": "local-business",
+   "accepted": false,
+   "why": "unreachable: the browser could not open the site at all",
+   "evidence": [],
+   "observed": {
+    "status": 0,
+    "finalUrl": "chrome-error://chromewebdata/",
+    "title": "www.yellowpages.com.lb",
+    "textLen": 115
+   },
+   "routes": {}
+  },
+  {
+   "id": "lt-rekvizitai",
+   "name": "Rekvizitai.lt",
+   "website": "https://rekvizitai.vz.lt/",
+   "country": "lithuania",
+   "category": "general-business",
+   "accepted": false,
+   "why": "blocked: cloudflare-interstitial",
+   "evidence": [],
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://rekvizitai.vz.lt/",
+    "title": "Just a moment...",
+    "textLen": 264
+   },
+   "routes": {}
+  },
+  {
+   "id": "lu-editus",
+   "name": "Editus",
+   "website": "https://www.editus.lu/",
+   "country": "luxembourg",
+   "category": "local-business",
+   "accepted": false,
+   "why": "blocked: http 403",
+   "evidence": [],
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.editus.lu/",
+    "title": "editus.lu",
+    "textLen": 0
+   },
+   "routes": {}
+  },
+  {
+   "id": "lu-yellow",
+   "name": "Yellow.lu",
+   "website": "https://www.yellow.lu/",
+   "country": "luxembourg",
+   "category": "local-business",
+   "accepted": true,
+   "why": "ccTLD .lu; names the country; describes itself as a directory",
+   "evidence": [
+    "ccTLD .lu",
+    "names the country",
+    "describes itself as a directory"
+   ],
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://yellow.lu/fr",
+    "title": "Guide local Yellow.lu",
+    "textLen": 2057
+   },
+   "routes": {}
+  },
+  {
+   "id": "lv-firmas",
+   "name": "Firmas.lv",
+   "website": "https://www.firmas.lv/",
+   "country": "latvia",
+   "category": "general-business",
+   "accepted": true,
+   "why": "ccTLD .lv; describes itself as a directory",
+   "evidence": [
+    "ccTLD .lv",
+    "describes itself as a directory"
+   ],
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.firmas.lv/",
+    "title": "Firmas.lv",
+    "textLen": 7194
+   },
+   "routes": {}
+  },
+  {
+   "id": "lv-lursoft",
+   "name": "Lursoft",
+   "website": "https://www.lursoft.lv/",
+   "country": "latvia",
+   "category": "general-business",
+   "accepted": false,
+   "why": "already in the collection"
+  },
+  {
+   "id": "md-yellowpages",
+   "name": "Yellow Pages Moldova",
+   "website": "https://www.yellowpages.md/",
+   "country": "moldova",
+   "category": "local-business",
+   "accepted": false,
+   "why": "redirected: yellowpages.md now serves ybp.md",
+   "evidence": [],
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://ybp.md/ro",
+    "title": "Știri despre mediul de afaceri din Moldova - YBP.MD | Știri despre mediul de afaceri din Moldova - YBP",
+    "textLen": 5987
+   },
+   "routes": {}
+  },
+  {
+   "id": "me-yellowpages",
+   "name": "Yellow Pages Montenegro",
+   "website": "https://www.yellowpages.me/",
+   "country": "montenegro",
+   "category": "local-business",
+   "accepted": false,
+   "why": "redirected: yellowpages.me now serves godaddy.com",
+   "evidence": [],
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://forsale.godaddy.com/forsale/yellowpages.me?utm_source=TDFS_BINNS2&utm_medium=parkedpages&utm_campaign=x_corp_tdfs-binns2_base&traffic_type=TDFS_BINNS2&traffic_id=binns2&",
+    "title": "yellowpages.me is for sale — Buy for $1,475 or Lease to Own | GoDaddy",
+    "textLen": 701
+   },
+   "routes": {}
+  },
+  {
+   "id": "mk-yellowpages",
+   "name": "Yellow Pages North Macedonia",
+   "website": "https://www.yellowpages.mk/",
+   "country": "north-macedonia",
+   "category": "local-business",
+   "accepted": false,
+   "why": "unreachable: the browser could not open the site at all",
+   "evidence": [],
+   "observed": {
+    "status": 0,
+    "finalUrl": "chrome-error://chromewebdata/",
+    "title": "Privacy error",
+    "textLen": 317
+   },
+   "routes": {}
+  },
+  {
+   "id": "mm-myanmaryp",
+   "name": "Myanmar Yellow Pages",
+   "website": "https://www.myanmaryellowpages.biz/",
+   "country": "myanmar",
+   "category": "local-business",
+   "accepted": false,
+   "why": "already in the collection"
+  },
+  {
+   "id": "mn-mongoliayp",
+   "name": "Mongolia Yellow Pages",
+   "website": "https://www.yellowpages.mn/",
+   "country": "mongolia",
+   "category": "local-business",
+   "accepted": false,
+   "why": "unreachable: the browser could not open the site at all",
+   "evidence": [],
+   "observed": {
+    "status": 0,
+    "finalUrl": "chrome-error://chromewebdata/",
+    "title": "Privacy error",
+    "textLen": 319
+   },
+   "routes": {}
+  },
+  {
+   "id": "mt-yellow",
+   "name": "Yellow Malta",
+   "website": "https://www.yellow.com.mt/",
+   "country": "malta",
+   "category": "local-business",
+   "accepted": true,
+   "why": "ccTLD .mt; names the country; describes itself as a directory",
+   "evidence": [
+    "ccTLD .mt",
+    "names the country",
+    "describes itself as a directory"
+   ],
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.yellow.com.mt/",
+    "title": "Discover local businesses in Malta and Gozo with Yellow.com.mt",
+    "textLen": 4323
+   },
+   "routes": {
+    "create": {
+     "text": "List Your Business",
+     "href": "https://www.packages.yellow.com.mt/?utm_source=website&utm_medium=button&utm_campaign=yc_ex54-3"
+    }
+   }
+  },
+  {
+   "id": "na-yellowpages",
+   "name": "Yellow Pages Namibia",
+   "website": "https://www.yellowpages.com.na/",
+   "country": "namibia",
+   "category": "local-business",
+   "accepted": false,
+   "why": "unreachable: the browser could not open the site at all",
+   "evidence": [],
+   "observed": {
+    "status": 0,
+    "finalUrl": "chrome-error://chromewebdata/",
+    "title": "www.yellowpages.com.na",
+    "textLen": 115
+   },
+   "routes": {}
+  },
+  {
+   "id": "ni-paginasamarillas",
+   "name": "Páginas Amarillas Nicaragua",
+   "website": "https://www.paginasamarillas.com.ni/",
+   "country": "nicaragua",
+   "category": "local-business",
+   "accepted": false,
+   "why": "already in the collection"
+  },
+  {
+   "id": "om-omanyp",
+   "name": "Oman Yellow Pages",
+   "website": "https://www.omanyp.com/",
+   "country": "oman",
+   "category": "local-business",
+   "accepted": false,
+   "why": "already in the collection"
+  },
+  {
+   "id": "pa-paginasamarillas",
+   "name": "Páginas Amarillas Panamá",
+   "website": "https://www.paginasamarillas.com.pa/",
+   "country": "panama",
+   "category": "local-business",
+   "accepted": false,
+   "why": "already in the collection"
+  },
+  {
+   "id": "pr-paginasamarillaspr",
+   "name": "Páginas Amarillas Puerto Rico",
+   "website": "https://www.paginasamarillas.pr/",
+   "country": "puerto-rico",
+   "category": "local-business",
+   "accepted": false,
+   "why": "unreachable: the browser could not open the site at all",
+   "evidence": [],
+   "observed": {
+    "status": 0,
+    "finalUrl": "chrome-error://chromewebdata/",
+    "title": "www.paginasamarillas.pr",
+    "textLen": 116
+   },
+   "routes": {}
+  },
+  {
+   "id": "py-paginasamarillas",
+   "name": "Páginas Amarillas Paraguay",
+   "website": "https://www.paginasamarillas.com.py/",
+   "country": "paraguay",
+   "category": "local-business",
+   "accepted": false,
+   "why": "unreachable: the browser could not open the site at all",
+   "evidence": [],
+   "observed": {
+    "status": 0,
+    "finalUrl": "chrome-error://chromewebdata/",
+    "title": "www.paginasamarillas.com.py",
+    "textLen": 120
+   },
+   "routes": {}
+  },
+  {
+   "id": "qa-qataryp",
+   "name": "Qatar Yellow Pages",
+   "website": "https://www.qataryellowpages.com/",
+   "country": "qatar",
+   "category": "local-business",
+   "accepted": false,
+   "why": "inconclusive: only 381 characters rendered",
+   "evidence": [],
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://forsale.godaddy.com/forsale/qataryellowpages.com?utm_source=TDFS_BINNS&utm_medium=parkedpages&utm_campaign=x_corp_tdfs-binns_base&traffic_type=TDFS_BINNS&traffic_id=binns&",
+    "title": "qataryellowpages.com is for sale — Buy now for $7,497 | GoDaddy",
+    "textLen": 381
+   },
+   "routes": {}
+  },
+  {
+   "id": "rs-zutestrane",
+   "name": "Žute Strane",
+   "website": "https://www.zutestrane.rs/",
+   "country": "serbia",
+   "category": "local-business",
+   "accepted": false,
+   "why": "unreachable: the browser could not open the site at all",
+   "evidence": [],
+   "observed": {
+    "status": 0,
+    "finalUrl": "chrome-error://chromewebdata/",
+    "title": "www.zutestrane.rs",
+    "textLen": 110
+   },
+   "routes": {}
+  },
+  {
+   "id": "ru-rusprofile",
+   "name": "Rusprofile",
+   "website": "https://www.rusprofile.ru/",
+   "country": "russia",
+   "category": "general-business",
+   "accepted": true,
+   "why": "ccTLD .ru; describes itself as a directory",
+   "evidence": [
+    "ccTLD .ru",
+    "describes itself as a directory"
+   ],
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.rusprofile.ru/",
+    "title": "Проверка и анализ российских юридических лиц и предпринимателей",
+    "textLen": 3680
+   },
+   "routes": {}
+  },
+  {
+   "id": "ru-yell",
+   "name": "Yell.ru",
+   "website": "https://www.yell.ru/",
+   "country": "russia",
+   "category": "local-business",
+   "accepted": false,
+   "why": "unreachable: CDP timeout: Page.navigate",
+   "evidence": [],
+   "observed": {
+    "status": 0,
+    "finalUrl": null,
+    "title": null,
+    "textLen": 0
+   },
+   "routes": {}
+  },
+  {
+   "id": "rw-yellowpages",
+   "name": "Yellow Pages Rwanda",
+   "website": "https://www.yellowpages.rw/",
+   "country": "rwanda",
+   "category": "local-business",
+   "accepted": false,
+   "why": "unreachable: the browser could not open the site at all",
+   "evidence": [],
+   "observed": {
+    "status": 0,
+    "finalUrl": "chrome-error://chromewebdata/",
+    "title": "www.yellowpages.rw",
+    "textLen": 111
+   },
+   "routes": {}
+  },
+  {
+   "id": "sa-daleeli",
+   "name": "Saudi Yellow Pages",
+   "website": "https://www.saudiyellowpages.com/",
+   "country": "saudi-arabia",
+   "category": "local-business",
+   "accepted": false,
+   "why": "unreachable: the browser could not open the site at all",
+   "evidence": [],
+   "observed": {
+    "status": 0,
+    "finalUrl": "chrome-error://chromewebdata/",
+    "title": "www.saudiyellowpages.com",
+    "textLen": 117
+   },
+   "routes": {}
+  },
+  {
+   "id": "si-bizi",
+   "name": "Bizi.si",
+   "website": "https://www.bizi.si/",
+   "country": "slovenia",
+   "category": "general-business",
+   "accepted": false,
+   "why": "already in the collection"
+  },
+  {
+   "id": "sv-paginasamarillas",
+   "name": "Páginas Amarillas El Salvador",
+   "website": "https://www.paginasamarillas.com.sv/",
+   "country": "el-salvador",
+   "category": "local-business",
+   "accepted": false,
+   "why": "already in the collection"
+  },
+  {
+   "id": "tn-tunisieindex",
+   "name": "Tunisie Index",
+   "website": "https://www.tunisieindex.com/",
+   "country": "tunisia",
+   "category": "local-business",
+   "accepted": false,
+   "why": "already in the collection"
+  },
+  {
+   "id": "tr-firmarehberi",
+   "name": "Firma Rehberi",
+   "website": "https://www.firmarehberi.com/",
+   "country": "turkey",
+   "category": "local-business",
+   "accepted": false,
+   "why": "nothing on the page ties it to the country claimed",
+   "evidence": [
+    "describes itself as a directory"
+   ],
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://firmarehberi.com/",
+    "title": "Firma Rehberi",
+    "textLen": 3582
+   },
+   "routes": {}
+  },
+  {
+   "id": "tt-yellowpages",
+   "name": "Yellow Pages Trinidad and Tobago",
+   "website": "https://www.yellowpages.co.tt/",
+   "country": "trinidad-and-tobago",
+   "category": "local-business",
+   "accepted": false,
+   "why": "unreachable: the browser could not open the site at all",
+   "evidence": [],
+   "observed": {
+    "status": 0,
+    "finalUrl": "chrome-error://chromewebdata/",
+    "title": "www.yellowpages.co.tt",
+    "textLen": 114
+   },
+   "routes": {}
+  },
+  {
+   "id": "tz-yellowpages",
+   "name": "Yellow Pages Tanzania",
+   "website": "https://www.yellowpages.co.tz/",
+   "country": "tanzania",
+   "category": "local-business",
+   "accepted": false,
+   "why": "redirected: co.tz now serves zonky.cz",
+   "evidence": [],
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.zonky.cz/pujcka-od-zonky/?utm_campaign=espoluprace.cz&utm_source=espoluprace.cz&utm_medium=affiliate&t_id=102e904418fcfd56f856d3a8d1bc3e",
+    "title": "Férová půjčka od 3,99 % | Zonky",
+    "textLen": 3850
+   },
+   "routes": {}
+  },
+  {
+   "id": "ua-uaregion",
+   "name": "UA-Region",
+   "website": "https://www.ua-region.com.ua/",
+   "country": "ukraine",
+   "category": "general-business",
+   "accepted": false,
+   "why": "already in the collection"
+  },
+  {
+   "id": "ua-yellowpages",
+   "name": "Yellow Pages Ukraine",
+   "website": "https://yellowpages.ua/",
+   "country": "ukraine",
+   "category": "local-business",
+   "accepted": false,
+   "why": "unreachable: the browser could not open the site at all",
+   "evidence": [],
+   "observed": {
+    "status": 0,
+    "finalUrl": "chrome-error://chromewebdata/",
+    "title": "yellowpages.ua",
+    "textLen": 107
+   },
+   "routes": {}
+  },
+  {
+   "id": "uy-paginasamarillas",
+   "name": "Páginas Amarillas Uruguay",
+   "website": "https://www.paginasamarillas.com.uy/",
+   "country": "uruguay",
+   "category": "local-business",
+   "accepted": false,
+   "why": "unreachable: the browser could not open the site at all",
+   "evidence": [],
+   "observed": {
+    "status": 0,
+    "finalUrl": "chrome-error://chromewebdata/",
+    "title": "Privacy error",
+    "textLen": 328
+   },
+   "routes": {}
+  },
+  {
+   "id": "uz-yellowpages",
+   "name": "Yellow Pages Uzbekistan",
+   "website": "https://www.yellowpages.uz/",
+   "country": "uzbekistan",
+   "category": "local-business",
+   "accepted": false,
+   "why": "already in the collection"
+  },
+  {
+   "id": "ve-paginasamarillas",
+   "name": "Páginas Amarillas Venezuela",
+   "website": "https://www.paginasamarillas.com.ve/",
+   "country": "venezuela",
+   "category": "local-business",
+   "accepted": false,
+   "why": "unreachable: CDP timeout: Page.navigate",
+   "evidence": [],
+   "observed": {
+    "status": 0,
+    "finalUrl": null,
+    "title": null,
+    "textLen": 0
+   },
+   "routes": {}
+  },
+  {
+   "id": "zm-yellowpages",
+   "name": "Yellow Pages Zambia",
+   "website": "https://www.yellowpages.co.zm/",
+   "country": "zambia",
+   "category": "local-business",
+   "accepted": true,
+   "why": "ccTLD .zm; names the country; describes itself as a directory",
+   "evidence": [
+    "ccTLD .zm",
+    "names the country",
+    "describes itself as a directory"
+   ],
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://yellowpages.co.zm/",
+    "title": "Zambia Yellow Pages | uncover the best places to eat, drink, and shop nearest to you.",
+    "textLen": 2072
+   },
+   "routes": {}
+  },
+  {
+   "id": "zw-yellowpages",
+   "name": "Yellow Pages Zimbabwe",
+   "website": "https://www.yellowpages.co.zw/",
+   "country": "zimbabwe",
+   "category": "local-business",
+   "accepted": false,
+   "why": "blocked: cloudflare-interstitial",
+   "evidence": [],
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.classifieds.co.zw/directory",
+    "title": "Just a moment...",
+    "textLen": 269
+   },
+   "routes": {}
+  }
+ ]
+}

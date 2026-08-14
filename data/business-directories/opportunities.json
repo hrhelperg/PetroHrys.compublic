@@ -27802,5 +27802,150 @@
   "submissionModel": "free",
   "note": "A US attorney directory organised by practice area, location and board certification, which states that it offers free listings.",
   "lastVerified": "2026-08-14"
+ },
+ {
+  "id": "ba-yellowpages",
+  "name": "Yellow Pages Bosnia",
+  "website": "https://yellowpages.ba/",
+  "country": "bosnia-and-herzegovina",
+  "category": "local-business",
+  "tier": "tier2",
+  "priority": "P2",
+  "currentStatus": "active",
+  "audienceGeography": [
+   "europe"
+  ],
+  "publicProfileAvailable": true,
+  "listingAction": "unknown",
+  "submissionModel": "unknown",
+  "note": "The Bosnian Yellow Pages business directory, published in Bosnian and English. Verified in a browser on 2026-08-14: ccTLD .ba; describes itself as a directory.",
+  "lastVerified": "2026-08-14"
+ },
+ {
+  "id": "gr-vrisko",
+  "name": "Vrisko.gr",
+  "website": "https://www.vrisko.gr/",
+  "country": "greece",
+  "category": "local-business",
+  "tier": "tier2",
+  "priority": "P2",
+  "currentStatus": "active",
+  "audienceGeography": [
+   "european-union"
+  ],
+  "publicProfileAvailable": true,
+  "listingAction": "unknown",
+  "submissionModel": "unknown",
+  "note": "A principal Greek directory of professionals and businesses. Verified in a browser on 2026-08-14: ccTLD .gr; describes itself as a directory.",
+  "lastVerified": "2026-08-14"
+ },
+ {
+  "id": "is-ja",
+  "name": "Já.is",
+  "website": "https://ja.is/",
+  "country": "iceland",
+  "category": "local-business",
+  "tier": "tier2",
+  "priority": "P2",
+  "currentStatus": "active",
+  "audienceGeography": [
+   "europe"
+  ],
+  "publicProfileAvailable": true,
+  "listingAction": "unknown",
+  "submissionModel": "unknown",
+  "note": "Iceland's principal directory and search service, covering companies and people. Verified in a browser on 2026-08-14: ccTLD .is; describes itself as a directory.",
+  "lastVerified": "2026-08-14"
+ },
+ {
+  "id": "lu-yellow",
+  "name": "Yellow.lu",
+  "website": "https://yellow.lu/",
+  "country": "luxembourg",
+  "category": "local-business",
+  "tier": "tier2",
+  "priority": "P2",
+  "currentStatus": "active",
+  "audienceGeography": [
+   "european-union"
+  ],
+  "publicProfileAvailable": true,
+  "listingAction": "unknown",
+  "submissionModel": "unknown",
+  "note": "A Luxembourg local business guide, published in French. Verified in a browser on 2026-08-14: ccTLD .lu; names the country; describes itself as a directory.",
+  "lastVerified": "2026-08-14"
+ },
+ {
+  "id": "lv-firmas",
+  "name": "Firmas.lv",
+  "website": "https://www.firmas.lv/",
+  "country": "latvia",
+  "category": "general-business",
+  "tier": "tier2",
+  "priority": "P2",
+  "currentStatus": "active",
+  "audienceGeography": [
+   "european-union"
+  ],
+  "publicProfileAvailable": true,
+  "listingAction": "unknown",
+  "submissionModel": "unknown",
+  "note": "A Latvian company information directory. Verified in a browser on 2026-08-14: ccTLD .lv; describes itself as a directory.",
+  "lastVerified": "2026-08-14"
+ },
+ {
+  "id": "mt-yellow",
+  "name": "Yellow Malta",
+  "website": "https://www.yellow.com.mt/",
+  "country": "malta",
+  "category": "local-business",
+  "tier": "tier2",
+  "priority": "P2",
+  "currentStatus": "active",
+  "audienceGeography": [
+   "european-union"
+  ],
+  "publicProfileAvailable": true,
+  "listingAction": "create",
+  "submissionModel": "unknown",
+  "note": "The Maltese Yellow Pages, covering businesses in Malta and Gozo. Verified in a browser on 2026-08-14: ccTLD .mt; names the country; describes itself as a directory.",
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://www.packages.yellow.com.mt/"
+ },
+ {
+  "id": "ru-rusprofile",
+  "name": "Rusprofile",
+  "website": "https://www.rusprofile.ru/",
+  "country": "russia",
+  "category": "general-business",
+  "tier": "tier2",
+  "priority": "P2",
+  "currentStatus": "active",
+  "audienceGeography": [
+   "europe"
+  ],
+  "publicProfileAvailable": true,
+  "listingAction": "unknown",
+  "submissionModel": "unknown",
+  "note": "A Russian company information platform with public legal-entity profiles. Verified in a browser on 2026-08-14: ccTLD .ru; describes itself as a directory.",
+  "lastVerified": "2026-08-14"
+ },
+ {
+  "id": "zm-yellowpages",
+  "name": "Yellow Pages Zambia",
+  "website": "https://yellowpages.co.zm/",
+  "country": "zambia",
+  "category": "local-business",
+  "tier": "tier2",
+  "priority": "P2",
+  "currentStatus": "active",
+  "audienceGeography": [
+   "africa"
+  ],
+  "publicProfileAvailable": true,
+  "listingAction": "unknown",
+  "submissionModel": "unknown",
+  "note": "The Zambian Yellow Pages business directory. Verified in a browser on 2026-08-14: ccTLD .zm; names the country; describes itself as a directory.",
+  "lastVerified": "2026-08-14"
  }
 ]

@@ -126,6 +126,87 @@ const arg = (name) => {
   return i === -1 ? null : (process.argv[i + 1] || true);
 };
 
+// ── CANDIDATE VERIFICATION ──────────────────────────────────────────────────
+//
+// Expansion works the other way round from recovery: a candidate is PROPOSED
+// and has to earn its place. "The domain resolves and has words on it" is not
+// enough — a parked domain, a squatter and a dead brand all clear that bar. A
+// candidate is accepted only when the page carries evidence of BOTH things the
+// record would claim: that it belongs to the country, and that it is the kind
+// of platform the record says it is.
+//
+// Anything short of both is rejected and written to the log with its reason.
+// The rejection rate is part of the result, not an embarrassment to hide: a
+// list proposed from memory and filtered by a browser is honest precisely
+// because the browser throws things out.
+const COUNTRY_TLD = {
+  albania: '.al', algeria: '.dz', azerbaijan: '.az', bahrain: '.bh', barbados: '.bb',
+  belarus: '.by', belize: '.bz', bolivia: '.bo', 'bosnia-and-herzegovina': '.ba',
+  botswana: '.bw', bulgaria: '.bg', cambodia: '.kh', 'costa-rica': '.cr', croatia: '.hr',
+  cuba: '.cu', cyprus: '.cy', 'dominican-republic': '.do', 'dr-congo': '.cd', ecuador: '.ec',
+  egypt: '.eg', 'el-salvador': '.sv', estonia: '.ee', georgia: '.ge', greece: '.gr',
+  guatemala: '.gt', honduras: '.hn', hungary: '.hu', iceland: '.is', jordan: '.jo',
+  kazakhstan: '.kz', kosovo: '.xk', kuwait: '.kw', laos: '.la', latvia: '.lv',
+  lebanon: '.lb', lithuania: '.lt', luxembourg: '.lu', malta: '.mt', moldova: '.md',
+  mongolia: '.mn', montenegro: '.me', myanmar: '.mm', namibia: '.na', nicaragua: '.ni',
+  'north-macedonia': '.mk', oman: '.om', panama: '.pa', paraguay: '.py', 'puerto-rico': '.pr',
+  qatar: '.qa', russia: '.ru', rwanda: '.rw', 'saudi-arabia': '.sa', serbia: '.rs',
+  slovenia: '.si', sudan: '.sd', tanzania: '.tz', 'trinidad-and-tobago': '.tt',
+  tunisia: '.tn', turkey: '.tr', ukraine: '.ua', uruguay: '.uy', uzbekistan: '.uz',
+  venezuela: '.ve', zambia: '.zm', zimbabwe: '.zw',
+};
+
+// Vocabulary a directory uses about itself, in the languages these markets
+// actually publish in. English-only matching would reject half of them for
+// being foreign, which is the opposite of the point.
+const DIRECTORY_WORDS = new RegExp([
+  'director(y|io|ios)', 'business(es)?', 'compan(y|ies)', 'yellow ?pages', 'catalog(ue)?',
+  'firm(s|en|as)?', 'enterprises?', 'listings?', 'empresas', 'entreprises', 'unternehmen',
+  'aziende', 'bedrijven', 'firmy', 'фирм', 'компан', 'предприят', 'справочник', 'каталог',
+  'katalog', 'rehber', 'işletme', 'εταιρ', 'επιχειρ', 'شرکت', 'شركات', 'دليل',
+  'ettevõt', 'uzņēmum', 'įmoni', 'fyrirtæk', 'preduzeć', 'poduzeć', 'претприј',
+].join('|'), 'i');
+
+// A parked domain defeats the evidence test by accident rather than by malice:
+// belizedirectory.com is for sale, and its sale page is titled
+// "belizedirectory.com for sale | Spaceship.com" — which names Belize and says
+// "directory", because the DOMAIN NAME does. Both signals came from the string
+// being sold, not from a business behind it. This check runs first and is not
+// overridable by evidence, because every signal on such a page is circular.
+const PARKED = [
+  [/\bdomain (name )?is for sale\b/i, 'domain for sale'],
+  [/\bfor sale\b[\s\S]{0,40}\b(spaceship|godaddy|sedo|afternic|hugedomains|dan\.com|namecheap|dynadot|porkbun)\b/i, 'domain for sale'],
+  [/\b(buy|purchase) this domain\b/i, 'domain for sale'],
+  [/\bthis domain (may be|is) for sale\b/i, 'domain for sale'],
+  [/\b(parked|parking) (domain|page)\b/i, 'parked domain'],
+  [/\bhugedomains\b|\bsedo\.com\b|\bafternic\b|\bdan\.com\b/i, 'domain marketplace'],
+  [/\bunder construction\b|\bcoming soon\b/i, 'placeholder page'],
+  [/\bdefault web site page\b|\bit works!\b|\bapache2? (ubuntu |debian )?default\b/i, 'unconfigured server'],
+];
+
+function parkedReason(obs) {
+  const hay = `${obs.title}\n${obs.head}`;
+  for (const [re, label] of PARKED) if (re.test(hay)) return label;
+  return null;
+}
+
+function candidateEvidence(candidate, obs) {
+  const host = (() => { try { return new URL(obs.finalUrl).hostname.toLowerCase(); } catch { return ''; } })();
+  const hay = `${obs.title}\n${obs.head}`;
+  const tld = COUNTRY_TLD[candidate.country];
+  const countryName = String(candidate.country || '').replace(/-/g, ' ');
+
+  const evidence = [];
+  if (tld && (host.endsWith(tld) || host.includes(`${tld}.`))) evidence.push(`ccTLD ${tld}`);
+  if (new RegExp(countryName.replace(/\s+/g, '[ -]?'), 'i').test(hay)) evidence.push('names the country');
+  const country = evidence.length > 0;
+
+  const kind = DIRECTORY_WORDS.test(hay);
+  if (kind) evidence.push('describes itself as a directory');
+
+  return { country, kind, evidence };
+}
+
 // Two-level public suffixes common enough to matter here. Without them,
 // hotfrog.co.uk and anything.co.uk would compare as the same site.
 const TWO_LEVEL = new Set([
@@ -458,5 +539,83 @@ function rewriteNote(note, replacement) {
   return `${kept} ${replacement}`.replace(/\s+/g, ' ').trim();
 }
 
-if (process.argv.includes('--apply')) runApply();
+async function runCandidates() {
+  if (!CHROME) { console.error('No Chrome on this machine.'); process.exit(1); }
+  const file = arg('--candidates');
+  const out = arg('--out') || '/tmp/candidate-verification.json';
+  const candidates = JSON.parse(fs.readFileSync(String(file), 'utf8'));
+  const existing = new Set(JSON.parse(fs.readFileSync(COLLECTIONS.directories.data, 'utf8'))
+    .flatMap((r) => [r.id, (() => { try { return new URL(r.website).hostname.replace(/^www\./, ''); } catch { return null; } })()])
+    .filter(Boolean));
+
+  console.log(`Candidate verification: ${candidates.length} proposed.`);
+  const chrome = await startChrome();
+  const results = [];
+  const queue = candidates.slice();
+  let done = 0;
+
+  const worker = async () => {
+    for (;;) {
+      const c = queue.shift();
+      if (!c) return;
+      const host = (() => { try { return new URL(c.website).hostname.replace(/^www\./, ''); } catch { return null; } })();
+      if (existing.has(c.id) || (host && existing.has(host))) {
+        results.push({ ...c, accepted: false, why: 'already in the collection' });
+        done += 1;
+        continue;
+      }
+      // eslint-disable-next-line no-await-in-loop
+      const obs = await probe(chrome.wsUrl, c);
+      const verdict = judge(c, obs);
+      let accepted = false;
+      let why = verdict.why;
+      let evidence = [];
+      if (verdict.verdict !== 'active') {
+        why = `${verdict.verdict}: ${verdict.why}`;
+      } else {
+        const parked = parkedReason(obs);
+        const e = candidateEvidence(c, obs);
+        evidence = e.evidence;
+        if (parked) why = `${parked}, not a business behind it`;
+        else if (!e.country) why = 'nothing on the page ties it to the country claimed';
+        else if (!e.kind) why = 'the page does not describe itself as a directory';
+        else { accepted = true; why = e.evidence.join('; '); }
+      }
+      results.push({
+        ...c,
+        accepted,
+        why,
+        evidence,
+        observed: {
+          status: obs.status, finalUrl: obs.finalUrl || null,
+          title: obs.title || null, textLen: obs.textLen || 0,
+        },
+        routes: verdict.routes || {},
+      });
+      done += 1;
+      if (done % 20 === 0) console.log(`  ${done}/${candidates.length}`);
+      // eslint-disable-next-line no-await-in-loop
+      await new Promise((r) => { setTimeout(r, PACE_MS); });
+    }
+  };
+  await Promise.all(Array.from({ length: CONCURRENCY }, worker));
+  chrome.proc.kill('SIGKILL');
+
+  results.sort((a, b) => (a.id < b.id ? -1 : 1));
+  fs.writeFileSync(out, `${JSON.stringify({ probedAt: new Date().toISOString().slice(0, 10), results }, null, 1)}\n`);
+
+  const ok = results.filter((r) => r.accepted);
+  console.log(`\nAccepted ${ok.length} of ${results.length}. Written to ${out}.`);
+  const byReason = {};
+  for (const r of results.filter((x) => !x.accepted)) {
+    const k = r.why.split(':')[0].split(';')[0];
+    byReason[k] = (byReason[k] || 0) + 1;
+  }
+  console.log('Rejected:', Object.entries(byReason).sort((a, b) => b[1] - a[1])
+    .map(([k, v]) => `${k}=${v}`).join(' '));
+  try { fs.rmSync(chrome.profile, { recursive: true, force: true }); } catch { /* the OS will reap it */ }
+}
+
+if (process.argv.includes('--candidates')) runCandidates().catch((e) => { console.error(e); process.exit(1); });
+else if (process.argv.includes('--apply')) runApply();
 else runProbe().catch((e) => { console.error(e); process.exit(1); });
