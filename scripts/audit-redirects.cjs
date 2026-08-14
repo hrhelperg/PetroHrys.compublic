@@ -221,11 +221,22 @@ async function main() {
     }
   }
 
+  // Named records are selected from every collection, not from the queue that
+  // note wording happens to build. "Audit exactly these" has to mean that:
+  // filtering the queue would silently audit nothing and report success, which
+  // is what happened when thirteen redirects found by the actionability pass
+  // carried wording this filter did not recognise.
   const ids = process.argv.indexOf('--ids');
   let list = targets;
   if (ids !== -1 && process.argv[ids + 1]) {
     const want = new Set(process.argv[ids + 1].split(',').map((s) => s.trim()));
-    list = targets.filter((r) => want.has(r.id));
+    const everything = [];
+    for (const src of SOURCES) {
+      for (const r of JSON.parse(fs.readFileSync(src.data, 'utf8'))) {
+        everything.push({ ...r, collection: src.key });
+      }
+    }
+    list = everything.filter((r) => want.has(r.id));
   }
 
   console.log(`Redirect audit: ${list.length} record(s).`);

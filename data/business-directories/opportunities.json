@@ -142,10 +142,11 @@
    "united-states"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "A leading home design and renovation platform with public professional profiles. Operated by Houzz Inc. The professional signup is a JavaScript app, so the onboarding step needs a browser.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://www.houzz.com/pro?source=header"
  },
  {
   "id": "us-nextdoor",
@@ -160,10 +161,11 @@
    "united-states"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "A neighbourhood social platform where businesses hold public pages; the operator states millions of businesses have claimed one. The legal entity is behind an authenticated page, so the operator is not recorded.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://business.nextdoor.com/en-us/getting-started/business-page?hsLang=en-us"
  },
  {
   "id": "us-superpages",
@@ -232,10 +234,11 @@
    "united-states"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "A national US business directory with a state-by-state tree of public profiles. It names no legal entity anywhere, which is why the operator stays unknown and it is not a full record.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://www.chamberofcommerce.com/members/add-business"
  },
  {
   "id": "uk-yell",
@@ -343,10 +346,11 @@
    "canada"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "A Canadian local search engine with public business profiles, operated by 411 Local Search Corp. Its add-business route sends businesses to the Yellow Pages form, so its own listing action is unresolved.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://solutions.yp.ca/free-listing"
  },
  {
   "id": "ca-canadaone",
@@ -1250,10 +1254,11 @@
    "global"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "A global B2B industry platform for sales and marketing with public company profiles.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://www.industrystock.com/en/register"
  },
  {
   "id": "global-exportersindia",
@@ -1315,7 +1320,7 @@
  {
   "id": "global-techpilot",
   "name": "Techpilot",
-  "website": "https://www.techpilot.net/",
+  "website": "https://www.techpilot.com/en",
   "country": "global",
   "category": "manufacturing",
   "tier": "tier2",
@@ -1328,8 +1333,8 @@
   "publicProfileAvailable": true,
   "listingAction": "unknown",
   "submissionModel": "unknown",
-  "note": "A European sourcing platform for custom manufactured parts with public supplier profiles.",
-  "lastVerified": "2026-08-06"
+  "note": "A European sourcing platform for custom manufactured parts with public supplier profiles. Audited on 2026-08-14: Techpilot moved from techpilot.net to techpilot.com; the record now points at the current address.",
+  "lastVerified": "2026-08-14"
  },
  {
   "id": "global-tradekey",
@@ -1456,10 +1461,11 @@
    "global"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "A SaaS product discovery and comparison platform. Checked in a browser on 2026-08-14: the site loads and serves its own content.",
-  "lastVerified": "2026-08-14"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://www.saasworthy.com/offerings"
  },
  {
   "id": "global-stackshare",
@@ -2759,10 +2765,11 @@
    "middle-east"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "A Gulf region business directory with public company listings and search.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://dubaiyellowpagesonline.com/addlisting.htm"
  },
  {
   "id": "br-guiamais",
@@ -3428,15 +3435,16 @@
    "global"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "Microsoft's business application marketplace with public publisher listings.",
-  "lastVerified": "2026-08-06",
+  "lastVerified": "2026-08-14",
   "intelligence": {
    "countryReach": "global",
    "approvalMode": "manual",
    "profileIndexed": true
-  }
+  },
+  "submissionUrl": "https://www.microsoft.com/en-us/isv"
  },
  {
   "id": "global-zapier-apps",
@@ -3568,7 +3576,7 @@
  {
   "id": "global-smartcustomer",
   "name": "SmartCustomer",
-  "website": "https://www.sitejabber.com/",
+  "website": "https://www.smartcustomer.com/",
   "country": "global",
   "category": "review-sites",
   "tier": "tier2",
@@ -3581,8 +3589,8 @@
   "publicProfileAvailable": true,
   "listingAction": "unknown",
   "submissionModel": "unknown",
-  "note": "A business review and ratings platform with public company profiles. The Sitejabber domain now resolves to SmartCustomer, so SmartCustomer is the live product name.",
-  "lastVerified": "2026-08-06"
+  "note": "A business review and ratings platform with public company profiles. The Sitejabber domain now resolves to SmartCustomer, so SmartCustomer is the live product name. Audited on 2026-08-14: the record already carried the new name; only the address was stale; the record now points at the current address.",
+  "lastVerified": "2026-08-14"
  },
  {
   "id": "global-resellerratings",
@@ -3616,10 +3624,11 @@
    "united-states"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "claim",
   "submissionModel": "unknown",
   "note": "A large US consumer review and research platform with public brand profiles.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "claimUrl": "https://brands.consumeraffairs.com/"
  },
  {
   "id": "global-pissedconsumer",
@@ -4400,7 +4409,7 @@
   "publicProfileAvailable": true,
   "listingAction": "unknown",
   "submissionModel": "unknown",
-  "note": "A UK business-to-business sourcing marketplace with public supplier profiles. Audited on 2026-08-14: Businessmagnet announced the acquisition of the Applegate.co.uk domain on 19 September 2025, on the page the redirect lands on. The surviving record is uk-businessmagnet (https://www.businessmagnet.co.uk/).",
+  "note": "A UK business-to-business sourcing marketplace with public supplier profiles. The surviving record is uk-businessmagnet (https://www.businessmagnet.co.uk/). The surviving record is uk-businessmagnet (https://www.businessmagnet.co.uk/). Audited on 2026-08-14: Businessmagnet announced the acquisition of the Applegate.co.uk domain on 19 September 2025, on the page the redirect lands on. The surviving record is uk-businessmagnet (https://www.businessmagnet.co.uk/).",
   "lastVerified": "2026-08-14"
  },
  {
@@ -4544,10 +4553,11 @@
    "global"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "A custom manufacturing marketplace where suppliers publish capability profiles.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://www.mfg.com/get-leads/"
  },
  {
   "id": "uk-houzz",
@@ -4562,10 +4572,11 @@
    "united-kingdom"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "The UK arm of the Houzz home design platform with public professional profiles.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://www.houzz.co.uk/pro?source=header"
  },
  {
   "id": "global-behance",
@@ -5169,7 +5180,7 @@
  {
   "id": "au-seek-companies",
   "name": "SEEK Company Profiles",
-  "website": "https://www.seek.com.au/companies",
+  "website": "https://au.seek.com/companies",
   "country": "australia",
   "category": "general-business",
   "tier": "tier1",
@@ -5181,8 +5192,8 @@
   "publicProfileAvailable": true,
   "listingAction": "unknown",
   "submissionModel": "unknown",
-  "note": "SEEK's public company profile directory for Australian employers.",
-  "lastVerified": "2026-08-06"
+  "note": "SEEK's public company profile directory for Australian employers. Audited on 2026-08-14: SEEK moved its Australian company profiles onto au.seek.com; the record now points at the current address.",
+  "lastVerified": "2026-08-14"
  },
  {
   "id": "global-comparably",
@@ -5923,10 +5934,11 @@
    "united-kingdom"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "A leading European hair and beauty booking marketplace with public salon profiles.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://www.treatwell.co.uk/partners/"
  },
  {
   "id": "global-booksy",
@@ -5942,10 +5954,11 @@
    "united-states"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "A global beauty and wellness booking marketplace with public provider profiles.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://biz.booksy.com/en-us/?utm_source=cust_web&utm_medium=button&utm_campaign=b2bb2csection"
  },
  {
   "id": "global-fresha",
@@ -6414,10 +6427,11 @@
    "australia"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "An Australian trades and services marketplace with public business profiles.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://www.serviceseeking.com.au/list-your-business"
  },
  {
   "id": "au-hipages",
@@ -6432,10 +6446,11 @@
    "australia"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "The leading Australian tradesperson marketplace with public business profiles.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://hipages.com.au/registration"
  },
  {
   "id": "au-oneflare",
@@ -6452,7 +6467,7 @@
   "publicProfileAvailable": true,
   "listingAction": "unknown",
   "submissionModel": "unknown",
-  "note": "An Australian services marketplace with public business profiles. Audited on 2026-08-14: the destination states the Oneflare brand retired on 30 June 2026 and directs users to Airtasker, which is already recorded. The surviving record is mp-au-airtasker (https://www.airtasker.com/).",
+  "note": "An Australian services marketplace with public business profiles. The surviving record is mp-au-airtasker (https://www.airtasker.com/). The surviving record is mp-au-airtasker (https://www.airtasker.com/). Audited on 2026-08-14: the destination states the Oneflare brand retired on 30 June 2026 and directs users to Airtasker, which is already recorded. The surviving record is mp-au-airtasker (https://www.airtasker.com/).",
   "lastVerified": "2026-08-14"
  },
  {
@@ -6541,10 +6556,11 @@
    "india"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "A large Indian local services marketplace with public business profiles.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://www.sulekha.com/list-your-business"
  },
  {
   "id": "global-tradeford",
@@ -6974,7 +6990,7 @@
  {
   "id": "global-notion-integrations",
   "name": "Notion Integrations",
-  "website": "https://www.notion.so/integrations",
+  "website": "https://www.notion.com/connections",
   "country": "global",
   "category": "app-directories",
   "tier": "tier1",
@@ -6986,8 +7002,8 @@
   "publicProfileAvailable": true,
   "listingAction": "unknown",
   "submissionModel": "unknown",
-  "note": "Notion's public integrations and connections directory.",
-  "lastVerified": "2026-08-06"
+  "note": "Notion's public integrations and connections directory. Audited on 2026-08-14: Notion moved from notion.so to notion.com and renamed the directory Connections; the record now points at the current address.",
+  "lastVerified": "2026-08-14"
  },
  {
   "id": "global-airtable-marketplace",
@@ -7158,7 +7174,7 @@
   "publicProfileAvailable": true,
   "listingAction": "unknown",
   "submissionModel": "unknown",
-  "note": "The Danish arm of the Eniro directory group. Audited on 2026-08-14: Eniro Denmark now serves Krak, which is already recorded. The surviving record is dk-krak (https://www.krak.dk/).",
+  "note": "The Danish arm of the Eniro directory group. The surviving record is dk-krak (https://www.krak.dk/). The surviving record is dk-krak (https://www.krak.dk/). Audited on 2026-08-14: Eniro Denmark now serves Krak, which is already recorded. The surviving record is dk-krak (https://www.krak.dk/).",
   "lastVerified": "2026-08-14"
  },
  {
@@ -7235,8 +7251,8 @@
  },
  {
   "id": "it-infoimprese",
-  "name": "Infoimprese",
-  "website": "https://www.infoimprese.it/",
+  "name": "Registro Imprese",
+  "website": "https://www.registroimprese.it/",
   "country": "italy",
   "category": "general-business",
   "tier": "tier2",
@@ -7248,8 +7264,8 @@
   "publicProfileAvailable": true,
   "listingAction": "unknown",
   "submissionModel": "unknown",
-  "note": "The Italian chambers of commerce company directory with public business entries.",
-  "lastVerified": "2026-08-06"
+  "note": "The Italian chambers of commerce company directory with public business entries. Audited on 2026-08-14: InfoImprese was folded into Registro Imprese, the official Italian business register run by the same operator.",
+  "lastVerified": "2026-08-14"
  },
  {
   "id": "it-paginemail",
@@ -7450,7 +7466,7 @@
   "publicProfileAvailable": true,
   "listingAction": "unknown",
   "submissionModel": "unknown",
-  "note": "The German arm of the Opendi directory network. Audited on 2026-08-14: opendi.de now serves Stadtbranchenbuch, which is already recorded. The surviving record is de-stadtbranchenbuch (https://www.stadtbranchenbuch.com/).",
+  "note": "The German arm of the Opendi directory network. The surviving record is de-stadtbranchenbuch (https://www.stadtbranchenbuch.com/). The surviving record is de-stadtbranchenbuch (https://www.stadtbranchenbuch.com/). Audited on 2026-08-14: opendi.de now serves Stadtbranchenbuch, which is already recorded. The surviving record is de-stadtbranchenbuch (https://www.stadtbranchenbuch.com/).",
   "lastVerified": "2026-08-14"
  },
  {
@@ -8159,7 +8175,7 @@
  {
   "id": "fr-hoodspot",
   "name": "Hoodspot",
-  "website": "https://www.hoodspot.fr/",
+  "website": "https://annuaire.petitesaffiches.fr/",
   "country": "france",
   "category": "local-business",
   "tier": "tier2",
@@ -8171,8 +8187,8 @@
   "publicProfileAvailable": true,
   "listingAction": "unknown",
   "submissionModel": "unknown",
-  "note": "A French local business directory with public company pages. The annuaire.com domain resolves here.",
-  "lastVerified": "2026-08-06"
+  "note": "A French local business directory with public company pages. The annuaire.com domain resolves here. Audited on 2026-08-14: Hoodspot now runs on the Petites Affiches domain under its own name; the record now points at the current address.",
+  "lastVerified": "2026-08-14"
  },
  {
   "id": "fr-118000",
@@ -8367,10 +8383,11 @@
    "united-kingdom"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "A UK local business directory offering free business listings.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://www.localpages.co.uk/advertise.php"
  },
  {
   "id": "uk-openingtimes",
@@ -11346,8 +11363,8 @@
  },
  {
   "id": "cz-damejidlo",
-  "name": "foodora Česko",
-  "website": "https://www.damejidlo.cz/",
+  "name": "foodora Czechia",
+  "website": "https://www.foodora.cz/",
   "country": "czech-republic",
   "category": "local-business",
   "tier": "tier1",
@@ -11359,8 +11376,8 @@
   "publicProfileAvailable": true,
   "listingAction": "unknown",
   "submissionModel": "unknown",
-  "note": "The main Czech food delivery platform, where restaurants hold public pages. Rebranded in place from Dáme jídlo to foodora.",
-  "lastVerified": "2026-08-06"
+  "note": "The main Czech food delivery platform, where restaurants hold public pages. Rebranded in place from Dáme jídlo to foodora. Audited on 2026-08-14: Dame jidlo was rebranded to foodora in Czechia.",
+  "lastVerified": "2026-08-14"
  },
  {
   "id": "ie-justeat",
@@ -11411,10 +11428,11 @@
    "europe"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "A delivery marketplace originating in Spain where partner shops and restaurants hold public pages.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://sell.glovoapp.com/?utm_source=entity_page&utm_medium=referral&utm_campaign=consumer_footer"
  },
  {
   "id": "se-foodora",
@@ -12194,7 +12212,7 @@
   "publicProfileAvailable": true,
   "listingAction": "unknown",
   "submissionModel": "unknown",
-  "note": "The Jamaican yellow pages directory. Audited on 2026-08-14: the Jamaica Yellow Pages domain now serves findyello, which is already recorded for Jamaica — one host, one country, one product. The surviving record is jm-findyello (https://www.findyello.com/).",
+  "note": "The Jamaican yellow pages directory. The surviving record is jm-findyello (https://www.findyello.com/). The surviving record is jm-findyello (https://www.findyello.com/). Audited on 2026-08-14: the Jamaica Yellow Pages domain now serves findyello, which is already recorded for Jamaica — one host, one country, one product. The surviving record is jm-findyello (https://www.findyello.com/).",
   "lastVerified": "2026-08-14"
  },
  {
@@ -12210,10 +12228,11 @@
    "country-specific"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "The Barbadian yellow pages directory. Audited on 2026-08-14: the Barbados Yellow Pages domain now serves findyello's Barbados section, which is a distinct market from the Jamaica record on the same host; the record now points at the current address.",
-  "lastVerified": "2026-08-14"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://www.findyello.com/list-business/"
  },
  {
   "id": "hn-hondurastips",
@@ -12282,10 +12301,11 @@
    "country-specific"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "A Bahamian local search engine and business directory.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://www.bahamaslocal.com/new_listing/"
  },
  {
   "id": "pr-clasificadosonline",
@@ -12362,7 +12382,7 @@
  {
   "id": "global-bing-places",
   "name": "Bing Places for Business",
-  "website": "https://www.bingplaces.com/",
+  "website": "https://www.bing.com/forbusiness/",
   "country": "global",
   "category": "local-business",
   "tier": "tier1",
@@ -12374,8 +12394,8 @@
   "publicProfileAvailable": true,
   "listingAction": "unknown",
   "submissionModel": "unknown",
-  "note": "Microsoft's business listing service, feeding Bing search and maps results.",
-  "lastVerified": "2026-08-06"
+  "note": "Microsoft's business listing service, feeding Bing search and maps results. Audited on 2026-08-14: Bing Places moved onto bing.com; the record now points at the current address.",
+  "lastVerified": "2026-08-14"
  },
  {
   "id": "global-apple-business-connect",
@@ -12661,10 +12681,11 @@
    "north-america"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "The leading US therapist directory, where practitioners hold public profiles.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://join.psychologytoday.com/us/signup"
  },
  {
   "id": "us-goodtherapy",
@@ -12824,10 +12845,11 @@
    "north-america"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "A US care marketplace where childcare, senior care and pet care providers hold public profiles.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://www.care.com/app/pn-business"
  },
  {
   "id": "us-sittercity",
@@ -12878,10 +12900,11 @@
    "united-states"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "A US senior living and care directory with public community listings and reviews.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://partners.caring.com/contact-us"
  },
  {
   "id": "us-seniorly",
@@ -14708,7 +14731,7 @@
  {
   "id": "jp-nc-net",
   "name": "NC Network",
-  "website": "https://www.nc-net.or.jp/",
+  "website": "https://www.nc-net.com/",
   "country": "japan",
   "category": "manufacturing",
   "tier": "tier2",
@@ -14720,8 +14743,8 @@
   "publicProfileAvailable": true,
   "listingAction": "unknown",
   "submissionModel": "unknown",
-  "note": "A Japanese factory and manufacturer search network with public company profiles.",
-  "lastVerified": "2026-08-06"
+  "note": "A Japanese factory and manufacturer search network with public company profiles. Audited on 2026-08-14: NC Network moved from nc-net.or.jp to nc-net.com; the record now points at the current address.",
+  "lastVerified": "2026-08-14"
  },
  {
   "id": "jp-ipros",
@@ -14934,10 +14957,11 @@
    "country-specific"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "claim",
   "submissionModel": "unknown",
   "note": "A Singapore restaurant discovery platform where venues hold public pages.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "claimUrl": "https://business.burpple.com/"
  },
  {
   "id": "sg-chope",
@@ -15006,10 +15030,11 @@
    "india"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "A major Indian healthcare platform where doctors and clinics hold public profiles.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://www.practo.com/providers/clinics/profile"
  },
  {
   "id": "in-urbancompany",
@@ -16745,7 +16770,7 @@
  {
   "id": "cl-computrabajo",
   "name": "Computrabajo Chile",
-  "website": "https://www.computrabajo.cl/",
+  "website": "https://cl.computrabajo.com/",
   "country": "chile",
   "category": "general-business",
   "tier": "tier1",
@@ -16757,8 +16782,8 @@
   "publicProfileAvailable": true,
   "listingAction": "unknown",
   "submissionModel": "unknown",
-  "note": "The Chilean arm of a major Latin American job board where employers hold public company pages.",
-  "lastVerified": "2026-08-06"
+  "note": "The Chilean arm of a major Latin American job board where employers hold public company pages. Audited on 2026-08-14: Computrabajo serves Chile from a country subdomain of its global site; the record now points at the current address.",
+  "lastVerified": "2026-08-14"
  },
  {
   "id": "ec-computrabajo",
@@ -17169,10 +17194,11 @@
    "middle-east"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "The UAE B2B business directory with public company profiles.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://www.yellowpages.ae/register?userType=Seller"
  },
  {
   "id": "ae-dubizzle",
@@ -17511,10 +17537,11 @@
    "country-specific"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "A South African marketplace where local professionals hold public profiles.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://www.snupit.co.za/join-as-a-pro.aspx"
  },
  {
   "id": "za-hellopeter",
@@ -17529,10 +17556,11 @@
    "country-specific"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create-and-claim",
   "submissionModel": "unknown",
   "note": "The leading South African company review platform, where businesses hold public profiles.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://blog.hellopeter.com/faqs/hellopeter-packages"
  },
  {
   "id": "za-cylex",
@@ -17764,10 +17792,11 @@
    "country-specific"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "A Nigerian business directory and search engine with public company profiles.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://www.finelib.com/add.php"
  },
  {
   "id": "ng-nigeriagalleria",
@@ -17854,10 +17883,11 @@
    "country-specific"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "The Kenyan yellow pages business directory.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://www.yellowpageskenya.com/add-your-business"
  },
  {
   "id": "ke-jiji",
@@ -17926,10 +17956,11 @@
    "country-specific"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "The main Ethiopian business portal with a company and supplier directory.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://www.2merkato.com/directory/add-listing"
  },
  {
   "id": "ug-jiji",
@@ -18556,10 +18587,11 @@
    "united-states"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "A major US construction industry directory where contractors and suppliers hold public profiles.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://www.thebluebook.com/request-free-listing.html"
  },
  {
   "id": "us-machinerytrader",
@@ -18959,8 +18991,8 @@
  },
  {
   "id": "at-mjam",
-  "name": "foodora Österreich",
-  "website": "https://www.mjam.net/",
+  "name": "foodora Austria",
+  "website": "https://www.foodora.at/",
   "country": "austria",
   "category": "local-business",
   "tier": "tier1",
@@ -18972,8 +19004,8 @@
   "publicProfileAvailable": true,
   "listingAction": "unknown",
   "submissionModel": "unknown",
-  "note": "The main Austrian food delivery platform, where restaurants hold public pages. Rebranded in place from Mjam to foodora.",
-  "lastVerified": "2026-08-06"
+  "note": "The main Austrian food delivery platform, where restaurants hold public pages. Rebranded in place from Mjam to foodora. Audited on 2026-08-14: mjam was rebranded to foodora in Austria.",
+  "lastVerified": "2026-08-14"
  },
  {
   "id": "at-lieferando",
@@ -19895,8 +19927,8 @@
  },
  {
   "id": "es-construmatica",
-  "name": "Construmatica",
-  "website": "https://www.construmatica.com/",
+  "name": "Construnews",
+  "website": "https://www.construnews.com/",
   "country": "spain",
   "category": "construction",
   "tier": "tier2",
@@ -19908,8 +19940,8 @@
   "publicProfileAvailable": true,
   "listingAction": "unknown",
   "submissionModel": "unknown",
-  "note": "A Spanish construction portal with a company and product directory.",
-  "lastVerified": "2026-08-06"
+  "note": "A Spanish construction portal with a company and product directory. Audited on 2026-08-14: Construmatica now trades as Construnews.",
+  "lastVerified": "2026-08-14"
  },
  {
   "id": "es-restaurantes-com",
@@ -23316,7 +23348,7 @@
  {
   "id": "ae-dubaichamber",
   "name": "Dubai Chamber of Commerce",
-  "website": "https://www.dubaichamber.com/",
+  "website": "https://www.dubaichambercommerce.com/en/",
   "country": "united-arab-emirates",
   "category": "chambers-of-commerce",
   "tier": "tier1",
@@ -23328,8 +23360,8 @@
   "publicProfileAvailable": true,
   "listingAction": "unknown",
   "submissionModel": "unknown",
-  "note": "The Dubai chamber of commerce, whose member companies appear in a business directory.",
-  "lastVerified": "2026-08-06"
+  "note": "The Dubai chamber of commerce, whose member companies appear in a business directory. Audited on 2026-08-14: the Dubai Chamber moved its business directory to a new domain; the record now points at the current address.",
+  "lastVerified": "2026-08-14"
  },
  {
   "id": "ae-uaebusinessdirectory",
@@ -23429,14 +23461,14 @@
   "category": "general-business",
   "tier": "tier2",
   "priority": "P3",
-  "currentStatus": "unknown",
+  "currentStatus": "active",
   "audienceGeography": [
    "middle-east"
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
   "submissionModel": "unknown",
-  "note": "A Gulf vehicle marketplace where dealers hold public dealer pages. An automated browser check on 2026-08-14 was refused by the site (only 0 characters rendered); a browser check is needed by a person and the status stays unknown.",
+  "note": "A Gulf vehicle marketplace where dealers hold public dealer pages. Checked in a browser on 2026-08-14: the site loads and serves its own content.",
   "lastVerified": "2026-08-14"
  },
  {
@@ -23506,10 +23538,11 @@
    "global"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "A software discovery and review platform where vendors hold public product profiles.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://tekpon.com/get-listed/"
  },
  {
   "id": "global-techimply",
@@ -24425,10 +24458,11 @@
    "india"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "A major Indian local search engine where businesses hold public profiles.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://www.indiaonline.in/grow-your-business"
  },
  {
   "id": "in-ahmedabadyellowpages",
@@ -25163,10 +25197,11 @@
    "country-specific"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "The main Ethiopian business directory and product catalogue with public company profiles.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://addisbiz.com/business-directory/register-your-business"
  },
  {
   "id": "et-ezega",
@@ -25307,10 +25342,11 @@
    "country-specific"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "A Nigerian business information portal carrying a public company directory.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://www.connectnigeria.com/user-manager/business/my-business"
  },
  {
   "id": "ng-ngex",
@@ -25488,10 +25524,11 @@
    "country-specific"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "The largest Bangladeshi business portal, with public company and supplier profiles.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://www.bdtradeinfo.com/classified-listing"
  },
  {
   "id": "bd-bdbusinessdirectory",
@@ -26990,7 +27027,7 @@
   "publicProfileAvailable": true,
   "listingAction": "create",
   "submissionModel": "free",
-  "note": "A Slovak company catalogue on the Azet portal, organised by category and locality. The site states it holds over 183,000 companies and invites free company submission.",
+  "note": "A Slovak company catalogue on the Azet portal, organised by category and locality. The site states it holds over 183,000 companies and invites free company submission. A browser pass on 2026-08-14 found no listing route published in words on the homepage or the pages it links to, so no submission URL is recorded; the action above comes from earlier research.",
   "lastVerified": "2026-08-14"
  },
  {
@@ -27008,7 +27045,7 @@
   "publicProfileAvailable": true,
   "listingAction": "create",
   "submissionModel": "unknown",
-  "note": "The Slovak Golden Pages online company database, operated by WeNetOnline, with an open \"add your company\" route.",
+  "note": "The Slovak Golden Pages online company database, operated by WeNetOnline, with an open \"add your company\" route. A browser pass on 2026-08-14 found no listing route published in words on the homepage or the pages it links to, so no submission URL is recorded; the action above comes from earlier research.",
   "lastVerified": "2026-08-14"
  },
  {
@@ -27062,7 +27099,7 @@
   "publicProfileAvailable": true,
   "listingAction": "create",
   "submissionModel": "free",
-  "note": "The Hungarian arm of the Opendi business directory and review network, offering free company submission.",
+  "note": "The Hungarian arm of the Opendi business directory and review network, offering free company submission. A browser pass on 2026-08-14 found no listing route published in words on the homepage or the pages it links to, so no submission URL is recorded; the action above comes from earlier research.",
   "lastVerified": "2026-08-14"
  },
  {
@@ -27080,7 +27117,7 @@
   "publicProfileAvailable": true,
   "listingAction": "create",
   "submissionModel": "unknown",
-  "note": "The Romanian Yellow Pages directory, searchable by company, product, service, tax code or activity code, with an \"add company\" route.",
+  "note": "The Romanian Yellow Pages directory, searchable by company, product, service, tax code or activity code, with an \"add company\" route. A browser pass on 2026-08-14 found no listing route published in words on the homepage or the pages it links to, so no submission URL is recorded; the action above comes from earlier research.",
   "lastVerified": "2026-08-14"
  },
  {
@@ -27116,7 +27153,7 @@
   "publicProfileAvailable": true,
   "listingAction": "create",
   "submissionModel": "free",
-  "note": "The Romanian arm of the Opendi business directory and review network, offering free company registration.",
+  "note": "The Romanian arm of the Opendi business directory and review network, offering free company registration. A browser pass on 2026-08-14 found no listing route published in words on the homepage or the pages it links to, so no submission URL is recorded; the action above comes from earlier research.",
   "lastVerified": "2026-08-14"
  },
  {
@@ -27134,7 +27171,7 @@
   "publicProfileAvailable": true,
   "listingAction": "create",
   "submissionModel": "free",
-  "note": "A Bulgarian online business catalogue that publishes public company listing pages and states that adding a company is free.",
+  "note": "A Bulgarian online business catalogue that publishes public company listing pages and states that adding a company is free. A browser pass on 2026-08-14 found no listing route published in words on the homepage or the pages it links to, so no submission URL is recorded; the action above comes from earlier research.",
   "lastVerified": "2026-08-14"
  },
  {
@@ -27386,7 +27423,7 @@
   "publicProfileAvailable": true,
   "listingAction": "create",
   "submissionModel": "unknown",
-  "note": "A Latvian business catalogue organised by sector with an open \"submit your company\" route. The site states its database holds 251,316 companies, 102,563 of them active.",
+  "note": "A Latvian business catalogue organised by sector with an open \"submit your company\" route. The site states its database holds 251,316 companies, 102,563 of them active. A browser pass on 2026-08-14 found no listing route published in words on the homepage or the pages it links to, so no submission URL is recorded; the action above comes from earlier research.",
   "lastVerified": "2026-08-14"
  },
  {
@@ -27512,7 +27549,7 @@
   "publicProfileAvailable": true,
   "listingAction": "create",
   "submissionModel": "free",
-  "note": "The Icelandic directory-enquiries service, with a map-based business search. Its company registration page states that basic company registration is free.",
+  "note": "The Icelandic directory-enquiries service, with a map-based business search. Its company registration page states that basic company registration is free. A browser pass on 2026-08-14 found no listing route published in words on the homepage or the pages it links to, so no submission URL is recorded; the action above comes from earlier research.",
   "lastVerified": "2026-08-14"
  },
  {
@@ -27531,7 +27568,8 @@
   "listingAction": "create",
   "submissionModel": "unknown",
   "note": "A Maltese online business directory covering Malta and Gozo, organised by business category, with a \"list your business\" route.",
-  "lastVerified": "2026-08-14"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://www.maltabusinessbook.com/en/list-your-business.htm"
  },
  {
   "id": "mm-yellowpages",
@@ -27549,7 +27587,8 @@
   "listingAction": "create",
   "submissionModel": "free",
   "note": "A Myanmar trade directory organised by business category, offering a free listing route.",
-  "lastVerified": "2026-08-14"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://www.myanmaryellowpages.biz/free-listing"
  },
  {
   "id": "uz-yellowpages",
@@ -27566,7 +27605,7 @@
   "publicProfileAvailable": true,
   "listingAction": "create",
   "submissionModel": "unknown",
-  "note": "An Uzbek company directory organised by rubric, with public organisation entries and an \"add company\" route.",
+  "note": "An Uzbek company directory organised by rubric, with public organisation entries and an \"add company\" route. A browser pass on 2026-08-14 found no listing route published in words on the homepage or the pages it links to, so no submission URL is recorded; the action above comes from earlier research.",
   "lastVerified": "2026-08-14"
  },
  {
@@ -27800,7 +27839,7 @@
   "publicProfileAvailable": true,
   "listingAction": "create",
   "submissionModel": "free",
-  "note": "A US attorney directory organised by practice area, location and board certification, which states that it offers free listings.",
+  "note": "A US attorney directory organised by practice area, location and board certification, which states that it offers free listings. A browser pass on 2026-08-14 found no listing route published in words on the homepage or the pages it links to, so no submission URL is recorded; the action above comes from earlier research.",
   "lastVerified": "2026-08-14"
  },
  {

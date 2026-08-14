@@ -246,3 +246,125 @@ seen, which is the one thing this collection is built not to do.
 - **62 media records** carry `currentStatus: unknown` for a different reason
   entirely: they were never researched past identification. They are **not** part
   of this wave and must not be counted as blocked.
+
+---
+
+# Quality & backlog resolution — wave Q1
+
+**Date:** 2026-08-14 · **Branch:** `feat/research-center-quality-backlog-v1`
+
+Four programs, run against the corpus wave B1 left behind. Nothing here is a
+volume expansion; every number below is a record that already existed becoming
+truer.
+
+## Program 1 — redirects, rebrands and acquisitions
+
+30 cases audited in a browser (17 known, 13 discovered by Program 4), each
+classified from the hop chain, the destination's own identity, whether that
+destination is already a record here, and whether its landing page says why.
+
+| Outcome | Count |
+|---|---:|
+| DOMAIN_MOVE — repointed, stays active | 18 |
+| REBRAND — repointed and renamed | 6 |
+| CONSOLIDATED into an existing record — marked `redirected` | 5 |
+| GEOLOCATED — nothing changed | 1 |
+
+Applegate → Businessmagnet is an acquisition announced on the landing page,
+dated 19 September 2025. Seedrs trades as Republic Europe. Oneflare's brand
+retired on 30 June 2026. Eniro Denmark serves Krak; opendi.de serves
+Stadtbranchenbuch — both already recorded, so both old records stopped being
+active rather than becoming a second copy.
+
+**Barbados is the case worth remembering.** Consolidating `bb-barbadosyp` into
+`jm-findyello` would have deleted the country's entire directory coverage — and
+would have been wrong, because the identity key here is `country/domain`, not
+`domain`. Both schemas say so, and encuentra24 already holds six records on one
+host for six markets. Jamaica genuinely was a duplicate (same host, same
+country) and was consolidated. Barbados was repointed at findyello's Barbados
+section and stays active.
+
+## Program 2 — the Media backlog
+
+62 records that had never been researched past their own name.
+
+| Outcome | Count |
+|---|---:|
+| ACTIVE_VERIFIED | 30 |
+| UNKNOWN_PROTECTED | 30 |
+| REDIRECTED (channelfutures.com → Channel Dive) | 1 |
+| UNRESOLVED | 1 |
+
+3 submission routes and 3 opportunity types established, from the operator's
+own wording. Every verified record with no route now states why it has none.
+
+The schema refused ten advertising and media-kit URLs, and was right to: those
+fields may only be set when an opportunity type justifies them. This is a
+register of **editorial** opportunities, and "we sell advertising" does not
+evidence that a publication accepts sponsored articles.
+
+## Program 3 — the protected backlog, bounded
+
+268 records remained behind live protection. They had already had one browser
+attempt each. A second attempt with the same configuration would produce the
+same answer, and a second attempt with a *different* configuration would be
+circumvention, which is out of scope by instruction and by principle.
+
+So the retry was scoped to the only variable that is legitimately different on
+a second look: **time**. A 429 or a 5xx is transient; a Cloudflare interstitial
+is policy.
+
+- 26 transient failures retried (429, 5xx, unreachable, under-rendered)
+- 3 recovered: `ae-yallamotor`, `mp-es-milanuncios`, `mp-us-mercari`
+- 241 policy refusals **not** retried, and still `unknown`
+
+## Program 4 — actionability
+
+482 live records whose listing action was unknown — the P1/P2, tier-1/tier-2
+cohort — each visited along one or two steps of the operator's own navigation,
+because a directory's front page is a search box and "how do I get listed" is
+usually one click behind it.
+
+- 37 listing routes established from wording ("Add Your Business", "List your
+  business", "Claim Your Free Business Account")
+- 1 rejected: a 79-character run-on beginning "Business GuideEthiopian Business
+  Directory - List Your Business Profile. Search…" is page text that happened to
+  sit inside an anchor, not a call to action
+- 13 records believed active turned out to be redirects, and went to Program 1
+- 2 more routes found for records that claimed an action with no URL; the other
+  10 keep the action their earlier research established and now record that no
+  route is published in words
+
+## Planner truth
+
+| Bucket | Before wave Q1 | After |
+|---|---:|---:|
+| Ready to execute | 63 | **103** |
+| Needs research | 1446 | **1427** |
+| Needs browser verification | 268 | **250** |
+
+Ready rose by 64%. Needs research barely moved, and that is the honest result:
+establishing that a site is alive and finding where its listing form lives are
+different questions, and 431 of the 482 records examined still have not answered
+the second one. The objective was classification truth, not a bigger Ready.
+
+## Corpus quality
+
+`scripts/audit-corpus-quality.cjs` sweeps all four collections for malformed
+canonical URLs, notes contradicting their own record's status, unexplained
+unknowns, parked-domain wording, duplicate live identities, routes equal to the
+homepage, actions with no route and no account of why, and redirects that name
+no survivor.
+
+**0 problems across 2,747 records**, from 20 at the start of the wave.
+
+Two of those twenty were the audit being wrong rather than the data:
+
+- Six "duplicate" tender records are the multilateral banks — AIIB, IsDB, BCIE,
+  FONPLATA — each running corporate procurement and project procurement as
+  separate systems on one domain, and three UN agencies behind one e-tendering
+  vendor. Different systems, different suppliers, different rules. The identity
+  key now includes the path, which is what bd-schema already said.
+- `limitations` is where a record says what could not be established about a
+  *route*. Reading "the submission form returned 403" as contradicting an active
+  publication punished the collection for being precise.

@@ -535,12 +535,13 @@
    "observed": {
     "status": 200,
     "finalUrl": "https://www.milanuncios.com/",
-    "title": "MILANUNCIOS: segunda mano, anuncios gratis, empleo, clasificados...",
-    "textLen": 0,
-    "anchors": 0
+    "title": null,
+    "textLen": 439,
+    "anchors": 1
    },
-   "verdict": "inconclusive",
-   "why": "only 0 characters rendered"
+   "verdict": "active",
+   "why": "439 characters of real content",
+   "routes": {}
   },
   {
    "id": "mp-et-engocha",
@@ -1538,12 +1539,12 @@
    "observed": {
     "status": 200,
     "finalUrl": "https://www.apartments.com/",
-    "title": null,
-    "textLen": 0,
-    "anchors": 1
+    "title": "Access Denied",
+    "textLen": 200,
+    "anchors": 0
    },
-   "verdict": "inconclusive",
-   "why": "only 0 characters rendered"
+   "verdict": "blocked",
+   "why": "access-denied"
   },
   {
    "id": "mp-us-cargurus",
@@ -1665,12 +1666,13 @@
    "observed": {
     "status": 200,
     "finalUrl": "https://www.mercari.com/",
-    "title": "Your Go-to Marketplace for Deals on Used & Secondhand Items | Mercari",
-    "textLen": 177,
-    "anchors": 1
+    "title": "Your Go-to Marketplace for Deals on Used & Secondhand Items",
+    "textLen": 2146,
+    "anchors": 168
    },
-   "verdict": "inconclusive",
-   "why": "only 177 characters rendered"
+   "verdict": "active",
+   "why": "2146 characters of real content",
+   "routes": {}
   },
   {
    "id": "mp-us-offerup",

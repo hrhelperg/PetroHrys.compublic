@@ -89,6 +89,11 @@ const PACE_MS = 700;
 // A record only leaves `unknown` when the page is unmistakably a real one.
 const MIN_TEXT = 400;
 
+// Whether to walk one step into the operator's navigation. Off for the plain
+// liveness pass, which only needs to know a site answers; on for actionability,
+// where the whole question is what the operator offers.
+const DEEP = process.argv.includes('--actionability');
+
 // Signatures of a challenge, checked against the title as well as the body:
 // Cloudflare puts "Attention Required!" in the title and almost nothing else.
 const CHALLENGE = [
@@ -120,6 +125,21 @@ const CLAIM_TEXT = [
   /\bis this your (business|listing|company)\b/i,
   /\bmanage your (listing|profile|business page)\b/i,
 ];
+
+// Pages a directory itself links to when it is explaining how to get listed.
+// Following one is walking the operator's own navigation, not crawling: the
+// homepage of a large directory is a search box, and the route lives one click
+// away under "For businesses" or "Advertise".
+const SECOND_HOP = [
+  /\bfor (businesses|business owners|companies)\b/i,
+  /\badd (your |a )?(business|company|listing)\b/i,
+  /\blist (your|a) (business|company)\b/i,
+  /\bclaim (your|this) (business|listing|profile)\b/i,
+  /\badvertise\b/i,
+  /\bbusiness (owners?|solutions|centre|center)\b/i,
+  /^(about|about us|contact|contact us)$/i,
+];
+const MAX_HOPS = 2;
 
 const arg = (name) => {
   const i = process.argv.indexOf(name);
@@ -268,9 +288,11 @@ async function probe(wsUrl, record) {
     await page.goto(record.website);
     await new Promise((r) => { setTimeout(r, SETTLE_MS); });
 
-    const seen = await page.eval((createSrc, claimSrc) => {
-      const create = createSrc.map((s) => new RegExp(s.slice(s.indexOf('/') + 1, s.lastIndexOf('/')), 'i'));
-      const claim = claimSrc.map((s) => new RegExp(s.slice(s.indexOf('/') + 1, s.lastIndexOf('/')), 'i'));
+    const seen = await page.eval((createSrc, claimSrc, hopSrc) => {
+      const rx = (src) => src.map((s) => new RegExp(s.slice(s.indexOf('/') + 1, s.lastIndexOf('/')), 'i'));
+      const create = rx(createSrc);
+      const claim = rx(claimSrc);
+      const hopRe = rx(hopSrc);
       const text = document.body ? document.body.innerText : '';
       const anchors = [...document.querySelectorAll('a[href]')].map((a) => ({
         text: (a.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 80),
@@ -280,16 +302,62 @@ async function probe(wsUrl, record) {
         for (const a of anchors) for (const re of patterns) if (re.test(a.text)) return a;
         return null;
       };
+      // The candidate next steps are chosen HERE, where the anchor list lives.
+      // `anchors` leaves this function as a count, and a previous version tried
+      // to iterate that count — 441 records failed with "number N is not
+      // iterable" before anything had been asked of a single site.
+      const hops = [];
+      for (const a of anchors) {
+        if (hops.length >= 4) break;
+        if (!hopRe.some((re) => re.test(a.text))) continue;
+        if (a.href === location.href || hops.includes(a.href)) continue;
+        hops.push(a.href);
+      }
       return {
         title: document.title || '',
         textLen: text.length,
         head: text.slice(0, 1200),
         url: location.href,
         anchors: anchors.length,
+        hops,
         create: pick(create),
         claim: pick(claim),
       };
-    }, CREATE_TEXT.map(String), CLAIM_TEXT.map(String));
+    }, CREATE_TEXT.map(String), CLAIM_TEXT.map(String), SECOND_HOP.map(String));
+
+    // One step further, along the operator's own navigation, when the homepage
+    // published no route. A directory's front page is a search box; the answer
+    // to "how do I get listed" is usually one click behind it.
+    let deep = null;
+    if (DEEP && !seen.create && !seen.claim) {
+      const origin = (() => { try { return new URL(seen.url).origin; } catch { return null; } })();
+      const hops = (seen.hops || [])
+        .filter((href) => origin && href.startsWith(origin))
+        .slice(0, MAX_HOPS);
+      for (const href of hops) {
+        try {
+          // eslint-disable-next-line no-await-in-loop
+          await page.goto(href);
+          // eslint-disable-next-line no-await-in-loop
+          await new Promise((r) => { setTimeout(r, 1500); });
+          // eslint-disable-next-line no-await-in-loop
+          const more = await page.eval((createSrc, claimSrc) => {
+            const rx = (src) => src.map((x) => new RegExp(x.slice(x.indexOf('/') + 1, x.lastIndexOf('/')), 'i'));
+            const create = rx(createSrc); const claim = rx(claimSrc);
+            const anchors = [...document.querySelectorAll('a[href]')].map((a) => ({
+              text: (a.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 80),
+              href: a.href,
+            })).filter((a) => a.text && /^https?:/.test(a.href));
+            const pick = (ps) => {
+              for (const a of anchors) for (const re of ps) if (re.test(a.text)) return a;
+              return null;
+            };
+            return { create: pick(create), claim: pick(claim), from: location.href };
+          }, CREATE_TEXT.map(String), CLAIM_TEXT.map(String));
+          if (more.create || more.claim) { deep = more; break; }
+        } catch { /* a page that will not load establishes nothing */ }
+      }
+    }
 
     // The status of the document itself, not of some asset it pulled in.
     const doc = page.requests.find((r) => r.url === seen.url)
@@ -303,8 +371,9 @@ async function probe(wsUrl, record) {
       textLen: seen.textLen,
       anchors: seen.anchors,
       head: seen.head,
-      create: seen.create,
-      claim: seen.claim,
+      create: seen.create || (deep && deep.create) || null,
+      claim: seen.claim || (deep && deep.claim) || null,
+      deepFrom: deep ? deep.from : null,
       error: null,
     };
   } catch (e) {
@@ -375,12 +444,13 @@ function collection() {
 async function runProbe() {
   if (!CHROME) { console.error('No Chrome on this machine.'); process.exit(1); }
   const C = collection();
-  const { data: DATA, findings: FINDINGS } = C;
+  const { data: DATA } = C;
+  const FINDINGS = DEEP
+    ? path.join(ROOT, 'data/business-directories/.actionability.json')
+    : C.findings;
   const rows = JSON.parse(fs.readFileSync(DATA, 'utf8'));
   let targets = rows.filter((r) => r.currentStatus === 'unknown'
     && /bot filter|browser check/i.test(r.note || ''));
-  const limit = arg('--limit');
-  if (limit) targets = targets.slice(0, Number(limit));
 
   // Re-probe a named subset. Used when the JUDGEMENT changed rather than the
   // sites — re-running 445 network calls to correct a hostname comparison would
@@ -390,6 +460,24 @@ async function runProbe() {
   // "Verify exactly these" has to mean that: after a redirect audit repoints a
   // record, its note no longer asks for a check, and filtering by the queue
   // would silently probe nothing while reporting success.
+  // Actionability enrichment targets a different cohort entirely: records that
+  // are ALIVE and whose listing action is still unknown. Liveness is settled
+  // for these; what a business can actually do on them is not, and that is the
+  // largest remaining gap in the planner's classification.
+  if (DEEP) {
+    const PRIORITY = new Set(['P1', 'P2']);
+    const TIER = new Set(['tier1', 'tier2']);
+    targets = rows.filter((r) => r.currentStatus === 'active'
+      && (!r.listingAction || r.listingAction === 'unknown')
+      && PRIORITY.has(r.priority) && TIER.has(r.tier));
+    console.log(`Actionability: ${targets.length} live record(s) whose action is unknown.`);
+  }
+
+  // --limit is applied AFTER the cohort is chosen. It used to be applied before,
+  // so an actionability run silently discarded it and probed all 482.
+  const limit = arg('--limit');
+  if (limit) targets = targets.slice(0, Number(limit));
+
   const ids = arg('--ids');
   if (ids && ids !== true) {
     const wanted = new Set(String(ids).split(',').map((s) => s.trim()).filter(Boolean));
@@ -463,6 +551,72 @@ async function runProbe() {
   // Only now, and never fatally: a just-killed Chrome may still be flushing its
   // profile, and losing a completed probe to a tidy-up failure is absurd.
   try { fs.rmSync(chrome.profile, { recursive: true, force: true }); } catch { /* the OS will reap it */ }
+}
+
+// A call to action is short. "Add Your Business" is a button; a 79-character
+// run-on beginning "Business GuideEthiopian Business Directory - List Your
+// Business Profile. Search…" is a block of page text that happened to sit
+// inside an anchor, and it evidences nothing about a route.
+const MAX_ANCHOR_TEXT = 60;
+
+// Actionability answers a different question from liveness and writes different
+// fields: it may set a listing action and its route on a record already known
+// to be alive, and it may never change a status on that basis alone.
+function runActionabilityApply() {
+  const FINDINGS = path.join(ROOT, 'data/business-directories/.actionability.json');
+  const DATA = COLLECTIONS.directories.data;
+  const { probedAt, findings } = JSON.parse(fs.readFileSync(FINDINGS, 'utf8'));
+  const rows = JSON.parse(fs.readFileSync(DATA, 'utf8'));
+  const byId = new Map(rows.map((r) => [r.id, r]));
+  const tally = {
+    established: 0, rejectedText: 0, redirected: 0, stillUnknown: 0,
+  };
+
+  for (const f of findings) {
+    const r = byId.get(f.id);
+    if (!r) continue;
+
+    if (f.verdict === 'redirected') {
+      // Discovered while looking for a route: a record believed active now
+      // answers from somewhere else. That is a Program 1 question, not an
+      // actionability one, so it is flagged rather than resolved here.
+      //
+      // Unless it has already BEEN resolved. A second run used to re-flag all
+      // thirteen after they had been repointed and verified, leaving each with
+      // a note asking for work its own status said was finished.
+      const resolved = /Audited on \d{4}-\d{2}-\d{2}/.test(r.note || '');
+      const alreadyFlagged = /An actionability check on \d{4}-\d{2}-\d{2}/.test(r.note || '');
+      if (!resolved && !alreadyFlagged) {
+        r.note = `${String(r.note || '').trim()} An actionability check on ${probedAt} found that ${f.why}; a browser check is needed by a person to settle what this record should point at.`.replace(/\s+/g, ' ').trim();
+        tally.redirected += 1;
+      }
+      continue;
+    }
+    if (f.verdict !== 'active') { tally.stillUnknown += 1; continue; }
+
+    const create = f.routes && f.routes.create;
+    const claim = f.routes && f.routes.claim;
+    const usable = (a) => a && a.text.length <= MAX_ANCHOR_TEXT && a.href !== r.website;
+    if (create && !usable(create)) { tally.rejectedText += 1; continue; }
+    if (!create && claim && !usable(claim)) { tally.rejectedText += 1; continue; }
+
+    if (usable(create) && !r.submissionUrl) {
+      r.submissionUrl = create.href;
+      r.listingAction = usable(claim) ? 'create-and-claim' : 'create';
+      r.lastVerified = probedAt;
+      tally.established += 1;
+    } else if (usable(claim) && !r.claimUrl && !create) {
+      r.claimUrl = claim.href;
+      r.listingAction = 'claim';
+      r.lastVerified = probedAt;
+      tally.established += 1;
+    } else {
+      tally.stillUnknown += 1;
+    }
+  }
+
+  fs.writeFileSync(DATA, `${JSON.stringify(rows, null, 1)}\n`);
+  console.log('Actionability merged:', Object.entries(tally).map(([k, v]) => `${k}=${v}`).join(' '));
 }
 
 function runApply() {
@@ -634,6 +788,6 @@ module.exports = {
 
 if (require.main === module) {
   if (process.argv.includes('--candidates')) runCandidates().catch((e) => { console.error(e); process.exit(1); });
-  else if (process.argv.includes('--apply')) runApply();
+  else if (process.argv.includes('--apply')) (DEEP ? runActionabilityApply : runApply)();
   else runProbe().catch((e) => { console.error(e); process.exit(1); });
 }

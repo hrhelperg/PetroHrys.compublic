@@ -3669,14 +3669,14 @@
   "marketplaceType": "general-classifieds",
   "sellerTypes": "both",
   "costModel": "freemium",
-  "currentStatus": "unknown",
+  "currentStatus": "active",
   "alsoCovers": [
    "jobs",
    "property",
    "vehicles"
   ],
   "operator": "Adevinta",
-  "note": "A major Spanish classifieds marketplace. An automated browser check on 2026-08-14 was refused by the site (only 0 characters rendered); a browser check is needed by a person and the status stays unknown."
+  "note": "A major Spanish classifieds marketplace. Checked in a browser on 2026-08-14: the site loads and serves its own content."
  },
  {
   "id": "mp-es-wallapop",
@@ -4443,8 +4443,8 @@
   "marketplaceType": "second-hand",
   "sellerTypes": "both",
   "costModel": "freemium",
-  "currentStatus": "unknown",
-  "note": "A major US consumer marketplace. An automated browser check on 2026-08-14 was refused by the site (only 177 characters rendered); a browser check is needed by a person and the status stays unknown."
+  "currentStatus": "active",
+  "note": "A major US consumer marketplace. Checked in a browser on 2026-08-14: the site loads and serves its own content."
  },
  {
   "id": "mp-us-nextdoor",

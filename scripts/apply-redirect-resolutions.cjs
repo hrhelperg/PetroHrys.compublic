@@ -118,6 +118,32 @@ const DECISIONS = {
     why: 'the destination states the Oneflare brand retired on 30 June 2026 and directs users to Airtasker, which is already recorded',
   },
 
+
+  // ── Found by the actionability pass, 2026-08-14 ───────────────────────────
+  //
+  // Thirteen records believed active were answering from somewhere else. None
+  // of the destinations is already a record here, so none is a duplicate: each
+  // is either the same product at a new address or the same product under a new
+  // name. They were classified by the same audit as the first seventeen.
+  'ae-dubaichamber': { action: 'repoint', to: 'https://www.dubaichambercommerce.com/en/', why: 'the Dubai Chamber moved its business directory to a new domain' },
+  'au-seek-companies': { action: 'repoint', to: 'https://au.seek.com/companies', why: 'SEEK moved its Australian company profiles onto au.seek.com' },
+  'cl-computrabajo': { action: 'repoint', to: 'https://cl.computrabajo.com/', why: 'Computrabajo serves Chile from a country subdomain of its global site' },
+  'global-bing-places': { action: 'repoint', to: 'https://www.bing.com/forbusiness/', why: 'Bing Places moved onto bing.com' },
+  'global-notion-integrations': { action: 'repoint', to: 'https://www.notion.com/connections', why: 'Notion moved from notion.so to notion.com and renamed the directory Connections' },
+  'global-smartcustomer': { action: 'repoint', to: 'https://www.smartcustomer.com/', why: 'the record already carried the new name; only the address was stale' },
+  'global-techpilot': { action: 'repoint', to: 'https://www.techpilot.com/en', why: 'Techpilot moved from techpilot.net to techpilot.com' },
+  'jp-nc-net': { action: 'repoint', to: 'https://www.nc-net.com/', why: 'NC Network moved from nc-net.or.jp to nc-net.com' },
+
+  'at-mjam': { action: 'rebrand', to: 'https://www.foodora.at/', name: 'foodora Austria', why: 'mjam was rebranded to foodora in Austria' },
+  'cz-damejidlo': { action: 'rebrand', to: 'https://www.foodora.cz/', name: 'foodora Czechia', why: 'Dame jidlo was rebranded to foodora in Czechia' },
+  'es-construmatica': { action: 'rebrand', to: 'https://www.construnews.com/', name: 'Construnews', why: 'Construmatica now trades as Construnews' },
+  // Renamed to "Annuaire Petites Affiches" in a first pass and corrected: the
+  // page it lands on is still titled Hoodspot.fr. The directory moved onto the
+  // Petites Affiches domain and kept its own name, which makes this a move and
+  // not a rebrand. Renaming it would have retired a brand that is still trading.
+  'fr-hoodspot': { action: 'repoint', to: 'https://annuaire.petitesaffiches.fr/', why: 'Hoodspot now runs on the Petites Affiches domain under its own name' },
+  'it-infoimprese': { action: 'rebrand', to: 'https://www.registroimprese.it/', name: 'Registro Imprese', why: 'InfoImprese was folded into Registro Imprese, the official Italian business register run by the same operator' },
+
   // ── Nothing happened ──────────────────────────────────────────────────────
   // Nothing corporate happened, and nothing was established either. The prober
   // never saw the .com product — it was handed the Irish site because of where
@@ -132,7 +158,12 @@ const DECISIONS = {
 
 // Sentences left over from the browser-verification wave that describe a
 // redirect as unresolved. Once resolved, they are no longer true.
-const STALE = /(browser check is needed|no longer established|A browser check on \d{4}-\d{2}-\d{2}|An automated browser check on \d{4}-\d{2}-\d{2})/i;
+//
+// This tool's OWN sentence is on the list, so re-running it is idempotent. It
+// was not, and a second run over the same audit appended a duplicate audit
+// sentence to fifteen records — a resolution script that corrupts records when
+// run twice is a trap for whoever runs it next.
+const STALE = /(browser check is needed|no longer established|A browser check on \d{4}-\d{2}-\d{2}|An automated browser check on \d{4}-\d{2}-\d{2}|Audited on \d{4}-\d{2}-\d{2}|An actionability check on \d{4}-\d{2}-\d{2})/i;
 
 function rewriteNote(note, replacement) {
   const kept = String(note || '').trim()
