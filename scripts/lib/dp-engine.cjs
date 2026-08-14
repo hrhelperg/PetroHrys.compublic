@@ -1139,6 +1139,25 @@
     NEEDS_RESEARCH: 'without this the opportunity cannot be worked',
   };
 
+  // Only a URL a browser may safely follow to somebody else's site. Anything
+  // else is dropped rather than rendered, which turns a hostile value into a
+  // missing CTA instead of a live one.
+  const SAFE_SCHEME = /^https?:\/\//i;
+
+  function safeExternalUrl(url) {
+    if (typeof url !== 'string') return null;
+    const trimmed = url.trim();
+    // Control characters are how "java\tscript:" gets past a naive check.
+    if (/[\u0000-\u001f\u007f]/.test(trimmed)) return null;
+    if (!SAFE_SCHEME.test(trimmed)) return null;
+    try {
+      const parsed = new URL(trimmed);
+      if (parsed.protocol !== 'http:' && parsed.protocol !== 'https:') return null;
+      if (!parsed.hostname || !parsed.hostname.includes('.')) return null;
+      return trimmed;
+    } catch { return null; }
+  }
+
   function worklistRow(entry, sectionKey, countryName) {
     const op = entry.op;
     const a = entry.x.act;
@@ -1160,8 +1179,27 @@
       cells.push({ label: 'Why it matters', text: WORKLIST_WHY[a.status] || '', url: null });
       cells.push({ label: 'Suggested research', text: a.nextAction, url: null });
     }
-    cells.push({ label: 'Do this', text: a.nextAction, url: a.actionUrl || null,
-      external: true, action: true });
+    // The CTA is the one place a stored value becomes a live external link in
+    // the product, and both the server renderer and the browser client set
+    // `href` straight from it. Neither checked the scheme. A `javascript:` or
+    // `data:` value reaching a canonical route field would have become a
+    // clickable link on the page — so the guard lives HERE, in the shared row
+    // model, rather than being remembered twice.
+    // An execution link is a promise that someone can go and do this. It needs
+    // BOTH facts: a route, and an established action for that route to serve.
+    // Sixteen rows had the first without the second — the route was recorded,
+    // what it is for was not — and the page offered "Do this" as a link into a
+    // page nobody had established the purpose of. The row keeps the URL out of
+    // the CTA in that case; the research cells above it already say what is
+    // missing.
+    const executable = op.actionType && op.actionType !== 'investigate';
+    cells.push({
+      label: 'Do this',
+      text: a.nextAction,
+      url: executable ? safeExternalUrl(a.actionUrl) : null,
+      external: true,
+      action: true,
+    });
     return {
       platformId: op.platformId,
       attrs: {
@@ -1526,6 +1564,7 @@
     worklist,
     worklistHeading,
     worklistRow,
+    safeExternalUrl,
     healthScopeNote,
     summaryText,
     PLANNER_PARAMS,

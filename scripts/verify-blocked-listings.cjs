@@ -48,6 +48,7 @@ const os = require('node:os');
 const { spawn } = require('node:child_process');
 const { openPage } = require('./tests/helpers/cdp.cjs');
 const SAFE = require('./lib/rc-safe-apply.cjs');
+const TEXT = require('./lib/rc-text-match.cjs');
 
 const ROOT = path.resolve(__dirname, '..');
 
@@ -180,13 +181,29 @@ const COUNTRY_TLD = {
 // Vocabulary a directory uses about itself, in the languages these markets
 // actually publish in. English-only matching would reject half of them for
 // being foreign, which is the opposite of the point.
-const DIRECTORY_WORDS = new RegExp([
-  'director(y|io|ios)', 'business(es)?', 'compan(y|ies)', 'yellow ?pages', 'catalog(ue)?',
-  'firm(s|en|as)?', 'enterprises?', 'listings?', 'empresas', 'entreprises', 'unternehmen',
+// Built through the shared matcher, which normalises Turkish casing, NFC/NFD
+// accents, smart punctuation and non-breaking spaces on BOTH sides. Written as
+// a bare RegExp with /i, "işletme" never matched "İŞLETME" — the Turkish dotted
+// capital does not fold — and "fyrirtæk" missed any page that happened to
+// publish its accents decomposed.
+//
+// These are stems rather than whole words, so they are matched as substrings
+// after normalisation rather than between boundaries.
+const DIRECTORY_STEMS = [
+  'director', 'directorio', 'directorios', 'business', 'businesses', 'company', 'companies',
+  'yellow pages', 'yellowpages', 'catalog', 'catalogue', 'firm', 'firms', 'firmen', 'firmas',
+  'enterprise', 'enterprises', 'listing', 'listings', 'empresas', 'entreprises', 'unternehmen',
   'aziende', 'bedrijven', 'firmy', 'фирм', 'компан', 'предприят', 'справочник', 'каталог',
   'katalog', 'rehber', 'işletme', 'εταιρ', 'επιχειρ', 'شرکت', 'شركات', 'دليل',
   'ettevõt', 'uzņēmum', 'įmoni', 'fyrirtæk', 'preduzeć', 'poduzeć', 'претприј',
-].join('|'), 'i');
+];
+const NORMALISED_STEMS = DIRECTORY_STEMS.map((w) => TEXT.normalize(w));
+const DIRECTORY_WORDS = {
+  test: (input) => {
+    const hay = TEXT.normalize(input);
+    return NORMALISED_STEMS.some((stem) => hay.includes(stem));
+  },
+};
 
 // A parked domain defeats the evidence test by accident rather than by malice:
 // belizedirectory.com is for sale, and its sale page is titled
