@@ -263,21 +263,53 @@ test('a record never claims a status its own note contradicts', () => {
   }
 });
 
-test('note rewriting removes a class of sentence, not one memorised phrase', () => {
-  // Fifteen phrasings existed; matching the commonest left 35 contradictions.
-  const phrasings = [
-    'A real directory. Live but behind a bot filter, so a browser check is needed. And more.',
-    'A real directory. Served a bot challenge, so a browser check is needed before submitting.',
-    'A real directory. Returns an authorisation gate, so a browser check is needed.',
-    'A real directory. The product could not be inspected automatically.',
-  ];
-  for (const note of phrasings) {
-    const out = V.rewriteNote(note, 'Checked in a browser: it loads.');
-    assert.ok(!/bot filter|bot challenge|browser check|could not be inspected|authorisation gate/i.test(out),
-      `a stale clause survived rewriting: ${JSON.stringify(out)}`);
-    assert.ok(out.includes('A real directory.'), 'rewriting deleted the human research as well');
-    assert.ok(out.endsWith('Checked in a browser: it loads.'), 'the new finding was not appended');
+test('a research sentence is tagged, so re-applying it replaces rather than repeats', () => {
+  // Note handling moved into scripts/lib/rc-safe-apply.cjs, and the guarantee
+  // got stronger: a sentence now carries the pass that wrote it, so the second
+  // application finds its own previous sentence instead of appending a copy.
+  // Fifteen records once carried the same audit sentence twice.
+  const SAFE = require(path.join(ROOT, 'scripts/lib/rc-safe-apply.cjs'));
+  const human = 'A real directory serving the national market.';
+
+  const once = SAFE.amendNote(human, 'the site loads and serves its own content.',
+    { owner: 'accessibility', date: '2026-08-14' });
+  const twice = SAFE.amendNote(once, 'the site loads and serves its own content.',
+    { owner: 'accessibility', date: '2026-08-14' });
+  assert.equal(twice, once, 'a second application changed the note');
+  assert.ok(once.startsWith(human), 'the human sentence did not survive first');
+  assert.equal((once.match(/accessibility:/g) || []).length, 1);
+
+  // A different owner adds its own sentence without disturbing the first.
+  const both = SAFE.amendNote(once, 'a listing route is published as "Add your business".',
+    { owner: 'actionability', date: '2026-08-14' });
+  assert.ok(both.includes('accessibility:') && both.includes('actionability:'),
+    'one owner overwrote another');
+
+  // Every phrasing the corpus used before tags existed is migrated exactly once.
+  for (const legacy of [
+    'A real directory. Live but behind a bot filter, so a browser check is needed.',
+    'A real directory. Checked in a browser on 2026-08-14: the site loads.',
+    'A real directory. Audited on 2026-08-14: the domain moved.',
+    'A real directory. The surviving record is xx-yy (https://example.test/).',
+  ]) {
+    const out = SAFE.amendNote(legacy, 'the site loads and serves its own content.',
+      { owner: 'accessibility', date: '2026-08-14' });
+    assert.ok(out.startsWith('A real directory.'), `research was lost: ${out}`);
+    assert.equal((out.match(/\[accessibility:/g) || []).length, 1);
+    assert.equal(SAFE.amendNote(out, 'the site loads and serves its own content.',
+      { owner: 'accessibility', date: '2026-08-14' }), out, 'not stable on re-application');
   }
+});
+
+test('a multi-sentence research note is refused, because only the first would be tagged', () => {
+  const SAFE = require(path.join(ROOT, 'scripts/lib/rc-safe-apply.cjs'));
+  // This is exactly how the consolidation note grew by one sentence per run:
+  // the tag reached the first sentence and the second escaped every strip.
+  assert.throws(
+    () => SAFE.amendNote('x.', 'the domain moved. The surviving record is a-b.',
+      { owner: 'redirect', date: '2026-08-14' }),
+    /multi-sentence/,
+  );
 });
 
 // ── 7. Media is a register of publications, not of editorial-sounding sites ──
@@ -287,7 +319,7 @@ const M = require(path.join(ROOT, 'scripts/research-media-backlog.cjs'));
 
 test('a live page is not enough to keep a record in Media', () => {
   const record = { website: 'https://example.test/', name: 'Example' };
-  const page = {
+  const v = M.assess(record, {
     url: 'https://example.test/',
     status: 200,
     title: 'Example',
@@ -298,21 +330,14 @@ test('a live page is not enough to keep a record in Media', () => {
     articles: 0,
     times: 0,
     error: null,
-  };
-  const v = M.assess(record, page);
+  });
   assert.equal(v.state, 'ONTOLOGY_UNCONFIRMED',
     'a services business with no publishing evidence was accepted as a publication');
-
-  // And it is NOT deleted. An ontology classifier that got two of its first two
-  // rejections wrong — Healthcare IT News and PhocusWire are plainly
-  // publications — has not earned the right to remove records. Unknown is a
-  // valid final state; deletion is not reversible by a later, better pass.
   assert.notEqual(v.state, 'ONTOLOGY_REJECTED');
 });
 
 test('a publication is recognised by what it publishes, not by its domain name', () => {
-  const record = { website: 'https://example.test/', name: 'Example' };
-  const publisher = M.assess(record, {
+  const v = M.assess({ website: 'https://example.test/', name: 'Example' }, {
     url: 'https://example.test/',
     status: 200,
     title: 'Home | Healthcare IT News',
@@ -324,7 +349,7 @@ test('a publication is recognised by what it publishes, not by its domain name',
     times: 0,
     error: null,
   });
-  assert.equal(publisher.state, 'ACTIVE_VERIFIED',
+  assert.equal(v.state, 'ACTIVE_VERIFIED',
     'a masthead naming itself as a publication was not recognised');
 });
 
@@ -349,12 +374,8 @@ test('a Media record that changed domain is a redirect, not a routine confirmati
 });
 
 test('every Media record this wave verified says why it has no route', () => {
-  // Scoped to what this wave actually touched. The collection has its own,
-  // longer-standing rule for the rest; asserting a stricter one here would fail
-  // on 400 records nobody in this wave examined, which proves nothing about the
-  // work and hides the records that do matter.
   const ROUTE_FIELDS = ['submissionUrl', 'pitchUrl', 'pressReleaseUrl', 'advertisingUrl'];
-  const thisWave = MEDIA.filter((r) => /Verified in a browser on 2026-08-14/.test(r.shortNote || ''));
+  const thisWave = MEDIA.filter((r) => /\[accessibility:2026-08-14\] verified in a browser/.test(r.shortNote || ''));
   assert.ok(thisWave.length > 0, 'this wave verified nothing');
   for (const r of thisWave) {
     if (ROUTE_FIELDS.some((f) => r[f])) continue;
@@ -364,13 +385,10 @@ test('every Media record this wave verified says why it has no route', () => {
 });
 
 test('research already written down is never replaced by a procedural sentence', () => {
-  // 62 records carried a human description and a first pass overwrote all 62.
-  const withProcedural = MEDIA.filter((r) => /browser check|Verified in a browser/i.test(r.shortNote || ''));
+  const withProcedural = MEDIA.filter((r) => /\[accessibility:/.test(r.shortNote || ''));
   assert.ok(withProcedural.length > 0, 'no record carries a research sentence at all');
   for (const r of withProcedural) {
-    const stripped = String(r.shortNote)
-      .replace(/(An automated browser check|Verified in a browser|A browser check)[\s\S]*$/i, '')
-      .trim();
+    const stripped = String(r.shortNote).replace(/\[[a-z]+:\d{4}-\d{2}-\d{2}\][\s\S]*$/i, '').trim();
     assert.ok(stripped.length > 20,
       `${r.id}: the procedural sentence is all that is left; the description it replaced is gone`);
   }

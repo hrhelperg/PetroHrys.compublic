@@ -76,7 +76,7 @@
     "status": 403,
     "finalUrl": "https://www.noon.com/",
     "title": "Access Denied",
-    "textLen": 190,
+    "textLen": 192,
     "anchors": 0
    },
    "verdict": "blocked",
@@ -716,9 +716,9 @@
    "observed": {
     "status": 403,
     "finalUrl": "https://www.infojobs.com.br/",
-    "title": "Anunciar Vagas de Emprego GRÁTIS | Infojobs",
-    "textLen": 15911,
-    "anchors": 245
+    "title": "Azure WAF",
+    "textLen": 77,
+    "anchors": 0
    },
    "verdict": "blocked",
    "why": "http 403"
@@ -1197,13 +1197,13 @@
    "country": "china",
    "observed": {
     "status": 200,
-    "finalUrl": "https://verify.meituan.com/v2/app/general_page?requestCode=c26c39e8e0d4421b90f21148d359d19f&adaptor=auto&action=spiderindefence&succCallbackUrl=https%3A%2F%2Foptimus-mtsi.meituan.com%2Foptimus%2FverifyResult%3ForiginUrl%3Dhttps%253A%252F%252Fwww.dianping.com%252F&theme=dianping",
+    "finalUrl": "https://verify.meituan.com/v2/app/general_page?requestCode=ab6919324cae4cf399a76a76035df8e0&adaptor=auto&action=spiderindefence&succCallbackUrl=https%3A%2F%2Foptimus-mtsi.meituan.com%2Foptimus%2FverifyResult%3ForiginUrl%3Dhttps%253A%252F%252Fwww.dianping.com%252F&theme=dianping",
     "title": "验证中心",
-    "textLen": 96,
+    "textLen": 102,
     "anchors": 0
    },
    "verdict": "inconclusive",
-   "why": "only 96 characters rendered"
+   "why": "only 102 characters rendered"
   },
   {
    "id": "co-cylex",
@@ -1666,12 +1666,12 @@
    "observed": {
     "status": 403,
     "finalUrl": "https://www.11870.com/",
-    "title": "11870.com- espacio dedicado a las noticias",
-    "textLen": 0,
-    "anchors": 0
+    "title": "Just a moment...",
+    "textLen": 261,
+    "anchors": 2
    },
    "verdict": "blocked",
-   "why": "http 403"
+   "why": "cloudflare-interstitial"
   },
   {
    "id": "es-atrapalo",
@@ -2247,7 +2247,7 @@
     "status": 429,
     "finalUrl": "https://www.50pros.com/",
     "title": "Vercel Security Checkpoint",
-    "textLen": 120,
+    "textLen": 110,
     "anchors": 1
    },
    "verdict": "blocked",
@@ -2425,7 +2425,7 @@
     "status": 403,
     "finalUrl": "https://www.businesswire.com/",
     "title": "Access Denied",
-    "textLen": 202,
+    "textLen": 200,
     "anchors": 0
    },
    "verdict": "blocked",
@@ -4137,7 +4137,7 @@
     "status": 403,
     "finalUrl": "https://www.meesho.com/",
     "title": "Access Denied",
-    "textLen": 192,
+    "textLen": 194,
     "anchors": 0
    },
    "verdict": "blocked",
@@ -4522,7 +4522,7 @@
     "status": 403,
     "finalUrl": "https://www.ozmall.co.jp/",
     "title": "403 Forbidden",
-    "textLen": 115,
+    "textLen": 114,
     "anchors": 0
    },
    "verdict": "blocked",
@@ -5715,7 +5715,7 @@
    "country": "singapore",
    "observed": {
     "status": 200,
-    "finalUrl": "https://validate.perfdrive.com/?ssa=e38cd089-f4b6-44fd-8f5e-0867c6401661&ssb=41706296094&ssc=https%3A%2F%2Fwww.yellowpages.com.sg%2F&ssi=5a57ffc5-c7c3-409e-a2c8-30e3d15e7325&ssk=botmanager_support@radware.com&ssm=54283617956071747105915123328054&ssn=7bc79235721312dc642ba04851d094e264b1b024e5d6-ebcd-4ddf-881b73&sso=f52de505-fe8856c5d1cb62c07ccfe23353dcc29b882494e4e7364ed8&ssp=01228987761786759046178678435967294&ssq=43495092232959713067522329123908196210630&ssr=MTg1LjExMi4xNjcuMTk2&sst=Mozilla/5.0%20(Macintosh;%20Intel%20Mac%20OS%20X%2010_15_7)%20AppleWebKit/537.36%20(KHTML,%20like%20Gecko)%20Chrome/140.0.0.0%20Safari/537.36&ssu=&ssv=&ssw=&ssx=eyJfX3V6bWYiOiI3ZjkwMDBiMDI0ZTVkNi1lYmNkLTRkZGYtODUwNS1mZTg4NTZjNWQxY2IxLTE3ODY3MjIzMjk3MzcwLTAwNDQ2MDZhMzNhMTAwYWY0MTYxMCIsInJkIjoieWVsbG93cGFnZXMuY29tLnNnIiwidXpteCI6IjdmYzAwMDQxYWQ5ZjQwLTc3Y2YtNDVlZC1iOWZkLWFlYTgwYTk5Zjg4OTEtMTc4NjcyMjMyOTczNzAtMDAwYjUwZjhkNGE4YTVlOTYyZjEwIn0=",
+    "finalUrl": "https://validate.perfdrive.com/?ssa=78058a3f-ff14-4afe-aa66-8e9c0621397f&ssb=47900253175&ssc=https%3A%2F%2Fwww.yellowpages.com.sg%2F&ssi=2637d88b-c7c3-4d2e-8383-e9ca732e5d9e&ssk=botmanager_support@radware.com&ssm=80984660464001569102170760107080&ssn=ae1d1b1295299c9ca1fd164043e841bc4faad410aa26-213f-4077-8e2b13&sso=4c3541fb-c6f3e8199445db1073f2369ff45b982acfd00ecc731dc3f0&ssp=82483501751786781288178672823200210&ssq=43853823442831160204534428407587244074865&ssr=MTg1LjExMi4xNjcuMTk2&sst=Mozilla/5.0%20(Macintosh;%20Intel%20Mac%20OS%20X%2010_15_7)%20AppleWebKit/537.36%20(KHTML,%20like%20Gecko)%20Chrome/140.0.0.0%20Safari/537.36&ssu=&ssv=&ssw=&ssx=eyJyZCI6InllbGxvd3BhZ2VzLmNvbS5zZyIsIl9fdXptZiI6IjdmOTAwMGQ0MTBhYTI2LTIxM2YtNDA3Ny04MWZiLWM2ZjNlODE5OTQ0NTEtMTc4NjczNDQyODUxMjAtMDA0MmY5ZGNlMGQ4ZTUyMjhiMzEwIiwidXpteCI6IjdmYzAwMGE4MzU4MDNiLTMyNDAtNDRiZi1iZDU0LWU0MWI3NDJkODJlNDEtMTc4NjczNDQyODUxMjAtMDAwMjczZWQ1NjhlYjBhY2MzODEwIn0=",
     "title": "Radware Captcha Page",
     "textLen": 681,
     "anchors": 0
@@ -6148,14 +6148,15 @@
    "website": "https://www.cargurus.com/",
    "country": "united-states",
    "observed": {
-    "status": 406,
-    "finalUrl": "chrome-error://chromewebdata/",
-    "title": "www.cargurus.com",
-    "textLen": 97,
-    "anchors": 0
+    "status": 200,
+    "finalUrl": "https://www.cargurus.com/",
+    "title": "Buy & Sell Cars | Millions Listed, Prices & Deal Ratings | CarGurus",
+    "textLen": 6172,
+    "anchors": 320
    },
-   "verdict": "unreachable",
-   "why": "the browser could not open the site at all"
+   "verdict": "active",
+   "why": "6172 characters of real content",
+   "routes": {}
   },
   {
    "id": "us-cars-com",
@@ -6413,7 +6414,7 @@
     "status": 403,
     "finalUrl": "https://www.healthgrades.com/",
     "title": "Healthgrades - This page is not available in your area",
-    "textLen": 303,
+    "textLen": 295,
     "anchors": 1
    },
    "verdict": "blocked",
@@ -6763,7 +6764,7 @@
    "country": "united-states",
    "observed": {
     "status": 200,
-    "finalUrl": "https://www.showmelocal.com/norobots.aspx?a=639223151898676587&src=%2fdefault.aspx",
+    "finalUrl": "https://www.showmelocal.com/norobots.aspx?a=639223168210785939&src=%2fdefault.aspx",
     "title": "Security Verification",
     "textLen": 186,
     "anchors": 1
@@ -6944,7 +6945,7 @@
     "status": 403,
     "finalUrl": "https://www.thebash.com/",
     "title": "Access Denied",
-    "textLen": 195,
+    "textLen": 193,
     "anchors": 0
    },
    "verdict": "blocked",
@@ -7178,7 +7179,7 @@
     "status": 403,
     "finalUrl": "https://www.pedidosya.com.uy/",
     "title": "Acceso ha sido denegado | PedidosYa",
-    "textLen": 204,
+    "textLen": 232,
     "anchors": 0
    },
    "verdict": "blocked",

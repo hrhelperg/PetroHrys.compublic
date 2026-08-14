@@ -38,6 +38,8 @@
 const fs = require('node:fs');
 const path = require('node:path');
 
+const SAFE = require('./lib/rc-safe-apply.cjs');
+
 const ROOT = path.resolve(__dirname, '..');
 const DIRECTORIES = path.join(ROOT, 'data/business-directories/opportunities.json');
 const MARKETPLACES = path.join(ROOT, 'data/marketplaces/marketplaces.json');
@@ -180,12 +182,13 @@ function main() {
     directories: JSON.parse(fs.readFileSync(DIRECTORIES, 'utf8')),
     marketplaces: JSON.parse(fs.readFileSync(MARKETPLACES, 'utf8')),
   };
+  const before = JSON.parse(JSON.stringify(files));
+  const collectionOf = (id) => (files.directories.some((r) => r.id === id) ? 'directories' : 'marketplaces');
   const find = (id) => files.directories.find((r) => r.id === id)
     || files.marketplaces.find((r) => r.id === id);
+  const OWNER = 'redirect';
 
-  const tally = {
-    repoint: 0, rebrand: 0, consolidate: 0, none: 0, missing: 0,
-  };
+  const tally = { repoint: 0, rebrand: 0, consolidate: 0, none: 0, missing: 0 };
   const unresolved = [];
 
   for (const f of audited.findings) {
@@ -193,30 +196,44 @@ function main() {
     if (!d) { unresolved.push(f.id); continue; }
     const record = find(f.id);
     if (!record) { tally.missing += 1; continue; }
+    const collection = collectionOf(f.id);
+    const dateField = collection === 'marketplaces' ? null : 'lastVerified';
+    const stamp = dateField && record[dateField] !== undefined ? { [dateField]: date } : {};
 
     if (d.action === 'repoint') {
-      record.website = d.to;
-      record.note = rewriteNote(record.note, `Audited on ${date}: ${d.why}; the record now points at the current address.`);
-      if (record.lastVerified !== undefined) record.lastVerified = date;
+      SAFE.applyPatch(record, {
+        website: d.to,
+        note: SAFE.amendNote(record.note, `${d.why}; the record now points at the current address.`,
+          { owner: OWNER, date }),
+        ...stamp,
+      }, { owner: OWNER, collection });
       tally.repoint += 1;
     } else if (d.action === 'rebrand') {
-      record.website = d.to;
-      record.name = d.name;
-      record.note = rewriteNote(record.note, `Audited on ${date}: ${d.why}.`);
-      if (record.lastVerified !== undefined) record.lastVerified = date;
+      SAFE.applyPatch(record, {
+        website: d.to,
+        name: d.name,
+        note: SAFE.amendNote(record.note, `${d.why}.`, { owner: OWNER, date }),
+        ...stamp,
+      }, { owner: OWNER, collection });
       tally.rebrand += 1;
     } else if (d.action === 'consolidate') {
       const survivor = find(d.into);
       if (!survivor) throw new Error(`${f.id} consolidates into ${d.into}, which does not exist`);
-      // `redirected` is excluded from the actionable set by the schema, so this
-      // is what stops the same product being offered twice.
-      record.currentStatus = 'redirected';
-      record.note = rewriteNote(record.note, `Audited on ${date}: ${d.why}. The surviving record is ${d.into} (${survivor.website}).`);
-      if (record.lastVerified !== undefined) record.lastVerified = date;
+      // `redirected` is excluded from the actionable set by the schema, which
+      // is what stops the same product being offered twice. The record is NOT
+      // deleted: its history is the reason anyone can audit this later.
+      SAFE.applyPatch(record, {
+        currentStatus: 'redirected',
+        note: SAFE.amendNote(record.note,
+          `${d.why}; the surviving record is ${d.into} (${survivor.website}).`, { owner: OWNER, date }),
+        ...stamp,
+      }, { owner: OWNER, collection });
       tally.consolidate += 1;
     } else if (d.action === 'none') {
-      record.note = rewriteNote(record.note, `Audited on ${date}: ${d.why}.`);
-      if (record.lastVerified !== undefined) record.lastVerified = date;
+      SAFE.applyPatch(record, {
+        note: SAFE.amendNote(record.note, `${d.why}.`, { owner: OWNER, date }),
+        ...stamp,
+      }, { owner: OWNER, collection });
       tally.none += 1;
     }
   }
@@ -224,6 +241,20 @@ function main() {
   if (unresolved.length) {
     throw new Error(`No decision recorded for: ${unresolved.join(', ')}. `
       + 'Every audited case must be terminally classified, so this refuses to write a partial resolution.');
+  }
+
+  for (const key of ['directories', 'marketplaces']) {
+    SAFE.assertNoDeletion(before[key], files[key]);
+  }
+  // The redirect owner may rename — a rebrand IS a name change — so `name` is
+  // excluded from the drift guard here and only here. Every other curated
+  // field must come out exactly as it went in.
+  const fingerprint = (rows) => SAFE.curatedFingerprint(
+    rows.map((r) => ({ ...r, name: undefined })),
+  );
+  for (const key of ['directories', 'marketplaces']) {
+    const drift = SAFE.diffFingerprints(fingerprint(before[key]), fingerprint(files[key]));
+    if (drift.length) throw new Error(`${key}: curated fields drifted on ${drift.join(', ')}`);
   }
 
   fs.writeFileSync(DIRECTORIES, `${JSON.stringify(files.directories, null, 1)}\n`);

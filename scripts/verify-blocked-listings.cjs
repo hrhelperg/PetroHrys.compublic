@@ -47,6 +47,7 @@ const path = require('node:path');
 const os = require('node:os');
 const { spawn } = require('node:child_process');
 const { openPage } = require('./tests/helpers/cdp.cjs');
+const SAFE = require('./lib/rc-safe-apply.cjs');
 
 const ROOT = path.resolve(__dirname, '..');
 
@@ -567,27 +568,26 @@ function runActionabilityApply() {
   const DATA = COLLECTIONS.directories.data;
   const { probedAt, findings } = JSON.parse(fs.readFileSync(FINDINGS, 'utf8'));
   const rows = JSON.parse(fs.readFileSync(DATA, 'utf8'));
+  const before = JSON.parse(JSON.stringify(rows));
   const byId = new Map(rows.map((r) => [r.id, r]));
-  const tally = {
-    established: 0, rejectedText: 0, redirected: 0, stillUnknown: 0,
-  };
+  const OWNER = 'actionability';
+  const tally = { established: 0, rejectedText: 0, redirected: 0, stillUnknown: 0 };
 
   for (const f of findings) {
     const r = byId.get(f.id);
     if (!r) continue;
 
     if (f.verdict === 'redirected') {
-      // Discovered while looking for a route: a record believed active now
-      // answers from somewhere else. That is a Program 1 question, not an
-      // actionability one, so it is flagged rather than resolved here.
-      //
-      // Unless it has already BEEN resolved. A second run used to re-flag all
-      // thirteen after they had been repointed and verified, leaving each with
-      // a note asking for work its own status said was finished.
-      const resolved = /Audited on \d{4}-\d{2}-\d{2}/.test(r.note || '');
-      const alreadyFlagged = /An actionability check on \d{4}-\d{2}-\d{2}/.test(r.note || '');
-      if (!resolved && !alreadyFlagged) {
-        r.note = `${String(r.note || '').trim()} An actionability check on ${probedAt} found that ${f.why}; a browser check is needed by a person to settle what this record should point at.`.replace(/\s+/g, ' ').trim();
+      // A record believed active now answers from somewhere else. That is a
+      // redirect question, not an actionability one — unless it has since been
+      // resolved, in which case saying so again would contradict its status.
+      const resolved = /Audited on \d{4}-\d{2}-\d{2}|\[redirect:/.test(r.note || '');
+      if (!resolved) {
+        SAFE.applyPatch(r, {
+          note: SAFE.amendNote(r.note,
+            `an actionability check found that ${f.why}; a browser check is needed by a person to settle what this record should point at.`,
+            { owner: OWNER, date: probedAt, legacy: false }),
+        }, { owner: OWNER, collection: 'directories' });
         tally.redirected += 1;
       }
       continue;
@@ -597,23 +597,30 @@ function runActionabilityApply() {
     const create = f.routes && f.routes.create;
     const claim = f.routes && f.routes.claim;
     const usable = (a) => a && a.text.length <= MAX_ANCHOR_TEXT && a.href !== r.website;
-    if (create && !usable(create)) { tally.rejectedText += 1; continue; }
-    if (!create && claim && !usable(claim)) { tally.rejectedText += 1; continue; }
+    if ((create && !usable(create)) || (!create && claim && !usable(claim))) {
+      tally.rejectedText += 1;
+      continue;
+    }
 
     if (usable(create) && !r.submissionUrl) {
-      r.submissionUrl = create.href;
-      r.listingAction = usable(claim) ? 'create-and-claim' : 'create';
-      r.lastVerified = probedAt;
+      SAFE.applyPatch(r, {
+        submissionUrl: create.href,
+        listingAction: usable(claim) ? 'create-and-claim' : 'create',
+        lastVerified: probedAt,
+      }, { owner: OWNER, collection: 'directories' });
       tally.established += 1;
     } else if (usable(claim) && !r.claimUrl && !create) {
-      r.claimUrl = claim.href;
-      r.listingAction = 'claim';
-      r.lastVerified = probedAt;
+      SAFE.applyPatch(r, { claimUrl: claim.href, listingAction: 'claim', lastVerified: probedAt },
+        { owner: OWNER, collection: 'directories' });
       tally.established += 1;
     } else {
       tally.stillUnknown += 1;
     }
   }
+
+  SAFE.assertNoDeletion(before, rows);
+  const drift = SAFE.diffFingerprints(SAFE.curatedFingerprint(before), SAFE.curatedFingerprint(rows));
+  if (drift.length) throw new Error(`curated fields drifted on: ${drift.join(', ')}`);
 
   fs.writeFileSync(DATA, `${JSON.stringify(rows, null, 1)}\n`);
   console.log('Actionability merged:', Object.entries(tally).map(([k, v]) => `${k}=${v}`).join(' '));
@@ -627,79 +634,75 @@ function runApply() {
   }
   const { probedAt, findings } = JSON.parse(fs.readFileSync(FINDINGS, 'utf8'));
   const rows = JSON.parse(fs.readFileSync(DATA, 'utf8'));
+  const before = JSON.parse(JSON.stringify(rows));
   const byId = new Map(rows.map((r) => [r.id, r]));
-  const stamp = (record) => { if (C.dateField) record[C.dateField] = probedAt; };
+  const noteField = C.name === 'media' ? 'shortNote' : 'note';
+  const OWNER = 'accessibility';
 
-  const changes = {
-    active: 0, routes: 0, redirected: 0, dated: 0, skipped: 0,
-  };
+  const changes = { active: 0, routes: 0, redirected: 0, dated: 0, skipped: 0 };
   for (const f of findings) {
     const record = byId.get(f.id);
     if (!record) { changes.skipped += 1; continue; }
 
-    if (f.verdict === 'active') {
-      record.currentStatus = 'active';
-      stamp(record);
-      record.note = rewriteNote(record.note, `Checked in a browser on ${probedAt}: the site loads and serves its own content.`);
-      changes.active += 1;
+    // Every write goes through the ownership contract, and every sentence
+    // carries this pass's tag so a second run replaces it rather than adding
+    // a second copy. That is the whole of the idempotence guarantee.
+    const patch = {};
+    if (C.dateField) patch[C.dateField] = probedAt;
 
-      // A route is only recorded when the operator published it in words, and
-      // only for a collection whose schema has somewhere to put it.
-      if (!C.routes) continue;
+    if (f.verdict === 'active') {
+      patch.currentStatus = 'active';
+      patch[noteField] = SAFE.amendNote(record[noteField],
+        'the site loads and serves its own content, checked in a browser.',
+        { owner: OWNER, date: probedAt });
+      changes.active += 1;
+    } else if (f.verdict === 'redirected') {
+      // Unless the redirect owner has already settled it, in which case this
+      // pass's observation is simply out of date and is withdrawn rather than
+      // restated next to the resolution.
+      if (SAFE.isSettledBy(record[noteField], OWNER)) {
+        patch[noteField] = SAFE.clearNote(record[noteField], { owner: OWNER, legacy: false });
+      } else {
+        patch[noteField] = SAFE.amendNote(record[noteField],
+          `a browser check found that ${f.why}; a browser check is needed by a person to settle what this entry should point at, and the status stays unknown.`,
+          { owner: OWNER, date: probedAt });
+        changes.redirected += 1;
+      }
+    } else {
+      patch[noteField] = SAFE.amendNote(record[noteField],
+        `an automated browser check was refused by the site (${f.why}); a browser check is needed by a person and the status stays unknown.`,
+        { owner: OWNER, date: probedAt });
+      changes.dated += 1;
+    }
+    SAFE.applyPatch(record, patch, { owner: OWNER, collection: C.name });
+
+    // Routes are actionability, not accessibility, and are written under that
+    // owner so the two facts stay separately attributable.
+    if (f.verdict === 'active' && C.routes) {
       const create = f.routes && f.routes.create;
       const claim = f.routes && f.routes.claim;
       if (create && !record.submissionUrl) {
-        record.submissionUrl = create.href;
-        record.listingAction = claim ? 'create-and-claim' : 'create';
+        SAFE.applyPatch(record, {
+          submissionUrl: create.href,
+          listingAction: claim ? 'create-and-claim' : 'create',
+        }, { owner: 'actionability', collection: C.name });
         changes.routes += 1;
       } else if (claim && !record.claimUrl && !create) {
-        record.claimUrl = claim.href;
-        record.listingAction = 'claim';
+        SAFE.applyPatch(record, { claimUrl: claim.href, listingAction: 'claim' },
+          { owner: 'actionability', collection: C.name });
         changes.routes += 1;
       }
-    } else if (f.verdict === 'redirected') {
-      // Status stays unknown: what answered is a different site, and whether it
-      // still carries this entry's product is a separate question.
-      stamp(record);
-      record.note = rewriteNote(record.note, `An automated browser check on ${probedAt} found that ${f.why}; a browser check is needed by a person to settle what this entry should point at, and the status stays unknown.`);
-      changes.redirected += 1;
-    } else {
-      // blocked / unreachable / inconclusive: unknown was already the honest
-      // answer and stays. Only the date and the reason are refreshed, so a
-      // later pass can tell "never checked" from "checked and still closed".
-      //
-      // The phrase "a browser check is needed" is kept deliberately, and is
-      // still true — what was refused was the AUTOMATED check, and a person
-      // with a browser can still settle it. Two suites also read that phrase to
-      // find rows that must remain unknown, so weakening it would quietly
-      // empty their working set rather than fail them.
-      stamp(record);
-      record.note = rewriteNote(record.note, `An automated browser check on ${probedAt} was refused by the site (${f.why}); a browser check is needed by a person and the status stays unknown.`);
-      changes.dated += 1;
     }
   }
+
+  SAFE.assertNoDeletion(before, rows);
+  const drift = SAFE.diffFingerprints(SAFE.curatedFingerprint(before), SAFE.curatedFingerprint(rows));
+  if (drift.length) throw new Error(`curated fields drifted on: ${drift.join(', ')}`);
 
   fs.writeFileSync(DATA, `${JSON.stringify(rows, null, 1)}\n`);
   console.log(`Merged (${C.name}):`, Object.entries(changes).map(([k, v]) => `${k}=${v}`).join(' '));
 }
 
-// Sentences that ASK for a browser check, in any of the phrasings the corpus
-// actually uses. Matching only "Live but behind a bot filter" — the commonest
-// one — left 35 records claiming active while still requesting a check, and a
-// note that contradicts its own record is worse than no note.
-const ASKS_FOR_A_CHECK = /bot filter|bot challenge|browser check|could not be inspected|render gate|authorisation gate|authorization gate|challenge page/i;
-
-// Replace whatever asked for a browser check with what the browser found. The
-// rest of the note is human-written research and is left alone — it is the part
-// no probe could have produced.
-function rewriteNote(note, replacement) {
-  const text = String(note || '').trim();
-  const kept = text
-    .split(/(?<=\.)\s+/)
-    .filter((sentence) => sentence && !ASKS_FOR_A_CHECK.test(sentence))
-    .join(' ');
-  return `${kept} ${replacement}`.replace(/\s+/g, ' ').trim();
-}
 
 async function runCandidates() {
   if (!CHROME) { console.error('No Chrome on this machine.'); process.exit(1); }
@@ -783,7 +786,7 @@ async function runCandidates() {
 // can drive them on synthetic observations, with the CLI still the only thing
 // that runs when this file is executed directly.
 module.exports = {
-  judge, candidateEvidence, parkedReason, registrable, rewriteNote, PARKED, CREATE_TEXT, CLAIM_TEXT,
+  judge, candidateEvidence, parkedReason, registrable, PARKED, CREATE_TEXT, CLAIM_TEXT,
 };
 
 if (require.main === module) {
