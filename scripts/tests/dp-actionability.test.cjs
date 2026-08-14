@@ -197,15 +197,27 @@ test('a homepage is never accepted as an action URL', () => {
   for (const { op, a } of ACTS) {
     if (!a.actionUrl) continue;
     const r = op.record || {};
-    const declared = [r.submissionUrl, r.claimUrl, r.pitchUrl, r.pressReleaseUrl, r.advertisingUrl]
+    // sellerActionUrl joined the route fields when marketplaces finally gained
+    // somewhere to record one. Leaving it out here would report every verified
+    // seller route as an action URL no record carries.
+    const declared = [r.submissionUrl, r.claimUrl, r.pitchUrl, r.pressReleaseUrl,
+      r.advertisingUrl, r.sellerActionUrl]
       .filter(Boolean);
     assert.ok(declared.includes(a.actionUrl),
       `${op.platformId} has an action URL no route field on the source record carries`);
   }
-  // The marketplace collection records no route at all, so none is invented.
+  // The marketplace collection used to record no route at all, and this block
+  // asserted that none was invented. It now records them, so the assertion
+  // becomes the stronger one it was standing in for: a marketplace's route is
+  // EXACTLY the field the collection holds, and a marketplace without one still
+  // gets nothing invented for it.
   for (const { op, a } of ACTS.filter((x) => x.op.sourceCollection === 'marketplaces')) {
-    assert.strictEqual(a.actionUrl, null, `${op.platformId} acquired a route the collection does not hold`);
-    assert.notStrictEqual(a.status, A.STATUS.READY, `${op.platformId} is READY with no route`);
+    const held = (op.record || {}).sellerActionUrl || null;
+    assert.strictEqual(a.actionUrl || null, held,
+      `${op.platformId}: the projected route is not the one the record holds`);
+    if (!held) {
+      assert.notStrictEqual(a.status, A.STATUS.READY, `${op.platformId} is READY with no route`);
+    }
   }
 });
 

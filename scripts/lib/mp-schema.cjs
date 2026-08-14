@@ -23,6 +23,47 @@ const path = require('node:path');
 
 class MarketplaceError extends Error {}
 
+// ── SELLER ACTIONABILITY ────────────────────────────────────────────────────
+//
+// The header above says a marketplace row has "no listing action". That was
+// true of the data and never true of the product: 295 active marketplaces and
+// not one recorded route, because there was nowhere to put one. A planner that
+// can tell you a marketplace exists but not how to sell on it is answering the
+// wrong half of the question.
+//
+// This adds the smallest thing that fixes it, and deliberately invents no new
+// vocabulary. The Distribution Planner already carries a canonical action
+// ontology with three marketplace concepts in it — create-seller-profile,
+// publish-classified, post-advertisement — and already derives one of them for
+// every marketplace row from `marketplaceType`. What it says about that
+// derivation is the point:
+//
+//   "The marketplace collection records no per-platform submission URL, so the
+//    projection carries none. It does not invent one from the website."
+//
+// So the gap is a FIELD, not a subsystem. Two of them.
+//
+// The non-action values mirror the directory collection's `listingAction`,
+// which learned the same lesson first: "no self-service route" is a real
+// finding and needs somewhere truthful to sit, or every platform gets pushed
+// toward looking actionable.
+const SELLER_ACTIONS = [
+  'create-seller-profile',  // open onboarding: "Become a seller", "Start selling"
+  'publish-classified',     // "Post an ad", "List your item"
+  'post-advertisement',     // paid placement offered to a business
+  'apply-for-inclusion',    // merchant application, reviewed before approval
+  'invite-only',            // supply is curated; no public route exists
+  'not-applicable',         // buyer-only, or the operator supplies the inventory
+  'unknown',                // NOT researched. The default, and never a guess.
+];
+
+// Values that name a route someone can actually take. The rest are findings
+// about the platform, and a route recorded against one of them is a
+// contradiction rather than a bonus.
+const ACTIONABLE_SELLER_ACTIONS = [
+  'create-seller-profile', 'publish-classified', 'post-advertisement', 'apply-for-inclusion',
+];
+
 // What KIND of listing the platform carries. A platform that carries several
 // declares its primary type and lists the rest in `alsoCovers`, so a filter can
 // be precise without a row having to pick one identity it does not have.
@@ -105,6 +146,29 @@ function problemsFor(row, knownCountries) {
     at('operator', 'must be a string, or null where no operator was established.');
   }
   if (row.note !== undefined && typeof row.note !== 'string') at('note', 'must be a string.');
+
+  if (row.sellerAction !== undefined && row.sellerAction !== null
+    && !SELLER_ACTIONS.includes(row.sellerAction)) {
+    at('sellerAction', `must be one of: ${SELLER_ACTIONS.join(', ')}, or absent when never researched.`);
+  }
+  if (row.sellerActionUrl !== undefined && row.sellerActionUrl !== null) {
+    if (typeof row.sellerActionUrl !== 'string' || !/^https:\/\//.test(row.sellerActionUrl)) {
+      at('sellerActionUrl', 'must be an absolute https URL, or absent.');
+    }
+    // A route identical to the homepage tells a seller nothing they did not
+    // already have, while claiming they were given somewhere to go.
+    if (row.sellerActionUrl === row.website) {
+      at('sellerActionUrl', 'is the platform homepage, which is not a route.');
+    }
+    // And a route only means something next to an action that can be taken.
+    if (!ACTIONABLE_SELLER_ACTIONS.includes(row.sellerAction)) {
+      at('sellerActionUrl', `is set, but sellerAction is ${JSON.stringify(row.sellerAction ?? null)}; `
+        + `a route is only recorded alongside one of: ${ACTIONABLE_SELLER_ACTIONS.join(', ')}.`);
+    }
+  }
+  // The reverse is allowed on purpose: an evidenced action whose URL could not
+  // be resolved is a real, partial finding, and forcing a URL to keep the pair
+  // symmetrical is how a guessed route gets written down.
   // A Domain Rating is never carried here. The directory dataset holds 64 frozen
   // historical measurements and nothing in this dataset may imply a new one.
   if (row.domainRating !== undefined && row.domainRating !== null) {
@@ -169,6 +233,8 @@ function comparePlatforms(a, b) {
 }
 
 module.exports = {
+  SELLER_ACTIONS,
+  ACTIONABLE_SELLER_ACTIONS,
   MarketplaceError, MARKETPLACE_TYPES, SELLER_TYPES, COST_MODELS, CURRENT_STATUSES,
   problemsFor, isPublishable, loadMarketplaces, comparePlatforms, compareStable,
 };

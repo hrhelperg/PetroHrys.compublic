@@ -451,3 +451,83 @@ The marginal return is stable at about one route per twelve sites and has not
 fallen, so the method is not exhausted — but it is not cheap either. The next
 useful step is not another broad sweep. It is the marketplace schema gap, and
 the 23 blind countries, both of which are targeted work.
+
+---
+
+# Marketplace seller actionability — wave M1
+
+**Date:** 2026-08-15 · **Branch:** `feat/research-center-marketplace-seller-actionability-v1`
+
+## What was actually missing
+
+Not a subsystem. Two fields.
+
+The Distribution Planner already carried a canonical action ontology with three
+marketplace concepts in it — `create-seller-profile`, `publish-classified`,
+`post-advertisement` — and already derived one of them for every marketplace row
+from `marketplaceType`. Its own comment said the rest:
+
+> The marketplace collection records no per-platform submission URL, so the
+> projection carries none. It does not invent one from the website.
+
+So `sellerAction` and `sellerActionUrl` were added to the marketplace schema and
+nothing else was invented. No new action type. No parallel model.
+
+The non-route values — `invite-only`, `not-applicable`, `unknown` — mirror the
+directory collection's `listingAction`, which learned first that "no
+self-service route" is a finding and needs somewhere truthful to sit.
+
+## Research
+
+295 active marketplaces, every one visited.
+
+| Outcome | Count |
+|---|---:|
+| action established | **79** |
+| action unknown | 191 |
+| unresolved | 12 |
+| protected | 9 |
+| recommended for review | 3 |
+| redirected | 1 |
+
+| Action | Count |
+|---|---:|
+| publish-classified | 42 |
+| create-seller-profile | 23 |
+| post-advertisement | 14 |
+
+Marketplace route coverage: **0% → 26.8%**, the highest of any collection except
+tenders. Corpus-wide, 527 of 2,440 active records now carry a route (21.6%).
+
+## Four defects, each caught before it shipped
+
+**Every localised pattern was dead.** `\b` is an ASCII-only boundary in
+JavaScript, so `/\bподать объявление\b/` matches nothing, ever. Every Cyrillic,
+Turkish and Polish phrase in the matcher was inert — and the corpus would have
+recorded those markets as having no seller route, reporting a failure inside
+this repository as a fact about the web.
+
+**Turkish `İ` does not case-fold.** `/ilan ver/i` never matches "İlan ver", which
+is how the word is written on a Turkish marketplace.
+
+**271 English sentences landed on the German page.** The marketplace collection
+*prints its notes in the product*, in four languages, and the first version
+wrote research prose into them. The localisation guard caught it as "86% English
+tokens". Research findings now live only in the committed evidence file; the
+record carries the fact, not the account of how it was found.
+
+**A patch silently did nothing.** An edit to the planner's field contract
+targeted a string that had already changed shape, so `replace` was a no-op and
+the unchanged file was copied to the browser engine. Now asserted.
+
+## Planner
+
+| Bucket | Before | After |
+|---|---:|---:|
+| Ready to execute | 160 | **195** |
+| Needs research | 1369 | **1334** |
+| Needs browser verification | 249 | 249 |
+
+Marketplace opportunities: 78 READY, 216 NEEDS_RESEARCH, 63 NEEDS_BROWSER,
+1 BLOCKED. No weight, threshold or tie-break changed — the only lines added to
+the engine's scoring region are comment text.

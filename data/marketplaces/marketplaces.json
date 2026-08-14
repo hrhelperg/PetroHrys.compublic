@@ -77,7 +77,9 @@
    "vehicles"
   ],
   "operator": "Mercado Libre",
-  "note": "The dominant Argentine marketplace, where sellers hold public storefronts."
+  "note": "The dominant Argentine marketplace, where sellers hold public storefronts.",
+  "sellerAction": "publish-classified",
+  "sellerActionUrl": "https://www.mercadolibre.com.ar/syi/core/list#menu-user"
  },
  {
   "id": "mp-ar-zonaprop",
@@ -143,7 +145,9 @@
   "alsoCovers": [
    "vehicles"
   ],
-  "note": "An Australian industrial and vehicle auction marketplace."
+  "note": "An Australian industrial and vehicle auction marketplace.",
+  "sellerAction": "create-seller-profile",
+  "sellerActionUrl": "https://www.pickles.com.au/sell"
  },
  {
   "id": "mp-au-seek",
@@ -179,7 +183,9 @@
   "sellerTypes": "both",
   "costModel": "paid",
   "currentStatus": "active",
-  "note": "An Australian motorcycle marketplace where dealers hold public listings."
+  "note": "An Australian motorcycle marketplace where dealers hold public listings.",
+  "sellerAction": "post-advertisement",
+  "sellerActionUrl": "https://www.bikesales.com.au/sell-my-bike/?ret=internal-bikesales-desktop-top-nav&driver_crosssell=bikesales.sell_top_nav.link"
  },
  {
   "id": "mp-au-boatsales",
@@ -190,7 +196,9 @@
   "sellerTypes": "both",
   "costModel": "paid",
   "currentStatus": "active",
-  "note": "An Australian boat marketplace where dealers hold public listings."
+  "note": "An Australian boat marketplace where dealers hold public listings.",
+  "sellerAction": "post-advertisement",
+  "sellerActionUrl": "https://www.boatsales.com.au/sell-my-boat/"
  },
  {
   "id": "mp-au-carsales",
@@ -215,7 +223,9 @@
   "alsoCovers": [
    "general-classifieds"
   ],
-  "note": "The Australian storefront of the eBay marketplace, where businesses hold public seller shops."
+  "note": "The Australian storefront of the eBay marketplace, where businesses hold public seller shops.",
+  "sellerAction": "create-seller-profile",
+  "sellerActionUrl": "https://www.ebay.com.au/sellercentre"
  },
  {
   "id": "mp-au-farmmachinerysales",
@@ -229,7 +239,9 @@
   "alsoCovers": [
    "vehicles"
   ],
-  "note": "An Australian farm machinery marketplace where dealers hold public listings."
+  "note": "An Australian farm machinery marketplace where dealers hold public listings.",
+  "sellerAction": "create-seller-profile",
+  "sellerActionUrl": "https://www.farmmachinerysales.com.au/sell-my-farm-machinery/"
  },
  {
   "id": "mp-au-realestate",
@@ -254,7 +266,9 @@
   "alsoCovers": [
    "vehicles"
   ],
-  "note": "An Austrian free classifieds portal."
+  "note": "An Austrian free classifieds portal.",
+  "sellerAction": "publish-classified",
+  "sellerActionUrl": "https://www.bazar.at/mein/anzeigen-aufgabe"
  },
  {
   "id": "mp-at-willhaben",
@@ -270,7 +284,9 @@
    "property",
    "vehicles"
   ],
-  "note": "Austria's largest classifieds marketplace, with dedicated commercial seller tooling."
+  "note": "Austria's largest classifieds marketplace, with dedicated commercial seller tooling.",
+  "sellerAction": "publish-classified",
+  "sellerActionUrl": "https://www.willhaben.at/iad/anzeigenaufgabe"
  },
  {
   "id": "mp-bh-opensooq",
@@ -411,7 +427,9 @@
    "property",
    "vehicles"
   ],
-  "note": "A Brazilian classifieds portal covering property and vehicles."
+  "note": "A Brazilian classifieds portal covering property and vehicles.",
+  "sellerAction": "publish-classified",
+  "sellerActionUrl": "https://www.chavesnamao.com.br/anunciar-imoveis-carros-e-motos/"
  },
  {
   "id": "mp-br-enjoei",
@@ -459,7 +477,9 @@
    "vehicles"
   ],
   "operator": "Mercado Libre",
-  "note": "The dominant Brazilian marketplace, where sellers hold public storefronts."
+  "note": "The dominant Brazilian marketplace, where sellers hold public storefronts.",
+  "sellerAction": "publish-classified",
+  "sellerActionUrl": "https://www.mercadolivre.com.br/syi/core/list#menu-user"
  },
  {
   "id": "mp-br-olx",
@@ -475,7 +495,9 @@
    "vehicles"
   ],
   "operator": "OLX Group",
-  "note": "Brazil's largest classifieds marketplace. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser."
+  "note": "Brazil's largest classifieds marketplace. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
+  "sellerAction": "publish-classified",
+  "sellerActionUrl": "https://vender.olx.com.br/clkg/https/www2.olx.com.br/desapega"
  },
  {
   "id": "mp-br-quintoandar",
@@ -519,7 +541,9 @@
   "sellerTypes": "both",
   "costModel": "paid",
   "currentStatus": "active",
-  "note": "Brazil's main vehicle marketplace, where dealers hold public dealer pages. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser."
+  "note": "Brazil's main vehicle marketplace, where dealers hold public dealer pages. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
+  "sellerAction": "post-advertisement",
+  "sellerActionUrl": "https://www.webmotors.com.br/vender-carro"
  },
  {
   "id": "mp-br-zapimoveis",
@@ -625,7 +649,9 @@
   "sellerTypes": "both",
   "costModel": "unknown",
   "currentStatus": "active",
-  "note": "Cambodia's main property marketplace, where agents and owners publish listings."
+  "note": "Cambodia's main property marketplace, where agents and owners publish listings.",
+  "sellerAction": "publish-classified",
+  "sellerActionUrl": "https://www.realestate.com.kh/accounts/signup/"
  },
  {
   "id": "mp-ca-autotrader",
@@ -729,7 +755,9 @@
   "sellerTypes": "both",
   "costModel": "paid",
   "currentStatus": "active",
-  "note": "Chile's main vehicle marketplace, where dealers hold public dealer pages."
+  "note": "Chile's main vehicle marketplace, where dealers hold public dealer pages.",
+  "sellerAction": "post-advertisement",
+  "sellerActionUrl": "https://www.chileautos.cl/publicar/comenzar-venta/"
  },
  {
   "id": "mp-cl-mercadolibre",
@@ -744,7 +772,9 @@
    "vehicles"
   ],
   "operator": "Mercado Libre",
-  "note": "The dominant Chilean marketplace, where sellers hold public storefronts."
+  "note": "The dominant Chilean marketplace, where sellers hold public storefronts.",
+  "sellerAction": "create-seller-profile",
+  "sellerActionUrl": "https://www.mercadolibre.cl/l/app#menu-user"
  },
  {
   "id": "mp-cl-portalinmobiliario",
@@ -884,7 +914,9 @@
    "vehicles"
   ],
   "operator": "Mercado Libre",
-  "note": "The dominant Colombian marketplace, where sellers hold public storefronts."
+  "note": "The dominant Colombian marketplace, where sellers hold public storefronts.",
+  "sellerAction": "create-seller-profile",
+  "sellerActionUrl": "https://www.mercadolibre.com.co/l/app#menu-user"
  },
  {
   "id": "mp-co-metrocuadrado",
@@ -988,7 +1020,9 @@
    "services",
    "vehicles"
   ],
-  "note": "Cuba's dominant classifieds marketplace. Cloudflare blocks plain HTTPS requests; the live listings and the publish flow were confirmed in a real browser."
+  "note": "Cuba's dominant classifieds marketplace. Cloudflare blocks plain HTTPS requests; the live listings and the publish flow were confirmed in a real browser.",
+  "sellerAction": "publish-classified",
+  "sellerActionUrl": "https://www.revolico.com/item/publish"
  },
  {
   "id": "mp-cy-bazaraki",
@@ -1003,7 +1037,9 @@
    "property",
    "vehicles"
   ],
-  "note": "Cyprus's main classifieds marketplace. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser."
+  "note": "Cyprus's main classifieds marketplace. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
+  "sellerAction": "publish-classified",
+  "sellerActionUrl": "https://www.bazaraki.com/post_ad/"
  },
  {
   "id": "mp-cy-ergodotisi",
@@ -1158,7 +1194,9 @@
   "sellerTypes": "both",
   "costModel": "unknown",
   "currentStatus": "active",
-  "note": "The Dominican Republic's main vehicle marketplace, with a separate dealer product alongside private listings."
+  "note": "The Dominican Republic's main vehicle marketplace, with a separate dealer product alongside private listings.",
+  "sellerAction": "post-advertisement",
+  "sellerActionUrl": "https://www.supercarros.com/vender"
  },
  {
   "id": "mp-cd-jiji",
@@ -1406,7 +1444,9 @@
    "property",
    "vehicles"
   ],
-  "note": "A French classifieds portal for private and professional advertisers."
+  "note": "A French classifieds portal for private and professional advertisers.",
+  "sellerAction": "publish-classified",
+  "sellerActionUrl": "https://www.paruvendu.fr/depose-annonce-gratuite/"
  },
  {
   "id": "mp-fr-vinted",
@@ -1418,7 +1458,9 @@
   "costModel": "free",
   "currentStatus": "active",
   "operator": "Vinted UAB",
-  "note": "A pan-European second-hand fashion marketplace. Primarily private sellers."
+  "note": "A pan-European second-hand fashion marketplace. Primarily private sellers.",
+  "sellerAction": "create-seller-profile",
+  "sellerActionUrl": "https://www.vinted.fr/member/signup/select_type?ref_url=%2Fitems%2Fnew"
  },
  {
   "id": "mp-fr-leboncoin",
@@ -1467,7 +1509,9 @@
    "vehicles"
   ],
   "operator": "Adevinta",
-  "note": "Germany's dominant classifieds site, formerly eBay Kleinanzeigen. Business sellers get a commercial seller account."
+  "note": "Germany's dominant classifieds site, formerly eBay Kleinanzeigen. Business sellers get a commercial seller account.",
+  "sellerAction": "publish-classified",
+  "sellerActionUrl": "https://www.kleinanzeigen.de/anzeige-aufgeben"
  },
  {
   "id": "mp-de-quoka",
@@ -1482,7 +1526,9 @@
    "property",
    "vehicles"
   ],
-  "note": "A long-running German free classifieds portal."
+  "note": "A long-running German free classifieds portal.",
+  "sellerAction": "publish-classified",
+  "sellerActionUrl": "https://www.quoka.de/inserieren"
  },
  {
   "id": "mp-de-kalaydo",
@@ -1571,7 +1617,9 @@
   "sellerTypes": "both",
   "costModel": "paid",
   "currentStatus": "active",
-  "note": "Ghana's main property marketplace, where agents and developers hold public listings."
+  "note": "Ghana's main property marketplace, where agents and developers hold public listings.",
+  "sellerAction": "post-advertisement",
+  "sellerActionUrl": "https://meqasa.com/advertising-options-with-meqasa"
  },
  {
   "id": "mp-gr-car-gr",
@@ -1814,7 +1862,9 @@
   "sellerTypes": "both",
   "costModel": "freemium",
   "currentStatus": "active",
-  "note": "An Indian used-vehicle marketplace."
+  "note": "An Indian used-vehicle marketplace.",
+  "sellerAction": "create-seller-profile",
+  "sellerActionUrl": "https://www.cars24.com/become-our-partner/"
  },
  {
   "id": "mp-in-housing",
@@ -1853,7 +1903,9 @@
    "services",
    "vehicles"
   ],
-  "note": "A major Indian classifieds platform covering goods, jobs, property and services."
+  "note": "A major Indian classifieds platform covering goods, jobs, property and services.",
+  "sellerAction": "publish-classified",
+  "sellerActionUrl": "https://www.quikr.com/post-ad/cars-bikes/cars"
  },
  {
   "id": "mp-in-spinny",
@@ -1919,7 +1971,9 @@
   "sellerTypes": "both",
   "costModel": "paid",
   "currentStatus": "active",
-  "note": "The main Irish property marketplace, where agents hold public listings. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser."
+  "note": "The main Irish property marketplace, where agents hold public listings. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
+  "sellerAction": "post-advertisement",
+  "sellerActionUrl": "https://www.sell.daft.ie/?utm_source=Daft+Sell+Nav&utm_medium=Sell+Menu+button"
  },
  {
   "id": "mp-ie-donedeal",
@@ -1934,7 +1988,9 @@
    "property",
    "vehicles"
   ],
-  "note": "Ireland's largest classifieds marketplace. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser."
+  "note": "Ireland's largest classifieds marketplace. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
+  "sellerAction": "publish-classified",
+  "sellerActionUrl": "https://www.donedeal.ie/publish"
  },
  {
   "id": "mp-il-ad",
@@ -1966,7 +2022,9 @@
    "vehicles"
   ],
   "operator": "Adevinta",
-  "note": "Italy's dominant classifieds marketplace, with professional seller accounts."
+  "note": "Italy's dominant classifieds marketplace, with professional seller accounts.",
+  "sellerAction": "publish-classified",
+  "sellerActionUrl": "https://www.subito.it/vendere/"
  },
  {
   "id": "mp-jm-jacars",
@@ -1977,7 +2035,9 @@
   "sellerTypes": "both",
   "costModel": "freemium",
   "currentStatus": "active",
-  "note": "A Jamaican vehicle marketplace covering cars, commercial vehicles and parts. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser."
+  "note": "A Jamaican vehicle marketplace covering cars, commercial vehicles and parts. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
+  "sellerAction": "publish-classified",
+  "sellerActionUrl": "https://www.jacars.net/profile/login/?next=/post_ad/"
  },
  {
   "id": "mp-jm-jco",
@@ -2096,7 +2156,9 @@
   "sellerTypes": "business",
   "costModel": "paid",
   "currentStatus": "active",
-  "note": "Kenya's leading job marketplace, where employers hold public company pages."
+  "note": "Kenya's leading job marketplace, where employers hold public company pages.",
+  "sellerAction": "create-seller-profile",
+  "sellerActionUrl": "https://www.brightermonday.co.ke/learning/courses/787"
  },
  {
   "id": "mp-ke-buyrentkenya",
@@ -2107,7 +2169,9 @@
   "sellerTypes": "both",
   "costModel": "paid",
   "currentStatus": "active",
-  "note": "A major Kenyan property marketplace where agents hold public listings."
+  "note": "A major Kenyan property marketplace where agents hold public listings.",
+  "sellerAction": "publish-classified",
+  "sellerActionUrl": "https://www.buyrentkenya.com/crm/account/listings/create"
  },
  {
   "id": "mp-ke-jiji",
@@ -2147,7 +2211,9 @@
   "sellerTypes": "business",
   "costModel": "paid",
   "currentStatus": "active",
-  "note": "A Kenyan online marketplace where merchants hold public storefronts."
+  "note": "A Kenyan online marketplace where merchants hold public storefronts.",
+  "sellerAction": "create-seller-profile",
+  "sellerActionUrl": "https://seller.kilimall.ke/login"
  },
  {
   "id": "mp-ke-pigiame",
@@ -2302,7 +2368,9 @@
   "sellerTypes": "both",
   "costModel": "paid",
   "currentStatus": "active",
-  "note": "A Luxembourg vehicle marketplace where dealers hold public listings."
+  "note": "A Luxembourg vehicle marketplace where dealers hold public listings.",
+  "sellerAction": "post-advertisement",
+  "sellerActionUrl": "https://www.luxauto.lu/en/sell"
  },
  {
   "id": "mp-lu-athome",
@@ -2313,7 +2381,9 @@
   "sellerTypes": "both",
   "costModel": "paid",
   "currentStatus": "active",
-  "note": "The main Luxembourg property marketplace, where agents hold public listings."
+  "note": "The main Luxembourg property marketplace, where agents hold public listings.",
+  "sellerAction": "post-advertisement",
+  "sellerActionUrl": "https://www.athome.lu/vendre"
  },
  {
   "id": "mp-my-carlist",
@@ -2324,7 +2394,9 @@
   "sellerTypes": "both",
   "costModel": "freemium",
   "currentStatus": "active",
-  "note": "Malaysia's main vehicle marketplace. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser."
+  "note": "Malaysia's main vehicle marketplace. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
+  "sellerAction": "publish-classified",
+  "sellerActionUrl": "https://www.carlist.my/#"
  },
  {
   "id": "mp-my-carousell",
@@ -2351,7 +2423,9 @@
    "property",
    "vehicles"
   ],
-  "note": "Malaysia's largest classifieds marketplace."
+  "note": "Malaysia's largest classifieds marketplace.",
+  "sellerAction": "publish-classified",
+  "sellerActionUrl": "https://ai.mudah.my/ad/new/1"
  },
  {
   "id": "mp-my-iproperty",
@@ -2436,7 +2510,9 @@
    "vehicles"
   ],
   "operator": "Mercado Libre",
-  "note": "The dominant Mexican marketplace, where sellers hold public storefronts."
+  "note": "The dominant Mexican marketplace, where sellers hold public storefronts.",
+  "sellerAction": "create-seller-profile",
+  "sellerActionUrl": "https://www.mercadolibre.com.mx/l/app#menu-user"
  },
  {
   "id": "mp-mx-seminuevos",
@@ -2447,7 +2523,9 @@
   "sellerTypes": "both",
   "costModel": "paid",
   "currentStatus": "active",
-  "note": "A Mexican used-vehicle marketplace where dealers hold public listings."
+  "note": "A Mexican used-vehicle marketplace where dealers hold public listings.",
+  "sellerAction": "create-seller-profile",
+  "sellerActionUrl": "https://www.seminuevos.com/particulares/tablero"
  },
  {
   "id": "mp-mx-vivanuncios",
@@ -2550,7 +2628,9 @@
   "sellerTypes": "both",
   "costModel": "free",
   "currentStatus": "active",
-  "note": "A Moroccan vehicle marketplace for new and used cars, motorcycles and trucks, which calls itself the largest automotive platform in Morocco. It states that posting a listing is free, and runs a separate advertiser registration for dealers and rental agencies."
+  "note": "A Moroccan vehicle marketplace for new and used cars, motorcycles and trucks, which calls itself the largest automotive platform in Morocco. It states that posting a listing is free, and runs a separate advertiser registration for dealers and rental agencies.",
+  "sellerAction": "publish-classified",
+  "sellerActionUrl": "https://www.moteur.ma/fr/vendez-votre-voiture/"
  },
  {
   "id": "mp-ma-mubawab",
@@ -2561,7 +2641,9 @@
   "sellerTypes": "both",
   "costModel": "unknown",
   "currentStatus": "active",
-  "note": "A Moroccan property marketplace that calls itself the country’s leading property site, covering sale, rental and holiday lets. It offers both a personal account for publishing a listing and a separate business registration; the cost of either is not stated."
+  "note": "A Moroccan property marketplace that calls itself the country’s leading property site, covering sale, rental and holiday lets. It offers both a personal account for publishing a listing and a separate business registration; the cost of either is not stated.",
+  "sellerAction": "publish-classified",
+  "sellerActionUrl": "https://www.mubawab.ma/cms/posting?t=1786742633275&tsf=1786742633276"
  },
  {
   "id": "mp-mm-carsdb",
@@ -2583,7 +2665,9 @@
   "sellerTypes": "business",
   "costModel": "paid",
   "currentStatus": "active",
-  "note": "A Myanmar job marketplace where employers hold public company pages."
+  "note": "A Myanmar job marketplace where employers hold public company pages.",
+  "sellerAction": "post-advertisement",
+  "sellerActionUrl": "https://www.jobnet.com.mm/employers/signup"
  },
  {
   "id": "mp-mm-shop",
@@ -2594,7 +2678,9 @@
   "sellerTypes": "business",
   "costModel": "unknown",
   "currentStatus": "active",
-  "note": "Myanmar's largest online marketplace, where merchants hold public storefronts."
+  "note": "Myanmar's largest online marketplace, where merchants hold public storefronts.",
+  "sellerAction": "create-seller-profile",
+  "sellerActionUrl": "https://pages.shop.com.mm/wow/i/mm/MMCampaign/sell-on-shop?hybrid=1"
  },
  {
   "id": "mp-mm-imyanmarhouse",
@@ -2616,7 +2702,9 @@
   "sellerTypes": "both",
   "costModel": "unknown",
   "currentStatus": "active",
-  "note": "Namibia's main vehicle marketplace, carrying the stock of around sixty dealerships alongside private listings."
+  "note": "Namibia's main vehicle marketplace, carrying the stock of around sixty dealerships alongside private listings.",
+  "sellerAction": "post-advertisement",
+  "sellerActionUrl": "https://www.namcars.net/sell"
  },
  {
   "id": "mp-nl-marktplaats",
@@ -2655,7 +2743,9 @@
   "sellerTypes": "both",
   "costModel": "freemium",
   "currentStatus": "active",
-  "note": "A New Zealand vehicle marketplace of over 40 years standing, carrying used, new, electric, hybrid and commercial vehicles. It states that a private listing is free with no success or sale fees and stays live until removed, while dealers buy a tailored advertising package."
+  "note": "A New Zealand vehicle marketplace of over 40 years standing, carrying used, new, electric, hybrid and commercial vehicles. It states that a private listing is free with no success or sale fees and stays live until removed, while dealers buy a tailored advertising package.",
+  "sellerAction": "publish-classified",
+  "sellerActionUrl": "https://autotrader.co.nz/sell-my-car"
  },
  {
   "id": "mp-nz-oneroof",
@@ -2772,7 +2862,9 @@
   "sellerTypes": "business",
   "costModel": "paid",
   "currentStatus": "active",
-  "note": "A major Nigerian online marketplace where merchants hold public storefronts."
+  "note": "A major Nigerian online marketplace where merchants hold public storefronts.",
+  "sellerAction": "create-seller-profile",
+  "sellerActionUrl": "https://shq.konga.com/register"
  },
  {
   "id": "mp-ng-myjobmag",
@@ -2835,7 +2927,9 @@
    "property",
    "vehicles"
   ],
-  "note": "A North Macedonian classifieds portal. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser. [redirect:2026-08-14] the Macedonian marketplace consolidated from reklama5.mk onto a .com domain; the record now points at the current address."
+  "note": "A North Macedonian classifieds portal. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser. [redirect:2026-08-14] the Macedonian marketplace consolidated from reklama5.mk onto a .com domain; the record now points at the current address.",
+  "sellerAction": "publish-classified",
+  "sellerActionUrl": "https://reklama5.com/Help/HelpAdvertisment"
  },
  {
   "id": "mp-no-finn",
@@ -2908,7 +3002,9 @@
   "sellerTypes": "both",
   "costModel": "freemium",
   "currentStatus": "active",
-  "note": "Pakistan's main vehicle marketplace, where dealers hold public pages."
+  "note": "Pakistan's main vehicle marketplace, where dealers hold public pages.",
+  "sellerAction": "publish-classified",
+  "sellerActionUrl": "https://www.pakwheels.com/used-cars/sell"
  },
  {
   "id": "mp-pk-propertyfinder",
@@ -2984,7 +3080,9 @@
    "vehicles"
   ],
   "operator": "Mercado Libre",
-  "note": "The dominant Peruvian marketplace, where sellers hold public storefronts."
+  "note": "The dominant Peruvian marketplace, where sellers hold public storefronts.",
+  "sellerAction": "create-seller-profile",
+  "sellerActionUrl": "https://www.mercadolibre.com.pe/l/app#menu-user"
  },
  {
   "id": "mp-pe-neoauto",
@@ -3017,7 +3115,9 @@
   "sellerTypes": "both",
   "costModel": "paid",
   "currentStatus": "active",
-  "note": "A Philippine vehicle marketplace where dealers hold public pages. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser."
+  "note": "A Philippine vehicle marketplace where dealers hold public pages. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
+  "sellerAction": "publish-classified",
+  "sellerActionUrl": "https://www.autodeal.com.ph/sell-your-car"
  },
  {
   "id": "mp-ph-carousell",
@@ -3091,7 +3191,9 @@
    "vehicles"
   ],
   "operator": "OLX Group",
-  "note": "Poland's dominant classifieds marketplace. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser."
+  "note": "Poland's dominant classifieds marketplace. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
+  "sellerAction": "publish-classified",
+  "sellerActionUrl": "https://www.olx.pl/adding"
  },
  {
   "id": "mp-pl-otomoto",
@@ -3103,7 +3205,9 @@
   "costModel": "paid",
   "currentStatus": "active",
   "operator": "OLX Group",
-  "note": "The main Polish vehicle marketplace, where dealers hold public dealer pages."
+  "note": "The main Polish vehicle marketplace, where dealers hold public dealer pages.",
+  "sellerAction": "create-seller-profile",
+  "sellerActionUrl": "https://www.otomoto.pl/opcje-sprzedazy"
  },
  {
   "id": "mp-pl-sprzedajemy",
@@ -3114,7 +3218,9 @@
   "sellerTypes": "both",
   "costModel": "freemium",
   "currentStatus": "active",
-  "note": "A Polish free classifieds board."
+  "note": "A Polish free classifieds board.",
+  "sellerAction": "publish-classified",
+  "sellerActionUrl": "https://sprzedajemy.pl/nowe-ogloszenie"
  },
  {
   "id": "mp-pt-custojusto",
@@ -3129,7 +3235,9 @@
    "property",
    "vehicles"
   ],
-  "note": "A Portuguese free classifieds marketplace."
+  "note": "A Portuguese free classifieds marketplace.",
+  "sellerAction": "publish-classified",
+  "sellerActionUrl": "https://www.custojusto.pt/ai"
  },
  {
   "id": "mp-pt-olx",
@@ -3158,7 +3266,9 @@
   "costModel": "paid",
   "currentStatus": "active",
   "operator": "OLX Group",
-  "note": "The main Portuguese vehicle marketplace, where dealers hold public dealer pages."
+  "note": "The main Portuguese vehicle marketplace, where dealers hold public dealer pages.",
+  "sellerAction": "publish-classified",
+  "sellerActionUrl": "https://www.standvirtual.com/carros/anunciar"
  },
  {
   "id": "mp-pr-clasificadosonline",
@@ -3283,7 +3393,9 @@
   "sellerTypes": "both",
   "costModel": "freemium",
   "currentStatus": "active",
-  "note": "A major Russian vehicle marketplace."
+  "note": "A major Russian vehicle marketplace.",
+  "sellerAction": "publish-classified",
+  "sellerActionUrl": "https://auto.drom.ru/addbull/"
  },
  {
   "id": "mp-ru-youla",
@@ -3430,7 +3542,9 @@
   "costModel": "paid",
   "currentStatus": "active",
   "operator": "PropertyGuru Group",
-  "note": "Singapore's main property marketplace, where agents hold public listings. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser."
+  "note": "Singapore's main property marketplace, where agents hold public listings. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
+  "sellerAction": "post-advertisement",
+  "sellerActionUrl": "https://agentofferings.propertyguru.com.sg/"
  },
  {
   "id": "mp-sg-sgcarmart",
@@ -3518,7 +3632,9 @@
   "alsoCovers": [
    "general-classifieds"
   ],
-  "note": "A South African auction and marketplace platform, formerly bidorbuy, with public seller shops."
+  "note": "A South African auction and marketplace platform, formerly bidorbuy, with public seller shops.",
+  "sellerAction": "create-seller-profile",
+  "sellerActionUrl": "https://bobshop.co.za/content/153/index.html"
  },
  {
   "id": "mp-za-careerjunction",
@@ -3571,7 +3687,9 @@
   "sellerTypes": "both",
   "costModel": "paid",
   "currentStatus": "active",
-  "note": "A major South African property marketplace."
+  "note": "A major South African property marketplace.",
+  "sellerAction": "create-seller-profile",
+  "sellerActionUrl": "https://www.privateproperty.co.za/estate-agents-in-south-africa"
  },
  {
   "id": "mp-za-property24",
@@ -3582,7 +3700,9 @@
   "sellerTypes": "both",
   "costModel": "paid",
   "currentStatus": "active",
-  "note": "South Africa's main property marketplace, where agents hold public listings."
+  "note": "South Africa's main property marketplace, where agents hold public listings.",
+  "sellerAction": "publish-classified",
+  "sellerActionUrl": "https://www.property24.com/private-listing/sell-my-property"
  },
  {
   "id": "mp-kr-albamon",
@@ -3698,7 +3818,9 @@
   "sellerTypes": "both",
   "costModel": "paid",
   "currentStatus": "active",
-  "note": "A Sri Lankan property marketplace where agents hold public listings."
+  "note": "A Sri Lankan property marketplace where agents hold public listings.",
+  "sellerAction": "publish-classified",
+  "sellerActionUrl": "https://www.lankapropertyweb.com/myaccountV2/create"
  },
  {
   "id": "mp-lk-patpat",
@@ -3712,7 +3834,9 @@
   "alsoCovers": [
    "vehicles"
   ],
-  "note": "A Sri Lankan classifieds marketplace. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser."
+  "note": "A Sri Lankan classifieds marketplace. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
+  "sellerAction": "publish-classified",
+  "sellerActionUrl": "https://patpat.lk/en/customer/listing/create/category"
  },
  {
   "id": "mp-lk-riyasewana",
@@ -3739,7 +3863,9 @@
    "property",
    "vehicles"
   ],
-  "note": "Sri Lanka's leading classifieds marketplace."
+  "note": "Sri Lanka's leading classifieds marketplace.",
+  "sellerAction": "publish-classified",
+  "sellerActionUrl": "https://ikman.lk/en/sell-anything?login-modal=true&action=post-ad&redirect-url=%2Fen%2Fpost-ad"
  },
  {
   "id": "mp-sd-sudanjob",
@@ -3968,7 +4094,9 @@
   "sellerTypes": "both",
   "costModel": "unknown",
   "currentStatus": "active",
-  "note": "A Tunisian vehicle marketplace carrying new-car prices alongside used-car listings by governorate. Its own seller filter separates professionals from private sellers and shows both in volume; publishing requires an account and the cost is not stated."
+  "note": "A Tunisian vehicle marketplace carrying new-car prices alongside used-car listings by governorate. Its own seller filter separates professionals from private sellers and shows both in volume; publishing requires an account and the cost is not stated.",
+  "sellerAction": "post-advertisement",
+  "sellerActionUrl": "https://www.automobile.tn/fr/mon-espace/creer-une-annonce?o=1"
  },
  {
   "id": "mp-tn-tayara",
@@ -3984,7 +4112,9 @@
    "services",
    "vehicles"
   ],
-  "note": "Tunisia's main classifieds marketplace, covering vehicles, property, electronics and household goods. It states that posting a listing is free, and separates private sellers from professionals, who can run branded shops."
+  "note": "Tunisia's main classifieds marketplace, covering vehicles, property, electronics and household goods. It states that posting a listing is free, and separates private sellers from professionals, who can run branded shops.",
+  "sellerAction": "publish-classified",
+  "sellerActionUrl": "https://www.tayara.tn/post-listing/"
  },
  {
   "id": "mp-tr-arabam",
@@ -4107,7 +4237,9 @@
    "property",
    "vehicles"
   ],
-  "note": "A Ukrainian classifieds network covering vehicles, property and goods."
+  "note": "A Ukrainian classifieds network covering vehicles, property and goods.",
+  "sellerAction": "publish-classified",
+  "sellerActionUrl": "https://www.ria.com/add/"
  },
  {
   "id": "mp-ae-dubicars",
@@ -4118,7 +4250,9 @@
   "sellerTypes": "both",
   "costModel": "paid",
   "currentStatus": "active",
-  "note": "A UAE vehicle marketplace that describes itself as the country’s largest automotive portal with 30,000+ verified new and used cars, carrying dealer stock alongside verified private sellers. Its sell-your-car page advertises pricing plans and \"transparent rates\", so publishing is paid."
+  "note": "A UAE vehicle marketplace that describes itself as the country’s largest automotive portal with 30,000+ verified new and used cars, carrying dealer stock alongside verified private sellers. Its sell-your-car page advertises pricing plans and \"transparent rates\", so publishing is paid.",
+  "sellerAction": "publish-classified",
+  "sellerActionUrl": "https://www.dubicars.com/sell-your-car"
  },
  {
   "id": "mp-ae-opensooq",
@@ -4147,7 +4281,9 @@
   "sellerTypes": "business",
   "costModel": "unknown",
   "currentStatus": "active",
-  "note": "The UAE's main property portal, covering Dubai, Abu Dhabi, Sharjah and Ajman for both sale and rent. Listings are held by real-estate agencies, which the site surfaces through its own agent directory; no private-seller route and no published subscription price were found."
+  "note": "The UAE's main property portal, covering Dubai, Abu Dhabi, Sharjah and Ajman for both sale and rent. Listings are held by real-estate agencies, which the site surfaces through its own agent directory; no private-seller route and no published subscription price were found.",
+  "sellerAction": "publish-classified",
+  "sellerActionUrl": "https://www.propertyfinder.ae/partnerhub/getstarted/#partner-details"
  },
  {
   "id": "mp-uk-freeads",
@@ -4178,7 +4314,9 @@
    "vehicles"
   ],
   "operator": "Adevinta",
-  "note": "The main UK classifieds marketplace. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser."
+  "note": "The main UK classifieds marketplace. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
+  "sellerAction": "publish-classified",
+  "sellerActionUrl": "https://my.gumtree.com/login/postad"
  },
  {
   "id": "mp-uk-preloved",
@@ -4225,7 +4363,9 @@
   "alsoCovers": [
    "general-classifieds"
   ],
-  "note": "An international marketplace where independent booksellers hold public storefronts."
+  "note": "An international marketplace where independent booksellers hold public storefronts.",
+  "sellerAction": "create-seller-profile",
+  "sellerActionUrl": "https://www.abebooks.com/books/sell/"
  },
  {
   "id": "mp-us-adpost",
@@ -4305,7 +4445,9 @@
   "sellerTypes": "both",
   "costModel": "paid",
   "currentStatus": "active",
-  "note": "A US vintage furniture and design marketplace with public seller shops."
+  "note": "A US vintage furniture and design marketplace with public seller shops.",
+  "sellerAction": "publish-classified",
+  "sellerActionUrl": "https://www.chairish.com/product/create"
  },
  {
   "id": "mp-us-classifiedads",
@@ -4321,7 +4463,9 @@
    "property",
    "vehicles"
   ],
-  "note": "A free US classifieds platform."
+  "note": "A free US classifieds platform.",
+  "sellerAction": "publish-classified",
+  "sellerActionUrl": "https://www.classifiedads.com/post.php"
  },
  {
   "id": "mp-us-craigslist",
@@ -4349,7 +4493,9 @@
   "sellerTypes": "both",
   "costModel": "freemium",
   "currentStatus": "active",
-  "note": "A fashion resale marketplace with public seller shops. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser."
+  "note": "A fashion resale marketplace with public seller shops. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
+  "sellerAction": "create-seller-profile",
+  "sellerActionUrl": "https://www.depop.com/sell/"
  },
  {
   "id": "mp-us-etsy",
@@ -4417,7 +4563,9 @@
    "property",
    "vehicles"
   ],
-  "note": "A major regional US classifieds platform serving Utah and the Mountain West. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser."
+  "note": "A major regional US classifieds platform serving Utah and the Mountain West. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
+  "sellerAction": "post-advertisement",
+  "sellerActionUrl": "https://www.deseretdigital.com/advertising"
  },
  {
   "id": "mp-us-locanto",
@@ -4509,7 +4657,9 @@
   "sellerTypes": "both",
   "costModel": "freemium",
   "currentStatus": "active",
-  "note": "A US fashion resale marketplace where sellers hold public closets."
+  "note": "A US fashion resale marketplace where sellers hold public closets.",
+  "sellerAction": "create-seller-profile",
+  "sellerActionUrl": "https://poshmark.com/sell"
  },
  {
   "id": "mp-us-reverb",
@@ -4520,7 +4670,9 @@
   "sellerTypes": "both",
   "costModel": "paid",
   "currentStatus": "active",
-  "note": "A US musical instrument marketplace where shops hold public storefronts. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser."
+  "note": "A US musical instrument marketplace where shops hold public storefronts. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
+  "sellerAction": "create-seller-profile",
+  "sellerActionUrl": "https://reverb.com/sell/search"
  },
  {
   "id": "mp-us-rubylane",
@@ -4542,7 +4694,9 @@
   "sellerTypes": "business",
   "costModel": "freemium",
   "currentStatus": "active",
-  "note": "A US marketplace where independent brands hold public storefronts."
+  "note": "A US marketplace where independent brands hold public storefronts.",
+  "sellerAction": "create-seller-profile",
+  "sellerActionUrl": "https://www.storenvy.com/open-a-store"
  },
  {
   "id": "mp-us-varagesale",
@@ -4594,7 +4748,9 @@
    "vehicles"
   ],
   "operator": "Mercado Libre",
-  "note": "The dominant Venezuelan marketplace, where sellers hold public storefronts."
+  "note": "The dominant Venezuelan marketplace, where sellers hold public storefronts.",
+  "sellerAction": "create-seller-profile",
+  "sellerActionUrl": "https://www.mercadolibre.com.ve/l/app#menu-user"
  },
  {
   "id": "mp-ve-tuinmueble",
@@ -4680,6 +4836,8 @@
   "sellerTypes": "both",
   "costModel": "paid",
   "currentStatus": "active",
-  "note": "Zimbabwe's main property marketplace, where registered estate agencies hold public listings."
+  "note": "Zimbabwe's main property marketplace, where registered estate agencies hold public listings.",
+  "sellerAction": "publish-classified",
+  "sellerActionUrl": "https://www.propertybook.co.zw/info/sell-with-us"
  }
 ]

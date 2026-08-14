@@ -758,6 +758,11 @@
     }
     if (r.listingAction === 'invite-only') out.push('listing is invitation only');
     if (r.listingAction === 'not-applicable') out.push('the platform does not accept listings');
+    // The same two findings, in the marketplace collection's own vocabulary.
+    // Without these a curated-supply platform would sit in the queue looking
+    // like work someone could pick up today.
+    if (r.sellerAction === 'invite-only') out.push('supply is invitation only');
+    if (r.sellerAction === 'not-applicable') out.push('the platform does not accept seller listings');
     if (op.sourceCollection === 'marketplaces' && op.sellerTypes === 'private') {
       out.push('accepts private sellers only, not companies');
     }
@@ -784,7 +789,13 @@
       const allowed = map[op.actionType] || [r.submissionUrl, r.pitchUrl, r.pressReleaseUrl, r.advertisingUrl];
       return allowed.filter(Boolean).includes(op.actionUrl);
     }
-    return false; // the marketplace collection records no route at all
+    if (op.sourceCollection === 'marketplaces') {
+      // One field, one meaning: the route a marketplace record carries is the
+      // route for the action it carries. There is no second candidate to
+      // confuse it with, which is why this collection needs no map.
+      return op.actionUrl === r.sellerActionUrl;
+    }
+    return false;
   }
 
   function actionability(op) {
@@ -1411,8 +1422,13 @@
     // Raw fields read straight off the source record, which each collection owns.
     record: ['advertisingUrl', 'categories', 'claimUrl', 'currentStatus', 'industries',
       'intelligence', 'limitations', 'listingAction', 'name', 'opportunityTypes', 'pitchUrl',
-      'pressReleaseUrl', 'priority', 'requiredAssets', 'requiresEditorialApproval', 'shortNote',
-      'submissionDifficulty', 'submissionUrl', 'verificationMethods'],
+      'pressReleaseUrl', 'priority', 'requiredAssets', 'requiresEditorialApproval',
+      // Marketplace seller actionability. The browser scores blockers and the
+      // action/route agreement from these, so omitting them from the slim
+      // payload would leave the client scoring on undefined while the server
+      // scored on facts — which is exactly what this contract exists to stop.
+      'sellerAction', 'sellerActionUrl',
+      'shortNote', 'submissionDifficulty', 'submissionUrl', 'verificationMethods'],
     accepts: ACCEPTS_FIELDS,
     intelligence: ['approvalMode'],
   };

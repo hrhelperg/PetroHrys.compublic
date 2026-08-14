@@ -126,6 +126,21 @@ function firstUrl(...candidates) {
   return null;
 }
 
+// Evidence first, derivation second, and the two non-route findings passed
+// straight through: `invite-only` and `not-applicable` are answers, and
+// dressing either as an action would be the exact failure this collection has
+// been avoiding everywhere else.
+function marketplaceAction(r) {
+  const evidenced = r.sellerAction;
+  if (evidenced && evidenced !== 'unknown') {
+    if (evidenced === 'invite-only' || evidenced === 'not-applicable') return 'investigate';
+    return evidenced;
+  }
+  if (r.marketplaceType === 'b2b') return 'create-seller-profile';
+  if (r.marketplaceType === 'general-classifieds') return 'publish-classified';
+  return 'post-advertisement';
+}
+
 function project({ directories, marketplaces, media }) {
   const out = [];
   for (const r of directories) {
@@ -147,11 +162,17 @@ function project({ directories, marketplaces, media }) {
     out.push({
       sourceCollection: 'marketplaces', platformId: r.id, name: r.name, website: r.website,
       country: r.country, audienceGeography: null,
-      actionType: r.marketplaceType === 'b2b' ? 'create-seller-profile'
-        : r.marketplaceType === 'general-classifieds' ? 'publish-classified' : 'post-advertisement',
-      // The marketplace collection records no per-platform submission URL, so
-      // the projection carries none. It does not invent one from the website.
-      actionUrl: null,
+      // An EVIDENCED action outranks a derived one. The fallback below infers
+      // an action from the platform's type, which is a reasonable guess about
+      // a category and says nothing about a particular operator: a b2b
+      // marketplace that says "Post an ad" is publishing classifieds whatever
+      // its type field claims. Where research established what the operator
+      // actually offers, that is what the planner is told.
+      actionType: marketplaceAction(r),
+      // The route is carried only when the collection holds one. It is still
+      // never invented from the website.
+      actionUrl: r.sellerActionUrl || null,
+      sellerAction: r.sellerAction || 'unknown',
       cost: r.costModel, nativeQuality: q.value, nativeSignal: q.signal,
       evidence: r.currentStatus === 'unknown' ? 'needs-browser-check' : 'reachable',
       marketplaceType: r.marketplaceType, alsoCovers: r.alsoCovers || [],

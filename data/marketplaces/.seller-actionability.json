@@ -1,0 +1,5293 @@
+{
+ "probedAt": "2026-08-14",
+ "findings": [
+  {
+   "id": "mp-ae-dubicars",
+   "name": "DubiCars",
+   "website": "https://www.dubicars.com/",
+   "country": "united-arab-emirates",
+   "marketplaceType": "vehicles",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.dubicars.com/",
+    "title": "Find New & Used Cars for Sale - Prices, Reviews, and Latest Auto News | DubiCars",
+    "textLen": 14859
+   },
+   "state": "ACTION_ESTABLISHED",
+   "action": "publish-classified",
+   "route": {
+    "text": "Sell your car",
+    "href": "https://www.dubicars.com/sell-your-car"
+   },
+   "why": "the operator publishes \"Sell your car\"",
+   "buyerOnlyOffered": [
+    "Login"
+   ]
+  },
+  {
+   "id": "mp-ae-opensooq",
+   "name": "OpenSooq UAE",
+   "website": "https://ae.opensooq.com/",
+   "country": "united-arab-emirates",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://ae.opensooq.com/ar",
+    "title": "السوق المفتوح : سوق الإمارات كوم : سيارات : عقارات : بيوت : للبيع : خدمات : وظائف | السوق المفتوح",
+    "textLen": 3616
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-ae-propertyfinder",
+   "name": "Property Finder",
+   "website": "https://www.propertyfinder.ae/",
+   "country": "united-arab-emirates",
+   "marketplaceType": "property",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.propertyfinder.ae/",
+    "title": "Property Finder | Buy and Rent Real Estate in UAE",
+    "textLen": 6850
+   },
+   "state": "ACTION_ESTABLISHED",
+   "action": "publish-classified",
+   "route": {
+    "text": "List your property with us",
+    "href": "https://www.propertyfinder.ae/partnerhub/getstarted/#partner-details"
+   },
+   "why": "the operator publishes \"List your property with us\"",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-al-duapune",
+   "name": "DuaPune",
+   "website": "https://www.duapune.com/",
+   "country": "albania",
+   "marketplaceType": "jobs",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.duapune.com/",
+    "title": "duapune.com - Njoftime Pune - Vende te lira pune - Vende vakante",
+    "textLen": 13669
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-al-merrjep",
+   "name": "MerrJep",
+   "website": "https://www.merrjep.al/",
+   "country": "albania",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.merrjep.al/",
+    "title": "Njoftime Falas | Makina | Apartamente | Shtëpi me qera | Punë | Telefona | Laptop | Vegla pune | Shërbime | Rroba | MerrJep.al",
+    "textLen": 2018
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-ar-argenprop",
+   "name": "Argenprop",
+   "website": "https://www.argenprop.com/",
+   "country": "argentina",
+   "marketplaceType": "property",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.argenprop.com/",
+    "title": "Argenprop - Alquiler y venta de departamentos, casas y otros inmuebles",
+    "textLen": 3308
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "the site offers an account (Mi cuenta) but nothing on it says that route is for selling",
+   "buyerOnlyOffered": [
+    "Mi cuenta"
+   ]
+  },
+  {
+   "id": "mp-ar-mercadolibre",
+   "name": "Mercado Libre Argentina",
+   "website": "https://www.mercadolibre.com.ar/",
+   "country": "argentina",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.mercadolibre.com.ar/",
+    "title": "Mercado Libre Argentina - Envíos Gratis en el día",
+    "textLen": 4739
+   },
+   "state": "ACTION_ESTABLISHED",
+   "action": "publish-classified",
+   "route": {
+    "text": "Vender",
+    "href": "https://www.mercadolibre.com.ar/syi/core/list#menu-user"
+   },
+   "why": "the operator publishes \"Vender\", and the platform is recorded as general-classifieds",
+   "buyerOnlyOffered": [
+    "Mi cuenta"
+   ]
+  },
+  {
+   "id": "mp-ar-zonaprop",
+   "name": "Zonaprop",
+   "website": "https://www.zonaprop.com.ar/",
+   "country": "argentina",
+   "marketplaceType": "property",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.zonaprop.com.ar/",
+    "title": "Inmuebles en Argentina: venta y alquiler de departamentos, casas y otras propiedades - Zonaprop",
+    "textLen": 4188
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "the site offers an account (Mi cuenta) but nothing on it says that route is for selling",
+   "buyerOnlyOffered": [
+    "Mi cuenta"
+   ]
+  },
+  {
+   "id": "mp-at-bazar",
+   "name": "bazar.at",
+   "website": "https://www.bazar.at/",
+   "country": "austria",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.bazar.at/",
+    "title": "Kostenlose Kleinanzeigen - suchen und finden - bazar.at | bazar.at",
+    "textLen": 4205
+   },
+   "state": "ACTION_ESTABLISHED",
+   "action": "publish-classified",
+   "route": {
+    "text": "Anzeige aufgeben",
+    "href": "https://www.bazar.at/mein/anzeigen-aufgabe"
+   },
+   "why": "the operator publishes \"Anzeige aufgeben\"",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-at-willhaben",
+   "name": "willhaben",
+   "website": "https://www.willhaben.at/",
+   "country": "austria",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.willhaben.at/iad",
+    "title": "Kostenlose Kleinanzeigen, Immobilien, Gebrauchtwagen, Jobs - willhaben",
+    "textLen": 2769
+   },
+   "state": "ACTION_ESTABLISHED",
+   "action": "publish-classified",
+   "route": {
+    "text": "Neue Anzeige aufgeben",
+    "href": "https://www.willhaben.at/iad/anzeigenaufgabe"
+   },
+   "why": "the operator publishes \"Neue Anzeige aufgeben\"",
+   "buyerOnlyOffered": [
+    "Einloggen",
+    "Registrieren"
+   ]
+  },
+  {
+   "id": "mp-au-airtasker",
+   "name": "Airtasker",
+   "website": "https://www.airtasker.com/",
+   "country": "australia",
+   "marketplaceType": "services",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.airtasker.com/au/",
+    "title": "Get anything done & earn more money | Airtasker AU",
+    "textLen": 8596
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "the site offers an account (Login) but nothing on it says that route is for selling",
+   "buyerOnlyOffered": [
+    "Login"
+   ]
+  },
+  {
+   "id": "mp-au-bikesales",
+   "name": "bikesales",
+   "website": "https://www.bikesales.com.au/",
+   "country": "australia",
+   "marketplaceType": "vehicles",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.bikesales.com.au/",
+    "title": "Used Motorcycle For Sale - Buy and Sell Motorcycles Australia",
+    "textLen": 1441
+   },
+   "state": "ACTION_ESTABLISHED",
+   "action": "post-advertisement",
+   "route": {
+    "text": "Sell",
+    "href": "https://www.bikesales.com.au/sell-my-bike/?ret=internal-bikesales-desktop-top-nav&driver_crosssell=bikesales.sell_top_nav.link"
+   },
+   "why": "the operator publishes \"Sell\", and the platform is recorded as vehicles",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-au-boatsales",
+   "name": "boatsales",
+   "website": "https://www.boatsales.com.au/",
+   "country": "australia",
+   "marketplaceType": "vehicles",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.boatsales.com.au/",
+    "title": "New & Used Boat Sales - Find Boats For Sale Online - boatsales.com.au",
+    "textLen": 1093
+   },
+   "state": "ACTION_ESTABLISHED",
+   "action": "post-advertisement",
+   "route": {
+    "text": "Sell",
+    "href": "https://www.boatsales.com.au/sell-my-boat/"
+   },
+   "why": "the operator publishes \"Sell\", and the platform is recorded as vehicles",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-au-ebay",
+   "name": "eBay Australia",
+   "website": "https://www.ebay.com.au/",
+   "country": "australia",
+   "marketplaceType": "auctions",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.ebay.com.au/",
+    "title": "eBay Australia | Electronics, Cars, Fashion, Collectibles & More",
+    "textLen": 6509
+   },
+   "state": "ACTION_ESTABLISHED",
+   "action": "create-seller-profile",
+   "route": {
+    "text": "Seller Centre",
+    "href": "https://www.ebay.com.au/sellercentre"
+   },
+   "why": "the operator publishes \"Seller Centre\"",
+   "buyerOnlyOffered": [
+    "Sign in",
+    "register",
+    "sign in"
+   ]
+  },
+  {
+   "id": "mp-au-farmmachinerysales",
+   "name": "farmmachinerysales",
+   "website": "https://www.farmmachinerysales.com.au/",
+   "country": "australia",
+   "marketplaceType": "b2b",
+   "observed": {
+    "status": 204,
+    "finalUrl": "https://www.farmmachinerysales.com.au/",
+    "title": "Farm Machinery & Equipment - Irrigation, Pumps & Tractors - farmmachinerysales.com.au",
+    "textLen": 2871
+   },
+   "state": "ACTION_ESTABLISHED",
+   "action": "create-seller-profile",
+   "route": {
+    "text": "Sell",
+    "href": "https://www.farmmachinerysales.com.au/sell-my-farm-machinery/"
+   },
+   "why": "the operator publishes \"Sell\", and the platform is recorded as b2b",
+   "buyerOnlyOffered": [
+    "My account"
+   ]
+  },
+  {
+   "id": "mp-au-pickles",
+   "name": "Pickles",
+   "website": "https://www.pickles.com.au/",
+   "country": "australia",
+   "marketplaceType": "auctions",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.pickles.com.au/",
+    "title": "Online Auctions. Buy & Sell Cars, Trucks, Damage - Pickles AU",
+    "textLen": 4834
+   },
+   "state": "ACTION_ESTABLISHED",
+   "action": "create-seller-profile",
+   "route": {
+    "text": "Start Selling",
+    "href": "https://www.pickles.com.au/sell"
+   },
+   "why": "the operator publishes \"Start Selling\"",
+   "buyerOnlyOffered": [
+    "Sign up",
+    "Login"
+   ]
+  },
+  {
+   "id": "mp-ba-mojposao",
+   "name": "MojPosao.ba",
+   "website": "https://www.mojposao.ba/",
+   "country": "bosnia-and-herzegovina",
+   "marketplaceType": "jobs",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.mojposao.ba/",
+    "title": "MojPosao.ba - Posao i savjeti za razvoj karijere",
+    "textLen": 4335
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-bd-bproperty",
+   "name": "Bproperty",
+   "website": "https://www.bproperty.com/",
+   "country": "bangladesh",
+   "marketplaceType": "property",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.bproperty.com/",
+    "title": "Buy, Sell, Rent Real Estate in Bangladesh | Bproperty",
+    "textLen": 11579
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-be-2dehands",
+   "name": "2dehands",
+   "website": "https://www.2dehands.be/",
+   "country": "belgium",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.2dehands.be/",
+    "title": "2dehands - Dé plek om nieuwe en tweedehands zaken te kopen en verkopen",
+    "textLen": 3537
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-bg-bazar",
+   "name": "Bazar.bg",
+   "website": "https://www.bazar.bg/",
+   "country": "bulgaria",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://bazar.bg/",
+    "title": "Безплатни обяви от Bazar.bg – обяви за работа, имоти, коли, услуги..",
+    "textLen": 8804
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-bg-mobile-bg",
+   "name": "Mobile.bg",
+   "website": "https://www.mobile.bg/",
+   "country": "bulgaria",
+   "marketplaceType": "vehicles",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.mobile.bg/",
+    "title": "Mobile.bg — Продажба на нови и употребявани автомобили",
+    "textLen": 5888
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-bg-olx",
+   "name": "OLX Bulgaria",
+   "website": "https://www.olx.bg/",
+   "country": "bulgaria",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.olx.bg/",
+    "title": "OLX.bg - безплатни обяви",
+    "textLen": 5310
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-bh-opensooq",
+   "name": "OpenSooq Bahrain",
+   "website": "https://bh.opensooq.com/",
+   "country": "bahrain",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://bh.opensooq.com/ar",
+    "title": "السوق المفتوح : سوق البحرين : سيارات : عقارات : بيوت : للبيع : خدمات : وظائف | السوق المفتوح",
+    "textLen": 4359
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-br-chavesnamao",
+   "name": "Chaves na Mão",
+   "website": "https://www.chavesnamao.com.br/",
+   "country": "brazil",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.chavesnamao.com.br/",
+    "title": "Classificados de imóveis, carros e motos | Chaves na Mão",
+    "textLen": 5245
+   },
+   "state": "ACTION_ESTABLISHED",
+   "action": "publish-classified",
+   "route": {
+    "text": "Anunciar",
+    "href": "https://www.chavesnamao.com.br/anunciar-imoveis-carros-e-motos/"
+   },
+   "why": "the operator publishes \"Anunciar\", and the platform is recorded as general-classifieds",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-br-enjoei",
+   "name": "Enjoei",
+   "website": "https://www.enjoei.com.br/",
+   "country": "brazil",
+   "marketplaceType": "second-hand",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.enjoei.com.br/",
+    "title": "Enjoei - Venda Rápida e Segura | Comece a Vender Agora",
+    "textLen": 4070
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-br-mercadolivre",
+   "name": "Mercado Livre Brasil",
+   "website": "https://www.mercadolivre.com.br/",
+   "country": "brazil",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 204,
+    "finalUrl": "https://www.mercadolivre.com.br/",
+    "title": "Mercado Livre Brasil - Frete Grátis no mesmo dia",
+    "textLen": 4301
+   },
+   "state": "ACTION_ESTABLISHED",
+   "action": "publish-classified",
+   "route": {
+    "text": "Vender",
+    "href": "https://www.mercadolivre.com.br/syi/core/list#menu-user"
+   },
+   "why": "the operator publishes \"Vender\", and the platform is recorded as general-classifieds",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-br-olx",
+   "name": "OLX Brasil",
+   "website": "https://www.olx.com.br/",
+   "country": "brazil",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.olx.com.br/",
+    "title": "OLX - O Maior Site de Compra e Venda do Brasil",
+    "textLen": 3236
+   },
+   "state": "ACTION_ESTABLISHED",
+   "action": "publish-classified",
+   "route": {
+    "text": "Anunciar grátis",
+    "href": "https://vender.olx.com.br/clkg/https/www2.olx.com.br/desapega"
+   },
+   "why": "the operator publishes \"Anunciar grátis\"",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-br-quintoandar",
+   "name": "QuintoAndar",
+   "website": "https://www.quintoandar.com.br/",
+   "country": "brazil",
+   "marketplaceType": "property",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.quintoandar.com.br/",
+    "title": "Abra as portas para um novo morar - QuintoAndar",
+    "textLen": 1135
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-br-vagas",
+   "name": "Vagas.com.br",
+   "website": "https://www.vagas.com.br/",
+   "country": "brazil",
+   "marketplaceType": "jobs",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.vagas.com.br/",
+    "title": "A plataforma de recrutamento mais rápida do mercado",
+    "textLen": 4607
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-br-vivareal",
+   "name": "VivaReal",
+   "website": "https://www.vivareal.com.br/",
+   "country": "brazil",
+   "marketplaceType": "property",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.vivareal.com.br/",
+    "title": "Imóveis, Casas e Apartamentos para Compra, Venda e Aluguel - Viva Real",
+    "textLen": 2858
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-br-webmotors",
+   "name": "Webmotors",
+   "website": "https://www.webmotors.com.br/",
+   "country": "brazil",
+   "marketplaceType": "vehicles",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.webmotors.com.br/",
+    "title": "Webmotors | Compre, venda e financie carros ou motos novos, usados e seminovos.",
+    "textLen": 6569
+   },
+   "state": "ACTION_ESTABLISHED",
+   "action": "post-advertisement",
+   "route": {
+    "text": "Vender",
+    "href": "https://www.webmotors.com.br/vender-carro"
+   },
+   "why": "the operator publishes \"Vender\", and the platform is recorded as vehicles",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-br-zapimoveis",
+   "name": "ZAP Imóveis",
+   "website": "https://www.zapimoveis.com.br/",
+   "country": "brazil",
+   "marketplaceType": "property",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.zapimoveis.com.br/",
+    "title": "Apartamentos, Casas e Imóveis a Venda e para Alugar - ZAP Imóveis",
+    "textLen": 3817
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-by-kufar",
+   "name": "Kufar",
+   "website": "https://www.kufar.by/",
+   "country": "belarus",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.kufar.by/l",
+    "title": "Куфар — площадка объявлений в Беларуси",
+    "textLen": 5091
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-ca-autotrader",
+   "name": "AutoTrader.ca",
+   "website": "https://www.autotrader.ca/",
+   "country": "canada",
+   "marketplaceType": "vehicles",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.autotrader.ca/",
+    "title": "New and Used Cars for Sale | AutoTrader.ca",
+    "textLen": 5894
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-ca-ebay",
+   "name": "eBay Canada",
+   "website": "https://www.ebay.ca/",
+   "country": "canada",
+   "marketplaceType": "auctions",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.ebay.ca/",
+    "title": "Error Page | eBay",
+    "textLen": 193
+   },
+   "state": "UNKNOWN_PROTECTED",
+   "why": "http 403"
+  },
+  {
+   "id": "mp-ca-kijiji",
+   "name": "Kijiji",
+   "website": "https://www.kijiji.ca/",
+   "country": "canada",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.kijiji.ca/",
+    "title": "Kijiji - Buy, Sell & Save with Canada's #1 Local Marketplaces | Kijiji",
+    "textLen": 7466
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-ca-realtor",
+   "name": "REALTOR.ca",
+   "website": "https://www.realtor.ca/",
+   "country": "canada",
+   "marketplaceType": "property",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.realtor.ca/",
+    "title": "Real Estate Listings in Canada: houses, condos, land, property | REALTOR.ca",
+    "textLen": 4212
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "the site offers an account (My Account, Create an Account) but nothing on it says that route is for selling",
+   "buyerOnlyOffered": [
+    "My Account",
+    "Create an Account",
+    "Sign in"
+   ]
+  },
+  {
+   "id": "mp-ca-used",
+   "name": "Used.ca",
+   "website": "https://www.usedvictoria.com/",
+   "country": "canada",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.used.ca/",
+    "title": "Marketplace |Used.ca",
+    "textLen": 1236
+   },
+   "state": "REDIRECTED",
+   "why": "www.usedvictoria.com now answers as www.used.ca",
+   "to": "https://www.used.ca/"
+  },
+  {
+   "id": "mp-ch-ricardo",
+   "name": "Ricardo",
+   "website": "https://www.ricardo.ch/",
+   "country": "switzerland",
+   "marketplaceType": "auctions",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.ricardo.ch/de/",
+    "title": "Ricardo - Sicher kaufen & verkaufen mit über 5 Mio. Nutzern",
+    "textLen": 11642
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-cl-chileautos",
+   "name": "Chileautos",
+   "website": "https://www.chileautos.cl/",
+   "country": "chile",
+   "marketplaceType": "vehicles",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.chileautos.cl/",
+    "title": "Chileautos: miles de autos y vehículos nuevos y usados",
+    "textLen": 5579
+   },
+   "state": "ACTION_ESTABLISHED",
+   "action": "post-advertisement",
+   "route": {
+    "text": "Vende",
+    "href": "https://www.chileautos.cl/publicar/comenzar-venta/"
+   },
+   "why": "the operator publishes \"Vende\", and the platform is recorded as vehicles",
+   "buyerOnlyOffered": [
+    "Regístrate"
+   ]
+  },
+  {
+   "id": "mp-cl-mercadolibre",
+   "name": "Mercado Libre Chile",
+   "website": "https://www.mercadolibre.cl/",
+   "country": "chile",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.mercadolibre.cl/",
+    "title": "Mercado Libre Chile - Envíos Gratis en el día",
+    "textLen": 4425
+   },
+   "state": "ACTION_ESTABLISHED",
+   "action": "create-seller-profile",
+   "route": {
+    "text": "¡Compra y vende con la app!",
+    "href": "https://www.mercadolibre.cl/l/app#menu-user"
+   },
+   "why": "the operator publishes \"¡Compra y vende con la app!\"",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-cl-portalinmobiliario",
+   "name": "Portal Inmobiliario",
+   "website": "https://www.portalinmobiliario.com/",
+   "country": "chile",
+   "marketplaceType": "property",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.portalinmobiliario.com/",
+    "title": "Casas, departamentos en arriendo y venta - Portalinmobiliario.com y MercadoLibre.cl",
+    "textLen": 7677
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-cl-yapo",
+   "name": "Yapo.cl",
+   "website": "https://www.yapo.cl/",
+   "country": "chile",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.yapo.cl/",
+    "title": "Marketplace en Chile - miles de anuncios clasificados en Yapo.cl",
+    "textLen": 6891
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "the site offers an account (Regístrate) but nothing on it says that route is for selling",
+   "buyerOnlyOffered": [
+    "Regístrate"
+   ]
+  },
+  {
+   "id": "mp-cn-58",
+   "name": "58.com",
+   "website": "https://www.58.com/",
+   "country": "china",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://bj.58.com/",
+    "title": "【58同城 58.com】北京分类信息 - 本地 免费 高效",
+    "textLen": 3357
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-cn-aihuishou",
+   "name": "AiHuiShou",
+   "website": "https://www.aihuishou.com/",
+   "country": "china",
+   "marketplaceType": "second-hand",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.aihuishou.com/",
+    "title": "爱回收｜上市公司当面收，啥都收、放心收",
+    "textLen": 736
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-cn-goofish",
+   "name": "Xianyu",
+   "website": "https://www.goofish.com/",
+   "country": "china",
+   "marketplaceType": "second-hand",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.goofish.com/",
+    "title": "闲鱼 - 闲不住？上闲鱼！",
+    "textLen": 2554
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-cn-pinduoduo",
+   "name": "Pinduoduo",
+   "website": "https://www.pinduoduo.com/",
+   "country": "china",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.pinduoduo.com/",
+    "title": "拼多多 新电商开创者",
+    "textLen": 2108
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-cn-taobao",
+   "name": "Taobao",
+   "website": "https://www.taobao.com/",
+   "country": "china",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.taobao.com/",
+    "title": "淘宝",
+    "textLen": 2154
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-cn-zhuanzhuan",
+   "name": "Zhuanzhuan",
+   "website": "https://www.zhuanzhuan.com/",
+   "country": "china",
+   "marketplaceType": "second-hand",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.zhuanzhuan.com/",
+    "title": "转转_转转二手官方验，买卖二手不一样",
+    "textLen": 1457
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-co-elempleo",
+   "name": "elempleo",
+   "website": "https://www.elempleo.com/",
+   "country": "colombia",
+   "marketplaceType": "jobs",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.elempleo.com/",
+    "title": "Ofertas de Empleos, Trabajos y Vacantes en Latinoamérica",
+    "textLen": 179
+   },
+   "state": "UNRESOLVED",
+   "why": "only 179 characters rendered"
+  },
+  {
+   "id": "mp-co-fincaraiz",
+   "name": "Fincaraíz",
+   "website": "https://www.fincaraiz.com.co/",
+   "country": "colombia",
+   "marketplaceType": "property",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.fincaraiz.com.co/",
+    "title": "Fincaraíz: Lo mejor de buscar es encontrar",
+    "textLen": 10265
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-co-mercadolibre",
+   "name": "Mercado Libre Colombia",
+   "website": "https://www.mercadolibre.com.co/",
+   "country": "colombia",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.mercadolibre.com.co/",
+    "title": "Mercado Libre Colombia - Envíos Gratis en el día",
+    "textLen": 4145
+   },
+   "state": "ACTION_ESTABLISHED",
+   "action": "create-seller-profile",
+   "route": {
+    "text": "¡Compra y vende con la app!",
+    "href": "https://www.mercadolibre.com.co/l/app#menu-user"
+   },
+   "why": "the operator publishes \"¡Compra y vende con la app!\"",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-co-metrocuadrado",
+   "name": "Metrocuadrado",
+   "website": "https://www.metrocuadrado.com/",
+   "country": "colombia",
+   "marketplaceType": "property",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.metrocuadrado.com/",
+    "title": "Apartamentos, Casas y Otros Inmuebles en Venta o Arriendo en Colombia – Metrocuadrado",
+    "textLen": 278
+   },
+   "state": "UNRESOLVED",
+   "why": "only 278 characters rendered"
+  },
+  {
+   "id": "mp-co-tucarro",
+   "name": "TuCarro",
+   "website": "https://www.tucarro.com/",
+   "country": "colombia",
+   "marketplaceType": "vehicles",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.tucarro.com/",
+    "title": "TuCarro",
+    "textLen": 46
+   },
+   "state": "UNRESOLVED",
+   "why": "only 46 characters rendered"
+  },
+  {
+   "id": "mp-cr-crautos",
+   "name": "CRAutos",
+   "website": "https://www.crautos.com/",
+   "country": "costa-rica",
+   "marketplaceType": "vehicles",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.crautos.com/",
+    "title": "crautos.com",
+    "textLen": 1662
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "the site offers an account (Regístrate) but nothing on it says that route is for selling",
+   "buyerOnlyOffered": [
+    "Regístrate"
+   ]
+  },
+  {
+   "id": "mp-cr-encuentra24",
+   "name": "Encuentra24 Costa Rica",
+   "website": "https://www.encuentra24.com/costa-rica-es/",
+   "country": "costa-rica",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.encuentra24.com/costa-rica-es/clasificados",
+    "title": "Marketplace en Costa Rica - miles de anuncios clasificados en Encuentra24",
+    "textLen": 9103
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-cu-revolico",
+   "name": "Revolico",
+   "website": "https://www.revolico.com/",
+   "country": "cuba",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.revolico.com/",
+    "title": "Revolico - Anuncios clasificados en Cuba",
+    "textLen": 2917
+   },
+   "state": "ACTION_ESTABLISHED",
+   "action": "publish-classified",
+   "route": {
+    "text": "Publicar anuncio",
+    "href": "https://www.revolico.com/item/publish"
+   },
+   "why": "the operator publishes \"Publicar anuncio\"",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-cy-bazaraki",
+   "name": "Bazaraki",
+   "website": "https://www.bazaraki.com/",
+   "country": "cyprus",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.bazaraki.com/",
+    "title": "Bazaraki.com - No.1 classifieds website in Cyprus. Sell or buy cars, real estate, motorcycles, computers, electronics and much more. Free registration.",
+    "textLen": 5954
+   },
+   "state": "ACTION_ESTABLISHED",
+   "action": "publish-classified",
+   "route": {
+    "text": "Post an ad",
+    "href": "https://www.bazaraki.com/post_ad/"
+   },
+   "why": "the operator publishes \"Post an ad\"",
+   "buyerOnlyOffered": [
+    "Sign in"
+   ]
+  },
+  {
+   "id": "mp-cy-ergodotisi",
+   "name": "Ergodotisi",
+   "website": "https://ergodotisi.com/",
+   "country": "cyprus",
+   "marketplaceType": "jobs",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://ergodotisi.com/en-CY/",
+    "title": "Jobs in Cyprus | Ergodotisi",
+    "textLen": 5645
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "the site offers an account (Log In) but nothing on it says that route is for selling",
+   "buyerOnlyOffered": [
+    "Log In"
+   ]
+  },
+  {
+   "id": "mp-cz-annonce",
+   "name": "Annonce.cz",
+   "website": "https://www.annonce.cz/",
+   "country": "czech-republic",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.annonce.cz/",
+    "title": "Annonce.cz – inzerce zdarma, bazar, inzeráty",
+    "textLen": 2325
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-cz-aukro",
+   "name": "Aukro",
+   "website": "https://www.aukro.cz/",
+   "country": "czech-republic",
+   "marketplaceType": "auctions",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://aukro.cz/",
+    "title": "Aukro.cz - největší online bazar s aukcemi",
+    "textLen": 1719
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-cz-bazos",
+   "name": "Bazos.cz",
+   "website": "https://www.bazos.cz/",
+   "country": "czech-republic",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.bazos.cz/",
+    "title": "Inzerce, inzeráty, bazar - Bazos.cz",
+    "textLen": 1541
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-cz-hyperinzerce",
+   "name": "Hyperinzerce",
+   "website": "https://www.hyperinzerce.cz/",
+   "country": "czech-republic",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://hyperinzerce.cz/",
+    "title": "Inzerce zdarma, bazar, inzeráty, prodám a koupím - Hyperinzerce.cz",
+    "textLen": 2232
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-cz-sbazar",
+   "name": "Sbazar",
+   "website": "https://www.sbazar.cz/",
+   "country": "czech-republic",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.sbazar.cz/",
+    "title": "Bazar a inzerce zdarma - Sbazar.cz",
+    "textLen": 2926
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-de-hood",
+   "name": "Hood.de",
+   "website": "https://www.hood.de/",
+   "country": "germany",
+   "marketplaceType": "auctions",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.hood.de/",
+    "title": "Hood.de | Dein Marktplatz zum Glück",
+    "textLen": 9988
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-de-kalaydo",
+   "name": "kalaydo.de",
+   "website": "https://www.kalaydo.de/",
+   "country": "germany",
+   "marketplaceType": "jobs",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.kalaydo.de/",
+    "title": "kalaydo.de: Jobbörse- Stellenangebote",
+    "textLen": 5799
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-de-kleinanzeigen",
+   "name": "Kleinanzeigen",
+   "website": "https://www.kleinanzeigen.de/",
+   "country": "germany",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.kleinanzeigen.de/",
+    "title": "Kleinanzeigen – früher eBay Kleinanzeigen. Anzeigen gratis inserieren mit Kleinanzeigen",
+    "textLen": 8865
+   },
+   "state": "ACTION_ESTABLISHED",
+   "action": "publish-classified",
+   "route": {
+    "text": "Anzeige aufgeben",
+    "href": "https://www.kleinanzeigen.de/anzeige-aufgeben"
+   },
+   "why": "the operator publishes \"Anzeige aufgeben\"",
+   "buyerOnlyOffered": [
+    "Registrieren",
+    "Einloggen"
+   ]
+  },
+  {
+   "id": "mp-de-markt-de",
+   "name": "markt.de",
+   "website": "https://www.markt.de/",
+   "country": "germany",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.markt.de/",
+    "title": "Kostenlose Kleinanzeigen in Deutschland | markt.de",
+    "textLen": 5872
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "the site offers an account (Login) but nothing on it says that route is for selling",
+   "buyerOnlyOffered": [
+    "Login"
+   ]
+  },
+  {
+   "id": "mp-de-quoka",
+   "name": "Quoka",
+   "website": "https://www.quoka.de/",
+   "country": "germany",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.quoka.de/",
+    "title": "Kostenlose Kleinanzeigen auf Quoka schalten",
+    "textLen": 9659
+   },
+   "state": "ACTION_ESTABLISHED",
+   "action": "publish-classified",
+   "route": {
+    "text": "Verkaufen",
+    "href": "https://www.quoka.de/inserieren"
+   },
+   "why": "the operator publishes \"Verkaufen\", and the platform is recorded as general-classifieds",
+   "buyerOnlyOffered": [
+    "Einloggen"
+   ]
+  },
+  {
+   "id": "mp-dk-bilbasen",
+   "name": "Bilbasen",
+   "website": "https://www.bilbasen.dk/",
+   "country": "denmark",
+   "marketplaceType": "vehicles",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.bilbasen.dk/",
+    "title": "Brugte biler til salg | Køb brugt bil og nye biler - søg blandt +60.000 biler!",
+    "textLen": 4310
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-dk-boligsiden",
+   "name": "Boligsiden",
+   "website": "https://www.boligsiden.dk/",
+   "country": "denmark",
+   "marketplaceType": "property",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.boligsiden.dk/",
+    "title": "Find boliger til salg i Danmark - Boligsiden",
+    "textLen": 5266
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-dk-dba",
+   "name": "DBA",
+   "website": "https://www.dba.dk/",
+   "country": "denmark",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.dba.dk/",
+    "title": "Nyt og brugt, køb og salg på DBA - Altid en god handel",
+    "textLen": 4014
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-dk-jobindex",
+   "name": "Jobindex",
+   "website": "https://www.jobindex.dk/",
+   "country": "denmark",
+   "marketplaceType": "jobs",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.jobindex.dk/",
+    "title": "Alle job samlet ét sted – søg nyt job her | Jobindex",
+    "textLen": 3472
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-do-lapulga",
+   "name": "La Pulga Virtual",
+   "website": "https://www.lapulga.com.do/",
+   "country": "dominican-republic",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.lapulga.com.do/",
+    "title": "Clasificados RD: Vende o compra productos de calidad | La Pulga Virtual",
+    "textLen": 6132
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-do-supercarros",
+   "name": "SuperCarros",
+   "website": "https://www.supercarros.com/",
+   "country": "dominican-republic",
+   "marketplaceType": "vehicles",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.supercarros.com/",
+    "title": "SuperCarros.com - compra y vende carros en República Dominicana y Santo Domingo",
+    "textLen": 4932
+   },
+   "state": "ACTION_ESTABLISHED",
+   "action": "post-advertisement",
+   "route": {
+    "text": "Vende",
+    "href": "https://www.supercarros.com/vender"
+   },
+   "why": "the operator publishes \"Vende\", and the platform is recorded as vehicles",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-dz-emploitic",
+   "name": "Emploitic",
+   "website": "https://emploitic.com/",
+   "country": "algeria",
+   "marketplaceType": "jobs",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://emploitic.com/",
+    "title": "Emploitic - N°1 de l'emploi en Algérie : Offres d'emploi et recrutements",
+    "textLen": 5224
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-dz-ouedkniss",
+   "name": "Ouedkniss",
+   "website": "https://www.ouedkniss.com/",
+   "country": "algeria",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.ouedkniss.com/",
+    "title": "إعلانات - بيع شراء كراء - واد كنيس - الجزائر",
+    "textLen": 285
+   },
+   "state": "UNRESOLVED",
+   "why": "only 285 characters rendered"
+  },
+  {
+   "id": "mp-ee-auto24",
+   "name": "Auto24.ee",
+   "website": "https://www.auto24.ee/",
+   "country": "estonia",
+   "marketplaceType": "vehicles",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.auto24.ee/",
+    "title": "Avaleht - auto24.ee",
+    "textLen": 13533
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-ee-kv",
+   "name": "KV.ee",
+   "website": "https://www.kv.ee/",
+   "country": "estonia",
+   "marketplaceType": "property",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.kv.ee/",
+    "title": "KV.EE - Kinnisvara pakkumised - korterid majad maad äripinnad",
+    "textLen": 11778
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-ee-soov",
+   "name": "Soov.ee",
+   "website": "https://www.soov.ee/",
+   "country": "estonia",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.soov.ee/",
+    "title": "Kuulutused, kasutatud autod, mööbel, koduloomad, tööpakkumised – Soov.ee",
+    "textLen": 8170
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-eg-aqarmap",
+   "name": "Aqarmap",
+   "website": "https://aqarmap.com.eg/",
+   "country": "egypt",
+   "marketplaceType": "property",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://aqarmap.com.eg/ar/",
+    "title": "عقارماب مصر • ابحث عن عقارات للبيع وللإيجار بالتقسيط أو كاش في مصر",
+    "textLen": 1814
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-eg-dubizzle",
+   "name": "Dubizzle Egypt",
+   "website": "https://www.dubizzle.com.eg/",
+   "country": "egypt",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.dubizzle.com.eg/",
+    "title": "دوبيزل (OLX) - بيع وشراء السيارات والعقارات والمزيد في مصر",
+    "textLen": 13902
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-eg-hatla2ee",
+   "name": "Hatla2ee",
+   "website": "https://www.hatla2ee.com/",
+   "country": "egypt",
+   "marketplaceType": "vehicles",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://eg.hatla2ee.com/",
+    "title": "سيارات جديدة ومستعملة للبيع - الأسعار، التقييمات، وأحدث أخبار السيارات | هتلاقي مصر",
+    "textLen": 5657
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-eg-propertyfinder",
+   "name": "Property Finder Egypt",
+   "website": "https://www.propertyfinder.eg/",
+   "country": "egypt",
+   "marketplaceType": "property",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.propertyfinder.eg/",
+    "title": "بروبرتي فايندر مصر : إشتري ، وأجر عقارات في مصر | Property Finder EG",
+    "textLen": 2240
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-eg-wuzzuf",
+   "name": "Wuzzuf",
+   "website": "https://wuzzuf.net/",
+   "country": "egypt",
+   "marketplaceType": "jobs",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://wuzzuf.net/jobs/egypt",
+    "title": "5,662 Job Opportunities in Egypt - Apply Today!",
+    "textLen": 5800
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "the site offers an account (Log in) but nothing on it says that route is for selling",
+   "buyerOnlyOffered": [
+    "Log in"
+   ]
+  },
+  {
+   "id": "mp-es-milanuncios",
+   "name": "Milanuncios",
+   "website": "https://www.milanuncios.com/",
+   "country": "spain",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 405,
+    "finalUrl": "https://www.milanuncios.com/",
+    "title": "MILANUNCIOS: segunda mano, anuncios gratis, empleo, clasificados...",
+    "textLen": 4548
+   },
+   "state": "UNKNOWN_PROTECTED",
+   "why": "http 405"
+  },
+  {
+   "id": "mp-es-wallapop",
+   "name": "Wallapop",
+   "website": "https://www.wallapop.com/",
+   "country": "spain",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.wallapop.com/",
+    "title": "Wallapop, Local Free Classified Ads",
+    "textLen": 129
+   },
+   "state": "UNRESOLVED",
+   "why": "only 129 characters rendered"
+  },
+  {
+   "id": "mp-et-ethiojobs",
+   "name": "Ethiojobs",
+   "website": "https://ethiojobs.net/",
+   "country": "ethiopia",
+   "marketplaceType": "jobs",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://ethiojobs.net/",
+    "title": "1,100+ Jobs in Ethiopia 2026 — Apply Today | Ethiojobs",
+    "textLen": 2322
+   },
+   "state": "ONTOLOGY_REVIEW",
+   "why": "placeholder page, not a marketplace"
+  },
+  {
+   "id": "mp-fi-huuto",
+   "name": "Huuto.net",
+   "website": "https://www.huuto.net/",
+   "country": "finland",
+   "marketplaceType": "auctions",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.huuto.net/",
+    "title": "Huutokaupat netissä: osta & myy tuhansia tuotteita | Huuto.net",
+    "textLen": 9699
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-fi-nettiauto",
+   "name": "Nettiauto",
+   "website": "https://www.nettiauto.com/",
+   "country": "finland",
+   "marketplaceType": "vehicles",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.nettiauto.com/",
+    "title": "Vaihtoautot ja uudet autot - Nettiauto",
+    "textLen": 13038
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-fi-oikotie",
+   "name": "Oikotie Asunnot",
+   "website": "https://asunnot.oikotie.fi/",
+   "country": "finland",
+   "marketplaceType": "property",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://asunnot.oikotie.fi/",
+    "title": "Oikotie Asunnot | Suomen suosituin asuntopalvelu",
+    "textLen": 2492
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-fi-tori",
+   "name": "Tori",
+   "website": "https://www.tori.fi/",
+   "country": "finland",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.tori.fi/",
+    "title": "Tori.fi - Osta ja myy helposti uutta ja käytettyä",
+    "textLen": 4296
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-fr-leboncoin",
+   "name": "leboncoin",
+   "website": "https://www.leboncoin.fr/",
+   "country": "france",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.leboncoin.fr/",
+    "title": "leboncoin, site de petites annonces gratuites",
+    "textLen": 285
+   },
+   "state": "UNRESOLVED",
+   "why": "only 285 characters rendered"
+  },
+  {
+   "id": "mp-fr-paruvendu",
+   "name": "ParuVendu",
+   "website": "https://www.paruvendu.fr/",
+   "country": "france",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.paruvendu.fr/",
+    "title": "Annonce gratuite : petites annonces de particuliers et pros - ParuVendu",
+    "textLen": 7407
+   },
+   "state": "ACTION_ESTABLISHED",
+   "action": "publish-classified",
+   "route": {
+    "text": "Déposer une annonce gratuite",
+    "href": "https://www.paruvendu.fr/depose-annonce-gratuite/"
+   },
+   "why": "the operator publishes \"Déposer une annonce gratuite\"",
+   "buyerOnlyOffered": [
+    "Mon compte"
+   ]
+  },
+  {
+   "id": "mp-fr-vinted",
+   "name": "Vinted",
+   "website": "https://www.vinted.fr/",
+   "country": "france",
+   "marketplaceType": "fashion-resale",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.vinted.fr/",
+    "title": "Vinted | Toute la seconde main dans une seule application",
+    "textLen": 3919
+   },
+   "state": "ACTION_ESTABLISHED",
+   "action": "create-seller-profile",
+   "route": {
+    "text": "Commencer à vendre",
+    "href": "https://www.vinted.fr/member/signup/select_type?ref_url=%2Fitems%2Fnew"
+   },
+   "why": "the operator publishes \"Commencer à vendre\"",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-gh-jiji",
+   "name": "Jiji Ghana",
+   "website": "https://jiji.com.gh/",
+   "country": "ghana",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://jiji.com.gh/",
+    "title": "Just a moment...",
+    "textLen": 259
+   },
+   "state": "UNKNOWN_PROTECTED",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "mp-gh-jobberman",
+   "name": "Jobberman Ghana",
+   "website": "https://www.jobberman.com.gh/",
+   "country": "ghana",
+   "marketplaceType": "jobs",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.jobberman.com.gh/",
+    "title": "Find the Right Job Vacancies in Ghana | Jobberman",
+    "textLen": 6670
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "the site offers an account (Login, Sign up) but nothing on it says that route is for selling",
+   "buyerOnlyOffered": [
+    "Login",
+    "Sign up",
+    "Sign in"
+   ]
+  },
+  {
+   "id": "mp-gh-meqasa",
+   "name": "meQasa",
+   "website": "https://meqasa.com/",
+   "country": "ghana",
+   "marketplaceType": "property",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://meqasa.com/",
+    "title": "Houses for Sale, for Rent or to Lease in Ghana | Meqasa",
+    "textLen": 4555
+   },
+   "state": "ACTION_ESTABLISHED",
+   "action": "post-advertisement",
+   "route": {
+    "text": "Advertise with Us",
+    "href": "https://meqasa.com/advertising-options-with-meqasa"
+   },
+   "why": "the operator publishes \"Advertise with Us\"",
+   "buyerOnlyOffered": [
+    "Login",
+    "Sign Up"
+   ]
+  },
+  {
+   "id": "mp-gh-tonaton",
+   "name": "Tonaton",
+   "website": "https://tonaton.com/",
+   "country": "ghana",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://tonaton.com/",
+    "title": "Just a moment...",
+    "textLen": 259
+   },
+   "state": "UNKNOWN_PROTECTED",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "mp-global-autochek",
+   "name": "Autochek",
+   "website": "https://www.autochek.africa/",
+   "country": "nigeria",
+   "marketplaceType": "vehicles",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.autochek.africa/",
+    "title": "Welcome To Autochek Homepage",
+    "textLen": 887
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-global-coinafrique",
+   "name": "CoinAfrique",
+   "website": "https://www.coinafrique.com/",
+   "country": "nigeria",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.coinafrique.com/",
+    "title": "CoinAfrique petites annonces en Afrique – produits neufs et occasions",
+    "textLen": 3876
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-gr-car-gr",
+   "name": "Car.gr",
+   "website": "https://www.car.gr/",
+   "country": "greece",
+   "marketplaceType": "vehicles",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.car.gr/",
+    "title": "Car.gr - Μεταχειρισμένα αυτοκίνητα",
+    "textLen": 4053
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-gt-encuentra24",
+   "name": "Encuentra24 Guatemala",
+   "website": "https://www.encuentra24.com/guatemala-es/",
+   "country": "guatemala",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.encuentra24.com/guatemala-es/clasificados",
+    "title": "Marketplace en Guatemala - miles de anuncios clasificados en Encuentra24",
+    "textLen": 8715
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-gt-tecoloco",
+   "name": "Tecoloco Guatemala",
+   "website": "https://www.tecoloco.com.gt/",
+   "country": "guatemala",
+   "marketplaceType": "jobs",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.tecoloco.com.gt/",
+    "title": "Trabajo en Guatemala Empleo en Guatemala www.tecoloco.com.gt",
+    "textLen": 3592
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-hk-28hse",
+   "name": "28Hse",
+   "website": "https://www.28hse.com/",
+   "country": "hong-kong",
+   "marketplaceType": "property",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.28hse.com/",
+    "title": "28Hse 香港屋網 - 租屋,搵樓香港地產資訊平台",
+    "textLen": 2577
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-hk-dcfever",
+   "name": "DCFever",
+   "website": "https://www.dcfever.com/",
+   "country": "hong-kong",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.dcfever.com/",
+    "title": "DCFever.com 香港最受歡迎數碼產品資訊互動平台",
+    "textLen": 3978
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-hk-squarefoot",
+   "name": "Squarefoot",
+   "website": "https://www.squarefoot.com.hk/",
+   "country": "hong-kong",
+   "marketplaceType": "property",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.squarefoot.com.hk/",
+    "title": "Squarefoot 5平方 - 香港優質樓盤 – 網上搵樓",
+    "textLen": 2058
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-hn-encuentra24",
+   "name": "Encuentra24 Honduras",
+   "website": "https://www.encuentra24.com/honduras-es/",
+   "country": "honduras",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.encuentra24.com/honduras-es/clasificados",
+    "title": "Marketplace en Honduras - miles de anuncios clasificados en Encuentra24",
+    "textLen": 7318
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-hn-tecoloco",
+   "name": "Tecoloco Honduras",
+   "website": "https://www.tecoloco.com.hn/",
+   "country": "honduras",
+   "marketplaceType": "jobs",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.tecoloco.com.hn/",
+    "title": "Trabajo en Honduras Empleo en Honduras www.tecoloco.com.hn",
+    "textLen": 3428
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-hr-mojposao",
+   "name": "MojPosao",
+   "website": "https://mojposao.hr/",
+   "country": "croatia",
+   "marketplaceType": "jobs",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://mojposao.hr/",
+    "title": "MojPosao - Posao i savjeti za razvoj karijere",
+    "textLen": 7484
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-hr-njuskalo",
+   "name": "Njuskalo",
+   "website": "https://www.njuskalo.hr/",
+   "country": "croatia",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.njuskalo.hr/",
+    "title": "Njuskalo.hr oglasnik",
+    "textLen": 7265
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-hu-jofogas",
+   "name": "Jofogas",
+   "website": "https://www.jofogas.hu/",
+   "country": "hungary",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.jofogas.hu/",
+    "title": "Jófogás - Apróhirdetések, használt termékek",
+    "textLen": 7144
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-hu-vatera",
+   "name": "Vatera",
+   "website": "https://www.vatera.hu/",
+   "country": "hungary",
+   "marketplaceType": "auctions",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.vatera.hu/",
+    "title": "Vatera - online adásvétel, aukció, ingyenes hirdetésfeladás",
+    "textLen": 6387
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-id-mobil123",
+   "name": "Mobil123",
+   "website": "https://www.mobil123.com/",
+   "country": "indonesia",
+   "marketplaceType": "vehicles",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.mobil123.com/",
+    "title": "Cari mobil baru & bekas untuk dijual di Indonesia - Mobil123.com",
+    "textLen": 12821
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-id-rumah123",
+   "name": "Rumah123",
+   "website": "https://www.rumah123.com/",
+   "country": "indonesia",
+   "marketplaceType": "property",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.rumah123.com/",
+    "title": "Jual Beli Properti Rumah Apartemen | Rumah123",
+    "textLen": 6031
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-ie-daft",
+   "name": "Daft.ie",
+   "website": "https://www.daft.ie/",
+   "country": "ireland",
+   "marketplaceType": "property",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.daft.ie/",
+    "title": "Search Ireland's No. 1 Property Website | Daft.ie",
+    "textLen": 3559
+   },
+   "state": "ACTION_ESTABLISHED",
+   "action": "post-advertisement",
+   "route": {
+    "text": "Sell",
+    "href": "https://www.sell.daft.ie/?utm_source=Daft+Sell+Nav&utm_medium=Sell+Menu+button"
+   },
+   "why": "the operator publishes \"Sell\", and the platform is recorded as property",
+   "buyerOnlyOffered": [
+    "Sign in"
+   ]
+  },
+  {
+   "id": "mp-ie-donedeal",
+   "name": "DoneDeal",
+   "website": "https://www.donedeal.ie/",
+   "country": "ireland",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.donedeal.ie/",
+    "title": "DoneDeal | Ireland's #1 site for Cars & Marketplace",
+    "textLen": 4393
+   },
+   "state": "ACTION_ESTABLISHED",
+   "action": "publish-classified",
+   "route": {
+    "text": "Place an Ad",
+    "href": "https://www.donedeal.ie/publish"
+   },
+   "why": "the operator publishes \"Place an Ad\"",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-il-ad",
+   "name": "ad.co.il",
+   "website": "https://www.ad.co.il/",
+   "country": "israel",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.ad.co.il/",
+    "title": "ad - לוח יד שניה, דירות להשכרה, דירות למכירה, רכב ומידע נדלן",
+    "textLen": 1787
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-in-cardekho",
+   "name": "CarDekho",
+   "website": "https://www.cardekho.com/",
+   "country": "india",
+   "marketplaceType": "vehicles",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.cardekho.com/",
+    "title": "CarDekho: New Cars, Car Prices, Buy & Sell Used Cars in India",
+    "textLen": 6512
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-in-cars24",
+   "name": "Cars24",
+   "website": "https://www.cars24.com/",
+   "country": "india",
+   "marketplaceType": "vehicles",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.cars24.com/",
+    "title": "Cars24: Buy and sell used cars, get car loans, and check new car details with Cars24. Explore services like challan payment, car scrapping, and more.",
+    "textLen": 2594
+   },
+   "state": "ACTION_ESTABLISHED",
+   "action": "create-seller-profile",
+   "route": {
+    "text": "Become a partner",
+    "href": "https://www.cars24.com/become-our-partner/"
+   },
+   "why": "the operator publishes \"Become a partner\"",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-in-housing",
+   "name": "Housing.com",
+   "website": "https://www.housing.com/",
+   "country": "india",
+   "marketplaceType": "property",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://housing.com/",
+    "title": "Search India Real Estate and Properties - Housing.com",
+    "textLen": 20571
+   },
+   "state": "UNKNOWN_PROTECTED",
+   "why": "http 403"
+  },
+  {
+   "id": "mp-in-magicbricks",
+   "name": "Magicbricks",
+   "website": "https://www.magicbricks.com/",
+   "country": "india",
+   "marketplaceType": "property",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.magicbricks.com/",
+    "title": "Real Estate | Property in India | Buy/Sale/Rent Properties | MagicBricks",
+    "textLen": 11651
+   },
+   "state": "ONTOLOGY_REVIEW",
+   "why": "placeholder page, not a marketplace"
+  },
+  {
+   "id": "mp-in-quikr",
+   "name": "Quikr",
+   "website": "https://www.quikr.com/",
+   "country": "india",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 204,
+    "finalUrl": "https://www.quikr.com/",
+    "title": "Free Classified Ads in India, Post Ads Online | Quikr India",
+    "textLen": 1966
+   },
+   "state": "ACTION_ESTABLISHED",
+   "action": "publish-classified",
+   "route": {
+    "text": "Sell Your Car",
+    "href": "https://www.quikr.com/post-ad/cars-bikes/cars"
+   },
+   "why": "the operator publishes \"Sell Your Car\"",
+   "buyerOnlyOffered": [
+    "My Account"
+   ]
+  },
+  {
+   "id": "mp-in-spinny",
+   "name": "Spinny",
+   "website": "https://www.spinny.com/",
+   "country": "india",
+   "marketplaceType": "vehicles",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.spinny.com/",
+    "title": "Spinny | Buy and Sell Used Cars with Guaranteed Love",
+    "textLen": 6107
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-is-alfred",
+   "name": "Alfreð",
+   "website": "https://www.alfred.is/",
+   "country": "iceland",
+   "marketplaceType": "jobs",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.alfred.is/",
+    "title": "Laus störf | Alfreð",
+    "textLen": 2946
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-is-bilasolur",
+   "name": "Bílasölur",
+   "website": "https://bilasolur.is/",
+   "country": "iceland",
+   "marketplaceType": "vehicles",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://bilasolur.is/",
+    "title": "bilasolur.is",
+    "textLen": 22501
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-is-bland",
+   "name": "Bland.is",
+   "website": "https://www.bland.is/",
+   "country": "iceland",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://bland.is/",
+    "title": "Bland.is - Nýjar og notaðar vörur, kauptu og seldu á Bland",
+    "textLen": 2870
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-it-subito",
+   "name": "Subito",
+   "website": "https://www.subito.it/",
+   "country": "italy",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.subito.it/",
+    "title": "Subito - Compra e vendi gratis in sicurezza",
+    "textLen": 5149
+   },
+   "state": "ACTION_ESTABLISHED",
+   "action": "publish-classified",
+   "route": {
+    "text": "Vendi",
+    "href": "https://www.subito.it/vendere/"
+   },
+   "why": "the operator publishes \"Vendi\", and the platform is recorded as general-classifieds",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-jm-jacars",
+   "name": "Jacars.net",
+   "website": "https://www.jacars.net/",
+   "country": "jamaica",
+   "marketplaceType": "vehicles",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.jacars.net/",
+    "title": "Jacars.net - free classifieds website in Jamaica.",
+    "textLen": 7493
+   },
+   "state": "ACTION_ESTABLISHED",
+   "action": "publish-classified",
+   "route": {
+    "text": "Post an ad",
+    "href": "https://www.jacars.net/profile/login/?next=/post_ad/"
+   },
+   "why": "the operator publishes \"Post an ad\"",
+   "buyerOnlyOffered": [
+    "Login"
+   ]
+  },
+  {
+   "id": "mp-jm-jco",
+   "name": "Jamaica Classified Online",
+   "website": "https://jamaicaclassifiedonline.com/",
+   "country": "jamaica",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://jamaicaclassifiedonline.com/",
+    "title": "Just a moment...",
+    "textLen": 275
+   },
+   "state": "UNKNOWN_PROTECTED",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "mp-jo-opensooq",
+   "name": "OpenSooq Jordan",
+   "website": "https://jo.opensooq.com/",
+   "country": "jordan",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://jo.opensooq.com/ar",
+    "title": "السوق المفتوح : سوق الأردن : سيارات : عقارات : بيوت : للبيع : خدمات : وظائف | السوق المفتوح",
+    "textLen": 3662
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-jp-athome",
+   "name": "at home",
+   "website": "https://www.athome.co.jp/",
+   "country": "japan",
+   "marketplaceType": "property",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.athome.co.jp/",
+    "title": "不動産のことなら【アットホーム】物件探しから住宅情報まで！",
+    "textLen": 5016
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-jp-carsensor",
+   "name": "Carsensor",
+   "website": "https://www.carsensor.net/",
+   "country": "japan",
+   "marketplaceType": "vehicles",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.carsensor.net/",
+    "title": "中古車・中古車情報なら【カーセンサー】",
+    "textLen": 5879
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-jp-goonet",
+   "name": "Goo-net",
+   "website": "https://www.goo-net.com/",
+   "country": "japan",
+   "marketplaceType": "vehicles",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.goo-net.com/",
+    "title": "中古車・中古車情報なら【グーネット】",
+    "textLen": 10933
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-jp-jmty",
+   "name": "Jimoty",
+   "website": "https://jmty.jp/",
+   "country": "japan",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://jmty.jp/",
+    "title": "ジモティー 無料の広告掲示板",
+    "textLen": 4653
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-jp-suumo",
+   "name": "SUUMO",
+   "website": "https://suumo.jp/",
+   "country": "japan",
+   "marketplaceType": "property",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://suumo.jp/",
+    "title": "【SUUMO】不動産売買・住宅購入・賃貸情報ならリクルートの不動産ポータルサイト",
+    "textLen": 4200
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-ke-brightermonday",
+   "name": "BrighterMonday",
+   "website": "https://www.brightermonday.co.ke/",
+   "country": "kenya",
+   "marketplaceType": "jobs",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.brightermonday.co.ke/",
+    "title": "Find the Right Job Vacancies in Kenya | BrighterMonday",
+    "textLen": 7030
+   },
+   "state": "ACTION_ESTABLISHED",
+   "action": "create-seller-profile",
+   "route": {
+    "text": "Start Selling on PigiaMe: Turn Products into Profits",
+    "href": "https://www.brightermonday.co.ke/learning/courses/787"
+   },
+   "why": "the operator publishes \"Start Selling on PigiaMe: Turn Products into Profits\"",
+   "buyerOnlyOffered": [
+    "Login",
+    "Sign up",
+    "Sign in"
+   ]
+  },
+  {
+   "id": "mp-ke-buyrentkenya",
+   "name": "BuyRentKenya",
+   "website": "https://www.buyrentkenya.com/",
+   "country": "kenya",
+   "marketplaceType": "property",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.buyrentkenya.com/",
+    "title": "Property in Kenya - Rent & Buy Real Estate | BuyRentKenya",
+    "textLen": 2763
+   },
+   "state": "ACTION_ESTABLISHED",
+   "action": "publish-classified",
+   "route": {
+    "text": "List a property",
+    "href": "https://www.buyrentkenya.com/crm/account/listings/create"
+   },
+   "why": "the operator publishes \"List a property\"",
+   "buyerOnlyOffered": [
+    "Sign Up",
+    "Login"
+   ]
+  },
+  {
+   "id": "mp-ke-kilimall",
+   "name": "Kilimall",
+   "website": "https://www.kilimall.co.ke/",
+   "country": "kenya",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.kilimall.co.ke/",
+    "title": "Kilimall - Affordable Online Shopping in Kenya",
+    "textLen": 11435
+   },
+   "state": "ACTION_ESTABLISHED",
+   "action": "create-seller-profile",
+   "route": {
+    "text": "Seller Center",
+    "href": "https://seller.kilimall.ke/login"
+   },
+   "why": "the operator publishes \"Seller Center\"",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-ke-property24",
+   "name": "Property24 Kenya",
+   "website": "https://www.property24.co.ke/",
+   "country": "kenya",
+   "marketplaceType": "property",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.property24.co.ke/",
+    "title": "Property for sale : Houses and Land in Kenya: Property24",
+    "textLen": 2350
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "the site offers an account (Sign In, Login) but nothing on it says that route is for selling",
+   "buyerOnlyOffered": [
+    "Sign In",
+    "Login",
+    "Register"
+   ]
+  },
+  {
+   "id": "mp-kh-bongthom",
+   "name": "Bongthom",
+   "website": "https://www.bongthom.com/",
+   "country": "cambodia",
+   "marketplaceType": "jobs",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.bongthom.com/",
+    "title": "Jobs and Classified Ads in Cambodia",
+    "textLen": 6921
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "the site offers an account (Login) but nothing on it says that route is for selling",
+   "buyerOnlyOffered": [
+    "Login"
+   ]
+  },
+  {
+   "id": "mp-kh-khmer24",
+   "name": "Khmer24",
+   "website": "https://www.khmer24.com/",
+   "country": "cambodia",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.khmer24.com/",
+    "title": "khmer24.com, Buy and Sell Everything In Cambodia",
+    "textLen": 4524
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-kh-realestate",
+   "name": "Realestate.com.kh",
+   "website": "https://www.realestate.com.kh/",
+   "country": "cambodia",
+   "marketplaceType": "property",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.realestate.com.kh/",
+    "title": "Cambodia Property for Sale & Rent | Realestate.com.kh",
+    "textLen": 4955
+   },
+   "state": "ACTION_ESTABLISHED",
+   "action": "publish-classified",
+   "route": {
+    "text": "List your property",
+    "href": "https://www.realestate.com.kh/accounts/signup/"
+   },
+   "why": "the operator publishes \"List your property\"",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-kr-albamon",
+   "name": "Albamon",
+   "website": "https://www.albamon.com/",
+   "country": "south-korea",
+   "marketplaceType": "jobs",
+   "observed": {
+    "status": 0,
+    "finalUrl": null,
+    "title": null,
+    "textLen": 0
+   },
+   "state": "UNRESOLVED",
+   "why": "page never completed: https://www.albamon.com/"
+  },
+  {
+   "id": "mp-kr-bunjang",
+   "name": "Bunjang",
+   "website": "https://www.bunjang.co.kr/",
+   "country": "south-korea",
+   "marketplaceType": "second-hand",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://m.bunjang.co.kr/",
+    "title": "번개장터",
+    "textLen": 3156
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-kr-encar",
+   "name": "Encar",
+   "website": "https://www.encar.com/",
+   "country": "south-korea",
+   "marketplaceType": "vehicles",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.encar.com/index.do",
+    "title": "내차팔기·내차사기 | 엔카",
+    "textLen": 4189
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-kr-joongna",
+   "name": "Joongna",
+   "website": "https://www.joongna.com/",
+   "country": "south-korea",
+   "marketplaceType": "second-hand",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://web.joongna.com/",
+    "title": "중고나라 - 안심되는 중고거래",
+    "textLen": 2833
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-kr-kbchachacha",
+   "name": "KB Chachacha",
+   "website": "https://www.kbchachacha.com/",
+   "country": "south-korea",
+   "marketplaceType": "vehicles",
+   "observed": {
+    "status": 0,
+    "finalUrl": null,
+    "title": null,
+    "textLen": 0
+   },
+   "state": "UNRESOLVED",
+   "why": "page never completed: https://www.kbchachacha.com/"
+  },
+  {
+   "id": "mp-kr-saramin",
+   "name": "Saramin",
+   "website": "https://www.saramin.co.kr/",
+   "country": "south-korea",
+   "marketplaceType": "jobs",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.saramin.co.kr/zf_user/",
+    "title": "나에게 딱 맞는 커리어만 매치, 사람인! | 취업, 채용, 커리어 매칭 플랫폼",
+    "textLen": 9932
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-kr-zigbang",
+   "name": "Zigbang",
+   "website": "https://www.zigbang.com/",
+   "country": "south-korea",
+   "marketplaceType": "property",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.zigbang.com/",
+    "title": "Beyond Home, Zigbang",
+    "textLen": 901
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-kw-opensooq",
+   "name": "OpenSooq Kuwait",
+   "website": "https://kw.opensooq.com/",
+   "country": "kuwait",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://kw.opensooq.com/ar",
+    "title": "السوق المفتوح : سوق الكويت المفتوح : : سيارات : عقارات : بيوت : للبيع : خدمات : وظائف | السوق المفتوح",
+    "textLen": 3642
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-lb-opensooq",
+   "name": "OpenSooq Lebanon",
+   "website": "https://lb.opensooq.com/",
+   "country": "lebanon",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://lb.opensooq.com/ar",
+    "title": "السوق المفتوح : سوق لبنان المفتوح : سيارات : عقارات : بيوت : للبيع : خدمات : وظائف | السوق المفتوح",
+    "textLen": 4289
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-lk-ikman",
+   "name": "ikman",
+   "website": "https://www.ikman.lk/",
+   "country": "sri-lanka",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://ikman.lk/",
+    "title": "ikman - Electronics, Cars, Property and Jobs in Sri Lanka",
+    "textLen": 6106
+   },
+   "state": "ACTION_ESTABLISHED",
+   "action": "publish-classified",
+   "route": {
+    "text": "Post Your Ad",
+    "href": "https://ikman.lk/en/sell-anything?login-modal=true&action=post-ad&redirect-url=%2Fen%2Fpost-ad"
+   },
+   "why": "the operator publishes \"Post Your Ad\"",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-lk-lankapropertyweb",
+   "name": "Lanka Property Web",
+   "website": "https://www.lankapropertyweb.com/",
+   "country": "sri-lanka",
+   "marketplaceType": "property",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.lankapropertyweb.com/",
+    "title": "Lanka Property Web - Apartments, Houses, Lands for Sale and Rent in Sri Lanka (25,000+ Sri Lanka Ads)",
+    "textLen": 9956
+   },
+   "state": "ACTION_ESTABLISHED",
+   "action": "publish-classified",
+   "route": {
+    "text": "Post Your Ad",
+    "href": "https://www.lankapropertyweb.com/myaccountV2/create"
+   },
+   "why": "the operator publishes \"Post Your Ad\"",
+   "buyerOnlyOffered": [
+    "Login",
+    "Register",
+    "LOGIN"
+   ]
+  },
+  {
+   "id": "mp-lk-patpat",
+   "name": "PatPat.lk",
+   "website": "https://www.patpat.lk/",
+   "country": "sri-lanka",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://patpat.lk/",
+    "title": "Sri Lanka’s Trusted Marketplace | Buy & Sell in Sri Lanka | patpat.lk",
+    "textLen": 2276
+   },
+   "state": "ACTION_ESTABLISHED",
+   "action": "publish-classified",
+   "route": {
+    "text": "Post your ad free",
+    "href": "https://patpat.lk/en/customer/listing/create/category"
+   },
+   "why": "the operator publishes \"Post your ad free\"",
+   "buyerOnlyOffered": [
+    "Register"
+   ]
+  },
+  {
+   "id": "mp-lk-riyasewana",
+   "name": "Riyasewana",
+   "website": "https://www.riyasewana.com/",
+   "country": "sri-lanka",
+   "marketplaceType": "vehicles",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://riyasewana.com/",
+    "title": "Riyasewana - Car Prices, Buy & Sell Vehicles in Sri Lanka",
+    "textLen": 6087
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "the site offers an account (Login, My Account) but nothing on it says that route is for selling",
+   "buyerOnlyOffered": [
+    "Login",
+    "My Account"
+   ]
+  },
+  {
+   "id": "mp-lt-aruodas",
+   "name": "Aruodas.lt",
+   "website": "https://www.aruodas.lt/",
+   "country": "lithuania",
+   "marketplaceType": "property",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.aruodas.lt/",
+    "title": "Aruodas.lt - Nr.1 NT portalas - Butai, namai, sklypai, patalpos",
+    "textLen": 8826
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-lt-autoplius",
+   "name": "Autoplius.lt",
+   "website": "https://www.autoplius.lt/",
+   "country": "lithuania",
+   "marketplaceType": "vehicles",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://autoplius.lt/",
+    "title": "Automobilių skelbimai Nr.1 - Automobiliai, motociklai, dalys, technika - Autoplius.lt",
+    "textLen": 5522
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-lt-skelbiu",
+   "name": "Skelbiu.lt",
+   "website": "https://www.skelbiu.lt/",
+   "country": "lithuania",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://m.skelbiu.lt/?mobile_version=1",
+    "title": "Skelbimai: lankomiausias Lietuvoje pardavimo, nuomos ir kitų skelbimų portalas - Skelbiu.lt",
+    "textLen": 5351
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-lu-athome",
+   "name": "atHome.lu",
+   "website": "https://www.athome.lu/",
+   "country": "luxembourg",
+   "marketplaceType": "property",
+   "observed": {
+    "status": 201,
+    "finalUrl": "https://www.athome.lu/",
+    "title": "atHome | Le n°1 de l'Immobilier au Luxembourg",
+    "textLen": 3124
+   },
+   "state": "ACTION_ESTABLISHED",
+   "action": "post-advertisement",
+   "route": {
+    "text": "Vendre",
+    "href": "https://www.athome.lu/vendre"
+   },
+   "why": "the operator publishes \"Vendre\", and the platform is recorded as property",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-lu-luxauto",
+   "name": "LuxAuto",
+   "website": "https://www.luxauto.lu/",
+   "country": "luxembourg",
+   "marketplaceType": "vehicles",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.luxauto.lu/en",
+    "title": "Buy and Sell used cars and new in Luxembourg",
+    "textLen": 4433
+   },
+   "state": "ACTION_ESTABLISHED",
+   "action": "post-advertisement",
+   "route": {
+    "text": "Sell",
+    "href": "https://www.luxauto.lu/en/sell"
+   },
+   "why": "the operator publishes \"Sell\", and the platform is recorded as vehicles",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-lv-cv",
+   "name": "CV.lv",
+   "website": "https://www.cv.lv/",
+   "country": "latvia",
+   "marketplaceType": "jobs",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.cv.lv/lv",
+    "title": "Sākums | CV-Online - darba piedāvājumi, vakances, CV, personāla atlase",
+    "textLen": 2677
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-lv-ss",
+   "name": "SS.COM",
+   "website": "https://www.ss.com/",
+   "country": "latvia",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.ss.com/",
+    "title": "Sludinājumi - SS.COM",
+    "textLen": 2655
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-ma-marocannonces",
+   "name": "MarocAnnonces",
+   "website": "https://www.marocannonces.com/",
+   "country": "morocco",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.marocannonces.com/",
+    "title": "MAROC ANNONCE | ANNONCE MAROC sur MarocAnnonces.com le site officiel",
+    "textLen": 1472
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "the site offers an account (Connexion, Inscription) but nothing on it says that route is for selling",
+   "buyerOnlyOffered": [
+    "Connexion",
+    "Inscription"
+   ]
+  },
+  {
+   "id": "mp-ma-moteur",
+   "name": "Moteur.ma",
+   "website": "https://www.moteur.ma/",
+   "country": "morocco",
+   "marketplaceType": "vehicles",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.moteur.ma/",
+    "title": "Vente des voitures neuves et occasion au Maroc| Moteur.ma",
+    "textLen": 14427
+   },
+   "state": "ACTION_ESTABLISHED",
+   "action": "publish-classified",
+   "route": {
+    "text": "Déposer une annonce gratuite",
+    "href": "https://www.moteur.ma/fr/vendez-votre-voiture/"
+   },
+   "why": "the operator publishes \"Déposer une annonce gratuite\"",
+   "buyerOnlyOffered": [
+    "S'inscrire"
+   ]
+  },
+  {
+   "id": "mp-ma-mubawab",
+   "name": "Mubawab",
+   "website": "https://www.mubawab.ma/",
+   "country": "morocco",
+   "marketplaceType": "property",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.mubawab.ma/",
+    "title": "Immobilier Maroc - 1er site immobilier - Mubawab",
+    "textLen": 1282
+   },
+   "state": "ACTION_ESTABLISHED",
+   "action": "publish-classified",
+   "route": {
+    "text": "Publier une annonce",
+    "href": "https://www.mubawab.ma/cms/posting?t=1786742633275&tsf=1786742633276"
+   },
+   "why": "the operator publishes \"Publier une annonce\"",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-md-999",
+   "name": "999.md",
+   "website": "https://www.999.md/",
+   "country": "moldova",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://999.md/ro",
+    "title": "Panou de anunțuri - 999.md",
+    "textLen": 2865
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-md-makler",
+   "name": "Makler.md",
+   "website": "https://www.makler.md/",
+   "country": "moldova",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://makler.md/ro",
+    "title": "Makler.md – site de anunțuri în Moldova",
+    "textLen": 3286
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-me-oglasicg",
+   "name": "OglasiCG",
+   "website": "https://www.oglasicg.me/",
+   "country": "montenegro",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.oglasicg.me/",
+    "title": "Oglasi Crna Gora | Kupujem prodajem Crna Gora",
+    "textLen": 4653
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-me-pazar3",
+   "name": "Pazar3.me",
+   "website": "https://www.pazar3.me/",
+   "country": "montenegro",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.pazar3.me/",
+    "title": "Oglasi | Polovni automobili | Nekretnine | Izdavanje stanova | Posao | Mobilni telefoni | Laptop | Alati | Pazar3.me",
+    "textLen": 1549
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-mk-pazar3",
+   "name": "Pazar3",
+   "website": "https://www.pazar3.mk/",
+   "country": "north-macedonia",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.pazar3.mk/",
+    "title": "Oglasi | Avtomobili | Avtodelovi | Gumi | Traktori | Kuki | Stanovi | Bela tehnika | Klimi | Mebel | Gradezni materijali | Igracki | Mobilni telefoni | Laptopi | Kucinja | Rabota | Sportska oprema | Pazar3.mk",
+    "textLen": 1661
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-mk-reklama5",
+   "name": "Reklama5",
+   "website": "https://reklama5.com/",
+   "country": "north-macedonia",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://reklama5.com/",
+    "title": "Oglasi | Reklama5.mk | Ads | Cars | Real estate | Computers | Mobile phones | Services,Business | Employment | Advertisements |",
+    "textLen": 2058
+   },
+   "state": "ACTION_ESTABLISHED",
+   "action": "publish-classified",
+   "route": {
+    "text": "How do I place an ad?",
+    "href": "https://reklama5.com/Help/HelpAdvertisment"
+   },
+   "why": "the operator publishes \"How do I place an ad?\"",
+   "buyerOnlyOffered": [
+    "register"
+   ]
+  },
+  {
+   "id": "mp-mm-carsdb",
+   "name": "CarsDB",
+   "website": "https://www.carsdb.com/",
+   "country": "myanmar",
+   "marketplaceType": "vehicles",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.carsdb.com/",
+    "title": "မြန်မာနိုင်ငံ၏ လူသုံးအများဆုံး ကားဝယ်ရောင်းဈေးကွက် - CarsDB",
+    "textLen": 3949
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "the site offers an account (Log In, Register) but nothing on it says that route is for selling",
+   "buyerOnlyOffered": [
+    "Log In",
+    "Register"
+   ]
+  },
+  {
+   "id": "mp-mm-imyanmarhouse",
+   "name": "iMyanmarHouse",
+   "website": "https://www.imyanmarhouse.com/",
+   "country": "myanmar",
+   "marketplaceType": "property",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.imyanmarhouse.com/",
+    "title": "iMyanmarHouse.com မြန်မာနိုင်ငံ၏ နံပါတ်တစ် အိမ်ခြံမြေ ရောင်းဝယ်ငှါး ဝဘ်ဆိုက်",
+    "textLen": 18518
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "the site offers an account (Login, Sign Up) but nothing on it says that route is for selling",
+   "buyerOnlyOffered": [
+    "Login",
+    "Sign Up"
+   ]
+  },
+  {
+   "id": "mp-mm-jobnet",
+   "name": "JobNet",
+   "website": "https://www.jobnet.com.mm/",
+   "country": "myanmar",
+   "marketplaceType": "jobs",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.jobnet.com.mm/",
+    "title": "JobNet.com.mm | Myanmar no.1 Jobs, Vacancies and Career site",
+    "textLen": 4087
+   },
+   "state": "ACTION_ESTABLISHED",
+   "action": "post-advertisement",
+   "route": {
+    "text": "Advertise with Us",
+    "href": "https://www.jobnet.com.mm/employers/signup"
+   },
+   "why": "the operator publishes \"Advertise with Us\"",
+   "buyerOnlyOffered": [
+    "Login",
+    "Register",
+    "Log In"
+   ]
+  },
+  {
+   "id": "mp-mm-shop",
+   "name": "Shop.com.mm",
+   "website": "https://www.shop.com.mm/",
+   "country": "myanmar",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.shop.com.mm/#?",
+    "title": "Online shopping Myanmar for Mobiles, Electronics, Clothes - Shop.com.mm",
+    "textLen": 6224
+   },
+   "state": "ACTION_ESTABLISHED",
+   "action": "create-seller-profile",
+   "route": {
+    "text": "Sell On Shop",
+    "href": "https://pages.shop.com.mm/wow/i/mm/MMCampaign/sell-on-shop?hybrid=1"
+   },
+   "why": "the operator publishes \"Sell On Shop\"",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-mt-keepmeposted",
+   "name": "Keepmeposted",
+   "website": "https://keepmeposted.com.mt/",
+   "country": "malta",
+   "marketplaceType": "jobs",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://keepmeposted.com.mt/?pageNumber=1",
+    "title": "Find Jobs in Malta - Keepmeposted",
+    "textLen": 2350
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "the site offers an account (Sign Up) but nothing on it says that route is for selling",
+   "buyerOnlyOffered": [
+    "Sign Up"
+   ]
+  },
+  {
+   "id": "mp-mt-maltapark",
+   "name": "Maltapark",
+   "website": "https://www.maltapark.com/",
+   "country": "malta",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.maltapark.com/",
+    "title": "Home | Maltapark",
+    "textLen": 421
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "the site offers an account (sign up, login) but nothing on it says that route is for selling",
+   "buyerOnlyOffered": [
+    "sign up",
+    "login",
+    "Login"
+   ]
+  },
+  {
+   "id": "mp-mx-autocosmos",
+   "name": "Autocosmos México",
+   "website": "https://www.autocosmos.com.mx/",
+   "country": "mexico",
+   "marketplaceType": "vehicles",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.autocosmos.com.mx/",
+    "title": "Autocosmos: Te ayudamos a conocer tu auto ideal",
+    "textLen": 12046
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-mx-kavak",
+   "name": "Kavak",
+   "website": "https://www.kavak.com/",
+   "country": "mexico",
+   "marketplaceType": "vehicles",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.kavak.com/",
+    "title": "KAVAK - Changing the car industry around the world",
+    "textLen": 2136
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-mx-mercadolibre",
+   "name": "Mercado Libre México",
+   "website": "https://www.mercadolibre.com.mx/",
+   "country": "mexico",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.mercadolibre.com.mx/",
+    "title": "Mercado Libre México - Envíos Gratis en el día",
+    "textLen": 4252
+   },
+   "state": "ACTION_ESTABLISHED",
+   "action": "create-seller-profile",
+   "route": {
+    "text": "¡Compra y vende con la app!",
+    "href": "https://www.mercadolibre.com.mx/l/app#menu-user"
+   },
+   "why": "the operator publishes \"¡Compra y vende con la app!\"",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-mx-seminuevos",
+   "name": "Seminuevos",
+   "website": "https://www.seminuevos.com/",
+   "country": "mexico",
+   "marketplaceType": "vehicles",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.seminuevos.com/",
+    "title": "Autos seminuevos como nuevos en México | Seminuevos.com",
+    "textLen": 5814
+   },
+   "state": "ACTION_ESTABLISHED",
+   "action": "create-seller-profile",
+   "route": {
+    "text": "¡Vender ahora!",
+    "href": "https://www.seminuevos.com/particulares/tablero"
+   },
+   "why": "the operator publishes \"¡Vender ahora!\"",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-my-carlist",
+   "name": "Carlist.my",
+   "website": "https://www.carlist.my/",
+   "country": "malaysia",
+   "marketplaceType": "vehicles",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.carlist.my/",
+    "title": "Find New, Used & Recon Cars in Malaysia | From Budget to Premium - Carlist.my",
+    "textLen": 14694
+   },
+   "state": "ACTION_ESTABLISHED",
+   "action": "publish-classified",
+   "route": {
+    "text": "Sell Your Car",
+    "href": "https://www.carlist.my/#"
+   },
+   "why": "the operator publishes \"Sell Your Car\"",
+   "buyerOnlyOffered": [
+    "Sign In",
+    "Register",
+    "Sign in"
+   ]
+  },
+  {
+   "id": "mp-my-iproperty",
+   "name": "iProperty Malaysia",
+   "website": "https://www.iproperty.com.my/",
+   "country": "malaysia",
+   "marketplaceType": "property",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.iproperty.com.my/",
+    "title": "Find Malaysian Properties for Sale & Rent | iProperty",
+    "textLen": 2549
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "the site offers an account (Log in, Sign up) but nothing on it says that route is for selling",
+   "buyerOnlyOffered": [
+    "Log in",
+    "Sign up"
+   ]
+  },
+  {
+   "id": "mp-my-mudah",
+   "name": "Mudah.my",
+   "website": "https://www.mudah.my/",
+   "country": "malaysia",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.mudah.my/",
+    "title": "Mudah.my | Malaysia’s Largest Marketplace | Buy & Sell New And Used Items Online",
+    "textLen": 3791
+   },
+   "state": "ACTION_ESTABLISHED",
+   "action": "publish-classified",
+   "route": {
+    "text": "Sell",
+    "href": "https://ai.mudah.my/ad/new/1"
+   },
+   "why": "the operator publishes \"Sell\", and the platform is recorded as general-classifieds",
+   "buyerOnlyOffered": [
+    "Sign in"
+   ]
+  },
+  {
+   "id": "mp-na-namcars",
+   "name": "NamCars",
+   "website": "https://www.namcars.net/",
+   "country": "namibia",
+   "marketplaceType": "vehicles",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.namcars.net/",
+    "title": "NamCars - New & used cars for sale in Namibia | Buy Car Namibia",
+    "textLen": 3418
+   },
+   "state": "ACTION_ESTABLISHED",
+   "action": "post-advertisement",
+   "route": {
+    "text": "Sell",
+    "href": "https://www.namcars.net/sell"
+   },
+   "why": "the operator publishes \"Sell\", and the platform is recorded as vehicles",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-ng-jobberman",
+   "name": "Jobberman",
+   "website": "https://www.jobberman.com/",
+   "country": "nigeria",
+   "marketplaceType": "jobs",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.jobberman.com/",
+    "title": "Find the Right Job Vacancies in Nigeria | Jobberman",
+    "textLen": 6918
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "the site offers an account (Login, Sign up) but nothing on it says that route is for selling",
+   "buyerOnlyOffered": [
+    "Login",
+    "Sign up",
+    "Sign in"
+   ]
+  },
+  {
+   "id": "mp-ng-konga",
+   "name": "Konga",
+   "website": "https://www.konga.com/",
+   "country": "nigeria",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.konga.com/",
+    "title": "Konga Nigeria | Online Shopping for Genuine Electronics, Phones, Fashion & More",
+    "textLen": 1071
+   },
+   "state": "ACTION_ESTABLISHED",
+   "action": "create-seller-profile",
+   "route": {
+    "text": "Sell on Konga",
+    "href": "https://shq.konga.com/register"
+   },
+   "why": "the operator publishes \"Sell on Konga\"",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-ng-myjobmag",
+   "name": "MyJobMag",
+   "website": "https://www.myjobmag.com/",
+   "country": "nigeria",
+   "marketplaceType": "jobs",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.myjobmag.com/",
+    "title": "Jobs in Nigeria 2026 - Latest Job Vacancies in Nigeria | MyJobMag",
+    "textLen": 14134
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "the site offers an account (Login, Signup) but nothing on it says that route is for selling",
+   "buyerOnlyOffered": [
+    "Login",
+    "Signup"
+   ]
+  },
+  {
+   "id": "mp-ni-encuentra24",
+   "name": "Encuentra24 Nicaragua",
+   "website": "https://www.encuentra24.com/nicaragua-es/",
+   "country": "nicaragua",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.encuentra24.com/nicaragua-es/clasificados",
+    "title": "Marketplace en Nicaragua - miles de anuncios clasificados en Encuentra24",
+    "textLen": 8393
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-nl-marktplaats",
+   "name": "Marktplaats",
+   "website": "https://www.marktplaats.nl/",
+   "country": "netherlands",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.marktplaats.nl/",
+    "title": "Marktplaats - De plek om nieuwe en tweedehands spullen te kopen en verkopen",
+    "textLen": 3718
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-nl-speurders",
+   "name": "Speurders",
+   "website": "https://www.speurders.nl/",
+   "country": "netherlands",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.speurders.nl/",
+    "title": null,
+    "textLen": 582
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-no-finn",
+   "name": "FINN.no",
+   "website": "https://www.finn.no/",
+   "country": "norway",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.finn.no/",
+    "title": "FINN.no – mulighetenes marked",
+    "textLen": 1835
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-no-tise",
+   "name": "Tise",
+   "website": "https://www.tise.com/",
+   "country": "norway",
+   "marketplaceType": "fashion-resale",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://tise.com/",
+    "title": "Tise | Reuse fashion",
+    "textLen": 1634
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-nz-autotrader",
+   "name": "Auto Trader NZ",
+   "website": "https://www.autotrader.co.nz/",
+   "country": "new-zealand",
+   "marketplaceType": "vehicles",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://autotrader.co.nz/",
+    "title": "Cars For Sale NZ | Buy New and Used Cars in NZ | Auto Trader NZ",
+    "textLen": 3409
+   },
+   "state": "ACTION_ESTABLISHED",
+   "action": "publish-classified",
+   "route": {
+    "text": "Sell your car",
+    "href": "https://autotrader.co.nz/sell-my-car"
+   },
+   "why": "the operator publishes \"Sell your car\"",
+   "buyerOnlyOffered": [
+    "Log In",
+    "Log in",
+    "Register"
+   ]
+  },
+  {
+   "id": "mp-nz-oneroof",
+   "name": "OneRoof",
+   "website": "https://www.oneroof.co.nz/",
+   "country": "new-zealand",
+   "marketplaceType": "property",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.oneroof.co.nz/",
+    "title": "Find Real Estate for Sale on OneRoof NZ",
+    "textLen": 2442
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-om-opensooq",
+   "name": "OpenSooq Oman",
+   "website": "https://om.opensooq.com/",
+   "country": "oman",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://om.opensooq.com/ar",
+    "title": "السوق المفتوح : سوق عُمان : سيارات : عقارات : بيوت : للبيع : خدمات : وظائف | السوق المفتوح",
+    "textLen": 3487
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-pa-compreoalquile",
+   "name": "Compreoalquile",
+   "website": "https://www.compreoalquile.com/",
+   "country": "panama",
+   "marketplaceType": "property",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.compreoalquile.com/",
+    "title": "Just a moment...",
+    "textLen": 270
+   },
+   "state": "UNKNOWN_PROTECTED",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "mp-pa-encuentra24",
+   "name": "Encuentra24 Panamá",
+   "website": "https://www.encuentra24.com/panama-es/",
+   "country": "panama",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.encuentra24.com/panama-es/clasificados",
+    "title": "Marketplace en Panamá - miles de anuncios clasificados en Encuentra24",
+    "textLen": 9368
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-pe-mercadolibre",
+   "name": "Mercado Libre Perú",
+   "website": "https://www.mercadolibre.com.pe/",
+   "country": "peru",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.mercadolibre.com.pe/",
+    "title": "Mercado Libre Perú - Envíos Gratis en el día",
+    "textLen": 2925
+   },
+   "state": "ACTION_ESTABLISHED",
+   "action": "create-seller-profile",
+   "route": {
+    "text": "¡Compra y vende con la app!",
+    "href": "https://www.mercadolibre.com.pe/l/app#menu-user"
+   },
+   "why": "the operator publishes \"¡Compra y vende con la app!\"",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-ph-autodeal",
+   "name": "AutoDeal",
+   "website": "https://www.autodeal.com.ph/",
+   "country": "philippines",
+   "marketplaceType": "vehicles",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.autodeal.com.ph/",
+    "title": "Car Buying Simplified in the Philippines | AutoDeal",
+    "textLen": 9206
+   },
+   "state": "ACTION_ESTABLISHED",
+   "action": "publish-classified",
+   "route": {
+    "text": "Sell Your Car",
+    "href": "https://www.autodeal.com.ph/sell-your-car"
+   },
+   "why": "the operator publishes \"Sell Your Car\"",
+   "buyerOnlyOffered": [
+    "Login",
+    "Sign Up",
+    "My Account"
+   ]
+  },
+  {
+   "id": "mp-pk-olx",
+   "name": "OLX Pakistan",
+   "website": "https://www.olx.com.pk/",
+   "country": "pakistan",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.olx.com.pk/",
+    "title": "OLX - Buy and Sell for free anywhere in Pakistan with OLX online classifieds",
+    "textLen": 4177
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-pk-pakwheels",
+   "name": "PakWheels",
+   "website": "https://www.pakwheels.com/",
+   "country": "pakistan",
+   "marketplaceType": "vehicles",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.pakwheels.com/",
+    "title": "Buy & Sell Cars, Bikes & Autoparts - Find Car Prices, News & Reviews | PakWheels",
+    "textLen": 13247
+   },
+   "state": "ACTION_ESTABLISHED",
+   "action": "publish-classified",
+   "route": {
+    "text": "Sell Your Car Post a free ad and sell your car quickly",
+    "href": "https://www.pakwheels.com/used-cars/sell"
+   },
+   "why": "the operator publishes \"Sell Your Car Post a free ad and sell your car quickly\"",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-pk-propertyfinder",
+   "name": "PropertyFinder.pk",
+   "website": "https://www.propertyfinder.pk/",
+   "country": "pakistan",
+   "marketplaceType": "property",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://propertyfinder.pk/",
+    "title": "PropertyFinder.pk – Buy, Sell & Rent Real Estate in Pakistan",
+    "textLen": 1990
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "the site offers an account (Login, Register) but nothing on it says that route is for selling",
+   "buyerOnlyOffered": [
+    "Login",
+    "Register"
+   ]
+  },
+  {
+   "id": "mp-pk-zameen",
+   "name": "Zameen",
+   "website": "https://www.zameen.com/",
+   "country": "pakistan",
+   "marketplaceType": "property",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.zameen.com/",
+    "title": "Buy, Sell and Rent Property in Pakistan | Zameen.com",
+    "textLen": 10253
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-pl-gratka",
+   "name": "Gratka",
+   "website": "https://www.gratka.pl/",
+   "country": "poland",
+   "marketplaceType": "property",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://gratka.pl/",
+    "title": "Najnowsze ogłoszenia i porady nieruchomości online | Gratka",
+    "textLen": 13059
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-pl-olx",
+   "name": "OLX Polska",
+   "website": "https://www.olx.pl/",
+   "country": "poland",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.olx.pl/",
+    "title": "Ogłoszenia - Sprzedam, kupię na OLX.pl",
+    "textLen": 5022
+   },
+   "state": "ACTION_ESTABLISHED",
+   "action": "publish-classified",
+   "route": {
+    "text": "Dodaj ogłoszenie",
+    "href": "https://www.olx.pl/adding"
+   },
+   "why": "the operator publishes \"Dodaj ogłoszenie\"",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-pl-otomoto",
+   "name": "OTOMOTO",
+   "website": "https://www.otomoto.pl/",
+   "country": "poland",
+   "marketplaceType": "vehicles",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.otomoto.pl/",
+    "title": "OTOMOTO - nowe i używane samochody i motocykle oraz części samochodowe. Ogłoszenia motoryzacyjne.",
+    "textLen": 4497
+   },
+   "state": "ACTION_ESTABLISHED",
+   "action": "create-seller-profile",
+   "route": {
+    "text": "Zacznij sprzedawać",
+    "href": "https://www.otomoto.pl/opcje-sprzedazy"
+   },
+   "why": "the operator publishes \"Zacznij sprzedawać\"",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-pl-sprzedajemy",
+   "name": "Sprzedajemy.pl",
+   "website": "https://www.sprzedajemy.pl/",
+   "country": "poland",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://sprzedajemy.pl/",
+    "title": "Ogłoszenia, tablica darmowych ogłoszeń - sprzedam na Sprzedajemy.pl",
+    "textLen": 12184
+   },
+   "state": "ACTION_ESTABLISHED",
+   "action": "publish-classified",
+   "route": {
+    "text": "+ Dodaj ogłoszenie",
+    "href": "https://sprzedajemy.pl/nowe-ogloszenie"
+   },
+   "why": "the operator publishes \"+ Dodaj ogłoszenie\"",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-pr-clasificadosonline",
+   "name": "Clasificados Online",
+   "website": "https://www.clasificadosonline.com/",
+   "country": "puerto-rico",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.clasificadosonline.com/",
+    "title": "Clasificados Online Puerto Rico Real Estate, Jobs Autos Empleos , Bienes Raices Puerto Rico",
+    "textLen": 4716
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "the site offers an account (Login, LOGIN) but nothing on it says that route is for selling",
+   "buyerOnlyOffered": [
+    "Login",
+    "LOGIN",
+    "Mi Cuenta"
+   ]
+  },
+  {
+   "id": "mp-pt-custojusto",
+   "name": "CustoJusto",
+   "website": "https://www.custojusto.pt/",
+   "country": "portugal",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.custojusto.pt/",
+    "title": "CustoJusto Portugal | Anúncios grátis, classificados grátis",
+    "textLen": 3419
+   },
+   "state": "ACTION_ESTABLISHED",
+   "action": "publish-classified",
+   "route": {
+    "text": "Publicar anúncio grátis",
+    "href": "https://www.custojusto.pt/ai"
+   },
+   "why": "the operator publishes \"Publicar anúncio grátis\"",
+   "buyerOnlyOffered": [
+    "Login"
+   ]
+  },
+  {
+   "id": "mp-pt-olx",
+   "name": "OLX Portugal",
+   "website": "https://www.olx.pt/",
+   "country": "portugal",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.olx.pt/",
+    "title": "Portugal Anúncios Classificados OLX",
+    "textLen": 4756
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-pt-standvirtual",
+   "name": "Standvirtual",
+   "website": "https://www.standvirtual.com/",
+   "country": "portugal",
+   "marketplaceType": "vehicles",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.standvirtual.com/",
+    "title": "Standvirtual - Comprar e vender carros usados",
+    "textLen": 3799
+   },
+   "state": "ACTION_ESTABLISHED",
+   "action": "publish-classified",
+   "route": {
+    "text": "Publicar anúncio",
+    "href": "https://www.standvirtual.com/carros/anunciar"
+   },
+   "why": "the operator publishes \"Publicar anúncio\"",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-qa-opensooq",
+   "name": "OpenSooq Qatar",
+   "website": "https://qa.opensooq.com/",
+   "country": "qatar",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://qa.opensooq.com/ar",
+    "title": "السوق المفتوح : سوق قطر : سيارات : عقارات : بيوت : للبيع : خدمات : وظائف | السوق المفتوح",
+    "textLen": 3430
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-qa-qatarliving",
+   "name": "Qatar Living",
+   "website": "https://www.qatarliving.com/",
+   "country": "qatar",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.qatarliving.com/en",
+    "title": "Qatar Living | Daily News, Events & Community Updates",
+    "textLen": 4314
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-ro-autovit",
+   "name": "Autovit",
+   "website": "https://www.autovit.ro/",
+   "country": "romania",
+   "marketplaceType": "vehicles",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.autovit.ro/",
+    "title": "AUTOVIT - Anunturi auto, mașini de vânzare - noi și second-hand",
+    "textLen": 3865
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-ro-olx",
+   "name": "OLX Romania",
+   "website": "https://www.olx.ro/",
+   "country": "romania",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.olx.ro/",
+    "title": "Anunturi Gratuite - Peste 4 milioane anunturi - OLX.ro",
+    "textLen": 5689
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-ro-publi24",
+   "name": "Publi24",
+   "website": "https://www.publi24.ro/",
+   "country": "romania",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.publi24.ro/",
+    "title": "Publi24 | Anunțuri gratuite - vinde și cumpără produse second hand si noi",
+    "textLen": 6397
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-rs-halooglasi",
+   "name": "Halo Oglasi",
+   "website": "https://www.halooglasi.com/",
+   "country": "serbia",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.halooglasi.com/",
+    "title": "Nekretnine, posao, odmor, usluge | Halo oglasi",
+    "textLen": 2123
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-rs-kupujemprodajem",
+   "name": "KupujemProdajem",
+   "website": "https://www.kupujemprodajem.com/",
+   "country": "serbia",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.kupujemprodajem.com/",
+    "title": "KupujemProdajem",
+    "textLen": 6619
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-rs-polovniautomobili",
+   "name": "Polovni Automobili",
+   "website": "https://www.polovniautomobili.com/",
+   "country": "serbia",
+   "marketplaceType": "vehicles",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.polovniautomobili.com/",
+    "title": "Polovni automobili - Auto oglasi, prodaja vozila, auto placevi",
+    "textLen": 3453
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-ru-drom",
+   "name": "Drom.ru",
+   "website": "https://www.drom.ru/",
+   "country": "russia",
+   "marketplaceType": "vehicles",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.drom.ru/",
+    "title": "Дром - цены на машины",
+    "textLen": 3657
+   },
+   "state": "ACTION_ESTABLISHED",
+   "action": "publish-classified",
+   "route": {
+    "text": "ПродатьПодать объявление",
+    "href": "https://auto.drom.ru/addbull/"
+   },
+   "why": "the operator publishes \"ПродатьПодать объявление\"",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-ru-youla",
+   "name": "Youla",
+   "website": "https://www.youla.ru/",
+   "country": "russia",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://youla.ru/",
+    "title": "Юла - доска объявлений, бесплатные частные объявления",
+    "textLen": 137
+   },
+   "state": "UNRESOLVED",
+   "why": "only 137 characters rendered"
+  },
+  {
+   "id": "mp-sa-aqar",
+   "name": "Aqar",
+   "website": "https://sa.aqar.fm/",
+   "country": "saudi-arabia",
+   "marketplaceType": "property",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://sa.aqar.fm/",
+    "title": "عقارات | تطبيق عقار",
+    "textLen": 4338
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-sa-haraj",
+   "name": "Haraj",
+   "website": "https://haraj.com.sa/",
+   "country": "saudi-arabia",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://haraj.com.sa/",
+    "title": "موقع حراج",
+    "textLen": 1609
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-sa-opensooq",
+   "name": "OpenSooq Saudi Arabia",
+   "website": "https://sa.opensooq.com/",
+   "country": "saudi-arabia",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://sa.opensooq.com/ar",
+    "title": "السوق المفتوح : حراج بدون عمولة : سيارات : عقارات : بيوت : للبيع : خدمات : وظائف في السعودية | السوق المفتوح",
+    "textLen": 3477
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-sd-sudanjob",
+   "name": "Sudanjob",
+   "website": "https://www.sudanjob.net/",
+   "country": "sudan",
+   "marketplaceType": "jobs",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.sudanjob.net/",
+    "title": "Sudanjob: Job Search, Career Advice & Hiring Resources",
+    "textLen": 4012
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "the site offers an account (Sign Up, Sign In) but nothing on it says that route is for selling",
+   "buyerOnlyOffered": [
+    "Sign Up",
+    "Sign In"
+   ]
+  },
+  {
+   "id": "mp-se-blocket",
+   "name": "Blocket",
+   "website": "https://www.blocket.se/",
+   "country": "sweden",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.blocket.se/",
+    "title": "Nytt och begagnat, köp och sälj på Blocket – alltid en bra affär",
+    "textLen": 4201
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-se-bytbil",
+   "name": "Bytbil",
+   "website": "https://www.bytbil.com/",
+   "country": "sweden",
+   "marketplaceType": "vehicles",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.bytbil.com/",
+    "title": "Massor av bilar från Sveriges bilhandlare - Bytbil.com 🚗",
+    "textLen": 4630
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-se-hemnet",
+   "name": "Hemnet",
+   "website": "https://www.hemnet.se/",
+   "country": "sweden",
+   "marketplaceType": "property",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.hemnet.se/",
+    "title": "Hemnet - Sveriges största bostadsplattform",
+    "textLen": 1660
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-se-tradera",
+   "name": "Tradera",
+   "website": "https://www.tradera.com/",
+   "country": "sweden",
+   "marketplaceType": "auctions",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.tradera.com/",
+    "title": "Tradera | Köp & sälj begagnat & second hand",
+    "textLen": 2129
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-sg-99co",
+   "name": "99.co",
+   "website": "https://www.99.co/",
+   "country": "singapore",
+   "marketplaceType": "property",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.99.co/",
+    "title": "Singapore Property and Real Estate for Sale & for Rent | 99.co",
+    "textLen": 9909
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "the site offers an account (Sign in) but nothing on it says that route is for selling",
+   "buyerOnlyOffered": [
+    "Sign in"
+   ]
+  },
+  {
+   "id": "mp-sg-gumtree",
+   "name": "Gumtree Singapore",
+   "website": "https://www.gumtree.sg/",
+   "country": "singapore",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://gumtree.sg/",
+    "title": "Welcome to gumtree.sg | Home page",
+    "textLen": 3499
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-sg-propertyguru",
+   "name": "PropertyGuru",
+   "website": "https://www.propertyguru.com.sg/",
+   "country": "singapore",
+   "marketplaceType": "property",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.propertyguru.com.sg/",
+    "title": "Singapore Property, Property for Sale/Rent, Singapore Real Estate | PropertyGuru",
+    "textLen": 6292
+   },
+   "state": "ACTION_ESTABLISHED",
+   "action": "post-advertisement",
+   "route": {
+    "text": "property advertising packages",
+    "href": "https://agentofferings.propertyguru.com.sg/"
+   },
+   "why": "the operator publishes \"property advertising packages\"",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-si-avto-net",
+   "name": "Avto.net",
+   "website": "https://www.avto.net/",
+   "country": "slovenia",
+   "marketplaceType": "vehicles",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.avto.net/",
+    "title": "www.Avto.net - AVTONET",
+    "textLen": 5577
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-si-bolha",
+   "name": "Bolha.com",
+   "website": "https://www.bolha.com/",
+   "country": "slovenia",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.bolha.com/",
+    "title": "Oglasnik bolha.com",
+    "textLen": 5334
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-sk-bazar",
+   "name": "Bazar.sk",
+   "website": "https://www.bazar.sk/",
+   "country": "slovakia",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.bazar.sk/",
+    "title": "Bazar.sk | Chceš predať alebo kúpiť jednoducho a rýchlo? Inzercia zdarma",
+    "textLen": 3508
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-sk-bazos",
+   "name": "Bazos.sk",
+   "website": "https://www.bazos.sk/",
+   "country": "slovakia",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.bazos.sk/",
+    "title": "Bazos.sk - Inzercia, bazár",
+    "textLen": 1628
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-sv-encuentra24",
+   "name": "Encuentra24 El Salvador",
+   "website": "https://www.encuentra24.com/el-salvador-es/",
+   "country": "el-salvador",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.encuentra24.com/el-salvador-es/clasificados",
+    "title": "Marketplace en El Salvador - miles de anuncios clasificados en Encuentra24",
+    "textLen": 8569
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-th-ddproperty",
+   "name": "DDproperty",
+   "website": "https://www.ddproperty.com/",
+   "country": "thailand",
+   "marketplaceType": "property",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.ddproperty.com/",
+    "title": "ซื้อขายบ้าน บ้านเดี่ยว คอนโด ที่ดิน ทาวน์เฮ้าส์ อพาร์ทเม้นท์ - DDproperty",
+    "textLen": 6861
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-th-kaidee",
+   "name": "Kaidee",
+   "website": "https://www.kaidee.com/",
+   "country": "thailand",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.kaidee.com/",
+    "title": "Kaidee | แพลตฟอร์มซื้อ-ขายของออนไลน์ชั้นนำของประเทศไทย",
+    "textLen": 6830
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-th-one2car",
+   "name": "One2car",
+   "website": "https://www.one2car.com/",
+   "country": "thailand",
+   "marketplaceType": "vehicles",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.one2car.com/",
+    "title": "รวมรถมือสอง ซื้อขายรถบ้าน รถเต็นท์ ราคาดีที่สุด ที่ตลาดรถ One2car",
+    "textLen": 25250
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-th-taladrod",
+   "name": "TaladRod",
+   "website": "https://www.taladrod.com/",
+   "country": "thailand",
+   "marketplaceType": "vehicles",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.taladrod.com/w40/home/",
+    "title": "TaladROD.com",
+    "textLen": 1645
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-th-tarad",
+   "name": "TARAD",
+   "website": "https://www.tarad.com/",
+   "country": "thailand",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 0,
+    "finalUrl": null,
+    "title": null,
+    "textLen": 0
+   },
+   "state": "UNRESOLVED",
+   "why": "page never completed: https://www.tarad.com/"
+  },
+  {
+   "id": "mp-tn-automobiletn",
+   "name": "Automobile.tn",
+   "website": "https://www.automobile.tn/",
+   "country": "tunisia",
+   "marketplaceType": "vehicles",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.automobile.tn/fr",
+    "title": "Prix du neuf, Annonces, Occasions, Guide pratique & Actualité automobile",
+    "textLen": 14494
+   },
+   "state": "ACTION_ESTABLISHED",
+   "action": "post-advertisement",
+   "route": {
+    "text": "Vendre",
+    "href": "https://www.automobile.tn/fr/mon-espace/creer-une-annonce?o=1"
+   },
+   "why": "the operator publishes \"Vendre\", and the platform is recorded as vehicles",
+   "buyerOnlyOffered": [
+    "Connexion",
+    "Inscription"
+   ]
+  },
+  {
+   "id": "mp-tn-tayara",
+   "name": "Tayara",
+   "website": "https://www.tayara.tn/",
+   "country": "tunisia",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.tayara.tn/",
+    "title": "Tayara | Achetez et vendre gratuitement près de chez vous",
+    "textLen": 4747
+   },
+   "state": "ACTION_ESTABLISHED",
+   "action": "publish-classified",
+   "route": {
+    "text": "Publier une annonce",
+    "href": "https://www.tayara.tn/post-listing/"
+   },
+   "why": "the operator publishes \"Publier une annonce\"",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-tw-591",
+   "name": "591",
+   "website": "https://www.591.com.tw/",
+   "country": "taiwan",
+   "marketplaceType": "property",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.591.com.tw/",
+    "title": "591房屋交易網 | 租屋買屋實價登錄資訊平台",
+    "textLen": 2275
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-tw-8891",
+   "name": "8891",
+   "website": "https://www.8891.com.tw/",
+   "country": "taiwan",
+   "marketplaceType": "vehicles",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.8891.com.tw/",
+    "title": "8891汽車 - 買車，先上8891！",
+    "textLen": 3438
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-tw-ruten",
+   "name": "Ruten",
+   "website": "https://www.ruten.com.tw/",
+   "country": "taiwan",
+   "marketplaceType": "auctions",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.ruten.com.tw/",
+    "title": "露天市集 | 全台最大的網路購物市集",
+    "textLen": 1041
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-ua-autoria",
+   "name": "AUTO.RIA",
+   "website": "https://auto.ria.com/",
+   "country": "ukraine",
+   "marketplaceType": "vehicles",
+   "observed": {
+    "status": 202,
+    "finalUrl": "https://auto.ria.com/",
+    "title": "AUTO.RIA™ — Автобазар №1, купить и продать проверенное авто легко!",
+    "textLen": 6531
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-ua-olx",
+   "name": "OLX Ukraine",
+   "website": "https://www.olx.ua/",
+   "country": "ukraine",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.olx.ua/uk/",
+    "title": "Оголошення OLX.ua: сервіс оголошень України — купівля/продаж бу та нових товарів, різноманітні послуги на сайті OLX.ua",
+    "textLen": 3387
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-ua-prom",
+   "name": "Prom.ua",
+   "website": "https://www.prom.ua/",
+   "country": "ukraine",
+   "marketplaceType": "b2b",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://prom.ua/",
+    "title": "Prom – найбільший маркетплейс України",
+    "textLen": 4496
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-ua-ria",
+   "name": "RIA.com",
+   "website": "https://www.ria.com/",
+   "country": "ukraine",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.ria.com/",
+    "title": "Объявления RIA.com: Бесплатная доска объявлений Украины",
+    "textLen": 6073
+   },
+   "state": "ACTION_ESTABLISHED",
+   "action": "publish-classified",
+   "route": {
+    "text": "Продать",
+    "href": "https://www.ria.com/add/"
+   },
+   "why": "the operator publishes \"Продать\", and the platform is recorded as general-classifieds",
+   "buyerOnlyOffered": [
+    "Войти"
+   ]
+  },
+  {
+   "id": "mp-ug-brightermonday",
+   "name": "BrighterMonday Uganda",
+   "website": "https://www.brightermonday.co.ug/",
+   "country": "uganda",
+   "marketplaceType": "jobs",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.brightermonday.co.ug/",
+    "title": "Find the Right Job Vacancies in Uganda | BrighterMonday",
+    "textLen": 6957
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "the site offers an account (Login, Sign up) but nothing on it says that route is for selling",
+   "buyerOnlyOffered": [
+    "Login",
+    "Sign up",
+    "Sign in"
+   ]
+  },
+  {
+   "id": "mp-uk-gumtree",
+   "name": "Gumtree",
+   "website": "https://www.gumtree.com/",
+   "country": "united-kingdom",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.gumtree.com/",
+    "title": "Gumtree | One of the UK's most popular online marketplaces",
+    "textLen": 6639
+   },
+   "state": "ACTION_ESTABLISHED",
+   "action": "publish-classified",
+   "route": {
+    "text": "Post an Ad",
+    "href": "https://my.gumtree.com/login/postad"
+   },
+   "why": "the operator publishes \"Post an Ad\"",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-uk-preloved",
+   "name": "Preloved",
+   "website": "https://www.preloved.co.uk/",
+   "country": "united-kingdom",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.preloved.co.uk/",
+    "title": "Preloved | Free Classified Ads | Buy and Sell Second Hand",
+    "textLen": 7577
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "the site offers an account (Log in, Join) but nothing on it says that route is for selling",
+   "buyerOnlyOffered": [
+    "Log in",
+    "Join"
+   ]
+  },
+  {
+   "id": "mp-us-1stdibs",
+   "name": "1stDibs",
+   "website": "https://www.1stdibs.com/",
+   "country": "united-states",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.1stdibs.com/",
+    "title": "1stDibs: Antique and Modern Furniture, Jewelry, Fashion & Art",
+    "textLen": 4580
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-us-abebooks",
+   "name": "AbeBooks",
+   "website": "https://www.abebooks.com/",
+   "country": "united-states",
+   "marketplaceType": "b2b",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.abebooks.com/",
+    "title": "AbeBooks | Shop for Books, Art & Collectibles",
+    "textLen": 9086
+   },
+   "state": "ACTION_ESTABLISHED",
+   "action": "create-seller-profile",
+   "route": {
+    "text": "Start Selling",
+    "href": "https://www.abebooks.com/books/sell/"
+   },
+   "why": "the operator publishes \"Start Selling\"",
+   "buyerOnlyOffered": [
+    "Sign in",
+    "My Account"
+   ]
+  },
+  {
+   "id": "mp-us-adpost",
+   "name": "Adpost",
+   "website": "https://www.adpost.com/",
+   "country": "united-states",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.adpost.com/",
+    "title": "Adpost Classifieds and AI Chatbot Solutions - Adpost",
+    "textLen": 5785
+   },
+   "state": "ONTOLOGY_REVIEW",
+   "why": "placeholder page, not a marketplace"
+  },
+  {
+   "id": "mp-us-bookoo",
+   "name": "Bookoo",
+   "website": "https://www.bookoo.com/",
+   "country": "united-states",
+   "marketplaceType": "second-hand",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.bookoo.com/",
+    "title": "bookoo - Buy and sell with your neighbors!",
+    "textLen": 5896
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-us-bringatrailer",
+   "name": "Bring a Trailer",
+   "website": "https://bringatrailer.com/",
+   "country": "united-states",
+   "marketplaceType": "auctions",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://bringatrailer.com/",
+    "title": "The best vintage and classic cars for sale online | Bring a Trailer",
+    "textLen": 73117
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "the site offers an account (Log In, Create an Account) but nothing on it says that route is for selling",
+   "buyerOnlyOffered": [
+    "Log In",
+    "Create an Account"
+   ]
+  },
+  {
+   "id": "mp-us-chairish",
+   "name": "Chairish",
+   "website": "https://www.chairish.com/",
+   "country": "united-states",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 204,
+    "finalUrl": "https://www.chairish.com/",
+    "title": "Chairish | The Art of Vintage. The Luxury of Home.",
+    "textLen": 4728
+   },
+   "state": "ACTION_ESTABLISHED",
+   "action": "publish-classified",
+   "route": {
+    "text": "Sell an Item >",
+    "href": "https://www.chairish.com/product/create"
+   },
+   "why": "the operator publishes \"Sell an Item >\"",
+   "buyerOnlyOffered": [
+    "Log In",
+    "Log in",
+    "Sign Up"
+   ]
+  },
+  {
+   "id": "mp-us-classifiedads",
+   "name": "ClassifiedAds.com",
+   "website": "https://www.classifiedads.com/",
+   "country": "united-states",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.classifiedads.com/",
+    "title": "Classifieds - Free Classified Ads Online",
+    "textLen": 1032
+   },
+   "state": "ACTION_ESTABLISHED",
+   "action": "publish-classified",
+   "route": {
+    "text": "Post an ad (free)",
+    "href": "https://www.classifiedads.com/post.php"
+   },
+   "why": "the operator publishes \"Post an ad (free)\"",
+   "buyerOnlyOffered": [
+    "Log in"
+   ]
+  },
+  {
+   "id": "mp-us-craigslist",
+   "name": "Craigslist",
+   "website": "https://www.craigslist.org/",
+   "country": "united-states",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.craigslist.org/area/prague",
+    "title": "craigslist: prague jobs, apartments, for sale, services, community, and events",
+    "textLen": 515
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-us-depop",
+   "name": "Depop",
+   "website": "https://www.depop.com/",
+   "country": "united-states",
+   "marketplaceType": "fashion-resale",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.depop.com/",
+    "title": "Depop - buy, sell, discover unique fashion",
+    "textLen": 1604
+   },
+   "state": "ACTION_ESTABLISHED",
+   "action": "create-seller-profile",
+   "route": {
+    "text": "Sell on Depop",
+    "href": "https://www.depop.com/sell/"
+   },
+   "why": "the operator publishes \"Sell on Depop\"",
+   "buyerOnlyOffered": [
+    "Sign up",
+    "Log in"
+   ]
+  },
+  {
+   "id": "mp-us-ebay",
+   "name": "eBay",
+   "website": "https://www.ebay.com/",
+   "country": "united-states",
+   "marketplaceType": "auctions",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.ebay.com/",
+    "title": "Error Page | eBay",
+    "textLen": 192
+   },
+   "state": "UNKNOWN_PROTECTED",
+   "why": "http 403"
+  },
+  {
+   "id": "mp-us-faire",
+   "name": "Faire",
+   "website": "https://www.faire.com/",
+   "country": "united-states",
+   "marketplaceType": "b2b",
+   "observed": {
+    "status": 201,
+    "finalUrl": "https://www.faire.com/",
+    "title": "Faire Czechia - Online Wholesale Marketplace for Retailers & Brands",
+    "textLen": 2626
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-us-geebo",
+   "name": "Geebo",
+   "website": "https://www.geebo.com/",
+   "country": "united-states",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://geebo.com/",
+    "title": "Geebo Free Classifieds Ads in USA Jobs, Employment, Apartments, Homes for Sale, New Cars, Used Cars in USA",
+    "textLen": 4470
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-us-ksl",
+   "name": "KSL Classifieds",
+   "website": "https://www.ksl.com/classifieds/",
+   "country": "united-states",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://classifieds.ksl.com/",
+    "title": "Classifieds for Utah, Idaho, and Wyoming | ksl.com",
+    "textLen": 2767
+   },
+   "state": "ACTION_ESTABLISHED",
+   "action": "post-advertisement",
+   "route": {
+    "text": "Advertise with us",
+    "href": "https://www.deseretdigital.com/advertising"
+   },
+   "why": "the operator publishes \"Advertise with us\"",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-us-mercari",
+   "name": "Mercari",
+   "website": "https://www.mercari.com/",
+   "country": "united-states",
+   "marketplaceType": "second-hand",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.mercari.com/",
+    "title": "Your Go-to Marketplace for Deals on Used & Secondhand Items",
+    "textLen": 2149
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "the site offers an account (Sign up, Log in) but nothing on it says that route is for selling",
+   "buyerOnlyOffered": [
+    "Sign up",
+    "Log in",
+    "Create an account"
+   ]
+  },
+  {
+   "id": "mp-us-nextdoor",
+   "name": "Nextdoor",
+   "website": "https://nextdoor.com/",
+   "country": "united-states",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://nextdoor.com/",
+    "title": "Nextdoor",
+    "textLen": 1073
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-us-offerup",
+   "name": "OfferUp",
+   "website": "https://www.offerup.com/",
+   "country": "united-states",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://offerup.com/unavailable/geo",
+    "title": null,
+    "textLen": 413
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-us-oodle",
+   "name": "Oodle",
+   "website": "https://www.oodle.com/",
+   "country": "united-states",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.oodle.com/",
+    "title": "Classifieds - Oodle.com",
+    "textLen": 11487
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-us-pennysaver",
+   "name": "PennySaver USA",
+   "website": "https://www.pennysaverusa.com/",
+   "country": "united-states",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.pennysaverusa.com/",
+    "title": "PennySaver | Post Free Classified Ads & Coupons | Local Classifieds",
+    "textLen": 2185
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "the site offers an account (Sign In, Register) but nothing on it says that route is for selling",
+   "buyerOnlyOffered": [
+    "Sign In",
+    "Register"
+   ]
+  },
+  {
+   "id": "mp-us-poshmark",
+   "name": "Poshmark",
+   "website": "https://poshmark.com/",
+   "country": "united-states",
+   "marketplaceType": "fashion-resale",
+   "observed": {
+    "status": 204,
+    "finalUrl": "https://poshmark.com/",
+    "title": "Feed - Poshmark",
+    "textLen": 4467
+   },
+   "state": "ACTION_ESTABLISHED",
+   "action": "create-seller-profile",
+   "route": {
+    "text": "Sell on Poshmark",
+    "href": "https://poshmark.com/sell"
+   },
+   "why": "the operator publishes \"Sell on Poshmark\"",
+   "buyerOnlyOffered": [
+    "Log in",
+    "Sign up"
+   ]
+  },
+  {
+   "id": "mp-us-reverb",
+   "name": "Reverb",
+   "website": "https://www.reverb.com/",
+   "country": "united-states",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 202,
+    "finalUrl": "https://reverb.com/",
+    "title": "Musical Instruments For Sale - New & Used Music Gear | Reverb",
+    "textLen": 5092
+   },
+   "state": "ACTION_ESTABLISHED",
+   "action": "create-seller-profile",
+   "route": {
+    "text": "Start selling",
+    "href": "https://reverb.com/sell/search"
+   },
+   "why": "the operator publishes \"Start selling\"",
+   "buyerOnlyOffered": [
+    "Sign Up",
+    "Log In"
+   ]
+  },
+  {
+   "id": "mp-us-rubylane",
+   "name": "Ruby Lane",
+   "website": "https://www.rubylane.com/",
+   "country": "united-states",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.rubylane.com/",
+    "title": "Oops! Something Went Wrong",
+    "textLen": 322
+   },
+   "state": "UNRESOLVED",
+   "why": "only 322 characters rendered"
+  },
+  {
+   "id": "mp-us-storenvy",
+   "name": "Storenvy",
+   "website": "https://www.storenvy.com/",
+   "country": "united-states",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.storenvy.com/",
+    "title": "Buy and sell on the world's most socially driven marketplace | Storenvy",
+    "textLen": 2610
+   },
+   "state": "ACTION_ESTABLISHED",
+   "action": "create-seller-profile",
+   "route": {
+    "text": "Open a Store",
+    "href": "https://www.storenvy.com/open-a-store"
+   },
+   "why": "the operator publishes \"Open a Store\"",
+   "buyerOnlyOffered": [
+    "Sign In",
+    "Join"
+   ]
+  },
+  {
+   "id": "mp-us-varagesale",
+   "name": "VarageSale",
+   "website": "https://www.varagesale.com/",
+   "country": "united-states",
+   "marketplaceType": "second-hand",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.varagesale.com/",
+    "title": "VarageSale: Your Online Garage Sale - Buy and Sell Locally",
+    "textLen": 2354
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "the site offers an account (Sign Up) but nothing on it says that route is for selling",
+   "buyerOnlyOffered": [
+    "Sign Up"
+   ]
+  },
+  {
+   "id": "mp-us-zillow",
+   "name": "Zillow",
+   "website": "https://www.zillow.com/",
+   "country": "united-states",
+   "marketplaceType": "property",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.zillow.com/",
+    "title": "Zillow: Real Estate, Apartments, Mortgages & Home Values",
+    "textLen": 2969
+   },
+   "state": "UNKNOWN_PROTECTED",
+   "why": "http 403"
+  },
+  {
+   "id": "mp-ve-mercadolibre",
+   "name": "Mercado Libre Venezuela",
+   "website": "https://www.mercadolibre.com.ve/",
+   "country": "venezuela",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.mercadolibre.com.ve/",
+    "title": "Mercado Libre Venezuela - Envíos Gratis en el día",
+    "textLen": 1819
+   },
+   "state": "ACTION_ESTABLISHED",
+   "action": "create-seller-profile",
+   "route": {
+    "text": "¡Compra y vende con la app!",
+    "href": "https://www.mercadolibre.com.ve/l/app#menu-user"
+   },
+   "why": "the operator publishes \"¡Compra y vende con la app!\"",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-ve-tuinmueble",
+   "name": "TuInmueble",
+   "website": "https://www.tuinmueble.com/",
+   "country": "venezuela",
+   "marketplaceType": "property",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.tuinmueble.com/",
+    "title": "TuInmueble",
+    "textLen": 172
+   },
+   "state": "UNRESOLVED",
+   "why": "only 172 characters rendered"
+  },
+  {
+   "id": "mp-vn-alonhadat",
+   "name": "Alonhadat",
+   "website": "https://www.alonhadat.com.vn/",
+   "country": "vietnam",
+   "marketplaceType": "property",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://alonhadat.com.vn/",
+    "title": "Mua Bán Nhà Đất | Cho Thuê Nhà, Căn Hộ, Văn Phòng - Alonhadat.com.vn",
+    "textLen": 12019
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-vn-batdongsan",
+   "name": "Batdongsan",
+   "website": "https://batdongsan.com.vn/",
+   "country": "vietnam",
+   "marketplaceType": "property",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://batdongsan.com.vn/",
+    "title": "Nền tảng bất động sản uy tín - Mua bán, cho thuê nhà đất toàn quốc | Batdongsan.com.vn",
+    "textLen": 6757
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-vn-chotot",
+   "name": "Chợ Tốt",
+   "website": "https://www.chotot.com/",
+   "country": "vietnam",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.chotot.com/",
+    "title": "Chợ Tốt - Website Mua Bán, Rao Vặt Trực Tuyến Hàng Đầu Của Người Việt",
+    "textLen": 6355
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-vn-muaban",
+   "name": "Muaban.net",
+   "website": "https://muaban.net/",
+   "country": "vietnam",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://muaban.net/",
+    "title": "Mua bán đăng tin rao vặt miễn phí nhanh chóng, hiệu quả 2026 - Muaban.net",
+    "textLen": 20683
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-vn-vieclam24h",
+   "name": "Việc Làm 24h",
+   "website": "https://www.vieclam24h.vn/",
+   "country": "vietnam",
+   "marketplaceType": "jobs",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://vieclam24h.vn/",
+    "title": "Tìm việc làm nhanh, tuyển dụng hiệu quả tại Việc Làm 24h",
+    "textLen": 4424
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-xk-merrjep",
+   "name": "MerrJep Kosovo",
+   "website": "https://www.merrjep.com/",
+   "country": "kosovo",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.merrjep.com/",
+    "title": "Shpallje | Vetura | Banesa me qera | Oferta pune | Telefona | Laptop | Lojra | Rroba | Vegla pune | Shërbime | MerrJep.com",
+    "textLen": 1992
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-za-autotrader",
+   "name": "AutoTrader South Africa",
+   "website": "https://www.autotrader.co.za/",
+   "country": "south-africa",
+   "marketplaceType": "vehicles",
+   "observed": {
+    "status": 204,
+    "finalUrl": "https://www.autotrader.co.za/",
+    "title": "Cars for sale in South Africa - AutoTrader",
+    "textLen": 6269
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "the site offers an account (Sign In) but nothing on it says that route is for selling",
+   "buyerOnlyOffered": [
+    "Sign In"
+   ]
+  },
+  {
+   "id": "mp-za-bobshop",
+   "name": "Bob Shop",
+   "website": "https://bobshop.co.za/",
+   "country": "south-africa",
+   "marketplaceType": "auctions",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://bobshop.co.za/",
+    "title": "Bob Shop online shopping South Africa | bid or buy today",
+    "textLen": 2624
+   },
+   "state": "ACTION_ESTABLISHED",
+   "action": "create-seller-profile",
+   "route": {
+    "text": "Sell on Bob Shop",
+    "href": "https://bobshop.co.za/content/153/index.html"
+   },
+   "why": "the operator publishes \"Sell on Bob Shop\"",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-za-careerjunction",
+   "name": "CareerJunction",
+   "website": "https://www.careerjunction.co.za/",
+   "country": "south-africa",
+   "marketplaceType": "jobs",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.careerjunction.co.za/",
+    "title": "Search Jobs | CareerJunction",
+    "textLen": 3015
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "the site offers an account (Sign In) but nothing on it says that route is for selling",
+   "buyerOnlyOffered": [
+    "Sign In"
+   ]
+  },
+  {
+   "id": "mp-za-gumtree",
+   "name": "Gumtree South Africa",
+   "website": "https://www.gumtree.co.za/",
+   "country": "south-africa",
+   "marketplaceType": "general-classifieds",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.gumtree.co.za/",
+    "title": "Buy & Sell On Gumtree: South Africa‘s Favourite Free Classifieds",
+    "textLen": 30930
+   },
+   "state": "ACTION_UNKNOWN",
+   "why": "no seller or listing route is published in words on the homepage or the pages it links to",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-za-privateproperty",
+   "name": "Private Property",
+   "website": "https://www.privateproperty.co.za/",
+   "country": "south-africa",
+   "marketplaceType": "property",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.privateproperty.co.za/",
+    "title": "Property for sale in South Africa | Private Property",
+    "textLen": 3120
+   },
+   "state": "ACTION_ESTABLISHED",
+   "action": "create-seller-profile",
+   "route": {
+    "text": "Sell with an agent",
+    "href": "https://www.privateproperty.co.za/estate-agents-in-south-africa"
+   },
+   "why": "the operator publishes \"Sell with an agent\"",
+   "buyerOnlyOffered": []
+  },
+  {
+   "id": "mp-za-property24",
+   "name": "Property24",
+   "website": "https://www.property24.com/",
+   "country": "south-africa",
+   "marketplaceType": "property",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.property24.com/",
+    "title": "Property for Sale: Houses for sale: Property24",
+    "textLen": 3918
+   },
+   "state": "ACTION_ESTABLISHED",
+   "action": "publish-classified",
+   "route": {
+    "text": "Sell Your Property",
+    "href": "https://www.property24.com/private-listing/sell-my-property"
+   },
+   "why": "the operator publishes \"Sell Your Property\"",
+   "buyerOnlyOffered": [
+    "Sign in"
+   ]
+  },
+  {
+   "id": "mp-zw-propertybook",
+   "name": "Propertybook",
+   "website": "https://www.propertybook.co.zw/",
+   "country": "zimbabwe",
+   "marketplaceType": "property",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.propertybook.co.zw/",
+    "title": "Find property for sale and rent in Zimbabwe - Propertybook",
+    "textLen": 3853
+   },
+   "state": "ACTION_ESTABLISHED",
+   "action": "publish-classified",
+   "route": {
+    "text": "Sell Your Property",
+    "href": "https://www.propertybook.co.zw/info/sell-with-us"
+   },
+   "why": "the operator publishes \"Sell Your Property\"",
+   "buyerOnlyOffered": [
+    "Sign Up",
+    "Join"
+   ]
+  }
+ ]
+}
