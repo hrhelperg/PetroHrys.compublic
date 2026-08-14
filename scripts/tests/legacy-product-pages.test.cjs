@@ -44,6 +44,21 @@ const PRODUCT_SLUGS = CANONICAL.map((page) => page.split('/')[0]);
 //
 // A baseline is only ever updated with that kind of evidence. Updating it
 // because a test went red is how a preservation guard becomes decoration.
+//
+// Re-baselined 2026-08-14, four pages only: webmasterid/index.html and its de,
+// es and fr translations. The site stopped using CookieYes, so the three places
+// each of those pages named it as an example consent manager were widened to
+// the claim that is now true and broader — the tracker ships inert, so it works
+// with any consent manager, including this site's own. The two FAQ spots (the
+// visible answer and its JSON-LD counterpart) were changed identically and the
+// pair re-verified as matching, because an FAQ schema whose text is not on the
+// page is a false claim to a search engine.
+//
+// Evidence: each of the four pages diffs against HEAD in exactly 8 lines — the
+// analytics block being gated, plus those three prose spots. The other 20
+// baselined pages recomputed BYTE-IDENTICAL, which is the check that matters:
+// it proves the analytics rewrite that touched all 24 pages does not reach the
+// semantic snapshot at all, so these four moved for the prose and nothing else.
 const BASELINE_DIGESTS = {
   'pdf-editor/index.html': 'f1c6aa7f8e224c6b7fdcd54c4e3edabd4d3ab6635649b858320151cebfc15537',
   'pocket-manager/index.html': '0c550678eca6a2abb4b7f5240e5d4225721c49ac37855e9cd60554d581d0afb5',
@@ -51,23 +66,23 @@ const BASELINE_DIGESTS = {
   'unzip/index.html': '912721a2593ce718907db8e13288093ab58fa3d72fe0035d6ee34b836355ba56',
   'tcg-scanner/index.html': '90be500b5eddf972af1fa8ef60aec7506dbba9504aeb18edb02eb81e0315dc7f',
   'fax/index.html': '660e234e36a9c7f11d659c6793690a73773aed35178d2a159f3160939dca55b7',
-  'webmasterid/index.html': '1eb01ed8c9dceefede377a1715a18ec9a0952d937401e465367036a528ac1d4e',
+  'webmasterid/index.html': 'ec0d4d23b5de69ba785cc9be9be1419412246c6a03eaaa57c492fa88a73f10f3',
   'invoice-maker/index.html': 'f7fa06b9f8c82bc81d0914404254053d97363a55551ebc42e1202a5837de9b8e',
   'smart-printer/index.html': '4061f6d6ef080356ef0e1b94b3491f4889789a1fe3bc68747e643b2fc12cc4e3',
   'es/pdf-editor/index.html': '10a6cb213c28aadf89cea1eb74647db4e238f890eff1175bef9d26c7e18cb304',
   'es/pocket-manager/index.html': '7833ecaa3fa4af4922e868a5568bd311b99a43995d99aa872f566ad785f88489',
   'es/cv-builder/index.html': '8483894dc5b4f240a4da5cea793d47314daabcb614fb6418861b02d107db9a23',
-  'es/webmasterid/index.html': 'af156da8509b79c2ca33044c104c9a1d04b266c609a9029dc7ea56186c7410cd',
+  'es/webmasterid/index.html': '22b482ff525772849b8a3290b98d07537aa4a954143e2ef9b2c04f2a49fbf795',
   'es/invoice-maker/index.html': 'dbfbbccbced24e2617dc9fd0552ece8a8d3767a92992b50803007660ecee1f49',
   'fr/pdf-editor/index.html': '9e072642817b9b3d03d4869d057597db5e8d01a10c4b2f8f77c86df42529a730',
   'fr/pocket-manager/index.html': '81734f8e8c86b7fcc97fc33819fef1e8ff437a9c0ce620c789ed0647b2544e15',
   'fr/cv-builder/index.html': '4d46f54891a1f6db609195d29e5ac4ae5c0961b157cb0788686c3a63a1f2b124',
-  'fr/webmasterid/index.html': 'cb69b60d23d682aa04a56b0f6bcb1b1674bca9c1eb1dd66766fe8ae4928c3fcb',
+  'fr/webmasterid/index.html': '139349890d3e99aad0a8bbcef3d4483c38d69dc6e8269b5ceadd6c3b555362ad',
   'fr/invoice-maker/index.html': 'd7888b00d473f11fc700485e4ca88948198fc9f04d0349f08a5402be38b1dcc5',
   'de/pdf-editor/index.html': 'ed5895e5b02414719592afcff03134979f1d79741d371351707c9e7c2fd658d7',
   'de/pocket-manager/index.html': 'dbe3da37405670387bc90796488e38f699f734e7ac20fdb42e7f4d47178cae4b',
   'de/cv-builder/index.html': 'b76b98c54e7d535198f7a3bd63f3dcb5a1bd87418490f5646c74ffeb623851e5',
-  'de/webmasterid/index.html': '65abd3a37b1c76067824788ba19f6f1fcd30a2b1a505463ecd028288d0d4253c',
+  'de/webmasterid/index.html': 'b324a4e0c6ee4e7637ab64ba754e93c6219519d9af5710172e011da64949af0f',
   'de/invoice-maker/index.html': 'd3a0cc32a17584a453a7b85d5843476984453ae8974e80670c3051bd59543390',
 };
 
@@ -311,12 +326,26 @@ test('new shared CSS is reusable, tokenized and free of product selectors', () =
 });
 
 test('tracking remains consent-gated and functionally unchanged', () => {
-  const cookieYes = '<script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/af075fab2c66644b181224ee/script.js"></script>';
-  const webmasterId = '<script id="webmasterid-tracker" type="text/plain" data-cookieyes="cookieyes-analytics" defer src="https://webmasterid.com/tracker.iife.min.js" data-wmid="wm_bktqqtd7heom5nkl" data-endpoint="https://webmasterid-ingest-api.vercel.app/api/events"></script>';
+  // The gate used to be CookieYes. Its script started answering 403 with the
+  // service's own "We can't find the page you are looking for" — the same reply
+  // a fabricated client id gets — so the key was gone rather than blocked. The
+  // tracker shipped as `type="text/plain" data-cookieyes="..."` and only that
+  // service ever rewrote the type, so it never executed: zero requests for
+  // tracker.iife.min.js and zero events, measured in a real browser against
+  // production. Google Analytics meanwhile ran ungated on the same pages.
+  //
+  // The gate is now this site's own js/consent.js, and it covers BOTH tools on
+  // identical terms. These assertions are deliberately stronger than the ones
+  // they replace: they pin that the third-party service is gone, that nothing
+  // analytics-related is executable before a decision, and that the GA config
+  // block is gated too — loading gtag.js without it would fetch the library and
+  // measure nothing.
+  const webmasterId = '<script id="webmasterid-tracker" type="text/plain" data-consent="analytics" defer src="https://webmasterid.com/tracker.iife.min.js" data-wmid="wm_bktqqtd7heom5nkl" data-endpoint="https://webmasterid-ingest-api.vercel.app/api/events"></script>';
   for (const relativePath of PAGES) {
     const html = read(relativePath);
-    assert.strictEqual((html.match(/id="cookieyes"/g) || []).length, 1, `${relativePath}: CookieYes count`);
-    assert.ok(html.includes(cookieYes), `${relativePath}: CookieYes changed`);
+    assert.ok(!/cookieyes/i.test(html), `${relativePath}: the retired consent service is still referenced`);
+    assert.strictEqual((html.match(/\/js\/consent\.js/g) || []).length, 1,
+      `${relativePath}: consent script count`);
     assert.strictEqual((html.match(/id="webmasterid-tracker"/g) || []).length, 1,
       `${relativePath}: WebmasterID count`);
     assert.ok(html.includes(webmasterId), `${relativePath}: WebmasterID changed`);
@@ -324,6 +353,12 @@ test('tracking remains consent-gated and functionally unchanged', () => {
       `${relativePath}: GA loader changed`);
     assert.ok(html.includes("gtag('config', 'G-4RE6YCJZBD')")
       || html.includes("gtag('config','G-4RE6YCJZBD')"), `${relativePath}: GA config changed`);
+    // Every analytics script must be inert as served. A single ungated one puts
+    // the site back where it started.
+    for (const tag of html.match(/<script[^>]*googletagmanager[^>]*>/g) || []) {
+      assert.ok(/type="text\/plain"/.test(tag) && /data-consent="analytics"/.test(tag),
+        `${relativePath}: the GA loader is executable before consent`);
+    }
   }
 });
 

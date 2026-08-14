@@ -18,6 +18,8 @@ const fs = require('node:fs');
 const path = require('node:path');
 
 const { loadRegistry } = require('../lib/bd-registry.cjs');
+// Publication parity, in place of the per-country totals this suite used to pin.
+const PARITY = require('./helpers/country-parity.cjs');
 
 const ROOT = path.resolve(__dirname, '..', '..');
 const ALL = loadRegistry().directories;
@@ -36,8 +38,16 @@ const hostOf = (u) => new URL(u).hostname.replace(/^www\./, '');
 
 test('every record this wave claims to have published exists', () => {
   for (const id of WAVE) assert.ok(byId.get(id), `missing record ${id}`);
-  assert.strictEqual(ALL.filter((r) => r.country === 'germany').length, 20); // +1 Wave 4 telecoms, +1 Wave 4B postal, +4 Wave 1B.1 directories, +1 Das Örtliche
-  assert.strictEqual(ALL.filter((r) => r.country === 'france').length, 11);
+  // BRITTLE MIRRORS, REMOVED: two per-country totals, one of which had grown a
+  // four-item changelog in a trailing comment. They restated how many records
+  // exist, which is not what a wave test is about, and every verified German or
+  // French addition had to retype them here as well as in
+  // bd-germany-directories.test.cjs.
+  //
+  // Replaced by generated === canonical, per country. See
+  // scripts/tests/helpers/country-parity.cjs.
+  PARITY.assertCountryPublicationParity(assert, ALL, 'germany', 20);
+  PARITY.assertCountryPublicationParity(assert, ALL, 'france', 11);
 });
 
 // ── German federalism ───────────────────────────────────────────────────────

@@ -541,6 +541,46 @@
     ]
   },
   {
+    "id": "md-ain-ua",
+    "name": "AIN",
+    "website": "https://ain.ua",
+    "country": "ukraine",
+    "audienceGeography": "national",
+    "categories": [
+      "startup-media",
+      "technology-media"
+    ],
+    "industries": [
+      "general",
+      "software"
+    ],
+    "languages": [
+      "uk"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Ukrainian publication covering IT, business and startups, including funding, product launches and the domestic tech industry.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Homepage reached and read over HTTPS during Wave 4.",
+    "lastVerified": "2026-08-14",
+    "sources": [
+      "https://ain.ua/"
+    ]
+  },
+  {
     "id": "md-ainow",
     "name": "AINOW",
     "website": "https://ainow.ai",
@@ -735,6 +775,45 @@
     ]
   },
   {
+    "id": "md-anp-pers-support",
+    "name": "ANP Pers Support",
+    "website": "https://perssupport.nl",
+    "country": "netherlands",
+    "audienceGeography": "national",
+    "categories": [
+      "press-release-distribution"
+    ],
+    "industries": [
+      "general"
+    ],
+    "languages": [
+      "nl"
+    ],
+    "currentStatus": "active",
+    "priority": "P1",
+    "opportunityTypes": [
+      "press-release"
+    ],
+    "costModel": "paid",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": "https://perssupport.nl/persbericht-versturen/",
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "The press-release distribution service of ANP, the Dutch national news agency, with a direct send route and published rules for what it accepts.",
+    "limitations": "Paid distribution, not editorial coverage. ANP publishes rules and principles that a release must meet, and pricing was not read from the site. www.perssupport.nl redirects to this host.",
+    "lastVerified": "2026-08-14",
+    "sources": [
+      "https://www.perssupport.nl/",
+      "https://perssupport.nl/persbericht-versturen/"
+    ]
+  },
+  {
     "id": "md-arabian-business",
     "name": "Arabian Business",
     "website": "https://www.arabianbusiness.com",
@@ -848,6 +927,85 @@
     "lastVerified": "2026-08-07",
     "sources": [
       "https://arcticstartup.com/"
+    ]
+  },
+  {
+    "id": "md-argaam",
+    "name": "Argaam",
+    "website": "https://www.argaam.com/en",
+    "country": "saudi-arabia",
+    "audienceGeography": "national",
+    "categories": [
+      "finance-media"
+    ],
+    "industries": [
+      "finance",
+      "general"
+    ],
+    "languages": [
+      "ar",
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Saudi financial publication covering the Tadawul stock exchange, listed company disclosures, earnings and the Gulf economy.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Homepage reached and read over HTTPS during Wave 4.",
+    "lastVerified": "2026-08-14",
+    "sources": [
+      "https://www.argaam.com/en/"
+    ]
+  },
+  {
+    "id": "md-aripaev",
+    "name": "Äripäev",
+    "website": "https://www.aripaev.ee",
+    "country": "estonia",
+    "audienceGeography": "national",
+    "categories": [
+      "local-business-media"
+    ],
+    "industries": [
+      "finance",
+      "general"
+    ],
+    "languages": [
+      "et"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Estonian business daily covering companies, markets, management and the national economy.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Homepage reached and read over HTTPS during Wave 4.",
+    "lastVerified": "2026-08-14",
+    "sources": [
+      "https://www.aripaev.ee/"
     ]
   },
   {
@@ -1119,6 +1277,45 @@
     "lastVerified": "2026-08-08",
     "sources": [
       "https://www.bangkokpost.com/business"
+    ]
+  },
+  {
+    "id": "md-bankier-pl",
+    "name": "Bankier.pl",
+    "website": "https://www.bankier.pl",
+    "country": "poland",
+    "audienceGeography": "national",
+    "categories": [
+      "finance-media"
+    ],
+    "industries": [
+      "finance",
+      "fintech"
+    ],
+    "languages": [
+      "pl"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Polish financial portal covering markets, banking, personal finance and listed companies.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Homepage reached and read over HTTPS during Wave 4.",
+    "lastVerified": "2026-08-14",
+    "sources": [
+      "https://www.bankier.pl/"
     ]
   },
   {
@@ -1666,6 +1863,45 @@
     ]
   },
   {
+    "id": "md-bloovi",
+    "name": "Bloovi",
+    "website": "https://www.bloovi.be",
+    "country": "belgium",
+    "audienceGeography": "national",
+    "categories": [
+      "marketing-media"
+    ],
+    "industries": [
+      "general",
+      "marketing"
+    ],
+    "languages": [
+      "nl"
+    ],
+    "currentStatus": "active",
+    "priority": "P3",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Belgian publication for entrepreneurs and marketers covering digital business, marketing and company growth.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Homepage reached and read over HTTPS during Wave 4.",
+    "lastVerified": "2026-08-14",
+    "sources": [
+      "https://www.bloovi.be/"
+    ]
+  },
+  {
     "id": "md-bloter",
     "name": "블로터",
     "website": "https://www.bloter.net",
@@ -1701,6 +1937,45 @@
     "lastVerified": "2026-08-08",
     "sources": [
       "https://www.bloter.net/"
+    ]
+  },
+  {
+    "id": "md-borsen",
+    "name": "Børsen",
+    "website": "https://borsen.dk",
+    "country": "denmark",
+    "audienceGeography": "national",
+    "categories": [
+      "local-business-media"
+    ],
+    "industries": [
+      "finance",
+      "general"
+    ],
+    "languages": [
+      "da"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Danish business daily covering companies, markets, investment and the national economy.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Homepage reached and read over HTTPS during Wave 4.",
+    "lastVerified": "2026-08-14",
+    "sources": [
+      "https://borsen.dk/"
     ]
   },
   {
@@ -2093,6 +2368,45 @@
     ]
   },
   {
+    "id": "md-business-wire-india",
+    "name": "Business Wire India",
+    "website": "https://www.businesswireindia.com",
+    "country": "india",
+    "audienceGeography": "national",
+    "categories": [
+      "press-release-distribution"
+    ],
+    "industries": [
+      "general"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P1",
+    "opportunityTypes": [
+      "press-release"
+    ],
+    "costModel": "paid",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": "https://www.businesswireindia.com/submit-press-release",
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Indian newswire distributing corporate press releases to Indian newsrooms, with a self-serve client submission route and a separate media partner registration.",
+    "limitations": "Paid distribution, not editorial coverage. Submission requires a client account; pricing was not read from the site.",
+    "lastVerified": "2026-08-14",
+    "sources": [
+      "https://www.businesswireindia.com/",
+      "https://www.businesswireindia.com/submit-press-release"
+    ]
+  },
+  {
     "id": "md-businesscloud",
     "name": "BusinessCloud",
     "website": "https://www.businesscloud.co.uk",
@@ -2206,6 +2520,45 @@
     "lastVerified": "2026-08-08",
     "sources": [
       "https://businesstech.co.za/"
+    ]
+  },
+  {
+    "id": "md-businessworld",
+    "name": "BusinessWorld",
+    "website": "https://www.bworldonline.com",
+    "country": "philippines",
+    "audienceGeography": "national",
+    "categories": [
+      "local-business-media"
+    ],
+    "industries": [
+      "finance",
+      "general"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Philippine business newspaper covering companies, markets, economy and corporate news.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Homepage reached and read over HTTPS during Wave 4.",
+    "lastVerified": "2026-08-14",
+    "sources": [
+      "https://www.bworldonline.com/"
     ]
   },
   {
@@ -3141,6 +3494,45 @@
     ]
   },
   {
+    "id": "md-czechcrunch",
+    "name": "CzechCrunch",
+    "website": "https://cc.cz",
+    "country": "czech-republic",
+    "audienceGeography": "national",
+    "categories": [
+      "startup-media"
+    ],
+    "industries": [
+      "general"
+    ],
+    "languages": [
+      "cs"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "sponsored-content"
+    ],
+    "costModel": "paid",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": "https://cc.cz/inzerce/",
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": true,
+    "shortNote": "Czech startup, business and technology publication covering founders, funding and the domestic innovation scene.",
+    "limitations": "Only the commercial \"Inzerce\" page was readable as a route; no free editorial submission or contributor programme was documented on the site.",
+    "lastVerified": "2026-08-14",
+    "sources": [
+      "https://cc.cz/",
+      "https://cc.cz/inzerce/"
+    ]
+  },
+  {
     "id": "md-dagens-industri",
     "name": "Dagens industri",
     "website": "https://www.di.se",
@@ -3293,6 +3685,45 @@
     "lastVerified": "2026-08-07",
     "sources": [
       "https://www.darkreading.com/about-us"
+    ]
+  },
+  {
+    "id": "md-de-tijd",
+    "name": "De Tijd",
+    "website": "https://www.tijd.be",
+    "country": "belgium",
+    "audienceGeography": "national",
+    "categories": [
+      "local-business-media"
+    ],
+    "industries": [
+      "finance",
+      "general"
+    ],
+    "languages": [
+      "nl"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Flemish business and financial daily covering companies, markets, politics and the Belgian economy.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Homepage reached and read over HTTPS during Wave 4.",
+    "lastVerified": "2026-08-14",
+    "sources": [
+      "https://www.tijd.be/"
     ]
   },
   {
@@ -3453,6 +3884,45 @@
     "lastVerified": "2026-08-07",
     "sources": [
       "https://dev.to/new"
+    ]
+  },
+  {
+    "id": "md-dev-ua",
+    "name": "dev.ua",
+    "website": "https://dev.ua",
+    "country": "ukraine",
+    "audienceGeography": "national",
+    "categories": [
+      "technology-media"
+    ],
+    "industries": [
+      "general",
+      "software"
+    ],
+    "languages": [
+      "uk"
+    ],
+    "currentStatus": "active",
+    "priority": "P3",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Ukrainian publication about the IT industry, technology companies, developers and the local tech labour market.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Homepage reached and read over HTTPS during Wave 4.",
+    "lastVerified": "2026-08-14",
+    "sources": [
+      "https://dev.ua/"
     ]
   },
   {
@@ -3650,6 +4120,45 @@
     ]
   },
   {
+    "id": "md-dienas-bizness",
+    "name": "Dienas Bizness",
+    "website": "https://db.lv",
+    "country": "latvia",
+    "audienceGeography": "national",
+    "categories": [
+      "local-business-media"
+    ],
+    "industries": [
+      "finance",
+      "general"
+    ],
+    "languages": [
+      "lv"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Latvian business publication covering companies, finance, industry and entrepreneurship.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Homepage reached and read over HTTPS during Wave 4. www.db.lv redirects to this host.",
+    "lastVerified": "2026-08-14",
+    "sources": [
+      "https://www.db.lv/"
+    ]
+  },
+  {
     "id": "md-digiday",
     "name": "Digiday",
     "website": "https://digiday.com",
@@ -3727,6 +4236,47 @@
     "sources": [
       "https://www.digitalcommerce360.com/about-us/",
       "https://www.digitalcommerce360.com/contact-us/"
+    ]
+  },
+  {
+    "id": "md-digital-news-asia",
+    "name": "Digital News Asia",
+    "website": "https://www.digitalnewsasia.com",
+    "country": "malaysia",
+    "audienceGeography": "regional",
+    "categories": [
+      "startup-media",
+      "technology-media"
+    ],
+    "industries": [
+      "general",
+      "software"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Malaysian-based technology and digital-economy publication covering startups, enterprise IT and policy across Southeast Asia.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Homepage reached and read over HTTPS during Wave 4. The homepage is client-rendered; the live article feed was read from the site’s RSS endpoint instead.",
+    "lastVerified": "2026-08-14",
+    "sources": [
+      "https://www.digitalnewsasia.com/",
+      "https://www.digitalnewsasia.com/rss.xml"
     ]
   },
   {
@@ -3885,6 +4435,84 @@
     ]
   },
   {
+    "id": "md-dunya",
+    "name": "Dünya",
+    "website": "https://www.dunya.com",
+    "country": "turkey",
+    "audienceGeography": "national",
+    "categories": [
+      "local-business-media"
+    ],
+    "industries": [
+      "finance",
+      "general"
+    ],
+    "languages": [
+      "tr"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Turkish economy and business daily covering companies, finance, industry and trade.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Homepage reached and read over HTTPS during Wave 4.",
+    "lastVerified": "2026-08-14",
+    "sources": [
+      "https://www.dunya.com/"
+    ]
+  },
+  {
+    "id": "md-e15",
+    "name": "e15",
+    "website": "https://www.e15.cz",
+    "country": "czech-republic",
+    "audienceGeography": "national",
+    "categories": [
+      "local-business-media"
+    ],
+    "industries": [
+      "finance",
+      "general"
+    ],
+    "languages": [
+      "cs"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Czech business and economics title covering companies, markets, finance and policy.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Homepage reached and read over HTTPS during Wave 4.",
+    "lastVerified": "2026-08-14",
+    "sources": [
+      "https://www.e15.cz/"
+    ]
+  },
+  {
     "id": "md-e27",
     "name": "e27",
     "website": "https://e27.co",
@@ -3923,6 +4551,46 @@
     "lastVerified": "2026-08-08",
     "sources": [
       "https://e27.co/contact-us/"
+    ]
+  },
+  {
+    "id": "md-eco-sapo",
+    "name": "ECO",
+    "website": "https://eco.sapo.pt",
+    "country": "portugal",
+    "audienceGeography": "national",
+    "categories": [
+      "local-business-media"
+    ],
+    "industries": [
+      "finance",
+      "general"
+    ],
+    "languages": [
+      "pt"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": "https://eco.sapo.pt/contactos/",
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Portuguese online economy and business publication covering companies, markets and policy.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Homepage reached and read over HTTPS during Wave 4.",
+    "lastVerified": "2026-08-14",
+    "sources": [
+      "https://eco.sapo.pt/",
+      "https://eco.sapo.pt/contactos/"
     ]
   },
   {
@@ -4041,6 +4709,45 @@
     ]
   },
   {
+    "id": "md-economyup",
+    "name": "EconomyUp",
+    "website": "https://www.economyup.it",
+    "country": "italy",
+    "audienceGeography": "national",
+    "categories": [
+      "startup-media"
+    ],
+    "industries": [
+      "general",
+      "saas"
+    ],
+    "languages": [
+      "it"
+    ],
+    "currentStatus": "active",
+    "priority": "P3",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Italian publication about innovation, startups and digital transformation of established companies.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Homepage reached and read over HTTPS during Wave 4.",
+    "lastVerified": "2026-08-14",
+    "sources": [
+      "https://www.economyup.it/"
+    ]
+  },
+  {
     "id": "md-edison-awards",
     "name": "Edison Awards",
     "website": "https://www.edisonawards.com",
@@ -4118,6 +4825,45 @@
     ]
   },
   {
+    "id": "md-ekonomichna-pravda",
+    "name": "Ekonomichna Pravda",
+    "website": "https://epravda.com.ua",
+    "country": "ukraine",
+    "audienceGeography": "national",
+    "categories": [
+      "local-business-media"
+    ],
+    "industries": [
+      "finance",
+      "general"
+    ],
+    "languages": [
+      "uk"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Ukrainian business and economics publication covering companies, markets, energy and economic policy.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Homepage reached and read over HTTPS during Wave 4.",
+    "lastVerified": "2026-08-14",
+    "sources": [
+      "https://epravda.com.ua/"
+    ]
+  },
+  {
     "id": "md-el-economista-mx",
     "name": "El Economista",
     "website": "https://www.eleconomista.com.mx",
@@ -4153,6 +4899,45 @@
     "lastVerified": "2026-08-08",
     "sources": [
       "https://www.eleconomista.com.mx"
+    ]
+  },
+  {
+    "id": "md-el-financiero-cr",
+    "name": "El Financiero",
+    "website": "https://www.elfinancierocr.com",
+    "country": "costa-rica",
+    "audienceGeography": "national",
+    "categories": [
+      "local-business-media"
+    ],
+    "industries": [
+      "finance",
+      "general"
+    ],
+    "languages": [
+      "es"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Costa Rican business publication covering the economy, finance, companies and regional trade.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Homepage reached and read over HTTPS during Wave 4.",
+    "lastVerified": "2026-08-14",
+    "sources": [
+      "https://www.elfinancierocr.com/"
     ]
   },
   {
@@ -4351,6 +5136,45 @@
     ]
   },
   {
+    "id": "md-enterprise-egypt",
+    "name": "EnterpriseAM Egypt",
+    "website": "https://enterpriseam.com/egypt/",
+    "country": "egypt",
+    "audienceGeography": "national",
+    "categories": [
+      "local-business-media"
+    ],
+    "industries": [
+      "finance",
+      "general"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "English-language daily business briefing on the Egyptian economy, companies, banking and policy, delivered as a newsletter and website.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Homepage reached and read over HTTPS during Wave 4. enterprise.press redirects to this host after the EnterpriseAM rebrand.",
+    "lastVerified": "2026-08-14",
+    "sources": [
+      "https://enterprise.press/"
+    ]
+  },
+  {
     "id": "md-entrackr",
     "name": "Entrackr",
     "website": "https://entrackr.com",
@@ -4426,6 +5250,44 @@
     "lastVerified": "2026-08-07",
     "sources": [
       "https://www.entrepreneur.com/leadership-network"
+    ]
+  },
+  {
+    "id": "md-epixeiro",
+    "name": "epixeiro.gr",
+    "website": "https://www.epixeiro.gr",
+    "country": "greece",
+    "audienceGeography": "national",
+    "categories": [
+      "local-business-media"
+    ],
+    "industries": [
+      "general"
+    ],
+    "languages": [
+      "el"
+    ],
+    "currentStatus": "active",
+    "priority": "P3",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Greek publication focused on entrepreneurship, small business, funding programmes and company news.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Homepage reached and read over HTTPS during Wave 4.",
+    "lastVerified": "2026-08-14",
+    "sources": [
+      "https://www.epixeiro.gr/"
     ]
   },
   {
@@ -4966,6 +5828,123 @@
     "lastVerified": "2026-08-08",
     "sources": [
       "https://www.fiercenetwork.com/"
+    ]
+  },
+  {
+    "id": "md-finance-si",
+    "name": "Finance",
+    "website": "https://www.finance.si",
+    "country": "slovenia",
+    "audienceGeography": "national",
+    "categories": [
+      "local-business-media"
+    ],
+    "industries": [
+      "finance",
+      "general"
+    ],
+    "languages": [
+      "sl"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Slovenian business and financial daily covering companies, markets and the economy.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Homepage reached and read over HTTPS during Wave 4.",
+    "lastVerified": "2026-08-14",
+    "sources": [
+      "https://www.finance.si/"
+    ]
+  },
+  {
+    "id": "md-financial-mirror",
+    "name": "Financial Mirror",
+    "website": "https://www.financialmirror.com",
+    "country": "cyprus",
+    "audienceGeography": "national",
+    "categories": [
+      "local-business-media"
+    ],
+    "industries": [
+      "finance",
+      "general"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P3",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "English-language Cypriot business publication covering the economy, shipping, property and financial services.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Homepage reached and read over HTTPS during Wave 4.",
+    "lastVerified": "2026-08-14",
+    "sources": [
+      "https://www.financialmirror.com/"
+    ]
+  },
+  {
+    "id": "md-finans-dk",
+    "name": "Finans",
+    "website": "https://finans.dk",
+    "country": "denmark",
+    "audienceGeography": "national",
+    "categories": [
+      "local-business-media"
+    ],
+    "industries": [
+      "finance",
+      "general"
+    ],
+    "languages": [
+      "da"
+    ],
+    "currentStatus": "active",
+    "priority": "P3",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Danish business news service from Jyllands-Posten, covering companies, markets and the economy.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Homepage reached and read over HTTPS during Wave 4.",
+    "lastVerified": "2026-08-14",
+    "sources": [
+      "https://finans.dk/"
     ]
   },
   {
@@ -5512,6 +6491,44 @@
     ]
   },
   {
+    "id": "md-future-startup",
+    "name": "Future Startup",
+    "website": "https://futurestartup.com",
+    "country": "bangladesh",
+    "audienceGeography": "national",
+    "categories": [
+      "startup-media"
+    ],
+    "industries": [
+      "general"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P3",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Bangladeshi publication covering startups, business and technology through long-form founder interviews and analysis.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Homepage reached and read over HTTPS during Wave 4.",
+    "lastVerified": "2026-08-14",
+    "sources": [
+      "https://futurestartup.com/"
+    ]
+  },
+  {
     "id": "md-geekpark",
     "name": "极客公园",
     "website": "https://www.geekpark.net",
@@ -5547,6 +6564,46 @@
     "lastVerified": "2026-08-08",
     "sources": [
       "https://www.geekpark.net/"
+    ]
+  },
+  {
+    "id": "md-geektime",
+    "name": "Geektime",
+    "website": "https://www.geektime.co.il",
+    "country": "israel",
+    "audienceGeography": "national",
+    "categories": [
+      "startup-media",
+      "technology-media"
+    ],
+    "industries": [
+      "general",
+      "software"
+    ],
+    "languages": [
+      "he"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Israeli technology and startup publication covering the local high-tech industry, funding and founders.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Homepage reached and read over HTTPS during Wave 4.",
+    "lastVerified": "2026-08-14",
+    "sources": [
+      "https://www.geektime.co.il/"
     ]
   },
   {
@@ -5587,6 +6644,45 @@
     "lastVerified": "2026-08-08",
     "sources": [
       "https://www.geekwire.com/"
+    ]
+  },
+  {
+    "id": "md-geenius",
+    "name": "Geenius",
+    "website": "https://geenius.delfi.ee",
+    "country": "estonia",
+    "audienceGeography": "national",
+    "categories": [
+      "technology-media"
+    ],
+    "industries": [
+      "general",
+      "software"
+    ],
+    "languages": [
+      "et"
+    ],
+    "currentStatus": "active",
+    "priority": "P3",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Estonian technology and innovation publication covering digital services, startups and consumer technology.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Homepage reached and read over HTTPS during Wave 4. geenius.ee redirects to this host.",
+    "lastVerified": "2026-08-14",
+    "sources": [
+      "https://geenius.ee/"
     ]
   },
   {
@@ -5668,6 +6764,46 @@
     ]
   },
   {
+    "id": "md-ghana-business-news",
+    "name": "Ghana Business News",
+    "website": "https://ghanabusinessnews.com",
+    "country": "ghana",
+    "audienceGeography": "national",
+    "categories": [
+      "local-business-media"
+    ],
+    "industries": [
+      "energy",
+      "finance",
+      "general"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P3",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Ghanaian business news portal covering the economy, mining, energy, banking and company news.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Homepage reached and read over HTTPS during Wave 4. www.ghanabusinessnews.com redirects to this host.",
+    "lastVerified": "2026-08-14",
+    "sources": [
+      "https://www.ghanabusinessnews.com/"
+    ]
+  },
+  {
     "id": "md-globenewswire",
     "name": "GlobeNewswire",
     "website": "https://www.globenewswire.com",
@@ -5705,6 +6841,45 @@
     "sources": [
       "https://www.globenewswire.com/",
       "https://www.globenewswire.com/newsroom"
+    ]
+  },
+  {
+    "id": "md-globes",
+    "name": "Globes",
+    "website": "https://en.globes.co.il",
+    "country": "israel",
+    "audienceGeography": "national",
+    "categories": [
+      "local-business-media"
+    ],
+    "industries": [
+      "finance",
+      "general"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Israeli business daily; this is its English edition, covering companies, capital markets and the technology sector.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Homepage reached and read over HTTPS during Wave 4. www.globes.co.il/en redirects to this English-edition host.",
+    "lastVerified": "2026-08-14",
+    "sources": [
+      "https://www.globes.co.il/en/"
     ]
   },
   {
@@ -5984,6 +7159,45 @@
     "lastVerified": "2026-08-07",
     "sources": [
       "https://www.handelsblatt.com/"
+    ]
+  },
+  {
+    "id": "md-handelszeitung",
+    "name": "Handelszeitung",
+    "website": "https://www.handelszeitung.ch",
+    "country": "switzerland",
+    "audienceGeography": "national",
+    "categories": [
+      "local-business-media"
+    ],
+    "industries": [
+      "finance",
+      "general"
+    ],
+    "languages": [
+      "de"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Swiss business weekly and portal covering companies, markets, management and the economy.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Homepage reached and read over HTTPS during Wave 4.",
+    "lastVerified": "2026-08-14",
+    "sources": [
+      "https://www.handelszeitung.ch/"
     ]
   },
   {
@@ -6295,6 +7509,45 @@
     ]
   },
   {
+    "id": "md-hospodarske-noviny",
+    "name": "Hospodářské noviny",
+    "website": "https://hn.cz",
+    "country": "czech-republic",
+    "audienceGeography": "national",
+    "categories": [
+      "local-business-media"
+    ],
+    "industries": [
+      "finance",
+      "general"
+    ],
+    "languages": [
+      "cs"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Czech business daily covering the economy, companies, politics and markets.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Homepage reached and read over HTTPS during Wave 4.",
+    "lastVerified": "2026-08-14",
+    "sources": [
+      "https://hn.cz/"
+    ]
+  },
+  {
     "id": "md-hotel-management",
     "name": "Hotel Management",
     "website": "https://www.hotelmanagement.net",
@@ -6602,6 +7855,45 @@
     "lastVerified": "2026-08-08",
     "sources": [
       "https://www.huxiu.com/"
+    ]
+  },
+  {
+    "id": "md-hwsw",
+    "name": "HWSW",
+    "website": "https://www.hwsw.hu",
+    "country": "hungary",
+    "audienceGeography": "national",
+    "categories": [
+      "technology-media"
+    ],
+    "industries": [
+      "hardware",
+      "software"
+    ],
+    "languages": [
+      "hu"
+    ],
+    "currentStatus": "active",
+    "priority": "P3",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Hungarian IT news magazine covering enterprise technology, hardware, software and the domestic tech industry.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Homepage reached and read over HTTPS during Wave 4.",
+    "lastVerified": "2026-08-14",
+    "sources": [
+      "https://www.hwsw.hu/"
     ]
   },
   {
@@ -6997,6 +8289,47 @@
     ]
   },
   {
+    "id": "md-iproup",
+    "name": "iProUP",
+    "website": "https://www.iproup.com",
+    "country": "argentina",
+    "audienceGeography": "national",
+    "categories": [
+      "startup-media",
+      "technology-media"
+    ],
+    "industries": [
+      "crypto",
+      "fintech",
+      "general"
+    ],
+    "languages": [
+      "es"
+    ],
+    "currentStatus": "active",
+    "priority": "P3",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Argentine publication covering startups, innovation, fintech and crypto for a business audience.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Homepage reached and read over HTTPS during Wave 4.",
+    "lastVerified": "2026-08-14",
+    "sources": [
+      "https://www.iproup.com/"
+    ]
+  },
+  {
     "id": "md-irish-tech-news",
     "name": "Irish Tech News",
     "website": "https://www.irishtechnews.ie",
@@ -7151,6 +8484,49 @@
     ]
   },
   {
+    "id": "md-itnews-australia",
+    "name": "iTnews",
+    "website": "https://www.itnews.com.au",
+    "country": "australia",
+    "audienceGeography": "national",
+    "categories": [
+      "technology-media"
+    ],
+    "industries": [
+      "cloud",
+      "cybersecurity",
+      "software"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P1",
+    "opportunityTypes": [
+      "award-entry",
+      "sponsored-content"
+    ],
+    "costModel": "mixed",
+    "submissionUrl": "https://www.itnews.com.au/security-awards/about",
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": "https://www.itnews.com.au/page/advertising",
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": true,
+    "sponsoredContentAvailable": true,
+    "shortNote": "Australian enterprise technology publication for CIOs and IT leaders, with a partner-content programme and the Benchmark Security Awards.",
+    "limitations": "Two distinct routes: paid partner content bought through the advertising desk, and the Benchmark Security Awards, which are judged and entered separately. Neither is a route into staff news coverage, and award entry windows are seasonal.",
+    "lastVerified": "2026-08-14",
+    "sources": [
+      "https://www.itnews.com.au/",
+      "https://www.itnews.com.au/page/advertising",
+      "https://www.itnews.com.au/security-awards/about"
+    ]
+  },
+  {
     "id": "md-itpro",
     "name": "ITPro",
     "website": "https://www.itpro.com",
@@ -7226,6 +8602,88 @@
     "lastVerified": "2026-08-08",
     "sources": [
       "https://www.itweb.co.za/"
+    ]
+  },
+  {
+    "id": "md-itwire",
+    "name": "iTWire",
+    "website": "https://itwire.com",
+    "country": "australia",
+    "audienceGeography": "national",
+    "categories": [
+      "technology-media"
+    ],
+    "industries": [
+      "cloud",
+      "software",
+      "telecom"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "press-release",
+      "sponsored-content"
+    ],
+    "costModel": "mixed",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": "https://itwire.com/homepage/about-itwire.html",
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": true,
+    "shortNote": "Australian technology publication with a large standing Guest Articles section and a documented press-release submission route alongside paid advertorial preparation.",
+    "limitations": "The Advertise page documents press-release submission, advertorial preparation and promotional news preparation side by side, so the commercial and non-commercial routes were not separable from the page. Terms and pricing were not read.",
+    "lastVerified": "2026-08-14",
+    "sources": [
+      "https://itwire.com/",
+      "https://itwire.com/homepage/about-itwire.html",
+      "https://itwire.com/guest-articles/guest-opinion"
+    ]
+  },
+  {
+    "id": "md-itwiz",
+    "name": "ITwiz",
+    "website": "https://itwiz.pl",
+    "country": "poland",
+    "audienceGeography": "national",
+    "categories": [
+      "technology-media"
+    ],
+    "industries": [
+      "cloud",
+      "software"
+    ],
+    "languages": [
+      "pl"
+    ],
+    "currentStatus": "active",
+    "priority": "P3",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Polish enterprise IT publication covering business technology, digital transformation and the domestic IT market.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Homepage reached and read over HTTPS during Wave 4.",
+    "lastVerified": "2026-08-14",
+    "sources": [
+      "https://itwiz.pl/"
     ]
   },
   {
@@ -7345,6 +8803,45 @@
     ]
   },
   {
+    "id": "md-jornal-de-negocios",
+    "name": "Jornal de Negócios",
+    "website": "https://www.jornaldenegocios.pt",
+    "country": "portugal",
+    "audienceGeography": "national",
+    "categories": [
+      "local-business-media"
+    ],
+    "industries": [
+      "finance",
+      "general"
+    ],
+    "languages": [
+      "pt"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Portuguese business daily covering listed companies, markets, the economy and corporate news.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Homepage reached and read over HTTPS during Wave 4.",
+    "lastVerified": "2026-08-14",
+    "sources": [
+      "https://www.jornaldenegocios.pt/"
+    ]
+  },
+  {
     "id": "md-josh-bersin",
     "name": "Josh Bersin",
     "website": "https://joshbersin.com",
@@ -7459,6 +8956,46 @@
     "lastVerified": "2026-08-08",
     "sources": [
       "https://www.just-food.com/"
+    ]
+  },
+  {
+    "id": "md-katadata",
+    "name": "Katadata",
+    "website": "https://katadata.co.id",
+    "country": "indonesia",
+    "audienceGeography": "national",
+    "categories": [
+      "local-business-media"
+    ],
+    "industries": [
+      "energy",
+      "finance",
+      "general"
+    ],
+    "languages": [
+      "id"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Indonesian business, economy and data-journalism publication covering companies, energy and policy.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Homepage reached and read over HTTPS during Wave 4. www.katadata.co.id redirects to this host.",
+    "lastVerified": "2026-08-14",
+    "sources": [
+      "https://www.katadata.co.id/"
     ]
   },
   {
@@ -7613,6 +9150,45 @@
     "lastVerified": "2026-08-08",
     "sources": [
       "https://kr-asia.com"
+    ]
+  },
+  {
+    "id": "md-kursiv-media",
+    "name": "Kursiv Media",
+    "website": "https://kz.kursiv.media",
+    "country": "kazakhstan",
+    "audienceGeography": "national",
+    "categories": [
+      "local-business-media"
+    ],
+    "industries": [
+      "finance",
+      "general"
+    ],
+    "languages": [
+      "ru"
+    ],
+    "currentStatus": "active",
+    "priority": "P3",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Kazakh business and finance publication covering companies, banking, energy and the regional economy.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Homepage reached and read over HTTPS during Wave 4. kursiv.media redirects to this host.",
+    "lastVerified": "2026-08-14",
+    "sources": [
+      "https://kursiv.media/"
     ]
   },
   {
@@ -7925,6 +9501,84 @@
     ]
   },
   {
+    "id": "md-leseco-ma",
+    "name": "LesEco.ma",
+    "website": "https://leseco.ma",
+    "country": "morocco",
+    "audienceGeography": "national",
+    "categories": [
+      "local-business-media"
+    ],
+    "industries": [
+      "finance",
+      "general"
+    ],
+    "languages": [
+      "fr"
+    ],
+    "currentStatus": "active",
+    "priority": "P3",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Moroccan business and economy publication covering companies, finance, industry and public policy.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Homepage reached and read over HTTPS during Wave 4. www.leseco.ma redirects to this host.",
+    "lastVerified": "2026-08-14",
+    "sources": [
+      "https://www.leseco.ma/"
+    ]
+  },
+  {
+    "id": "md-lider-media",
+    "name": "Lider Media",
+    "website": "https://lidermedia.hr",
+    "country": "croatia",
+    "audienceGeography": "national",
+    "categories": [
+      "local-business-media"
+    ],
+    "industries": [
+      "finance",
+      "general"
+    ],
+    "languages": [
+      "hr"
+    ],
+    "currentStatus": "active",
+    "priority": "P3",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Croatian business publication for entrepreneurs and managers, covering companies, markets and the economy.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Homepage reached and read over HTTPS during Wave 4. lider.media redirects to this host.",
+    "lastVerified": "2026-08-14",
+    "sources": [
+      "https://lider.media/"
+    ]
+  },
+  {
     "id": "md-light-reading",
     "name": "Light Reading",
     "website": "https://www.lightreading.com",
@@ -7961,6 +9615,44 @@
     "lastVerified": "2026-08-08",
     "sources": [
       "https://www.lightreading.com/"
+    ]
+  },
+  {
+    "id": "md-link-to-leaders",
+    "name": "Link To Leaders",
+    "website": "https://linktoleaders.com",
+    "country": "portugal",
+    "audienceGeography": "national",
+    "categories": [
+      "startup-media"
+    ],
+    "industries": [
+      "general"
+    ],
+    "languages": [
+      "pt"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Portuguese publication for entrepreneurs, startups and investors, covering founders, funding and business growth.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Homepage reached and read over HTTPS during Wave 4.",
+    "lastVerified": "2026-08-14",
+    "sources": [
+      "https://linktoleaders.com/"
     ]
   },
   {
@@ -8038,6 +9730,45 @@
     "lastVerified": "2026-08-08",
     "sources": [
       "https://www.logisticsmgmt.com/"
+    ]
+  },
+  {
+    "id": "md-lupa-cz",
+    "name": "Lupa.cz",
+    "website": "https://www.lupa.cz",
+    "country": "czech-republic",
+    "audienceGeography": "national",
+    "categories": [
+      "technology-media"
+    ],
+    "industries": [
+      "software",
+      "telecom"
+    ],
+    "languages": [
+      "cs"
+    ],
+    "currentStatus": "active",
+    "priority": "P3",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Czech publication about the internet industry, telecommunications, hosting and online business.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Homepage reached and read over HTTPS during Wave 4.",
+    "lastVerified": "2026-08-14",
+    "sources": [
+      "https://www.lupa.cz/"
     ]
   },
   {
@@ -8193,6 +9924,46 @@
     "lastVerified": "2026-08-08",
     "sources": [
       "https://www.mainebiz.biz/"
+    ]
+  },
+  {
+    "id": "md-mamstartup",
+    "name": "MamStartup",
+    "website": "https://mamstartup.pl",
+    "country": "poland",
+    "audienceGeography": "national",
+    "categories": [
+      "startup-media"
+    ],
+    "industries": [
+      "general"
+    ],
+    "languages": [
+      "pl"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "sponsored-content"
+    ],
+    "costModel": "paid",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": "https://mamstartup.pl/reklama/",
+    "mediaKitUrl": null,
+    "contactUrl": "https://mamstartup.pl/kontakt/",
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": true,
+    "shortNote": "Polish startup and entrepreneurship publication covering funding rounds, founders and the domestic technology scene.",
+    "limitations": "The only route read from the site is the commercial \"Reklama\" page; no free editorial submission or contributor programme was documented there.",
+    "lastVerified": "2026-08-14",
+    "sources": [
+      "https://mamstartup.pl/",
+      "https://mamstartup.pl/reklama/",
+      "https://mamstartup.pl/kontakt/"
     ]
   },
   {
@@ -8584,6 +10355,45 @@
     ]
   },
   {
+    "id": "md-milano-finanza",
+    "name": "Milano Finanza",
+    "website": "https://www.milanofinanza.it",
+    "country": "italy",
+    "audienceGeography": "national",
+    "categories": [
+      "finance-media"
+    ],
+    "industries": [
+      "finance",
+      "insurance"
+    ],
+    "languages": [
+      "it"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Italian financial daily covering markets, listed companies, banking, insurance and tax.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Homepage reached and read over HTTPS during Wave 4.",
+    "lastVerified": "2026-08-14",
+    "sources": [
+      "https://www.milanofinanza.it/"
+    ]
+  },
+  {
     "id": "md-mobihealthnews",
     "name": "MobiHealthNews",
     "website": "https://www.mobihealthnews.com",
@@ -8854,6 +10664,126 @@
     ]
   },
   {
+    "id": "md-my-company-polska",
+    "name": "My Company Polska",
+    "website": "https://mycompanypolska.pl",
+    "country": "poland",
+    "audienceGeography": "national",
+    "categories": [
+      "local-business-media"
+    ],
+    "industries": [
+      "general"
+    ],
+    "languages": [
+      "pl"
+    ],
+    "currentStatus": "active",
+    "priority": "P3",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Polish magazine and portal for entrepreneurs and small and medium-sized business owners.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Homepage reached and read over HTTPS during Wave 4.",
+    "lastVerified": "2026-08-14",
+    "sources": [
+      "https://mycompanypolska.pl/"
+    ]
+  },
+  {
+    "id": "md-mynewsdesk",
+    "name": "Mynewsdesk",
+    "website": "https://www.mynewsdesk.com",
+    "country": "sweden",
+    "audienceGeography": "regional",
+    "categories": [
+      "press-release-distribution"
+    ],
+    "industries": [
+      "general"
+    ],
+    "languages": [
+      "en",
+      "sv"
+    ],
+    "currentStatus": "active",
+    "priority": "P1",
+    "opportunityTypes": [
+      "company-profile",
+      "press-release"
+    ],
+    "costModel": "paid",
+    "submissionUrl": "https://www.mynewsdesk.com/en/pr-distribution/newsroom/",
+    "pitchUrl": null,
+    "pressReleaseUrl": "https://www.mynewsdesk.com/en/pr-distribution/press-release/",
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Nordic-origin PR platform: a hosted brand newsroom plus press-release distribution to a journalist and media database, sold as a subscription.",
+    "limitations": "A paid distribution and newsroom-hosting product, not editorial coverage: publication on the platform is self-serve once subscribed, and whether a journalist writes anything is a separate question. Pricing was not read.",
+    "lastVerified": "2026-08-14",
+    "sources": [
+      "https://www.mynewsdesk.com/",
+      "https://www.mynewsdesk.com/en/pr-distribution/press-release/"
+    ]
+  },
+  {
+    "id": "md-naftemporiki",
+    "name": "Naftemporiki",
+    "website": "https://www.naftemporiki.gr",
+    "country": "greece",
+    "audienceGeography": "national",
+    "categories": [
+      "local-business-media"
+    ],
+    "industries": [
+      "finance",
+      "general",
+      "logistics"
+    ],
+    "languages": [
+      "el"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": "https://www.naftemporiki.gr/contact",
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Greek business and financial daily covering markets, shipping, companies and the economy.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Homepage reached and read over HTTPS during Wave 4.",
+    "lastVerified": "2026-08-14",
+    "sources": [
+      "https://www.naftemporiki.gr/",
+      "https://www.naftemporiki.gr/contact"
+    ]
+  },
+  {
     "id": "md-nairametrics",
     "name": "Nairametrics",
     "website": "https://nairametrics.com",
@@ -8969,6 +10899,46 @@
     ]
   },
   {
+    "id": "md-nbr",
+    "name": "NBR",
+    "website": "https://www.nbr.co.nz",
+    "country": "new-zealand",
+    "audienceGeography": "national",
+    "categories": [
+      "local-business-media"
+    ],
+    "industries": [
+      "finance",
+      "general",
+      "legal"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P3",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "New Zealand independent business publication covering companies, investment, law and technology.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Homepage reached and read over HTTPS during Wave 4.",
+    "lastVerified": "2026-08-14",
+    "sources": [
+      "https://www.nbr.co.nz/"
+    ]
+  },
+  {
     "id": "md-neofeed",
     "name": "NeoFeed",
     "website": "https://neofeed.com.br",
@@ -9005,6 +10975,125 @@
     "lastVerified": "2026-08-08",
     "sources": [
       "https://neofeed.com.br"
+    ]
+  },
+  {
+    "id": "md-netokracija",
+    "name": "Netokracija",
+    "website": "https://www.netokracija.com",
+    "country": "croatia",
+    "audienceGeography": "regional",
+    "categories": [
+      "startup-media",
+      "technology-media"
+    ],
+    "industries": [
+      "general",
+      "marketing"
+    ],
+    "languages": [
+      "hr"
+    ],
+    "currentStatus": "active",
+    "priority": "P3",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Regional publication covering internet technology, digital business and startups across Croatia and the wider Adriatic region.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Homepage reached and read over HTTPS during Wave 4.",
+    "lastVerified": "2026-08-14",
+    "sources": [
+      "https://www.netokracija.com/"
+    ]
+  },
+  {
+    "id": "md-netzwoche",
+    "name": "Netzwoche",
+    "website": "https://www.netzwoche.ch",
+    "country": "switzerland",
+    "audienceGeography": "national",
+    "categories": [
+      "technology-media"
+    ],
+    "industries": [
+      "cloud",
+      "software"
+    ],
+    "languages": [
+      "de"
+    ],
+    "currentStatus": "active",
+    "priority": "P3",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Swiss ICT trade publication covering the domestic technology industry, enterprise IT and digital business.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Homepage reached and read over HTTPS during Wave 4.",
+    "lastVerified": "2026-08-14",
+    "sources": [
+      "https://www.netzwoche.ch/"
+    ]
+  },
+  {
+    "id": "md-newsvoir",
+    "name": "NewsVoir",
+    "website": "https://www.newsvoir.com",
+    "country": "india",
+    "audienceGeography": "national",
+    "categories": [
+      "press-release-distribution"
+    ],
+    "industries": [
+      "general"
+    ],
+    "languages": [
+      "en",
+      "hi"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "press-release"
+    ],
+    "costModel": "paid",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": "https://www.newsvoir.com/press-release-distribution.html",
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Indian press-release distribution service publishing releases in English and Hindi to newsrooms and its own public release feed.",
+    "limitations": "Paid distribution, not editorial coverage. Package pricing was not read from the site; the service is sold through a sales contact.",
+    "lastVerified": "2026-08-14",
+    "sources": [
+      "https://www.newsvoir.com/",
+      "https://www.newsvoir.com/press-release-distribution.html"
     ]
   },
   {
@@ -9395,6 +11484,45 @@
     ]
   },
   {
+    "id": "md-paperjam",
+    "name": "Paperjam",
+    "website": "https://paperjam.lu",
+    "country": "luxembourg",
+    "audienceGeography": "national",
+    "categories": [
+      "local-business-media"
+    ],
+    "industries": [
+      "finance",
+      "general"
+    ],
+    "languages": [
+      "fr"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Luxembourg business and finance publication covering companies, the financial centre and the national economy.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Homepage reached and read over HTTPS during Wave 4. www.paperjam.lu redirects to this host.",
+    "lastVerified": "2026-08-14",
+    "sources": [
+      "https://www.paperjam.lu/"
+    ]
+  },
+  {
     "id": "md-paved",
     "name": "Paved",
     "website": "https://paved.com",
@@ -9430,6 +11558,45 @@
     "lastVerified": "2026-08-08",
     "sources": [
       "https://paved.com/"
+    ]
+  },
+  {
+    "id": "md-pc-tech-magazine",
+    "name": "PC Tech Magazine",
+    "website": "https://pctechmag.com",
+    "country": "uganda",
+    "audienceGeography": "national",
+    "categories": [
+      "technology-media"
+    ],
+    "industries": [
+      "general",
+      "telecom"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P3",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Ugandan technology publication covering telecoms, consumer technology, startups and the East African digital economy.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Homepage reached and read over HTTPS during Wave 4.",
+    "lastVerified": "2026-08-14",
+    "sources": [
+      "https://pctechmag.com/"
     ]
   },
   {
@@ -9738,6 +11905,45 @@
     "lastVerified": "2026-08-08",
     "sources": [
       "https://www.podmatch.com/"
+    ]
+  },
+  {
+    "id": "md-portfolio-hu",
+    "name": "Portfolio.hu",
+    "website": "https://www.portfolio.hu",
+    "country": "hungary",
+    "audienceGeography": "national",
+    "categories": [
+      "local-business-media"
+    ],
+    "industries": [
+      "finance",
+      "general"
+    ],
+    "languages": [
+      "hu"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Hungarian online business and economics publication covering markets, banking, companies and macroeconomics.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Homepage reached and read over HTTPS during Wave 4.",
+    "lastVerified": "2026-08-14",
+    "sources": [
+      "https://www.portfolio.hu/"
     ]
   },
   {
@@ -10244,6 +12450,85 @@
     ]
   },
   {
+    "id": "md-profit-ro",
+    "name": "Profit.ro",
+    "website": "https://www.profit.ro",
+    "country": "romania",
+    "audienceGeography": "national",
+    "categories": [
+      "local-business-media"
+    ],
+    "industries": [
+      "finance",
+      "general"
+    ],
+    "languages": [
+      "ro"
+    ],
+    "currentStatus": "active",
+    "priority": "P3",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": "https://www.profit.ro/contact",
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Romanian business news service covering companies, energy, banking and economic policy.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Homepage reached and read over HTTPS during Wave 4.",
+    "lastVerified": "2026-08-14",
+    "sources": [
+      "https://www.profit.ro/",
+      "https://www.profit.ro/contact"
+    ]
+  },
+  {
+    "id": "md-protext",
+    "name": "Protext",
+    "website": "https://www.protext.cz",
+    "country": "czech-republic",
+    "audienceGeography": "national",
+    "categories": [
+      "press-release-distribution"
+    ],
+    "industries": [
+      "general"
+    ],
+    "languages": [
+      "cs"
+    ],
+    "currentStatus": "active",
+    "priority": "P1",
+    "opportunityTypes": [
+      "press-release"
+    ],
+    "costModel": "paid",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": "https://www.protext.cz/kontakt/",
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "The commercial PR service of ČTK, the Czech News Agency: paid press releases are published under named corporate publishers and distributed to Czech newsrooms.",
+    "limitations": "A commercial wire operated by the national news agency, so publication is paid placement and not editorial coverage. Pricing and the ordering form were not read; the contact page is the documented route.",
+    "lastVerified": "2026-08-14",
+    "sources": [
+      "https://www.protext.cz/",
+      "https://www.protext.cz/kontakt/"
+    ]
+  },
+  {
     "id": "md-prweb",
     "name": "PRWeb",
     "website": "https://www.prweb.com",
@@ -10318,6 +12603,45 @@
     "lastVerified": "2026-08-08",
     "sources": [
       "https://www.publickey1.jp/"
+    ]
+  },
+  {
+    "id": "md-puls-biznesu",
+    "name": "Puls Biznesu",
+    "website": "https://www.pb.pl",
+    "country": "poland",
+    "audienceGeography": "national",
+    "categories": [
+      "local-business-media"
+    ],
+    "industries": [
+      "finance",
+      "general"
+    ],
+    "languages": [
+      "pl"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Polish business daily covering companies, markets, investment and the domestic economy.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Homepage reached and read over HTTPS during Wave 4.",
+    "lastVerified": "2026-08-14",
+    "sources": [
+      "https://www.pb.pl/"
     ]
   },
   {
@@ -10984,6 +13308,46 @@
     ]
   },
   {
+    "id": "md-root-cz",
+    "name": "Root.cz",
+    "website": "https://www.root.cz",
+    "country": "czech-republic",
+    "audienceGeography": "national",
+    "categories": [
+      "developer-open-source-media"
+    ],
+    "industries": [
+      "devops",
+      "open-source",
+      "software"
+    ],
+    "languages": [
+      "cs"
+    ],
+    "currentStatus": "active",
+    "priority": "P3",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Czech publication for developers and system administrators, focused on Linux, open source and infrastructure.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Homepage reached and read over HTTPS during Wave 4.",
+    "lastVerified": "2026-08-14",
+    "sources": [
+      "https://www.root.cz/"
+    ]
+  },
+  {
     "id": "md-saashub",
     "name": "SaaSHub",
     "website": "https://www.saashub.com",
@@ -11062,6 +13426,45 @@
     ]
   },
   {
+    "id": "md-sapo-tek",
+    "name": "SAPO Tek",
+    "website": "https://tek.sapo.pt",
+    "country": "portugal",
+    "audienceGeography": "national",
+    "categories": [
+      "technology-media"
+    ],
+    "industries": [
+      "software",
+      "telecom"
+    ],
+    "languages": [
+      "pt"
+    ],
+    "currentStatus": "active",
+    "priority": "P3",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Portuguese technology news service covering consumer and business technology, telecoms and digital policy.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Homepage reached and read over HTTPS during Wave 4.",
+    "lastVerified": "2026-08-14",
+    "sources": [
+      "https://tek.sapo.pt/"
+    ]
+  },
+  {
     "id": "md-sbbit",
     "name": "ビジネス+IT",
     "website": "https://www.sbbit.jp",
@@ -11136,6 +13539,45 @@
     "lastVerified": "2026-08-08",
     "sources": [
       "https://www.scmp.com/tech"
+    ]
+  },
+  {
+    "id": "md-scoop-nz",
+    "name": "Scoop",
+    "website": "https://www.scoop.co.nz",
+    "country": "new-zealand",
+    "audienceGeography": "national",
+    "categories": [
+      "press-release-distribution"
+    ],
+    "industries": [
+      "general"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P1",
+    "opportunityTypes": [
+      "press-release"
+    ],
+    "costModel": "freemium",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": "https://www.scoop.co.nz/about/submit.html",
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": true,
+    "sponsoredContentAvailable": null,
+    "shortNote": "New Zealand news site that publishes submitted press releases in full; individuals and organisations may submit at no cost, and Scoop Pro members get priority handling.",
+    "limitations": "Submission is by email to the editor only, and the dataset does not store email addresses — read the submit page for the address. Not every release is published, and a Scoop Pro licence is required to use Scoop for work or to include multimedia.",
+    "lastVerified": "2026-08-14",
+    "sources": [
+      "https://www.scoop.co.nz/",
+      "https://www.scoop.co.nz/about/submit.html"
     ]
   },
   {
@@ -11251,6 +13693,49 @@
     "lastVerified": "2026-08-08",
     "sources": [
       "https://www.semiconductor-digest.com/"
+    ]
+  },
+  {
+    "id": "md-shega",
+    "name": "Shega",
+    "website": "https://shega.co",
+    "country": "ethiopia",
+    "audienceGeography": "national",
+    "categories": [
+      "startup-media",
+      "technology-media"
+    ],
+    "industries": [
+      "fintech",
+      "general"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P1",
+    "opportunityTypes": [
+      "contributed-article",
+      "sponsored-content"
+    ],
+    "costModel": "mixed",
+    "submissionUrl": "https://shega.co/guest-contribution",
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": "https://shega.co/ad-request",
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": true,
+    "sponsoredContentAvailable": true,
+    "shortNote": "Ethiopian media, data and intelligence company covering startups, fintech and the digital economy, with published guest-contribution guidelines.",
+    "limitations": "The guest-contribution route is editorial and free, requires original unpublished work of roughly 600–1,200 words on Ethiopian startups, tech or the economy, and explicitly refuses pieces whose main focus is commercial promotion. Paid placement is a separate ad-request route.",
+    "lastVerified": "2026-08-14",
+    "sources": [
+      "https://shega.co/",
+      "https://shega.co/guest-contribution",
+      "https://shega.co/ad-request"
     ]
   },
   {
@@ -11528,6 +14013,44 @@
     ]
   },
   {
+    "id": "md-smartcompany",
+    "name": "SmartCompany",
+    "website": "https://www.smartcompany.com.au",
+    "country": "australia",
+    "audienceGeography": "national",
+    "categories": [
+      "local-business-media"
+    ],
+    "industries": [
+      "general"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Australian publication for entrepreneurs and small business owners, covering growth, finance and business news.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Homepage reached and read over HTTPS during Wave 4.",
+    "lastVerified": "2026-08-14",
+    "sources": [
+      "https://www.smartcompany.com.au/"
+    ]
+  },
+  {
     "id": "md-smashing-magazine",
     "name": "Smashing Magazine",
     "website": "https://www.smashingmagazine.com",
@@ -11643,6 +14166,45 @@
     ]
   },
   {
+    "id": "md-spiders-web",
+    "name": "Spider’s Web",
+    "website": "https://spidersweb.pl",
+    "country": "poland",
+    "audienceGeography": "national",
+    "categories": [
+      "technology-media"
+    ],
+    "industries": [
+      "general",
+      "software"
+    ],
+    "languages": [
+      "pl"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Independent Polish technology and consumer-tech publication with daily news, reviews and analysis.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Homepage reached and read over HTTPS during Wave 4.",
+    "lastVerified": "2026-08-14",
+    "sources": [
+      "https://spidersweb.pl/"
+    ]
+  },
+  {
     "id": "md-splash-247",
     "name": "Splash 247",
     "website": "https://splash247.com",
@@ -11719,6 +14281,84 @@
     ]
   },
   {
+    "id": "md-start-up-ro",
+    "name": "start-up.ro",
+    "website": "https://start-up.ro",
+    "country": "romania",
+    "audienceGeography": "national",
+    "categories": [
+      "startup-media"
+    ],
+    "industries": [
+      "general"
+    ],
+    "languages": [
+      "ro"
+    ],
+    "currentStatus": "active",
+    "priority": "P3",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": "https://start-up.ro/contact/",
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Romanian publication about startups and founders, covering funding, product launches and the local technology community.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Homepage reached and read over HTTPS during Wave 4.",
+    "lastVerified": "2026-08-14",
+    "sources": [
+      "https://start-up.ro/",
+      "https://start-up.ro/contact/"
+    ]
+  },
+  {
+    "id": "md-startit",
+    "name": "Startit",
+    "website": "https://startit.rs",
+    "country": "serbia",
+    "audienceGeography": "national",
+    "categories": [
+      "startup-media"
+    ],
+    "industries": [
+      "general",
+      "software"
+    ],
+    "languages": [
+      "sr"
+    ],
+    "currentStatus": "active",
+    "priority": "P3",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Serbian publication and community platform covering entrepreneurship, technology and the domestic startup scene.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Homepage reached and read over HTTPS during Wave 4.",
+    "lastVerified": "2026-08-14",
+    "sources": [
+      "https://startit.rs/"
+    ]
+  },
+  {
     "id": "md-startland-news",
     "name": "Startland News",
     "website": "https://startlandnews.com",
@@ -11792,6 +14432,44 @@
     "lastVerified": "2026-08-08",
     "sources": [
       "https://www.startse.com"
+    ]
+  },
+  {
+    "id": "md-startup-daily",
+    "name": "Startup Daily",
+    "website": "https://www.startupdaily.net",
+    "country": "australia",
+    "audienceGeography": "regional",
+    "categories": [
+      "startup-media"
+    ],
+    "industries": [
+      "general"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Publication covering the Australian and New Zealand startup ecosystem: funding, founders and policy.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Homepage reached and read over HTTPS during Wave 4.",
+    "lastVerified": "2026-08-14",
+    "sources": [
+      "https://www.startupdaily.net/"
     ]
   },
   {
@@ -12065,6 +14743,46 @@
     "lastVerified": "2026-08-08",
     "sources": [
       "https://www.stevieawards.com/"
+    ]
+  },
+  {
+    "id": "md-stt-info",
+    "name": "STT Info",
+    "website": "https://www.sttinfo.fi",
+    "country": "finland",
+    "audienceGeography": "national",
+    "categories": [
+      "press-release-distribution"
+    ],
+    "industries": [
+      "general"
+    ],
+    "languages": [
+      "en",
+      "fi",
+      "sv"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "press-release"
+    ],
+    "costModel": "paid",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "The press-release publishing and distribution service of STT, the Finnish News Agency; releases are published publicly under named corporate and institutional publishers.",
+    "limitations": "A commercial wire operated by the national news agency, so publication is paid placement and not editorial coverage. The ordering route and pricing were not read from the site; the public release feed was.",
+    "lastVerified": "2026-08-14",
+    "sources": [
+      "https://www.sttinfo.fi/"
     ]
   },
   {
@@ -12651,6 +15369,45 @@
     ]
   },
   {
+    "id": "md-techcentral",
+    "name": "TechCentral",
+    "website": "https://techcentral.co.za",
+    "country": "south-africa",
+    "audienceGeography": "national",
+    "categories": [
+      "technology-media"
+    ],
+    "industries": [
+      "software",
+      "telecom"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "South African technology publication covering telecoms, IT, broadcasting and the domestic tech industry.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Homepage reached and read over HTTPS during Wave 4.",
+    "lastVerified": "2026-08-14",
+    "sources": [
+      "https://techcentral.co.za/"
+    ]
+  },
+  {
     "id": "md-techcrunch",
     "name": "TechCrunch",
     "website": "https://techcrunch.com",
@@ -12690,6 +15447,46 @@
     "lastVerified": "2026-08-07",
     "sources": [
       "https://techcrunch.com/got-a-tip/"
+    ]
+  },
+  {
+    "id": "md-techjuice",
+    "name": "TechJuice",
+    "website": "https://www.techjuice.pk",
+    "country": "pakistan",
+    "audienceGeography": "national",
+    "categories": [
+      "startup-media",
+      "technology-media"
+    ],
+    "industries": [
+      "ai",
+      "general"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P3",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Pakistani technology and startup publication covering the domestic tech industry, funding and product news.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Homepage reached and read over HTTPS during Wave 4.",
+    "lastVerified": "2026-08-14",
+    "sources": [
+      "https://www.techjuice.pk/"
     ]
   },
   {
@@ -12808,6 +15605,46 @@
     "lastVerified": "2026-08-08",
     "sources": [
       "https://techpoint.africa/"
+    ]
+  },
+  {
+    "id": "md-techsauce",
+    "name": "Techsauce",
+    "website": "https://techsauce.co",
+    "country": "thailand",
+    "audienceGeography": "national",
+    "categories": [
+      "startup-media"
+    ],
+    "industries": [
+      "fintech",
+      "general"
+    ],
+    "languages": [
+      "en",
+      "th"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Thai technology and startup media and events company covering founders, funding and the Southeast Asian ecosystem.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Homepage reached and read over HTTPS during Wave 4.",
+    "lastVerified": "2026-08-14",
+    "sources": [
+      "https://techsauce.co/"
     ]
   },
   {
@@ -13077,6 +15914,45 @@
     "lastVerified": "2026-08-08",
     "sources": [
       "https://www.thedrum.com/awards"
+    ]
+  },
+  {
+    "id": "md-the-edge-malaysia",
+    "name": "The Edge Malaysia",
+    "website": "https://theedgemalaysia.com",
+    "country": "malaysia",
+    "audienceGeography": "national",
+    "categories": [
+      "local-business-media"
+    ],
+    "industries": [
+      "finance",
+      "real-estate"
+    ],
+    "languages": [
+      "en"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Malaysian business and investment publication covering listed companies, capital markets and property.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Homepage reached and read over HTTPS during Wave 4.",
+    "lastVerified": "2026-08-14",
+    "sources": [
+      "https://theedgemalaysia.com/"
     ]
   },
   {
@@ -14019,6 +16895,45 @@
     ]
   },
   {
+    "id": "md-trend-sk",
+    "name": "TREND",
+    "website": "https://www.trend.sk",
+    "country": "slovakia",
+    "audienceGeography": "national",
+    "categories": [
+      "local-business-media"
+    ],
+    "industries": [
+      "finance",
+      "general"
+    ],
+    "languages": [
+      "sk"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Slovak weekly and portal covering the economy, business, companies and entrepreneurship.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Homepage reached and read over HTTPS during Wave 4.",
+    "lastVerified": "2026-08-14",
+    "sources": [
+      "https://www.trend.sk/"
+    ]
+  },
+  {
     "id": "md-trending-topics",
     "name": "Trending Topics",
     "website": "https://www.trendingtopics.eu",
@@ -14408,6 +17323,85 @@
     ]
   },
   {
+    "id": "md-version2",
+    "name": "Version2",
+    "website": "https://www.version2.dk",
+    "country": "denmark",
+    "audienceGeography": "national",
+    "categories": [
+      "technology-media"
+    ],
+    "industries": [
+      "cybersecurity",
+      "software"
+    ],
+    "languages": [
+      "da"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "editorial-pitch"
+    ],
+    "costModel": "free",
+    "submissionUrl": null,
+    "pitchUrl": "https://www.version2.dk/redaktion",
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": true,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Danish IT and digital-transformation publication for technology professionals, part of the Ingeniøren group.",
+    "limitations": "The site’s \"Tip os\" (tip us) navigation points at the editorial desk page rather than a submission form, so the route is a desk contact and an editor decides whether anything is written.",
+    "lastVerified": "2026-08-14",
+    "sources": [
+      "https://www.version2.dk/",
+      "https://www.version2.dk/redaktion"
+    ]
+  },
+  {
+    "id": "md-verslo-zinios",
+    "name": "Verslo žinios",
+    "website": "https://www.vz.lt",
+    "country": "lithuania",
+    "audienceGeography": "national",
+    "categories": [
+      "local-business-media"
+    ],
+    "industries": [
+      "finance",
+      "general"
+    ],
+    "languages": [
+      "lt"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Lithuanian business daily covering companies, markets, industry and the national economy.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Homepage reached and read over HTTPS during Wave 4.",
+    "lastVerified": "2026-08-14",
+    "sources": [
+      "https://www.vz.lt/"
+    ]
+  },
+  {
     "id": "md-vir-vn",
     "name": "Vietnam Investment Review",
     "website": "https://vir.com.vn",
@@ -14639,6 +17633,46 @@
     ]
   },
   {
+    "id": "md-webrazzi",
+    "name": "Webrazzi",
+    "website": "https://webrazzi.com",
+    "country": "turkey",
+    "audienceGeography": "national",
+    "categories": [
+      "startup-media"
+    ],
+    "industries": [
+      "ecommerce",
+      "general"
+    ],
+    "languages": [
+      "tr"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "sponsored-content"
+    ],
+    "costModel": "paid",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": "https://webrazzi.com/reklam/",
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": true,
+    "shortNote": "Turkish startup, technology and digital-business publication covering funding, founders and the domestic internet economy.",
+    "limitations": "The advertising and sponsorship page is the route that could be read. A startup submission form is linked from it but returned an HTTP 403 bot challenge, so no free launch route is claimed here.",
+    "lastVerified": "2026-08-14",
+    "sources": [
+      "https://webrazzi.com/",
+      "https://webrazzi.com/reklam/"
+    ]
+  },
+  {
     "id": "md-windpower-engineering",
     "name": "Windpower Engineering & Development",
     "website": "https://www.windpowerengineering.com",
@@ -14713,6 +17747,46 @@
     "lastVerified": "2026-08-07",
     "sources": [
       "https://www.wiwo.de/"
+    ]
+  },
+  {
+    "id": "md-wirtualne-media",
+    "name": "Wirtualne Media",
+    "website": "https://www.wirtualnemedia.pl",
+    "country": "poland",
+    "audienceGeography": "national",
+    "categories": [
+      "marketing-media"
+    ],
+    "industries": [
+      "advertising",
+      "marketing",
+      "media"
+    ],
+    "languages": [
+      "pl"
+    ],
+    "currentStatus": "active",
+    "priority": "P3",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": null,
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Polish trade publication covering media, advertising, PR, television, radio and the internet industry.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Homepage reached and read over HTTPS during Wave 4.",
+    "lastVerified": "2026-08-14",
+    "sources": [
+      "https://www.wirtualnemedia.pl/"
     ]
   },
   {
@@ -14946,6 +18020,46 @@
     "lastVerified": "2026-08-08",
     "sources": [
       "https://zdnet.co.kr/"
+    ]
+  },
+  {
+    "id": "md-ziarul-financiar",
+    "name": "Ziarul Financiar",
+    "website": "https://www.zf.ro",
+    "country": "romania",
+    "audienceGeography": "national",
+    "categories": [
+      "local-business-media"
+    ],
+    "industries": [
+      "finance",
+      "general"
+    ],
+    "languages": [
+      "ro"
+    ],
+    "currentStatus": "active",
+    "priority": "P2",
+    "opportunityTypes": [
+      "unknown"
+    ],
+    "costModel": "unknown",
+    "submissionUrl": null,
+    "pitchUrl": null,
+    "pressReleaseUrl": null,
+    "advertisingUrl": null,
+    "mediaKitUrl": null,
+    "contactUrl": "https://www.zf.ro/contact",
+    "editorialContact": null,
+    "publicProfileAvailable": null,
+    "requiresEditorialApproval": null,
+    "sponsoredContentAvailable": null,
+    "shortNote": "Romanian financial daily covering companies, markets, banking and the national economy.",
+    "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Homepage reached and read over HTTPS during Wave 4.",
+    "lastVerified": "2026-08-14",
+    "sources": [
+      "https://www.zf.ro/",
+      "https://www.zf.ro/contact"
     ]
   }
 ]

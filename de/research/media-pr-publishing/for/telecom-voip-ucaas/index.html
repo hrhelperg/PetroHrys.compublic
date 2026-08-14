@@ -2,12 +2,11 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
-  <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/af075fab2c66644b181224ee/script.js"></script>
-  <!-- WebmasterID analytics — consent-gated via CookieYes (analytics category); fires only after consent -->
-  <script id="webmasterid-tracker" type="text/plain" data-cookieyes="cookieyes-analytics" defer src="https://webmasterid.com/tracker.iife.min.js" data-wmid="wm_bktqqtd7heom5nkl" data-endpoint="https://webmasterid-ingest-api.vercel.app/api/events"></script>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4RE6YCJZBD"></script>
-  <script>
+  <script src="/js/consent.js" defer></script>
+  <!-- Analytics below is inert until a visitor accepts. See js/consent.js. -->
+  <script id="webmasterid-tracker" type="text/plain" data-consent="analytics" defer src="https://webmasterid.com/tracker.iife.min.js" data-wmid="wm_bktqqtd7heom5nkl" data-endpoint="https://webmasterid-ingest-api.vercel.app/api/events"></script>
+  <script type="text/plain" data-consent="analytics" async src="https://www.googletagmanager.com/gtag/js?id=G-4RE6YCJZBD"></script>
+  <script type="text/plain" data-consent="analytics">
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
@@ -167,7 +166,7 @@
 
 <section id="ranking" aria-labelledby="ranking-heading">
       <h2 id="ranking-heading">Bewertete Gelegenheiten</h2>
-      <p>5 priority, 9 strong, 11 useful. Sortiert nach Passung für diese Art von Unternehmen, nicht nach Bekanntheit. Eine Plattform steht hier, weil die Engine sie bewertet hat — nie, weil sie von Hand platziert wurde.</p>
+      <p>5 priority, 11 strong, 9 useful. Sortiert nach Passung für diese Art von Unternehmen, nicht nach Bekanntheit. Eine Plattform steht hier, weil die Engine sie bewertet hat — nie, weil sie von Hand platziert wurde.</p>
       <div class="bd-table-wrap">
         <table class="bd-table">
           <caption>Medien-Gelegenheiten für Telecom, VoIP &amp; UCaaS</caption>
@@ -263,6 +262,17 @@
           </tr>
           <tr class="bd-row" data-bd-rec-level="Strong">
             <td class="bd-cell" data-bd-label="#">9</td>
+            <td class="bd-cell" data-bd-label="Plattform"><a href="https://www.version2.dk" rel="noopener noreferrer" target="_blank">Version2</a></td>
+            <td class="bd-cell" data-bd-label="Passung"><strong>80</strong> Strong</td>
+            <td class="bd-cell" data-bd-label="Media-Score">86 Strong</td>
+            <td class="bd-cell" data-bd-label="Markt">Denmark</td>
+            <td class="bd-cell" data-bd-label="Gelegenheit">Editorial pitch</td>
+            <td class="bd-cell" data-bd-label="Kosten">Kostenlos</td>
+            <td class="bd-cell" data-bd-label="Warum">an adjacent publication that sometimes covers telecom, voip &amp; ucaas; editorial pitch suits brand awareness; no market filter applied; Media Score 86 (Strong); a submission route was reached and recorded</td>
+            <td class="bd-cell bd-actions" data-bd-label="Aktionen"><a class="bd-cta-link" href="https://www.version2.dk" rel="noopener noreferrer" target="_blank">Visit</a> <a class="bd-cta-link" href="https://www.version2.dk/redaktion" rel="noopener noreferrer" target="_blank">Pitch</a></td>
+          </tr>
+          <tr class="bd-row" data-bd-rec-level="Strong">
+            <td class="bd-cell" data-bd-label="#">10</td>
             <td class="bd-cell" data-bd-label="Plattform"><a href="https://t3n.de" rel="noopener noreferrer" target="_blank">t3n</a></td>
             <td class="bd-cell" data-bd-label="Passung"><strong>80</strong> Strong</td>
             <td class="bd-cell" data-bd-label="Media-Score">86 Strong</td>
@@ -273,7 +283,7 @@
             <td class="bd-cell bd-actions" data-bd-label="Aktionen"><a class="bd-cta-link" href="https://t3n.de" rel="noopener noreferrer" target="_blank">Visit</a> <a class="bd-cta-link" href="https://t3n.de/kontakt/" rel="noopener noreferrer" target="_blank">Pitch</a></td>
           </tr>
           <tr class="bd-row" data-bd-rec-level="Strong">
-            <td class="bd-cell" data-bd-label="#">10</td>
+            <td class="bd-cell" data-bd-label="#">11</td>
             <td class="bd-cell" data-bd-label="Plattform"><a href="https://www.infoq.com" rel="noopener noreferrer" target="_blank">InfoQ</a></td>
             <td class="bd-cell" data-bd-label="Passung"><strong>78</strong> Strong</td>
             <td class="bd-cell" data-bd-label="Media-Score">88 Exceptional</td>
@@ -284,7 +294,7 @@
             <td class="bd-cell bd-actions" data-bd-label="Aktionen"><a class="bd-cta-link" href="https://www.infoq.com" rel="noopener noreferrer" target="_blank">Visit</a> <a class="bd-cta-link" href="https://www.infoq.com/write-for-infoq/" rel="noopener noreferrer" target="_blank">Submit</a></td>
           </tr>
           <tr class="bd-row" data-bd-rec-level="Strong">
-            <td class="bd-cell" data-bd-label="#">11</td>
+            <td class="bd-cell" data-bd-label="#">12</td>
             <td class="bd-cell" data-bd-label="Plattform"><a href="https://www.freightwaves.com" rel="noopener noreferrer" target="_blank">FreightWaves</a></td>
             <td class="bd-cell" data-bd-label="Passung"><strong>76</strong> Strong</td>
             <td class="bd-cell" data-bd-label="Media-Score">87 Strong</td>
@@ -295,7 +305,7 @@
             <td class="bd-cell bd-actions" data-bd-label="Aktionen"><a class="bd-cta-link" href="https://www.freightwaves.com" rel="noopener noreferrer" target="_blank">Visit</a> <a class="bd-cta-link" href="https://www.freightwaves.com/contact-us" rel="noopener noreferrer" target="_blank">Send release</a> <a class="bd-cta-link" href="https://www.freightwaves.com/contact-us" rel="noopener noreferrer" target="_blank">Contact</a></td>
           </tr>
           <tr class="bd-row" data-bd-rec-level="Strong">
-            <td class="bd-cell" data-bd-label="#">12</td>
+            <td class="bd-cell" data-bd-label="#">13</td>
             <td class="bd-cell" data-bd-label="Plattform"><a href="https://thenewstack.io" rel="noopener noreferrer" target="_blank">The New Stack</a></td>
             <td class="bd-cell" data-bd-label="Passung"><strong>76</strong> Strong</td>
             <td class="bd-cell" data-bd-label="Media-Score">86 Strong</td>
@@ -306,7 +316,18 @@
             <td class="bd-cell bd-actions" data-bd-label="Aktionen"><a class="bd-cta-link" href="https://thenewstack.io" rel="noopener noreferrer" target="_blank">Visit</a> <a class="bd-cta-link" href="https://thenewstack.io/contributions/" rel="noopener noreferrer" target="_blank">Submit</a></td>
           </tr>
           <tr class="bd-row" data-bd-rec-level="Strong">
-            <td class="bd-cell" data-bd-label="#">13</td>
+            <td class="bd-cell" data-bd-label="#">14</td>
+            <td class="bd-cell" data-bd-label="Plattform"><a href="https://shega.co" rel="noopener noreferrer" target="_blank">Shega</a></td>
+            <td class="bd-cell" data-bd-label="Passung"><strong>74</strong> Strong</td>
+            <td class="bd-cell" data-bd-label="Media-Score">83 Strong</td>
+            <td class="bd-cell" data-bd-label="Markt">Ethiopia</td>
+            <td class="bd-cell" data-bd-label="Gelegenheit">Contributed article, Sponsored content</td>
+            <td class="bd-cell" data-bd-label="Kosten">Kostenlos und kostenpflichtig</td>
+            <td class="bd-cell" data-bd-label="Warum">an adjacent publication that sometimes covers telecom, voip &amp; ucaas; contributed article suits brand awareness; no market filter applied; Media Score 83 (Strong); a submission route was reached and recorded</td>
+            <td class="bd-cell bd-actions" data-bd-label="Aktionen"><a class="bd-cta-link" href="https://shega.co" rel="noopener noreferrer" target="_blank">Visit</a> <a class="bd-cta-link" href="https://shega.co/guest-contribution" rel="noopener noreferrer" target="_blank">Submit</a> <a class="bd-cta-link" href="https://shega.co/ad-request" rel="noopener noreferrer" target="_blank">Advertise</a></td>
+          </tr>
+          <tr class="bd-row" data-bd-rec-level="Strong">
+            <td class="bd-cell" data-bd-label="#">15</td>
             <td class="bd-cell" data-bd-label="Plattform"><a href="https://www.tmtpost.com" rel="noopener noreferrer" target="_blank">钛媒体</a></td>
             <td class="bd-cell" data-bd-label="Passung"><strong>74</strong> Strong</td>
             <td class="bd-cell" data-bd-label="Media-Score">83 Strong</td>
@@ -317,7 +338,7 @@
             <td class="bd-cell bd-actions" data-bd-label="Aktionen"><a class="bd-cta-link" href="https://www.tmtpost.com" rel="noopener noreferrer" target="_blank">Visit</a> <a class="bd-cta-link" href="https://www.tmtpost.com/about/tmtpost" rel="noopener noreferrer" target="_blank">Submit</a></td>
           </tr>
           <tr class="bd-row" data-bd-rec-level="Strong">
-            <td class="bd-cell" data-bd-label="#">14</td>
+            <td class="bd-cell" data-bd-label="#">16</td>
             <td class="bd-cell" data-bd-label="Plattform"><a href="https://hackernoon.com" rel="noopener noreferrer" target="_blank">HackerNoon</a></td>
             <td class="bd-cell" data-bd-label="Passung"><strong>71</strong> Strong</td>
             <td class="bd-cell" data-bd-label="Media-Score">80 Strong</td>
@@ -328,7 +349,7 @@
             <td class="bd-cell bd-actions" data-bd-label="Aktionen"><a class="bd-cta-link" href="https://hackernoon.com" rel="noopener noreferrer" target="_blank">Visit</a></td>
           </tr>
           <tr class="bd-row" data-bd-rec-level="Useful">
-            <td class="bd-cell" data-bd-label="#">15</td>
+            <td class="bd-cell" data-bd-label="#">17</td>
             <td class="bd-cell" data-bd-label="Plattform"><a href="https://hbr.org" rel="noopener noreferrer" target="_blank">Harvard Business Review</a></td>
             <td class="bd-cell" data-bd-label="Passung"><strong>62</strong> Useful</td>
             <td class="bd-cell" data-bd-label="Media-Score">89 Exceptional</td>
@@ -339,7 +360,7 @@
             <td class="bd-cell bd-actions" data-bd-label="Aktionen"><a class="bd-cta-link" href="https://hbr.org" rel="noopener noreferrer" target="_blank">Visit</a> <a class="bd-cta-link" href="https://hbr.org/guidelines-for-authors" rel="noopener noreferrer" target="_blank">Submit</a></td>
           </tr>
           <tr class="bd-row" data-bd-rec-level="Useful">
-            <td class="bd-cell" data-bd-label="#">16</td>
+            <td class="bd-cell" data-bd-label="#">18</td>
             <td class="bd-cell" data-bd-label="Plattform"><a href="https://getvoip.com" rel="noopener noreferrer" target="_blank">GetVoIP</a></td>
             <td class="bd-cell" data-bd-label="Passung"><strong>60</strong> Useful</td>
             <td class="bd-cell" data-bd-label="Media-Score">65 Moderate</td>
@@ -350,7 +371,7 @@
             <td class="bd-cell bd-actions" data-bd-label="Aktionen"><a class="bd-cta-link" href="https://getvoip.com" rel="noopener noreferrer" target="_blank">Visit</a> <a class="bd-cta-link" href="https://getvoip.com/" rel="noopener noreferrer" target="_blank">Submit</a></td>
           </tr>
           <tr class="bd-row" data-bd-rec-level="Useful">
-            <td class="bd-cell" data-bd-label="#">17</td>
+            <td class="bd-cell" data-bd-label="#">19</td>
             <td class="bd-cell" data-bd-label="Plattform"><a href="https://coloradosun.com" rel="noopener noreferrer" target="_blank">The Colorado Sun</a></td>
             <td class="bd-cell" data-bd-label="Passung"><strong>60</strong> Useful</td>
             <td class="bd-cell" data-bd-label="Media-Score">84 Strong</td>
@@ -361,7 +382,7 @@
             <td class="bd-cell bd-actions" data-bd-label="Aktionen"><a class="bd-cta-link" href="https://coloradosun.com" rel="noopener noreferrer" target="_blank">Visit</a> <a class="bd-cta-link" href="https://coloradosun.com/tips/" rel="noopener noreferrer" target="_blank">Pitch</a></td>
           </tr>
           <tr class="bd-row" data-bd-rec-level="Useful">
-            <td class="bd-cell" data-bd-label="#">18</td>
+            <td class="bd-cell" data-bd-label="#">20</td>
             <td class="bd-cell" data-bd-label="Plattform"><a href="https://www.voipreview.org" rel="noopener noreferrer" target="_blank">VoipReview</a></td>
             <td class="bd-cell" data-bd-label="Passung"><strong>60</strong> Useful</td>
             <td class="bd-cell" data-bd-label="Media-Score">65 Moderate</td>
@@ -372,7 +393,7 @@
             <td class="bd-cell bd-actions" data-bd-label="Aktionen"><a class="bd-cta-link" href="https://www.voipreview.org" rel="noopener noreferrer" target="_blank">Visit</a> <a class="bd-cta-link" href="https://www.voipreview.org/" rel="noopener noreferrer" target="_blank">Submit</a></td>
           </tr>
           <tr class="bd-row" data-bd-rec-level="Useful">
-            <td class="bd-cell" data-bd-label="#">19</td>
+            <td class="bd-cell" data-bd-label="#">21</td>
             <td class="bd-cell" data-bd-label="Plattform"><a href="https://www.bizwest.com" rel="noopener noreferrer" target="_blank">BizWest</a></td>
             <td class="bd-cell" data-bd-label="Passung"><strong>59</strong> Useful</td>
             <td class="bd-cell" data-bd-label="Media-Score">85 Strong</td>
@@ -383,7 +404,7 @@
             <td class="bd-cell bd-actions" data-bd-label="Aktionen"><a class="bd-cta-link" href="https://www.bizwest.com" rel="noopener noreferrer" target="_blank">Visit</a> <a class="bd-cta-link" href="https://bizwest.com/contact-us/" rel="noopener noreferrer" target="_blank">Submit</a> <a class="bd-cta-link" href="https://bizwest.com/contact-us/" rel="noopener noreferrer" target="_blank">Send release</a></td>
           </tr>
           <tr class="bd-row" data-bd-rec-level="Useful">
-            <td class="bd-cell" data-bd-label="#">20</td>
+            <td class="bd-cell" data-bd-label="#">22</td>
             <td class="bd-cell" data-bd-label="Plattform"><a href="https://www.hawaiibusiness.com" rel="noopener noreferrer" target="_blank">Hawaii Business Magazine</a></td>
             <td class="bd-cell" data-bd-label="Passung"><strong>59</strong> Useful</td>
             <td class="bd-cell" data-bd-label="Media-Score">85 Strong</td>
@@ -394,7 +415,7 @@
             <td class="bd-cell bd-actions" data-bd-label="Aktionen"><a class="bd-cta-link" href="https://www.hawaiibusiness.com" rel="noopener noreferrer" target="_blank">Visit</a> <a class="bd-cta-link" href="https://www.hawaiibusiness.com/" rel="noopener noreferrer" target="_blank">Submit</a></td>
           </tr>
           <tr class="bd-row" data-bd-rec-level="Useful">
-            <td class="bd-cell" data-bd-label="#">21</td>
+            <td class="bd-cell" data-bd-label="#">23</td>
             <td class="bd-cell" data-bd-label="Plattform"><a href="https://www.ibj.com" rel="noopener noreferrer" target="_blank">Indianapolis Business Journal</a></td>
             <td class="bd-cell" data-bd-label="Passung"><strong>59</strong> Useful</td>
             <td class="bd-cell" data-bd-label="Media-Score">85 Strong</td>
@@ -405,7 +426,7 @@
             <td class="bd-cell bd-actions" data-bd-label="Aktionen"><a class="bd-cta-link" href="https://www.ibj.com" rel="noopener noreferrer" target="_blank">Visit</a> <a class="bd-cta-link" href="https://www.ibj.com/contact-us" rel="noopener noreferrer" target="_blank">Submit</a></td>
           </tr>
           <tr class="bd-row" data-bd-rec-level="Useful">
-            <td class="bd-cell" data-bd-label="#">22</td>
+            <td class="bd-cell" data-bd-label="#">24</td>
             <td class="bd-cell" data-bd-label="Plattform"><a href="https://www.nhbr.com" rel="noopener noreferrer" target="_blank">NH Business Review</a></td>
             <td class="bd-cell" data-bd-label="Passung"><strong>59</strong> Useful</td>
             <td class="bd-cell" data-bd-label="Media-Score">85 Strong</td>
@@ -416,7 +437,7 @@
             <td class="bd-cell bd-actions" data-bd-label="Aktionen"><a class="bd-cta-link" href="https://www.nhbr.com" rel="noopener noreferrer" target="_blank">Visit</a> <a class="bd-cta-link" href="https://www.nhbr.com/" rel="noopener noreferrer" target="_blank">Submit</a></td>
           </tr>
           <tr class="bd-row" data-bd-rec-level="Useful">
-            <td class="bd-cell" data-bd-label="#">23</td>
+            <td class="bd-cell" data-bd-label="#">25</td>
             <td class="bd-cell" data-bd-label="Plattform"><a href="https://qz.com" rel="noopener noreferrer" target="_blank">Quartz</a></td>
             <td class="bd-cell" data-bd-label="Passung"><strong>59</strong> Useful</td>
             <td class="bd-cell" data-bd-label="Media-Score">82 Strong</td>
@@ -425,28 +446,6 @@
             <td class="bd-cell" data-bd-label="Kosten">Kostenlos</td>
             <td class="bd-cell" data-bd-label="Warum">a general business publication rather than a specialist one; editorial pitch suits brand awareness; no market filter applied; Media Score 82 (Strong)</td>
             <td class="bd-cell bd-actions" data-bd-label="Aktionen"><a class="bd-cta-link" href="https://qz.com" rel="noopener noreferrer" target="_blank">Visit</a></td>
-          </tr>
-          <tr class="bd-row" data-bd-rec-level="Useful">
-            <td class="bd-cell" data-bd-label="#">24</td>
-            <td class="bd-cell" data-bd-label="Plattform"><a href="https://www.entrepreneur.com" rel="noopener noreferrer" target="_blank">Entrepreneur Leadership Network</a></td>
-            <td class="bd-cell" data-bd-label="Passung"><strong>57</strong> Useful</td>
-            <td class="bd-cell" data-bd-label="Media-Score">84 Strong</td>
-            <td class="bd-cell" data-bd-label="Markt">United States</td>
-            <td class="bd-cell" data-bd-label="Gelegenheit">Contributed article</td>
-            <td class="bd-cell" data-bd-label="Kosten">Kostenpflichtig</td>
-            <td class="bd-cell" data-bd-label="Warum">a general business publication rather than a specialist one; contributed article suits brand awareness; no market filter applied; Media Score 84 (Strong); a submission route was reached and recorded</td>
-            <td class="bd-cell bd-actions" data-bd-label="Aktionen"><a class="bd-cta-link" href="https://www.entrepreneur.com" rel="noopener noreferrer" target="_blank">Visit</a> <a class="bd-cta-link" href="https://www.entrepreneur.com/leadership-network" rel="noopener noreferrer" target="_blank">Submit</a></td>
-          </tr>
-          <tr class="bd-row" data-bd-rec-level="Useful">
-            <td class="bd-cell" data-bd-label="#">25</td>
-            <td class="bd-cell" data-bd-label="Plattform"><a href="https://councils.forbes.com" rel="noopener noreferrer" target="_blank">Forbes Councils</a></td>
-            <td class="bd-cell" data-bd-label="Passung"><strong>57</strong> Useful</td>
-            <td class="bd-cell" data-bd-label="Media-Score">84 Strong</td>
-            <td class="bd-cell" data-bd-label="Markt">United States</td>
-            <td class="bd-cell" data-bd-label="Gelegenheit">Contributed article</td>
-            <td class="bd-cell" data-bd-label="Kosten">Kostenpflichtig</td>
-            <td class="bd-cell" data-bd-label="Warum">a general business publication rather than a specialist one; contributed article suits brand awareness; no market filter applied; Media Score 84 (Strong); a submission route was reached and recorded</td>
-            <td class="bd-cell bd-actions" data-bd-label="Aktionen"><a class="bd-cta-link" href="https://councils.forbes.com" rel="noopener noreferrer" target="_blank">Visit</a> <a class="bd-cta-link" href="https://councils.forbes.com/qualify" rel="noopener noreferrer" target="_blank">Submit</a></td>
           </tr>
           </tbody>
         </table>

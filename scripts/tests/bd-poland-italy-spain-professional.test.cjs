@@ -21,6 +21,8 @@ const fs = require('node:fs');
 const path = require('node:path');
 
 const { loadRegistry } = require('../lib/bd-registry.cjs');
+// Publication parity, in place of the per-country totals this suite used to pin.
+const PARITY = require('./helpers/country-parity.cjs');
 
 const ROOT = path.resolve(__dirname, '..', '..');
 const ALL = loadRegistry().directories;
@@ -36,9 +38,11 @@ const hostOf = (u) => new URL(u).hostname.replace(/^www\./, '');
 
 test('every record this wave claims to have published exists', () => {
   for (const id of WAVE) assert.ok(byId.get(id), `missing record ${id}`);
-  assert.strictEqual(ALL.filter((r) => r.country === 'poland').length, 11); // +2 Wave 1B directories, +1 Firmy.net
-  assert.strictEqual(ALL.filter((r) => r.country === 'italy').length, 8); // +1 Wave 1B directory
-  assert.strictEqual(ALL.filter((r) => r.country === 'spain').length, 10); // +2 Wave 4 telecoms
+  // BRITTLE MIRRORS, REMOVED: three per-country totals, each with its own
+  // trailing changelog. See scripts/tests/helpers/country-parity.cjs.
+  PARITY.assertCountryPublicationParity(assert, ALL, 'poland', 11);
+  PARITY.assertCountryPublicationParity(assert, ALL, 'italy', 8);
+  PARITY.assertCountryPublicationParity(assert, ALL, 'spain', 10);
 });
 
 // ── The national interface is not the legal source of record ────────────────

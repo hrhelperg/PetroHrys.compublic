@@ -2,12 +2,11 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/af075fab2c66644b181224ee/script.js"></script>
-  <!-- WebmasterID analytics — consent-gated via CookieYes (analytics category); fires only after consent -->
-  <script id="webmasterid-tracker" type="text/plain" data-cookieyes="cookieyes-analytics" defer src="https://webmasterid.com/tracker.iife.min.js" data-wmid="wm_bktqqtd7heom5nkl" data-endpoint="https://webmasterid-ingest-api.vercel.app/api/events"></script>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4RE6YCJZBD"></script>
-  <script>
+  <script src="/js/consent.js" defer></script>
+  <!-- Analytics below is inert until a visitor accepts. See js/consent.js. -->
+  <script id="webmasterid-tracker" type="text/plain" data-consent="analytics" defer src="https://webmasterid.com/tracker.iife.min.js" data-wmid="wm_bktqqtd7heom5nkl" data-endpoint="https://webmasterid-ingest-api.vercel.app/api/events"></script>
+  <script type="text/plain" data-consent="analytics" async src="https://www.googletagmanager.com/gtag/js?id=G-4RE6YCJZBD"></script>
+  <script type="text/plain" data-consent="analytics">
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
@@ -198,7 +197,7 @@
       <p class="lede">Platforms whose primary function is collecting and publishing customer reviews.</p>
     </article>
 
-    <p class="bd-note"><a href="/research/business-directories/opportunities/">See all 1563 business listing opportunities</a></p>
+    <p class="bd-note"><a href="/research/business-directories/opportunities/">See all 1617 business listing opportunities</a></p>
 
     <section class="bd-section" aria-labelledby="directories">
       <h2 id="directories">Annuaires</h2>

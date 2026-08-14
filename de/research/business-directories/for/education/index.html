@@ -2,12 +2,11 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
-  <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/af075fab2c66644b181224ee/script.js"></script>
-  <!-- WebmasterID analytics — consent-gated via CookieYes (analytics category); fires only after consent -->
-  <script id="webmasterid-tracker" type="text/plain" data-cookieyes="cookieyes-analytics" defer src="https://webmasterid.com/tracker.iife.min.js" data-wmid="wm_bktqqtd7heom5nkl" data-endpoint="https://webmasterid-ingest-api.vercel.app/api/events"></script>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4RE6YCJZBD"></script>
-  <script>
+  <script src="/js/consent.js" defer></script>
+  <!-- Analytics below is inert until a visitor accepts. See js/consent.js. -->
+  <script id="webmasterid-tracker" type="text/plain" data-consent="analytics" defer src="https://webmasterid.com/tracker.iife.min.js" data-wmid="wm_bktqqtd7heom5nkl" data-endpoint="https://webmasterid-ingest-api.vercel.app/api/events"></script>
+  <script type="text/plain" data-consent="analytics" async src="https://www.googletagmanager.com/gtag/js?id=G-4RE6YCJZBD"></script>
+  <script type="text/plain" data-consent="analytics">
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
@@ -196,6 +195,20 @@
             <td data-label="Why"><ul class="bd-reasons"><li>Listed under education, a category that serves education companies.</li><li>Scored from reputation and status only — not enough evidence yet for a full Directory Score.</li></ul></td>
           </tr>
           <tr data-bd-rec-level="Marginal" data-bd-rec-basis="category">
+            <td data-label="Platform"><a href="https://www.educations.com/" rel="noopener noreferrer" target="_blank">educations.com</a></td>
+            <td data-label="Score">29</td>
+            <td data-label="Level">Marginal</td>
+            <td data-label="Fit basis">category</td>
+            <td data-label="Why"><ul class="bd-reasons"><li>Listed under education, a category that serves education companies.</li><li>Scored from reputation and status only — not enough evidence yet for a full Directory Score.</li></ul></td>
+          </tr>
+          <tr data-bd-rec-level="Marginal" data-bd-rec-basis="category">
+            <td data-label="Platform"><a href="https://www.hotcoursesabroad.com/" rel="noopener noreferrer" target="_blank">IDP Hotcourses Abroad</a></td>
+            <td data-label="Score">29</td>
+            <td data-label="Level">Marginal</td>
+            <td data-label="Fit basis">category</td>
+            <td data-label="Why"><ul class="bd-reasons"><li>Listed under education, a category that serves education companies.</li><li>Scored from reputation and status only — not enough evidence yet for a full Directory Score.</li></ul></td>
+          </tr>
+          <tr data-bd-rec-level="Marginal" data-bd-rec-basis="category">
             <td data-label="Platform"><a href="https://www.internshala.com/" rel="noopener noreferrer" target="_blank">Internshala</a></td>
             <td data-label="Score">29</td>
             <td data-label="Level">Marginal</td>
@@ -251,6 +264,20 @@
             <td data-label="Fit basis">category</td>
             <td data-label="Why"><ul class="bd-reasons"><li>Listed under education, a category that serves education companies.</li><li>Scored from reputation and status only — not enough evidence yet for a full Directory Score.</li></ul></td>
           </tr>
+          <tr data-bd-rec-level="Marginal" data-bd-rec-basis="category">
+            <td data-label="Platform"><a href="https://www.edarabia.com/" rel="noopener noreferrer" target="_blank">Edarabia</a></td>
+            <td data-label="Score">24</td>
+            <td data-label="Level">Marginal</td>
+            <td data-label="Fit basis">category</td>
+            <td data-label="Why"><ul class="bd-reasons"><li>Listed under education, a category that serves education companies.</li><li>Scored from reputation and status only — not enough evidence yet for a full Directory Score.</li></ul></td>
+          </tr>
+          <tr data-bd-rec-level="Marginal" data-bd-rec-basis="category">
+            <td data-label="Platform"><a href="https://www.goabroad.com/" rel="noopener noreferrer" target="_blank">GoAbroad</a></td>
+            <td data-label="Score">24</td>
+            <td data-label="Level">Marginal</td>
+            <td data-label="Fit basis">category</td>
+            <td data-label="Why"><ul class="bd-reasons"><li>Listed under education, a category that serves education companies.</li><li>Scored from reputation and status only — not enough evidence yet for a full Directory Score.</li></ul></td>
+          </tr>
           <tr data-bd-rec-level="Marginal" data-bd-rec-basis="unknown">
             <td data-label="Platform"><a href="https://huggingface.co/" rel="noopener noreferrer" target="_blank">Hugging Face</a></td>
             <td data-label="Score">24</td>
@@ -264,6 +291,13 @@
             <td data-label="Level">Marginal</td>
             <td data-label="Fit basis">keyword</td>
             <td data-label="Why"><ul class="bd-reasons"><li>The platform&#39;s own description names this field (&quot;school&quot;).</li><li>Scored from reputation and status only — not enough evidence yet for a full Directory Score.</li></ul></td>
+          </tr>
+          <tr data-bd-rec-level="Marginal" data-bd-rec-basis="category">
+            <td data-label="Platform"><a href="https://www.tutors.com/" rel="noopener noreferrer" target="_blank">Tutors.com</a></td>
+            <td data-label="Score">24</td>
+            <td data-label="Level">Marginal</td>
+            <td data-label="Fit basis">category</td>
+            <td data-label="Why"><ul class="bd-reasons"><li>Listed under education, a category that serves education companies.</li><li>Scored from reputation and status only — not enough evidence yet for a full Directory Score.</li></ul></td>
           </tr>
           <tr data-bd-rec-level="Marginal" data-bd-rec-basis="unknown">
             <td data-label="Platform"><a href="https://www.aussieweb.com.au/" rel="noopener noreferrer" target="_blank">AussieWeb Local Search</a></td>
@@ -327,41 +361,6 @@
             <td data-label="Level">Marginal</td>
             <td data-label="Fit basis">unknown</td>
             <td data-label="Why"><ul class="bd-reasons"><li>Strong SEO value from its link and indexing behaviour.</li><li>High referral potential.</li><li>Free tier available.</li><li>Profile pages are indexed.</li><li>A leading platform in its field.</li><li>Fit is not established: the platform has not stated which business types it accepts.</li></ul></td>
-          </tr>
-          <tr data-bd-rec-level="Marginal" data-bd-rec-basis="keyword">
-            <td data-label="Platform"><a href="https://www.golfnow.com/" rel="noopener noreferrer" target="_blank">GolfNow</a></td>
-            <td data-label="Score">21</td>
-            <td data-label="Level">Marginal</td>
-            <td data-label="Fit basis">keyword</td>
-            <td data-label="Why"><ul class="bd-reasons"><li>The platform&#39;s own description names this field (&quot;course&quot;).</li><li>Scored from reputation and status only — not enough evidence yet for a full Directory Score.</li></ul></td>
-          </tr>
-          <tr data-bd-rec-level="Marginal" data-bd-rec-basis="unknown">
-            <td data-label="Platform"><a href="https://www.alibaba.com/" rel="noopener noreferrer" target="_blank">Alibaba.com</a></td>
-            <td data-label="Score">20</td>
-            <td data-label="Level">Marginal</td>
-            <td data-label="Fit basis">unknown</td>
-            <td data-label="Why"><ul class="bd-reasons"><li>Strong SEO value from its link and indexing behaviour.</li><li>High referral potential.</li><li>Profile pages are indexed.</li><li>Has a submission API.</li><li>A leading platform in its field.</li><li>Fit is not established: the platform has not stated which business types it accepts.</li></ul></td>
-          </tr>
-          <tr data-bd-rec-level="Marginal" data-bd-rec-basis="unknown">
-            <td data-label="Platform"><a href="https://apps.apple.com/" rel="noopener noreferrer" target="_blank">Apple App Store</a></td>
-            <td data-label="Score">20</td>
-            <td data-label="Level">Marginal</td>
-            <td data-label="Fit basis">unknown</td>
-            <td data-label="Why"><ul class="bd-reasons"><li>Strong SEO value from its link and indexing behaviour.</li><li>High referral potential.</li><li>Profile pages are indexed.</li><li>A leading platform in its field.</li><li>Fit is not established: the platform has not stated which business types it accepts.</li></ul></td>
-          </tr>
-          <tr data-bd-rec-level="Marginal" data-bd-rec-basis="unknown">
-            <td data-label="Platform"><a href="https://marketplace.atlassian.com/" rel="noopener noreferrer" target="_blank">Atlassian Marketplace</a></td>
-            <td data-label="Score">20</td>
-            <td data-label="Level">Marginal</td>
-            <td data-label="Fit basis">unknown</td>
-            <td data-label="Why"><ul class="bd-reasons"><li>Strong SEO value from its link and indexing behaviour.</li><li>High referral potential.</li><li>Profile pages are indexed.</li><li>A leading platform in its field.</li><li>Fit is not established: the platform has not stated which business types it accepts.</li></ul></td>
-          </tr>
-          <tr data-bd-rec-level="Marginal" data-bd-rec-basis="unknown">
-            <td data-label="Platform"><a href="https://partners.amazonaws.com/" rel="noopener noreferrer" target="_blank">AWS Partner Solutions Finder</a></td>
-            <td data-label="Score">20</td>
-            <td data-label="Level">Marginal</td>
-            <td data-label="Fit basis">unknown</td>
-            <td data-label="Why"><ul class="bd-reasons"><li>Strong SEO value from its link and indexing behaviour.</li><li>High referral potential.</li><li>Profile pages are indexed.</li><li>A leading platform in its field.</li><li>Fit is not established: the platform has not stated which business types it accepts.</li></ul></td>
           </tr>
           </tbody>
         </table>

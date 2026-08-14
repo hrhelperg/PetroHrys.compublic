@@ -618,12 +618,26 @@ test('the campaign export is the campaign: same identities, same order, nothing 
     const body = rows.slice(1);
     const label = `${s.business}/${s.objective}/${s.market}/${s.budget}/${s.size}/${s.evidence}`;
 
-    // Identity by name, and names are proven unique within the campaign first,
-    // so the exported name list determines the exported platformId list.
-    const byName = new Map();
+    // Identity is the (platform, collection) PAIR, not the name alone.
+    //
+    // The name alone used to be unique within a campaign, and this test relied
+    // on that to join the export back to the picked set. The corpus outgrew it:
+    // 99 names now appear in more than one collection, because the same site is
+    // genuinely two different opportunities — GoodFirms is a directory listing
+    // AND a media placement, with different next actions, different cost and
+    // different markets. The 2026-08-14 browser wave made both actionable at
+    // once, and a campaign started carrying both.
+    //
+    // That is not a duplicate to delete: the export's own `collection` column
+    // tells a reader which row is which. It was the join key that was too
+    // narrow, so the key is now what the export actually publishes.
+    const key = (name, collectionLabel) => `${name} ${collectionLabel}`;
+    const byKey = new Map();
     for (const r of result.picked) {
-      assert.ok(!byName.has(r.op.name), `${label}: two picked opportunities share the name ${r.op.name}`);
-      byName.set(r.op.name, r.op.platformId);
+      const k = key(r.op.name, E.COLLECTION_BY_KEY.get(r.op.sourceCollection).label);
+      assert.ok(!byKey.has(k),
+        `${label}: two picked opportunities share the name ${r.op.name} within one collection`);
+      byKey.set(k, r.op.platformId);
     }
     const orderExpected = E.campaignRows(result);
     assert.strictEqual(body.length, orderExpected.length, `${label}: the export has a different number of rows`);
@@ -634,7 +648,7 @@ test('the campaign export is the campaign: same identities, same order, nothing 
       `${label}: the export is not in the order the page rendered`);
     assert.deepStrictEqual(body.map((r) => r[0]), orderExpected.map((x) => x.group),
       `${label}: a row is filed under a different group from the one it was rendered in`);
-    assert.deepStrictEqual(new Set(body.map((r) => byName.get(r[1]))),
+    assert.deepStrictEqual(new Set(body.map((r) => byKey.get(key(r[1], r[2])))),
       new Set(result.picked.map((r) => r.op.platformId)),
       `${label}: the exported identity set is not the picked identity set`);
     // The market and the cost the row claims are the record's own.

@@ -113,10 +113,21 @@ function countLabel(count) {
   return ` <span class="bd-count">${count} ${count === 1 ? 'directory' : 'directories'}</span>`;
 }
 
-function countryCard({ name, path, count, pending = false, headingLevel = 3 }) {
+// `linked: false` names a country without pointing anywhere. It is NOT the same
+// as `pending`, which says a country has no verified record yet and therefore
+// shows no count at all.
+//
+// It exists for the crawl-surface policy. This site's only defence against a
+// filtered-state facet explosion is that the canonical never carries a query AND
+// nothing internal links to one — a static host gives us no other lever, and
+// client-injected noindex would be theatre. An index of 97 countries pointing at
+// `?country=<slug>` would have built precisely the crawl path that policy
+// forbids, so the index NAMES the countries and the facet above it does the
+// selecting.
+function countryCard({ name, path, count, pending = false, headingLevel = 3, linked = true }) {
   const h = headingTag(headingLevel);
-  const title = pending
-    ? `<span class="bd-pending">${escapeHtml(name)}</span>`
+  const title = pending || !linked
+    ? `<span class="${pending ? 'bd-pending' : 'bd-card-name'}">${escapeHtml(name)}</span>`
     : `<a href="${escapeHtml(path)}">${escapeHtml(name)}</a>`;
   return `        <li class="bd-card">
           <${h} class="bd-card-title">${title}${pending ? '' : countLabel(count)}</${h}>

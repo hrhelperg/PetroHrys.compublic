@@ -303,13 +303,57 @@ test('readiness materially changes the execution ranking', () => {
 });
 
 test('the campaign draws from more than one collection when several fit', () => {
-  const camp = P.campaign(OPS, { business: 'local-business', objective: 'local-discovery',
-    market: 'united-states', budget: 'free-freemium' }, { size: 40 });
-  const drawn = Object.values(camp.drawn).filter((n) => n > 0).length;
-  assert.ok(drawn >= 2, 'a campaign with several relevant collections drew from only one');
+  // This test used to pin the property to one hard-coded context — local
+  // discovery in the United States — and that context stopped demonstrating it
+  // the moment the corpus got healthier. A browser-verification pass moved 227
+  // directories from unknown to active, so 48 of them now outrank every
+  // marketplace for local discovery: the 40th pick scores 53 against a best
+  // marketplace of 43. Drawing that marketplace in would be the quota behaviour
+  // the engine explicitly refuses. The engine was right and the premise was
+  // stale, so the assertion is now made against the rule itself.
+  const ctxFor = (objective) => ({
+    business: 'local-business', objective, market: 'united-states', budget: 'any',
+  });
+
+  // THE RULE, stated so that only a real tie-break can satisfy it.
+  //
+  // "Several collections were drawn from" is NOT enough: scores from different
+  // collections interleave on their own, so that count stays healthy even with
+  // the tie-break deleted — a mutant proved exactly that, surviving untouched.
+  // The signature of a deliberate swap is something pure score-ordering can
+  // never produce: a PICKED opportunity scoring strictly LESS than an eligible
+  // one that was left out. Without the tie-break the picked set is precisely
+  // the top N by score, and no such pair can exist.
+  const objectives = P.OBJECTIVES.map((o) => o.key || o);
+  let swaps = 0;
+  let multiCollection = 0;
+  for (const objective of objectives) {
+    const ctx = ctxFor(objective);
+    const camp = P.campaign(OPS, ctx, { size: 40 });
+    if (!camp.picked.length) continue;
+    if (Object.values(camp.drawn).filter((n) => n > 0).length >= 2) multiCollection += 1;
+
+    const pickedIds = new Set(camp.picked.map((r) => r.op.platformId));
+    const weakestPicked = Math.min(...camp.picked.map((r) => r.x.campaignScore));
+    const bestLeftOut = OPS
+      .filter((op) => !pickedIds.has(op.platformId))
+      .map((op) => P.campaignScore(op, ctx))
+      .filter((x) => !x.excluded && x.campaignScore > 0)
+      .reduce((max, x) => Math.max(max, x.campaignScore), 0);
+    if (bestLeftOut > weakestPicked) swaps += 1;
+  }
+
+  assert.ok(swaps >= 2,
+    `only ${swaps} objective(s) show a diversification swap; the campaign is `
+    + 'taking the top N by score and the tie-break is doing nothing');
+  assert.ok(multiCollection >= 3,
+    `only ${multiCollection} objective(s) drew from more than one collection; `
+    + 'diversification has stopped happening anywhere');
+
   // Diversity is a tie-break, not a quota: an irrelevant collection stays out.
-  const saas = P.campaign(OPS, { business: 'b2b-saas', objective: 'pr-coverage',
-    market: '*', budget: 'any' }, { size: 40 });
+  const saas = P.campaign(OPS, {
+    business: 'b2b-saas', objective: 'pr-coverage', market: '*', budget: 'any',
+  }, { size: 40 });
   assert.strictEqual(saas.drawn.marketplaces, 0,
     'a marketplace was added to a PR campaign to fill a diversity slot');
 });

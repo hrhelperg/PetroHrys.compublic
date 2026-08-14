@@ -112,7 +112,7 @@ test('tracking is present exactly once per page', () => {
   for (const rel of pages) {
     const html = read(rel);
     const counts = {
-      cookieyes: (html.match(/id="cookieyes"/g) || []).length,
+      consent: (html.match(/\/js\/consent\.js/g) || []).length,
       webmasterid: (html.match(/webmasterid-tracker/g) || []).length,
       ga: (html.match(/googletagmanager\.com\/gtag\/js/g) || []).length,
     };

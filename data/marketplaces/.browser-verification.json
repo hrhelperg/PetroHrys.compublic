@@ -1,0 +1,1787 @@
+{
+ "probedAt": "2026-08-14",
+ "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36",
+ "total": 115,
+ "findings": [
+  {
+   "id": "mp-ar-zonaprop",
+   "name": "Zonaprop",
+   "website": "https://www.zonaprop.com.ar/",
+   "country": "argentina",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.zonaprop.com.ar/",
+    "title": "Inmuebles en Argentina: venta y alquiler de departamentos, casas y otras propiedades - Zonaprop",
+    "textLen": 4260,
+    "anchors": 200
+   },
+   "verdict": "active",
+   "why": "4260 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "mp-au-airtasker",
+   "name": "Airtasker",
+   "website": "https://www.airtasker.com/",
+   "country": "australia",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.airtasker.com/au/",
+    "title": "Get anything done & earn more money | Airtasker AU",
+    "textLen": 8596,
+    "anchors": 315
+   },
+   "verdict": "active",
+   "why": "8596 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "mp-au-carsales",
+   "name": "carsales",
+   "website": "https://www.carsales.com.au/",
+   "country": "australia",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.carsales.com.au/",
+    "title": "carsales.com.au",
+    "textLen": 0,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "http 403"
+  },
+  {
+   "id": "mp-au-graysonline",
+   "name": "Grays",
+   "website": "https://www.graysonline.com/",
+   "country": "australia",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.graysonline.com/",
+    "title": "403 Forbidden",
+    "textLen": 13,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "access-denied"
+  },
+  {
+   "id": "mp-au-gumtree",
+   "name": "Gumtree Australia",
+   "website": "https://www.gumtree.com.au/",
+   "country": "australia",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.gumtree.com.au/",
+    "title": "Access denied",
+    "textLen": 262,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "access-denied"
+  },
+  {
+   "id": "mp-au-realestate",
+   "name": "realestate.com.au",
+   "website": "https://www.realestate.com.au/",
+   "country": "australia",
+   "observed": {
+    "status": 429,
+    "finalUrl": "https://www.realestate.com.au/",
+    "title": null,
+    "textLen": 0,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "http 429"
+  },
+  {
+   "id": "mp-au-seek",
+   "name": "SEEK",
+   "website": "https://www.seek.com.au/",
+   "country": "australia",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://au.seek.com/",
+    "title": "Just a moment...",
+    "textLen": 259,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "mp-au-tradingpost",
+   "name": "Trading Post",
+   "website": "https://www.tradingpost.com.au/",
+   "country": "australia",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.tradingpost.com.au/",
+    "title": "Just a moment...",
+    "textLen": 270,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "mp-ba-olx",
+   "name": "OLX Bosnia",
+   "website": "https://www.olx.ba/",
+   "country": "bosnia-and-herzegovina",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.olx.ba/",
+    "title": "Just a moment...",
+    "textLen": 258,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "mp-bd-bikroy",
+   "name": "Bikroy",
+   "website": "https://www.bikroy.com/",
+   "country": "bangladesh",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://bikroy.com/",
+    "title": "Just a moment...",
+    "textLen": 258,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "mp-be-bizzy-2dehands",
+   "name": "Immoweb",
+   "website": "https://www.immoweb.be/",
+   "country": "belgium",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.immoweb.be/",
+    "title": "Just a moment...",
+    "textLen": 612,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "mp-br-icarros",
+   "name": "iCarros",
+   "website": "https://www.icarros.com.br/",
+   "country": "brazil",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.icarros.com.br/",
+    "title": "ERROR: The request could not be satisfied",
+    "textLen": 580,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "http 403"
+  },
+  {
+   "id": "mp-br-imovelweb",
+   "name": "ImovelWeb",
+   "website": "https://www.imovelweb.com.br/",
+   "country": "brazil",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.imovelweb.com.br/",
+    "title": "Just a moment...",
+    "textLen": 268,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "mp-br-infojobs",
+   "name": "InfoJobs Brasil",
+   "website": "https://www.infojobs.com.br/",
+   "country": "brazil",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.infojobs.com.br/",
+    "title": "Azure WAF",
+    "textLen": 77,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "http 403"
+  },
+  {
+   "id": "mp-br-olx",
+   "name": "OLX Brasil",
+   "website": "https://www.olx.com.br/",
+   "country": "brazil",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.olx.com.br/",
+    "title": "OLX - O Maior Site de Compra e Venda do Brasil",
+    "textLen": 3236,
+    "anchors": 224
+   },
+   "verdict": "active",
+   "why": "3236 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "mp-br-vivareal",
+   "name": "VivaReal",
+   "website": "https://www.vivareal.com.br/",
+   "country": "brazil",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.vivareal.com.br/",
+    "title": "Imóveis, Casas e Apartamentos para Compra, Venda e Aluguel - Viva Real",
+    "textLen": 2858,
+    "anchors": 77
+   },
+   "verdict": "active",
+   "why": "2858 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "mp-br-webmotors",
+   "name": "Webmotors",
+   "website": "https://www.webmotors.com.br/",
+   "country": "brazil",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.webmotors.com.br/",
+    "title": "Webmotors | Compre, venda e financie carros ou motos novos, usados e seminovos.",
+    "textLen": 6565,
+    "anchors": 359
+   },
+   "verdict": "active",
+   "why": "6565 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "mp-br-zapimoveis",
+   "name": "ZAP Imóveis",
+   "website": "https://www.zapimoveis.com.br/",
+   "country": "brazil",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.zapimoveis.com.br/",
+    "title": "Apartamentos, Casas e Imóveis a Venda e para Alugar - ZAP Imóveis",
+    "textLen": 3817,
+    "anchors": 115
+   },
+   "verdict": "active",
+   "why": "3817 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "mp-by-av",
+   "name": "av.by",
+   "website": "https://www.av.by/",
+   "country": "belarus",
+   "observed": {
+    "status": 468,
+    "finalUrl": "https://www.av.by/",
+    "title": "av.by — купить, продать авто в Беларуси. Автомобили с пробегом и новые.",
+    "textLen": 50,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "http 468"
+  },
+  {
+   "id": "mp-ca-bunz",
+   "name": "Bunz",
+   "website": "https://www.bunz.com/",
+   "country": "canada",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.bunz.com/",
+    "title": "ERROR: The request could not be satisfied",
+    "textLen": 580,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "http 403"
+  },
+  {
+   "id": "mp-ca-lespac",
+   "name": "LesPAC",
+   "website": "https://www.lespac.com/",
+   "country": "canada",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.lespac.com/",
+    "title": "ERROR: The request could not be satisfied",
+    "textLen": 513,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "http 403"
+  },
+  {
+   "id": "mp-cd-jiji",
+   "name": "Jiji DR Congo",
+   "website": "https://jiji.cd/",
+   "country": "dr-congo",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://jiji.cd/",
+    "title": "Just a moment...",
+    "textLen": 255,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "mp-ch-anibis",
+   "name": "anibis.ch",
+   "website": "https://www.anibis.ch/",
+   "country": "switzerland",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.anibis.ch/",
+    "title": "Just a moment...",
+    "textLen": 658,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "mp-ch-ricardo",
+   "name": "Ricardo",
+   "website": "https://www.ricardo.ch/",
+   "country": "switzerland",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.ricardo.ch/de/",
+    "title": "Ricardo - Sicher kaufen & verkaufen mit über 5 Mio. Nutzern",
+    "textLen": 11321,
+    "anchors": 215
+   },
+   "verdict": "active",
+   "why": "11321 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "mp-ch-tutti",
+   "name": "tutti.ch",
+   "website": "https://www.tutti.ch/",
+   "country": "switzerland",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.tutti.ch/",
+    "title": "Just a moment...",
+    "textLen": 664,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "mp-cn-1688",
+   "name": "1688",
+   "website": "https://www.1688.com/",
+   "country": "china",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.1688.com/",
+    "title": "CAPTCHA Verification",
+    "textLen": 149,
+    "anchors": 1
+   },
+   "verdict": "blocked",
+   "why": "captcha"
+  },
+  {
+   "id": "mp-cy-bazaraki",
+   "name": "Bazaraki",
+   "website": "https://www.bazaraki.com/",
+   "country": "cyprus",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.bazaraki.com/",
+    "title": "Bazaraki.com - No.1 classifieds website in Cyprus. Sell or buy cars, real estate, motorcycles, computers, electronics and much more. Free registration.",
+    "textLen": 5941,
+    "anchors": 333
+   },
+   "verdict": "active",
+   "why": "5941 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "mp-dk-boligsiden",
+   "name": "Boligsiden",
+   "website": "https://www.boligsiden.dk/",
+   "country": "denmark",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.boligsiden.dk/",
+    "title": "Find boliger til salg i Danmark - Boligsiden",
+    "textLen": 5266,
+    "anchors": 102
+   },
+   "verdict": "active",
+   "why": "5266 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "mp-ee-auto24",
+   "name": "Auto24.ee",
+   "website": "https://www.auto24.ee/",
+   "country": "estonia",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.auto24.ee/",
+    "title": "Avaleht - auto24.ee",
+    "textLen": 13403,
+    "anchors": 290
+   },
+   "verdict": "active",
+   "why": "13403 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "mp-ee-kv",
+   "name": "KV.ee",
+   "website": "https://www.kv.ee/",
+   "country": "estonia",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.kv.ee/",
+    "title": "KV.EE - Kinnisvara pakkumised - korterid majad maad äripinnad",
+    "textLen": 12105,
+    "anchors": 506
+   },
+   "verdict": "active",
+   "why": "12105 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "mp-ee-soov",
+   "name": "Soov.ee",
+   "website": "https://www.soov.ee/",
+   "country": "estonia",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.soov.ee/",
+    "title": "Kuulutused, kasutatud autod, mööbel, koduloomad, tööpakkumised – Soov.ee",
+    "textLen": 8205,
+    "anchors": 1693
+   },
+   "verdict": "active",
+   "why": "8205 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "mp-eg-dubizzle",
+   "name": "Dubizzle Egypt",
+   "website": "https://www.dubizzle.com.eg/",
+   "country": "egypt",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.dubizzle.com.eg/",
+    "title": "دوبيزل (OLX) - بيع وشراء السيارات والعقارات والمزيد في مصر",
+    "textLen": 12078,
+    "anchors": 282
+   },
+   "verdict": "active",
+   "why": "12078 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "mp-eg-hatla2ee",
+   "name": "Hatla2ee",
+   "website": "https://www.hatla2ee.com/",
+   "country": "egypt",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://eg.hatla2ee.com/",
+    "title": "سيارات جديدة ومستعملة للبيع - الأسعار، التقييمات، وأحدث أخبار السيارات | هتلاقي مصر",
+    "textLen": 5669,
+    "anchors": 340
+   },
+   "verdict": "active",
+   "why": "5669 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "mp-eg-jumia",
+   "name": "Jumia Egypt",
+   "website": "https://www.jumia.com.eg/",
+   "country": "egypt",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.jumia.com.eg/",
+    "title": "Just a moment...",
+    "textLen": 264,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "mp-es-milanuncios",
+   "name": "Milanuncios",
+   "website": "https://www.milanuncios.com/",
+   "country": "spain",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.milanuncios.com/",
+    "title": "MILANUNCIOS: segunda mano, anuncios gratis, empleo, clasificados...",
+    "textLen": 0,
+    "anchors": 0
+   },
+   "verdict": "inconclusive",
+   "why": "only 0 characters rendered"
+  },
+  {
+   "id": "mp-et-engocha",
+   "name": "Engocha",
+   "website": "https://www.engocha.com/",
+   "country": "ethiopia",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.engocha.com/",
+    "title": "Just a moment...",
+    "textLen": 263,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "mp-et-jiji",
+   "name": "Jiji Ethiopia",
+   "website": "https://jiji.com.et/",
+   "country": "ethiopia",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://jiji.com.et/",
+    "title": "Just a moment...",
+    "textLen": 259,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "mp-fi-huuto",
+   "name": "Huuto.net",
+   "website": "https://www.huuto.net/",
+   "country": "finland",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.huuto.net/",
+    "title": "Huutokaupat netissä: osta & myy tuhansia tuotteita | Huuto.net",
+    "textLen": 9541,
+    "anchors": 192
+   },
+   "verdict": "active",
+   "why": "9541 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "mp-gr-car-gr",
+   "name": "Car.gr",
+   "website": "https://www.car.gr/",
+   "country": "greece",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.car.gr/",
+    "title": "Car.gr - Μεταχειρισμένα αυτοκίνητα",
+    "textLen": 4034,
+    "anchors": 72
+   },
+   "verdict": "active",
+   "why": "4034 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "mp-gr-xe",
+   "name": "XE.gr",
+   "website": "https://www.xe.gr/",
+   "country": "greece",
+   "observed": {
+    "status": 405,
+    "finalUrl": "https://www.xe.gr/",
+    "title": "Human Verification",
+    "textLen": 318,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "http 405"
+  },
+  {
+   "id": "mp-hk-carousell",
+   "name": "Carousell Hong Kong",
+   "website": "https://www.carousell.com.hk/",
+   "country": "hong-kong",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.carousell.com.hk/",
+    "title": "Just a moment...",
+    "textLen": 268,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "mp-hu-hasznaltauto",
+   "name": "Hasznaltauto",
+   "website": "https://www.hasznaltauto.hu/",
+   "country": "hungary",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.hasznaltauto.hu/",
+    "title": "Just a moment...",
+    "textLen": 267,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "mp-id-mobil123",
+   "name": "Mobil123",
+   "website": "https://www.mobil123.com/",
+   "country": "indonesia",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.mobil123.com/",
+    "title": "Cari mobil baru & bekas untuk dijual di Indonesia - Mobil123.com",
+    "textLen": 12421,
+    "anchors": 1076
+   },
+   "verdict": "active",
+   "why": "12421 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "mp-ie-adverts",
+   "name": "Adverts.ie",
+   "website": "https://www.adverts.ie/",
+   "country": "ireland",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.adverts.ie/",
+    "title": "Just a moment...",
+    "textLen": 50,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "mp-ie-carzone",
+   "name": "Carzone",
+   "website": "https://www.carzone.ie/",
+   "country": "ireland",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.carzone.ie/",
+    "title": "Just a moment...",
+    "textLen": 262,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "mp-ie-daft",
+   "name": "Daft.ie",
+   "website": "https://www.daft.ie/",
+   "country": "ireland",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.daft.ie/",
+    "title": "Search Ireland's No. 1 Property Website | Daft.ie",
+    "textLen": 3552,
+    "anchors": 194
+   },
+   "verdict": "active",
+   "why": "3552 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "mp-ie-donedeal",
+   "name": "DoneDeal",
+   "website": "https://www.donedeal.ie/",
+   "country": "ireland",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.donedeal.ie/",
+    "title": "DoneDeal | Ireland's #1 site for Cars & Marketplace",
+    "textLen": 4480,
+    "anchors": 173
+   },
+   "verdict": "active",
+   "why": "4480 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "mp-in-99acres",
+   "name": "99acres",
+   "website": "https://www.99acres.com/",
+   "country": "india",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.99acres.com/",
+    "title": "Access Denied",
+    "textLen": 197,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "access-denied"
+  },
+  {
+   "id": "mp-in-housing",
+   "name": "Housing.com",
+   "website": "https://www.housing.com/",
+   "country": "india",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://housing.com/",
+    "title": "Search India Real Estate and Properties - Housing.com",
+    "textLen": 18652,
+    "anchors": 248
+   },
+   "verdict": "active",
+   "why": "18652 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "mp-in-magicbricks",
+   "name": "Magicbricks",
+   "website": "https://www.magicbricks.com/",
+   "country": "india",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.magicbricks.com/",
+    "title": "Real Estate | Property in India | Buy/Sale/Rent Properties | MagicBricks",
+    "textLen": 11534,
+    "anchors": 2238
+   },
+   "verdict": "active",
+   "why": "11534 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "mp-jm-jacars",
+   "name": "Jacars.net",
+   "website": "https://www.jacars.net/",
+   "country": "jamaica",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.jacars.net/",
+    "title": "Jacars.net - free classifieds website in Jamaica.",
+    "textLen": 7827,
+    "anchors": 135
+   },
+   "verdict": "active",
+   "why": "7827 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "mp-jp-goonet",
+   "name": "Goo-net",
+   "website": "https://www.goo-net.com/",
+   "country": "japan",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.goo-net.com/",
+    "title": "中古車・中古車情報なら【グーネット】",
+    "textLen": 10933,
+    "anchors": 445
+   },
+   "verdict": "active",
+   "why": "10933 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "mp-jp-yahoo-auctions",
+   "name": "Yahoo! Auctions Japan",
+   "website": "https://auctions.yahoo.co.jp/",
+   "country": "japan",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://auctions.yahoo.co.jp/",
+    "title": "【お知らせ】欧州経済領域（EEA）およびイギリスからご利用のお客様へ - Yahoo! JAPAN",
+    "textLen": 1746,
+    "anchors": 20
+   },
+   "verdict": "blocked",
+   "why": "http 403"
+  },
+  {
+   "id": "mp-ke-jiji",
+   "name": "Jiji Kenya",
+   "website": "https://jiji.co.ke/",
+   "country": "kenya",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://jiji.co.ke/",
+    "title": "Just a moment...",
+    "textLen": 258,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "mp-ke-jumia",
+   "name": "Jumia Kenya",
+   "website": "https://www.jumia.co.ke/",
+   "country": "kenya",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.jumia.co.ke/",
+    "title": "Just a moment...",
+    "textLen": 263,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "mp-ke-pigiame",
+   "name": "PigiaMe",
+   "website": "https://www.pigiame.co.ke/",
+   "country": "kenya",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.pigiame.co.ke/",
+    "title": "Just a moment...",
+    "textLen": 121,
+    "anchors": 1
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "mp-kr-encar",
+   "name": "Encar",
+   "website": "https://www.encar.com/",
+   "country": "south-korea",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.encar.com/index.do",
+    "title": "내차팔기·내차사기 | 엔카",
+    "textLen": 4189,
+    "anchors": 265
+   },
+   "verdict": "active",
+   "why": "4189 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "mp-lk-patpat",
+   "name": "PatPat.lk",
+   "website": "https://www.patpat.lk/",
+   "country": "sri-lanka",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://patpat.lk/",
+    "title": "Sri Lanka’s Trusted Marketplace | Buy & Sell in Sri Lanka | patpat.lk",
+    "textLen": 2276,
+    "anchors": 761
+   },
+   "verdict": "active",
+   "why": "2276 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "mp-lk-riyasewana",
+   "name": "Riyasewana",
+   "website": "https://www.riyasewana.com/",
+   "country": "sri-lanka",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://riyasewana.com/",
+    "title": "Riyasewana - Car Prices, Buy & Sell Vehicles in Sri Lanka",
+    "textLen": 6087,
+    "anchors": 786
+   },
+   "verdict": "active",
+   "why": "6087 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "mp-mk-reklama5",
+   "name": "Reklama5",
+   "website": "https://www.reklama5.mk/",
+   "country": "north-macedonia",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://reklama5.com/",
+    "title": "Oglasi | Reklama5.mk | Ads | Cars | Real estate | Computers | Mobile phones | Services,Business | Employment | Advertisements |",
+    "textLen": 2794,
+    "anchors": 97
+   },
+   "verdict": "redirected",
+   "why": "reklama5.mk now serves reklama5.com",
+   "to": "https://reklama5.com/"
+  },
+  {
+   "id": "mp-mx-inmuebles24",
+   "name": "Inmuebles24",
+   "website": "https://www.inmuebles24.com/",
+   "country": "mexico",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.inmuebles24.com/",
+    "title": "Just a moment...",
+    "textLen": 267,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "mp-mx-vivanuncios",
+   "name": "Vivanuncios",
+   "website": "https://www.vivanuncios.com.mx/",
+   "country": "mexico",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.vivanuncios.com.mx/",
+    "title": "Just a moment...",
+    "textLen": 270,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "mp-my-carlist",
+   "name": "Carlist.my",
+   "website": "https://www.carlist.my/",
+   "country": "malaysia",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.carlist.my/",
+    "title": "Find New, Used & Recon Cars in Malaysia | From Budget to Premium - Carlist.my",
+    "textLen": 14571,
+    "anchors": 1157
+   },
+   "verdict": "active",
+   "why": "14571 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "mp-my-carousell",
+   "name": "Carousell Malaysia",
+   "website": "https://www.carousell.com.my/",
+   "country": "malaysia",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.carousell.com.my/",
+    "title": "Just a moment...",
+    "textLen": 268,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "mp-my-iproperty",
+   "name": "iProperty Malaysia",
+   "website": "https://www.iproperty.com.my/",
+   "country": "malaysia",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.iproperty.com.my/",
+    "title": "Find Malaysian Properties for Sale & Rent | iProperty",
+    "textLen": 3542,
+    "anchors": 764
+   },
+   "verdict": "active",
+   "why": "3542 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "mp-ng-cars45",
+   "name": "Cars45",
+   "website": "https://cars45.com/",
+   "country": "nigeria",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://cars45.com/",
+    "title": "Just a moment...",
+    "textLen": 258,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "mp-ng-jiji",
+   "name": "Jiji Nigeria",
+   "website": "https://jiji.ng/",
+   "country": "nigeria",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://jiji.ng/",
+    "title": "Just a moment...",
+    "textLen": 255,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "mp-ng-jumia",
+   "name": "Jumia Nigeria",
+   "website": "https://www.jumia.com.ng/",
+   "country": "nigeria",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.jumia.com.ng/",
+    "title": "Just a moment...",
+    "textLen": 264,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "mp-ng-npc",
+   "name": "Nigeria Property Centre",
+   "website": "https://nigeriapropertycentre.com/",
+   "country": "nigeria",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://nigeriapropertycentre.com/",
+    "title": "Just a moment...",
+    "textLen": 273,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "mp-ng-propertypro",
+   "name": "PropertyPro.ng",
+   "website": "https://www.propertypro.ng/",
+   "country": "nigeria",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://propertypro.ng/",
+    "title": "Just a moment...",
+    "textLen": 262,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "mp-nl-speurders",
+   "name": "Speurders",
+   "website": "https://www.speurders.nl/",
+   "country": "netherlands",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.speurders.nl/",
+    "title": "Adverteren via Speurders.nl",
+    "textLen": 2638,
+    "anchors": 15
+   },
+   "verdict": "active",
+   "why": "2638 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "mp-pe-adondevivir",
+   "name": "A Dónde Vivir",
+   "website": "https://www.adondevivir.com/",
+   "country": "peru",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.adondevivir.com/",
+    "title": "Just a moment...",
+    "textLen": 267,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "mp-pe-neoauto",
+   "name": "Neoauto",
+   "website": "https://www.neoauto.com/",
+   "country": "peru",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.neoauto.com/",
+    "title": "ERROR: The request could not be satisfied",
+    "textLen": 513,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "http 403"
+  },
+  {
+   "id": "mp-pe-urbania",
+   "name": "Urbania",
+   "website": "https://www.urbania.pe/",
+   "country": "peru",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.urbania.pe/",
+    "title": "Just a moment...",
+    "textLen": 262,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "mp-ph-autodeal",
+   "name": "AutoDeal",
+   "website": "https://www.autodeal.com.ph/",
+   "country": "philippines",
+   "observed": {
+    "status": 202,
+    "finalUrl": "https://www.autodeal.com.ph/",
+    "title": "Car Buying Simplified in the Philippines | AutoDeal",
+    "textLen": 9015,
+    "anchors": 655
+   },
+   "verdict": "active",
+   "why": "9015 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "mp-ph-carousell",
+   "name": "Carousell Philippines",
+   "website": "https://www.carousell.ph/",
+   "country": "philippines",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.carousell.ph/",
+    "title": "Just a moment...",
+    "textLen": 264,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "mp-ph-lamudi",
+   "name": "Lamudi Philippines",
+   "website": "https://www.lamudi.com.ph/",
+   "country": "philippines",
+   "observed": {
+    "status": 401,
+    "finalUrl": "https://www.lamudi.com.ph/",
+    "title": null,
+    "textLen": 13,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "access-denied"
+  },
+  {
+   "id": "mp-pl-allegro",
+   "name": "Allegro",
+   "website": "https://allegro.pl/",
+   "country": "poland",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://allegro.pl/",
+    "title": "allegro.pl",
+    "textLen": 0,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "http 403"
+  },
+  {
+   "id": "mp-pl-olx",
+   "name": "OLX Polska",
+   "website": "https://www.olx.pl/",
+   "country": "poland",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.olx.pl/",
+    "title": "Ogłoszenia - Sprzedam, kupię na OLX.pl",
+    "textLen": 5116,
+    "anchors": 114
+   },
+   "verdict": "active",
+   "why": "5116 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "mp-ro-olx",
+   "name": "OLX Romania",
+   "website": "https://www.olx.ro/",
+   "country": "romania",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.olx.ro/",
+    "title": "Anunturi Gratuite - Peste 4 milioane anunturi - OLX.ro",
+    "textLen": 5844,
+    "anchors": 109
+   },
+   "verdict": "active",
+   "why": "5844 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "mp-rs-halooglasi",
+   "name": "Halo Oglasi",
+   "website": "https://www.halooglasi.com/",
+   "country": "serbia",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.halooglasi.com/",
+    "title": "Nekretnine, posao, odmor, usluge | Halo oglasi",
+    "textLen": 2113,
+    "anchors": 222
+   },
+   "verdict": "active",
+   "why": "2113 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "mp-rs-polovniautomobili",
+   "name": "Polovni Automobili",
+   "website": "https://www.polovniautomobili.com/",
+   "country": "serbia",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.polovniautomobili.com/",
+    "title": "Polovni automobili - Auto oglasi, prodaja vozila, auto placevi",
+    "textLen": 2393,
+    "anchors": 137
+   },
+   "verdict": "active",
+   "why": "2393 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "mp-ru-avito",
+   "name": "Avito",
+   "website": "https://www.avito.ru/",
+   "country": "russia",
+   "observed": {
+    "status": 429,
+    "finalUrl": "https://www.avito.ru/",
+    "title": "Доступ ограничен: проблема с IP",
+    "textLen": 735,
+    "anchors": 1
+   },
+   "verdict": "blocked",
+   "why": "http 429"
+  },
+  {
+   "id": "mp-se-hemnet",
+   "name": "Hemnet",
+   "website": "https://www.hemnet.se/",
+   "country": "sweden",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.hemnet.se/",
+    "title": "Hemnet - Sveriges största bostadsplattform",
+    "textLen": 1701,
+    "anchors": 81
+   },
+   "verdict": "active",
+   "why": "1701 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "mp-sg-99co",
+   "name": "99.co",
+   "website": "https://www.99.co/",
+   "country": "singapore",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.99.co/",
+    "title": "Singapore Property and Real Estate for Sale & for Rent | 99.co",
+    "textLen": 9838,
+    "anchors": 231
+   },
+   "verdict": "active",
+   "why": "9838 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "mp-sg-carousell",
+   "name": "Carousell",
+   "website": "https://www.carousell.sg/",
+   "country": "singapore",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.carousell.sg/",
+    "title": "Just a moment...",
+    "textLen": 264,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "mp-sg-propertyguru",
+   "name": "PropertyGuru",
+   "website": "https://www.propertyguru.com.sg/",
+   "country": "singapore",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.propertyguru.com.sg/",
+    "title": "Singapore Property, Property for Sale/Rent, Singapore Real Estate | PropertyGuru",
+    "textLen": 6295,
+    "anchors": 902
+   },
+   "verdict": "active",
+   "why": "6295 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "mp-sg-sgcarmart",
+   "name": "sgCarMart",
+   "website": "https://www.sgcarmart.com/",
+   "country": "singapore",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.sgcarmart.com/",
+    "title": "Just a moment...",
+    "textLen": 265,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "mp-si-avto-net",
+   "name": "Avto.net",
+   "website": "https://www.avto.net/",
+   "country": "slovenia",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.avto.net/",
+    "title": "www.Avto.net - AVTONET",
+    "textLen": 5462,
+    "anchors": 3052
+   },
+   "verdict": "active",
+   "why": "5462 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "mp-th-ddproperty",
+   "name": "DDproperty",
+   "website": "https://www.ddproperty.com/",
+   "country": "thailand",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.ddproperty.com/",
+    "title": "ซื้อขายบ้าน บ้านเดี่ยว คอนโด ที่ดิน ทาวน์เฮ้าส์ อพาร์ทเม้นท์ - DDproperty",
+    "textLen": 6722,
+    "anchors": 884
+   },
+   "verdict": "active",
+   "why": "6722 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "mp-th-one2car",
+   "name": "One2car",
+   "website": "https://www.one2car.com/",
+   "country": "thailand",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.one2car.com/",
+    "title": "รวมรถมือสอง ซื้อขายรถบ้าน รถเต็นท์ ราคาดีที่สุด ที่ตลาดรถ One2car",
+    "textLen": 25766,
+    "anchors": 2136
+   },
+   "verdict": "active",
+   "why": "25766 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "mp-tr-arabam",
+   "name": "Arabam.com",
+   "website": "https://www.arabam.com/",
+   "country": "turkey",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.arabam.com/",
+    "title": "Just a moment...",
+    "textLen": 262,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "mp-tr-hepsiemlak",
+   "name": "Hepsiemlak",
+   "website": "https://www.hepsiemlak.com/",
+   "country": "turkey",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.hepsiemlak.com/",
+    "title": "Just a moment...",
+    "textLen": 266,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "mp-tr-sahibinden",
+   "name": "Sahibinden",
+   "website": "https://www.sahibinden.com/",
+   "country": "turkey",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://secure.sahibinden.com/login?return_url=https%3A%2F%2Fbanaozel.sahibinden.com%2F",
+    "title": "sahibinden.com Log In",
+    "textLen": 598,
+    "anchors": 50
+   },
+   "verdict": "blocked",
+   "why": "captcha"
+  },
+  {
+   "id": "mp-tz-jiji",
+   "name": "Jiji Tanzania",
+   "website": "https://jiji.co.tz/",
+   "country": "tanzania",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://jiji.co.tz/",
+    "title": "Just a moment...",
+    "textLen": 258,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "mp-ug-jiji",
+   "name": "Jiji Uganda",
+   "website": "https://jiji.ug/",
+   "country": "uganda",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://jiji.ug/",
+    "title": "Just a moment...",
+    "textLen": 255,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "mp-uk-freeads",
+   "name": "Freeads",
+   "website": "https://www.freeads.co.uk/",
+   "country": "united-kingdom",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.freeads.co.uk/",
+    "title": "Just a moment...",
+    "textLen": 265,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "mp-uk-gumtree",
+   "name": "Gumtree",
+   "website": "https://www.gumtree.com/",
+   "country": "united-kingdom",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.gumtree.com/",
+    "title": "Gumtree | One of the UK's most popular online marketplaces",
+    "textLen": 6682,
+    "anchors": 234
+   },
+   "verdict": "active",
+   "why": "6682 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "mp-us-5miles",
+   "name": "5miles",
+   "website": "https://www.5miles.com/",
+   "country": "united-states",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.5miles.com/",
+    "title": "Access Denied",
+    "textLen": 194,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "access-denied"
+  },
+  {
+   "id": "mp-us-apartments",
+   "name": "Apartments.com",
+   "website": "https://www.apartments.com/",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.apartments.com/",
+    "title": null,
+    "textLen": 0,
+    "anchors": 1
+   },
+   "verdict": "inconclusive",
+   "why": "only 0 characters rendered"
+  },
+  {
+   "id": "mp-us-cargurus",
+   "name": "CarGurus",
+   "website": "https://www.cargurus.com/",
+   "country": "united-states",
+   "observed": {
+    "status": 406,
+    "finalUrl": "chrome-error://chromewebdata/",
+    "title": "www.cargurus.com",
+    "textLen": 97,
+    "anchors": 0
+   },
+   "verdict": "unreachable",
+   "why": "the browser could not open the site at all"
+  },
+  {
+   "id": "mp-us-cars",
+   "name": "Cars.com",
+   "website": "https://www.cars.com/",
+   "country": "united-states",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.cars.com/",
+    "title": "Just a moment...",
+    "textLen": 255,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "mp-us-depop",
+   "name": "Depop",
+   "website": "https://www.depop.com/",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.depop.com/",
+    "title": "Depop - buy, sell, discover unique fashion",
+    "textLen": 1609,
+    "anchors": 233
+   },
+   "verdict": "active",
+   "why": "1609 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "mp-us-etsy",
+   "name": "Etsy",
+   "website": "https://www.etsy.com/",
+   "country": "united-states",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.etsy.com/",
+    "title": "etsy.com",
+    "textLen": 0,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "http 403"
+  },
+  {
+   "id": "mp-us-hoobly",
+   "name": "Hoobly",
+   "website": "https://www.hoobly.com/",
+   "country": "united-states",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.hoobly.com/",
+    "title": "No Access - Hoobly",
+    "textLen": 93,
+    "anchors": 5
+   },
+   "verdict": "blocked",
+   "why": "http 403"
+  },
+  {
+   "id": "mp-us-ksl",
+   "name": "KSL Classifieds",
+   "website": "https://www.ksl.com/classifieds/",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://classifieds.ksl.com/",
+    "title": "Classifieds for Utah, Idaho, and Wyoming | ksl.com",
+    "textLen": 2764,
+    "anchors": 669
+   },
+   "verdict": "active",
+   "why": "2764 characters of real content",
+   "routes": {
+    "create": {
+     "text": "Add Listing",
+     "href": "https://classifieds.ksl.com/sell"
+    }
+   }
+  },
+  {
+   "id": "mp-us-locanto",
+   "name": "Locanto",
+   "website": "https://www.locanto.com/",
+   "country": "united-states",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.locanto.com/",
+    "title": "Just a moment...",
+    "textLen": 193,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "mp-us-mercari",
+   "name": "Mercari",
+   "website": "https://www.mercari.com/",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.mercari.com/",
+    "title": "Your Go-to Marketplace for Deals on Used & Secondhand Items | Mercari",
+    "textLen": 177,
+    "anchors": 1
+   },
+   "verdict": "inconclusive",
+   "why": "only 177 characters rendered"
+  },
+  {
+   "id": "mp-us-offerup",
+   "name": "OfferUp",
+   "website": "https://www.offerup.com/",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://offerup.com/unavailable/geo",
+    "title": null,
+    "textLen": 413,
+    "anchors": 1
+   },
+   "verdict": "active",
+   "why": "413 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "mp-us-oodle",
+   "name": "Oodle",
+   "website": "https://www.oodle.com/",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.oodle.com/",
+    "title": "Classifieds - Oodle.com",
+    "textLen": 11487,
+    "anchors": 663
+   },
+   "verdict": "active",
+   "why": "11487 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "mp-us-reverb",
+   "name": "Reverb",
+   "website": "https://www.reverb.com/",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://reverb.com/",
+    "title": "Musical Instruments For Sale - New & Used Music Gear | Reverb",
+    "textLen": 5083,
+    "anchors": 103
+   },
+   "verdict": "active",
+   "why": "5083 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "mp-us-zillow",
+   "name": "Zillow",
+   "website": "https://www.zillow.com/",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.zillow.com/",
+    "title": "Zillow: Real Estate, Apartments, Mortgages & Home Values",
+    "textLen": 3093,
+    "anchors": 268
+   },
+   "verdict": "active",
+   "why": "3093 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "mp-vn-batdongsan",
+   "name": "Batdongsan",
+   "website": "https://batdongsan.com.vn/",
+   "country": "vietnam",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://batdongsan.com.vn/",
+    "title": "Nền tảng bất động sản uy tín - Mua bán, cho thuê nhà đất toàn quốc | Batdongsan.com.vn",
+    "textLen": 6757,
+    "anchors": 951
+   },
+   "verdict": "active",
+   "why": "6757 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "mp-vn-muaban",
+   "name": "Muaban.net",
+   "website": "https://muaban.net/",
+   "country": "vietnam",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://muaban.net/",
+    "title": "Mua bán đăng tin rao vặt miễn phí nhanh chóng, hiệu quả 2026 - Muaban.net",
+    "textLen": 21019,
+    "anchors": 126
+   },
+   "verdict": "active",
+   "why": "21019 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "mp-za-junkmail",
+   "name": "Junk Mail",
+   "website": "https://www.junkmail.co.za/",
+   "country": "south-africa",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.junkmail.co.za/",
+    "title": "Just a moment...",
+    "textLen": 266,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  }
+ ]
+}

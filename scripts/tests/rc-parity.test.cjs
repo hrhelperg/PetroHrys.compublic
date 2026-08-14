@@ -269,9 +269,12 @@ test('equivalent filter state returns the identical record identity set, in all 
     }
   }
   assert.ok(states >= 3000, `only ${states} filter states replayed`);
-  assert.ok(identities >= 100000, `only ${identities} record identities compared`);
+  // The floor dropped from 100,000 to 85,000 when the listing worklist stopped
+  // rendering 638 of its opportunities a second time. Fewer comparisons, same
+  // coverage: the duplicates were re-checking rows this sweep already held.
+  assert.ok(identities >= 85000, `only ${identities} record identities compared`);
   // Not vacuous: 2,343 of the 3,057 replayed states select at least one record,
-  // and those states carry 103,611 identities between them. The 714 that select
+  // and those states carry 89,385 identities between them. The 714 that select
   // nothing are the fully-loaded state on each route — every facet set to its
   // first value at once, which on most collections is an empty intersection —
   // and they are still worth replaying: an empty result must be empty in all
@@ -295,9 +298,10 @@ test('a record carries the same identity in all four locales', () => {
       names += en.length;
     }
   }
-  // 3,811 rendered rows per locale — the worklist alone draws 2,167 — compared
-  // against three other locales: 11,433 identity comparisons.
-  assert.ok(names >= 11000, `only ${names} record identities compared`);
+  // 3,404 rendered rows per locale — the worklist draws 1,609, one per canonical
+  // opportunity — compared against three other locales: 10,212 comparisons. It
+  // read 11,000 when the worklist still drew 2,167 rows for 1,609 records.
+  assert.ok(names >= 9500, `only ${names} record identities compared`);
 });
 
 // ── 4. THE LABELS ARE NOT SHARED ────────────────────────────────────────────

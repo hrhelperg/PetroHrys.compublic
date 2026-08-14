@@ -18,6 +18,8 @@ const path = require('node:path');
 
 const S = require('../lib/bd-schema.cjs');
 const { loadRegistry } = require('../lib/bd-registry.cjs');
+// Publication parity, in place of the per-country totals this suite used to pin.
+const PARITY = require('./helpers/country-parity.cjs');
 
 const ROOT = path.resolve(__dirname, '..', '..');
 const ALL = loadRegistry().directories;
@@ -33,7 +35,9 @@ const hostOf = (u) => new URL(u).hostname.replace(/^www\./, '');
 test('every record this wave claims to have published exists', () => {
   assert.strictEqual(WAVE.length, 2, 'the wave manifest changed size without this test changing');
   for (const id of WAVE) assert.ok(byId.get(id), `missing record ${id}`);
-  assert.strictEqual(ALL.filter((r) => r.country === 'czech-republic').length, 15);
+  // BRITTLE MIRROR, REMOVED: `... === 15`, a per-country total.
+  // See scripts/tests/helpers/country-parity.cjs.
+  PARITY.assertCountryPublicationParity(assert, ALL, 'czech-republic', 15);
 });
 
 // ── the three rejections must not be reversed from reputation ───────────────

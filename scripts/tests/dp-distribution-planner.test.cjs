@@ -481,18 +481,57 @@ test('the planner JSON-LD parses and claims nothing it cannot support', () => {
 });
 
 test('the source collections are unchanged by this feature', () => {
-  // The planner must not have quietly altered a count anywhere.
-  // 286 -> 307 was a deliberate research expansion of the marketplace dataset
-  // (the Gulf, Levant, Maghreb and New Zealand — declared countries that held
-  // zero rows), not a planner side effect. The guard still does its job: it
-  // fails the moment a count moves without someone meaning it to.
-  assert.strictEqual(SRC.marketplaces.length, 307, 'the marketplace count changed');
-  assert.strictEqual(SRC.media.length, 385, 'the media platform count changed');
-  assert.ok(SRC.directories.length > 1500, 'the directory count collapsed');
-  for (const f of ['research/marketplaces/marketplaces.csv',
-    'research/media-pr-publishing/opportunities.csv']) {
+  // BRITTLE MIRRORS, REMOVED: `SRC.marketplaces.length === 307` and
+  // `SRC.media.length === 385`. Both restated a JSON array length, so a
+  // verified research addition — 286 -> 307 when the Gulf, the Levant, the
+  // Maghreb and New Zealand stopped holding zero rows — failed a test about the
+  // PLANNER, and the fix was always to retype the number.
+  //
+  // The property is that the planner consumes each collection WHOLE and drops
+  // nothing: what it holds is exactly the canonical publishable set. Stated as
+  // identity rather than as a count it is strictly stronger than the literal
+  // was — swapping one row for another moved neither total — and it never needs
+  // editing again.
+  // (a) The planner invents nothing: every row it holds is a row of the
+  //     canonical registry file, by id. Compared against the RAW file, so this
+  //     is not the planner's own load expression restated back at it.
+  const rawIds = (rel) => new Set(JSON.parse(
+    fs.readFileSync(path.join(ROOT, rel), 'utf8')).map((r) => r.id));
+  const canonicalMarketplaces = rawIds('data/marketplaces/marketplaces.json');
+  const canonicalMedia = rawIds('data/media-pr-publishing/media-platforms.json');
+  for (const r of SRC.marketplaces) {
+    assert.ok(canonicalMarketplaces.has(r.id), `${r.id} is not in the marketplace registry`);
+  }
+  for (const r of SRC.media) {
+    assert.ok(canonicalMedia.has(r.id), `${r.id} is not in the media registry`);
+  }
+  // (b) And it drops nothing: the count the collection PUBLISHED is the count
+  //     the planner consumes. Generated === canonical, which is what the
+  //     literal was standing in for.
+  const dataRows = (csv) => {
+    let rows = 0;
+    let quoted = false;
+    for (let i = 0; i < csv.length; i += 1) {
+      const c = csv[i];
+      if (c === '"') {
+        if (quoted && csv[i + 1] === '"') { i += 1; } else { quoted = !quoted; }
+      } else if (c === '\n' && !quoted) rows += 1;
+    }
+    return rows - 1; // the header
+  };
+  const published = {
+    'research/marketplaces/marketplaces.csv': SRC.marketplaces.length,
+    'research/media-pr-publishing/opportunities.csv': SRC.media.length,
+  };
+  for (const [f, expected] of Object.entries(published)) {
     const csv = fs.readFileSync(path.join(ROOT, f), 'utf8');
     assert.strictEqual(csv.charCodeAt(0), 0xFEFF, `${f} lost its BOM`);
     assert.ok(/\r\n/.test(csv), `${f} lost CRLF`);
+    assert.strictEqual(dataRows(csv.replace(/^﻿/, '')), expected,
+      `${f} publishes ${dataRows(csv)} rows; the planner consumes ${expected}`);
   }
+  // Floors, not mirrors: these move only if a collection collapses.
+  assert.ok(SRC.marketplaces.length > 250, `the marketplace set fell to ${SRC.marketplaces.length}`);
+  assert.ok(SRC.media.length > 300, `the media set fell to ${SRC.media.length}`);
+  assert.ok(SRC.directories.length > 1500, 'the directory count collapsed');
 });

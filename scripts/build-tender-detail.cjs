@@ -245,11 +245,18 @@ function assertOwned(file) {
   }
 }
 
-function main() {
-  if (!fs.existsSync(CORPUS_FILE)) {
-    console.log('Tender Detail Pages: no corpus; nothing to build.');
-    return;
-  }
+// ── ONE RENDER PATH, SHARED WITH THE DRIFT GUARD ────────────────────────────
+//
+// Everything main() needs to turn the committed corpus into page bytes lives
+// here, and main() is the only caller that also WRITES. The generated-drift
+// guard calls prepare() and re-renders committed pages through this exact
+// function, so it compares against the real generator rather than against a
+// second copy of it in a test file.
+//
+// A test that reimplements the pipeline can only prove that two copies of the
+// generator agree with each other — which is precisely the failure mode that
+// let 21,948 pages sit one line behind scripts/lib/bd-render.cjs.
+function prepare() {
   const corpus = CORPUS.decode(JSON.parse(fs.readFileSync(CORPUS_FILE, 'utf8')));
   const countries = JSON.parse(fs.readFileSync(COUNTRIES_FILE, 'utf8'));
   const nameBySlug = new Map(countries.map((x) => [x.slug, x.name]));
@@ -283,12 +290,10 @@ function main() {
     }
   }
 
-  const previous = fs.existsSync(MANIFEST_FILE)
-    ? JSON.parse(fs.readFileSync(MANIFEST_FILE, 'utf8')).files || [] : [];
-  const written = [];
-  const owned = [];
-
-  for (const p of pages) {
+  // The bytes of ONE published page, as a pure function of the committed
+  // corpus. No filesystem write, no clock, no network — so a caller can render
+  // a page purely to compare it with what is on disk.
+  const renderFor = (p) => {
     const s = p.source;
     const related = (relatedOf.get(p.id) || []).slice(0, 8).map((id) => {
       const other = byId.get(id);
@@ -310,19 +315,40 @@ function main() {
       canonicalPath: p.route,
       indexable: p.indexable,
     });
-    const file = path.join(ROOT, `${p.route.replace(/^\//, '')}index.html`);
-    assertOwned(file);
-    writeIfChanged(file, render.renderPage({
+    return render.renderPage({
       meta,
       main: renderMain(p, { t, countryName, sourceName, platformName, related }),
       locale: LOCALE,
       // The declaration that makes this route family honest.
       availableLocales: LOCALES,
-    }), written);
+    });
+  };
+
+  const fileFor = (p) => path.join(ROOT, `${p.route.replace(/^\//, '')}index.html`);
+
+  return { corpus, built, pages, renderFor, fileFor, sitemap: () => renderSitemap(pages) };
+}
+
+function main() {
+  if (!fs.existsSync(CORPUS_FILE)) {
+    console.log('Tender Detail Pages: no corpus; nothing to build.');
+    return;
+  }
+  const { built, pages, renderFor, fileFor, sitemap } = prepare();
+
+  const previous = fs.existsSync(MANIFEST_FILE)
+    ? JSON.parse(fs.readFileSync(MANIFEST_FILE, 'utf8')).files || [] : [];
+  const written = [];
+  const owned = [];
+
+  for (const p of pages) {
+    const file = fileFor(p);
+    assertOwned(file);
+    writeIfChanged(file, renderFor(p), written);
     owned.push(file);
   }
 
-  writeIfChanged(SITEMAP_FILE, renderSitemap(pages), written);
+  writeIfChanged(SITEMAP_FILE, sitemap(), written);
   owned.push(SITEMAP_FILE);
 
   const ownedRel = owned.map((f) => path.relative(ROOT, f));
@@ -349,5 +375,6 @@ function main() {
 if (require.main === module) main();
 
 module.exports = {
-  BASE_PATH, LOCALE, LOCALES, renderMain, renderSitemap, assertOwned, main,
+  BASE_PATH, LOCALE, LOCALES, renderMain, renderSitemap, assertOwned, main, prepare,
+  CORPUS_FILE, MANIFEST_FILE, SITEMAP_FILE,
 };

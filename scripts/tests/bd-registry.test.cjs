@@ -37,7 +37,14 @@ test('loads the current registry', () => {
   assert.ok(registry.countries.length >= 11, 'the geographic registry lost entries');
   assert.strictEqual(registry.countries.length,
     require('../../data/business-directories/countries.json').length);
-  assert.strictEqual(registry.categories.length, 21);
+  // BRITTLE MIRROR, REMOVED: `registry.categories.length === 21` restated
+  // categories.json's array length, two lines below the comment explaining why
+  // countries are NOT pinned that way. The loader property — the registry
+  // exposes every declared category and invents none — is what the file states.
+  // The closed category vocabulary itself is guarded by the ontology tests.
+  assert.ok(registry.categories.length >= 21, 'the category taxonomy lost entries');
+  assert.strictEqual(registry.categories.length,
+    require('../../data/business-directories/categories.json').length);
   assert.ok(registry.directories.length > 0, 'the registry now holds verified records');
   for (const entry of registry.directories) {
     assert.ok(entry.lastVerified, `${entry.id} has no verification date`);
@@ -203,7 +210,11 @@ test('groupByCategory returns every category in declaration order', () => {
   const root = fixture({ 'united-states': [record()] });
   const registry = loadRegistry(root);
   const grouped = groupByCategory(registry, 'united-states');
-  assert.strictEqual(grouped.size, 21);
+  // BRITTLE MIRROR, REMOVED: a second copy of categories.json's length. The
+  // line below already pins the identity AND the order of every key, which is
+  // the whole property; the count was a weaker restatement of it that a 22nd
+  // category would have broken on its own.
+  assert.strictEqual(grouped.size, registry.categories.length);
   assert.deepStrictEqual([...grouped.keys()], registry.categories.map((c) => c.slug));
   assert.strictEqual(grouped.get('saas').length, 1);
   assert.strictEqual(grouped.get('legal').length, 0);

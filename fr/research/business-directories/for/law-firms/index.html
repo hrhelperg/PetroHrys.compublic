@@ -2,12 +2,11 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/af075fab2c66644b181224ee/script.js"></script>
-  <!-- WebmasterID analytics — consent-gated via CookieYes (analytics category); fires only after consent -->
-  <script id="webmasterid-tracker" type="text/plain" data-cookieyes="cookieyes-analytics" defer src="https://webmasterid.com/tracker.iife.min.js" data-wmid="wm_bktqqtd7heom5nkl" data-endpoint="https://webmasterid-ingest-api.vercel.app/api/events"></script>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4RE6YCJZBD"></script>
-  <script>
+  <script src="/js/consent.js" defer></script>
+  <!-- Analytics below is inert until a visitor accepts. See js/consent.js. -->
+  <script id="webmasterid-tracker" type="text/plain" data-consent="analytics" defer src="https://webmasterid.com/tracker.iife.min.js" data-wmid="wm_bktqqtd7heom5nkl" data-endpoint="https://webmasterid-ingest-api.vercel.app/api/events"></script>
+  <script type="text/plain" data-consent="analytics" async src="https://www.googletagmanager.com/gtag/js?id=G-4RE6YCJZBD"></script>
+  <script type="text/plain" data-consent="analytics">
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
@@ -182,7 +181,7 @@
 
     <section class="bd-section" aria-labelledby="ranked">
       <h2 id="ranked">Recommandations classées</h2>
-      <p>25 platforms, ranked by how well each suits law firms rather than by how good it is in general. 0 priority, 0 recommended, 8 possible, 17 marginal. Une note de recommandation est l’adéquation multipliée par la qualité de la plateforme : une plateforme performante pour un autre type d’entreprise obtient donc volontairement une note faible ici.</p>
+      <p>25 platforms, ranked by how well each suits law firms rather than by how good it is in general. 0 priority, 0 recommended, 5 possible, 20 marginal. Une note de recommandation est l’adéquation multipliée par la qualité de la plateforme : une plateforme performante pour un autre type d’entreprise obtient donc volontairement une note faible ici.</p>
       <div class="bd-table-wrap">
         <table class="bd-table">
           <caption>Directories ranked for law firms</caption>
@@ -202,33 +201,12 @@
             <td data-label="Fit basis">category</td>
             <td data-label="Why"><ul class="bd-reasons"><li>Listed under legal, a category that serves law firms.</li><li>High referral potential.</li><li>Verified listings — the directory checks entries before publishing.</li><li>A leading platform in its field.</li></ul></td>
           </tr>
-          <tr data-bd-rec-level="Possible" data-bd-rec-basis="category">
-            <td data-label="Platform"><a href="https://www.jusbrasil.com.br/" rel="noopener noreferrer" target="_blank">Jusbrasil</a></td>
-            <td data-label="Score">35</td>
-            <td data-label="Level">Possible</td>
-            <td data-label="Fit basis">category</td>
-            <td data-label="Why"><ul class="bd-reasons"><li>Listed under legal, a category that serves law firms.</li><li>High referral potential.</li><li>A leading platform in its field.</li><li>Scored from reputation and status only — not enough evidence yet for a full Directory Score.</li></ul></td>
-          </tr>
           <tr data-bd-rec-level="Possible" data-bd-rec-basis="keyword">
             <td data-label="Platform"><a href="https://www.europages.co.uk/" rel="noopener noreferrer" target="_blank">Europages</a></td>
             <td data-label="Score">35</td>
             <td data-label="Level">Possible</td>
             <td data-label="Fit basis">keyword</td>
             <td data-label="Why"><ul class="bd-reasons"><li>The platform&#39;s own description names this field (&quot;legal&quot;).</li><li>Strong SEO value from its link and indexing behaviour.</li><li>High referral potential.</li><li>Profile pages are indexed.</li><li>A leading platform in its field.</li></ul></td>
-          </tr>
-          <tr data-bd-rec-level="Possible" data-bd-rec-basis="category">
-            <td data-label="Platform"><a href="https://www.avvo.com/" rel="noopener noreferrer" target="_blank">Avvo</a></td>
-            <td data-label="Score">35</td>
-            <td data-label="Level">Possible</td>
-            <td data-label="Fit basis">category</td>
-            <td data-label="Why"><ul class="bd-reasons"><li>Listed under legal, a category that serves law firms.</li><li>High referral potential.</li><li>A leading platform in its field.</li><li>Scored from reputation and status only — not enough evidence yet for a full Directory Score.</li></ul></td>
-          </tr>
-          <tr data-bd-rec-level="Possible" data-bd-rec-basis="category">
-            <td data-label="Platform"><a href="https://www.findlaw.com/" rel="noopener noreferrer" target="_blank">FindLaw</a></td>
-            <td data-label="Score">35</td>
-            <td data-label="Level">Possible</td>
-            <td data-label="Fit basis">category</td>
-            <td data-label="Why"><ul class="bd-reasons"><li>Listed under legal, a category that serves law firms.</li><li>High referral potential.</li><li>A leading platform in its field.</li><li>Scored from reputation and status only — not enough evidence yet for a full Directory Score.</li></ul></td>
           </tr>
           <tr data-bd-rec-level="Possible" data-bd-rec-basis="category">
             <td data-label="Platform"><a href="https://www.justia.com/" rel="noopener noreferrer" target="_blank">Justia</a></td>
@@ -241,6 +219,13 @@
             <td data-label="Platform"><a href="https://www.martindale.com/" rel="noopener noreferrer" target="_blank">Martindale-Hubbell</a></td>
             <td data-label="Score">35</td>
             <td data-label="Level">Possible</td>
+            <td data-label="Fit basis">category</td>
+            <td data-label="Why"><ul class="bd-reasons"><li>Listed under legal, a category that serves law firms.</li><li>High referral potential.</li><li>A leading platform in its field.</li><li>Scored from reputation and status only — not enough evidence yet for a full Directory Score.</li></ul></td>
+          </tr>
+          <tr data-bd-rec-level="Marginal" data-bd-rec-basis="category">
+            <td data-label="Platform"><a href="https://www.jusbrasil.com.br/" rel="noopener noreferrer" target="_blank">Jusbrasil</a></td>
+            <td data-label="Score">34</td>
+            <td data-label="Level">Marginal</td>
             <td data-label="Fit basis">category</td>
             <td data-label="Why"><ul class="bd-reasons"><li>Listed under legal, a category that serves law firms.</li><li>High referral potential.</li><li>A leading platform in its field.</li><li>Scored from reputation and status only — not enough evidence yet for a full Directory Score.</li></ul></td>
           </tr>
@@ -259,7 +244,28 @@
             <td data-label="Why"><ul class="bd-reasons"><li>Listed under legal, a category that serves law firms.</li><li>High referral potential.</li><li>A leading platform in its field.</li><li>Scored from reputation and status only — not enough evidence yet for a full Directory Score.</li></ul></td>
           </tr>
           <tr data-bd-rec-level="Marginal" data-bd-rec-basis="category">
+            <td data-label="Platform"><a href="https://www.avvo.com/" rel="noopener noreferrer" target="_blank">Avvo</a></td>
+            <td data-label="Score">34</td>
+            <td data-label="Level">Marginal</td>
+            <td data-label="Fit basis">category</td>
+            <td data-label="Why"><ul class="bd-reasons"><li>Listed under legal, a category that serves law firms.</li><li>High referral potential.</li><li>A leading platform in its field.</li><li>Scored from reputation and status only — not enough evidence yet for a full Directory Score.</li></ul></td>
+          </tr>
+          <tr data-bd-rec-level="Marginal" data-bd-rec-basis="category">
+            <td data-label="Platform"><a href="https://www.findlaw.com/" rel="noopener noreferrer" target="_blank">FindLaw</a></td>
+            <td data-label="Score">34</td>
+            <td data-label="Level">Marginal</td>
+            <td data-label="Fit basis">category</td>
+            <td data-label="Why"><ul class="bd-reasons"><li>Listed under legal, a category that serves law firms.</li><li>High referral potential.</li><li>A leading platform in its field.</li><li>Scored from reputation and status only — not enough evidence yet for a full Directory Score.</li></ul></td>
+          </tr>
+          <tr data-bd-rec-level="Marginal" data-bd-rec-basis="category">
             <td data-label="Platform"><a href="https://www.anwaltauskunft.de/" rel="noopener noreferrer" target="_blank">Deutsche Anwaltauskunft</a></td>
+            <td data-label="Score">29</td>
+            <td data-label="Level">Marginal</td>
+            <td data-label="Fit basis">category</td>
+            <td data-label="Why"><ul class="bd-reasons"><li>Listed under legal, a category that serves law firms.</li><li>Scored from reputation and status only — not enough evidence yet for a full Directory Score.</li></ul></td>
+          </tr>
+          <tr data-bd-rec-level="Marginal" data-bd-rec-basis="category">
+            <td data-label="Platform"><a href="https://www.superlawyers.com/" rel="noopener noreferrer" target="_blank">Super Lawyers</a></td>
             <td data-label="Score">29</td>
             <td data-label="Level">Marginal</td>
             <td data-label="Fit basis">category</td>
@@ -293,19 +299,19 @@
             <td data-label="Fit basis">category</td>
             <td data-label="Why"><ul class="bd-reasons"><li>Listed under legal, a category that serves law firms.</li><li>Scored from reputation and status only — not enough evidence yet for a full Directory Score.</li></ul></td>
           </tr>
-          <tr data-bd-rec-level="Marginal" data-bd-rec-basis="category">
-            <td data-label="Platform"><a href="https://www.superlawyers.com/" rel="noopener noreferrer" target="_blank">Super Lawyers</a></td>
-            <td data-label="Score">25</td>
-            <td data-label="Level">Marginal</td>
-            <td data-label="Fit basis">category</td>
-            <td data-label="Why"><ul class="bd-reasons"><li>Listed under legal, a category that serves law firms.</li><li>Scored from reputation and status only — not enough evidence yet for a full Directory Score.</li></ul></td>
-          </tr>
           <tr data-bd-rec-level="Marginal" data-bd-rec-basis="unknown">
             <td data-label="Platform"><a href="https://huggingface.co/" rel="noopener noreferrer" target="_blank">Hugging Face</a></td>
             <td data-label="Score">24</td>
             <td data-label="Level">Marginal</td>
             <td data-label="Fit basis">unknown</td>
             <td data-label="Why"><ul class="bd-reasons"><li>High referral potential.</li><li>Verified listings — the directory checks entries before publishing.</li><li>Straightforward to join.</li><li>Free tier available.</li><li>A leading platform in its field.</li><li>Fit is not established: the platform has not stated which business types it accepts.</li></ul></td>
+          </tr>
+          <tr data-bd-rec-level="Marginal" data-bd-rec-basis="keyword">
+            <td data-label="Platform"><a href="https://www.rusprofile.ru/" rel="noopener noreferrer" target="_blank">Rusprofile</a></td>
+            <td data-label="Score">24</td>
+            <td data-label="Level">Marginal</td>
+            <td data-label="Fit basis">keyword</td>
+            <td data-label="Why"><ul class="bd-reasons"><li>The platform&#39;s own description names this field (&quot;legal&quot;).</li><li>Scored from reputation and status only — not enough evidence yet for a full Directory Score.</li></ul></td>
           </tr>
           <tr data-bd-rec-level="Marginal" data-bd-rec-basis="keyword">
             <td data-label="Platform"><a href="https://www.chamberofcommerce.com/" rel="noopener noreferrer" target="_blank">ChamberofCommerce.com</a></td>
@@ -316,6 +322,20 @@
           </tr>
           <tr data-bd-rec-level="Marginal" data-bd-rec-basis="category">
             <td data-label="Platform"><a href="https://www.lawyer.com/" rel="noopener noreferrer" target="_blank">Lawyer.com</a></td>
+            <td data-label="Score">24</td>
+            <td data-label="Level">Marginal</td>
+            <td data-label="Fit basis">category</td>
+            <td data-label="Why"><ul class="bd-reasons"><li>Listed under legal, a category that serves law firms.</li><li>Scored from reputation and status only — not enough evidence yet for a full Directory Score.</li></ul></td>
+          </tr>
+          <tr data-bd-rec-level="Marginal" data-bd-rec-basis="category">
+            <td data-label="Platform"><a href="https://www.lawyerlegion.com/" rel="noopener noreferrer" target="_blank">Lawyer Legion</a></td>
+            <td data-label="Score">24</td>
+            <td data-label="Level">Marginal</td>
+            <td data-label="Fit basis">category</td>
+            <td data-label="Why"><ul class="bd-reasons"><li>Listed under legal, a category that serves law firms.</li><li>Straightforward to join.</li><li>Free listing.</li><li>Scored from reputation and status only — not enough evidence yet for a full Directory Score.</li></ul></td>
+          </tr>
+          <tr data-bd-rec-level="Marginal" data-bd-rec-basis="category">
+            <td data-label="Platform"><a href="https://www.legalmatch.com/" rel="noopener noreferrer" target="_blank">LegalMatch</a></td>
             <td data-label="Score">24</td>
             <td data-label="Level">Marginal</td>
             <td data-label="Fit basis">category</td>
@@ -337,27 +357,6 @@
           </tr>
           <tr data-bd-rec-level="Marginal" data-bd-rec-basis="unknown">
             <td data-label="Platform"><a href="https://www.capterra.com/" rel="noopener noreferrer" target="_blank">Capterra</a></td>
-            <td data-label="Score">21</td>
-            <td data-label="Level">Marginal</td>
-            <td data-label="Fit basis">unknown</td>
-            <td data-label="Why"><ul class="bd-reasons"><li>Strong SEO value from its link and indexing behaviour.</li><li>High referral potential.</li><li>Verified listings — the directory checks entries before publishing.</li><li>Profile pages are indexed.</li><li>A leading platform in its field.</li><li>Fit is not established: the platform has not stated which business types it accepts.</li></ul></td>
-          </tr>
-          <tr data-bd-rec-level="Marginal" data-bd-rec-basis="unknown">
-            <td data-label="Platform"><a href="https://www.crunchbase.com/" rel="noopener noreferrer" target="_blank">Crunchbase</a></td>
-            <td data-label="Score">21</td>
-            <td data-label="Level">Marginal</td>
-            <td data-label="Fit basis">unknown</td>
-            <td data-label="Why"><ul class="bd-reasons"><li>Strong SEO value from its link and indexing behaviour.</li><li>High referral potential.</li><li>Free tier available.</li><li>Profile pages are indexed.</li><li>Has a submission API.</li><li>A leading platform in its field.</li><li>Fit is not established: the platform has not stated which business types it accepts.</li></ul></td>
-          </tr>
-          <tr data-bd-rec-level="Marginal" data-bd-rec-basis="unknown">
-            <td data-label="Platform"><a href="https://www.f6s.com/" rel="noopener noreferrer" target="_blank">F6S</a></td>
-            <td data-label="Score">21</td>
-            <td data-label="Level">Marginal</td>
-            <td data-label="Fit basis">unknown</td>
-            <td data-label="Why"><ul class="bd-reasons"><li>Strong SEO value from its link and indexing behaviour.</li><li>High referral potential.</li><li>Straightforward to join.</li><li>Profile pages are indexed.</li><li>Publishes without waiting for review.</li><li>Fit is not established: the platform has not stated which business types it accepts.</li></ul></td>
-          </tr>
-          <tr data-bd-rec-level="Marginal" data-bd-rec-basis="unknown">
-            <td data-label="Platform"><a href="https://www.g2.com/" rel="noopener noreferrer" target="_blank">G2</a></td>
             <td data-label="Score">21</td>
             <td data-label="Level">Marginal</td>
             <td data-label="Fit basis">unknown</td>

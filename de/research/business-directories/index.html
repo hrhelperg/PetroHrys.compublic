@@ -2,12 +2,11 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
-  <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/af075fab2c66644b181224ee/script.js"></script>
-  <!-- WebmasterID analytics — consent-gated via CookieYes (analytics category); fires only after consent -->
-  <script id="webmasterid-tracker" type="text/plain" data-cookieyes="cookieyes-analytics" defer src="https://webmasterid.com/tracker.iife.min.js" data-wmid="wm_bktqqtd7heom5nkl" data-endpoint="https://webmasterid-ingest-api.vercel.app/api/events"></script>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4RE6YCJZBD"></script>
-  <script>
+  <script src="/js/consent.js" defer></script>
+  <!-- Analytics below is inert until a visitor accepts. See js/consent.js. -->
+  <script id="webmasterid-tracker" type="text/plain" data-consent="analytics" defer src="https://webmasterid.com/tracker.iife.min.js" data-wmid="wm_bktqqtd7heom5nkl" data-endpoint="https://webmasterid-ingest-api.vercel.app/api/events"></script>
+  <script type="text/plain" data-consent="analytics" async src="https://www.googletagmanager.com/gtag/js?id=G-4RE6YCJZBD"></script>
+  <script type="text/plain" data-consent="analytics">
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
@@ -289,17 +288,17 @@
 
     <section class="bd-section bd-hero" aria-labelledby="worklist-hero">
       <p class="bd-eyebrow">Datenbank zur Unternehmenssichtbarkeit</p>
-      <h2 id="worklist-hero">1563 business listing opportunities</h2>
+      <h2 id="worklist-hero">1617 business listing opportunities</h2>
       <p>Seriöse Verzeichnisse, Bewertungsplattformen, Lieferantendatenbanken, Software-Marktplätze und lokale Suchdienste, auf denen ein Unternehmen eine öffentliche Präsenz anlegen, beanspruchen oder beantragen kann.</p>
       <p class="bd-actions">
-        <a class="bd-button" href="/research/business-directories/opportunities/">Browse all 1563 opportunities</a>
+        <a class="bd-button" href="/research/business-directories/opportunities/">Browse all 1617 opportunities</a>
         <a class="bd-button bd-button--ghost" href="/research/business-directories/opportunities.csv" download>CSV herunterladen</a>
       </p>
       <ul class="bd-list bd-stats">
-        <li>1563 active opportunities</li>
-        <li>86 markets</li>
+        <li>1617 active opportunities</li>
+        <li>111 markets</li>
         <li>77 detailed platform guides</li>
-        <li>1486 compact working-list entries</li>
+        <li>1540 compact working-list entries</li>
       </ul>
     </section>
 
@@ -312,7 +311,7 @@
           <p><a href="/research/business-directories/">Ausführliche Leitfäden durchsuchen</a></p></div>
         <div class="bd-card"><h3>Operative Gelegenheiten</h3>
           <p>Eine umfangreichere Arbeitsliste seriöser Plattformen, die Mitarbeitende und Inhaber prüfen, priorisieren und ansteuern können. Einige Angaben sind noch ungeprüft und wenige Einträge erfordern vor dem Absenden eine Prüfung im Browser.</p>
-          <p class="bd-count">1563 opportunities</p>
+          <p class="bd-count">1617 opportunities</p>
           <p><a href="/research/business-directories/opportunities/">Vollständige Arbeitsliste öffnen</a></p></div>
       </div>
     </section>

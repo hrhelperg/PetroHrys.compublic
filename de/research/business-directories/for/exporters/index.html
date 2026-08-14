@@ -2,12 +2,11 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
-  <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/af075fab2c66644b181224ee/script.js"></script>
-  <!-- WebmasterID analytics — consent-gated via CookieYes (analytics category); fires only after consent -->
-  <script id="webmasterid-tracker" type="text/plain" data-cookieyes="cookieyes-analytics" defer src="https://webmasterid.com/tracker.iife.min.js" data-wmid="wm_bktqqtd7heom5nkl" data-endpoint="https://webmasterid-ingest-api.vercel.app/api/events"></script>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4RE6YCJZBD"></script>
-  <script>
+  <script src="/js/consent.js" defer></script>
+  <!-- Analytics below is inert until a visitor accepts. See js/consent.js. -->
+  <script id="webmasterid-tracker" type="text/plain" data-consent="analytics" defer src="https://webmasterid.com/tracker.iife.min.js" data-wmid="wm_bktqqtd7heom5nkl" data-endpoint="https://webmasterid-ingest-api.vercel.app/api/events"></script>
+  <script type="text/plain" data-consent="analytics" async src="https://www.googletagmanager.com/gtag/js?id=G-4RE6YCJZBD"></script>
+  <script type="text/plain" data-consent="analytics">
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
@@ -182,7 +181,7 @@
 
     <section class="bd-section" aria-labelledby="ranked">
       <h2 id="ranked">Priorisierte Empfehlungen</h2>
-      <p>25 platforms, ranked by how well each suits export companies rather than by how good it is in general. 0 priority, 0 recommended, 5 possible, 20 marginal. Ein Recommendation Score ist Passung multipliziert mit Plattformqualität; eine starke Plattform für eine andere Art von Unternehmen erhält hier daher bewusst einen niedrigen Wert.</p>
+      <p>25 platforms, ranked by how well each suits export companies rather than by how good it is in general. 0 priority, 0 recommended, 4 possible, 21 marginal. Ein Recommendation Score ist Passung multipliziert mit Plattformqualität; eine starke Plattform für eine andere Art von Unternehmen erhält hier daher bewusst einen niedrigen Wert.</p>
       <div class="bd-table-wrap">
         <table class="bd-table">
           <caption>Directories ranked for export companies</caption>
@@ -201,13 +200,6 @@
             <td data-label="Level">Possible</td>
             <td data-label="Fit basis">category</td>
             <td data-label="Why"><ul class="bd-reasons"><li>Listed under manufacturing, a category that serves export companies.</li><li>Strong SEO value from its link and indexing behaviour.</li><li>High referral potential.</li><li>Profile pages are indexed.</li><li>A leading platform in its field.</li></ul></td>
-          </tr>
-          <tr data-bd-rec-level="Possible" data-bd-rec-basis="category">
-            <td data-label="Platform"><a href="https://www.directindustry.fr/" rel="noopener noreferrer" target="_blank">DirectIndustry</a></td>
-            <td data-label="Score">35</td>
-            <td data-label="Level">Possible</td>
-            <td data-label="Fit basis">category</td>
-            <td data-label="Why"><ul class="bd-reasons"><li>Listed under manufacturing, a category that serves export companies.</li><li>High referral potential.</li><li>A leading platform in its field.</li><li>Scored from reputation and status only — not enough evidence yet for a full Directory Score.</li></ul></td>
           </tr>
           <tr data-bd-rec-level="Possible" data-bd-rec-basis="keyword">
             <td data-label="Platform"><a href="https://www.europages.co.uk/" rel="noopener noreferrer" target="_blank">Europages</a></td>
@@ -239,6 +231,13 @@
           </tr>
           <tr data-bd-rec-level="Marginal" data-bd-rec-basis="category">
             <td data-label="Platform"><a href="https://www.chinagoods.com/" rel="noopener noreferrer" target="_blank">Chinagoods</a></td>
+            <td data-label="Score">34</td>
+            <td data-label="Level">Marginal</td>
+            <td data-label="Fit basis">category</td>
+            <td data-label="Why"><ul class="bd-reasons"><li>Listed under manufacturing, a category that serves export companies.</li><li>High referral potential.</li><li>A leading platform in its field.</li><li>Scored from reputation and status only — not enough evidence yet for a full Directory Score.</li></ul></td>
+          </tr>
+          <tr data-bd-rec-level="Marginal" data-bd-rec-basis="category">
+            <td data-label="Platform"><a href="https://www.directindustry.fr/" rel="noopener noreferrer" target="_blank">DirectIndustry</a></td>
             <td data-label="Score">34</td>
             <td data-label="Level">Marginal</td>
             <td data-label="Fit basis">category</td>
