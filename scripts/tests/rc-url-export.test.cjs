@@ -893,7 +893,12 @@ test('the export follows the sort, not the source order', () => {
 test('an empty selection exports no records, never the whole collection', () => {
   const page = '/research/business-directories/opportunities/';
   const total = boot(page, '').rows().length;
-  assert.ok(total > 2000, `only ${total} rows; the fallback would be hard to notice`);
+  // The floor only has to be large enough that "exported the whole collection
+  // instead of nothing" would be unmissable. It read 2000 because it was written
+  // when this page rendered 2,247 rows for 1,609 opportunities — 638 of them
+  // twice. The duplicates are gone, so this number is now the truth rather than
+  // the inflation.
+  assert.ok(total > 1000, `only ${total} rows; the fallback would be hard to notice`);
 
   const app = boot(page, '?q=zzzzzznosuchplatformzzzzzz');
   assert.strictEqual(app.visible().length, 0, 'the query matched something after all');

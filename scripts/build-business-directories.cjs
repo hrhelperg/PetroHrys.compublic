@@ -424,15 +424,67 @@ function pageModel(registry, locale = I18N.DEFAULT_LOCALE) {
         bestForProfiles,
       };
     });
+    // ── ONE CANONICAL OPPORTUNITY, ONE INTERACTIVE ROW ─────────────────────
+    //
     // countryLinks previously carried no slug, so this Set was {undefined} and
     // NOTHING ever matched — every row was repeated in "Other countries",
     // doubling the page. Global is a published destination too and must be
     // excluded from "other" alongside the national pages.
+    //
+    // Fixing the Set stopped the page doubling and left the real defect in
+    // place: `other` was a strict SUBSET of `actionable`, and BOTH were rendered
+    // by c.directoryTable, which emits the interactive contract every time —
+    // `<tbody data-bd-rows>` around `<tr class="bd-row">`. js/business-directories.js
+    // adopts EVERY such tbody on the page and treats every row in it as a
+    // record, so 638 canonical opportunities were two records each. Measured in
+    // Chrome before this change: 2,247 DOM rows over 1,609 opportunities, 638
+    // duplicate identities, a status line reading "2,247 directories shown", an
+    // export button offering 2,247 — and a real filtered CSV that, with the
+    // country facet on India, wrote 104 data rows for 52 Indian platforms.
+    //
+    // So the second TABLE is gone and the NAVIGATION it existed for stays.
+    // The section's own copy conceded what it was: "N of THESE platforms" is a
+    // re-presentation of rows already above, not a set of new records. What a
+    // reader actually needs from it is the list of COUNTRIES that have no page
+    // of their own — which is a fact about this site's structure, not about the
+    // work — so that is what it now renders: one card per country, each a link
+    // that puts the page's own country facet on that value. The facet options
+    // are built from all 1,609 rows, so every one of those countries is already
+    // selectable; the cards simply make them findable without scrolling.
+    //
+    // ── WHY NOT THE OTHER TWO REPAIRS ──────────────────────────────────────
+    //
+    // Making the two partitions mutually exclusive would satisfy the invariant
+    // and break the worklist. The client sorts WITHIN a tbody — see the
+    // groups.forEach in js/business-directories.js — so splitting the rows by
+    // "does this country have a page here" would fragment one global sort into
+    // two along a criterion that has nothing to do with the work: under Domain
+    // Rating the strongest platform in an unpaged country would sit below 967
+    // weaker ones, and "1,609 platforms across N markets" would no longer
+    // describe the table beneath it.
+    //
+    // Keeping a non-interactive copy of the table would be correct exactly
+    // until someone touched a filter. Selecting France would narrow the worklist
+    // and leave 638 unrelated rows standing underneath the result, which is a
+    // worse failure than the one being fixed: it looks like state and isn't.
     const publishedCountrySlugs = new Set([
       ...publishedCountries.map((c) => c.slug),
       ...(globalEntries.length ? [GLOBAL_SCOPE] : []),
     ]);
-    const other = actionable.filter((d) => !publishedCountrySlugs.has(d.country));
+    const countryNameBySlug = new Map(registry.countries.map((x) => [x.slug, x.name]));
+    // Grouped from the SAME `actionable` array the table renders, so the counts
+    // beside the country names and the rows a click reveals are one number.
+    const otherCountryCounts = new Map();
+    for (const d of actionable) {
+      if (publishedCountrySlugs.has(d.country)) continue;
+      otherCountryCounts.set(d.country, (otherCountryCounts.get(d.country) || 0) + 1);
+    }
+    const otherCountries = [...otherCountryCounts.entries()]
+      .map(([slug, count]) => ({ slug, name: countryNameBySlug.get(slug) || slug, count }))
+      // Most-covered first, then a stable name order — the same rule the hub's
+      // country grid uses, so the two grids do not order the world differently.
+      .sort((a, b) => (b.count - a.count) || (a.name < b.name ? -1 : a.name > b.name ? 1 : 0));
+    const otherCountryRows = otherCountries.reduce((n, x) => n + x.count, 0);
     const OPP_COLUMNS = ['name', 'country', 'category', 'submissionModel', 'listingAction',
       'tier', 'domainRating'];
     // Every number on the page is derived. A hardcoded total would drift the
@@ -525,14 +577,16 @@ function pageModel(registry, locale = I18N.DEFAULT_LOCALE) {
           // that way; this one is the current selection, and only the browser
           // knows what that is.
           //
-          // The count is every ROW this page renders, not every opportunity:
-          // the "other countries" table below repeats a subset of the worklist,
-          // so the page shows 2,167 rows for 1,563 opportunities and the export
-          // mirrors the page. Anything else and the button would open holding a
-          // number the file does not match.
+          // The count is the number of CANONICAL opportunities on this page,
+          // which is now the same as the number of interactive rows because
+          // there is exactly one row per opportunity. It used to be
+          // `actionable.length + other.length` — the row total including the
+          // repeats — with a comment conceding that the button mirrored an
+          // inflated page rather than the collection. The button, the status
+          // line, the table and the exported file now all state one number.
           c.filteredExportControl({
             name: 'business-listing-opportunities',
-            count: actionable.length + other.length,
+            count: actionable.length,
           }),
           c.directoryTable({
             directories: actionable,
@@ -544,18 +598,30 @@ function pageModel(registry, locale = I18N.DEFAULT_LOCALE) {
             + `rel="noopener noreferrer" target="_blank">${escapeHtml(SCHEMA.AHREFS_ATTRIBUTION.text)}</a>. `
             + `${escapeHtml(t('bdx.drCaveat'))}</p>`,
         ].join('\n')),
-        ...(other.length ? [section('other-countries', t('bdx.otherCountries'), [
-          `      <p>${escapeHtml(`${other.length} of these platforms are based in countries that do `
-            + 'not yet have a page of their own here. They are listed together rather than split '
-            + 'into single-record country pages. A country gets its own page once it has enough '
-            + 'researched platforms to make one worth reading.')}</p>`,
-          c.directoryTable({
-            directories: other,
-            caption: t('bdx.platformsOther'),
-            columns: OPP_COLUMNS.filter((col) => col !== 'domainRating'
-              || other.some((d) => d.domainRating !== null && d.domainRating !== undefined)),
-            sortKey: null,
-          }),
+        // A country INDEX, not a second table. `bd-grid`/`bd-card` carry no
+        // `data-bd-rows` and no `.bd-row`, so nothing here enters the result
+        // universe the client counts, filters, sorts and exports — which is the
+        // whole point: these 97 countries' platforms are already rows in the
+        // worklist above, and rendering them again is what made one canonical
+        // opportunity two interactive records.
+        //
+        // The cards deliberately do NOT link. The first version pointed each at
+        // `?country=<slug>#worklist`, which reads as an obvious convenience and
+        // is the one thing this site cannot afford: the crawl-surface policy
+        // rests on the canonical never carrying a query AND nothing internal
+        // linking to a filtered state, and 97 such links are exactly the facet
+        // crawl path it forbids. The country facet directly above already
+        // offers every one of these values, so the index only has to make them
+        // findable without scrolling 1,609 rows — naming them does that.
+        ...(otherCountries.length ? [section('other-countries', t('bdx.otherCountries'), [
+          `      <p>${escapeHtml(t('bdx.otherCountriesNote', {
+            n: otherCountryRows, c: otherCountries.length,
+          }))}</p>`,
+          c.cardGrid(otherCountries.map((x) => c.countryCard({
+            name: x.name,
+            count: x.count,
+            linked: false,
+          })), { label: t('bdx.otherCountries') }),
         ].join('\n'))] : []),
       ].join('\n\n'),
     });
