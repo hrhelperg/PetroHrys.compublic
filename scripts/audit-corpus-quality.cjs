@@ -68,6 +68,12 @@ function main() {
       routeEqualsHomepage: [],
       actionWithoutRoute: [],
       redirectWithoutSurvivor: [],
+      // Impossible combinations: a structured fact and a note that cannot both
+      // be true. Structured state is canonical; the note is what goes stale.
+      actionEstablishedButRouteUnknown: [],
+      resolvedButStillUnderInvestigation: [],
+      inactiveWithLiveRoute: [],
+      staleRouteAfterMove: [],
     };
 
     const seen = new Map();
@@ -126,6 +132,39 @@ function main() {
 
       if (r.currentStatus === 'redirected' && !/surviving record is/i.test(note)) {
         problems.redirectWithoutSurvivor.push(r.id);
+      }
+
+      const text = anyText(r);
+      const hasRoute = ['submissionUrl', 'claimUrl', 'pitchUrl', 'pressReleaseUrl']
+        .some((f) => r[f]);
+
+      // An action is established and the note says the route is unknown.
+      if (hasRoute && /route (is )?(still )?(unknown|not established)|no submission URL is recorded/i.test(text)) {
+        problems.actionEstablishedButRouteUnknown.push(r.id);
+      }
+      // A redirect is resolved and something still asks for it to be settled.
+      if (/\[redirect:/.test(text)
+        && /needed by a person to settle what this (entry|record) should point at|investigate (the )?redirect/i.test(text)) {
+        problems.resolvedButStillUnderInvestigation.push(r.id);
+      }
+      // A record that is not live still hands out a route.
+      if (['redirected', 'dormant', 'shutting-down'].includes(r.currentStatus) && hasRoute) {
+        problems.inactiveWithLiveRoute.push(r.id);
+      }
+      // A route left behind on the host the record moved away from.
+      if (parsed && hasRoute) {
+        const siteHost = parsed.hostname.replace(/^www\./, '');
+        for (const field of ['submissionUrl', 'claimUrl', 'pitchUrl', 'pressReleaseUrl']) {
+          if (!r[field]) continue;
+          let routeHost = null;
+          try { routeHost = new URL(r[field]).hostname.replace(/^www\./, ''); } catch { continue; }
+          const same = routeHost === siteHost
+            || routeHost.endsWith(`.${siteHost}`) || siteHost.endsWith(`.${routeHost}`)
+            // A route may legitimately live on a sibling domain the operator
+            // runs — Malta's packages site, The Drum's awards site.
+            || routeHost.split('.').slice(-2)[0] === siteHost.split('.').slice(-2)[0];
+          if (!same && /\[redirect:/.test(text)) problems.staleRouteAfterMove.push(`${r.id}.${field}`);
+        }
       }
     }
 

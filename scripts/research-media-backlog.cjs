@@ -57,6 +57,7 @@ const SAFE = require('./lib/rc-safe-apply.cjs');
 const ROOT = path.resolve(__dirname, '..');
 const DATA = path.join(ROOT, 'data/media-pr-publishing/media-platforms.json');
 const FINDINGS = path.join(ROOT, 'data/media-pr-publishing/.media-research.json');
+const ACTIONABILITY_FINDINGS = path.join(ROOT, 'data/media-pr-publishing/.media-actionability.json');
 
 const CHROME = [
   '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
@@ -380,10 +381,36 @@ function assess(record, obs) {
   };
 }
 
+// The backlog pass asks whether a record is a live publication. The
+// actionability pass asks what an ACTIVE publication lets a business do — a
+// different question, over a different cohort, and the two are kept apart
+// because a record can be settled on one and open on the other.
+const ACTIONABILITY = process.argv.includes('--actionability');
+
 async function runProbe() {
   if (!CHROME) { console.error('No Chrome on this machine.'); process.exit(1); }
   const rows = JSON.parse(fs.readFileSync(DATA, 'utf8'));
   let targets = rows.filter((r) => r.currentStatus === 'unknown');
+
+  if (ACTIONABILITY) {
+    const ROUTE_FIELDS = ['submissionUrl', 'pitchUrl', 'pressReleaseUrl', 'advertisingUrl'];
+    const covered = {};
+    for (const r of rows) if (ROUTE_FIELDS.some((f) => r[f])) covered[r.country] = (covered[r.country] || 0) + 1;
+    const score = (r) => {
+      let s = 0;
+      const c = covered[r.country] || 0;
+      if (c === 0) s += 40; else if (c <= 2) s += 24; else if (c <= 5) s += 12;
+      s += { P1: 30, P2: 18, P3: 6 }[r.priority] || 0;
+      if (/browser check is needed/i.test(r.shortNote || '')) s -= 50;
+      return s;
+    };
+    targets = rows
+      .filter((r) => r.currentStatus === 'active' && !ROUTE_FIELDS.some((f) => r[f]))
+      .map((r) => ({ r, s: score(r) }))
+      .sort((a, b) => b.s - a.s || (a.r.id < b.r.id ? -1 : 1))
+      .map((x) => x.r);
+    console.log(`Media actionability: ${targets.length} active record(s) with no route, ranked.`);
+  }
   const limit = arg('--limit');
   if (limit) targets = targets.slice(0, Number(limit));
   const ids = arg('--ids');
@@ -392,7 +419,9 @@ async function runProbe() {
     targets = rows.filter((r) => want.has(r.id));
   }
 
-  console.log(`Media research: ${targets.length} identification-only record(s).`);
+  console.log(ACTIONABILITY
+    ? `Probing ${targets.length} record(s) for operator-published routes.`
+    : `Media research: ${targets.length} identification-only record(s).`);
   const chrome = await startChrome();
   const findings = [];
   const queue = targets.slice();
@@ -425,16 +454,17 @@ async function runProbe() {
   chrome.proc.kill('SIGKILL');
 
   let merged = findings;
-  if (fs.existsSync(FINDINGS)) {
-    const prior = JSON.parse(fs.readFileSync(FINDINGS, 'utf8')).findings || [];
-    if (prior.length > findings.length) {
+  const OUT = ACTIONABILITY ? ACTIONABILITY_FINDINGS : FINDINGS;
+  if (fs.existsSync(OUT)) {
+    const prior = JSON.parse(fs.readFileSync(OUT, 'utf8')).findings || [];
+    if (prior.length) {
       const fresh = new Map(findings.map((f) => [f.id, f]));
       merged = prior.map((f) => fresh.get(f.id) || f)
         .concat(findings.filter((f) => !prior.some((p) => p.id === f.id)));
     }
   }
   merged.sort((a, b) => (a.id < b.id ? -1 : 1));
-  fs.writeFileSync(FINDINGS, `${JSON.stringify({
+  fs.writeFileSync(ACTIONABILITY ? ACTIONABILITY_FINDINGS : FINDINGS, `${JSON.stringify({
     probedAt: new Date().toISOString().slice(0, 10), findings: merged,
   }, null, 1)}\n`);
 
@@ -477,7 +507,12 @@ function clearStaleLimitation(text) {
 }
 
 function runApply() {
-  const { probedAt, findings } = JSON.parse(fs.readFileSync(FINDINGS, 'utf8'));
+  // An actionability run answers "what does this publication let a business
+  // do". It must not touch accessibility: a record verified active does not
+  // become unknown because a route hunt could not re-confirm the masthead, and
+  // Program 11's rule is that one dimension never resets the other.
+  const SOURCE = ACTIONABILITY ? ACTIONABILITY_FINDINGS : FINDINGS;
+  const { probedAt, findings } = JSON.parse(fs.readFileSync(SOURCE, 'utf8'));
   const rows = JSON.parse(fs.readFileSync(DATA, 'utf8'));
   const before = JSON.parse(JSON.stringify(rows));
   const byId = new Map(rows.map((r) => [r.id, r]));
@@ -489,6 +524,29 @@ function runApply() {
   for (const f of findings) {
     const r = byId.get(f.id);
     if (!r) continue;
+
+    if (ACTIONABILITY) {
+      // Routes and types only, and only where nothing is recorded yet: this
+      // pass adds knowledge, it does not revise anyone else's.
+      const patch = {};
+      for (const [field, route] of Object.entries(f.routes || {})) {
+        if (!r[field]) { patch[field] = route.href; tally.routes += 1; }
+      }
+      if (f.opportunityTypes && f.opportunityTypes.length) {
+        const known = (r.opportunityTypes || []).filter((t) => t !== 'unknown');
+        const merged = [...new Set([...known, ...f.opportunityTypes])].sort();
+        if (JSON.stringify(merged) !== JSON.stringify(r.opportunityTypes)) {
+          patch.opportunityTypes = merged;
+          tally.types += 1;
+        }
+      }
+      if (Object.keys(patch).length) {
+        patch.lastVerified = probedAt;
+        SAFE.applyPatch(r, patch, { owner: 'actionability', collection: 'media' });
+        tally.active += 1;
+      }
+      continue;
+    }
 
     if (f.state === 'ACTIVE_VERIFIED') {
       SAFE.applyPatch(r, {

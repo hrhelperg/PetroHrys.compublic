@@ -852,10 +852,11 @@
    "global"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "An international local business and places directory.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://tupalo.com/en/api/v5/spot/new"
  },
  {
   "id": "global-cybo",
@@ -1333,7 +1334,7 @@
   "publicProfileAvailable": true,
   "listingAction": "unknown",
   "submissionModel": "unknown",
-  "note": "A European sourcing platform for custom manufactured parts with public supplier profiles. [redirect:2026-08-14] Techpilot moved from techpilot.net to techpilot.com; the record now points at the current address. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
+  "note": "A European sourcing platform for custom manufactured parts with public supplier profiles. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser. [redirect:2026-08-14] Techpilot moved from techpilot.net to techpilot.com; the record now points at the current address.",
   "lastVerified": "2026-08-14"
  },
  {
@@ -1701,10 +1702,11 @@
    "global"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "A B2B marketplace listing software and IT development companies.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://www.topdevelopers.co/listing-packages"
  },
  {
   "id": "global-superbcompanies",
@@ -1719,10 +1721,11 @@
    "global"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "An IT company rating and listing directory.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://superbcompanies.com/get-listed/"
  },
  {
   "id": "global-itfirms",
@@ -1737,10 +1740,11 @@
    "global"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "A research-led directory ranking IT and development firms.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://www.itfirms.co/add-company/"
  },
  {
   "id": "us-avvo",
@@ -2062,10 +2066,11 @@
    "united-states"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "A local business and services directory covering the United States.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://www.fyple.com/addcompany/addcompany/"
  },
  {
   "id": "us-storeboard",
@@ -2353,7 +2358,7 @@
   "publicProfileAvailable": true,
   "listingAction": "unknown",
   "submissionModel": "unknown",
-  "note": "The French arm of the international Cylex network. [redirect:2026-08-14] Cylex serves France from a per-market domain; the record now points at the current address. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
+  "note": "The French arm of the international Cylex network. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser. [redirect:2026-08-14] Cylex serves France from a per-market domain; the record now points at the current address.",
   "lastVerified": "2026-08-14"
  },
  {
@@ -2479,7 +2484,7 @@
   "publicProfileAvailable": true,
   "listingAction": "unknown",
   "submissionModel": "unknown",
-  "note": "The Italian arm of the international Cylex network. [redirect:2026-08-14] Cylex serves Italy from a per-market domain; the record now points at the current address. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
+  "note": "The Italian arm of the international Cylex network. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser. [redirect:2026-08-14] Cylex serves Italy from a per-market domain; the record now points at the current address.",
   "lastVerified": "2026-08-14"
  },
  {
@@ -2533,7 +2538,7 @@
   "publicProfileAvailable": true,
   "listingAction": "unknown",
   "submissionModel": "unknown",
-  "note": "The Polish arm of the international Cylex network. [redirect:2026-08-14] Cylex serves Poland from a per-market domain; the record now points at the current address. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
+  "note": "The Polish arm of the international Cylex network. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser. [redirect:2026-08-14] Cylex serves Poland from a per-market domain; the record now points at the current address.",
   "lastVerified": "2026-08-14"
  },
  {
@@ -3133,7 +3138,7 @@
   "publicProfileAvailable": true,
   "listingAction": "unknown",
   "submissionModel": "unknown",
-  "note": "A press release distribution service. [redirect:2026-08-14] ACCESSWIRE was renamed ACCESS Newswire; the press-release distribution product is unchanged. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
+  "note": "A press release distribution service. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser. [redirect:2026-08-14] ACCESSWIRE was renamed ACCESS Newswire; the press-release distribution product is unchanged.",
   "lastVerified": "2026-08-14"
  },
  {
@@ -3521,7 +3526,7 @@
  {
   "id": "global-adobe-commerce-marketplace",
   "name": "Adobe Commerce Marketplace",
-  "website": "https://marketplace.magento.com/",
+  "website": "https://commercemarketplace.adobe.com/",
   "country": "global",
   "category": "app-directories",
   "tier": "tier2",
@@ -3533,8 +3538,8 @@
   "publicProfileAvailable": true,
   "listingAction": "unknown",
   "submissionModel": "unknown",
-  "note": "The Adobe Commerce extension and theme marketplace with public vendor listings.",
-  "lastVerified": "2026-08-06"
+  "note": "The Adobe Commerce extension and theme marketplace with public vendor listings. [redirect:2026-08-14] Adobe moved the marketplace onto its own subdomain; the record now points at the current address.",
+  "lastVerified": "2026-08-14"
  },
  {
   "id": "global-prestashop-addons",
@@ -3589,7 +3594,7 @@
   "publicProfileAvailable": true,
   "listingAction": "unknown",
   "submissionModel": "unknown",
-  "note": "A business review and ratings platform with public company profiles. The Sitejabber domain now resolves to SmartCustomer, so SmartCustomer is the live product name. [redirect:2026-08-14] the record already carried the new name; only the address was stale; the record now points at the current address. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
+  "note": "A business review and ratings platform with public company profiles. The Sitejabber domain now resolves to SmartCustomer, so SmartCustomer is the live product name. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser. [redirect:2026-08-14] the record already carried the new name; only the address was stale; the record now points at the current address.",
   "lastVerified": "2026-08-14"
  },
  {
@@ -3851,7 +3856,7 @@
  {
   "id": "global-terraform-registry",
   "name": "Terraform Registry",
-  "website": "https://www.terraform.io/registry",
+  "website": "https://developer.hashicorp.com/terraform",
   "country": "global",
   "category": "developer",
   "tier": "tier1",
@@ -3863,8 +3868,8 @@
   "publicProfileAvailable": true,
   "listingAction": "unknown",
   "submissionModel": "unknown",
-  "note": "HashiCorp's public registry of Terraform providers and modules.",
-  "lastVerified": "2026-08-06"
+  "note": "HashiCorp's public registry of Terraform providers and modules. [redirect:2026-08-14] HashiCorp moved the registry onto its developer site; the record now points at the current address.",
+  "lastVerified": "2026-08-14"
  },
  {
   "id": "us-chamberofcommerce-org",
@@ -4193,7 +4198,7 @@
   "publicProfileAvailable": true,
   "listingAction": "unknown",
   "submissionModel": "unknown",
-  "note": "The Belgian arm of the international Cylex network. [redirect:2026-08-14] Cylex serves Belgium from a per-market domain; the record now points at the current address. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
+  "note": "The Belgian arm of the international Cylex network. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser. [redirect:2026-08-14] Cylex serves Belgium from a per-market domain; the record now points at the current address.",
   "lastVerified": "2026-08-14"
  },
  {
@@ -4319,7 +4324,7 @@
   "publicProfileAvailable": true,
   "listingAction": "unknown",
   "submissionModel": "unknown",
-  "note": "The Swiss arm of the international Cylex network. [redirect:2026-08-14] Cylex serves Switzerland from a per-market domain; the record now points at the current address. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
+  "note": "The Swiss arm of the international Cylex network. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser. [redirect:2026-08-14] Cylex serves Switzerland from a per-market domain; the record now points at the current address.",
   "lastVerified": "2026-08-14"
  },
  {
@@ -4389,10 +4394,11 @@
    "united-kingdom"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "A UK business listing directory with public company entries.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://www.ukbusinessdirectory.uk/submit-listing"
  },
  {
   "id": "uk-applegate",
@@ -4443,10 +4449,11 @@
    "united-kingdom"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "The UK arm of the Opendi international directory network with public business pages.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://service.opendi.co.uk/listings"
  },
  {
   "id": "global-enrollbusiness",
@@ -4498,10 +4505,11 @@
    "united-states"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "A business listing and updates directory with public company pages.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://hub.biz/business_registration/pick_domain?s=home"
  },
  {
   "id": "global-wand",
@@ -5192,7 +5200,7 @@
   "publicProfileAvailable": true,
   "listingAction": "unknown",
   "submissionModel": "unknown",
-  "note": "SEEK's public company profile directory for Australian employers. [redirect:2026-08-14] SEEK moved its Australian company profiles onto au.seek.com; the record now points at the current address. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
+  "note": "SEEK's public company profile directory for Australian employers. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser. [redirect:2026-08-14] SEEK moved its Australian company profiles onto au.seek.com; the record now points at the current address.",
   "lastVerified": "2026-08-14"
  },
  {
@@ -5443,10 +5451,11 @@
    "global"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "An AI tools directory with verified public product listings.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://opentools.ai/experts/create"
  },
  {
   "id": "global-uneed",
@@ -5534,10 +5543,11 @@
    "global"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "A SaaS product review and comparison directory.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://www.saasgenius.com/get-listed/"
  },
  {
   "id": "global-getlatka",
@@ -5552,10 +5562,11 @@
    "global"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "A SaaS company database with public company profiles and metrics.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://getlatka.com/add"
  },
  {
   "id": "global-trepup",
@@ -5588,10 +5599,11 @@
    "global"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "An international business listing directory with public company pages.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://www.expressbusinessdirectory.com/search-result/"
  },
  {
   "id": "us-freelistingusa",
@@ -5606,10 +5618,11 @@
    "united-states"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "A free US local business listing directory.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://www.freelistingusa.com/create-listing"
  },
  {
   "id": "global-zaubee",
@@ -6124,8 +6137,8 @@
  },
  {
   "id": "de-dialo",
-  "name": "Dialo",
-  "website": "https://www.dialo.de/",
+  "name": "BundesTelefonbuch",
+  "website": "https://www.bundes-telefonbuch.de/",
   "country": "germany",
   "category": "local-business",
   "tier": "tier3",
@@ -6137,8 +6150,8 @@
   "publicProfileAvailable": true,
   "listingAction": "unknown",
   "submissionModel": "unknown",
-  "note": "A German telephone and business directory.",
-  "lastVerified": "2026-08-06"
+  "note": "A German telephone and business directory. [redirect:2026-08-14] Dialo now serves BundesTelefonbuch, which is what the destination titles itself.",
+  "lastVerified": "2026-08-14"
  },
  {
   "id": "de-yellowmap",
@@ -6497,15 +6510,15 @@
   "category": "construction",
   "tier": "tier2",
   "priority": "P3",
-  "currentStatus": "active",
+  "currentStatus": "redirected",
   "audienceGeography": [
    "australia"
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
   "submissionModel": "unknown",
-  "note": "An Australian home improvement trades directory with public business profiles.",
-  "lastVerified": "2026-08-06"
+  "note": "An Australian home improvement trades directory with public business profiles. [redirect:2026-08-14] hipages.com.au now serves Home Improvement Pages, and hipages is already recorded for Australia; the surviving record is au-hipages (https://www.hipages.com.au/).",
+  "lastVerified": "2026-08-14"
  },
  {
   "id": "nz-builderscrack",
@@ -6613,10 +6626,11 @@
    "global"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "An international B2B company directory. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
-  "lastVerified": "2026-08-14"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://b2bmap.com/business-listing"
  },
  {
   "id": "global-exporthub",
@@ -7002,7 +7016,7 @@
   "publicProfileAvailable": true,
   "listingAction": "unknown",
   "submissionModel": "unknown",
-  "note": "Notion's public integrations and connections directory. [redirect:2026-08-14] Notion moved from notion.so to notion.com and renamed the directory Connections; the record now points at the current address. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
+  "note": "Notion's public integrations and connections directory. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser. [redirect:2026-08-14] Notion moved from notion.so to notion.com and renamed the directory Connections; the record now points at the current address.",
   "lastVerified": "2026-08-14"
  },
  {
@@ -7264,7 +7278,7 @@
   "publicProfileAvailable": true,
   "listingAction": "unknown",
   "submissionModel": "unknown",
-  "note": "The Italian chambers of commerce company directory with public business entries. [redirect:2026-08-14] InfoImprese was folded into Registro Imprese, the official Italian business register run by the same operator. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
+  "note": "The Italian chambers of commerce company directory with public business entries. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser. [redirect:2026-08-14] InfoImprese was folded into Registro Imprese, the official Italian business register run by the same operator.",
   "lastVerified": "2026-08-14"
  },
  {
@@ -7448,7 +7462,7 @@
   "publicProfileAvailable": true,
   "listingAction": "unknown",
   "submissionModel": "unknown",
-  "note": "A European equity crowdfunding platform with public company pages. [redirect:2026-08-14] Seedrs was acquired by Republic and now trades as Republic Europe; the destination still names Seedrs Europe Limited as the regulated entity. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
+  "note": "A European equity crowdfunding platform with public company pages. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser. [redirect:2026-08-14] Seedrs was acquired by Republic and now trades as Republic Europe; the destination still names Seedrs Europe Limited as the regulated entity.",
   "lastVerified": "2026-08-14"
  },
  {
@@ -7698,10 +7712,11 @@
    "united-states"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "The US arm of the Opendi business directory and review network.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://service.opendi.us/listings"
  },
  {
   "id": "at-firmania",
@@ -7806,10 +7821,11 @@
    "united-kingdom"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "The UK arm of the Infoisinfo business directory network with public company listings.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://www.infoisinfo.co.uk/account#/register-business"
  },
  {
   "id": "es-infoisinfo",
@@ -7909,15 +7925,15 @@
   "category": "local-business",
   "tier": "tier3",
   "priority": "P3",
-  "currentStatus": "active",
+  "currentStatus": "redirected",
   "audienceGeography": [
    "dach"
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
   "submissionModel": "unknown",
-  "note": "A German regional trade directory with public business entries.",
-  "lastVerified": "2026-08-06"
+  "note": "A German regional trade directory with public business entries. [redirect:2026-08-14] branchenorte.de now serves business-branchenbuch.de, which is already recorded for Germany; the surviving record is de-business-branchenbuch (https://www.business-branchenbuch.de/).",
+  "lastVerified": "2026-08-14"
  },
  {
   "id": "de-business-branchenbuch",
@@ -8112,10 +8128,11 @@
    "global"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "An international small business directory with public company listings.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://www.2findlocal.com/Modules/Biz/bizPhoneLookup.php"
  },
  {
   "id": "global-lacartes",
@@ -8187,7 +8204,7 @@
   "publicProfileAvailable": true,
   "listingAction": "unknown",
   "submissionModel": "unknown",
-  "note": "A French local business directory with public company pages. The annuaire.com domain resolves here. [redirect:2026-08-14] Hoodspot now runs on the Petites Affiches domain under its own name; the record now points at the current address. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
+  "note": "A French local business directory with public company pages. The annuaire.com domain resolves here. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser. [redirect:2026-08-14] Hoodspot now runs on the Petites Affiches domain under its own name; the record now points at the current address.",
   "lastVerified": "2026-08-14"
  },
  {
@@ -8456,10 +8473,11 @@
    "united-kingdom"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "A UK local business directory and business forum.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://www.mylocalservices.co.uk/list_your_business.php"
  },
  {
   "id": "uk-uksmallbusinessdirectory",
@@ -8474,10 +8492,11 @@
    "united-kingdom"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "A UK directory offering free business listings for small businesses.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://www.uksmallbusinessdirectory.co.uk/advertising/"
  },
  {
   "id": "global-jasminedirectory",
@@ -8493,10 +8512,11 @@
    "united-kingdom"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "A human-curated general business directory operating since 2009.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://www.jasminedirectory.com/index.php?a=2070753691"
  },
  {
   "id": "global-b2bhint",
@@ -8530,10 +8550,11 @@
    "country-specific"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "An Italian portal listing companies with public profiles.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://www.italiaimprese.it/?add-to-cart=136"
  },
  {
   "id": "it-guidamonaci",
@@ -8872,10 +8893,11 @@
    "country-specific"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "An Irish directory focused on local and small businesses.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://www.localsearch.ie/create-listing/"
  },
  {
   "id": "ie-onlinedirectories",
@@ -8964,7 +8986,7 @@
   "publicProfileAvailable": true,
   "listingAction": "unknown",
   "submissionModel": "unknown",
-  "note": "A German tradesperson marketplace where craft businesses hold public profiles with customer ratings. [redirect:2026-08-14] the same product on a hyphenated domain; the record now points at the current address. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
+  "note": "A German tradesperson marketplace where craft businesses hold public profiles with customer ratings. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser. [redirect:2026-08-14] the same product on a hyphenated domain; the record now points at the current address.",
   "lastVerified": "2026-08-14"
  },
  {
@@ -11068,10 +11090,11 @@
    "united-kingdom"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "A UK business directory accepting self-submitted company entries.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://www.smartbusinessdirectory.co.uk/business-advertising/"
  },
  {
   "id": "pl-nocowanie",
@@ -11111,8 +11134,8 @@
  },
  {
   "id": "cz-atlasfirem",
-  "name": "Atlas firem",
-  "website": "https://www.atlasfirem.cz/",
+  "name": "Firma Blizko",
+  "website": "https://www.firmablizko.cz/",
   "country": "czech-republic",
   "category": "general-business",
   "tier": "tier3",
@@ -11124,8 +11147,8 @@
   "publicProfileAvailable": true,
   "listingAction": "unknown",
   "submissionModel": "unknown",
-  "note": "A Czech company catalogue searchable by distance from a location.",
-  "lastVerified": "2026-08-06"
+  "note": "A Czech company catalogue searchable by distance from a location. [redirect:2026-08-14] Atlas firem now trades as Firma Blizko, which is what the destination titles itself.",
+  "lastVerified": "2026-08-14"
  },
  {
   "id": "cz-katalog",
@@ -11376,7 +11399,7 @@
   "publicProfileAvailable": true,
   "listingAction": "unknown",
   "submissionModel": "unknown",
-  "note": "The main Czech food delivery platform, where restaurants hold public pages. Rebranded in place from Dáme jídlo to foodora. [redirect:2026-08-14] Dame jidlo was rebranded to foodora in Czechia. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
+  "note": "The main Czech food delivery platform, where restaurants hold public pages. Rebranded in place from Dáme jídlo to foodora. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser. [redirect:2026-08-14] Dame jidlo was rebranded to foodora in Czechia.",
   "lastVerified": "2026-08-14"
  },
  {
@@ -11394,7 +11417,7 @@
   "publicProfileAvailable": true,
   "listingAction": "unknown",
   "submissionModel": "unknown",
-  "note": "The main Irish food delivery platform, where restaurants hold public pages. [redirect:2026-08-14] the same product on a hyphenated domain; the record now points at the current address. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
+  "note": "The main Irish food delivery platform, where restaurants hold public pages. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser. [redirect:2026-08-14] the same product on a hyphenated domain; the record now points at the current address.",
   "lastVerified": "2026-08-14"
  },
  {
@@ -11521,10 +11544,11 @@
    "united-states"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "A US business directory offering free company listings.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://www.bizhwy.com/addlisting.php"
  },
  {
   "id": "us-yellowbot",
@@ -11576,10 +11600,11 @@
    "united-states"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "A US business review directory where companies hold public profiles.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://www.trustlink.org/NewBusiness.aspx"
  },
  {
   "id": "us-networx",
@@ -11594,10 +11619,11 @@
    "united-states"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "A US directory of local contractors and home improvement professionals.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://www.networx.com/generate-leads"
  },
  {
   "id": "us-contractors-com",
@@ -11612,10 +11638,11 @@
    "united-states"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "A US contractor directory with public company profiles.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://www.contractors.com/become-a-contractor/"
  },
  {
   "id": "us-zola-vendors",
@@ -11684,10 +11711,11 @@
    "north-america"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "A US salon, spa and fitness booking marketplace where businesses hold public pages.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://www.vagaro.com/signup-1?licence=1"
  },
  {
   "id": "us-styleseat",
@@ -11757,10 +11785,11 @@
    "canada"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "The Canadian arm of an international business pages and review network.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://service.opendi.ca/listings"
  },
  {
   "id": "ca-homestars",
@@ -12230,7 +12259,7 @@
   "publicProfileAvailable": true,
   "listingAction": "create",
   "submissionModel": "unknown",
-  "note": "The Barbadian yellow pages directory. [redirect:2026-08-14] the Barbados Yellow Pages domain now serves findyello's Barbados section, which is a distinct market from the Jamaica record on the same host; the record now points at the current address. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
+  "note": "The Barbadian yellow pages directory. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser. [redirect:2026-08-14] the Barbados Yellow Pages domain now serves findyello's Barbados section, which is a distinct market from the Jamaica record on the same host; the record now points at the current address.",
   "lastVerified": "2026-08-14",
   "submissionUrl": "https://www.findyello.com/list-business/"
  },
@@ -12394,7 +12423,7 @@
   "publicProfileAvailable": true,
   "listingAction": "unknown",
   "submissionModel": "unknown",
-  "note": "Microsoft's business listing service, feeding Bing search and maps results. [redirect:2026-08-14] Bing Places moved onto bing.com; the record now points at the current address. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
+  "note": "Microsoft's business listing service, feeding Bing search and maps results. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser. [redirect:2026-08-14] Bing Places moved onto bing.com; the record now points at the current address.",
   "lastVerified": "2026-08-14"
  },
  {
@@ -12627,10 +12656,11 @@
    "united-states"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "A US health provider directory with public practitioner listings.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://www.wellness.com/docs/12761/wellness-provider-program"
  },
  {
   "id": "us-doximity",
@@ -13117,10 +13147,11 @@
    "north-america"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "A US event venue and vendor directory with public business profiles.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://www.eventective.com/addlisting"
  },
  {
   "id": "us-tablelist",
@@ -13585,10 +13616,11 @@
    "global"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "A software development company ratings directory with public company profiles.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://techreviewer.co/why-get-listed"
  },
  {
   "id": "us-appfutura",
@@ -13603,10 +13635,11 @@
    "global"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "An app and software developer directory with public company profiles.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://clutch.co/get-listed?utm_source=appfutura&utm_medium=getstarted"
  },
  {
   "id": "us-techbehemoths",
@@ -13640,10 +13673,11 @@
    "united-states"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "The US staffing industry association, whose member agencies appear in a searchable directory. Membership is eligibility-gated.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://asamarketplace.net/get-listed"
  },
  {
   "id": "us-pestworld",
@@ -13739,7 +13773,7 @@
  {
   "id": "us-greenpal",
   "name": "GreenPal",
-  "website": "https://www.greenpal.com/",
+  "website": "https://www.yourgreenpal.com/",
   "country": "united-states",
   "category": "local-business",
   "tier": "tier3",
@@ -13751,8 +13785,8 @@
   "publicProfileAvailable": true,
   "listingAction": "unknown",
   "submissionModel": "unknown",
-  "note": "A US lawn care marketplace where independent providers hold public profiles.",
-  "lastVerified": "2026-08-06"
+  "note": "A US lawn care marketplace where independent providers hold public profiles. [redirect:2026-08-14] GreenPal moved to yourgreenpal.com and kept its name; the record now points at the current address.",
+  "lastVerified": "2026-08-14"
  },
  {
   "id": "us-gaf-contractors",
@@ -14099,7 +14133,7 @@
  {
   "id": "ca-used",
   "name": "Used.ca",
-  "website": "https://www.usedvictoria.com/",
+  "website": "https://www.used.ca/",
   "country": "canada",
   "category": "general-business",
   "tier": "tier3",
@@ -14111,8 +14145,8 @@
   "publicProfileAvailable": true,
   "listingAction": "unknown",
   "submissionModel": "unknown",
-  "note": "A regional Canadian classifieds marketplace with business seller sections.",
-  "lastVerified": "2026-08-06"
+  "note": "A regional Canadian classifieds marketplace with business seller sections. [redirect:2026-08-14] the same marketplace on its current domain; the record now points at the current address.",
+  "lastVerified": "2026-08-14"
  },
  {
   "id": "us-restaurantji",
@@ -14127,10 +14161,11 @@
    "united-states"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "A US restaurant directory with menus, reviews and public venue pages.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://www.restaurantji.com/addbusiness.php"
  },
  {
   "id": "us-menupages",
@@ -14271,10 +14306,11 @@
    "north-america"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "A local business directory covering the US and Canada with public company pages.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://www.businessyab.com/add-listing/"
  },
  {
   "id": "us-trueen",
@@ -14289,10 +14325,11 @@
    "global"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create-and-claim",
   "submissionModel": "unknown",
   "note": "A free local business directory with public company profiles.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://www.trueen.com/list-your-business/price"
  },
  {
   "id": "ca-getlistedcanada",
@@ -14307,10 +14344,11 @@
    "canada"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "A free Canadian local business listing directory.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://www.getlistedcanada.com/create-listing"
  },
  {
   "id": "ca-cdnpages",
@@ -14325,10 +14363,11 @@
    "canada"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "A Canadian business directory with contact details and reviews.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://cdnpages.ca/Business/AddBusiness"
  },
  {
   "id": "ca-canadianplanet",
@@ -14361,10 +14400,11 @@
    "canada"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "The Canadian arm of an international business directory network.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://www.zipleaf.ca/Add-Your-Business"
  },
  {
   "id": "us-yellowpagecity",
@@ -14496,7 +14536,7 @@
  {
   "id": "pa-visitpanama",
   "name": "Visit Panama",
-  "website": "https://www.visitpanama.com/",
+  "website": "https://www.tourismpanama.com/",
   "country": "panama",
   "category": "local-business",
   "tier": "tier2",
@@ -14508,8 +14548,8 @@
   "publicProfileAvailable": true,
   "listingAction": "unknown",
   "submissionModel": "unknown",
-  "note": "The official Panamanian tourism site, listing hotels, attractions and operators.",
-  "lastVerified": "2026-08-06"
+  "note": "The official Panamanian tourism site, listing hotels, attractions and operators. [redirect:2026-08-14] the Panamanian tourism authority moved domain and kept its identity; the record now points at the current address.",
+  "lastVerified": "2026-08-14"
  },
  {
   "id": "do-godominicanrepublic",
@@ -14743,7 +14783,7 @@
   "publicProfileAvailable": true,
   "listingAction": "unknown",
   "submissionModel": "unknown",
-  "note": "A Japanese factory and manufacturer search network with public company profiles. [redirect:2026-08-14] NC Network moved from nc-net.or.jp to nc-net.com; the record now points at the current address. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
+  "note": "A Japanese factory and manufacturer search network with public company profiles. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser. [redirect:2026-08-14] NC Network moved from nc-net.or.jp to nc-net.com; the record now points at the current address.",
   "lastVerified": "2026-08-14"
  },
  {
@@ -15067,10 +15107,11 @@
    "india"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "An Indian local deals platform where merchants hold public pages.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://merchants.nearbuy.com/register"
  },
  {
   "id": "in-magicpin",
@@ -15880,10 +15921,11 @@
    "india"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "The Indian arm of an international business pages and review network.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://service.opendi.in/listings"
  },
  {
   "id": "in-zipleaf",
@@ -15898,10 +15940,11 @@
    "india"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "The Indian arm of an international business directory network.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://www.zipleaf.in/Add-Your-Business"
  },
  {
   "id": "in-yalwa",
@@ -16782,7 +16825,7 @@
   "publicProfileAvailable": true,
   "listingAction": "unknown",
   "submissionModel": "unknown",
-  "note": "The Chilean arm of a major Latin American job board where employers hold public company pages. [redirect:2026-08-14] Computrabajo serves Chile from a country subdomain of its global site; the record now points at the current address. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
+  "note": "The Chilean arm of a major Latin American job board where employers hold public company pages. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser. [redirect:2026-08-14] Computrabajo serves Chile from a country subdomain of its global site; the record now points at the current address.",
   "lastVerified": "2026-08-14"
  },
  {
@@ -16924,10 +16967,11 @@
    "country-specific"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "The Argentine arm of an international directory network.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://www.hotfrog.com.ar/add"
  },
  {
   "id": "co-hotfrog",
@@ -16942,10 +16986,11 @@
    "country-specific"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "The Colombian arm of an international directory network.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://www.hotfrog.com.co/add"
  },
  {
   "id": "pe-hotfrog",
@@ -16960,10 +17005,11 @@
    "country-specific"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "The Peruvian arm of an international directory network.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://www.hotfrog.com.pe/add"
  },
  {
   "id": "ar-cylex",
@@ -17666,10 +17712,11 @@
    "country-specific"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "A Moroccan business directory with public company entries.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://www.yellowpages.net/business/add/?referer=yellowpages.ma#addcompanyform"
  },
  {
   "id": "ma-telecontact",
@@ -17746,7 +17793,7 @@
  {
   "id": "dz-sougplus",
   "name": "SougPlus",
-  "website": "https://www.algerie-annonce.com/",
+  "website": "https://sougplus.com/",
   "country": "algeria",
   "category": "general-business",
   "tier": "tier3",
@@ -17758,8 +17805,8 @@
   "publicProfileAvailable": true,
   "listingAction": "unknown",
   "submissionModel": "unknown",
-  "note": "An Algerian classifieds platform covering property, jobs and services.",
-  "lastVerified": "2026-08-06"
+  "note": "An Algerian classifieds platform covering property, jobs and services. [redirect:2026-08-14] SougPlus consolidated onto a .com domain and kept its name; the record now points at the current address.",
+  "lastVerified": "2026-08-14"
  },
  {
   "id": "ng-businesslist",
@@ -18101,10 +18148,11 @@
    "country-specific"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "A Rwandan travel and business guide listing local companies.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://www.rwandaonline.rw/post-a-listing/"
  },
  {
   "id": "global-afrindex",
@@ -18137,10 +18185,11 @@
    "africa"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "A pan-African B2B business directory with public company entries.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://directory.africa-business.com/plans"
  },
  {
   "id": "global-expat",
@@ -18541,7 +18590,7 @@
  {
   "id": "us-ashi",
   "name": "ASHI",
-  "website": "https://www.ashi.org/",
+  "website": "https://www.homeinspector.org/",
   "country": "united-states",
   "category": "construction",
   "tier": "tier2",
@@ -18553,8 +18602,8 @@
   "publicProfileAvailable": true,
   "listingAction": "unknown",
   "submissionModel": "unknown",
-  "note": "The American Society of Home Inspectors, whose members appear in a public locator.",
-  "lastVerified": "2026-08-06"
+  "note": "The American Society of Home Inspectors, whose members appear in a public locator. [redirect:2026-08-14] ASHI publishes its inspector directory on homeinspector.org; the record now points at the current address.",
+  "lastVerified": "2026-08-14"
  },
  {
   "id": "us-iicrc",
@@ -19004,7 +19053,7 @@
   "publicProfileAvailable": true,
   "listingAction": "unknown",
   "submissionModel": "unknown",
-  "note": "The main Austrian food delivery platform, where restaurants hold public pages. Rebranded in place from Mjam to foodora. [redirect:2026-08-14] mjam was rebranded to foodora in Austria. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
+  "note": "The main Austrian food delivery platform, where restaurants hold public pages. Rebranded in place from Mjam to foodora. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser. [redirect:2026-08-14] mjam was rebranded to foodora in Austria.",
   "lastVerified": "2026-08-14"
  },
  {
@@ -19308,10 +19357,11 @@
    "global"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "An international city guide where venues, bars and restaurants hold public pages.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://www.timeout.com/london/get-listed"
  },
  {
   "id": "fr-aacc",
@@ -19568,7 +19618,7 @@
  {
   "id": "fr-hemea",
   "name": "hemea",
-  "website": "https://www.travauxlib.com/",
+  "website": "https://www.hemea.com/fr",
   "country": "france",
   "category": "construction",
   "tier": "tier3",
@@ -19580,8 +19630,8 @@
   "publicProfileAvailable": true,
   "listingAction": "unknown",
   "submissionModel": "unknown",
-  "note": "A French renovation platform where architects and contractors hold public profiles, formerly published as Travauxlib.",
-  "lastVerified": "2026-08-06"
+  "note": "A French renovation platform where architects and contractors hold public profiles, formerly published as Travauxlib. [redirect:2026-08-14] hemea serves its French market from a locale path; the record now points at the current address.",
+  "lastVerified": "2026-08-14"
  },
  {
   "id": "it-ance",
@@ -19940,7 +19990,7 @@
   "publicProfileAvailable": true,
   "listingAction": "unknown",
   "submissionModel": "unknown",
-  "note": "A Spanish construction portal with a company and product directory. [redirect:2026-08-14] Construmatica now trades as Construnews. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
+  "note": "A Spanish construction portal with a company and product directory. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser. [redirect:2026-08-14] Construmatica now trades as Construnews.",
   "lastVerified": "2026-08-14"
  },
  {
@@ -20900,7 +20950,7 @@
  {
   "id": "cz-hotely",
   "name": "Hotely.cz",
-  "website": "https://www.hotel.cz/",
+  "website": "https://www.hotely.cz/",
   "country": "czech-republic",
   "category": "local-business",
   "tier": "tier2",
@@ -20912,8 +20962,8 @@
   "publicProfileAvailable": true,
   "listingAction": "unknown",
   "submissionModel": "unknown",
-  "note": "A Central European accommodation directory where properties hold public pages.",
-  "lastVerified": "2026-08-06"
+  "note": "A Central European accommodation directory where properties hold public pages. [redirect:2026-08-14] the same accommodation directory on its current domain; the record now points at the current address.",
+  "lastVerified": "2026-08-14"
  },
  {
   "id": "cz-grand-restaurant",
@@ -20972,7 +21022,7 @@
  {
   "id": "ca-hotelassociation",
   "name": "Hotels Canada",
-  "website": "https://www.hotelassociation.ca/",
+  "website": "https://hotelscanada.ca/",
   "country": "canada",
   "category": "industry-associations",
   "tier": "tier2",
@@ -20984,8 +21034,8 @@
   "publicProfileAvailable": true,
   "listingAction": "unknown",
   "submissionModel": "unknown",
-  "note": "The Canadian hotel industry association, whose member properties appear in a directory.",
-  "lastVerified": "2026-08-06"
+  "note": "The Canadian hotel industry association, whose member properties appear in a directory. [redirect:2026-08-14] the association moved to hotelscanada.ca and its page still carries the same name; the record now points at the current address.",
+  "lastVerified": "2026-08-14"
  },
  {
   "id": "ca-tiac",
@@ -21342,10 +21392,11 @@
    "australia"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "An Australian technology company and startup database with public profiles.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://techboard.com.au/get-listed/add-a-company/"
  },
  {
   "id": "au-startupaus",
@@ -22304,7 +22355,7 @@
  {
   "id": "br-cni",
   "name": "CNI",
-  "website": "https://www.cni.com.br/",
+  "website": "https://cni.portaldaindustria.com.br/home",
   "country": "brazil",
   "category": "industry-associations",
   "tier": "tier2",
@@ -22316,8 +22367,8 @@
   "publicProfileAvailable": true,
   "listingAction": "unknown",
   "submissionModel": "unknown",
-  "note": "The Brazilian national industry confederation, whose member federations carry company directories.",
-  "lastVerified": "2026-08-06"
+  "note": "The Brazilian national industry confederation, whose member federations carry company directories. [redirect:2026-08-14] the CNI member directory moved onto the Portal da Industria domain; the record now points at the current address.",
+  "lastVerified": "2026-08-14"
  },
  {
   "id": "br-abstartups",
@@ -23186,7 +23237,7 @@
  {
   "id": "za-bobshop",
   "name": "Bob Shop",
-  "website": "https://www.bidorbuy.co.za/",
+  "website": "https://www.bobshop.co.za/",
   "country": "south-africa",
   "category": "general-business",
   "tier": "tier2",
@@ -23198,8 +23249,8 @@
   "publicProfileAvailable": true,
   "listingAction": "unknown",
   "submissionModel": "unknown",
-  "note": "A South African marketplace where sellers hold public storefronts, formerly bidorbuy.",
-  "lastVerified": "2026-08-06"
+  "note": "A South African marketplace where sellers hold public storefronts, formerly bidorbuy. [redirect:2026-08-14] the same marketplace on its current domain; the record now points at the current address.",
+  "lastVerified": "2026-08-14"
  },
  {
   "id": "za-takealot",
@@ -23360,7 +23411,7 @@
   "publicProfileAvailable": true,
   "listingAction": "unknown",
   "submissionModel": "unknown",
-  "note": "The Dubai chamber of commerce, whose member companies appear in a business directory. [redirect:2026-08-14] the Dubai Chamber moved its business directory to a new domain; the record now points at the current address. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
+  "note": "The Dubai chamber of commerce, whose member companies appear in a business directory. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser. [redirect:2026-08-14] the Dubai Chamber moved its business directory to a new domain; the record now points at the current address.",
   "lastVerified": "2026-08-14"
  },
  {
@@ -23647,10 +23698,11 @@
    "global"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "A B2B agency ratings and reviews platform where agencies hold public profiles.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://selectedfirms.co/get-listed"
  },
  {
   "id": "global-topseos",
@@ -23701,10 +23753,11 @@
    "global"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "An IT company review and rating directory with public company profiles.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://itrate.co/login"
  },
  {
   "id": "global-wadline",
@@ -23719,10 +23772,11 @@
    "global"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "An IT company and software solutions directory with public company profiles.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://wadline.com/dashboard/company"
  },
  {
   "id": "global-adforum",
@@ -23926,7 +23980,7 @@
  {
   "id": "uk-entrepreneurfirst",
   "name": "Entrepreneur First",
-  "website": "https://www.entrepreneurfirst.com/",
+  "website": "https://www.joinef.com/",
   "country": "united-kingdom",
   "category": "startup",
   "tier": "tier2",
@@ -23938,8 +23992,8 @@
   "publicProfileAvailable": true,
   "listingAction": "unknown",
   "submissionModel": "unknown",
-  "note": "An international talent investor publishing public portfolio company pages.",
-  "lastVerified": "2026-08-06"
+  "note": "An international talent investor publishing public portfolio company pages. [redirect:2026-08-14] Entrepreneur First uses joinef.com and its page still carries the same name; the record now points at the current address.",
+  "lastVerified": "2026-08-14"
  },
  {
   "id": "global-impacthub",
@@ -24242,10 +24296,11 @@
    "india"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "An Indian business directory with public company listings.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://www.bizbangboom.com/join"
  },
  {
   "id": "in-pepagora",
@@ -24513,10 +24568,11 @@
    "regional"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "An Indian city business directory and networking listing for Mumbai.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://forms.gle/wwoCcUF6yPx7WpzB9"
  },
  {
   "id": "cn-51sole",
@@ -26173,10 +26229,11 @@
    "india"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "An Indian business directory with public company listings.",
-  "lastVerified": "2026-08-06"
+  "lastVerified": "2026-08-14",
+  "submissionUrl": "https://www.indiabusinessguide.in/user/addlisting.html"
  },
  {
   "id": "sg-exporters",
@@ -26618,8 +26675,8 @@
  },
  {
   "id": "global-segment-catalog",
-  "name": "Segment Catalog",
-  "website": "https://www.segment.com/catalog/",
+  "name": "Twilio Catalog",
+  "website": "https://www.twilio.com/en-us/catalog",
   "country": "global",
   "category": "software",
   "tier": "tier2",
@@ -26631,8 +26688,8 @@
   "publicProfileAvailable": true,
   "listingAction": "unknown",
   "submissionModel": "unknown",
-  "note": "Segment's public integration catalogue, where partner products hold searchable pages.",
-  "lastVerified": "2026-08-06"
+  "note": "Segment's public integration catalogue, where partner products hold searchable pages. [redirect:2026-08-14] Segment was absorbed into Twilio and the integrations catalog is now published as Twilio Catalog.",
+  "lastVerified": "2026-08-14"
  },
  {
   "id": "global-intel-partners",

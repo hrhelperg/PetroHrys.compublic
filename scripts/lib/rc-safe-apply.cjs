@@ -184,6 +184,20 @@ function isSettledBy(existing, owner) {
     .some(([senior, juniors]) => juniors.includes(owner) && hasOwnerSentence(existing, senior));
 }
 
+// Precedence has to work in BOTH directions. Refusing to write a junior
+// sentence stops the contradiction appearing next time; it does nothing about
+// one already sitting in the record from before the case was settled. So when
+// a senior owner resolves something, it retracts the junior sentences that ask
+// for exactly what it just answered — and only those. A junior sentence saying
+// "the site loads and serves its own content" is still true and stays.
+const ASKS_FOR_RESOLUTION = /needed by a person to settle what this (entry|record) should point at|investigate (the )?redirect/i;
+
+function retractSettled(text) {
+  return splitSentences(text)
+    .filter((sentence) => !ASKS_FOR_RESOLUTION.test(sentence))
+    .join(' ').replace(/\s+/g, ' ').trim();
+}
+
 // A record with nothing further to say from this owner: drop its sentence and
 // leave the human text alone.
 function clearNote(existing, { owner, legacy = true } = {}) {
@@ -329,6 +343,8 @@ module.exports = {
   assertSingleSentence,
   hasOwnerSentence,
   isSettledBy,
+  retractSettled,
+  ASKS_FOR_RESOLUTION,
   OUTRANKS,
   taggedBy,
   LEGACY_PROCEDURAL,

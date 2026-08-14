@@ -40,6 +40,23 @@
    "duplicateOf": null
   },
   {
+   "id": "au-homeimprovementpages",
+   "collection": "directories",
+   "name": "Home Improvement Pages",
+   "website": "https://www.homeimprovementpages.com.au/",
+   "country": "australia",
+   "chain": [
+    "301 https://www.homeimprovementpages.com.au/ -> https://hipages.com.au/"
+   ],
+   "finalUrl": "https://hipages.com.au/",
+   "finalTitle": "hipages: The #1 Place To Connect With Tradies - hipages.com.au",
+   "mentionsOriginal": [],
+   "state": "REBRAND_OR_ACQUISITION",
+   "why": "hipages.com.au answers for homeimprovementpages.com.au but does not say why on the landing page",
+   "to": "https://hipages.com.au/",
+   "duplicateOf": "directories:au-hipages"
+  },
+  {
    "id": "au-oneflare",
    "collection": "directories",
    "name": "Oneflare",
@@ -110,6 +127,68 @@
    "to": "https://www.cylex-belgie.be/"
   },
   {
+   "id": "br-cni",
+   "collection": "directories",
+   "name": "CNI",
+   "website": "https://www.cni.com.br/",
+   "country": "brazil",
+   "chain": [
+    "301 https://www.cni.com.br/ -> https://cni.portaldaindustria.com.br/home"
+   ],
+   "finalUrl": "https://cni.portaldaindustria.com.br/home",
+   "finalTitle": "Confederação Nacional da Indústria - CNI - Sistema Indústria",
+   "mentionsOriginal": [
+    "CNI",
+    "88 ANOS DA CNI",
+    "Fonte: CNI, com dados do SCNT - IBGE"
+   ],
+   "state": "REBRAND_OR_ACQUISITION",
+   "why": "portaldaindustria.com.br answers for cni.com.br but does not say why on the landing page",
+   "to": "https://cni.portaldaindustria.com.br/home",
+   "duplicateOf": null
+  },
+  {
+   "id": "ca-hotelassociation",
+   "collection": "directories",
+   "name": "Hotels Canada",
+   "website": "https://www.hotelassociation.ca/",
+   "country": "canada",
+   "chain": [
+    "301 https://www.hotelassociation.ca/ -> https://hotelscanada.ca/"
+   ],
+   "finalUrl": "https://hotelscanada.ca/",
+   "finalTitle": "Hotels Canada – The Voice of the Canadian Hotel Industry",
+   "mentionsOriginal": [
+    "Hotels Canada is a national association focused on identifying and understanding the most critical challenges faced by our industry today and bringing together hospitality leaders and key stakeholders to problem-solve and mobilize for action.",
+    "Hotels Canada and AHLA Foundation Formalize Partnership to Strengthen Industry Action Against Human Trafficking",
+    "Hotels Canada and the American Hotel & Lodging Association Foundation have signed a Memorandum of Understanding, formalizing a strengthened partnership to a…"
+   ],
+   "state": "REBRAND_OR_ACQUISITION",
+   "why": "hotelscanada.ca answers for hotelassociation.ca but does not say why on the landing page",
+   "to": "https://hotelscanada.ca/",
+   "duplicateOf": null
+  },
+  {
+   "id": "ca-used",
+   "collection": "directories",
+   "name": "Used.ca",
+   "website": "https://www.usedvictoria.com/",
+   "country": "canada",
+   "chain": [
+    "302 https://www.usedvictoria.com/ -> https://used.ca/",
+    "301 https://used.ca/ -> https://www.used.ca/"
+   ],
+   "finalUrl": "https://www.used.ca/",
+   "finalTitle": "Marketplace |Used.ca",
+   "mentionsOriginal": [
+    "Buy & sell your stuff with Used.ca",
+    "Made in Canada © 2026 Used.ca"
+   ],
+   "state": "DOMAIN_MOVE",
+   "why": "same brand on a new domain (usedvictoria.com -> used.ca)",
+   "to": "https://www.used.ca/"
+  },
+  {
    "id": "ch-cylex",
    "collection": "directories",
    "name": "Cylex Schweiz",
@@ -142,6 +221,23 @@
    "to": "https://cl.computrabajo.com/"
   },
   {
+   "id": "cz-atlasfirem",
+   "collection": "directories",
+   "name": "Atlas firem",
+   "website": "https://www.atlasfirem.cz/",
+   "country": "czech-republic",
+   "chain": [
+    "301 https://www.atlasfirem.cz/ -> https://www.firmablizko.cz/"
+   ],
+   "finalUrl": "https://www.firmablizko.cz/",
+   "finalTitle": "Katalog firem podle vzdálenosti od místa, ze kterého hledáte, najde firmu, do které máte blízko.",
+   "mentionsOriginal": [],
+   "state": "REBRAND_OR_ACQUISITION",
+   "why": "firmablizko.cz answers for atlasfirem.cz but does not say why on the landing page",
+   "to": "https://www.firmablizko.cz/",
+   "duplicateOf": null
+  },
+  {
    "id": "cz-damejidlo",
    "collection": "directories",
    "name": "foodora Česko",
@@ -156,6 +252,62 @@
    "state": "REBRAND_OR_ACQUISITION",
    "why": "foodora.cz answers for damejidlo.cz but does not say why on the landing page",
    "to": "https://www.foodora.cz/",
+   "duplicateOf": null
+  },
+  {
+   "id": "cz-hotely",
+   "collection": "directories",
+   "name": "Hotely.cz",
+   "website": "https://www.hotel.cz/",
+   "country": "czech-republic",
+   "chain": [
+    "301 https://www.hotel.cz/ -> https://www.hotely.cz/"
+   ],
+   "finalUrl": "https://www.hotely.cz/",
+   "finalTitle": "Ubytování v Česku, Slovensku, Maďarsku a Chorvatsku! | Hotely.cz",
+   "mentionsOriginal": [
+    "Hotely.cz je součástí holdingu Wirtualna Polska.",
+    "Stáhněte si aplikaci Hotely.cz",
+    "Souhlasím se zasíláním personalizovaných newsletterů a nabídek od společnosti Hotely.cz. Podrobnosti o ochraně osobních údajů."
+   ],
+   "state": "DOMAIN_MOVE",
+   "why": "same brand on a new domain (hotel.cz -> hotely.cz)",
+   "to": "https://www.hotely.cz/"
+  },
+  {
+   "id": "de-branchenorte",
+   "collection": "directories",
+   "name": "Branchenorte",
+   "website": "https://www.branchenorte.de/",
+   "country": "germany",
+   "chain": [
+    "301 https://www.branchenorte.de/ -> https://www.business-branchenbuch.de/"
+   ],
+   "finalUrl": "https://www.business-branchenbuch.de/",
+   "finalTitle": null,
+   "mentionsOriginal": [
+    "Branchenorte.de"
+   ],
+   "state": "REBRAND_OR_ACQUISITION",
+   "why": "business-branchenbuch.de answers for branchenorte.de but does not say why on the landing page",
+   "to": "https://www.business-branchenbuch.de/",
+   "duplicateOf": "directories:de-business-branchenbuch"
+  },
+  {
+   "id": "de-dialo",
+   "collection": "directories",
+   "name": "Dialo",
+   "website": "https://www.dialo.de/",
+   "country": "germany",
+   "chain": [
+    "301 https://www.dialo.de/ -> https://www.bundes-telefonbuch.de/"
+   ],
+   "finalUrl": "https://www.bundes-telefonbuch.de/",
+   "finalTitle": "BundesTelefonbuch Startseite",
+   "mentionsOriginal": [],
+   "state": "REBRAND_OR_ACQUISITION",
+   "why": "bundes-telefonbuch.de answers for dialo.de but does not say why on the landing page",
+   "to": "https://www.bundes-telefonbuch.de/",
    "duplicateOf": null
   },
   {
@@ -214,6 +366,28 @@
    "duplicateOf": "directories:dk-krak"
   },
   {
+   "id": "dz-sougplus",
+   "collection": "directories",
+   "name": "SougPlus",
+   "website": "https://www.algerie-annonce.com/",
+   "country": "algeria",
+   "chain": [
+    "301 https://www.algerie-annonce.com/ -> http://sougplus.com/",
+    "307 http://sougplus.com/ -> https://sougplus.com/"
+   ],
+   "finalUrl": "https://sougplus.com/",
+   "finalTitle": "SougPlus – Petites annonces en Algérie : immobilier, emploi, location, artisanat",
+   "mentionsOriginal": [
+    "Une nouvelle façon d'acheter, vendre, louer et travailler. SougPlus réunit l'immobilier, l'emploi, les véhicules, le shopping et les services sur une plateforme soignée, rapide, pensée pour la confiance. Lancement en Algérie, puis déploiement dans plusieurs pays. السوق الجديد، بأسلوب راقٍ.",
+    "SougPlus. La place de marché premium. Lancement en Algérie, puis à l'international.",
+    "contact@sougplus.com"
+   ],
+   "state": "REBRAND_OR_ACQUISITION",
+   "why": "sougplus.com answers for algerie-annonce.com but does not say why on the landing page",
+   "to": "https://sougplus.com/",
+   "duplicateOf": null
+  },
+  {
    "id": "es-construmatica",
    "collection": "directories",
    "name": "Construmatica",
@@ -245,6 +419,27 @@
    "state": "DOMAIN_MOVE",
    "why": "same brand on a new domain (cylex.fr -> cylex-locale.fr)",
    "to": "https://www.cylex-locale.fr/"
+  },
+  {
+   "id": "fr-hemea",
+   "collection": "directories",
+   "name": "hemea",
+   "website": "https://www.travauxlib.com/",
+   "country": "france",
+   "chain": [
+    "301 https://www.travauxlib.com/ -> https://www.hemea.com/fr"
+   ],
+   "finalUrl": "https://www.hemea.com/fr",
+   "finalTitle": "hemea : Le courtier en Architecture & Rénovation. Nouvelle Génération",
+   "mentionsOriginal": [
+    "Vos données sont protégées et utilisées uniquement pour vous accompagner. Les cookies sont utilisés par hemea.com afin de :",
+    "hemea construit le nouveau standard de confiance et de qualité pour vos travaux.",
+    "Chantier qui avance comme prévu. Encadrement entreprise très professionnelle. Service hemea à recommander."
+   ],
+   "state": "REBRAND_OR_ACQUISITION",
+   "why": "hemea.com answers for travauxlib.com but does not say why on the landing page",
+   "to": "https://www.hemea.com/fr",
+   "duplicateOf": null
   },
   {
    "id": "fr-hoodspot",
@@ -281,6 +476,23 @@
    "state": "REBRAND_OR_ACQUISITION",
    "why": "accessnewswire.com answers for accesswire.com but does not say why on the landing page",
    "to": "https://www.accessnewswire.com/",
+   "duplicateOf": null
+  },
+  {
+   "id": "global-adobe-commerce-marketplace",
+   "collection": "directories",
+   "name": "Adobe Commerce Marketplace",
+   "website": "https://marketplace.magento.com/",
+   "country": "global",
+   "chain": [
+    "301 https://marketplace.magento.com/ -> https://commercemarketplace.adobe.com/"
+   ],
+   "finalUrl": "https://commercemarketplace.adobe.com/",
+   "finalTitle": "Adobe Commerce Extensions & Themes for Your Online Store | Marketplace",
+   "mentionsOriginal": [],
+   "state": "REBRAND_OR_ACQUISITION",
+   "why": "adobe.com answers for magento.com but does not say why on the landing page",
+   "to": "https://commercemarketplace.adobe.com/",
    "duplicateOf": null
   },
   {
@@ -342,6 +554,24 @@
    "duplicateOf": null
   },
   {
+   "id": "global-segment-catalog",
+   "collection": "directories",
+   "name": "Segment Catalog",
+   "website": "https://www.segment.com/catalog/",
+   "country": "global",
+   "chain": [
+    "301 https://www.segment.com/catalog/ -> https://segment.com/catalog/",
+    "301 https://segment.com/catalog/ -> https://www.twilio.com/en-us/catalog"
+   ],
+   "finalUrl": "https://www.twilio.com/en-us/catalog?",
+   "finalTitle": "Catalog | Twilio",
+   "mentionsOriginal": [],
+   "state": "REBRAND_OR_ACQUISITION",
+   "why": "twilio.com answers for segment.com but does not say why on the landing page",
+   "to": "https://www.twilio.com/en-us/catalog?",
+   "duplicateOf": null
+  },
+  {
    "id": "global-smartcustomer",
    "collection": "directories",
    "name": "SmartCustomer",
@@ -381,6 +611,23 @@
    "state": "DOMAIN_MOVE",
    "why": "same brand, moved from techpilot.net to techpilot.com",
    "to": "https://www.techpilot.com/en"
+  },
+  {
+   "id": "global-terraform-registry",
+   "collection": "directories",
+   "name": "Terraform Registry",
+   "website": "https://www.terraform.io/registry",
+   "country": "global",
+   "chain": [
+    "308 https://www.terraform.io/registry -> https://developer.hashicorp.com/terraform"
+   ],
+   "finalUrl": "https://developer.hashicorp.com/terraform",
+   "finalTitle": "Terraform | HashiCorp Developer",
+   "mentionsOriginal": [],
+   "state": "REBRAND_OR_ACQUISITION",
+   "why": "hashicorp.com answers for terraform.io but does not say why on the landing page",
+   "to": "https://developer.hashicorp.com/terraform",
+   "duplicateOf": "directories:global-hashicorp-partners"
   },
   {
    "id": "global-ziprecruiter",
@@ -507,6 +754,24 @@
    "to": "https://reklama5.com/"
   },
   {
+   "id": "pa-visitpanama",
+   "collection": "directories",
+   "name": "Visit Panama",
+   "website": "https://www.visitpanama.com/",
+   "country": "panama",
+   "chain": [
+    "301 https://www.visitpanama.com/ -> https://www.tourismpanama.com/visitpanama_com/",
+    "301 https://www.tourismpanama.com/visitpanama_com/ -> https://www.tourismpanama.com/"
+   ],
+   "finalUrl": "https://www.tourismpanama.com/",
+   "finalTitle": "Welcome to Panamá | Beaches, Attractions & Things to Do",
+   "mentionsOriginal": [],
+   "state": "REBRAND_OR_ACQUISITION",
+   "why": "tourismpanama.com answers for visitpanama.com but does not say why on the landing page",
+   "to": "https://www.tourismpanama.com/",
+   "duplicateOf": null
+  },
+  {
    "id": "pl-cylex",
    "collection": "directories",
    "name": "Cylex Polska",
@@ -542,6 +807,87 @@
    "why": "businessmagnet.co.uk states it: \"Businessmagnet acquires Applegate.co.uk domain\"",
    "to": "https://www.businessmagnet.co.uk/businessmagnet-acquires-applegate.htm",
    "duplicateOf": "directories:uk-businessmagnet"
+  },
+  {
+   "id": "uk-entrepreneurfirst",
+   "collection": "directories",
+   "name": "Entrepreneur First",
+   "website": "https://www.entrepreneurfirst.com/",
+   "country": "united-kingdom",
+   "chain": [
+    "301 https://www.entrepreneurfirst.com/ -> https://joinef.com/",
+    "301 https://joinef.com/ -> https://www.joinef.com/"
+   ],
+   "finalUrl": "https://www.joinef.com/",
+   "finalTitle": "Found, don't follow | Entrepreneurs First",
+   "mentionsOriginal": [],
+   "state": "REBRAND_OR_ACQUISITION",
+   "why": "joinef.com answers for entrepreneurfirst.com but does not say why on the landing page",
+   "to": "https://www.joinef.com/",
+   "duplicateOf": null
+  },
+  {
+   "id": "us-ashi",
+   "collection": "directories",
+   "name": "ASHI",
+   "website": "https://www.ashi.org/",
+   "country": "united-states",
+   "chain": [
+    "301 https://www.ashi.org/ -> https://www.homeinspector.org/"
+   ],
+   "finalUrl": "https://www.homeinspector.org/",
+   "finalTitle": "Home - American Society of Home Inspectors, Inc.",
+   "mentionsOriginal": [
+    "ASHI Home Inspectors are the best in the field. They’re trained, they abide by a code of ethics, and they are committed to continuous learning. Insist on an ASHI member the next time you’re buying a home.",
+    "ASHI Home Inspectors are the best in the field. They’re trained, they abide by a code of ethics, and they are committed to continuous learning. Insist on an ASHI member the next time you’re buying a home.",
+    "ASHI CODE OF ETHICS"
+   ],
+   "state": "REBRAND_OR_ACQUISITION",
+   "why": "homeinspector.org answers for ashi.org but does not say why on the landing page",
+   "to": "https://www.homeinspector.org/",
+   "duplicateOf": null
+  },
+  {
+   "id": "us-greenpal",
+   "collection": "directories",
+   "name": "GreenPal",
+   "website": "https://www.greenpal.com/",
+   "country": "united-states",
+   "chain": [
+    "301 https://www.greenpal.com/ -> https://www.yourgreenpal.com/"
+   ],
+   "finalUrl": "https://www.yourgreenpal.com/",
+   "finalTitle": "USA's #1 'Lawn Care Near Me' Service (Get Free Quotes)",
+   "mentionsOriginal": [
+    "SERVICES YOU CAN BOOK ON GREENPAL",
+    "GreenPal's Community Reviews ensure you hire only the best lawn service nearby",
+    "GreenPal is the only place you can securely pay nearby lawn care services in a snap"
+   ],
+   "state": "REBRAND_OR_ACQUISITION",
+   "why": "yourgreenpal.com answers for greenpal.com but does not say why on the landing page",
+   "to": "https://www.yourgreenpal.com/",
+   "duplicateOf": null
+  },
+  {
+   "id": "za-bobshop",
+   "collection": "directories",
+   "name": "Bob Shop",
+   "website": "https://www.bidorbuy.co.za/",
+   "country": "south-africa",
+   "chain": [
+    "301 https://www.bidorbuy.co.za/ -> https://www.bobshop.co.za/"
+   ],
+   "finalUrl": "https://www.bobshop.co.za/",
+   "finalTitle": "Bob Shop online shopping South Africa | bid or buy today",
+   "mentionsOriginal": [
+    "Sell on Bob Shop",
+    "New to Bob Shop?",
+    "Bob Shop"
+   ],
+   "state": "REBRAND_OR_ACQUISITION",
+   "why": "bobshop.co.za answers for bidorbuy.co.za but does not say why on the landing page",
+   "to": "https://www.bobshop.co.za/",
+   "duplicateOf": "marketplaces:mp-za-bobshop"
   }
  ]
 }

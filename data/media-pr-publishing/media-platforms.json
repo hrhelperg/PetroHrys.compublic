@@ -256,7 +256,7 @@
   "costModel": "paid",
   "submissionUrl": null,
   "pitchUrl": null,
-  "pressReleaseUrl": null,
+  "pressReleaseUrl": "https://www.accessnewswire.com/submit-a-press-release",
   "advertisingUrl": null,
   "mediaKitUrl": null,
   "contactUrl": null,
@@ -266,7 +266,7 @@
   "sponsoredContentAvailable": null,
   "shortNote": "Press release distribution and investor relations services. Formerly ACCESSWIRE; accesswire.com now redirects here.",
   "limitations": "Paid only. Rebranded from ACCESSWIRE, so older references and links point at the previous domain.",
-  "lastVerified": "2026-08-07",
+  "lastVerified": "2026-08-14",
   "sources": [
    "https://www.accesswire.com/",
    "https://www.accessnewswire.com/newsroom"
@@ -406,10 +406,10 @@
   "currentStatus": "active",
   "priority": "P3",
   "opportunityTypes": [
-   "unknown"
+   "editorial-submission"
   ],
   "costModel": "unknown",
-  "submissionUrl": null,
+  "submissionUrl": "https://www.agriculturedive.com/submit-tip/",
   "pitchUrl": null,
   "pressReleaseUrl": null,
   "advertisingUrl": null,
@@ -421,7 +421,7 @@
   "sponsoredContentAvailable": null,
   "shortNote": "Industry Dive’s agriculture title covering farm inputs, equipment and policy.",
   "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Reached and identified during Wave 3.",
-  "lastVerified": "2026-08-08",
+  "lastVerified": "2026-08-14",
   "sources": [
    "https://www.agriculturedive.com/"
   ]
@@ -1338,10 +1338,11 @@
   "priority": "P2",
   "opportunityTypes": [
    "editorial-pitch",
+   "editorial-submission",
    "press-release"
   ],
   "costModel": "free",
-  "submissionUrl": null,
+  "submissionUrl": "https://www.bankingdive.com/submit-tip/",
   "pitchUrl": null,
   "pressReleaseUrl": null,
   "advertisingUrl": null,
@@ -1353,7 +1354,7 @@
   "sponsoredContentAvailable": null,
   "shortNote": "Industry Dive’s banking title, read by banking operators and executives. Its about page carries both a press-release address and a tips route.",
   "limitations": "The release route and the editorial tip route are different things; a release is not a story.",
-  "lastVerified": "2026-08-07",
+  "lastVerified": "2026-08-14",
   "sources": [
    "https://www.bankingdive.com/about/"
   ]
@@ -1803,10 +1804,11 @@
   "currentStatus": "active",
   "priority": "P2",
   "opportunityTypes": [
-   "editorial-pitch"
+   "editorial-pitch",
+   "editorial-submission"
   ],
   "costModel": "free",
-  "submissionUrl": null,
+  "submissionUrl": "https://www.bleepingcomputer.com/news-tip/",
   "pitchUrl": null,
   "pressReleaseUrl": null,
   "advertisingUrl": null,
@@ -1818,7 +1820,7 @@
   "sponsoredContentAvailable": null,
   "shortNote": "Breaking security and malware coverage widely cited by other outlets, with a public contact route.",
   "limitations": "Incident and research-driven; product launches rarely qualify.",
-  "lastVerified": "2026-08-07",
+  "lastVerified": "2026-08-14",
   "sources": [
    "https://www.bleepingcomputer.com/contact/"
   ]
@@ -1842,10 +1844,10 @@
   "currentStatus": "active",
   "priority": "P3",
   "opportunityTypes": [
-   "unknown"
+   "editorial-submission"
   ],
   "costModel": "unknown",
-  "submissionUrl": null,
+  "submissionUrl": "https://www.bloomberg.com/tips/",
   "pitchUrl": null,
   "pressReleaseUrl": null,
   "advertisingUrl": null,
@@ -1857,7 +1859,7 @@
   "sponsoredContentAvailable": null,
   "shortNote": "Global business and financial news attached to the Bloomberg terminal business.",
   "limitations": "No public pitch route was established. Included because it is a standing target on most PR lists, not because a route was found.",
-  "lastVerified": "2026-08-07",
+  "lastVerified": "2026-08-14",
   "sources": [
    "https://www.bloomberg.com/"
   ]
@@ -2619,10 +2621,10 @@
   "currentStatus": "active",
   "priority": "P3",
   "opportunityTypes": [
-   "unknown"
+   "contributed-article"
   ],
   "costModel": "unknown",
-  "submissionUrl": null,
+  "submissionUrl": "https://bytebytego.com/become-a-contributor",
   "pitchUrl": null,
   "pressReleaseUrl": null,
   "advertisingUrl": null,
@@ -2634,7 +2636,7 @@
   "sponsoredContentAvailable": null,
   "shortNote": "System design newsletter for software engineers.",
   "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Reached and identified during Wave 3.",
-  "lastVerified": "2026-08-08",
+  "lastVerified": "2026-08-14",
   "sources": [
    "https://bytebytego.com/"
   ]
@@ -5115,10 +5117,10 @@
   "currentStatus": "active",
   "priority": "P1",
   "opportunityTypes": [
-   "unknown"
+   "editorial-submission"
   ],
   "costModel": "unknown",
-  "submissionUrl": null,
+  "submissionUrl": "https://www.enr.com/events/new",
   "pitchUrl": null,
   "pressReleaseUrl": null,
   "advertisingUrl": null,
@@ -5130,7 +5132,7 @@
   "sponsoredContentAvailable": null,
   "shortNote": "The reference US construction and engineering publication, publisher of the ENR contractor rankings.",
   "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Checked during Wave 2; no submission or pitch page was found at the paths tried.",
-  "lastVerified": "2026-08-08",
+  "lastVerified": "2026-08-14",
   "sources": [
    "https://www.enr.com/"
   ]
@@ -6082,10 +6084,11 @@
   "priority": "P2",
   "opportunityTypes": [
    "editorial-pitch",
+   "editorial-submission",
    "press-release"
   ],
   "costModel": "free",
-  "submissionUrl": null,
+  "submissionUrl": "https://www.fooddive.com/submit-tip/",
   "pitchUrl": null,
   "pressReleaseUrl": null,
   "advertisingUrl": null,
@@ -6097,7 +6100,7 @@
   "sponsoredContentAvailable": null,
   "shortNote": "Industry Dive’s food and beverage manufacturing title, covering brands, ingredients and regulation, with release and tip routes on its about page.",
   "limitations": "Food manufacturing and CPG, not agriculture production.",
-  "lastVerified": "2026-08-08",
+  "lastVerified": "2026-08-14",
   "sources": [
    "https://www.fooddive.com/about/"
   ]
@@ -6198,10 +6201,10 @@
   "currentStatus": "active",
   "priority": "P2",
   "opportunityTypes": [
-   "unknown"
+   "editorial-submission"
   ],
   "costModel": "unknown",
-  "submissionUrl": null,
+  "submissionUrl": "https://www.forbes.com/sites/forbesstaff/article/tips-and-confidential-sources/",
   "pitchUrl": null,
   "pressReleaseUrl": null,
   "advertisingUrl": null,
@@ -6213,7 +6216,7 @@
   "sponsoredContentAvailable": null,
   "shortNote": "A major global business title. Staff journalism and the paid Councils contributor programme are entirely separate things.",
   "limitations": "No open pitch route was established for staff coverage. For the paid publishing route see the Forbes Councils record, which is not staff coverage.",
-  "lastVerified": "2026-08-07",
+  "lastVerified": "2026-08-14",
   "sources": [
    "https://www.forbes.com/"
   ]
@@ -6508,10 +6511,10 @@
   "currentStatus": "active",
   "priority": "P3",
   "opportunityTypes": [
-   "unknown"
+   "contributed-article"
   ],
   "costModel": "unknown",
-  "submissionUrl": null,
+  "submissionUrl": "https://futurestartup.com/2015/06/17/introducing-fs-network/",
   "pitchUrl": null,
   "pressReleaseUrl": null,
   "advertisingUrl": null,
@@ -6827,7 +6830,7 @@
   "costModel": "paid",
   "submissionUrl": null,
   "pitchUrl": null,
-  "pressReleaseUrl": null,
+  "pressReleaseUrl": "https://portal.notified.com/en/registration",
   "advertisingUrl": null,
   "mediaKitUrl": null,
   "contactUrl": null,
@@ -6837,7 +6840,7 @@
   "sponsoredContentAvailable": null,
   "shortNote": "A global newswire with strong coverage of listed-company and financial disclosure, and a public newsroom carrying every release.",
   "limitations": "Paid only. The public newsroom republishes releases verbatim; it is not editorial coverage.",
-  "lastVerified": "2026-08-07",
+  "lastVerified": "2026-08-14",
   "sources": [
    "https://www.globenewswire.com/",
    "https://www.globenewswire.com/newsroom"
@@ -7720,10 +7723,11 @@
   "priority": "P2",
   "opportunityTypes": [
    "editorial-pitch",
+   "editorial-submission",
    "press-release"
   ],
   "costModel": "free",
-  "submissionUrl": null,
+  "submissionUrl": "https://www.hrdive.com/submit-tip/",
   "pitchUrl": null,
   "pressReleaseUrl": null,
   "advertisingUrl": null,
@@ -7735,7 +7739,7 @@
   "sponsoredContentAvailable": null,
   "shortNote": "Industry Dive’s human resources title, covering employment law, benefits and workforce policy.",
   "limitations": "The release route and the editorial tip route are different asks and land in different places. Route established in Wave 3; the Wave 2 record inherited an unverified sibling-title assumption.",
-  "lastVerified": "2026-08-08",
+  "lastVerified": "2026-08-14",
   "sources": [
    "https://www.hrdive.com/",
    "https://www.hrdive.com/about/"
@@ -7914,10 +7918,10 @@
   "currentStatus": "active",
   "priority": "P3",
   "opportunityTypes": [
-   "unknown"
+   "editorial-submission"
   ],
   "costModel": "unknown",
-  "submissionUrl": null,
+  "submissionUrl": "https://tockify.com/tkf2/submitEvent/6c74d33818714e26a5722affafd1e3d9?ref=hypepotamus.ghost.io",
   "pitchUrl": null,
   "pressReleaseUrl": null,
   "advertisingUrl": null,
@@ -7929,7 +7933,7 @@
   "sponsoredContentAvailable": null,
   "shortNote": "Startup and technology coverage across the US Southeast, centred on Atlanta.",
   "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. A contact path was checked and returns 404.",
-  "lastVerified": "2026-08-08",
+  "lastVerified": "2026-08-14",
   "sources": [
    "https://hypepotamus.com/"
   ]
@@ -8110,10 +8114,11 @@
   "currentStatus": "active",
   "priority": "P2",
   "opportunityTypes": [
+   "contributed-article",
    "self-publish"
   ],
   "costModel": "free",
-  "submissionUrl": null,
+  "submissionUrl": "https://www.indiehackers.com/new-post",
   "pitchUrl": null,
   "pressReleaseUrl": null,
   "advertisingUrl": null,
@@ -8125,7 +8130,7 @@
   "sponsoredContentAvailable": null,
   "shortNote": "A community where founders publish build-in-public posts, milestones and revenue notes under their own name.",
   "limitations": "Self-published posts, so reach depends entirely on the community. Not editorial coverage.",
-  "lastVerified": "2026-08-07",
+  "lastVerified": "2026-08-14",
   "sources": [
    "https://indiehackers.com/"
   ]
@@ -8268,10 +8273,10 @@
   "currentStatus": "active",
   "priority": "P2",
   "opportunityTypes": [
-   "unknown"
+   "contributed-article"
   ],
   "costModel": "unknown",
-  "submissionUrl": null,
+  "submissionUrl": "https://internetretailing.net/guest-post-what-in-store-bnpl-tells-us-about-the-future-of-retail-payments/",
   "pitchUrl": null,
   "pressReleaseUrl": null,
   "advertisingUrl": null,
@@ -8283,7 +8288,7 @@
   "sponsoredContentAvailable": null,
   "shortNote": "UK and European ecommerce and multichannel retail publication.",
   "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Reached and identified during Wave 3.",
-  "lastVerified": "2026-08-08",
+  "lastVerified": "2026-08-14",
   "sources": [
    "https://www.internetretailing.net/"
   ]
@@ -8546,10 +8551,10 @@
   "currentStatus": "active",
   "priority": "P3",
   "opportunityTypes": [
-   "unknown"
+   "contributed-article"
   ],
   "costModel": "unknown",
-  "submissionUrl": null,
+  "submissionUrl": "https://www.itpro.com/about-us#section-write-for-us",
   "pitchUrl": null,
   "pressReleaseUrl": null,
   "advertisingUrl": null,
@@ -8561,7 +8566,7 @@
   "sponsoredContentAvailable": null,
   "shortNote": "UK enterprise IT news and buying advice, published by Future plc.",
   "limitations": "No submission or pitch route was established from the site.",
-  "lastVerified": "2026-08-07",
+  "lastVerified": "2026-08-14",
   "sources": [
    "https://www.itpro.com/"
   ]
@@ -9325,11 +9330,11 @@
   "currentStatus": "active",
   "priority": "P2",
   "opportunityTypes": [
-   "unknown"
+   "editorial-pitch"
   ],
   "costModel": "unknown",
   "submissionUrl": null,
-  "pitchUrl": null,
+  "pitchUrl": "https://www.law.com/static/contact-us/",
   "pressReleaseUrl": null,
   "advertisingUrl": null,
   "mediaKitUrl": null,
@@ -9340,7 +9345,7 @@
   "sponsoredContentAvailable": null,
   "shortNote": "ALM’s legal industry network, covering law firm business, litigation and legal technology.",
   "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Checked during Wave 2; no submission or pitch page was found at the paths tried.",
-  "lastVerified": "2026-08-08",
+  "lastVerified": "2026-08-14",
   "sources": [
    "https://www.law.com/"
   ]
@@ -10216,10 +10221,10 @@
   "currentStatus": "active",
   "priority": "P2",
   "opportunityTypes": [
-   "unknown"
+   "editorial-submission"
   ],
   "costModel": "unknown",
-  "submissionUrl": null,
+  "submissionUrl": "https://www.medtechdive.com/submit-tip/",
   "pitchUrl": null,
   "pressReleaseUrl": null,
   "advertisingUrl": null,
@@ -10231,7 +10236,7 @@
   "sponsoredContentAvailable": null,
   "shortNote": "Medical device industry news, regulation and company coverage.",
   "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Checked during Wave 2; no submission or pitch page was found at the paths tried.",
-  "lastVerified": "2026-08-08",
+  "lastVerified": "2026-08-14",
   "sources": [
    "https://www.medtechdive.com/"
   ]
@@ -11119,7 +11124,7 @@
   "costModel": "paid",
   "submissionUrl": null,
   "pitchUrl": null,
-  "pressReleaseUrl": null,
+  "pressReleaseUrl": "https://www.newswire.com/pricing",
   "advertisingUrl": null,
   "mediaKitUrl": null,
   "contactUrl": null,
@@ -11129,7 +11134,7 @@
   "sponsoredContentAvailable": null,
   "shortNote": "Press release distribution bundled with a media database and pitching tools, aimed at small and mid-sized companies.",
   "limitations": "Paid only. The media database and pitching tools are separate products from distribution.",
-  "lastVerified": "2026-08-07",
+  "lastVerified": "2026-08-14",
   "sources": [
    "https://www.newswire.com/",
    "https://www.newswire.com/press-release-distribution/"
@@ -11965,10 +11970,10 @@
   "currentStatus": "active",
   "priority": "P3",
   "opportunityTypes": [
-   "unknown"
+   "contributed-article"
   ],
   "costModel": "unknown",
-  "submissionUrl": null,
+  "submissionUrl": "https://www.power-eng.com/submit-an-article/",
   "pitchUrl": null,
   "pressReleaseUrl": null,
   "advertisingUrl": null,
@@ -11980,7 +11985,7 @@
   "sponsoredContentAvailable": null,
   "shortNote": "US power generation trade publication covering plants, turbines and grid assets.",
   "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Reached and identified during Wave 3.",
-  "lastVerified": "2026-08-08",
+  "lastVerified": "2026-08-14",
   "sources": [
    "https://www.power-eng.com/"
   ]
@@ -12897,10 +12902,10 @@
   "currentStatus": "active",
   "priority": "P3",
   "opportunityTypes": [
-   "unknown"
+   "contributed-article"
   ],
   "costModel": "unknown",
-  "submissionUrl": null,
+  "submissionUrl": "https://recruitingdaily.com/submit-content/",
   "pitchUrl": null,
   "pressReleaseUrl": null,
   "advertisingUrl": null,
@@ -12912,7 +12917,7 @@
   "sponsoredContentAvailable": null,
   "shortNote": "Recruiting technology and talent acquisition publication with a large product-review output.",
   "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Reached and identified during Wave 3.",
-  "lastVerified": "2026-08-08",
+  "lastVerified": "2026-08-14",
   "sources": [
    "https://recruitingdaily.com/"
   ]
@@ -13021,7 +13026,7 @@
   "costModel": "paid",
   "submissionUrl": null,
   "pitchUrl": null,
-  "pressReleaseUrl": null,
+  "pressReleaseUrl": "https://pressreleases.responsesource.com/send",
   "advertisingUrl": null,
   "mediaKitUrl": null,
   "contactUrl": null,
@@ -13031,7 +13036,7 @@
   "sponsoredContentAvailable": null,
   "shortNote": "The established UK journalist enquiry service. Journalists send requests to a subscriber network, and subscribers can also send releases.",
   "limitations": "Paid subscription for PR users. The enquiry service and the release service are separate products.",
-  "lastVerified": "2026-08-07",
+  "lastVerified": "2026-08-14",
   "sources": [
    "https://www.responsesource.com/"
   ]
@@ -13132,10 +13137,10 @@
   "currentStatus": "active",
   "priority": "P2",
   "opportunityTypes": [
-   "unknown"
+   "editorial-submission"
   ],
   "costModel": "unknown",
-  "submissionUrl": null,
+  "submissionUrl": "https://www.retaildive.com/submit-tip/",
   "pitchUrl": null,
   "pressReleaseUrl": null,
   "advertisingUrl": null,
@@ -13147,7 +13152,7 @@
   "sponsoredContentAvailable": null,
   "shortNote": "Industry Dive’s retail title, covering chains, ecommerce and consumer brands.",
   "limitations": "Its own about route was not individually verified; the sibling titles publish a tips address, but that is the platform’s pattern rather than proof for this title.",
-  "lastVerified": "2026-08-07",
+  "lastVerified": "2026-08-14",
   "sources": [
    "https://www.retaildive.com/"
   ]
@@ -13637,10 +13642,10 @@
   "currentStatus": "active",
   "priority": "P3",
   "opportunityTypes": [
-   "unknown"
+   "editorial-submission"
   ],
   "costModel": "unknown",
-  "submissionUrl": null,
+  "submissionUrl": "https://www.securityweek.com/submit-tip",
   "pitchUrl": null,
   "pressReleaseUrl": null,
   "advertisingUrl": null,
@@ -13652,7 +13657,7 @@
   "sponsoredContentAvailable": null,
   "shortNote": "Enterprise security news and an ICS security conference brand.",
   "limitations": "A write-for-us route was checked and does not exist. Approach via the editorial team.",
-  "lastVerified": "2026-08-07",
+  "lastVerified": "2026-08-14",
   "sources": [
    "https://www.securityweek.com/"
   ]
@@ -13801,7 +13806,7 @@
   ],
   "costModel": "free",
   "submissionUrl": null,
-  "pitchUrl": null,
+  "pitchUrl": "https://sifted.eu/pitch-your-story",
   "pressReleaseUrl": null,
   "advertisingUrl": null,
   "mediaKitUrl": null,
@@ -13812,7 +13817,7 @@
   "sponsoredContentAvailable": null,
   "shortNote": "European startup and venture coverage, originally backed by the Financial Times, with a contact route for story tips.",
   "limitations": "European companies and investors only. Much of the deeper reporting sits behind Sifted Pro.",
-  "lastVerified": "2026-08-07",
+  "lastVerified": "2026-08-14",
   "sources": [
    "https://sifted.eu/about"
   ]
@@ -14957,10 +14962,10 @@
   "currentStatus": "active",
   "priority": "P2",
   "opportunityTypes": [
-   "unknown"
+   "editorial-submission"
   ],
   "costModel": "unknown",
-  "submissionUrl": null,
+  "submissionUrl": "https://www.supplychaindive.com/submit-tip/",
   "pitchUrl": null,
   "pressReleaseUrl": null,
   "advertisingUrl": null,
@@ -14972,7 +14977,7 @@
   "sponsoredContentAvailable": null,
   "shortNote": "Industry Dive’s logistics and supply chain title.",
   "limitations": "Route not individually verified; see the note on the sibling titles.",
-  "lastVerified": "2026-08-07",
+  "lastVerified": "2026-08-14",
   "sources": [
    "https://www.supplychaindive.com/"
   ]
@@ -15190,10 +15195,10 @@
   "currentStatus": "active",
   "priority": "P3",
   "opportunityTypes": [
-   "unknown"
+   "contributed-article"
   ],
   "costModel": "unknown",
-  "submissionUrl": null,
+  "submissionUrl": "https://techcollectivesea.com/tech-collective-contributor-guidelines/",
   "pitchUrl": null,
   "pressReleaseUrl": null,
   "advertisingUrl": null,
@@ -15205,7 +15210,7 @@
   "sponsoredContentAvailable": null,
   "shortNote": "Southeast Asian technology and innovation coverage.",
   "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Reached and identified during Wave 2; no public submission or pitch page was found.",
-  "lastVerified": "2026-08-08",
+  "lastVerified": "2026-08-14",
   "sources": [
    "https://techcollectivesea.com"
   ]
@@ -15548,10 +15553,10 @@
   "currentStatus": "active",
   "priority": "P2",
   "opportunityTypes": [
-   "unknown"
+   "contributed-article"
   ],
   "costModel": "unknown",
-  "submissionUrl": null,
+  "submissionUrl": "https://technode.com/write-for-us/",
   "pitchUrl": null,
   "pressReleaseUrl": null,
   "advertisingUrl": null,
@@ -15563,7 +15568,7 @@
   "sponsoredContentAvailable": null,
   "shortNote": "English-language coverage of Chinese technology companies and startups.",
   "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Reached and identified during Wave 2; no public submission or pitch page was found.",
-  "lastVerified": "2026-08-08",
+  "lastVerified": "2026-08-14",
   "sources": [
    "https://technode.com"
   ]
@@ -15973,13 +15978,13 @@
   "currentStatus": "active",
   "priority": "P2",
   "opportunityTypes": [
-   "unknown"
+   "sponsored-content"
   ],
   "costModel": "unknown",
   "submissionUrl": null,
   "pitchUrl": null,
   "pressReleaseUrl": null,
-  "advertisingUrl": null,
+  "advertisingUrl": "https://www.thefabricator.com/thefabricator/advertise#targeted-digital-advertising-programmatic",
   "mediaKitUrl": null,
   "contactUrl": null,
   "editorialContact": null,
@@ -15988,7 +15993,7 @@
   "sponsoredContentAvailable": null,
   "shortNote": "Metal forming and fabricating trade publication from the FMA association.",
   "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Checked during Wave 2; no submission or pitch page was found at the paths tried.",
-  "lastVerified": "2026-08-08",
+  "lastVerified": "2026-08-14",
   "sources": [
    "https://www.thefabricator.com/"
   ]
@@ -17149,11 +17154,11 @@
   "currentStatus": "active",
   "priority": "P3",
   "opportunityTypes": [
-   "unknown"
+   "editorial-pitch"
   ],
   "costModel": "unknown",
   "submissionUrl": null,
-  "pitchUrl": null,
+  "pitchUrl": "https://www.utahbusiness.com/pages/pitch-a-story/",
   "pressReleaseUrl": null,
   "advertisingUrl": null,
   "mediaKitUrl": null,
@@ -17164,7 +17169,7 @@
   "sponsoredContentAvailable": null,
   "shortNote": "Utah’s statewide business magazine for executives and entrepreneurs, running awards and lists alongside editorial.",
   "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. A contact path was checked and returns 404.",
-  "lastVerified": "2026-08-08",
+  "lastVerified": "2026-08-14",
   "sources": [
    "https://www.utahbusiness.com/"
   ]
@@ -17188,10 +17193,11 @@
   "priority": "P1",
   "opportunityTypes": [
    "editorial-pitch",
+   "editorial-submission",
    "press-release"
   ],
   "costModel": "free",
-  "submissionUrl": null,
+  "submissionUrl": "https://www.utilitydive.com/submit-tip/",
   "pitchUrl": null,
   "pressReleaseUrl": null,
   "advertisingUrl": null,
@@ -17203,7 +17209,7 @@
   "sponsoredContentAvailable": null,
   "shortNote": "US electric and gas utility industry news, read by utility executives and regulators. Its about page carries both a press-release address and a story-tip route.",
   "limitations": "Utilities and grid, not general energy. The release route and the tip route are different asks.",
-  "lastVerified": "2026-08-08",
+  "lastVerified": "2026-08-14",
   "sources": [
    "https://www.utilitydive.com/about/"
   ]

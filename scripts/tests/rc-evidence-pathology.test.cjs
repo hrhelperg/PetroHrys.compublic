@@ -393,3 +393,60 @@ test('research already written down is never replaced by a procedural sentence',
       `${r.id}: the procedural sentence is all that is left; the description it replaced is gone`);
   }
 });
+
+// ── 8. A Media route comes from wording, never from a path or a generic link ─
+
+const mediaPage = (anchors) => ({
+  url: 'https://example.test/',
+  status: 200,
+  title: 'Example News',
+  head: 'Newsroom. Latest headlines and analysis.',
+  textLen: 6000,
+  anchors,
+  deepAnchors: [],
+  feed: true,
+  articles: 8,
+  times: 8,
+  error: null,
+});
+
+test('a Media route is never taken from the URL path', () => {
+  // Every href below screams the action. None of the link TEXT offers it, and
+  // a path is not a promise: /press-release is as likely to be an archive of
+  // other people's releases as an invitation to submit one.
+  const v = M.assess({ website: 'https://example.test/', name: 'Example News' }, mediaPage([
+    { text: 'Home', href: 'https://example.test/submit-press-release' },
+    { text: 'Latest', href: 'https://example.test/write-for-us' },
+    { text: 'More', href: 'https://example.test/contact-the-editor' },
+  ]));
+  assert.equal(v.state, 'ACTIVE_VERIFIED');
+  assert.deepEqual(v.routes, {}, 'a route was taken from a URL path');
+  assert.deepEqual(v.opportunityTypes, [], 'an opportunity type was claimed from a URL path');
+});
+
+test('a generic Contact link does not become an editorial route', () => {
+  // "Contact" is how a reader reaches advertising, subscriptions, HR and legal.
+  // Only wording that names the newsroom offers a newsroom.
+  const generic = M.assess({ website: 'https://example.test/', name: 'Example News' }, mediaPage([
+    { text: 'Contact', href: 'https://example.test/contact' },
+    { text: 'Contact us', href: 'https://example.test/contact-us' },
+    { text: 'About', href: 'https://example.test/about' },
+  ]));
+  assert.equal(generic.routes.pitchUrl, undefined,
+    'a generic contact page was recorded as an editorial pitch route');
+  assert.ok(!generic.opportunityTypes.includes('editorial-pitch'));
+
+  // And the specific case still works, so the guard is not simply switched off.
+  const specific = M.assess({ website: 'https://example.test/', name: 'Example News' }, mediaPage([
+    { text: 'Contact the editor', href: 'https://example.test/newsroom' },
+  ]));
+  assert.equal(specific.routes.pitchUrl.href, 'https://example.test/newsroom');
+  assert.ok(specific.opportunityTypes.includes('editorial-pitch'));
+});
+
+test('a Media route is never the record it belongs to', () => {
+  const v = M.assess({ website: 'https://example.test/', name: 'Example News' }, mediaPage([
+    { text: 'Submit a press release', href: 'https://example.test/' },
+  ]));
+  assert.deepEqual(v.routes, {}, 'the homepage was recorded as a submission route');
+});

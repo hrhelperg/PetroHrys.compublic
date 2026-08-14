@@ -1,7 +1,7 @@
 {
  "probedAt": "2026-08-14",
  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36",
- "total": 458,
+ "total": 474,
  "findings": [
   {
    "id": "ae-bayt",
@@ -616,6 +616,22 @@
    "why": "access-denied"
   },
   {
+   "id": "br-cni",
+   "name": "CNI",
+   "website": "https://cni.portaldaindustria.com.br/home",
+   "country": "brazil",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://cni.portaldaindustria.com.br/home",
+    "title": "Confederação Nacional da Indústria - CNI - Sistema Indústria",
+    "textLen": 7699,
+    "anchors": 53
+   },
+   "verdict": "active",
+   "why": "7699 characters of real content",
+   "routes": {}
+  },
+  {
    "id": "br-cylex",
    "name": "Cylex Brasil",
    "website": "https://www.cylex.com.br/",
@@ -946,6 +962,22 @@
    "routes": {}
   },
   {
+   "id": "ca-hotelassociation",
+   "name": "Hotels Canada",
+   "website": "https://hotelscanada.ca/",
+   "country": "canada",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://hotelscanada.ca/",
+    "title": "Hotels Canada – The Voice of the Canadian Hotel Industry",
+    "textLen": 3125,
+    "anchors": 46
+   },
+   "verdict": "active",
+   "why": "3125 characters of real content",
+   "routes": {}
+  },
+  {
    "id": "ca-hotfrog",
    "name": "Hotfrog Canada",
    "website": "https://www.hotfrog.ca/",
@@ -1026,6 +1058,22 @@
    },
    "verdict": "unreachable",
    "why": "the browser could not open the site at all"
+  },
+  {
+   "id": "ca-used",
+   "name": "Used.ca",
+   "website": "https://www.used.ca/",
+   "country": "canada",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.used.ca/",
+    "title": "Marketplace |Used.ca",
+    "textLen": 1236,
+    "anchors": 95
+   },
+   "verdict": "active",
+   "why": "1236 characters of real content",
+   "routes": {}
   },
   {
    "id": "ca-weddingwire",
@@ -1221,6 +1269,22 @@
    "why": "cloudflare-interstitial"
   },
   {
+   "id": "cz-atlasfirem",
+   "name": "Firma Blizko",
+   "website": "https://www.firmablizko.cz/",
+   "country": "czech-republic",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.firmablizko.cz/",
+    "title": "Katalog firem podle vzdálenosti od místa, ze kterého hledáte, najde firmu, do které máte blízko.",
+    "textLen": 1962,
+    "anchors": 77
+   },
+   "verdict": "active",
+   "why": "1962 characters of real content",
+   "routes": {}
+  },
+  {
    "id": "cz-cylex",
    "name": "Cylex Česko",
    "website": "https://www.cylex.cz/",
@@ -1282,6 +1346,22 @@
    },
    "verdict": "active",
    "why": "25071 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "cz-hotely",
+   "name": "Hotely.cz",
+   "website": "https://www.hotely.cz/",
+   "country": "czech-republic",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.hotely.cz/",
+    "title": "Ubytování v Česku, Slovensku, Maďarsku a Chorvatsku! | Hotely.cz",
+    "textLen": 8524,
+    "anchors": 462
+   },
+   "verdict": "active",
+   "why": "8524 characters of real content",
    "routes": {}
   },
   {
@@ -1373,6 +1453,22 @@
    },
    "verdict": "active",
    "why": "11327 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "de-dialo",
+   "name": "BundesTelefonbuch",
+   "website": "https://www.bundes-telefonbuch.de/",
+   "country": "germany",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.bundes-telefonbuch.de/",
+    "title": "BundesTelefonbuch Startseite",
+    "textLen": 1885,
+    "anchors": 61
+   },
+   "verdict": "active",
+   "why": "1885 characters of real content",
    "routes": {}
   },
   {
@@ -1641,6 +1737,22 @@
    },
    "verdict": "active",
    "why": "3411 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "dz-sougplus",
+   "name": "SougPlus",
+   "website": "https://sougplus.com/",
+   "country": "algeria",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://sougplus.com/",
+    "title": "SougPlus – Petites annonces en Algérie : immobilier, emploi, location, artisanat",
+    "textLen": 3145,
+    "anchors": 4
+   },
+   "verdict": "active",
+   "why": "3145 characters of real content",
    "routes": {}
   },
   {
@@ -1990,6 +2102,22 @@
    "routes": {}
   },
   {
+   "id": "fr-hemea",
+   "name": "hemea",
+   "website": "https://www.hemea.com/fr",
+   "country": "france",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.hemea.com/fr",
+    "title": "hemea : Le courtier en Architecture & Rénovation. Nouvelle Génération",
+    "textLen": 3087,
+    "anchors": 136
+   },
+   "verdict": "active",
+   "why": "3087 characters of real content",
+   "routes": {}
+  },
+  {
    "id": "fr-hoodspot",
    "name": "Annuaire Petites Affiches",
    "website": "https://annuaire.petitesaffiches.fr/",
@@ -2289,6 +2417,22 @@
      "href": "https://www.adforum.com/agency"
     }
    }
+  },
+  {
+   "id": "global-adobe-commerce-marketplace",
+   "name": "Adobe Commerce Marketplace",
+   "website": "https://commercemarketplace.adobe.com/",
+   "country": "global",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://commercemarketplace.adobe.com/",
+    "title": "Adobe Commerce Extensions & Themes for Your Online Store | Marketplace",
+    "textLen": 1782,
+    "anchors": 44
+   },
+   "verdict": "active",
+   "why": "1782 characters of real content",
+   "routes": {}
   },
   {
    "id": "global-agencyspotter",
@@ -3197,6 +3341,22 @@
    "routes": {}
   },
   {
+   "id": "global-segment-catalog",
+   "name": "Twilio Catalog",
+   "website": "https://www.twilio.com/en-us/catalog",
+   "country": "global",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.twilio.com/en-us/catalog?",
+    "title": "Catalog | Twilio",
+    "textLen": 797,
+    "anchors": 375
+   },
+   "verdict": "active",
+   "why": "797 characters of real content",
+   "routes": {}
+  },
+  {
    "id": "global-sgs-certified",
    "name": "SGS Certified Clients",
    "website": "https://www.sgs.com/en/certified-clients-and-products",
@@ -3412,6 +3572,22 @@
    },
    "verdict": "active",
    "why": "4677 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "global-terraform-registry",
+   "name": "Terraform Registry",
+   "website": "https://developer.hashicorp.com/terraform",
+   "country": "global",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://developer.hashicorp.com/terraform",
+    "title": "Terraform | HashiCorp Developer",
+    "textLen": 3411,
+    "anchors": 78
+   },
+   "verdict": "active",
+   "why": "3411 characters of real content",
    "routes": {}
   },
   {
@@ -5265,6 +5441,22 @@
    "why": "cloudflare-interstitial"
   },
   {
+   "id": "pa-visitpanama",
+   "name": "Visit Panama",
+   "website": "https://www.tourismpanama.com/",
+   "country": "panama",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.tourismpanama.com/",
+    "title": "Welcome to Panamá | Beaches, Attractions & Things to Do",
+    "textLen": 2639,
+    "anchors": 134
+   },
+   "verdict": "active",
+   "why": "2639 characters of real content",
+   "routes": {}
+  },
+  {
    "id": "pe-pedidosya",
    "name": "PedidosYa Perú",
    "website": "https://www.pedidosya.com.pe/",
@@ -5917,6 +6109,22 @@
    "routes": {}
   },
   {
+   "id": "uk-entrepreneurfirst",
+   "name": "Entrepreneur First",
+   "website": "https://www.joinef.com/",
+   "country": "united-kingdom",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.joinef.com/",
+    "title": "Found, don't follow | Entrepreneurs First",
+    "textLen": 6418,
+    "anchors": 70
+   },
+   "verdict": "active",
+   "why": "6418 characters of real content",
+   "routes": {}
+  },
+  {
    "id": "uk-fsb",
    "name": "Federation of Small Businesses",
    "website": "https://www.fsb.org.uk/",
@@ -6095,6 +6303,22 @@
    },
    "verdict": "blocked",
    "why": "cloudflare-attention"
+  },
+  {
+   "id": "us-ashi",
+   "name": "ASHI",
+   "website": "https://www.homeinspector.org/",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.homeinspector.org/",
+    "title": "Home - American Society of Home Inspectors, Inc.",
+    "textLen": 4322,
+    "anchors": 240
+   },
+   "verdict": "active",
+   "why": "4322 characters of real content",
+   "routes": {}
   },
   {
    "id": "us-attorneys-com",
@@ -6404,6 +6628,22 @@
      "href": "https://www.goodtherapy.org/join-therapist-directory-membership"
     }
    }
+  },
+  {
+   "id": "us-greenpal",
+   "name": "GreenPal",
+   "website": "https://www.yourgreenpal.com/",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.yourgreenpal.com/",
+    "title": "USA's #1 'Lawn Care Near Me' Service (Get Free Quotes)",
+    "textLen": 1317,
+    "anchors": 342
+   },
+   "verdict": "active",
+   "why": "1317 characters of real content",
+   "routes": {}
   },
   {
    "id": "us-healthgrades",
@@ -7199,6 +7439,22 @@
    },
    "verdict": "active",
    "why": "10079 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "za-bobshop",
+   "name": "Bob Shop",
+   "website": "https://www.bobshop.co.za/",
+   "country": "south-africa",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.bobshop.co.za/",
+    "title": "Bob Shop online shopping South Africa | bid or buy today",
+    "textLen": 2013,
+    "anchors": 457
+   },
+   "verdict": "active",
+   "why": "2013 characters of real content",
    "routes": {}
   },
   {

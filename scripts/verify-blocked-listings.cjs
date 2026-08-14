@@ -466,12 +466,48 @@ async function runProbe() {
   // for these; what a business can actually do on them is not, and that is the
   // largest remaining gap in the planner's classification.
   if (DEEP) {
-    const PRIORITY = new Set(['P1', 'P2']);
-    const TIER = new Set(['tier1', 'tier2']);
-    targets = rows.filter((r) => r.currentStatus === 'active'
-      && (!r.listingAction || r.listingAction === 'unknown')
-      && PRIORITY.has(r.priority) && TIER.has(r.tier));
-    console.log(`Actionability: ${targets.length} live record(s) whose action is unknown.`);
+    // The cohort is RANKED, deterministically, from facts already in the
+    // corpus. No popularity metric is invented: every term below is something
+    // the collection already asserts about the record.
+    //
+    // Records already examined are skipped — a second identical visit answers
+    // the same question and spends someone else's bandwidth to do it.
+    const examined = (() => {
+      const f = path.join(ROOT, 'data/business-directories/.actionability.json');
+      if (!fs.existsSync(f)) return new Set();
+      return new Set(JSON.parse(fs.readFileSync(f, 'utf8')).findings.map((x) => x.id));
+    })();
+
+    // How much action coverage does each country already have? A country whose
+    // sites are all unknown gains more from one answer than a country with
+    // twenty routes already recorded.
+    const covered = {};
+    for (const r of rows) {
+      if (r.submissionUrl || r.claimUrl) covered[r.country] = (covered[r.country] || 0) + 1;
+    }
+
+    const score = (r) => {
+      let s = 0;
+      const c = covered[r.country] || 0;
+      if (c === 0) s += 40; else if (c <= 2) s += 24; else if (c <= 5) s += 12;
+      s += { P1: 30, P2: 18, P3: 6 }[r.priority] || 0;
+      s += { tier1: 24, tier2: 12, tier3: 4 }[r.tier] || 0;
+      // A record whose note already describes a submission path is likelier to
+      // have one published somewhere on the site.
+      if (/free listing|submit|add your|register|claim/i.test(r.note || '')) s += 10;
+      // And one that has just been refused by a bot filter will be refused again.
+      if (/browser check is needed/i.test(r.note || '')) s -= 50;
+      return s;
+    };
+
+    targets = rows
+      .filter((r) => r.currentStatus === 'active'
+        && (!r.listingAction || r.listingAction === 'unknown')
+        && !examined.has(r.id))
+      .map((r) => ({ r, s: score(r) }))
+      .sort((a, b) => b.s - a.s || (a.r.id < b.r.id ? -1 : 1))
+      .map((x) => x.r);
+    console.log(`Actionability: ${targets.length} unexamined live record(s), ranked.`);
   }
 
   // --limit is applied AFTER the cohort is chosen. It used to be applied before,
@@ -526,7 +562,7 @@ async function runProbe() {
   let merged = findings;
   if (fs.existsSync(FINDINGS)) {
     const prior = JSON.parse(fs.readFileSync(FINDINGS, 'utf8')).findings || [];
-    if (prior.length > findings.length) {
+    if (prior.length) {
       const fresh = new Map(findings.map((f) => [f.id, f]));
       merged = prior.map((f) => fresh.get(f.id) || f);
       const added = findings.filter((f) => !prior.some((p) => p.id === f.id));

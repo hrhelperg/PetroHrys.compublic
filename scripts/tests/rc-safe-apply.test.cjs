@@ -252,3 +252,55 @@ test('no ownership list overlaps the never-touch list', () => {
     }
   }
 });
+
+// ── REDIRECT REGRESSION ─────────────────────────────────────────────────────
+
+test('every resolved acquisition and rebrand stays resolved', () => {
+  // Thirty cases were audited and terminally classified. A later research pass
+  // must not re-open one merely because an old URL appears in a legacy note.
+  const byId = new Map([...DIRECTORIES, ...MARKETPLACES].map((r) => [r.id, r]));
+  const RESOLVED = [
+    { id: 'uk-applegate', expect: 'redirected', names: 'uk-businessmagnet' },
+    { id: 'au-oneflare', expect: 'redirected', names: 'mp-au-airtasker' },
+    { id: 'dk-eniro', expect: 'redirected', names: 'dk-krak' },
+    { id: 'de-opendi', expect: 'redirected', names: 'de-stadtbranchenbuch' },
+    { id: 'jm-jamaicayp', expect: 'redirected', names: 'jm-findyello' },
+    { id: 'global-seedrs', expect: 'active', host: 'europe.republic.com' },
+    { id: 'global-accesswire', expect: 'active', host: 'accessnewswire.com' },
+    { id: 'bb-barbadosyp', expect: 'active', host: 'findyello.com' },
+    { id: 'be-cylex', expect: 'active', host: 'cylex-belgie.be' },
+    { id: 'mp-mk-reklama5', expect: 'active', host: 'reklama5.com' },
+  ];
+
+  for (const c of RESOLVED) {
+    const r = byId.get(c.id);
+    assert.ok(r, `${c.id} has vanished from the corpus`);
+    assert.equal(r.currentStatus, c.expect, `${c.id} is ${r.currentStatus}, not ${c.expect}`);
+    assert.ok(/\[redirect:/.test(r.note || ''), `${c.id} no longer carries its redirect resolution`);
+    if (c.names) {
+      assert.ok(String(r.note).includes(c.names), `${c.id} no longer names ${c.names} as its survivor`);
+    }
+    if (c.host) {
+      assert.ok(new URL(r.website).hostname.endsWith(c.host),
+        `${c.id} points at ${r.website}, not at ${c.host}`);
+    }
+    // And nothing may re-add a request to settle what is settled.
+    assert.ok(!/a browser check is needed by a person to settle what this (entry|record) should point at/i.test(r.note || ''),
+      `${c.id} was re-opened after being resolved`);
+  }
+});
+
+test('a repointed record never keeps the route it had at its old address', () => {
+  // A route is a path on a host. When the host changes, a route that still
+  // points at the old one is a dead link the product would hand to a user.
+  for (const r of [...DIRECTORIES, ...MARKETPLACES]) {
+    if (!/\[redirect:/.test(r.note || '')) continue;
+    for (const field of ['submissionUrl', 'claimUrl']) {
+      if (!r[field]) continue;
+      const routeHost = new URL(r[field]).hostname.replace(/^www\./, '');
+      const siteHost = new URL(r.website).hostname.replace(/^www\./, '');
+      assert.equal(SAFE.registrable(routeHost), SAFE.registrable(siteHost),
+        `${r.id}: ${field} still points at ${routeHost} while the record moved to ${siteHost}`);
+    }
+  }
+});
