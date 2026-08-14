@@ -2335,19 +2335,19 @@
  {
   "id": "fr-cylex",
   "name": "Cylex France",
-  "website": "https://www.cylex.fr/",
+  "website": "https://www.cylex-locale.fr/",
   "country": "france",
   "category": "local-business",
   "tier": "tier3",
   "priority": "P3",
-  "currentStatus": "unknown",
+  "currentStatus": "active",
   "audienceGeography": [
    "country-specific"
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
   "submissionModel": "unknown",
-  "note": "The French arm of the international Cylex network. An automated browser check on 2026-08-14 found that cylex.fr now serves cylex-locale.fr; a browser check is needed by a person to settle what this entry should point at, and the status stays unknown.",
+  "note": "The French arm of the international Cylex network. Audited on 2026-08-14: Cylex serves France from a per-market domain; the record now points at the current address.",
   "lastVerified": "2026-08-14"
  },
  {
@@ -2461,19 +2461,19 @@
  {
   "id": "it-cylex",
   "name": "Cylex Italia",
-  "website": "https://www.cylex.it/",
+  "website": "https://www.cylex-italia.it/",
   "country": "italy",
   "category": "local-business",
   "tier": "tier3",
   "priority": "P3",
-  "currentStatus": "unknown",
+  "currentStatus": "active",
   "audienceGeography": [
    "country-specific"
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
   "submissionModel": "unknown",
-  "note": "The Italian arm of the international Cylex network. An automated browser check on 2026-08-14 found that cylex.it now serves cylex-italia.it; a browser check is needed by a person to settle what this entry should point at, and the status stays unknown.",
+  "note": "The Italian arm of the international Cylex network. Audited on 2026-08-14: Cylex serves Italy from a per-market domain; the record now points at the current address.",
   "lastVerified": "2026-08-14"
  },
  {
@@ -2515,19 +2515,19 @@
  {
   "id": "pl-cylex",
   "name": "Cylex Polska",
-  "website": "https://www.cylex.pl/",
+  "website": "https://www.cylex-polska.pl/",
   "country": "poland",
   "category": "local-business",
   "tier": "tier3",
   "priority": "P3",
-  "currentStatus": "unknown",
+  "currentStatus": "active",
   "audienceGeography": [
    "country-specific"
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
   "submissionModel": "unknown",
-  "note": "The Polish arm of the international Cylex network. An automated browser check on 2026-08-14 found that cylex.pl now serves cylex-polska.pl; a browser check is needed by a person to settle what this entry should point at, and the status stays unknown.",
+  "note": "The Polish arm of the international Cylex network. Audited on 2026-08-14: Cylex serves Poland from a per-market domain; the record now points at the current address.",
   "lastVerified": "2026-08-14"
  },
  {
@@ -3112,13 +3112,13 @@
  },
  {
   "id": "global-accesswire",
-  "name": "ACCESSWIRE",
-  "website": "https://www.accesswire.com/",
+  "name": "ACCESS Newswire",
+  "website": "https://www.accessnewswire.com/",
   "country": "global",
   "category": "press-release-platforms",
   "tier": "tier2",
   "priority": "P3",
-  "currentStatus": "unknown",
+  "currentStatus": "active",
   "audienceGeography": [
    "global",
    "north-america"
@@ -3126,7 +3126,7 @@
   "publicProfileAvailable": true,
   "listingAction": "unknown",
   "submissionModel": "unknown",
-  "note": "A press release distribution service. An automated browser check on 2026-08-14 found that accesswire.com now serves accessnewswire.com; a browser check is needed by a person to settle what this entry should point at, and the status stays unknown.",
+  "note": "A press release distribution service. Audited on 2026-08-14: ACCESSWIRE was renamed ACCESS Newswire; the press-release distribution product is unchanged.",
   "lastVerified": "2026-08-14"
  },
  {
@@ -4172,19 +4172,19 @@
  {
   "id": "be-cylex",
   "name": "Cylex Belgium",
-  "website": "https://www.cylex.be/",
+  "website": "https://www.cylex-belgie.be/",
   "country": "belgium",
   "category": "local-business",
   "tier": "tier3",
   "priority": "P3",
-  "currentStatus": "unknown",
+  "currentStatus": "active",
   "audienceGeography": [
    "country-specific"
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
   "submissionModel": "unknown",
-  "note": "The Belgian arm of the international Cylex network. An automated browser check on 2026-08-14 found that cylex.be now serves cylex-belgie.be; a browser check is needed by a person to settle what this entry should point at, and the status stays unknown.",
+  "note": "The Belgian arm of the international Cylex network. Audited on 2026-08-14: Cylex serves Belgium from a per-market domain; the record now points at the current address.",
   "lastVerified": "2026-08-14"
  },
  {
@@ -4298,19 +4298,19 @@
  {
   "id": "ch-cylex",
   "name": "Cylex Schweiz",
-  "website": "https://www.cylex.ch/",
+  "website": "https://www.cylex-swiss.ch/",
   "country": "switzerland",
   "category": "local-business",
   "tier": "tier3",
   "priority": "P3",
-  "currentStatus": "unknown",
+  "currentStatus": "active",
   "audienceGeography": [
    "dach"
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
   "submissionModel": "unknown",
-  "note": "The Swiss arm of the international Cylex network. An automated browser check on 2026-08-14 found that cylex.ch now serves cylex-swiss.ch; a browser check is needed by a person to settle what this entry should point at, and the status stays unknown.",
+  "note": "The Swiss arm of the international Cylex network. Audited on 2026-08-14: Cylex serves Switzerland from a per-market domain; the record now points at the current address.",
   "lastVerified": "2026-08-14"
  },
  {
@@ -4393,14 +4393,14 @@
   "category": "manufacturing",
   "tier": "tier2",
   "priority": "P2",
-  "currentStatus": "unknown",
+  "currentStatus": "redirected",
   "audienceGeography": [
    "united-kingdom"
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
   "submissionModel": "unknown",
-  "note": "A UK business-to-business sourcing marketplace with public supplier profiles. An automated browser check on 2026-08-14 found that applegate.co.uk now serves businessmagnet.co.uk; a browser check is needed by a person to settle what this entry should point at, and the status stays unknown.",
+  "note": "A UK business-to-business sourcing marketplace with public supplier profiles. Audited on 2026-08-14: Businessmagnet announced the acquisition of the Applegate.co.uk domain on 19 September 2025, on the page the redirect lands on. The surviving record is uk-businessmagnet (https://www.businessmagnet.co.uk/).",
   "lastVerified": "2026-08-14"
  },
  {
@@ -5308,7 +5308,7 @@
   "publicProfileAvailable": true,
   "listingAction": "unknown",
   "submissionModel": "unknown",
-  "note": "A major US hiring platform with public employer profiles. An automated browser check on 2026-08-14 found that ziprecruiter.com now serves ziprecruiter.ie; a browser check is needed by a person to settle what this entry should point at, and the status stays unknown.",
+  "note": "A major US hiring platform with public employer profiles. Audited on 2026-08-14: ziprecruiter.com served ziprecruiter.ie to this prober's location, so the global product itself was never seen and a browser check is needed from elsewhere; the status stays unknown.",
   "lastVerified": "2026-08-14"
  },
  {
@@ -6445,14 +6445,14 @@
   "category": "local-business",
   "tier": "tier2",
   "priority": "P2",
-  "currentStatus": "unknown",
+  "currentStatus": "redirected",
   "audienceGeography": [
    "australia"
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
   "submissionModel": "unknown",
-  "note": "An Australian services marketplace with public business profiles. An automated browser check on 2026-08-14 found that oneflare.com.au now serves airtasker.com; a browser check is needed by a person to settle what this entry should point at, and the status stays unknown.",
+  "note": "An Australian services marketplace with public business profiles. Audited on 2026-08-14: the destination states the Oneflare brand retired on 30 June 2026 and directs users to Airtasker, which is already recorded. The surviving record is mp-au-airtasker (https://www.airtasker.com/).",
   "lastVerified": "2026-08-14"
  },
  {
@@ -7151,14 +7151,14 @@
   "category": "local-business",
   "tier": "tier2",
   "priority": "P2",
-  "currentStatus": "unknown",
+  "currentStatus": "redirected",
   "audienceGeography": [
    "nordics"
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
   "submissionModel": "unknown",
-  "note": "The Danish arm of the Eniro directory group. An automated browser check on 2026-08-14 found that eniro.dk now serves krak.dk; a browser check is needed by a person to settle what this entry should point at, and the status stays unknown.",
+  "note": "The Danish arm of the Eniro directory group. Audited on 2026-08-14: Eniro Denmark now serves Krak, which is already recorded. The surviving record is dk-krak (https://www.krak.dk/).",
   "lastVerified": "2026-08-14"
  },
  {
@@ -7418,13 +7418,13 @@
  },
  {
   "id": "global-seedrs",
-  "name": "Seedrs",
-  "website": "https://www.seedrs.com/",
+  "name": "Republic Europe",
+  "website": "https://europe.republic.com/",
   "country": "global",
   "category": "startup",
   "tier": "tier1",
   "priority": "P3",
-  "currentStatus": "unknown",
+  "currentStatus": "active",
   "audienceGeography": [
    "europe",
    "united-kingdom"
@@ -7432,7 +7432,7 @@
   "publicProfileAvailable": true,
   "listingAction": "unknown",
   "submissionModel": "unknown",
-  "note": "A European equity crowdfunding platform with public company pages. An automated browser check on 2026-08-14 found that seedrs.com now serves republic.com; a browser check is needed by a person to settle what this entry should point at, and the status stays unknown.",
+  "note": "A European equity crowdfunding platform with public company pages. Audited on 2026-08-14: Seedrs was acquired by Republic and now trades as Republic Europe; the destination still names Seedrs Europe Limited as the regulated entity.",
   "lastVerified": "2026-08-14"
  },
  {
@@ -7443,14 +7443,14 @@
   "category": "local-business",
   "tier": "tier3",
   "priority": "P3",
-  "currentStatus": "unknown",
+  "currentStatus": "redirected",
   "audienceGeography": [
    "dach"
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
   "submissionModel": "unknown",
-  "note": "The German arm of the Opendi directory network. An automated browser check on 2026-08-14 found that opendi.de now serves stadtbranchenbuch.com; a browser check is needed by a person to settle what this entry should point at, and the status stays unknown.",
+  "note": "The German arm of the Opendi directory network. Audited on 2026-08-14: opendi.de now serves Stadtbranchenbuch, which is already recorded. The surviving record is de-stadtbranchenbuch (https://www.stadtbranchenbuch.com/).",
   "lastVerified": "2026-08-14"
  },
  {
@@ -8935,19 +8935,19 @@
  {
   "id": "de-myhammer",
   "name": "MyHammer",
-  "website": "https://www.myhammer.de/",
+  "website": "https://www.my-hammer.de/",
   "country": "germany",
   "category": "local-business",
   "tier": "tier2",
   "priority": "P2",
-  "currentStatus": "unknown",
+  "currentStatus": "active",
   "audienceGeography": [
    "dach"
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
   "submissionModel": "unknown",
-  "note": "A German tradesperson marketplace where craft businesses hold public profiles with customer ratings. An automated browser check on 2026-08-14 found that myhammer.de now serves my-hammer.de; a browser check is needed by a person to settle what this entry should point at, and the status stays unknown.",
+  "note": "A German tradesperson marketplace where craft businesses hold public profiles with customer ratings. Audited on 2026-08-14: the same product on a hyphenated domain; the record now points at the current address.",
   "lastVerified": "2026-08-14"
  },
  {
@@ -11365,19 +11365,19 @@
  {
   "id": "ie-justeat",
   "name": "Just Eat Ireland",
-  "website": "https://www.justeat.ie/",
+  "website": "https://www.just-eat.ie/",
   "country": "ireland",
   "category": "local-business",
   "tier": "tier1",
   "priority": "P2",
-  "currentStatus": "unknown",
+  "currentStatus": "active",
   "audienceGeography": [
    "country-specific"
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
   "submissionModel": "unknown",
-  "note": "The main Irish food delivery platform, where restaurants hold public pages. An automated browser check on 2026-08-14 found that justeat.ie now serves just-eat.ie; a browser check is needed by a person to settle what this entry should point at, and the status stays unknown.",
+  "note": "The main Irish food delivery platform, where restaurants hold public pages. Audited on 2026-08-14: the same product on a hyphenated domain; the record now points at the current address.",
   "lastVerified": "2026-08-14"
  },
  {
@@ -12187,32 +12187,32 @@
   "category": "general-business",
   "tier": "tier2",
   "priority": "P2",
-  "currentStatus": "unknown",
+  "currentStatus": "redirected",
   "audienceGeography": [
    "country-specific"
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
   "submissionModel": "unknown",
-  "note": "The Jamaican yellow pages directory. An automated browser check on 2026-08-14 found that jamaicayp.com now serves findyello.com; a browser check is needed by a person to settle what this entry should point at, and the status stays unknown.",
+  "note": "The Jamaican yellow pages directory. Audited on 2026-08-14: the Jamaica Yellow Pages domain now serves findyello, which is already recorded for Jamaica — one host, one country, one product. The surviving record is jm-findyello (https://www.findyello.com/).",
   "lastVerified": "2026-08-14"
  },
  {
   "id": "bb-barbadosyp",
   "name": "Barbados Yellow Pages",
-  "website": "https://www.barbadosyp.com/",
+  "website": "https://www.findyello.com/barbados/",
   "country": "barbados",
   "category": "general-business",
   "tier": "tier2",
   "priority": "P2",
-  "currentStatus": "unknown",
+  "currentStatus": "active",
   "audienceGeography": [
    "country-specific"
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
   "submissionModel": "unknown",
-  "note": "The Barbadian yellow pages directory. An automated browser check on 2026-08-14 found that barbadosyp.com now serves findyello.com; a browser check is needed by a person to settle what this entry should point at, and the status stays unknown.",
+  "note": "The Barbadian yellow pages directory. Audited on 2026-08-14: the Barbados Yellow Pages domain now serves findyello's Barbados section, which is a distinct market from the Jamaica record on the same host; the record now points at the current address.",
   "lastVerified": "2026-08-14"
  },
  {

@@ -426,18 +426,23 @@
   {
    "id": "bb-barbadosyp",
    "name": "Barbados Yellow Pages",
-   "website": "https://www.barbadosyp.com/",
+   "website": "https://www.findyello.com/barbados/",
    "country": "barbados",
    "observed": {
     "status": 200,
     "finalUrl": "https://www.findyello.com/barbados/",
     "title": "findyello | Barbados Business Directory",
-    "textLen": 9457,
-    "anchors": 768
+    "textLen": 9261,
+    "anchors": 766
    },
-   "verdict": "redirected",
-   "why": "barbadosyp.com now serves findyello.com",
-   "to": "https://www.findyello.com/barbados/"
+   "verdict": "active",
+   "why": "9261 characters of real content",
+   "routes": {
+    "create": {
+     "text": "Add Listing",
+     "href": "https://www.findyello.com/list-business/"
+    }
+   }
   },
   {
    "id": "bd-bdbusinessdirectory",
@@ -472,7 +477,7 @@
   {
    "id": "be-cylex",
    "name": "Cylex Belgium",
-   "website": "https://www.cylex.be/",
+   "website": "https://www.cylex-belgie.be/",
    "country": "belgium",
    "observed": {
     "status": 200,
@@ -481,9 +486,9 @@
     "textLen": 7917,
     "anchors": 877
    },
-   "verdict": "redirected",
-   "why": "cylex.be now serves cylex-belgie.be",
-   "to": "https://www.cylex-belgie.be/"
+   "verdict": "active",
+   "why": "7917 characters of real content",
+   "routes": {}
   },
   {
    "id": "be-firmania",
@@ -1013,7 +1018,7 @@
   {
    "id": "ch-cylex",
    "name": "Cylex Schweiz",
-   "website": "https://www.cylex.ch/",
+   "website": "https://www.cylex-swiss.ch/",
    "country": "switzerland",
    "observed": {
     "status": 200,
@@ -1022,9 +1027,9 @@
     "textLen": 8766,
     "anchors": 924
    },
-   "verdict": "redirected",
-   "why": "cylex.ch now serves cylex-swiss.ch",
-   "to": "https://www.cylex-swiss.ch/"
+   "verdict": "active",
+   "why": "8766 characters of real content",
+   "routes": {}
   },
   {
    "id": "ch-firmania",
@@ -1387,18 +1392,18 @@
   {
    "id": "de-myhammer",
    "name": "MyHammer",
-   "website": "https://www.myhammer.de/",
+   "website": "https://www.my-hammer.de/",
    "country": "germany",
    "observed": {
     "status": 200,
     "finalUrl": "https://www.my-hammer.de/",
     "title": "MyHammer - Der zuverlässige Weg, einen Handwerker zu beauftragen",
-    "textLen": 6244,
+    "textLen": 6076,
     "anchors": 133
    },
-   "verdict": "redirected",
-   "why": "myhammer.de now serves my-hammer.de",
-   "to": "https://www.my-hammer.de/"
+   "verdict": "active",
+   "why": "6076 characters of real content",
+   "routes": {}
   },
   {
    "id": "de-opendi",
@@ -1826,7 +1831,7 @@
   {
    "id": "fr-cylex",
    "name": "Cylex France",
-   "website": "https://www.cylex.fr/",
+   "website": "https://www.cylex-locale.fr/",
    "country": "france",
    "observed": {
     "status": 200,
@@ -1835,9 +1840,9 @@
     "textLen": 11884,
     "anchors": 918
    },
-   "verdict": "redirected",
-   "why": "cylex.fr now serves cylex-locale.fr",
-   "to": "https://www.cylex-locale.fr/"
+   "verdict": "active",
+   "why": "11884 characters of real content",
+   "routes": {}
   },
   {
    "id": "fr-directindustry",
@@ -2137,19 +2142,19 @@
   },
   {
    "id": "global-accesswire",
-   "name": "ACCESSWIRE",
-   "website": "https://www.accesswire.com/",
+   "name": "ACCESS Newswire",
+   "website": "https://www.accessnewswire.com/",
    "country": "global",
    "observed": {
     "status": 200,
     "finalUrl": "https://www.accessnewswire.com/",
     "title": "Press Release Distribution & IR | ACCESS Newswire",
-    "textLen": 10023,
+    "textLen": 12184,
     "anchors": 158
    },
-   "verdict": "redirected",
-   "why": "accesswire.com now serves accessnewswire.com",
-   "to": "https://www.accessnewswire.com/"
+   "verdict": "active",
+   "why": "12184 characters of real content",
+   "routes": {}
   },
   {
    "id": "global-adforum",
@@ -3016,8 +3021,8 @@
   },
   {
    "id": "global-seedrs",
-   "name": "Seedrs",
-   "website": "https://www.seedrs.com/",
+   "name": "Republic Europe",
+   "website": "https://europe.republic.com/",
    "country": "global",
    "observed": {
     "status": 200,
@@ -3026,9 +3031,9 @@
     "textLen": 10024,
     "anchors": 145
    },
-   "verdict": "redirected",
-   "why": "seedrs.com now serves republic.com",
-   "to": "https://europe.republic.com/"
+   "verdict": "active",
+   "why": "10024 characters of real content",
+   "routes": {}
   },
   {
    "id": "global-seedtable",
@@ -3779,7 +3784,7 @@
   {
    "id": "ie-justeat",
    "name": "Just Eat Ireland",
-   "website": "https://www.justeat.ie/",
+   "website": "https://www.just-eat.ie/",
    "country": "ireland",
    "observed": {
     "status": 200,
@@ -3788,9 +3793,9 @@
     "textLen": 995,
     "anchors": 1
    },
-   "verdict": "redirected",
-   "why": "justeat.ie now serves just-eat.ie",
-   "to": "https://www.just-eat.ie/"
+   "verdict": "active",
+   "why": "995 characters of real content",
+   "routes": {}
   },
   {
    "id": "ie-yalwa",
@@ -4041,7 +4046,7 @@
   {
    "id": "it-cylex",
    "name": "Cylex Italia",
-   "website": "https://www.cylex.it/",
+   "website": "https://www.cylex-italia.it/",
    "country": "italy",
    "observed": {
     "status": 200,
@@ -4050,9 +4055,9 @@
     "textLen": 11493,
     "anchors": 908
    },
-   "verdict": "redirected",
-   "why": "cylex.it now serves cylex-italia.it",
-   "to": "https://www.cylex-italia.it/"
+   "verdict": "active",
+   "why": "11493 characters of real content",
+   "routes": {}
   },
   {
    "id": "it-firmania",
@@ -5209,7 +5214,7 @@
   {
    "id": "pl-cylex",
    "name": "Cylex Polska",
-   "website": "https://www.cylex.pl/",
+   "website": "https://www.cylex-polska.pl/",
    "country": "poland",
    "observed": {
     "status": 200,
@@ -5218,9 +5223,9 @@
     "textLen": 9833,
     "anchors": 901
    },
-   "verdict": "redirected",
-   "why": "cylex.pl now serves cylex-polska.pl",
-   "to": "https://www.cylex-polska.pl/"
+   "verdict": "active",
+   "why": "9833 characters of real content",
+   "routes": {}
   },
   {
    "id": "pl-firmania",

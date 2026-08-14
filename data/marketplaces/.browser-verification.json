@@ -917,18 +917,18 @@
   {
    "id": "mp-mk-reklama5",
    "name": "Reklama5",
-   "website": "https://www.reklama5.mk/",
+   "website": "https://reklama5.com/",
    "country": "north-macedonia",
    "observed": {
     "status": 200,
     "finalUrl": "https://reklama5.com/",
     "title": "Oglasi | Reklama5.mk | Ads | Cars | Real estate | Computers | Mobile phones | Services,Business | Employment | Advertisements |",
-    "textLen": 2794,
-    "anchors": 97
+    "textLen": 2233,
+    "anchors": 92
    },
-   "verdict": "redirected",
-   "why": "reklama5.mk now serves reklama5.com",
-   "to": "https://reklama5.com/"
+   "verdict": "active",
+   "why": "2233 characters of real content",
+   "routes": {}
   },
   {
    "id": "mp-mx-inmuebles24",

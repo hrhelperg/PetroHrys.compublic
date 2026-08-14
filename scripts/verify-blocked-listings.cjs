@@ -174,10 +174,13 @@ const DIRECTORY_WORDS = new RegExp([
 // being sold, not from a business behind it. This check runs first and is not
 // overridable by evidence, because every signal on such a page is circular.
 const PARKED = [
-  [/\bdomain (name )?is for sale\b/i, 'domain for sale'],
+  // The domain name itself sits between "domain" and the verb often enough that
+  // anchoring on the adjacent words misses half of these pages: "The domain
+  // example.test may be for sale." So the gap is allowed for, but bounded, so
+  // an article about domain trading on a real site does not trip it.
+  [/\bdomain\b[^!?\n]{0,60}\b(is|are|may be|might be) for sale\b/i, 'domain for sale'],
   [/\bfor sale\b[\s\S]{0,40}\b(spaceship|godaddy|sedo|afternic|hugedomains|dan\.com|namecheap|dynadot|porkbun)\b/i, 'domain for sale'],
-  [/\b(buy|purchase) this domain\b/i, 'domain for sale'],
-  [/\bthis domain (may be|is) for sale\b/i, 'domain for sale'],
+  [/\b(buy|purchase|enquire about) this domain\b/i, 'domain for sale'],
   [/\b(parked|parking) (domain|page)\b/i, 'parked domain'],
   [/\bhugedomains\b|\bsedo\.com\b|\bafternic\b|\bdan\.com\b/i, 'domain marketplace'],
   [/\bunder construction\b|\bcoming soon\b/i, 'placeholder page'],
@@ -382,10 +385,15 @@ async function runProbe() {
   // Re-probe a named subset. Used when the JUDGEMENT changed rather than the
   // sites — re-running 445 network calls to correct a hostname comparison would
   // be a waste of everyone's bandwidth, including the operators'.
+  //
+  // Named records are selected from the WHOLE file, not from the pending queue.
+  // "Verify exactly these" has to mean that: after a redirect audit repoints a
+  // record, its note no longer asks for a check, and filtering by the queue
+  // would silently probe nothing while reporting success.
   const ids = arg('--ids');
   if (ids && ids !== true) {
     const wanted = new Set(String(ids).split(',').map((s) => s.trim()).filter(Boolean));
-    targets = targets.filter((r) => wanted.has(r.id));
+    targets = rows.filter((r) => wanted.has(r.id));
     console.log(`Re-probing ${targets.length} named record(s).`);
   }
 
@@ -616,6 +624,16 @@ async function runCandidates() {
   try { fs.rmSync(chrome.profile, { recursive: true, force: true }); } catch { /* the OS will reap it */ }
 }
 
-if (process.argv.includes('--candidates')) runCandidates().catch((e) => { console.error(e); process.exit(1); });
-else if (process.argv.includes('--apply')) runApply();
-else runProbe().catch((e) => { console.error(e); process.exit(1); });
+// The decision functions are pure and are the part worth testing: the network
+// is not where these get things wrong, the judgement is. Exported so the suite
+// can drive them on synthetic observations, with the CLI still the only thing
+// that runs when this file is executed directly.
+module.exports = {
+  judge, candidateEvidence, parkedReason, registrable, rewriteNote, PARKED, CREATE_TEXT, CLAIM_TEXT,
+};
+
+if (require.main === module) {
+  if (process.argv.includes('--candidates')) runCandidates().catch((e) => { console.error(e); process.exit(1); });
+  else if (process.argv.includes('--apply')) runApply();
+  else runProbe().catch((e) => { console.error(e); process.exit(1); });
+}

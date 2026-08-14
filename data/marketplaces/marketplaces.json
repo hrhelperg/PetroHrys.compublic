@@ -2825,17 +2825,17 @@
  {
   "id": "mp-mk-reklama5",
   "name": "Reklama5",
-  "website": "https://www.reklama5.mk/",
+  "website": "https://reklama5.com/",
   "country": "north-macedonia",
   "marketplaceType": "general-classifieds",
   "sellerTypes": "both",
   "costModel": "freemium",
-  "currentStatus": "unknown",
+  "currentStatus": "active",
   "alsoCovers": [
    "property",
    "vehicles"
   ],
-  "note": "A North Macedonian classifieds portal. An automated browser check on 2026-08-14 found that reklama5.mk now serves reklama5.com; a browser check is needed by a person to settle what this entry should point at, and the status stays unknown."
+  "note": "A North Macedonian classifieds portal. Audited on 2026-08-14: the Macedonian marketplace consolidated from reklama5.mk onto a .com domain; the record now points at the current address."
  },
  {
   "id": "mp-no-finn",
