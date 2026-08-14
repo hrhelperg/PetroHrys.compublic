@@ -52,15 +52,32 @@ test('the Chinese platform surfaces a business is actually found on are present'
   }
 });
 
-test('a Chinese platform behind a render gate is unknown, never active', () => {
+test('a Chinese platform behind a render gate is unknown until a browser renders it', () => {
   // Several Chinese platforms return a shell that needs a browser to render.
-  // That says the server answered; it says nothing about the product.
-  const gated = ROWS.filter((r) => r.country === 'china'
-    && /requires a browser to render|rate-limits automated requests/i.test(r.description || ''));
-  assert.ok(gated.length > 0, 'expected render-gated Chinese rows from this wave');
-  for (const r of gated) {
+  // That says the server answered; it says nothing about the product — so the
+  // row stays unknown while nothing has rendered it.
+  //
+  // The 2026-08-14 browser wave is what that clause was always waiting for.
+  // cn-21food rendered 2,110 characters and 344 links under a real title, so it
+  // is now active on evidence, and its note no longer asks for a check. Holding
+  // it at unknown after a browser answered would be refusing evidence, which is
+  // the opposite of the rule this test exists to protect.
+  //
+  // So the assertion is stated on the CLAIM rather than the country: whatever
+  // still says it needs a browser must still be unknown, and whatever is active
+  // must say what settled it. Both halves survive the class emptying out.
+  const stillGated = ROWS.filter((r) => r.country === 'china'
+    && /requires a browser to render|rate-limits automated requests|browser check is needed/i.test(r.description || ''));
+  for (const r of stillGated) {
     assert.strictEqual(r.currentStatus, 'unknown',
-      `${r.id} could not be rendered by the probe, so its status is not established`);
+      `${r.id} still says it needs a browser, so its status is not established`);
+  }
+
+  const active = ROWS.filter((r) => r.country === 'china' && r.currentStatus === 'active');
+  assert.ok(active.length > 0, 'no Chinese row is established either way');
+  for (const r of active) {
+    assert.ok(!/requires a browser to render|browser check is needed/i.test(r.description || ''),
+      `${r.id} claims active while still asking for the check that would establish it`);
   }
 });
 

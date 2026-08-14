@@ -1,0 +1,7105 @@
+{
+ "probedAt": "2026-08-14",
+ "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36",
+ "total": 445,
+ "findings": [
+  {
+   "id": "ae-bayt",
+   "name": "Bayt.com",
+   "website": "https://www.bayt.com/",
+   "country": "united-arab-emirates",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.bayt.com/",
+    "title": "The Middle East's Leading Job Site - Bayt.com",
+    "textLen": 9012,
+    "anchors": 259
+   },
+   "verdict": "active",
+   "why": "9012 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "ae-dubizzle",
+   "name": "Dubizzle",
+   "website": "https://www.dubizzle.com/",
+   "country": "united-arab-emirates",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.dubizzle.com/",
+    "title": "Buy and sell anything in the UAE - dubizzle",
+    "textLen": 1695,
+    "anchors": 233
+   },
+   "verdict": "active",
+   "why": "1695 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "ae-gulftalent",
+   "name": "GulfTalent",
+   "website": "https://www.gulftalent.com/",
+   "country": "united-arab-emirates",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.gulftalent.com/",
+    "title": "Jobs in Dubai and Middle East | GulfTalent",
+    "textLen": 1918,
+    "anchors": 131
+   },
+   "verdict": "active",
+   "why": "1918 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "ae-noon",
+   "name": "noon",
+   "website": "https://www.noon.com/",
+   "country": "united-arab-emirates",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.noon.com/",
+    "title": "Access Denied",
+    "textLen": 190,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "access-denied"
+  },
+  {
+   "id": "ae-yallamotor",
+   "name": "YallaMotor",
+   "website": "https://www.yallamotor.com/",
+   "country": "united-arab-emirates",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.yallamotor.com/",
+    "title": "YallaMotor — Cars for sale Across the Middle East",
+    "textLen": 0,
+    "anchors": 47
+   },
+   "verdict": "inconclusive",
+   "why": "only 0 characters rendered"
+  },
+  {
+   "id": "ar-cylex",
+   "name": "Cylex Argentina",
+   "website": "https://www.cylex.com.ar/",
+   "country": "argentina",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.cylex.com.ar/",
+    "title": "Cylex búsqueda local Argentina",
+    "textLen": 9306,
+    "anchors": 885
+   },
+   "verdict": "active",
+   "why": "9306 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "ar-pedidosya",
+   "name": "PedidosYa Argentina",
+   "website": "https://www.pedidosya.com.ar/",
+   "country": "argentina",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.pedidosya.com.ar/",
+    "title": "Acceso ha sido denegado | PedidosYa",
+    "textLen": 232,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "http 403"
+  },
+  {
+   "id": "at-cylex",
+   "name": "Cylex Österreich",
+   "website": "https://www.cylex.at/",
+   "country": "austria",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.cylex.at/",
+    "title": "Cylex Lokale Suche",
+    "textLen": 11476,
+    "anchors": 936
+   },
+   "verdict": "active",
+   "why": "11476 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "at-firmania",
+   "name": "Firmania Österreich",
+   "website": "https://www.firmania.at/",
+   "country": "austria",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://firmania.at/",
+    "title": "Firmania - Kontaktdaten für lokale Unternehmen in der Umgebung von Austria",
+    "textLen": 2599,
+    "anchors": 706
+   },
+   "verdict": "active",
+   "why": "2599 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "at-hotfrog",
+   "name": "Hotfrog Österreich",
+   "website": "https://www.hotfrog.at/",
+   "country": "austria",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.hotfrog.at/",
+    "title": "Willkommen bei Hotfrog",
+    "textLen": 2161,
+    "anchors": 183
+   },
+   "verdict": "active",
+   "why": "2161 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "at-lieferando",
+   "name": "Lieferando Österreich",
+   "website": "https://www.lieferando.at/",
+   "country": "austria",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.lieferando.at/en",
+    "title": "Lieferando.at | Food Delivery, Groceries & More Near You",
+    "textLen": 1173,
+    "anchors": 1
+   },
+   "verdict": "active",
+   "why": "1173 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "at-yalwa",
+   "name": "Yalwa Österreich",
+   "website": "https://www.yalwa.at/",
+   "country": "austria",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.yalwa.at/",
+    "title": "Just a moment...",
+    "textLen": 260,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "au-airtasker",
+   "name": "Airtasker",
+   "website": "https://www.airtasker.com/",
+   "country": "australia",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.airtasker.com/au/",
+    "title": "Get anything done & earn more money | Airtasker AU",
+    "textLen": 8596,
+    "anchors": 315
+   },
+   "verdict": "active",
+   "why": "8596 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "au-carsales",
+   "name": "carsales",
+   "website": "https://www.carsales.com.au/",
+   "country": "australia",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.carsales.com.au/",
+    "title": "carsales.com.au",
+    "textLen": 0,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "http 403"
+  },
+  {
+   "id": "au-charteredaccountantsanz",
+   "name": "Chartered Accountants ANZ",
+   "website": "https://www.charteredaccountantsanz.com/",
+   "country": "australia",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.charteredaccountantsanz.com/",
+    "title": "Chartered Accountants Australia & New Zealand | CA ANZ",
+    "textLen": 2953,
+    "anchors": 294
+   },
+   "verdict": "active",
+   "why": "2953 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "au-dlook",
+   "name": "dLook",
+   "website": "https://www.dlook.com.au/",
+   "country": "australia",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.dlook.com.au/",
+    "title": "Connecting Your Jobs With Top Local Providers - dlook",
+    "textLen": 9548,
+    "anchors": 189
+   },
+   "verdict": "active",
+   "why": "9548 characters of real content",
+   "routes": {
+    "create": {
+     "text": "Add your business",
+     "href": "https://www.dlook.com.au/add-your-business"
+    }
+   }
+  },
+  {
+   "id": "au-drive",
+   "name": "Drive",
+   "website": "https://www.drive.com.au/",
+   "country": "australia",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.drive.com.au/",
+    "title": "Drive | Car News, Expert Reviews, Advice, Buy & Sell New or Used Cars",
+    "textLen": 10687,
+    "anchors": 881
+   },
+   "verdict": "active",
+   "why": "10687 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "au-gumtree",
+   "name": "Gumtree Australia",
+   "website": "https://www.gumtree.com.au/",
+   "country": "australia",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.gumtree.com.au/",
+    "title": "Access denied",
+    "textLen": 262,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "access-denied"
+  },
+  {
+   "id": "au-hotfrog",
+   "name": "Hotfrog Australia",
+   "website": "https://www.hotfrog.com.au/",
+   "country": "australia",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.hotfrog.com.au/",
+    "title": "Hotfrog - Get found online",
+    "textLen": 2158,
+    "anchors": 314
+   },
+   "verdict": "active",
+   "why": "2158 characters of real content",
+   "routes": {
+    "create": {
+     "text": "Add Business",
+     "href": "https://www.hotfrog.com.au/add"
+    }
+   }
+  },
+  {
+   "id": "au-localsearch",
+   "name": "Localsearch",
+   "website": "https://www.localsearch.com.au/",
+   "country": "australia",
+   "observed": {
+    "status": 202,
+    "finalUrl": "https://www.localsearch.com.au/",
+    "title": "Localsearch | Find Local Businesses Australia with Reviews",
+    "textLen": 8942,
+    "anchors": 94
+   },
+   "verdict": "active",
+   "why": "8942 characters of real content",
+   "routes": {
+    "create": {
+     "text": "Add Your Business for Free",
+     "href": "https://forbusiness.localsearch.com.au/create-profile"
+    }
+   }
+  },
+  {
+   "id": "au-oneflare",
+   "name": "Oneflare",
+   "website": "https://www.oneflare.com.au/",
+   "country": "australia",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.airtasker.com/au/?of-redirect=true&domain=www.oneflare.com.au",
+    "title": "Get anything done & earn more money | Airtasker AU",
+    "textLen": 8839,
+    "anchors": 317
+   },
+   "verdict": "redirected",
+   "why": "oneflare.com.au now serves airtasker.com",
+   "to": "https://www.airtasker.com/au/?of-redirect=true&domain=www.oneflare.com.au"
+  },
+  {
+   "id": "au-startupaus",
+   "name": "Tech Council / StartupAUS",
+   "website": "https://www.startupaus.org/",
+   "country": "australia",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.startupaus.org/",
+    "title": null,
+    "textLen": 0,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "http 403"
+  },
+  {
+   "id": "au-truelocal",
+   "name": "TrueLocal",
+   "website": "https://www.truelocal.com.au/",
+   "country": "australia",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.truelocal.com.au/",
+    "title": "Just a moment...",
+    "textLen": 268,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "au-whitepages",
+   "name": "White Pages Australia",
+   "website": "https://www.whitepages.com.au/",
+   "country": "australia",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.whitepages.com.au/",
+    "title": "Just a moment...",
+    "textLen": 269,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "au-womo",
+   "name": "WOMO",
+   "website": "https://www.womo.com.au/",
+   "country": "australia",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.wordofmouth.com.au/",
+    "title": "Just a moment...",
+    "textLen": 270,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "au-wordofmouth",
+   "name": "Word of Mouth",
+   "website": "https://www.wordofmouth.com.au/",
+   "country": "australia",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.wordofmouth.com.au/",
+    "title": "Just a moment...",
+    "textLen": 270,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "bb-barbadosyp",
+   "name": "Barbados Yellow Pages",
+   "website": "https://www.barbadosyp.com/",
+   "country": "barbados",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.findyello.com/barbados/",
+    "title": "findyello | Barbados Business Directory",
+    "textLen": 9457,
+    "anchors": 768
+   },
+   "verdict": "redirected",
+   "why": "barbadosyp.com now serves findyello.com",
+   "to": "https://www.findyello.com/barbados/"
+  },
+  {
+   "id": "bd-bdbusinessdirectory",
+   "name": "BD Business Directory",
+   "website": "https://www.bdbusinessdirectory.com/",
+   "country": "bangladesh",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.bdbusinessdirectory.com/",
+    "title": "403 Forbidden",
+    "textLen": 248,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "access-denied"
+  },
+  {
+   "id": "bd-bikroy",
+   "name": "Bikroy",
+   "website": "https://www.bikroy.com/",
+   "country": "bangladesh",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://bikroy.com/",
+    "title": "Just a moment...",
+    "textLen": 258,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "be-cylex",
+   "name": "Cylex Belgium",
+   "website": "https://www.cylex.be/",
+   "country": "belgium",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.cylex-belgie.be/",
+    "title": "Cylex Lokaal Zoeken België",
+    "textLen": 7917,
+    "anchors": 877
+   },
+   "verdict": "redirected",
+   "why": "cylex.be now serves cylex-belgie.be",
+   "to": "https://www.cylex-belgie.be/"
+  },
+  {
+   "id": "be-firmania",
+   "name": "Firmania Belgique",
+   "website": "https://www.firmania.be/",
+   "country": "belgium",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://firmania.be/",
+    "title": "Firmania - contactgegevens voor lokale bedrijven in het hele Belgium",
+    "textLen": 2367,
+    "anchors": 705
+   },
+   "verdict": "active",
+   "why": "2367 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "bh-bahrainyellowpages",
+   "name": "Bahrain Yellow Pages",
+   "website": "https://www.bahrainyellowpages.com/",
+   "country": "bahrain",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://tricycleandrun.com/swim/",
+    "title": "Just a moment...",
+    "textLen": 266,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "bo-pedidosya",
+   "name": "PedidosYa Bolivia",
+   "website": "https://www.pedidosya.com.bo/",
+   "country": "bolivia",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.pedidosya.com.bo/",
+    "title": "Acceso ha sido denegado | PedidosYa",
+    "textLen": 232,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "http 403"
+  },
+  {
+   "id": "br-abih",
+   "name": "ABIH",
+   "website": "https://www.abih.com.br/",
+   "country": "brazil",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.abih.com.br/",
+    "title": "Just a moment...",
+    "textLen": 263,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "br-catho",
+   "name": "Catho",
+   "website": "https://www.catho.com.br/",
+   "country": "brazil",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.catho.com.br/",
+    "title": "403 Forbidden",
+    "textLen": 13,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "access-denied"
+  },
+  {
+   "id": "br-cylex",
+   "name": "Cylex Brasil",
+   "website": "https://www.cylex.com.br/",
+   "country": "brazil",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.cylex.com.br/",
+    "title": "Cylex Busca Local Brasil",
+    "textLen": 9824,
+    "anchors": 887
+   },
+   "verdict": "active",
+   "why": "9824 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "br-fiesp",
+   "name": "FIESP",
+   "website": "https://www.fiesp.com.br/",
+   "country": "brazil",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.fiesp.com.br/",
+    "title": "Just a moment...",
+    "textLen": 264,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "br-guiadasemana",
+   "name": "Guia da Semana",
+   "website": "https://www.guiadasemana.com.br/",
+   "country": "brazil",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.guiadasemana.com.br/",
+    "title": "Guia da Semana - Eventos, restaurantes, bares e baladas em São Paulo.",
+    "textLen": 2717,
+    "anchors": 75
+   },
+   "verdict": "active",
+   "why": "2717 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "br-hotfrog",
+   "name": "Hotfrog Brasil",
+   "website": "https://www.hotfrog.com.br/",
+   "country": "brazil",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.hotfrog.com.br/",
+    "title": "Bem-vindo à Hotfrog",
+    "textLen": 2642,
+    "anchors": 1006
+   },
+   "verdict": "active",
+   "why": "2642 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "br-icarros",
+   "name": "iCarros",
+   "website": "https://www.icarros.com.br/",
+   "country": "brazil",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.icarros.com.br/",
+    "title": "ERROR: The request could not be satisfied",
+    "textLen": 580,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "http 403"
+  },
+  {
+   "id": "br-ifood",
+   "name": "iFood",
+   "website": "https://www.ifood.com.br/",
+   "country": "brazil",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.ifood.com.br/",
+    "title": "Attention Required! | Cloudflare",
+    "textLen": 689,
+    "anchors": 1
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-attention"
+  },
+  {
+   "id": "br-infojobs",
+   "name": "InfoJobs Brasil",
+   "website": "https://www.infojobs.com.br/",
+   "country": "brazil",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.infojobs.com.br/",
+    "title": "Anunciar Vagas de Emprego GRÁTIS | Infojobs",
+    "textLen": 15911,
+    "anchors": 245
+   },
+   "verdict": "blocked",
+   "why": "http 403"
+  },
+  {
+   "id": "br-jusbrasil",
+   "name": "Jusbrasil",
+   "website": "https://www.jusbrasil.com.br/",
+   "country": "brazil",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.jusbrasil.com.br/",
+    "title": "Jusbrasil | Mais facilidade na sua Consulta Judicial",
+    "textLen": 5007,
+    "anchors": 53
+   },
+   "verdict": "active",
+   "why": "5007 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "br-olx",
+   "name": "OLX Brasil",
+   "website": "https://www.olx.com.br/",
+   "country": "brazil",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.olx.com.br/",
+    "title": "OLX - O Maior Site de Compra e Venda do Brasil",
+    "textLen": 3236,
+    "anchors": 224
+   },
+   "verdict": "active",
+   "why": "3236 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "br-rappi",
+   "name": "Rappi Brasil",
+   "website": "https://www.rappi.com.br/",
+   "country": "brazil",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.rappi.com.br/",
+    "title": "ERROR: The request could not be satisfied",
+    "textLen": 513,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "http 403"
+  },
+  {
+   "id": "br-reclameaqui",
+   "name": "Reclame Aqui",
+   "website": "https://www.reclameaqui.com.br/",
+   "country": "brazil",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.reclameaqui.com.br/",
+    "title": "Reclame Aqui - Pesquise antes de comprar. Reclame. Resolva",
+    "textLen": 2727,
+    "anchors": 590
+   },
+   "verdict": "active",
+   "why": "2727 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "br-solutudo",
+   "name": "Solutudo",
+   "website": "https://www.solutudo.com.br/",
+   "country": "brazil",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.solutudo.com.br/",
+    "title": "Just a moment...",
+    "textLen": 267,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "br-trabalhabrasil",
+   "name": "Trabalha Brasil",
+   "website": "https://www.trabalhabrasil.com.br/",
+   "country": "brazil",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.trabalhabrasil.com.br/",
+    "title": "Acesso Bloqueado",
+    "textLen": 535,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "http 403"
+  },
+  {
+   "id": "br-webmotors",
+   "name": "Webmotors",
+   "website": "https://www.webmotors.com.br/",
+   "country": "brazil",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.webmotors.com.br/",
+    "title": "Webmotors | Compre, venda e financie carros ou motos novos, usados e seminovos.",
+    "textLen": 6565,
+    "anchors": 359
+   },
+   "verdict": "active",
+   "why": "6565 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "br-zoom",
+   "name": "Zoom",
+   "website": "https://www.zoom.com.br/",
+   "country": "brazil",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.zoom.com.br/",
+    "title": "ERROR: The request could not be satisfied",
+    "textLen": 513,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "http 403"
+  },
+  {
+   "id": "bz-travelbelize",
+   "name": "Travel Belize",
+   "website": "https://www.travelbelize.org/",
+   "country": "belize",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.travelbelize.org/",
+    "title": "Belize Vacations, Travel & Tourism | Travel Belize",
+    "textLen": 6374,
+    "anchors": 165
+   },
+   "verdict": "active",
+   "why": "6374 characters of real content",
+   "routes": {
+    "create": {
+     "text": "Add Your Business",
+     "href": "https://www.travelbelize.org/add-your-business/"
+    }
+   }
+  },
+  {
+   "id": "ca-canadianplanet",
+   "name": "Canadian Planet",
+   "website": "https://www.canadianplanet.net/",
+   "country": "canada",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.canadianplanet.net/",
+    "title": "Just a moment...",
+    "textLen": 270,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "ca-canpages",
+   "name": "Canpages",
+   "website": "https://www.canpages.ca/",
+   "country": "canada",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.canpages.ca/",
+    "title": "ERROR: The request could not be satisfied",
+    "textLen": 580,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "http 403"
+  },
+  {
+   "id": "ca-cme",
+   "name": "Canadian Manufacturers & Exporters",
+   "website": "https://www.cme-mec.ca/",
+   "country": "canada",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://cme-mec.ca/",
+    "title": "Home - Departments — CME",
+    "textLen": 753,
+    "anchors": 69
+   },
+   "verdict": "active",
+   "why": "753 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "ca-goldbook",
+   "name": "GoldBook",
+   "website": "https://www.goldbook.ca/",
+   "country": "canada",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.goldbook.ca/",
+    "title": "ERROR: The request could not be satisfied",
+    "textLen": 580,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "http 403"
+  },
+  {
+   "id": "ca-homestars",
+   "name": "HomeStars",
+   "website": "https://www.homestars.com/",
+   "country": "canada",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.homestars.com/",
+    "title": "HomeStars - The reliable way to hire a pro",
+    "textLen": 6551,
+    "anchors": 149
+   },
+   "verdict": "active",
+   "why": "6551 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "ca-hotfrog",
+   "name": "Hotfrog Canada",
+   "website": "https://www.hotfrog.ca/",
+   "country": "canada",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.hotfrog.ca/",
+    "title": "Hotfrog - Get found online",
+    "textLen": 2584,
+    "anchors": 978
+   },
+   "verdict": "active",
+   "why": "2584 characters of real content",
+   "routes": {
+    "create": {
+     "text": "Add your business",
+     "href": "https://www.hotfrog.ca/add"
+    }
+   }
+  },
+  {
+   "id": "ca-lespac",
+   "name": "LesPAC",
+   "website": "https://www.lespac.com/",
+   "country": "canada",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.lespac.com/",
+    "title": "ERROR: The request could not be satisfied",
+    "textLen": 513,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "http 403"
+  },
+  {
+   "id": "ca-ratemds",
+   "name": "RateMDs",
+   "website": "https://www.ratemds.com/",
+   "country": "canada",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.ratemds.com/",
+    "title": null,
+    "textLen": 45,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "http 403"
+  },
+  {
+   "id": "ca-skipthedishes",
+   "name": "SkipTheDishes",
+   "website": "https://www.skipthedishes.com/",
+   "country": "canada",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.skipthedishes.com/",
+    "title": "Skip | Online Delivery | Food, Groceries, Alcohol and More!",
+    "textLen": 6483,
+    "anchors": 343
+   },
+   "verdict": "active",
+   "why": "6483 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "ca-trustedpros",
+   "name": "TrustedPros",
+   "website": "https://www.trustedpros.ca/",
+   "country": "canada",
+   "observed": {
+    "status": 202,
+    "finalUrl": "chrome-error://chromewebdata/",
+    "title": "www.trustedpros.ca",
+    "textLen": 111,
+    "anchors": 0
+   },
+   "verdict": "unreachable",
+   "why": "the browser could not open the site at all"
+  },
+  {
+   "id": "ca-weddingwire",
+   "name": "WeddingWire Canada",
+   "website": "https://www.weddingwire.ca/",
+   "country": "canada",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.weddingwire.ca/",
+    "title": "Weddings, Wedding Venues - WeddingWire.ca",
+    "textLen": 7915,
+    "anchors": 259
+   },
+   "verdict": "active",
+   "why": "7915 characters of real content",
+   "routes": {
+    "create": {
+     "text": "Register Your Business",
+     "href": "https://www.weddingwire.ca/emp-Acceso.php"
+    }
+   }
+  },
+  {
+   "id": "ca-workopolis",
+   "name": "Workopolis",
+   "website": "https://www.workopolis.com/",
+   "country": "canada",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.workopolis.com/",
+    "title": "Job Search Engine | Workopolis",
+    "textLen": 778,
+    "anchors": 110
+   },
+   "verdict": "active",
+   "why": "778 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "ch-cylex",
+   "name": "Cylex Schweiz",
+   "website": "https://www.cylex.ch/",
+   "country": "switzerland",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.cylex-swiss.ch/",
+    "title": "Cylex Lokale Suche",
+    "textLen": 8766,
+    "anchors": 924
+   },
+   "verdict": "redirected",
+   "why": "cylex.ch now serves cylex-swiss.ch",
+   "to": "https://www.cylex-swiss.ch/"
+  },
+  {
+   "id": "ch-firmania",
+   "name": "Firmania Schweiz",
+   "website": "https://www.firmania.ch/",
+   "country": "switzerland",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://firmania.ch/",
+    "title": "Firmania - Kontaktdaten für lokale Unternehmen in der Umgebung von Schweiz",
+    "textLen": 2560,
+    "anchors": 706
+   },
+   "verdict": "active",
+   "why": "2560 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "ch-hotfrog",
+   "name": "Hotfrog Schweiz",
+   "website": "https://www.hotfrog.ch/",
+   "country": "switzerland",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.hotfrog.ch/",
+    "title": "Willkommen bei Hotfrog",
+    "textLen": 2059,
+    "anchors": 270
+   },
+   "verdict": "active",
+   "why": "2059 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "ch-yalwa",
+   "name": "Yalwa Schweiz",
+   "website": "https://www.yalwa.ch/",
+   "country": "switzerland",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.yalwa.ch/",
+    "title": "Just a moment...",
+    "textLen": 260,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "cl-cylex",
+   "name": "Cylex Chile",
+   "website": "https://www.cylex.cl/",
+   "country": "chile",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.cylex.cl/",
+    "title": "Cylex búsqueda local Chile",
+    "textLen": 8917,
+    "anchors": 874
+   },
+   "verdict": "active",
+   "why": "8917 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "cn-11467",
+   "name": "顺企网 11467",
+   "website": "https://www.11467.com/",
+   "country": "china",
+   "observed": {
+    "status": 429,
+    "finalUrl": "https://www.11467.com/",
+    "title": null,
+    "textLen": 32,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "http 429"
+  },
+  {
+   "id": "cn-21food",
+   "name": "21food",
+   "website": "https://www.21food.com/",
+   "country": "china",
+   "observed": {
+    "status": 202,
+    "finalUrl": "https://www.21food.com/",
+    "title": "Food & Beverage Online - B2B Food Marketplace for Manufacturers,Exporters,Suppliers",
+    "textLen": 2110,
+    "anchors": 344
+   },
+   "verdict": "active",
+   "why": "2110 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "cn-dianping",
+   "name": "大众点评 Dianping",
+   "website": "https://www.dianping.com/",
+   "country": "china",
+   "observed": {
+    "status": 502,
+    "finalUrl": "https://www.dianping.com/",
+    "title": null,
+    "textLen": 5369,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "http 502"
+  },
+  {
+   "id": "co-cylex",
+   "name": "Cylex Colombia",
+   "website": "https://www.cylex.com.co/",
+   "country": "colombia",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.cylex.com.co/",
+    "title": "Just a moment...",
+    "textLen": 264,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "cz-cylex",
+   "name": "Cylex Česko",
+   "website": "https://www.cylex.cz/",
+   "country": "czech-republic",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.cylex.cz/",
+    "title": "Cylex Místní Vyhledávání",
+    "textLen": 8672,
+    "anchors": 889
+   },
+   "verdict": "active",
+   "why": "8672 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "cz-edb",
+   "name": "EDB.cz",
+   "website": "https://www.edb.cz/",
+   "country": "czech-republic",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.edb.cz/",
+    "title": "Databáze firem, české firmy, vyhledávání firem | Evropská databanka",
+    "textLen": 5740,
+    "anchors": 946
+   },
+   "verdict": "active",
+   "why": "5740 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "cz-heureka",
+   "name": "Heureka",
+   "website": "https://www.heureka.cz/",
+   "country": "czech-republic",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.heureka.cz/",
+    "title": "Heureka.cz — Je to znamení… Najít nejlepší nabídku",
+    "textLen": 25071,
+    "anchors": 1118
+   },
+   "verdict": "active",
+   "why": "25071 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "cz-hotfrog",
+   "name": "Hotfrog Česko",
+   "website": "https://www.hotfrog.cz/",
+   "country": "czech-republic",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://sedo.com/search/details/?partnerid=324561&language=cs&domain=hotfrog.cz&origin=sales_lander_15&utm_medium=Parking&utm_campaign=offerpage",
+    "title": "Just a moment...",
+    "textLen": 256,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "cz-slevomat",
+   "name": "Slevomat",
+   "website": "https://www.slevomat.cz/",
+   "country": "czech-republic",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.slevomat.cz/",
+    "title": "Just a moment...",
+    "textLen": 263,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "de-anwalt-de",
+   "name": "anwalt.de",
+   "website": "https://www.anwalt.de/",
+   "country": "germany",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.anwalt.de/",
+    "title": "Just a moment...",
+    "textLen": 261,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "de-b2b-firmen",
+   "name": "B2B-Firmen",
+   "website": "https://www.b2b-firmen.de/",
+   "country": "germany",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.b2b-firmen.de/",
+    "title": "403 Forbidden",
+    "textLen": 61,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "access-denied"
+  },
+  {
+   "id": "de-bizin",
+   "name": "Bizin Deutschland",
+   "website": "https://de.bizin.eu/",
+   "country": "germany",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://de.bizin.eu/",
+    "title": "Just a moment...",
+    "textLen": 259,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "de-cylex",
+   "name": "Cylex Deutschland",
+   "website": "https://www.cylex.de/",
+   "country": "germany",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://web2.cylex.de/",
+    "title": "Cylex Lokale Suche",
+    "textLen": 11327,
+    "anchors": 313
+   },
+   "verdict": "active",
+   "why": "11327 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "de-doctolib",
+   "name": "Doctolib Deutschland",
+   "website": "https://www.doctolib.de/",
+   "country": "germany",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.doctolib.de/",
+    "title": "Doctolib | Buchen Sie Ihren Arzt- oder Therapietermin online",
+    "textLen": 4065,
+    "anchors": 214
+   },
+   "verdict": "active",
+   "why": "4065 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "de-hotfrog",
+   "name": "Hotfrog Deutschland",
+   "website": "https://www.hotfrog.de/",
+   "country": "germany",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.hotfrog.de/",
+    "title": "Willkommen bei Hotfrog",
+    "textLen": 2230,
+    "anchors": 357
+   },
+   "verdict": "active",
+   "why": "2230 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "de-idealo",
+   "name": "idealo",
+   "website": "https://www.idealo.de/",
+   "country": "germany",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.idealo.de/",
+    "title": "idealo – Die Nr. 1 im Preisvergleich",
+    "textLen": 8822,
+    "anchors": 382
+   },
+   "verdict": "active",
+   "why": "8822 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "de-lieferando",
+   "name": "Lieferando",
+   "website": "https://www.lieferando.de/",
+   "country": "germany",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.lieferando.de/en",
+    "title": "Lieferando.de | Food Delivery, Groceries & More Near You",
+    "textLen": 1183,
+    "anchors": 1
+   },
+   "verdict": "active",
+   "why": "1183 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "de-meinestadt",
+   "name": "meinestadt.de",
+   "website": "https://www.meinestadt.de/",
+   "country": "germany",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.meinestadt.de/",
+    "title": "meinestadt.de - Das Portal für alle Städte Deutschlands",
+    "textLen": 3300,
+    "anchors": 144
+   },
+   "verdict": "active",
+   "why": "3300 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "de-mobile-de",
+   "name": "mobile.de",
+   "website": "https://www.mobile.de/",
+   "country": "germany",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.mobile.de/",
+    "title": "Zugriff verweigert / Access denied",
+    "textLen": 1206,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "access-denied"
+  },
+  {
+   "id": "de-myhammer",
+   "name": "MyHammer",
+   "website": "https://www.myhammer.de/",
+   "country": "germany",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.my-hammer.de/",
+    "title": "MyHammer - Der zuverlässige Weg, einen Handwerker zu beauftragen",
+    "textLen": 6244,
+    "anchors": 133
+   },
+   "verdict": "redirected",
+   "why": "myhammer.de now serves my-hammer.de",
+   "to": "https://www.my-hammer.de/"
+  },
+  {
+   "id": "de-opendi",
+   "name": "Opendi Deutschland",
+   "website": "https://www.opendi.de/",
+   "country": "germany",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.stadtbranchenbuch.com/",
+    "title": "Das Stadtbranchenbuch für Deutschland",
+    "textLen": 1225,
+    "anchors": 64
+   },
+   "verdict": "redirected",
+   "why": "opendi.de now serves stadtbranchenbuch.com",
+   "to": "https://www.stadtbranchenbuch.com/"
+  },
+  {
+   "id": "de-pointoo",
+   "name": "Pointoo",
+   "website": "https://www.pointoo.de/",
+   "country": "germany",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.pointoo.de/",
+    "title": null,
+    "textLen": 43,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "http 403"
+  },
+  {
+   "id": "de-salonkee",
+   "name": "Salonkee Deutschland",
+   "website": "https://www.salonkee.de/",
+   "country": "germany",
+   "observed": {
+    "status": 405,
+    "finalUrl": "https://salonkee.de/",
+    "title": "Human Verification",
+    "textLen": 318,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "http 405"
+  },
+  {
+   "id": "de-stadtbranchenbuch",
+   "name": "Stadtbranchenbuch",
+   "website": "https://www.stadtbranchenbuch.com/",
+   "country": "germany",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.stadtbranchenbuch.com/",
+    "title": "Das Stadtbranchenbuch für Deutschland",
+    "textLen": 1225,
+    "anchors": 64
+   },
+   "verdict": "active",
+   "why": "1225 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "de-yalwa",
+   "name": "Yalwa Deutschland",
+   "website": "https://www.yalwa.de/",
+   "country": "germany",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.yalwa.de/",
+    "title": "Just a moment...",
+    "textLen": 260,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "dk-cylex",
+   "name": "Cylex Danmark",
+   "website": "https://www.cylex.dk/",
+   "country": "denmark",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.cylex.dk/",
+    "title": "Cylex Lokal Søgning Danmark",
+    "textLen": 7835,
+    "anchors": 873
+   },
+   "verdict": "active",
+   "why": "7835 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "dk-degulesider",
+   "name": "De Gule Sider",
+   "website": "https://www.degulesider.dk/",
+   "country": "denmark",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.degulesider.dk/",
+    "title": "DeGuleSider.dk - Find virksomheder, produkter, varemærker, brancheforeninger.",
+    "textLen": 3376,
+    "anchors": 1861
+   },
+   "verdict": "active",
+   "why": "3376 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "dk-eniro",
+   "name": "Eniro Danmark",
+   "website": "https://www.eniro.dk/",
+   "country": "denmark",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.krak.dk/",
+    "title": "Krak.dk - Opdag nærheden.",
+    "textLen": 3418,
+    "anchors": 1869
+   },
+   "verdict": "redirected",
+   "why": "eniro.dk now serves krak.dk",
+   "to": "https://www.krak.dk/"
+  },
+  {
+   "id": "dk-firmania",
+   "name": "Firmania Danmark",
+   "website": "https://www.firmania.dk/",
+   "country": "denmark",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://firmania.dk/",
+    "title": "Firmania - kontaktoplysninger til lokale virksomheder i hele Danmark",
+    "textLen": 2361,
+    "anchors": 706
+   },
+   "verdict": "active",
+   "why": "2361 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "dk-krak",
+   "name": "Krak",
+   "website": "https://www.krak.dk/",
+   "country": "denmark",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.krak.dk/",
+    "title": "Krak.dk - Opdag nærheden.",
+    "textLen": 3411,
+    "anchors": 1869
+   },
+   "verdict": "active",
+   "why": "3411 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "eg-yellowpages",
+   "name": "Yellow Pages Egypt",
+   "website": "https://www.yellowpages.com.eg/",
+   "country": "egypt",
+   "observed": {
+    "status": 0,
+    "finalUrl": null,
+    "title": null,
+    "textLen": 0,
+    "anchors": 0
+   },
+   "verdict": "unreachable",
+   "why": "CDP timeout: Runtime.evaluate"
+  },
+  {
+   "id": "es-11870",
+   "name": "11870",
+   "website": "https://www.11870.com/",
+   "country": "spain",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.11870.com/",
+    "title": "11870.com- espacio dedicado a las noticias",
+    "textLen": 0,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "http 403"
+  },
+  {
+   "id": "es-atrapalo",
+   "name": "Atrápalo",
+   "website": "https://www.atrapalo.com/",
+   "country": "spain",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.atrapalo.com/",
+    "title": "Atrápalo | Ofertas de hoteles, vuelos, actividades y viajes",
+    "textLen": 2585,
+    "anchors": 232
+   },
+   "verdict": "active",
+   "why": "2585 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "es-bodas",
+   "name": "Bodas.net",
+   "website": "https://www.bodas.net/",
+   "country": "spain",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.bodas.net/",
+    "title": "Disfruta organizando tu boda - Bodas.net",
+    "textLen": 10721,
+    "anchors": 319
+   },
+   "verdict": "active",
+   "why": "10721 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "es-certicalia",
+   "name": "Certicalia",
+   "website": "https://www.certicalia.com/",
+   "country": "spain",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.certicalia.com/",
+    "title": "Certicalia | Soluciona todos tus trámites y gestiones",
+    "textLen": 7184,
+    "anchors": 205
+   },
+   "verdict": "active",
+   "why": "7184 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "es-cylex",
+   "name": "Cylex España",
+   "website": "https://www.cylex.es/",
+   "country": "spain",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.cylex.es/",
+    "title": "Cylex búsqueda local España",
+    "textLen": 10898,
+    "anchors": 917
+   },
+   "verdict": "active",
+   "why": "10898 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "es-firmania",
+   "name": "Firmania España",
+   "website": "https://www.firmania.es/",
+   "country": "spain",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://firmania.es/",
+    "title": "Firmania: detalles de contacto de empresas locales en toda Espana",
+    "textLen": 2689,
+    "anchors": 706
+   },
+   "verdict": "active",
+   "why": "2689 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "es-guiarepsol",
+   "name": "Guía Repsol",
+   "website": "https://www.guiarepsol.com/",
+   "country": "spain",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.guiarepsol.com/",
+    "title": "Guía Repsol: restaurantes, viajes, hoteles, planes, mapas, rutas",
+    "textLen": 11068,
+    "anchors": 190
+   },
+   "verdict": "active",
+   "why": "11068 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "es-hotfrog",
+   "name": "Hotfrog España",
+   "website": "https://www.hotfrog.es/",
+   "country": "spain",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.hotfrog.es/",
+    "title": "Bienvenido a Hotfrog",
+    "textLen": 2397,
+    "anchors": 363
+   },
+   "verdict": "active",
+   "why": "2397 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "es-milanuncios",
+   "name": "Milanuncios",
+   "website": "https://www.milanuncios.com/",
+   "country": "spain",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.milanuncios.com/",
+    "title": "MILANUNCIOS: segunda mano, anuncios gratis, empleo, clasificados...",
+    "textLen": 4594,
+    "anchors": 211
+   },
+   "verdict": "active",
+   "why": "4594 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "es-paginas-amarillas",
+   "name": "Páginas Amarillas",
+   "website": "https://www.paginasamarillas.es/",
+   "country": "spain",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.paginasamarillas.es/",
+    "title": null,
+    "textLen": 0,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "http 403"
+  },
+  {
+   "id": "es-restaurantes-com",
+   "name": "Restaurantes.com",
+   "website": "https://www.restaurantes.com/",
+   "country": "spain",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.restaurantes.com/",
+    "title": "restaurantes.com",
+    "textLen": 0,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "http 403"
+  },
+  {
+   "id": "es-verema",
+   "name": "Verema",
+   "website": "https://www.verema.com/",
+   "country": "spain",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.verema.com/",
+    "title": "Verema: Vino, Restaurantes, Club de Vinos y Enoturismo",
+    "textLen": 4769,
+    "anchors": 88
+   },
+   "verdict": "active",
+   "why": "4769 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "es-yalwa",
+   "name": "Yalwa España",
+   "website": "https://www.yalwa.es/",
+   "country": "spain",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.yalwa.es/",
+    "title": "Just a moment...",
+    "textLen": 260,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "fi-cylex",
+   "name": "Cylex Suomi",
+   "website": "https://www.cylex.fi/",
+   "country": "finland",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.cylex.fi/",
+    "title": "Cylex-paikallishaku Suomi",
+    "textLen": 8776,
+    "anchors": 881
+   },
+   "verdict": "active",
+   "why": "8776 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "fi-duunitori",
+   "name": "Duunitori",
+   "website": "https://www.duunitori.fi/",
+   "country": "finland",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.duunitori.fi/",
+    "title": "Just a moment...",
+    "textLen": 264,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "fr-avis-verifies",
+   "name": "Avis Vérifiés",
+   "website": "https://www.avis-verifies.com/",
+   "country": "france",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://fr.avis-verifies.com/",
+    "title": "Avis clients : Boostez vos ventes avec Avis Vérifiés !",
+    "textLen": 7093,
+    "anchors": 169
+   },
+   "verdict": "active",
+   "why": "7093 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "fr-cylex",
+   "name": "Cylex France",
+   "website": "https://www.cylex.fr/",
+   "country": "france",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.cylex-locale.fr/",
+    "title": "Cylex Recherche Locale",
+    "textLen": 11884,
+    "anchors": 918
+   },
+   "verdict": "redirected",
+   "why": "cylex.fr now serves cylex-locale.fr",
+   "to": "https://www.cylex-locale.fr/"
+  },
+  {
+   "id": "fr-directindustry",
+   "name": "DirectIndustry",
+   "website": "https://www.directindustry.fr/",
+   "country": "france",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.directindustry.fr/",
+    "title": "DirectIndustry - La marketplace B2B de l'industrie : capteurs, automatismes, moteurs, pompes, manutention, emballages...",
+    "textLen": 3140,
+    "anchors": 33
+   },
+   "verdict": "active",
+   "why": "3140 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "fr-doctolib",
+   "name": "Doctolib",
+   "website": "https://www.doctolib.fr/",
+   "country": "france",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.doctolib.fr/",
+    "title": "Doctolib : Prenez rendez-vous en ligne chez un soignant",
+    "textLen": 3792,
+    "anchors": 102
+   },
+   "verdict": "active",
+   "why": "3792 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "fr-firmania",
+   "name": "Firmania France",
+   "website": "https://www.firmania.fr/",
+   "country": "france",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://firmania.fr/",
+    "title": "Firmania - coordonnées des entreprises locales partout en France",
+    "textLen": 2490,
+    "anchors": 706
+   },
+   "verdict": "active",
+   "why": "2490 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "fr-hotfrog",
+   "name": "Hotfrog France",
+   "website": "https://www.hotfrog.fr/",
+   "country": "france",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.hotfrog.fr/",
+    "title": "Bienvenue sur HotFrog",
+    "textLen": 2373,
+    "anchors": 480
+   },
+   "verdict": "active",
+   "why": "2373 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "fr-justacote",
+   "name": "Justacote",
+   "website": "https://www.justacote.com/",
+   "country": "france",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.justacote.com/",
+    "title": "Just a moment...",
+    "textLen": 265,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "fr-kompass",
+   "name": "Kompass France",
+   "website": "https://fr.kompass.com/",
+   "country": "france",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://fr.kompass.com/",
+    "title": "kompass.com",
+    "textLen": 0,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "http 403"
+  },
+  {
+   "id": "fr-malt",
+   "name": "Malt",
+   "website": "https://www.malt.fr/",
+   "country": "france",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.malt.fr/",
+    "title": "Trouver vos freelances sur notre plateforme Malt",
+    "textLen": 15562,
+    "anchors": 164
+   },
+   "verdict": "active",
+   "why": "15562 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "fr-mariages",
+   "name": "Mariages.net",
+   "website": "https://www.mariages.net/",
+   "country": "france",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.mariages.net/",
+    "title": "Mariage - Mariages.net",
+    "textLen": 11852,
+    "anchors": 361
+   },
+   "verdict": "active",
+   "why": "11852 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "fr-pagesjaunes",
+   "name": "PagesJaunes",
+   "website": "https://www.pagesjaunes.fr/",
+   "country": "france",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.pagesjaunes.fr/",
+    "title": "pagesjaunes, trouvez les bons pros autour de vous…, bien plus qu’un annuaire",
+    "textLen": 9071,
+    "anchors": 231
+   },
+   "verdict": "active",
+   "why": "9071 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "fr-petitfute",
+   "name": "Petit Futé",
+   "website": "https://www.petitfute.com/",
+   "country": "france",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.petitfute.com/",
+    "title": "Guides de voyage Petit futé - Guide touristique en ligne",
+    "textLen": 11735,
+    "anchors": 515
+   },
+   "verdict": "active",
+   "why": "11735 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "fr-plus-que-pro",
+   "name": "Plus que PRO",
+   "website": "https://www.plus-que-pro.fr/",
+   "country": "france",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.plus-que-pro.fr/",
+    "title": "Plus que pro - Avis clients pour choisir la bonne entreprise",
+    "textLen": 5222,
+    "anchors": 64
+   },
+   "verdict": "active",
+   "why": "5222 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "fr-softwareadvice",
+   "name": "Software Advice France",
+   "website": "https://www.softwareadvice.fr/",
+   "country": "france",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.softwareadvice.fr/",
+    "title": "Avis sur les logiciels métiers - SoftwareAdvice™ France",
+    "textLen": 2546,
+    "anchors": 38
+   },
+   "verdict": "active",
+   "why": "2546 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "fr-travaux",
+   "name": "Travaux.com",
+   "website": "https://www.travaux.com/",
+   "country": "france",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.travaux.com/",
+    "title": "Travaux.com - Le moyen fiable d'engager un artisan",
+    "textLen": 6957,
+    "anchors": 153
+   },
+   "verdict": "active",
+   "why": "6957 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "fr-viamichelin",
+   "name": "ViaMichelin",
+   "website": "https://www.viamichelin.com/",
+   "country": "france",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.viamichelin.com/",
+    "title": "Azure WAF",
+    "textLen": 110,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "http 403"
+  },
+  {
+   "id": "fr-yalwa",
+   "name": "Yalwa France",
+   "website": "https://www.yalwa.fr/",
+   "country": "france",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.yalwa.fr/",
+    "title": "Just a moment...",
+    "textLen": 260,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "gh-ghanayello",
+   "name": "GhanaYello",
+   "website": "https://www.ghanayello.com/",
+   "country": "ghana",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.ghanayello.com/",
+    "title": "Just a moment...",
+    "textLen": 266,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "gh-jumia",
+   "name": "Jumia Ghana",
+   "website": "https://www.jumia.com.gh/",
+   "country": "ghana",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.jumia.com.gh/",
+    "title": "Just a moment...",
+    "textLen": 264,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "gh-tonaton",
+   "name": "Tonaton",
+   "website": "https://www.tonaton.com/",
+   "country": "ghana",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.tonaton.com/",
+    "title": "Just a moment...",
+    "textLen": 263,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "global-50pros",
+   "name": "50Pros",
+   "website": "https://www.50pros.com/",
+   "country": "global",
+   "observed": {
+    "status": 429,
+    "finalUrl": "https://www.50pros.com/",
+    "title": "Vercel Security Checkpoint",
+    "textLen": 120,
+    "anchors": 1
+   },
+   "verdict": "blocked",
+   "why": "http 429"
+  },
+  {
+   "id": "global-accesswire",
+   "name": "ACCESSWIRE",
+   "website": "https://www.accesswire.com/",
+   "country": "global",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.accessnewswire.com/",
+    "title": "Press Release Distribution & IR | ACCESS Newswire",
+    "textLen": 10023,
+    "anchors": 158
+   },
+   "verdict": "redirected",
+   "why": "accesswire.com now serves accessnewswire.com",
+   "to": "https://www.accessnewswire.com/"
+  },
+  {
+   "id": "global-adforum",
+   "name": "AdForum",
+   "website": "https://www.adforum.com/",
+   "country": "global",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.adforum.com/",
+    "title": "The best in-depth global resource for insight on advertising campaigns, strategy and creativity - AdForum",
+    "textLen": 6337,
+    "anchors": 432
+   },
+   "verdict": "active",
+   "why": "6337 characters of real content",
+   "routes": {
+    "create": {
+     "text": "Submit Your Company",
+     "href": "https://www.adforum.com/agency"
+    }
+   }
+  },
+  {
+   "id": "global-agencyspotter",
+   "name": "Agency Spotter",
+   "website": "https://www.agencyspotter.com/",
+   "country": "global",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.agencyspotter.com/",
+    "title": "Agency Spotter - Search Top Advertising Agencies, Digital Agencies and Many More",
+    "textLen": 4329,
+    "anchors": 53
+   },
+   "verdict": "active",
+   "why": "4329 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "global-amazon-sellers",
+   "name": "Amazon Seller Storefront",
+   "website": "https://www.amazon.com/",
+   "country": "global",
+   "observed": {
+    "status": 202,
+    "finalUrl": "https://www.amazon.com/",
+    "title": "Amazon.com. Spend less. Smile more.",
+    "textLen": 4271,
+    "anchors": 181
+   },
+   "verdict": "active",
+   "why": "4271 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "global-anaconda",
+   "name": "Anaconda.org",
+   "website": "https://anaconda.org/",
+   "country": "global",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://anaconda.org/",
+    "title": "Anaconda.org",
+    "textLen": 1792,
+    "anchors": 23
+   },
+   "verdict": "active",
+   "why": "1792 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "global-b2bhint",
+   "name": "B2BHint",
+   "website": "https://www.b2bhint.com/",
+   "country": "global",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.b2bhint.com/",
+    "title": "Just a moment...",
+    "textLen": 263,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "global-b2bmap",
+   "name": "B2BMap",
+   "website": "https://www.b2bmap.com/",
+   "country": "global",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://b2bmap.com/",
+    "title": "Global B2B Platform | Connecting Buyers and Suppliers - B2BMAP",
+    "textLen": 3689,
+    "anchors": 479
+   },
+   "verdict": "active",
+   "why": "3689 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "global-bcorporation",
+   "name": "B Corp Directory",
+   "website": "https://www.bcorporation.net/en-us/find-a-b-corp/",
+   "country": "global",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.bcorporation.net/en-us/find-a-b-corp/",
+    "title": "Find a B Corp",
+    "textLen": 22027,
+    "anchors": 145
+   },
+   "verdict": "active",
+   "why": "22027 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "global-betapage",
+   "name": "BetaPage",
+   "website": "https://www.betapage.co/",
+   "country": "global",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.betapage.co/",
+    "title": "403 Forbidden",
+    "textLen": 119,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "access-denied"
+  },
+  {
+   "id": "global-businesswire",
+   "name": "Business Wire",
+   "website": "https://www.businesswire.com/",
+   "country": "global",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.businesswire.com/",
+    "title": "Access Denied",
+    "textLen": 202,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "access-denied"
+  },
+  {
+   "id": "global-canva-apps",
+   "name": "Canva Apps",
+   "website": "https://www.canva.com/apps/",
+   "country": "global",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.canva.com/apps/",
+    "title": "Apps Marketplace | Canva",
+    "textLen": 2173,
+    "anchors": 378
+   },
+   "verdict": "active",
+   "why": "2173 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "global-cisco-partners",
+   "name": "Cisco Partner Locator",
+   "website": "https://www.cisco.com/c/en/us/partners/partner-locator.html",
+   "country": "global",
+   "observed": {
+    "status": 404,
+    "finalUrl": "https://www.cisco.com/c/en/us/partners/partner-locator.html",
+    "title": "404 - Page Not Found - Cisco",
+    "textLen": 567,
+    "anchors": 28
+   },
+   "verdict": "blocked",
+   "why": "http 404"
+  },
+  {
+   "id": "global-comparably",
+   "name": "Comparably",
+   "website": "https://www.comparably.com/",
+   "country": "global",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.comparably.com/",
+    "title": "Comparably - Transparent Cultures, Brands & Salaries",
+    "textLen": 3789,
+    "anchors": 102
+   },
+   "verdict": "active",
+   "why": "3789 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "global-craft",
+   "name": "Craft.co",
+   "website": "https://www.craft.co/",
+   "country": "global",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://global.craft.co/",
+    "title": "Home | Craft.co",
+    "textLen": 9219,
+    "anchors": 80
+   },
+   "verdict": "active",
+   "why": "9219 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "global-cssdesignawards",
+   "name": "CSS Design Awards",
+   "website": "https://www.cssdesignawards.com/",
+   "country": "global",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.cssdesignawards.com/",
+    "title": "CSS Design Awards - Website Awards - Best Web Design Inspiration - CSS Awards",
+    "textLen": 936,
+    "anchors": 29
+   },
+   "verdict": "active",
+   "why": "936 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "global-cybo",
+   "name": "Cybo",
+   "website": "https://www.cybo.com/",
+   "country": "global",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.cybo.com/",
+    "title": "Quick security check",
+    "textLen": 62,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "http 403"
+  },
+  {
+   "id": "global-dhgate",
+   "name": "DHgate",
+   "website": "https://www.dhgate.com/",
+   "country": "global",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.dhgate.com/",
+    "title": "DHgate - Buy China Wholesale Products Online Shopping from China Suppliers.",
+    "textLen": 4405,
+    "anchors": 124
+   },
+   "verdict": "active",
+   "why": "4405 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "global-dnv-certified",
+   "name": "DNV Certified Client Directory",
+   "website": "https://www.dnv.com/services/certified-client-directory",
+   "country": "global",
+   "observed": {
+    "status": 404,
+    "finalUrl": "https://www.dnv.com/services/certified-client-directory/",
+    "title": "Page Not Found",
+    "textLen": 1651,
+    "anchors": 47
+   },
+   "verdict": "blocked",
+   "why": "http 404"
+  },
+  {
+   "id": "global-dribbble",
+   "name": "Dribbble",
+   "website": "https://dribbble.com/",
+   "country": "global",
+   "observed": {
+    "status": 202,
+    "finalUrl": "https://dribbble.com/",
+    "title": "Dribbble - Discover the World’s Top Designers & Creative Professionals",
+    "textLen": 3291,
+    "anchors": 194
+   },
+   "verdict": "active",
+   "why": "3291 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "global-e27",
+   "name": "e27",
+   "website": "https://www.e27.co/",
+   "country": "global",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.e27.co/",
+    "title": "403 Forbidden",
+    "textLen": 114,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "access-denied"
+  },
+  {
+   "id": "global-easywithai",
+   "name": "Easy With AI",
+   "website": "https://www.easywithai.com/",
+   "country": "global",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://easywithai.com/",
+    "title": "Easy With AI - Best AI Tools & Services",
+    "textLen": 2863,
+    "anchors": 101
+   },
+   "verdict": "active",
+   "why": "2863 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "global-ec21",
+   "name": "EC21",
+   "website": "https://www.ec21.com/",
+   "country": "global",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.ec21.com/",
+    "title": "EC21, Global B2B Marketplace - Connecting Global Buyers with Manufacturers, Suppliers, Exporters worldwide",
+    "textLen": 10044,
+    "anchors": 420
+   },
+   "verdict": "active",
+   "why": "10044 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "global-ecommerce-europe",
+   "name": "Ecommerce Europe",
+   "website": "https://www.ecommerce-europe.eu/",
+   "country": "global",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://ecommerce-europe.eu/",
+    "title": "Home - Ecommerce Europe",
+    "textLen": 3474,
+    "anchors": 88
+   },
+   "verdict": "active",
+   "why": "3474 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "global-enrollbusiness",
+   "name": "EnrollBusiness",
+   "website": "https://www.enrollbusiness.com/",
+   "country": "global",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.enrollbusiness.com/",
+    "title": "Just a moment...",
+    "textLen": 270,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "global-eworldtrade",
+   "name": "eWorldTrade",
+   "website": "https://www.eworldtrade.com/",
+   "country": "global",
+   "observed": {
+    "status": 202,
+    "finalUrl": "https://www.eworldtrade.com/",
+    "title": "Domain Seized by Law Enforcement",
+    "textLen": 1,
+    "anchors": 0
+   },
+   "verdict": "inconclusive",
+   "why": "only 1 characters rendered"
+  },
+  {
+   "id": "global-exporthub",
+   "name": "ExportHub",
+   "website": "https://www.exporthub.com/",
+   "country": "global",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.exporthub.com/",
+    "title": "Just a moment...",
+    "textLen": 265,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "global-facebook-business",
+   "name": "Facebook Business Page",
+   "website": "https://www.facebook.com/business/",
+   "country": "global",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.facebook.com/business/",
+    "title": "Meta for Business: Marketing solutions on Facebook and Instagram",
+    "textLen": 4497,
+    "anchors": 42
+   },
+   "verdict": "active",
+   "why": "4497 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "global-fiverr",
+   "name": "Fiverr",
+   "website": "https://www.fiverr.com/",
+   "country": "global",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.fiverr.com/",
+    "title": "Fiverr | Freelance services marketplace | Find top global talent",
+    "textLen": 1731,
+    "anchors": 94
+   },
+   "verdict": "active",
+   "why": "1731 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "global-fordaq",
+   "name": "Fordaq",
+   "website": "https://www.fordaq.com/",
+   "country": "global",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.fordaq.com/",
+    "title": "Just a moment...",
+    "textLen": 262,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "global-gartner-peer-insights",
+   "name": "Gartner Peer Insights",
+   "website": "https://www.gartner.com/reviews",
+   "country": "global",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.gartner.com/peer-insights/home",
+    "title": "Gartner Peer Insights | Find & Compare Enterprise Software and Services Reviews",
+    "textLen": 3473,
+    "anchors": 252
+   },
+   "verdict": "active",
+   "why": "3473 characters of real content",
+   "routes": {
+    "create": {
+     "text": "List Your Company",
+     "href": "https://www.gartner.com/peer-insights/vendor-portal/overview"
+    }
+   }
+  },
+  {
+   "id": "global-getyourguide",
+   "name": "GetYourGuide",
+   "website": "https://www.getyourguide.com/",
+   "country": "global",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.getyourguide.com/",
+    "title": "Book Things To Do, Attractions, and Tours | GetYourGuide",
+    "textLen": 1963,
+    "anchors": 43
+   },
+   "verdict": "active",
+   "why": "1963 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "global-glassdoor",
+   "name": "Glassdoor",
+   "website": "https://www.glassdoor.com/",
+   "country": "global",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.glassdoor.com/index.htm",
+    "title": "Glassdoor | Job Search & Career Community",
+    "textLen": 6020,
+    "anchors": 282
+   },
+   "verdict": "active",
+   "why": "6020 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "global-globalspec",
+   "name": "GlobalSpec",
+   "website": "https://www.globalspec.com/",
+   "country": "global",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.globalspec.com/",
+    "title": "Just a moment...",
+    "textLen": 242,
+    "anchors": 11
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "global-goodfirms",
+   "name": "GoodFirms",
+   "website": "https://www.goodfirms.co/",
+   "country": "global",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.goodfirms.co/",
+    "title": "Goodfirms - B2B Reviews & Ratings you can trust",
+    "textLen": 9017,
+    "anchors": 174
+   },
+   "verdict": "active",
+   "why": "9017 characters of real content",
+   "routes": {
+    "create": {
+     "text": "Get Listed",
+     "href": "https://www.goodfirms.co/get-listed"
+    }
+   }
+  },
+  {
+   "id": "global-gust",
+   "name": "Gust",
+   "website": "https://www.gust.com/",
+   "country": "global",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://gust.com/",
+    "title": "Gust | The best place to start, grow, and fund your venture.",
+    "textLen": 6807,
+    "anchors": 67
+   },
+   "verdict": "active",
+   "why": "6807 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "global-hashicorp-partners",
+   "name": "HashiCorp Find a Partner",
+   "website": "https://www.hashicorp.com/partners/find-a-partner",
+   "country": "global",
+   "observed": {
+    "status": 500,
+    "finalUrl": "https://www.hashicorp.com/en/partners/find-a-partner",
+    "title": "Find a Partner | HashiCorp",
+    "textLen": 4686,
+    "anchors": 111
+   },
+   "verdict": "blocked",
+   "why": "http 500"
+  },
+  {
+   "id": "global-hotfrog-india",
+   "name": "Hotfrog India",
+   "website": "https://www.hotfrog.in/",
+   "country": "global",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.hotfrog.in/",
+    "title": "Hotfrog - Get found online",
+    "textLen": 2512,
+    "anchors": 1355
+   },
+   "verdict": "active",
+   "why": "2512 characters of real content",
+   "routes": {
+    "create": {
+     "text": "Add Business",
+     "href": "https://www.hotfrog.in/add"
+    }
+   }
+  },
+  {
+   "id": "global-indeed-companies",
+   "name": "Indeed Company Pages",
+   "website": "https://www.indeed.com/companies",
+   "country": "global",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.indeed.com/companies",
+    "title": "Find The Best Companies to Work For | Indeed.com",
+    "textLen": 1128,
+    "anchors": 79
+   },
+   "verdict": "active",
+   "why": "1128 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "global-indiegogo",
+   "name": "Indiegogo",
+   "website": "https://www.indiegogo.com/",
+   "country": "global",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.indiegogo.com/en",
+    "title": "Indiegogo",
+    "textLen": 10634,
+    "anchors": 407
+   },
+   "verdict": "active",
+   "why": "10634 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "global-infobel",
+   "name": "Infobel",
+   "website": "https://www.infobel.com/",
+   "country": "global",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.infobel.com/fr/world",
+    "title": "Annuaire mondial des entreprises | Infobel",
+    "textLen": 2984,
+    "anchors": 95
+   },
+   "verdict": "active",
+   "why": "2984 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "global-intel-partners",
+   "name": "Intel Find a Partner",
+   "website": "https://www.intel.com/content/www/us/en/partner/find-a-partner.html",
+   "country": "global",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.intel.com/content/www/us/en/partner-alliance/overview.html",
+    "title": "Intel® Partner Alliance",
+    "textLen": 4216,
+    "anchors": 214
+   },
+   "verdict": "active",
+   "why": "4216 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "global-jora",
+   "name": "Jora",
+   "website": "https://www.jora.com/",
+   "country": "global",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.jora.com/",
+    "title": "Making Job Search Easier | Jora",
+    "textLen": 352,
+    "anchors": 14
+   },
+   "verdict": "inconclusive",
+   "why": "only 352 characters rendered"
+  },
+  {
+   "id": "global-kelkoo",
+   "name": "Kelkoo",
+   "website": "https://www.kelkoo.com/",
+   "country": "global",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.kelkoo.cz/?kpartnerid=96954673",
+    "title": "kelkoo.cz",
+    "textLen": 0,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "http 403"
+  },
+  {
+   "id": "global-kickstarter",
+   "name": "Kickstarter",
+   "website": "https://www.kickstarter.com/",
+   "country": "global",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.kickstarter.com/",
+    "title": "Kickstarter",
+    "textLen": 12010,
+    "anchors": 477
+   },
+   "verdict": "active",
+   "why": "12010 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "global-kompass",
+   "name": "Kompass",
+   "website": "https://www.kompass.com/",
+   "country": "global",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.kompass.com/",
+    "title": "kompass.com",
+    "textLen": 0,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "http 403"
+  },
+  {
+   "id": "global-kununu",
+   "name": "kununu",
+   "website": "https://www.kununu.com/",
+   "country": "global",
+   "observed": {
+    "status": 405,
+    "finalUrl": "https://www.kununu.com/",
+    "title": "Human Verification",
+    "textLen": 318,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "http 405"
+  },
+  {
+   "id": "global-locanto",
+   "name": "Locanto",
+   "website": "https://www.locanto.com/",
+   "country": "global",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.locanto.com/",
+    "title": "Just a moment...",
+    "textLen": 193,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "global-monster",
+   "name": "Monster",
+   "website": "https://www.monster.com/",
+   "country": "global",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.monster.com/",
+    "title": "Monster Jobs Search - Find Jobs Near Me | Monster.com",
+    "textLen": 2847,
+    "anchors": 142
+   },
+   "verdict": "active",
+   "why": "2847 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "global-nsf-certified",
+   "name": "NSF Certified Products and Systems",
+   "website": "https://www.nsf.org/certified-products-systems",
+   "country": "global",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.nsf.org/certified-products-systems",
+    "title": "Certified Products and Systems | NSF",
+    "textLen": 6216,
+    "anchors": 102
+   },
+   "verdict": "active",
+   "why": "6216 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "global-openfuture-ai",
+   "name": "Openfuture",
+   "website": "https://www.openfuture.ai/",
+   "country": "global",
+   "observed": {
+    "status": 503,
+    "finalUrl": "https://www.openfuture.ai/",
+    "title": "503 Service Temporarily Unavailable",
+    "textLen": 41,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "http 503"
+  },
+  {
+   "id": "global-openhub",
+   "name": "Open Hub",
+   "website": "https://www.openhub.net/",
+   "country": "global",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.openhub.net/",
+    "title": "Just a moment...",
+    "textLen": 263,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "global-owler",
+   "name": "Owler",
+   "website": "https://www.owler.com/company",
+   "country": "global",
+   "observed": {
+    "status": 404,
+    "finalUrl": "https://www.owler.com/company",
+    "title": "Search For Companies | Owler",
+    "textLen": 431,
+    "anchors": 25
+   },
+   "verdict": "blocked",
+   "why": "http 404"
+  },
+  {
+   "id": "global-peerlist",
+   "name": "Peerlist",
+   "website": "https://www.peerlist.io/",
+   "country": "global",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://peerlist.io/",
+    "title": "Peerlist | The Professional Network for builders to show and tell!",
+    "textLen": 3807,
+    "anchors": 32
+   },
+   "verdict": "active",
+   "why": "3807 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "global-prestashop-addons",
+   "name": "PrestaShop Addons",
+   "website": "https://addons.prestashop.com/",
+   "country": "global",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://addons.prestashop.com/en/",
+    "title": "PrestaShop Addons Marketplace - Modules, Themes & Support",
+    "textLen": 9246,
+    "anchors": 87
+   },
+   "verdict": "active",
+   "why": "9246 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "global-saasworthy",
+   "name": "SaaSworthy",
+   "website": "https://www.saasworthy.com/",
+   "country": "global",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.saasworthy.com/",
+    "title": "SaaSworthy | Top Business Software and Reviews",
+    "textLen": 5747,
+    "anchors": 441
+   },
+   "verdict": "active",
+   "why": "5747 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "global-seedrs",
+   "name": "Seedrs",
+   "website": "https://www.seedrs.com/",
+   "country": "global",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://europe.republic.com/",
+    "title": "Invest online in startups via equity crowdfunding | Republic Europe",
+    "textLen": 10024,
+    "anchors": 145
+   },
+   "verdict": "redirected",
+   "why": "seedrs.com now serves republic.com",
+   "to": "https://europe.republic.com/"
+  },
+  {
+   "id": "global-seedtable",
+   "name": "Seedtable",
+   "website": "https://www.seedtable.com/",
+   "country": "global",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://seedtable.com/",
+    "title": "Seedtable — Discover, Score & Track 100K+ Global Startups",
+    "textLen": 8448,
+    "anchors": 163
+   },
+   "verdict": "active",
+   "why": "8448 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "global-sgs-certified",
+   "name": "SGS Certified Clients",
+   "website": "https://www.sgs.com/en/certified-clients-and-products",
+   "country": "global",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.sgs.com/en/certified-clients-and-products",
+    "title": "Certified Clients and Products | SGS",
+    "textLen": 4793,
+    "anchors": 127
+   },
+   "verdict": "active",
+   "why": "4793 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "global-slant",
+   "name": "Slant",
+   "website": "https://www.slant.co/",
+   "country": "global",
+   "observed": {
+    "status": 526,
+    "finalUrl": "https://www.slant.co/",
+    "title": "slant.co | 526: Invalid SSL certificate",
+    "textLen": 893,
+    "anchors": 4
+   },
+   "verdict": "blocked",
+   "why": "http 526"
+  },
+  {
+   "id": "global-softpedia",
+   "name": "Softpedia",
+   "website": "https://www.softpedia.com/",
+   "country": "global",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.softpedia.com/",
+    "title": "Softpedia - Free Downloads Encyclopedia",
+    "textLen": 6177,
+    "anchors": 115
+   },
+   "verdict": "active",
+   "why": "6177 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "global-softwaresuggest",
+   "name": "SoftwareSuggest",
+   "website": "https://www.softwaresuggest.com/",
+   "country": "global",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.softwaresuggest.com/",
+    "title": "Just a moment...",
+    "textLen": 271,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "global-softwareworld",
+   "name": "SoftwareWorld",
+   "website": "https://www.softwareworld.co/",
+   "country": "global",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.softwareworld.co/",
+    "title": "Just a moment...",
+    "textLen": 268,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "global-sortlist",
+   "name": "Sortlist",
+   "website": "https://www.sortlist.com/",
+   "country": "global",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.sortlist.com/",
+    "title": "Building Great Business Stories. - Sortlist",
+    "textLen": 6482,
+    "anchors": 278
+   },
+   "verdict": "active",
+   "why": "6482 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "global-stackshare",
+   "name": "StackShare",
+   "website": "https://stackshare.io/",
+   "country": "global",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://stackshare.io/",
+    "title": "StackShare - Discover the best trending developer & AI tools | StackShare",
+    "textLen": 3364,
+    "anchors": 178
+   },
+   "verdict": "active",
+   "why": "3364 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "global-startupblink",
+   "name": "StartupBlink",
+   "website": "https://www.startupblink.com/",
+   "country": "global",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.startupblink.com/",
+    "title": "StartupBlink | Uncover the Global Innovation Economy Winners",
+    "textLen": 8886,
+    "anchors": 93
+   },
+   "verdict": "active",
+   "why": "8886 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "global-startupbuffer",
+   "name": "Startup Buffer",
+   "website": "https://www.startupbuffer.com/",
+   "country": "global",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.startupbuffer.com/",
+    "title": "Just a moment...",
+    "textLen": 269,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "global-startupstash",
+   "name": "Startup Stash",
+   "website": "https://www.startupstash.com/",
+   "country": "global",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.startupstash.com/",
+    "title": "Just a moment...",
+    "textLen": 268,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "global-taiwantrade",
+   "name": "Taiwantrade",
+   "website": "https://www.taiwantrade.com/",
+   "country": "global",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.taiwantrade.com/home.html",
+    "title": "Taiwantrade | Sourcing quality Taiwan products, suppliers, manufacturers and exporters",
+    "textLen": 8697,
+    "anchors": 1300
+   },
+   "verdict": "active",
+   "why": "8697 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "global-techimply",
+   "name": "Techimply",
+   "website": "https://www.techimply.com/",
+   "country": "global",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.techimply.com/",
+    "title": "Just a moment...",
+    "textLen": 265,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "global-thefork",
+   "name": "TheFork",
+   "website": "https://www.thefork.com/",
+   "country": "global",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.thefork.com/",
+    "title": "thefork.com",
+    "textLen": 0,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "http 403"
+  },
+  {
+   "id": "global-theknot",
+   "name": "The Knot",
+   "website": "https://www.theknot.com/",
+   "country": "global",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.theknot.com/",
+    "title": "Access Denied",
+    "textLen": 195,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "access-denied"
+  },
+  {
+   "id": "global-themanifest",
+   "name": "The Manifest",
+   "website": "https://www.themanifest.com/",
+   "country": "global",
+   "observed": {
+    "status": 404,
+    "finalUrl": "https://www.themanifest.com/",
+    "title": "404 Not Found",
+    "textLen": 19,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "http 404"
+  },
+  {
+   "id": "global-thomasnet",
+   "name": "Thomasnet",
+   "website": "https://www.thomasnet.com/",
+   "country": "global",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.thomasnet.com/",
+    "title": "thomasnet.com",
+    "textLen": 0,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "http 403"
+  },
+  {
+   "id": "global-thunderbird-addons",
+   "name": "Thunderbird Add-ons",
+   "website": "https://addons.thunderbird.net/",
+   "country": "global",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://addons.thunderbird.net/en-US/thunderbird/",
+    "title": "Add-ons for Thunderbird",
+    "textLen": 2824,
+    "anchors": 162
+   },
+   "verdict": "active",
+   "why": "2824 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "global-topai-tools",
+   "name": "TopAI.tools",
+   "website": "https://www.topai.tools/",
+   "country": "global",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.topai.tools/",
+    "title": "Find the Right AI Tools for Every Task | TopAI.tools",
+    "textLen": 6319,
+    "anchors": 183
+   },
+   "verdict": "active",
+   "why": "6319 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "global-toptal",
+   "name": "Toptal",
+   "website": "https://www.toptal.com/",
+   "country": "global",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.toptal.com/",
+    "title": "Toptal - Hire Freelance Talent from the Top 3%",
+    "textLen": 15777,
+    "anchors": 533
+   },
+   "verdict": "active",
+   "why": "15777 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "global-tripadvisor",
+   "name": "Tripadvisor",
+   "website": "https://www.tripadvisor.co.uk/",
+   "country": "global",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.tripadvisor.co.uk/",
+    "title": "tripadvisor.co.uk",
+    "textLen": 0,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "http 403"
+  },
+  {
+   "id": "global-trustradius",
+   "name": "TrustRadius",
+   "website": "https://www.trustradius.com/",
+   "country": "global",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.trustradius.com/",
+    "title": "Just a moment...",
+    "textLen": 267,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "global-tuvsud-certified",
+   "name": "TÜV SÜD Certified Clients",
+   "website": "https://www.tuvsud.com/en/services/certified-clients",
+   "country": "global",
+   "observed": {
+    "status": 404,
+    "finalUrl": "https://www.tuvsud.com/en/services/certified-clients",
+    "title": "Page Not Found | TÜV SÜD",
+    "textLen": 1051,
+    "anchors": 158
+   },
+   "verdict": "blocked",
+   "why": "http 404"
+  },
+  {
+   "id": "global-ubereats",
+   "name": "Uber Eats",
+   "website": "https://www.ubereats.com/",
+   "country": "global",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.ubereats.com/",
+    "title": "Uber Eats | Food & Grocery Delivery | Order Groceries and Food Online",
+    "textLen": 1871,
+    "anchors": 99
+   },
+   "verdict": "active",
+   "why": "1871 characters of real content",
+   "routes": {
+    "create": {
+     "text": "Create a business account",
+     "href": "https://www.uber.com/business/eats"
+    }
+   }
+  },
+  {
+   "id": "global-upwork",
+   "name": "Upwork",
+   "website": "https://www.upwork.com/",
+   "country": "global",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.upwork.com/",
+    "title": "Upwork | Hire Top Freelance Talent with Confidence",
+    "textLen": 9934,
+    "anchors": 358
+   },
+   "verdict": "active",
+   "why": "9934 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "global-viator",
+   "name": "Viator",
+   "website": "https://www.viator.com/",
+   "country": "global",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.viator.com/",
+    "title": "Viator: Travel Tours, Activities, and Things to Do | 2026",
+    "textLen": 4728,
+    "anchors": 110
+   },
+   "verdict": "active",
+   "why": "4728 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "global-vrbo",
+   "name": "Vrbo",
+   "website": "https://www.vrbo.com/",
+   "country": "global",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.vrbo.com/",
+    "title": "Vrbo | Book Your Vacation Home Rentals: Beach Houses, Cabins, Condos & More",
+    "textLen": 19863,
+    "anchors": 89
+   },
+   "verdict": "active",
+   "why": "19863 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "global-weddingwire",
+   "name": "WeddingWire",
+   "website": "https://www.weddingwire.com/",
+   "country": "global",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.weddingwire.com/",
+    "title": "Weddings, Wedding Venues - WeddingWire",
+    "textLen": 11695,
+    "anchors": 337
+   },
+   "verdict": "active",
+   "why": "11695 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "global-wheree",
+   "name": "Wheree",
+   "website": "https://www.wheree.com/",
+   "country": "global",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.wheree.com/",
+    "title": "Wheree: Your Passport to the Adventure",
+    "textLen": 13278,
+    "anchors": 209
+   },
+   "verdict": "active",
+   "why": "13278 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "global-yably",
+   "name": "Yably",
+   "website": "https://www.yably.com/",
+   "country": "global",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://yably.com/",
+    "title": "Yably – the place where ratings muster",
+    "textLen": 3908,
+    "anchors": 40
+   },
+   "verdict": "active",
+   "why": "3908 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "global-yalwa",
+   "name": "Yalwa",
+   "website": "https://www.yalwa.com/",
+   "country": "global",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.yalwa.com/",
+    "title": "Just a moment...",
+    "textLen": 261,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "global-yellowpagesdirectory",
+   "name": "YellowPagesDirectory",
+   "website": "https://www.yellowpagesdirectory.com/",
+   "country": "global",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.yellowpagesdirectory.com/",
+    "title": "Just a moment...",
+    "textLen": 276,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "global-zaubee",
+   "name": "Zaubee",
+   "website": "https://www.zaubee.com/",
+   "country": "global",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.zaubee.com/",
+    "title": "Welcome to nginx!",
+    "textLen": 274,
+    "anchors": 2
+   },
+   "verdict": "inconclusive",
+   "why": "only 274 characters rendered"
+  },
+  {
+   "id": "global-zendesk-marketplace",
+   "name": "Zendesk Marketplace",
+   "website": "https://www.zendesk.com/marketplace/",
+   "country": "global",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.zendesk.com/marketplace/",
+    "title": "Zendesk Marketplace - Find Apps, Integrations & Partners",
+    "textLen": 6756,
+    "anchors": 284
+   },
+   "verdict": "active",
+   "why": "6756 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "global-ziprecruiter",
+   "name": "ZipRecruiter",
+   "website": "https://www.ziprecruiter.com/",
+   "country": "global",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.ziprecruiter.ie/",
+    "title": "ZipRecruiter Ireland",
+    "textLen": 1751,
+    "anchors": 28
+   },
+   "verdict": "redirected",
+   "why": "ziprecruiter.com now serves ziprecruiter.ie",
+   "to": "https://www.ziprecruiter.ie/"
+  },
+  {
+   "id": "hk-cyberport",
+   "name": "Cyberport",
+   "website": "https://www.cyberport.hk/",
+   "country": "hong-kong",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.cyberport.hk/",
+    "title": "Home - Hong Kong Cyberport Management Company Limited",
+    "textLen": 13369,
+    "anchors": 221
+   },
+   "verdict": "active",
+   "why": "13369 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "hk-hotfrog",
+   "name": "Hotfrog Hong Kong",
+   "website": "https://www.hotfrog.hk/",
+   "country": "hong-kong",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.hotfrog.hk/",
+    "title": "欢迎指南",
+    "textLen": 1215,
+    "anchors": 826
+   },
+   "verdict": "active",
+   "why": "1215 characters of real content",
+   "routes": {
+    "create": {
+     "text": "Add Business",
+     "href": "https://www.hotfrog.hk/add"
+    }
+   }
+  },
+  {
+   "id": "hk-jobsdb",
+   "name": "JobsDB Hong Kong",
+   "website": "https://hk.jobsdb.com/",
+   "country": "hong-kong",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://hk.jobsdb.com/",
+    "title": "Just a moment...",
+    "textLen": 261,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "hk-klook",
+   "name": "Klook",
+   "website": "https://www.klook.com/",
+   "country": "hong-kong",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.klook.com/",
+    "title": "klook.com",
+    "textLen": 0,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "http 403"
+  },
+  {
+   "id": "id-blibli",
+   "name": "Blibli",
+   "website": "https://www.blibli.com/",
+   "country": "indonesia",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.blibli.com/",
+    "title": "Blibli: Belanja Online ✔ Pasti ORI, Aman & Terpercaya",
+    "textLen": 17027,
+    "anchors": 136
+   },
+   "verdict": "active",
+   "why": "17027 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "id-bukalapak",
+   "name": "Bukalapak",
+   "website": "https://www.bukalapak.com/",
+   "country": "indonesia",
+   "observed": {
+    "status": 406,
+    "finalUrl": "chrome-error://chromewebdata/",
+    "title": "www.bukalapak.com",
+    "textLen": 97,
+    "anchors": 0
+   },
+   "verdict": "unreachable",
+   "why": "the browser could not open the site at all"
+  },
+  {
+   "id": "id-indotrading",
+   "name": "Indotrading",
+   "website": "https://www.indotrading.com/",
+   "country": "indonesia",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.indotrading.com/",
+    "title": "B2B Marketplace, Direktori Bisnis Supplier, Importir, Toko dan Situs Jual Beli",
+    "textLen": 15728,
+    "anchors": 2477
+   },
+   "verdict": "active",
+   "why": "15728 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "id-jobstreet",
+   "name": "JobStreet Indonesia",
+   "website": "https://www.jobstreet.co.id/",
+   "country": "indonesia",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://id.jobstreet.com/",
+    "title": "Just a moment...",
+    "textLen": 264,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "id-tiket",
+   "name": "tiket.com",
+   "website": "https://www.tiket.com/",
+   "country": "indonesia",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.tiket.com/en-us",
+    "title": "tiket.com - One App for Your Holiday Needs",
+    "textLen": 5877,
+    "anchors": 87
+   },
+   "verdict": "active",
+   "why": "5877 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "ie-cylex",
+   "name": "Cylex Ireland",
+   "website": "https://www.cylex.ie/",
+   "country": "ireland",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.cylex.ie/",
+    "title": "Cylex Local Search",
+    "textLen": 8340,
+    "anchors": 905
+   },
+   "verdict": "active",
+   "why": "8340 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "ie-hotfrog",
+   "name": "Hotfrog Ireland",
+   "website": "https://www.hotfrog.ie/",
+   "country": "ireland",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.hotfrog.ie/",
+    "title": "Hotfrog - Get found online",
+    "textLen": 2013,
+    "anchors": 222
+   },
+   "verdict": "active",
+   "why": "2013 characters of real content",
+   "routes": {
+    "create": {
+     "text": "Add Business",
+     "href": "https://www.hotfrog.ie/add"
+    }
+   }
+  },
+  {
+   "id": "ie-irelands-advisor",
+   "name": "Ireland's Advisor",
+   "website": "https://irelands-advisor.com/",
+   "country": "ireland",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://irelands-advisor.com/",
+    "title": "Just a moment...",
+    "textLen": 268,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "ie-justeat",
+   "name": "Just Eat Ireland",
+   "website": "https://www.justeat.ie/",
+   "country": "ireland",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.just-eat.ie/",
+    "title": "Order Food Delivery & Takeaway from Local Restaurants | Just Eat",
+    "textLen": 995,
+    "anchors": 1
+   },
+   "verdict": "redirected",
+   "why": "justeat.ie now serves just-eat.ie",
+   "to": "https://www.just-eat.ie/"
+  },
+  {
+   "id": "ie-yalwa",
+   "name": "Yalwa Ireland",
+   "website": "https://www.yalwa.ie/",
+   "country": "ireland",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.yalwa.ie/",
+    "title": "Just a moment...",
+    "textLen": 260,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "il-dapey-zahav",
+   "name": "Dapey Zahav",
+   "website": "https://www.d.co.il/",
+   "country": "israel",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.d.co.il/",
+    "title": "Attention Required! | Cloudflare",
+    "textLen": 680,
+    "anchors": 1
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-attention"
+  },
+  {
+   "id": "il-easy",
+   "name": "Easy.co.il",
+   "website": "https://www.easy.co.il/",
+   "country": "israel",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://easy.co.il/",
+    "title": "אפליקציית איזי | כל מה שסביבך | easy.co.il",
+    "textLen": 807,
+    "anchors": 145
+   },
+   "verdict": "active",
+   "why": "807 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "il-rest",
+   "name": "Rest.co.il",
+   "website": "https://www.rest.co.il/",
+   "country": "israel",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.rest.co.il/",
+    "title": "Attention Required! | Cloudflare",
+    "textLen": 683,
+    "anchors": 1
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-attention"
+  },
+  {
+   "id": "il-zap",
+   "name": "Zap",
+   "website": "https://www.zap.co.il/",
+   "country": "israel",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.zap.co.il/",
+    "title": "Attention Required! | Cloudflare",
+    "textLen": 682,
+    "anchors": 1
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-attention"
+  },
+  {
+   "id": "in-bookmyshow",
+   "name": "BookMyShow",
+   "website": "https://www.bookmyshow.com/",
+   "country": "india",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://in.bookmyshow.com/",
+    "title": "Movie Tickets, Plays, Sports, Events & Cinemas nearby - BookMyShow",
+    "textLen": 3244,
+    "anchors": 145
+   },
+   "verdict": "active",
+   "why": "3244 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "in-eindiabusiness",
+   "name": "eIndiaBusiness",
+   "website": "https://www.eindiabusiness.com/",
+   "country": "india",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.eindiabusiness.com/",
+    "title": "Just a moment...",
+    "textLen": 270,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "in-fieo",
+   "name": "FIEO",
+   "website": "https://www.fieo.org/",
+   "country": "india",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://fieo.org/",
+    "title": "Just a moment...",
+    "textLen": 256,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "in-instahyre",
+   "name": "Instahyre",
+   "website": "https://www.instahyre.com/",
+   "country": "india",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.instahyre.com/",
+    "title": "Zero Hassle Job Search - Instahyre",
+    "textLen": 1329,
+    "anchors": 27
+   },
+   "verdict": "active",
+   "why": "1329 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "in-justdial",
+   "name": "Justdial",
+   "website": "https://www.justdial.com/",
+   "country": "india",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.justdial.com/",
+    "title": "Find Verified Local Businesses Near You on India's Trusted Local Search Engine - Justdial (Jd)",
+    "textLen": 5968,
+    "anchors": 728
+   },
+   "verdict": "active",
+   "why": "5968 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "in-meesho",
+   "name": "Meesho",
+   "website": "https://www.meesho.com/",
+   "country": "india",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.meesho.com/",
+    "title": "Access Denied",
+    "textLen": 192,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "access-denied"
+  },
+  {
+   "id": "in-pepagora",
+   "name": "Pepagora",
+   "website": "https://www.pepagora.com/",
+   "country": "india",
+   "observed": {
+    "status": 405,
+    "finalUrl": "https://www.pepagora.com/",
+    "title": "Human Verification",
+    "textLen": 318,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "http 405"
+  },
+  {
+   "id": "in-snapdeal",
+   "name": "Snapdeal",
+   "website": "https://www.snapdeal.com/",
+   "country": "india",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.snapdeal.com/",
+    "title": "ERROR: The request could not be satisfied",
+    "textLen": 513,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "http 403"
+  },
+  {
+   "id": "in-swiggy",
+   "name": "Swiggy",
+   "website": "https://www.swiggy.com/",
+   "country": "india",
+   "observed": {
+    "status": 202,
+    "finalUrl": "https://www.swiggy.com/",
+    "title": "Order Food & Groceries. Discover the best restaurants. Swiggy it!",
+    "textLen": 542,
+    "anchors": 713
+   },
+   "verdict": "active",
+   "why": "542 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "in-yalwa",
+   "name": "Yalwa India",
+   "website": "https://www.yalwa.in/",
+   "country": "india",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.yalwa.in/",
+    "title": "Just a moment...",
+    "textLen": 260,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "in-yourstory",
+   "name": "YourStory",
+   "website": "https://www.yourstory.com/",
+   "country": "india",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://yourstory.com/",
+    "title": "YourStory | Stories about startups & entrepreneurships",
+    "textLen": 14236,
+    "anchors": 952
+   },
+   "verdict": "active",
+   "why": "14236 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "it-cylex",
+   "name": "Cylex Italia",
+   "website": "https://www.cylex.it/",
+   "country": "italy",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.cylex-italia.it/",
+    "title": "Cylex Ricerca Locale",
+    "textLen": 11493,
+    "anchors": 908
+   },
+   "verdict": "redirected",
+   "why": "cylex.it now serves cylex-italia.it",
+   "to": "https://www.cylex-italia.it/"
+  },
+  {
+   "id": "it-firmania",
+   "name": "Firmania Italia",
+   "website": "https://www.firmania.it/",
+   "country": "italy",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.firmania.it/",
+    "title": "Just a moment...",
+    "textLen": 263,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "it-gamberorosso",
+   "name": "Gambero Rosso",
+   "website": "https://www.gamberorosso.it/",
+   "country": "italy",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.gamberorosso.it/",
+    "title": "Gambero Rosso",
+    "textLen": 14718,
+    "anchors": 415
+   },
+   "verdict": "active",
+   "why": "14718 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "it-instapro",
+   "name": "Instapro",
+   "website": "https://www.instapro.it/",
+   "country": "italy",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.instapro.it/",
+    "title": "Instapro - Il metodo affidabile per ingaggiare un professionista",
+    "textLen": 5771,
+    "anchors": 129
+   },
+   "verdict": "active",
+   "why": "5771 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "it-matrimonio",
+   "name": "Matrimonio.com",
+   "website": "https://www.matrimonio.com/",
+   "country": "italy",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.matrimonio.com/",
+    "title": "Matrimonio, Nozze - Matrimonio.com",
+    "textLen": 10311,
+    "anchors": 365
+   },
+   "verdict": "active",
+   "why": "10311 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "it-paginemail",
+   "name": "PagineMail",
+   "website": "https://www.paginemail.it/",
+   "country": "italy",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.paginemail.it/",
+    "title": "Paginemail",
+    "textLen": 8674,
+    "anchors": 68
+   },
+   "verdict": "active",
+   "why": "8674 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "it-trovaprezzi",
+   "name": "Trovaprezzi",
+   "website": "https://www.trovaprezzi.it/",
+   "country": "italy",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.trovaprezzi.it/",
+    "title": "trovaprezzi.it",
+    "textLen": 0,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "http 403"
+  },
+  {
+   "id": "jm-findyello",
+   "name": "Yello Caribbean",
+   "website": "https://www.findyello.com/",
+   "country": "jamaica",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.findyello.com/",
+    "title": "findyello | Business Directory",
+    "textLen": 10092,
+    "anchors": 768
+   },
+   "verdict": "active",
+   "why": "10092 characters of real content",
+   "routes": {
+    "create": {
+     "text": "Add Listing",
+     "href": "https://www.findyello.com/list-business/"
+    }
+   }
+  },
+  {
+   "id": "jm-jamaicayp",
+   "name": "Jamaica Yellow Pages",
+   "website": "https://www.jamaicayp.com/",
+   "country": "jamaica",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.findyello.com/Jamaica/",
+    "title": "findyello | Jamaica Business Directory",
+    "textLen": 10006,
+    "anchors": 768
+   },
+   "verdict": "redirected",
+   "why": "jamaicayp.com now serves findyello.com",
+   "to": "https://www.findyello.com/Jamaica/"
+  },
+  {
+   "id": "jp-baitoru",
+   "name": "Baitoru",
+   "website": "https://www.baitoru.com/",
+   "country": "japan",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.baitoru.com/",
+    "title": "ERROR: The request could not be satisfied",
+    "textLen": 513,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "http 403"
+  },
+  {
+   "id": "jp-byoinnavi",
+   "name": "Byoinnavi",
+   "website": "https://www.byoinnavi.jp/",
+   "country": "japan",
+   "observed": {
+    "status": 405,
+    "finalUrl": "https://byoinnavi.jp/",
+    "title": "Human Verification",
+    "textLen": 318,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "http 405"
+  },
+  {
+   "id": "jp-hotfrog",
+   "name": "Hotfrog Japan",
+   "website": "https://www.hotfrog.jp/",
+   "country": "japan",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.hotfrog.jp/",
+    "title": "Hotfrogへようこそ",
+    "textLen": 1817,
+    "anchors": 1629
+   },
+   "verdict": "active",
+   "why": "1817 characters of real content",
+   "routes": {
+    "create": {
+     "text": "Add Business",
+     "href": "https://www.hotfrog.jp/add"
+    }
+   }
+  },
+  {
+   "id": "jp-ikyu",
+   "name": "Ikyu",
+   "website": "https://www.ikyu.com/",
+   "country": "japan",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.ikyu.com/",
+    "title": "一休.com - ホテル予約・旅館予約",
+    "textLen": 17103,
+    "anchors": 544
+   },
+   "verdict": "active",
+   "why": "17103 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "jp-jpnumber",
+   "name": "JPNumber",
+   "website": "https://www.jpnumber.com/",
+   "country": "japan",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.jpnumber.com/",
+    "title": "日本、電話番号検索",
+    "textLen": 5736,
+    "anchors": 939
+   },
+   "verdict": "active",
+   "why": "5736 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "jp-mercari",
+   "name": "Mercari",
+   "website": "https://www.mercari.com/jp/",
+   "country": "japan",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://jp.mercari.com/",
+    "title": "メルカリ - 日本最大のフリマサービス",
+    "textLen": 442,
+    "anchors": 50
+   },
+   "verdict": "active",
+   "why": "442 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "jp-openwork",
+   "name": "OpenWork",
+   "website": "https://www.openwork.jp/",
+   "country": "japan",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.openwork.jp/",
+    "title": "403 Forbidden",
+    "textLen": 13,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "access-denied"
+  },
+  {
+   "id": "jp-ozmall",
+   "name": "OZmall",
+   "website": "https://www.ozmall.co.jp/",
+   "country": "japan",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.ozmall.co.jp/",
+    "title": "403 Forbidden",
+    "textLen": 115,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "access-denied"
+  },
+  {
+   "id": "jp-retty",
+   "name": "Retty",
+   "website": "https://www.retty.me/",
+   "country": "japan",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://retty.me/",
+    "title": "Retty（レッティ） - 日本最大級の実名型グルメサービス",
+    "textLen": 8229,
+    "anchors": 1069
+   },
+   "verdict": "active",
+   "why": "8229 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "jp-rikunabi",
+   "name": "Rikunabi",
+   "website": "https://www.rikunabi.com/",
+   "country": "japan",
+   "observed": {
+    "status": 503,
+    "finalUrl": "https://job.rikunabi.com/",
+    "title": "リクナビ",
+    "textLen": 70,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "http 503"
+  },
+  {
+   "id": "ke-businesslist",
+   "name": "BusinessList Kenya",
+   "website": "https://www.businesslist.co.ke/",
+   "country": "kenya",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.businesslist.co.ke/",
+    "title": "Just a moment...",
+    "textLen": 270,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "ke-jiji",
+   "name": "Jiji Kenya",
+   "website": "https://www.jiji.co.ke/",
+   "country": "kenya",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://jiji.co.ke/",
+    "title": "Just a moment...",
+    "textLen": 258,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "ke-jumia",
+   "name": "Jumia Kenya",
+   "website": "https://www.jumia.co.ke/",
+   "country": "kenya",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.jumia.co.ke/",
+    "title": "Just a moment...",
+    "textLen": 263,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "ke-kepsa",
+   "name": "KEPSA",
+   "website": "https://www.kepsa.or.ke/",
+   "country": "kenya",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.kepsa.or.ke/",
+    "title": "KEPSA - Kenya Private Sector Alliance",
+    "textLen": 3769,
+    "anchors": 22
+   },
+   "verdict": "active",
+   "why": "3769 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "kr-coupang",
+   "name": "Coupang",
+   "website": "https://www.coupang.com/",
+   "country": "south-korea",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.coupang.com/",
+    "title": "로켓배송으로 빠르게, 로켓와우 멤버십으로 할인과 무료 반품까지 | 쿠팡",
+    "textLen": 1990,
+    "anchors": 100
+   },
+   "verdict": "active",
+   "why": "1990 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "kr-gmarket",
+   "name": "Gmarket",
+   "website": "https://www.gmarket.co.kr/",
+   "country": "south-korea",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.gmarket.co.kr/",
+    "title": "G마켓 - 지금부터의 마켓",
+    "textLen": 11910,
+    "anchors": 548
+   },
+   "verdict": "active",
+   "why": "11910 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "kr-jobplanet",
+   "name": "JobPlanet",
+   "website": "https://www.jobplanet.co.kr/",
+   "country": "south-korea",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.jobplanet.co.kr/welcome/index",
+    "title": "NO.1 기업 정보 플랫폼 | 잡플래닛",
+    "textLen": 4967,
+    "anchors": 51
+   },
+   "verdict": "active",
+   "why": "4967 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "kr-siksinhot",
+   "name": "Siksin",
+   "website": "https://www.siksinhot.com/",
+   "country": "south-korea",
+   "observed": {
+    "status": 429,
+    "finalUrl": "https://www.siksinhot.com/",
+    "title": "Security Verification - SIKSIN",
+    "textLen": 171,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "http 429"
+  },
+  {
+   "id": "lk-lankayp",
+   "name": "Lanka Yellow Pages",
+   "website": "https://www.lankayp.com/",
+   "country": "sri-lanka",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.lankayp.com/",
+    "title": "Just a moment...",
+    "textLen": 263,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "ma-avito",
+   "name": "Avito Maroc",
+   "website": "https://www.avito.ma/",
+   "country": "morocco",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.avito.ma/",
+    "title": "Attention Required! | Cloudflare",
+    "textLen": 681,
+    "anchors": 1
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-attention"
+  },
+  {
+   "id": "mx-amiti",
+   "name": "AMITI",
+   "website": "https://www.amiti.org.mx/",
+   "country": "mexico",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://amiti.org.mx/",
+    "title": "AMITI | Asociación Mexicana de la Industria de TI",
+    "textLen": 2507,
+    "anchors": 50
+   },
+   "verdict": "active",
+   "why": "2507 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "mx-canacintra",
+   "name": "CANACINTRA",
+   "website": "https://www.canacintra.org.mx/directorio",
+   "country": "mexico",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://canacintra.org.mx/directorio-operativo/",
+    "title": "Directorio Operativo - CANACINTRA Nacional",
+    "textLen": 460,
+    "anchors": 46
+   },
+   "verdict": "active",
+   "why": "460 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "mx-cylex",
+   "name": "Cylex México",
+   "website": "https://www.cylex.com.mx/",
+   "country": "mexico",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.cylex.mx/",
+    "title": "Just a moment...",
+    "textLen": 260,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "mx-encuentren",
+   "name": "Encuentren.ME",
+   "website": "https://www.encuentren.me/",
+   "country": "mexico",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.encuentren.me/",
+    "title": "Encuentren.me - Directorio de empresas",
+    "textLen": 1660,
+    "anchors": 46
+   },
+   "verdict": "active",
+   "why": "1660 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "mx-mexicoglobal",
+   "name": "Mexico Global",
+   "website": "https://www.mexicoglobal.net/",
+   "country": "mexico",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.japan-movie.net/news/",
+    "title": "Just a moment...",
+    "textLen": 267,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "mx-occ",
+   "name": "OCC Mundial",
+   "website": "https://www.occ.com.mx/",
+   "country": "mexico",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.occ.com.mx/",
+    "title": "Just a moment...",
+    "textLen": 262,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "mx-vivanuncios",
+   "name": "Vivanuncios",
+   "website": "https://www.vivanuncios.com.mx/",
+   "country": "mexico",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.vivanuncios.com.mx/",
+    "title": "Just a moment...",
+    "textLen": 270,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "my-businesslist",
+   "name": "BusinessList Malaysia",
+   "website": "https://www.businesslist.my/",
+   "country": "malaysia",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.businesslist.my/",
+    "title": "Just a moment...",
+    "textLen": 267,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "my-carlist",
+   "name": "Carlist.my",
+   "website": "https://www.carlist.my/",
+   "country": "malaysia",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.carlist.my/",
+    "title": "Find New, Used & Recon Cars in Malaysia | From Budget to Premium - Carlist.my",
+    "textLen": 14646,
+    "anchors": 1157
+   },
+   "verdict": "active",
+   "why": "14646 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "my-jobstreet",
+   "name": "JobStreet Malaysia",
+   "website": "https://my.jobstreet.com/",
+   "country": "malaysia",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://my.jobstreet.com/",
+    "title": "Just a moment...",
+    "textLen": 264,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "my-mia",
+   "name": "Malaysian Institute of Accountants",
+   "website": "https://www.mia.org.my/",
+   "country": "malaysia",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://mia.org.my/",
+    "title": "Malaysian Institute of Accountants - MIA",
+    "textLen": 3856,
+    "anchors": 249
+   },
+   "verdict": "active",
+   "why": "3856 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "my-yellowpages",
+   "name": "Yellow Pages Malaysia",
+   "website": "https://www.yellowpages.my/",
+   "country": "malaysia",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.yellowpages.my/",
+    "title": "Attention Required! | Cloudflare",
+    "textLen": 687,
+    "anchors": 1
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-attention"
+  },
+  {
+   "id": "na-namibiayp",
+   "name": "Namibia Yellow Pages",
+   "website": "https://www.namibiayp.com/",
+   "country": "namibia",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.namibiayp.com/",
+    "title": "Just a moment...",
+    "textLen": 265,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "ng-businesslist",
+   "name": "BusinessList Nigeria",
+   "website": "https://www.businesslist.com.ng/",
+   "country": "nigeria",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.businesslist.com.ng/",
+    "title": "Just a moment...",
+    "textLen": 271,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "ng-jiji",
+   "name": "Jiji Nigeria",
+   "website": "https://www.jiji.ng/",
+   "country": "nigeria",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://jiji.ng/",
+    "title": "Just a moment...",
+    "textLen": 255,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "ng-jumia",
+   "name": "Jumia Nigeria",
+   "website": "https://www.jumia.com.ng/",
+   "country": "nigeria",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.jumia.com.ng/",
+    "title": "Just a moment...",
+    "textLen": 264,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "ng-ngex",
+   "name": "NgEX",
+   "website": "https://www.ngex.com/",
+   "country": "nigeria",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.ngex.com/",
+    "title": "Information on Nigeria. Nigerian businesses, news, jobs, events, groups in Nigeria and around the world | NgEX",
+    "textLen": 2261,
+    "anchors": 108
+   },
+   "verdict": "active",
+   "why": "2261 characters of real content",
+   "routes": {
+    "create": {
+     "text": "Add a Business",
+     "href": "https://ngex.com/add"
+    }
+   }
+  },
+  {
+   "id": "ng-nigeriabusinessinfo",
+   "name": "Nigeria Business Info",
+   "website": "https://www.nigeriabusinessinfo.com/",
+   "country": "nigeria",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.nigeriabusinessinfo.com/",
+    "title": "Attention Required! | Cloudflare",
+    "textLen": 696,
+    "anchors": 1
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-attention"
+  },
+  {
+   "id": "nl-cylex",
+   "name": "Cylex Nederland",
+   "website": "https://www.cylex.nl/",
+   "country": "netherlands",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.cylex.nl/",
+    "title": "Cylex Lokaal Zoeken Nederland",
+    "textLen": 8542,
+    "anchors": 901
+   },
+   "verdict": "active",
+   "why": "8542 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "nl-firmania",
+   "name": "Firmania Nederland",
+   "website": "https://www.firmania.nl/",
+   "country": "netherlands",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://firmania.nl/",
+    "title": "Firmania - contactgegevens voor lokale bedrijven in het hele The Nederlands",
+    "textLen": 2412,
+    "anchors": 706
+   },
+   "verdict": "active",
+   "why": "2412 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "nl-hotfrog",
+   "name": "Hotfrog Nederland",
+   "website": "https://www.hotfrog.nl/",
+   "country": "netherlands",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.hotfrog.nl/",
+    "title": "Welkom op HotFrog",
+    "textLen": 2125,
+    "anchors": 174
+   },
+   "verdict": "active",
+   "why": "2125 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "nl-intermediair",
+   "name": "Intermediair",
+   "website": "https://www.intermediair.nl/",
+   "country": "netherlands",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.intermediair.nl/",
+    "title": "Het carrièreplatform voor ambitieuze professionals | Intermediair",
+    "textLen": 3262,
+    "anchors": 43
+   },
+   "verdict": "active",
+   "why": "3262 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "nl-nationalevacaturebank",
+   "name": "Nationale Vacaturebank",
+   "website": "https://www.nationalevacaturebank.nl/",
+   "country": "netherlands",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://myprivacy.dpgmedia.nl/consent?siteKey=n9me8qnyvhvs83su&callbackUrl=https%3A%2F%2Fwww.nationalevacaturebank.nl%2Fprivacygate-confirm%3FredirectUri%3D%252F&isLoggedIn=false",
+    "title": "DPG Media Privacy Gate",
+    "textLen": 0,
+    "anchors": 0
+   },
+   "verdict": "inconclusive",
+   "why": "only 0 characters rendered"
+  },
+  {
+   "id": "nl-nlingenieurs",
+   "name": "NLingenieurs",
+   "website": "https://www.nlingenieurs.nl/",
+   "country": "netherlands",
+   "observed": {
+    "status": 405,
+    "finalUrl": "https://www.nlingenieurs.nl/",
+    "title": "Human Verification",
+    "textLen": 318,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "http 405"
+  },
+  {
+   "id": "nl-thuisbezorgd",
+   "name": "Thuisbezorgd",
+   "website": "https://www.thuisbezorgd.nl/",
+   "country": "netherlands",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.thuisbezorgd.nl/en",
+    "title": "Food Delivery, Groceries & More Near You | Thuisbezorgd.nl",
+    "textLen": 1192,
+    "anchors": 1
+   },
+   "verdict": "active",
+   "why": "1192 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "nl-werkspot",
+   "name": "Werkspot",
+   "website": "https://www.werkspot.nl/",
+   "country": "netherlands",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.werkspot.nl/",
+    "title": "Werkspot - De betrouwbare manier om vakmensen in te huren",
+    "textLen": 6844,
+    "anchors": 167
+   },
+   "verdict": "active",
+   "why": "6844 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "nl-werkzoeken",
+   "name": "Werkzoeken.nl",
+   "website": "https://www.werkzoeken.nl/",
+   "country": "netherlands",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.werkzoeken.nl/",
+    "title": "Just a moment...",
+    "textLen": 265,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "nl-yalwa",
+   "name": "Yalwa Nederland",
+   "website": "https://www.yalwa.nl/",
+   "country": "netherlands",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.yalwa.nl/",
+    "title": "Just a moment...",
+    "textLen": 260,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "no-cylex",
+   "name": "Cylex Norge",
+   "website": "https://www.cylex.no/",
+   "country": "norway",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.cylex.no/",
+    "title": "Cylex lokalt søk Norge",
+    "textLen": 8408,
+    "anchors": 883
+   },
+   "verdict": "active",
+   "why": "8408 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "no-gulesider",
+   "name": "Gule Sider",
+   "website": "https://www.gulesider.no/",
+   "country": "norway",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.gulesider.no/",
+    "title": "GuleSider.no - Oppdag nærheten.",
+    "textLen": 3320,
+    "anchors": 1783
+   },
+   "verdict": "active",
+   "why": "3320 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "nz-cylex",
+   "name": "Cylex New Zealand",
+   "website": "https://www.cylex.co.nz/",
+   "country": "new-zealand",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.cylex.co.nz/",
+    "title": "Cylex Local Search",
+    "textLen": 8470,
+    "anchors": 880
+   },
+   "verdict": "active",
+   "why": "8470 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "nz-hotfrog",
+   "name": "Hotfrog New Zealand",
+   "website": "https://www.hotfrog.co.nz/",
+   "country": "new-zealand",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.hotfrog.co.nz/",
+    "title": "Hotfrog - Get found online",
+    "textLen": 1756,
+    "anchors": 921
+   },
+   "verdict": "active",
+   "why": "1756 characters of real content",
+   "routes": {
+    "create": {
+     "text": "Add Business",
+     "href": "https://www.hotfrog.co.nz/add"
+    }
+   }
+  },
+  {
+   "id": "nz-localist",
+   "name": "Localist",
+   "website": "https://www.localist.co.nz/",
+   "country": "new-zealand",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.localist.co.nz/",
+    "title": "Just a moment...",
+    "textLen": 266,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "nz-yellow",
+   "name": "Yellow NZ",
+   "website": "https://www.yellow.co.nz/",
+   "country": "new-zealand",
+   "observed": {
+    "status": 522,
+    "finalUrl": "https://www.yellow.co.nz/",
+    "title": "yellow.co.nz | 522: Connection timed out",
+    "textLen": 886,
+    "anchors": 4
+   },
+   "verdict": "blocked",
+   "why": "http 522"
+  },
+  {
+   "id": "om-omanyp",
+   "name": "Oman Yellow Pages",
+   "website": "https://www.omanyp.com/",
+   "country": "oman",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.omanyp.com/",
+    "title": "Just a moment...",
+    "textLen": 262,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "pe-pedidosya",
+   "name": "PedidosYa Perú",
+   "website": "https://www.pedidosya.com.pe/",
+   "country": "peru",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.pedidosya.com.pe/",
+    "title": "Acceso ha sido denegado | PedidosYa",
+    "textLen": 204,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "http 403"
+  },
+  {
+   "id": "ph-businesslist",
+   "name": "BusinessList Philippines",
+   "website": "https://www.businesslist.ph/",
+   "country": "philippines",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.businesslist.ph/",
+    "title": "Just a moment...",
+    "textLen": 267,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "ph-hotfrog",
+   "name": "Hotfrog Philippines",
+   "website": "https://www.hotfrog.ph/",
+   "country": "philippines",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.hotfrog.ph/",
+    "title": "Hotfrog - Get found online",
+    "textLen": 1819,
+    "anchors": 971
+   },
+   "verdict": "active",
+   "why": "1819 characters of real content",
+   "routes": {
+    "create": {
+     "text": "Add Business",
+     "href": "https://www.hotfrog.ph/add"
+    }
+   }
+  },
+  {
+   "id": "ph-jobstreet",
+   "name": "JobStreet Philippines",
+   "website": "https://www.jobstreet.com.ph/",
+   "country": "philippines",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://ph.jobstreet.com/",
+    "title": "Just a moment...",
+    "textLen": 264,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "ph-pcci",
+   "name": "Philippine Chamber of Commerce",
+   "website": "https://www.pcci.com.ph/",
+   "country": "philippines",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.pcci.com.ph/",
+    "title": "403 Forbidden",
+    "textLen": 248,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "access-denied"
+  },
+  {
+   "id": "ph-yalwa",
+   "name": "Yalwa Philippines",
+   "website": "https://www.yalwa.ph/",
+   "country": "philippines",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.yalwa.ph/",
+    "title": "Just a moment...",
+    "textLen": 260,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "pk-businesslist",
+   "name": "BusinessList Pakistan",
+   "website": "https://www.businesslist.pk/",
+   "country": "pakistan",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.businesslist.pk/",
+    "title": "Just a moment...",
+    "textLen": 267,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "pk-rozee",
+   "name": "Rozee.pk",
+   "website": "https://www.rozee.pk/",
+   "country": "pakistan",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.rozee.pk/",
+    "title": "Just a moment...",
+    "textLen": 260,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "pl-aleo",
+   "name": "Aleo",
+   "website": "https://www.aleo.com/",
+   "country": "poland",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.aleo.com/",
+    "title": "Just a moment...",
+    "textLen": 260,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "pl-allegro",
+   "name": "Allegro",
+   "website": "https://allegro.pl/",
+   "country": "poland",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://allegro.pl/",
+    "title": "allegro.pl",
+    "textLen": 0,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "http 403"
+  },
+  {
+   "id": "pl-cylex",
+   "name": "Cylex Polska",
+   "website": "https://www.cylex.pl/",
+   "country": "poland",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.cylex-polska.pl/",
+    "title": "Cylex Szukaj Lokalnie Polska",
+    "textLen": 9833,
+    "anchors": 901
+   },
+   "verdict": "redirected",
+   "why": "cylex.pl now serves cylex-polska.pl",
+   "to": "https://www.cylex-polska.pl/"
+  },
+  {
+   "id": "pl-firmania",
+   "name": "Firmania Polska",
+   "website": "https://www.firmania.pl/",
+   "country": "poland",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://firmania.pl/",
+    "title": "Firmania - dane kontaktowe lokalnych firm w całym Polska",
+    "textLen": 2634,
+    "anchors": 705
+   },
+   "verdict": "active",
+   "why": "2634 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "pl-fixly",
+   "name": "Fixly",
+   "website": "https://www.fixly.pl/",
+   "country": "poland",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.fixly.pl/",
+    "title": "Fixly.pl - wybierz najlepszego spośród 574005 wykonawców!",
+    "textLen": 7878,
+    "anchors": 218
+   },
+   "verdict": "active",
+   "why": "7878 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "pl-gdziepolek",
+   "name": "GdziePoLek",
+   "website": "https://www.gdziepolek.pl/",
+   "country": "poland",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.gdziepolek.pl/",
+    "title": "GdziePoLek | Lepiej niż apteka internetowa",
+    "textLen": 4432,
+    "anchors": 75
+   },
+   "verdict": "active",
+   "why": "4432 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "pl-gowork",
+   "name": "GoWork.pl",
+   "website": "https://www.gowork.pl/",
+   "country": "poland",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.gowork.pl/",
+    "title": "Just a moment...",
+    "textLen": 261,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "pl-olx",
+   "name": "OLX Polska",
+   "website": "https://www.olx.pl/",
+   "country": "poland",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.olx.pl/",
+    "title": "Ogłoszenia - Sprzedam, kupię na OLX.pl",
+    "textLen": 4981,
+    "anchors": 114
+   },
+   "verdict": "active",
+   "why": "4981 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "pl-pracuj",
+   "name": "Pracuj.pl",
+   "website": "https://www.pracuj.pl/",
+   "country": "poland",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.pracuj.pl/",
+    "title": "Pracuj.pl - Praca - Strona główna",
+    "textLen": 6910,
+    "anchors": 76
+   },
+   "verdict": "active",
+   "why": "6910 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "pl-pyszne",
+   "name": "Pyszne.pl",
+   "website": "https://www.pyszne.pl/",
+   "country": "poland",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.pyszne.pl/en",
+    "title": "Pyszne.pl | Order Takeaway Food Online",
+    "textLen": 1075,
+    "anchors": 1
+   },
+   "verdict": "active",
+   "why": "1075 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "pt-cylex",
+   "name": "Cylex Portugal",
+   "website": "https://www.cylex.pt/",
+   "country": "portugal",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.cylex.pt/",
+    "title": "Cylex Pesquisa Local",
+    "textLen": 8373,
+    "anchors": 802
+   },
+   "verdict": "active",
+   "why": "8373 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "qa-ilovequatar",
+   "name": "ILoveQatar",
+   "website": "https://www.ilovequatar.net/",
+   "country": "qatar",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://iloveqatar.net/",
+    "title": "Just a moment...",
+    "textLen": 262,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "se-cylex",
+   "name": "Cylex Sverige",
+   "website": "https://www.cylex.se/",
+   "country": "sweden",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.cylex.se/",
+    "title": "Cylex Lokal Sökning Sverige",
+    "textLen": 8273,
+    "anchors": 875
+   },
+   "verdict": "active",
+   "why": "8273 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "se-eniro",
+   "name": "Eniro",
+   "website": "https://www.eniro.se/",
+   "country": "sweden",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.eniro.se/",
+    "title": "Eniro.se - Upptäck närheten.",
+    "textLen": 3284,
+    "anchors": 1782
+   },
+   "verdict": "active",
+   "why": "3284 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "se-firmania",
+   "name": "Firmania Sverige",
+   "website": "https://www.firmania.se/",
+   "country": "sweden",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://firmania.se/",
+    "title": "Firmania - kontaktuppgifter till lokala företag runt om i Sweden",
+    "textLen": 1569,
+    "anchors": 54
+   },
+   "verdict": "active",
+   "why": "1569 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "sg-carousell",
+   "name": "Carousell",
+   "website": "https://www.carousell.sg/",
+   "country": "singapore",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.carousell.sg/",
+    "title": "Just a moment...",
+    "textLen": 264,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "sg-hotfrog",
+   "name": "Hotfrog Singapore",
+   "website": "https://www.hotfrog.sg/",
+   "country": "singapore",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.hotfrog.sg/",
+    "title": "Hotfrog - Get found online",
+    "textLen": 1737,
+    "anchors": 879
+   },
+   "verdict": "active",
+   "why": "1737 characters of real content",
+   "routes": {
+    "create": {
+     "text": "Add Business",
+     "href": "https://www.hotfrog.sg/add"
+    }
+   }
+  },
+  {
+   "id": "sg-sbf",
+   "name": "Singapore Business Federation",
+   "website": "https://www.sbf.org.sg/",
+   "country": "singapore",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.sbf.org.sg/",
+    "title": "Singapore Business Federation | Apex Business Chamber",
+    "textLen": 7343,
+    "anchors": 186
+   },
+   "verdict": "active",
+   "why": "7343 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "sg-sgcarmart",
+   "name": "sgCarMart",
+   "website": "https://www.sgcarmart.com/",
+   "country": "singapore",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.sgcarmart.com/",
+    "title": "Just a moment...",
+    "textLen": 265,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "sg-yalwa",
+   "name": "Yalwa Singapore",
+   "website": "https://www.yalwa.sg/",
+   "country": "singapore",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.yalwa.sg/",
+    "title": "Just a moment...",
+    "textLen": 260,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "sg-yellowpages",
+   "name": "Yellow Pages Singapore",
+   "website": "https://www.yellowpages.com.sg/",
+   "country": "singapore",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://validate.perfdrive.com/?ssa=e38cd089-f4b6-44fd-8f5e-0867c6401661&ssb=41706296094&ssc=https%3A%2F%2Fwww.yellowpages.com.sg%2F&ssi=5a57ffc5-c7c3-409e-a2c8-30e3d15e7325&ssk=botmanager_support@radware.com&ssm=54283617956071747105915123328054&ssn=7bc79235721312dc642ba04851d094e264b1b024e5d6-ebcd-4ddf-881b73&sso=f52de505-fe8856c5d1cb62c07ccfe23353dcc29b882494e4e7364ed8&ssp=01228987761786759046178678435967294&ssq=43495092232959713067522329123908196210630&ssr=MTg1LjExMi4xNjcuMTk2&sst=Mozilla/5.0%20(Macintosh;%20Intel%20Mac%20OS%20X%2010_15_7)%20AppleWebKit/537.36%20(KHTML,%20like%20Gecko)%20Chrome/140.0.0.0%20Safari/537.36&ssu=&ssv=&ssw=&ssx=eyJfX3V6bWYiOiI3ZjkwMDBiMDI0ZTVkNi1lYmNkLTRkZGYtODUwNS1mZTg4NTZjNWQxY2IxLTE3ODY3MjIzMjk3MzcwLTAwNDQ2MDZhMzNhMTAwYWY0MTYxMCIsInJkIjoieWVsbG93cGFnZXMuY29tLnNnIiwidXpteCI6IjdmYzAwMDQxYWQ5ZjQwLTc3Y2YtNDVlZC1iOWZkLWFlYTgwYTk5Zjg4OTEtMTc4NjcyMjMyOTczNzAtMDAwYjUwZjhkNGE4YTVlOTYyZjEwIn0=",
+    "title": "Radware Captcha Page",
+    "textLen": 681,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "captcha"
+  },
+  {
+   "id": "th-jobsdb",
+   "name": "JobsDB Thailand",
+   "website": "https://www.jobsdb.co.th/",
+   "country": "thailand",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://th.jobsdb.com/",
+    "title": "Just a moment...",
+    "textLen": 261,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "tw-104",
+   "name": "104 Job Bank",
+   "website": "https://www.104.com.tw/",
+   "country": "taiwan",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.104.com.tw/",
+    "title": "104人力銀行－不只找工作、幫你找方向的求職徵才平台",
+    "textLen": 1375,
+    "anchors": 210
+   },
+   "verdict": "active",
+   "why": "1375 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "tw-kkday",
+   "name": "KKday",
+   "website": "https://www.kkday.com/",
+   "country": "taiwan",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.kkday.com/en-us",
+    "title": "KKday: Book Tickets, Tours & Activities Worldwide - KKday",
+    "textLen": 22983,
+    "anchors": 346
+   },
+   "verdict": "active",
+   "why": "22983 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "tz-jiji",
+   "name": "Jiji Tanzania",
+   "website": "https://www.jiji.co.tz/",
+   "country": "tanzania",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://jiji.co.tz/",
+    "title": "Just a moment...",
+    "textLen": 258,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "ug-jiji",
+   "name": "Jiji Uganda",
+   "website": "https://www.jiji.ug/",
+   "country": "uganda",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://jiji.ug/",
+    "title": "Just a moment...",
+    "textLen": 255,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "ug-jumia",
+   "name": "Jumia Uganda",
+   "website": "https://www.jumia.ug/",
+   "country": "uganda",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.jumia.ug/",
+    "title": "Just a moment...",
+    "textLen": 260,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "uk-192",
+   "name": "192.com",
+   "website": "https://www.192.com/",
+   "country": "united-kingdom",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.192.com/",
+    "title": "Search for People, Businesses and Places - 192.com",
+    "textLen": 2643,
+    "anchors": 80
+   },
+   "verdict": "active",
+   "why": "2643 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "uk-abta",
+   "name": "ABTA",
+   "website": "https://www.abta.com/",
+   "country": "united-kingdom",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.abta.com/",
+    "title": "ABTA | Travel Advice & Holiday Information | UK Travel Industry",
+    "textLen": 8939,
+    "anchors": 440
+   },
+   "verdict": "active",
+   "why": "8939 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "uk-applegate",
+   "name": "Applegate",
+   "website": "https://www.applegate.co.uk/",
+   "country": "united-kingdom",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.businessmagnet.co.uk/businessmagnet-acquires-applegate.htm",
+    "title": "Businessmagnet acquires Applegate.co.uk | Businessmagnet",
+    "textLen": 4084,
+    "anchors": 134
+   },
+   "verdict": "redirected",
+   "why": "applegate.co.uk now serves businessmagnet.co.uk",
+   "to": "https://www.businessmagnet.co.uk/businessmagnet-acquires-applegate.htm"
+  },
+  {
+   "id": "uk-businessmagnet",
+   "name": "BusinessMagnet",
+   "website": "https://www.businessmagnet.co.uk/",
+   "country": "united-kingdom",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.businessmagnet.co.uk/",
+    "title": "Businessmagnet - The Online Media Publisher",
+    "textLen": 2135,
+    "anchors": 156
+   },
+   "verdict": "active",
+   "why": "2135 characters of real content",
+   "routes": {
+    "create": {
+     "text": "Register Your Company",
+     "href": "https://www.businessmagnet.co.uk/manage-account/register"
+    }
+   }
+  },
+  {
+   "id": "uk-checkatrade",
+   "name": "Checkatrade",
+   "website": "https://www.checkatrade.com/",
+   "country": "united-kingdom",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.checkatrade.com/",
+    "title": "Checkatrade™ Official Site – Find a Tradesperson",
+    "textLen": 14267,
+    "anchors": 96
+   },
+   "verdict": "active",
+   "why": "14267 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "uk-cylex",
+   "name": "Cylex UK",
+   "website": "https://www.cylex-uk.co.uk/",
+   "country": "united-kingdom",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.cylex-uk.co.uk/",
+    "title": "Cylex Local Search",
+    "textLen": 11538,
+    "anchors": 928
+   },
+   "verdict": "active",
+   "why": "11538 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "uk-fsb",
+   "name": "Federation of Small Businesses",
+   "website": "https://www.fsb.org.uk/",
+   "country": "united-kingdom",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.fsb.org.uk/",
+    "title": "Attention Required! | Cloudflare",
+    "textLen": 683,
+    "anchors": 1
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-attention"
+  },
+  {
+   "id": "uk-hotfrog",
+   "name": "Hotfrog UK",
+   "website": "https://www.hotfrog.co.uk/",
+   "country": "united-kingdom",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.hotfrog.co.uk/",
+    "title": "Hotfrog - Get found online",
+    "textLen": 2151,
+    "anchors": 263
+   },
+   "verdict": "active",
+   "why": "2151 characters of real content",
+   "routes": {
+    "create": {
+     "text": "Add Business",
+     "href": "https://www.hotfrog.co.uk/add"
+    }
+   }
+  },
+  {
+   "id": "uk-mybuilder",
+   "name": "MyBuilder",
+   "website": "https://www.mybuilder.com/",
+   "country": "united-kingdom",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.mybuilder.com/",
+    "title": "MyBuilder - The reliable way to hire a tradesperson",
+    "textLen": 6350,
+    "anchors": 149
+   },
+   "verdict": "active",
+   "why": "6350 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "uk-ratedpeople",
+   "name": "Rated People",
+   "website": "https://www.ratedpeople.com/",
+   "country": "united-kingdom",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.ratedpeople.com/",
+    "title": "Just a moment...",
+    "textLen": 267,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "uk-reed",
+   "name": "Reed.co.uk",
+   "website": "https://www.reed.co.uk/",
+   "country": "united-kingdom",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.reed.co.uk/",
+    "title": "Just a moment...",
+    "textLen": 262,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "uk-squaremeal",
+   "name": "SquareMeal",
+   "website": "https://www.squaremeal.co.uk/",
+   "country": "united-kingdom",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.squaremeal.co.uk/",
+    "title": "London & UK Restaurant and Venue Guide",
+    "textLen": 8058,
+    "anchors": 251
+   },
+   "verdict": "active",
+   "why": "8058 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "uk-yell",
+   "name": "Yell",
+   "website": "https://www.yell.com/",
+   "country": "united-kingdom",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.yell.com/",
+    "title": "Yell - a leading marketplace for great local businesses",
+    "textLen": 3636,
+    "anchors": 168
+   },
+   "verdict": "active",
+   "why": "3636 characters of real content",
+   "routes": {
+    "create": {
+     "text": "Want to grow your business? Create your free business profile to reach more cust",
+     "href": "https://www.yell.com/free-listing"
+    }
+   }
+  },
+  {
+   "id": "us-aaha",
+   "name": "AAHA Accredited Practice Locator",
+   "website": "https://www.aaha.org/",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.aaha.org/",
+    "title": "Benefits of Membership: American Animal Hospital Association - AAHA",
+    "textLen": 4498,
+    "anchors": 833
+   },
+   "verdict": "active",
+   "why": "4498 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "us-abc",
+   "name": "Associated Builders and Contractors",
+   "website": "https://www.abc.org/",
+   "country": "united-states",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.abc.org/",
+    "title": "Attention Required! | Cloudflare",
+    "textLen": 680,
+    "anchors": 1
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-attention"
+  },
+  {
+   "id": "us-aia-architects",
+   "name": "AIA Find an Architect",
+   "website": "https://www.aia.org/find-an-architect",
+   "country": "united-states",
+   "observed": {
+    "status": 404,
+    "finalUrl": "https://www.aia.org/find-an-architect",
+    "title": "Page not found | The American Institute of Architects",
+    "textLen": 1979,
+    "anchors": 94
+   },
+   "verdict": "blocked",
+   "why": "http 404"
+  },
+  {
+   "id": "us-angi",
+   "name": "Angi",
+   "website": "https://www.angi.com/",
+   "country": "united-states",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.angi.com/",
+    "title": "Attention Required! | Cloudflare",
+    "textLen": 681,
+    "anchors": 1
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-attention"
+  },
+  {
+   "id": "us-attorneys-com",
+   "name": "Attorneys.com",
+   "website": "https://www.attorneys.com/",
+   "country": "united-states",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.lawyers.com/",
+    "title": "Just a moment...",
+    "textLen": 263,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "us-avvo",
+   "name": "Avvo",
+   "website": "https://www.avvo.com/",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.avvo.com/",
+    "title": "Avvo.com - Legal. Easier.",
+    "textLen": 6961,
+    "anchors": 423
+   },
+   "verdict": "active",
+   "why": "6961 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "us-buildzoom",
+   "name": "BuildZoom",
+   "website": "https://www.buildzoom.com/",
+   "country": "united-states",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.buildzoom.com/",
+    "title": "BuildZoom is unavailable in your region",
+    "textLen": 180,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "http 403"
+  },
+  {
+   "id": "us-cargurus",
+   "name": "CarGurus",
+   "website": "https://www.cargurus.com/",
+   "country": "united-states",
+   "observed": {
+    "status": 406,
+    "finalUrl": "chrome-error://chromewebdata/",
+    "title": "www.cargurus.com",
+    "textLen": 97,
+    "anchors": 0
+   },
+   "verdict": "unreachable",
+   "why": "the browser could not open the site at all"
+  },
+  {
+   "id": "us-cars-com",
+   "name": "Cars.com",
+   "website": "https://www.cars.com/",
+   "country": "united-states",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.cars.com/",
+    "title": "Just a moment...",
+    "textLen": 255,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "us-citysquares",
+   "name": "CitySquares",
+   "website": "https://www.citysquares.com/",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.citysquares.com/",
+    "title": "Local City Guide | CitySquares",
+    "textLen": 6012,
+    "anchors": 83
+   },
+   "verdict": "active",
+   "why": "6012 characters of real content",
+   "routes": {
+    "create": {
+     "text": "Add your business",
+     "href": "https://www.citysquares.com/add_business"
+    }
+   }
+  },
+  {
+   "id": "us-classpass",
+   "name": "ClassPass",
+   "website": "https://www.classpass.com/",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://classpass.com/",
+    "title": "ClassPass | Book Fitness Classes & Salon Appointments",
+    "textLen": 1541,
+    "anchors": 55
+   },
+   "verdict": "active",
+   "why": "1541 characters of real content",
+   "routes": {
+    "create": {
+     "text": "List my business",
+     "href": "https://classpass.com/partners?utm_content=consumer_nav"
+    }
+   }
+  },
+  {
+   "id": "us-cylex",
+   "name": "Cylex US",
+   "website": "https://www.cylex.us.com/",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.cylex.us.com/",
+    "title": "Cylex Local Search",
+    "textLen": 9638,
+    "anchors": 923
+   },
+   "verdict": "active",
+   "why": "9638 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "us-dealerrater",
+   "name": "DealerRater",
+   "website": "https://www.dealerrater.com/",
+   "country": "united-states",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.dealerrater.com/",
+    "title": "ERROR: The request could not be satisfied",
+    "textLen": 580,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "http 403"
+  },
+  {
+   "id": "us-dexknows",
+   "name": "DexKnows",
+   "website": "https://www.dexknows.com/",
+   "country": "united-states",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.dexknows.com/",
+    "title": "Attention Required! | Cloudflare",
+    "textLen": 685,
+    "anchors": 1
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-attention"
+  },
+  {
+   "id": "us-doordash",
+   "name": "DoorDash",
+   "website": "https://www.doordash.com/",
+   "country": "united-states",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.doordash.com/",
+    "title": "Just a moment...",
+    "textLen": 264,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "us-edmunds-dealerships",
+   "name": "Edmunds Dealership Directory",
+   "website": "https://www.edmunds.com/dealerships/",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.edmunds.com/dealerships/",
+    "title": "Car Dealerships Near Me | Edmunds",
+    "textLen": 3806,
+    "anchors": 66
+   },
+   "verdict": "active",
+   "why": "3806 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "us-equipmenttrader",
+   "name": "EquipmentTrader",
+   "website": "https://www.equipmenttrader.com/",
+   "country": "united-states",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.equipmenttrader.com/",
+    "title": "ERROR: The request could not be satisfied",
+    "textLen": 513,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "http 403"
+  },
+  {
+   "id": "us-ezlocal",
+   "name": "EZlocal",
+   "website": "https://www.ezlocal.com/",
+   "country": "united-states",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.ezlocal.com/",
+    "title": "Just a moment...",
+    "textLen": 263,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "us-findlaw",
+   "name": "FindLaw",
+   "website": "https://www.findlaw.com/",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.findlaw.com/",
+    "title": "Find Laws, Legal Help, and Attorneys - FindLaw",
+    "textLen": 5871,
+    "anchors": 160
+   },
+   "verdict": "active",
+   "why": "5871 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "us-gaf-contractors",
+   "name": "GAF Contractor Locator",
+   "website": "https://www.gaf.com/en-us/roofing-contractors",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.gaf.com/en-us/roofing-contractors?distance=25",
+    "title": "Best Roofers Near Me | GAF Certified Roofing Contractors",
+    "textLen": 2522,
+    "anchors": 227
+   },
+   "verdict": "active",
+   "why": "2522 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "us-gigsalad",
+   "name": "GigSalad",
+   "website": "https://www.gigsalad.com/",
+   "country": "united-states",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.gigsalad.com/",
+    "title": "Attention Required! | Cloudflare",
+    "textLen": 685,
+    "anchors": 1
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-attention"
+  },
+  {
+   "id": "us-golfnow",
+   "name": "GolfNow",
+   "website": "https://www.golfnow.com/",
+   "country": "united-states",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.golfnow.com/",
+    "title": "Attention Required! | Cloudflare",
+    "textLen": 684,
+    "anchors": 1
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-attention"
+  },
+  {
+   "id": "us-goodtherapy",
+   "name": "GoodTherapy",
+   "website": "https://www.goodtherapy.org/",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.goodtherapy.org/",
+    "title": "GoodTherapy.org - Find the Right Therapist",
+    "textLen": 5853,
+    "anchors": 181
+   },
+   "verdict": "active",
+   "why": "5853 characters of real content",
+   "routes": {
+    "create": {
+     "text": "Sign up and get listed",
+     "href": "https://www.goodtherapy.org/join-therapist-directory-membership"
+    }
+   }
+  },
+  {
+   "id": "us-healthgrades",
+   "name": "Healthgrades",
+   "website": "https://www.healthgrades.com/",
+   "country": "united-states",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.healthgrades.com/",
+    "title": "Healthgrades - This page is not available in your area",
+    "textLen": 303,
+    "anchors": 1
+   },
+   "verdict": "blocked",
+   "why": "http 403"
+  },
+  {
+   "id": "us-homeadvisor",
+   "name": "HomeAdvisor",
+   "website": "https://www.homeadvisor.com/",
+   "country": "united-states",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.homeadvisor.com/",
+    "title": "Attention Required! | Cloudflare",
+    "textLen": 688,
+    "anchors": 1
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-attention"
+  },
+  {
+   "id": "us-homeguide",
+   "name": "HomeGuide",
+   "website": "https://www.homeguide.com/",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://homeguide.com/",
+    "title": "HomeGuide | Find Trusted Painters, Plumbers, Maids, & More!",
+    "textLen": 4344,
+    "anchors": 225
+   },
+   "verdict": "active",
+   "why": "4344 characters of real content",
+   "routes": {
+    "create": {
+     "text": "Join as a pro",
+     "href": "https://homeguide.com/pro"
+    }
+   }
+  },
+  {
+   "id": "us-hotfrog",
+   "name": "Hotfrog US",
+   "website": "https://www.hotfrog.com/",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.hotfrog.com/",
+    "title": "Hotfrog - Get found online",
+    "textLen": 2002,
+    "anchors": 2129
+   },
+   "verdict": "active",
+   "why": "2002 characters of real content",
+   "routes": {
+    "create": {
+     "text": "Add Business",
+     "href": "https://www.hotfrog.com/add"
+    }
+   }
+  },
+  {
+   "id": "us-influenster",
+   "name": "Influenster",
+   "website": "https://www.influenster.com/",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.influenster.com/",
+    "title": "Influenster: VoxBoxes, free products, honest reviews, and more",
+    "textLen": 3324,
+    "anchors": 39
+   },
+   "verdict": "active",
+   "why": "3324 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "us-internachi",
+   "name": "InterNACHI",
+   "website": "https://www.nachi.org/",
+   "country": "united-states",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.nachi.org/",
+    "title": "Just a moment...",
+    "textLen": 62,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "us-judysbook",
+   "name": "Judy's Book",
+   "website": "https://www.judysbook.com/",
+   "country": "united-states",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.judysbook.com/",
+    "title": "403 Forbidden",
+    "textLen": 13,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "access-denied"
+  },
+  {
+   "id": "us-justia",
+   "name": "Justia",
+   "website": "https://www.justia.com/",
+   "country": "united-states",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.justia.com/",
+    "title": "Just a moment...",
+    "textLen": 262,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "us-knoji",
+   "name": "Knoji",
+   "website": "https://www.knoji.com/",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://knoji.com/",
+    "title": "Knoji - Promo Codes, Brand Reviews, and Shopping Research",
+    "textLen": 1988,
+    "anchors": 317
+   },
+   "verdict": "active",
+   "why": "1988 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "us-lawyers-com",
+   "name": "Lawyers.com",
+   "website": "https://www.lawyers.com/",
+   "country": "united-states",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.lawyers.com/",
+    "title": "Just a moment...",
+    "textLen": 263,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "us-legalmatch",
+   "name": "LegalMatch",
+   "website": "https://www.legalmatch.com/",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.legalmatch.com/",
+    "title": "Find a Lawyer Near You | Attorney Search - LegalMatch",
+    "textLen": 5555,
+    "anchors": 302
+   },
+   "verdict": "active",
+   "why": "5555 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "us-machinerytrader",
+   "name": "MachineryTrader",
+   "website": "https://www.machinerytrader.com/",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.machinerytrader.com/",
+    "title": "New & Used Construction Equipment For Sale | Machinery Trader",
+    "textLen": 8200,
+    "anchors": 410
+   },
+   "verdict": "active",
+   "why": "8200 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "us-manta",
+   "name": "Manta",
+   "website": "https://www.manta.com/",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.manta.com/",
+    "title": "America’s Business Directory for Over 20 Years | Manta",
+    "textLen": 1885,
+    "anchors": 1761
+   },
+   "verdict": "active",
+   "why": "1885 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "us-martindale",
+   "name": "Martindale-Hubbell",
+   "website": "https://www.martindale.com/",
+   "country": "united-states",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.martindale.com/",
+    "title": "Just a moment...",
+    "textLen": 266,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "us-movers-com",
+   "name": "Movers.com",
+   "website": "https://www.movers.com/",
+   "country": "united-states",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.movers.com/",
+    "title": "403 Forbidden",
+    "textLen": 52,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "access-denied"
+  },
+  {
+   "id": "us-moving-com",
+   "name": "Moving.com",
+   "website": "https://www.moving.com/",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.moving.com/",
+    "title": "Moving Services - Local & Long Distance | Moving.com",
+    "textLen": 6543,
+    "anchors": 160
+   },
+   "verdict": "active",
+   "why": "6543 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "us-nalp",
+   "name": "NALP",
+   "website": "https://www.nalp.org/",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.nalp.org/",
+    "title": "NALP - The National Association for Law Placement",
+    "textLen": 5286,
+    "anchors": 218
+   },
+   "verdict": "active",
+   "why": "5286 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "us-neca",
+   "name": "NECA",
+   "website": "https://www.necanet.org/",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.necanet.org/",
+    "title": "National Electrical Contractors Association | NECA",
+    "textLen": 7137,
+    "anchors": 99
+   },
+   "verdict": "active",
+   "why": "7137 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "us-peerspace",
+   "name": "Peerspace",
+   "website": "https://www.peerspace.com/",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.peerspace.com/",
+    "title": "Peerspace | Unique venues for events, meetings, photo &amp; film shoots",
+    "textLen": 4029,
+    "anchors": 211
+   },
+   "verdict": "active",
+   "why": "4029 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "us-realtor-agents",
+   "name": "Realtor.com Agent Directory",
+   "website": "https://www.realtor.com/realestateagents",
+   "country": "united-states",
+   "observed": {
+    "status": 429,
+    "finalUrl": "https://www.realtor.com/realestateagents",
+    "title": "realtor.com",
+    "textLen": 0,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "http 429"
+  },
+  {
+   "id": "us-repairpal",
+   "name": "RepairPal",
+   "website": "https://www.repairpal.com/",
+   "country": "united-states",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.repairpal.com/",
+    "title": "Just a moment...",
+    "textLen": 265,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "us-rover",
+   "name": "Rover",
+   "website": "https://www.rover.com/",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.rover.com/",
+    "title": "Book Dog Boarding, Cat Sitting, Walking & Training - Rover.com",
+    "textLen": 12464,
+    "anchors": 226
+   },
+   "verdict": "active",
+   "why": "12464 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "us-showmelocal",
+   "name": "ShowMeLocal",
+   "website": "https://www.showmelocal.com/",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.showmelocal.com/norobots.aspx?a=639223046999910880&src=%2fdefault.aspx",
+    "title": "Security Verification",
+    "textLen": 186,
+    "anchors": 1
+   },
+   "verdict": "inconclusive",
+   "why": "only 186 characters rendered"
+  },
+  {
+   "id": "us-slicelife",
+   "name": "Slice",
+   "website": "https://www.slicelife.com/",
+   "country": "united-states",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.slicelife.com/",
+    "title": "Just a moment...",
+    "textLen": 53,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "us-solvhealth",
+   "name": "Solv",
+   "website": "https://www.solvhealth.com/",
+   "country": "united-states",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.solvhealth.com/",
+    "title": "Just a moment...",
+    "textLen": 266,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "us-sparefoot",
+   "name": "SpareFoot",
+   "website": "https://www.sparefoot.com/",
+   "country": "united-states",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.sparefoot.com/",
+    "title": "Attention Required! | Cloudflare",
+    "textLen": 686,
+    "anchors": 1
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-attention"
+  },
+  {
+   "id": "us-storagecafe",
+   "name": "StorageCafe",
+   "website": "https://www.storagecafe.com/",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.storagecafe.com/",
+    "title": "Storage Units for Rent Near You | StorageCafe",
+    "textLen": 5835,
+    "anchors": 174
+   },
+   "verdict": "active",
+   "why": "5835 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "us-storeboard",
+   "name": "Storeboard",
+   "website": "https://www.storeboard.com/",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.storeboard.com/",
+    "title": "Storeboard - Find Local Businesses, Products & Services in Your Neighborhood",
+    "textLen": 1017,
+    "anchors": 92
+   },
+   "verdict": "active",
+   "why": "1017 characters of real content",
+   "routes": {
+    "create": {
+     "text": "Add Your Business!",
+     "href": "https://www.storeboard.com/sign-up"
+    }
+   }
+  },
+  {
+   "id": "us-superlawyers",
+   "name": "Super Lawyers",
+   "website": "https://www.superlawyers.com/",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.superlawyers.com/",
+    "title": "Lawyer and Attorney Ratings : Find Rated Lawyers and Attorneys at Super Lawyers",
+    "textLen": 4469,
+    "anchors": 118
+   },
+   "verdict": "active",
+   "why": "4469 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "us-superpages",
+   "name": "Superpages",
+   "website": "https://www.superpages.com/",
+   "country": "united-states",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.superpages.com/",
+    "title": "Attention Required! | Cloudflare",
+    "textLen": 687,
+    "anchors": 1
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-attention"
+  },
+  {
+   "id": "us-taxbuzz",
+   "name": "TaxBuzz",
+   "website": "https://www.taxbuzz.com/",
+   "country": "united-states",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.taxbuzz.com/",
+    "title": "Just a moment...",
+    "textLen": 263,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "us-techbehemoths",
+   "name": "TechBehemoths",
+   "website": "https://www.techbehemoths.com/",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://techbehemoths.com/",
+    "title": "Top IT Companies for Your Projects - TechBehemoths",
+    "textLen": 5223,
+    "anchors": 359
+   },
+   "verdict": "active",
+   "why": "5223 characters of real content",
+   "routes": {
+    "create": {
+     "text": "Get Listed",
+     "href": "https://techbehemoths.com/companies/get-listed"
+    }
+   }
+  },
+  {
+   "id": "us-teeoff",
+   "name": "TeeOff",
+   "website": "https://www.teeoff.com/",
+   "country": "united-states",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.teeoff.com/",
+    "title": "Attention Required! | Cloudflare",
+    "textLen": 683,
+    "anchors": 1
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-attention"
+  },
+  {
+   "id": "us-thebash",
+   "name": "The Bash",
+   "website": "https://www.thebash.com/",
+   "country": "united-states",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.thebash.com/",
+    "title": "Access Denied",
+    "textLen": 195,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "access-denied"
+  },
+  {
+   "id": "us-thumbtack",
+   "name": "Thumbtack",
+   "website": "https://www.thumbtack.com/",
+   "country": "united-states",
+   "observed": {
+    "status": 202,
+    "finalUrl": "https://www.thumbtack.com/",
+    "title": "Thumbtack | Care for Your Home | Find Local Pros & Reviews",
+    "textLen": 2511,
+    "anchors": 61
+   },
+   "verdict": "active",
+   "why": "2511 characters of real content",
+   "routes": {
+    "create": {
+     "text": "Join as a pro",
+     "href": "https://www.thumbtack.com/pro"
+    }
+   }
+  },
+  {
+   "id": "us-truckpaper",
+   "name": "TruckPaper",
+   "website": "https://www.truckpaper.com/",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.truckpaper.com/",
+    "title": "New & Used Commercial Trucks & Trailers For Sale | Truck Paper",
+    "textLen": 9170,
+    "anchors": 407
+   },
+   "verdict": "active",
+   "why": "9170 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "us-trustedchoice",
+   "name": "TrustedChoice",
+   "website": "https://www.trustedchoice.com/",
+   "country": "united-states",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.trustedchoice.com/",
+    "title": "Just a moment...",
+    "textLen": 269,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "us-tutors-com",
+   "name": "Tutors.com",
+   "website": "https://www.tutors.com/",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://tutors.com/",
+    "title": "The 10 Best Tutors Near Me (for All Ages & Levels) // Tutors.com",
+    "textLen": 4303,
+    "anchors": 221
+   },
+   "verdict": "active",
+   "why": "4303 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "us-us-info",
+   "name": "US-Info",
+   "website": "https://www.us-info.com/",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.us-info.com/",
+    "title": "United States of America Local Business Directory",
+    "textLen": 2903,
+    "anchors": 362
+   },
+   "verdict": "active",
+   "why": "2903 characters of real content",
+   "routes": {
+    "create": {
+     "text": "Register my business",
+     "href": "https://www.us-info.com/en/usa/Packages/Pricing"
+    }
+   }
+  },
+  {
+   "id": "us-vitals",
+   "name": "Vitals",
+   "website": "https://www.vitals.com/",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.vitals.com/",
+    "title": "Find a Doctor, Doctor Reviews & Ratings | Vitals.com",
+    "textLen": 4010,
+    "anchors": 265
+   },
+   "verdict": "active",
+   "why": "4010 characters of real content",
+   "routes": {
+    "claim": {
+     "text": "Claim Your Profile",
+     "href": "https://go.vitals.com/vitals/doctor/claim/"
+    }
+   }
+  },
+  {
+   "id": "us-whitepages-business",
+   "name": "Whitepages Business",
+   "website": "https://www.whitepages.com/business",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.whitepages.com/#business",
+    "title": "Whitepages: People Search, Phone Numbers & Addresses",
+    "textLen": 9687,
+    "anchors": 379
+   },
+   "verdict": "active",
+   "why": "9687 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "us-yellowbot",
+   "name": "YellowBot",
+   "website": "https://www.yellowbot.com/",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.yellowbot.com/",
+    "title": "Yellow Pages - YellowBot",
+    "textLen": 2379,
+    "anchors": 99
+   },
+   "verdict": "active",
+   "why": "2379 characters of real content",
+   "routes": {
+    "create": {
+     "text": "add your business listing",
+     "href": "https://www.yellowbot.com/submit/newbusiness"
+    }
+   }
+  },
+  {
+   "id": "us-yellowpagecity",
+   "name": "YellowPageCity",
+   "website": "https://www.yellowpagecity.com/",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://yellowpagecity.com/",
+    "title": "YellowPageCity | Online Yellow Pages",
+    "textLen": 2949,
+    "anchors": 93
+   },
+   "verdict": "active",
+   "why": "2949 characters of real content",
+   "routes": {
+    "create": {
+     "text": "Add Your Business",
+     "href": "https://yellowpagecity.com/add-listing/"
+    }
+   }
+  },
+  {
+   "id": "us-yellowpages",
+   "name": "Yellow Pages",
+   "website": "https://www.yellowpages.com/",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.yellowpages.com/",
+    "title": "The Real Yellow Pages®",
+    "textLen": 2062,
+    "anchors": 135
+   },
+   "verdict": "active",
+   "why": "2062 characters of real content",
+   "routes": {
+    "claim": {
+     "text": "Claim Your Listing",
+     "href": "https://www.yellowpages.com/claim-your-listing?from=advertise-with-us-YP"
+    }
+   }
+  },
+  {
+   "id": "us-zillow-professionals",
+   "name": "Zillow Agent Finder",
+   "website": "https://www.zillow.com/professionals/",
+   "country": "united-states",
+   "observed": {
+    "status": 404,
+    "finalUrl": "https://www.zillow.com/professionals/",
+    "title": null,
+    "textLen": 1922,
+    "anchors": 107
+   },
+   "verdict": "blocked",
+   "why": "http 404"
+  },
+  {
+   "id": "us-zocdoc",
+   "name": "Zocdoc",
+   "website": "https://www.zocdoc.com/",
+   "country": "united-states",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.zocdoc.com/",
+    "title": "zocdoc.com",
+    "textLen": 0,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "http 403"
+  },
+  {
+   "id": "uy-pedidosya",
+   "name": "PedidosYa Uruguay",
+   "website": "https://www.pedidosya.com.uy/",
+   "country": "uruguay",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.pedidosya.com.uy/",
+    "title": "Acceso ha sido denegado | PedidosYa",
+    "textLen": 204,
+    "anchors": 0
+   },
+   "verdict": "blocked",
+   "why": "http 403"
+  },
+  {
+   "id": "vn-topcv",
+   "name": "TopCV",
+   "website": "https://www.topcv.vn/",
+   "country": "vietnam",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.topcv.vn/",
+    "title": "TopCV - CV xịn việc làm chất - Tạo CV & Tìm việc miễn phí",
+    "textLen": 10079,
+    "anchors": 316
+   },
+   "verdict": "active",
+   "why": "10079 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "za-brabys",
+   "name": "Brabys",
+   "website": "https://www.brabys.com/",
+   "country": "south-africa",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.brabys.com/",
+    "title": "Just a moment...",
+    "textLen": 262,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "za-careers24",
+   "name": "Careers24",
+   "website": "https://www.careers24.com/",
+   "country": "south-africa",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.careers24.com/",
+    "title": "careers24 | Find & Apply For Jobs & Vacancies Online",
+    "textLen": 1637,
+    "anchors": 641
+   },
+   "verdict": "active",
+   "why": "1637 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "za-cars-co-za",
+   "name": "Cars.co.za",
+   "website": "https://www.cars.co.za/",
+   "country": "south-africa",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.cars.co.za/",
+    "title": "Cars For Sale in SA | 74,000+ New and Used Vehicles To Choose From",
+    "textLen": 3447,
+    "anchors": 141
+   },
+   "verdict": "active",
+   "why": "3447 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "za-cylex",
+   "name": "Cylex South Africa",
+   "website": "https://www.cylex.net.za/",
+   "country": "south-africa",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.cylex.net.za/",
+    "title": "Cylex Local Search",
+    "textLen": 9548,
+    "anchors": 899
+   },
+   "verdict": "active",
+   "why": "9548 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "za-hotfrog",
+   "name": "Hotfrog South Africa",
+   "website": "https://www.hotfrog.co.za/",
+   "country": "south-africa",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.hotfrog.co.za/",
+    "title": "Hotfrog - Get found online",
+    "textLen": 2305,
+    "anchors": 202
+   },
+   "verdict": "active",
+   "why": "2305 characters of real content",
+   "routes": {
+    "create": {
+     "text": "Add Business",
+     "href": "https://www.hotfrog.co.za/add"
+    }
+   }
+  },
+  {
+   "id": "za-takealot",
+   "name": "Takealot",
+   "website": "https://www.takealot.com/",
+   "country": "south-africa",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.takealot.com/",
+    "title": "Takealot.com: Online Shopping | SA's leading online store",
+    "textLen": 22205,
+    "anchors": 167
+   },
+   "verdict": "active",
+   "why": "22205 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "zm-zambiayp",
+   "name": "Zambia Yellow Pages",
+   "website": "https://www.zambiayp.com/",
+   "country": "zambia",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.zambiayp.com/",
+    "title": "Just a moment...",
+    "textLen": 264,
+    "anchors": 2
+   },
+   "verdict": "blocked",
+   "why": "cloudflare-interstitial"
+  }
+ ]
+}

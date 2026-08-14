@@ -147,10 +147,19 @@ test('every European row carries the operational fields an employee needs', () =
 
 test('a blocked platform is recorded as unknown, never as dead', () => {
   // A WAF answering 403 says the server is up and says nothing about the
-  // product. Every row this wave added behind one is unknown with a note
-  // saying a browser check is outstanding — none is marked dormant.
-  const blocked = ROWS.filter((r) => /bot filter|human-verification gate/.test(r.description || ''));
-  assert.ok(blocked.length > 0, 'expected browser-pending rows from this wave');
+  // product. Every row behind one is unknown with a note saying a browser check
+  // is outstanding — none is marked dormant.
+  //
+  // The wording changed on 2026-08-14; the rule did not. That wave visited all
+  // 445 pending rows in a real browser and rewrote each note with what it
+  // found, so "bot filter" and "human-verification gate" no longer appear
+  // anywhere: 227 rows resolved to active, and the 218 still unresolved now say
+  // an automated check was refused and one by a person is needed. Matching the
+  // retired words would quietly select nothing and assert nothing, so this keys
+  // on the phrase that wave deliberately preserves — the same phrase the
+  // marketplace and operations suites read.
+  const blocked = ROWS.filter((r) => /browser check is needed/i.test(r.description || ''));
+  assert.ok(blocked.length > 0, 'expected browser-pending rows');
   for (const r of blocked) {
     assert.strictEqual(r.currentStatus, 'unknown',
       `${r.id} is behind a bot filter, which is not evidence of its status either way`);

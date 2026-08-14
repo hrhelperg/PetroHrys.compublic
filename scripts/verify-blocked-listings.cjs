@@ -1,0 +1,462 @@
+#!/usr/bin/env node
+// scripts/verify-blocked-listings.cjs
+'use strict';
+
+// The browser check that 445 directory records have been waiting for.
+//
+// ── WHY THIS EXISTS ─────────────────────────────────────────────────────────
+//
+// Records whose note reads "Live but behind a bot filter, so a browser check is
+// needed" are not failures of research. They are research that stopped at
+// exactly the right place: a `fetch` got a 403 or a JavaScript shell, and the
+// collection's rule is that no fetch is ever called browser verification. So
+// `currentStatus` stayed `unknown`, which is the honest answer, and the record
+// asked for the one instrument that could settle it.
+//
+// This is that instrument. It visits each site once, in a real Chrome, and
+// records what the page actually is.
+//
+// ── WHY IT IS NOT AN EVASION TOOL ───────────────────────────────────────────
+//
+// Chrome is asked to identify itself as the Chrome it is, rather than as
+// "HeadlessChrome", and not to advertise automation. That is the whole of it.
+// No proxy rotation, no fingerprint spoofing, no captcha solving, no retry
+// storm. One homepage, once, at a human pace, from one machine.
+//
+// A site that still declines is left alone. `blocked` is a recorded outcome
+// here, not a problem to defeat — the record simply keeps the `unknown` it
+// already had, and says so with a date.
+//
+// ── WHY IT WRITES NOTHING BY DEFAULT ────────────────────────────────────────
+//
+// Probing and deciding are separate runs against the same evidence file. The
+// default run only observes and writes findings to
+// data/business-directories/.browser-verification.json. `--apply` reads that
+// file back and merges the subset that is unambiguous. So the judgement can be
+// re-read, re-run and argued with before a single record changes, and a
+// re-probe never silently rewrites the corpus.
+//
+//   node scripts/verify-blocked-listings.cjs            # probe
+//   node scripts/verify-blocked-listings.cjs --apply    # merge findings
+//   node scripts/verify-blocked-listings.cjs --limit 20 # probe a sample
+//
+// Nothing in the build, the validator or the test suite invokes this file.
+
+const fs = require('node:fs');
+const path = require('node:path');
+const os = require('node:os');
+const { spawn } = require('node:child_process');
+const { openPage } = require('./tests/helpers/cdp.cjs');
+
+const ROOT = path.resolve(__dirname, '..');
+
+// Two collections carry the same backlog for the same reason. They are probed
+// identically — a browser either renders a site or it does not, whatever the
+// record is called — and differ only in what a finding is allowed to write.
+// Marketplaces have never carried a lastVerified field, so the date lives in
+// the note there rather than inventing a column for one pass.
+const COLLECTIONS = {
+  directories: {
+    data: path.join(ROOT, 'data/business-directories/opportunities.json'),
+    findings: path.join(ROOT, 'data/business-directories/.browser-verification.json'),
+    routes: true,
+    dateField: 'lastVerified',
+  },
+  marketplaces: {
+    data: path.join(ROOT, 'data/marketplaces/marketplaces.json'),
+    findings: path.join(ROOT, 'data/marketplaces/.browser-verification.json'),
+    routes: false,
+    dateField: null,
+  },
+};
+
+const CHROME = [
+  '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
+  '/Applications/Chromium.app/Contents/MacOS/Chromium',
+  '/usr/bin/google-chrome',
+].find((p) => fs.existsSync(p));
+
+// The real Chrome on this machine, not a fabricated identity.
+const UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 '
+  + '(KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36';
+
+// How long a page gets to become itself. Directory homepages are heavy and
+// often render late; a short budget would manufacture "blocked" verdicts.
+const SETTLE_MS = 3500;
+const CONCURRENCY = 4;
+const PACE_MS = 700;
+
+// A record only leaves `unknown` when the page is unmistakably a real one.
+const MIN_TEXT = 400;
+
+// Signatures of a challenge, checked against the title as well as the body:
+// Cloudflare puts "Attention Required!" in the title and almost nothing else.
+const CHALLENGE = [
+  [/attention required/i, 'cloudflare-attention'],
+  [/just a moment/i, 'cloudflare-interstitial'],
+  [/checking your browser/i, 'browser-check'],
+  [/verify (you are|you're) human/i, 'human-verification'],
+  [/access denied|forbidden/i, 'access-denied'],
+  [/enable javascript and cookies/i, 'js-cookie-gate'],
+  [/unusual traffic|automated queries/i, 'rate-limit'],
+  [/captcha/i, 'captcha'],
+  [/are you a robot/i, 'robot-check'],
+];
+
+// Anchor text that states a route in the operator's own words. Text, not href:
+// a URL containing "signup" says nothing about who may sign up, while a link
+// reading "Add your business" is the operator publishing the route.
+const CREATE_TEXT = [
+  /\badd (your |a |my )?(free )?(business|company|listing|firm|practice)\b/i,
+  /\blist (your|a|my) (business|company|firm|practice)\b/i,
+  /\b(register|create) (your |a |my )?(free )?(business|company|listing)\b/i,
+  /\bsubmit (your |a )?(business|listing|site|company)\b/i,
+  /\badd (a )?(new )?(entry|company|place)\b/i,
+  /\bget listed\b/i,
+  /\bjoin as a (business|pro|provider|supplier)\b/i,
+];
+const CLAIM_TEXT = [
+  /\bclaim (your|this|my)? ?(free )?(business|listing|profile|page|company)\b/i,
+  /\bis this your (business|listing|company)\b/i,
+  /\bmanage your (listing|profile|business page)\b/i,
+];
+
+const arg = (name) => {
+  const i = process.argv.indexOf(name);
+  return i === -1 ? null : (process.argv[i + 1] || true);
+};
+
+// Two-level public suffixes common enough to matter here. Without them,
+// hotfrog.co.uk and anything.co.uk would compare as the same site.
+const TWO_LEVEL = new Set([
+  'co.uk', 'org.uk', 'me.uk', 'ltd.uk', 'plc.uk', 'net.uk', 'sch.uk', 'ac.uk', 'gov.uk',
+  'com.au', 'net.au', 'org.au', 'edu.au', 'gov.au', 'co.nz', 'net.nz', 'org.nz',
+  'com.br', 'net.br', 'org.br', 'com.mx', 'com.ar', 'com.co', 'com.pe', 'com.ve',
+  'co.jp', 'or.jp', 'ne.jp', 'ac.jp', 'go.jp', 'co.kr', 'or.kr', 'co.in', 'net.in',
+  'org.in', 'co.za', 'org.za', 'com.sg', 'com.my', 'com.hk', 'com.tw', 'com.tr',
+  'com.cn', 'net.cn', 'org.cn', 'com.ua', 'com.pl', 'com.ph', 'com.vn', 'co.id',
+  'com.eg', 'com.sa', 'com.ng', 'co.ke', 'com.pk', 'com.bd', 'com.do', 'com.ec',
+  'com.uy', 'com.py', 'com.bo', 'com.gt', 'com.pa', 'com.cy', 'com.mt', 'co.il',
+]);
+
+function registrable(hostname) {
+  // Not a full public-suffix implementation, and it does not pretend to be one.
+  // It answers one question: did we land on a different SITE, or merely on a
+  // different part of the same one? A plain subdomain is the same site —
+  // fr.avis-verifies.com and avis-verifies.com are one company, and calling
+  // that a redirect would strand a live record at unknown for no reason.
+  const host = String(hostname || '').toLowerCase().replace(/^www\./, '');
+  const parts = host.split('.');
+  if (parts.length <= 2) return host;
+  const lastTwo = parts.slice(-2).join('.');
+  return TWO_LEVEL.has(lastTwo) ? parts.slice(-3).join('.') : lastTwo;
+}
+
+function startChrome() {
+  const profile = fs.mkdtempSync(path.join(os.tmpdir(), 'bd-verify-'));
+  const proc = spawn(CHROME, [
+    '--headless=new',
+    '--remote-debugging-port=0',
+    `--user-data-dir=${profile}`,
+    '--no-first-run', '--no-default-browser-check',
+    '--disable-gpu', '--disable-dev-shm-usage', '--mute-audio',
+    '--disable-blink-features=AutomationControlled',
+    '--disable-background-networking', '--disable-sync',
+    'about:blank',
+  ], { stdio: ['ignore', 'ignore', 'pipe'] });
+  return new Promise((resolve, reject) => {
+    let buf = '';
+    const timer = setTimeout(() => reject(new Error('Chrome did not report a DevTools endpoint')), 30000);
+    proc.stderr.on('data', (chunk) => {
+      buf += chunk.toString();
+      const m = /ws:\/\/[^\s]+/.exec(buf);
+      if (m) { clearTimeout(timer); resolve({ proc, wsUrl: m[0], profile }); }
+    });
+    proc.on('exit', (code) => { clearTimeout(timer); reject(new Error(`Chrome exited ${code}`)); });
+  });
+}
+
+// Everything observed about one site, with no interpretation applied yet.
+async function probe(wsUrl, record) {
+  const page = await openPage(wsUrl);
+  try {
+    await page.send('Network.setUserAgentOverride', { userAgent: UA });
+    await page.goto(record.website);
+    await new Promise((r) => { setTimeout(r, SETTLE_MS); });
+
+    const seen = await page.eval((createSrc, claimSrc) => {
+      const create = createSrc.map((s) => new RegExp(s.slice(s.indexOf('/') + 1, s.lastIndexOf('/')), 'i'));
+      const claim = claimSrc.map((s) => new RegExp(s.slice(s.indexOf('/') + 1, s.lastIndexOf('/')), 'i'));
+      const text = document.body ? document.body.innerText : '';
+      const anchors = [...document.querySelectorAll('a[href]')].map((a) => ({
+        text: (a.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 80),
+        href: a.href,
+      })).filter((a) => a.text && /^https?:/.test(a.href));
+      const pick = (patterns) => {
+        for (const a of anchors) for (const re of patterns) if (re.test(a.text)) return a;
+        return null;
+      };
+      return {
+        title: document.title || '',
+        textLen: text.length,
+        head: text.slice(0, 1200),
+        url: location.href,
+        anchors: anchors.length,
+        create: pick(create),
+        claim: pick(claim),
+      };
+    }, CREATE_TEXT.map(String), CLAIM_TEXT.map(String));
+
+    // The status of the document itself, not of some asset it pulled in.
+    const doc = page.requests.find((r) => r.url === seen.url)
+      || page.requests.find((r) => r.url === record.website)
+      || page.requests[0] || null;
+
+    return {
+      status: doc ? doc.status : 0,
+      finalUrl: seen.url,
+      title: seen.title,
+      textLen: seen.textLen,
+      anchors: seen.anchors,
+      head: seen.head,
+      create: seen.create,
+      claim: seen.claim,
+      error: null,
+    };
+  } catch (e) {
+    return { status: 0, error: String(e.message || e).slice(0, 160) };
+  } finally {
+    try { await page.close(); } catch { /* tab already gone */ }
+    try { page.ws.close(); } catch { /* socket already closed */ }
+  }
+}
+
+// The only place an observation becomes a claim.
+function judge(record, obs) {
+  if (obs.error) return { verdict: 'unreachable', why: obs.error };
+  if (!obs.finalUrl || /^chrome-error:/.test(obs.finalUrl)) {
+    return { verdict: 'unreachable', why: 'the browser could not open the site at all' };
+  }
+
+  const hay = `${obs.title}\n${obs.head}`;
+  for (const [re, label] of CHALLENGE) {
+    if (re.test(hay)) return { verdict: 'blocked', why: label };
+  }
+  if (obs.status >= 400) return { verdict: 'blocked', why: `http ${obs.status}` };
+  if (obs.textLen < MIN_TEXT) {
+    return { verdict: 'inconclusive', why: `only ${obs.textLen} characters rendered` };
+  }
+
+  let from; let to;
+  try {
+    from = registrable(new URL(record.website).hostname);
+    to = registrable(new URL(obs.finalUrl).hostname);
+  } catch { return { verdict: 'inconclusive', why: 'unparseable url' }; }
+
+  // Landing on a different site is a fact worth recording and NOT a licence to
+  // call the record active: what is alive is the destination, not the entry.
+  if (from !== to) return { verdict: 'redirected', why: `${from} now serves ${to}`, to: obs.finalUrl };
+
+  // Creating a listing and claiming one that already exists are different acts,
+  // and a link whose words say one while its path says the other has not
+  // established either. Manta's homepage offers "Claim My Listing" pointing at
+  // /business-listings/add-your-company; that is a question, not an answer, so
+  // the route is dropped and the record keeps its unknown listingAction.
+  const contradicts = (anchor, wanted) => {
+    const p = (() => { try { return new URL(anchor.href).pathname.toLowerCase(); } catch { return ''; } })();
+    const saysAdd = /\b(add|create|register|signup|sign-up|join|new)\b/.test(p);
+    const saysClaim = /\bclaim\b/.test(p);
+    return wanted === 'create' ? (saysClaim && !saysAdd) : (saysAdd && !saysClaim);
+  };
+
+  const routes = {};
+  if (obs.create && obs.create.href !== record.website && !contradicts(obs.create, 'create')) {
+    routes.create = obs.create;
+  }
+  if (obs.claim && obs.claim.href !== record.website && !contradicts(obs.claim, 'claim')) {
+    routes.claim = obs.claim;
+  }
+  return { verdict: 'active', why: `${obs.textLen} characters of real content`, routes };
+}
+
+function collection() {
+  const name = arg('--collection') || 'directories';
+  if (!COLLECTIONS[name]) {
+    console.error(`Unknown collection "${name}". Expected one of: ${Object.keys(COLLECTIONS).join(', ')}`);
+    process.exit(1);
+  }
+  return { name, ...COLLECTIONS[name] };
+}
+
+async function runProbe() {
+  if (!CHROME) { console.error('No Chrome on this machine.'); process.exit(1); }
+  const C = collection();
+  const { data: DATA, findings: FINDINGS } = C;
+  const rows = JSON.parse(fs.readFileSync(DATA, 'utf8'));
+  let targets = rows.filter((r) => r.currentStatus === 'unknown'
+    && /bot filter|browser check/i.test(r.note || ''));
+  const limit = arg('--limit');
+  if (limit) targets = targets.slice(0, Number(limit));
+
+  // Re-probe a named subset. Used when the JUDGEMENT changed rather than the
+  // sites — re-running 445 network calls to correct a hostname comparison would
+  // be a waste of everyone's bandwidth, including the operators'.
+  const ids = arg('--ids');
+  if (ids && ids !== true) {
+    const wanted = new Set(String(ids).split(',').map((s) => s.trim()).filter(Boolean));
+    targets = targets.filter((r) => wanted.has(r.id));
+    console.log(`Re-probing ${targets.length} named record(s).`);
+  }
+
+  console.log(`Browser verification (${C.name}): ${targets.length} record(s) awaiting a browser check.`);
+  const chrome = await startChrome();
+  const findings = [];
+  let done = 0;
+
+  const queue = targets.slice();
+  const worker = async () => {
+    for (;;) {
+      const record = queue.shift();
+      if (!record) return;
+      // eslint-disable-next-line no-await-in-loop
+      const obs = await probe(chrome.wsUrl, record);
+      const verdict = judge(record, obs);
+      findings.push({
+        id: record.id,
+        name: record.name,
+        website: record.website,
+        country: record.country,
+        observed: {
+          status: obs.status, finalUrl: obs.finalUrl || null, title: obs.title || null,
+          textLen: obs.textLen || 0, anchors: obs.anchors || 0,
+        },
+        ...verdict,
+      });
+      done += 1;
+      if (done % 25 === 0) console.log(`  ${done}/${targets.length}`);
+      // eslint-disable-next-line no-await-in-loop
+      await new Promise((r) => { setTimeout(r, PACE_MS); });
+    }
+  };
+  await Promise.all(Array.from({ length: CONCURRENCY }, worker));
+
+  chrome.proc.kill('SIGKILL');
+
+  // A partial probe REPLACES the records it re-examined and leaves every other
+  // finding untouched. Overwriting the file with a subset would silently delete
+  // verified work, which is exactly the direction that must never be automatic.
+  let merged = findings;
+  if (fs.existsSync(FINDINGS)) {
+    const prior = JSON.parse(fs.readFileSync(FINDINGS, 'utf8')).findings || [];
+    if (prior.length > findings.length) {
+      const fresh = new Map(findings.map((f) => [f.id, f]));
+      merged = prior.map((f) => fresh.get(f.id) || f);
+      const added = findings.filter((f) => !prior.some((p) => p.id === f.id));
+      merged = merged.concat(added);
+      console.log(`Merged ${findings.length} fresh finding(s) into ${prior.length} existing.`);
+    }
+  }
+
+  merged.sort((a, b) => (a.id < b.id ? -1 : 1));
+  fs.writeFileSync(FINDINGS, `${JSON.stringify({
+    probedAt: new Date().toISOString().slice(0, 10),
+    userAgent: UA,
+    total: merged.length,
+    findings: merged,
+  }, null, 1)}\n`);
+
+  const tally = {};
+  for (const f of merged) tally[f.verdict] = (tally[f.verdict] || 0) + 1;
+  console.log('\nVerdicts:', Object.entries(tally).sort((a, b) => b[1] - a[1])
+    .map(([k, v]) => `${k}=${v}`).join(' '));
+  console.log(`Findings written to ${path.relative(ROOT, FINDINGS)}. Nothing merged — rerun with --apply.`);
+
+  // Only now, and never fatally: a just-killed Chrome may still be flushing its
+  // profile, and losing a completed probe to a tidy-up failure is absurd.
+  try { fs.rmSync(chrome.profile, { recursive: true, force: true }); } catch { /* the OS will reap it */ }
+}
+
+function runApply() {
+  const C = collection();
+  const { data: DATA, findings: FINDINGS } = C;
+  if (!fs.existsSync(FINDINGS)) {
+    console.error(`No findings file for ${C.name}. Run the probe first.`); process.exit(1);
+  }
+  const { probedAt, findings } = JSON.parse(fs.readFileSync(FINDINGS, 'utf8'));
+  const rows = JSON.parse(fs.readFileSync(DATA, 'utf8'));
+  const byId = new Map(rows.map((r) => [r.id, r]));
+  const stamp = (record) => { if (C.dateField) record[C.dateField] = probedAt; };
+
+  const changes = {
+    active: 0, routes: 0, redirected: 0, dated: 0, skipped: 0,
+  };
+  for (const f of findings) {
+    const record = byId.get(f.id);
+    if (!record) { changes.skipped += 1; continue; }
+
+    if (f.verdict === 'active') {
+      record.currentStatus = 'active';
+      stamp(record);
+      record.note = rewriteNote(record.note, `Checked in a browser on ${probedAt}: the site loads and serves its own content.`);
+      changes.active += 1;
+
+      // A route is only recorded when the operator published it in words, and
+      // only for a collection whose schema has somewhere to put it.
+      if (!C.routes) continue;
+      const create = f.routes && f.routes.create;
+      const claim = f.routes && f.routes.claim;
+      if (create && !record.submissionUrl) {
+        record.submissionUrl = create.href;
+        record.listingAction = claim ? 'create-and-claim' : 'create';
+        changes.routes += 1;
+      } else if (claim && !record.claimUrl && !create) {
+        record.claimUrl = claim.href;
+        record.listingAction = 'claim';
+        changes.routes += 1;
+      }
+    } else if (f.verdict === 'redirected') {
+      // Status stays unknown: what answered is a different site, and whether it
+      // still carries this entry's product is a separate question.
+      stamp(record);
+      record.note = rewriteNote(record.note, `An automated browser check on ${probedAt} found that ${f.why}; a browser check is needed by a person to settle what this entry should point at, and the status stays unknown.`);
+      changes.redirected += 1;
+    } else {
+      // blocked / unreachable / inconclusive: unknown was already the honest
+      // answer and stays. Only the date and the reason are refreshed, so a
+      // later pass can tell "never checked" from "checked and still closed".
+      //
+      // The phrase "a browser check is needed" is kept deliberately, and is
+      // still true — what was refused was the AUTOMATED check, and a person
+      // with a browser can still settle it. Two suites also read that phrase to
+      // find rows that must remain unknown, so weakening it would quietly
+      // empty their working set rather than fail them.
+      stamp(record);
+      record.note = rewriteNote(record.note, `An automated browser check on ${probedAt} was refused by the site (${f.why}); a browser check is needed by a person and the status stays unknown.`);
+      changes.dated += 1;
+    }
+  }
+
+  fs.writeFileSync(DATA, `${JSON.stringify(rows, null, 1)}\n`);
+  console.log(`Merged (${C.name}):`, Object.entries(changes).map(([k, v]) => `${k}=${v}`).join(' '));
+}
+
+// Sentences that ASK for a browser check, in any of the phrasings the corpus
+// actually uses. Matching only "Live but behind a bot filter" — the commonest
+// one — left 35 records claiming active while still requesting a check, and a
+// note that contradicts its own record is worse than no note.
+const ASKS_FOR_A_CHECK = /bot filter|bot challenge|browser check|could not be inspected|render gate|authorisation gate|authorization gate|challenge page/i;
+
+// Replace whatever asked for a browser check with what the browser found. The
+// rest of the note is human-written research and is left alone — it is the part
+// no probe could have produced.
+function rewriteNote(note, replacement) {
+  const text = String(note || '').trim();
+  const kept = text
+    .split(/(?<=\.)\s+/)
+    .filter((sentence) => sentence && !ASKS_FOR_A_CHECK.test(sentence))
+    .join(' ');
+  return `${kept} ${replacement}`.replace(/\s+/g, ' ').trim();
+}
+
+if (process.argv.includes('--apply')) runApply();
+else runProbe().catch((e) => { console.error(e); process.exit(1); });
