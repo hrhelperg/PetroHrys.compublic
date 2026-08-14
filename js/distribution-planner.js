@@ -26,9 +26,19 @@
  * is the whole 2,234-row queue and stays that; the button in section 3 exports
  * the campaign these controls are in, which the server never saw.
  *
- * Only section 3 and the summary paragraph depend on the controls. Sections 2,
- * 4, 5 and 6 are computed over the whole corpus and are control-independent, so
- * this file does not touch them.
+ * Sections 2, 4 and 5 are outputs too, and used not to be. They were computed
+ * over the WHOLE corpus, once, at build time: measured in Chrome, switching
+ * Market from United States to United Kingdom moved the summary, the campaign
+ * and the URL and left "Ready to execute — 126 opportunities" showing the same
+ * 60 rows, still led by Alibaba.com and Apple App Store, plus 80 more rows and
+ * two more headline counts describing a state nobody had selected. They now
+ * come from E.worklist for the current state, partitioned by what can actually
+ * be done with each row, and their headings recompute with them. WHICH
+ * opportunities and in WHICH order is the engine's answer, not this file's.
+ *
+ * Section 6 is the exception and stays whole-corpus: readiness by collection is
+ * a fact about the catalogue rather than about the campaign. It says so in its
+ * own copy now, and this file leaves it alone deliberately.
  *
  * If anything is missing — the engine, fetch, the data file, a field the engine
  * needs — it returns and the server-rendered page stands. The prerendered
@@ -88,6 +98,47 @@
   }
 
   var known = knownVocabulary();
+
+  // The market control is also the country NAME table. The payload carries
+  // country slugs and no names — it carries only what the engine reads — and
+  // inventing names here would print "united-states" in a row the server had
+  // rendered as "United States". The control's own options are the names the
+  // generator resolved, in the locale it rendered, so reading them back is the
+  // one source that cannot disagree with the server.
+  function countryNamer() {
+    var select = controlFor('market');
+    var names = {};
+    if (select && select.options) {
+      for (var i = 0; i < select.options.length; i += 1) {
+        names[select.options[i].value] = select.options[i].textContent;
+      }
+    }
+    return function (slug) {
+      return Object.prototype.hasOwnProperty.call(names, slug) ? names[slug] : slug;
+    };
+  }
+
+  var countryName = countryNamer();
+
+  // Sections 2, 4 and 5. Discovered through the engine's own section list, so
+  // this file holds no status vocabulary and a fourth partition would need no
+  // edit here. A section the markup does not carry is skipped rather than
+  // invented.
+  var queues = [];
+  (E.WORKLIST_SECTIONS || []).forEach(function (spec) {
+    var host = document.getElementById(spec.key);
+    if (!host) return;
+    var heading = host.querySelector('h2');
+    var body = host.querySelector('[data-bd-rows]');
+    if (!heading || !body) return;
+    // The heading's number and its localized title are the generator's words
+    // and the browser may not make up either, so they are carried on the
+    // element. A page rendered before this attribute existed keeps the heading
+    // it was served and recomputes only its rows, which is still true — just
+    // less complete.
+    queues.push({ key: spec.key, heading: heading, body: body,
+      title: heading.getAttribute('data-dp-title') });
+  });
 
   function labelOf(select) {
     var option = select.options[select.selectedIndex];
@@ -179,6 +230,70 @@
     });
   }
 
+  // ── the worklist: sections 2, 4 and 5 ──────────────────────────────────────
+
+  // One row, described by the engine and built here as nodes. The cell order,
+  // the labels, the attributes and which cell is the call to action all come
+  // from the model, so the row the browser writes is the row the generator
+  // wrote — there is no second row shape in this file to fall out of step.
+  function renderRow(model) {
+    var tr = el('tr', 'bd-row');
+    Object.keys(model.attrs).forEach(function (key) {
+      tr.setAttribute(key, model.attrs[key]);
+    });
+    model.cells.forEach(function (cell) {
+      var td = el('td', cell.action ? 'bd-cell bd-actions' : 'bd-cell');
+      td.setAttribute('data-bd-label', cell.label);
+      if (cell.url) {
+        var a = el('a', cell.action ? 'bd-cta-link' : null, cell.text);
+        a.href = cell.url;
+        if (cell.external) {
+          a.rel = 'noopener noreferrer';
+          a.target = '_blank';
+        }
+        td.appendChild(a);
+      } else if (cell.action) {
+        // No route recorded. The server renders the same empty metric rather
+        // than a dead link, and a reader must not be sent anywhere we have not
+        // established.
+        td.appendChild(el('span', 'bd-metric bd-metric--empty', cell.text));
+      } else {
+        td.textContent = cell.text;
+      }
+      tr.appendChild(td);
+    });
+    return tr;
+  }
+
+  function renderQueues(wl, labels) {
+    queues.forEach(function (queue) {
+      var section = wl.byKey[queue.key];
+      if (!section) return;
+      if (queue.title) {
+        var heading = E.worklistHeading({
+          title: queue.title,
+          count: section.total,
+          totalEligible: wl.totalEligible,
+          business: labels.business,
+          objective: labels.objective,
+          market: labels.market,
+          budget: labels.budget
+        });
+        if (queue.heading.textContent !== heading) queue.heading.textContent = heading;
+      }
+      // Only the rows are replaced. The caption, the column headings and the
+      // download link beneath the table are the section's own furniture and
+      // survive every recompute.
+      var stale = Array.prototype.slice.call(queue.body.querySelectorAll('tr'));
+      stale.forEach(function (node) {
+        if (node.parentNode) node.parentNode.removeChild(node);
+      });
+      section.rows.forEach(function (entry) {
+        queue.body.appendChild(renderRow(E.worklistRow(entry, queue.key, countryName)));
+      });
+    });
+  }
+
   // ── the campaign, downloaded ────────────────────────────────────────────────
 
   // Shipped hidden by the generator and adopted here, so a no-JS reader is never
@@ -259,6 +374,12 @@
     // announcement.
     if (statusEl.textContent !== summary) statusEl.textContent = summary;
     renderGroups(result.groups);
+    // Computed after the campaign and from the same state object, so the three
+    // worklist sections and the campaign can only ever describe one state. The
+    // evidence level is deliberately NOT passed: it is the campaign's admission
+    // floor, and sections 4 and 5 are what shows the reader what it is holding
+    // back — the engine documents the decision beside worklist().
+    renderQueues(E.worklist(data, ctx), state.labels);
     lastResult = result;
     lastValues = state.values;
     updateDownload(result);
