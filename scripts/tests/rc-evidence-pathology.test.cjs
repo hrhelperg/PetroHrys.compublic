@@ -279,3 +279,99 @@ test('note rewriting removes a class of sentence, not one memorised phrase', () 
     assert.ok(out.endsWith('Checked in a browser: it loads.'), 'the new finding was not appended');
   }
 });
+
+// ── 7. Media is a register of publications, not of editorial-sounding sites ──
+
+const MEDIA = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/media-pr-publishing/media-platforms.json'), 'utf8'));
+const M = require(path.join(ROOT, 'scripts/research-media-backlog.cjs'));
+
+test('a live page is not enough to keep a record in Media', () => {
+  const record = { website: 'https://example.test/', name: 'Example' };
+  const page = {
+    url: 'https://example.test/',
+    status: 200,
+    title: 'Example',
+    head: 'We are a marketing agency. Our services help brands grow. Book a demo.',
+    textLen: 4000,
+    anchors: [],
+    feed: false,
+    articles: 0,
+    times: 0,
+    error: null,
+  };
+  const v = M.assess(record, page);
+  assert.equal(v.state, 'ONTOLOGY_UNCONFIRMED',
+    'a services business with no publishing evidence was accepted as a publication');
+
+  // And it is NOT deleted. An ontology classifier that got two of its first two
+  // rejections wrong — Healthcare IT News and PhocusWire are plainly
+  // publications — has not earned the right to remove records. Unknown is a
+  // valid final state; deletion is not reversible by a later, better pass.
+  assert.notEqual(v.state, 'ONTOLOGY_REJECTED');
+});
+
+test('a publication is recognised by what it publishes, not by its domain name', () => {
+  const record = { website: 'https://example.test/', name: 'Example' };
+  const publisher = M.assess(record, {
+    url: 'https://example.test/',
+    status: 200,
+    title: 'Home | Healthcare IT News',
+    head: 'Latest stories and analysis.',
+    textLen: 9000,
+    anchors: [],
+    feed: false,
+    articles: 1,
+    times: 0,
+    error: null,
+  });
+  assert.equal(publisher.state, 'ACTIVE_VERIFIED',
+    'a masthead naming itself as a publication was not recognised');
+});
+
+test('a Media record that changed domain is a redirect, not a routine confirmation', () => {
+  const v = M.assess(
+    { website: 'https://www.channelfutures.com', name: 'Channel Futures' },
+    {
+      url: 'https://www.channeldive.com/news/welcome-to-channel-dive/804329/',
+      status: 200,
+      title: 'Welcome to Channel Dive | Channel Dive',
+      head: 'news',
+      textLen: 5000,
+      anchors: [],
+      feed: true,
+      articles: 9,
+      times: 9,
+      error: null,
+    },
+  );
+  assert.equal(v.state, 'REDIRECTED',
+    'a publication answering from a different domain was accepted as verified in place');
+});
+
+test('every Media record this wave verified says why it has no route', () => {
+  // Scoped to what this wave actually touched. The collection has its own,
+  // longer-standing rule for the rest; asserting a stricter one here would fail
+  // on 400 records nobody in this wave examined, which proves nothing about the
+  // work and hides the records that do matter.
+  const ROUTE_FIELDS = ['submissionUrl', 'pitchUrl', 'pressReleaseUrl', 'advertisingUrl'];
+  const thisWave = MEDIA.filter((r) => /Verified in a browser on 2026-08-14/.test(r.shortNote || ''));
+  assert.ok(thisWave.length > 0, 'this wave verified nothing');
+  for (const r of thisWave) {
+    if (ROUTE_FIELDS.some((f) => r[f])) continue;
+    assert.ok(r.limitations && r.limitations.length > 40,
+      `${r.id} has no established route and does not say why`);
+  }
+});
+
+test('research already written down is never replaced by a procedural sentence', () => {
+  // 62 records carried a human description and a first pass overwrote all 62.
+  const withProcedural = MEDIA.filter((r) => /browser check|Verified in a browser/i.test(r.shortNote || ''));
+  assert.ok(withProcedural.length > 0, 'no record carries a research sentence at all');
+  for (const r of withProcedural) {
+    const stripped = String(r.shortNote)
+      .replace(/(An automated browser check|Verified in a browser|A browser check)[\s\S]*$/i, '')
+      .trim();
+    assert.ok(stripped.length > 20,
+      `${r.id}: the procedural sentence is all that is left; the description it replaced is gone`);
+  }
+});
