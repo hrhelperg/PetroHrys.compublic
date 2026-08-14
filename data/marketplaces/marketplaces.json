@@ -2825,17 +2825,17 @@
  {
   "id": "mp-mk-reklama5",
   "name": "Reklama5",
-  "website": "https://www.reklama5.mk/",
+  "website": "https://reklama5.com/",
   "country": "north-macedonia",
   "marketplaceType": "general-classifieds",
   "sellerTypes": "both",
   "costModel": "freemium",
-  "currentStatus": "unknown",
+  "currentStatus": "active",
   "alsoCovers": [
    "property",
    "vehicles"
   ],
-  "note": "A North Macedonian classifieds portal. An automated browser check on 2026-08-14 found that reklama5.mk now serves reklama5.com; a browser check is needed by a person to settle what this entry should point at, and the status stays unknown."
+  "note": "A North Macedonian classifieds portal. Audited on 2026-08-14: the Macedonian marketplace consolidated from reklama5.mk onto a .com domain; the record now points at the current address."
  },
  {
   "id": "mp-no-finn",
@@ -3669,14 +3669,14 @@
   "marketplaceType": "general-classifieds",
   "sellerTypes": "both",
   "costModel": "freemium",
-  "currentStatus": "unknown",
+  "currentStatus": "active",
   "alsoCovers": [
    "jobs",
    "property",
    "vehicles"
   ],
   "operator": "Adevinta",
-  "note": "A major Spanish classifieds marketplace. An automated browser check on 2026-08-14 was refused by the site (only 0 characters rendered); a browser check is needed by a person and the status stays unknown."
+  "note": "A major Spanish classifieds marketplace. Checked in a browser on 2026-08-14: the site loads and serves its own content."
  },
  {
   "id": "mp-es-wallapop",
@@ -4443,8 +4443,8 @@
   "marketplaceType": "second-hand",
   "sellerTypes": "both",
   "costModel": "freemium",
-  "currentStatus": "unknown",
-  "note": "A major US consumer marketplace. An automated browser check on 2026-08-14 was refused by the site (only 177 characters rendered); a browser check is needed by a person and the status stays unknown."
+  "currentStatus": "active",
+  "note": "A major US consumer marketplace. Checked in a browser on 2026-08-14: the site loads and serves its own content."
  },
  {
   "id": "mp-us-nextdoor",

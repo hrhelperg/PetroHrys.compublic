@@ -167,6 +167,8 @@ async function openPage(wsUrl) {
     // fails leaves no URL behind — which would let "nothing was requested" pass
     // for a page that requested plenty and merely got no reply.
     attempts: [],
+    // Document-level redirect hops, in order, so a chain can be replayed.
+    redirects: [],
     _id: 0,
     _pending: new Map(),
   };
@@ -207,6 +209,17 @@ async function openPage(wsUrl) {
     }
     if (msg.method === 'Network.requestWillBeSent') {
       page.attempts.push({ url: msg.params.request.url, type: msg.params.type });
+      // A redirect arrives as a NEW requestWillBeSent carrying the response that
+      // caused it. Recording each hop is the difference between "this domain
+      // moved" and "this domain moved, twice, ending somewhere else entirely" —
+      // and only the chain distinguishes a rebrand from an acquisition.
+      if (msg.params.redirectResponse && msg.params.type === 'Document') {
+        page.redirects.push({
+          from: msg.params.redirectResponse.url,
+          to: msg.params.request.url,
+          status: msg.params.redirectResponse.status,
+        });
+      }
     }
     if (msg.method === 'Network.responseReceived') {
       page.requests.push({ url: msg.params.response.url, status: msg.params.response.status });
@@ -226,6 +239,7 @@ async function openPage(wsUrl) {
     page.errors.length = 0;
     page.requests.length = 0;
     page.attempts.length = 0;
+    page.redirects.length = 0;
     await rawSend('Page.navigate', { url });
     // Wait for the document to finish and for deferred scripts to run.
     const deadline = Date.now() + 30000;

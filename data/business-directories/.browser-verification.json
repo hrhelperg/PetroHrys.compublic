@@ -1,7 +1,7 @@
 {
  "probedAt": "2026-08-14",
  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36",
- "total": 445,
+ "total": 458,
  "findings": [
   {
    "id": "ae-bayt",
@@ -17,6 +17,22 @@
    },
    "verdict": "active",
    "why": "9012 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "ae-dubaichamber",
+   "name": "Dubai Chamber of Commerce",
+   "website": "https://www.dubaichambercommerce.com/en/",
+   "country": "united-arab-emirates",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.dubaichambercommerce.com/en/",
+    "title": "Dubai Chamber of Commerce - Dubai Business Hub",
+    "textLen": 8719,
+    "anchors": 115
+   },
+   "verdict": "active",
+   "why": "8719 characters of real content",
    "routes": {}
   },
   {
@@ -75,11 +91,12 @@
     "status": 200,
     "finalUrl": "https://www.yallamotor.com/",
     "title": "YallaMotor — Cars for sale Across the Middle East",
-    "textLen": 0,
+    "textLen": 5862,
     "anchors": 47
    },
-   "verdict": "inconclusive",
-   "why": "only 0 characters rendered"
+   "verdict": "active",
+   "why": "5862 characters of real content",
+   "routes": {}
   },
   {
    "id": "ar-cylex",
@@ -174,6 +191,22 @@
    },
    "verdict": "active",
    "why": "1173 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "at-mjam",
+   "name": "foodora Austria",
+   "website": "https://www.foodora.at/",
+   "country": "austria",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.foodora.at/",
+    "title": "Lieferservice foodora.at - Restaurants in der Nähe",
+    "textLen": 20554,
+    "anchors": 273
+   },
+   "verdict": "active",
+   "why": "20554 characters of real content",
    "routes": {}
   },
   {
@@ -349,6 +382,22 @@
    "to": "https://www.airtasker.com/au/?of-redirect=true&domain=www.oneflare.com.au"
   },
   {
+   "id": "au-seek-companies",
+   "name": "SEEK Company Profiles",
+   "website": "https://au.seek.com/companies",
+   "country": "australia",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://au.seek.com/companies",
+    "title": "Company Profiles and Reviews | SEEK",
+    "textLen": 2048,
+    "anchors": 110
+   },
+   "verdict": "active",
+   "why": "2048 characters of real content",
+   "routes": {}
+  },
+  {
    "id": "au-startupaus",
    "name": "Tech Council / StartupAUS",
    "website": "https://www.startupaus.org/",
@@ -426,18 +475,23 @@
   {
    "id": "bb-barbadosyp",
    "name": "Barbados Yellow Pages",
-   "website": "https://www.barbadosyp.com/",
+   "website": "https://www.findyello.com/barbados/",
    "country": "barbados",
    "observed": {
     "status": 200,
     "finalUrl": "https://www.findyello.com/barbados/",
     "title": "findyello | Barbados Business Directory",
-    "textLen": 9457,
-    "anchors": 768
+    "textLen": 9261,
+    "anchors": 766
    },
-   "verdict": "redirected",
-   "why": "barbadosyp.com now serves findyello.com",
-   "to": "https://www.findyello.com/barbados/"
+   "verdict": "active",
+   "why": "9261 characters of real content",
+   "routes": {
+    "create": {
+     "text": "Add Listing",
+     "href": "https://www.findyello.com/list-business/"
+    }
+   }
   },
   {
    "id": "bd-bdbusinessdirectory",
@@ -472,7 +526,7 @@
   {
    "id": "be-cylex",
    "name": "Cylex Belgium",
-   "website": "https://www.cylex.be/",
+   "website": "https://www.cylex-belgie.be/",
    "country": "belgium",
    "observed": {
     "status": 200,
@@ -481,9 +535,9 @@
     "textLen": 7917,
     "anchors": 877
    },
-   "verdict": "redirected",
-   "why": "cylex.be now serves cylex-belgie.be",
-   "to": "https://www.cylex-belgie.be/"
+   "verdict": "active",
+   "why": "7917 characters of real content",
+   "routes": {}
   },
   {
    "id": "be-firmania",
@@ -1013,7 +1067,7 @@
   {
    "id": "ch-cylex",
    "name": "Cylex Schweiz",
-   "website": "https://www.cylex.ch/",
+   "website": "https://www.cylex-swiss.ch/",
    "country": "switzerland",
    "observed": {
     "status": 200,
@@ -1022,9 +1076,9 @@
     "textLen": 8766,
     "anchors": 924
    },
-   "verdict": "redirected",
-   "why": "cylex.ch now serves cylex-swiss.ch",
-   "to": "https://www.cylex-swiss.ch/"
+   "verdict": "active",
+   "why": "8766 characters of real content",
+   "routes": {}
   },
   {
    "id": "ch-firmania",
@@ -1072,6 +1126,22 @@
    },
    "verdict": "blocked",
    "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "cl-computrabajo",
+   "name": "Computrabajo Chile",
+   "website": "https://cl.computrabajo.com/",
+   "country": "chile",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://cl.computrabajo.com/",
+    "title": "Bolsa de empleo y trabajo en Chile | Buscar trabajo en Computrabajo",
+    "textLen": 718,
+    "anchors": 118
+   },
+   "verdict": "active",
+   "why": "718 characters of real content",
+   "routes": {}
   },
   {
    "id": "cl-cylex",
@@ -1126,14 +1196,14 @@
    "website": "https://www.dianping.com/",
    "country": "china",
    "observed": {
-    "status": 502,
-    "finalUrl": "https://www.dianping.com/",
-    "title": null,
-    "textLen": 5369,
+    "status": 200,
+    "finalUrl": "https://verify.meituan.com/v2/app/general_page?requestCode=c26c39e8e0d4421b90f21148d359d19f&adaptor=auto&action=spiderindefence&succCallbackUrl=https%3A%2F%2Foptimus-mtsi.meituan.com%2Foptimus%2FverifyResult%3ForiginUrl%3Dhttps%253A%252F%252Fwww.dianping.com%252F&theme=dianping",
+    "title": "验证中心",
+    "textLen": 96,
     "anchors": 0
    },
-   "verdict": "blocked",
-   "why": "http 502"
+   "verdict": "inconclusive",
+   "why": "only 96 characters rendered"
   },
   {
    "id": "co-cylex",
@@ -1164,6 +1234,22 @@
    },
    "verdict": "active",
    "why": "8672 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "cz-damejidlo",
+   "name": "foodora Czechia",
+   "website": "https://www.foodora.cz/",
+   "country": "czech-republic",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.foodora.cz/",
+    "title": "Rozvoz jídla po celé ČR - foodora.cz - restaurace v okolí",
+    "textLen": 22182,
+    "anchors": 217
+   },
+   "verdict": "active",
+   "why": "22182 characters of real content",
    "routes": {}
   },
   {
@@ -1387,18 +1473,18 @@
   {
    "id": "de-myhammer",
    "name": "MyHammer",
-   "website": "https://www.myhammer.de/",
+   "website": "https://www.my-hammer.de/",
    "country": "germany",
    "observed": {
     "status": 200,
     "finalUrl": "https://www.my-hammer.de/",
     "title": "MyHammer - Der zuverlässige Weg, einen Handwerker zu beauftragen",
-    "textLen": 6244,
+    "textLen": 6076,
     "anchors": 133
    },
-   "verdict": "redirected",
-   "why": "myhammer.de now serves my-hammer.de",
-   "to": "https://www.my-hammer.de/"
+   "verdict": "active",
+   "why": "6076 characters of real content",
+   "routes": {}
   },
   {
    "id": "de-opendi",
@@ -1636,6 +1722,22 @@
    "routes": {}
   },
   {
+   "id": "es-construmatica",
+   "name": "Construnews",
+   "website": "https://www.construnews.com/",
+   "country": "spain",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://construnews.com/",
+    "title": "Arquitectura, construcción y periodismo de datos - Construnews",
+    "textLen": 16779,
+    "anchors": 919
+   },
+   "verdict": "active",
+   "why": "16779 characters of real content",
+   "routes": {}
+  },
+  {
    "id": "es-cylex",
    "name": "Cylex España",
    "website": "https://www.cylex.es/",
@@ -1826,7 +1928,7 @@
   {
    "id": "fr-cylex",
    "name": "Cylex France",
-   "website": "https://www.cylex.fr/",
+   "website": "https://www.cylex-locale.fr/",
    "country": "france",
    "observed": {
     "status": 200,
@@ -1835,9 +1937,9 @@
     "textLen": 11884,
     "anchors": 918
    },
-   "verdict": "redirected",
-   "why": "cylex.fr now serves cylex-locale.fr",
-   "to": "https://www.cylex-locale.fr/"
+   "verdict": "active",
+   "why": "11884 characters of real content",
+   "routes": {}
   },
   {
    "id": "fr-directindustry",
@@ -1885,6 +1987,22 @@
    },
    "verdict": "active",
    "why": "2490 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "fr-hoodspot",
+   "name": "Annuaire Petites Affiches",
+   "website": "https://annuaire.petitesaffiches.fr/",
+   "country": "france",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://annuaire.petitesaffiches.fr/",
+    "title": "Hoodspot.fr",
+    "textLen": 6814,
+    "anchors": 402
+   },
+   "verdict": "active",
+   "why": "6814 characters of real content",
    "routes": {}
   },
   {
@@ -2137,19 +2255,19 @@
   },
   {
    "id": "global-accesswire",
-   "name": "ACCESSWIRE",
-   "website": "https://www.accesswire.com/",
+   "name": "ACCESS Newswire",
+   "website": "https://www.accessnewswire.com/",
    "country": "global",
    "observed": {
     "status": 200,
     "finalUrl": "https://www.accessnewswire.com/",
     "title": "Press Release Distribution & IR | ACCESS Newswire",
-    "textLen": 10023,
+    "textLen": 12184,
     "anchors": 158
    },
-   "verdict": "redirected",
-   "why": "accesswire.com now serves accessnewswire.com",
-   "to": "https://www.accessnewswire.com/"
+   "verdict": "active",
+   "why": "12184 characters of real content",
+   "routes": {}
   },
   {
    "id": "global-adforum",
@@ -2281,6 +2399,22 @@
    },
    "verdict": "blocked",
    "why": "access-denied"
+  },
+  {
+   "id": "global-bing-places",
+   "name": "Bing Places for Business",
+   "website": "https://www.bing.com/forbusiness/",
+   "country": "global",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.bing.com/forbusiness/",
+    "title": "Bing Places for Business",
+    "textLen": 1142,
+    "anchors": 13
+   },
+   "verdict": "active",
+   "why": "1142 characters of real content",
+   "routes": {}
   },
   {
    "id": "global-businesswire",
@@ -2906,6 +3040,22 @@
    "routes": {}
   },
   {
+   "id": "global-notion-integrations",
+   "name": "Notion Integrations",
+   "website": "https://www.notion.com/connections",
+   "country": "global",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.notion.com/connections",
+    "title": "Notion Connections & Integrations",
+    "textLen": 3307,
+    "anchors": 108
+   },
+   "verdict": "active",
+   "why": "3307 characters of real content",
+   "routes": {}
+  },
+  {
    "id": "global-nsf-certified",
    "name": "NSF Certified Products and Systems",
    "website": "https://www.nsf.org/certified-products-systems",
@@ -3016,8 +3166,8 @@
   },
   {
    "id": "global-seedrs",
-   "name": "Seedrs",
-   "website": "https://www.seedrs.com/",
+   "name": "Republic Europe",
+   "website": "https://europe.republic.com/",
    "country": "global",
    "observed": {
     "status": 200,
@@ -3026,9 +3176,9 @@
     "textLen": 10024,
     "anchors": 145
    },
-   "verdict": "redirected",
-   "why": "seedrs.com now serves republic.com",
-   "to": "https://europe.republic.com/"
+   "verdict": "active",
+   "why": "10024 characters of real content",
+   "routes": {}
   },
   {
    "id": "global-seedtable",
@@ -3076,6 +3226,22 @@
    },
    "verdict": "blocked",
    "why": "http 526"
+  },
+  {
+   "id": "global-smartcustomer",
+   "name": "SmartCustomer",
+   "website": "https://www.smartcustomer.com/",
+   "country": "global",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.smartcustomer.com/",
+    "title": "Find Real Business Reviews & Ratings | SmartCustomer",
+    "textLen": 24703,
+    "anchors": 107
+   },
+   "verdict": "active",
+   "why": "24703 characters of real content",
+   "routes": {}
   },
   {
    "id": "global-softpedia",
@@ -3231,6 +3397,22 @@
    },
    "verdict": "blocked",
    "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "global-techpilot",
+   "name": "Techpilot",
+   "website": "https://www.techpilot.com/en",
+   "country": "global",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.techpilot.com/en",
+    "title": "Purchasing platform for drawing parts",
+    "textLen": 4677,
+    "anchors": 82
+   },
+   "verdict": "active",
+   "why": "4677 characters of real content",
+   "routes": {}
   },
   {
    "id": "global-thefork",
@@ -3779,7 +3961,7 @@
   {
    "id": "ie-justeat",
    "name": "Just Eat Ireland",
-   "website": "https://www.justeat.ie/",
+   "website": "https://www.just-eat.ie/",
    "country": "ireland",
    "observed": {
     "status": 200,
@@ -3788,9 +3970,9 @@
     "textLen": 995,
     "anchors": 1
    },
-   "verdict": "redirected",
-   "why": "justeat.ie now serves just-eat.ie",
-   "to": "https://www.just-eat.ie/"
+   "verdict": "active",
+   "why": "995 characters of real content",
+   "routes": {}
   },
   {
    "id": "ie-yalwa",
@@ -4041,7 +4223,7 @@
   {
    "id": "it-cylex",
    "name": "Cylex Italia",
-   "website": "https://www.cylex.it/",
+   "website": "https://www.cylex-italia.it/",
    "country": "italy",
    "observed": {
     "status": 200,
@@ -4050,9 +4232,9 @@
     "textLen": 11493,
     "anchors": 908
    },
-   "verdict": "redirected",
-   "why": "cylex.it now serves cylex-italia.it",
-   "to": "https://www.cylex-italia.it/"
+   "verdict": "active",
+   "why": "11493 characters of real content",
+   "routes": {}
   },
   {
    "id": "it-firmania",
@@ -4083,6 +4265,22 @@
    },
    "verdict": "active",
    "why": "14718 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "it-infoimprese",
+   "name": "Registro Imprese",
+   "website": "https://www.registroimprese.it/",
+   "country": "italy",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.registroimprese.it/",
+    "title": "Registro Imprese | I dati Ufficiali della Camera di Commercio",
+    "textLen": 2964,
+    "anchors": 152
+   },
+   "verdict": "active",
+   "why": "2964 characters of real content",
    "routes": {}
   },
   {
@@ -4282,6 +4480,22 @@
    },
    "verdict": "active",
    "why": "442 characters of real content",
+   "routes": {}
+  },
+  {
+   "id": "jp-nc-net",
+   "name": "NC Network",
+   "website": "https://www.nc-net.com/",
+   "country": "japan",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://en.nc-net.com/",
+    "title": "No. 1 Factory Search | Challenging New Frontiers in Manufacturing / NC Network",
+    "textLen": 2453,
+    "anchors": 86
+   },
+   "verdict": "active",
+   "why": "2453 characters of real content",
    "routes": {}
   },
   {
@@ -5209,7 +5423,7 @@
   {
    "id": "pl-cylex",
    "name": "Cylex Polska",
-   "website": "https://www.cylex.pl/",
+   "website": "https://www.cylex-polska.pl/",
    "country": "poland",
    "observed": {
     "status": 200,
@@ -5218,9 +5432,9 @@
     "textLen": 9833,
     "anchors": 901
    },
-   "verdict": "redirected",
-   "why": "cylex.pl now serves cylex-polska.pl",
-   "to": "https://www.cylex-polska.pl/"
+   "verdict": "active",
+   "why": "9833 characters of real content",
+   "routes": {}
   },
   {
    "id": "pl-firmania",
@@ -6549,7 +6763,7 @@
    "country": "united-states",
    "observed": {
     "status": 200,
-    "finalUrl": "https://www.showmelocal.com/norobots.aspx?a=639223046999910880&src=%2fdefault.aspx",
+    "finalUrl": "https://www.showmelocal.com/norobots.aspx?a=639223151898676587&src=%2fdefault.aspx",
     "title": "Security Verification",
     "textLen": 186,
     "anchors": 1

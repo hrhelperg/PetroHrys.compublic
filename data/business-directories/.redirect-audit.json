@@ -1,0 +1,547 @@
+{
+ "auditedAt": "2026-08-14",
+ "findings": [
+  {
+   "id": "ae-dubaichamber",
+   "collection": "directories",
+   "name": "Dubai Chamber of Commerce",
+   "website": "https://www.dubaichamber.com/",
+   "country": "united-arab-emirates",
+   "chain": [
+    "301 https://www.dubaichamber.com/ -> https://www.dubaichambercommerce.com/",
+    "302 https://www.dubaichambercommerce.com/ -> https://www.dubaichambercommerce.com/en/"
+   ],
+   "finalUrl": "https://www.dubaichambercommerce.com/en/",
+   "finalTitle": "Dubai Chamber of Commerce - Dubai Business Hub",
+   "mentionsOriginal": [
+    "In 2025, Dubai Chamber of Commerce continued to make significant strides in advancing the interests of the business community. The chamber recorded the largest annual increase in memberships in its history, reflecting Dubai's growing prominence as a global business hub.",
+    "The New Horizons initiative supports Dubai Chamber of Commerce members in expanding their reach to prominent global markets. The initiative offers a range of interactive workshops and opportunities to participate in targeted trade missions to priority markets, allowing businesses to gain valuable insights, connect with key stakeholders, and explore opportunities for international growth.",
+    "Operating under the umbrella of Dubai Chamber of Commerce, sector-specific Business Groups and country-specific Business Councils serve as bridges between the business community and the government. These dynamic platforms engage regularly with members through workshops and events to drive effective advocacy, secure legislative enhancements, and improve Dubai’s favourable business environment."
+   ],
+   "state": "DOMAIN_MOVE",
+   "why": "same brand on a new domain (dubaichamber.com -> dubaichambercommerce.com)",
+   "to": "https://www.dubaichambercommerce.com/en/"
+  },
+  {
+   "id": "at-mjam",
+   "collection": "directories",
+   "name": "foodora Österreich",
+   "website": "https://www.mjam.net/",
+   "country": "austria",
+   "chain": [
+    "301 https://www.mjam.net/ -> https://www.foodora.at/"
+   ],
+   "finalUrl": "https://www.foodora.at/",
+   "finalTitle": "Lieferservice foodora.at - Restaurants in der Nähe",
+   "mentionsOriginal": [],
+   "state": "REBRAND_OR_ACQUISITION",
+   "why": "foodora.at answers for mjam.net but does not say why on the landing page",
+   "to": "https://www.foodora.at/",
+   "duplicateOf": null
+  },
+  {
+   "id": "au-oneflare",
+   "collection": "directories",
+   "name": "Oneflare",
+   "website": "https://www.oneflare.com.au/",
+   "country": "australia",
+   "chain": [
+    "301 https://www.oneflare.com.au/ -> https://www.airtasker.com/?of-redirect=true&domain=www.oneflare.com.au",
+    "302 https://www.airtasker.com/?of-redirect=true&domain=www.oneflare.com.au -> https://www.airtasker.com/au/?of-redirect=true&domain=www.oneflare.com.au"
+   ],
+   "finalUrl": "https://www.airtasker.com/au/?of-redirect=true&domain=www.oneflare.com.au",
+   "finalTitle": "Get anything done & earn more money | Airtasker AU",
+   "mentionsOriginal": [
+    "The Oneflare brand retired on 30 June 2026. Tap into Airtasker, our sister platform, for an even bigger community of customers and Taskers, faster quotes, all with secure payments."
+   ],
+   "state": "REBRAND_OR_ACQUISITION",
+   "why": "airtasker.com answers for oneflare.com.au but does not say why on the landing page",
+   "to": "https://www.airtasker.com/au/?of-redirect=true&domain=www.oneflare.com.au",
+   "duplicateOf": "marketplaces:mp-au-airtasker"
+  },
+  {
+   "id": "au-seek-companies",
+   "collection": "directories",
+   "name": "SEEK Company Profiles",
+   "website": "https://www.seek.com.au/companies",
+   "country": "australia",
+   "chain": [
+    "308 https://www.seek.com.au/companies -> https://au.seek.com/companies"
+   ],
+   "finalUrl": "https://au.seek.com/companies",
+   "finalTitle": "Company Profiles and Reviews | SEEK",
+   "mentionsOriginal": [],
+   "state": "DOMAIN_MOVE",
+   "why": "same brand, moved from seek.com.au to seek.com",
+   "to": "https://au.seek.com/companies"
+  },
+  {
+   "id": "bb-barbadosyp",
+   "collection": "directories",
+   "name": "Barbados Yellow Pages",
+   "website": "https://www.barbadosyp.com/",
+   "country": "barbados",
+   "chain": [
+    "301 https://www.barbadosyp.com/ -> https://www.findyello.com/barbados",
+    "301 https://www.findyello.com/barbados -> https://www.findyello.com/barbados/"
+   ],
+   "finalUrl": "https://www.findyello.com/barbados/",
+   "finalTitle": "findyello | Barbados Business Directory",
+   "mentionsOriginal": [],
+   "state": "REBRAND_OR_ACQUISITION",
+   "why": "findyello.com answers for barbadosyp.com but does not say why on the landing page",
+   "to": "https://www.findyello.com/barbados/",
+   "duplicateOf": "directories:jm-findyello"
+  },
+  {
+   "id": "be-cylex",
+   "collection": "directories",
+   "name": "Cylex Belgium",
+   "website": "https://www.cylex.be/",
+   "country": "belgium",
+   "chain": [
+    "301 https://www.cylex.be/ -> https://www.cylex-belgie.be/"
+   ],
+   "finalUrl": "https://www.cylex-belgie.be/",
+   "finalTitle": "Cylex Lokaal Zoeken België",
+   "mentionsOriginal": [],
+   "state": "DOMAIN_MOVE",
+   "why": "same brand on a new domain (cylex.be -> cylex-belgie.be)",
+   "to": "https://www.cylex-belgie.be/"
+  },
+  {
+   "id": "ch-cylex",
+   "collection": "directories",
+   "name": "Cylex Schweiz",
+   "website": "https://www.cylex.ch/",
+   "country": "switzerland",
+   "chain": [
+    "301 https://www.cylex.ch/ -> https://www.cylex-swiss.ch/"
+   ],
+   "finalUrl": "https://www.cylex-swiss.ch/",
+   "finalTitle": "Cylex Lokale Suche",
+   "mentionsOriginal": [],
+   "state": "DOMAIN_MOVE",
+   "why": "same brand on a new domain (cylex.ch -> cylex-swiss.ch)",
+   "to": "https://www.cylex-swiss.ch/"
+  },
+  {
+   "id": "cl-computrabajo",
+   "collection": "directories",
+   "name": "Computrabajo Chile",
+   "website": "https://www.computrabajo.cl/",
+   "country": "chile",
+   "chain": [
+    "301 https://www.computrabajo.cl/ -> https://cl.computrabajo.com/"
+   ],
+   "finalUrl": "https://cl.computrabajo.com/",
+   "finalTitle": "Bolsa de empleo y trabajo en Chile | Buscar trabajo en Computrabajo",
+   "mentionsOriginal": [],
+   "state": "DOMAIN_MOVE",
+   "why": "same brand, moved from computrabajo.cl to computrabajo.com",
+   "to": "https://cl.computrabajo.com/"
+  },
+  {
+   "id": "cz-damejidlo",
+   "collection": "directories",
+   "name": "foodora Česko",
+   "website": "https://www.damejidlo.cz/",
+   "country": "czech-republic",
+   "chain": [
+    "301 https://www.damejidlo.cz/ -> https://www.foodora.cz/"
+   ],
+   "finalUrl": "https://www.foodora.cz/",
+   "finalTitle": "Rozvoz jídla po celé ČR - foodora.cz - restaurace v okolí",
+   "mentionsOriginal": [],
+   "state": "REBRAND_OR_ACQUISITION",
+   "why": "foodora.cz answers for damejidlo.cz but does not say why on the landing page",
+   "to": "https://www.foodora.cz/",
+   "duplicateOf": null
+  },
+  {
+   "id": "de-myhammer",
+   "collection": "directories",
+   "name": "MyHammer",
+   "website": "https://www.myhammer.de/",
+   "country": "germany",
+   "chain": [
+    "301 https://www.myhammer.de/ -> https://www.my-hammer.de/"
+   ],
+   "finalUrl": "https://www.my-hammer.de/",
+   "finalTitle": "MyHammer - Der zuverlässige Weg, einen Handwerker zu beauftragen",
+   "mentionsOriginal": [
+    "Warum MyHammer der zuverlässige Weg ist",
+    "Groß oder klein — stellen Sie Ihren Auftrag für Haus oder Garten auf MyHammer ein und finden Sie überprüfte* Auftragnehmer, die ihn erledigen.",
+    "Bei der Registrierung auf MyHammer durchlaufen Autragnehmer verschiedene Prüfprozesse – z.B. in Bezug auf Ausweisdokumente, Firmendetails und Qualifikationsnachweise für zulassungspflichtige Arbeiten (z. B. Handwerkskarte oder Meisterbrief). So können Sie Ihren Auftrag mit Zuversicht vergeben."
+   ],
+   "state": "DOMAIN_MOVE",
+   "why": "same brand on a new domain (myhammer.de -> my-hammer.de)",
+   "to": "https://www.my-hammer.de/"
+  },
+  {
+   "id": "de-opendi",
+   "collection": "directories",
+   "name": "Opendi Deutschland",
+   "website": "https://www.opendi.de/",
+   "country": "germany",
+   "chain": [
+    "301 https://www.opendi.de/ -> https://stadtbranchenbuch.com/",
+    "301 https://stadtbranchenbuch.com/ -> https://www.stadtbranchenbuch.com/"
+   ],
+   "finalUrl": "https://www.stadtbranchenbuch.com/",
+   "finalTitle": "Das Stadtbranchenbuch für Deutschland",
+   "mentionsOriginal": [],
+   "state": "REBRAND_OR_ACQUISITION",
+   "why": "stadtbranchenbuch.com answers for opendi.de but does not say why on the landing page",
+   "to": "https://www.stadtbranchenbuch.com/",
+   "duplicateOf": "directories:de-stadtbranchenbuch"
+  },
+  {
+   "id": "dk-eniro",
+   "collection": "directories",
+   "name": "Eniro Danmark",
+   "website": "https://www.eniro.dk/",
+   "country": "denmark",
+   "chain": [
+    "301 https://www.eniro.dk/ -> https://www.krak.dk/"
+   ],
+   "finalUrl": "https://www.krak.dk/",
+   "finalTitle": "Krak.dk - Opdag nærheden.",
+   "mentionsOriginal": [],
+   "state": "REBRAND_OR_ACQUISITION",
+   "why": "krak.dk answers for eniro.dk but does not say why on the landing page",
+   "to": "https://www.krak.dk/",
+   "duplicateOf": "directories:dk-krak"
+  },
+  {
+   "id": "es-construmatica",
+   "collection": "directories",
+   "name": "Construmatica",
+   "website": "https://www.construmatica.com/",
+   "country": "spain",
+   "chain": [
+    "301 https://www.construmatica.com/ -> https://construnews.com/"
+   ],
+   "finalUrl": "https://construnews.com/",
+   "finalTitle": "Arquitectura, construcción y periodismo de datos - Construnews",
+   "mentionsOriginal": [],
+   "state": "REBRAND_OR_ACQUISITION",
+   "why": "construnews.com answers for construmatica.com but does not say why on the landing page",
+   "to": "https://construnews.com/",
+   "duplicateOf": null
+  },
+  {
+   "id": "fr-cylex",
+   "collection": "directories",
+   "name": "Cylex France",
+   "website": "https://www.cylex.fr/",
+   "country": "france",
+   "chain": [
+    "301 https://www.cylex.fr/ -> https://www.cylex-locale.fr/"
+   ],
+   "finalUrl": "https://www.cylex-locale.fr/",
+   "finalTitle": "Cylex Recherche Locale",
+   "mentionsOriginal": [],
+   "state": "DOMAIN_MOVE",
+   "why": "same brand on a new domain (cylex.fr -> cylex-locale.fr)",
+   "to": "https://www.cylex-locale.fr/"
+  },
+  {
+   "id": "fr-hoodspot",
+   "collection": "directories",
+   "name": "Hoodspot",
+   "website": "https://www.hoodspot.fr/",
+   "country": "france",
+   "chain": [
+    "301 https://www.hoodspot.fr/ -> https://annuaire.petitesaffiches.fr/"
+   ],
+   "finalUrl": "https://annuaire.petitesaffiches.fr/",
+   "finalTitle": "Hoodspot.fr",
+   "mentionsOriginal": [
+    "SUIVRE HOODSPOT.FR SUR LES RÉSEAUX SOCIAUX",
+    "Hoodspot.fr : annuaire de référence des professionnels."
+   ],
+   "state": "REBRAND_OR_ACQUISITION",
+   "why": "petitesaffiches.fr answers for hoodspot.fr but does not say why on the landing page",
+   "to": "https://annuaire.petitesaffiches.fr/",
+   "duplicateOf": null
+  },
+  {
+   "id": "global-accesswire",
+   "collection": "directories",
+   "name": "ACCESSWIRE",
+   "website": "https://www.accesswire.com/",
+   "country": "global",
+   "chain": [
+    "301 https://www.accesswire.com/ -> https://www.accessnewswire.com/"
+   ],
+   "finalUrl": "https://www.accessnewswire.com/",
+   "finalTitle": "Press Release Distribution & IR | ACCESS Newswire",
+   "mentionsOriginal": [],
+   "state": "REBRAND_OR_ACQUISITION",
+   "why": "accessnewswire.com answers for accesswire.com but does not say why on the landing page",
+   "to": "https://www.accessnewswire.com/",
+   "duplicateOf": null
+  },
+  {
+   "id": "global-bing-places",
+   "collection": "directories",
+   "name": "Bing Places for Business",
+   "website": "https://www.bingplaces.com/",
+   "country": "global",
+   "chain": [
+    "301 https://www.bingplaces.com/ -> https://www.bing.com/forbusiness/"
+   ],
+   "finalUrl": "https://www.bing.com/forbusiness/",
+   "finalTitle": "Bing Places for Business",
+   "mentionsOriginal": [
+    "Bing Places for Business",
+    "Connect to millions of customers with Bing Places for Business",
+    "Claim your business listing on Bing Places for Business, reach millions more unique customers, and get instant data-backed insights and analytics."
+   ],
+   "state": "DOMAIN_MOVE",
+   "why": "same brand on a new domain (bingplaces.com -> bing.com)",
+   "to": "https://www.bing.com/forbusiness/"
+  },
+  {
+   "id": "global-notion-integrations",
+   "collection": "directories",
+   "name": "Notion Integrations",
+   "website": "https://www.notion.so/integrations",
+   "country": "global",
+   "chain": [
+    "301 https://www.notion.so/integrations -> https://www.notion.com/integrations",
+    "308 https://www.notion.com/integrations -> https://www.notion.com/connections"
+   ],
+   "finalUrl": "https://www.notion.com/connections",
+   "finalTitle": "Notion Connections & Integrations",
+   "mentionsOriginal": [],
+   "state": "DOMAIN_MOVE",
+   "why": "same brand, moved from notion.so to notion.com",
+   "to": "https://www.notion.com/connections"
+  },
+  {
+   "id": "global-seedrs",
+   "collection": "directories",
+   "name": "Seedrs",
+   "website": "https://www.seedrs.com/",
+   "country": "global",
+   "chain": [
+    "301 https://www.seedrs.com/ -> https://europe.republic.com/"
+   ],
+   "finalUrl": "https://europe.republic.com/",
+   "finalTitle": "Invest online in startups via equity crowdfunding | Republic Europe",
+   "mentionsOriginal": [
+    "SEEDRS LTD",
+    "SEEDRS EUROPE LTD",
+    "This webpage has been approved as a financial promotion by Seedrs Europe Limited and/or Seedrs Limited (each trading as Republic Europe) (\"Republic Europe\"), which are authorised and regulated respectively by the Central Bank of Ireland and the Financial Conduct Authority in the United Kingdom. It is not intended to be a promotion of any individual investment opportunity and is not an offer to the public. The summary information provided about investment opportunities on this webpage is intended solely to demonstrate the types of investments available on the Republic Europe platform, and any investment decision should be made on the basis of the full campaign. Full campaigns are available to investors who have become authorised to invest on the Republic Europe platform. Investment activities may take place within the Republic of Ireland and/or the United Kingdom, depending on the applicable entity and investor location. Any person resident outside the Republic of Ireland or the United Kingdom should ensure that they are not subject to any local laws or regulations before investing."
+   ],
+   "state": "REBRAND_OR_ACQUISITION",
+   "why": "republic.com answers for seedrs.com but does not say why on the landing page",
+   "to": "https://europe.republic.com/",
+   "duplicateOf": null
+  },
+  {
+   "id": "global-smartcustomer",
+   "collection": "directories",
+   "name": "SmartCustomer",
+   "website": "https://www.sitejabber.com/",
+   "country": "global",
+   "chain": [
+    "301 https://www.sitejabber.com/ -> https://www.smartcustomer.com/"
+   ],
+   "finalUrl": "https://www.smartcustomer.com/",
+   "finalTitle": "Find Real Business Reviews & Ratings | SmartCustomer",
+   "mentionsOriginal": [
+    "SmartCustomer",
+    "“I only wish I had known about this website a long time ago. It’s awesome to be able to get it out to the public what many of the sites are about. Thanks, SmartCustomer, for helping to open the book on scammers.”",
+    "“SmartCustomer is a great website for writing reviews about various websites and businesses. I like this website more than Yelp and the other alternatives, because of its unique feature set and user interface.”"
+   ],
+   "state": "REBRAND_OR_ACQUISITION",
+   "why": "smartcustomer.com answers for sitejabber.com but does not say why on the landing page",
+   "to": "https://www.smartcustomer.com/",
+   "duplicateOf": null
+  },
+  {
+   "id": "global-techpilot",
+   "collection": "directories",
+   "name": "Techpilot",
+   "website": "https://www.techpilot.net/",
+   "country": "global",
+   "chain": [
+    "301 https://www.techpilot.net/ -> https://www.techpilot.com/en"
+   ],
+   "finalUrl": "https://www.techpilot.com/en",
+   "finalTitle": "Purchasing platform for drawing parts",
+   "mentionsOriginal": [
+    "Techpilot uses cookies",
+    "Everything in one place at techpilot.com",
+    "won with Techpilot"
+   ],
+   "state": "DOMAIN_MOVE",
+   "why": "same brand, moved from techpilot.net to techpilot.com",
+   "to": "https://www.techpilot.com/en"
+  },
+  {
+   "id": "global-ziprecruiter",
+   "collection": "directories",
+   "name": "ZipRecruiter",
+   "website": "https://www.ziprecruiter.com/",
+   "country": "global",
+   "chain": [
+    "307 https://www.ziprecruiter.com/ -> https://www.ziprecruiter.ie/"
+   ],
+   "finalUrl": "https://www.ziprecruiter.ie/",
+   "finalTitle": "ZipRecruiter Ireland",
+   "mentionsOriginal": [
+    "ZipRecruiter made the search way faster and easier and told me when companies would view my applications. Eventually I got a call for the position I wanted with a great company close to where I live!",
+    "ZipRecruiter got me my first real job after I graduated from college. Thanks to them, I am now able to be in this world as a functional, working adult. Hooray for salary! No more clocking in!",
+    "I was able to get a great full time position even before finishing my last semester of college.I couldn’t have asked for a better entry level position and I love my job. Thank you ZipRecruiter!"
+   ],
+   "state": "GEOLOCATED",
+   "why": "ziprecruiter.com served ziprecruiter.ie to this prober's location",
+   "to": "https://www.ziprecruiter.ie/"
+  },
+  {
+   "id": "ie-justeat",
+   "collection": "directories",
+   "name": "Just Eat Ireland",
+   "website": "https://www.justeat.ie/",
+   "country": "ireland",
+   "chain": [
+    "301 https://www.justeat.ie/ -> https://www.just-eat.ie/"
+   ],
+   "finalUrl": "https://www.just-eat.ie/",
+   "finalTitle": "Order Food Delivery & Takeaway from Local Restaurants | Just Eat",
+   "mentionsOriginal": [],
+   "state": "DOMAIN_MOVE",
+   "why": "same brand on a new domain (justeat.ie -> just-eat.ie)",
+   "to": "https://www.just-eat.ie/"
+  },
+  {
+   "id": "it-cylex",
+   "collection": "directories",
+   "name": "Cylex Italia",
+   "website": "https://www.cylex.it/",
+   "country": "italy",
+   "chain": [
+    "301 https://www.cylex.it/ -> https://www.cylex-italia.it/"
+   ],
+   "finalUrl": "https://www.cylex-italia.it/",
+   "finalTitle": "Cylex Ricerca Locale",
+   "mentionsOriginal": [],
+   "state": "DOMAIN_MOVE",
+   "why": "same brand on a new domain (cylex.it -> cylex-italia.it)",
+   "to": "https://www.cylex-italia.it/"
+  },
+  {
+   "id": "it-infoimprese",
+   "collection": "directories",
+   "name": "Infoimprese",
+   "website": "https://www.infoimprese.it/",
+   "country": "italy",
+   "chain": [
+    "301 https://www.infoimprese.it/ -> https://www.registroimprese.it/"
+   ],
+   "finalUrl": "https://www.registroimprese.it/",
+   "finalTitle": "Registro Imprese | I dati Ufficiali della Camera di Commercio",
+   "mentionsOriginal": [],
+   "state": "REBRAND_OR_ACQUISITION",
+   "why": "registroimprese.it answers for infoimprese.it but does not say why on the landing page",
+   "to": "https://www.registroimprese.it/",
+   "duplicateOf": null
+  },
+  {
+   "id": "jm-jamaicayp",
+   "collection": "directories",
+   "name": "Jamaica Yellow Pages",
+   "website": "https://www.jamaicayp.com/",
+   "country": "jamaica",
+   "chain": [
+    "301 https://www.jamaicayp.com/ -> https://www.findyello.com/Jamaica",
+    "301 https://www.findyello.com/Jamaica -> https://www.findyello.com/Jamaica/"
+   ],
+   "finalUrl": "https://www.findyello.com/Jamaica/",
+   "finalTitle": "findyello | Jamaica Business Directory",
+   "mentionsOriginal": [],
+   "state": "REBRAND_OR_ACQUISITION",
+   "why": "findyello.com answers for jamaicayp.com but does not say why on the landing page",
+   "to": "https://www.findyello.com/Jamaica/",
+   "duplicateOf": "directories:jm-findyello"
+  },
+  {
+   "id": "jp-nc-net",
+   "collection": "directories",
+   "name": "NC Network",
+   "website": "https://www.nc-net.or.jp/",
+   "country": "japan",
+   "chain": [
+    "301 https://www.nc-net.or.jp/ -> https://en.nc-net.com/"
+   ],
+   "finalUrl": "https://en.nc-net.com/",
+   "finalTitle": "No. 1 Factory Search | Challenging New Frontiers in Manufacturing / NC Network",
+   "mentionsOriginal": [],
+   "state": "REBRAND_OR_ACQUISITION",
+   "why": "nc-net.com answers for or.jp but does not say why on the landing page",
+   "to": "https://en.nc-net.com/",
+   "duplicateOf": null
+  },
+  {
+   "id": "mp-mk-reklama5",
+   "collection": "marketplaces",
+   "name": "Reklama5",
+   "website": "https://www.reklama5.mk/",
+   "country": "north-macedonia",
+   "chain": [
+    "302 https://www.reklama5.mk/ -> https://reklama5.com/"
+   ],
+   "finalUrl": "https://reklama5.com/",
+   "finalTitle": "Oglasi | Reklama5.mk | Ads | Cars | Real estate | Computers | Mobile phones | Services,Business | Employment | Advertisements |",
+   "mentionsOriginal": [
+    "Reklama5.mk - The largest trading platform in Macedonia",
+    "About Reklama5",
+    "Copyright © Reklama5.mkMobile version"
+   ],
+   "state": "DOMAIN_MOVE",
+   "why": "same brand, moved from reklama5.mk to reklama5.com",
+   "to": "https://reklama5.com/"
+  },
+  {
+   "id": "pl-cylex",
+   "collection": "directories",
+   "name": "Cylex Polska",
+   "website": "https://www.cylex.pl/",
+   "country": "poland",
+   "chain": [
+    "301 https://www.cylex.pl/ -> https://www.cylex-polska.pl/"
+   ],
+   "finalUrl": "https://www.cylex-polska.pl/",
+   "finalTitle": "Cylex Szukaj Lokalnie Polska",
+   "mentionsOriginal": [],
+   "state": "DOMAIN_MOVE",
+   "why": "same brand on a new domain (cylex.pl -> cylex-polska.pl)",
+   "to": "https://www.cylex-polska.pl/"
+  },
+  {
+   "id": "uk-applegate",
+   "collection": "directories",
+   "name": "Applegate",
+   "website": "https://www.applegate.co.uk/",
+   "country": "united-kingdom",
+   "chain": [
+    "301 https://www.applegate.co.uk/ -> https://www.businessmagnet.co.uk/businessmagnet-acquires-applegate.htm"
+   ],
+   "finalUrl": "https://www.businessmagnet.co.uk/businessmagnet-acquires-applegate.htm",
+   "finalTitle": "Businessmagnet acquires Applegate.co.uk | Businessmagnet",
+   "mentionsOriginal": [
+    "Businessmagnet acquires Applegate.co.uk domain",
+    "Stevenage, UK - 19 September 2025: Businessmagnet, one of the UK's leading B2B search and supplier discovery platforms, has acquired the domain Applegate.co.uk. The purchase strengthens Businessmagnet's position as a trusted destination for professionals seeking industrial products, services, and suppliers across the UK.",
+    "The acquisition of Applegate.co.uk will allow Businessmagnet to preserve and enhance well-established discovery paths for buyers while offering suppliers broader visibility and higher-intent traffic."
+   ],
+   "state": "ACQUISITION",
+   "why": "businessmagnet.co.uk states it: \"Businessmagnet acquires Applegate.co.uk domain\"",
+   "to": "https://www.businessmagnet.co.uk/businessmagnet-acquires-applegate.htm",
+   "duplicateOf": "directories:uk-businessmagnet"
+  }
+ ]
+}

@@ -1,0 +1,1171 @@
+{
+ "probedAt": "2026-08-14",
+ "findings": [
+  {
+   "id": "md-above-the-law",
+   "name": "Above the Law",
+   "website": "https://abovethelaw.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://abovethelaw.com/",
+    "title": "Above the Law - A Legal Web Site – News, Insights, and Opinions on Law Firms, Lawyers, Law School, Law Suits, Judges and Courts",
+    "textLen": 9980,
+    "feed": true,
+    "articles": 46,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; 46 article elements; masthead vocabulary; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en-US"
+  },
+  {
+   "id": "md-agweb",
+   "name": "AgWeb",
+   "website": "https://www.agweb.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.agweb.com/",
+    "title": "Agriculture news and commodity markets - AgWeb",
+    "textLen": 5334,
+    "feed": true,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; masthead vocabulary; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en-US"
+  },
+  {
+   "id": "md-alternativeto",
+   "name": "AlternativeTo",
+   "website": "https://alternativeto.net",
+   "country": "sweden",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://alternativeto.net/",
+    "title": "AlternativeTo - Crowdsourced software recommendations | AlternativeTo",
+    "textLen": 14848,
+    "feed": true,
+    "articles": 18,
+    "times": 17
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; 18 article elements; 17 datelines; masthead vocabulary",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-arabian-business",
+   "name": "Arabian Business",
+   "website": "https://www.arabianbusiness.com",
+   "country": "united-arab-emirates",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.arabianbusiness.com/",
+    "title": "Dubai News, Abu Dhabi News, Middle East Business News, Gulf Financial & Industry Events and Information - ArabianBusiness.com",
+    "textLen": 7905,
+    "feed": true,
+    "articles": 71,
+    "times": 8
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; 71 article elements; 8 datelines; masthead vocabulary; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en-US"
+  },
+  {
+   "id": "md-automotive-news",
+   "name": "Automotive News",
+   "website": "https://www.autonews.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.autonews.com/",
+    "title": "Automotive News | Car, EV & Dealership News - Automotive News",
+    "textLen": 10095,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "masthead vocabulary; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-biz-new-orleans",
+   "name": "Biz New Orleans",
+   "website": "https://www.bizneworleans.com",
+   "country": "united-states",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.bizneworleans.com/",
+    "title": "403 Forbidden",
+    "textLen": 13,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "UNKNOWN_PROTECTED",
+   "why": "access-denied"
+  },
+  {
+   "id": "md-bizjournals",
+   "name": "American City Business Journals",
+   "website": "https://www.bizjournals.com",
+   "country": "united-states",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.bizjournals.com/",
+    "title": "Just a moment...",
+    "textLen": 267,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "UNKNOWN_PROTECTED",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "md-brutkasten",
+   "name": "brutkasten",
+   "website": "https://www.brutkasten.com",
+   "country": "austria",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.brutkasten.com/",
+    "title": "Just a moment...",
+    "textLen": 266,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "UNKNOWN_PROTECTED",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "md-business-north-carolina",
+   "name": "Business North Carolina",
+   "website": "https://www.businessnc.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://businessnc.com/",
+    "title": "Home - Business North Carolina",
+    "textLen": 2374,
+    "feed": true,
+    "articles": 0,
+    "times": 4
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; 4 datelines; masthead vocabulary",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en-US"
+  },
+  {
+   "id": "md-business-standard",
+   "name": "Business Standard",
+   "website": "https://www.business-standard.com",
+   "country": "india",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.business-standard.com/",
+    "title": "Business News, Finance News, India News, Stock Markets BSE/NSE News, SENSEX, NIFTY, Personal Finance News",
+    "textLen": 7170,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "masthead vocabulary; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en-US"
+  },
+  {
+   "id": "md-business-wire",
+   "name": "Business Wire",
+   "website": "https://www.businesswire.com",
+   "country": "united-states",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.businesswire.com/",
+    "title": "Access Denied",
+    "textLen": 202,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "UNKNOWN_PROTECTED",
+   "why": "access-denied"
+  },
+  {
+   "id": "md-businesstech-za",
+   "name": "BusinessTech",
+   "website": "https://businesstech.co.za",
+   "country": "south-africa",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://businesstech.co.za/",
+    "title": "Just a moment...",
+    "textLen": 266,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "UNKNOWN_PROTECTED",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "md-cfo-brew",
+   "name": "CFO Brew",
+   "website": "https://cfobrew.com",
+   "country": "united-states",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.cfobrew.com/",
+    "title": "Just a moment...",
+    "textLen": 263,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "UNKNOWN_PROTECTED",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "md-cfo-com",
+   "name": "CFO",
+   "website": "https://www.cfo.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.cfo.com/",
+    "title": "CFO.com | News for CFOs",
+    "textLen": 6836,
+    "feed": true,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; masthead vocabulary; the masthead names itself as a publication",
+   "routes": {
+    "submissionUrl": {
+     "text": "Submit a tip",
+     "href": "https://www.cfo.com/submit-tip/"
+    }
+   },
+   "opportunityTypes": [
+    "editorial-submission"
+   ],
+   "scope": "en"
+  },
+  {
+   "id": "md-channel-futures",
+   "name": "Channel Futures",
+   "website": "https://www.channelfutures.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.channeldive.com/news/welcome-to-channel-dive/804329/",
+    "title": "Welcome to Channel Dive | Channel Dive",
+    "textLen": 3693,
+    "feed": true,
+    "articles": 1,
+    "times": 0
+   },
+   "state": "REDIRECTED",
+   "why": "www.channelfutures.com now answers as www.channeldive.com (\"Welcome to Channel Dive | Channel Dive\")",
+   "to": "https://www.channeldive.com/news/welcome-to-channel-dive/804329/"
+  },
+  {
+   "id": "md-comms-business",
+   "name": "Comms Business",
+   "website": "https://www.commsbusiness.co.uk",
+   "country": "united-kingdom",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.commsbusiness.co.uk/",
+    "title": "Just a moment...",
+    "textLen": 271,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "UNKNOWN_PROTECTED",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "md-construction-dive",
+   "name": "Construction Dive",
+   "website": "https://www.constructiondive.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.constructiondive.com/",
+    "title": "Construction News and Trends | Construction Dive",
+    "textLen": 7335,
+    "feed": true,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; the masthead names itself as a publication",
+   "routes": {
+    "submissionUrl": {
+     "text": "Submit a tip",
+     "href": "https://www.constructiondive.com/submit-tip/"
+    }
+   },
+   "opportunityTypes": [
+    "editorial-submission"
+   ],
+   "scope": "en"
+  },
+  {
+   "id": "md-control-engineering",
+   "name": "Control Engineering",
+   "website": "https://www.controleng.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.controleng.com/",
+    "title": "Control Engineering - Control Engineering covers and educates about automation, control and instrumentation technologies",
+    "textLen": 7213,
+    "feed": false,
+    "articles": 41,
+    "times": 0
+   },
+   "state": "UNKNOWN_PROTECTED",
+   "why": "captcha"
+  },
+  {
+   "id": "md-crains-detroit",
+   "name": "Crain’s Detroit Business",
+   "website": "https://www.crainsdetroit.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.crainsdetroit.com/",
+    "title": "Crain's Detroit Business - Today's Michigan business news - Crain's Detroit Business",
+    "textLen": 4452,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "masthead vocabulary; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-crains-new-york",
+   "name": "Crain’s New York Business",
+   "website": "https://www.crainsnewyork.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.crainsnewyork.com/",
+    "title": "Crain's New York Business - Today's NYC business news - Crain's New York Business",
+    "textLen": 4025,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "masthead vocabulary; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-dallas-innovates",
+   "name": "Dallas Innovates",
+   "website": "https://www.dallasinnovates.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://dallasinnovates.com/",
+    "title": "Dallas Innovates » What's new + next in Dallas-Fort Worth innovation",
+    "textLen": 6824,
+    "feed": true,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en-US"
+  },
+  {
+   "id": "md-featured",
+   "name": "Featured",
+   "website": "https://featured.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://featured.com/",
+    "title": "Featured · Home",
+    "textLen": 511,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "masthead vocabulary",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-geekpark",
+   "name": "极客公园",
+   "website": "https://www.geekpark.net",
+   "country": "china",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.geekpark.net/",
+    "title": "极客公园-Geek Things Up!",
+    "textLen": 2429,
+    "feed": false,
+    "articles": 21,
+    "times": 0
+   },
+   "state": "UNKNOWN_PROTECTED",
+   "why": "http 403"
+  },
+  {
+   "id": "md-geekwire",
+   "name": "GeekWire",
+   "website": "https://www.geekwire.com",
+   "country": "united-states",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.geekwire.com/",
+    "title": "Just a moment...",
+    "textLen": 264,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "UNKNOWN_PROTECTED",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "md-gulf-business",
+   "name": "Gulf Business",
+   "website": "https://gulfbusiness.com",
+   "country": "united-arab-emirates",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://gulfbusiness.com/",
+    "title": "Just a moment...",
+    "textLen": 264,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "UNKNOWN_PROTECTED",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "md-hankyung",
+   "name": "한국경제",
+   "website": "https://www.hankyung.com",
+   "country": "south-korea",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.hankyung.com/",
+    "title": "한국경제",
+    "textLen": 5601,
+    "feed": true,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "ko"
+  },
+  {
+   "id": "md-healthcare-it-news",
+   "name": "Healthcare IT News",
+   "website": "https://www.healthcareitnews.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.healthcareitnews.com/",
+    "title": "Home | Healthcare IT News",
+    "textLen": 9262,
+    "feed": false,
+    "articles": 1,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-helpareporter",
+   "name": "Help a Reporter Out",
+   "website": "https://www.helpareporter.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.helpareporter.com/",
+    "title": "Help a Reporter Out (HARO) – Connecting Journalists & Sources",
+    "textLen": 314,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "UNRESOLVED",
+   "why": "only 314 characters rendered"
+  },
+  {
+   "id": "md-hospitality-net",
+   "name": "Hospitality Net",
+   "website": "https://www.hospitalitynet.org",
+   "country": "netherlands",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.hospitalitynet.org/",
+    "title": "Just a moment...",
+    "textLen": 270,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "UNKNOWN_PROTECTED",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "md-hotel-management",
+   "name": "Hotel Management",
+   "website": "https://www.hotelmanagement.net",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.hotelmanagement.net/",
+    "title": "Hotel Management Hotel News for Professionals",
+    "textLen": 1632,
+    "feed": true,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; masthead vocabulary; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-hr-magazine-uk",
+   "name": "HR Magazine",
+   "website": "https://www.hrmagazine.co.uk",
+   "country": "united-kingdom",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.hrmagazine.co.uk/",
+    "title": "Just a moment...",
+    "textLen": 268,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "UNKNOWN_PROTECTED",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "md-it-brew",
+   "name": "IT Brew",
+   "website": "https://www.itbrew.com",
+   "country": "united-states",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.itbrew.com/",
+    "title": "Just a moment...",
+    "textLen": 262,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "UNKNOWN_PROTECTED",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "md-japan-times",
+   "name": "The Japan Times",
+   "website": "https://www.japantimes.co.jp",
+   "country": "japan",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.japantimes.co.jp/",
+    "title": "Just a moment...",
+    "textLen": 268,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "UNKNOWN_PROTECTED",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "md-just-food",
+   "name": "Just Food",
+   "website": "https://www.just-food.com",
+   "country": "united-kingdom",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.just-food.com/",
+    "title": "Food Industry News, Insights & Analysis | Just Food",
+    "textLen": 10453,
+    "feed": true,
+    "articles": 25,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; 25 article elements; masthead vocabulary; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en-US"
+  },
+  {
+   "id": "md-korea-tech-desk",
+   "name": "KoreaTechDesk",
+   "website": "https://www.koreatechdesk.com",
+   "country": "south-korea",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://koreatechdesk.com/",
+    "title": "South Korean Startup Media And Tech Innovation - KoreaTechDesk",
+    "textLen": 10269,
+    "feed": true,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en-US"
+  },
+  {
+   "id": "md-les-echos",
+   "name": "Les Echos",
+   "website": "https://www.lesechos.fr",
+   "country": "france",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.lesechos.fr/",
+    "title": "Les Echos : actualités en direct, Économie, Finance, Marchés, Politique, Entreprises, Start-up - Les Echos",
+    "textLen": 9440,
+    "feed": false,
+    "articles": 38,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "38 article elements",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "fr"
+  },
+  {
+   "id": "md-mainebiz",
+   "name": "Mainebiz",
+   "website": "https://www.mainebiz.biz",
+   "country": "united-states",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.mainebiz.biz/",
+    "title": "Access Restricted – New England Business Media",
+    "textLen": 432,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "UNKNOWN_PROTECTED",
+   "why": "http 403"
+  },
+  {
+   "id": "md-manufacturing-net",
+   "name": "Manufacturing.net",
+   "website": "https://www.manufacturing.net",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.manufacturing.net/",
+    "title": "Manufacturing.net",
+    "textLen": 5250,
+    "feed": true,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; masthead vocabulary",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en-us"
+  },
+  {
+   "id": "md-mobihealthnews",
+   "name": "MobiHealthNews",
+   "website": "https://www.mobihealthnews.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.mobihealthnews.com/",
+    "title": "Home | MobiHealthNews",
+    "textLen": 7124,
+    "feed": false,
+    "articles": 1,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "masthead vocabulary",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-morning-brew",
+   "name": "Morning Brew",
+   "website": "https://www.morningbrew.com",
+   "country": "united-states",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.morningbrew.com/",
+    "title": "Just a moment...",
+    "textLen": 267,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "UNKNOWN_PROTECTED",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "md-mt-sprout",
+   "name": "MT/Sprout",
+   "website": "https://mtsprout.nl",
+   "country": "netherlands",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://mtsprout.nl/",
+    "title": "Just a moment...",
+    "textLen": 259,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "UNKNOWN_PROTECTED",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "md-muck-rack",
+   "name": "Muck Rack",
+   "website": "https://muckrack.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://muckrack.com/",
+    "title": "Muck Rack PR Software: Media Monitoring, Database, Reporting",
+    "textLen": 3844,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "masthead vocabulary",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-nashville-post",
+   "name": "Nashville Post",
+   "website": "https://www.nashvillepost.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.nashvillepost.com/",
+    "title": "nashvillepost.com | Smart. Relevant. Engaged.",
+    "textLen": 3464,
+    "feed": true,
+    "articles": 35,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; 35 article elements; masthead vocabulary",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-phocuswire",
+   "name": "PhocusWire",
+   "website": "https://www.phocuswire.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.phocuswire.com/",
+    "title": "News on Travel Technology, Distribution and the Digital Economy | PhocusWire",
+    "textLen": 7607,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "masthead vocabulary; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-plastics-today",
+   "name": "PlasticsToday",
+   "website": "https://www.plasticstoday.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.plasticstoday.com/",
+    "title": "PlasticsToday",
+    "textLen": 7535,
+    "feed": false,
+    "articles": 2,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "masthead vocabulary",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-practical-ecommerce",
+   "name": "Practical Ecommerce",
+   "website": "https://www.practicalecommerce.com",
+   "country": "united-states",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.practicalecommerce.com/",
+    "title": "Just a moment...",
+    "textLen": 274,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "UNKNOWN_PROTECTED",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "md-precision-farming-dealer",
+   "name": "Precision Farming Dealer",
+   "website": "https://www.precisionfarmingdealer.com",
+   "country": "united-states",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.precisionfarmingdealer.com/",
+    "title": "Just a moment...",
+    "textLen": 278,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "UNKNOWN_PROTECTED",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "md-pymnts",
+   "name": "PYMNTS",
+   "website": "https://www.pymnts.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.pymnts.com/",
+    "title": "PYMNTS.com | Breaking News, Trends and Analysis",
+    "textLen": 7464,
+    "feed": true,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; masthead vocabulary; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en-US"
+  },
+  {
+   "id": "md-retail-brew",
+   "name": "Retail Brew",
+   "website": "https://retailbrew.com",
+   "country": "united-states",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.retailbrew.com/",
+    "title": "Just a moment...",
+    "textLen": 266,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "UNKNOWN_PROTECTED",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "md-retail-touchpoints",
+   "name": "Retail TouchPoints",
+   "website": "https://www.retailtouchpoints.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.retailtouchpoints.com/",
+    "title": "Retail News & Insights - Retail TouchPoints",
+    "textLen": 5664,
+    "feed": true,
+    "articles": 1,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en-US"
+  },
+  {
+   "id": "md-richmond-bizsense",
+   "name": "Richmond BizSense",
+   "website": "https://richmondbizsense.com",
+   "country": "united-states",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://richmondbizsense.com/",
+    "title": "Just a moment...",
+    "textLen": 268,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "UNKNOWN_PROTECTED",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "md-sbbit",
+   "name": "ビジネス+IT",
+   "website": "https://www.sbbit.jp",
+   "country": "japan",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.sbbit.jp/",
+    "title": "403 Forbidden",
+    "textLen": 19,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "UNKNOWN_PROTECTED",
+   "why": "access-denied"
+  },
+  {
+   "id": "md-startland-news",
+   "name": "Startland News",
+   "website": "https://startlandnews.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://startlandnews.com/",
+    "title": "Startland News - Kansas City’s Source for Bold, Untold Stories of Entrepreneurship",
+    "textLen": 4493,
+    "feed": true,
+    "articles": 1,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en-US"
+  },
+  {
+   "id": "md-startupitalia",
+   "name": "StartupItalia",
+   "website": "https://www.startupitalia.eu",
+   "country": "italy",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.startupitalia.eu/",
+    "title": "Just a moment...",
+    "textLen": 268,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "UNKNOWN_PROTECTED",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "md-tech-brew",
+   "name": "Tech Brew",
+   "website": "https://www.emergingtechbrew.com",
+   "country": "united-states",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.emergingtechbrew.com/",
+    "title": "Just a moment...",
+    "textLen": 272,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "UNKNOWN_PROTECTED",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "md-technically",
+   "name": "Technical.ly",
+   "website": "https://technical.ly",
+   "country": "united-states",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://technical.ly/",
+    "title": "Just a moment...",
+    "textLen": 260,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "UNKNOWN_PROTECTED",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "md-techpoint-africa",
+   "name": "Techpoint Africa",
+   "website": "https://techpoint.africa",
+   "country": "nigeria",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://techpoint.africa/",
+    "title": "Startups, Innovation and Technology in Africa • Techpoint Africa",
+    "textLen": 3538,
+    "feed": true,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en-US"
+  },
+  {
+   "id": "md-techstory",
+   "name": "TechStory",
+   "website": "https://techstory.in",
+   "country": "india",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://techstory.in/",
+    "title": "Just a moment...",
+    "textLen": 260,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "UNKNOWN_PROTECTED",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "md-the-hustle",
+   "name": "The Hustle",
+   "website": "https://www.thehustle.co",
+   "country": "united-states",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.thehustle.co/",
+    "title": "CNAME Cross-User Banned | Cloudflare",
+    "textLen": 862,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "UNKNOWN_PROTECTED",
+   "why": "http 403"
+  },
+  {
+   "id": "md-travel-weekly",
+   "name": "Travel Weekly",
+   "website": "https://www.travelweekly.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.travelweekly.com/",
+    "title": "Travel Weekly | Voice of the Travel Industry, Hotels & Destinations: Travel Weekly",
+    "textLen": 17440,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "masthead vocabulary; the masthead names itself as a publication",
+   "routes": {
+    "submissionUrl": {
+     "text": "Write for us",
+     "href": "https://www.travelweekly.com/write-for-us"
+    }
+   },
+   "opportunityTypes": [
+    "contributed-article"
+   ],
+   "scope": "en"
+  },
+  {
+   "id": "md-uktech-news",
+   "name": "UKTN",
+   "website": "https://www.uktech.news",
+   "country": "united-kingdom",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.uktech.news/",
+    "title": "Just a moment...",
+    "textLen": 263,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "UNKNOWN_PROTECTED",
+   "why": "cloudflare-interstitial"
+  },
+  {
+   "id": "md-virginia-business",
+   "name": "Virginia Business",
+   "website": "https://www.virginiabusiness.com",
+   "country": "united-states",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.virginiabusiness.com/",
+    "title": "Just a moment...",
+    "textLen": 272,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "UNKNOWN_PROTECTED",
+   "why": "cloudflare-interstitial"
+  }
+ ]
+}
