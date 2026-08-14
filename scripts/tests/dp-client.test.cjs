@@ -490,6 +490,72 @@ test('no platform is named anywhere in the engine or the client', () => {
   }
 });
 
+test('the engine never writes to the opportunities it is given', () => {
+  // scripts/lib/bd-discovery.cjs has "filtering never mutates the records or the
+  // input array" and the planner engine had no equivalent, so this was open:
+  //
+  //   function campaignScore(op, ctx) {
+  //     op.cost = String(op.cost);           // a write-back into the record
+  //
+  // survived all 101 planner tests. Value-preserving writes are invisible to a
+  // JSON snapshot, and a write that DOES change a value is only caught by
+  // whichever downstream assertion happens to notice — which is luck, not a
+  // guard. In the browser the target is the fetched payload the client holds for
+  // the life of the page, so a write there is not a passing scratch value: every
+  // later recompute scores against it, and the campaign quietly drifts from the
+  // one the same URL produced a minute ago.
+  //
+  // A set trap rather than Object.freeze, because a silent failed write under
+  // sloppy mode would prove nothing, and rather than a JSON snapshot, because
+  // `op.cost = String(op.cost)` leaves a snapshot identical.
+  const writes = [];
+  const guard = (target, label) => new Proxy(target, {
+    set(t, k, v) { writes.push(`${label}.${String(k)} = ${JSON.stringify(v)}`); t[k] = v; return true; },
+    defineProperty(t, k, d) { writes.push(`defineProperty ${label}.${String(k)}`); return Reflect.defineProperty(t, k, d); },
+    deleteProperty(t, k) { writes.push(`delete ${label}.${String(k)}`); return Reflect.deleteProperty(t, k); },
+  });
+  const wrap = (o) => {
+    const record = o.record && typeof o.record === 'object'
+      ? guard({ ...o.record,
+        intelligence: o.record.intelligence && typeof o.record.intelligence === 'object'
+          ? guard({ ...o.record.intelligence }, `${o.platformId}.record.intelligence`)
+          : o.record.intelligence }, `${o.platformId}.record`)
+      : o.record;
+    const accepts = o.accepts && typeof o.accepts === 'object'
+      ? guard({ ...o.accepts }, `${o.platformId}.accepts`) : o.accepts;
+    return guard({ ...o, record, accepts }, o.platformId);
+  };
+
+  // The slim payload, because that is the object the browser actually holds.
+  const watched = SLIM.map(wrap);
+  const markets = ['*', 'united-states', 'united-kingdom', 'germany'];
+  for (const business of E.MEDIA_PROFILES.map((p) => p.key).slice(0, 3)) {
+    for (const objective of E.OBJECTIVES.map((o) => o.key).slice(0, 3)) {
+      for (const market of markets) {
+        for (const evidence of E.EVIDENCE_MODES.map((m) => m.key)) {
+          const result = E.campaign(watched, { business, objective, market, budget: 'any' },
+            { size: 10, evidence });
+          E.campaignRows(result);
+          E.campaignCsv(result);
+        }
+      }
+    }
+  }
+  E.plan(watched, { business: 'local-business', objective: 'local-discovery',
+    market: 'united-states', budget: 'free-freemium' });
+  E.health(watched);
+  for (const op of watched) E.actionability(op);
+
+  assert.deepStrictEqual(writes.slice(0, 5), [],
+    `the engine wrote into ${writes.length} canonical field(s); the first are above`);
+
+  // Not vacuous: the same walk really did drive the scorer over real records.
+  assert.ok(watched.length > 2000, `only ${watched.length} opportunities were exercised`);
+  const proof = E.campaign(watched, { business: 'local-business', objective: 'local-discovery',
+    market: 'united-states', budget: 'any' }, { size: 10, evidence: 'ready' });
+  assert.ok(proof.picked.length > 0, 'the walk produced no campaign, so nothing was scored');
+});
+
 test('the projection and the payload are deterministic', () => {
   const build = require(path.join(ROOT, 'scripts/build-distribution-planner.cjs'));
   const a = JSON.stringify(E.projectForClient(OPS));

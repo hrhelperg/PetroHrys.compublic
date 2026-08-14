@@ -331,7 +331,17 @@
       text = 'No published directory for this jurisdiction — ' + String(statesShown)
         + ' state coverage entry shown';
     }
-    status.textContent = text;
+    // Written only when it CHANGED. This is a polite live region, and assigning
+    // textContent replaces the text node whether or not the string moved, which
+    // is a fresh announcement either way. Measured on the generated pages:
+    // cycling the sort control writes the same sentence every time — 3 writes,
+    // 1 distinct string on the United States page, 2 and 1 on the opportunities
+    // worklist — because re-ordering cannot change how many rows are shown. And
+    // 3 of the 8 keystrokes in "registry" leave the count where it was.
+    //
+    // The guard changes nothing a sighted reader sees; it removes announcements
+    // that carry no information for a reader who is listening.
+    if (status.textContent !== text) status.textContent = text;
     updateExport();
   }
 

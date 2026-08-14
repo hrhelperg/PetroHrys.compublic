@@ -241,7 +241,7 @@
       return; // an unknown profile or objective: leave the server's answer alone
     }
 
-    statusEl.textContent = E.summaryText({
+    var summary = E.summaryText({
       size: size,
       business: state.labels.business,
       objective: state.labels.objective,
@@ -251,6 +251,13 @@
       totalEligible: result.totalEligible,
       picked: result.picked.length
     });
+    // Written only when it CHANGED. Six controls, and several of them can leave
+    // the sentence identical — measured: cycling the campaign size between two
+    // values that both exhaust the eligible set rewrites the same string. A
+    // polite live region re-announces on every textContent assignment, whether
+    // or not the text moved, so an unconditional write turns "no change" into an
+    // announcement.
+    if (statusEl.textContent !== summary) statusEl.textContent = summary;
     renderGroups(result.groups);
     lastResult = result;
     lastValues = state.values;
@@ -311,6 +318,28 @@
     // rewrites whatever arrived — a stale parameter, a hostile one, a partial
     // link — as the canonical form of the state actually rendered.
     apply('replace');
+
+    // ── THE SUMMARY BECOMES A LIVE REGION, AND ONLY NOW ──────────────────────
+    //
+    // Section 3 and the sentence above it are rebuilt on every control change:
+    // measured, one change replaces the whole campaign — up to 100 list items
+    // across four groups — and the only text that states what happened is this
+    // paragraph. Without a live region a screen reader hears nothing at all,
+    // and the reader has to go looking for a section that may have moved. The
+    // Research Center collection pages have announced their count since they
+    // shipped (role="status" aria-live="polite" on .bd-status); this page had
+    // no aria-live anywhere on it — measured: 0 occurrences in the generated
+    // markup, in all four locales.
+    //
+    // Promoted HERE, after the boot render, for two reasons. The generator
+    // cannot do it: without JavaScript the paragraph never changes, and a live
+    // region over static text is furniture that announces nothing. And doing it
+    // before apply('replace') would announce the boot summary — which either
+    // repeats the prerendered sentence a reader has already been given, or, on
+    // a shared link, duplicates a page load. A live region should speak when
+    // something the reader did changed the answer, and not before.
+    statusEl.setAttribute('role', 'status');
+    statusEl.setAttribute('aria-live', 'polite');
 
     if (historyOk) {
       window.addEventListener('popstate', function () {

@@ -440,6 +440,53 @@ test('invalid, unknown and hostile parameters fail safe', () => {
   }
 });
 
+test('the free-text query reaches the search box and nothing else in the document', () => {
+  // The gap the case above leaves open. Every hostile value it tries is a FACET
+  // value, and facets are whitelisted — nothing hostile ever gets past
+  // parseState, so the assertion that nothing hostile reached the DOM passes
+  // without the client having to be careful at all.
+  //
+  // q is the one value that is NOT whitelisted: it is capped at 200 characters
+  // and then carried, by design, because a search box has to be able to hold
+  // what a reader typed. So q is the only parameter for which "written as text,
+  // never as markup" is a live claim, and it was the only one nothing tested.
+  //
+  // Measured against the mutation that motivated this: reflecting
+  // searchInput.value into a single attribute on the status line —
+  //   status.setAttribute('data-bd-query', searchInput.value)
+  // — left all 208 tests in the discovery, URL, export, client, sort, grouped
+  // DOM, indexation, Australia, worklist and i18n files green.
+  const page = '/research/tenders-procurement/';
+  const payloads = [
+    '<script>alert(1)</script>',
+    '"><img src=x onerror=alert(1)>',
+    "');alert(1);//",
+    '<svg onload=alert(1)>',
+  ];
+  for (const payload of payloads) {
+    const app = boot(page, `?q=${encodeURIComponent(payload)}`);
+
+    // Not vacuous: the query really did arrive, and it really is in the box.
+    assert.strictEqual(app.search.value, payload,
+      `${payload}: the query never reached the search input, so this proves nothing`);
+
+    // input.value is a PROPERTY, not markup. Every attribute and every text
+    // node in the document is markup, and none of them may carry it.
+    for (const node of app.document.root.descendants()) {
+      for (const [key, value] of Object.entries(node.attributes)) {
+        assert.ok(!String(value).includes(payload),
+          `${payload}: the raw query was written into the ${key} attribute of <${node.tag}>`);
+      }
+      assert.ok(!String(node.text || '').includes(payload),
+        `${payload}: the raw query was written into the text of <${node.tag}>`);
+    }
+    // And the client never reaches for a markup sink in the first place.
+    assert.ok(!/innerHTML|outerHTML|insertAdjacentHTML|document\.write/
+      .test(read('js/business-directories.js')),
+      'the client acquired a markup sink');
+  }
+});
+
 test('a value that is real on another page is still refused on this one', () => {
   // The subtle case a naive whitelist misses: "india" is a legitimate country
   // slug, and it is not one of the values the marketplaces page offers for
@@ -553,6 +600,49 @@ test('typing replaces the current entry; a control adds one', () => {
     'changing a facet did not push');
 });
 
+test('Clear empties the controls, the results AND the address bar together', () => {
+  // The address bar was the half nothing tested. Every control the page renders
+  // is reset by the Clear handler and the table is re-rendered, so a mutation
+  // that swapped its `interact()` for a bare `apply()` —
+  //   the same render, minus the history write —
+  // left all 209 tests green while the reader was looking at the whole
+  // collection under an address that still said ?country=czech-republic&q=…
+  //
+  // That is the worst of the three states this feature can be in. A filtered
+  // table under a bare URL loses a selection; a broken filter is visible. An
+  // UNFILTERED table under a filtered URL is invisible and it lies to the next
+  // reader: copy the address, send it, and they see 6 rows where the sender saw
+  // 383 — with nothing on either screen admitting the two disagree.
+  const page = '/research/tenders-procurement/';
+  const html = htmlFor(page);
+  const schema = schemaOf(html);
+  const everything = rowsOf(html, schema).map((r) => r.name).sort();
+
+  const app = boot(page, '?country=czech-republic&q=elektronick');
+  const clear = app.document.querySelector('[data-bd-clear]');
+  assert.ok(clear, 'the page renders no Clear control, so this proves nothing');
+  // Not vacuous: the link really did filter before Clear was pressed.
+  assert.ok(app.visible().length > 0 && app.visible().length < everything.length,
+    `the link left ${app.visible().length} of ${everything.length} rows; the case is too thin`);
+  assert.notStrictEqual(app.url(), page, 'the link did not put a selection in the URL');
+
+  // mini-dom models no focus(); the handler returns focus to the search box,
+  // which is behaviour this test is not about.
+  app.search.focus = () => { app.search.focused = true; };
+  clear.dispatch('click');
+  assert.ok(app.search.focused, 'Clear did not return focus to the search box');
+
+  assert.deepStrictEqual(app.visible().sort(), everything,
+    'Clear did not restore the whole collection');
+  assert.strictEqual(app.search.value, '', 'Clear left the search box populated');
+  assert.strictEqual(app.facet('country').value, '', 'Clear left a facet selected');
+  assert.strictEqual(app.url(), page,
+    'Clear reset the page and left a stale parameter in the address bar');
+  // And it is a NAVIGATION: Back must return to the selection that was cleared.
+  assert.strictEqual(app.entries[app.entries.length - 1][0], 'push',
+    'Clear did not record a history entry, so Back cannot undo it');
+});
+
 // ── 6. THE URL NEVER LEAKS INTO THE SITE ────────────────────────────────────
 
 let generatedCache = null;
@@ -647,6 +737,52 @@ test('the static "Download all" link is untouched and needs no JavaScript', () =
     assert.ok(anchor, `${page}: the download link is not an anchor`);
     assert.ok(/all/i.test(anchor[1]) || /\d/.test(anchor[1]),
       `${page}: "${anchor[1]}" no longer says it is the whole collection`);
+  }
+});
+
+test('the client never adopts the "Download all" link, whatever is selected', () => {
+  // The test above reads MARKUP, so it proves the anchor ships correct. It says
+  // nothing about what the client does to it once it runs, and that is the half
+  // that can go wrong: adding four lines to updateExport() that rewrite the
+  // anchor's label and hand its click a Blob of the filtered rows left all 210
+  // tests green. The page would then offer two buttons that both export the
+  // selection and neither of which exports the collection.
+  //
+  // Two separate exports is the whole design. "Download all 383" is a static
+  // file, correct with no JavaScript, and it is what a reader who wants the
+  // dataset clicks. The filtered button beside it is the selection. A reader who
+  // filtered to 6 rows and pressed "Download all 383" must get 383.
+  const page = '/research/tenders-procurement/';
+  const html = htmlFor(page);
+  const anchor = /<a[^>]*href="(\/research\/tenders-procurement\/platforms\.csv)"[^>]*download[^>]*>([^<]+)<\/a>/
+    .exec(html);
+  assert.ok(anchor, 'the static download anchor is not in the markup');
+  const [, href, label] = anchor;
+
+  for (const search of ['', '?country=czech-republic', '?q=elektronick&esub=yes']) {
+    const app = boot(page, search);
+    const link = app.document.querySelectorAll('a').find((a) => a.getAttribute('href') === href);
+    assert.ok(link, `${search}: the client removed the static download link`);
+
+    // Not vacuous: the client really is running and really did filter.
+    assert.ok(app.document.querySelector('.bd-status'), `${search}: the client did not render`);
+    if (search) {
+      assert.ok(app.visible().length < app.rows().length,
+        `${search}: nothing was filtered, so an adopted link could not be noticed`);
+    }
+
+    assert.strictEqual(link.getAttribute('href'), href,
+      `${search}: the client rewrote the static link's href`);
+    assert.strictEqual(link.textContent, label,
+      `${search}: the client rewrote the static link's label to follow the selection`);
+
+    // And clicking it is a plain navigation to that file: no Blob, no override.
+    const before = app.blobs.length;
+    link.dispatch('click');
+    assert.strictEqual(app.blobs.length, before,
+      `${search}: clicking "Download all" produced a generated file instead of the static one`);
+    assert.strictEqual(link.getAttribute('href'), href,
+      `${search}: clicking "Download all" repointed it away from the static file`);
   }
 });
 
