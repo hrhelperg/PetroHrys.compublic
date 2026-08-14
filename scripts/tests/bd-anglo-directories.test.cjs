@@ -30,6 +30,8 @@ const path = require('node:path');
 
 const S = require('../lib/bd-schema.cjs');
 const { loadRegistry } = require('../lib/bd-registry.cjs');
+// Publication parity, in place of the per-country totals this suite used to pin.
+const PARITY = require('./helpers/country-parity.cjs');
 
 const ROOT = path.resolve(__dirname, '..', '..');
 const ALL = loadRegistry().directories;
@@ -53,9 +55,27 @@ const bodyText = (html) => html.replace(/<[^>]+>/g, ' ')
 test('every record this wave claims to have published exists', () => {
   assert.strictEqual(WAVE.length, 8, 'the wave manifest changed size without this test changing');
   for (const id of WAVE) assert.ok(byId.get(id), `missing record ${id}`);
-  assert.strictEqual(commercialIn('united-kingdom').length, 5);
-  assert.strictEqual(commercialIn('canada').length, 2);
-  assert.strictEqual(commercialIn('australia').length, 1);
+  // BRITTLE MIRRORS, REMOVED: three per-country commercial-pillar totals. They
+  // restated how many commercial directories each country happens to hold, so a
+  // verified UK, Canadian or Australian addition failed a test about THIS
+  // wave's eight records. Same class as the per-country totals in the German,
+  // Czech, Polish, Italian and Spanish suites; see
+  // scripts/tests/helpers/country-parity.cjs.
+  //
+  // What replaces them: this wave's records really are in the commercial pillar
+  // of the country they claim (derived from the manifest above, so it moves with
+  // the wave), each country's set is whole and reached the site, and the pillar
+  // cannot shrink unnoticed.
+  for (const [country, floor] of [['united-kingdom', 5], ['canada', 2], ['australia', 1]]) {
+    const commercial = commercialIn(country);
+    assert.ok(commercial.length >= floor,
+      `the ${country} commercial pillar shrank to ${commercial.length}`);
+    const ids = new Set(commercial.map((r) => r.id));
+    for (const r of NEW.filter((x) => x.country === country)) {
+      assert.ok(ids.has(r.id), `${r.id} is not in the ${country} commercial pillar`);
+    }
+    PARITY.assertCountryPublicationParity(assert, ALL, country, floor);
+  }
 });
 
 // ── 1 + 17. the operator gate ───────────────────────────────────────────────

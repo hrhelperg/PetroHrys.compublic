@@ -47,8 +47,18 @@ const bodyText = (html) => html.replace(/<[^>]+>/g, ' ')
 test('every record this wave claims to have published exists', () => {
   assert.strictEqual(WAVE.length, 2, 'the wave manifest changed size without this test changing');
   for (const id of WAVE) assert.ok(byId.get(id), `missing record ${id}`);
-  // us-bbb predates the publication contract; the two new ones join it.
-  assert.strictEqual(commercialIn('united-states').length, 3);
+  // BRITTLE MIRROR, REMOVED: `commercialIn('united-states').length === 3`, a
+  // per-country pillar total. us-bbb predates the publication contract and the
+  // two new ones join it — which is what is asserted now, from the wave
+  // manifest, so a fourth verified US commercial directory is research rather
+  // than a failure of this wave's test.
+  const commercial = commercialIn('united-states');
+  assert.ok(commercial.length >= 3, `the US commercial pillar shrank to ${commercial.length}`);
+  const commercialIds = new Set(commercial.map((r) => r.id));
+  assert.ok(commercialIds.has('us-bbb'), 'us-bbb left the US commercial pillar');
+  for (const id of WAVE) {
+    assert.ok(commercialIds.has(id), `${id} is not in the US commercial pillar`);
+  }
 });
 
 // ── the structural finding: no US copy of a global platform ─────────────────
@@ -236,9 +246,23 @@ test('no record is a government record or claims to be a registry', () => {
     assert.ok(!/\bstatutory\b|official register|source of record/i.test(visible(r)),
       `${r.id} describes a commercial directory in statutory language`);
   }
-  // And the 75 US statutory registers were not disturbed.
+  // And the US statutory registers were not disturbed.
+  //
+  // BRITTLE MIRROR, REMOVED: `gov.length === 75`. This file already argues the
+  // case against itself, forty lines up: "Counting the total would have made a
+  // legitimate addition look like a remediation." The same is true here — a new
+  // verified US statutory register is research, not a wave violation, and the
+  // literal turned it into one.
+  //
+  // The property is that THIS WAVE put nothing in the pillar and changed
+  // nothing already in it. Stated against the wave manifest, which is what the
+  // test is about, plus a floor that still catches deletion.
   const gov = ALL.filter((r) => r.country === 'united-states' && S.isGovernmentPillar(r));
-  assert.strictEqual(gov.length, 75, 'the US government-registry count changed this wave');
+  assert.ok(gov.length >= 75, `the US government-registry set shrank to ${gov.length}`);
+  const waveIds = new Set(WAVE);
+  for (const r of gov) {
+    assert.ok(!waveIds.has(r.id), `${r.id} is a commercial record of this wave inside the pillar`);
+  }
   for (const r of gov) {
     assert.strictEqual(r.listingAction, 'not-applicable', `${r.id} gained a listing action`);
     assert.strictEqual(r.submissionModel, 'notApplicable', `${r.id} gained a submission model`);

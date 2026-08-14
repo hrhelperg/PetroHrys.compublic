@@ -17,7 +17,7 @@
 // PROJECTION rather than the full record: a payload missing one field the engine
 // reads produces a page that scores every opportunity slightly differently and
 // says nothing. The field contract below is derived by RECORDING every property
-// access the engine makes over all 2,234 opportunities, so it cannot be
+// access the engine makes over every opportunity in the corpus, so it cannot be
 // maintained by hand and cannot fall behind the code.
 
 const test = require('node:test');
@@ -300,11 +300,22 @@ test('actionability is identical on the slim payload for every opportunity', () 
       `${OPS[i].platformId}: the browser derives a different actionability`);
     compared += 1;
   }
-  // 2,234 -> 2,255 when the marketplace dataset gained 21 researched rows in the
-  // Gulf, the Levant, the Maghreb and New Zealand. The per-row parity above is
-  // what proves the engines agree; this total only proves the loop saw the whole
-  // corpus rather than a sample, so it moves with the corpus.
-  assert.strictEqual(compared, 2255, `compared ${compared} opportunities, expected the full 2,255`);
+  // BRITTLE MIRROR, REMOVED. This was a literal — 2,234, then 2,255 when the
+  // marketplace dataset gained 21 researched rows in the Gulf, the Levant, the
+  // Maghreb and New Zealand. It restated the corpus size, so every valid
+  // research addition failed a parity test that had nothing to say about the
+  // addition, and the fix was always to retype the number.
+  //
+  // The property was never the number. It is "the loop saw the WHOLE corpus
+  // rather than a sample", and the corpus states its own size. Both sides are
+  // asserted, because either one alone is escapable: a SLIM array shorter than
+  // OPS would end the comparison at the first undefined instead of failing
+  // here, and a SLIM array longer than OPS would leave its tail unchecked.
+  assert.strictEqual(SLIM.length, OPS.length,
+    `the browser payload holds ${SLIM.length} opportunities and the server projection ${OPS.length}`);
+  assert.strictEqual(compared, OPS.length, 'the parity loop skipped part of the corpus');
+  // A floor, not a mirror: it moves only if the corpus collapses.
+  assert.ok(compared > 2000, `only ${compared} opportunities exist; this guard is near-vacuous`);
 });
 
 test('the market control actually changes which platforms are picked', () => {

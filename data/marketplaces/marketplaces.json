@@ -1,5 +1,16 @@
 [
   {
+    "id": "mp-al-duapune",
+    "name": "DuaPune",
+    "website": "https://www.duapune.com/",
+    "country": "albania",
+    "marketplaceType": "jobs",
+    "sellerTypes": "business",
+    "costModel": "paid",
+    "currentStatus": "active",
+    "note": "An Albanian job marketplace where employers publish vacancies under their own company name."
+  },
+  {
     "id": "mp-al-merrjep",
     "name": "MerrJep",
     "website": "https://www.merrjep.al/",
@@ -14,6 +25,17 @@
       "vehicles"
     ],
     "note": "Albania's leading classifieds marketplace."
+  },
+  {
+    "id": "mp-dz-emploitic",
+    "name": "Emploitic",
+    "website": "https://emploitic.com/",
+    "country": "algeria",
+    "marketplaceType": "jobs",
+    "sellerTypes": "business",
+    "costModel": "paid",
+    "currentStatus": "active",
+    "note": "Algeria's leading job marketplace, where employers hold public company pages."
   },
   {
     "id": "mp-dz-ouedkniss",
@@ -350,6 +372,17 @@
     "note": "The main Belgian property marketplace, where agents hold public listings. Needs a browser check."
   },
   {
+    "id": "mp-ba-mojposao",
+    "name": "MojPosao.ba",
+    "website": "https://www.mojposao.ba/",
+    "country": "bosnia-and-herzegovina",
+    "marketplaceType": "jobs",
+    "sellerTypes": "business",
+    "costModel": "paid",
+    "currentStatus": "active",
+    "note": "The main Bosnian job marketplace, where employers hold public company pages."
+  },
+  {
     "id": "mp-ba-olx",
     "name": "OLX Bosnia",
     "website": "https://www.olx.ba/",
@@ -554,6 +587,45 @@
     ],
     "operator": "OLX Group",
     "note": "Bulgaria's leading classifieds marketplace."
+  },
+  {
+    "id": "mp-kh-bongthom",
+    "name": "Bongthom",
+    "website": "https://www.bongthom.com/",
+    "country": "cambodia",
+    "marketplaceType": "jobs",
+    "sellerTypes": "business",
+    "costModel": "paid",
+    "currentStatus": "active",
+    "note": "A Cambodian job marketplace where employers hold public company pages."
+  },
+  {
+    "id": "mp-kh-khmer24",
+    "name": "Khmer24",
+    "website": "https://www.khmer24.com/",
+    "country": "cambodia",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "unknown",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "jobs",
+      "property",
+      "services",
+      "vehicles"
+    ],
+    "note": "Cambodia's leading classifieds marketplace. Cloudflare blocks plain HTTPS requests; the live listings and the publish flow were confirmed in a real browser."
+  },
+  {
+    "id": "mp-kh-realestate",
+    "name": "Realestate.com.kh",
+    "website": "https://www.realestate.com.kh/",
+    "country": "cambodia",
+    "marketplaceType": "property",
+    "sellerTypes": "both",
+    "costModel": "unknown",
+    "currentStatus": "active",
+    "note": "Cambodia's main property marketplace, where agents and owners publish listings."
   },
   {
     "id": "mp-ca-autotrader",
@@ -849,6 +921,45 @@
     "note": "A major Colombian job marketplace where employers hold public company pages."
   },
   {
+    "id": "mp-cr-crautos",
+    "name": "CRAutos",
+    "website": "https://www.crautos.com/",
+    "country": "costa-rica",
+    "marketplaceType": "vehicles",
+    "sellerTypes": "both",
+    "costModel": "unknown",
+    "currentStatus": "active",
+    "note": "A long-running Costa Rican vehicle marketplace where private sellers and registered dealers publish listings."
+  },
+  {
+    "id": "mp-cr-encuentra24",
+    "name": "Encuentra24 Costa Rica",
+    "website": "https://www.encuentra24.com/costa-rica-es/",
+    "country": "costa-rica",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "jobs",
+      "property",
+      "vehicles"
+    ],
+    "operator": "Encuentra24",
+    "note": "The Costa Rica section of the leading Central American classifieds marketplace, carrying property, vehicle, job and general listings."
+  },
+  {
+    "id": "mp-hr-mojposao",
+    "name": "MojPosao",
+    "website": "https://mojposao.hr/",
+    "country": "croatia",
+    "marketplaceType": "jobs",
+    "sellerTypes": "business",
+    "costModel": "paid",
+    "currentStatus": "active",
+    "note": "The main Croatian job marketplace, where employers hold public company profiles."
+  },
+  {
     "id": "mp-hr-njuskalo",
     "name": "Njuskalo",
     "website": "https://www.njuskalo.hr/",
@@ -864,6 +975,22 @@
     "note": "Croatia's largest classifieds marketplace."
   },
   {
+    "id": "mp-cu-revolico",
+    "name": "Revolico",
+    "website": "https://www.revolico.com/",
+    "country": "cuba",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "property",
+      "services",
+      "vehicles"
+    ],
+    "note": "Cuba's dominant classifieds marketplace. Cloudflare blocks plain HTTPS requests; the live listings and the publish flow were confirmed in a real browser."
+  },
+  {
     "id": "mp-cy-bazaraki",
     "name": "Bazaraki",
     "website": "https://www.bazaraki.com/",
@@ -877,6 +1004,17 @@
       "vehicles"
     ],
     "note": "Cyprus's main classifieds marketplace. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
+    "id": "mp-cy-ergodotisi",
+    "name": "Ergodotisi",
+    "website": "https://ergodotisi.com/",
+    "country": "cyprus",
+    "marketplaceType": "jobs",
+    "sellerTypes": "business",
+    "costModel": "paid",
+    "currentStatus": "active",
+    "note": "A Cypriot job marketplace where employers publish vacancies under their own company name."
   },
   {
     "id": "mp-cz-annonce",
@@ -961,6 +1099,17 @@
     "note": "The main Danish vehicle marketplace, where dealers hold public dealer pages."
   },
   {
+    "id": "mp-dk-boligsiden",
+    "name": "Boligsiden",
+    "website": "https://www.boligsiden.dk/",
+    "country": "denmark",
+    "marketplaceType": "property",
+    "sellerTypes": "business",
+    "costModel": "paid",
+    "currentStatus": "unknown",
+    "note": "Denmark's main property marketplace, where estate agents hold public listings. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
     "id": "mp-dk-dba",
     "name": "DBA",
     "website": "https://www.dba.dk/",
@@ -973,6 +1122,43 @@
       "vehicles"
     ],
     "note": "A major Danish classifieds marketplace."
+  },
+  {
+    "id": "mp-dk-jobindex",
+    "name": "Jobindex",
+    "website": "https://www.jobindex.dk/",
+    "country": "denmark",
+    "marketplaceType": "jobs",
+    "sellerTypes": "business",
+    "costModel": "paid",
+    "currentStatus": "active",
+    "note": "Denmark's main job marketplace, where employers hold public workplace pages."
+  },
+  {
+    "id": "mp-do-lapulga",
+    "name": "La Pulga Virtual",
+    "website": "https://www.lapulga.com.do/",
+    "country": "dominican-republic",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "property",
+      "vehicles"
+    ],
+    "note": "A Dominican general classifieds marketplace: free listings with paid promotion slots."
+  },
+  {
+    "id": "mp-do-supercarros",
+    "name": "SuperCarros",
+    "website": "https://www.supercarros.com/",
+    "country": "dominican-republic",
+    "marketplaceType": "vehicles",
+    "sellerTypes": "both",
+    "costModel": "unknown",
+    "currentStatus": "active",
+    "note": "The Dominican Republic's main vehicle marketplace, with a separate dealer product alongside private listings."
   },
   {
     "id": "mp-cd-jiji",
@@ -1064,6 +1250,23 @@
     "note": "Egypt's leading job marketplace, where employers hold public company pages."
   },
   {
+    "id": "mp-sv-encuentra24",
+    "name": "Encuentra24 El Salvador",
+    "website": "https://www.encuentra24.com/el-salvador-es/",
+    "country": "el-salvador",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "jobs",
+      "property",
+      "vehicles"
+    ],
+    "operator": "Encuentra24",
+    "note": "The El Salvador section of the leading Central American classifieds marketplace, carrying property, vehicle, job and general listings."
+  },
+  {
     "id": "mp-ee-auto24",
     "name": "Auto24.ee",
     "website": "https://www.auto24.ee/",
@@ -1112,6 +1315,17 @@
     "note": "An Ethiopian classifieds marketplace. Live but behind a bot filter, so a browser check is needed."
   },
   {
+    "id": "mp-et-ethiojobs",
+    "name": "Ethiojobs",
+    "website": "https://ethiojobs.net/",
+    "country": "ethiopia",
+    "marketplaceType": "jobs",
+    "sellerTypes": "business",
+    "costModel": "paid",
+    "currentStatus": "active",
+    "note": "Ethiopia's leading job marketplace, where employers hold public company pages."
+  },
+  {
     "id": "mp-et-jiji",
     "name": "Jiji Ethiopia",
     "website": "https://jiji.com.et/",
@@ -1126,6 +1340,42 @@
     ],
     "operator": "Jiji Group",
     "note": "Ethiopia's leading classifieds marketplace. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
+    "id": "mp-fi-huuto",
+    "name": "Huuto.net",
+    "website": "https://www.huuto.net/",
+    "country": "finland",
+    "marketplaceType": "auctions",
+    "sellerTypes": "both",
+    "costModel": "unknown",
+    "currentStatus": "unknown",
+    "alsoCovers": [
+      "second-hand"
+    ],
+    "note": "A long-running Finnish auction and buy-now marketplace where sellers hold public listings. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
+    "id": "mp-fi-nettiauto",
+    "name": "Nettiauto",
+    "website": "https://www.nettiauto.com/",
+    "country": "finland",
+    "marketplaceType": "vehicles",
+    "sellerTypes": "both",
+    "costModel": "unknown",
+    "currentStatus": "active",
+    "note": "Finland's main vehicle marketplace, where dealers hold public dealer pages alongside private listings."
+  },
+  {
+    "id": "mp-fi-oikotie",
+    "name": "Oikotie Asunnot",
+    "website": "https://asunnot.oikotie.fi/",
+    "country": "finland",
+    "marketplaceType": "property",
+    "sellerTypes": "both",
+    "costModel": "unknown",
+    "currentStatus": "active",
+    "note": "Finland's main property marketplace, where estate agents and private sellers publish listings."
   },
   {
     "id": "mp-fi-tori",
@@ -1267,6 +1517,63 @@
     "note": "A German classifieds portal covering goods, services and jobs."
   },
   {
+    "id": "mp-gh-jiji",
+    "name": "Jiji Ghana",
+    "website": "https://jiji.com.gh/",
+    "country": "ghana",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "jobs",
+      "property",
+      "services",
+      "vehicles"
+    ],
+    "operator": "Jiji Group",
+    "note": "The Ghanaian arm of the Jiji classifieds network. Cloudflare blocks plain HTTPS requests; the live listings were confirmed in a real browser."
+  },
+  {
+    "id": "mp-gh-jobberman",
+    "name": "Jobberman Ghana",
+    "website": "https://www.jobberman.com.gh/",
+    "country": "ghana",
+    "marketplaceType": "jobs",
+    "sellerTypes": "business",
+    "costModel": "paid",
+    "currentStatus": "active",
+    "note": "Ghana's leading job marketplace, where employers hold public company pages. A separate site and account from Jobberman Nigeria."
+  },
+  {
+    "id": "mp-gh-tonaton",
+    "name": "Tonaton",
+    "website": "https://tonaton.com/",
+    "country": "ghana",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "jobs",
+      "property",
+      "services",
+      "vehicles"
+    ],
+    "note": "Ghana's largest general classifieds marketplace. Cloudflare blocks plain HTTPS requests; the live category counts were confirmed in a real browser."
+  },
+  {
+    "id": "mp-gh-meqasa",
+    "name": "meQasa",
+    "website": "https://meqasa.com/",
+    "country": "ghana",
+    "marketplaceType": "property",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "active",
+    "note": "Ghana's main property marketplace, where agents and developers hold public listings."
+  },
+  {
     "id": "mp-gr-car-gr",
     "name": "Car.gr",
     "website": "https://www.car.gr/",
@@ -1295,6 +1602,64 @@
       "vehicles"
     ],
     "note": "A leading Greek classifieds portal for property, vehicles and jobs. Live but behind a verification gate, so a browser check is needed."
+  },
+  {
+    "id": "mp-gt-encuentra24",
+    "name": "Encuentra24 Guatemala",
+    "website": "https://www.encuentra24.com/guatemala-es/",
+    "country": "guatemala",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "jobs",
+      "property",
+      "vehicles"
+    ],
+    "operator": "Encuentra24",
+    "note": "The Guatemala section of the leading Central American classifieds marketplace, carrying property, vehicle, job and general listings."
+  },
+  {
+    "id": "mp-gt-tecoloco",
+    "name": "Tecoloco Guatemala",
+    "website": "https://www.tecoloco.com.gt/",
+    "country": "guatemala",
+    "marketplaceType": "jobs",
+    "sellerTypes": "business",
+    "costModel": "paid",
+    "currentStatus": "active",
+    "operator": "Tecoloco",
+    "note": "A Guatemalan job marketplace where employers hold public company pages."
+  },
+  {
+    "id": "mp-hn-encuentra24",
+    "name": "Encuentra24 Honduras",
+    "website": "https://www.encuentra24.com/honduras-es/",
+    "country": "honduras",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "jobs",
+      "property",
+      "vehicles"
+    ],
+    "operator": "Encuentra24",
+    "note": "The Honduras section of the leading Central American classifieds marketplace, carrying property, vehicle, job and general listings."
+  },
+  {
+    "id": "mp-hn-tecoloco",
+    "name": "Tecoloco Honduras",
+    "website": "https://www.tecoloco.com.hn/",
+    "country": "honduras",
+    "marketplaceType": "jobs",
+    "sellerTypes": "business",
+    "costModel": "paid",
+    "currentStatus": "active",
+    "operator": "Tecoloco",
+    "note": "A Honduran job marketplace where employers hold public company pages."
   },
   {
     "id": "mp-hk-28hse",
@@ -1386,6 +1751,17 @@
     "note": "A Hungarian auction and marketplace site with seller shops."
   },
   {
+    "id": "mp-is-alfred",
+    "name": "Alfreð",
+    "website": "https://www.alfred.is/",
+    "country": "iceland",
+    "marketplaceType": "jobs",
+    "sellerTypes": "business",
+    "costModel": "paid",
+    "currentStatus": "active",
+    "note": "Iceland's main job marketplace, where employers hold public workplace pages."
+  },
+  {
     "id": "mp-is-bland",
     "name": "Bland.is",
     "website": "https://www.bland.is/",
@@ -1395,6 +1771,17 @@
     "costModel": "freemium",
     "currentStatus": "active",
     "note": "Iceland's main classifieds marketplace."
+  },
+  {
+    "id": "mp-is-bilasolur",
+    "name": "Bílasölur",
+    "website": "https://bilasolur.is/",
+    "country": "iceland",
+    "marketplaceType": "vehicles",
+    "sellerTypes": "both",
+    "costModel": "unknown",
+    "currentStatus": "active",
+    "note": "Iceland's main vehicle marketplace, aggregating the listings of registered dealerships alongside private sellers."
   },
   {
     "id": "mp-in-99acres",
@@ -1582,6 +1969,33 @@
     "note": "Italy's dominant classifieds marketplace, with professional seller accounts."
   },
   {
+    "id": "mp-jm-jacars",
+    "name": "Jacars.net",
+    "website": "https://www.jacars.net/",
+    "country": "jamaica",
+    "marketplaceType": "vehicles",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "unknown",
+    "note": "A Jamaican vehicle marketplace covering cars, commercial vehicles and parts. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
+    "id": "mp-jm-jco",
+    "name": "Jamaica Classified Online",
+    "website": "https://jamaicaclassifiedonline.com/",
+    "country": "jamaica",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "jobs",
+      "property",
+      "vehicles"
+    ],
+    "note": "A Jamaican general classifieds marketplace with free listings and paid promoted placements. Cloudflare blocks plain HTTPS requests; the live listings were confirmed in a real browser."
+  },
+  {
     "id": "mp-jp-carsensor",
     "name": "Carsensor",
     "website": "https://www.carsensor.net/",
@@ -1763,6 +2177,22 @@
     "note": "The Kenyan arm of a major African property marketplace."
   },
   {
+    "id": "mp-xk-merrjep",
+    "name": "MerrJep Kosovo",
+    "website": "https://www.merrjep.com/",
+    "country": "kosovo",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "jobs",
+      "property",
+      "vehicles"
+    ],
+    "note": "Kosovo's leading classifieds marketplace, where businesses can also open a shop. A separate site and account from MerrJep.al in Albania."
+  },
+  {
     "id": "mp-kw-opensooq",
     "name": "OpenSooq Kuwait",
     "website": "https://kw.opensooq.com/",
@@ -1779,6 +2209,17 @@
     ],
     "operator": "OpenSooq",
     "note": "The Kuwait site of OpenSooq, the Arabic-language classifieds platform that says on its own about page that it runs in 20 countries with more than 120 buying and selling sections. It states free ad posting and carries cars, property, jobs and services."
+  },
+  {
+    "id": "mp-lv-cv",
+    "name": "CV.lv",
+    "website": "https://www.cv.lv/",
+    "country": "latvia",
+    "marketplaceType": "jobs",
+    "sellerTypes": "business",
+    "costModel": "paid",
+    "currentStatus": "active",
+    "note": "Latvia's main job marketplace, where employers hold public company pages."
   },
   {
     "id": "mp-lv-ss",
@@ -1875,6 +2316,17 @@
     "note": "The main Luxembourg property marketplace, where agents hold public listings."
   },
   {
+    "id": "mp-my-carlist",
+    "name": "Carlist.my",
+    "website": "https://www.carlist.my/",
+    "country": "malaysia",
+    "marketplaceType": "vehicles",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "unknown",
+    "note": "Malaysia's main vehicle marketplace. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
     "id": "mp-my-carousell",
     "name": "Carousell Malaysia",
     "website": "https://www.carousell.com.my/",
@@ -1900,6 +2352,28 @@
       "vehicles"
     ],
     "note": "Malaysia's largest classifieds marketplace."
+  },
+  {
+    "id": "mp-my-iproperty",
+    "name": "iProperty Malaysia",
+    "website": "https://www.iproperty.com.my/",
+    "country": "malaysia",
+    "marketplaceType": "property",
+    "sellerTypes": "business",
+    "costModel": "paid",
+    "currentStatus": "unknown",
+    "note": "Malaysia's main property marketplace, where agents hold public listings. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
+    "id": "mp-mt-keepmeposted",
+    "name": "Keepmeposted",
+    "website": "https://keepmeposted.com.mt/",
+    "country": "malta",
+    "marketplaceType": "jobs",
+    "sellerTypes": "business",
+    "costModel": "paid",
+    "currentStatus": "active",
+    "note": "A Maltese job marketplace where employers publish vacancies and training courses."
   },
   {
     "id": "mp-mt-maltapark",
@@ -2022,6 +2496,37 @@
     "note": "A Moldovan classifieds portal."
   },
   {
+    "id": "mp-me-oglasicg",
+    "name": "OglasiCG",
+    "website": "https://www.oglasicg.me/",
+    "country": "montenegro",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "free",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "property",
+      "vehicles"
+    ],
+    "note": "A Montenegrin general classifieds marketplace which states that listing is free."
+  },
+  {
+    "id": "mp-me-pazar3",
+    "name": "Pazar3.me",
+    "website": "https://www.pazar3.me/",
+    "country": "montenegro",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "jobs",
+      "property",
+      "vehicles"
+    ],
+    "note": "Montenegro's largest classifieds marketplace, where businesses can also open a shop. A separate site and account from Pazar3.mk in North Macedonia; mojtrg.me redirects here."
+  },
+  {
     "id": "mp-ma-marocannonces",
     "name": "MarocAnnonces",
     "website": "https://www.marocannonces.com/",
@@ -2057,6 +2562,61 @@
     "costModel": "unknown",
     "currentStatus": "active",
     "note": "A Moroccan property marketplace that calls itself the country’s leading property site, covering sale, rental and holiday lets. It offers both a personal account for publishing a listing and a separate business registration; the cost of either is not stated."
+  },
+  {
+    "id": "mp-mm-carsdb",
+    "name": "CarsDB",
+    "website": "https://www.carsdb.com/",
+    "country": "myanmar",
+    "marketplaceType": "vehicles",
+    "sellerTypes": "both",
+    "costModel": "unknown",
+    "currentStatus": "active",
+    "note": "Myanmar's main vehicle marketplace, carrying dealer and private listings."
+  },
+  {
+    "id": "mp-mm-jobnet",
+    "name": "JobNet",
+    "website": "https://www.jobnet.com.mm/",
+    "country": "myanmar",
+    "marketplaceType": "jobs",
+    "sellerTypes": "business",
+    "costModel": "paid",
+    "currentStatus": "active",
+    "note": "A Myanmar job marketplace where employers hold public company pages."
+  },
+  {
+    "id": "mp-mm-shop",
+    "name": "Shop.com.mm",
+    "website": "https://www.shop.com.mm/",
+    "country": "myanmar",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "business",
+    "costModel": "unknown",
+    "currentStatus": "active",
+    "note": "Myanmar's largest online marketplace, where merchants hold public storefronts."
+  },
+  {
+    "id": "mp-mm-imyanmarhouse",
+    "name": "iMyanmarHouse",
+    "website": "https://www.imyanmarhouse.com/",
+    "country": "myanmar",
+    "marketplaceType": "property",
+    "sellerTypes": "both",
+    "costModel": "unknown",
+    "currentStatus": "active",
+    "note": "Myanmar's main property marketplace, where agencies and owners publish listings."
+  },
+  {
+    "id": "mp-na-namcars",
+    "name": "NamCars",
+    "website": "https://www.namcars.net/",
+    "country": "namibia",
+    "marketplaceType": "vehicles",
+    "sellerTypes": "both",
+    "costModel": "unknown",
+    "currentStatus": "active",
+    "note": "Namibia's main vehicle marketplace, carrying the stock of around sixty dealerships alongside private listings."
   },
   {
     "id": "mp-nl-marktplaats",
@@ -2107,6 +2667,23 @@
     "costModel": "unknown",
     "currentStatus": "active",
     "note": "A New Zealand property marketplace covering residential, new-build, commercial and rural listings as well as businesses for sale. Listings reach it through real-estate agencies, which it surfaces in a find-an-agent directory; no private-seller route and no published price were found."
+  },
+  {
+    "id": "mp-ni-encuentra24",
+    "name": "Encuentra24 Nicaragua",
+    "website": "https://www.encuentra24.com/nicaragua-es/",
+    "country": "nicaragua",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "jobs",
+      "property",
+      "vehicles"
+    ],
+    "operator": "Encuentra24",
+    "note": "The Nicaragua section of the leading Central American classifieds marketplace, carrying property, vehicle, job and general listings."
   },
   {
     "id": "mp-global-autochek",
@@ -2356,6 +2933,34 @@
     "note": "Pakistan's main property marketplace, where agents hold public listings."
   },
   {
+    "id": "mp-pa-compreoalquile",
+    "name": "Compreoalquile",
+    "website": "https://www.compreoalquile.com/",
+    "country": "panama",
+    "marketplaceType": "property",
+    "sellerTypes": "both",
+    "costModel": "unknown",
+    "currentStatus": "active",
+    "note": "Panama's property marketplace, carrying listings from estate agencies and direct owners. Cloudflare blocks plain HTTPS requests; the live listings were confirmed in a real browser."
+  },
+  {
+    "id": "mp-pa-encuentra24",
+    "name": "Encuentra24 Panamá",
+    "website": "https://www.encuentra24.com/panama-es/",
+    "country": "panama",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "freemium",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "jobs",
+      "property",
+      "vehicles"
+    ],
+    "operator": "Encuentra24",
+    "note": "The Panamá section of the leading Central American classifieds marketplace, carrying property, vehicle, job and general listings."
+  },
+  {
     "id": "mp-pe-adondevivir",
     "name": "A Dónde Vivir",
     "website": "https://www.adondevivir.com/",
@@ -2554,6 +3159,23 @@
     "currentStatus": "active",
     "operator": "OLX Group",
     "note": "The main Portuguese vehicle marketplace, where dealers hold public dealer pages."
+  },
+  {
+    "id": "mp-pr-clasificadosonline",
+    "name": "Clasificados Online",
+    "website": "https://www.clasificadosonline.com/",
+    "country": "puerto-rico",
+    "marketplaceType": "general-classifieds",
+    "sellerTypes": "both",
+    "costModel": "free",
+    "currentStatus": "active",
+    "alsoCovers": [
+      "jobs",
+      "property",
+      "services",
+      "vehicles"
+    ],
+    "note": "Puerto Rico's long-running general classifieds marketplace, which states that publishing a listing is free."
   },
   {
     "id": "mp-qa-opensooq",
@@ -3158,6 +3780,17 @@
     "note": "A Swedish vehicle marketplace where dealers hold public dealer pages."
   },
   {
+    "id": "mp-se-hemnet",
+    "name": "Hemnet",
+    "website": "https://www.hemnet.se/",
+    "country": "sweden",
+    "marketplaceType": "property",
+    "sellerTypes": "business",
+    "costModel": "paid",
+    "currentStatus": "unknown",
+    "note": "Sweden's main property marketplace, where estate agents publish listings on the seller's behalf. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
     "id": "mp-se-tradera",
     "name": "Tradera",
     "website": "https://www.tradera.com/",
@@ -3390,6 +4023,17 @@
       "vehicles"
     ],
     "note": "Turkey's dominant classifieds marketplace. Live but behind a bot filter, so a browser check is needed."
+  },
+  {
+    "id": "mp-ug-brightermonday",
+    "name": "BrighterMonday Uganda",
+    "website": "https://www.brightermonday.co.ug/",
+    "country": "uganda",
+    "marketplaceType": "jobs",
+    "sellerTypes": "business",
+    "costModel": "paid",
+    "currentStatus": "active",
+    "note": "Uganda's leading job marketplace, where employers hold public company pages. A separate site and account from BrighterMonday Kenya."
   },
   {
     "id": "mp-ug-jiji",
@@ -4026,5 +4670,16 @@
     "costModel": "paid",
     "currentStatus": "active",
     "note": "A Vietnamese job marketplace where employers hold public company pages."
+  },
+  {
+    "id": "mp-zw-propertybook",
+    "name": "Propertybook",
+    "website": "https://www.propertybook.co.zw/",
+    "country": "zimbabwe",
+    "marketplaceType": "property",
+    "sellerTypes": "both",
+    "costModel": "paid",
+    "currentStatus": "active",
+    "note": "Zimbabwe's main property marketplace, where registered estate agencies hold public listings."
   }
 ]

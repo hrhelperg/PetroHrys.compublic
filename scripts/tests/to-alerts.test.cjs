@@ -19,6 +19,7 @@ const CORPUS = require('../lib/to-corpus.cjs');
 const SCHEMA = require('../lib/to-schema.cjs');
 const TP = require('../lib/tp-schema.cjs');
 const DETECT = require('../detect-tender-changes.cjs');
+const PARITY = require('./helpers/platform-parity.cjs');
 
 const ROOT = path.resolve(__dirname, '..', '..');
 const read = (rel) => fs.readFileSync(path.join(ROOT, rel), 'utf8');
@@ -540,7 +541,11 @@ mutate('CM12/CM13: a volatile clock or array order changes identity', () => {
 });
 
 mutate('CM16/CM17/CM18: canonical platform, match weights or profiles drift', () => {
-  assert.strictEqual(JSON.parse(read('data/tenders-procurement/platforms.json')).length, 384);
+  // BRITTLE MIRROR, REMOVED: `platforms.json.length === 384` — one of three
+  // copies of the same array length. scripts/tests/helpers/platform-parity.cjs
+  // records why it moved and what replaced it. The single accounted baseline
+  // lives in to-opportunities test 42 and is untouched.
+  PARITY.assertPlatformPublicationParity(assert);
   assert.deepStrictEqual(MATCH.WEIGHTS, { category: 40, geography: 20, actionability: 15, deadline: 15, confidence: 10 });
   assert.strictEqual(Object.keys(MATCH.PROFILES).length, 16);
 });

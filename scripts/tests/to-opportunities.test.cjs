@@ -30,6 +30,7 @@ const MATCH = require('../lib/to-match.cjs');
 const SNAP = require('../lib/to-snapshot.cjs');
 const BUILD = require('../build-tender-opportunities.cjs');
 const I18N = require('../lib/i18n.cjs');
+const PARITY = require('./helpers/platform-parity.cjs');
 
 const ROOT = path.resolve(__dirname, '..', '..');
 const read = (rel) => fs.readFileSync(path.join(ROOT, rel), 'utf8');
@@ -1685,8 +1686,12 @@ mutate('P3: the build cannot reach the orchestrator, an adapter, or the HTTP hel
 });
 
 mutate('P3: canonical platform data and the matching model did not move', () => {
-  const platforms = JSON.parse(read('data/tenders-procurement/platforms.json'));
-  assert.strictEqual(platforms.length, 384, 'the platform record count changed unaccountably');
+  // BRITTLE MIRROR, REMOVED: `platforms.length === 384` — the second of three
+  // copies of the same array length. The accounted baseline stays in test 42
+  // above, where the count is followed by the identity and the evidence of the
+  // one platform it accounts for; here it was a bystander that turned every
+  // future platform addition into a failure of a source-expansion phase guard.
+  PARITY.assertPlatformPublicationParity(assert);
   // The matching model is frozen for a source-expansion phase.
   assert.strictEqual(Object.values(MATCH.WEIGHTS).reduce((a, b) => a + b, 0), 100);
   assert.deepStrictEqual(MATCH.WEIGHTS,
@@ -2100,8 +2105,8 @@ mutate('P5-M7: source health cannot mutate an opportunity fact', () => {
 mutate('P5-M8: the match model and canonical platform data did not move in an ops phase', () => {
   assert.deepStrictEqual(MATCH.WEIGHTS,
     { category: 40, geography: 20, actionability: 15, deadline: 15, confidence: 10 });
-  const platforms = JSON.parse(read('data/tenders-procurement/platforms.json'));
-  assert.strictEqual(platforms.length, 384, 'the platform count changed during an operations phase');
+  // BRITTLE MIRROR, REMOVED: the third copy of `platforms.length === 384`.
+  PARITY.assertPlatformPublicationParity(assert);
 });
 
 // Detail-page directories are an authorized generated route family, not a

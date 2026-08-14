@@ -26,6 +26,8 @@ const path = require('node:path');
 
 const S = require('../lib/bd-schema.cjs');
 const { loadRegistry } = require('../lib/bd-registry.cjs');
+// Publication parity, in place of the per-country totals this suite used to pin.
+const PARITY = require('./helpers/country-parity.cjs');
 
 const ROOT = path.resolve(__dirname, '..', '..');
 const ALL = loadRegistry().directories;
@@ -42,8 +44,10 @@ const commercialIn = (c) => ALL.filter((r) => r.country === c && !S.isGovernment
 test('every record this wave claims to have published exists', () => {
   assert.strictEqual(WAVE.length, 3, 'the wave manifest changed size without this test changing');
   for (const id of WAVE) assert.ok(byId.get(id), `missing record ${id}`);
-  assert.strictEqual(ALL.filter((r) => r.country === 'poland').length, 11); // +1 Firmy.net, high-authority expansion
-  assert.strictEqual(ALL.filter((r) => r.country === 'italy').length, 8);
+  // BRITTLE MIRRORS, REMOVED: two per-country totals, one already carrying its
+  // own changelog. See scripts/tests/helpers/country-parity.cjs.
+  PARITY.assertCountryPublicationParity(assert, ALL, 'poland', 11);
+  PARITY.assertCountryPublicationParity(assert, ALL, 'italy', 8);
 });
 
 // ── the two countries that yielded nothing ──────────────────────────────────

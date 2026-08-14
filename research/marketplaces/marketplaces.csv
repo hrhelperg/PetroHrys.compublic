@@ -1,5 +1,7 @@
 ﻿id,name,website,country,marketplace_type,also_covers,seller_types,cost,operator,current_status,note
+mp-al-duapune,DuaPune,https://www.duapune.com/,albania,jobs,,business,paid,,active,An Albanian job marketplace where employers publish vacancies under their own company name.
 mp-al-merrjep,MerrJep,https://www.merrjep.al/,albania,general-classifieds,jobs; property; vehicles,both,freemium,,active,Albania's leading classifieds marketplace.
+mp-dz-emploitic,Emploitic,https://emploitic.com/,algeria,jobs,,business,paid,,active,"Algeria's leading job marketplace, where employers hold public company pages."
 mp-dz-ouedkniss,Ouedkniss,https://www.ouedkniss.com/,algeria,general-classifieds,jobs; property; vehicles,both,freemium,,active,Algeria's dominant classifieds marketplace.
 mp-ar-argenprop,Argenprop,https://www.argenprop.com/,argentina,property,,both,paid,,active,A major Argentine property marketplace where agents hold public listings.
 mp-ar-mercadolibre,Mercado Libre Argentina,https://www.mercadolibre.com.ar/,argentina,general-classifieds,vehicles,both,freemium,Mercado Libre,active,"The dominant Argentine marketplace, where sellers hold public storefronts."
@@ -25,6 +27,7 @@ mp-by-kufar,Kufar,https://www.kufar.by/,belarus,general-classifieds,jobs; proper
 mp-by-av,av.by,https://www.av.by/,belarus,vehicles,,both,paid,,unknown,"The main Belarusian vehicle marketplace. Returns a non-standard response, so a browser check is needed."
 mp-be-2dehands,2dehands,https://www.2dehands.be/,belgium,general-classifieds,property; vehicles,both,freemium,Adevinta,active,The main Dutch-language Belgian classifieds marketplace.
 mp-be-bizzy-2dehands,Immoweb,https://www.immoweb.be/,belgium,property,,both,paid,,unknown,"The main Belgian property marketplace, where agents hold public listings. Needs a browser check."
+mp-ba-mojposao,MojPosao.ba,https://www.mojposao.ba/,bosnia-and-herzegovina,jobs,,business,paid,,active,"The main Bosnian job marketplace, where employers hold public company pages."
 mp-ba-olx,OLX Bosnia,https://www.olx.ba/,bosnia-and-herzegovina,general-classifieds,property; vehicles,both,freemium,OLX Group,unknown,"The leading Bosnian classifieds marketplace. Live but behind a bot filter, so a browser check is needed."
 mp-br-chavesnamao,Chaves na Mão,https://www.chavesnamao.com.br/,brazil,general-classifieds,property; vehicles,both,freemium,,active,A Brazilian classifieds portal covering property and vehicles.
 mp-br-enjoei,Enjoei,https://www.enjoei.com.br/,brazil,second-hand,,both,freemium,,active,A Brazilian resale marketplace where sellers hold public shops.
@@ -41,6 +44,9 @@ mp-br-icarros,iCarros,https://www.icarros.com.br/,brazil,vehicles,,both,paid,,un
 mp-bg-bazar,Bazar.bg,https://www.bazar.bg/,bulgaria,general-classifieds,jobs; property; services; vehicles,both,freemium,,active,"A Bulgarian free classifieds portal covering goods, property, vehicles and jobs."
 mp-bg-mobile-bg,Mobile.bg,https://www.mobile.bg/,bulgaria,vehicles,,both,paid,,active,"The main Bulgarian vehicle marketplace, where dealers hold public pages."
 mp-bg-olx,OLX Bulgaria,https://www.olx.bg/,bulgaria,general-classifieds,jobs; property; vehicles,both,freemium,OLX Group,active,Bulgaria's leading classifieds marketplace.
+mp-kh-bongthom,Bongthom,https://www.bongthom.com/,cambodia,jobs,,business,paid,,active,A Cambodian job marketplace where employers hold public company pages.
+mp-kh-khmer24,Khmer24,https://www.khmer24.com/,cambodia,general-classifieds,jobs; property; services; vehicles,both,unknown,,active,Cambodia's leading classifieds marketplace. Cloudflare blocks plain HTTPS requests; the live listings and the publish flow were confirmed in a real browser.
+mp-kh-realestate,Realestate.com.kh,https://www.realestate.com.kh/,cambodia,property,,both,unknown,,active,"Cambodia's main property marketplace, where agents and owners publish listings."
 mp-ca-autotrader,AutoTrader.ca,https://www.autotrader.ca/,canada,vehicles,,both,paid,,active,"The main Canadian vehicle marketplace, where dealers hold public dealer pages."
 mp-ca-bunz,Bunz,https://www.bunz.com/,canada,second-hand,,both,free,,unknown,"A Canadian community trading and buy-and-sell marketplace. Live but behind a bot filter, so a browser check is needed."
 mp-ca-kijiji,Kijiji,https://www.kijiji.ca/,canada,general-classifieds,jobs; property; services; vehicles,both,freemium,Adevinta,active,"Canada's dominant classifieds marketplace, with commercial seller accounts."
@@ -64,15 +70,24 @@ mp-co-mercadolibre,Mercado Libre Colombia,https://www.mercadolibre.com.co/,colom
 mp-co-metrocuadrado,Metrocuadrado,https://www.metrocuadrado.com/,colombia,property,,both,paid,,active,A major Colombian property marketplace where agents hold public listings.
 mp-co-tucarro,TuCarro,https://www.tucarro.com/,colombia,vehicles,,both,paid,Mercado Libre,active,"Colombia's main vehicle marketplace, where dealers hold public pages."
 mp-co-elempleo,elempleo,https://www.elempleo.com/,colombia,jobs,,business,paid,,active,A major Colombian job marketplace where employers hold public company pages.
+mp-cr-crautos,CRAutos,https://www.crautos.com/,costa-rica,vehicles,,both,unknown,,active,A long-running Costa Rican vehicle marketplace where private sellers and registered dealers publish listings.
+mp-cr-encuentra24,Encuentra24 Costa Rica,https://www.encuentra24.com/costa-rica-es/,costa-rica,general-classifieds,jobs; property; vehicles,both,freemium,Encuentra24,active,"The Costa Rica section of the leading Central American classifieds marketplace, carrying property, vehicle, job and general listings."
+mp-hr-mojposao,MojPosao,https://mojposao.hr/,croatia,jobs,,business,paid,,active,"The main Croatian job marketplace, where employers hold public company profiles."
 mp-hr-njuskalo,Njuskalo,https://www.njuskalo.hr/,croatia,general-classifieds,property; vehicles,both,freemium,,active,Croatia's largest classifieds marketplace.
+mp-cu-revolico,Revolico,https://www.revolico.com/,cuba,general-classifieds,property; services; vehicles,both,freemium,,active,Cuba's dominant classifieds marketplace. Cloudflare blocks plain HTTPS requests; the live listings and the publish flow were confirmed in a real browser.
 mp-cy-bazaraki,Bazaraki,https://www.bazaraki.com/,cyprus,general-classifieds,property; vehicles,both,freemium,,unknown,"Cyprus's main classifieds marketplace. Live but behind a bot filter, so a browser check is needed."
+mp-cy-ergodotisi,Ergodotisi,https://ergodotisi.com/,cyprus,jobs,,business,paid,,active,A Cypriot job marketplace where employers publish vacancies under their own company name.
 mp-cz-annonce,Annonce.cz,https://www.annonce.cz/,czech-republic,general-classifieds,property; vehicles,both,freemium,,active,A long-running Czech classifieds portal.
 mp-cz-aukro,Aukro,https://www.aukro.cz/,czech-republic,auctions,general-classifieds,both,freemium,,active,"The main Czech auction marketplace, where businesses hold seller shops."
 mp-cz-bazos,Bazos.cz,https://www.bazos.cz/,czech-republic,general-classifieds,property; vehicles,both,freemium,,active,The dominant Czech free classifieds board.
 mp-cz-hyperinzerce,Hyperinzerce,https://www.hyperinzerce.cz/,czech-republic,general-classifieds,property; vehicles,both,free,,active,A Czech free classifieds portal.
 mp-cz-sbazar,Sbazar,https://www.sbazar.cz/,czech-republic,general-classifieds,,both,freemium,Seznam.cz,active,A major Czech classifieds marketplace operated by Seznam.
 mp-dk-bilbasen,Bilbasen,https://www.bilbasen.dk/,denmark,vehicles,,both,paid,,active,"The main Danish vehicle marketplace, where dealers hold public dealer pages."
+mp-dk-boligsiden,Boligsiden,https://www.boligsiden.dk/,denmark,property,,business,paid,,unknown,"Denmark's main property marketplace, where estate agents hold public listings. Live but behind a bot filter, so a browser check is needed."
 mp-dk-dba,DBA,https://www.dba.dk/,denmark,general-classifieds,vehicles,both,freemium,,active,A major Danish classifieds marketplace.
+mp-dk-jobindex,Jobindex,https://www.jobindex.dk/,denmark,jobs,,business,paid,,active,"Denmark's main job marketplace, where employers hold public workplace pages."
+mp-do-lapulga,La Pulga Virtual,https://www.lapulga.com.do/,dominican-republic,general-classifieds,property; vehicles,both,freemium,,active,A Dominican general classifieds marketplace: free listings with paid promotion slots.
+mp-do-supercarros,SuperCarros,https://www.supercarros.com/,dominican-republic,vehicles,,both,unknown,,active,"The Dominican Republic's main vehicle marketplace, with a separate dealer product alongside private listings."
 mp-cd-jiji,Jiji DR Congo,https://jiji.cd/,dr-congo,general-classifieds,property; vehicles,both,freemium,Jiji Group,unknown,"The DR Congo arm of the Jiji classifieds network. Live but behind a bot filter, so a browser check is needed."
 mp-eg-aqarmap,Aqarmap,https://aqarmap.com.eg/,egypt,property,,both,paid,,active,A major Egyptian property marketplace where agents hold public listings.
 mp-eg-dubizzle,Dubizzle Egypt,https://www.dubizzle.com.eg/,egypt,general-classifieds,jobs; property; vehicles,both,freemium,Dubizzle Group,unknown,"Egypt's dominant classifieds marketplace. OLX Egypt was rebranded into it and olx.com.eg now redirects here. Returns an authorisation gate, so a browser check is needed."
@@ -80,11 +95,16 @@ mp-eg-hatla2ee,Hatla2ee,https://www.hatla2ee.com/,egypt,vehicles,,both,freemium,
 mp-eg-jumia,Jumia Egypt,https://www.jumia.com.eg/,egypt,general-classifieds,,business,paid,Jumia Group,unknown,"The Egyptian storefront of Africa's largest online marketplace. Live but behind a bot filter, so a browser check is needed."
 mp-eg-propertyfinder,Property Finder Egypt,https://www.propertyfinder.eg/,egypt,property,,both,paid,,active,The Egyptian arm of a major Middle East property marketplace.
 mp-eg-wuzzuf,Wuzzuf,https://wuzzuf.net/,egypt,jobs,,business,paid,,active,"Egypt's leading job marketplace, where employers hold public company pages."
+mp-sv-encuentra24,Encuentra24 El Salvador,https://www.encuentra24.com/el-salvador-es/,el-salvador,general-classifieds,jobs; property; vehicles,both,freemium,Encuentra24,active,"The El Salvador section of the leading Central American classifieds marketplace, carrying property, vehicle, job and general listings."
 mp-ee-auto24,Auto24.ee,https://www.auto24.ee/,estonia,vehicles,,both,paid,,unknown,"The main Estonian vehicle marketplace. Live but behind a security check, so a browser check is needed."
 mp-ee-kv,KV.ee,https://www.kv.ee/,estonia,property,,both,paid,,unknown,"The main Estonian property marketplace. Live but behind a bot filter, so a browser check is needed."
 mp-ee-soov,Soov.ee,https://www.soov.ee/,estonia,general-classifieds,,both,freemium,,unknown,"An Estonian general classifieds marketplace. Live but behind a bot filter, so a browser check is needed."
 mp-et-engocha,Engocha,https://www.engocha.com/,ethiopia,general-classifieds,property; vehicles,both,freemium,,unknown,"An Ethiopian classifieds marketplace. Live but behind a bot filter, so a browser check is needed."
+mp-et-ethiojobs,Ethiojobs,https://ethiojobs.net/,ethiopia,jobs,,business,paid,,active,"Ethiopia's leading job marketplace, where employers hold public company pages."
 mp-et-jiji,Jiji Ethiopia,https://jiji.com.et/,ethiopia,general-classifieds,property; vehicles,both,freemium,Jiji Group,unknown,"Ethiopia's leading classifieds marketplace. Live but behind a bot filter, so a browser check is needed."
+mp-fi-huuto,Huuto.net,https://www.huuto.net/,finland,auctions,second-hand,both,unknown,,unknown,"A long-running Finnish auction and buy-now marketplace where sellers hold public listings. Live but behind a bot filter, so a browser check is needed."
+mp-fi-nettiauto,Nettiauto,https://www.nettiauto.com/,finland,vehicles,,both,unknown,,active,"Finland's main vehicle marketplace, where dealers hold public dealer pages alongside private listings."
+mp-fi-oikotie,Oikotie Asunnot,https://asunnot.oikotie.fi/,finland,property,,both,unknown,,active,"Finland's main property marketplace, where estate agents and private sellers publish listings."
 mp-fi-tori,Tori,https://www.tori.fi/,finland,general-classifieds,property; vehicles,both,freemium,,active,Finland's dominant classifieds marketplace.
 mp-fr-paruvendu,ParuVendu,https://www.paruvendu.fr/,france,general-classifieds,jobs; property; vehicles,both,freemium,,active,A French classifieds portal for private and professional advertisers.
 mp-fr-vinted,Vinted,https://www.vinted.fr/,france,fashion-resale,,private,free,Vinted UAB,active,A pan-European second-hand fashion marketplace. Primarily private sellers.
@@ -94,8 +114,16 @@ mp-de-kleinanzeigen,Kleinanzeigen,https://www.kleinanzeigen.de/,germany,general-
 mp-de-quoka,Quoka,https://www.quoka.de/,germany,general-classifieds,property; vehicles,both,freemium,,active,A long-running German free classifieds portal.
 mp-de-kalaydo,kalaydo.de,https://www.kalaydo.de/,germany,jobs,general-classifieds; property; vehicles,both,freemium,,active,A German regional classifieds and job portal run with regional newspapers.
 mp-de-markt-de,markt.de,https://www.markt.de/,germany,general-classifieds,jobs; property; services,both,freemium,,active,"A German classifieds portal covering goods, services and jobs."
+mp-gh-jiji,Jiji Ghana,https://jiji.com.gh/,ghana,general-classifieds,jobs; property; services; vehicles,both,freemium,Jiji Group,active,The Ghanaian arm of the Jiji classifieds network. Cloudflare blocks plain HTTPS requests; the live listings were confirmed in a real browser.
+mp-gh-jobberman,Jobberman Ghana,https://www.jobberman.com.gh/,ghana,jobs,,business,paid,,active,"Ghana's leading job marketplace, where employers hold public company pages. A separate site and account from Jobberman Nigeria."
+mp-gh-tonaton,Tonaton,https://tonaton.com/,ghana,general-classifieds,jobs; property; services; vehicles,both,freemium,,active,Ghana's largest general classifieds marketplace. Cloudflare blocks plain HTTPS requests; the live category counts were confirmed in a real browser.
+mp-gh-meqasa,meQasa,https://meqasa.com/,ghana,property,,both,paid,,active,"Ghana's main property marketplace, where agents and developers hold public listings."
 mp-gr-car-gr,Car.gr,https://www.car.gr/,greece,vehicles,general-classifieds,both,freemium,,unknown,"The main Greek vehicle marketplace. Live but behind a bot filter, so a browser check is needed."
 mp-gr-xe,XE.gr,https://www.xe.gr/,greece,general-classifieds,jobs; property; vehicles,both,freemium,,unknown,"A leading Greek classifieds portal for property, vehicles and jobs. Live but behind a verification gate, so a browser check is needed."
+mp-gt-encuentra24,Encuentra24 Guatemala,https://www.encuentra24.com/guatemala-es/,guatemala,general-classifieds,jobs; property; vehicles,both,freemium,Encuentra24,active,"The Guatemala section of the leading Central American classifieds marketplace, carrying property, vehicle, job and general listings."
+mp-gt-tecoloco,Tecoloco Guatemala,https://www.tecoloco.com.gt/,guatemala,jobs,,business,paid,Tecoloco,active,A Guatemalan job marketplace where employers hold public company pages.
+mp-hn-encuentra24,Encuentra24 Honduras,https://www.encuentra24.com/honduras-es/,honduras,general-classifieds,jobs; property; vehicles,both,freemium,Encuentra24,active,"The Honduras section of the leading Central American classifieds marketplace, carrying property, vehicle, job and general listings."
+mp-hn-tecoloco,Tecoloco Honduras,https://www.tecoloco.com.hn/,honduras,jobs,,business,paid,Tecoloco,active,A Honduran job marketplace where employers hold public company pages.
 mp-hk-28hse,28Hse,https://www.28hse.com/,hong-kong,property,,both,paid,,active,A major Hong Kong property marketplace where agents hold public listings.
 mp-hk-carousell,Carousell Hong Kong,https://www.carousell.com.hk/,hong-kong,general-classifieds,property; vehicles,both,freemium,Carousell Group,unknown,"The Hong Kong arm of a Southeast Asian classifieds marketplace. Live but behind a bot filter, so a browser check is needed."
 mp-hk-dcfever,DCFever,https://www.dcfever.com/,hong-kong,general-classifieds,,both,freemium,,active,A Hong Kong technology community with an active second-hand trading marketplace.
@@ -103,7 +131,9 @@ mp-hk-squarefoot,Squarefoot,https://www.squarefoot.com.hk/,hong-kong,property,,b
 mp-hu-hasznaltauto,Hasznaltauto,https://www.hasznaltauto.hu/,hungary,vehicles,,both,paid,,unknown,"The main Hungarian vehicle marketplace, where dealers hold public pages. Live but behind a bot filter, so a browser check is needed."
 mp-hu-jofogas,Jofogas,https://www.jofogas.hu/,hungary,general-classifieds,property; vehicles,both,freemium,,active,Hungary's leading classifieds marketplace.
 mp-hu-vatera,Vatera,https://www.vatera.hu/,hungary,auctions,general-classifieds,both,freemium,,active,A Hungarian auction and marketplace site with seller shops.
+mp-is-alfred,Alfreð,https://www.alfred.is/,iceland,jobs,,business,paid,,active,"Iceland's main job marketplace, where employers hold public workplace pages."
 mp-is-bland,Bland.is,https://www.bland.is/,iceland,general-classifieds,,both,freemium,,active,Iceland's main classifieds marketplace.
+mp-is-bilasolur,Bílasölur,https://bilasolur.is/,iceland,vehicles,,both,unknown,,active,"Iceland's main vehicle marketplace, aggregating the listings of registered dealerships alongside private sellers."
 mp-in-99acres,99acres,https://www.99acres.com/,india,property,,both,paid,,unknown,"A major Indian property marketplace. Live but behind a bot filter, so a browser check is needed."
 mp-in-cardekho,CarDekho,https://www.cardekho.com/,india,vehicles,,both,paid,,active,A major Indian vehicle marketplace where dealers hold public pages.
 mp-in-cars24,Cars24,https://www.cars24.com/,india,vehicles,,both,freemium,,active,An Indian used-vehicle marketplace.
@@ -119,6 +149,8 @@ mp-ie-daft,Daft.ie,https://www.daft.ie/,ireland,property,,both,paid,,unknown,"Th
 mp-ie-donedeal,DoneDeal,https://www.donedeal.ie/,ireland,general-classifieds,property; vehicles,both,freemium,,unknown,"Ireland's largest classifieds marketplace. Live but behind a security check, so a browser check is needed."
 mp-il-ad,ad.co.il,https://www.ad.co.il/,israel,general-classifieds,property; vehicles,both,unknown,,active,"An Israeli classifieds board covering second-hand goods, property for sale and rent, and vehicles, with an open ""add a listing"" flow. Brokerage agencies list alongside private sellers; the cost of publishing is not stated."
 mp-it-subito,Subito,https://www.subito.it/,italy,general-classifieds,jobs; property; vehicles,both,freemium,Adevinta,active,"Italy's dominant classifieds marketplace, with professional seller accounts."
+mp-jm-jacars,Jacars.net,https://www.jacars.net/,jamaica,vehicles,,both,freemium,,unknown,"A Jamaican vehicle marketplace covering cars, commercial vehicles and parts. Live but behind a bot filter, so a browser check is needed."
+mp-jm-jco,Jamaica Classified Online,https://jamaicaclassifiedonline.com/,jamaica,general-classifieds,jobs; property; vehicles,both,freemium,,active,A Jamaican general classifieds marketplace with free listings and paid promoted placements. Cloudflare blocks plain HTTPS requests; the live listings were confirmed in a real browser.
 mp-jp-carsensor,Carsensor,https://www.carsensor.net/,japan,vehicles,,both,paid,,active,A major Japanese vehicle marketplace where dealers hold public pages.
 mp-jp-goonet,Goo-net,https://www.goo-net.com/,japan,vehicles,,both,paid,,unknown,"A major Japanese vehicle marketplace where dealers hold public pages. Could not be identified automatically, so a browser check is needed."
 mp-jp-jmty,Jimoty,https://jmty.jp/,japan,general-classifieds,jobs; property; services,both,free,,active,Japan's main free local classifieds board.
@@ -133,7 +165,9 @@ mp-ke-jumia,Jumia Kenya,https://www.jumia.co.ke/,kenya,general-classifieds,,busi
 mp-ke-kilimall,Kilimall,https://www.kilimall.co.ke/,kenya,general-classifieds,,business,paid,,active,A Kenyan online marketplace where merchants hold public storefronts.
 mp-ke-pigiame,PigiaMe,https://www.pigiame.co.ke/,kenya,general-classifieds,jobs; property; vehicles,both,freemium,,unknown,"A Kenyan classifieds marketplace. Returned a maintenance page, so a browser check is needed."
 mp-ke-property24,Property24 Kenya,https://www.property24.co.ke/,kenya,property,,both,paid,,active,The Kenyan arm of a major African property marketplace.
+mp-xk-merrjep,MerrJep Kosovo,https://www.merrjep.com/,kosovo,general-classifieds,jobs; property; vehicles,both,freemium,,active,"Kosovo's leading classifieds marketplace, where businesses can also open a shop. A separate site and account from MerrJep.al in Albania."
 mp-kw-opensooq,OpenSooq Kuwait,https://kw.opensooq.com/,kuwait,general-classifieds,jobs; property; services; vehicles,both,free,OpenSooq,active,"The Kuwait site of OpenSooq, the Arabic-language classifieds platform that says on its own about page that it runs in 20 countries with more than 120 buying and selling sections. It states free ad posting and carries cars, property, jobs and services."
+mp-lv-cv,CV.lv,https://www.cv.lv/,latvia,jobs,,business,paid,,active,"Latvia's main job marketplace, where employers hold public company pages."
 mp-lv-ss,SS.COM,https://www.ss.com/,latvia,general-classifieds,jobs; property; vehicles,both,freemium,,active,"Latvia's dominant classifieds portal, covering goods, property, vehicles and jobs."
 mp-lb-opensooq,OpenSooq Lebanon,https://lb.opensooq.com/,lebanon,general-classifieds,jobs; property; services; vehicles,both,free,OpenSooq,active,"The Lebanon site of OpenSooq, the Arabic-language classifieds platform that says on its own about page that it runs in 20 countries with more than 120 buying and selling sections. It states free ad posting and carries cars, property, jobs and services."
 mp-lt-aruodas,Aruodas.lt,https://www.aruodas.lt/,lithuania,property,,both,paid,,active,"The main Lithuanian property marketplace, where agents hold public listings."
@@ -141,8 +175,11 @@ mp-lt-autoplius,Autoplius.lt,https://www.autoplius.lt/,lithuania,vehicles,,both,
 mp-lt-skelbiu,Skelbiu.lt,https://www.skelbiu.lt/,lithuania,general-classifieds,property; services; vehicles,both,freemium,,active,Lithuania's most visited classifieds portal.
 mp-lu-luxauto,LuxAuto,https://www.luxauto.lu/,luxembourg,vehicles,,both,paid,,active,A Luxembourg vehicle marketplace where dealers hold public listings.
 mp-lu-athome,atHome.lu,https://www.athome.lu/,luxembourg,property,,both,paid,,active,"The main Luxembourg property marketplace, where agents hold public listings."
+mp-my-carlist,Carlist.my,https://www.carlist.my/,malaysia,vehicles,,both,freemium,,unknown,"Malaysia's main vehicle marketplace. Live but behind a bot filter, so a browser check is needed."
 mp-my-carousell,Carousell Malaysia,https://www.carousell.com.my/,malaysia,general-classifieds,,both,freemium,Carousell Group,unknown,"The Malaysian arm of a Southeast Asian classifieds marketplace. Live but behind a bot filter, so a browser check is needed."
 mp-my-mudah,Mudah.my,https://www.mudah.my/,malaysia,general-classifieds,property; vehicles,both,freemium,,active,Malaysia's largest classifieds marketplace.
+mp-my-iproperty,iProperty Malaysia,https://www.iproperty.com.my/,malaysia,property,,business,paid,,unknown,"Malaysia's main property marketplace, where agents hold public listings. Live but behind a bot filter, so a browser check is needed."
+mp-mt-keepmeposted,Keepmeposted,https://keepmeposted.com.mt/,malta,jobs,,business,paid,,active,A Maltese job marketplace where employers publish vacancies and training courses.
 mp-mt-maltapark,Maltapark,https://www.maltapark.com/,malta,general-classifieds,property; vehicles,both,freemium,,active,Malta's main classifieds marketplace.
 mp-mx-autocosmos,Autocosmos México,https://www.autocosmos.com.mx/,mexico,vehicles,,both,paid,,active,A Mexican vehicle marketplace and information portal with dealer listings.
 mp-mx-inmuebles24,Inmuebles24,https://www.inmuebles24.com/,mexico,property,,both,paid,,unknown,"Mexico's main property marketplace, which absorbed Segundamano's audience. Live but behind a bot filter, so a browser check is needed."
@@ -152,13 +189,21 @@ mp-mx-seminuevos,Seminuevos,https://www.seminuevos.com/,mexico,vehicles,,both,pa
 mp-mx-vivanuncios,Vivanuncios,https://www.vivanuncios.com.mx/,mexico,general-classifieds,property; vehicles,both,freemium,,unknown,"A major Mexican classifieds marketplace. Live but behind a bot filter, so a browser check is needed."
 mp-md-999,999.md,https://www.999.md/,moldova,general-classifieds,jobs; property; vehicles,both,freemium,,active,Moldova's dominant classifieds marketplace.
 mp-md-makler,Makler.md,https://www.makler.md/,moldova,general-classifieds,property; vehicles,both,freemium,,active,A Moldovan classifieds portal.
+mp-me-oglasicg,OglasiCG,https://www.oglasicg.me/,montenegro,general-classifieds,property; vehicles,both,free,,active,A Montenegrin general classifieds marketplace which states that listing is free.
+mp-me-pazar3,Pazar3.me,https://www.pazar3.me/,montenegro,general-classifieds,jobs; property; vehicles,both,freemium,,active,"Montenegro's largest classifieds marketplace, where businesses can also open a shop. A separate site and account from Pazar3.mk in North Macedonia; mojtrg.me redirects here."
 mp-ma-marocannonces,MarocAnnonces,https://www.marocannonces.com/,morocco,general-classifieds,jobs; property,both,unknown,,active,"A long-running Moroccan classifieds site carrying job offers and job requests, property and general goods, with listings posted the same day. Employers and private individuals both publish; the cost of publishing is not stated."
 mp-ma-moteur,Moteur.ma,https://www.moteur.ma/,morocco,vehicles,,both,free,,active,"A Moroccan vehicle marketplace for new and used cars, motorcycles and trucks, which calls itself the largest automotive platform in Morocco. It states that posting a listing is free, and runs a separate advertiser registration for dealers and rental agencies."
 mp-ma-mubawab,Mubawab,https://www.mubawab.ma/,morocco,property,,both,unknown,,active,"A Moroccan property marketplace that calls itself the country’s leading property site, covering sale, rental and holiday lets. It offers both a personal account for publishing a listing and a separate business registration; the cost of either is not stated."
+mp-mm-carsdb,CarsDB,https://www.carsdb.com/,myanmar,vehicles,,both,unknown,,active,"Myanmar's main vehicle marketplace, carrying dealer and private listings."
+mp-mm-jobnet,JobNet,https://www.jobnet.com.mm/,myanmar,jobs,,business,paid,,active,A Myanmar job marketplace where employers hold public company pages.
+mp-mm-shop,Shop.com.mm,https://www.shop.com.mm/,myanmar,general-classifieds,,business,unknown,,active,"Myanmar's largest online marketplace, where merchants hold public storefronts."
+mp-mm-imyanmarhouse,iMyanmarHouse,https://www.imyanmarhouse.com/,myanmar,property,,both,unknown,,active,"Myanmar's main property marketplace, where agencies and owners publish listings."
+mp-na-namcars,NamCars,https://www.namcars.net/,namibia,vehicles,,both,unknown,,active,"Namibia's main vehicle marketplace, carrying the stock of around sixty dealerships alongside private listings."
 mp-nl-marktplaats,Marktplaats,https://www.marktplaats.nl/,netherlands,general-classifieds,jobs; property; vehicles,both,freemium,Adevinta,active,"The dominant Dutch classifieds marketplace, with commercial seller accounts."
 mp-nl-speurders,Speurders,https://www.speurders.nl/,netherlands,general-classifieds,,both,freemium,,unknown,"A Dutch classifieds portal. Could not be identified automatically, so a browser check is needed."
 mp-nz-autotrader,Auto Trader NZ,https://www.autotrader.co.nz/,new-zealand,vehicles,,both,freemium,,active,"A New Zealand vehicle marketplace of over 40 years standing, carrying used, new, electric, hybrid and commercial vehicles. It states that a private listing is free with no success or sale fees and stays live until removed, while dealers buy a tailored advertising package."
 mp-nz-oneroof,OneRoof,https://www.oneroof.co.nz/,new-zealand,property,,business,unknown,,active,"A New Zealand property marketplace covering residential, new-build, commercial and rural listings as well as businesses for sale. Listings reach it through real-estate agencies, which it surfaces in a find-an-agent directory; no private-seller route and no published price were found."
+mp-ni-encuentra24,Encuentra24 Nicaragua,https://www.encuentra24.com/nicaragua-es/,nicaragua,general-classifieds,jobs; property; vehicles,both,freemium,Encuentra24,active,"The Nicaragua section of the leading Central American classifieds marketplace, carrying property, vehicle, job and general listings."
 mp-global-autochek,Autochek,https://www.autochek.africa/,nigeria,vehicles,,both,freemium,,active,A pan-African vehicle marketplace which absorbed the Cheki classifieds network.
 mp-ng-cars45,Cars45,https://cars45.com/,nigeria,vehicles,,both,freemium,,unknown,"A Nigerian used-vehicle marketplace. Live but behind a bot filter, so a browser check is needed."
 mp-global-coinafrique,CoinAfrique,https://www.coinafrique.com/,nigeria,general-classifieds,property; vehicles,both,freemium,,active,A pan-African classifieds marketplace covering francophone and anglophone markets.
@@ -178,6 +223,8 @@ mp-pk-olx,OLX Pakistan,https://www.olx.com.pk/,pakistan,general-classifieds,jobs
 mp-pk-pakwheels,PakWheels,https://www.pakwheels.com/,pakistan,vehicles,,both,freemium,,active,"Pakistan's main vehicle marketplace, where dealers hold public pages."
 mp-pk-propertyfinder,PropertyFinder.pk,https://www.propertyfinder.pk/,pakistan,property,,both,paid,,active,A Pakistani property marketplace where agents hold public listings.
 mp-pk-zameen,Zameen,https://www.zameen.com/,pakistan,property,,both,paid,,active,"Pakistan's main property marketplace, where agents hold public listings."
+mp-pa-compreoalquile,Compreoalquile,https://www.compreoalquile.com/,panama,property,,both,unknown,,active,"Panama's property marketplace, carrying listings from estate agencies and direct owners. Cloudflare blocks plain HTTPS requests; the live listings were confirmed in a real browser."
+mp-pa-encuentra24,Encuentra24 Panamá,https://www.encuentra24.com/panama-es/,panama,general-classifieds,jobs; property; vehicles,both,freemium,Encuentra24,active,"The Panamá section of the leading Central American classifieds marketplace, carrying property, vehicle, job and general listings."
 mp-pe-adondevivir,A Dónde Vivir,https://www.adondevivir.com/,peru,property,,both,paid,,unknown,"A major Peruvian property marketplace. Live but behind a bot filter, so a browser check is needed."
 mp-pe-mercadolibre,Mercado Libre Perú,https://www.mercadolibre.com.pe/,peru,general-classifieds,vehicles,both,freemium,Mercado Libre,active,"The dominant Peruvian marketplace, where sellers hold public storefronts."
 mp-pe-neoauto,Neoauto,https://www.neoauto.com/,peru,vehicles,,both,paid,,unknown,"Peru's main vehicle marketplace. Live but behind a bot filter, so a browser check is needed."
@@ -193,6 +240,7 @@ mp-pl-sprzedajemy,Sprzedajemy.pl,https://www.sprzedajemy.pl/,poland,general-clas
 mp-pt-custojusto,CustoJusto,https://www.custojusto.pt/,portugal,general-classifieds,property; vehicles,both,freemium,,active,A Portuguese free classifieds marketplace.
 mp-pt-olx,OLX Portugal,https://www.olx.pt/,portugal,general-classifieds,jobs; property; vehicles,both,freemium,OLX Group,active,Portugal's leading classifieds marketplace.
 mp-pt-standvirtual,Standvirtual,https://www.standvirtual.com/,portugal,vehicles,,both,paid,OLX Group,active,"The main Portuguese vehicle marketplace, where dealers hold public dealer pages."
+mp-pr-clasificadosonline,Clasificados Online,https://www.clasificadosonline.com/,puerto-rico,general-classifieds,jobs; property; services; vehicles,both,free,,active,"Puerto Rico's long-running general classifieds marketplace, which states that publishing a listing is free."
 mp-qa-opensooq,OpenSooq Qatar,https://qa.opensooq.com/,qatar,general-classifieds,jobs; property; services; vehicles,both,free,OpenSooq,active,"The Qatar site of OpenSooq, the Arabic-language classifieds platform that says on its own about page that it runs in 20 countries with more than 120 buying and selling sections. It states free ad posting and carries cars, property, jobs and services."
 mp-qa-qatarliving,Qatar Living,https://www.qatarliving.com/,qatar,general-classifieds,jobs; property; services; vehicles,both,unknown,,active,"A Qatari community portal running since 2005 that states it has nearly 900,000 registered members. Its classifieds section carries items, vehicles, property, jobs and services, with business stores alongside private ""preloved"" sellers. A premium subscription is offered; the cost of a standard ad is not stated."
 mp-ro-autovit,Autovit,https://www.autovit.ro/,romania,vehicles,,both,paid,OLX Group,active,"The main Romanian vehicle marketplace, where dealers hold public dealer pages."
@@ -239,6 +287,7 @@ mp-lk-ikman,ikman,https://www.ikman.lk/,sri-lanka,general-classifieds,jobs; prop
 mp-sd-sudanjob,Sudanjob,https://www.sudanjob.net/,sudan,jobs,,business,paid,,active,"Sudan's main job marketplace, where employers hold public listings."
 mp-se-blocket,Blocket,https://www.blocket.se/,sweden,general-classifieds,jobs; property; vehicles,both,freemium,,active,Sweden's dominant classifieds marketplace.
 mp-se-bytbil,Bytbil,https://www.bytbil.com/,sweden,vehicles,,business,paid,,active,A Swedish vehicle marketplace where dealers hold public dealer pages.
+mp-se-hemnet,Hemnet,https://www.hemnet.se/,sweden,property,,business,paid,,unknown,"Sweden's main property marketplace, where estate agents publish listings on the seller's behalf. Live but behind a bot filter, so a browser check is needed."
 mp-se-tradera,Tradera,https://www.tradera.com/,sweden,auctions,general-classifieds,both,freemium,,active,A Swedish auction marketplace where businesses hold seller shops.
 mp-ch-ricardo,Ricardo,https://www.ricardo.ch/,switzerland,auctions,general-classifieds,both,freemium,,unknown,"Switzerland's largest online auction and marketplace. Live but behind a captcha gate, so a browser check is needed."
 mp-ch-anibis,anibis.ch,https://www.anibis.ch/,switzerland,general-classifieds,vehicles,both,freemium,,unknown,"A Swiss classifieds marketplace. Live but behind a security check, so a browser check is needed."
@@ -257,6 +306,7 @@ mp-tn-tayara,Tayara,https://www.tayara.tn/,tunisia,general-classifieds,property;
 mp-tr-arabam,Arabam.com,https://www.arabam.com/,turkey,vehicles,,both,paid,,unknown,"The main Turkish vehicle marketplace, where dealers hold public pages. Live but behind a bot filter, so a browser check is needed."
 mp-tr-hepsiemlak,Hepsiemlak,https://www.hepsiemlak.com/,turkey,property,,both,paid,,unknown,"A major Turkish property marketplace. Live but behind a bot filter, so a browser check is needed."
 mp-tr-sahibinden,Sahibinden,https://www.sahibinden.com/,turkey,general-classifieds,jobs; property; vehicles,both,freemium,,unknown,"Turkey's dominant classifieds marketplace. Live but behind a bot filter, so a browser check is needed."
+mp-ug-brightermonday,BrighterMonday Uganda,https://www.brightermonday.co.ug/,uganda,jobs,,business,paid,,active,"Uganda's leading job marketplace, where employers hold public company pages. A separate site and account from BrighterMonday Kenya."
 mp-ug-jiji,Jiji Uganda,https://jiji.ug/,uganda,general-classifieds,property; vehicles,both,freemium,Jiji Group,unknown,"Uganda's leading classifieds marketplace. Live but behind a bot filter, so a browser check is needed."
 mp-ua-autoria,AUTO.RIA,https://auto.ria.com/,ukraine,vehicles,,both,freemium,,active,"Ukraine's largest vehicle marketplace, where dealers hold public pages."
 mp-ua-olx,OLX Ukraine,https://www.olx.ua/,ukraine,general-classifieds,jobs; property; services; vehicles,both,freemium,OLX Group,active,Ukraine's dominant classifieds marketplace.
@@ -306,3 +356,4 @@ mp-vn-batdongsan,Batdongsan,https://batdongsan.com.vn/,vietnam,property,,both,pa
 mp-vn-chotot,Chợ Tốt,https://www.chotot.com/,vietnam,general-classifieds,property; vehicles,both,freemium,,active,Vietnam's leading classifieds marketplace.
 mp-vn-muaban,Muaban.net,https://muaban.net/,vietnam,general-classifieds,jobs; property; vehicles,both,freemium,,unknown,"A Vietnamese classifieds portal. Live but behind a bot filter, so a browser check is needed."
 mp-vn-vieclam24h,Việc Làm 24h,https://www.vieclam24h.vn/,vietnam,jobs,,business,paid,,active,A Vietnamese job marketplace where employers hold public company pages.
+mp-zw-propertybook,Propertybook,https://www.propertybook.co.zw/,zimbabwe,property,,both,paid,,active,"Zimbabwe's main property marketplace, where registered estate agencies hold public listings."

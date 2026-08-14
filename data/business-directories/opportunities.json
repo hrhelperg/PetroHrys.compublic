@@ -26938,5 +26938,833 @@
     "submissionModel": "unknown",
     "note": "The IATF 16949 certified site database for automotive suppliers.",
     "lastVerified": "2026-08-06"
+  },
+  {
+    "id": "sk-azet-katalog",
+    "name": "Azet Katalóg",
+    "website": "https://www.azet.sk/katalog/",
+    "country": "slovakia",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "create",
+    "submissionModel": "free",
+    "note": "A Slovak company catalogue on the Azet portal, organised by category and locality. The site states it holds over 183,000 companies and invites free company submission.",
+    "lastVerified": "2026-08-14"
+  },
+  {
+    "id": "sk-zlatestranky",
+    "name": "Zlaté stránky",
+    "website": "https://www.zlatestranky.sk/",
+    "country": "slovakia",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "create",
+    "submissionModel": "unknown",
+    "note": "The Slovak Golden Pages online company database, operated by WeNetOnline, with an open \"add your company\" route.",
+    "lastVerified": "2026-08-14"
+  },
+  {
+    "id": "sk-profesia",
+    "name": "Profesia.sk",
+    "website": "https://www.profesia.sk/",
+    "country": "slovakia",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Slovak job board where employers hold public company pages alongside their vacancies.",
+    "lastVerified": "2026-08-14"
+  },
+  {
+    "id": "hu-aranyoldalak",
+    "name": "Arany Oldalak",
+    "website": "https://aranyoldalak.hu/",
+    "country": "hungary",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Hungarian Golden Pages business finder, searchable by category and location. The site states it covers 593,800 companies and service providers.",
+    "lastVerified": "2026-08-14"
+  },
+  {
+    "id": "hu-opendi",
+    "name": "Opendi Magyarország",
+    "website": "https://www.opendi.hu/",
+    "country": "hungary",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "create",
+    "submissionModel": "free",
+    "note": "The Hungarian arm of the Opendi business directory and review network, offering free company submission.",
+    "lastVerified": "2026-08-14"
+  },
+  {
+    "id": "ro-paginiaurii",
+    "name": "Pagini Aurii",
+    "website": "https://www.paginiaurii.ro/",
+    "country": "romania",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "create",
+    "submissionModel": "unknown",
+    "note": "The Romanian Yellow Pages directory, searchable by company, product, service, tax code or activity code, with an \"add company\" route.",
+    "lastVerified": "2026-08-14"
+  },
+  {
+    "id": "ro-listafirme",
+    "name": "ListaFirme",
+    "website": "https://listafirme.ro/",
+    "country": "romania",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Romanian company database built on official filings, where companies hold public profile pages searchable by name, tax code, activity code and county.",
+    "lastVerified": "2026-08-14"
+  },
+  {
+    "id": "ro-opendi",
+    "name": "Opendi România",
+    "website": "https://www.opendi.ro/",
+    "country": "romania",
+    "category": "local-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "create",
+    "submissionModel": "free",
+    "note": "The Romanian arm of the Opendi business directory and review network, offering free company registration.",
+    "lastVerified": "2026-08-14"
+  },
+  {
+    "id": "bg-firm",
+    "name": "Firm.BG",
+    "website": "https://firm.bg/",
+    "country": "bulgaria",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "create",
+    "submissionModel": "free",
+    "note": "A Bulgarian online business catalogue that publishes public company listing pages and states that adding a company is free.",
+    "lastVerified": "2026-08-14"
+  },
+  {
+    "id": "bg-bcci",
+    "name": "Bulgarian Chamber of Commerce and Industry",
+    "website": "https://www.bcci.bg/",
+    "country": "bulgaria",
+    "category": "chambers-of-commerce",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Bulgarian chamber of commerce and industry, which operates a searchable trade register of companies and their representatives.",
+    "lastVerified": "2026-08-14"
+  },
+  {
+    "id": "hr-companywall",
+    "name": "CompanyWall Hrvatska",
+    "website": "https://www.companywall.hr/",
+    "country": "croatia",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Croatian arm of the CompanyWall business-information network, publishing company profiles and credit information.",
+    "lastVerified": "2026-08-14"
+  },
+  {
+    "id": "hr-mojposao",
+    "name": "MojPosao",
+    "website": "https://mojposao.hr/",
+    "country": "croatia",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Croatian job board that carries a dedicated employer-profile section where companies hold public pages.",
+    "lastVerified": "2026-08-14"
+  },
+  {
+    "id": "si-bizi",
+    "name": "Bizi.si",
+    "website": "https://www.bizi.si/",
+    "country": "slovenia",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Slovenian business-information portal with searchable company entries, sector browsing and public company data pages.",
+    "lastVerified": "2026-08-14"
+  },
+  {
+    "id": "si-companywall",
+    "name": "CompanyWall Slovenija",
+    "website": "https://www.companywall.si/",
+    "country": "slovenia",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Slovenian arm of the CompanyWall business-information network, publishing company profiles and credit information.",
+    "lastVerified": "2026-08-14"
+  },
+  {
+    "id": "rs-imenik",
+    "name": "Imenik.rs",
+    "website": "https://imenik.rs/",
+    "country": "serbia",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Serbian business directory organised by trade category and town, with public company entries.",
+    "lastVerified": "2026-08-14"
+  },
+  {
+    "id": "rs-companywall",
+    "name": "CompanyWall Srbija",
+    "website": "https://www.companywall.rs/",
+    "country": "serbia",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Serbian arm of the CompanyWall business-information network, publishing company profiles and credit information.",
+    "lastVerified": "2026-08-14"
+  },
+  {
+    "id": "ba-companywall",
+    "name": "CompanyWall Bosna i Hercegovina",
+    "website": "https://www.companywall.ba/",
+    "country": "bosnia-and-herzegovina",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Bosnian arm of the CompanyWall business-information network, publishing company profiles and credit information.",
+    "lastVerified": "2026-08-14"
+  },
+  {
+    "id": "me-companywall",
+    "name": "CompanyWall Crna Gora",
+    "website": "https://www.companywall.me/",
+    "country": "montenegro",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Montenegrin arm of the CompanyWall business-information network, publishing company profiles and credit information.",
+    "lastVerified": "2026-08-14"
+  },
+  {
+    "id": "al-companywall",
+    "name": "CompanyWall Shqipëri",
+    "website": "https://www.companywall.al/",
+    "country": "albania",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The Albanian arm of the CompanyWall business-information network, publishing company profiles and credit information.",
+    "lastVerified": "2026-08-14"
+  },
+  {
+    "id": "mk-biznismreza",
+    "name": "BiznisMreža.mk",
+    "website": "https://biznismreza.mk/",
+    "country": "north-macedonia",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A North Macedonian company-information network with public company entries browsable by activity and company size. The CompanyWall Macedonian domain resolves here.",
+    "lastVerified": "2026-08-14"
+  },
+  {
+    "id": "gr-11888",
+    "name": "11888.gr",
+    "website": "https://www.11888.gr/",
+    "country": "greece",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Greek directory of professionals and businesses, searchable by service and location, run by the 11888 directory-enquiries service.",
+    "lastVerified": "2026-08-14"
+  },
+  {
+    "id": "ee-inforegister",
+    "name": "Inforegister",
+    "website": "https://www.inforegister.ee/",
+    "country": "estonia",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An Estonian company-information service with public company and board-member entries, credit assessments and business risk data.",
+    "lastVerified": "2026-08-14"
+  },
+  {
+    "id": "lv-zl",
+    "name": "ZL.lv",
+    "website": "https://www.zl.lv/",
+    "country": "latvia",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "create",
+    "submissionModel": "unknown",
+    "note": "A Latvian business catalogue organised by sector with an open \"submit your company\" route. The site states its database holds 251,316 companies, 102,563 of them active.",
+    "lastVerified": "2026-08-14"
+  },
+  {
+    "id": "lv-lursoft",
+    "name": "Lursoft",
+    "website": "https://www.lursoft.lv/",
+    "country": "latvia",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Latvian company-database service publishing company, insolvency and annual-report data across the Baltic states.",
+    "lastVerified": "2026-08-14"
+  },
+  {
+    "id": "lt-visalietuva",
+    "name": "VisaLietuva.lt",
+    "website": "https://www.visalietuva.lt/",
+    "country": "lithuania",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Lithuanian company catalogue with public business entries, searchable by city and sector, and a press-release section for listed companies.",
+    "lastVerified": "2026-08-14"
+  },
+  {
+    "id": "lt-imones",
+    "name": "Imones.lt",
+    "website": "https://www.imones.lt/",
+    "country": "lithuania",
+    "category": "general-business",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Lithuanian company catalogue with public company entries, sector browsing and customer reviews.",
+    "lastVerified": "2026-08-14"
+  },
+  {
+    "id": "tr-bulurum",
+    "name": "Bulurum",
+    "website": "https://www.bulurum.com/",
+    "country": "turkey",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Turkish local search and company directory, searchable by business name, category and district.",
+    "lastVerified": "2026-08-14"
+  },
+  {
+    "id": "ua-region",
+    "name": "UA-REGION",
+    "website": "https://www.ua-region.com.ua/",
+    "country": "ukraine",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Ukrainian business catalogue and company promotion platform with public enterprise pages and a company rating section.",
+    "lastVerified": "2026-08-14"
+  },
+  {
+    "id": "moldova-firme",
+    "name": "Firme.md",
+    "website": "https://firme.md/",
+    "country": "moldova",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Moldovan company catalogue organised by sector, carrying company addresses, telephone numbers and registration identifiers.",
+    "lastVerified": "2026-08-14"
+  },
+  {
+    "id": "is-1819",
+    "name": "1819",
+    "website": "https://1819.is/",
+    "country": "iceland",
+    "category": "local-business",
+    "tier": "tier2",
+    "priority": "P2",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "create",
+    "submissionModel": "free",
+    "note": "The Icelandic directory-enquiries service, with a map-based business search. Its company registration page states that basic company registration is free.",
+    "lastVerified": "2026-08-14"
+  },
+  {
+    "id": "mt-maltabusinessbook",
+    "name": "Malta Business Book",
+    "website": "https://www.maltabusinessbook.com/",
+    "country": "malta",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "create",
+    "submissionModel": "unknown",
+    "note": "A Maltese online business directory covering Malta and Gozo, organised by business category, with a \"list your business\" route.",
+    "lastVerified": "2026-08-14"
+  },
+  {
+    "id": "mm-yellowpages",
+    "name": "Myanmar Yellow Pages",
+    "website": "https://www.myanmaryellowpages.biz/",
+    "country": "myanmar",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "create",
+    "submissionModel": "free",
+    "note": "A Myanmar trade directory organised by business category, offering a free listing route.",
+    "lastVerified": "2026-08-14"
+  },
+  {
+    "id": "uz-yellowpages",
+    "name": "Yellow Pages Uzbekistan",
+    "website": "https://www.yellowpages.uz/",
+    "country": "uzbekistan",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "create",
+    "submissionModel": "unknown",
+    "note": "An Uzbek company directory organised by rubric, with public organisation entries and an \"add company\" route.",
+    "lastVerified": "2026-08-14"
+  },
+  {
+    "id": "az-yellowpages",
+    "name": "Yellow Pages Azerbaijan",
+    "website": "https://yellowpages.az/",
+    "country": "azerbaijan",
+    "category": "general-business",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "country-specific"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An Azerbaijani business directory with public company pages, searchable by brand, category and telephone number.",
+    "lastVerified": "2026-08-14"
+  },
+  {
+    "id": "global-pkg-go-dev",
+    "name": "Go Packages (pkg.go.dev)",
+    "website": "https://pkg.go.dev/",
+    "country": "global",
+    "category": "developer",
+    "tier": "tier1",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The official Go module and package index, carrying a public documentation page for every published module.",
+    "lastVerified": "2026-08-14"
+  },
+  {
+    "id": "global-artifacthub",
+    "name": "Artifact Hub",
+    "website": "https://artifacthub.io/",
+    "country": "global",
+    "category": "developer",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A CNCF registry of cloud-native packages — Helm charts, operators and plugins — where publishers list a repository and each package gets a public page.",
+    "lastVerified": "2026-08-14"
+  },
+  {
+    "id": "global-homebrew-formulae",
+    "name": "Homebrew Formulae",
+    "website": "https://formulae.brew.sh/",
+    "country": "global",
+    "category": "developer",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The browsable index of Homebrew formulae and casks, giving every packaged tool and application a public page.",
+    "lastVerified": "2026-08-14"
+  },
+  {
+    "id": "global-chocolatey",
+    "name": "Chocolatey Community Repository",
+    "website": "https://community.chocolatey.org/packages",
+    "country": "global",
+    "category": "developer",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "The community package repository for Windows software, where each published package holds a public listing page.",
+    "lastVerified": "2026-08-14"
+  },
+  {
+    "id": "global-appvizer",
+    "name": "Appvizer",
+    "website": "https://www.appvizer.com/",
+    "country": "global",
+    "category": "saas",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "europe"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A European business-software comparison platform where vendors hold public product pages across software categories.",
+    "lastVerified": "2026-08-14"
+  },
+  {
+    "id": "global-softwarefinder",
+    "name": "Software Finder",
+    "website": "https://softwarefinder.com/",
+    "country": "global",
+    "category": "saas",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A business-software review and comparison site with a vendor programme and public product pages.",
+    "lastVerified": "2026-08-14"
+  },
+  {
+    "id": "global-softwareconnect",
+    "name": "Software Connect",
+    "website": "https://softwareconnect.com/",
+    "country": "global",
+    "category": "saas",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A business-software review and advisory site publishing category comparisons and public product pages.",
+    "lastVerified": "2026-08-14"
+  },
+  {
+    "id": "global-educations",
+    "name": "educations.com",
+    "website": "https://www.educations.com/",
+    "country": "global",
+    "category": "education",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An international study-programme portal where institutions hold public school and programme listings.",
+    "lastVerified": "2026-08-14"
+  },
+  {
+    "id": "global-hotcourses-abroad",
+    "name": "IDP Hotcourses Abroad",
+    "website": "https://www.hotcoursesabroad.com/",
+    "country": "global",
+    "category": "education",
+    "tier": "tier2",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "An international course and university search portal operated by IDP, where institutions hold public profiles and course listings.",
+    "lastVerified": "2026-08-14"
+  },
+  {
+    "id": "global-goabroad",
+    "name": "GoAbroad",
+    "website": "https://www.goabroad.com/",
+    "country": "global",
+    "category": "education",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "global"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A directory of study, intern and volunteer abroad programmes where providers hold public program listings.",
+    "lastVerified": "2026-08-14"
+  },
+  {
+    "id": "global-edarabia",
+    "name": "Edarabia",
+    "website": "https://www.edarabia.com/",
+    "country": "global",
+    "category": "education",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "middle-east"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "unknown",
+    "submissionModel": "unknown",
+    "note": "A Middle East education directory listing universities, schools, nurseries, training centres and language institutes with public profiles.",
+    "lastVerified": "2026-08-14"
+  },
+  {
+    "id": "us-lawyerlegion",
+    "name": "Lawyer Legion",
+    "website": "https://www.lawyerlegion.com/",
+    "country": "united-states",
+    "category": "legal",
+    "tier": "tier3",
+    "priority": "P3",
+    "currentStatus": "active",
+    "audienceGeography": [
+      "united-states"
+    ],
+    "publicProfileAvailable": true,
+    "listingAction": "create",
+    "submissionModel": "free",
+    "note": "A US attorney directory organised by practice area, location and board certification, which states that it offers free listings.",
+    "lastVerified": "2026-08-14"
   }
 ]

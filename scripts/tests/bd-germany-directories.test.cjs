@@ -19,6 +19,8 @@ const path = require('node:path');
 
 const S = require('../lib/bd-schema.cjs');
 const { loadRegistry } = require('../lib/bd-registry.cjs');
+// Publication parity, in place of the per-country totals this suite used to pin.
+const PARITY = require('./helpers/country-parity.cjs');
 
 const ROOT = path.resolve(__dirname, '..', '..');
 const ALL = loadRegistry().directories;
@@ -35,7 +37,10 @@ const hostOf = (u) => new URL(u).hostname.replace(/^www\./, '');
 test('every record this wave claims to have published exists', () => {
   assert.strictEqual(WAVE.length, 4, 'the wave manifest changed size without this test changing');
   for (const id of WAVE) assert.ok(byId.get(id), `missing record ${id}`);
-  assert.strictEqual(ALL.filter((r) => r.country === 'germany').length, 20); // +1 Das Örtliche, high-authority expansion
+  // BRITTLE MIRROR, REMOVED: `... === 20`, a per-country total that had already
+  // accumulated its own changelog in a trailing comment ("+1 Das Örtliche,
+  // high-authority expansion"). See scripts/tests/helpers/country-parity.cjs.
+  PARITY.assertCountryPublicationParity(assert, ALL, 'germany', 20);
 });
 
 // ── the pillar boundary ─────────────────────────────────────────────────────
