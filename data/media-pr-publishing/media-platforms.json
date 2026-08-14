@@ -225,8 +225,8 @@
   "publicProfileAvailable": null,
   "requiresEditorialApproval": null,
   "sponsoredContentAvailable": null,
-  "shortNote": "Legal industry news and commentary aimed at practising lawyers. Verified in a browser on 2026-08-14: publishes a feed; 46 article elements; masthead vocabulary; the masthead names itself as a publication.",
-  "limitations": "Read in a browser on 2026-08-14. The homepage and the contact and about pages it links to publish no submission, pitch or press-release route in words, so none is recorded; one may exist deeper in the site and a person would have to find it.",
+  "shortNote": "Legal industry news and commentary aimed at practising lawyers. [accessibility:2026-08-14] verified in a browser: publishes a feed; 46 article elements; masthead vocabulary; the masthead names itself as a publication.",
+  "limitations": "The homepage and the contact and about pages it links to publish no submission, pitch or press-release route in words, so none is recorded; one may exist deeper in the site and a person would have to find it.",
   "lastVerified": "2026-08-14",
   "sources": [
    "https://abovethelaw.com/"
@@ -256,7 +256,7 @@
   "costModel": "paid",
   "submissionUrl": null,
   "pitchUrl": null,
-  "pressReleaseUrl": null,
+  "pressReleaseUrl": "https://www.accessnewswire.com/submit-a-press-release",
   "advertisingUrl": null,
   "mediaKitUrl": null,
   "contactUrl": null,
@@ -266,7 +266,7 @@
   "sponsoredContentAvailable": null,
   "shortNote": "Press release distribution and investor relations services. Formerly ACCESSWIRE; accesswire.com now redirects here.",
   "limitations": "Paid only. Rebranded from ACCESSWIRE, so older references and links point at the previous domain.",
-  "lastVerified": "2026-08-07",
+  "lastVerified": "2026-08-14",
   "sources": [
    "https://www.accesswire.com/",
    "https://www.accessnewswire.com/newsroom"
@@ -406,10 +406,10 @@
   "currentStatus": "active",
   "priority": "P3",
   "opportunityTypes": [
-   "unknown"
+   "editorial-submission"
   ],
   "costModel": "unknown",
-  "submissionUrl": null,
+  "submissionUrl": "https://www.agriculturedive.com/submit-tip/",
   "pitchUrl": null,
   "pressReleaseUrl": null,
   "advertisingUrl": null,
@@ -421,7 +421,7 @@
   "sponsoredContentAvailable": null,
   "shortNote": "Industry Dive’s agriculture title covering farm inputs, equipment and policy.",
   "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Reached and identified during Wave 3.",
-  "lastVerified": "2026-08-08",
+  "lastVerified": "2026-08-14",
   "sources": [
    "https://www.agriculturedive.com/"
   ]
@@ -495,8 +495,8 @@
   "publicProfileAvailable": null,
   "requiresEditorialApproval": null,
   "sponsoredContentAvailable": null,
-  "shortNote": "US farm news, markets and machinery from Farm Journal. Verified in a browser on 2026-08-14: publishes a feed; masthead vocabulary; the masthead names itself as a publication.",
-  "limitations": "Read in a browser on 2026-08-14. The homepage and the contact and about pages it links to publish no submission, pitch or press-release route in words, so none is recorded; one may exist deeper in the site and a person would have to find it.",
+  "shortNote": "US farm news, markets and machinery from Farm Journal. [accessibility:2026-08-14] verified in a browser: publishes a feed; masthead vocabulary; the masthead names itself as a publication.",
+  "limitations": "The homepage and the contact and about pages it links to publish no submission, pitch or press-release route in words, so none is recorded; one may exist deeper in the site and a person would have to find it.",
   "lastVerified": "2026-08-14",
   "sources": [
    "https://www.agweb.com/"
@@ -688,8 +688,8 @@
   "publicProfileAvailable": null,
   "requiresEditorialApproval": null,
   "sponsoredContentAvailable": null,
-  "shortNote": "A crowdsourced software alternatives catalogue where a product holds a durable public profile. Verified in a browser on 2026-08-14: publishes a feed; 18 article elements; 17 datelines; masthead vocabulary.",
-  "limitations": "Read in a browser on 2026-08-14. The homepage and the contact and about pages it links to publish no submission, pitch or press-release route in words, so none is recorded; one may exist deeper in the site and a person would have to find it.",
+  "shortNote": "A crowdsourced software alternatives catalogue where a product holds a durable public profile. [accessibility:2026-08-14] verified in a browser: publishes a feed; 18 article elements; 17 datelines; masthead vocabulary.",
+  "limitations": "The homepage and the contact and about pages it links to publish no submission, pitch or press-release route in words, so none is recorded; one may exist deeper in the site and a person would have to find it.",
   "lastVerified": "2026-08-14",
   "sources": [
    "https://alternativeto.net/"
@@ -844,8 +844,8 @@
   "publicProfileAvailable": null,
   "requiresEditorialApproval": null,
   "sponsoredContentAvailable": null,
-  "shortNote": "Gulf business magazine covering companies, real estate and the regional economy. Verified in a browser on 2026-08-14: publishes a feed; 71 article elements; 8 datelines; masthead vocabulary; the masthead names itself as a publication.",
-  "limitations": "Read in a browser on 2026-08-14. The homepage and the contact and about pages it links to publish no submission, pitch or press-release route in words, so none is recorded; one may exist deeper in the site and a person would have to find it.",
+  "shortNote": "Gulf business magazine covering companies, real estate and the regional economy. [accessibility:2026-08-14] verified in a browser: publishes a feed; 71 article elements; 8 datelines; masthead vocabulary; the masthead names itself as a publication.",
+  "limitations": "The homepage and the contact and about pages it links to publish no submission, pitch or press-release route in words, so none is recorded; one may exist deeper in the site and a person would have to find it.",
   "lastVerified": "2026-08-14",
   "sources": [
    "https://www.arabianbusiness.com"
@@ -1234,8 +1234,8 @@
   "publicProfileAvailable": null,
   "requiresEditorialApproval": null,
   "sponsoredContentAvailable": null,
-  "shortNote": "The reference automotive industry trade publication, covering manufacturers, suppliers and dealers. Verified in a browser on 2026-08-14: masthead vocabulary; the masthead names itself as a publication.",
-  "limitations": "Read in a browser on 2026-08-14. The homepage and the contact and about pages it links to publish no submission, pitch or press-release route in words, so none is recorded; one may exist deeper in the site and a person would have to find it.",
+  "shortNote": "The reference automotive industry trade publication, covering manufacturers, suppliers and dealers. [accessibility:2026-08-14] verified in a browser: masthead vocabulary; the masthead names itself as a publication.",
+  "limitations": "The homepage and the contact and about pages it links to publish no submission, pitch or press-release route in words, so none is recorded; one may exist deeper in the site and a person would have to find it.",
   "lastVerified": "2026-08-14",
   "sources": [
    "https://www.autonews.com/"
@@ -1338,10 +1338,11 @@
   "priority": "P2",
   "opportunityTypes": [
    "editorial-pitch",
+   "editorial-submission",
    "press-release"
   ],
   "costModel": "free",
-  "submissionUrl": null,
+  "submissionUrl": "https://www.bankingdive.com/submit-tip/",
   "pitchUrl": null,
   "pressReleaseUrl": null,
   "advertisingUrl": null,
@@ -1353,7 +1354,7 @@
   "sponsoredContentAvailable": null,
   "shortNote": "Industry Dive’s banking title, read by banking operators and executives. Its about page carries both a press-release address and a tips route.",
   "limitations": "The release route and the editorial tip route are different things; a release is not a story.",
-  "lastVerified": "2026-08-07",
+  "lastVerified": "2026-08-14",
   "sources": [
    "https://www.bankingdive.com/about/"
   ]
@@ -1660,7 +1661,7 @@
   "publicProfileAvailable": null,
   "requiresEditorialApproval": null,
   "sponsoredContentAvailable": null,
-  "shortNote": "New Orleans metropolitan business magazine. An automated browser check on 2026-08-14 was refused by the site (access-denied); a browser check is needed by a person and the status stays unknown.",
+  "shortNote": "New Orleans metropolitan business magazine. [accessibility:2026-08-14] an automated browser check was refused by the site (access-denied); a browser check is needed by a person and the status stays unknown.",
   "limitations": "Reached but behind a bot filter, so the route could not be read from the site. A human needs to open it in a browser and confirm whether a submission or pitch route exists.",
   "lastVerified": "2026-08-14",
   "sources": [
@@ -1698,7 +1699,7 @@
   "publicProfileAvailable": null,
   "requiresEditorialApproval": null,
   "sponsoredContentAvailable": null,
-  "shortNote": "The largest US metropolitan business-journal network, publishing a title in roughly 40 cities from one platform. An automated browser check on 2026-08-14 was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown.",
+  "shortNote": "The largest US metropolitan business-journal network, publishing a title in roughly 40 cities from one platform. [accessibility:2026-08-14] an automated browser check was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown.",
   "limitations": "Reached but behind a bot filter, so the route could not be read from the site. A human needs to open it in a browser and confirm whether a submission or pitch route exists. Treated as ONE opportunity, not forty: phoenixbusinessjournal.com redirects to bizjournals.com/phoenix/ and BostInno to bizjournals.com/boston/inno, so the city titles share one system. Submitting to each city separately would be submitting to the same publisher forty times.",
   "lastVerified": "2026-08-14",
   "sources": [
@@ -1803,10 +1804,11 @@
   "currentStatus": "active",
   "priority": "P2",
   "opportunityTypes": [
-   "editorial-pitch"
+   "editorial-pitch",
+   "editorial-submission"
   ],
   "costModel": "free",
-  "submissionUrl": null,
+  "submissionUrl": "https://www.bleepingcomputer.com/news-tip/",
   "pitchUrl": null,
   "pressReleaseUrl": null,
   "advertisingUrl": null,
@@ -1818,7 +1820,7 @@
   "sponsoredContentAvailable": null,
   "shortNote": "Breaking security and malware coverage widely cited by other outlets, with a public contact route.",
   "limitations": "Incident and research-driven; product launches rarely qualify.",
-  "lastVerified": "2026-08-07",
+  "lastVerified": "2026-08-14",
   "sources": [
    "https://www.bleepingcomputer.com/contact/"
   ]
@@ -1842,10 +1844,10 @@
   "currentStatus": "active",
   "priority": "P3",
   "opportunityTypes": [
-   "unknown"
+   "editorial-submission"
   ],
   "costModel": "unknown",
-  "submissionUrl": null,
+  "submissionUrl": "https://www.bloomberg.com/tips/",
   "pitchUrl": null,
   "pressReleaseUrl": null,
   "advertisingUrl": null,
@@ -1857,7 +1859,7 @@
   "sponsoredContentAvailable": null,
   "shortNote": "Global business and financial news attached to the Bloomberg terminal business.",
   "limitations": "No public pitch route was established. Included because it is a standing target on most PR lists, not because a route was found.",
-  "lastVerified": "2026-08-07",
+  "lastVerified": "2026-08-14",
   "sources": [
    "https://www.bloomberg.com/"
   ]
@@ -2048,7 +2050,7 @@
   "publicProfileAvailable": null,
   "requiresEditorialApproval": null,
   "sponsoredContentAvailable": null,
-  "shortNote": "Austria’s main startup and innovation publication. An automated browser check on 2026-08-14 was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown.",
+  "shortNote": "Austria’s main startup and innovation publication. [accessibility:2026-08-14] an automated browser check was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown.",
   "limitations": "Reached but behind a bot filter, so the route could not be read from the site. A human needs to open it in a browser and confirm whether a submission or pitch route exists.",
   "lastVerified": "2026-08-14",
   "sources": [
@@ -2244,8 +2246,8 @@
   "publicProfileAvailable": null,
   "requiresEditorialApproval": null,
   "sponsoredContentAvailable": null,
-  "shortNote": "North Carolina statewide business magazine. Verified in a browser on 2026-08-14: publishes a feed; 4 datelines; masthead vocabulary.",
-  "limitations": "Read in a browser on 2026-08-14. The homepage and the contact and about pages it links to publish no submission, pitch or press-release route in words, so none is recorded; one may exist deeper in the site and a person would have to find it.",
+  "shortNote": "North Carolina statewide business magazine. [accessibility:2026-08-14] verified in a browser: publishes a feed; 4 datelines; masthead vocabulary.",
+  "limitations": "The homepage and the contact and about pages it links to publish no submission, pitch or press-release route in words, so none is recorded; one may exist deeper in the site and a person would have to find it.",
   "lastVerified": "2026-08-14",
   "sources": [
    "https://www.businessnc.com/"
@@ -2283,8 +2285,8 @@
   "publicProfileAvailable": null,
   "requiresEditorialApproval": null,
   "sponsoredContentAvailable": null,
-  "shortNote": "Indian business and financial daily. Verified in a browser on 2026-08-14: masthead vocabulary; the masthead names itself as a publication.",
-  "limitations": "Read in a browser on 2026-08-14. The homepage and the contact and about pages it links to publish no submission, pitch or press-release route in words, so none is recorded; one may exist deeper in the site and a person would have to find it.",
+  "shortNote": "Indian business and financial daily. [accessibility:2026-08-14] verified in a browser: masthead vocabulary; the masthead names itself as a publication.",
+  "limitations": "The homepage and the contact and about pages it links to publish no submission, pitch or press-release route in words, so none is recorded; one may exist deeper in the site and a person would have to find it.",
   "lastVerified": "2026-08-14",
   "sources": [
    "https://www.business-standard.com/"
@@ -2360,7 +2362,7 @@
   "publicProfileAvailable": null,
   "requiresEditorialApproval": null,
   "sponsoredContentAvailable": null,
-  "shortNote": "A Berkshire Hathaway newswire used heavily for regulated financial disclosure and earnings releases. An automated browser check on 2026-08-14 was refused by the site (access-denied); a browser check is needed by a person and the status stays unknown.",
+  "shortNote": "A Berkshire Hathaway newswire used heavily for regulated financial disclosure and earnings releases. [accessibility:2026-08-14] an automated browser check was refused by the site (access-denied); a browser check is needed by a person and the status stays unknown.",
   "limitations": "Reached but behind a bot filter, so the submission route could not be read from the site. Needs a browser check. Paid only.",
   "lastVerified": "2026-08-14",
   "sources": [
@@ -2515,7 +2517,7 @@
   "publicProfileAvailable": null,
   "requiresEditorialApproval": null,
   "sponsoredContentAvailable": null,
-  "shortNote": "South African business and consumer-economy news site. An automated browser check on 2026-08-14 was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown.",
+  "shortNote": "South African business and consumer-economy news site. [accessibility:2026-08-14] an automated browser check was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown.",
   "limitations": "Reached but behind a bot filter, so the route could not be read from the site. A human needs to open it in a browser and confirm whether a submission or pitch route exists.",
   "lastVerified": "2026-08-14",
   "sources": [
@@ -2619,10 +2621,10 @@
   "currentStatus": "active",
   "priority": "P3",
   "opportunityTypes": [
-   "unknown"
+   "contributed-article"
   ],
   "costModel": "unknown",
-  "submissionUrl": null,
+  "submissionUrl": "https://bytebytego.com/become-a-contributor",
   "pitchUrl": null,
   "pressReleaseUrl": null,
   "advertisingUrl": null,
@@ -2634,7 +2636,7 @@
   "sponsoredContentAvailable": null,
   "shortNote": "System design newsletter for software engineers.",
   "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Reached and identified during Wave 3.",
-  "lastVerified": "2026-08-08",
+  "lastVerified": "2026-08-14",
   "sources": [
    "https://bytebytego.com/"
   ]
@@ -2788,7 +2790,7 @@
   "publicProfileAvailable": null,
   "requiresEditorialApproval": null,
   "sponsoredContentAvailable": null,
-  "shortNote": "Morning Brew’s finance-leadership newsletter. An automated browser check on 2026-08-14 was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown.",
+  "shortNote": "Morning Brew’s finance-leadership newsletter. [accessibility:2026-08-14] an automated browser check was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown.",
   "limitations": "Reached but behind a bot filter, so the route could not be read from the site. Needs a human with a browser to confirm whether a submission or pitch route exists.",
   "lastVerified": "2026-08-14",
   "sources": [
@@ -2826,7 +2828,7 @@
   "publicProfileAvailable": null,
   "requiresEditorialApproval": null,
   "sponsoredContentAvailable": null,
-  "shortNote": "Corporate finance publication for CFOs and finance leadership. Verified in a browser on 2026-08-14: publishes a feed; masthead vocabulary; the masthead names itself as a publication.",
+  "shortNote": "Corporate finance publication for CFOs and finance leadership. [accessibility:2026-08-14] verified in a browser: publishes a feed; masthead vocabulary; the masthead names itself as a publication.",
   "limitations": null,
   "lastVerified": "2026-08-14",
   "sources": [
@@ -2865,7 +2867,7 @@
   "publicProfileAvailable": null,
   "requiresEditorialApproval": null,
   "sponsoredContentAvailable": null,
-  "shortNote": "MSP and technology channel publication covering agents, resellers and UCaaS distribution. An automated browser check on 2026-08-14 found that www.channelfutures.com now answers as www.channeldive.com (\"Welcome to Channel Dive | Channel Dive\"); a browser check is needed by a person to settle what this record should be, and the status stays unknown.",
+  "shortNote": "MSP and technology channel publication covering agents, resellers and UCaaS distribution. [accessibility:2026-08-14] an automated browser check found that www.channelfutures.com now answers as www.channeldive.com (\"Welcome to Channel Dive | Channel Dive\"); a browser check is needed by a person to settle what this record should be, and the status stays unknown.",
   "limitations": "Reached but behind a bot filter, so the route could not be read from the site. Needs a human with a browser to confirm whether a submission or pitch route exists.",
   "lastVerified": "2026-08-14",
   "sources": [
@@ -3059,7 +3061,7 @@
   "publicProfileAvailable": null,
   "requiresEditorialApproval": null,
   "sponsoredContentAvailable": null,
-  "shortNote": "UK communications channel and reseller publication. An automated browser check on 2026-08-14 was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown.",
+  "shortNote": "UK communications channel and reseller publication. [accessibility:2026-08-14] an automated browser check was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown.",
   "limitations": "Reached but behind a bot filter, so the route could not be read from the site. Needs a human with a browser to confirm whether a submission or pitch route exists.",
   "lastVerified": "2026-08-14",
   "sources": [
@@ -3136,7 +3138,7 @@
   "publicProfileAvailable": null,
   "requiresEditorialApproval": null,
   "sponsoredContentAvailable": null,
-  "shortNote": "Industry Dive’s construction title, covering contractors, labour and project delivery. Verified in a browser on 2026-08-14: publishes a feed; the masthead names itself as a publication.",
+  "shortNote": "Industry Dive’s construction title, covering contractors, labour and project delivery. [accessibility:2026-08-14] verified in a browser: publishes a feed; the masthead names itself as a publication.",
   "limitations": null,
   "lastVerified": "2026-08-14",
   "sources": [
@@ -3175,7 +3177,7 @@
   "publicProfileAvailable": null,
   "requiresEditorialApproval": null,
   "sponsoredContentAvailable": null,
-  "shortNote": "Industrial control and automation engineering publication. An automated browser check on 2026-08-14 was refused by the site (captcha); a browser check is needed by a person and the status stays unknown.",
+  "shortNote": "Industrial control and automation engineering publication. [accessibility:2026-08-14] an automated browser check was refused by the site (captcha); a browser check is needed by a person and the status stays unknown.",
   "limitations": "Reached but behind a bot filter, so the route could not be read from the site. A human needs to open it in a browser and confirm whether a submission or pitch route exists.",
   "lastVerified": "2026-08-14",
   "sources": [
@@ -3254,8 +3256,8 @@
   "publicProfileAvailable": null,
   "requiresEditorialApproval": null,
   "sponsoredContentAvailable": null,
-  "shortNote": "Detroit and Michigan business coverage with a strong automotive and manufacturing focus. Verified in a browser on 2026-08-14: masthead vocabulary; the masthead names itself as a publication.",
-  "limitations": "Read in a browser on 2026-08-14. The homepage and the contact and about pages it links to publish no submission, pitch or press-release route in words, so none is recorded; one may exist deeper in the site and a person would have to find it.",
+  "shortNote": "Detroit and Michigan business coverage with a strong automotive and manufacturing focus. [accessibility:2026-08-14] verified in a browser: masthead vocabulary; the masthead names itself as a publication.",
+  "limitations": "The homepage and the contact and about pages it links to publish no submission, pitch or press-release route in words, so none is recorded; one may exist deeper in the site and a person would have to find it.",
   "lastVerified": "2026-08-14",
   "sources": [
    "https://www.crainsdetroit.com/"
@@ -3293,8 +3295,8 @@
   "publicProfileAvailable": null,
   "requiresEditorialApproval": null,
   "sponsoredContentAvailable": null,
-  "shortNote": "New York City business journalism covering companies, real estate and city policy. Verified in a browser on 2026-08-14: masthead vocabulary; the masthead names itself as a publication.",
-  "limitations": "Read in a browser on 2026-08-14. The homepage and the contact and about pages it links to publish no submission, pitch or press-release route in words, so none is recorded; one may exist deeper in the site and a person would have to find it.",
+  "shortNote": "New York City business journalism covering companies, real estate and city policy. [accessibility:2026-08-14] verified in a browser: masthead vocabulary; the masthead names itself as a publication.",
+  "limitations": "The homepage and the contact and about pages it links to publish no submission, pitch or press-release route in words, so none is recorded; one may exist deeper in the site and a person would have to find it.",
   "lastVerified": "2026-08-14",
   "sources": [
    "https://www.crainsnewyork.com/"
@@ -3642,8 +3644,8 @@
   "publicProfileAvailable": null,
   "requiresEditorialApproval": null,
   "sponsoredContentAvailable": null,
-  "shortNote": "Dallas–Fort Worth innovation, startup and corporate technology publication. Verified in a browser on 2026-08-14: publishes a feed.",
-  "limitations": "Read in a browser on 2026-08-14. The homepage and the contact and about pages it links to publish no submission, pitch or press-release route in words, so none is recorded; one may exist deeper in the site and a person would have to find it.",
+  "shortNote": "Dallas–Fort Worth innovation, startup and corporate technology publication. [accessibility:2026-08-14] verified in a browser: publishes a feed.",
+  "limitations": "The homepage and the contact and about pages it links to publish no submission, pitch or press-release route in words, so none is recorded; one may exist deeper in the site and a person would have to find it.",
   "lastVerified": "2026-08-14",
   "sources": [
    "https://www.dallasinnovates.com/"
@@ -5115,10 +5117,10 @@
   "currentStatus": "active",
   "priority": "P1",
   "opportunityTypes": [
-   "unknown"
+   "editorial-submission"
   ],
   "costModel": "unknown",
-  "submissionUrl": null,
+  "submissionUrl": "https://www.enr.com/events/new",
   "pitchUrl": null,
   "pressReleaseUrl": null,
   "advertisingUrl": null,
@@ -5130,7 +5132,7 @@
   "sponsoredContentAvailable": null,
   "shortNote": "The reference US construction and engineering publication, publisher of the ENR contractor rankings.",
   "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Checked during Wave 2; no submission or pitch page was found at the paths tried.",
-  "lastVerified": "2026-08-08",
+  "lastVerified": "2026-08-14",
   "sources": [
    "https://www.enr.com/"
   ]
@@ -5709,8 +5711,8 @@
   "publicProfileAvailable": null,
   "requiresEditorialApproval": null,
   "sponsoredContentAvailable": null,
-  "shortNote": "A question-and-answer platform where experts answer publisher questions for attributed inclusion in articles. Verified in a browser on 2026-08-14: masthead vocabulary.",
-  "limitations": "Read in a browser on 2026-08-14. The homepage and the contact and about pages it links to publish no submission, pitch or press-release route in words, so none is recorded; one may exist deeper in the site and a person would have to find it.",
+  "shortNote": "A question-and-answer platform where experts answer publisher questions for attributed inclusion in articles. [accessibility:2026-08-14] verified in a browser: masthead vocabulary.",
+  "limitations": "The homepage and the contact and about pages it links to publish no submission, pitch or press-release route in words, so none is recorded; one may exist deeper in the site and a person would have to find it.",
   "lastVerified": "2026-08-14",
   "sources": [
    "https://featured.com/"
@@ -6082,10 +6084,11 @@
   "priority": "P2",
   "opportunityTypes": [
    "editorial-pitch",
+   "editorial-submission",
    "press-release"
   ],
   "costModel": "free",
-  "submissionUrl": null,
+  "submissionUrl": "https://www.fooddive.com/submit-tip/",
   "pitchUrl": null,
   "pressReleaseUrl": null,
   "advertisingUrl": null,
@@ -6097,7 +6100,7 @@
   "sponsoredContentAvailable": null,
   "shortNote": "Industry Dive’s food and beverage manufacturing title, covering brands, ingredients and regulation, with release and tip routes on its about page.",
   "limitations": "Food manufacturing and CPG, not agriculture production.",
-  "lastVerified": "2026-08-08",
+  "lastVerified": "2026-08-14",
   "sources": [
    "https://www.fooddive.com/about/"
   ]
@@ -6198,10 +6201,10 @@
   "currentStatus": "active",
   "priority": "P2",
   "opportunityTypes": [
-   "unknown"
+   "editorial-submission"
   ],
   "costModel": "unknown",
-  "submissionUrl": null,
+  "submissionUrl": "https://www.forbes.com/sites/forbesstaff/article/tips-and-confidential-sources/",
   "pitchUrl": null,
   "pressReleaseUrl": null,
   "advertisingUrl": null,
@@ -6213,7 +6216,7 @@
   "sponsoredContentAvailable": null,
   "shortNote": "A major global business title. Staff journalism and the paid Councils contributor programme are entirely separate things.",
   "limitations": "No open pitch route was established for staff coverage. For the paid publishing route see the Forbes Councils record, which is not staff coverage.",
-  "lastVerified": "2026-08-07",
+  "lastVerified": "2026-08-14",
   "sources": [
    "https://www.forbes.com/"
   ]
@@ -6508,10 +6511,10 @@
   "currentStatus": "active",
   "priority": "P3",
   "opportunityTypes": [
-   "unknown"
+   "contributed-article"
   ],
   "costModel": "unknown",
-  "submissionUrl": null,
+  "submissionUrl": "https://futurestartup.com/2015/06/17/introducing-fs-network/",
   "pitchUrl": null,
   "pressReleaseUrl": null,
   "advertisingUrl": null,
@@ -6559,7 +6562,7 @@
   "publicProfileAvailable": null,
   "requiresEditorialApproval": null,
   "sponsoredContentAvailable": null,
-  "shortNote": "Chinese technology product and startup publication. An automated browser check on 2026-08-14 was refused by the site (http 403); a browser check is needed by a person and the status stays unknown.",
+  "shortNote": "Chinese technology product and startup publication. [accessibility:2026-08-14] an automated browser check was refused by the site (http 403); a browser check is needed by a person and the status stays unknown.",
   "limitations": "Reached but behind a bot filter, so the route could not be read from the site. Needs a human with a browser to confirm whether a submission or pitch route exists.",
   "lastVerified": "2026-08-14",
   "sources": [
@@ -6639,7 +6642,7 @@
   "publicProfileAvailable": null,
   "requiresEditorialApproval": null,
   "sponsoredContentAvailable": null,
-  "shortNote": "Seattle-based technology and startup publication with national reach, strong on Amazon and Microsoft. An automated browser check on 2026-08-14 was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown.",
+  "shortNote": "Seattle-based technology and startup publication with national reach, strong on Amazon and Microsoft. [accessibility:2026-08-14] an automated browser check was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown.",
   "limitations": "Reached but behind a bot filter, so the route could not be read from the site. A human needs to open it in a browser and confirm whether a submission or pitch route exists. A startup-list submission path is advertised but could not be read.",
   "lastVerified": "2026-08-14",
   "sources": [
@@ -6827,7 +6830,7 @@
   "costModel": "paid",
   "submissionUrl": null,
   "pitchUrl": null,
-  "pressReleaseUrl": null,
+  "pressReleaseUrl": "https://portal.notified.com/en/registration",
   "advertisingUrl": null,
   "mediaKitUrl": null,
   "contactUrl": null,
@@ -6837,7 +6840,7 @@
   "sponsoredContentAvailable": null,
   "shortNote": "A global newswire with strong coverage of listed-company and financial disclosure, and a public newsroom carrying every release.",
   "limitations": "Paid only. The public newsroom republishes releases verbatim; it is not editorial coverage.",
-  "lastVerified": "2026-08-07",
+  "lastVerified": "2026-08-14",
   "sources": [
    "https://www.globenewswire.com/",
    "https://www.globenewswire.com/newsroom"
@@ -7030,7 +7033,7 @@
   "publicProfileAvailable": null,
   "requiresEditorialApproval": null,
   "sponsoredContentAvailable": null,
-  "shortNote": "Regional Gulf business publication. One regional submission reaches the GCC rather than one per country. An automated browser check on 2026-08-14 was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown.",
+  "shortNote": "Regional Gulf business publication. One regional submission reaches the GCC rather than one per country. [accessibility:2026-08-14] an automated browser check was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown.",
   "limitations": "Reached but behind a bot filter, so the route could not be read from the site. A human needs to open it in a browser and confirm whether a submission or pitch route exists.",
   "lastVerified": "2026-08-14",
   "sources": [
@@ -7232,8 +7235,8 @@
   "publicProfileAvailable": null,
   "requiresEditorialApproval": null,
   "sponsoredContentAvailable": null,
-  "shortNote": "Korea’s other principal business daily. Verified in a browser on 2026-08-14: publishes a feed.",
-  "limitations": "Read in a browser on 2026-08-14. The homepage and the contact and about pages it links to publish no submission, pitch or press-release route in words, so none is recorded; one may exist deeper in the site and a person would have to find it.",
+  "shortNote": "Korea’s other principal business daily. [accessibility:2026-08-14] verified in a browser: publishes a feed.",
+  "limitations": "The homepage and the contact and about pages it links to publish no submission, pitch or press-release route in words, so none is recorded; one may exist deeper in the site and a person would have to find it.",
   "lastVerified": "2026-08-14",
   "sources": [
    "https://www.hankyung.com/"
@@ -7386,8 +7389,8 @@
   "publicProfileAvailable": null,
   "requiresEditorialApproval": null,
   "sponsoredContentAvailable": null,
-  "shortNote": "Health IT and hospital technology publication from HIMSS Media. Verified in a browser on 2026-08-14: the masthead names itself as a publication.",
-  "limitations": "Read in a browser on 2026-08-14. The homepage and the contact and about pages it links to publish no submission, pitch or press-release route in words, so none is recorded; one may exist deeper in the site and a person would have to find it.",
+  "shortNote": "Health IT and hospital technology publication from HIMSS Media. [accessibility:2026-08-14] verified in a browser: the masthead names itself as a publication.",
+  "limitations": "The homepage and the contact and about pages it links to publish no submission, pitch or press-release route in words, so none is recorded; one may exist deeper in the site and a person would have to find it.",
   "lastVerified": "2026-08-14",
   "sources": [
    "https://www.healthcareitnews.com/"
@@ -7462,7 +7465,7 @@
   "publicProfileAvailable": null,
   "requiresEditorialApproval": null,
   "sponsoredContentAvailable": null,
-  "shortNote": "The original journalist-source service. Cision discontinued it, as Connectively, on 9 December 2024; the brand is reported to have been revived at this domain in 2025. An automated browser check on 2026-08-14 did not settle it (only 314 characters rendered); a browser check is needed by a person and the status stays unknown.",
+  "shortNote": "The original journalist-source service. Cision discontinued it, as Connectively, on 9 December 2024; the brand is reported to have been revived at this domain in 2025. [accessibility:2026-08-14] an automated browser check did not settle it (only 314 characters rendered); a browser check is needed by a person and the status stays unknown.",
   "limitations": "The revival could not be confirmed from the site itself, which is behind a bot filter, and Cision’s own notice records the discontinuation. Confirm in a browser before building any workflow on it.",
   "lastVerified": "2026-08-14",
   "sources": [
@@ -7501,7 +7504,7 @@
   "publicProfileAvailable": null,
   "requiresEditorialApproval": null,
   "sponsoredContentAvailable": null,
-  "shortNote": "Global hotel industry news and opinion platform carrying industry-submitted content. An automated browser check on 2026-08-14 was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown.",
+  "shortNote": "Global hotel industry news and opinion platform carrying industry-submitted content. [accessibility:2026-08-14] an automated browser check was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown.",
   "limitations": "Reached but behind a bot filter, so the route could not be read from the site. Needs a human with a browser to confirm whether a submission or pitch route exists.",
   "lastVerified": "2026-08-14",
   "sources": [
@@ -7578,8 +7581,8 @@
   "publicProfileAvailable": null,
   "requiresEditorialApproval": null,
   "sponsoredContentAvailable": null,
-  "shortNote": "US hotel operations and ownership trade publication. Verified in a browser on 2026-08-14: publishes a feed; masthead vocabulary; the masthead names itself as a publication.",
-  "limitations": "Read in a browser on 2026-08-14. The homepage and the contact and about pages it links to publish no submission, pitch or press-release route in words, so none is recorded; one may exist deeper in the site and a person would have to find it.",
+  "shortNote": "US hotel operations and ownership trade publication. [accessibility:2026-08-14] verified in a browser: publishes a feed; masthead vocabulary; the masthead names itself as a publication.",
+  "limitations": "The homepage and the contact and about pages it links to publish no submission, pitch or press-release route in words, so none is recorded; one may exist deeper in the site and a person would have to find it.",
   "lastVerified": "2026-08-14",
   "sources": [
    "https://www.hotelmanagement.net/"
@@ -7720,10 +7723,11 @@
   "priority": "P2",
   "opportunityTypes": [
    "editorial-pitch",
+   "editorial-submission",
    "press-release"
   ],
   "costModel": "free",
-  "submissionUrl": null,
+  "submissionUrl": "https://www.hrdive.com/submit-tip/",
   "pitchUrl": null,
   "pressReleaseUrl": null,
   "advertisingUrl": null,
@@ -7735,7 +7739,7 @@
   "sponsoredContentAvailable": null,
   "shortNote": "Industry Dive’s human resources title, covering employment law, benefits and workforce policy.",
   "limitations": "The release route and the editorial tip route are different asks and land in different places. Route established in Wave 3; the Wave 2 record inherited an unverified sibling-title assumption.",
-  "lastVerified": "2026-08-08",
+  "lastVerified": "2026-08-14",
   "sources": [
    "https://www.hrdive.com/",
    "https://www.hrdive.com/about/"
@@ -7810,7 +7814,7 @@
   "publicProfileAvailable": null,
   "requiresEditorialApproval": null,
   "sponsoredContentAvailable": null,
-  "shortNote": "UK HR leadership magazine. An automated browser check on 2026-08-14 was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown.",
+  "shortNote": "UK HR leadership magazine. [accessibility:2026-08-14] an automated browser check was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown.",
   "limitations": "Reached but behind a bot filter, so the route could not be read from the site. Needs a human with a browser to confirm whether a submission or pitch route exists.",
   "lastVerified": "2026-08-14",
   "sources": [
@@ -7914,10 +7918,10 @@
   "currentStatus": "active",
   "priority": "P3",
   "opportunityTypes": [
-   "unknown"
+   "editorial-submission"
   ],
   "costModel": "unknown",
-  "submissionUrl": null,
+  "submissionUrl": "https://tockify.com/tkf2/submitEvent/6c74d33818714e26a5722affafd1e3d9?ref=hypepotamus.ghost.io",
   "pitchUrl": null,
   "pressReleaseUrl": null,
   "advertisingUrl": null,
@@ -7929,7 +7933,7 @@
   "sponsoredContentAvailable": null,
   "shortNote": "Startup and technology coverage across the US Southeast, centred on Atlanta.",
   "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. A contact path was checked and returns 404.",
-  "lastVerified": "2026-08-08",
+  "lastVerified": "2026-08-14",
   "sources": [
    "https://hypepotamus.com/"
   ]
@@ -8110,10 +8114,11 @@
   "currentStatus": "active",
   "priority": "P2",
   "opportunityTypes": [
+   "contributed-article",
    "self-publish"
   ],
   "costModel": "free",
-  "submissionUrl": null,
+  "submissionUrl": "https://www.indiehackers.com/new-post",
   "pitchUrl": null,
   "pressReleaseUrl": null,
   "advertisingUrl": null,
@@ -8125,7 +8130,7 @@
   "sponsoredContentAvailable": null,
   "shortNote": "A community where founders publish build-in-public posts, milestones and revenue notes under their own name.",
   "limitations": "Self-published posts, so reach depends entirely on the community. Not editorial coverage.",
-  "lastVerified": "2026-08-07",
+  "lastVerified": "2026-08-14",
   "sources": [
    "https://indiehackers.com/"
   ]
@@ -8268,10 +8273,10 @@
   "currentStatus": "active",
   "priority": "P2",
   "opportunityTypes": [
-   "unknown"
+   "contributed-article"
   ],
   "costModel": "unknown",
-  "submissionUrl": null,
+  "submissionUrl": "https://internetretailing.net/guest-post-what-in-store-bnpl-tells-us-about-the-future-of-retail-payments/",
   "pitchUrl": null,
   "pressReleaseUrl": null,
   "advertisingUrl": null,
@@ -8283,7 +8288,7 @@
   "sponsoredContentAvailable": null,
   "shortNote": "UK and European ecommerce and multichannel retail publication.",
   "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Reached and identified during Wave 3.",
-  "lastVerified": "2026-08-08",
+  "lastVerified": "2026-08-14",
   "sources": [
    "https://www.internetretailing.net/"
   ]
@@ -8399,7 +8404,7 @@
   "publicProfileAvailable": null,
   "requiresEditorialApproval": null,
   "sponsoredContentAvailable": null,
-  "shortNote": "Morning Brew’s IT-industry newsletter for technology operators. An automated browser check on 2026-08-14 was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown.",
+  "shortNote": "Morning Brew’s IT-industry newsletter for technology operators. [accessibility:2026-08-14] an automated browser check was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown.",
   "limitations": "Reached but behind a bot filter, so the route could not be read from the site. Needs a human with a browser to confirm whether a submission or pitch route exists.",
   "lastVerified": "2026-08-14",
   "sources": [
@@ -8546,10 +8551,10 @@
   "currentStatus": "active",
   "priority": "P3",
   "opportunityTypes": [
-   "unknown"
+   "contributed-article"
   ],
   "costModel": "unknown",
-  "submissionUrl": null,
+  "submissionUrl": "https://www.itpro.com/about-us#section-write-for-us",
   "pitchUrl": null,
   "pressReleaseUrl": null,
   "advertisingUrl": null,
@@ -8561,7 +8566,7 @@
   "sponsoredContentAvailable": null,
   "shortNote": "UK enterprise IT news and buying advice, published by Future plc.",
   "limitations": "No submission or pitch route was established from the site.",
-  "lastVerified": "2026-08-07",
+  "lastVerified": "2026-08-14",
   "sources": [
    "https://www.itpro.com/"
   ]
@@ -8756,7 +8761,7 @@
   "publicProfileAvailable": null,
   "requiresEditorialApproval": null,
   "sponsoredContentAvailable": null,
-  "shortNote": "Japan’s main English-language daily, with a business desk. An automated browser check on 2026-08-14 was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown.",
+  "shortNote": "Japan’s main English-language daily, with a business desk. [accessibility:2026-08-14] an automated browser check was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown.",
   "limitations": "Reached but behind a bot filter, so the route could not be read from the site. A human needs to open it in a browser and confirm whether a submission or pitch route exists.",
   "lastVerified": "2026-08-14",
   "sources": [
@@ -8951,8 +8956,8 @@
   "publicProfileAvailable": null,
   "requiresEditorialApproval": null,
   "sponsoredContentAvailable": null,
-  "shortNote": "Global food industry business news and analysis. Verified in a browser on 2026-08-14: publishes a feed; 25 article elements; masthead vocabulary; the masthead names itself as a publication.",
-  "limitations": "Read in a browser on 2026-08-14. The homepage and the contact and about pages it links to publish no submission, pitch or press-release route in words, so none is recorded; one may exist deeper in the site and a person would have to find it.",
+  "shortNote": "Global food industry business news and analysis. [accessibility:2026-08-14] verified in a browser: publishes a feed; 25 article elements; masthead vocabulary; the masthead names itself as a publication.",
+  "limitations": "The homepage and the contact and about pages it links to publish no submission, pitch or press-release route in words, so none is recorded; one may exist deeper in the site and a person would have to find it.",
   "lastVerified": "2026-08-14",
   "sources": [
    "https://www.just-food.com/"
@@ -9107,8 +9112,8 @@
   "publicProfileAvailable": null,
   "requiresEditorialApproval": null,
   "sponsoredContentAvailable": null,
-  "shortNote": "English-language coverage of Korean startups and technology companies. Verified in a browser on 2026-08-14: publishes a feed.",
-  "limitations": "Read in a browser on 2026-08-14. The homepage and the contact and about pages it links to publish no submission, pitch or press-release route in words, so none is recorded; one may exist deeper in the site and a person would have to find it.",
+  "shortNote": "English-language coverage of Korean startups and technology companies. [accessibility:2026-08-14] verified in a browser: publishes a feed.",
+  "limitations": "The homepage and the contact and about pages it links to publish no submission, pitch or press-release route in words, so none is recorded; one may exist deeper in the site and a person would have to find it.",
   "lastVerified": "2026-08-14",
   "sources": [
    "https://www.koreatechdesk.com/"
@@ -9325,11 +9330,11 @@
   "currentStatus": "active",
   "priority": "P2",
   "opportunityTypes": [
-   "unknown"
+   "editorial-pitch"
   ],
   "costModel": "unknown",
   "submissionUrl": null,
-  "pitchUrl": null,
+  "pitchUrl": "https://www.law.com/static/contact-us/",
   "pressReleaseUrl": null,
   "advertisingUrl": null,
   "mediaKitUrl": null,
@@ -9340,7 +9345,7 @@
   "sponsoredContentAvailable": null,
   "shortNote": "ALM’s legal industry network, covering law firm business, litigation and legal technology.",
   "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Checked during Wave 2; no submission or pitch page was found at the paths tried.",
-  "lastVerified": "2026-08-08",
+  "lastVerified": "2026-08-14",
   "sources": [
    "https://www.law.com/"
   ]
@@ -9493,8 +9498,8 @@
   "publicProfileAvailable": null,
   "requiresEditorialApproval": null,
   "sponsoredContentAvailable": null,
-  "shortNote": "France’s principal business and financial daily. Verified in a browser on 2026-08-14: 38 article elements.",
-  "limitations": "Read in a browser on 2026-08-14. The homepage and the contact and about pages it links to publish no submission, pitch or press-release route in words, so none is recorded; one may exist deeper in the site and a person would have to find it.",
+  "shortNote": "France’s principal business and financial daily. [accessibility:2026-08-14] verified in a browser: 38 article elements.",
+  "limitations": "The homepage and the contact and about pages it links to publish no submission, pitch or press-release route in words, so none is recorded; one may exist deeper in the site and a person would have to find it.",
   "lastVerified": "2026-08-14",
   "sources": [
    "https://www.lesechos.fr/"
@@ -9919,7 +9924,7 @@
   "publicProfileAvailable": null,
   "requiresEditorialApproval": null,
   "sponsoredContentAvailable": null,
-  "shortNote": "Maine’s statewide business news publication. An automated browser check on 2026-08-14 was refused by the site (http 403); a browser check is needed by a person and the status stays unknown.",
+  "shortNote": "Maine’s statewide business news publication. [accessibility:2026-08-14] an automated browser check was refused by the site (http 403); a browser check is needed by a person and the status stays unknown.",
   "limitations": "Reached but behind a bot filter, so the route could not be read from the site. Needs a human with a browser to confirm whether a submission or pitch route exists.",
   "lastVerified": "2026-08-14",
   "sources": [
@@ -9997,8 +10002,8 @@
   "publicProfileAvailable": null,
   "requiresEditorialApproval": null,
   "sponsoredContentAvailable": null,
-  "shortNote": "US manufacturing industry news and product coverage. Verified in a browser on 2026-08-14: publishes a feed; masthead vocabulary.",
-  "limitations": "Read in a browser on 2026-08-14. The homepage and the contact and about pages it links to publish no submission, pitch or press-release route in words, so none is recorded; one may exist deeper in the site and a person would have to find it.",
+  "shortNote": "US manufacturing industry news and product coverage. [accessibility:2026-08-14] verified in a browser: publishes a feed; masthead vocabulary.",
+  "limitations": "The homepage and the contact and about pages it links to publish no submission, pitch or press-release route in words, so none is recorded; one may exist deeper in the site and a person would have to find it.",
   "lastVerified": "2026-08-14",
   "sources": [
    "https://www.manufacturing.net/"
@@ -10216,10 +10221,10 @@
   "currentStatus": "active",
   "priority": "P2",
   "opportunityTypes": [
-   "unknown"
+   "editorial-submission"
   ],
   "costModel": "unknown",
-  "submissionUrl": null,
+  "submissionUrl": "https://www.medtechdive.com/submit-tip/",
   "pitchUrl": null,
   "pressReleaseUrl": null,
   "advertisingUrl": null,
@@ -10231,7 +10236,7 @@
   "sponsoredContentAvailable": null,
   "shortNote": "Medical device industry news, regulation and company coverage.",
   "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Checked during Wave 2; no submission or pitch page was found at the paths tried.",
-  "lastVerified": "2026-08-08",
+  "lastVerified": "2026-08-14",
   "sources": [
    "https://www.medtechdive.com/"
   ]
@@ -10424,8 +10429,8 @@
   "publicProfileAvailable": null,
   "requiresEditorialApproval": null,
   "sponsoredContentAvailable": null,
-  "shortNote": "Digital health and connected-care industry news from HIMSS Media. Verified in a browser on 2026-08-14: masthead vocabulary.",
-  "limitations": "Read in a browser on 2026-08-14. The homepage and the contact and about pages it links to publish no submission, pitch or press-release route in words, so none is recorded; one may exist deeper in the site and a person would have to find it.",
+  "shortNote": "Digital health and connected-care industry news from HIMSS Media. [accessibility:2026-08-14] verified in a browser: masthead vocabulary.",
+  "limitations": "The homepage and the contact and about pages it links to publish no submission, pitch or press-release route in words, so none is recorded; one may exist deeper in the site and a person would have to find it.",
   "lastVerified": "2026-08-14",
   "sources": [
    "https://www.mobihealthnews.com/"
@@ -10578,7 +10583,7 @@
   "publicProfileAvailable": null,
   "requiresEditorialApproval": null,
   "sponsoredContentAvailable": null,
-  "shortNote": "The largest US daily business newsletter, selling advertising to reach a young professional audience. An automated browser check on 2026-08-14 was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown.",
+  "shortNote": "The largest US daily business newsletter, selling advertising to reach a young professional audience. [accessibility:2026-08-14] an automated browser check was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown.",
   "limitations": "Reached but behind a bot filter, so the route could not be read from the site. Needs a human with a browser to confirm whether a submission or pitch route exists.",
   "lastVerified": "2026-08-14",
   "sources": [
@@ -10617,7 +10622,7 @@
   "publicProfileAvailable": null,
   "requiresEditorialApproval": null,
   "sponsoredContentAvailable": null,
-  "shortNote": "Dutch management and entrepreneurship media. MT and Sprout merged into one title, and both mt.nl and sprout.nl now redirect here. An automated browser check on 2026-08-14 was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown.",
+  "shortNote": "Dutch management and entrepreneurship media. MT and Sprout merged into one title, and both mt.nl and sprout.nl now redirect here. [accessibility:2026-08-14] an automated browser check was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown.",
   "limitations": "Reached but behind a bot filter. Two former titles are now one publication, so a pitch to each is a duplicate.",
   "lastVerified": "2026-08-14",
   "sources": [
@@ -10656,8 +10661,8 @@
   "publicProfileAvailable": null,
   "requiresEditorialApproval": null,
   "sponsoredContentAvailable": null,
-  "shortNote": "A journalist database and PR platform with public journalist profiles, used for targeted pitching rather than broadcast distribution. Verified in a browser on 2026-08-14: masthead vocabulary.",
-  "limitations": "Read in a browser on 2026-08-14. The homepage and the contact and about pages it links to publish no submission, pitch or press-release route in words, so none is recorded; one may exist deeper in the site and a person would have to find it.",
+  "shortNote": "A journalist database and PR platform with public journalist profiles, used for targeted pitching rather than broadcast distribution. [accessibility:2026-08-14] verified in a browser: masthead vocabulary.",
+  "limitations": "The homepage and the contact and about pages it links to publish no submission, pitch or press-release route in words, so none is recorded; one may exist deeper in the site and a person would have to find it.",
   "lastVerified": "2026-08-14",
   "sources": [
    "https://muckrack.com/"
@@ -10853,8 +10858,8 @@
   "publicProfileAvailable": null,
   "requiresEditorialApproval": null,
   "sponsoredContentAvailable": null,
-  "shortNote": "Nashville business and politics coverage, strong on the local healthcare industry. Verified in a browser on 2026-08-14: publishes a feed; 35 article elements; masthead vocabulary.",
-  "limitations": "Read in a browser on 2026-08-14. The homepage and the contact and about pages it links to publish no submission, pitch or press-release route in words, so none is recorded; one may exist deeper in the site and a person would have to find it.",
+  "shortNote": "Nashville business and politics coverage, strong on the local healthcare industry. [accessibility:2026-08-14] verified in a browser: publishes a feed; 35 article elements; masthead vocabulary.",
+  "limitations": "The homepage and the contact and about pages it links to publish no submission, pitch or press-release route in words, so none is recorded; one may exist deeper in the site and a person would have to find it.",
   "lastVerified": "2026-08-14",
   "sources": [
    "https://www.nashvillepost.com/"
@@ -11119,7 +11124,7 @@
   "costModel": "paid",
   "submissionUrl": null,
   "pitchUrl": null,
-  "pressReleaseUrl": null,
+  "pressReleaseUrl": "https://www.newswire.com/pricing",
   "advertisingUrl": null,
   "mediaKitUrl": null,
   "contactUrl": null,
@@ -11129,7 +11134,7 @@
   "sponsoredContentAvailable": null,
   "shortNote": "Press release distribution bundled with a media database and pitching tools, aimed at small and mid-sized companies.",
   "limitations": "Paid only. The media database and pitching tools are separate products from distribution.",
-  "lastVerified": "2026-08-07",
+  "lastVerified": "2026-08-14",
   "sources": [
    "https://www.newswire.com/",
    "https://www.newswire.com/press-release-distribution/"
@@ -11709,8 +11714,8 @@
   "publicProfileAvailable": null,
   "requiresEditorialApproval": null,
   "sponsoredContentAvailable": null,
-  "shortNote": "Travel technology industry news and startup coverage, part of Phocuswright. Verified in a browser on 2026-08-14: masthead vocabulary; the masthead names itself as a publication.",
-  "limitations": "Read in a browser on 2026-08-14. The homepage and the contact and about pages it links to publish no submission, pitch or press-release route in words, so none is recorded; one may exist deeper in the site and a person would have to find it.",
+  "shortNote": "Travel technology industry news and startup coverage, part of Phocuswright. [accessibility:2026-08-14] verified in a browser: masthead vocabulary; the masthead names itself as a publication.",
+  "limitations": "The homepage and the contact and about pages it links to publish no submission, pitch or press-release route in words, so none is recorded; one may exist deeper in the site and a person would have to find it.",
   "lastVerified": "2026-08-14",
   "sources": [
    "https://www.phocuswire.com/"
@@ -11786,8 +11791,8 @@
   "publicProfileAvailable": null,
   "requiresEditorialApproval": null,
   "sponsoredContentAvailable": null,
-  "shortNote": "Plastics processing and materials trade publication. Verified in a browser on 2026-08-14: masthead vocabulary.",
-  "limitations": "Read in a browser on 2026-08-14. The homepage and the contact and about pages it links to publish no submission, pitch or press-release route in words, so none is recorded; one may exist deeper in the site and a person would have to find it.",
+  "shortNote": "Plastics processing and materials trade publication. [accessibility:2026-08-14] verified in a browser: masthead vocabulary.",
+  "limitations": "The homepage and the contact and about pages it links to publish no submission, pitch or press-release route in words, so none is recorded; one may exist deeper in the site and a person would have to find it.",
   "lastVerified": "2026-08-14",
   "sources": [
    "https://www.plasticstoday.com/"
@@ -11965,10 +11970,10 @@
   "currentStatus": "active",
   "priority": "P3",
   "opportunityTypes": [
-   "unknown"
+   "contributed-article"
   ],
   "costModel": "unknown",
-  "submissionUrl": null,
+  "submissionUrl": "https://www.power-eng.com/submit-an-article/",
   "pitchUrl": null,
   "pressReleaseUrl": null,
   "advertisingUrl": null,
@@ -11980,7 +11985,7 @@
   "sponsoredContentAvailable": null,
   "shortNote": "US power generation trade publication covering plants, turbines and grid assets.",
   "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Reached and identified during Wave 3.",
-  "lastVerified": "2026-08-08",
+  "lastVerified": "2026-08-14",
   "sources": [
    "https://www.power-eng.com/"
   ]
@@ -12169,7 +12174,7 @@
   "publicProfileAvailable": null,
   "requiresEditorialApproval": null,
   "sponsoredContentAvailable": null,
-  "shortNote": "Merchant-oriented ecommerce how-to publication. An automated browser check on 2026-08-14 was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown.",
+  "shortNote": "Merchant-oriented ecommerce how-to publication. [accessibility:2026-08-14] an automated browser check was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown.",
   "limitations": "Reached but behind a bot filter, so the route could not be read from the site. Needs a human with a browser to confirm whether a submission or pitch route exists.",
   "lastVerified": "2026-08-14",
   "sources": [
@@ -12246,7 +12251,7 @@
   "publicProfileAvailable": null,
   "requiresEditorialApproval": null,
   "sponsoredContentAvailable": null,
-  "shortNote": "Precision agriculture equipment dealer trade publication. An automated browser check on 2026-08-14 was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown.",
+  "shortNote": "Precision agriculture equipment dealer trade publication. [accessibility:2026-08-14] an automated browser check was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown.",
   "limitations": "Reached but behind a bot filter, so the route could not be read from the site. Needs a human with a browser to confirm whether a submission or pitch route exists.",
   "lastVerified": "2026-08-14",
   "sources": [
@@ -12718,8 +12723,8 @@
   "publicProfileAvailable": null,
   "requiresEditorialApproval": null,
   "sponsoredContentAvailable": null,
-  "shortNote": "Payments and commerce industry news with a large research arm. Verified in a browser on 2026-08-14: publishes a feed; masthead vocabulary; the masthead names itself as a publication.",
-  "limitations": "Read in a browser on 2026-08-14. The homepage and the contact and about pages it links to publish no submission, pitch or press-release route in words, so none is recorded; one may exist deeper in the site and a person would have to find it.",
+  "shortNote": "Payments and commerce industry news with a large research arm. [accessibility:2026-08-14] verified in a browser: publishes a feed; masthead vocabulary; the masthead names itself as a publication.",
+  "limitations": "The homepage and the contact and about pages it links to publish no submission, pitch or press-release route in words, so none is recorded; one may exist deeper in the site and a person would have to find it.",
   "lastVerified": "2026-08-14",
   "sources": [
    "https://www.pymnts.com/"
@@ -12897,10 +12902,10 @@
   "currentStatus": "active",
   "priority": "P3",
   "opportunityTypes": [
-   "unknown"
+   "contributed-article"
   ],
   "costModel": "unknown",
-  "submissionUrl": null,
+  "submissionUrl": "https://recruitingdaily.com/submit-content/",
   "pitchUrl": null,
   "pressReleaseUrl": null,
   "advertisingUrl": null,
@@ -12912,7 +12917,7 @@
   "sponsoredContentAvailable": null,
   "shortNote": "Recruiting technology and talent acquisition publication with a large product-review output.",
   "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Reached and identified during Wave 3.",
-  "lastVerified": "2026-08-08",
+  "lastVerified": "2026-08-14",
   "sources": [
    "https://recruitingdaily.com/"
   ]
@@ -13021,7 +13026,7 @@
   "costModel": "paid",
   "submissionUrl": null,
   "pitchUrl": null,
-  "pressReleaseUrl": null,
+  "pressReleaseUrl": "https://pressreleases.responsesource.com/send",
   "advertisingUrl": null,
   "mediaKitUrl": null,
   "contactUrl": null,
@@ -13031,7 +13036,7 @@
   "sponsoredContentAvailable": null,
   "shortNote": "The established UK journalist enquiry service. Journalists send requests to a subscriber network, and subscribers can also send releases.",
   "limitations": "Paid subscription for PR users. The enquiry service and the release service are separate products.",
-  "lastVerified": "2026-08-07",
+  "lastVerified": "2026-08-14",
   "sources": [
    "https://www.responsesource.com/"
   ]
@@ -13106,7 +13111,7 @@
   "publicProfileAvailable": null,
   "requiresEditorialApproval": null,
   "sponsoredContentAvailable": null,
-  "shortNote": "Morning Brew’s retail-industry newsletter. An automated browser check on 2026-08-14 was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown.",
+  "shortNote": "Morning Brew’s retail-industry newsletter. [accessibility:2026-08-14] an automated browser check was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown.",
   "limitations": "Reached but behind a bot filter, so the route could not be read from the site. Needs a human with a browser to confirm whether a submission or pitch route exists.",
   "lastVerified": "2026-08-14",
   "sources": [
@@ -13132,10 +13137,10 @@
   "currentStatus": "active",
   "priority": "P2",
   "opportunityTypes": [
-   "unknown"
+   "editorial-submission"
   ],
   "costModel": "unknown",
-  "submissionUrl": null,
+  "submissionUrl": "https://www.retaildive.com/submit-tip/",
   "pitchUrl": null,
   "pressReleaseUrl": null,
   "advertisingUrl": null,
@@ -13147,7 +13152,7 @@
   "sponsoredContentAvailable": null,
   "shortNote": "Industry Dive’s retail title, covering chains, ecommerce and consumer brands.",
   "limitations": "Its own about route was not individually verified; the sibling titles publish a tips address, but that is the platform’s pattern rather than proof for this title.",
-  "lastVerified": "2026-08-07",
+  "lastVerified": "2026-08-14",
   "sources": [
    "https://www.retaildive.com/"
   ]
@@ -13183,8 +13188,8 @@
   "publicProfileAvailable": null,
   "requiresEditorialApproval": null,
   "sponsoredContentAvailable": null,
-  "shortNote": "Retail customer-experience and store technology publication. Verified in a browser on 2026-08-14: publishes a feed; the masthead names itself as a publication.",
-  "limitations": "Read in a browser on 2026-08-14. The homepage and the contact and about pages it links to publish no submission, pitch or press-release route in words, so none is recorded; one may exist deeper in the site and a person would have to find it.",
+  "shortNote": "Retail customer-experience and store technology publication. [accessibility:2026-08-14] verified in a browser: publishes a feed; the masthead names itself as a publication.",
+  "limitations": "The homepage and the contact and about pages it links to publish no submission, pitch or press-release route in words, so none is recorded; one may exist deeper in the site and a person would have to find it.",
   "lastVerified": "2026-08-14",
   "sources": [
    "https://www.retailtouchpoints.com/"
@@ -13261,7 +13266,7 @@
   "publicProfileAvailable": null,
   "requiresEditorialApproval": null,
   "sponsoredContentAvailable": null,
-  "shortNote": "Richmond, Virginia daily business news publication. An automated browser check on 2026-08-14 was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown.",
+  "shortNote": "Richmond, Virginia daily business news publication. [accessibility:2026-08-14] an automated browser check was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown.",
   "limitations": "Reached but behind a bot filter, so the route could not be read from the site. Needs a human with a browser to confirm whether a submission or pitch route exists.",
   "lastVerified": "2026-08-14",
   "sources": [
@@ -13495,7 +13500,7 @@
   "publicProfileAvailable": null,
   "requiresEditorialApproval": null,
   "sponsoredContentAvailable": null,
-  "shortNote": "Japanese business and IT publication for enterprise decision makers. An automated browser check on 2026-08-14 was refused by the site (access-denied); a browser check is needed by a person and the status stays unknown.",
+  "shortNote": "Japanese business and IT publication for enterprise decision makers. [accessibility:2026-08-14] an automated browser check was refused by the site (access-denied); a browser check is needed by a person and the status stays unknown.",
   "limitations": "Reached but behind a bot filter, so the route could not be read from the site. Needs a human with a browser to confirm whether a submission or pitch route exists.",
   "lastVerified": "2026-08-14",
   "sources": [
@@ -13637,10 +13642,10 @@
   "currentStatus": "active",
   "priority": "P3",
   "opportunityTypes": [
-   "unknown"
+   "editorial-submission"
   ],
   "costModel": "unknown",
-  "submissionUrl": null,
+  "submissionUrl": "https://www.securityweek.com/submit-tip",
   "pitchUrl": null,
   "pressReleaseUrl": null,
   "advertisingUrl": null,
@@ -13652,7 +13657,7 @@
   "sponsoredContentAvailable": null,
   "shortNote": "Enterprise security news and an ICS security conference brand.",
   "limitations": "A write-for-us route was checked and does not exist. Approach via the editorial team.",
-  "lastVerified": "2026-08-07",
+  "lastVerified": "2026-08-14",
   "sources": [
    "https://www.securityweek.com/"
   ]
@@ -13801,7 +13806,7 @@
   ],
   "costModel": "free",
   "submissionUrl": null,
-  "pitchUrl": null,
+  "pitchUrl": "https://sifted.eu/pitch-your-story",
   "pressReleaseUrl": null,
   "advertisingUrl": null,
   "mediaKitUrl": null,
@@ -13812,7 +13817,7 @@
   "sponsoredContentAvailable": null,
   "shortNote": "European startup and venture coverage, originally backed by the Financial Times, with a contact route for story tips.",
   "limitations": "European companies and investors only. Much of the deeper reporting sits behind Sifted Pro.",
-  "lastVerified": "2026-08-07",
+  "lastVerified": "2026-08-14",
   "sources": [
    "https://sifted.eu/about"
   ]
@@ -14389,8 +14394,8 @@
   "publicProfileAvailable": null,
   "requiresEditorialApproval": null,
   "sponsoredContentAvailable": null,
-  "shortNote": "Kansas City entrepreneurship and startup coverage. Verified in a browser on 2026-08-14: publishes a feed; the masthead names itself as a publication.",
-  "limitations": "Read in a browser on 2026-08-14. The homepage and the contact and about pages it links to publish no submission, pitch or press-release route in words, so none is recorded; one may exist deeper in the site and a person would have to find it.",
+  "shortNote": "Kansas City entrepreneurship and startup coverage. [accessibility:2026-08-14] verified in a browser: publishes a feed; the masthead names itself as a publication.",
+  "limitations": "The homepage and the contact and about pages it links to publish no submission, pitch or press-release route in words, so none is recorded; one may exist deeper in the site and a person would have to find it.",
   "lastVerified": "2026-08-14",
   "sources": [
    "https://www.startlandnews.com/"
@@ -14620,7 +14625,7 @@
   "publicProfileAvailable": null,
   "requiresEditorialApproval": null,
   "sponsoredContentAvailable": null,
-  "shortNote": "Italian startup and innovation coverage with an events arm. An automated browser check on 2026-08-14 was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown.",
+  "shortNote": "Italian startup and innovation coverage with an events arm. [accessibility:2026-08-14] an automated browser check was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown.",
   "limitations": "Reached but behind a bot filter. Needs a browser check.",
   "lastVerified": "2026-08-14",
   "sources": [
@@ -14957,10 +14962,10 @@
   "currentStatus": "active",
   "priority": "P2",
   "opportunityTypes": [
-   "unknown"
+   "editorial-submission"
   ],
   "costModel": "unknown",
-  "submissionUrl": null,
+  "submissionUrl": "https://www.supplychaindive.com/submit-tip/",
   "pitchUrl": null,
   "pressReleaseUrl": null,
   "advertisingUrl": null,
@@ -14972,7 +14977,7 @@
   "sponsoredContentAvailable": null,
   "shortNote": "Industry Dive’s logistics and supply chain title.",
   "limitations": "Route not individually verified; see the note on the sibling titles.",
-  "lastVerified": "2026-08-07",
+  "lastVerified": "2026-08-14",
   "sources": [
    "https://www.supplychaindive.com/"
   ]
@@ -15165,7 +15170,7 @@
   "publicProfileAvailable": null,
   "requiresEditorialApproval": null,
   "sponsoredContentAvailable": null,
-  "shortNote": "Morning Brew’s emerging technology newsletter. An automated browser check on 2026-08-14 was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown.",
+  "shortNote": "Morning Brew’s emerging technology newsletter. [accessibility:2026-08-14] an automated browser check was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown.",
   "limitations": "Reached but behind a bot filter, so the route could not be read from the site. Needs a human with a browser to confirm whether a submission or pitch route exists.",
   "lastVerified": "2026-08-14",
   "sources": [
@@ -15190,10 +15195,10 @@
   "currentStatus": "active",
   "priority": "P3",
   "opportunityTypes": [
-   "unknown"
+   "contributed-article"
   ],
   "costModel": "unknown",
-  "submissionUrl": null,
+  "submissionUrl": "https://techcollectivesea.com/tech-collective-contributor-guidelines/",
   "pitchUrl": null,
   "pressReleaseUrl": null,
   "advertisingUrl": null,
@@ -15205,7 +15210,7 @@
   "sponsoredContentAvailable": null,
   "shortNote": "Southeast Asian technology and innovation coverage.",
   "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Reached and identified during Wave 2; no public submission or pitch page was found.",
-  "lastVerified": "2026-08-08",
+  "lastVerified": "2026-08-14",
   "sources": [
    "https://techcollectivesea.com"
   ]
@@ -15521,7 +15526,7 @@
   "publicProfileAvailable": null,
   "requiresEditorialApproval": null,
   "sponsoredContentAvailable": null,
-  "shortNote": "Local technology-economy journalism across Philadelphia, Baltimore, DC, Pittsburgh and Delaware. An automated browser check on 2026-08-14 was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown.",
+  "shortNote": "Local technology-economy journalism across Philadelphia, Baltimore, DC, Pittsburgh and Delaware. [accessibility:2026-08-14] an automated browser check was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown.",
   "limitations": "Reached but behind a bot filter, so the route could not be read from the site. A human needs to open it in a browser and confirm whether a submission or pitch route exists.",
   "lastVerified": "2026-08-14",
   "sources": [
@@ -15548,10 +15553,10 @@
   "currentStatus": "active",
   "priority": "P2",
   "opportunityTypes": [
-   "unknown"
+   "contributed-article"
   ],
   "costModel": "unknown",
-  "submissionUrl": null,
+  "submissionUrl": "https://technode.com/write-for-us/",
   "pitchUrl": null,
   "pressReleaseUrl": null,
   "advertisingUrl": null,
@@ -15563,7 +15568,7 @@
   "sponsoredContentAvailable": null,
   "shortNote": "English-language coverage of Chinese technology companies and startups.",
   "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Reached and identified during Wave 2; no public submission or pitch page was found.",
-  "lastVerified": "2026-08-08",
+  "lastVerified": "2026-08-14",
   "sources": [
    "https://technode.com"
   ]
@@ -15600,8 +15605,8 @@
   "publicProfileAvailable": null,
   "requiresEditorialApproval": null,
   "sponsoredContentAvailable": null,
-  "shortNote": "Nigerian and pan-African startup and technology publication. Verified in a browser on 2026-08-14: publishes a feed.",
-  "limitations": "Read in a browser on 2026-08-14. The homepage and the contact and about pages it links to publish no submission, pitch or press-release route in words, so none is recorded; one may exist deeper in the site and a person would have to find it.",
+  "shortNote": "Nigerian and pan-African startup and technology publication. [accessibility:2026-08-14] verified in a browser: publishes a feed.",
+  "limitations": "The homepage and the contact and about pages it links to publish no submission, pitch or press-release route in words, so none is recorded; one may exist deeper in the site and a person would have to find it.",
   "lastVerified": "2026-08-14",
   "sources": [
    "https://techpoint.africa/"
@@ -15678,7 +15683,7 @@
   "publicProfileAvailable": null,
   "requiresEditorialApproval": null,
   "sponsoredContentAvailable": null,
-  "shortNote": "Indian technology, startup and business news site. An automated browser check on 2026-08-14 was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown.",
+  "shortNote": "Indian technology, startup and business news site. [accessibility:2026-08-14] an automated browser check was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown.",
   "limitations": "Reached but behind a bot filter, so the route could not be read from the site. A human needs to open it in a browser and confirm whether a submission or pitch route exists.",
   "lastVerified": "2026-08-14",
   "sources": [
@@ -15973,13 +15978,13 @@
   "currentStatus": "active",
   "priority": "P2",
   "opportunityTypes": [
-   "unknown"
+   "sponsored-content"
   ],
   "costModel": "unknown",
   "submissionUrl": null,
   "pitchUrl": null,
   "pressReleaseUrl": null,
-  "advertisingUrl": null,
+  "advertisingUrl": "https://www.thefabricator.com/thefabricator/advertise#targeted-digital-advertising-programmatic",
   "mediaKitUrl": null,
   "contactUrl": null,
   "editorialContact": null,
@@ -15988,7 +15993,7 @@
   "sponsoredContentAvailable": null,
   "shortNote": "Metal forming and fabricating trade publication from the FMA association.",
   "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. Checked during Wave 2; no submission or pitch page was found at the paths tried.",
-  "lastVerified": "2026-08-08",
+  "lastVerified": "2026-08-14",
   "sources": [
    "https://www.thefabricator.com/"
   ]
@@ -16063,7 +16068,7 @@
   "publicProfileAvailable": null,
   "requiresEditorialApproval": null,
   "sponsoredContentAvailable": null,
-  "shortNote": "Business and startup newsletter owned by HubSpot, with an advertising route. An automated browser check on 2026-08-14 was refused by the site (http 403); a browser check is needed by a person and the status stays unknown.",
+  "shortNote": "Business and startup newsletter owned by HubSpot, with an advertising route. [accessibility:2026-08-14] an automated browser check was refused by the site (http 403); a browser check is needed by a person and the status stays unknown.",
   "limitations": "Reached but behind a bot filter, so the route could not be read from the site. Needs a human with a browser to confirm whether a submission or pitch route exists.",
   "lastVerified": "2026-08-14",
   "sources": [
@@ -16887,7 +16892,7 @@
   "publicProfileAvailable": null,
   "requiresEditorialApproval": null,
   "sponsoredContentAvailable": null,
-  "shortNote": "US travel trade publication for agents, tour operators and suppliers. Verified in a browser on 2026-08-14: masthead vocabulary; the masthead names itself as a publication.",
+  "shortNote": "US travel trade publication for agents, tour operators and suppliers. [accessibility:2026-08-14] verified in a browser: masthead vocabulary; the masthead names itself as a publication.",
   "limitations": "Needs a human with a browser to confirm whether a submission or pitch route exists.",
   "lastVerified": "2026-08-14",
   "sources": [
@@ -17046,7 +17051,7 @@
   "publicProfileAvailable": null,
   "requiresEditorialApproval": null,
   "sponsoredContentAvailable": null,
-  "shortNote": "UK technology and startup news covering funding and policy. An automated browser check on 2026-08-14 was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown.",
+  "shortNote": "UK technology and startup news covering funding and policy. [accessibility:2026-08-14] an automated browser check was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown.",
   "limitations": "Reached but behind a bot filter, so the route could not be read from the site. A human needs to open it in a browser and confirm whether a submission or pitch route exists.",
   "lastVerified": "2026-08-14",
   "sources": [
@@ -17149,11 +17154,11 @@
   "currentStatus": "active",
   "priority": "P3",
   "opportunityTypes": [
-   "unknown"
+   "editorial-pitch"
   ],
   "costModel": "unknown",
   "submissionUrl": null,
-  "pitchUrl": null,
+  "pitchUrl": "https://www.utahbusiness.com/pages/pitch-a-story/",
   "pressReleaseUrl": null,
   "advertisingUrl": null,
   "mediaKitUrl": null,
@@ -17164,7 +17169,7 @@
   "sponsoredContentAvailable": null,
   "shortNote": "Utah’s statewide business magazine for executives and entrepreneurs, running awards and lists alongside editorial.",
   "limitations": "No submission, pitch or contributor route could be established from the site. Confirm in a browser before building a workflow on it. A contact path was checked and returns 404.",
-  "lastVerified": "2026-08-08",
+  "lastVerified": "2026-08-14",
   "sources": [
    "https://www.utahbusiness.com/"
   ]
@@ -17188,10 +17193,11 @@
   "priority": "P1",
   "opportunityTypes": [
    "editorial-pitch",
+   "editorial-submission",
    "press-release"
   ],
   "costModel": "free",
-  "submissionUrl": null,
+  "submissionUrl": "https://www.utilitydive.com/submit-tip/",
   "pitchUrl": null,
   "pressReleaseUrl": null,
   "advertisingUrl": null,
@@ -17203,7 +17209,7 @@
   "sponsoredContentAvailable": null,
   "shortNote": "US electric and gas utility industry news, read by utility executives and regulators. Its about page carries both a press-release address and a story-tip route.",
   "limitations": "Utilities and grid, not general energy. The release route and the tip route are different asks.",
-  "lastVerified": "2026-08-08",
+  "lastVerified": "2026-08-14",
   "sources": [
    "https://www.utilitydive.com/about/"
   ]
@@ -17470,7 +17476,7 @@
   "publicProfileAvailable": null,
   "requiresEditorialApproval": null,
   "sponsoredContentAvailable": null,
-  "shortNote": "Virginia statewide business magazine and awards publisher. An automated browser check on 2026-08-14 was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown.",
+  "shortNote": "Virginia statewide business magazine and awards publisher. [accessibility:2026-08-14] an automated browser check was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown.",
   "limitations": "Reached but behind a bot filter, so the route could not be read from the site. A human needs to open it in a browser and confirm whether a submission or pitch route exists.",
   "lastVerified": "2026-08-14",
   "sources": [

@@ -1,0 +1,6328 @@
+{
+ "probedAt": "2026-08-14",
+ "findings": [
+  {
+   "id": "md-24-7-press-release",
+   "name": "24-7 Press Release",
+   "website": "https://www.24-7pressrelease.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.24-7pressrelease.com/",
+    "title": "Press Release Distribution & Press Release Services | 24-7PressRelease.com",
+    "textLen": 13251,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ONTOLOGY_UNCONFIRMED",
+   "why": "reads as a services business; masthead vocabulary is not enough to settle it"
+  },
+  {
+   "id": "md-36kr",
+   "name": "36氪",
+   "website": "https://36kr.com",
+   "country": "china",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://36kr.com/",
+    "title": "36氪_让一部分人先看到未来",
+    "textLen": 5001,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ONTOLOGY_UNCONFIRMED",
+   "why": "nothing on the page evidences that it publishes"
+  },
+  {
+   "id": "md-3dprint-com",
+   "name": "3DPrint.com",
+   "website": "https://3dprint.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://3dprint.com/",
+    "title": "3DPrint.com — Additive Manufacturing Business",
+    "textLen": 8398,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ONTOLOGY_UNCONFIRMED",
+   "why": "nothing on the page evidences that it publishes"
+  },
+  {
+   "id": "md-above-the-law",
+   "name": "Above the Law",
+   "website": "https://abovethelaw.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://abovethelaw.com/",
+    "title": "Above the Law - A Legal Web Site – News, Insights, and Opinions on Law Firms, Lawyers, Law School, Law Suits, Judges and Courts",
+    "textLen": 8657,
+    "feed": true,
+    "articles": 46,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; 46 article elements; masthead vocabulary; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en-US"
+  },
+  {
+   "id": "md-access-newswire",
+   "name": "ACCESS Newswire",
+   "website": "https://www.accessnewswire.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.accessnewswire.com/",
+    "title": "Press Release Distribution & IR | ACCESS Newswire",
+    "textLen": 10023,
+    "feed": true,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; masthead vocabulary",
+   "routes": {
+    "pressReleaseUrl": {
+     "text": "Submit a Press Release",
+     "href": "https://www.accessnewswire.com/submit-a-press-release"
+    }
+   },
+   "opportunityTypes": [
+    "press-release"
+   ],
+   "scope": "en"
+  },
+  {
+   "id": "md-agfunder-news",
+   "name": "AgFunderNews",
+   "website": "https://agfundernews.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://agfundernews.com/",
+    "title": "AgFunderNews | Agtech, Food Tech, Planetary Health News & Analysis",
+    "textLen": 2398,
+    "feed": false,
+    "articles": 31,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "31 article elements; masthead vocabulary; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en-US"
+  },
+  {
+   "id": "md-agriculture-com",
+   "name": "Successful Farming",
+   "website": "https://www.agriculture.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.agriculture.com/",
+    "title": "Successful Farming: Practical, Trusted Farming and Ranching Information",
+    "textLen": 3225,
+    "feed": true,
+    "articles": 1,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; masthead vocabulary",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-agriculture-dive",
+   "name": "Agriculture Dive",
+   "website": "https://www.agriculturedive.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.agriculturedive.com/",
+    "title": "Agriculture News | AgricultureDive",
+    "textLen": 7990,
+    "feed": true,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; masthead vocabulary; the masthead names itself as a publication",
+   "routes": {
+    "submissionUrl": {
+     "text": "Submit a tip",
+     "href": "https://www.agriculturedive.com/submit-tip/"
+    }
+   },
+   "opportunityTypes": [
+    "editorial-submission"
+   ],
+   "scope": "en"
+  },
+  {
+   "id": "md-agweb",
+   "name": "AgWeb",
+   "website": "https://www.agweb.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.agweb.com/",
+    "title": "Agriculture news and commodity markets - AgWeb",
+    "textLen": 5372,
+    "feed": true,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; masthead vocabulary; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en-US"
+  },
+  {
+   "id": "md-ai-news",
+   "name": "AI News",
+   "website": "https://www.artificialintelligence-news.com",
+   "country": "united-kingdom",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.artificialintelligence-news.com/",
+    "title": "AI News | Latest News | Insights Powering AI-Driven Business Growth",
+    "textLen": 7076,
+    "feed": true,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; masthead vocabulary; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en-GB"
+  },
+  {
+   "id": "md-ain-ua",
+   "name": "AIN",
+   "website": "https://ain.ua",
+   "country": "ukraine",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://ain.ua/",
+    "title": "AIN – новини IT, бізнесу та стартапів в Україні",
+    "textLen": 6954,
+    "feed": false,
+    "articles": 12,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "12 article elements",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "uk"
+  },
+  {
+   "id": "md-ainow",
+   "name": "AINOW",
+   "website": "https://ainow.ai",
+   "country": "japan",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://ainow.ai/",
+    "title": "AINOW｜日本最大級のAI専門メディア",
+    "textLen": 4516,
+    "feed": false,
+    "articles": 37,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "37 article elements",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "ja"
+  },
+  {
+   "id": "md-air-cargo-news",
+   "name": "Air Cargo News",
+   "website": "https://www.aircargonews.net",
+   "country": "united-kingdom",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.aircargonews.net/",
+    "title": "Air Cargo News - airfreight industry news and analysis",
+    "textLen": 15492,
+    "feed": false,
+    "articles": 52,
+    "times": 57
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "52 article elements; 57 datelines; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en-US"
+  },
+  {
+   "id": "md-alternativeto",
+   "name": "AlternativeTo",
+   "website": "https://alternativeto.net",
+   "country": "sweden",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://alternativeto.net/",
+    "title": "AlternativeTo - Crowdsourced software recommendations | AlternativeTo",
+    "textLen": 14849,
+    "feed": true,
+    "articles": 18,
+    "times": 17
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; 18 article elements; 17 datelines; masthead vocabulary",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-analytics-india-magazine",
+   "name": "AIM",
+   "website": "https://analyticsindiamag.com",
+   "country": "india",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://analyticsindiamag.com/",
+    "title": "AIM — AI & Data Science News",
+    "textLen": 26603,
+    "feed": true,
+    "articles": 102,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; 102 article elements; masthead vocabulary; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-arabian-business",
+   "name": "Arabian Business",
+   "website": "https://www.arabianbusiness.com",
+   "country": "united-arab-emirates",
+   "observed": {
+    "status": 403,
+    "finalUrl": "https://www.arabianbusiness.com/",
+    "title": "arabianbusiness.com",
+    "textLen": 0,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "UNKNOWN_PROTECTED",
+   "why": "http 403"
+  },
+  {
+   "id": "md-arctic-startup",
+   "name": "ArcticStartup",
+   "website": "https://arcticstartup.com",
+   "country": "finland",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://arcticstartup.com/",
+    "title": "Home - ArcticStartup",
+    "textLen": 5164,
+    "feed": true,
+    "articles": 0,
+    "times": 20
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; 20 datelines; masthead vocabulary",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en-US"
+  },
+  {
+   "id": "md-argaam",
+   "name": "Argaam",
+   "website": "https://www.argaam.com/en",
+   "country": "saudi-arabia",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.argaam.com/en",
+    "title": "Argaam: Tadawul All Share Index (TASI) Saudi Stock Market news and information",
+    "textLen": 10269,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "masthead vocabulary; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-aripaev",
+   "name": "Äripäev",
+   "website": "https://www.aripaev.ee",
+   "country": "estonia",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.aripaev.ee/",
+    "title": "Majandus- ja äriuudised Eestist ja välismaalt.",
+    "textLen": 27401,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ONTOLOGY_UNCONFIRMED",
+   "why": "nothing on the page evidences that it publishes"
+  },
+  {
+   "id": "md-austin-startups",
+   "name": "Austin Startups",
+   "website": "https://austinstartups.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://austinstartups.com/",
+    "title": "Austin Startups — Company Directory",
+    "textLen": 2502,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "masthead vocabulary",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-automotive-news",
+   "name": "Automotive News",
+   "website": "https://www.autonews.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.autonews.com/",
+    "title": "Automotive News | Car, EV & Dealership News - Automotive News",
+    "textLen": 10297,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "masthead vocabulary; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-bangkok-post-business",
+   "name": "Bangkok Post Business",
+   "website": "https://www.bangkokpost.com/business",
+   "country": "thailand",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.bangkokpost.com/business",
+    "title": "Bangkok Post - Thai business, investment, Thai stocks, Thai economy news | Bangkok Post",
+    "textLen": 7453,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-bankier-pl",
+   "name": "Bankier.pl",
+   "website": "https://www.bankier.pl",
+   "country": "poland",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.bankier.pl/",
+    "title": "Bankier.pl – Portal Finansowy – Rynki, Twoje finanse, Biznes",
+    "textLen": 20359,
+    "feed": false,
+    "articles": 4,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "4 article elements",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "pl"
+  },
+  {
+   "id": "md-banking-dive",
+   "name": "Banking Dive",
+   "website": "https://www.bankingdive.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.bankingdive.com/",
+    "title": "Banking News and Analysis | Banking Dive",
+    "textLen": 8556,
+    "feed": true,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; the masthead names itself as a publication",
+   "routes": {
+    "submissionUrl": {
+     "text": "Submit a tip",
+     "href": "https://www.bankingdive.com/submit-tip/"
+    }
+   },
+   "opportunityTypes": [
+    "editorial-submission"
+   ],
+   "scope": "en"
+  },
+  {
+   "id": "md-bens-bites",
+   "name": "Ben’s Bites",
+   "website": "https://www.bensbites.com",
+   "country": "united-kingdom",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.bensbites.com/",
+    "title": "Ben's Bites | Substack",
+    "textLen": 715,
+    "feed": true,
+    "articles": 0,
+    "times": 5
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; 5 datelines; masthead vocabulary",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-benzinga",
+   "name": "Benzinga",
+   "website": "https://www.benzinga.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.benzinga.com/",
+    "title": "Actionable Trading Ideas, Real-Time News, Financial Insight",
+    "textLen": 7016,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-betakit",
+   "name": "BetaKit",
+   "website": "https://betakit.com",
+   "country": "canada",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://betakit.com/",
+    "title": "BetaKit - Canadian Startup News & Tech Innovation",
+    "textLen": 6391,
+    "feed": true,
+    "articles": 15,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; 15 article elements; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en-CA"
+  },
+  {
+   "id": "md-bizvoice",
+   "name": "BizVoice",
+   "website": "https://www.bizvoicemagazine.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.bizvoicemagazine.com/",
+    "title": "BizVoice Magazine | Indiana Chamber of Commerce",
+    "textLen": 2216,
+    "feed": true,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; masthead vocabulary; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en-US"
+  },
+  {
+   "id": "md-bleepingcomputer",
+   "name": "BleepingComputer",
+   "website": "https://www.bleepingcomputer.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.bleepingcomputer.com/",
+    "title": "BleepingComputer | Cybersecurity, Technology News and Support",
+    "textLen": 5011,
+    "feed": true,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; the masthead names itself as a publication",
+   "routes": {
+    "submissionUrl": {
+     "text": "Send us a Tip!",
+     "href": "https://www.bleepingcomputer.com/news-tip/"
+    }
+   },
+   "opportunityTypes": [
+    "editorial-submission"
+   ],
+   "scope": "en-us"
+  },
+  {
+   "id": "md-bloomberg",
+   "name": "Bloomberg",
+   "website": "https://www.bloomberg.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.bloomberg.com/europe",
+    "title": "Bloomberg Europe",
+    "textLen": 14934,
+    "feed": false,
+    "articles": 68,
+    "times": 15
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "68 article elements; 15 datelines; masthead vocabulary",
+   "routes": {
+    "submissionUrl": {
+     "text": "Submit a Tip",
+     "href": "https://www.bloomberg.com/tips/"
+    }
+   },
+   "opportunityTypes": [
+    "editorial-submission"
+   ],
+   "scope": "en"
+  },
+  {
+   "id": "md-bloovi",
+   "name": "Bloovi",
+   "website": "https://www.bloovi.be",
+   "country": "belgium",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.bloovi.be/",
+    "title": "Bloovi",
+    "textLen": 3300,
+    "feed": true,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; masthead vocabulary",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "nl"
+  },
+  {
+   "id": "md-bloter",
+   "name": "블로터",
+   "website": "https://www.bloter.net",
+   "country": "south-korea",
+   "observed": {
+    "status": 0,
+    "finalUrl": null,
+    "title": null,
+    "textLen": 0,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "UNRESOLVED",
+   "why": "page never completed: https://www.bloter.net"
+  },
+  {
+   "id": "md-borsen",
+   "name": "Børsen",
+   "website": "https://borsen.dk",
+   "country": "denmark",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://borsen.dk/",
+    "title": "Børsen",
+    "textLen": 8515,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "masthead vocabulary",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "da"
+  },
+  {
+   "id": "md-built-in",
+   "name": "Built In",
+   "website": "https://builtin.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://builtin.com/",
+    "title": "Built In: Job Search & Company Research",
+    "textLen": 1050,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ONTOLOGY_UNCONFIRMED",
+   "why": "nothing on the page evidences that it publishes"
+  },
+  {
+   "id": "md-business-daily-africa",
+   "name": "Business Daily",
+   "website": "https://www.businessdailyafrica.com",
+   "country": "kenya",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.businessdailyafrica.com/",
+    "title": "Business Daily",
+    "textLen": 10750,
+    "feed": true,
+    "articles": 65,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; 65 article elements; masthead vocabulary; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-business-insider-jp",
+   "name": "Business Insider Japan",
+   "website": "https://www.businessinsider.jp",
+   "country": "japan",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.businessinsider.jp/",
+    "title": "Business Insider Japan | 経済・ビジネス・テクノロジーの最新ニュース",
+    "textLen": 8273,
+    "feed": true,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; masthead vocabulary",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "ja"
+  },
+  {
+   "id": "md-business-live-za",
+   "name": "Business Day",
+   "website": "https://www.businesslive.co.za",
+   "country": "south-africa",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.businessday.co.za/",
+    "title": "Business Day - Latest news and analysis from SA’s business sector",
+    "textLen": 5730,
+    "feed": false,
+    "articles": 46,
+    "times": 4
+   },
+   "state": "REDIRECTED",
+   "why": "www.businesslive.co.za now answers as www.businessday.co.za (\"Business Day - Latest news and analysis from SA’s business s\")",
+   "to": "https://www.businessday.co.za/"
+  },
+  {
+   "id": "md-business-north-carolina",
+   "name": "Business North Carolina",
+   "website": "https://www.businessnc.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://businessnc.com/",
+    "title": "Home - Business North Carolina",
+    "textLen": 2374,
+    "feed": true,
+    "articles": 0,
+    "times": 4
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; 4 datelines; masthead vocabulary",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en-US"
+  },
+  {
+   "id": "md-business-standard",
+   "name": "Business Standard",
+   "website": "https://www.business-standard.com",
+   "country": "india",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.business-standard.com/",
+    "title": "Business News, Finance News, India News, Stock Markets BSE/NSE News, SENSEX, NIFTY, Personal Finance News",
+    "textLen": 7281,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "masthead vocabulary; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en-US"
+  },
+  {
+   "id": "md-business-times-sg",
+   "name": "The Business Times",
+   "website": "https://www.businesstimes.com.sg",
+   "country": "singapore",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.businesstimes.com.sg/global?ref=home-redirect",
+    "title": "Global Edition - The Business Times",
+    "textLen": 6843,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "masthead vocabulary; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-businesscloud",
+   "name": "BusinessCloud",
+   "website": "https://www.businesscloud.co.uk",
+   "country": "united-kingdom",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://businesscloud.co.uk/",
+    "title": "Home - BusinessCloud",
+    "textLen": 2487,
+    "feed": true,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "UNKNOWN_PROTECTED",
+   "why": "captcha"
+  },
+  {
+   "id": "md-businessday-ng",
+   "name": "BusinessDay",
+   "website": "https://businessday.ng",
+   "country": "nigeria",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://businessday.ng/",
+    "title": "Business News Nigeria | Daily Updates | Nigerian News",
+    "textLen": 12460,
+    "feed": false,
+    "articles": 71,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "71 article elements; masthead vocabulary; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en-US"
+  },
+  {
+   "id": "md-businessworld",
+   "name": "BusinessWorld",
+   "website": "https://www.bworldonline.com",
+   "country": "philippines",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://bworldonline.com/",
+    "title": "BusinessWorld - BusinessWorld Online",
+    "textLen": 9133,
+    "feed": true,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; masthead vocabulary",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en-US"
+  },
+  {
+   "id": "md-byline-network",
+   "name": "바이라인네트워크",
+   "website": "https://byline.network",
+   "country": "south-korea",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://byline.network/",
+    "title": "바이라인네트워크",
+    "textLen": 1722,
+    "feed": false,
+    "articles": 1,
+    "times": 3
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "3 datelines",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "ko-KR"
+  },
+  {
+   "id": "md-bytebytego",
+   "name": "ByteByteGo",
+   "website": "https://bytebytego.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://bytebytego.com/",
+    "title": "ByteByteGo | Technical Interview Prep",
+    "textLen": 1589,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "masthead vocabulary",
+   "routes": {
+    "submissionUrl": {
+     "text": "Become a Contributor",
+     "href": "https://bytebytego.com/become-a-contributor"
+    }
+   },
+   "opportunityTypes": [
+    "contributed-article"
+   ],
+   "scope": null
+  },
+  {
+   "id": "md-calcalistech",
+   "name": "CTech",
+   "website": "https://www.calcalistech.com",
+   "country": "israel",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.calcalistech.com/ctechnews",
+    "title": "CTech | Ctech",
+    "textLen": 7411,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "masthead vocabulary",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-canary-media",
+   "name": "Canary Media",
+   "website": "https://www.canarymedia.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.canarymedia.com/",
+    "title": "Canary Media | Covering the clean energy transition",
+    "textLen": 8309,
+    "feed": true,
+    "articles": 40,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; 40 article elements; masthead vocabulary",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-capacity-media",
+   "name": "Capacity Media",
+   "website": "https://www.capacitymedia.com",
+   "country": "united-kingdom",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://capacityglobal.com/",
+    "title": "Homepage - Capacity",
+    "textLen": 8857,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "REDIRECTED",
+   "why": "www.capacitymedia.com now answers as capacityglobal.com (\"Homepage - Capacity\")",
+   "to": "https://capacityglobal.com/"
+  },
+  {
+   "id": "md-cnbc",
+   "name": "CNBC",
+   "website": "https://www.cnbc.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.cnbc.com/world/?region=world",
+    "title": "International Business, World News & Global Stock Market Analysis",
+    "textLen": 11294,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "masthead vocabulary; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-columbus-ceo",
+   "name": "Columbus CEO",
+   "website": "https://www.columbusceo.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://eu.columbusceo.com/",
+    "title": "Columbus CEO: Local News, Politics & Sports in Columbus, OH",
+    "textLen": 2552,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-computerweekly",
+   "name": "Computer Weekly",
+   "website": "https://www.computerweekly.com",
+   "country": "united-kingdom",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.computerweekly.com/",
+    "title": "Computer Weekly | Information Technology (IT) News, UK IT Jobs, Industry News",
+    "textLen": 5758,
+    "feed": false,
+    "articles": 1,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "masthead vocabulary; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-contxto",
+   "name": "Contxto",
+   "website": "https://contxto.com",
+   "country": "mexico",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://contxto.com/",
+    "title": "• Latinamerican VC, Startup and Tech News",
+    "textLen": 2716,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en-US"
+  },
+  {
+   "id": "md-crains-detroit",
+   "name": "Crain’s Detroit Business",
+   "website": "https://www.crainsdetroit.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.crainsdetroit.com/",
+    "title": "Crain's Detroit Business - Today's Michigan business news - Crain's Detroit Business",
+    "textLen": 4482,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "masthead vocabulary; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-crains-new-york",
+   "name": "Crain’s New York Business",
+   "website": "https://www.crainsnewyork.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.crainsnewyork.com/",
+    "title": "Crain's New York Business - Today's NYC business news - Crain's New York Business",
+    "textLen": 3846,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "masthead vocabulary; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-cronista",
+   "name": "El Cronista",
+   "website": "https://www.cronista.com",
+   "country": "argentina",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.cronista.com/",
+    "title": "El Cronista",
+    "textLen": 20639,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "masthead vocabulary",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "es"
+  },
+  {
+   "id": "md-csoonline",
+   "name": "CSO Online",
+   "website": "https://www.csoonline.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.csoonline.com/",
+    "title": "CSO Online | Security at the speed of business",
+    "textLen": 9386,
+    "feed": true,
+    "articles": 1,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; masthead vocabulary",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en-US"
+  },
+  {
+   "id": "md-cyzone",
+   "name": "创业邦",
+   "website": "https://www.cyzone.cn",
+   "country": "china",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.cyzone.cn/",
+    "title": "创业邦 - 关注创新经济及其推动者",
+    "textLen": 4233,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ONTOLOGY_UNCONFIRMED",
+   "why": "nothing on the page evidences that it publishes"
+  },
+  {
+   "id": "md-dagens-industri",
+   "name": "Dagens industri",
+   "website": "https://www.di.se",
+   "country": "sweden",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.di.se/",
+    "title": "Dagens industri - Di.se nyhetssajt",
+    "textLen": 15359,
+    "feed": false,
+    "articles": 103,
+    "times": 5
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "103 article elements; 5 datelines",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "sv"
+  },
+  {
+   "id": "md-dailysocial",
+   "name": "DailySocial",
+   "website": "https://dailysocial.id",
+   "country": "indonesia",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://dailysocial.id/",
+    "title": "RISE by DailySocial | Substack",
+    "textLen": 1323,
+    "feed": true,
+    "articles": 0,
+    "times": 6
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; 6 datelines; masthead vocabulary",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-dallas-innovates",
+   "name": "Dallas Innovates",
+   "website": "https://www.dallasinnovates.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://dallasinnovates.com/",
+    "title": "Dallas Innovates » What's new + next in Dallas-Fort Worth innovation",
+    "textLen": 6824,
+    "feed": true,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en-US"
+  },
+  {
+   "id": "md-dark-reading",
+   "name": "Dark Reading",
+   "website": "https://www.darkreading.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.darkreading.com/",
+    "title": "Dark Reading | Security | Protect The Business",
+    "textLen": 10074,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "masthead vocabulary",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-de-tijd",
+   "name": "De Tijd",
+   "website": "https://www.tijd.be",
+   "country": "belgium",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.tijd.be/",
+    "title": "Homepage | De Tijd",
+    "textLen": 12332,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ONTOLOGY_UNCONFIRMED",
+   "why": "nothing on the page evidences that it publishes"
+  },
+  {
+   "id": "md-design-news",
+   "name": "Design News",
+   "website": "https://www.designnews.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.designnews.com/",
+    "title": "Design News Serving the 21st Century Design Engineer",
+    "textLen": 9173,
+    "feed": false,
+    "articles": 2,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "masthead vocabulary; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-dev-ua",
+   "name": "dev.ua",
+   "website": "https://dev.ua",
+   "country": "ukraine",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://dev.ua/",
+    "title": "IT в Україні | dev.ua",
+    "textLen": 9112,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ONTOLOGY_UNCONFIRMED",
+   "why": "nothing on the page evidences that it publishes"
+  },
+  {
+   "id": "md-devhunt",
+   "name": "DevHunt",
+   "website": "https://devhunt.org",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://devhunt.org/",
+    "title": "Dev Hunt – The best new Dev Tools every day.",
+    "textLen": 17863,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "masthead vocabulary",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-dezeen",
+   "name": "Dezeen",
+   "website": "https://www.dezeen.com",
+   "country": "united-kingdom",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.dezeen.com/",
+    "title": "Dezeen | architecture and design magazine",
+    "textLen": 13736,
+    "feed": false,
+    "articles": 36,
+    "times": 25
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "36 article elements; 25 datelines; masthead vocabulary; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-diamond-online",
+   "name": "ダイヤモンド・オンライン",
+   "website": "https://diamond.jp",
+   "country": "japan",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://diamond.jp/",
+    "title": "ダイヤモンド・オンライン",
+    "textLen": 4208,
+    "feed": true,
+    "articles": 61,
+    "times": 10
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; 61 article elements; 10 datelines",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "ja"
+  },
+  {
+   "id": "md-diario-financiero",
+   "name": "Diario Financiero",
+   "website": "https://www.df.cl",
+   "country": "chile",
+   "observed": {
+    "status": 200,
+    "finalUrl": "about:blank",
+    "title": null,
+    "textLen": 0,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "UNRESOLVED",
+   "why": "only 0 characters rendered"
+  },
+  {
+   "id": "md-dienas-bizness",
+   "name": "Dienas Bizness",
+   "website": "https://db.lv",
+   "country": "latvia",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://db.lv/",
+    "title": "Dienas Bizness",
+    "textLen": 7820,
+    "feed": true,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "lv"
+  },
+  {
+   "id": "md-digiday",
+   "name": "Digiday",
+   "website": "https://digiday.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://digiday.com/",
+    "title": "Digiday — The home of modern media and marketing",
+    "textLen": 7574,
+    "feed": true,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; masthead vocabulary",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en-US"
+  },
+  {
+   "id": "md-digital-news-asia",
+   "name": "Digital News Asia",
+   "website": "https://www.digitalnewsasia.com",
+   "country": "malaysia",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.digitalnewsasia.com/",
+    "title": "Digital News Asia",
+    "textLen": 3776,
+    "feed": true,
+    "articles": 28,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; 28 article elements; masthead vocabulary; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-digitimes",
+   "name": "DIGITIMES",
+   "website": "https://www.digitimes.com",
+   "country": "taiwan",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.digitimes.com/403.asp",
+    "title": "Access denied",
+    "textLen": 526,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "UNKNOWN_PROTECTED",
+   "why": "access-denied"
+  },
+  {
+   "id": "md-dq-india",
+   "name": "DataQuest",
+   "website": "https://www.dqindia.com",
+   "country": "india",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.dqindia.com/",
+    "title": "Dataquest: Latest Tech News, Enterprise Trends & AI Insights",
+    "textLen": 4927,
+    "feed": true,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; masthead vocabulary; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-dunya",
+   "name": "Dünya",
+   "website": "https://www.dunya.com",
+   "country": "turkey",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.dunya.com/",
+    "title": "Dünya Gazetesi - Ekonomi, Finans ve İş Dünyası Haberleri",
+    "textLen": 8436,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ONTOLOGY_UNCONFIRMED",
+   "why": "nothing on the page evidences that it publishes"
+  },
+  {
+   "id": "md-e15",
+   "name": "e15",
+   "website": "https://www.e15.cz",
+   "country": "czech-republic",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.e15.cz/?meiro=dnt",
+    "title": "e15.cz - Ekonomika, byznys, finance a geopolitika",
+    "textLen": 12640,
+    "feed": true,
+    "articles": 81,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; 81 article elements",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "cs"
+  },
+  {
+   "id": "md-eco-sapo",
+   "name": "ECO",
+   "website": "https://eco.sapo.pt",
+   "country": "portugal",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://eco.sapo.pt/",
+    "title": "ECO – Economia Online",
+    "textLen": 6160,
+    "feed": false,
+    "articles": 14,
+    "times": 29
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "14 article elements; 29 datelines; masthead vocabulary",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "pt-PT"
+  },
+  {
+   "id": "md-ecommerce-times",
+   "name": "E-Commerce Times",
+   "website": "https://www.ecommercetimes.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.ecommercetimes.com/",
+    "title": "E-Commerce Times: E-Business Means Business",
+    "textLen": 7535,
+    "feed": true,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; masthead vocabulary; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en-US"
+  },
+  {
+   "id": "md-economia-digital",
+   "name": "Economía Digital",
+   "website": "https://www.economiadigital.es",
+   "country": "spain",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.economiadigital.es/",
+    "title": "Economía Digital | Última hora económica, empresarial y política",
+    "textLen": 14582,
+    "feed": true,
+    "articles": 82,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; 82 article elements",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "es"
+  },
+  {
+   "id": "md-economic-times-tech",
+   "name": "ET Tech",
+   "website": "https://economictimes.indiatimes.com/tech",
+   "country": "india",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://economictimes.indiatimes.com/tech",
+    "title": "Latest Business Technology News – AI, Startups, IT Industry & Cybersecurity Updates | ET Tech",
+    "textLen": 14965,
+    "feed": true,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; masthead vocabulary; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-economyup",
+   "name": "EconomyUp",
+   "website": "https://www.economyup.it",
+   "country": "italy",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.economyup.it/",
+    "title": "Economyup - L'Italia che vuole crescere",
+    "textLen": 11519,
+    "feed": true,
+    "articles": 5,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; 5 article elements; masthead vocabulary",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "it-IT"
+  },
+  {
+   "id": "md-ein-presswire",
+   "name": "EIN Presswire",
+   "website": "https://www.einpresswire.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.einpresswire.com/",
+    "title": "Press Release Distribution & World Media Directory by EIN Presswire",
+    "textLen": 6976,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ONTOLOGY_UNCONFIRMED",
+   "why": "reads as a services business; masthead vocabulary is not enough to settle it"
+  },
+  {
+   "id": "md-ekonomichna-pravda",
+   "name": "Ekonomichna Pravda",
+   "website": "https://epravda.com.ua",
+   "country": "ukraine",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://epravda.com.ua/",
+    "title": "Економічна правда - новини про економіку і бізнес в Україні та світі",
+    "textLen": 8739,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "masthead vocabulary",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "uk"
+  },
+  {
+   "id": "md-el-economista-mx",
+   "name": "El Economista",
+   "website": "https://www.eleconomista.com.mx",
+   "country": "mexico",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.eleconomista.com.mx/",
+    "title": "El Economista | Periódico especializado en economía, finanzas y negocios",
+    "textLen": 12239,
+    "feed": true,
+    "articles": 84,
+    "times": 42
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; 84 article elements; 42 datelines; masthead vocabulary",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "es"
+  },
+  {
+   "id": "md-el-financiero-cr",
+   "name": "El Financiero",
+   "website": "https://www.elfinancierocr.com",
+   "country": "costa-rica",
+   "observed": {
+    "status": 0,
+    "finalUrl": null,
+    "title": null,
+    "textLen": 0,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "UNRESOLVED",
+   "why": "page never completed: https://www.elfinancierocr.com"
+  },
+  {
+   "id": "md-el-referente",
+   "name": "El Referente",
+   "website": "https://elreferente.es",
+   "country": "spain",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://elreferente.es/",
+    "title": "El Referente, revista líder en startups e innovación en España",
+    "textLen": 10411,
+    "feed": true,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "es"
+  },
+  {
+   "id": "md-emerce",
+   "name": "Emerce",
+   "website": "https://www.emerce.nl",
+   "country": "netherlands",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.emerce.nl/",
+    "title": "Emerce - Online business, media & marketing",
+    "textLen": 12374,
+    "feed": false,
+    "articles": 63,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "63 article elements",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "nl"
+  },
+  {
+   "id": "md-enr",
+   "name": "Engineering News-Record",
+   "website": "https://www.enr.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.enr.com/",
+    "title": "Engineering News-Record | ENR",
+    "textLen": 7145,
+    "feed": false,
+    "articles": 37,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "37 article elements; the masthead names itself as a publication",
+   "routes": {
+    "submissionUrl": {
+     "text": "Submit An Event",
+     "href": "https://www.enr.com/events/new"
+    }
+   },
+   "opportunityTypes": [
+    "editorial-submission"
+   ],
+   "scope": "en"
+  },
+  {
+   "id": "md-enterprise-egypt",
+   "name": "EnterpriseAM Egypt",
+   "website": "https://enterpriseam.com/egypt/",
+   "country": "egypt",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://enterpriseam.com/egypt/",
+    "title": "EnterpriseAM Egypt",
+    "textLen": 11141,
+    "feed": true,
+    "articles": 95,
+    "times": 2
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; 95 article elements; masthead vocabulary",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en-EG"
+  },
+  {
+   "id": "md-entrackr",
+   "name": "Entrackr",
+   "website": "https://entrackr.com",
+   "country": "india",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://entrackr.com/",
+    "title": "Latest Startup l Technology News | Entrackr",
+    "textLen": 2791,
+    "feed": true,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; masthead vocabulary; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-epixeiro",
+   "name": "epixeiro.gr",
+   "website": "https://www.epixeiro.gr",
+   "country": "greece",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.epixeiro.gr/",
+    "title": "epixeiro.gr | Η επιχειρηματικότητα στο προσκήνιο",
+    "textLen": 13930,
+    "feed": false,
+    "articles": 121,
+    "times": 15
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "121 article elements; 15 datelines",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "el"
+  },
+  {
+   "id": "md-eremedia",
+   "name": "ERE",
+   "website": "https://www.eremedia.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.eremedia.com/",
+    "title": "Home | ERE Media",
+    "textLen": 708,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ONTOLOGY_UNCONFIRMED",
+   "why": "nothing on the page evidences that it publishes"
+  },
+  {
+   "id": "md-esimdb",
+   "name": "eSIMDB",
+   "website": "https://www.esimdb.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://esimdb.com/",
+    "title": "eSIMDB: Find and Compare Best Travel eSIMs for Your Trip",
+    "textLen": 9589,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ONTOLOGY_UNCONFIRMED",
+   "why": "nothing on the page evidences that it publishes"
+  },
+  {
+   "id": "md-etnews",
+   "name": "전자신문",
+   "website": "https://www.etnews.com",
+   "country": "south-korea",
+   "observed": {
+    "status": 0,
+    "finalUrl": null,
+    "title": null,
+    "textLen": 0,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "UNRESOLVED",
+   "why": "page never completed: https://www.etnews.com"
+  },
+  {
+   "id": "md-eu-startups",
+   "name": "EU-Startups",
+   "website": "https://www.eu-startups.com",
+   "country": "germany",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.eu-startups.com/",
+    "title": "EU-Startups | Spotlight on European startups",
+    "textLen": 8185,
+    "feed": true,
+    "articles": 0,
+    "times": 32
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; 32 datelines; masthead vocabulary",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en-US"
+  },
+  {
+   "id": "md-exame",
+   "name": "Exame",
+   "website": "https://exame.com",
+   "country": "brazil",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://exame.com/",
+    "title": "Exame | Notícias, Negócios, Economia, Carreira e mais",
+    "textLen": 11920,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ONTOLOGY_UNCONFIRMED",
+   "why": "nothing on the page evidences that it publishes"
+  },
+  {
+   "id": "md-expansion",
+   "name": "Expansión",
+   "website": "https://www.expansion.com",
+   "country": "spain",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.expansion.com/",
+    "title": "Expansión - Diario Económico e información de mercados",
+    "textLen": 16473,
+    "feed": true,
+    "articles": 88,
+    "times": 1
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; 88 article elements; masthead vocabulary",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "es"
+  },
+  {
+   "id": "md-expansion-mx",
+   "name": "Expansión",
+   "website": "https://expansion.mx",
+   "country": "mexico",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://expansion.mx/",
+    "title": "Expansión | Noticias de Negocios, Economía y Política en México",
+    "textLen": 8180,
+    "feed": true,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "es"
+  },
+  {
+   "id": "md-expertise-finder",
+   "name": "Expertise Finder",
+   "website": "https://expertisefinder.com",
+   "country": "canada",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://expertisefinder.com/",
+    "title": "Expertise Finder | Expert Systems, Online Directory",
+    "textLen": 2721,
+    "feed": true,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; masthead vocabulary",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en-US"
+  },
+  {
+   "id": "md-fazier",
+   "name": "Fazier",
+   "website": "https://fazier.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://fazier.com/",
+    "title": "Fazier – Find your next favourite product, every day.",
+    "textLen": 11814,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "masthead vocabulary",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": null
+  },
+  {
+   "id": "md-featured",
+   "name": "Featured",
+   "website": "https://featured.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://featured.com/",
+    "title": "Featured · Home",
+    "textLen": 511,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "masthead vocabulary",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-feedstuffs",
+   "name": "Feedstuffs",
+   "website": "https://www.feedstuffs.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.feedstuffs.com/",
+    "title": "Feedstuffs, your source for animal agriculture news",
+    "textLen": 8982,
+    "feed": false,
+    "articles": 2,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "masthead vocabulary; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-fierce-healthcare",
+   "name": "Fierce Healthcare",
+   "website": "https://www.fiercehealthcare.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.fiercehealthcare.com/",
+    "title": "Fierce Healthcare Industry News & Policy",
+    "textLen": 1746,
+    "feed": true,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; masthead vocabulary; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-fierce-network",
+   "name": "Fierce Network",
+   "website": "https://www.fiercenetwork.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.searchhounds.com/articles/smarter-networks-tech-testing-and-trust.html?psystem=PW&domain=www.fiercenetwork.com&oref=https%3A%2F%2Fwww.fiercenetwork.com%2F&trafficTarget=gd",
+    "title": "Smarter Networks: Tech, Testing, and Trust | SearchHounds",
+    "textLen": 8453,
+    "feed": false,
+    "articles": 1,
+    "times": 0
+   },
+   "state": "REDIRECTED",
+   "why": "www.fiercenetwork.com now answers as www.searchhounds.com (\"Smarter Networks: Tech, Testing, and Trust | SearchHounds\")",
+   "to": "https://www.searchhounds.com/articles/smarter-networks-tech-testing-and-trust.html?psystem=PW&domain=www.fiercenetwork.com&oref=https%3A%2F%2Fwww.fiercenetwork.com%2F&trafficTarget=gd"
+  },
+  {
+   "id": "md-finance-si",
+   "name": "Finance",
+   "website": "https://www.finance.si",
+   "country": "slovenia",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.finance.si/",
+    "title": "Finance - www.finance.si",
+    "textLen": 10257,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ONTOLOGY_UNCONFIRMED",
+   "why": "nothing on the page evidences that it publishes"
+  },
+  {
+   "id": "md-financial-mirror",
+   "name": "Financial Mirror",
+   "website": "https://www.financialmirror.com",
+   "country": "cyprus",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.financialmirror.com/",
+    "title": "Cyprus News | Cyprus Newspaper | Cyprus Economy | Financial Mirror",
+    "textLen": 9529,
+    "feed": true,
+    "articles": 36,
+    "times": 32
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; 36 article elements; 32 datelines; masthead vocabulary; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en-GB"
+  },
+  {
+   "id": "md-finans-dk",
+   "name": "Finans",
+   "website": "https://finans.dk",
+   "country": "denmark",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://finans.dk/",
+    "title": "Finans - Seneste nyheder - Nyt fra erhvervslivet - Nyhedsoverblik",
+    "textLen": 6526,
+    "feed": true,
+    "articles": 53,
+    "times": 13
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; 53 article elements; 13 datelines",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "da"
+  },
+  {
+   "id": "md-finextra",
+   "name": "Finextra",
+   "website": "https://www.finextra.com",
+   "country": "united-kingdom",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.finextra.com/",
+    "title": "Finextra Research: Home",
+    "textLen": 15856,
+    "feed": false,
+    "articles": 0,
+    "times": 61
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "61 datelines",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-florida-trend",
+   "name": "Florida Trend",
+   "website": "https://www.floridatrend.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.floridatrend.com/",
+    "title": "Florida Trend - Florida's Business Authority",
+    "textLen": 3097,
+    "feed": false,
+    "articles": 1,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "masthead vocabulary",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": null
+  },
+  {
+   "id": "md-food-business-news",
+   "name": "Food Business News",
+   "website": "https://www.foodbusinessnews.net",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.foodbusinessnews.net/",
+    "title": "Food and beverage news, trends, ingredient technologies and commodity markets analysis | Food Business News",
+    "textLen": 5553,
+    "feed": false,
+    "articles": 34,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "34 article elements; masthead vocabulary; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-food-dive",
+   "name": "Food Dive",
+   "website": "https://www.fooddive.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.fooddive.com/",
+    "title": "Food Dive: Food Industry News and Analysis",
+    "textLen": 7904,
+    "feed": true,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; the masthead names itself as a publication",
+   "routes": {
+    "submissionUrl": {
+     "text": "Submit a tip",
+     "href": "https://www.fooddive.com/submit-tip/"
+    }
+   },
+   "opportunityTypes": [
+    "editorial-submission"
+   ],
+   "scope": "en"
+  },
+  {
+   "id": "md-food-manufacturing",
+   "name": "Food Manufacturing",
+   "website": "https://www.foodmanufacturing.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.foodmanufacturing.com/",
+    "title": "Food Manufacturing",
+    "textLen": 5363,
+    "feed": true,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; masthead vocabulary",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en-us"
+  },
+  {
+   "id": "md-for-construction-pros",
+   "name": "ForConstructionPros",
+   "website": "https://www.forconstructionpros.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.forconstructionpros.com/",
+    "title": "For Construction Pros",
+    "textLen": 5347,
+    "feed": true,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ONTOLOGY_REJECTED",
+   "why": "placeholder page, not a publication"
+  },
+  {
+   "id": "md-forbes",
+   "name": "Forbes",
+   "website": "https://www.forbes.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.forbes.com/",
+    "title": "Forbes",
+    "textLen": 17568,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "masthead vocabulary",
+   "routes": {
+    "submissionUrl": {
+     "text": "Share a News Tip",
+     "href": "https://www.forbes.com/sites/forbesstaff/article/tips-and-confidential-sources/"
+    }
+   },
+   "opportunityTypes": [
+    "editorial-submission"
+   ],
+   "scope": "en"
+  },
+  {
+   "id": "md-forbes-mexico",
+   "name": "Forbes México",
+   "website": "https://forbes.com.mx",
+   "country": "mexico",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://forbes.com.mx/",
+    "title": "Forbes México",
+    "textLen": 7853,
+    "feed": false,
+    "articles": 56,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "56 article elements; masthead vocabulary",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "es"
+  },
+  {
+   "id": "md-fortune",
+   "name": "Fortune",
+   "website": "https://fortune.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://fortune.com/",
+    "title": "Fortune - Fortune 500 Daily & Breaking Business News",
+    "textLen": 13681,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "masthead vocabulary; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-frenchweb",
+   "name": "FrenchWeb",
+   "website": "https://www.frenchweb.fr",
+   "country": "france",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.frenchweb.fr/",
+    "title": "FRENCHWEB.FR : Le média business de la tech & de l’innovation",
+    "textLen": 6679,
+    "feed": true,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "fr-FR"
+  },
+  {
+   "id": "md-future-farming",
+   "name": "Future Farming",
+   "website": "https://www.futurefarming.com",
+   "country": "netherlands",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.futurefarming.com/",
+    "title": "The latest developments in the agricultural sector - Future Farming",
+    "textLen": 2803,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "masthead vocabulary",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en-US"
+  },
+  {
+   "id": "md-future-startup",
+   "name": "Future Startup",
+   "website": "https://futurestartup.com",
+   "country": "bangladesh",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://futurestartup.com/",
+    "title": "Future Startup - Tech, Business and Society",
+    "textLen": 5503,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "masthead vocabulary",
+   "routes": {
+    "submissionUrl": {
+     "text": "Write For Us",
+     "href": "https://futurestartup.com/2015/06/17/introducing-fs-network/"
+    }
+   },
+   "opportunityTypes": [
+    "contributed-article"
+   ],
+   "scope": "en-US"
+  },
+  {
+   "id": "md-geektime",
+   "name": "Geektime",
+   "website": "https://www.geektime.co.il",
+   "country": "israel",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.geektime.co.il/",
+    "title": "גיקטיים - אתר הטכנולוגיה וההייטק של ישראל | גיקטיים",
+    "textLen": 13301,
+    "feed": false,
+    "articles": 92,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "92 article elements",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "he-IL"
+  },
+  {
+   "id": "md-geenius",
+   "name": "Geenius",
+   "website": "https://geenius.delfi.ee",
+   "country": "estonia",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://geenius.delfi.ee/",
+    "title": "Geenius – tehnoloogia ja innovatsioon igapäevaelus",
+    "textLen": 3034,
+    "feed": false,
+    "articles": 18,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "18 article elements",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "et"
+  },
+  {
+   "id": "md-gestion-pe",
+   "name": "Gestión",
+   "website": "https://gestion.pe",
+   "country": "peru",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://gestion.pe/",
+    "title": "Gestión | El diario de Economía, Finanzas y Negocios | GESTIÓN",
+    "textLen": 10983,
+    "feed": true,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; masthead vocabulary",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "es"
+  },
+  {
+   "id": "md-ghana-business-news",
+   "name": "Ghana Business News",
+   "website": "https://ghanabusinessnews.com",
+   "country": "ghana",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.ghanabusinessnews.com/",
+    "title": "Ghana Business News — Ghana’s Premier Business News Portal",
+    "textLen": 3991,
+    "feed": true,
+    "articles": 23,
+    "times": 20
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; 23 article elements; 20 datelines; masthead vocabulary; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en-US"
+  },
+  {
+   "id": "md-globenewswire",
+   "name": "GlobeNewswire",
+   "website": "https://www.globenewswire.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.globenewswire.com/",
+    "title": "Press Release & News Distribution | GlobeNewswire",
+    "textLen": 5394,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "masthead vocabulary; the masthead names itself as a publication",
+   "routes": {
+    "pressReleaseUrl": {
+     "text": "Send a Press Release",
+     "href": "https://portal.notified.com/en/registration"
+    }
+   },
+   "opportunityTypes": [
+    "press-release"
+   ],
+   "scope": "en"
+  },
+  {
+   "id": "md-globes",
+   "name": "Globes",
+   "website": "https://en.globes.co.il",
+   "country": "israel",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://en.globes.co.il/en/",
+    "title": "Globes - Israel Business News",
+    "textLen": 9221,
+    "feed": true,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; masthead vocabulary; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-greentech-media",
+   "name": "Greentech Media",
+   "website": "https://www.greentechmedia.com",
+   "country": "united-states",
+   "observed": {
+    "status": 0,
+    "finalUrl": null,
+    "title": null,
+    "textLen": 0,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "UNRESOLVED",
+   "why": "page never completed: https://www.greentechmedia.com"
+  },
+  {
+   "id": "md-gruenderszene",
+   "name": "Gründerszene",
+   "website": "https://www.businessinsider.de/gruenderszene",
+   "country": "germany",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.businessinsider.de/gruenderszene/",
+    "title": "Gründerszene - News zu Startups, Digitalwirtschaft und VC | Gründerszene.de",
+    "textLen": 12631,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "masthead vocabulary; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "de"
+  },
+  {
+   "id": "md-hackernoon",
+   "name": "HackerNoon",
+   "website": "https://hackernoon.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://hackernoon.com/",
+    "title": "HackerNoon - read, write and learn about any technology",
+    "textLen": 7397,
+    "feed": false,
+    "articles": 7,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "7 article elements",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-handelsblatt",
+   "name": "Handelsblatt",
+   "website": "https://www.handelsblatt.com",
+   "country": "germany",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.handelsblatt.com/",
+    "title": "Handelsblatt - Nachrichten aus Finanzen, Wirtschaft und Politik",
+    "textLen": 15594,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "masthead vocabulary",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "de"
+  },
+  {
+   "id": "md-handelszeitung",
+   "name": "Handelszeitung",
+   "website": "https://www.handelszeitung.ch",
+   "country": "switzerland",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.handelszeitung.ch/",
+    "title": "Handelszeitung – Wirtschaft, Märkte & aktuelle Top-Themen",
+    "textLen": 3764,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "masthead vocabulary",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "de"
+  },
+  {
+   "id": "md-hankyung",
+   "name": "한국경제",
+   "website": "https://www.hankyung.com",
+   "country": "south-korea",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.hankyung.com/",
+    "title": "한국경제",
+    "textLen": 5659,
+    "feed": true,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "ko"
+  },
+  {
+   "id": "md-hashnode",
+   "name": "Hashnode",
+   "website": "https://hashnode.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://hashnode.com/",
+    "title": "Hashnode — The Best Blogging Platform for Builders in Tech",
+    "textLen": 6090,
+    "feed": false,
+    "articles": 16,
+    "times": 28
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "16 article elements; 28 datelines; masthead vocabulary",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-healthcare-it-news",
+   "name": "Healthcare IT News",
+   "website": "https://www.healthcareitnews.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.healthcareitnews.com/",
+    "title": "Home | Healthcare IT News",
+    "textLen": 8928,
+    "feed": false,
+    "articles": 1,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-help-net-security",
+   "name": "Help Net Security",
+   "website": "https://www.helpnetsecurity.com",
+   "country": "croatia",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.helpnetsecurity.com/",
+    "title": "Cybersecurity News and Expert Analysis - Help Net Security",
+    "textLen": 4458,
+    "feed": true,
+    "articles": 0,
+    "times": 17
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; 17 datelines; masthead vocabulary; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en-US"
+  },
+  {
+   "id": "md-hospodarske-noviny",
+   "name": "Hospodářské noviny",
+   "website": "https://hn.cz",
+   "country": "czech-republic",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://hn.cz/",
+    "title": "Hospodářské noviny - byznys, politika, názory (HN.cz)",
+    "textLen": 13306,
+    "feed": true,
+    "articles": 53,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; 53 article elements",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "cs"
+  },
+  {
+   "id": "md-hotel-management",
+   "name": "Hotel Management",
+   "website": "https://www.hotelmanagement.net",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.hotelmanagement.net/",
+    "title": "Hotel Management Hotel News for Professionals",
+    "textLen": 1632,
+    "feed": true,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; masthead vocabulary; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-hr-brew",
+   "name": "HR Brew",
+   "website": "https://www.hrbrew.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.hrbrew.com/",
+    "title": "HR Brew | HR Consulting",
+    "textLen": 1539,
+    "feed": true,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; masthead vocabulary",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-hr-dive",
+   "name": "HR Dive",
+   "website": "https://www.hrdive.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.hrdive.com/",
+    "title": "HR News and Analysis | HR Dive",
+    "textLen": 7469,
+    "feed": true,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; the masthead names itself as a publication",
+   "routes": {
+    "submissionUrl": {
+     "text": "Submit a tip",
+     "href": "https://www.hrdive.com/submit-tip/"
+    }
+   },
+   "opportunityTypes": [
+    "editorial-submission"
+   ],
+   "scope": "en"
+  },
+  {
+   "id": "md-huxiu",
+   "name": "虎嗅网",
+   "website": "https://www.huxiu.com",
+   "country": "china",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.huxiu.com/",
+    "title": "虎嗅网",
+    "textLen": 5125,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ONTOLOGY_UNCONFIRMED",
+   "why": "nothing on the page evidences that it publishes"
+  },
+  {
+   "id": "md-hwsw",
+   "name": "HWSW",
+   "website": "https://www.hwsw.hu",
+   "country": "hungary",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.hwsw.hu/",
+    "title": "HWSW Informatikai Hírmagazin",
+    "textLen": 4573,
+    "feed": false,
+    "articles": 57,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "57 article elements",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "hu"
+  },
+  {
+   "id": "md-hypepotamus",
+   "name": "Hypepotamus",
+   "website": "https://www.hypepotamus.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.hypepotamus.com/",
+    "title": "Hypepotamus",
+    "textLen": 6762,
+    "feed": true,
+    "articles": 57,
+    "times": 42
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; 57 article elements; 42 datelines; masthead vocabulary",
+   "routes": {
+    "submissionUrl": {
+     "text": "Submit an event",
+     "href": "https://tockify.com/tkf2/submitEvent/6c74d33818714e26a5722affafd1e3d9?ref=hypepotamus.ghost.io"
+    }
+   },
+   "opportunityTypes": [
+    "editorial-submission"
+   ],
+   "scope": "en"
+  },
+  {
+   "id": "md-il-sole-24-ore",
+   "name": "Il Sole 24 Ore",
+   "website": "https://www.ilsole24ore.com",
+   "country": "italy",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.ilsole24ore.com/",
+    "title": "Il Sole 24 Ore: notizie di economia, finanza, borsa, fisco, cronaca italiana ed esteri - Il Sole 24 ORE",
+    "textLen": 3220,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ONTOLOGY_UNCONFIRMED",
+   "why": "nothing on the page evidences that it publishes"
+  },
+  {
+   "id": "md-indie-hackers",
+   "name": "Indie Hackers",
+   "website": "https://www.indiehackers.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.indiehackers.com/",
+    "title": "Indie Hackers: Work Together to Build Profitable Online Businesses",
+    "textLen": 6397,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "masthead vocabulary",
+   "routes": {
+    "submissionUrl": {
+     "text": "Submit a Post to Indie Hackers",
+     "href": "https://www.indiehackers.com/new-post"
+    }
+   },
+   "opportunityTypes": [
+    "contributed-article"
+   ],
+   "scope": "en-US"
+  },
+  {
+   "id": "md-industryweek",
+   "name": "IndustryWeek",
+   "website": "https://www.industryweek.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.industryweek.com/",
+    "title": "Home | IndustryWeek",
+    "textLen": 16179,
+    "feed": true,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-infosecurity-magazine",
+   "name": "Infosecurity Magazine",
+   "website": "https://www.infosecurity-magazine.com",
+   "country": "united-kingdom",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.infosecurity-magazine.com/",
+    "title": "Infosecurity Magazine - Information Security & IT Security News and Resources",
+    "textLen": 5320,
+    "feed": false,
+    "articles": 0,
+    "times": 68
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "68 datelines; masthead vocabulary; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en-gb"
+  },
+  {
+   "id": "md-internet-retailing",
+   "name": "InternetRetailing",
+   "website": "https://www.internetretailing.net",
+   "country": "united-kingdom",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://internetretailing.net/",
+    "title": "Home - InternetRetailing",
+    "textLen": 4226,
+    "feed": false,
+    "articles": 19,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "19 article elements; masthead vocabulary",
+   "routes": {
+    "submissionUrl": {
+     "text": "GUEST POST What in-store BNPL tells us about the future of retail payments",
+     "href": "https://internetretailing.net/guest-post-what-in-store-bnpl-tells-us-about-the-future-of-retail-payments/"
+    }
+   },
+   "opportunityTypes": [
+    "contributed-article"
+   ],
+   "scope": "en"
+  },
+  {
+   "id": "md-iproup",
+   "name": "iProUP",
+   "website": "https://www.iproup.com",
+   "country": "argentina",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.iproup.com/",
+    "title": "iProUP | Noticias de startups, innovación, fintech y más",
+    "textLen": 1787,
+    "feed": true,
+    "articles": 6,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; 6 article elements",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "es"
+  },
+  {
+   "id": "md-irish-tech-news",
+   "name": "Irish Tech News",
+   "website": "https://www.irishtechnews.ie",
+   "country": "ireland",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://irishtechnews.ie/",
+    "title": "Home - Irish Tech News",
+    "textLen": 13243,
+    "feed": true,
+    "articles": 12,
+    "times": 36
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; 12 article elements; 36 datelines; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en-US"
+  },
+  {
+   "id": "md-itbusiness-ca",
+   "name": "IT Business",
+   "website": "https://www.itbusiness.ca",
+   "country": "canada",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.itbusiness.ca/",
+    "title": "itbusiness.ca",
+    "textLen": 104,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ONTOLOGY_REJECTED",
+   "why": "domain for sale, not a publication"
+  },
+  {
+   "id": "md-itmedia",
+   "name": "ITmedia",
+   "website": "https://www.itmedia.co.jp",
+   "country": "japan",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.itmedia.co.jp/",
+    "title": "IT総合情報ポータル「ITmedia」Home",
+    "textLen": 4360,
+    "feed": true,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "ja"
+  },
+  {
+   "id": "md-itpro",
+   "name": "ITPro",
+   "website": "https://www.itpro.com",
+   "country": "united-kingdom",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.itpro.com/",
+    "title": "ITPro | A comprehensive resource for enterprise IT professionals from parent",
+    "textLen": 6435,
+    "feed": true,
+    "articles": 1,
+    "times": 43
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; 43 datelines; masthead vocabulary",
+   "routes": {
+    "submissionUrl": {
+     "text": "Write for us",
+     "href": "https://www.itpro.com/about-us#section-write-for-us"
+    }
+   },
+   "opportunityTypes": [
+    "contributed-article"
+   ],
+   "scope": "en"
+  },
+  {
+   "id": "md-itweb",
+   "name": "ITWeb",
+   "website": "https://www.itweb.co.za",
+   "country": "south-africa",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.itweb.co.za/",
+    "title": "ITWeb | Business Technology Media Community",
+    "textLen": 5270,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "masthead vocabulary",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en-ZA"
+  },
+  {
+   "id": "md-itwiz",
+   "name": "ITwiz",
+   "website": "https://itwiz.pl",
+   "country": "poland",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://itwiz.pl/",
+    "title": "ITwiz, to co istotne w IT - portal IT | Informacje, wiadomości IT, IT dla biznesu",
+    "textLen": 18483,
+    "feed": true,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "pl-PL"
+  },
+  {
+   "id": "md-iyiou",
+   "name": "亿欧",
+   "website": "https://www.iyiou.com",
+   "country": "china",
+   "observed": {
+    "status": 202,
+    "finalUrl": "https://www.iyiou.com/",
+    "title": "亿欧-科技+产业+投资信息平台和智库",
+    "textLen": 9190,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ONTOLOGY_UNCONFIRMED",
+   "why": "nothing on the page evidences that it publishes"
+  },
+  {
+   "id": "md-jiemian",
+   "name": "界面新闻",
+   "website": "https://www.jiemian.com",
+   "country": "china",
+   "observed": {
+    "status": 0,
+    "finalUrl": null,
+    "title": null,
+    "textLen": 0,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "UNRESOLVED",
+   "why": "page never completed: https://www.jiemian.com"
+  },
+  {
+   "id": "md-jornal-de-negocios",
+   "name": "Jornal de Negócios",
+   "website": "https://www.jornaldenegocios.pt",
+   "country": "portugal",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.jornaldenegocios.pt/",
+    "title": "Negócios: Cotações, Mercados, Economia, Empresas",
+    "textLen": 13998,
+    "feed": false,
+    "articles": 141,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "141 article elements",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "pt-PT"
+  },
+  {
+   "id": "md-josh-bersin",
+   "name": "Josh Bersin",
+   "website": "https://joshbersin.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://joshbersin.com/",
+    "title": "JOSH BERSIN – Insights on Work, Talent, Learning, Leadership, and HR Technology",
+    "textLen": 10964,
+    "feed": true,
+    "articles": 23,
+    "times": 35
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; 23 article elements; 35 datelines",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en-US"
+  },
+  {
+   "id": "md-journolink",
+   "name": "JournoLink",
+   "website": "https://journolink.com",
+   "country": "united-kingdom",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://journolink.com/",
+    "title": "Welcome to JournoLink",
+    "textLen": 2118,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ONTOLOGY_UNCONFIRMED",
+   "why": "reads as a services business and nothing evidences that it publishes"
+  },
+  {
+   "id": "md-just-food",
+   "name": "Just Food",
+   "website": "https://www.just-food.com",
+   "country": "united-kingdom",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.just-food.com/",
+    "title": "Food Industry News, Insights & Analysis | Just Food",
+    "textLen": 10453,
+    "feed": true,
+    "articles": 25,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; 25 article elements; masthead vocabulary; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en-US"
+  },
+  {
+   "id": "md-katadata",
+   "name": "Katadata",
+   "website": "https://katadata.co.id",
+   "country": "indonesia",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://katadata.co.id/",
+    "title": "Berita Ekonomi Bisnis Terbaru dan Terkini Hari Ini | - Katadata.co.id",
+    "textLen": 15140,
+    "feed": false,
+    "articles": 85,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "85 article elements",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "id-ID"
+  },
+  {
+   "id": "md-kauppalehti",
+   "name": "Kauppalehti",
+   "website": "https://www.kauppalehti.fi",
+   "country": "finland",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.kauppalehti.fi/",
+    "title": "Kauppalehti",
+    "textLen": 4261,
+    "feed": false,
+    "articles": 21,
+    "times": 13
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "21 article elements; 13 datelines",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "fi"
+  },
+  {
+   "id": "md-ked-global",
+   "name": "KED Global",
+   "website": "https://www.kedglobal.com",
+   "country": "south-korea",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.kedglobal.com/",
+    "title": "KED Global - The Korea Economic Daily Global Edition",
+    "textLen": 8824,
+    "feed": false,
+    "articles": 33,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "33 article elements; masthead vocabulary; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-korea-tech-desk",
+   "name": "KoreaTechDesk",
+   "website": "https://www.koreatechdesk.com",
+   "country": "south-korea",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://koreatechdesk.com/",
+    "title": "South Korean Startup Media And Tech Innovation - KoreaTechDesk",
+    "textLen": 10269,
+    "feed": true,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en-US"
+  },
+  {
+   "id": "md-kr-asia",
+   "name": "KrASIA",
+   "website": "https://kr-asia.com",
+   "country": "singapore",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://kr-asia.com/",
+    "title": "KrASIA | Decoding China's tech and business pulse",
+    "textLen": 3604,
+    "feed": false,
+    "articles": 81,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "81 article elements; masthead vocabulary",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-kursiv-media",
+   "name": "Kursiv Media",
+   "website": "https://kz.kursiv.media",
+   "country": "kazakhstan",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://kz.kursiv.media/",
+    "title": "Kursiv Media Казахстан: последние новости Казахстана и мира",
+    "textLen": 5265,
+    "feed": false,
+    "articles": 39,
+    "times": 39
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "39 article elements; 39 datelines",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "ru"
+  },
+  {
+   "id": "md-la-republica-co",
+   "name": "La República",
+   "website": "https://www.larepublica.co",
+   "country": "colombia",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.larepublica.co/",
+    "title": "Noticias de Economía, Finanzas, Empresas y Negocios de Colombia y el Mundo | LaRepublica.co",
+    "textLen": 19494,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ONTOLOGY_UNCONFIRMED",
+   "why": "nothing on the page evidences that it publishes"
+  },
+  {
+   "id": "md-law-com",
+   "name": "Law.com",
+   "website": "https://www.law.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.law.com/",
+    "title": "Law.com | The Premier Source for Global Legal News & Analysis",
+    "textLen": 26741,
+    "feed": false,
+    "articles": 166,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "166 article elements; masthead vocabulary; the masthead names itself as a publication",
+   "routes": {
+    "pitchUrl": {
+     "text": "Contact the Editorial Team",
+     "href": "https://www.law.com/static/contact-us/"
+    }
+   },
+   "opportunityTypes": [
+    "editorial-pitch"
+   ],
+   "scope": "en"
+  },
+  {
+   "id": "md-ledge-ai",
+   "name": "Ledge.ai",
+   "website": "https://ledge.ai",
+   "country": "japan",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://ledge.ai/",
+    "title": "Ledge.ai｜日本最大級のAI特化型ニュースメディア",
+    "textLen": 3245,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "masthead vocabulary",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": null
+  },
+  {
+   "id": "md-leiphone",
+   "name": "雷峰网",
+   "website": "https://www.leiphone.com",
+   "country": "china",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.leiphone.com/",
+    "title": "雷峰网_读懂智能&未来",
+    "textLen": 4935,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ONTOLOGY_UNCONFIRMED",
+   "why": "nothing on the page evidences that it publishes"
+  },
+  {
+   "id": "md-lennys-newsletter",
+   "name": "Lenny’s Newsletter",
+   "website": "https://www.lennysnewsletter.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.lennysnewsletter.com/",
+    "title": "Lenny's Newsletter | Substack",
+    "textLen": 1844,
+    "feed": true,
+    "articles": 0,
+    "times": 8
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; 8 datelines; masthead vocabulary",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-les-echos",
+   "name": "Les Echos",
+   "website": "https://www.lesechos.fr",
+   "country": "france",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.lesechos.fr/",
+    "title": "Les Echos : actualités en direct, Économie, Finance, Marchés, Politique, Entreprises, Start-up - Les Echos",
+    "textLen": 9419,
+    "feed": false,
+    "articles": 38,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "38 article elements",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "fr"
+  },
+  {
+   "id": "md-leseco-ma",
+   "name": "LesEco.ma",
+   "website": "https://leseco.ma",
+   "country": "morocco",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://leseco.ma/",
+    "title": "LesEco.ma - L'actualité en continu",
+    "textLen": 7819,
+    "feed": true,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; masthead vocabulary",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "fr-FR"
+  },
+  {
+   "id": "md-lider-media",
+   "name": "Lider Media",
+   "website": "https://lidermedia.hr",
+   "country": "croatia",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://lidermedia.hr/",
+    "title": "Lider Media - Najbolji Portal za Poduzetnike - Lider Media",
+    "textLen": 9476,
+    "feed": false,
+    "articles": 56,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "56 article elements",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "hr"
+  },
+  {
+   "id": "md-link-to-leaders",
+   "name": "Link To Leaders",
+   "website": "https://linktoleaders.com",
+   "country": "portugal",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://linktoleaders.com/",
+    "title": "Link To Leaders - Empresas, Start-ups e Investimentos",
+    "textLen": 10892,
+    "feed": true,
+    "articles": 30,
+    "times": 30
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; 30 article elements; 30 datelines",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "pt-PT"
+  },
+  {
+   "id": "md-livemint",
+   "name": "Mint",
+   "website": "https://www.livemint.com",
+   "country": "india",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.livemint.com/",
+    "title": "Business News Today: Read Latest Business News, Live India Share Market News, Finance & Economy News | Mint",
+    "textLen": 9131,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "masthead vocabulary; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-logistics-management",
+   "name": "Logistics Management",
+   "website": "https://www.logisticsmgmt.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.logisticsmgmt.com/",
+    "title": "Welcome to Logistics Management",
+    "textLen": 8927,
+    "feed": true,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; masthead vocabulary",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-lupa-cz",
+   "name": "Lupa.cz",
+   "website": "https://www.lupa.cz",
+   "country": "czech-republic",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.lupa.cz/",
+    "title": "Lupa.cz - server o českém Internetu",
+    "textLen": 11556,
+    "feed": true,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "cs"
+  },
+  {
+   "id": "md-maeil-business",
+   "name": "매일경제",
+   "website": "https://www.mk.co.kr",
+   "country": "south-korea",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.mk.co.kr/",
+    "title": "매일경제",
+    "textLen": 7745,
+    "feed": true,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; masthead vocabulary",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "ko"
+  },
+  {
+   "id": "md-magnitt",
+   "name": "MAGNiTT",
+   "website": "https://www.magnitt.com",
+   "country": "united-arab-emirates",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.magnitt.com/",
+    "title": "Home | MAGNiTT",
+    "textLen": 4789,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ONTOLOGY_UNCONFIRMED",
+   "why": "reads as a services business and nothing evidences that it publishes"
+  },
+  {
+   "id": "md-manufacturing-net",
+   "name": "Manufacturing.net",
+   "website": "https://www.manufacturing.net",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.manufacturing.net/",
+    "title": "Manufacturing.net",
+    "textLen": 5207,
+    "feed": true,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; masthead vocabulary",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en-us"
+  },
+  {
+   "id": "md-marktechpost",
+   "name": "MarkTechPost",
+   "website": "https://www.marktechpost.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.marktechpost.com/",
+    "title": "Home - MarkTechPost",
+    "textLen": 9688,
+    "feed": true,
+    "articles": 0,
+    "times": 43
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; 43 datelines; masthead vocabulary",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en-US"
+  },
+  {
+   "id": "md-medium",
+   "name": "Medium",
+   "website": "https://medium.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://medium.com/",
+    "title": "Medium: Read and write stories.",
+    "textLen": 278,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "UNRESOLVED",
+   "why": "only 278 characters rendered"
+  },
+  {
+   "id": "md-medtech-dive",
+   "name": "MedTech Dive",
+   "website": "https://www.medtechdive.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.medtechdive.com/",
+    "title": "Medical Technology News | MedTech Dive",
+    "textLen": 8168,
+    "feed": true,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; the masthead names itself as a publication",
+   "routes": {
+    "submissionUrl": {
+     "text": "Submit a tip",
+     "href": "https://www.medtechdive.com/submit-tip/"
+    }
+   },
+   "opportunityTypes": [
+    "editorial-submission"
+   ],
+   "scope": "en"
+  },
+  {
+   "id": "md-mentionmatch",
+   "name": "MentionMatch",
+   "website": "https://mentionmatch.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://mentionmatch.com/",
+    "title": "MentionMatch - Connect B2B Writers with Expert Sources",
+    "textLen": 3180,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ONTOLOGY_UNCONFIRMED",
+   "why": "nothing on the page evidences that it publishes"
+  },
+  {
+   "id": "md-microlaunch",
+   "name": "Microlaunch",
+   "website": "https://microlaunch.net",
+   "country": "france",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://microlaunch.net/",
+    "title": "World-class Tech Products on Microlaunch",
+    "textLen": 8328,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "masthead vocabulary",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-milano-finanza",
+   "name": "Milano Finanza",
+   "website": "https://www.milanofinanza.it",
+   "country": "italy",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.milanofinanza.it/",
+    "title": "Milano Finanza - news di economia, finanza, fisco e borsa in tempo reale",
+    "textLen": 17821,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "it"
+  },
+  {
+   "id": "md-mobihealthnews",
+   "name": "MobiHealthNews",
+   "website": "https://www.mobihealthnews.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.mobihealthnews.com/",
+    "title": "Home | MobiHealthNews",
+    "textLen": 6795,
+    "feed": false,
+    "articles": 1,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "masthead vocabulary",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-mobile-world-live",
+   "name": "Mobile World Live",
+   "website": "https://www.mobileworldlive.com",
+   "country": "united-kingdom",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.mobileworldlive.com/",
+    "title": "Mobile World Live - News & Insights for the Global Mobile...",
+    "textLen": 5598,
+    "feed": true,
+    "articles": 59,
+    "times": 44
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; 59 article elements; 44 datelines; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en-GB"
+  },
+  {
+   "id": "md-modern-machine-shop",
+   "name": "Modern Machine Shop",
+   "website": "https://www.mmsonline.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.mmsonline.com/",
+    "title": "Metalworking’s leading information resource | Modern Machine Shop",
+    "textLen": 9573,
+    "feed": false,
+    "articles": 0,
+    "times": 111
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "111 datelines",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-modern-retail",
+   "name": "Modern Retail",
+   "website": "https://www.modernretail.co",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.modernretail.co/",
+    "title": "Modern Retail – Authority and honesty on the reinvention of retail",
+    "textLen": 7405,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "masthead vocabulary",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-muck-rack",
+   "name": "Muck Rack",
+   "website": "https://muckrack.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://muckrack.com/",
+    "title": "Muck Rack PR Software: Media Monitoring, Database, Reporting",
+    "textLen": 3844,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "masthead vocabulary",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-my-company-polska",
+   "name": "My Company Polska",
+   "website": "https://mycompanypolska.pl",
+   "country": "poland",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://mycompanypolska.pl/",
+    "title": "MyCompanyPolska.pl - Strefa Ludzi Przedsiębiorczych",
+    "textLen": 15515,
+    "feed": false,
+    "articles": 44,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "44 article elements",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "pl"
+  },
+  {
+   "id": "md-naftemporiki",
+   "name": "Naftemporiki",
+   "website": "https://www.naftemporiki.gr",
+   "country": "greece",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.naftemporiki.gr/",
+    "title": "Ειδήσεις από την Ελλάδα και τον Κόσμο | Η ΝΑΥΤΕΜΠΟΡΙΚΗ",
+    "textLen": 27884,
+    "feed": true,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; masthead vocabulary",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "el"
+  },
+  {
+   "id": "md-nashville-post",
+   "name": "Nashville Post",
+   "website": "https://www.nashvillepost.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.nashvillepost.com/",
+    "title": "nashvillepost.com | Smart. Relevant. Engaged.",
+    "textLen": 3464,
+    "feed": true,
+    "articles": 35,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; 35 article elements; masthead vocabulary",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-nations-restaurant-news",
+   "name": "Nation’s Restaurant News",
+   "website": "https://www.nrn.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.nrn.com/",
+    "title": "Nation’s Restaurant News",
+    "textLen": 5213,
+    "feed": false,
+    "articles": 2,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "masthead vocabulary; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-nbr",
+   "name": "NBR",
+   "website": "https://www.nbr.co.nz",
+   "country": "new-zealand",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.nbr.co.nz/",
+    "title": "NBR | Independent business news, Finance, Investment, Tech, Law",
+    "textLen": 32556,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "masthead vocabulary; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en-NZ"
+  },
+  {
+   "id": "md-neofeed",
+   "name": "NeoFeed",
+   "website": "https://neofeed.com.br",
+   "country": "brazil",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://neofeed.com.br/",
+    "title": "NeoFeed: Negócios, Finanças, Economia, Startups e Inovação",
+    "textLen": 3490,
+    "feed": true,
+    "articles": 16,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; 16 article elements",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "pt-br"
+  },
+  {
+   "id": "md-netokracija",
+   "name": "Netokracija",
+   "website": "https://www.netokracija.com",
+   "country": "croatia",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.netokracija.com/",
+    "title": "Netokracija - Internet tehnologije, poslovanje i kultura",
+    "textLen": 10380,
+    "feed": true,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; masthead vocabulary",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "hr"
+  },
+  {
+   "id": "md-netzwoche",
+   "name": "Netzwoche",
+   "website": "https://www.netzwoche.ch",
+   "country": "switzerland",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.netzwoche.ch/",
+    "title": "Startseite | Netzwoche",
+    "textLen": 15775,
+    "feed": false,
+    "articles": 99,
+    "times": 42
+   },
+   "state": "UNKNOWN_PROTECTED",
+   "why": "captcha"
+  },
+  {
+   "id": "md-newswire-com",
+   "name": "Newswire",
+   "website": "https://www.newswire.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.newswire.com/",
+    "title": "Press Release Distribution | Media Outreach Platform | Newswire",
+    "textLen": 8428,
+    "feed": true,
+    "articles": 32,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; 32 article elements; masthead vocabulary",
+   "routes": {
+    "pressReleaseUrl": {
+     "text": "Submit a Press Release",
+     "href": "https://www.newswire.com/pricing"
+    }
+   },
+   "opportunityTypes": [
+    "press-release"
+   ],
+   "scope": "en"
+  },
+  {
+   "id": "md-nikkei",
+   "name": "日本経済新聞",
+   "website": "https://www.nikkei.com",
+   "country": "japan",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.nikkei.com/",
+    "title": "日本経済新聞 - ニュース・速報 最新情報",
+    "textLen": 6397,
+    "feed": false,
+    "articles": 44,
+    "times": 41
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "44 article elements; 41 datelines; masthead vocabulary",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "ja"
+  },
+  {
+   "id": "md-nikkei-asia",
+   "name": "Nikkei Asia",
+   "website": "https://asia.nikkei.com",
+   "country": "japan",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://asia.nikkei.com/",
+    "title": "Nikkei Asia - Business, Politics, Economy and Tech News & Analysis",
+    "textLen": 9782,
+    "feed": false,
+    "articles": 0,
+    "times": 72
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "72 datelines; masthead vocabulary; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-no-jitter",
+   "name": "No Jitter",
+   "website": "https://www.nojitter.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.nojitter.com/",
+    "title": "No Jitter | Insight for the Connected Enterprise",
+    "textLen": 4368,
+    "feed": false,
+    "articles": 1,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "masthead vocabulary",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-ots-at",
+   "name": "OTS",
+   "website": "https://www.ots.at",
+   "country": "austria",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.ots.at/",
+    "title": "OTS.at - aktuelle Inhalte in Text, Bild, Ton und Video",
+    "textLen": 3540,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ONTOLOGY_UNCONFIRMED",
+   "why": "nothing on the page evidences that it publishes"
+  },
+  {
+   "id": "md-packaging-digest",
+   "name": "Packaging Digest",
+   "website": "https://www.packagingdigest.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.packagingdigest.com/",
+    "title": "Packaging Digest",
+    "textLen": 6981,
+    "feed": false,
+    "articles": 1,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "masthead vocabulary",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-paperjam",
+   "name": "Paperjam",
+   "website": "https://paperjam.lu",
+   "country": "luxembourg",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://paperjam.lu/",
+    "title": "Paperjam News",
+    "textLen": 10405,
+    "feed": false,
+    "articles": 0,
+    "times": 3
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "3 datelines; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "fr"
+  },
+  {
+   "id": "md-pc-tech-magazine",
+   "name": "PC Tech Magazine",
+   "website": "https://pctechmag.com",
+   "country": "uganda",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://pctechmag.com/",
+    "title": "Home - PC Tech Magazine",
+    "textLen": 10177,
+    "feed": true,
+    "articles": 83,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; 83 article elements; masthead vocabulary; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en-US"
+  },
+  {
+   "id": "md-peerlist",
+   "name": "Peerlist",
+   "website": "https://peerlist.io",
+   "country": "india",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://peerlist.io/",
+    "title": "Peerlist | The Professional Network for builders to show and tell!",
+    "textLen": 3807,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ONTOLOGY_UNCONFIRMED",
+   "why": "nothing on the page evidences that it publishes"
+  },
+  {
+   "id": "md-phocuswire",
+   "name": "PhocusWire",
+   "website": "https://www.phocuswire.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.phocuswire.com/",
+    "title": "News on Travel Technology, Distribution and the Digital Economy | PhocusWire",
+    "textLen": 7607,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "masthead vocabulary; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-pingwest",
+   "name": "品玩",
+   "website": "https://www.pingwest.com",
+   "country": "china",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.pingwest.com/",
+    "title": "品玩-有品好玩的科技，一切与你有关",
+    "textLen": 2040,
+    "feed": false,
+    "articles": 21,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "21 article elements",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": null
+  },
+  {
+   "id": "md-plastics-today",
+   "name": "PlasticsToday",
+   "website": "https://www.plasticstoday.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.plasticstoday.com/",
+    "title": "PlasticsToday",
+    "textLen": 7475,
+    "feed": false,
+    "articles": 2,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "masthead vocabulary",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-platum",
+   "name": "플래텀",
+   "website": "https://platum.kr",
+   "country": "south-korea",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://platum.kr/",
+    "title": "스타트업 생태계의 모든 것 - '플래텀(Platum)'",
+    "textLen": 1563,
+    "feed": false,
+    "articles": 0,
+    "times": 15
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "15 datelines",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "ko-KR"
+  },
+  {
+   "id": "md-portfolio-hu",
+   "name": "Portfolio.hu",
+   "website": "https://www.portfolio.hu",
+   "country": "hungary",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.portfolio.hu/",
+    "title": "Portfolio.hu - Online gazdasági újság",
+    "textLen": 31867,
+    "feed": true,
+    "articles": 171,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; 171 article elements",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "hu"
+  },
+  {
+   "id": "md-power-engineering",
+   "name": "Power Engineering",
+   "website": "https://www.power-eng.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.power-eng.com/",
+    "title": "Power Industry And Energy News | Power Engineering",
+    "textLen": 4014,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "masthead vocabulary; the masthead names itself as a publication",
+   "routes": {
+    "submissionUrl": {
+     "text": "Submit an Article",
+     "href": "https://www.power-eng.com/submit-an-article/"
+    }
+   },
+   "opportunityTypes": [
+    "contributed-article"
+   ],
+   "scope": "en-US"
+  },
+  {
+   "id": "md-pr-com",
+   "name": "PR.com",
+   "website": "https://www.pr.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.pr.com/",
+    "title": "Press Release Distribution - Grow Your Business - PR.com",
+    "textLen": 3567,
+    "feed": false,
+    "articles": 1,
+    "times": 0
+   },
+   "state": "ONTOLOGY_UNCONFIRMED",
+   "why": "reads as a services business; masthead vocabulary is not enough to settle it"
+  },
+  {
+   "id": "md-pr-newswire",
+   "name": "PR Newswire",
+   "website": "https://www.prnewswire.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.prnewswire.com/",
+    "title": "PR Newswire: press release distribution, targeting, monitoring and marketing | PR Newswire",
+    "textLen": 9568,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ONTOLOGY_UNCONFIRMED",
+   "why": "nothing on the page evidences that it publishes"
+  },
+  {
+   "id": "md-pr-underground",
+   "name": "PR Underground",
+   "website": "https://prunderground.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://prunderground.com/",
+    "title": "PR Underground — Press Release Distribution | PR Underground",
+    "textLen": 7314,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "masthead vocabulary",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-pressat",
+   "name": "Pressat",
+   "website": "https://pressat.co.uk",
+   "country": "united-kingdom",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://pressat.co.uk/",
+    "title": "Press Release Distribution Service - Pressat",
+    "textLen": 4410,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ONTOLOGY_UNCONFIRMED",
+   "why": "reads as a services business; masthead vocabulary is not enough to settle it"
+  },
+  {
+   "id": "md-presseportal",
+   "name": "Presseportal",
+   "website": "https://www.presseportal.de",
+   "country": "germany",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.presseportal.de/",
+    "title": "Die Plattform für Pressemitteilungen und Pressemeldungen | Presseportal",
+    "textLen": 7417,
+    "feed": true,
+    "articles": 42,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; 42 article elements",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "de"
+  },
+  {
+   "id": "md-pressetext",
+   "name": "pressetext",
+   "website": "https://www.pressetext.com",
+   "country": "austria",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.pressetext.com/",
+    "title": "pressetext Nachrichtenagentur: Redaktion und Presseverteiler für Wirtschaft, Technologie, Medien und Wissenschaft",
+    "textLen": 4733,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ONTOLOGY_UNCONFIRMED",
+   "why": "nothing on the page evidences that it publishes"
+  },
+  {
+   "id": "md-profit-ro",
+   "name": "Profit.ro",
+   "website": "https://www.profit.ro",
+   "country": "romania",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.profit.ro/",
+    "title": "Cele mai importante informații economice pe PROFIT.ro",
+    "textLen": 20398,
+    "feed": false,
+    "articles": 173,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "173 article elements; masthead vocabulary",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "ro"
+  },
+  {
+   "id": "md-protext",
+   "name": "Protext",
+   "website": "https://www.protext.cz",
+   "country": "czech-republic",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.protext.cz/",
+    "title": "Úvodní strana | Protext ČTK",
+    "textLen": 10752,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ONTOLOGY_UNCONFIRMED",
+   "why": "nothing on the page evidences that it publishes"
+  },
+  {
+   "id": "md-prweb",
+   "name": "PRWeb",
+   "website": "https://www.prweb.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.prweb.com/",
+    "title": "Online Press Release Distribution Service | PRWeb",
+    "textLen": 2571,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "masthead vocabulary",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-publickey",
+   "name": "Publickey",
+   "website": "https://www.publickey1.jp",
+   "country": "japan",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.publickey1.jp/",
+    "title": "Publickey － Enterprise IT × Cloud Computing × Web Technology / Blog",
+    "textLen": 4102,
+    "feed": true,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "ja"
+  },
+  {
+   "id": "md-puls-biznesu",
+   "name": "Puls Biznesu",
+   "website": "https://www.pb.pl",
+   "country": "poland",
+   "observed": {
+    "status": 0,
+    "finalUrl": null,
+    "title": null,
+    "textLen": 0,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "UNRESOLVED",
+   "why": "page never completed: https://www.pb.pl"
+  },
+  {
+   "id": "md-pymnts",
+   "name": "PYMNTS",
+   "website": "https://www.pymnts.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.pymnts.com/",
+    "title": "PYMNTS.com | Breaking News, Trends and Analysis",
+    "textLen": 7514,
+    "feed": true,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; masthead vocabulary; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en-US"
+  },
+  {
+   "id": "md-quartz",
+   "name": "Quartz",
+   "website": "https://qz.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://qz.com/",
+    "title": "Home",
+    "textLen": 6116,
+    "feed": false,
+    "articles": 22,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "22 article elements; masthead vocabulary",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-qwoted",
+   "name": "Qwoted",
+   "website": "https://www.qwoted.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.qwoted.com/",
+    "title": "Qwoted – Connecting the Media with Expert Sources",
+    "textLen": 2264,
+    "feed": true,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; masthead vocabulary",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en-US"
+  },
+  {
+   "id": "md-rcr-wireless",
+   "name": "RCR Wireless News",
+   "website": "https://www.rcrwireless.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.rcrwireless.com/",
+    "title": "Telecom News, 5G, AI Infrastructure & RCRtv | RCR Wireless",
+    "textLen": 8941,
+    "feed": true,
+    "articles": 20,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; 20 article elements; masthead vocabulary; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en-US"
+  },
+  {
+   "id": "md-recharge-news",
+   "name": "Recharge",
+   "website": "https://www.rechargenews.com",
+   "country": "norway",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.rechargenews.com/",
+    "title": "Recharge News | Recharge",
+    "textLen": 4056,
+    "feed": false,
+    "articles": 18,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "18 article elements; masthead vocabulary; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-recruitingdaily",
+   "name": "RecruitingDaily",
+   "website": "https://recruitingdaily.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://recruitingdaily.com/",
+    "title": "Homepage - RecruitingDaily",
+    "textLen": 5888,
+    "feed": true,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; masthead vocabulary",
+   "routes": {
+    "submissionUrl": {
+     "text": "Submit an Article",
+     "href": "https://recruitingdaily.com/submit-content/"
+    }
+   },
+   "opportunityTypes": [
+    "contributed-article"
+   ],
+   "scope": "en-US"
+  },
+  {
+   "id": "md-refresh-miami",
+   "name": "Refresh Miami",
+   "website": "https://refreshmiami.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://refreshmiami.com/",
+    "title": "Refresh Miami",
+    "textLen": 5064,
+    "feed": true,
+    "articles": 30,
+    "times": 3
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; 30 article elements; 3 datelines; masthead vocabulary",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en-US"
+  },
+  {
+   "id": "md-responsesource",
+   "name": "ResponseSource",
+   "website": "https://www.responsesource.com",
+   "country": "united-kingdom",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.responsesource.com/",
+    "title": "ResponseSource - Connecting the media",
+    "textLen": 5369,
+    "feed": true,
+    "articles": 23,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; 23 article elements; masthead vocabulary",
+   "routes": {
+    "pressReleaseUrl": {
+     "text": "Send press release",
+     "href": "https://pressreleases.responsesource.com/send"
+    }
+   },
+   "opportunityTypes": [
+    "press-release"
+   ],
+   "scope": "en"
+  },
+  {
+   "id": "md-restaurant-business",
+   "name": "Restaurant Business",
+   "website": "https://www.restaurantbusinessonline.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.restaurantbusinessonline.com/",
+    "title": "Restaurant Business Magazine - Trends, Ideas and News",
+    "textLen": 5968,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "masthead vocabulary; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-retail-dive",
+   "name": "Retail Dive",
+   "website": "https://www.retaildive.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.retaildive.com/",
+    "title": "Retail News and Trends | Retail Dive",
+    "textLen": 7880,
+    "feed": true,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; masthead vocabulary; the masthead names itself as a publication",
+   "routes": {
+    "submissionUrl": {
+     "text": "Submit a tip",
+     "href": "https://www.retaildive.com/submit-tip/"
+    }
+   },
+   "opportunityTypes": [
+    "editorial-submission"
+   ],
+   "scope": "en"
+  },
+  {
+   "id": "md-retail-touchpoints",
+   "name": "Retail TouchPoints",
+   "website": "https://www.retailtouchpoints.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.retailtouchpoints.com/",
+    "title": "Retail News & Insights - Retail TouchPoints",
+    "textLen": 5664,
+    "feed": true,
+    "articles": 1,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en-US"
+  },
+  {
+   "id": "md-robotics-business-review",
+   "name": "Robotics Business Review",
+   "website": "https://www.roboticsbusinessreview.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.therobotreport.com/",
+    "title": "The Robot Report",
+    "textLen": 8051,
+    "feed": true,
+    "articles": 50,
+    "times": 0
+   },
+   "state": "REDIRECTED",
+   "why": "www.roboticsbusinessreview.com now answers as www.therobotreport.com (\"The Robot Report\")",
+   "to": "https://www.therobotreport.com/"
+  },
+  {
+   "id": "md-root-cz",
+   "name": "Root.cz",
+   "website": "https://www.root.cz",
+   "country": "czech-republic",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.root.cz/",
+    "title": "Root.cz - informace nejen ze světa Linuxu",
+    "textLen": 10847,
+    "feed": true,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "cs"
+  },
+  {
+   "id": "md-saashub",
+   "name": "SaaSHub",
+   "website": "https://www.saashub.com",
+   "country": "bulgaria",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.saashub.com/",
+    "title": "SaaSHub - Software Alternatives, Accelerators & Startups",
+    "textLen": 29605,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ONTOLOGY_UNCONFIRMED",
+   "why": "nothing on the page evidences that it publishes"
+  },
+  {
+   "id": "md-saastr",
+   "name": "SaaStr",
+   "website": "https://www.saastr.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.saastr.com/",
+    "title": "SaaStrAI | B2B + AI Community, Events, Leads",
+    "textLen": 5931,
+    "feed": true,
+    "articles": 570,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; 570 article elements; masthead vocabulary",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en-US"
+  },
+  {
+   "id": "md-sapo-tek",
+   "name": "SAPO Tek",
+   "website": "https://tek.sapo.pt",
+   "country": "portugal",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://tek.sapo.pt/",
+    "title": "Tek Notícias Tecnologia explicada com rigor e clareza",
+    "textLen": 19818,
+    "feed": true,
+    "articles": 71,
+    "times": 142
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; 71 article elements; 142 datelines",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "pt-PT"
+  },
+  {
+   "id": "md-scmp-tech",
+   "name": "SCMP Tech",
+   "website": "https://www.scmp.com/tech",
+   "country": "hong-kong",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.scmp.com/tech",
+    "title": "China Technology News & Updates | South China Morning Post",
+    "textLen": 11726,
+    "feed": true,
+    "articles": 0,
+    "times": 69
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; 69 datelines; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-securityweek",
+   "name": "SecurityWeek",
+   "website": "https://www.securityweek.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.securityweek.com/",
+    "title": "Cybersecurity News, Insights and Analysis | SecurityWeek",
+    "textLen": 16391,
+    "feed": true,
+    "articles": 22,
+    "times": 16
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; 22 article elements; 16 datelines; masthead vocabulary; the masthead names itself as a publication",
+   "routes": {
+    "submissionUrl": {
+     "text": "Submit Tip",
+     "href": "https://www.securityweek.com/submit-tip"
+    }
+   },
+   "opportunityTypes": [
+    "editorial-submission"
+   ],
+   "scope": "en-US"
+  },
+  {
+   "id": "md-semiconductor-digest",
+   "name": "Semiconductor Digest",
+   "website": "https://www.semiconductor-digest.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.semiconductor-digest.com/",
+    "title": "Home - Semiconductor Digest",
+    "textLen": 11300,
+    "feed": true,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; masthead vocabulary",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en-US"
+  },
+  {
+   "id": "md-shifter",
+   "name": "Shifter",
+   "website": "https://www.shifter.no",
+   "country": "norway",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.shifter.no/",
+    "title": "SHIFTER - teknologi, innovasjon, business",
+    "textLen": 5091,
+    "feed": false,
+    "articles": 55,
+    "times": 55
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "55 article elements; 55 datelines",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "nb-NO"
+  },
+  {
+   "id": "md-sifted",
+   "name": "Sifted",
+   "website": "https://sifted.eu",
+   "country": "united-kingdom",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://sifted.eu/",
+    "title": "The intelligence layer for European tech",
+    "textLen": 7044,
+    "feed": false,
+    "articles": 5,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "5 article elements; masthead vocabulary",
+   "routes": {
+    "pitchUrl": {
+     "text": "Pitch Your Story",
+     "href": "https://sifted.eu/pitch-your-story"
+    }
+   },
+   "opportunityTypes": [
+    "editorial-pitch"
+   ],
+   "scope": null
+  },
+  {
+   "id": "md-silicon-uk",
+   "name": "Silicon UK",
+   "website": "https://www.silicon.co.uk",
+   "country": "united-kingdom",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.silicon.co.uk/",
+    "title": "Silicon UK | TECHNOLOGY POWERING BUSINESS",
+    "textLen": 14199,
+    "feed": false,
+    "articles": 44,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "44 article elements; masthead vocabulary",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en-GB"
+  },
+  {
+   "id": "md-siliconangle",
+   "name": "SiliconANGLE",
+   "website": "https://siliconangle.com",
+   "country": "united-states",
+   "observed": {
+    "status": 0,
+    "finalUrl": null,
+    "title": null,
+    "textLen": 0,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "UNRESOLVED",
+   "why": "page never completed: https://siliconangle.com"
+  },
+  {
+   "id": "md-siliconrepublic",
+   "name": "Silicon Republic",
+   "website": "https://www.siliconrepublic.com",
+   "country": "ireland",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.siliconrepublic.com/",
+    "title": "Silicon Republic | Technology, science and start-up news",
+    "textLen": 13005,
+    "feed": true,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; masthead vocabulary; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-skift",
+   "name": "Skift",
+   "website": "https://skift.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://skift.com/",
+    "title": "Skift: Travel News, Airline News and Hotel News",
+    "textLen": 13165,
+    "feed": false,
+    "articles": 45,
+    "times": 38
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "45 article elements; 38 datelines; masthead vocabulary; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en-US"
+  },
+  {
+   "id": "md-smart-passive-income",
+   "name": "Smart Passive Income",
+   "website": "https://www.smartpassiveincome.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.smartpassiveincome.com/",
+    "title": "Smart Passive Income | Resources & Community for Entrepreneurs",
+    "textLen": 6125,
+    "feed": true,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; masthead vocabulary",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en-US"
+  },
+  {
+   "id": "md-smartcompany",
+   "name": "SmartCompany",
+   "website": "https://www.smartcompany.com.au",
+   "country": "australia",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.smartcompany.com.au/",
+    "title": "SmartCompany: Breaking news, advice and opinion for Australian entrepreneurs",
+    "textLen": 14106,
+    "feed": true,
+    "articles": 52,
+    "times": 56
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; 52 article elements; 56 datelines; masthead vocabulary; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en-AU"
+  },
+  {
+   "id": "md-sourcebottle",
+   "name": "SourceBottle",
+   "website": "https://www.sourcebottle.com",
+   "country": "australia",
+   "observed": {
+    "status": 0,
+    "finalUrl": null,
+    "title": null,
+    "textLen": 0,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "UNRESOLVED",
+   "why": "page never completed: https://www.sourcebottle.com"
+  },
+  {
+   "id": "md-spiders-web",
+   "name": "Spider’s Web",
+   "website": "https://spidersweb.pl",
+   "country": "poland",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://spidersweb.pl/",
+    "title": "Spider’s Web - to największy niezależny technologiczno-lifestylowy serwis w Polsce",
+    "textLen": 13634,
+    "feed": true,
+    "articles": 2,
+    "times": 8
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; 8 datelines",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "pl"
+  },
+  {
+   "id": "md-splash-247",
+   "name": "Splash 247",
+   "website": "https://splash247.com",
+   "country": "singapore",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://splash247.com/",
+    "title": "Global maritime, shipping and offshore news - Splash 24/7",
+    "textLen": 12108,
+    "feed": true,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en-GB"
+  },
+  {
+   "id": "md-staffing-industry-analysts",
+   "name": "Staffing Industry Analysts",
+   "website": "https://www.staffingindustry.com",
+   "country": "united-states",
+   "observed": {
+    "status": 0,
+    "finalUrl": null,
+    "title": null,
+    "textLen": 0,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "UNRESOLVED",
+   "why": "page never completed: https://www.staffingindustry.com"
+  },
+  {
+   "id": "md-start-up-ro",
+   "name": "start-up.ro",
+   "website": "https://start-up.ro",
+   "country": "romania",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://start-up.ro/",
+    "title": "start-up.ro: De vorbă cu și despre startup-uri",
+    "textLen": 21048,
+    "feed": true,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "ro"
+  },
+  {
+   "id": "md-startit",
+   "name": "Startit",
+   "website": "https://startit.rs",
+   "country": "serbia",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://startit.rs/",
+    "title": "Preduzetništvo i tehnologija",
+    "textLen": 3658,
+    "feed": true,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": null
+  },
+  {
+   "id": "md-startland-news",
+   "name": "Startland News",
+   "website": "https://startlandnews.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://startlandnews.com/",
+    "title": "Startland News - Kansas City’s Source for Bold, Untold Stories of Entrepreneurship",
+    "textLen": 4493,
+    "feed": true,
+    "articles": 1,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en-US"
+  },
+  {
+   "id": "md-startse",
+   "name": "StartSe",
+   "website": "https://www.startse.com",
+   "country": "brazil",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.startse.com/",
+    "title": "StartSe - A sua Escola Internacional de Negócios",
+    "textLen": 2032,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ONTOLOGY_UNCONFIRMED",
+   "why": "nothing on the page evidences that it publishes"
+  },
+  {
+   "id": "md-startup-daily",
+   "name": "Startup Daily",
+   "website": "https://www.startupdaily.net",
+   "country": "australia",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.startupdaily.net/",
+    "title": "Startup Daily - News from the Australian and New Zealand tech ecosystem",
+    "textLen": 8714,
+    "feed": true,
+    "articles": 31,
+    "times": 37
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; 31 article elements; 37 datelines; masthead vocabulary; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en-AU"
+  },
+  {
+   "id": "md-startup-story-media",
+   "name": "Startup Story",
+   "website": "https://startupstorymedia.com",
+   "country": "india",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://startupstorymedia.com/",
+    "title": "Startup Story | Inspiring startup stories, daily business updates, research",
+    "textLen": 12972,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "masthead vocabulary; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en-US"
+  },
+  {
+   "id": "md-startupi",
+   "name": "Startupi",
+   "website": "https://startupi.com.br",
+   "country": "brazil",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://startupi.com.br/",
+    "title": "Início - Startupi | Startupi",
+    "textLen": 3390,
+    "feed": true,
+    "articles": 5,
+    "times": 5
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; 5 article elements; 5 datelines; masthead vocabulary",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "pt-BR"
+  },
+  {
+   "id": "md-startups-co-uk",
+   "name": "Startups.co.uk",
+   "website": "https://startups.co.uk",
+   "country": "united-kingdom",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://startups.co.uk/",
+    "title": "Startups | Business Ideas, Funding Help and Growth Advice",
+    "textLen": 9838,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ONTOLOGY_UNCONFIRMED",
+   "why": "nothing on the page evidences that it publishes"
+  },
+  {
+   "id": "md-stt-info",
+   "name": "STT Info",
+   "website": "https://www.sttinfo.fi",
+   "country": "finland",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.sttinfo.fi/",
+    "title": "STT Info",
+    "textLen": 8798,
+    "feed": true,
+    "articles": 20,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; 20 article elements",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "fi"
+  },
+  {
+   "id": "md-substack",
+   "name": "Substack",
+   "website": "https://substack.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://substack.com/",
+    "title": "Substack",
+    "textLen": 2390,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "masthead vocabulary",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-supply-chain-digital",
+   "name": "Supply Chain Digital",
+   "website": "https://www.supplychaindigital.com",
+   "country": "united-kingdom",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://supplychaindigital.com/",
+    "title": "Home of Supply Chain News | Supply Chain Digital",
+    "textLen": 6567,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "masthead vocabulary; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-supply-chain-dive",
+   "name": "Supply Chain Dive",
+   "website": "https://www.supplychaindive.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.supplychaindive.com/",
+    "title": "Supply Chain News and Analysis | Supply Chain Dive",
+    "textLen": 6890,
+    "feed": true,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; the masthead names itself as a publication",
+   "routes": {
+    "submissionUrl": {
+     "text": "Submit a tip",
+     "href": "https://www.supplychaindive.com/submit-tip/"
+    }
+   },
+   "opportunityTypes": [
+    "editorial-submission"
+   ],
+   "scope": "en"
+  },
+  {
+   "id": "md-synced",
+   "name": "Synced",
+   "website": "https://syncedreview.com",
+   "country": "china",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://syncedreview.com/",
+    "title": "Synced",
+    "textLen": 18569,
+    "feed": true,
+    "articles": 46,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; 46 article elements",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en-US"
+  },
+  {
+   "id": "md-talouselama",
+   "name": "Talouselämä",
+   "website": "https://www.talouselama.fi",
+   "country": "finland",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.talouselama.fi/",
+    "title": "Talouselämä",
+    "textLen": 3477,
+    "feed": false,
+    "articles": 25,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "25 article elements",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "fi"
+  },
+  {
+   "id": "md-tech-collective-sea",
+   "name": "Tech Collective",
+   "website": "https://techcollectivesea.com",
+   "country": "singapore",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://techcollectivesea.com/",
+    "title": "Tech Collective - The definitive guide to technology in Southeast Asia",
+    "textLen": 1963,
+    "feed": true,
+    "articles": 10,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; 10 article elements; masthead vocabulary",
+   "routes": {
+    "submissionUrl": {
+     "text": "Become a contributor",
+     "href": "https://techcollectivesea.com/tech-collective-contributor-guidelines/"
+    }
+   },
+   "opportunityTypes": [
+    "contributed-article"
+   ],
+   "scope": "en-GB"
+  },
+  {
+   "id": "md-tech-in-asia",
+   "name": "Tech in Asia",
+   "website": "https://www.techinasia.com",
+   "country": "singapore",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.techinasia.com/",
+    "title": "Tech in Asia - Connecting Asia's startup ecosystem",
+    "textLen": 5037,
+    "feed": true,
+    "articles": 35,
+    "times": 42
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; 35 article elements; 42 datelines; masthead vocabulary",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en-US"
+  },
+  {
+   "id": "md-techafricanews",
+   "name": "Tech Africa News",
+   "website": "https://techafricanews.com",
+   "country": "south-africa",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://techafricanews.com/",
+    "title": "Latest Industry News from Africa and ME - TechAfrica News",
+    "textLen": 5533,
+    "feed": true,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; masthead vocabulary; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en-US"
+  },
+  {
+   "id": "md-techcentral",
+   "name": "TechCentral",
+   "website": "https://techcentral.co.za",
+   "country": "south-africa",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://techcentral.co.za/",
+    "title": "TechCentral | Technology News Leader in South Africa - TechCentral",
+    "textLen": 5049,
+    "feed": true,
+    "articles": 58,
+    "times": 49
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; 58 article elements; 49 datelines; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en-US"
+  },
+  {
+   "id": "md-techjuice",
+   "name": "TechJuice",
+   "website": "https://www.techjuice.pk",
+   "country": "pakistan",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.techjuice.pk/",
+    "title": "TechJuice | Technology, AI & Startup News from Pakistan & Beyond",
+    "textLen": 4943,
+    "feed": true,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; masthead vocabulary; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en-US"
+  },
+  {
+   "id": "md-technode",
+   "name": "TechNode",
+   "website": "https://technode.com",
+   "country": "china",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://technode.com/",
+    "title": "TechNode - Latest China Tech Trends",
+    "textLen": 6649,
+    "feed": true,
+    "articles": 53,
+    "times": 103
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; 53 article elements; 103 datelines; masthead vocabulary",
+   "routes": {
+    "submissionUrl": {
+     "text": "Write for us",
+     "href": "https://technode.com/write-for-us/"
+    }
+   },
+   "opportunityTypes": [
+    "contributed-article"
+   ],
+   "scope": "en-US"
+  },
+  {
+   "id": "md-techpoint-africa",
+   "name": "Techpoint Africa",
+   "website": "https://techpoint.africa",
+   "country": "nigeria",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://techpoint.africa/",
+    "title": "Startups, Innovation and Technology in Africa • Techpoint Africa",
+    "textLen": 3538,
+    "feed": true,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en-US"
+  },
+  {
+   "id": "md-techsauce",
+   "name": "Techsauce",
+   "website": "https://techsauce.co",
+   "country": "thailand",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://techsauce.co/",
+    "title": "Techsauce | Tech and Biz Ecosystem Leader for Startups Technologies and Business",
+    "textLen": 8650,
+    "feed": true,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "th"
+  },
+  {
+   "id": "md-telecom-review-na",
+   "name": "Telecom Review North America",
+   "website": "https://www.telecomreviewna.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.telecomreviewamericas.com/",
+    "title": "Telecom Review Americas",
+    "textLen": 15751,
+    "feed": true,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "REDIRECTED",
+   "why": "www.telecomreviewna.com now answers as www.telecomreviewamericas.com (\"Telecom Review Americas\")",
+   "to": "https://www.telecomreviewamericas.com/"
+  },
+  {
+   "id": "md-telecomtv",
+   "name": "TelecomTV",
+   "website": "https://www.telecomtv.com",
+   "country": "united-kingdom",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.telecomtv.com/",
+    "title": "Home | TelecomTV",
+    "textLen": 2556,
+    "feed": true,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; masthead vocabulary",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-the-africa-report",
+   "name": "The Africa Report",
+   "website": "https://www.theafricareport.com",
+   "country": "kenya",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.theafricareport.com/",
+    "title": "The Africa Report – African politics and business news",
+    "textLen": 11041,
+    "feed": false,
+    "articles": 54,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "54 article elements; masthead vocabulary; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-the-bell-kr",
+   "name": "더벨",
+   "website": "https://www.thebell.co.kr",
+   "country": "south-korea",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.thebell.co.kr/front/index.asp",
+    "title": "더벨 - 국내 최고 자본시장(Capital Markets) 미디어",
+    "textLen": 6161,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ONTOLOGY_UNCONFIRMED",
+   "why": "nothing on the page evidences that it publishes"
+  },
+  {
+   "id": "md-the-bridge",
+   "name": "The Bridge",
+   "website": "https://www.thebridge.jp/en",
+   "country": "japan",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://thebridge.jp/en/",
+    "title": "BRIDGE – Tech and Startup News from Japan",
+    "textLen": 3576,
+    "feed": true,
+    "articles": 16,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; 16 article elements; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en-US"
+  },
+  {
+   "id": "md-the-edge-malaysia",
+   "name": "The Edge Malaysia",
+   "website": "https://theedgemalaysia.com",
+   "country": "malaysia",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://theedgemalaysia.com/",
+    "title": "The Edge Malaysia - Make Better Decisions",
+    "textLen": 7509,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "masthead vocabulary",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": null
+  },
+  {
+   "id": "md-the-fabricator",
+   "name": "The Fabricator",
+   "website": "https://www.thefabricator.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.thefabricator.com/",
+    "title": "The Fabricator - Metal Fabricating News, Products, Articles, and More",
+    "textLen": 8456,
+    "feed": true,
+    "articles": 52,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; 52 article elements; masthead vocabulary; the masthead names itself as a publication",
+   "routes": {
+    "advertisingUrl": {
+     "text": "Programmatic Display and Native Advertising",
+     "href": "https://www.thefabricator.com/thefabricator/advertise#targeted-digital-advertising-programmatic"
+    }
+   },
+   "opportunityTypes": [
+    "sponsored-content"
+   ],
+   "scope": "en"
+  },
+  {
+   "id": "md-the-investor-vn",
+   "name": "The Investor",
+   "website": "https://theinvestor.vn",
+   "country": "vietnam",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://theinvestor.vn/",
+    "title": "Theinvestor",
+    "textLen": 7533,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "masthead vocabulary",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-the-national-business",
+   "name": "The National Business",
+   "website": "https://www.thenationalnews.com/business",
+   "country": "united-arab-emirates",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.thenationalnews.com/business/",
+    "title": "Business news | Latest headlines, interviews & analysis | The National",
+    "textLen": 6770,
+    "feed": false,
+    "articles": 24,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "24 article elements; masthead vocabulary; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-the-real-deal",
+   "name": "The Real Deal",
+   "website": "https://therealdeal.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://therealdeal.com/",
+    "title": "Real Estate News - The Real Deal",
+    "textLen": 11084,
+    "feed": true,
+    "articles": 85,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; 85 article elements; masthead vocabulary; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-the-robot-report",
+   "name": "The Robot Report",
+   "website": "https://www.therobotreport.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.therobotreport.com/",
+    "title": "The Robot Report",
+    "textLen": 9563,
+    "feed": true,
+    "articles": 50,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; 50 article elements; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en-US"
+  },
+  {
+   "id": "md-thenextweb",
+   "name": "TNW",
+   "website": "https://thenextweb.com",
+   "country": "netherlands",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://thenextweb.com/",
+    "title": "TNW | <3",
+    "textLen": 4376,
+    "feed": false,
+    "articles": 21,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "21 article elements; masthead vocabulary",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-this-week-in-startups",
+   "name": "This Week in Startups",
+   "website": "https://thisweekinstartups.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.thisweekinstartups.com/",
+    "title": "This Week in Startups — 5,000+ Episodes, Searchable Archive",
+    "textLen": 2358,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "masthead vocabulary",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-times-of-israel",
+   "name": "The Times of Israel",
+   "website": "https://www.timesofisrael.com",
+   "country": "israel",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.timesofisrael.com/",
+    "title": "The Times of Israel | News from Israel, the Middle East and the Jewish World",
+    "textLen": 20175,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "masthead vocabulary; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en-US"
+  },
+  {
+   "id": "md-tinylaunch",
+   "name": "TinyLaunch",
+   "website": "https://www.tinylaunch.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.tinylaunch.com/",
+    "title": "TinyLaunch - Product Launch Platform",
+    "textLen": 3431,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ONTOLOGY_UNCONFIRMED",
+   "why": "nothing on the page evidences that it publishes"
+  },
+  {
+   "id": "md-tlnt",
+   "name": "TLNT",
+   "website": "https://www.tlnt.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.ere.net/",
+    "title": "ERE | Recruiting News & Information",
+    "textLen": 3264,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "REDIRECTED",
+   "why": "www.tlnt.com now answers as www.ere.net (\"ERE | Recruiting News & Information\")",
+   "to": "https://www.ere.net/"
+  },
+  {
+   "id": "md-toyo-keizai",
+   "name": "東洋経済オンライン",
+   "website": "https://toyokeizai.net",
+   "country": "japan",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://toyokeizai.net/",
+    "title": "東洋経済オンライン | ふれるたび、視点がふえる",
+    "textLen": 7679,
+    "feed": false,
+    "articles": 76,
+    "times": 47
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "76 article elements; 47 datelines",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "ja"
+  },
+  {
+   "id": "md-transport-topics",
+   "name": "Transport Topics",
+   "website": "https://www.ttnews.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.ttnews.com/",
+    "title": "The Leader in Trucking & Freight News | Transport Topics",
+    "textLen": 8222,
+    "feed": true,
+    "articles": 1,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; masthead vocabulary; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-trend-sk",
+   "name": "TREND",
+   "website": "https://www.trend.sk",
+   "country": "slovakia",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.trend.sk/",
+    "title": "TREND | Týždenník o ekonomike a podnikaní",
+    "textLen": 6584,
+    "feed": false,
+    "articles": 31,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "31 article elements",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": null
+  },
+  {
+   "id": "md-trending-topics",
+   "name": "Trending Topics",
+   "website": "https://www.trendingtopics.eu",
+   "country": "austria",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.trendingtopics.eu/de/",
+    "title": "Trending Topics | Breaking News on AI, Startups, Crypto & Tech",
+    "textLen": 5476,
+    "feed": false,
+    "articles": 48,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "48 article elements; masthead vocabulary; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "de"
+  },
+  {
+   "id": "md-unite-ai",
+   "name": "Unite.AI",
+   "website": "https://www.unite.ai",
+   "country": "canada",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.unite.ai/",
+    "title": "Unite.AI - Artificial Intelligence News, Research & Analysis",
+    "textLen": 15651,
+    "feed": true,
+    "articles": 335,
+    "times": 335
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; 335 article elements; 335 datelines; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en-US"
+  },
+  {
+   "id": "md-utah-business",
+   "name": "Utah Business",
+   "website": "https://www.utahbusiness.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.utahbusiness.com/",
+    "title": "Utah Business - The Magazine for Executives & Entrepreneurs",
+    "textLen": 5696,
+    "feed": true,
+    "articles": 0,
+    "times": 30
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; 30 datelines; masthead vocabulary; the masthead names itself as a publication",
+   "routes": {
+    "pitchUrl": {
+     "text": "Pitch A Story",
+     "href": "https://www.utahbusiness.com/pages/pitch-a-story/"
+    }
+   },
+   "opportunityTypes": [
+    "editorial-pitch"
+   ],
+   "scope": "en"
+  },
+  {
+   "id": "md-utility-dive",
+   "name": "Utility Dive",
+   "website": "https://www.utilitydive.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.utilitydive.com/",
+    "title": "Utility and Energy Transmission & Distribution News | Utility Dive",
+    "textLen": 9744,
+    "feed": true,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; masthead vocabulary; the masthead names itself as a publication",
+   "routes": {
+    "submissionUrl": {
+     "text": "Submit a tip",
+     "href": "https://www.utilitydive.com/submit-tip/"
+    }
+   },
+   "opportunityTypes": [
+    "editorial-submission"
+   ],
+   "scope": "en"
+  },
+  {
+   "id": "md-venture-square",
+   "name": "벤처스퀘어",
+   "website": "https://www.venturesquare.net",
+   "country": "south-korea",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.venturesquare.net/",
+    "title": "대한민국 대표 스타트업 액셀러레이터 - 벤처스퀘어",
+    "textLen": 5267,
+    "feed": true,
+    "articles": 0,
+    "times": 8
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; 8 datelines",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "ko-KR"
+  },
+  {
+   "id": "md-verslo-zinios",
+   "name": "Verslo žinios",
+   "website": "https://www.vz.lt",
+   "country": "lithuania",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.vz.lt/",
+    "title": "Vienintelis verslo naujienų portalas Lietuvoje - Verslo žinios",
+    "textLen": 5815,
+    "feed": false,
+    "articles": 203,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "203 article elements",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "lt"
+  },
+  {
+   "id": "md-vir-vn",
+   "name": "Vietnam Investment Review",
+   "website": "https://vir.com.vn",
+   "country": "vietnam",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://vir.com.vn/",
+    "title": "Vietnam Investment Review - VIR",
+    "textLen": 12953,
+    "feed": true,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; masthead vocabulary; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en-US"
+  },
+  {
+   "id": "md-vtdigger",
+   "name": "VTDigger",
+   "website": "https://vtdigger.org",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://vtdigger.org/",
+    "title": "VTDigger - News in pursuit of truth",
+    "textLen": 7955,
+    "feed": true,
+    "articles": 26,
+    "times": 48
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; 26 article elements; 48 datelines; masthead vocabulary; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en-US"
+  },
+  {
+   "id": "md-vulcan-post",
+   "name": "Vulcan Post",
+   "website": "https://vulcanpost.com",
+   "country": "singapore",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://vulcanpost.com/",
+    "title": "Vulcan Post | Knowledge Hub of Singapore and Malaysia",
+    "textLen": 5008,
+    "feed": true,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en-US"
+  },
+  {
+   "id": "md-windpower-engineering",
+   "name": "Windpower Engineering & Development",
+   "website": "https://www.windpowerengineering.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.windpowerengineering.com/",
+    "title": "Windpower News, Wind Energy, Windpower Construction, Wind Turbines",
+    "textLen": 17949,
+    "feed": true,
+    "articles": 56,
+    "times": 0
+   },
+   "state": "ONTOLOGY_REJECTED",
+   "why": "placeholder page, not a publication"
+  },
+  {
+   "id": "md-wirtschaftswoche",
+   "name": "WirtschaftsWoche",
+   "website": "https://www.wiwo.de",
+   "country": "germany",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.wiwo.de/",
+    "title": "WirtschaftsWoche: Das führende Wirtschaftsmagazin | WiWo",
+    "textLen": 16121,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "masthead vocabulary",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "de"
+  },
+  {
+   "id": "md-wirtualne-media",
+   "name": "Wirtualne Media",
+   "website": "https://www.wirtualnemedia.pl",
+   "country": "poland",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.wirtualnemedia.pl/",
+    "title": "Media, Reklama, Internet, PR, Telewizja, Radio - najnowsze wiadomości tylko na WirtualneMedia.pl",
+    "textLen": 25481,
+    "feed": true,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "publishes a feed",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "pl"
+  },
+  {
+   "id": "md-wral-techwire",
+   "name": "WRAL TechWire",
+   "website": "https://www.wral.com/business/technology",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.wral.com/business/technology/",
+    "title": "WRAL TechWire | Latest NC Triangle Technology News",
+    "textLen": 4586,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "masthead vocabulary; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": null
+  },
+  {
+   "id": "md-yicai",
+   "name": "第一财经",
+   "website": "https://www.yicai.com",
+   "country": "china",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.yicai.com/",
+    "title": "第一财经_专业创造价值",
+    "textLen": 7257,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ONTOLOGY_UNCONFIRMED",
+   "why": "nothing on the page evidences that it publishes"
+  },
+  {
+   "id": "md-zawya",
+   "name": "Zawya",
+   "website": "https://www.zawya.com/en",
+   "country": "united-arab-emirates",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.zawya.com/en",
+    "title": "ZAWYA - The Trusted Source for Business and Finance News",
+    "textLen": 15005,
+    "feed": false,
+    "articles": 6,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "6 article elements; masthead vocabulary; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-zdnet",
+   "name": "ZDNET",
+   "website": "https://www.zdnet.com",
+   "country": "united-states",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.zdnet.com/",
+    "title": "News and Advice on the World's Latest Innovations | ZDNET",
+    "textLen": 6250,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "masthead vocabulary; the masthead names itself as a publication",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "en"
+  },
+  {
+   "id": "md-zdnet-korea",
+   "name": "지디넷코리아",
+   "website": "https://zdnet.co.kr",
+   "country": "south-korea",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://zdnet.co.kr/",
+    "title": "IT세상을 바꾸는 힘 지디넷코리아",
+    "textLen": 7993,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ONTOLOGY_UNCONFIRMED",
+   "why": "nothing on the page evidences that it publishes"
+  },
+  {
+   "id": "md-ziarul-financiar",
+   "name": "Ziarul Financiar",
+   "website": "https://www.zf.ro",
+   "country": "romania",
+   "observed": {
+    "status": 200,
+    "finalUrl": "https://www.zf.ro/",
+    "title": "Ziarul Financiar - stiri economice de ultima ora, ultimele stiri",
+    "textLen": 43457,
+    "feed": false,
+    "articles": 0,
+    "times": 0
+   },
+   "state": "ACTIVE_VERIFIED",
+   "why": "masthead vocabulary",
+   "routes": {},
+   "opportunityTypes": [],
+   "scope": "ro"
+  }
+ ]
+}

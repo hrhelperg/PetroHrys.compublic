@@ -368,3 +368,86 @@ Two of those twenty were the audit being wrong rather than the data:
 - `limitations` is where a record says what could not be established about a
   *route*. Reading "the submission form returned 403" as contradicting an active
   publication punished the collection for being precise.
+
+---
+
+# Actionability intelligence — wave A1
+
+**Date:** 2026-08-14 · **Branch:** `feat/research-center-actionability-intelligence-v1`
+
+## Tooling, before any more research
+
+Three passes had damaged canonical data in three ways, each found by a person
+reading output. All three share one mistake: a pass treated the whole record as
+its own. `scripts/lib/rc-safe-apply.cjs` is now the only way they write.
+
+| Guard | What it prevents |
+|---|---|
+| field ownership | a pass writing a field it does not own — the 62 overwritten descriptions |
+| owner-tagged notes | a second run appending a duplicate sentence |
+| single-sentence rule | a tag whose reach ends at an internal period, letting the rest accumulate |
+| precedence + retraction | two owners each correct and jointly contradictory |
+| deletion firewall | a classifier pruning Healthcare IT News and PhocusWire |
+| identity contract | domain-only dedup deleting Barbados |
+
+**All four applier paths run twice and produce byte-identical files.**
+
+One confusion was mine and worth recording: redirect comparison and canonical
+identity are *different questions*. For a redirect a subdomain is the same site;
+for identity it routinely is not. Keying identity on the registrable domain
+reported `play.google.com` and `chromewebstore.google.com` as one product, and
+`iub.gov.lv` and `eis.gov.lv` as one institution.
+
+## Research
+
+| Cohort | Attempted | Routes established | Rate |
+|---|---:|---:|---:|
+| Directories (ranked, unexamined) | 797 | 57 | 7.2% |
+| Media (active, no route) | 314 | 31 | 9.9% |
+| **Total this wave** | **1,111** | **88** | **7.9%** |
+
+The rate is the finding. Three independent cohorts — 482, 797 and 314 — returned
+7.4%, 7.2% and 9.9%. **Roughly one live site in twelve publishes, in words, a
+route a business can act on.** The rest are real, working sites that simply do
+not advertise self-service submission on the pages an operator links from its
+own front door.
+
+18 more redirects surfaced among records believed active, were classified, and
+were resolved: 14 repointed, 3 renamed (only where the destination's own title
+says the brand changed), 2 consolidated into records already here.
+
+## Planner truth
+
+| Bucket | Before | After |
+|---|---:|---:|
+| Ready to execute | 103 | **160** |
+| Needs research | 1427 | **1369** |
+| Needs browser verification | 250 | **249** |
+
+Ready rose 55%. Needs research fell by 58 — not by 88, because some records that
+gained a route still lack something else the planner requires, and because 18
+turned out to be redirects. No planner weight or formula changed.
+
+## Coverage — where the corpus still only knows a site exists
+
+| Collection | Active | With a route |
+|---|---:|---:|
+| Directories | 1330 | 137 (10.3%) |
+| Marketplaces | 295 | 0 (0%) |
+| Media | 432 | 149 (34.5%) |
+| Tenders | 383 | 162 (42.3%) |
+
+**Marketplaces are the blind spot: 295 active records, not one recorded route.**
+The schema has nowhere to put a seller-registration URL, so the gap is
+structural rather than unresearched — closing it needs a schema decision, not
+another browser pass.
+
+23 countries hold five or more active records and not one known action, led by
+Italy (42), Finland (19), Thailand (19), Malaysia (17) and Norway (15).
+
+## When to stop
+
+The marginal return is stable at about one route per twelve sites and has not
+fallen, so the method is not exhausted — but it is not cheap either. The next
+useful step is not another broad sweep. It is the marketplace schema gap, and
+the 23 blind countries, both of which are targeted work.

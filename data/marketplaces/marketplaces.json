@@ -88,7 +88,7 @@
   "sellerTypes": "both",
   "costModel": "paid",
   "currentStatus": "active",
-  "note": "Argentina's main property marketplace. Checked in a browser on 2026-08-14: the site loads and serves its own content."
+  "note": "Argentina's main property marketplace. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser."
  },
  {
   "id": "mp-au-airtasker",
@@ -99,7 +99,7 @@
   "sellerTypes": "both",
   "costModel": "freemium",
   "currentStatus": "active",
-  "note": "An Australian services marketplace where providers hold public profiles. Checked in a browser on 2026-08-14: the site loads and serves its own content."
+  "note": "An Australian services marketplace where providers hold public profiles. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser."
  },
  {
   "id": "mp-au-graysonline",
@@ -113,7 +113,7 @@
   "alsoCovers": [
    "vehicles"
   ],
-  "note": "An Australian online auction marketplace for industrial and consumer goods. An automated browser check on 2026-08-14 was refused by the site (access-denied); a browser check is needed by a person and the status stays unknown."
+  "note": "An Australian online auction marketplace for industrial and consumer goods. [accessibility:2026-08-14] an automated browser check was refused by the site (access-denied); a browser check is needed by a person and the status stays unknown."
  },
  {
   "id": "mp-au-gumtree",
@@ -129,7 +129,7 @@
    "property",
    "vehicles"
   ],
-  "note": "Australia's main general classifieds marketplace. An automated browser check on 2026-08-14 was refused by the site (access-denied); a browser check is needed by a person and the status stays unknown."
+  "note": "Australia's main general classifieds marketplace. [accessibility:2026-08-14] an automated browser check was refused by the site (access-denied); a browser check is needed by a person and the status stays unknown."
  },
  {
   "id": "mp-au-pickles",
@@ -154,7 +154,7 @@
   "sellerTypes": "business",
   "costModel": "paid",
   "currentStatus": "unknown",
-  "note": "Australia's dominant job marketplace, where employers hold public company pages. An automated browser check on 2026-08-14 was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown."
+  "note": "Australia's dominant job marketplace, where employers hold public company pages. [accessibility:2026-08-14] an automated browser check was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown."
  },
  {
   "id": "mp-au-tradingpost",
@@ -168,7 +168,7 @@
   "alsoCovers": [
    "vehicles"
   ],
-  "note": "A long-running Australian classifieds marketplace. An automated browser check on 2026-08-14 was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown."
+  "note": "A long-running Australian classifieds marketplace. [accessibility:2026-08-14] an automated browser check was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown."
  },
  {
   "id": "mp-au-bikesales",
@@ -201,7 +201,7 @@
   "sellerTypes": "both",
   "costModel": "paid",
   "currentStatus": "unknown",
-  "note": "Australia's main vehicle marketplace, where dealers hold public dealer pages. An automated browser check on 2026-08-14 was refused by the site (http 403); a browser check is needed by a person and the status stays unknown."
+  "note": "Australia's main vehicle marketplace, where dealers hold public dealer pages. [accessibility:2026-08-14] an automated browser check was refused by the site (http 403); a browser check is needed by a person and the status stays unknown."
  },
  {
   "id": "mp-au-ebay",
@@ -240,7 +240,7 @@
   "sellerTypes": "business",
   "costModel": "paid",
   "currentStatus": "unknown",
-  "note": "Australia's main property marketplace, where agents hold public listings. An automated browser check on 2026-08-14 was refused by the site (http 429); a browser check is needed by a person and the status stays unknown."
+  "note": "Australia's main property marketplace, where agents hold public listings. [accessibility:2026-08-14] an automated browser check was refused by the site (http 429); a browser check is needed by a person and the status stays unknown."
  },
  {
   "id": "mp-at-bazar",
@@ -304,7 +304,7 @@
    "property",
    "vehicles"
   ],
-  "note": "Bangladesh's leading classifieds marketplace. An automated browser check on 2026-08-14 was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown."
+  "note": "Bangladesh's leading classifieds marketplace. [accessibility:2026-08-14] an automated browser check was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown."
  },
  {
   "id": "mp-bd-bproperty",
@@ -342,7 +342,7 @@
   "sellerTypes": "both",
   "costModel": "paid",
   "currentStatus": "unknown",
-  "note": "The main Belarusian vehicle marketplace. An automated browser check on 2026-08-14 was refused by the site (http 468); a browser check is needed by a person and the status stays unknown."
+  "note": "The main Belarusian vehicle marketplace. [accessibility:2026-08-14] an automated browser check was refused by the site (http 468); a browser check is needed by a person and the status stays unknown."
  },
  {
   "id": "mp-be-2dehands",
@@ -369,7 +369,7 @@
   "sellerTypes": "both",
   "costModel": "paid",
   "currentStatus": "unknown",
-  "note": "The main Belgian property marketplace, where agents hold public listings. An automated browser check on 2026-08-14 was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown."
+  "note": "The main Belgian property marketplace, where agents hold public listings. [accessibility:2026-08-14] an automated browser check was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown."
  },
  {
   "id": "mp-ba-mojposao",
@@ -396,7 +396,7 @@
    "vehicles"
   ],
   "operator": "OLX Group",
-  "note": "The leading Bosnian classifieds marketplace. An automated browser check on 2026-08-14 was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown."
+  "note": "The leading Bosnian classifieds marketplace. [accessibility:2026-08-14] an automated browser check was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown."
  },
  {
   "id": "mp-br-chavesnamao",
@@ -433,7 +433,7 @@
   "sellerTypes": "both",
   "costModel": "paid",
   "currentStatus": "unknown",
-  "note": "A Brazilian property marketplace where agents hold public listings. An automated browser check on 2026-08-14 was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown."
+  "note": "A Brazilian property marketplace where agents hold public listings. [accessibility:2026-08-14] an automated browser check was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown."
  },
  {
   "id": "mp-br-infojobs",
@@ -444,7 +444,7 @@
   "sellerTypes": "business",
   "costModel": "paid",
   "currentStatus": "unknown",
-  "note": "A Brazilian job marketplace where employers hold public company pages. An automated browser check on 2026-08-14 was refused by the site (http 403); a browser check is needed by a person and the status stays unknown."
+  "note": "A Brazilian job marketplace where employers hold public company pages. [accessibility:2026-08-14] an automated browser check was refused by the site (http 403); a browser check is needed by a person and the status stays unknown."
  },
  {
   "id": "mp-br-mercadolivre",
@@ -475,7 +475,7 @@
    "vehicles"
   ],
   "operator": "OLX Group",
-  "note": "Brazil's largest classifieds marketplace. Checked in a browser on 2026-08-14: the site loads and serves its own content."
+  "note": "Brazil's largest classifieds marketplace. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser."
  },
  {
   "id": "mp-br-quintoandar",
@@ -508,7 +508,7 @@
   "sellerTypes": "both",
   "costModel": "paid",
   "currentStatus": "active",
-  "note": "A major Brazilian property marketplace. Checked in a browser on 2026-08-14: the site loads and serves its own content."
+  "note": "A major Brazilian property marketplace. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser."
  },
  {
   "id": "mp-br-webmotors",
@@ -519,7 +519,7 @@
   "sellerTypes": "both",
   "costModel": "paid",
   "currentStatus": "active",
-  "note": "Brazil's main vehicle marketplace, where dealers hold public dealer pages. Checked in a browser on 2026-08-14: the site loads and serves its own content."
+  "note": "Brazil's main vehicle marketplace, where dealers hold public dealer pages. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser."
  },
  {
   "id": "mp-br-zapimoveis",
@@ -530,7 +530,7 @@
   "sellerTypes": "both",
   "costModel": "paid",
   "currentStatus": "active",
-  "note": "A major Brazilian property marketplace where agents hold public listings. Checked in a browser on 2026-08-14: the site loads and serves its own content."
+  "note": "A major Brazilian property marketplace where agents hold public listings. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser."
  },
  {
   "id": "mp-br-icarros",
@@ -541,7 +541,7 @@
   "sellerTypes": "both",
   "costModel": "paid",
   "currentStatus": "unknown",
-  "note": "A major Brazilian vehicle marketplace. An automated browser check on 2026-08-14 was refused by the site (http 403); a browser check is needed by a person and the status stays unknown."
+  "note": "A major Brazilian vehicle marketplace. [accessibility:2026-08-14] an automated browser check was refused by the site (http 403); a browser check is needed by a person and the status stays unknown."
  },
  {
   "id": "mp-bg-bazar",
@@ -647,7 +647,7 @@
   "sellerTypes": "both",
   "costModel": "free",
   "currentStatus": "unknown",
-  "note": "A Canadian community trading and buy-and-sell marketplace. An automated browser check on 2026-08-14 was refused by the site (http 403); a browser check is needed by a person and the status stays unknown."
+  "note": "A Canadian community trading and buy-and-sell marketplace. [accessibility:2026-08-14] an automated browser check was refused by the site (http 403); a browser check is needed by a person and the status stays unknown."
  },
  {
   "id": "mp-ca-kijiji",
@@ -679,7 +679,7 @@
   "alsoCovers": [
    "vehicles"
   ],
-  "note": "The main Quebec French-language classifieds marketplace. An automated browser check on 2026-08-14 was refused by the site (http 403); a browser check is needed by a person and the status stays unknown."
+  "note": "The main Quebec French-language classifieds marketplace. [accessibility:2026-08-14] an automated browser check was refused by the site (http 403); a browser check is needed by a person and the status stays unknown."
  },
  {
   "id": "mp-ca-realtor",
@@ -783,7 +783,7 @@
   "costModel": "freemium",
   "currentStatus": "unknown",
   "operator": "Alibaba Group",
-  "note": "China's dominant domestic B2B wholesale marketplace. An automated browser check on 2026-08-14 was refused by the site (captcha); a browser check is needed by a person and the status stays unknown."
+  "note": "China's dominant domestic B2B wholesale marketplace. [accessibility:2026-08-14] an automated browser check was refused by the site (captcha); a browser check is needed by a person and the status stays unknown."
  },
  {
   "id": "mp-cn-58",
@@ -1003,7 +1003,7 @@
    "property",
    "vehicles"
   ],
-  "note": "Cyprus's main classifieds marketplace. Checked in a browser on 2026-08-14: the site loads and serves its own content."
+  "note": "Cyprus's main classifieds marketplace. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser."
  },
  {
   "id": "mp-cy-ergodotisi",
@@ -1107,7 +1107,7 @@
   "sellerTypes": "business",
   "costModel": "paid",
   "currentStatus": "active",
-  "note": "Denmark's main property marketplace, where estate agents hold public listings. Checked in a browser on 2026-08-14: the site loads and serves its own content."
+  "note": "Denmark's main property marketplace, where estate agents hold public listings. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser."
  },
  {
   "id": "mp-dk-dba",
@@ -1174,7 +1174,7 @@
    "vehicles"
   ],
   "operator": "Jiji Group",
-  "note": "The DR Congo arm of the Jiji classifieds network. An automated browser check on 2026-08-14 was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown."
+  "note": "The DR Congo arm of the Jiji classifieds network. [accessibility:2026-08-14] an automated browser check was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown."
  },
  {
   "id": "mp-eg-aqarmap",
@@ -1202,7 +1202,7 @@
    "vehicles"
   ],
   "operator": "Dubizzle Group",
-  "note": "Egypt's dominant classifieds marketplace. OLX Egypt was rebranded into it and olx.com.eg now redirects here. Checked in a browser on 2026-08-14: the site loads and serves its own content."
+  "note": "Egypt's dominant classifieds marketplace. OLX Egypt was rebranded into it and olx.com.eg now redirects here. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser."
  },
  {
   "id": "mp-eg-hatla2ee",
@@ -1213,7 +1213,7 @@
   "sellerTypes": "both",
   "costModel": "freemium",
   "currentStatus": "active",
-  "note": "Egypt's main vehicle marketplace. Checked in a browser on 2026-08-14: the site loads and serves its own content."
+  "note": "Egypt's main vehicle marketplace. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser."
  },
  {
   "id": "mp-eg-jumia",
@@ -1225,7 +1225,7 @@
   "costModel": "paid",
   "currentStatus": "unknown",
   "operator": "Jumia Group",
-  "note": "The Egyptian storefront of Africa's largest online marketplace. An automated browser check on 2026-08-14 was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown."
+  "note": "The Egyptian storefront of Africa's largest online marketplace. [accessibility:2026-08-14] an automated browser check was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown."
  },
  {
   "id": "mp-eg-propertyfinder",
@@ -1275,7 +1275,7 @@
   "sellerTypes": "both",
   "costModel": "paid",
   "currentStatus": "active",
-  "note": "The main Estonian vehicle marketplace. Checked in a browser on 2026-08-14: the site loads and serves its own content."
+  "note": "The main Estonian vehicle marketplace. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser."
  },
  {
   "id": "mp-ee-kv",
@@ -1286,7 +1286,7 @@
   "sellerTypes": "both",
   "costModel": "paid",
   "currentStatus": "active",
-  "note": "The main Estonian property marketplace. Checked in a browser on 2026-08-14: the site loads and serves its own content."
+  "note": "The main Estonian property marketplace. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser."
  },
  {
   "id": "mp-ee-soov",
@@ -1297,7 +1297,7 @@
   "sellerTypes": "both",
   "costModel": "freemium",
   "currentStatus": "active",
-  "note": "An Estonian general classifieds marketplace. Checked in a browser on 2026-08-14: the site loads and serves its own content."
+  "note": "An Estonian general classifieds marketplace. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser."
  },
  {
   "id": "mp-et-engocha",
@@ -1312,7 +1312,7 @@
    "property",
    "vehicles"
   ],
-  "note": "An Ethiopian classifieds marketplace. An automated browser check on 2026-08-14 was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown."
+  "note": "An Ethiopian classifieds marketplace. [accessibility:2026-08-14] an automated browser check was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown."
  },
  {
   "id": "mp-et-ethiojobs",
@@ -1339,7 +1339,7 @@
    "vehicles"
   ],
   "operator": "Jiji Group",
-  "note": "Ethiopia's leading classifieds marketplace. An automated browser check on 2026-08-14 was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown."
+  "note": "Ethiopia's leading classifieds marketplace. [accessibility:2026-08-14] an automated browser check was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown."
  },
  {
   "id": "mp-fi-huuto",
@@ -1353,7 +1353,7 @@
   "alsoCovers": [
    "second-hand"
   ],
-  "note": "A long-running Finnish auction and buy-now marketplace where sellers hold public listings. Checked in a browser on 2026-08-14: the site loads and serves its own content."
+  "note": "A long-running Finnish auction and buy-now marketplace where sellers hold public listings. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser."
  },
  {
   "id": "mp-fi-nettiauto",
@@ -1585,7 +1585,7 @@
   "alsoCovers": [
    "general-classifieds"
   ],
-  "note": "The main Greek vehicle marketplace. Checked in a browser on 2026-08-14: the site loads and serves its own content."
+  "note": "The main Greek vehicle marketplace. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser."
  },
  {
   "id": "mp-gr-xe",
@@ -1601,7 +1601,7 @@
    "property",
    "vehicles"
   ],
-  "note": "A leading Greek classifieds portal for property, vehicles and jobs. An automated browser check on 2026-08-14 was refused by the site (http 405); a browser check is needed by a person and the status stays unknown."
+  "note": "A leading Greek classifieds portal for property, vehicles and jobs. [accessibility:2026-08-14] an automated browser check was refused by the site (http 405); a browser check is needed by a person and the status stays unknown."
  },
  {
   "id": "mp-gt-encuentra24",
@@ -1686,7 +1686,7 @@
    "vehicles"
   ],
   "operator": "Carousell Group",
-  "note": "The Hong Kong arm of a Southeast Asian classifieds marketplace. An automated browser check on 2026-08-14 was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown."
+  "note": "The Hong Kong arm of a Southeast Asian classifieds marketplace. [accessibility:2026-08-14] an automated browser check was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown."
  },
  {
   "id": "mp-hk-dcfever",
@@ -1719,7 +1719,7 @@
   "sellerTypes": "both",
   "costModel": "paid",
   "currentStatus": "unknown",
-  "note": "The main Hungarian vehicle marketplace, where dealers hold public pages. An automated browser check on 2026-08-14 was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown."
+  "note": "The main Hungarian vehicle marketplace, where dealers hold public pages. [accessibility:2026-08-14] an automated browser check was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown."
  },
  {
   "id": "mp-hu-jofogas",
@@ -1792,7 +1792,7 @@
   "sellerTypes": "both",
   "costModel": "paid",
   "currentStatus": "unknown",
-  "note": "A major Indian property marketplace. An automated browser check on 2026-08-14 was refused by the site (access-denied); a browser check is needed by a person and the status stays unknown."
+  "note": "A major Indian property marketplace. [accessibility:2026-08-14] an automated browser check was refused by the site (access-denied); a browser check is needed by a person and the status stays unknown."
  },
  {
   "id": "mp-in-cardekho",
@@ -1825,7 +1825,7 @@
   "sellerTypes": "both",
   "costModel": "paid",
   "currentStatus": "active",
-  "note": "An Indian property marketplace. Checked in a browser on 2026-08-14: the site loads and serves its own content."
+  "note": "An Indian property marketplace. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser."
  },
  {
   "id": "mp-in-magicbricks",
@@ -1836,7 +1836,7 @@
   "sellerTypes": "both",
   "costModel": "paid",
   "currentStatus": "active",
-  "note": "A major Indian property marketplace. Checked in a browser on 2026-08-14: the site loads and serves its own content."
+  "note": "A major Indian property marketplace. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser."
  },
  {
   "id": "mp-in-quikr",
@@ -1875,7 +1875,7 @@
   "sellerTypes": "both",
   "costModel": "paid",
   "currentStatus": "active",
-  "note": "An Indonesian vehicle marketplace where dealers hold public pages. Checked in a browser on 2026-08-14: the site loads and serves its own content."
+  "note": "An Indonesian vehicle marketplace where dealers hold public pages. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser."
  },
  {
   "id": "mp-id-rumah123",
@@ -1897,7 +1897,7 @@
   "sellerTypes": "both",
   "costModel": "freemium",
   "currentStatus": "unknown",
-  "note": "An Irish general classifieds marketplace. An automated browser check on 2026-08-14 was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown."
+  "note": "An Irish general classifieds marketplace. [accessibility:2026-08-14] an automated browser check was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown."
  },
  {
   "id": "mp-ie-carzone",
@@ -1908,7 +1908,7 @@
   "sellerTypes": "both",
   "costModel": "paid",
   "currentStatus": "unknown",
-  "note": "The main Irish vehicle marketplace, where dealers hold public pages. An automated browser check on 2026-08-14 was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown."
+  "note": "The main Irish vehicle marketplace, where dealers hold public pages. [accessibility:2026-08-14] an automated browser check was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown."
  },
  {
   "id": "mp-ie-daft",
@@ -1919,7 +1919,7 @@
   "sellerTypes": "both",
   "costModel": "paid",
   "currentStatus": "active",
-  "note": "The main Irish property marketplace, where agents hold public listings. Checked in a browser on 2026-08-14: the site loads and serves its own content."
+  "note": "The main Irish property marketplace, where agents hold public listings. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser."
  },
  {
   "id": "mp-ie-donedeal",
@@ -1934,7 +1934,7 @@
    "property",
    "vehicles"
   ],
-  "note": "Ireland's largest classifieds marketplace. Checked in a browser on 2026-08-14: the site loads and serves its own content."
+  "note": "Ireland's largest classifieds marketplace. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser."
  },
  {
   "id": "mp-il-ad",
@@ -1977,7 +1977,7 @@
   "sellerTypes": "both",
   "costModel": "freemium",
   "currentStatus": "active",
-  "note": "A Jamaican vehicle marketplace covering cars, commercial vehicles and parts. Checked in a browser on 2026-08-14: the site loads and serves its own content."
+  "note": "A Jamaican vehicle marketplace covering cars, commercial vehicles and parts. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser."
  },
  {
   "id": "mp-jm-jco",
@@ -2015,7 +2015,7 @@
   "sellerTypes": "both",
   "costModel": "paid",
   "currentStatus": "active",
-  "note": "A major Japanese vehicle marketplace where dealers hold public pages. Checked in a browser on 2026-08-14: the site loads and serves its own content."
+  "note": "A major Japanese vehicle marketplace where dealers hold public pages. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser."
  },
  {
   "id": "mp-jp-jmty",
@@ -2056,7 +2056,7 @@
   "alsoCovers": [
    "general-classifieds"
   ],
-  "note": "Japan's largest auction marketplace, where sellers hold public listings. An automated browser check on 2026-08-14 was refused by the site (http 403); a browser check is needed by a person and the status stays unknown."
+  "note": "Japan's largest auction marketplace, where sellers hold public listings. [accessibility:2026-08-14] an automated browser check was refused by the site (http 403); a browser check is needed by a person and the status stays unknown."
  },
  {
   "id": "mp-jp-athome",
@@ -2124,7 +2124,7 @@
    "vehicles"
   ],
   "operator": "Jiji Group",
-  "note": "Kenya's largest classifieds marketplace. An automated browser check on 2026-08-14 was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown."
+  "note": "Kenya's largest classifieds marketplace. [accessibility:2026-08-14] an automated browser check was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown."
  },
  {
   "id": "mp-ke-jumia",
@@ -2136,7 +2136,7 @@
   "costModel": "paid",
   "currentStatus": "unknown",
   "operator": "Jumia Group",
-  "note": "The Kenyan storefront of Africa's largest online marketplace. An automated browser check on 2026-08-14 was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown."
+  "note": "The Kenyan storefront of Africa's largest online marketplace. [accessibility:2026-08-14] an automated browser check was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown."
  },
  {
   "id": "mp-ke-kilimall",
@@ -2163,7 +2163,7 @@
    "property",
    "vehicles"
   ],
-  "note": "A Kenyan classifieds marketplace. An automated browser check on 2026-08-14 was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown."
+  "note": "A Kenyan classifieds marketplace. [accessibility:2026-08-14] an automated browser check was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown."
  },
  {
   "id": "mp-ke-property24",
@@ -2324,7 +2324,7 @@
   "sellerTypes": "both",
   "costModel": "freemium",
   "currentStatus": "active",
-  "note": "Malaysia's main vehicle marketplace. Checked in a browser on 2026-08-14: the site loads and serves its own content."
+  "note": "Malaysia's main vehicle marketplace. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser."
  },
  {
   "id": "mp-my-carousell",
@@ -2336,7 +2336,7 @@
   "costModel": "freemium",
   "currentStatus": "unknown",
   "operator": "Carousell Group",
-  "note": "The Malaysian arm of a Southeast Asian classifieds marketplace. An automated browser check on 2026-08-14 was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown."
+  "note": "The Malaysian arm of a Southeast Asian classifieds marketplace. [accessibility:2026-08-14] an automated browser check was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown."
  },
  {
   "id": "mp-my-mudah",
@@ -2362,7 +2362,7 @@
   "sellerTypes": "business",
   "costModel": "paid",
   "currentStatus": "active",
-  "note": "Malaysia's main property marketplace, where agents hold public listings. Checked in a browser on 2026-08-14: the site loads and serves its own content."
+  "note": "Malaysia's main property marketplace, where agents hold public listings. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser."
  },
  {
   "id": "mp-mt-keepmeposted",
@@ -2410,7 +2410,7 @@
   "sellerTypes": "both",
   "costModel": "paid",
   "currentStatus": "unknown",
-  "note": "Mexico's main property marketplace, which absorbed Segundamano's audience. An automated browser check on 2026-08-14 was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown."
+  "note": "Mexico's main property marketplace, which absorbed Segundamano's audience. [accessibility:2026-08-14] an automated browser check was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown."
  },
  {
   "id": "mp-mx-kavak",
@@ -2462,7 +2462,7 @@
    "property",
    "vehicles"
   ],
-  "note": "A major Mexican classifieds marketplace. An automated browser check on 2026-08-14 was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown."
+  "note": "A major Mexican classifieds marketplace. [accessibility:2026-08-14] an automated browser check was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown."
  },
  {
   "id": "mp-md-999",
@@ -2644,7 +2644,7 @@
   "sellerTypes": "both",
   "costModel": "freemium",
   "currentStatus": "active",
-  "note": "A Dutch classifieds portal. Checked in a browser on 2026-08-14: the site loads and serves its own content."
+  "note": "A Dutch classifieds portal. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser."
  },
  {
   "id": "mp-nz-autotrader",
@@ -2705,7 +2705,7 @@
   "sellerTypes": "both",
   "costModel": "freemium",
   "currentStatus": "unknown",
-  "note": "A Nigerian used-vehicle marketplace. An automated browser check on 2026-08-14 was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown."
+  "note": "A Nigerian used-vehicle marketplace. [accessibility:2026-08-14] an automated browser check was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown."
  },
  {
   "id": "mp-global-coinafrique",
@@ -2738,7 +2738,7 @@
    "vehicles"
   ],
   "operator": "Jiji Group",
-  "note": "Nigeria's largest classifieds marketplace. An automated browser check on 2026-08-14 was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown."
+  "note": "Nigeria's largest classifieds marketplace. [accessibility:2026-08-14] an automated browser check was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown."
  },
  {
   "id": "mp-ng-jobberman",
@@ -2761,7 +2761,7 @@
   "costModel": "paid",
   "currentStatus": "unknown",
   "operator": "Jumia Group",
-  "note": "Africa's largest online marketplace, where sellers hold public storefronts. An automated browser check on 2026-08-14 was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown."
+  "note": "Africa's largest online marketplace, where sellers hold public storefronts. [accessibility:2026-08-14] an automated browser check was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown."
  },
  {
   "id": "mp-ng-konga",
@@ -2794,7 +2794,7 @@
   "sellerTypes": "both",
   "costModel": "paid",
   "currentStatus": "unknown",
-  "note": "A major Nigerian property marketplace. An automated browser check on 2026-08-14 was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown."
+  "note": "A major Nigerian property marketplace. [accessibility:2026-08-14] an automated browser check was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown."
  },
  {
   "id": "mp-ng-propertypro",
@@ -2805,7 +2805,7 @@
   "sellerTypes": "both",
   "costModel": "paid",
   "currentStatus": "unknown",
-  "note": "A major Nigerian property marketplace where agents hold public listings. ToLet.com.ng was absorbed into it and now redirects here. An automated browser check on 2026-08-14 was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown."
+  "note": "A major Nigerian property marketplace where agents hold public listings. ToLet.com.ng was absorbed into it and now redirects here. [accessibility:2026-08-14] an automated browser check was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown."
  },
  {
   "id": "mp-mk-pazar3",
@@ -2835,7 +2835,7 @@
    "property",
    "vehicles"
   ],
-  "note": "A North Macedonian classifieds portal. Audited on 2026-08-14: the Macedonian marketplace consolidated from reklama5.mk onto a .com domain; the record now points at the current address."
+  "note": "A North Macedonian classifieds portal. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser. [redirect:2026-08-14] the Macedonian marketplace consolidated from reklama5.mk onto a .com domain; the record now points at the current address."
  },
  {
   "id": "mp-no-finn",
@@ -2969,7 +2969,7 @@
   "sellerTypes": "both",
   "costModel": "paid",
   "currentStatus": "unknown",
-  "note": "A major Peruvian property marketplace. An automated browser check on 2026-08-14 was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown."
+  "note": "A major Peruvian property marketplace. [accessibility:2026-08-14] an automated browser check was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown."
  },
  {
   "id": "mp-pe-mercadolibre",
@@ -2995,7 +2995,7 @@
   "sellerTypes": "both",
   "costModel": "paid",
   "currentStatus": "unknown",
-  "note": "Peru's main vehicle marketplace. An automated browser check on 2026-08-14 was refused by the site (http 403); a browser check is needed by a person and the status stays unknown."
+  "note": "Peru's main vehicle marketplace. [accessibility:2026-08-14] an automated browser check was refused by the site (http 403); a browser check is needed by a person and the status stays unknown."
  },
  {
   "id": "mp-pe-urbania",
@@ -3006,7 +3006,7 @@
   "sellerTypes": "both",
   "costModel": "paid",
   "currentStatus": "unknown",
-  "note": "Peru's main property marketplace. An automated browser check on 2026-08-14 was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown."
+  "note": "Peru's main property marketplace. [accessibility:2026-08-14] an automated browser check was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown."
  },
  {
   "id": "mp-ph-autodeal",
@@ -3017,7 +3017,7 @@
   "sellerTypes": "both",
   "costModel": "paid",
   "currentStatus": "active",
-  "note": "A Philippine vehicle marketplace where dealers hold public pages. Checked in a browser on 2026-08-14: the site loads and serves its own content."
+  "note": "A Philippine vehicle marketplace where dealers hold public pages. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser."
  },
  {
   "id": "mp-ph-carousell",
@@ -3033,7 +3033,7 @@
    "vehicles"
   ],
   "operator": "Carousell Group",
-  "note": "The Philippine classifieds marketplace, which absorbed OLX Philippines. An automated browser check on 2026-08-14 was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown."
+  "note": "The Philippine classifieds marketplace, which absorbed OLX Philippines. [accessibility:2026-08-14] an automated browser check was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown."
  },
  {
   "id": "mp-ph-lamudi",
@@ -3044,7 +3044,7 @@
   "sellerTypes": "both",
   "costModel": "paid",
   "currentStatus": "unknown",
-  "note": "A Philippine property marketplace where agents hold public listings. An automated browser check on 2026-08-14 was refused by the site (access-denied); a browser check is needed by a person and the status stays unknown."
+  "note": "A Philippine property marketplace where agents hold public listings. [accessibility:2026-08-14] an automated browser check was refused by the site (access-denied); a browser check is needed by a person and the status stays unknown."
  },
  {
   "id": "mp-pl-allegro",
@@ -3058,7 +3058,7 @@
   "alsoCovers": [
    "general-classifieds"
   ],
-  "note": "Poland's dominant marketplace, where sellers hold public shop pages. An automated browser check on 2026-08-14 was refused by the site (http 403); a browser check is needed by a person and the status stays unknown."
+  "note": "Poland's dominant marketplace, where sellers hold public shop pages. [accessibility:2026-08-14] an automated browser check was refused by the site (http 403); a browser check is needed by a person and the status stays unknown."
  },
  {
   "id": "mp-pl-gratka",
@@ -3091,7 +3091,7 @@
    "vehicles"
   ],
   "operator": "OLX Group",
-  "note": "Poland's dominant classifieds marketplace. Checked in a browser on 2026-08-14: the site loads and serves its own content."
+  "note": "Poland's dominant classifieds marketplace. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser."
  },
  {
   "id": "mp-pl-otomoto",
@@ -3239,7 +3239,7 @@
    "vehicles"
   ],
   "operator": "OLX Group",
-  "note": "Romania's dominant classifieds marketplace. Checked in a browser on 2026-08-14: the site loads and serves its own content."
+  "note": "Romania's dominant classifieds marketplace. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser."
  },
  {
   "id": "mp-ro-publi24",
@@ -3272,7 +3272,7 @@
    "services",
    "vehicles"
   ],
-  "note": "Russia's dominant classifieds marketplace. An automated browser check on 2026-08-14 was refused by the site (http 429); a browser check is needed by a person and the status stays unknown."
+  "note": "Russia's dominant classifieds marketplace. [accessibility:2026-08-14] an automated browser check was refused by the site (http 429); a browser check is needed by a person and the status stays unknown."
  },
  {
   "id": "mp-ru-drom",
@@ -3353,7 +3353,7 @@
    "property",
    "vehicles"
   ],
-  "note": "A major Serbian classifieds portal. Checked in a browser on 2026-08-14: the site loads and serves its own content."
+  "note": "A major Serbian classifieds portal. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser."
  },
  {
   "id": "mp-rs-kupujemprodajem",
@@ -3375,7 +3375,7 @@
   "sellerTypes": "both",
   "costModel": "freemium",
   "currentStatus": "active",
-  "note": "The main Serbian vehicle marketplace. Checked in a browser on 2026-08-14: the site loads and serves its own content."
+  "note": "The main Serbian vehicle marketplace. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser."
  },
  {
   "id": "mp-sg-99co",
@@ -3386,7 +3386,7 @@
   "sellerTypes": "both",
   "costModel": "paid",
   "currentStatus": "active",
-  "note": "A Singapore property marketplace where agents hold public listings. Checked in a browser on 2026-08-14: the site loads and serves its own content."
+  "note": "A Singapore property marketplace where agents hold public listings. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser."
  },
  {
   "id": "mp-sg-carousell",
@@ -3402,7 +3402,7 @@
    "vehicles"
   ],
   "operator": "Carousell Group",
-  "note": "Singapore's leading classifieds marketplace and the group's home market. An automated browser check on 2026-08-14 was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown."
+  "note": "Singapore's leading classifieds marketplace and the group's home market. [accessibility:2026-08-14] an automated browser check was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown."
  },
  {
   "id": "mp-sg-gumtree",
@@ -3430,7 +3430,7 @@
   "costModel": "paid",
   "currentStatus": "active",
   "operator": "PropertyGuru Group",
-  "note": "Singapore's main property marketplace, where agents hold public listings. Checked in a browser on 2026-08-14: the site loads and serves its own content."
+  "note": "Singapore's main property marketplace, where agents hold public listings. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser."
  },
  {
   "id": "mp-sg-sgcarmart",
@@ -3441,7 +3441,7 @@
   "sellerTypes": "both",
   "costModel": "paid",
   "currentStatus": "unknown",
-  "note": "Singapore's main vehicle marketplace, where dealers hold public dealer pages. An automated browser check on 2026-08-14 was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown."
+  "note": "Singapore's main vehicle marketplace, where dealers hold public dealer pages. [accessibility:2026-08-14] an automated browser check was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown."
  },
  {
   "id": "mp-sk-bazar",
@@ -3478,7 +3478,7 @@
   "sellerTypes": "both",
   "costModel": "paid",
   "currentStatus": "active",
-  "note": "The main Slovenian vehicle marketplace. Checked in a browser on 2026-08-14: the site loads and serves its own content."
+  "note": "The main Slovenian vehicle marketplace. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser."
  },
  {
   "id": "mp-si-bolha",
@@ -3560,7 +3560,7 @@
    "property",
    "vehicles"
   ],
-  "note": "A long-running South African classifieds marketplace. An automated browser check on 2026-08-14 was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown."
+  "note": "A long-running South African classifieds marketplace. [accessibility:2026-08-14] an automated browser check was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown."
  },
  {
   "id": "mp-za-privateproperty",
@@ -3615,7 +3615,7 @@
   "sellerTypes": "both",
   "costModel": "paid",
   "currentStatus": "active",
-  "note": "South Korea's main vehicle marketplace. Checked in a browser on 2026-08-14: the site loads and serves its own content."
+  "note": "South Korea's main vehicle marketplace. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser."
  },
  {
   "id": "mp-kr-joongna",
@@ -3676,7 +3676,7 @@
    "vehicles"
   ],
   "operator": "Adevinta",
-  "note": "A major Spanish classifieds marketplace. Checked in a browser on 2026-08-14: the site loads and serves its own content."
+  "note": "A major Spanish classifieds marketplace. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser."
  },
  {
   "id": "mp-es-wallapop",
@@ -3712,7 +3712,7 @@
   "alsoCovers": [
    "vehicles"
   ],
-  "note": "A Sri Lankan classifieds marketplace. Checked in a browser on 2026-08-14: the site loads and serves its own content."
+  "note": "A Sri Lankan classifieds marketplace. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser."
  },
  {
   "id": "mp-lk-riyasewana",
@@ -3723,7 +3723,7 @@
   "sellerTypes": "both",
   "costModel": "freemium",
   "currentStatus": "active",
-  "note": "Sri Lanka's main vehicle marketplace. Checked in a browser on 2026-08-14: the site loads and serves its own content."
+  "note": "Sri Lanka's main vehicle marketplace. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser."
  },
  {
   "id": "mp-lk-ikman",
@@ -3788,7 +3788,7 @@
   "sellerTypes": "business",
   "costModel": "paid",
   "currentStatus": "active",
-  "note": "Sweden's main property marketplace, where estate agents publish listings on the seller's behalf. Checked in a browser on 2026-08-14: the site loads and serves its own content."
+  "note": "Sweden's main property marketplace, where estate agents publish listings on the seller's behalf. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser."
  },
  {
   "id": "mp-se-tradera",
@@ -3816,7 +3816,7 @@
   "alsoCovers": [
    "general-classifieds"
   ],
-  "note": "Switzerland's largest online auction and marketplace. Checked in a browser on 2026-08-14: the site loads and serves its own content."
+  "note": "Switzerland's largest online auction and marketplace. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser."
  },
  {
   "id": "mp-ch-anibis",
@@ -3830,7 +3830,7 @@
   "alsoCovers": [
    "vehicles"
   ],
-  "note": "A Swiss classifieds marketplace. An automated browser check on 2026-08-14 was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown."
+  "note": "A Swiss classifieds marketplace. [accessibility:2026-08-14] an automated browser check was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown."
  },
  {
   "id": "mp-ch-tutti",
@@ -3845,7 +3845,7 @@
    "property",
    "vehicles"
   ],
-  "note": "A leading Swiss classifieds marketplace. An automated browser check on 2026-08-14 was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown."
+  "note": "A leading Swiss classifieds marketplace. [accessibility:2026-08-14] an automated browser check was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown."
  },
  {
   "id": "mp-tw-591",
@@ -3897,7 +3897,7 @@
    "vehicles"
   ],
   "operator": "Jiji Group",
-  "note": "Tanzania's leading classifieds marketplace. An automated browser check on 2026-08-14 was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown."
+  "note": "Tanzania's leading classifieds marketplace. [accessibility:2026-08-14] an automated browser check was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown."
  },
  {
   "id": "mp-th-ddproperty",
@@ -3909,7 +3909,7 @@
   "costModel": "paid",
   "currentStatus": "active",
   "operator": "PropertyGuru Group",
-  "note": "Thailand's main property marketplace. Checked in a browser on 2026-08-14: the site loads and serves its own content."
+  "note": "Thailand's main property marketplace. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser."
  },
  {
   "id": "mp-th-kaidee",
@@ -3935,7 +3935,7 @@
   "sellerTypes": "both",
   "costModel": "paid",
   "currentStatus": "active",
-  "note": "A Thai vehicle marketplace where dealers hold public pages. Checked in a browser on 2026-08-14: the site loads and serves its own content."
+  "note": "A Thai vehicle marketplace where dealers hold public pages. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser."
  },
  {
   "id": "mp-th-tarad",
@@ -3995,7 +3995,7 @@
   "sellerTypes": "both",
   "costModel": "paid",
   "currentStatus": "unknown",
-  "note": "The main Turkish vehicle marketplace, where dealers hold public pages. An automated browser check on 2026-08-14 was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown."
+  "note": "The main Turkish vehicle marketplace, where dealers hold public pages. [accessibility:2026-08-14] an automated browser check was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown."
  },
  {
   "id": "mp-tr-hepsiemlak",
@@ -4006,7 +4006,7 @@
   "sellerTypes": "both",
   "costModel": "paid",
   "currentStatus": "unknown",
-  "note": "A major Turkish property marketplace. An automated browser check on 2026-08-14 was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown."
+  "note": "A major Turkish property marketplace. [accessibility:2026-08-14] an automated browser check was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown."
  },
  {
   "id": "mp-tr-sahibinden",
@@ -4022,7 +4022,7 @@
    "property",
    "vehicles"
   ],
-  "note": "Turkey's dominant classifieds marketplace. An automated browser check on 2026-08-14 was refused by the site (captcha); a browser check is needed by a person and the status stays unknown."
+  "note": "Turkey's dominant classifieds marketplace. [accessibility:2026-08-14] an automated browser check was refused by the site (captcha); a browser check is needed by a person and the status stays unknown."
  },
  {
   "id": "mp-ug-brightermonday",
@@ -4049,7 +4049,7 @@
    "vehicles"
   ],
   "operator": "Jiji Group",
-  "note": "Uganda's leading classifieds marketplace. An automated browser check on 2026-08-14 was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown."
+  "note": "Uganda's leading classifieds marketplace. [accessibility:2026-08-14] an automated browser check was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown."
  },
  {
   "id": "mp-ua-autoria",
@@ -4161,7 +4161,7 @@
   "alsoCovers": [
    "vehicles"
   ],
-  "note": "A UK free classifieds site. An automated browser check on 2026-08-14 was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown."
+  "note": "A UK free classifieds site. [accessibility:2026-08-14] an automated browser check was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown."
  },
  {
   "id": "mp-uk-gumtree",
@@ -4178,7 +4178,7 @@
    "vehicles"
   ],
   "operator": "Adevinta",
-  "note": "The main UK classifieds marketplace. Checked in a browser on 2026-08-14: the site loads and serves its own content."
+  "note": "The main UK classifieds marketplace. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser."
  },
  {
   "id": "mp-uk-preloved",
@@ -4211,7 +4211,7 @@
   "sellerTypes": "both",
   "costModel": "freemium",
   "currentStatus": "unknown",
-  "note": "A US local marketplace. An automated browser check on 2026-08-14 was refused by the site (access-denied); a browser check is needed by a person and the status stays unknown."
+  "note": "A US local marketplace. [accessibility:2026-08-14] an automated browser check was refused by the site (access-denied); a browser check is needed by a person and the status stays unknown."
  },
  {
   "id": "mp-us-abebooks",
@@ -4247,7 +4247,7 @@
   "sellerTypes": "business",
   "costModel": "paid",
   "currentStatus": "unknown",
-  "note": "A major US rental property marketplace. An automated browser check on 2026-08-14 was refused by the site (only 0 characters rendered); a browser check is needed by a person and the status stays unknown."
+  "note": "A major US rental property marketplace. [accessibility:2026-08-14] an automated browser check was refused by the site (access-denied); a browser check is needed by a person and the status stays unknown."
  },
  {
   "id": "mp-us-bookoo",
@@ -4283,7 +4283,7 @@
   "sellerTypes": "both",
   "costModel": "paid",
   "currentStatus": "unknown",
-  "note": "A major US vehicle marketplace where dealers hold public dealer pages. An automated browser check on 2026-08-14 was refused by the site (the browser could not open the site at all); a browser check is needed by a person and the status stays unknown."
+  "note": "A major US vehicle marketplace where dealers hold public dealer pages. [accessibility:2026-08-14] an automated browser check was refused by the site (the browser could not open the site at all); a browser check is needed by a person and the status stays unknown."
  },
  {
   "id": "mp-us-cars",
@@ -4294,7 +4294,7 @@
   "sellerTypes": "both",
   "costModel": "paid",
   "currentStatus": "unknown",
-  "note": "A major US vehicle marketplace where dealers hold public dealer pages. An automated browser check on 2026-08-14 was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown."
+  "note": "A major US vehicle marketplace where dealers hold public dealer pages. [accessibility:2026-08-14] an automated browser check was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown."
  },
  {
   "id": "mp-us-chairish",
@@ -4349,7 +4349,7 @@
   "sellerTypes": "both",
   "costModel": "freemium",
   "currentStatus": "active",
-  "note": "A fashion resale marketplace with public seller shops. Checked in a browser on 2026-08-14: the site loads and serves its own content."
+  "note": "A fashion resale marketplace with public seller shops. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser."
  },
  {
   "id": "mp-us-etsy",
@@ -4363,7 +4363,7 @@
   "alsoCovers": [
    "general-classifieds"
   ],
-  "note": "A US handmade and vintage marketplace where sellers hold public shops. An automated browser check on 2026-08-14 was refused by the site (http 403); a browser check is needed by a person and the status stays unknown."
+  "note": "A US handmade and vintage marketplace where sellers hold public shops. [accessibility:2026-08-14] an automated browser check was refused by the site (http 403); a browser check is needed by a person and the status stays unknown."
  },
  {
   "id": "mp-us-faire",
@@ -4401,7 +4401,7 @@
   "sellerTypes": "both",
   "costModel": "freemium",
   "currentStatus": "unknown",
-  "note": "A US classifieds platform. An automated browser check on 2026-08-14 was refused by the site (http 403); a browser check is needed by a person and the status stays unknown."
+  "note": "A US classifieds platform. [accessibility:2026-08-14] an automated browser check was refused by the site (http 403); a browser check is needed by a person and the status stays unknown."
  },
  {
   "id": "mp-us-ksl",
@@ -4417,7 +4417,7 @@
    "property",
    "vehicles"
   ],
-  "note": "A major regional US classifieds platform serving Utah and the Mountain West. Checked in a browser on 2026-08-14: the site loads and serves its own content."
+  "note": "A major regional US classifieds platform serving Utah and the Mountain West. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser."
  },
  {
   "id": "mp-us-locanto",
@@ -4433,7 +4433,7 @@
    "property",
    "services"
   ],
-  "note": "An international classifieds network with a large US section. An automated browser check on 2026-08-14 was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown."
+  "note": "An international classifieds network with a large US section. [accessibility:2026-08-14] an automated browser check was refused by the site (cloudflare-interstitial); a browser check is needed by a person and the status stays unknown."
  },
  {
   "id": "mp-us-mercari",
@@ -4444,7 +4444,7 @@
   "sellerTypes": "both",
   "costModel": "freemium",
   "currentStatus": "active",
-  "note": "A major US consumer marketplace. Checked in a browser on 2026-08-14: the site loads and serves its own content."
+  "note": "A major US consumer marketplace. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser."
  },
  {
   "id": "mp-us-nextdoor",
@@ -4472,7 +4472,7 @@
   "alsoCovers": [
    "vehicles"
   ],
-  "note": "A major US local buy-and-sell marketplace, which absorbed letgo. Checked in a browser on 2026-08-14: the site loads and serves its own content."
+  "note": "A major US local buy-and-sell marketplace, which absorbed letgo. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser."
  },
  {
   "id": "mp-us-oodle",
@@ -4487,7 +4487,7 @@
    "property",
    "vehicles"
   ],
-  "note": "A US classifieds aggregator and marketplace. Checked in a browser on 2026-08-14: the site loads and serves its own content."
+  "note": "A US classifieds aggregator and marketplace. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser."
  },
  {
   "id": "mp-us-pennysaver",
@@ -4520,7 +4520,7 @@
   "sellerTypes": "both",
   "costModel": "paid",
   "currentStatus": "active",
-  "note": "A US musical instrument marketplace where shops hold public storefronts. Checked in a browser on 2026-08-14: the site loads and serves its own content."
+  "note": "A US musical instrument marketplace where shops hold public storefronts. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser."
  },
  {
   "id": "mp-us-rubylane",
@@ -4564,7 +4564,7 @@
   "sellerTypes": "both",
   "costModel": "paid",
   "currentStatus": "active",
-  "note": "The largest US property marketplace, where agents hold public listings. Checked in a browser on 2026-08-14: the site loads and serves its own content."
+  "note": "The largest US property marketplace, where agents hold public listings. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser."
  },
  {
   "id": "mp-us-ebay",
@@ -4627,7 +4627,7 @@
   "sellerTypes": "both",
   "costModel": "paid",
   "currentStatus": "active",
-  "note": "Vietnam's main property marketplace. Checked in a browser on 2026-08-14: the site loads and serves its own content."
+  "note": "Vietnam's main property marketplace. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser."
  },
  {
   "id": "mp-vn-chotot",
@@ -4658,7 +4658,7 @@
    "property",
    "vehicles"
   ],
-  "note": "A Vietnamese classifieds portal. Checked in a browser on 2026-08-14: the site loads and serves its own content."
+  "note": "A Vietnamese classifieds portal. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser."
  },
  {
   "id": "mp-vn-vieclam24h",

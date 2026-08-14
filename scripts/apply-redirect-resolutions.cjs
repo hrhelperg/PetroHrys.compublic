@@ -38,6 +38,8 @@
 const fs = require('node:fs');
 const path = require('node:path');
 
+const SAFE = require('./lib/rc-safe-apply.cjs');
+
 const ROOT = path.resolve(__dirname, '..');
 const DIRECTORIES = path.join(ROOT, 'data/business-directories/opportunities.json');
 const MARKETPLACES = path.join(ROOT, 'data/marketplaces/marketplaces.json');
@@ -144,6 +146,35 @@ const DECISIONS = {
   'fr-hoodspot': { action: 'repoint', to: 'https://annuaire.petitesaffiches.fr/', why: 'Hoodspot now runs on the Petites Affiches domain under its own name' },
   'it-infoimprese': { action: 'rebrand', to: 'https://www.registroimprese.it/', name: 'Registro Imprese', why: 'InfoImprese was folded into Registro Imprese, the official Italian business register run by the same operator' },
 
+
+  // ── Found by the 797-record actionability cohort, 2026-08-14 ──────────────
+  //
+  // Eighteen more records believed active were answering elsewhere. Two land on
+  // a product already recorded here and are consolidated; the rest keep their
+  // own identity. Names were changed only where the DESTINATION'S OWN TITLE
+  // says the brand changed — three of eighteen. Repointing a record does not
+  // license renaming it.
+  'au-homeimprovementpages': { action: 'consolidate', into: 'au-hipages', why: 'hipages.com.au now serves Home Improvement Pages, and hipages is already recorded for Australia' },
+  'de-branchenorte': { action: 'consolidate', into: 'de-business-branchenbuch', why: 'branchenorte.de now serves business-branchenbuch.de, which is already recorded for Germany' },
+
+  'br-cni': { action: 'repoint', to: 'https://cni.portaldaindustria.com.br/home', why: 'the CNI member directory moved onto the Portal da Industria domain' },
+  'ca-hotelassociation': { action: 'repoint', to: 'https://hotelscanada.ca/', why: 'the association moved to hotelscanada.ca and its page still carries the same name' },
+  'ca-used': { action: 'repoint', to: 'https://www.used.ca/', why: 'the same marketplace on its current domain' },
+  'cz-hotely': { action: 'repoint', to: 'https://www.hotely.cz/', why: 'the same accommodation directory on its current domain' },
+  'dz-sougplus': { action: 'repoint', to: 'https://sougplus.com/', why: 'SougPlus consolidated onto a .com domain and kept its name' },
+  'fr-hemea': { action: 'repoint', to: 'https://www.hemea.com/fr', why: 'hemea serves its French market from a locale path' },
+  'global-adobe-commerce-marketplace': { action: 'repoint', to: 'https://commercemarketplace.adobe.com/', why: 'Adobe moved the marketplace onto its own subdomain' },
+  'global-terraform-registry': { action: 'repoint', to: 'https://developer.hashicorp.com/terraform', why: 'HashiCorp moved the registry onto its developer site' },
+  'pa-visitpanama': { action: 'repoint', to: 'https://www.tourismpanama.com/', why: 'the Panamanian tourism authority moved domain and kept its identity' },
+  'uk-entrepreneurfirst': { action: 'repoint', to: 'https://www.joinef.com/', why: 'Entrepreneur First uses joinef.com and its page still carries the same name' },
+  'us-ashi': { action: 'repoint', to: 'https://www.homeinspector.org/', why: 'ASHI publishes its inspector directory on homeinspector.org' },
+  'us-greenpal': { action: 'repoint', to: 'https://www.yourgreenpal.com/', why: 'GreenPal moved to yourgreenpal.com and kept its name' },
+  'za-bobshop': { action: 'repoint', to: 'https://www.bobshop.co.za/', why: 'the same marketplace on its current domain' },
+
+  'cz-atlasfirem': { action: 'rebrand', to: 'https://www.firmablizko.cz/', name: 'Firma Blizko', why: 'Atlas firem now trades as Firma Blizko, which is what the destination titles itself' },
+  'de-dialo': { action: 'rebrand', to: 'https://www.bundes-telefonbuch.de/', name: 'BundesTelefonbuch', why: 'Dialo now serves BundesTelefonbuch, which is what the destination titles itself' },
+  'global-segment-catalog': { action: 'rebrand', to: 'https://www.twilio.com/en-us/catalog', name: 'Twilio Catalog', why: 'Segment was absorbed into Twilio and the integrations catalog is now published as Twilio Catalog' },
+
   // ── Nothing happened ──────────────────────────────────────────────────────
   // Nothing corporate happened, and nothing was established either. The prober
   // never saw the .com product — it was handed the Irish site because of where
@@ -180,12 +211,13 @@ function main() {
     directories: JSON.parse(fs.readFileSync(DIRECTORIES, 'utf8')),
     marketplaces: JSON.parse(fs.readFileSync(MARKETPLACES, 'utf8')),
   };
+  const before = JSON.parse(JSON.stringify(files));
+  const collectionOf = (id) => (files.directories.some((r) => r.id === id) ? 'directories' : 'marketplaces');
   const find = (id) => files.directories.find((r) => r.id === id)
     || files.marketplaces.find((r) => r.id === id);
+  const OWNER = 'redirect';
 
-  const tally = {
-    repoint: 0, rebrand: 0, consolidate: 0, none: 0, missing: 0,
-  };
+  const tally = { repoint: 0, rebrand: 0, consolidate: 0, none: 0, missing: 0 };
   const unresolved = [];
 
   for (const f of audited.findings) {
@@ -193,30 +225,44 @@ function main() {
     if (!d) { unresolved.push(f.id); continue; }
     const record = find(f.id);
     if (!record) { tally.missing += 1; continue; }
+    const collection = collectionOf(f.id);
+    const dateField = collection === 'marketplaces' ? null : 'lastVerified';
+    const stamp = dateField && record[dateField] !== undefined ? { [dateField]: date } : {};
 
     if (d.action === 'repoint') {
-      record.website = d.to;
-      record.note = rewriteNote(record.note, `Audited on ${date}: ${d.why}; the record now points at the current address.`);
-      if (record.lastVerified !== undefined) record.lastVerified = date;
+      SAFE.applyPatch(record, {
+        website: d.to,
+        note: SAFE.amendNote(SAFE.retractSettled(record.note),
+          `${d.why}; the record now points at the current address.`, { owner: OWNER, date }),
+        ...stamp,
+      }, { owner: OWNER, collection });
       tally.repoint += 1;
     } else if (d.action === 'rebrand') {
-      record.website = d.to;
-      record.name = d.name;
-      record.note = rewriteNote(record.note, `Audited on ${date}: ${d.why}.`);
-      if (record.lastVerified !== undefined) record.lastVerified = date;
+      SAFE.applyPatch(record, {
+        website: d.to,
+        name: d.name,
+        note: SAFE.amendNote(SAFE.retractSettled(record.note), `${d.why}.`, { owner: OWNER, date }),
+        ...stamp,
+      }, { owner: OWNER, collection });
       tally.rebrand += 1;
     } else if (d.action === 'consolidate') {
       const survivor = find(d.into);
       if (!survivor) throw new Error(`${f.id} consolidates into ${d.into}, which does not exist`);
-      // `redirected` is excluded from the actionable set by the schema, so this
-      // is what stops the same product being offered twice.
-      record.currentStatus = 'redirected';
-      record.note = rewriteNote(record.note, `Audited on ${date}: ${d.why}. The surviving record is ${d.into} (${survivor.website}).`);
-      if (record.lastVerified !== undefined) record.lastVerified = date;
+      // `redirected` is excluded from the actionable set by the schema, which
+      // is what stops the same product being offered twice. The record is NOT
+      // deleted: its history is the reason anyone can audit this later.
+      SAFE.applyPatch(record, {
+        currentStatus: 'redirected',
+        note: SAFE.amendNote(SAFE.retractSettled(record.note),
+          `${d.why}; the surviving record is ${d.into} (${survivor.website}).`, { owner: OWNER, date }),
+        ...stamp,
+      }, { owner: OWNER, collection });
       tally.consolidate += 1;
     } else if (d.action === 'none') {
-      record.note = rewriteNote(record.note, `Audited on ${date}: ${d.why}.`);
-      if (record.lastVerified !== undefined) record.lastVerified = date;
+      SAFE.applyPatch(record, {
+        note: SAFE.amendNote(record.note, `${d.why}.`, { owner: OWNER, date }),
+        ...stamp,
+      }, { owner: OWNER, collection });
       tally.none += 1;
     }
   }
@@ -224,6 +270,20 @@ function main() {
   if (unresolved.length) {
     throw new Error(`No decision recorded for: ${unresolved.join(', ')}. `
       + 'Every audited case must be terminally classified, so this refuses to write a partial resolution.');
+  }
+
+  for (const key of ['directories', 'marketplaces']) {
+    SAFE.assertNoDeletion(before[key], files[key]);
+  }
+  // The redirect owner may rename — a rebrand IS a name change — so `name` is
+  // excluded from the drift guard here and only here. Every other curated
+  // field must come out exactly as it went in.
+  const fingerprint = (rows) => SAFE.curatedFingerprint(
+    rows.map((r) => ({ ...r, name: undefined })),
+  );
+  for (const key of ['directories', 'marketplaces']) {
+    const drift = SAFE.diffFingerprints(fingerprint(before[key]), fingerprint(files[key]));
+    if (drift.length) throw new Error(`${key}: curated fields drifted on ${drift.join(', ')}`);
   }
 
   fs.writeFileSync(DIRECTORIES, `${JSON.stringify(files.directories, null, 1)}\n`);

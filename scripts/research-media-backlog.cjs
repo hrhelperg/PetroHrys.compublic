@@ -52,10 +52,12 @@ const path = require('node:path');
 const os = require('node:os');
 const { spawn } = require('node:child_process');
 const { openPage } = require('./tests/helpers/cdp.cjs');
+const SAFE = require('./lib/rc-safe-apply.cjs');
 
 const ROOT = path.resolve(__dirname, '..');
 const DATA = path.join(ROOT, 'data/media-pr-publishing/media-platforms.json');
 const FINDINGS = path.join(ROOT, 'data/media-pr-publishing/.media-research.json');
+const ACTIONABILITY_FINDINGS = path.join(ROOT, 'data/media-pr-publishing/.media-actionability.json');
 
 const CHROME = [
   '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
@@ -379,10 +381,36 @@ function assess(record, obs) {
   };
 }
 
+// The backlog pass asks whether a record is a live publication. The
+// actionability pass asks what an ACTIVE publication lets a business do — a
+// different question, over a different cohort, and the two are kept apart
+// because a record can be settled on one and open on the other.
+const ACTIONABILITY = process.argv.includes('--actionability');
+
 async function runProbe() {
   if (!CHROME) { console.error('No Chrome on this machine.'); process.exit(1); }
   const rows = JSON.parse(fs.readFileSync(DATA, 'utf8'));
   let targets = rows.filter((r) => r.currentStatus === 'unknown');
+
+  if (ACTIONABILITY) {
+    const ROUTE_FIELDS = ['submissionUrl', 'pitchUrl', 'pressReleaseUrl', 'advertisingUrl'];
+    const covered = {};
+    for (const r of rows) if (ROUTE_FIELDS.some((f) => r[f])) covered[r.country] = (covered[r.country] || 0) + 1;
+    const score = (r) => {
+      let s = 0;
+      const c = covered[r.country] || 0;
+      if (c === 0) s += 40; else if (c <= 2) s += 24; else if (c <= 5) s += 12;
+      s += { P1: 30, P2: 18, P3: 6 }[r.priority] || 0;
+      if (/browser check is needed/i.test(r.shortNote || '')) s -= 50;
+      return s;
+    };
+    targets = rows
+      .filter((r) => r.currentStatus === 'active' && !ROUTE_FIELDS.some((f) => r[f]))
+      .map((r) => ({ r, s: score(r) }))
+      .sort((a, b) => b.s - a.s || (a.r.id < b.r.id ? -1 : 1))
+      .map((x) => x.r);
+    console.log(`Media actionability: ${targets.length} active record(s) with no route, ranked.`);
+  }
   const limit = arg('--limit');
   if (limit) targets = targets.slice(0, Number(limit));
   const ids = arg('--ids');
@@ -391,7 +419,9 @@ async function runProbe() {
     targets = rows.filter((r) => want.has(r.id));
   }
 
-  console.log(`Media research: ${targets.length} identification-only record(s).`);
+  console.log(ACTIONABILITY
+    ? `Probing ${targets.length} record(s) for operator-published routes.`
+    : `Media research: ${targets.length} identification-only record(s).`);
   const chrome = await startChrome();
   const findings = [];
   const queue = targets.slice();
@@ -424,16 +454,17 @@ async function runProbe() {
   chrome.proc.kill('SIGKILL');
 
   let merged = findings;
-  if (fs.existsSync(FINDINGS)) {
-    const prior = JSON.parse(fs.readFileSync(FINDINGS, 'utf8')).findings || [];
-    if (prior.length > findings.length) {
+  const OUT = ACTIONABILITY ? ACTIONABILITY_FINDINGS : FINDINGS;
+  if (fs.existsSync(OUT)) {
+    const prior = JSON.parse(fs.readFileSync(OUT, 'utf8')).findings || [];
+    if (prior.length) {
       const fresh = new Map(findings.map((f) => [f.id, f]));
       merged = prior.map((f) => fresh.get(f.id) || f)
         .concat(findings.filter((f) => !prior.some((p) => p.id === f.id)));
     }
   }
   merged.sort((a, b) => (a.id < b.id ? -1 : 1));
-  fs.writeFileSync(FINDINGS, `${JSON.stringify({
+  fs.writeFileSync(ACTIONABILITY ? ACTIONABILITY_FINDINGS : FINDINGS, `${JSON.stringify({
     probedAt: new Date().toISOString().slice(0, 10), findings: merged,
   }, null, 1)}\n`);
 
@@ -476,69 +507,116 @@ function clearStaleLimitation(text) {
 }
 
 function runApply() {
-  const { probedAt, findings } = JSON.parse(fs.readFileSync(FINDINGS, 'utf8'));
+  // An actionability run answers "what does this publication let a business
+  // do". It must not touch accessibility: a record verified active does not
+  // become unknown because a route hunt could not re-confirm the masthead, and
+  // Program 11's rule is that one dimension never resets the other.
+  const SOURCE = ACTIONABILITY ? ACTIONABILITY_FINDINGS : FINDINGS;
+  const { probedAt, findings } = JSON.parse(fs.readFileSync(SOURCE, 'utf8'));
   const rows = JSON.parse(fs.readFileSync(DATA, 'utf8'));
+  const before = JSON.parse(JSON.stringify(rows));
   const byId = new Map(rows.map((r) => [r.id, r]));
   const tally = {
-    active: 0, rejected: 0, unconfirmed: 0, redirected: 0, protectedStill: 0, unresolved: 0, routes: 0, types: 0,
+    active: 0, recommendedForReview: 0, redirected: 0, protectedStill: 0, unresolved: 0, routes: 0, types: 0,
   };
-  const rejected = [];
+  const review = [];
 
   for (const f of findings) {
     const r = byId.get(f.id);
     if (!r) continue;
-    r.lastVerified = probedAt;
 
-    if (f.state === 'ACTIVE_VERIFIED') {
-      r.currentStatus = 'active';
-      r.shortNote = amend(r.shortNote, `Verified in a browser on ${probedAt}: ${f.why}.`);
-      r.limitations = clearStaleLimitation(r.limitations);
-      tally.active += 1;
+    if (ACTIONABILITY) {
+      // Routes and types only, and only where nothing is recorded yet: this
+      // pass adds knowledge, it does not revise anyone else's.
+      const patch = {};
       for (const [field, route] of Object.entries(f.routes || {})) {
-        if (!r[field]) { r[field] = route.href; tally.routes += 1; }
+        if (!r[field]) { patch[field] = route.href; tally.routes += 1; }
       }
       if (f.opportunityTypes && f.opportunityTypes.length) {
-        r.opportunityTypes = f.opportunityTypes;
+        const known = (r.opportunityTypes || []).filter((t) => t !== 'unknown');
+        const merged = [...new Set([...known, ...f.opportunityTypes])].sort();
+        if (JSON.stringify(merged) !== JSON.stringify(r.opportunityTypes)) {
+          patch.opportunityTypes = merged;
+          tally.types += 1;
+        }
+      }
+      if (Object.keys(patch).length) {
+        patch.lastVerified = probedAt;
+        SAFE.applyPatch(r, patch, { owner: 'actionability', collection: 'media' });
+        tally.active += 1;
+      }
+      continue;
+    }
+
+    if (f.state === 'ACTIVE_VERIFIED') {
+      SAFE.applyPatch(r, {
+        currentStatus: 'active',
+        lastVerified: probedAt,
+        shortNote: SAFE.amendNote(r.shortNote, `verified in a browser: ${f.why}.`,
+          { owner: 'accessibility', date: probedAt }),
+        // A limitation recorded because a fetch could not read the site stops
+        // being true the moment a browser reads it.
+        limitations: SAFE.clearNote(r.limitations, { owner: 'accessibility' }),
+      }, { owner: 'accessibility', collection: 'media' });
+      tally.active += 1;
+
+      const patch = {};
+      for (const [field, route] of Object.entries(f.routes || {})) {
+        if (!r[field]) { patch[field] = route.href; tally.routes += 1; }
+      }
+      if (f.opportunityTypes && f.opportunityTypes.length) {
+        patch.opportunityTypes = f.opportunityTypes;
         tally.types += 1;
       }
-
-      // A record with no established route has to say why it has none. The old
-      // reason — "reached but behind a bot filter" — stopped being true the
-      // moment a browser read the site, so it is replaced by what is actually
-      // outstanding rather than simply cleared. "No route" is an admission,
-      // not an empty field.
       const established = ['submissionUrl', 'pitchUrl', 'pressReleaseUrl', 'advertisingUrl']
-        .some((field) => r[field]);
+        .some((field) => r[field] || patch[field]);
       if (!established) {
-        r.limitations = `Read in a browser on ${probedAt}. The homepage and the contact and about pages it links to publish no submission, pitch or press-release route in words, so none is recorded; one may exist deeper in the site and a person would have to find it.`;
+        patch.limitations = `The homepage and the contact and about pages it links to publish no submission, pitch or press-release route in words, so none is recorded; one may exist deeper in the site and a person would have to find it.`;
       }
-    } else if (f.state === 'ONTOLOGY_REJECTED') {
-      // Reserved for the unmistakable case — a parked domain. Nothing else
-      // reaches here, and even this is written to a review file rather than
-      // vanishing.
-      rejected.push({ id: f.id, name: f.name, website: f.website, why: f.why });
-      tally.rejected += 1;
-    } else if (f.state === 'ONTOLOGY_UNCONFIRMED') {
-      r.shortNote = amend(r.shortNote, `An automated browser check on ${probedAt} found the site live but could not confirm it publishes (${f.why}); the record stays for review and the status stays unknown.`);
-      tally.unconfirmed += 1;
+      if (Object.keys(patch).length) {
+        SAFE.applyPatch(r, patch, { owner: 'actionability', collection: 'media' });
+      }
+    } else if (f.state === 'ONTOLOGY_REJECTED' || f.state === 'ONTOLOGY_UNCONFIRMED') {
+      // NOTHING is deleted here. A classifier that was wrong on two of its
+      // first two rejections — Healthcare IT News and PhocusWire are plainly
+      // publications — recommends review and no more. Removal needs its own
+      // evidenced decision, which this pass does not issue.
+      SAFE.applyPatch(r, {
+        lastVerified: probedAt,
+        shortNote: SAFE.amendNote(r.shortNote,
+          `an automated browser check found the site live but could not confirm it publishes (${f.why}); the record stays for review and the status stays unknown.`,
+          { owner: 'accessibility', date: probedAt }),
+      }, { owner: 'accessibility', collection: 'media' });
+      review.push({ id: f.id, name: f.name, website: f.website, why: f.why });
+      tally.recommendedForReview += 1;
     } else if (f.state === 'REDIRECTED') {
-      r.shortNote = amend(r.shortNote, `An automated browser check on ${probedAt} found that ${f.why}; a browser check is needed by a person to settle what this record should be, and the status stays unknown.`);
+      SAFE.applyPatch(r, {
+        lastVerified: probedAt,
+        shortNote: SAFE.amendNote(r.shortNote,
+          `an automated browser check found that ${f.why}; a browser check is needed by a person to settle what this record should be, and the status stays unknown.`,
+          { owner: 'accessibility', date: probedAt }),
+      }, { owner: 'accessibility', collection: 'media' });
       tally.redirected += 1;
-    } else if (f.state === 'UNKNOWN_PROTECTED') {
-      r.shortNote = amend(r.shortNote, `An automated browser check on ${probedAt} was refused by the site (${f.why}); a browser check is needed by a person and the status stays unknown.`);
-      tally.protectedStill += 1;
     } else {
-      r.shortNote = amend(r.shortNote, `An automated browser check on ${probedAt} did not settle it (${f.why}); a browser check is needed by a person and the status stays unknown.`);
-      tally.unresolved += 1;
+      const why = f.state === 'UNKNOWN_PROTECTED'
+        ? `an automated browser check was refused by the site (${f.why}); a browser check is needed by a person and the status stays unknown.`
+        : `an automated browser check did not settle it (${f.why}); a browser check is needed by a person and the status stays unknown.`;
+      SAFE.applyPatch(r, {
+        lastVerified: probedAt,
+        shortNote: SAFE.amendNote(r.shortNote, why, { owner: 'accessibility', date: probedAt }),
+      }, { owner: 'accessibility', collection: 'media' });
+      if (f.state === 'UNKNOWN_PROTECTED') tally.protectedStill += 1; else tally.unresolved += 1;
     }
   }
 
-  const keep = new Set(rejected.map((x) => x.id));
-  const remaining = rows.filter((r) => !keep.has(r.id));
-  fs.writeFileSync(DATA, `${JSON.stringify(remaining, null, 1)}\n`);
-  if (rejected.length) {
-    fs.writeFileSync(path.join(ROOT, 'data/media-pr-publishing/.ontology-rejected.json'),
-      `${JSON.stringify({ rejectedAt: probedAt, rejected }, null, 1)}\n`);
+  SAFE.assertNoDeletion(before, rows);
+  const drift = SAFE.diffFingerprints(SAFE.curatedFingerprint(before), SAFE.curatedFingerprint(rows));
+  if (drift.length) throw new Error(`curated fields drifted on: ${drift.join(', ')}`);
+
+  fs.writeFileSync(DATA, `${JSON.stringify(rows, null, 1)}\n`);
+  if (review.length) {
+    fs.writeFileSync(path.join(ROOT, 'data/media-pr-publishing/.ontology-review.json'),
+      `${JSON.stringify({ reviewedAt: probedAt, recommendedForReview: review }, null, 1)}\n`);
   }
   console.log('Merged:', Object.entries(tally).map(([k, v]) => `${k}=${v}`).join(' '));
 }

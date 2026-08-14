@@ -270,7 +270,7 @@ async function main() {
   let merged = findings;
   if (fs.existsSync(FINDINGS)) {
     const prior = JSON.parse(fs.readFileSync(FINDINGS, 'utf8')).findings || [];
-    if (prior.length > findings.length) {
+    if (prior.length) {
       const fresh = new Map(findings.map((f) => [f.id, f]));
       merged = prior.map((f) => fresh.get(f.id) || f)
         .concat(findings.filter((f) => !prior.some((p) => p.id === f.id)));
