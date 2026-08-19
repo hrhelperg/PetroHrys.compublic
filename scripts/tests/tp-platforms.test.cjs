@@ -210,11 +210,38 @@ test('MUTATION: unknown evidence without a browser-check flag is caught', () => 
 });
 
 test('MUTATION: an invented metric is caught', () => {
-  for (const b of ['tenderScore', 'domainRating', 'winRate']) {
+  for (const b of ['tenderScore', 'winRate', 'contractValue', 'bidderCount']) {
     const row = base();
     row[b] = 42;
     assert.ok(caught(row, b), `${b} survived`);
   }
+});
+
+test('MUTATION: a Domain Rating with no provenance is caught', () => {
+  // domainRating left the banned list above when collection was unfrozen, and
+  // it is the one entry that never belonged there: the rest are numbers this
+  // project would have had to invent, while a Domain Rating is a measurement
+  // somebody else took and published. What must still not get in is a BARE
+  // number — that is precisely what an invented metric looks like — so the ban
+  // became a rule rather than disappearing.
+  const bare = base();
+  bare.domainRating = 42;
+  assert.ok(caught(bare, 'metricsProvenance'), 'a Domain Rating with no provenance survived');
+
+  const offScale = base();
+  offScale.domainRating = 142;
+  offScale.metricsProvenance = { domainRating: {
+    provider: 'Ahrefs', status: 'publicApiReading', measuredAt: '2026-08-19', measuredDomain: 'x.test',
+  } };
+  assert.ok(caught(offScale, 'domainRating'), 'a rating outside the 0-100 scale survived');
+
+  const stranger = base();
+  stranger.domainRating = 42;
+  stranger.metricsProvenance = { domainRating: {
+    provider: 'Somebody', status: 'publicApiReading', measuredAt: '2026-08-19', measuredDomain: 'x.test',
+  } };
+  assert.ok(caught(stranger, 'metricsProvenance.domainRating.provider'),
+    'a rating from an unrecognised provider survived');
 });
 
 test('MUTATION: an off-vocabulary enum value is caught', () => {

@@ -681,6 +681,10 @@ ${boxes}
 const SORT_FIELD_FOR_KEY = {
   default: 'petroHrysScore',
   'domain-rating': 'domainRating',
+  // Gated on the same column as its descending twin. Left unmapped it would
+  // fall through the filter below and be offered on pages that render no
+  // Domain Rating at all, where it can only sort by the tiebreak.
+  'domain-rating-asc': 'domainRating',
   'authority-score': 'authorityScore',
   traffic: 'estimatedTraffic',
   // 'alphabetical' drives no metric column, so it is always offered.

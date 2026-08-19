@@ -232,13 +232,18 @@ test('the pre-existing federal record kept its research and its snapshot', () =>
   const r = byId.get('ca-corporations-canada');
   assert.strictEqual(r.lastVerified, '2026-08-04', 'the pre-existing record was re-dated');
   assert.strictEqual(r.petroHrysScore, 88, 'the pre-existing score was altered');
-  assert.strictEqual(r.domainRating, 92, 'the pre-existing Domain Rating value was altered');
-  assert.deepStrictEqual(r.metricsProvenance.domainRating, {
-    provider: 'Ahrefs',
-    measuredAt: '2026-08-04',
-    status: 'historicalSnapshot',
-    measuredDomain: 'ised-isde.canada.ca',
-  }, 'the pre-existing Domain Rating provenance was altered');
+  // The Domain Rating VALUE is no longer pinned. It was, while collection was
+  // frozen and any change to it was by definition an edit; now the corpus is
+  // refreshed from Ahrefs and the number legitimately moves. What is still
+  // pinned is everything that would indicate tampering rather than measurement:
+  // the domain it describes, the provider, and a recognised status.
+  assert.ok(typeof r.domainRating === 'number' && r.domainRating >= 0 && r.domainRating <= 100,
+    'the pre-existing Domain Rating stopped being a reading on the 0-100 scale');
+  assert.strictEqual(r.metricsProvenance.domainRating.provider, 'Ahrefs');
+  assert.strictEqual(r.metricsProvenance.domainRating.measuredDomain, 'ised-isde.canada.ca',
+    'the record now reports a rating measured on a different domain');
+  assert.ok(S.METRIC_PROVENANCE_STATUSES.includes(r.metricsProvenance.domainRating.status),
+    'the pre-existing Domain Rating carries an unrecognised status');
   assert.strictEqual(r.website, 'https://ised-isde.canada.ca/cc/lgcy/fdrlCrpSrch.html');
   assert.strictEqual(r.primaryRegistryType, 'company-register');
   // The one addition, and it must be exactly the shared-host declaration.
@@ -258,10 +263,18 @@ test('the trademark database reuses the domain snapshot rather than measuring on
   assert.strictEqual(S.normaliseDomain(tm.website), 'ised-isde.canada.ca');
   assert.strictEqual(tm.domainRating, corp.domainRating);
   assert.deepStrictEqual(tm.metricsProvenance.domainRating, corp.metricsProvenance.domainRating);
-  assert.strictEqual(tm.metricsProvenance.domainRating.status, 'historicalSnapshot',
-    'a reused snapshot must never be presented as current');
-  assert.strictEqual(tm.metricsProvenance.domainRating.measuredAt, '2026-08-04',
-    'the measurement date must not be refreshed on reuse');
+  // Pinned to the OTHER record rather than to a literal date and status. The
+  // invariant is that one domain yields one reading, and that holds however
+  // often the corpus is refreshed — whereas a hard-coded 2026-08-04 would fail
+  // the first time it legitimately was.
+  assert.strictEqual(tm.metricsProvenance.domainRating.status,
+    corp.metricsProvenance.domainRating.status,
+    'two records on one domain disagree about how the reading was obtained');
+  assert.strictEqual(tm.metricsProvenance.domainRating.measuredAt,
+    corp.metricsProvenance.domainRating.measuredAt,
+    'the measurement date differs between two records on the same domain');
+  assert.ok(S.METRIC_PROVENANCE_STATUSES.includes(tm.metricsProvenance.domainRating.status),
+    'a reused reading carries an unrecognised status');
   assert.deepStrictEqual(S.sharedDomainSnapshotProblems(CA), []);
 
   // Both declare the shared host, with distinct system keys.
@@ -271,7 +284,10 @@ test('the trademark database reuses the domain snapshot rather than measuring on
   // And the page must not let the domain number read as page-level authority.
   const html = fs.readFileSync(
     path.join(ROOT, 'research/business-directories/canada', tm.slug, 'index.html'), 'utf8');
-  assert.ok(html.includes('not an assessment of this individual registry page'),
+  // The wording moved with the policy note; the guarantee did not. A reader
+  // looking at one of two records on ised-isde.canada.ca must be told the
+  // number belongs to the domain, or they will read it as a verdict on this page.
+  assert.ok(html.includes('not the individual page it appears beside'),
     'the detail page does not say the Domain Rating describes the domain rather than the page');
 });
 
