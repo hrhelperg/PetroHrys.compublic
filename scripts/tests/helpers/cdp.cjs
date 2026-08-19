@@ -377,7 +377,15 @@ async function harness(root, { preload = [] } = {}) {
       try { page.ws.close(); } catch { /* socket already closed */ }
       server.close();
       chrome.proc.kill('SIGKILL');
-      fs.rmSync(chrome.profile, { recursive: true, force: true });
+      // A just-killed Chrome is still flushing its profile, so removing the
+      // directory immediately throws ENOTEMPTY — and a throw inside `after`
+      // is reported as an extra failing test, which is why identical runs
+      // disagreed on the TOTAL (2405 against 2406) and not only on failures.
+      // Losing a temp directory is not worth failing a suite over; the OS
+      // reaps it.
+      try {
+        fs.rmSync(chrome.profile, { recursive: true, force: true });
+      } catch { /* the OS will reap it */ }
     },
   };
 }
