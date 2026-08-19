@@ -57,6 +57,29 @@ const SELLER_ACTIONS = [
   'unknown',                // NOT researched. The default, and never a guess.
 ];
 
+// ── WHAT IT COSTS A SELLER, WHICH IS NOT WHAT THE PLATFORM COSTS ────────────
+//
+// `costModel` describes the platform. This describes the thing a business
+// actually cares about before it starts: what do I pay, and when.
+//
+// `freemium` collapses two situations that are nothing alike to someone with
+// no budget. Etsy and eBay charge nothing to open a shop and take a cut when
+// something sells — a business with zero money can start today and pays only
+// out of revenue it has already earned. A platform with a mandatory monthly
+// plan cannot be started at all. Both were "freemium".
+//
+// So the distinction is kept, and "free" is reserved for genuinely no charge.
+const SELLER_COSTS = [
+  'free',                     // no charge to list, and no charge when it sells
+  'free-listing-commission',  // free to list; a fee only on a completed sale
+  'free-tier',                // a usable free tier exists beside paid plans
+  'paid-upfront',             // payment required before anything is listed
+  'unknown',                  // NOT researched. The default.
+];
+
+// The ones a business with no budget can act on today.
+const NO_UPFRONT_COST = ['free', 'free-listing-commission', 'free-tier'];
+
 // Values that name a route someone can actually take. The rest are findings
 // about the platform, and a route recorded against one of them is a
 // contradiction rather than a bonus.
@@ -147,6 +170,10 @@ function problemsFor(row, knownCountries) {
   }
   if (row.note !== undefined && typeof row.note !== 'string') at('note', 'must be a string.');
 
+  if (row.sellerCost !== undefined && row.sellerCost !== null
+    && !SELLER_COSTS.includes(row.sellerCost)) {
+    at('sellerCost', `must be one of: ${SELLER_COSTS.join(', ')}, or absent when never researched.`);
+  }
   if (row.sellerAction !== undefined && row.sellerAction !== null
     && !SELLER_ACTIONS.includes(row.sellerAction)) {
     at('sellerAction', `must be one of: ${SELLER_ACTIONS.join(', ')}, or absent when never researched.`);
@@ -235,6 +262,8 @@ function comparePlatforms(a, b) {
 module.exports = {
   SELLER_ACTIONS,
   ACTIONABLE_SELLER_ACTIONS,
+  SELLER_COSTS,
+  NO_UPFRONT_COST,
   MarketplaceError, MARKETPLACE_TYPES, SELLER_TYPES, COST_MODELS, CURRENT_STATUSES,
   problemsFor, isPublishable, loadMarketplaces, comparePlatforms, compareStable,
 };

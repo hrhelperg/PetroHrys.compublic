@@ -209,6 +209,15 @@ function problemsFor(row, knownCountries) {
   if (row.evidenceClass && !EVIDENCE_CLASSES.includes(row.evidenceClass)) {
     at('evidenceClass', `must be one of ${EVIDENCE_CLASSES.join(', ')}.`);
   }
+  // Seeing a notice and being allowed to bid on it are different permissions
+  // with different prices, and 294 platforms record free SEARCH. Reading that
+  // as free participation is the mistake this field exists to prevent: plenty
+  // of portals publish every notice openly and charge for the certificate,
+  // the registration or the submission itself.
+  if (row.bidAccess !== undefined && row.bidAccess !== null
+    && !ACCESS_MODELS.includes(row.bidAccess)) {
+    at('bidAccess', `must be one of ${ACCESS_MODELS.join(', ')}, or absent when never researched.`);
+  }
   if (row.searchAccess !== undefined && !ACCESS_MODELS.includes(row.searchAccess)) {
     at('searchAccess', `must be one of ${ACCESS_MODELS.join(', ')}.`);
   }

@@ -68,7 +68,12 @@ test('1. the canonical corpus is unchanged by this phase', () => {
   // nothing, which is what this test exists to prove — to-search.cjs and
   // to-related.cjs are pinned unchanged below.
   assert.strictEqual(fp('data/tender-opportunities/opportunities.json'), '3c341d60');
-  assert.strictEqual(fp('data/tenders-procurement/platforms.json'), 'f24a9edc');
+  // Re-baselined 2026-08-19. The ONLY change is `bidAccess` on 11 records —
+  // 384 records in and 384 out, one field touched, nothing added or lost. What
+  // it costs a supplier to PARTICIPATE is a new fact, established from operator
+  // wording, and deliberately independent of `searchAccess`: three of these
+  // platforms publish every notice openly and charge to bid.
+  assert.strictEqual(fp('data/tenders-procurement/platforms.json'), '810122a9');
   assert.strictEqual(fp('scripts/lib/to-match.cjs'), '5de543fb');
 });
 
