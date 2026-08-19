@@ -22,6 +22,10 @@ const path = require('node:path');
 const MD = require('./lib/media-schema.cjs');
 const MI = require('./lib/media-intelligence.cjs');
 const REC = require('./lib/media-recommend.cjs');
+// Domain Rating vocabulary is owned by the directory schema — the scale, the
+// provider and the attribution the Ahrefs licence requires. Imported rather than
+// restated, so one licence obligation cannot end up worded two ways on one site.
+const BD = require('./lib/bd-schema.cjs');
 // Module-level import is the ENGLISH binding; the locale-bound set is derived
 // from the translator each render function already receives. `t.locale` exists
 // precisely so a renderer never has to be told the locale twice and cannot be
@@ -239,6 +243,55 @@ function renderMain(rows, countryName, t) {
   const p1 = rows.filter((r) => r.priority === 'P1').length;
   const cov = MI.coverage(rows);
 
+  // ── Domain Rating ─────────────────────────────────────────────────────────
+  // A dated third-party measurement of the DOMAIN, and never a judgement of the
+  // publication. It sits beside the Media Score precisely because the two answer
+  // different questions: one is Ahrefs measuring links, the other is this site
+  // assessing a publishing route. They are never combined.
+  //
+  // The column is drawn only where at least one platform on THIS page carries a
+  // reading. A column of nothing but "Not measured" would describe our research
+  // backlog rather than the media landscape, and would push the columns that do
+  // carry data off the side of the table to say it.
+  const hasDr = (r) => r.domainRating !== null && r.domainRating !== undefined;
+  const showDr = rows.some(hasDr);
+  // Emitted on EVERY row whether or not the column renders: the client rebuilds
+  // the record it sorts from these attributes. An absent reading arrives as the
+  // empty string, never 0 — 0 is a real measurement, and writing it for "we did
+  // not look" would rank an unmeasured domain above one genuinely measured at 1.
+  const drAttr = (r) => (hasDr(r) ? String(r.domainRating) : '');
+  const drCell = (r) => (showDr
+    ? `\n            <td class="bd-cell" data-bd-label="${escapeHtml(t('col.domainRating'))}">${hasDr(r)
+      ? `<span class="bd-metric">${escapeHtml(String(r.domainRating))}</span>`
+      : `<span class="bd-metric bd-metric--empty">${escapeHtml(t('bd.drNotMeasured'))}</span>`}</td>`
+    : '');
+  // Required by the Ahrefs licence wherever a Domain Rating is displayed, as a
+  // working link. It is tied to the column and to nothing else: never hidden,
+  // never behind a filter, and never a hardcoded string that could drift from
+  // the one the directory pages carry.
+  const drAttribution = showDr
+    ? `\n      <p class="bd-note"><a href="${escapeHtml(BD.AHREFS_ATTRIBUTION.href)}" `
+      + `rel="noopener noreferrer" target="_blank">${escapeHtml(BD.AHREFS_ATTRIBUTION.text)}</a></p>`
+    : '';
+  // Offered only when the column is on screen. A sort option for a column the
+  // reader cannot see silently reorders the table by a number the page is not
+  // showing. The values are the machine keys from js/bd-order.js — the shared
+  // server/browser contract — so they stay identical in all four locales while
+  // only the labels change.
+  const drSort = showDr
+    ? `\n      <div class="bd-control" data-bd-sort-wrap hidden>
+        <label class="bd-label" for="md-sort">${escapeHtml(t('bd.sortBy'))}</label>
+        <select class="bd-select" id="md-sort" data-bd-sort>
+          <!-- First, and therefore the client's initial state: adding a sort
+               control must not silently re-order a page that had none. -->
+          <option value="as-published">${escapeHtml(t('sort.asPublished'))}</option>
+          <option value="domain-rating">${escapeHtml(t('sort.drDesc'))}</option>
+          <option value="domain-rating-asc">${escapeHtml(t('sort.drAsc'))}</option>
+          <option value="alphabetical">${escapeHtml(t('sort.alphabetical'))}</option>
+        </select>
+      </div>`
+    : '';
+
   const tableRows = rows.map((r) => {
     const typeText = r.opportunityTypes.map((x) => t(`opportunity.${x}`)).join(', ');
     const catText = r.categories.map((x) => CATEGORY_LABELS[x] || x).join(', ');
@@ -247,6 +300,7 @@ function renderMain(rows, countryName, t) {
       r.shortNote].join(' ').toLowerCase();
     return `          <tr class="bd-row" data-bd-name="${escapeHtml(r.name)}" `
       + `data-bd-haystack="${escapeHtml(haystack)}" `
+      + `data-bd-dr="${escapeHtml(drAttr(r))}" `
       + `data-bd-facet-country="${escapeHtml(r.country)}" `
       + `data-bd-facet-audience="${escapeHtml(r.audienceGeography)}" `
       + `data-bd-facet-category="${escapeHtml(r.categories.join(' '))}" `
@@ -272,7 +326,7 @@ function renderMain(rows, countryName, t) {
     : `<strong>${scoreOf(r).score}</strong> ${escapeHtml(scoreOf(r).band)}`}</td>
             <td class="bd-cell" data-bd-label="${escapeHtml(t('col.bestFor'))}">${escapeHtml(bestForOf(r)
     .map((slug) => (REC.PROFILE_BY_KEY.get(slug.replace(/-/g, '-')) || {}).label
-      || (REC.PROFILES.find((p) => p.slug === slug) || {}).label || slug).join(', '))}</td>
+      || (REC.PROFILES.find((p) => p.slug === slug) || {}).label || slug).join(', '))}</td>${drCell(r)}
             <td class="bd-cell" data-bd-label="${escapeHtml(t('col.whatItIs'))}">${escapeHtml(r.shortNote)}${
   r.limitations ? ` <em>${escapeHtml(r.limitations)}</em>` : ''}</td>
             <td class="bd-cell bd-actions" data-bd-label="${escapeHtml(t('col.actions'))}">${actions(r)}</td>
@@ -281,6 +335,7 @@ function renderMain(rows, countryName, t) {
 
   const head = ['col.platform', 'col.country', 'col.audience', 'col.category', 'col.industry',
     'col.opportunity', 'col.cost', 'col.priority', 'col.status', 'col.mediaScore', 'col.bestFor',
+    ...(showDr ? ['col.domainRating'] : []),
     'col.whatItIs', 'col.actions'].map((k) => t(k));
 
   const countryLabels = Object.fromEntries([...countries].map((s) => [s, countryName(s)]));
@@ -318,7 +373,7 @@ function renderMain(rows, countryName, t) {
         <div class="bd-control">
           <label class="bd-label" for="md-search">${escapeHtml(t('common.search'))}</label>
           <input class="bd-input" id="md-search" type="search" data-bd-search placeholder="${escapeHtml(t('md.searchPlaceholder'))}">
-        </div>
+        </div>${drSort}
 ${facet({ name: 'country', t, label: t('col.country'), values: rows.map((r) => r.country), labels: countryLabels })}
 ${facet({ name: 'audience', t, label: t('md.f.audience'), values: rows.map((r) => r.audienceGeography), labels: Object.fromEntries(MD.AUDIENCE_GEOGRAPHIES.map((x) => [x, t(`geo.${x}`)])) })}
 ${facet({ name: 'category', t, label: t('md.f.category'), values: rows.flatMap((r) => r.categories), labels: CATEGORY_LABELS, multi: true })}
@@ -344,7 +399,7 @@ ${c.filteredExportControl({ name: 'media-pr-publishing', count: rows.length })}
 ${tableRows}
           </tbody>
         </table>
-      </div>
+      </div>${drAttribution}
     </section>`,
     `<section id="media-score" aria-labelledby="media-score-heading">
       <h2 id="media-score-heading">${escapeHtml(t('md.mediaScoreH'))}</h2>

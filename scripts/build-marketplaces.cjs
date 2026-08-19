@@ -24,6 +24,11 @@ const componentsModule = require('./lib/bd-components.cjs');
 const componentsFor = (t) => componentsModule.components(t.locale);
 const render = require('./lib/bd-render.cjs');
 const seo = require('./lib/bd-seo.cjs');
+// Only for AHREFS_ATTRIBUTION. The Ahrefs licence requires the credit next to
+// any displayed Domain Rating, so the text and href are read from the one
+// constant every collection shares rather than retyped per page — a hardcoded
+// copy is how one page ends up crediting the wrong provider after a change.
+const S = require('./lib/bd-schema.cjs');
 const I18N = require('./lib/i18n.cjs');
 
 const ROOT = path.join(__dirname, '..');
@@ -91,9 +96,23 @@ ${options}
       </div>`;
 }
 
+// A Domain Rating is absent far more often than it is present, and an absent
+// one must never read as a zero: `null` is "nobody has a reading", `0` is a
+// measured floor. Hence the empty string, and hence the explicit label in the
+// cell rather than a bare dash.
+const hasDr = (r) => r.domainRating !== null && r.domainRating !== undefined;
+const drAttr = (r) => (hasDr(r) ? String(r.domainRating) : '');
+
 function renderPage(rows, countryName, t) {
   const c = componentsFor(t);
   const countries = new Set(rows.map((r) => r.country));
+  // The column renders only when at least one row in THIS set carries a
+  // reading. A column of nothing but "Not measured" tells a reader less than no
+  // column at all. The data attribute below is emitted either way, because the
+  // browser sorts from the attribute and must be able to sort rows it cannot
+  // see a column for — the same split as directoryRow() in bd-components.cjs.
+  const showDr = rows.some(hasDr);
+  const drLabel = t('col.domainRating');
   const tableRows = rows.map((r) => {
     const types = [r.marketplaceType, ...(r.alsoCovers || [])]
       .map((x) => t(`mpType.${x}`)).join(', ');
@@ -105,8 +124,13 @@ function renderPage(rows, countryName, t) {
     // see the longer note in build-tenders-procurement.cjs.
     const haystack = [r.name, countryName(r.country), types,
       t(`seller.${r.sellerTypes}`), t(`cost.${r.costModel}`)].join(' ').toLowerCase();
+    const drCell = showDr
+      ? `\n            <td data-label="${escapeHtml(drLabel)}">${
+        escapeHtml(hasDr(r) ? String(r.domainRating) : t('bd.drNotMeasured'))}</td>`
+      : '';
     return `          <tr class="bd-row" data-bd-name="${escapeHtml(r.name)}" `
       + `data-bd-haystack="${escapeHtml(haystack)}" `
+      + `data-bd-dr="${escapeHtml(drAttr(r))}" `
       + `data-bd-facet-country="${escapeHtml(r.country)}" `
       + `data-bd-facet-type="${escapeHtml(r.marketplaceType)}" `
       + `data-bd-facet-cost="${escapeHtml(r.costModel)}" `
@@ -117,14 +141,43 @@ function renderPage(rows, countryName, t) {
             <td data-label="${escapeHtml(t('col.type'))}">${escapeHtml(types)}</td>
             <td data-label="${escapeHtml(t('col.whoCanList'))}">${escapeHtml(t(`seller.${r.sellerTypes}`))}</td>
             <td data-label="${escapeHtml(t('col.cost'))}">${escapeHtml(t(`cost.${r.costModel}`))}</td>
-            <td data-label="${escapeHtml(t('col.operator'))}">${escapeHtml(r.operator || '')}</td>
+            <td data-label="${escapeHtml(t('col.operator'))}">${escapeHtml(r.operator || '')}</td>${drCell}
             <td data-label="${escapeHtml(t('col.status'))}">${escapeHtml(t(`currentStatus.${r.currentStatus}`))}</td>
             <td data-label="${escapeHtml(t('col.notes'))}">${escapeHtml(r.note || '')}</td>
           </tr>`;
   }).join('\n');
 
+  // Kept in lockstep with the cells above: the Domain Rating heading appears in
+  // the same position, under the same condition, as the <td>.
   const head = ['col.platform', 'col.country', 'col.type', 'col.whoCanList', 'col.cost',
-    'col.operator', 'col.status', 'col.notes'].map((k) => t(k));
+    'col.operator', ...(showDr ? ['col.domainRating'] : []), 'col.status', 'col.notes']
+    .map((k) => t(k));
+
+  // Sorting is client-side, so the control is hidden until the script that
+  // implements it runs — the same progressive-enhancement contract as
+  // sortControls() in bd-components.cjs. The option values are the stable
+  // machine keys from js/bd-order.js and are never localized; only the labels
+  // beside them are.
+  const sortControl = showDr ? `        <div class="bd-control" data-bd-sort-wrap hidden>
+          <label class="bd-label" for="mp-sort">${escapeHtml(t('bd.sortBy'))}</label>
+          <select class="bd-select" id="mp-sort" data-bd-sort>
+            <!-- First, and therefore the client's initial state: adding a sort
+                 control must not silently re-order a page that had none. -->
+            <option value="as-published">${escapeHtml(t('sort.asPublished'))}</option>
+            <option value="domain-rating">${escapeHtml(t('sort.drDesc'))}</option>
+            <option value="domain-rating-asc">${escapeHtml(t('sort.drAsc'))}</option>
+            <option value="alphabetical">${escapeHtml(t('sort.alphabetical'))}</option>
+          </select>
+        </div>\n` : '';
+
+  // Required by the Ahrefs licence wherever a Domain Rating is displayed, as a
+  // working link. Tied to the column and to nothing else: it appears whenever
+  // the number does, and is never hidden.
+  const drAttribution = showDr
+    ? `\n      <p class="bd-note"><a href="${escapeHtml(S.AHREFS_ATTRIBUTION.href)}" `
+      + `rel="noopener noreferrer" target="_blank">`
+      + `${escapeHtml(S.AHREFS_ATTRIBUTION.text)}</a></p>`
+    : '';
   return [
     c.pageIntro({
       // Both numbers are derived. An earlier version hardcoded "in Europe" and
@@ -145,7 +198,7 @@ ${facet({ name: 'type', t, label: t('mp.f.type'), values: rows.map((r) => r.mark
 ${facet({ name: 'cost', t, label: t('mp.f.cost'), values: rows.map((r) => r.costModel), labels: Object.fromEntries(MP.COST_MODELS.map((x) => [x, t(`cost.${x}`)])) })}
 ${facet({ name: 'sellers', t, label: t('mp.f.sellers'), values: rows.map((r) => r.sellerTypes), labels: Object.fromEntries(MP.SELLER_TYPES.map((x) => [x, t(`seller.${x}`)])) })}
 ${facet({ name: 'status', t, label: t('mp.f.status'), values: rows.map((r) => r.currentStatus), labels: Object.fromEntries(['active', 'unknown'].map((x) => [x, t(`currentStatus.${x}`)])) })}
-        <div class="bd-control">
+${sortControl}        <div class="bd-control">
           <button class="bd-button bd-button--ghost" type="button" data-bd-clear>${escapeHtml(t('common.clearFilters'))}</button>
         </div>
       </div>
@@ -159,7 +212,7 @@ ${c.filteredExportControl({ name: 'marketplaces', count: rows.length })}
 ${tableRows}
           </tbody>
         </table>
-      </div>
+      </div>${drAttribution}
     </section>`,
     `<section id="scope" aria-labelledby="scope-heading">
       <h2 id="scope-heading">${escapeHtml(t('mp.scope'))}</h2>

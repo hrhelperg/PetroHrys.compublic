@@ -28,6 +28,17 @@ const componentsFor = (t) => componentsModule.components(t.locale);
 const render = require('./lib/bd-render.cjs');
 const seo = require('./lib/bd-seo.cjs');
 const I18N = require('./lib/i18n.cjs');
+// Domain Rating is Ahrefs' measurement, and the licence to display it comes
+// with the obligation to say so. The attribution text and href live in the
+// shared schema so all four collections cite the provider identically and no
+// page can drift into a hand-typed variant of the credit.
+const BD = require('./lib/bd-schema.cjs');
+// The canonical sort keys, from js/bd-order.js by way of the server adapter.
+// Read here only to ASSERT the values this page offers still exist there: a
+// key that has drifted out of that list is not a broken option, it is a
+// silently inert one — the browser falls back to the default comparator and
+// the reader gets an ordering the control never promised.
+const { SORT_KEYS } = require('./lib/bd-sort.cjs');
 
 const ROOT = path.join(__dirname, '..');
 const DATA_FILE = path.join(ROOT, 'data', 'tenders-procurement', 'platforms.json');
@@ -137,10 +148,61 @@ function subnationalFacet(rows, t) {
   });
 }
 
+// The orderings this page offers, as [stable key, i18n key] pairs.
+//
+// The VALUE is a machine identifier shared with js/bd-order.js and with the
+// URL parameter; only the LABEL is translated. Emitting a localized string as
+// an option value would make the German page's sort links unreadable to the
+// comparator — and to every other locale.
+//
+// Three options, not six: 'default', 'authority-score' and 'traffic' drive
+// metric columns this collection does not have, so offering them would hand
+// the reader controls that quietly collapse to name order.
+const SORT_OPTIONS = [
+  // First, and therefore the client's initial state: adding a sort control
+  // must not silently re-order a page that had none.
+  ['as-published', 'sort.asPublished'],
+  ['domain-rating', 'sort.drDesc'],
+  ['domain-rating-asc', 'sort.drAsc'],
+  ['alphabetical', 'sort.alphabetical'],
+];
+
+for (const [key] of SORT_OPTIONS) {
+  if (!SORT_KEYS.includes(key)) {
+    throw new Error(`Sort key "${key}" is not in js/bd-order.js SORT_KEYS `
+      + `(${SORT_KEYS.join(', ')}): the option would render and do nothing.`);
+  }
+}
+
+// Markup mirrors scripts/lib/bd-components.cjs sortControls(): the wrapper
+// carries data-bd-sort-wrap and starts hidden, and js/business-directories.js
+// reveals it only once the behaviour behind it exists. Without JavaScript the
+// prerendered table is complete and no dead control is shown.
+//
+// Rendered only when the Domain Rating column is, because two of the three
+// orderings rank by a number the reader would otherwise be unable to see.
+function sortControl(t, render) {
+  if (!render) return '';
+  const options = SORT_OPTIONS
+    .map(([value, key]) => `          <option value="${value}">${escapeHtml(t(key))}</option>`)
+    .join('\n');
+  return `      <div class="bd-control" data-bd-sort-wrap hidden>
+        <label class="bd-label" for="tp-sort">${escapeHtml(t('bd.sortBy'))}</label>
+        <select class="bd-select" id="tp-sort" data-bd-sort>
+${options}
+        </select>
+      </div>`;
+}
+
 function renderMain(rows, countryName, t) {
   const c = componentsFor(t);
   const countries = new Set(rows.map((r) => r.country));
   const idToName = new Map(rows.map((r) => [r.id, r.name]));
+  // A column of nothing but "Not measured" tells a reader less than no column
+  // at all, so Domain Rating renders only when at least one platform in THIS
+  // set carries a measurement. The row attribute below is emitted either way.
+  const hasDomainRating = rows.some((r) => r.domainRating !== null && r.domainRating !== undefined);
+  const drLabel = t('col.domainRating');
   const tableRows = rows.map((r) => {
     const evidence = r.browserCheckRequired
       ? t('tp.evidence.browserCheck')
@@ -167,6 +229,20 @@ function renderMain(rows, countryName, t) {
     // explanatory prose around the table.
     const haystack = [r.name, jurisdictionLabel(r, countryName),
       t(`tpType.${r.platformType}`), r.operator || ''].join(' ').toLowerCase();
+    // The sort attribute, on EVERY row whether or not the column renders:
+    // js/business-directories.js rebuilds a comparable record out of these
+    // attributes (num(row, 'dr')), and a row that omits it sorts as unmeasured
+    // even when the page is showing its rating.
+    //
+    // Missing is the EMPTY STRING, never 0. The client reads '' back as null
+    // and js/bd-order.js sorts nulls last in BOTH directions; a 0 is a real
+    // reading, so writing 0 for "we never looked" would file every unmeasured
+    // platform as the worst-scoring one on the page.
+    const dr = r.domainRating === null || r.domainRating === undefined ? '' : String(r.domainRating);
+    const drCell = hasDomainRating
+      ? `\n            <td data-label="${escapeHtml(drLabel)}">`
+        + `${escapeHtml(dr === '' ? t('bd.drNotMeasured') : dr)}</td>`
+      : '';
     return `          <tr class="bd-row" data-bd-name="${escapeHtml(r.name)}" `
       + `data-bd-haystack="${escapeHtml(haystack)}" `
       + `data-bd-facet-country="${escapeHtml(r.country)}" `
@@ -175,6 +251,7 @@ function renderMain(rows, countryName, t) {
       + `data-bd-facet-scope="${escapeHtml(r.procurementScope)}" `
       + `data-bd-facet-esub="${escapeHtml(r.electronicSubmission || 'unknown')}" `
       + `data-bd-facet-foreign="${escapeHtml(r.foreignSuppliersAccepted || 'unknown')}" `
+      + `data-bd-dr="${escapeHtml(dr)}" `
       + `data-bd-facet-evidence="${escapeHtml(r.browserCheckRequired ? 'browser-check' : r.evidenceClass)}">
             <td data-label="${escapeHtml(t('col.platform'))}"><a href="${escapeHtml(r.officialUrl)}" rel="noopener noreferrer" target="_blank">${escapeHtml(r.name)}</a>${partOf ? `<br><small>${escapeHtml(partOf)}</small>` : ''}</td>
             <td data-label="${escapeHtml(t('col.country'))}">${escapeHtml(jurisdictionLabel(r, countryName))}</td>
@@ -182,13 +259,27 @@ function renderMain(rows, countryName, t) {
             <td data-label="${escapeHtml(t('tp.col.operator'))}">${escapeHtml(r.operator || t('common.notRecorded'))}</td>
             <td data-label="${escapeHtml(t('tp.col.actions'))}">${actionLinks(r, t)}</td>
             <td data-label="${escapeHtml(t('tp.col.esub'))}">${escapeHtml(t(`tri.${r.electronicSubmission || 'unknown'}`))}</td>
-            <td data-label="${escapeHtml(t('tp.col.foreign'))}">${escapeHtml(t(`tri.${r.foreignSuppliersAccepted || 'unknown'}`))}</td>
+            <td data-label="${escapeHtml(t('tp.col.foreign'))}">${escapeHtml(t(`tri.${r.foreignSuppliersAccepted || 'unknown'}`))}</td>${drCell}
             <td data-label="${escapeHtml(t('tp.col.evidence'))}">${escapeHtml(evidence)}</td>
           </tr>`;
   }).join('\n');
 
+  // Built from one list so the header and the body cells cannot disagree about
+  // where the column sits. Domain Rating goes immediately before the evidence
+  // column: evidence is the row's closing statement about how well the record
+  // is established and stays last.
   const head = ['col.platform', 'col.country', 'col.type', 'tp.col.operator', 'tp.col.actions',
-    'tp.col.esub', 'tp.col.foreign', 'tp.col.evidence'].map((k) => t(k));
+    'tp.col.esub', 'tp.col.foreign',
+    ...(hasDomainRating ? ['col.domainRating'] : []),
+    'tp.col.evidence'].map((k) => t(k));
+
+  // Required by the Ahrefs licence wherever a Domain Rating is displayed, with
+  // a working link, and never conditional on anything but the column itself.
+  const ahrefsAttribution = hasDomainRating
+    ? `\n      <p class="bd-note"><a href="${escapeHtml(BD.AHREFS_ATTRIBUTION.href)}" `
+      + `rel="noopener noreferrer" target="_blank">`
+      + `${escapeHtml(BD.AHREFS_ATTRIBUTION.text)}</a></p>`
+    : '';
 
   return [
     c.pageIntro({
@@ -210,6 +301,7 @@ ${facet({ name: 'scope', t, label: t('tp.f.scope'), values: rows.map((r) => r.pr
 ${facet({ name: 'esub', t, label: t('tp.f.esub'), values: rows.map((r) => r.electronicSubmission || 'unknown'), labels: Object.fromEntries(TP.TRI_STATE.map((x) => [x, t(`tri.${x}`)])) })}
 ${facet({ name: 'foreign', t, label: t('tp.f.foreign'), values: rows.map((r) => r.foreignSuppliersAccepted || 'unknown'), labels: Object.fromEntries(TP.TRI_STATE.map((x) => [x, t(`tri.${x}`)])) })}
 ${facet({ name: 'evidence', t, label: t('tp.f.evidence'), values: rows.map((r) => (r.browserCheckRequired ? 'browser-check' : r.evidenceClass)), labels: { A: t('tp.evidence.A'), B: t('tp.evidence.B'), C: t('tp.evidence.C'), unknown: t('tp.evidence.unknown'), 'browser-check': t('tp.evidence.browserCheck') } })}
+${sortControl(t, hasDomainRating)}
         <div class="bd-control">
           <button class="bd-button bd-button--ghost" type="button" data-bd-clear>${escapeHtml(t('common.clearFilters'))}</button>
         </div>
@@ -224,7 +316,7 @@ ${c.filteredExportControl({ name: 'tenders-procurement', count: rows.length })}
 ${tableRows}
           </tbody>
         </table>
-      </div>
+      </div>${ahrefsAttribution}
     </section>`,
     `<section id="methodology" aria-labelledby="methodology-heading">
       <h2 id="methodology-heading">${escapeHtml(t('common.methodology'))}</h2>

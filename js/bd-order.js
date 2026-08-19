@@ -27,6 +27,23 @@
     return b - a;
   }
 
+  // Ascending, and nulls STILL last.
+  //
+  // This is the one place the two directions deliberately disagree with the
+  // obvious implementation. Reversing a descending comparator would put every
+  // unmeasured record at the top of "lowest first", which reads as "these are
+  // the worst" — and an unmeasured domain is not a domain that scored badly.
+  // A measured 0 is a real reading and belongs first; a missing reading belongs
+  // after everything that was actually measured, in both directions.
+  function nullLastAsc(a, b) {
+    var aNull = a === null || a === undefined;
+    var bNull = b === null || b === undefined;
+    if (aNull && bNull) return 0;
+    if (aNull) return 1;
+    if (bNull) return -1;
+    return a - b;
+  }
+
   // The name a reader actually sees. The server holds the full record; the
   // browser rebuilds one from data-bd-name, which already carries the resolved
   // display name. Resolving in the same order on both sides is what keeps the
@@ -80,12 +97,38 @@
           || compareByName(a, b);
       }
     },
+    // The order the page was published in, kept exactly.
+    //
+    // The browser client selects the FIRST option in the sort control as its
+    // initial state, so a page whose first option is Domain Rating silently
+    // re-sorts itself on load and throws away the order the generator chose —
+    // for Media that is editorial priority, for Tender Platforms it is
+    // jurisdiction. Offering this first means adding a sort control changes
+    // nothing until a reader asks for a change.
+    //
+    // The comparator returns 0 for every pair; sortRecords' index tiebreak then
+    // preserves the incoming order exactly.
+    'as-published': {
+      key: 'as-published',
+      label: 'Default order',
+      compare: function () { return 0; }
+    },
+    'domain-rating-asc': {
+      key: 'domain-rating-asc',
+      label: 'Domain Rating (lowest first)',
+      compare: function (a, b) {
+        return nullLastAsc(a.domainRating, b.domainRating)
+          || nullLastDesc(a.petroHrysScore, b.petroHrysScore)
+          || compareByName(a, b);
+      }
+    },
     'authority-score': { key: 'authority-score', label: 'Authority Score', compare: byMetric('authorityScore') },
     'traffic': { key: 'traffic', label: 'Estimated Traffic', compare: byMetric('estimatedTraffic') },
     'alphabetical': { key: 'alphabetical', label: 'Alphabetical', compare: compareByName }
   };
 
-  var SORT_KEYS = ['default', 'domain-rating', 'authority-score', 'traffic', 'alphabetical'];
+  var SORT_KEYS = ['default', 'as-published', 'domain-rating', 'domain-rating-asc',
+    'authority-score', 'traffic', 'alphabetical'];
 
   // Stability comes from the explicit index tiebreak, not from the engine's
   // sort being stable, so behaviour is identical on any runtime.
@@ -106,6 +149,7 @@
 
   return {
     nullLastDesc: nullLastDesc,
+    nullLastAsc: nullLastAsc,
     displayNameOf: displayNameOf,
     compareByName: compareByName,
     SORTS: SORTS,

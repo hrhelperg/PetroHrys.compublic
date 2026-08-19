@@ -1,0 +1,63 @@
+{
+ "probedAt": "2026-08-19",
+ "provider": "Ahrefs",
+ "freshDays": 90,
+ "findings": [
+  {
+   "key": "ahrefs|domain-rating|104.com.tw",
+   "target": "104.com.tw",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 89,
+   "checkedAt": "2026-08-19",
+   "records": [
+    {
+     "collection": "directory-opportunities",
+     "id": "tw-104"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|11467.com",
+   "target": "11467.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 83,
+   "checkedAt": "2026-08-19",
+   "records": [
+    {
+     "collection": "directory-opportunities",
+     "id": "cn-11467"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|118000.fr",
+   "target": "118000.fr",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 56,
+   "checkedAt": "2026-08-19",
+   "records": [
+    {
+     "collection": "directory-opportunities",
+     "id": "fr-118000"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|11870.com",
+   "target": "11870.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 55,
+   "checkedAt": "2026-08-19",
+   "records": [
+    {
+     "collection": "directory-opportunities",
+     "id": "es-11870"
+    }
+   ]
+  }
+ ]
+}

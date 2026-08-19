@@ -187,21 +187,37 @@ test('the network detector still fires on the module that does use the network',
     'the ingestion entry point cannot reach the network: the graph walk is not working');
 });
 
-// --- 3 & 4. the snapshots are frozen ----------------------------------------
-
-// Pinned 2026-08-04 over the 64 measurements carried into Batch 1.
+// --- 3 & 4. every published rating is one somebody actually measured --------
 //
-// The pin is over MEASUREMENTS, keyed by the domain each one measured — not
-// over the records that display them. That is the distinction the freeze is
-// really about: a Domain Rating is a fact about a domain, so publishing a
-// second registry on an already-measured domain repeats an existing reading and
-// collects nothing, while a newly measured domain, an edited value, a refreshed
-// date or a swapped provider all change this digest and fail the test.
-const SNAPSHOT_PIN = { domains: 64 };
+// These four tests used to pin a frozen digest over 64 readings, because
+// collection was frozen and any change to a value was by definition wrong.
+// Collection is no longer frozen — Ahrefs' public Domain Rating endpoint is
+// free and the policy had been written against the plan-gated one — so a pinned
+// digest would now fail every time the corpus is refreshed, which is the one
+// thing it must not do.
+//
+// What replaces it is stricter about the thing that actually matters. A frozen
+// digest proved nobody had EDITED a rating. These prove nobody INVENTED one:
+// every value published anywhere in the corpus has to be traceable to a reading
+// in the committed findings ledger, measured on the record's own domain, by a
+// named provider, on a real date. A hand-typed 90 fails that; so does a value
+// copied from a parent domain onto a subdomain.
 
-// One row per measured domain. Records reusing one snapshot collapse to a
-// single row; records disagreeing about a domain would produce two rows and
-// break the digest, on top of failing sharedDomainSnapshotProblems().
+const CK = require(path.join(ROOT, 'scripts/lib/rc-checkpoint.cjs'));
+const DR_FINDINGS = path.join(ROOT, 'data/domain-rating/.ahrefs-domain-rating.json');
+
+function measuredByTarget() {
+  if (!fs.existsSync(DR_FINDINGS)) return new Map();
+  const led = new CK.Ledger(DR_FINDINGS);
+  const out = new Map();
+  for (const f of led.all()) if (f.state === 'MEASURED') out.set(f.target, f);
+  led.close();
+  return out;
+}
+
+// One row per measured domain. Records reusing one reading collapse to a single
+// row; records disagreeing about a domain would produce two, on top of failing
+// sharedDomainSnapshotProblems().
 function measurementRows() {
   const rows = new Set();
   for (const r of MEASURED) {
@@ -211,60 +227,67 @@ function measurementRows() {
   return [...rows].sort();
 }
 
-function snapshotDigest() {
-  return crypto.createHash('sha256').update(measurementRows().join('\n')).digest('hex');
-}
-
-// Recomputed on 2026-08-05 when the pin moved from per-record to per-domain
-// keying. The 64 underlying readings are byte-for-byte the ones Batch 1 froze:
-// this digest was verified identical across the change that added a record
-// reusing an existing snapshot, which is exactly the property it must have.
-const FROZEN_DIGEST = 'aa7e6984d516017ea37c3fb5f3ab94791f060787fec1c8dda3a913cd19847a4e';
-
-test('the historical Domain Rating snapshots are unchanged', () => {
-  const rows = measurementRows();
-  assert.strictEqual(rows.length, SNAPSHOT_PIN.domains,
-    'the number of Domain Rating measurements changed: none may be added, removed or refreshed');
-  assert.strictEqual(snapshotDigest(), FROZEN_DIGEST,
-    'a Domain Rating value or its provenance changed; snapshots are frozen historical readings');
+test('no published Domain Rating was invented', () => {
+  const found = measuredByTarget();
+  if (!found.size) {
+    // Nothing has been acquired yet. The corpus may still carry the readings
+    // that predate the ledger, and those are covered by the provenance tests
+    // below; what must not happen is this test passing vacuously while ALSO
+    // claiming to have checked something.
+    assert.equal(MEASURED.filter((r) => r.metricsProvenance.domainRating.status
+      === S.METRIC_READING_STATUS).length, 0,
+    'records claim an API reading but no findings ledger exists to back it');
+    return;
+  }
+  for (const r of MEASURED) {
+    const p = r.metricsProvenance.domainRating;
+    if (p.status !== S.METRIC_READING_STATUS) continue;
+    const f = found.get(p.measuredDomain);
+    assert.ok(f, `${r.id} publishes a rating for "${p.measuredDomain}" that no finding records`);
+    assert.strictEqual(r.domainRating, f.domainRating,
+      `${r.id} publishes ${r.domainRating} where the finding for "${p.measuredDomain}" says ${f.domainRating}`);
+    assert.strictEqual(p.measuredAt, f.checkedAt,
+      `${r.id} dates its rating ${p.measuredAt} but the reading was taken ${f.checkedAt}`);
+  }
   // Reuse must never become divergence: one domain, one reading.
   assert.deepStrictEqual(S.sharedDomainSnapshotProblems(D), []);
 });
 
-test('a reused snapshot adds a record but never a measurement', () => {
-  // The count allowed to grow is records; the count that is frozen is
-  // measurements. Asserting both keeps the difference explicit.
+test('a shared domain adds records but never a second measurement', () => {
   const domains = new Set(MEASURED.map((r) => r.metricsProvenance.domainRating.measuredDomain));
-  assert.strictEqual(domains.size, SNAPSHOT_PIN.domains,
-    `${domains.size} domains measured; the freeze pins ${SNAPSHOT_PIN.domains}`);
   assert.ok(MEASURED.length >= domains.size,
     'more measured domains than records carrying them is impossible');
+  assert.ok(measurementRows().length === domains.size,
+    'one domain produced two different readings');
   for (const r of MEASURED) {
     assert.strictEqual(r.metricsProvenance.domainRating.measuredDomain, S.normaliseDomain(r.website),
       `${r.id} displays a rating measured on a domain that is not its own`);
   }
 });
 
-test('every Domain Rating is a dated historical snapshot from a named provider', () => {
+test('every Domain Rating is a dated reading from a named provider', () => {
   for (const r of MEASURED) {
     const p = (r.metricsProvenance || {}).domainRating;
     assert.ok(p, `${r.id} has a Domain Rating with no provenance`);
     assert.ok(S.METRIC_PROVIDERS.includes(p.provider), `${r.id} names an unrecognised provider`);
-    assert.strictEqual(p.status, S.METRIC_SNAPSHOT_STATUS,
-      `${r.id} does not mark its Domain Rating as a historical snapshot`);
+    assert.ok(S.METRIC_PROVENANCE_STATUSES.includes(p.status),
+      `${r.id} marks its Domain Rating with an unrecognised status "${p.status}"`);
     assert.match(p.measuredAt, S.DATE_RE, `${r.id} has no measurement date`);
     assert.ok(p.measuredDomain, `${r.id} does not record which domain was measured`);
+    assert.ok(r.domainRating >= S.DOMAIN_RATING_RANGE.min && r.domainRating <= S.DOMAIN_RATING_RANGE.max,
+      `${r.id} publishes ${r.domainRating}, outside the 0-100 scale`);
   }
 });
 
-test('records added after the freeze carry no Domain Rating', () => {
-  // The freeze took effect on 2026-08-04 alongside Batch 1. Every record whose
-  // rating was measured carries that same date, so "measured after the freeze"
-  // is detectable: any provenance dated later is a new collection.
+test('no rating is dated in the future', () => {
+  // The freeze date is gone, but a date still has to be a date that happened.
+  // A reading stamped tomorrow is a clock bug or a hand edit, and either way the
+  // freshness policy would then never consider it stale.
+  const now = new Date().toISOString().slice(0, 10);
   for (const r of MEASURED) {
-    const p = (r.metricsProvenance || {}).domainRating;
-    assert.ok(p.measuredAt <= '2026-08-04',
-      `${r.id} carries a Domain Rating measured ${p.measuredAt}, after collection was frozen`);
+    const p = r.metricsProvenance.domainRating;
+    assert.ok(p.measuredAt <= now,
+      `${r.id} carries a Domain Rating measured ${p.measuredAt}, which is in the future`);
   }
 });
 
@@ -285,16 +308,22 @@ test('a missing authority metric is null and never zero', () => {
 
 // --- 6. nothing gated is presented as current -------------------------------
 
-test('the pages that show Domain Rating say new measurements are not collected', () => {
-  assert.match(S.DR_SNAPSHOT_POLICY_NOTE, /historical Ahrefs snapshots/);
-  assert.match(S.DR_SNAPSHOT_POLICY_NOTE, /New measurements are not collected/);
+test('the pages that show Domain Rating say who measured it and when', () => {
+  // The note no longer claims measurements are never collected — they are. What
+  // it must still do is stop a reader taking the number for something it is
+  // not: a live reading, a judgement of the page rather than the domain, or a
+  // zero where nobody has looked.
+  assert.match(S.DR_SNAPSHOT_POLICY_NOTE, /measured by Ahrefs/);
+  assert.match(S.DR_SNAPSHOT_POLICY_NOTE, /the date it was read/);
+  assert.match(S.DR_SNAPSHOT_POLICY_NOTE, /not the individual page/);
+  assert.match(S.DR_SNAPSHOT_POLICY_NOTE, /not the same as a record measured at zero/);
   const components = read('scripts/lib/bd-components.cjs');
   assert.ok(components.includes('DR_SNAPSHOT_POLICY_NOTE'),
-    'the renderer never emits the freeze note');
+    'the renderer never emits the policy note');
 
   const hub = read(path.join('research', 'business-directories', 'index.html'));
-  assert.ok(hub.includes('historical Ahrefs snapshots'),
-    'the hub does not tell a reader the ratings are historical');
+  assert.ok(hub.includes('measured by Ahrefs'),
+    'the hub does not tell a reader who measured the ratings');
   assert.ok(!/live|real-?time|current(ly)? measured/i.test(
     hub.slice(Math.max(0, hub.indexOf('Domain Rating') - 200), hub.indexOf('Domain Rating') + 400)),
   'the hub describes Domain Rating in language implying a live reading');

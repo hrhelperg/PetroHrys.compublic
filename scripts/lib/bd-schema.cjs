@@ -250,35 +250,61 @@ const ACCEPTS_LABELS = {
 // status is stored explicitly so the page can say so rather than implying
 // currency by omission.
 const METRIC_SNAPSHOT_STATUS = 'historicalSnapshot';
+// A reading taken from Ahrefs' public Domain Rating API on a stated date. Both
+// statuses describe a dated measurement; they differ only in how it was
+// obtained, and the value is presented the same way either way.
+const METRIC_READING_STATUS = 'publicApiReading';
+const METRIC_PROVENANCE_STATUSES = [METRIC_SNAPSHOT_STATUS, METRIC_READING_STATUS];
 const METRIC_PROVIDERS = ['Ahrefs'];
 // Ahrefs Domain Rating is a 0-100 logarithmic scale.
 const DOMAIN_RATING_RANGE = { min: 0, max: 100 };
 // Required by the Ahrefs Domain Rating licence wherever a value is displayed.
 const AHREFS_ATTRIBUTION = { text: 'Domain Rating by Ahrefs', href: 'https://ahrefs.com/' };
 
-// --- open-source data policy ------------------------------------------------
-// The Research Center collects no metric that needs a paid account, an API
-// subscription or a mandatory credential. The Domain Ratings already in the
-// dataset stay exactly as they were measured, as dated historical snapshots; no
-// new ones are collected. A record without one is therefore not a record with a
-// low rating, and must never render as 0 — hence an explicit label rather than a
-// bare dash, and an explicit sentence on every page that shows the column.
+// --- third-party data policy ------------------------------------------------
 //
-// The frozen rule is about MEASUREMENT, not about the value's reachability. A
-// Domain Rating describes a domain, so when a second registry is published on a
-// domain the dataset has already measured, repeating that domain's stored
-// snapshot collects nothing new: same value, same provider, same date, same
-// status, no network call. What is forbidden is producing a NEW measurement, or
-// carrying a different figure for a domain the dataset has already measured.
-// `sharedDomainSnapshotProblems()` below is the one place that rule is enforced.
-const DR_COLLECTION_FROZEN = true;
+// ── THE FREEZE, AND WHY IT WAS LIFTED ───────────────────────────────────────
+//
+// This block used to read: "The Research Center collects no metric that needs a
+// paid account, an API subscription or a mandatory credential… Collection is
+// therefore frozen: no new measurements are taken." That was a deliberate
+// policy, not an oversight, and it held 64 hand-measured snapshots in place for
+// a fortnight.
+//
+// It is lifted, deliberately and by decision of the repository's owner, on one
+// specific ground: Ahrefs publishes Domain Rating through TWO endpoints, and
+// the frozen policy was written against the wrong one. The Site Explorer
+// endpoint does require an eligible paid plan. The public endpoint —
+// /v3/public/domain-rating-free — consumes no API units and needs only an API
+// key, which Ahrefs issues free with a free account. So the cost the policy
+// was protecting against was never the cost of this data.
+//
+// What the policy protected that has NOT changed:
+//
+//   • the build still makes no network request, ever. Ratings are acquired by
+//     a research pass and committed; pages read committed data.
+//   • the credential is read from the environment by that research pass alone.
+//     No build, validator or test reads it, and a test enforces that.
+//   • a record without a rating still renders an explicit label rather than a
+//     dash, and never a zero, because an unmeasured domain is not a domain that
+//     scored badly.
+//
+// ── WHAT A RATING DESCRIBES ─────────────────────────────────────────────────
+//
+// A Domain Rating describes a DOMAIN. When several records are published on one
+// measured domain they repeat that domain's single dated reading rather than
+// each carrying a figure of its own — six Encuentra24 country records report
+// one number, because there is one number. They remain six records:
+// `sharedDomainSnapshotProblems()` below enforces the repetition, and nothing
+// anywhere collapses records because they share a rating.
+const DR_COLLECTION_FROZEN = false;
 const DR_NOT_MEASURED_LABEL = 'Not measured';
-const DR_SNAPSHOT_POLICY_NOTE = 'Domain Rating values are dated historical Ahrefs snapshots. '
-  + 'Domain Rating is a dated historical measurement of the shared domain, not an assessment of '
-  + 'this individual registry page. New measurements are not collected because the Research Center '
-  + 'does not depend on mandatory authenticated APIs. Where several registries are published on one '
-  + 'measured domain they repeat that domain’s single dated snapshot rather than each carrying a '
-  + 'figure of its own.';
+const DR_SNAPSHOT_POLICY_NOTE = 'Domain Rating is measured by Ahrefs and read through their '
+  + 'public Domain Rating API. Each value carries the date it was read and describes the whole '
+  + 'domain that was measured, not the individual page it appears beside. Where several records '
+  + 'are published on one measured domain they repeat that domain\u2019s single dated reading '
+  + 'rather than each carrying a figure of its own. A record shown as not measured is a record '
+  + 'nobody has a reading for, which is not the same as a record measured at zero.';
 
 // One deterministic domain policy. A Domain Rating describes the registrable
 // domain that was measured, not a path or subdomain on it: measuring
@@ -297,6 +323,52 @@ function normaliseDomain(input) {
   if (host.startsWith('www.')) host = host.slice(4);
   if (!host.includes('.') || /\s/.test(host)) return null;
   return host;
+}
+
+// One statement of what a valid Domain Rating looks like, for every collection.
+//
+// Three datasets used to forbid the field outright — "may not be set: this
+// dataset takes no metric measurements" — which was correct while collection
+// was frozen and is wrong now. Forbidding it was doing two jobs: keeping
+// invented numbers out, and keeping collected ones out. Only the first job
+// still needs doing, so the ban is replaced by a rule rather than removed.
+//
+// A rating must be a whole number on the 0-100 scale, and it must arrive with
+// provenance naming the provider, the date and the domain measured. A bare
+// number with no provenance is exactly what an invented metric looks like.
+function domainRatingProblems(row) {
+  const out = [];
+  const v = row.domainRating;
+  if (v === undefined || v === null) {
+    if (row.metricsProvenance && row.metricsProvenance.domainRating) {
+      out.push(['metricsProvenance', 'carries Domain Rating provenance for a rating that is not set.']);
+    }
+    return out;
+  }
+  if (typeof v !== 'number' || !Number.isInteger(v)
+    || v < DOMAIN_RATING_RANGE.min || v > DOMAIN_RATING_RANGE.max) {
+    out.push(['domainRating', `must be a whole number from ${DOMAIN_RATING_RANGE.min} to `
+      + `${DOMAIN_RATING_RANGE.max} (got ${JSON.stringify(v)}).`]);
+    return out;
+  }
+  const p = (row.metricsProvenance || {}).domainRating;
+  if (!p) {
+    out.push(['metricsProvenance', 'a Domain Rating must record who measured it, when, and on which domain.']);
+    return out;
+  }
+  if (!METRIC_PROVIDERS.includes(p.provider)) {
+    out.push(['metricsProvenance.domainRating.provider', `names an unrecognised provider ${JSON.stringify(p.provider)}.`]);
+  }
+  if (!METRIC_PROVENANCE_STATUSES.includes(p.status)) {
+    out.push(['metricsProvenance.domainRating.status', `is ${JSON.stringify(p.status)}, which is not a recognised measurement status.`]);
+  }
+  if (!DATE_RE.test(String(p.measuredAt || ''))) {
+    out.push(['metricsProvenance.domainRating.measuredAt', 'is not a YYYY-MM-DD date.']);
+  }
+  if (!p.measuredDomain) {
+    out.push(['metricsProvenance.domainRating.measuredDomain', 'does not say which domain was measured.']);
+  }
+  return out;
 }
 
 const SCORE_FIELDS = ['domainRating', 'authorityScore'];
@@ -1202,7 +1274,9 @@ module.exports = {
   KNOWN_RECORD_KEYS,
   TIERS, BACKLINK_TYPES, ROBOTS_STATES, SUBMISSION_MODELS, METRIC_STATUSES,
   SUBMISSION_MODEL_LABELS, SUBMISSION_NOT_APPLICABLE_NOTE, SUBMITTABLE_MODELS,
-  METRIC_SNAPSHOT_STATUS, METRIC_PROVIDERS, DOMAIN_RATING_RANGE, AHREFS_ATTRIBUTION,
+  METRIC_SNAPSHOT_STATUS, METRIC_READING_STATUS, METRIC_PROVENANCE_STATUSES,
+  domainRatingProblems,
+  METRIC_PROVIDERS, DOMAIN_RATING_RANGE, AHREFS_ATTRIBUTION,
   DR_COLLECTION_FROZEN, DR_NOT_MEASURED_LABEL, DR_SNAPSHOT_POLICY_NOTE,
   normaliseDomain,
   SCORE_METHOD_NOTE, INDEXABILITY_CLAUSES, indexability,
