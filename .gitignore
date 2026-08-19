@@ -46,3 +46,8 @@ node_modules/
 # for what this costs (the collapse guard falls back to the committed corpus's
 # per-source counts on a fresh clone) and why it is the right trade for v1.
 data/tender-opportunities/snapshots/
+
+# Research checkpoint journals: the durable half of an interrupted network
+# pass, folded into the findings file the moment a run ends cleanly. Transient
+# by construction, and never evidence on its own.
+*.json.journal

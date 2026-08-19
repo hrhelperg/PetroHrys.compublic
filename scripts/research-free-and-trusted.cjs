@@ -37,6 +37,7 @@ const os = require('node:os');
 const { spawn } = require('node:child_process');
 const { openPage } = require('./tests/helpers/cdp.cjs');
 const SAFE = require('./lib/rc-safe-apply.cjs');
+const CK = require('./lib/rc-checkpoint.cjs');
 const T = require('./lib/rc-text-match.cjs');
 
 const ROOT = path.resolve(__dirname, '..');
@@ -316,8 +317,28 @@ function classify(target, obs) {
   return { state: 'REJECT_PAID_ONLY', cost: 'paid', why: 'payment is required before the action', institutional };
 }
 
+// Which countries already have somewhere a business can act for nothing. A
+// country with no such source at all is where an unknown is most expensive:
+// until one is found the planner has nothing free to offer there, so those
+// records are researched before a country that already has ten free options.
+function countriesWithoutFreeOption() {
+  const covered = new Set();
+  const all = new Set();
+  for (const C of Object.values(COLLECTIONS)) {
+    for (const r of JSON.parse(fs.readFileSync(C.data, 'utf8'))) {
+      if (r.currentStatus !== 'active') continue;
+      all.add(r.country);
+      if (NO_UPFRONT.has(r[C.costField])) covered.add(r.country);
+    }
+  }
+  return new Set([...all].filter((c) => !covered.has(c)));
+}
+
+const NO_UPFRONT = new Set(['free', 'freemium', 'free-tier', 'free-listing-commission']);
+
 function targets() {
   const out = [];
+  const uncovered = countriesWithoutFreeOption();
   for (const [name, C] of Object.entries(COLLECTIONS)) {
     const rows = JSON.parse(fs.readFileSync(C.data, 'utf8'));
     for (const r of rows) {
@@ -326,28 +347,68 @@ function targets() {
       if (known && known !== 'unknown') continue;
       const url = C.route(r) || r.website;
       if (!url) continue;
+      const onRoute = Boolean(C.route(r));
+      // Ordering, most valuable first. File order is nearly alphabetical by
+      // country, so a truncated pass that took records as they came would
+      // research Albania exhaustively and never reach Germany.
+      //
+      // The vocabulary is the corpus's own: tier1/tier2/tier3 and P1/P2/P3.
+      // Guessing at "tier-1" and "high" instead produced a score that never
+      // once fired, which is a ranking that silently does not rank.
+      const priority = (onRoute ? 8 : 0)                        // the price is stated where the action is
+        + (uncovered.has(r.country) ? 4 : 0)                    // the country has nothing free yet
+        + (r.tier === 'tier1' || r.priority === 'P1' ? 2 : 0)   // the planner reaches for these first
+        + (r.lastVerified ? 1 : 0);                             // already confirmed to exist
       out.push({
         collection: name, id: r.id, country: r.country, url,
-        onRoute: Boolean(C.route(r)), website: r.website,
+        onRoute, website: r.website, priority,
+        key: CK.targetKey(name, r),
       });
     }
   }
   return out;
 }
 
+// One place that knows how a stored finding maps onto the identity contract,
+// used by every entry point so probe, report, re-judge and apply agree about
+// which record a finding belongs to.
+function openLedger() {
+  const ledger = new CK.Ledger(FINDINGS);
+  const byId = new Map();
+  for (const [name, C] of Object.entries(COLLECTIONS)) {
+    for (const r of JSON.parse(fs.readFileSync(C.data, 'utf8'))) byId.set(`${name}:${r.id}`, [name, r]);
+  }
+  const moved = CK.backfillKeys(ledger, (f) => {
+    const hit = byId.get(`${f.collection}:${f.id}`);
+    return hit ? CK.targetKey(hit[0], hit[1]) : null;
+  });
+  if (moved) console.log(`Gave ${moved} pre-checkpoint finding(s) their canonical identity.`);
+  return ledger;
+}
+
 async function runProbe() {
   if (!CHROME) { console.error('No Chrome on this machine.'); process.exit(1); }
+  const ledger = openLedger();
+  if (ledger.recovered) {
+    console.log(`Recovered ${ledger.recovered} finding(s) from an interrupted run's journal.`);
+  }
   let list = targets();
-  // Records whose price can be read on their own action page come first: that
-  // is where an operator states it, so the evidence is strongest there.
-  list.sort((a, b) => (b.onRoute ? 1 : 0) - (a.onRoute ? 1 : 0) || (a.id < b.id ? -1 : 1));
+  const already = list.filter((t) => ledger.has(t.key)).length;
+  // A record already carrying a verdict is not visited again. Re-asking costs
+  // a page load and can only replace a considered answer with a noisier one;
+  // a caller who genuinely wants it re-read says --refresh.
+  if (!process.argv.includes('--refresh')) list = list.filter((t) => !ledger.has(t.key));
+  list.sort((a, b) => b.priority - a.priority || (a.id < b.id ? -1 : 1));
   const limit = arg('--limit');
   if (limit) list = list.slice(0, Number(limit));
 
-  console.log(`Free & trusted: ${list.length} active record(s) with no cost fact `
-    + `(${list.filter((x) => x.onRoute).length} readable on their own action page).`);
+  console.log(`Free & trusted: ${list.length} record(s) to visit `
+    + `(${already} already answered, ${ledger.size()} finding(s) on disk, `
+    + `${list.filter((x) => x.onRoute).length} readable on their own action page).`);
+  if (!list.length) { report(ledger.all()); return; }
+
+  CK.onInterrupt(ledger, 'Free & trusted');
   const chrome = await startChrome();
-  const findings = [];
   const queue = list.slice();
   let done = 0;
   const worker = async () => {
@@ -356,7 +417,9 @@ async function runProbe() {
       if (!target) return;
       // eslint-disable-next-line no-await-in-loop
       const obs = await probe(chrome.wsUrl, target);
-      findings.push({
+      // Durable here, before the next navigation. This is the whole point of
+      // the file: the verdict exists on disk the moment it exists at all.
+      ledger.record({
         ...target,
         observed: {
           status: obs.status, finalUrl: obs.url || null, title: obs.title || null,
@@ -365,31 +428,21 @@ async function runProbe() {
         ...classify(target, obs),
       });
       done += 1;
-      if (done % 50 === 0) console.log(`  ${done}/${list.length}`);
+      if (done % 25 === 0) console.log(`  ${done}/${list.length}`);
       // eslint-disable-next-line no-await-in-loop
       await new Promise((r) => { setTimeout(r, PACE_MS); });
     }
   };
-  await Promise.all(Array.from({ length: CONCURRENCY }, worker));
-  chrome.proc.kill('SIGKILL');
-
-  const key = (f) => `${f.collection}:${f.id}`;
-  let merged = findings;
-  if (fs.existsSync(FINDINGS)) {
-    const prior = JSON.parse(fs.readFileSync(FINDINGS, 'utf8')).findings || [];
-    if (prior.length) {
-      const fresh = new Map(findings.map((f) => [key(f), f]));
-      merged = prior.map((f) => fresh.get(key(f)) || f)
-        .concat(findings.filter((f) => !prior.some((p) => key(p) === key(f))));
-    }
+  try {
+    await Promise.all(Array.from({ length: CONCURRENCY }, worker));
+  } finally {
+    chrome.proc.kill('SIGKILL');
+    const kept = ledger.compact({ probedAt: new Date().toISOString().slice(0, 10) });
+    console.log(`${kept} finding(s) on disk.`);
+    try { fs.rmSync(chrome.profile, { recursive: true, force: true }); } catch { /* reaped */ }
   }
-  merged.sort((a, b) => (key(a) < key(b) ? -1 : 1));
-  fs.writeFileSync(FINDINGS, `${JSON.stringify({
-    probedAt: new Date().toISOString().slice(0, 10), findings: merged,
-  }, null, 1)}\n`);
-  report(merged);
+  report(ledger.all());
   console.log('Nothing merged — rerun with --apply.');
-  try { fs.rmSync(chrome.profile, { recursive: true, force: true }); } catch { /* reaped */ }
 }
 
 function report(findings) {
@@ -406,7 +459,8 @@ function report(findings) {
 
 // Re-run the judgement over evidence already captured. No network.
 function runRejudge() {
-  const file = JSON.parse(fs.readFileSync(FINDINGS, 'utf8'));
+  const ledger = openLedger();
+  const file = { findings: ledger.all() };
   let moved = 0;
   const rejudged = file.findings.map((f) => {
     const o = f.observed || {};
@@ -424,7 +478,8 @@ function runRejudge() {
     const { state, cost, why, institutional, ...rest } = f;
     return { ...rest, ...v };
   });
-  fs.writeFileSync(FINDINGS, `${JSON.stringify({ ...file, findings: rejudged }, null, 1)}\n`);
+  for (const f of rejudged) ledger.byKey.set(f.key, f);
+  ledger.compact();
   console.log(`Re-judged from stored evidence: ${moved} verdict(s) changed.`);
   report(rejudged);
 }
@@ -449,7 +504,10 @@ const KNOWN_VALUES = {
 };
 
 function runApply() {
-  const { probedAt, findings } = JSON.parse(fs.readFileSync(FINDINGS, 'utf8'));
+  const ledger = openLedger();
+  ledger.compact();
+  const { probedAt = 'unknown' } = ledger.meta;
+  const findings = ledger.all();
   const tally = {
     free: 0, freemium: 0, commission: 0, paid: 0, cleared: 0, left: 0,
   };
@@ -500,11 +558,12 @@ function runApply() {
 
 module.exports = {
   classify, targets, FREE_WORDING, PAID_WORDING, COMMISSION_WORDING, LOW_QUALITY, COST_FOR,
+  FINDINGS, COLLECTIONS, runApply, KNOWN_VALUES,
 };
 
 if (require.main === module) {
   if (process.argv.includes('--apply')) runApply();
   else if (process.argv.includes('--rejudge')) runRejudge();
-  else if (process.argv.includes('--report')) report(JSON.parse(fs.readFileSync(FINDINGS, 'utf8')).findings);
+  else if (process.argv.includes('--report')) report(openLedger().all());
   else runProbe().catch((e) => { console.error(e); process.exit(1); });
 }

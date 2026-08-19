@@ -36,6 +36,7 @@ const os = require('node:os');
 const { spawn } = require('node:child_process');
 const { openPage } = require('./tests/helpers/cdp.cjs');
 const SAFE = require('./lib/rc-safe-apply.cjs');
+const CK = require('./lib/rc-checkpoint.cjs');
 const T = require('./lib/rc-text-match.cjs');
 
 const ROOT = path.resolve(__dirname, '..');
@@ -191,22 +192,41 @@ function targets() {
       url: r.supplierRegistrationUrl || r.officialUrl,
       onRegistrationPage: Boolean(r.supplierRegistrationUrl),
       searchAccess: r.searchAccess,
+      // Identity, not index: a tender platform is country + host + path,
+      // because one ministry runs several distinct systems on one hostname.
+      key: CK.targetKey('tenders', r),
     }))
     .filter((x) => x.url)
     .sort((a, b) => (b.onRegistrationPage ? 1 : 0) - (a.onRegistrationPage ? 1 : 0)
       || (a.id < b.id ? -1 : 1));
 }
 
+function openLedger() {
+  const ledger = new CK.Ledger(FINDINGS);
+  const byId = new Map(JSON.parse(fs.readFileSync(DATA, 'utf8')).map((r) => [r.id, r]));
+  const moved = CK.backfillKeys(ledger, (f) => (byId.has(f.id) ? CK.targetKey('tenders', byId.get(f.id)) : null));
+  if (moved) console.log(`Gave ${moved} pre-checkpoint finding(s) their canonical identity.`);
+  return ledger;
+}
+
 async function runProbe() {
   if (!CHROME) { console.error('No Chrome on this machine.'); process.exit(1); }
+  const ledger = openLedger();
+  if (ledger.recovered) {
+    console.log(`Recovered ${ledger.recovered} finding(s) from an interrupted run's journal.`);
+  }
   let list = targets();
+  const already = list.filter((t) => ledger.has(t.key)).length;
+  if (!process.argv.includes('--refresh')) list = list.filter((t) => !ledger.has(t.key));
   const limit = arg('--limit');
   if (limit) list = list.slice(0, Number(limit));
-  console.log(`Tender bid access: ${list.length} active platform(s) `
-    + `(${list.filter((x) => x.onRegistrationPage).length} with a supplier registration page).`);
+  console.log(`Tender bid access: ${list.length} platform(s) to visit `
+    + `(${already} already answered, ${ledger.size()} finding(s) on disk, `
+    + `${list.filter((x) => x.onRegistrationPage).length} with a supplier registration page).`);
+  if (!list.length) { report(ledger.all()); return; }
 
+  CK.onInterrupt(ledger, 'Tender bid access');
   const chrome = await startChrome();
-  const findings = [];
   const queue = list.slice();
   let done = 0;
   const worker = async () => {
@@ -215,7 +235,7 @@ async function runProbe() {
       if (!target) return;
       // eslint-disable-next-line no-await-in-loop
       const obs = await probe(chrome.wsUrl, target);
-      findings.push({
+      ledger.record({
         ...target,
         observed: {
           status: obs.status, finalUrl: obs.url || null, title: obs.title || null,
@@ -229,25 +249,16 @@ async function runProbe() {
       await new Promise((r) => { setTimeout(r, PACE_MS); });
     }
   };
-  await Promise.all(Array.from({ length: CONCURRENCY }, worker));
-  chrome.proc.kill('SIGKILL');
-
-  let merged = findings;
-  if (fs.existsSync(FINDINGS)) {
-    const prior = JSON.parse(fs.readFileSync(FINDINGS, 'utf8')).findings || [];
-    if (prior.length) {
-      const fresh = new Map(findings.map((f) => [f.id, f]));
-      merged = prior.map((f) => fresh.get(f.id) || f)
-        .concat(findings.filter((f) => !prior.some((p) => p.id === f.id)));
-    }
+  try {
+    await Promise.all(Array.from({ length: CONCURRENCY }, worker));
+  } finally {
+    chrome.proc.kill('SIGKILL');
+    const kept = ledger.compact({ probedAt: new Date().toISOString().slice(0, 10) });
+    console.log(`${kept} finding(s) on disk.`);
+    try { fs.rmSync(chrome.profile, { recursive: true, force: true }); } catch { /* reaped */ }
   }
-  merged.sort((a, b) => (a.id < b.id ? -1 : 1));
-  fs.writeFileSync(FINDINGS, `${JSON.stringify({
-    probedAt: new Date().toISOString().slice(0, 10), findings: merged,
-  }, null, 1)}\n`);
-  report(merged);
+  report(ledger.all());
   console.log('Nothing merged — rerun with --apply.');
-  try { fs.rmSync(chrome.profile, { recursive: true, force: true }); } catch { /* reaped */ }
 }
 
 function report(findings) {
@@ -266,7 +277,8 @@ function report(findings) {
 }
 
 function runRejudge() {
-  const file = JSON.parse(fs.readFileSync(FINDINGS, 'utf8'));
+  const ledger = openLedger();
+  const file = { findings: ledger.all() };
   let moved = 0;
   const rejudged = file.findings.map((f) => {
     const o = f.observed || {};
@@ -280,13 +292,17 @@ function runRejudge() {
     const { state, bidAccess, why, opportunityLevel, ...rest } = f;
     return { ...rest, ...v };
   });
-  fs.writeFileSync(FINDINGS, `${JSON.stringify({ ...file, findings: rejudged }, null, 1)}\n`);
+  for (const f of rejudged) ledger.byKey.set(f.key, f);
+  ledger.compact();
   console.log(`Re-judged from stored evidence: ${moved} verdict(s) changed.`);
   report(rejudged);
 }
 
 function runApply() {
-  const { probedAt, findings } = JSON.parse(fs.readFileSync(FINDINGS, 'utf8'));
+  const ledger = openLedger();
+  ledger.compact();
+  const { probedAt = 'unknown' } = ledger.meta;
+  const findings = ledger.all();
   const rows = JSON.parse(fs.readFileSync(DATA, 'utf8'));
   const before = JSON.parse(JSON.stringify(rows));
   const byId = new Map(rows.map((r) => [r.id, r]));
@@ -322,6 +338,6 @@ module.exports = {
 if (require.main === module) {
   if (process.argv.includes('--apply')) runApply();
   else if (process.argv.includes('--rejudge')) runRejudge();
-  else if (process.argv.includes('--report')) report(JSON.parse(fs.readFileSync(FINDINGS, 'utf8')).findings);
+  else if (process.argv.includes('--report')) report(openLedger().all());
   else runProbe().catch((e) => { console.error(e); process.exit(1); });
 }
