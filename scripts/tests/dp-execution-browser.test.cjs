@@ -48,14 +48,46 @@ const collectionOf = (where) => String(where || '').split('·')[0].trim();
 let H = null;
 const skip = chromePath() ? false : 'no Chrome, Chromium or Edge on this machine';
 
-before(async () => { if (chromePath()) H = await harness(ROOT); });
+// The four locale planners are compared with each other, so they are frozen
+// together rather than each at its own first request — otherwise a rebuild
+// between two reads makes two generations look like a product disagreement.
+const LOCALE_PLANNERS = ['/', '/de/', '/es/', '/fr/']
+  .map((prefix) => `${prefix}research/distribution-planner/`);
+
+before(async () => {
+  if (chromePath()) H = await harness(ROOT, { preload: LOCALE_PLANNERS });
+});
 after(async () => { if (H) await H.close(); });
 
 const PLANNER = '/research/distribution-planner/';
 
+// Navigate, then wait for the client to finish re-rendering. `goto` resolves on
+// readyState complete, which is before the planner has recomputed for the state
+// in the URL — a gap this file used to win by accident because every asset came
+// off disk. Settling on STABILITY rather than on the URL being echoed back also
+// tolerates the values the planner legitimately normalises.
 async function open(query = '') {
   assert.ok(H, 'Chrome is installed but the CDP harness never started');
   await H.page.goto(H.origin + PLANNER + query);
+  let previous = null;
+  const deadline = Date.now() + 10000;
+  for (;;) {
+    // eslint-disable-next-line no-await-in-loop
+    const state = await H.page.eval(() => {
+      const out = {};
+      for (const el of document.querySelectorAll('[data-dp-controls] [data-dp-filter]')) {
+        out[el.getAttribute('data-dp-filter')] = el.value;
+      }
+      out.__rows = document.querySelectorAll('#ready tr.bd-row').length;
+      return out;
+    });
+    const now = JSON.stringify(state);
+    if (state.__rows > 0 && now === previous) break;
+    previous = now;
+    if (Date.now() > deadline) throw new Error(`the planner never settled on ${query || '(default)'}: ${now}`);
+    // eslint-disable-next-line no-await-in-loop
+    await new Promise((r) => { setTimeout(r, 100); });
+  }
   return H.page;
 }
 

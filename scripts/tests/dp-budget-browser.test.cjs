@@ -26,13 +26,57 @@ const OPS = P.project(P.loadAll());
 let H = null;
 const skip = chromePath() ? false : 'no Chrome, Chromium or Edge on this machine';
 
-before(async () => { if (chromePath()) H = await harness(ROOT); });
+// Same reason as the execution suite: the locale parity test compares four
+// pages, so all four are frozen at one moment.
+const LOCALE_PLANNERS = ['/', '/de/', '/es/', '/fr/']
+  .map((prefix) => `${prefix}research/distribution-planner/`);
+
+before(async () => {
+  if (chromePath()) H = await harness(ROOT, { preload: LOCALE_PLANNERS });
+});
 after(async () => { if (H) await H.close(); });
 
 const PLANNER = '/research/distribution-planner/';
+// Navigate, then WAIT for the client to finish re-rendering.
+//
+// `goto` resolves on readyState complete, which is before the planner's own
+// listener has recomputed the campaign for the state in the URL. That gap was
+// invisible while every asset came off disk; once the harness began serving
+// cached bytes the responses got faster, the gap widened relative to the
+// render, and three tests started reading the PREVIOUS state's rows. The test
+// was always racing — it simply used to lose slowly enough to win.
 async function open(query = '', prefix = '/') {
   assert.ok(H, 'Chrome is installed but the CDP harness never started');
-  await H.page.goto(`${H.origin + prefix}research/distribution-planner/${query}`);
+  const url = `${H.origin + prefix}research/distribution-planner/${query}`;
+  await H.page.goto(url);
+
+  // Settle on STABILITY, not on the URL being echoed back. The planner
+  // legitimately normalises what it is given — ?size=40 becomes 25, because 40
+  // is not an offered size — and a check that demanded the control match the
+  // query would wait forever for the product to repeat a value it had correctly
+  // rejected. Two identical reads with rows on screen means the render is done.
+  let previous = null;
+  const deadline = Date.now() + 10000;
+  for (;;) {
+    // eslint-disable-next-line no-await-in-loop
+    const state = await H.page.eval(() => {
+      const out = {};
+      for (const el of document.querySelectorAll('[data-dp-controls] [data-dp-filter]')) {
+        out[el.getAttribute('data-dp-filter')] = el.value;
+      }
+      const section = document.getElementById('campaign');
+      out.__rows = section ? section.querySelectorAll('[data-dp-group] li').length : 0;
+      return out;
+    });
+    const now = JSON.stringify(state);
+    if (state.__rows > 0 && now === previous) break;
+    previous = now;
+    if (Date.now() > deadline) {
+      throw new Error(`the planner never settled on ${query || '(default)'}: ${now}`);
+    }
+    // eslint-disable-next-line no-await-in-loop
+    await new Promise((r) => { setTimeout(r, 100); });
+  }
   return H.page;
 }
 
@@ -172,7 +216,7 @@ test('no paid source ever appears under a free-only budget on screen', { skip },
 });
 
 test('a paid-capable budget shows strictly more than the free-only one', { skip }, async () => {
-  const q = (budget) => `?business=local-business&objective=seo-citations&market=*&budget=${budget}&size=40`;
+  const q = (budget) => `?business=local-business&objective=seo-citations&market=*&budget=${budget}&size=25`;
   await open(q('free-only'));
   const free = (await visible()).map((r) => r.platform);
   await open(q('paid-allowed'));
@@ -185,7 +229,7 @@ test('a commission source is never described to the reader as simply free',
   { skip }, async () => {
     // "Free" and "no upfront fee, commission may apply" are different promises,
     // and the reader only ever sees the words.
-    await open('?business=local-business&objective=marketplace-exposure&market=*&budget=free-only&size=40');
+    await open('?business=local-business&objective=marketplace-exposure&market=*&budget=free-only&size=25');
     const rows = await visible();
     const MP = require(path.join(ROOT, 'scripts/lib/mp-schema.cjs'));
     const marketplaces = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/marketplaces/marketplaces.json'), 'utf8'));
@@ -218,7 +262,15 @@ test('the free-only budget survives a reload and the back button', { skip }, asy
   const other = (await visible()).map((r) => r.platform);
   assert.notDeepEqual(other, first, 'changing the budget changed nothing');
   await H.page.eval(() => window.history.back());
-  await new Promise((r) => { setTimeout(r, 600); });
+  // Wait for the restored state rather than guessing at a delay.
+  const deadline = Date.now() + 10000;
+  for (;;) {
+    // eslint-disable-next-line no-await-in-loop
+    if (await budgetControl() === 'free-only') break;
+    if (Date.now() > deadline) throw new Error('going back never restored the free-only control');
+    // eslint-disable-next-line no-await-in-loop
+    await new Promise((r) => { setTimeout(r, 100); });
+  }
   const back = (await visible()).map((r) => r.platform);
   assert.deepEqual(back, first, 'going back did not restore the free-only result');
 
@@ -231,7 +283,7 @@ test('the free-only budget survives a reload and the back button', { skip }, asy
 
 test('the real download carries exactly the free-only set, and no paid source',
   { skip }, async () => {
-    await open('?business=local-business&objective=seo-citations&market=*&budget=free-only&size=40');
+    await open('?business=local-business&objective=seo-citations&market=*&budget=free-only&size=25');
     const rows = await visible();
     const csv = await H.page.eval(async () => {
       const link = [...document.querySelectorAll('a')]

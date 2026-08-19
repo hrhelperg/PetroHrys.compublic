@@ -55,7 +55,82 @@ const MIME = {
 // Serves the generated tree the way Netlify does: a directory resolves to its
 // index.html. Nothing is rewritten — the bytes a user receives are the bytes
 // under test.
-function serve(root) {
+//
+// ── WHY THE BYTES ARE FROZEN ON FIRST READ ──────────────────────────────────
+//
+// Twenty-odd test files invoke generators, and generators rewrite the very
+// pages this server hands to Chrome. Under `node --test` those files run
+// concurrently with the browser suites, so a page could be rebuilt between the
+// moment a test computed what it expected and the moment the browser rendered
+// it. The suite failed once, then not at all, then six times, on identical
+// input — and every affected test passed when run alone.
+//
+// So each path is read once and cached for the lifetime of this server. A
+// browser test then sees one consistent tree from its first request to its
+// last, whatever else the suite is doing to the working directory. The cache
+// dies with the server, so a later test still gets current bytes.
+//
+// This is isolation rather than serialisation: nothing is forced to wait, and
+// the production generators are untouched.
+// `preload` freezes a set of paths TOGETHER, before the browser starts.
+//
+// Freezing each file at its own first request keeps one page stable, but a test
+// that compares several pages with each other can still straddle a rebuild: the
+// English planner read at one moment and the German one a second later are two
+// different generations, and the locale-parity test failed on exactly that.
+// Pages compared with one another have to come from one generation.
+function serve(root, preload = []) {
+  const snapshot = new Map();
+  // A directory preloads WHOLLY, and the whole set is read until it is STABLE.
+  //
+  // Freezing index.html alone was not enough — the planner fetches its data
+  // separately and planner-data.json is rebuilt by the same generators — and
+  // freezing whole directories was not enough either, because a generator
+  // writes locales one after another. A snapshot taken mid-write preserves the
+  // inconsistency it found: English already rebuilt, French not yet, and the
+  // locale-parity test reports a product disagreement that never existed.
+  //
+  // So the set is read repeatedly until two consecutive passes are identical.
+  // That is a consistent generation by construction rather than by luck.
+  const readSet = () => {
+    const out = new Map();
+    const take = (file) => {
+      try { out.set(file, fs.readFileSync(file)); } catch { out.set(file, null); }
+    };
+    for (const rel of preload) {
+      const target = path.join(root, rel);
+      let isDir = false;
+      try { isDir = fs.statSync(target).isDirectory(); } catch { isDir = false; }
+      if (isDir) {
+        let names = [];
+        try { names = fs.readdirSync(target).sort(); } catch { names = []; }
+        for (const name of names) {
+          const file = path.join(target, name);
+          try { if (fs.statSync(file).isFile()) take(file); } catch { /* vanished mid-read */ }
+        }
+      } else {
+        take(path.join(root, rel.endsWith('/') ? `${rel}index.html` : rel));
+      }
+    }
+    return out;
+  };
+
+  const digest = (m) => [...m.entries()]
+    .map(([k, v]) => `${k}:${v ? v.length : 'x'}:${v ? v.subarray(0, 64).toString('hex') : ''}`)
+    .join('|');
+
+  if (preload.length) {
+    let current = readSet();
+    for (let attempt = 0; attempt < 20; attempt += 1) {
+      const again = readSet();
+      if (digest(again) === digest(current)) { current = again; break; }
+      current = again;
+    }
+    for (const [file, body] of current) {
+      snapshot.set(file, body ? { body } : { missing: true });
+    }
+  }
+
   return new Promise((resolve) => {
     const server = http.createServer((req, res) => {
       let rel = decodeURIComponent(req.url.split('?')[0].split('#')[0]);
@@ -63,13 +138,26 @@ function serve(root) {
       const file = path.join(root, rel);
       // Never serve outside the tree, even if a page asks for it.
       if (!file.startsWith(root)) { res.writeHead(403).end(); return; }
+
+      const cached = snapshot.get(file);
+      if (cached) {
+        if (cached.missing) { res.writeHead(404, { 'Content-Type': 'text/plain' }).end('not found'); return; }
+        res.writeHead(200, { 'Content-Type': MIME[path.extname(file)] || 'application/octet-stream' });
+        res.end(cached.body);
+        return;
+      }
       fs.readFile(file, (err, body) => {
-        if (err) { res.writeHead(404, { 'Content-Type': 'text/plain' }).end('not found'); return; }
+        if (err) {
+          snapshot.set(file, { missing: true });
+          res.writeHead(404, { 'Content-Type': 'text/plain' }).end('not found');
+          return;
+        }
+        snapshot.set(file, { body });
         res.writeHead(200, { 'Content-Type': MIME[path.extname(file)] || 'application/octet-stream' });
         res.end(body);
       });
     });
-    server.listen(0, '127.0.0.1', () => resolve({ server, port: server.address().port }));
+    server.listen(0, '127.0.0.1', () => resolve({ server, port: server.address().port, snapshot }));
   });
 }
 
@@ -276,10 +364,10 @@ async function openPage(wsUrl) {
 }
 
 // One browser and one server for a whole test file.
-async function harness(root) {
+async function harness(root, { preload = [] } = {}) {
   const chrome = await launch();
   if (!chrome) return null;
-  const { server, port } = await serve(root);
+  const { server, port } = await serve(root, preload);
   const page = await openPage(chrome.wsUrl);
   return {
     page,
