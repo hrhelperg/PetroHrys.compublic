@@ -77,7 +77,9 @@ test('free wording is read in the language the operator writes in', () => {
   for (const [label, head] of [
     ['German', 'Kostenlos eintragen und Ihr Unternehmen präsentieren'],
     ['Spanish', 'Publica tu anuncio gratis'],
-    ['French', 'Inscription gratuite pour votre entreprise'],
+    // Was "Inscription gratuite", which the stricter rule now correctly reads
+    // as registration wording rather than a free service.
+    ['French', 'Déposez votre annonce gratuitement'],
     ['Russian', 'Разместить объявление бесплатно'],
     ['Turkish', 'Ücretsiz ilan ver'],
     ['Polish', 'Darmowe ogłoszenie'],
@@ -198,4 +200,167 @@ test('the research ledger records a terminal state for every candidate', () => {
         `${f.id} is ${f.state} but still carries cost "${f.cost}"`);
     }
   }
+});
+
+// ── TENDER: SEEING A CONTRACT IS NOT COMPETING FOR ONE ───────────────────────
+
+const B = require(path.join(ROOT, 'scripts/research-tender-bid-access.cjs'));
+const TENDERS = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/tenders-procurement/platforms.json'), 'utf8'));
+
+test('free search never becomes free bidding', () => {
+  // 293 platforms publish notices openly. Three of them charge to take part —
+  // PhilGEPS, GeBIZ and Find a Tender — and an inference from search to
+  // participation would have been wrong about every one.
+  const divergent = TENDERS.filter((r) => r.searchAccess === 'free' && r.bidAccess && r.bidAccess !== 'free');
+  assert.ok(divergent.length > 0,
+    'no platform separates free search from paid participation, so the distinction is untested');
+
+  // The classifier is blind to searchAccess by construction: the same page
+  // yields the same verdict whatever a record claims about search.
+  const seen = (head) => ({
+    title: '', h1: [], head, textLen: 3000, url: 'https://t.test/r', status: 200, error: null,
+  });
+  const silent = seen('Search current tenders and view notices');
+  for (const searchAccess of ['free', 'paid', 'mixed', 'unknown', undefined]) {
+    const v = B.classify({ searchAccess }, silent);
+    assert.equal(v.state, 'DEFER_NO_STATEMENT',
+      `searchAccess=${searchAccess} changed the bid-access verdict`);
+    assert.equal(v.bidAccess, undefined);
+  }
+});
+
+test('a bid bond or document fee is not a platform charge', () => {
+  // These are conditions a BUYER sets on one contract. Reading them as platform
+  // access would make a free portal look paid because one tender was demanding.
+  const seen = (head) => ({
+    title: 'Tender', h1: [], head, textLen: 3000, url: 'https://t.test/r', status: 200, error: null,
+  });
+  for (const head of [
+    'A bid bond of 2% of the tender value is required',
+    'Tender document fee of USD 50 is payable',
+    'Bietungsgarantie erforderlich',
+    'Wadium w wysokości 5000 PLN',
+  ]) {
+    const v = B.classify({}, seen(head));
+    assert.notEqual(v.bidAccess, 'paid', `"${head}" was read as a platform fee`);
+    assert.equal(v.state, 'DEFER_NO_STATEMENT');
+    assert.ok(v.opportunityLevel, 'the contract-level condition was not even noticed');
+  }
+});
+
+test('bid access is only recorded where the operator states it', () => {
+  const withFact = TENDERS.filter((r) => r.bidAccess !== undefined);
+  assert.ok(withFact.length > 0, 'no bid-access fact exists at all');
+  // The overwhelming majority stay unknown, because most procurement portals
+  // simply do not state what participation costs on the page they send you to.
+  const unknown = TENDERS.filter((r) => r.currentStatus === 'active' && r.bidAccess === undefined);
+  assert.ok(unknown.length > withFact.length,
+    'bid access was established far more often than the evidence standard allows');
+});
+
+test('the tender applier cannot touch search access', () => {
+  // Enforced mechanically by the ownership contract, and asserted here on the
+  // data: bid-access research owns bidAccess and nothing else.
+  const SAFE = require(path.join(ROOT, 'scripts/lib/rc-safe-apply.cjs'));
+  assert.ok(SAFE.OWNERSHIP.cost.tenders.includes('bidAccess'));
+  const record = { id: 't', searchAccess: 'free', currentStatus: 'active' };
+  assert.throws(
+    () => SAFE.applyPatch(record, { currentStatus: 'unknown' }, { owner: 'cost', collection: 'tenders' }),
+    /owns only/,
+    'cost research was able to change platform accessibility',
+  );
+  assert.equal(record.currentStatus, 'active');
+});
+
+// ── THE FIVE INVARIANTS I HAD ONLY EVER CHECKED BY HAND ──────────────────────
+//
+// Each of these was verified interactively while building the classifier and
+// never written down, so a mutation removing the guard passed the whole suite.
+// Behaviour nobody encoded is behaviour nobody keeps.
+
+test('free-account wording alone never establishes a free service', () => {
+  // The distinction the marketplace phase drew for ACTIONS, restated for price:
+  // signing up costs nothing almost everywhere, and what the account then lets
+  // you do is the actual question.
+  for (const head of [
+    'Create a free account and get started',
+    'Free to join — sign up today',
+    'Free registration for all users',
+    'Kostenlos registrieren',
+  ]) {
+    const v = F.classify(target, page('Join', head));
+    assert.equal(v.state, 'DEFER_COST_UNKNOWN',
+      `"${head}" was read as a free service`);
+    assert.equal(v.cost, undefined);
+  }
+  // And the same wording beside a real free action still resolves.
+  const withAction = F.classify(target, page('Add', 'Create a free account. List your business for free.'));
+  assert.equal(withAction.cost, 'free');
+});
+
+test('a time-limited trial is a price with a delay, not a free tier', () => {
+  for (const head of [
+    'Start your 14-day free trial. Plans from $19/month.',
+    'Try it free for 30 days',
+    'Kostenlos testen — 14 Tage',
+    'Prueba gratuita de 30 días',
+  ]) {
+    const v = F.classify(target, page('Pricing', head));
+    assert.equal(v.state, 'DEFER_COST_UNKNOWN', `"${head}" became ${v.state}`);
+    assert.notEqual(v.cost, 'free');
+    assert.notEqual(v.cost, 'free-tier');
+  }
+});
+
+test('"European Commission" is not a transaction fee', () => {
+  // Two trade associations and an e-commerce news page were recorded as
+  // charging sales commission because the word appears on them. In French it
+  // means a committee; in Brussels it means an institution.
+  for (const head of [
+    'Nos commissions et clubs — devenir membre',
+    'Commission hits Temu with a €200 million fine over unsafe products',
+    'Le syndicat, ses commissions et ses régions',
+  ]) {
+    const v = F.classify(target, page('Association', head));
+    assert.notEqual(v.cost, 'free-listing-commission',
+      `"${head.slice(0, 40)}" established a transaction fee`);
+  }
+  // A real one still resolves, so the guard is not simply switched off.
+  const real = F.classify(target, page('Sell', 'No listing fee. We charge a 5% commission on sale.'));
+  assert.equal(real.cost, 'free-listing-commission');
+});
+
+test('a business category is not a quality judgement', () => {
+  // A general directory lists casinos the way it lists bakeries. The bare stem
+  // rejected Hotfrog in two countries and a Swiss directory.
+  for (const head of [
+    'Browse categories: restaurants, hotels, casino, bakeries, plumbers. List your business for free.',
+    'Kategorien: Restaurants, Casino, Bäckerei — kostenlos eintragen',
+  ]) {
+    const v = F.classify(target, page('Directory', head));
+    assert.notEqual(v.state, 'REJECT_LOW_QUALITY',
+      'a directory was rejected for carrying a category');
+    assert.equal(v.cost, 'free');
+  }
+  // Selling placement still is a rejection.
+  const farm = F.classify(target, page('SEO', 'Free listing! Buy backlinks, casino guest post packages.'));
+  assert.equal(farm.state, 'REJECT_LOW_QUALITY');
+});
+
+test('cost research cannot set accessibility in any collection', () => {
+  const SAFE = require(path.join(ROOT, 'scripts/lib/rc-safe-apply.cjs'));
+  for (const collection of ['directories', 'marketplaces', 'media', 'tenders']) {
+    const record = { id: 'x', currentStatus: 'active' };
+    assert.throws(
+      () => SAFE.applyPatch(record, { currentStatus: 'unknown' }, { owner: 'cost', collection }),
+      /owns only|no research pass may change/,
+      `${collection}: cost research changed accessibility`,
+    );
+    assert.equal(record.currentStatus, 'active');
+  }
+  // And it owns no actionability either.
+  assert.throws(
+    () => SAFE.applyPatch({ id: 'x' }, { listingAction: 'create' }, { owner: 'cost', collection: 'directories' }),
+    /owns only/,
+  );
 });

@@ -97,6 +97,39 @@ const FREE_WORDING = T.stemMatcher([
   'ücretsiz', 'darmow', 'bezplatn', 'ingyenes', 'zdarma', 'besplatno', 'δωρεάν',
 ]);
 
+// ── WORDING THAT LOOKS FREE AND IS NOT ──────────────────────────────────────
+//
+// Each of these is a real sentence a platform writes, and each one would make
+// a naive free-matcher say yes to something a business cannot actually use for
+// nothing.
+//
+// A TRIAL ends. "14-day free trial" is a price with a delay, and after it the
+// only route is paid — so a trial can never establish free or freemium.
+//
+// A FREE ACCOUNT is not a free service. Signing up costs nothing almost
+// everywhere; what the account then lets you do is the question. This is the
+// same rule the marketplace seller phase established for actions, restated for
+// price.
+//
+// A WAIVED FEE is one fee. "No listing fee" beside a mandatory subscription is
+// not free, and "from $0" is a price range whose bottom may be unusable.
+const TRIAL_PHRASES = [
+  'free trial', 'trial period', 'try it free', 'try free for', 'day trial',
+  'days free', 'first month free', 'testphase', 'kostenlos testen',
+  'prueba gratuita', 'essai gratuit', 'prova gratuita', 'okres próbny',
+  'пробный период', 'ücretsiz deneme',
+].map(T.normalize);
+const TRIAL_WORDING = T.stemMatcher(TRIAL_PHRASES);
+
+// Registration/account language, which says nothing about the useful action.
+const REGISTRATION_PHRASES = [
+  'free account', 'free to join', 'free sign up', 'free signup',
+  'free registration', 'create a free account', 'registration is free',
+  'sign up free', 'join for free', 'kostenlos registrieren', 'registro gratis',
+  'inscription gratuite', 'бесплатная регистрация',
+].map(T.normalize);
+const REGISTRATION_ONLY = T.stemMatcher(REGISTRATION_PHRASES);
+
 // Payment required before anything happens.
 const PAID_WORDING = T.stemMatcher([
   'subscription required', 'paid plan required', 'membership required',
@@ -212,10 +245,43 @@ function classify(target, obs) {
     return { state: 'REJECT_LOW_QUALITY', why: 'the page sells links or carries affiliate contamination' };
   }
 
-  const free = FREE_WORDING(hay);
+  const freeRaw = FREE_WORDING(hay);
   const paid = PAID_WORDING(hay);
   const commission = COMMISSION_WORDING(hay);
   const institutional = INSTITUTIONAL(hay);
+  const trial = TRIAL_WORDING(hay);
+  const registrationOnly = REGISTRATION_ONLY(hay);
+
+  // A trial is a price with a delay. It never establishes a usable free tier,
+  // and where it is the ONLY free-looking wording the record stays unknown.
+  // Free-account wording alone is the same: it describes the door, not the room.
+  //
+  // The test is "is there free wording LEFT once the registration and trial
+  // phrases are taken out". A first version stripped only the English ones
+  // while the free list is multilingual, so "Kostenlos registrieren" kept its
+  // "kostenlos" and was read as a free service — the same asymmetry that makes
+  // an ASCII boundary fail on Cyrillic, in a different disguise.
+  const stripped = REGISTRATION_PHRASES.concat(TRIAL_PHRASES)
+    .reduce((text, phrase) => text.split(phrase).join(' '), T.normalize(hay));
+  const onlyTrial = trial && !paid;
+  const free = freeRaw && FREE_WORDING(stripped);
+
+  if (trial && !free && !commission) {
+    return {
+      state: 'DEFER_COST_UNKNOWN',
+      why: onlyTrial
+        ? 'the only free wording is a time-limited trial, which is a price with a delay'
+        : 'a trial is offered and no ongoing free route is stated',
+      institutional,
+    };
+  }
+  if (registrationOnly && !free && !paid && !commission) {
+    return {
+      state: 'DEFER_COST_UNKNOWN',
+      why: 'the page offers a free account, which says nothing about what the action costs',
+      institutional,
+    };
+  }
 
   if (!free && !paid && !commission) {
     return { state: 'DEFER_COST_UNKNOWN', why: 'the page states no price either way', institutional };
@@ -373,9 +439,20 @@ const COST_FOR = {
   media: { free: 'free', 'free-tier': 'freemium', 'free-listing-commission': 'free', paid: 'paid' },
 };
 
+// The values this pass is capable of having written. A record holding one of
+// them got it from here, which is what makes it safe to take back; a value
+// this pass never writes was somebody else's finding and is left alone.
+const KNOWN_VALUES = {
+  directories: new Set(['free', 'freemium', 'paid']),
+  marketplaces: new Set(['free', 'free-tier', 'free-listing-commission', 'paid-upfront']),
+  media: new Set(['free', 'freemium', 'paid']),
+};
+
 function runApply() {
   const { probedAt, findings } = JSON.parse(fs.readFileSync(FINDINGS, 'utf8'));
-  const tally = { free: 0, freemium: 0, commission: 0, paid: 0, left: 0 };
+  const tally = {
+    free: 0, freemium: 0, commission: 0, paid: 0, cleared: 0, left: 0,
+  };
 
   for (const [name, C] of Object.entries(COLLECTIONS)) {
     const rows = JSON.parse(fs.readFileSync(C.data, 'utf8'));
@@ -384,10 +461,28 @@ function runApply() {
 
     for (const f of findings.filter((x) => x.collection === name)) {
       const r = byId.get(f.id);
-      if (!r || !f.cost) { tally.left += 1; continue; }
-      if (!/^ACCEPT|^REJECT_PAID_ONLY$/.test(f.state)) { tally.left += 1; continue; }
-      const value = COST_FOR[name][f.cost];
-      if (!value) { tally.left += 1; continue; }
+      if (!r) { tally.left += 1; continue; }
+
+      const earned = f.cost && /^ACCEPT|^REJECT_PAID_ONLY$/.test(f.state)
+        ? COST_FOR[name][f.cost] : null;
+
+      // RECLASSIFICATION REPLACES. A record that once earned a cost and no
+      // longer does must lose it, or the corpus keeps a price nothing supports
+      // — five records were demoted to unknown when trial and free-account
+      // wording stopped counting, and without this they would have gone on
+      // saying "free" forever. An applier that only ever writes forward is how
+      // stale facts become permanent.
+      if (!earned) {
+        const wasOurs = KNOWN_VALUES[name].has(r[C.costField]);
+        if (wasOurs && f.state && /^DEFER|^UNRESOLVED|^REJECT_LOW_QUALITY$/.test(f.state)) {
+          SAFE.applyPatch(r, { [C.costField]: 'unknown' }, { owner: 'cost', collection: name });
+          tally.cleared = (tally.cleared || 0) + 1;
+        } else {
+          tally.left += 1;
+        }
+        continue;
+      }
+      const value = earned;
       SAFE.applyPatch(r, { [C.costField]: value }, { owner: 'cost', collection: name });
       if (value === 'free') tally.free += 1;
       else if (value === 'free-listing-commission') tally.commission += 1;
