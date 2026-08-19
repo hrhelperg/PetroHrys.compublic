@@ -191,8 +191,15 @@ test('unknown cost under a free-only budget is a caveat, not a silent free claim
   assert.ok(unknown.length > 1000,
     `only ${unknown.length} directories remain unknown; something was filled in wholesale`);
   const free = rows.filter((r) => r.submissionModel === 'free');
-  assert.ok(free.length > 100 && free.length < unknown.length,
-    'the free cohort is either empty or implausibly large');
+  // The floor used to be 100 and the cohort is now 72. That is not a
+  // regression: tightening the classifier withdrew 133 costs whose evidence
+  // turned out to be free delivery, free admission, a school-meals programme
+  // and free registration. A floor set to yesterday's number would have made
+  // the correction look like a failure and pressured the next pass to refill
+  // it. What the assertion is actually for is that neither extreme happened —
+  // nothing filled the corpus in wholesale, and the free cohort is not empty.
+  assert.ok(free.length > 25 && free.length < unknown.length,
+    `the free cohort is either empty or implausibly large: ${free.length}`);
 });
 
 test('the research ledger records a terminal state for every candidate', () => {
@@ -616,4 +623,85 @@ test('homepage evidence must name the action; route evidence need only be near i
     'a price on the action page was ignored');
   assert.equal(classifyHome(wording).state, 'DEFER_COST_UNKNOWN',
     'a homepage price was treated as the listing price');
+});
+
+// ── BID ACCESS: THE WORD INSIDE THE OTHER WORD ──────────────────────────────
+
+const bid = (head, over = {}) => B.classify(
+  { id: 't', country: 'x', url: 'https://t.test/', searchAccess: 'free', ...over },
+  { title: '', h1: [], head, textLen: 3000, url: 'https://t.test/', status: 200, error: null },
+);
+
+test('"supplier feedback" is not a supplier fee', () => {
+  // Find a Tender was recorded as charging suppliers to bid because its footer
+  // links to Wales' supplier feedback service. §9 names it as a regression.
+  const v = bid("cpd's complaints procedure scotland - single point of enquiry wales - supplier feedback service");
+  assert.notEqual(v.bidAccess, 'paid', 'a feedback link established a participation fee');
+  assert.match(v.state, /^DEFER/);
+});
+
+test('"membership feedback" is not a membership fee', () => {
+  // PhilGEPS, likewise named as a regression, on the strength of a form.
+  const v = bid('modernized philgeps readiness assessment philgeps platinum membership feedback form');
+  assert.notEqual(v.bidAccess, 'paid');
+});
+
+test('free video downloads are not free bidding', () => {
+  // NATO's procurement front door offers its broadcast footage free of charge.
+  const v = bid("front door for industry download nato's broadcast-quality video content free of charge");
+  assert.notEqual(v.bidAccess, 'free',
+    'a media library established that suppliers may bid for nothing');
+});
+
+test('free search functions are not free bidding', () => {
+  // The rule §9 states outright, in the shape a real page produced it.
+  const v = bid('find suitable tenders and lots quickly use convenient functions free of charge with a company account');
+  assert.notEqual(v.bidAccess, 'free');
+});
+
+test('generic free wording counts beside participation, not beside anything', () => {
+  // Not switched off: the same words, next to the thing they would have to be
+  // about, still establish the fact.
+  assert.equal(bid('suppliers may register and participate free of charge').bidAccess, 'free');
+  assert.equal(bid('wie sie sich kostenfrei registrieren können als bieter').bidAccess, 'free');
+});
+
+test('a stated participation fee is still read', () => {
+  assert.equal(bid('the annual subscription fee for each payable trading partner account is sgd$70 per year').bidAccess,
+    'paid', 'GeBIZ stopped being paid');
+});
+
+test('the named regressions hold in the corpus itself', () => {
+  const rows = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/tenders-procurement/platforms.json'), 'utf8'));
+  const by = new Map(rows.map((r) => [r.id, r]));
+  for (const id of ['ph-philgeps-bid-notices', 'uk-find-a-tender']) {
+    const r = by.get(id);
+    assert.ok(r, `${id} is missing`);
+    assert.equal(r.searchAccess, 'free', `${id} lost its free search fact`);
+    assert.equal(r.bidAccess, undefined,
+      `${id} claims bid access ${r.bidAccess} that no evidence established`);
+  }
+  assert.equal(by.get('sg-gebiz').bidAccess, 'paid');
+  assert.equal(by.get('sg-gebiz').searchAccess, 'free');
+});
+
+test('no platform claims free bidding merely because search is free', () => {
+  const rows = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/tenders-procurement/platforms.json'), 'utf8'));
+  const src = fs.readFileSync(path.join(ROOT, 'scripts/research-tender-bid-access.cjs'), 'utf8');
+  // Scoped to the judgement. Asked of the whole file it also matches the line
+  // that REPORTS how many platforms are free to search and not free to bid,
+  // which is the measurement of the distinction rather than a breach of it.
+  const judge = src.slice(src.indexOf('function classify'), src.indexOf('function targets'));
+  assert.ok(judge.length > 200, 'could not isolate the judgement');
+  assert.ok(!/searchAccess/.test(judge),
+    'the judgement reads searchAccess, so free search could become free bidding');
+  // And every free bid fact in the corpus came from a finding, not an inference.
+  const CK = require(path.join(ROOT, 'scripts/lib/rc-checkpoint.cjs'));
+  const led = new CK.Ledger(path.join(ROOT, 'data/tenders-procurement/.bid-access.json'));
+  const established = new Set(led.all().filter((f) => f.state === 'ESTABLISHED').map((f) => f.id));
+  led.close();
+  for (const r of rows) {
+    if (r.bidAccess === undefined) continue;
+    assert.ok(established.has(r.id), `${r.id} carries bidAccess with no established finding`);
+  }
 });

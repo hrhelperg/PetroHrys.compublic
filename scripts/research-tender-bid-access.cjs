@@ -65,9 +65,16 @@ const CHALLENGE = T.patternMatcher([
 
 // The operator saying participation costs nothing. Deliberately phrase-level:
 // "free" on its own is the single most overloaded word on a procurement site.
-const FREE_PARTICIPATION = T.stemMatcher([
-  'registration is free', 'free registration', 'free of charge', 'free to register',
-  'no registration fee', 'no fee to register', 'no cost to register', 'at no cost',
+// ── PARTICIPATION, STATED IN THE OPERATOR'S OWN WORDS ───────────────────────
+//
+// Phrases, matched on word boundaries. A stem match reads "supplier feedback
+// service" as "supplier fee" and "Platinum membership feedback form" as
+// "membership fee" — which is how Find a Tender and PhilGEPS, the two
+// platforms this phase names as regressions, both came to be recorded as
+// charging suppliers to bid.
+const FREE_PARTICIPATION = T.phraseMatcher([
+  'registration is free', 'free registration', 'free to register',
+  'no registration fee', 'no fee to register', 'no cost to register',
   'no charge to suppliers', 'free for suppliers', 'free supplier registration',
   'submission is free', 'free to submit', 'no subscription required',
   'registrazione gratuita', 'inscripción gratuita', 'registro gratuito',
@@ -77,10 +84,25 @@ const FREE_PARTICIPATION = T.stemMatcher([
   'gratis registratie', 'registrering er gratis',
 ]);
 
+// "Free of charge" and "at no cost" are true of something on almost every
+// government page. NATO's says its broadcast video is free of charge; a German
+// notice service says its search functions are. Neither is a statement about
+// bidding, and both were recorded as free participation. So the generic
+// wording only counts beside the thing it would have to be about.
+const FREE_GENERIC = ['free of charge', 'at no cost', 'kostenfrei', 'costs nothing'];
+const PARTICIPATION_CONTEXT = [
+  'register', 'registration', 'registrieren', 'registrierung', 'supplier',
+  'suppliers', 'tenderer', 'bidder', 'bid', 'submit a tender', 'submit your bid',
+  'respond to a tender', 'participate', 'teilnahme', 'lieferant', 'bieter',
+  'proveedor', 'licitador', 'fournisseur', 'soumissionnaire',
+];
+const FREE_GENERIC_NEAR = T.proximityMatcher(FREE_GENERIC, PARTICIPATION_CONTEXT, 80);
+
 // The operator charging for the account or the submission itself.
-const PAID_PARTICIPATION = T.stemMatcher([
+const PAID_PARTICIPATION = T.phraseMatcher([
   'subscription fee', 'annual subscription', 'registration fee of',
-  'supplier fee', 'membership fee', 'access fee', 'licence fee', 'license fee',
+  'supplier fee', 'supplier fees', 'membership fee', 'membership fees',
+  'access fee', 'access fees', 'licence fee', 'license fee',
   'paid plan', 'pricing plans', 'per year to register', 'fee to submit',
   'cuota de suscripción', 'abonnement payant', 'jahresgebühr', 'teilnahmegebühr',
   'opłata abonamentowa', 'абонентская плата',
@@ -154,7 +176,7 @@ function classify(target, obs) {
   if (obs.status >= 400) return { state: 'DEFER_PROTECTED', why: `http ${obs.status}` };
   if (obs.textLen < MIN_TEXT) return { state: 'UNRESOLVED', why: `only ${obs.textLen} characters rendered` };
 
-  const free = FREE_PARTICIPATION(hay);
+  const free = FREE_PARTICIPATION(hay) || FREE_GENERIC_NEAR(hay);
   const paid = PAID_PARTICIPATION(hay);
   const opportunityLevel = OPPORTUNITY_LEVEL(hay);
 
@@ -308,12 +330,31 @@ function runApply() {
   const byId = new Map(rows.map((r) => [r.id, r]));
   const tally = { free: 0, paid: 0, mixed: 0, left: 0 };
 
+  // RECLASSIFICATION REPLACES. An applier that only writes forward makes a
+  // wrong finding permanent: correcting the classifier moved four platforms
+  // off their verdicts — NATO's free video downloads, a German notice service's
+  // free search, and PhilGEPS and Find a Tender, which had been recorded as
+  // charging suppliers because "membership fee" and "supplier fee" are inside
+  // "membership feedback" and "supplier feedback" — and every one of them kept
+  // the fact it no longer earned.
+  const OURS = new Set(['free', 'paid', 'mixed']);
   for (const f of findings) {
     const r = byId.get(f.id);
-    if (!r || !f.bidAccess) { tally.left += 1; continue; }
-    if (f.state !== 'ESTABLISHED' && f.state !== 'DEFER_MIXED') { tally.left += 1; continue; }
-    SAFE.applyPatch(r, { bidAccess: f.bidAccess }, { owner: 'cost', collection: 'tenders' });
-    tally[f.bidAccess] = (tally[f.bidAccess] || 0) + 1;
+    if (!r) { tally.left += 1; continue; }
+    const earned = f.bidAccess && (f.state === 'ESTABLISHED' || f.state === 'DEFER_MIXED')
+      ? f.bidAccess : null;
+    if (!earned) {
+      if (OURS.has(r.bidAccess) && /^DEFER|^UNRESOLVED/.test(f.state || '')) {
+        SAFE.applyPatch(r, { bidAccess: undefined }, { owner: 'cost', collection: 'tenders' });
+        delete r.bidAccess;
+        tally.cleared = (tally.cleared || 0) + 1;
+      } else {
+        tally.left += 1;
+      }
+      continue;
+    }
+    SAFE.applyPatch(r, { bidAccess: earned }, { owner: 'cost', collection: 'tenders' });
+    tally[earned] = (tally[earned] || 0) + 1;
   }
 
   SAFE.assertNoDeletion(before, rows);

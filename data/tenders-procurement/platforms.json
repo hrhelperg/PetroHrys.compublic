@@ -1943,8 +1943,7 @@
    "Supplier registration (mandatory before bidding under the Procurement Act 2023) is via sign-in on FTS; no distinct public registration URL verified — the supplier-information.find-tender.service.gov.uk subdomain redirects to /Search",
    "Scottish devolved bodies continue to run their own regime on Public Contracts Scotland"
   ],
-  "foreignEvidenceQuote": "GOV.UK supplier registration guide (https://www.gov.uk/government/publications/procurement-act-2023-short-guides/suppliers-how-to-register-your-organisation-and-first-administrator-on-find-a-tender-in-three-easy-steps-html): \"If you do not have a Companies House number, select 'No' and you will be prompted with the below alternative options.\" and \"You also have the option to enter a non-UK address on this page.\"",
-  "bidAccess": "paid"
+  "foreignEvidenceQuote": "GOV.UK supplier registration guide (https://www.gov.uk/government/publications/procurement-act-2023-short-guides/suppliers-how-to-register-your-organisation-and-first-administrator-on-find-a-tender-in-three-easy-steps-html): \"If you do not have a Companies House number, select 'No' and you will be prompted with the below alternative options.\" and \"You also have the option to enter a non-UK address on this page.\""
  },
  {
   "id": "uk-contracts-finder",
@@ -3100,7 +3099,8 @@
    "Supplier account registration is handled via the shared cosinex DTVP (Deutsches Vergabeportal) account system, not on the Land domain"
   ],
   "softwareVendor": "cosinex GmbH",
-  "subnationalJurisdiction": "DE-NI"
+  "subnationalJurisdiction": "DE-NI",
+  "bidAccess": "free"
  },
  {
   "id": "de-vergabeplattform-des-freistaates",
@@ -3215,7 +3215,8 @@
    "Distinct from the state Vergabeplattform der Landesverwaltung MV (LAiV, Administration Intelligence): this one serves the municipal Zweckverband eGo-MV."
   ],
   "softwareVendor": "cosinex GmbH",
-  "subnationalJurisdiction": "DE-MV"
+  "subnationalJurisdiction": "DE-MV",
+  "bidAccess": "free"
  },
  {
   "id": "de-evergabe-hamburg",
@@ -3454,7 +3455,8 @@
    "Part of the Deutsche eVergabe (portal.deutsche-evergabe.de) multi-tenant platform ecosystem, which is not modelled as a separate record in this dataset."
   ],
   "softwareVendor": "Healy Hudson GmbH (Deutsche eVergabe)",
-  "subnationalJurisdiction": "DE-BY"
+  "subnationalJurisdiction": "DE-BY",
+  "bidAccess": "free"
  },
  {
   "id": "de-vergabeplattform-vergabe-bayern-der",
@@ -12089,8 +12091,7 @@
    "Being decommissioned: per PS-PhilGEPS advisories (ADV2025-017, Advisory 2026-09, PSADVISORY 2026-19) no new procurement opportunities may be published here from 01 August 2026; the board remains live for legacy notices and award data",
    "Login route /GEPSNONPILOT/... log-in.aspx redirects to an error page and was not published"
   ],
-  "partOf": "ph-philgeps",
-  "bidAccess": "paid"
+  "partOf": "ph-philgeps"
  },
  {
   "id": "ph-philgeps-emarketplace",
@@ -13975,8 +13976,7 @@
    "Main page is JavaScript-rendered; the opportunity list is only visible in a browser or via the jcr:content search.json / export.csv endpoints.",
    "Coverage is NATO common-funded / NATO-body procurement only. It does not cover member nations' national defence procurement.",
    "Eligibility: NATO's own Front Door text states that NATO procurement opportunities are normally limited to entities registered in one of the NATO member countries, with exceptions documented per opportunity. Eligibility is set in each individual solicitation and, for most competitive procurements, additionally requires a national Declaration of Eligibility issued by the bidder's national authority. Restricted to NATO member (and case-by-case NATO partner) nations — not open to suppliers generally."
-  ],
-  "bidAccess": "free"
+  ]
  },
  {
   "id": "int-nspa-eprocurement-portal",
@@ -16038,7 +16038,6 @@
   "limitations": [
    "A notice publication and discovery service, not a bidding platform: suppliers search here without registering and submit on the platform that issued the notice (e-Vergabe or the relevant Land portal), each of which is a separate record in this collection. Same ontological class as TED.",
    "The web interface is a JavaScript application whose paths all return HTTP 200 with the same shell, so the specific search route could not be independently distinguished; the machine-readable export was verified directly."
-  ],
-  "bidAccess": "free"
+  ]
  }
 ]
