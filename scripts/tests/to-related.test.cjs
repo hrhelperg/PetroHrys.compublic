@@ -68,12 +68,15 @@ test('1. the canonical corpus is unchanged by this phase', () => {
   // nothing, which is what this test exists to prove — to-search.cjs and
   // to-related.cjs are pinned unchanged below.
   assert.strictEqual(fp('data/tender-opportunities/opportunities.json'), '3c341d60');
-  // Re-baselined 2026-08-19. The ONLY change is `bidAccess` on 11 records —
-  // 384 records in and 384 out, one field touched, nothing added or lost. What
-  // it costs a supplier to PARTICIPATE is a new fact, established from operator
-  // wording, and deliberately independent of `searchAccess`: three of these
-  // platforms publish every notice openly and charge to bid.
-  assert.strictEqual(fp('data/tenders-procurement/platforms.json'), '810122a9');
+  // Re-baselined 2026-08-19 (810122a9 -> a6e0ea29). The ONLY change is
+  // `bidAccess` on 7 records: 384 in, 384 out, one field touched, nothing
+  // added or lost. Four are retractions — Find a Tender and PhilGEPS had been
+  // recorded as charging suppliers because "supplier fee" and "membership fee"
+  // are inside "supplier feedback" and "membership feedback"; NATO's free
+  // broadcast video and a German service's free search had been read as free
+  // bidding. Three are new and genuine, all German, all stating that suppliers
+  // register kostenfrei. `searchAccess` is byte-identical.
+  assert.strictEqual(fp('data/tenders-procurement/platforms.json'), 'a6e0ea29');
   assert.strictEqual(fp('scripts/lib/to-match.cjs'), '5de543fb');
 });
 
