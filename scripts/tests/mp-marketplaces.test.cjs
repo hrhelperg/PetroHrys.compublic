@@ -19,6 +19,10 @@ const path = require('node:path');
 const ROOT = path.join(__dirname, '..', '..');
 const MP = require(path.join(ROOT, 'scripts/lib/mp-schema.cjs'));
 const build = require(path.join(ROOT, 'scripts/build-marketplaces.cjs'));
+// The Domain Rating contract lives in bd-schema and is shared by every
+// collection, so this dataset checks its ratings against the same rules rather
+// than restating them.
+const BD = require(path.join(ROOT, 'scripts/lib/bd-schema.cjs'));
 
 const DATA_FILE = path.join(ROOT, 'data/marketplaces/marketplaces.json');
 const PAGE = path.join(ROOT, 'research/marketplaces/index.html');
@@ -60,14 +64,55 @@ test('the two datasets can never collide on an id', () => {
 test('a marketplace row carries no directory-only field', () => {
   // If these ever appear, the datasets are converging and the separation that
   // makes both of them simple is being lost.
+  //
+  // CHANGED BY THE DOMAIN RATING POLICY REVERSAL. "domainRating" used to head
+  // this list. It was doing two jobs at once: keeping a directory-shaped
+  // editorial field out, and keeping an invented number out — indistinguishable
+  // while collection was frozen, because no collection held a rating at all.
+  // The freeze has been lifted by the repository's owner, on the ground that
+  // Ahrefs also publishes Domain Rating through a free public endpoint the
+  // frozen policy was never written against, and every domain in the corpus has
+  // now been read from it. A rating is therefore no longer a directory-only
+  // field, and only the second job is still to be done — so it moves out of the
+  // ban and into the rules below. The rest of the list is untouched: a
+  // PetroHrys Score, an accepts block or a listingAction on a marketplace row
+  // still means the two datasets are merging.
   const raw = JSON.parse(fs.readFileSync(DATA_FILE, 'utf8'));
-  const FORBIDDEN = ['domainRating', 'petroHrysScore', 'scoreFactors', 'accepts',
+  const FORBIDDEN = ['petroHrysScore', 'scoreFactors', 'accepts',
     'listingAction', 'audienceGeography', 'priority', 'intelligence', 'verification'];
   for (const r of raw) {
     for (const f of FORBIDDEN) {
       assert.ok(!(f in r), `${r.id} carries "${f}", which belongs to the directory dataset`);
     }
   }
+
+  // A rating may be present, but never invented.
+  assert.ok(raw.some((r) => typeof r.domainRating === 'number'),
+    'no row carries a rating at all, so the rules below assert nothing');
+  for (const r of raw) {
+    // A whole number on the 0-100 scale, arriving with provenance that names
+    // the provider, the date and the domain measured. A bare number with no
+    // provenance is exactly what an invented metric looks like.
+    assert.deepStrictEqual(BD.domainRatingProblems(r), [],
+      `${r.id} carries a Domain Rating that is not a valid, provenanced reading`);
+    // And the reading has to describe THIS record's own domain, not a related
+    // one and not a parent it sits under.
+    const p = (r.metricsProvenance || {}).domainRating;
+    if (!p) continue;
+    assert.strictEqual(p.measuredDomain, BD.normaliseDomain(r.website),
+      `${r.id} reports a rating measured on "${p.measuredDomain}", not on its own domain`);
+  }
+  // One measured domain has one dated reading; rows sharing a domain repeat it
+  // verbatim rather than each carrying a figure of its own.
+  assert.deepStrictEqual(BD.sharedDomainSnapshotProblems(raw), [],
+    'two rows on one measured domain report different readings');
+  // The corpus no longer holds an unmeasured or malformed row to prove those
+  // rules can fail on, so fixtures stand in rather than the check being dropped:
+  // missing stays legal, and a bare number is still refused.
+  assert.deepStrictEqual(BD.domainRatingProblems({ id: 'mp-fixture', domainRating: null }), [],
+    'an unmeasured row is now reported as a problem, so "missing" has become "wrong"');
+  assert.ok(BD.domainRatingProblems({ id: 'mp-fixture', domainRating: 72 }).length > 0,
+    'a rating carrying no provenance is accepted, which is what an invented metric looks like');
 });
 
 test('the marketplace build owns only its own output', () => {

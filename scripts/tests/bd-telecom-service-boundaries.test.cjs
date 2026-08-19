@@ -256,17 +256,49 @@ test('critical caveats are visible, not hidden in editor notes', () => {
 });
 
 // ── 25. Metrics ─────────────────────────────────────────────────────────────
-test('no new record carries a metric and the frozen snapshot is untouched', () => {
-  for (const r of NEW) {
-    assert.strictEqual(r.domainRating, null, `${r.id} carries a Domain Rating`);
-    assert.deepStrictEqual(r.metricsProvenance, {}, `${r.id} invented metrics provenance`);
+test('every rating in the telecom layer was measured on the record’s own domain', () => {
+  // POLICY REVERSAL. This test used to assert the Domain Rating freeze: every
+  // record's rating was null, its metricsProvenance was {}, and the corpus held
+  // exactly 64 measured domains. The freeze is lifted — Ahrefs' free public
+  // domain-rating endpoint costs nothing, so ratings are collected again and all
+  // three assertions are now false. What the freeze was protecting is that a
+  // number is never invented and never borrowed from another domain, so that is
+  // asserted directly instead, over the whole telecom layer as the other
+  // boundary guards in this file are.
+  const BD = require('../lib/bd-schema.cjs');
+  let rated = 0;
+  for (const id of TELECOM) {
+    const r = byId.get(id);
+    if (r.domainRating === undefined || r.domainRating === null) continue;
+    rated += 1;
+    assert.deepStrictEqual(BD.domainRatingProblems(r), [],
+      `${r.id} carries a Domain Rating that does not satisfy the shared rule`);
+    assert.strictEqual(r.metricsProvenance.domainRating.measuredDomain,
+      BD.normaliseDomain(r.website),
+      `${r.id} reports a rating measured on a domain that is not its own`);
   }
-  const domains = new Set();
-  for (const r of ALL) {
-    const p = r.metricsProvenance && r.metricsProvenance.domainRating;
-    if (p && p.measuredDomain) domains.add(p.measuredDomain);
-  }
-  assert.strictEqual(domains.size, 64, 'the frozen measurement set changed size');
+  assert.ok(rated > 0, 'no telecom record carries a Domain Rating, so this guard is vacuous');
+  // In place of the pinned snapshot size: one domain has one dated reading, and
+  // every record published on it repeats that reading verbatim. This layer is
+  // where that bites — four CTU systems share ctu.gov.cz, both German registers
+  // share bundesnetzagentur.de, and both Spanish ones share cnmc.es.
+  assert.deepStrictEqual(BD.sharedDomainSnapshotProblems(ALL), [],
+    'records sharing one measured domain do not repeat one identical reading');
+  // The old "invented metrics provenance" guard needed an unmeasured record and
+  // the corpus no longer holds one, so it runs on a fixture rather than being
+  // dropped: provenance for a rating that is not set is still a fault, and an
+  // unmeasured record is still legitimate rather than a record scoring zero.
+  assert.ok(BD.domainRatingProblems({
+    domainRating: null,
+    metricsProvenance: {
+      domainRating: {
+        provider: 'Ahrefs', measuredAt: '2026-08-19',
+        status: 'publicApiReading', measuredDomain: 'bundesnetzagentur.de',
+      },
+    },
+  }).length, 'provenance for a rating that is not set was accepted');
+  assert.deepStrictEqual(BD.domainRatingProblems({ domainRating: null, metricsProvenance: {} }), [],
+    'an unmeasured record was reported as a fault, which would force a number to be invented');
 });
 
 // ── 29. Browser-pending candidates stay unpublished ─────────────────────────

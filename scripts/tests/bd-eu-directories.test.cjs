@@ -191,17 +191,45 @@ test('every critical caveat survives in rendered prose', () => {
 });
 
 // ── metrics ─────────────────────────────────────────────────────────────────
-test('no new record carries a metric and the frozen snapshot is untouched', () => {
+// WAS: 'no new record carries a metric and the frozen snapshot is untouched'.
+// The freeze behind both halves has been reversed by the repository owner: it
+// was written against the plan-gated Site Explorer endpoint, while Ahrefs also
+// publishes Domain Rating through the free /v3/public/domain-rating-free
+// endpoint, so every domain in the corpus has been read and the 64-domain
+// snapshot is no longer the whole measurement set. The concern was invention —
+// a number with no evidence, or one borrowed from another site — which is what
+// is asserted here now.
+test('every Domain Rating on a new record is measured evidence about its own domain', () => {
   for (const r of NEW) {
-    assert.strictEqual(r.domainRating, null, `${r.id} carries a Domain Rating`);
-    assert.deepStrictEqual(r.metricsProvenance, {}, `${r.id} invented metrics provenance`);
+    assert.deepStrictEqual(S.domainRatingProblems(r), [],
+      `${r.id} carries a Domain Rating without a provider, a date and a measured domain`);
+    assert.strictEqual(r.metricsProvenance.domainRating.measuredDomain, S.normaliseDomain(r.website),
+      `${r.id} reports a rating measured on a domain that is not its own`);
+    // WAS: assert.deepStrictEqual(r.metricsProvenance, {}, 'invented metrics
+    // provenance'). Only Domain Rating was unfrozen, so provenance for any other
+    // metric would still be invented.
+    assert.deepStrictEqual(Object.keys(r.metricsProvenance).filter((k) => k !== 'domainRating'), [],
+      `${r.id} invented metrics provenance for a metric this project does not collect`);
   }
-  const domains = new Set();
-  for (const r of ALL) {
-    const p = r.metricsProvenance && r.metricsProvenance.domainRating;
-    if (p && p.measuredDomain) domains.add(p.measuredDomain);
-  }
-  assert.strictEqual(domains.size, 64, 'the frozen measurement set changed size');
+  // Non-vacuity: domainRatingProblems passes an unrated record, so the loop
+  // proves nothing unless these records really carry ratings.
+  assert.ok(NEW.every((r) => typeof r.domainRating === 'number'),
+    'a wave record has no Domain Rating, so the evidence rule above tested nothing');
+  // Missing is not zero, and the corpus no longer holds an unmeasured record to
+  // prove it on, so the unmeasured case is asserted against a fixture rather
+  // than dropped: an absent rating is legal, and provenance without a value —
+  // the shape an invented metric takes — is not.
+  const PROV = { provider: 'Ahrefs', measuredAt: '2026-08-19',
+    status: 'publicApiReading', measuredDomain: 'example.com' };
+  assert.deepStrictEqual(S.domainRatingProblems({ domainRating: null, metricsProvenance: {} }), [],
+    'an unmeasured record is treated as a problem rather than as simply unmeasured');
+  assert.ok(S.domainRatingProblems({ domainRating: null, metricsProvenance: { domainRating: PROV } }).length > 0,
+    'provenance for a rating that is not set is accepted');
+  // WAS: a pinned size of 64 for the frozen measurement set. What still holds is
+  // that one measured domain carries exactly one dated reading, repeated
+  // verbatim by every record published on it.
+  assert.deepStrictEqual(S.sharedDomainSnapshotProblems(ALL), [],
+    'a shared-domain snapshot became inconsistent');
 });
 
 // ── rendering ───────────────────────────────────────────────────────────────

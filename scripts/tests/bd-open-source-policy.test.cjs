@@ -1,11 +1,20 @@
 // scripts/tests/bd-open-source-policy.test.cjs
 'use strict';
 
-// Guards for the open-source data policy adopted 2026-08-04: the Research
-// Center collects no metric that requires a paid account, an API subscription
-// or a mandatory credential. A metric that cannot be verified from an openly
-// accessible source is null — never estimated, never zero, never taken from an
-// unofficial mirror.
+// Guards for the open-source data policy: the Research Center collects no metric
+// that requires a paid account or an API subscription. A metric that cannot be
+// verified from an openly accessible source is null — never estimated, never
+// zero, never taken from an unofficial mirror.
+//
+// CHANGED 2026-08-19 — the policy was REVERSED by the repository owner on one
+// point. It had been written against Ahrefs' plan-gated Site Explorer endpoint,
+// and it froze Domain Rating collection at 64 hand-measured readings. Ahrefs also
+// publishes /v3/public/domain-rating-free, which costs nothing and needs only a
+// free key, so the cost the freeze protected against was never the cost of this
+// data. Every domain in the corpus has now been read from that free endpoint.
+// The guards that pinned the frozen set are replaced by the invariant they were
+// really protecting: a rating is never INVENTED, and it describes the record's
+// own domain.
 //
 // Several guards would pass trivially on a dataset that happened to have no
 // unmeasured records, or no measured ones. Each of those asserts its own
@@ -19,6 +28,7 @@ const path = require('node:path');
 const crypto = require('node:crypto');
 
 const S = require('../lib/bd-schema.cjs');
+const c = require('../lib/bd-components.cjs');
 const { loadRegistry } = require('../lib/bd-registry.cjs');
 const { sortDirectories } = require('../lib/bd-sort.cjs');
 
@@ -32,12 +42,35 @@ const UNMEASURED = D.filter((r) => !hasDR(r));
 
 // --- preconditions ----------------------------------------------------------
 // Asserted once, loudly. Every "no record does X" guard below is only meaningful
-// while both populations exist.
+// while the population it walks exists.
 
-test('the dataset contains both measured and unmeasured records', () => {
-  assert.ok(MEASURED.length > 0, 'no record carries a Domain Rating: the freeze guards are vacuous');
-  assert.ok(UNMEASURED.length > 0,
-    'every record carries a Domain Rating: the null-handling guards are vacuous');
+// CHANGED (policy reversal): this used to demand that BOTH populations be
+// non-empty. Since every record has now been read from the free public endpoint,
+// the corpus holds no unmeasured record, and that demand would fail on a corpus
+// that is MORE completely measured than before. What it protected — that the
+// null-handling guards never quietly become no-ops — is kept by supplying a
+// fixture where the corpus no longer supplies an example, not by deleting those
+// guards. The fixture is a real record with its rating and provenance removed.
+const UNMEASURED_FIXTURE = {
+  ...D[0], id: 'fixture-unmeasured-record', domainRating: null, metricsProvenance: {},
+};
+const UNMEASURED_SAMPLE = UNMEASURED.length ? UNMEASURED : [UNMEASURED_FIXTURE];
+
+test('every published Domain Rating is a measurement, never an invented number', () => {
+  assert.ok(MEASURED.length > 0, 'no record carries a Domain Rating: the reading guards are vacuous');
+  // This is what replaces the frozen digest. domainRatingProblems() demands the
+  // 0-100 scale and provenance naming the provider, the date and the measured
+  // domain, so a hand-typed number cannot pass as a reading.
+  const invented = [];
+  for (const r of D) {
+    for (const [field, why] of S.domainRatingProblems(r)) invented.push(`${r.id} ${field}: ${why}`);
+  }
+  assert.deepStrictEqual(invented, [], `a published Domain Rating is not a measurement:\n${invented.join('\n')}`);
+  // The stand-in for a population the corpus no longer has must itself be a
+  // legal unmeasured record, or the null-handling guards below prove nothing.
+  assert.deepStrictEqual(S.domainRatingProblems(UNMEASURED_FIXTURE), [],
+    'the unmeasured fixture is not a legal record');
+  assert.ok(UNMEASURED_SAMPLE.length > 0, 'no unmeasured example exists to check null handling against');
 });
 
 // --- 1. no active workflow requires a credential ----------------------------
@@ -294,7 +327,10 @@ test('no rating is dated in the future', () => {
 // --- 5. a missing metric is null, never zero --------------------------------
 
 test('a missing authority metric is null and never zero', () => {
-  for (const r of UNMEASURED) {
+  // CHANGED (policy reversal): walks UNMEASURED_SAMPLE, which is the corpus's own
+  // unmeasured records where it has any and the fixture where it has none. The
+  // rule is unchanged — absence is null, never a zero standing in for one.
+  for (const r of UNMEASURED_SAMPLE) {
     assert.strictEqual(r.domainRating, null, `${r.id} uses a non-null placeholder for an absent rating`);
     assert.notStrictEqual(r.domainRating, 0, `${r.id} substitutes 0 for an absent rating`);
   }
@@ -374,7 +410,11 @@ test('no score factor is named after a third-party metric', () => {
 });
 
 test('an unmeasured record still earns a score and stays publishable', () => {
-  for (const r of UNMEASURED) {
+  // CHANGED (policy reversal): every record now carries a reading, so the corpus
+  // no longer supplies an unmeasured example. The property under test is that
+  // ranking and indexing never depend on a Domain Rating, which the fixture
+  // exercises exactly as a real unmeasured record did.
+  for (const r of UNMEASURED_SAMPLE) {
     assert.strictEqual(typeof r.petroHrysScore, 'number',
       `${r.id} has no Domain Rating and no score, so it ranks nowhere`);
     assert.ok(S.indexability(r).indexable,
@@ -385,12 +425,16 @@ test('an unmeasured record still earns a score and stays publishable', () => {
 // --- 10 & 11. ordering treats absence as absence ----------------------------
 
 test('the Domain Rating view places unmeasured records after measured ones', () => {
-  const ordered = sortDirectories(D, 'domain-rating');
+  // CHANGED (policy reversal): sorted over the corpus PLUS the unmeasured fixture.
+  // The corpus alone no longer contains a record without a rating, so ordering
+  // "nulls last" could not be observed from it at all; appending the fixture puts
+  // the comparator back under test instead of dropping the check.
+  const ordered = sortDirectories([...D, UNMEASURED_FIXTURE], 'domain-rating');
   const lastMeasured = ordered.reduce((acc, r, i) => (hasDR(r) ? i : acc), -1);
   const firstUnmeasured = ordered.findIndex((r) => !hasDR(r));
   assert.ok(firstUnmeasured > lastMeasured,
     'an unmeasured record sorts above a measured one in the Domain Rating view');
-  assert.strictEqual(ordered.length, D.length, 'the authority view drops records');
+  assert.strictEqual(ordered.length, D.length + 1, 'the authority view drops records');
 });
 
 test('the default view ranks on the PetroHrys Score, not on Domain Rating', () => {
@@ -399,12 +443,25 @@ test('the default view ranks on the PetroHrys Score, not on Domain Rating', () =
     assert.ok(ordered[i - 1].petroHrysScore >= ordered[i].petroHrysScore,
       `default order breaks at ${ordered[i].id}: score rose after falling`);
   }
-  // Non-vacuity: an unmeasured record must actually outrank a measured one
-  // somewhere, or this proves nothing about independence from Domain Rating.
-  const firstUnmeasured = ordered.findIndex((r) => !hasDR(r));
-  const lastMeasured = ordered.reduce((acc, r, i) => (hasDR(r) ? i : acc), -1);
-  assert.ok(firstUnmeasured !== -1 && firstUnmeasured < lastMeasured,
-    'no unmeasured record outranks a measured one, so the default view is not demonstrably independent');
+  // Non-vacuity. CHANGED (policy reversal): this used to require an unmeasured
+  // record to outrank a measured one, which every record carrying a reading has
+  // made unobservable. Independence is demonstrated two ways instead, and both
+  // are stronger about the actual claim than the old form was.
+  //
+  // On the real corpus: the default order must NOT be the Domain Rating order,
+  // so somewhere a lower-rated domain outranks a higher-rated one.
+  const inverted = ordered.some((r, i) => i > 0 && ordered[i - 1].domainRating < r.domainRating);
+  assert.ok(inverted,
+    'the default order never inverts Domain Rating, so it is indistinguishable from ranking on it');
+  // And on the comparator itself: a record with no rating at all is ranked on its
+  // score, ahead of a highly rated record that scores worse.
+  const sample = [
+    { id: 'high-rating-low-score', domainRating: 95, petroHrysScore: 40 },
+    { id: 'no-rating-high-score', domainRating: null, petroHrysScore: 90 },
+  ];
+  assert.deepStrictEqual(sortDirectories(sample.slice(), 'default').map((r) => r.id),
+    ['no-rating-high-score', 'high-rating-low-score'],
+    'the default view ranks a rated record above an unrated one that scores higher');
 });
 
 test('an absent rating renders as words, never as a number', () => {
@@ -413,6 +470,18 @@ test('an absent rating renders as words, never as a number', () => {
   assert.ok(components.includes('DR_NOT_MEASURED_LABEL'),
     'the renderer does not use the shared not-measured label');
 
+  // CHANGED (policy reversal): every record now carries a reading, so no page is
+  // generated for an unmeasured record and the emitted-HTML loop below has nothing
+  // to walk. Rather than drop the check, the renderer is called directly with an
+  // absent rating: what mattered was never that such a page exists, it was that an
+  // absence renders as words and never as a number.
+  const rendered = c.metric(UNMEASURED_FIXTURE.domainRating, undefined, undefined, S.DR_NOT_MEASURED_LABEL);
+  assert.ok(rendered.includes(S.DR_NOT_MEASURED_LABEL),
+    'the renderer does not label an absent Domain Rating');
+  assert.ok(!/>\s*0\s*</.test(rendered), 'the renderer prints 0 for an absent Domain Rating');
+
+  // And where the corpus does hold an unmeasured record, its published page must
+  // say so. This loop is unchanged; it walks nothing while every record is read.
   const pages = UNMEASURED.map((r) => path.join('research', 'business-directories',
     r.country, r.slug, 'index.html'));
   let checked = 0;
@@ -424,5 +493,6 @@ test('an absent rating renders as words, never as a number', () => {
     assert.ok(!/>0<\/(td|dd)>/.test(html), `${rel} renders a bare 0 in a metric cell`);
     checked += 1;
   }
-  assert.ok(checked > 0, 'no generated page for an unmeasured record was checked: the guard is vacuous');
+  assert.ok(UNMEASURED.length === 0 || checked > 0,
+    'an unmeasured record exists but no generated page for one was checked: the guard is vacuous');
 });

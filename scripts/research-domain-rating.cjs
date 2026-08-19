@@ -346,6 +346,7 @@ function provenanceFor(finding) {
 // twice cannot produce a different byte.
 function sameSnapshot(record, value, prov) {
   if (record.domainRating !== value) return false;
+  if (record.metricStatus !== undefined && record.metricStatus !== 'measured') return false;
   const cur = (record.metricsProvenance || {}).domainRating;
   if (!cur) return false;
   return cur.provider === prov.provider && cur.measuredAt === prov.measuredAt
@@ -381,10 +382,17 @@ function runApply() {
         if (!f) { tally.noMeasurement += 1; continue; }
         const prov = provenanceFor(f);
         if (sameSnapshot(r, f.domainRating, prov)) { tally.unchanged += 1; continue; }
-        SAFE.applyPatch(r, {
+        const patch = {
           domainRating: f.domainRating,
           metricsProvenance: { ...(r.metricsProvenance || {}), domainRating: prov },
-        }, { owner: 'metrics', collection: name });
+        };
+        // Only where the field exists. The registry carries a metricStatus and
+        // its validator rejects a populated metric on a record still marked
+        // "unknown"; the other four record sets have no such field, and
+        // inventing one for them would be this pass adding a column nobody
+        // asked for.
+        if (r.metricStatus !== undefined) patch.metricStatus = 'measured';
+        SAFE.applyPatch(r, patch, { owner: 'metrics', collection: name });
         tally.written += 1;
         touched = true;
       }

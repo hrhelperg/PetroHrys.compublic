@@ -700,14 +700,28 @@ test('no JSON-LD node carries a www URL', () => {
 
 const order = require('../../js/bd-order.js');
 
-test('a Domain Rating never exists without provider, date and snapshot status', () => {
+test('a Domain Rating never exists without provider, date and measurement status', () => {
   for (const record of D) {
     if (record.domainRating === null || record.domainRating === undefined) continue;
     const p = (record.metricsProvenance || {}).domainRating;
     assert.ok(p, `${record.id} has a Domain Rating with no provenance`);
     assert.ok(S.METRIC_PROVIDERS.includes(p.provider), `${record.id} provider "${p.provider}" is not approved`);
     assert.ok(/^\d{4}-\d{2}-\d{2}$/.test(p.measuredAt), `${record.id} measuredAt is not an ISO date`);
-    assert.equal(p.status, S.METRIC_SNAPSHOT_STATUS, `${record.id} is not labelled a historical snapshot`);
+    // CHANGED (policy reversal): this pinned status to 'historicalSnapshot', the
+    // only status that existed while collection was frozen. Ratings are now read
+    // from Ahrefs' free public endpoint and carry 'publicApiReading', so the pin
+    // rejected honest readings. Both statuses describe a dated measurement; what
+    // must still hold is that the status is one the schema recognises, never
+    // absent and never invented.
+    assert.ok(S.METRIC_PROVENANCE_STATUSES.includes(p.status),
+      `${record.id} carries an unrecognised measurement status "${p.status}"`);
+    // And the whole shape at once, so a rating can never be a bare number: the
+    // 0-100 scale plus provenance naming provider, date and measured domain.
+    assert.deepEqual(S.domainRatingProblems(record), [],
+      `${record.id} publishes a Domain Rating that is not a measurement`);
+    // The rating must describe this record's OWN domain, not a parent's.
+    assert.equal(p.measuredDomain, S.normaliseDomain(record.website),
+      `${record.id} displays a rating measured on a domain that is not its own`);
     assert.ok(p.measuredDomain, `${record.id} does not record which domain was measured`);
     assert.ok(Number.isInteger(record.domainRating), `${record.id} Domain Rating is not an integer`);
     assert.ok(record.domainRating >= S.DOMAIN_RATING_RANGE.min

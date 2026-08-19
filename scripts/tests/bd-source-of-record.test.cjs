@@ -214,18 +214,35 @@ test('no stale "no registry type exists" claim remains in the backlog', () => {
 // --- 9 & 10. Stability of everything the correction must not touch --------------
 
 test('corrected records keep their identity, routes, dates and DR provenance', () => {
+  // CHANGED (policy reversal): each pin used to carry a literal domainRating —
+  // four frozen values and one null. Ahrefs' free public Domain Rating endpoint is
+  // now read for the whole corpus, so a pinned literal encodes "no new measurement
+  // was taken" and would fail on every refresh, including the one that gave
+  // us-georgia-business-search its first reading. Identity, route and date pins are
+  // untouched: a factual correction still must not move them. What replaces the
+  // rating pin is asserted per record below — a rating must be a real measurement,
+  // taken on the record's OWN domain.
   const PINNED = {
-    'de-registerportal': { slug: 'registerportal', website: 'https://www.handelsregister.de/rp_web/welcome.xhtml', lastVerified: '2026-08-04', domainRating: 79 },
-    'fr-annuaire-entreprises': { slug: 'annuaire-des-entreprises', website: 'https://annuaire-entreprises.data.gouv.fr/', lastVerified: '2026-08-04', domainRating: 89 },
-    'es-registradores': { slug: 'colegio-de-registradores', website: 'https://www.registradores.org/', lastVerified: '2026-08-04', domainRating: 80 },
-    'it-registro-imprese': { slug: 'registro-imprese', website: 'https://www.registroimprese.it/', lastVerified: '2026-08-04', domainRating: 78 },
-    'us-georgia-business-search': { slug: 'georgia-business-search', website: 'https://ecorp.sos.ga.gov/BusinessSearch', lastVerified: '2026-08-05', domainRating: null },
+    'de-registerportal': { slug: 'registerportal', website: 'https://www.handelsregister.de/rp_web/welcome.xhtml', lastVerified: '2026-08-04' },
+    'fr-annuaire-entreprises': { slug: 'annuaire-des-entreprises', website: 'https://annuaire-entreprises.data.gouv.fr/', lastVerified: '2026-08-04' },
+    'es-registradores': { slug: 'colegio-de-registradores', website: 'https://www.registradores.org/', lastVerified: '2026-08-04' },
+    'it-registro-imprese': { slug: 'registro-imprese', website: 'https://www.registroimprese.it/', lastVerified: '2026-08-04' },
+    'us-georgia-business-search': { slug: 'georgia-business-search', website: 'https://ecorp.sos.ga.gov/BusinessSearch', lastVerified: '2026-08-05' },
   };
   for (const [id, pin] of Object.entries(PINNED)) {
     const r = byId.get(id);
     assert.ok(r, `${id} is missing`);
     for (const [k, v] of Object.entries(pin)) {
       assert.strictEqual(r[k], v, `${id}.${k} changed during a factual correction`);
+    }
+    // The rating itself may move when the domain is re-read; what may never happen
+    // is a number appearing without a measurement behind it, or one measured on a
+    // different domain being displayed as this record's.
+    assert.deepStrictEqual(S.domainRatingProblems(r), [],
+      `${id} carries a Domain Rating that is not a measurement`);
+    if (r.domainRating !== null && r.domainRating !== undefined) {
+      assert.strictEqual(r.metricsProvenance.domainRating.measuredDomain, S.normaliseDomain(r.website),
+        `${id} displays a rating measured on a domain that is not its own`);
     }
     assert.ok(r.verification.reviewers.length > 0, `${id} lost its reviewer`);
     assert.strictEqual(S.computeScore(r.scoreFactors), r.petroHrysScore, `${id} score does not reproduce`);
@@ -235,15 +252,26 @@ test('corrected records keep their identity, routes, dates and DR provenance', (
   }
 });
 
-test('the correction created no new Domain Rating measurement', () => {
-  const measured = ALL.filter((r) => r.domainRating !== null);
-  const domains = new Set(measured.map((r) => r.metricsProvenance.domainRating.measuredDomain));
-  assert.strictEqual(domains.size, 64, `${domains.size} measured domains; the freeze pins 64`);
+test('every Domain Rating is a reading taken on the record\u2019s own domain', () => {
+  // CHANGED (policy reversal). This test used to assert the freeze three ways: a
+  // measured-domain count pinned at 64, status pinned to 'historicalSnapshot', and
+  // no measuredAt after the freeze date. All three are now false by decision —
+  // Ahrefs' /v3/public/domain-rating-free costs nothing, so the whole corpus was
+  // read from it — and each pinned the collection process rather than the truth of
+  // a published number.
+  //
+  // What the freeze was really protecting is that a wave of factual corrections
+  // cannot invent or misattribute a rating. That is asserted directly here.
+  const measured = ALL.filter((r) => r.domainRating !== null && r.domainRating !== undefined);
+  assert.ok(measured.length > 0, 'no record carries a Domain Rating: this guard is vacuous');
   for (const r of measured) {
-    assert.strictEqual(r.metricsProvenance.domainRating.status, 'historicalSnapshot', r.id);
-    assert.ok(r.metricsProvenance.domainRating.measuredAt <= '2026-08-04',
-      `${r.id} carries a measurement dated after the freeze`);
+    // 0-100 scale, plus provenance naming provider, date and measured domain.
+    assert.deepStrictEqual(S.domainRatingProblems(r), [],
+      `${r.id} publishes a Domain Rating that is not a measurement`);
+    assert.strictEqual(r.metricsProvenance.domainRating.measuredDomain, S.normaliseDomain(r.website),
+      `${r.id} displays a rating measured on a domain that is not its own`);
   }
+  // Unchanged: records sharing a domain repeat one identical reading.
   assert.deepStrictEqual(S.sharedDomainSnapshotProblems(ALL), []);
 });
 

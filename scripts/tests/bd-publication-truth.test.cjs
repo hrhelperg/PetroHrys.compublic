@@ -25,6 +25,7 @@
 const test = require('node:test');
 const assert = require('node:assert');
 
+const S = require('../lib/bd-schema.cjs');
 const { loadRegistry } = require('../lib/bd-registry.cjs');
 
 const US = loadRegistry().directories.filter((r) => r.country === 'united-states');
@@ -328,16 +329,50 @@ test('a pending state never appears as a published directory', () => {
   }
 });
 
-test('no Wave 1 record carries a metric', () => {
-  // The two US records with a Domain Rating predate Wave 1 and hold a frozen
-  // snapshot; nothing added here may carry one.
-  const PRE_WAVE_1 = new Set(['us-bbb', 'us-uspto-trademark-search', 'us-sec-edgar', 'us-finra-brokercheck']);
+test('no record carries a metric nobody measured', () => {
+  // CHANGED (policy reversal). This test said "no Wave 1 record carries a metric",
+  // with four pre-Wave-1 records exempted because they held frozen snapshots. The
+  // freeze has been lifted by decision of the repository owner: Ahrefs publishes
+  // Domain Rating through /v3/public/domain-rating-free, which costs nothing and
+  // needs only a free key, and every domain in the corpus has now been read from
+  // it. "Carries no metric" is therefore false of every record and exempting four
+  // ids means nothing any more.
+  //
+  // The defect the test existed to stop was a metric appearing on a record that
+  // nobody had measured. That is asserted directly now, and over ALL US records
+  // rather than all-but-four, so it is a wider guard than the one it replaces.
+  assert.ok(US.length > 0, 'no US record to check: this guard is vacuous');
   for (const r of US) {
-    if (PRE_WAVE_1.has(r.id)) continue;
-    for (const k of ['domainRating', 'authorityScore', 'estimatedTraffic', 'referringDomains']) {
-      assert.strictEqual(r[k], null, `${r.id} carries ${k} = ${r[k]}`);
+    // A Domain Rating must be a real reading: the 0-100 scale, and provenance
+    // naming the provider, the date and the domain measured.
+    assert.deepStrictEqual(S.domainRatingProblems(r), [],
+      `${r.id} publishes a Domain Rating that is not a measurement`);
+    if (r.domainRating !== null && r.domainRating !== undefined) {
+      // And it must describe THIS record's domain, not a parent's or a partner's.
+      assert.strictEqual(r.metricsProvenance.domainRating.measuredDomain, S.normaliseDomain(r.website),
+        `${r.id} displays a rating measured on a domain that is not its own`);
     }
-    assert.strictEqual(r.metricStatus, 'unknown', `${r.id} metricStatus is ${r.metricStatus}`);
-    assert.deepStrictEqual(r.metricsProvenance, {}, `${r.id} carries metric provenance`);
+    // The reversal covered Domain Rating alone. Authority Score, traffic and
+    // referring domains are only sold through the plan-gated Site Explorer
+    // endpoint, so nothing has measured them and no record may state one.
+    for (const k of ['authorityScore', 'estimatedTraffic', 'referringDomains']) {
+      assert.strictEqual(r[k], null, `${r.id} carries ${k} = ${r[k]}, which no free source measures`);
+      assert.strictEqual((r.metricsProvenance || {})[k], undefined,
+        `${r.id} carries provenance for ${k}, which is not measured`);
+    }
+    // metricStatus must describe what the record actually holds, in both
+    // directions: no claiming a measurement nobody took, and no reporting a
+    // measured record as unknown.
+    assert.ok(S.METRIC_STATUSES.includes(r.metricStatus),
+      `${r.id} metricStatus is "${r.metricStatus}", which the schema does not declare`);
+    const populated = S.THIRD_PARTY_METRICS.some((k) => r[k] !== null && r[k] !== undefined);
+    if (populated) {
+      assert.notStrictEqual(r.metricStatus, 'unknown',
+        `${r.id} carries a measured metric but reports metricStatus "unknown"`);
+    } else {
+      assert.notStrictEqual(r.metricStatus, 'measured',
+        `${r.id} reports metricStatus "measured" while carrying no metric`);
+      assert.deepStrictEqual(r.metricsProvenance, {}, `${r.id} carries provenance for no metric`);
+    }
   }
 });

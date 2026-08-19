@@ -345,35 +345,50 @@ test('an access claim is carried by the access block', () => {
 
 // --- metrics -------------------------------------------------------------------
 
-test('no record added by this wave carries a newly measured metric', () => {
-  // Exactly one added record carries a Domain Rating: the disqualified
-  // directors register, which sits on the SAME measured domain as the already
-  // published company register and therefore repeats that domain's stored
-  // snapshot. Repeating a stored reading measures nothing. Everything else on
-  // an unmeasured host must be null across the board.
-  const REUSES_SNAPSHOT = new Set(['gb-companies-house-disqualified-directors']);
+test('every record added by this wave carries a rating of its own domain, and no other metric', () => {
+  // POLICY REVERSAL: Domain Rating collection was frozen when this was written,
+  // so every added record but one had to carry domainRating null / metricStatus
+  // 'unknown' / an empty metricsProvenance, and the single exception — the
+  // disqualified directors register, reusing the company register's snapshot —
+  // was pinned to status 'historicalSnapshot'. The freeze is lifted: Ahrefs'
+  // free public endpoint needs no paid plan, and every domain in the corpus has
+  // been read through it. Those four assertions could only restate the freeze.
+  //
+  // What they were protecting survives here: no rating is invented, every rating
+  // describes the record's OWN domain, and records sharing a domain repeat one
+  // identical reading rather than each carrying a figure of its own.
+  //
+  // The other three third-party metrics were never collected and still are not,
+  // so those assertions are unchanged.
+  let shared = 0;
   for (const r of NEW) {
     for (const k of ['authorityScore', 'estimatedTraffic', 'referringDomains']) {
       assert.strictEqual(r[k], null, `${r.id} carries ${k} = ${r[k]}`);
     }
-    if (!REUSES_SNAPSHOT.has(r.id)) {
-      assert.strictEqual(r.domainRating, null, `${r.id} carries domainRating = ${r.domainRating}`);
-      assert.strictEqual(r.metricStatus, 'unknown', r.id);
-      assert.deepStrictEqual(r.metricsProvenance, {}, r.id);
-      continue;
-    }
+    assert.deepStrictEqual(S.domainRatingProblems(r), [],
+      `${r.id} carries a Domain Rating that is off-scale or missing its provenance`);
     const p = r.metricsProvenance.domainRating;
-    assert.ok(p, `${r.id} claims a reused snapshot but carries no provenance`);
-    assert.strictEqual(p.status, 'historicalSnapshot', `${r.id} presents its snapshot as current`);
     assert.strictEqual(p.measuredDomain, S.normaliseDomain(r.website),
-      `${r.id} carries a snapshot measured on another domain`);
+      `${r.id} carries a reading measured on another domain`);
     const source = UK.find((o) => o.id !== r.id
       && (o.metricsProvenance || {}).domainRating
       && o.metricsProvenance.domainRating.measuredDomain === p.measuredDomain);
-    assert.ok(source, `${r.id} has no prior record to have reused a snapshot from`);
-    assert.strictEqual(r.domainRating, source.domainRating, 'reused value differs from the stored one');
-    assert.deepStrictEqual(p, source.metricsProvenance.domainRating, 'reused provenance differs');
+    if (!source) continue;
+    shared += 1;
+    assert.strictEqual(r.domainRating, source.domainRating,
+      `${r.id} and ${source.id} report different values for one measured domain`);
+    assert.deepStrictEqual(p, source.metricsProvenance.domainRating,
+      `${r.id} and ${source.id} report different provenance for one measured domain`);
   }
+  // The repetition branch above must actually run, or it proves nothing. The
+  // disqualified directors register is the case that makes it run: it sits on
+  // the company register's measured domain and must repeat that domain's reading.
+  const dq = byId.get('gb-companies-house-disqualified-directors');
+  const ch = byId.get('gb-companies-house');
+  assert.strictEqual(dq.metricsProvenance.domainRating.measuredDomain,
+    ch.metricsProvenance.domainRating.measuredDomain,
+    'the disqualification register no longer shares the company register’s measured domain');
+  assert.ok(shared >= 1, 'no added record shares a measured domain, so the repetition check is vacuous');
   assert.deepStrictEqual(S.sharedDomainSnapshotProblems(ALL), []);
 });
 
@@ -385,8 +400,17 @@ test('the pre-existing UK records keep their research and their snapshots', () =
   assert.strictEqual(cqc.domainRating, 90, 'CQC Domain Rating was altered');
   assert.strictEqual(cqc.lastVerified, '2026-08-04', 'CQC was re-dated');
   assert.strictEqual(cqc.petroHrysScore, 89, 'CQC score was altered');
+  // POLICY REVERSAL: the FCA record carried no rating only because Domain Rating
+  // collection was frozen, and pinning null now pins the freeze rather than the
+  // research — register.fca.org.uk has since been read from Ahrefs' free public
+  // endpoint along with every other domain in the corpus. What is guarded
+  // instead is that the reading it gained is a real, provenanced one about its
+  // own domain, not an invented figure or one borrowed from a neighbour.
   const fca = byId.get('gb-fca-register');
-  assert.strictEqual(fca.domainRating, null, 'the FCA record gained a Domain Rating');
+  assert.deepStrictEqual(S.domainRatingProblems(fca), [],
+    'the FCA record carries a Domain Rating that is off-scale or missing its provenance');
+  assert.strictEqual(fca.metricsProvenance.domainRating.measuredDomain, S.normaliseDomain(fca.website),
+    'the FCA record reports a rating measured on a domain that is not its own');
 });
 
 // --- duplicate control ----------------------------------------------------------

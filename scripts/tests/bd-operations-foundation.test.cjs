@@ -293,7 +293,7 @@ test('Other countries is one consolidated view, not sixteen thin pages', () => {
     'the opportunities page claims exhaustive coverage');
 });
 
-// ── 11 + 22 + 23. nothing was stamped, nothing was measured ─────────────────
+// ── 11 + 22 + 23. nothing was stamped, no metric is invented ────────────────
 test('only commercial opportunities carry operational fields', () => {
   // Batch 0 stamped nothing; Milestone 1 populates the fields deliberately.
   // What must stay true in every phase is that the operations layer never
@@ -326,16 +326,27 @@ test('every actionable opportunity is prioritised and has a status', () => {
     'every record claims active status; blocked platforms should be unknown');
 });
 
-test('the foundation took no measurement and added no dependency', () => {
-  const domains = new Set();
-  let measured = 0;
+test('the foundation invents no measurement and added no dependency', () => {
+  // POLICY REVERSAL (2026-08-19). Domain Rating collection is no longer frozen:
+  // the freeze was written against Ahrefs' plan-gated Site Explorer endpoint,
+  // and /v3/public/domain-rating-free needs only a free key, so every record has
+  // now been read from it. The pinned totals here (64 measured domains, 67 rated
+  // records) described the frozen snapshot and are false. They are replaced by
+  // the invariant they were protecting — that the operations foundation cannot
+  // introduce a rating nobody measured — checked per record, not as a total.
   for (const r of ALL) {
+    assert.deepStrictEqual(S.domainRatingProblems(r), [],
+      `${r.id} carries a Domain Rating that is not fully evidenced`);
     const p = r.metricsProvenance && r.metricsProvenance.domainRating;
-    if (p && p.measuredDomain) domains.add(p.measuredDomain);
-    if (r.domainRating !== null && r.domainRating !== undefined) measured += 1;
+    if (p) {
+      assert.strictEqual(p.measuredDomain, S.normaliseDomain(r.website),
+        `${r.id} reports a rating measured on a domain that is not its own`);
+    }
   }
-  assert.strictEqual(domains.size, 64, 'the frozen measurement set changed size');
-  assert.strictEqual(measured, 67, 'the number of records carrying a Domain Rating changed');
+  // One measured domain has one dated reading; records sharing a domain repeat
+  // it verbatim rather than each carrying a figure of its own.
+  assert.deepStrictEqual(S.sharedDomainSnapshotProblems(ALL), [],
+    'records sharing a measured domain disagree about its reading');
 
   const NETWORK = new RegExp([
     'require\\((?:.)(?:node:)?(?:https?|net|dgram|dns|tls)',
@@ -394,7 +405,10 @@ test('an operational row never generates a page and never invents a metric', () 
     assert.ok(!fs.existsSync(path.join(root, 'research/business-directories', row.country, slug, 'index.html')),
       `${row.id} generated a detail page`);
     // Domain Rating is never carried by a row: only a researched editorial
-    // record may hold one, and only from a frozen measurement.
+    // record may hold one, and only with provenance naming the provider, the
+    // date and the domain measured. (The 2026-08-19 policy reversal opened
+    // collection for editorial records; it did not extend to compact rows,
+    // which still carry no reading at all.)
     assert.strictEqual(row.domainRating, null, `${row.id} carries a Domain Rating`);
     assert.deepStrictEqual(row.metricsProvenance, {}, `${row.id} invented metrics provenance`);
   }

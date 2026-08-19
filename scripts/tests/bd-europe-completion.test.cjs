@@ -274,24 +274,58 @@ test('no record overclaims what inclusion proves', () => {
 
 // --- metrics --------------------------------------------------------------------
 
-test('no record added by this wave carries a metric', () => {
+// WAS: 'no record added by this wave carries a metric'. Domain Rating is no
+// longer among the metrics this wave may not carry: the collection freeze has
+// been reversed by the repository owner, because it was written against the
+// plan-gated Site Explorer endpoint while Ahrefs also publishes the figure
+// through the free /v3/public/domain-rating-free endpoint. Every domain in the
+// corpus has been read. The other three metrics are still uncollected and their
+// assertions below are unchanged.
+test('this wave carries no invented metric, and its Domain Ratings are evidenced', () => {
   for (const r of NEW) {
-    assert.strictEqual(r.domainRating, null, `${r.id} carries a Domain Rating`);
+    // WAS: assert.strictEqual(r.domainRating, null). A rating may exist, but only
+    // as evidence: on the 0-100 scale, naming provider, date and measured domain.
+    assert.deepStrictEqual(S.domainRatingProblems(r), [],
+      `${r.id} carries a Domain Rating without a provider, a date and a measured domain`);
+    assert.strictEqual(r.metricsProvenance.domainRating.measuredDomain, S.normaliseDomain(r.website),
+      `${r.id} reports a rating measured on a domain that is not its own`);
     assert.strictEqual(r.authorityScore, null, `${r.id} carries an authority score`);
     assert.strictEqual(r.estimatedTraffic, null, `${r.id} carries traffic`);
     assert.strictEqual(r.referringDomains, null, `${r.id} carries referring domains`);
-    assert.strictEqual(r.metricStatus, 'unknown', `${r.id} claims a metric status`);
-    assert.deepStrictEqual(r.metricsProvenance, {}, `${r.id} carries metric provenance`);
+    // WAS: assert.strictEqual(r.metricStatus, 'unknown'). The surviving rule is
+    // that the status must match whether evidence exists, in both directions.
+    assert.strictEqual(r.metricStatus === 'unknown', typeof r.domainRating !== 'number',
+      `${r.id} metric status "${r.metricStatus}" disagrees with whether it carries a metric`);
+    // WAS: assert.deepStrictEqual(r.metricsProvenance, {}). Only Domain Rating
+    // was unfrozen; the three metrics above may still claim no provenance.
+    assert.deepStrictEqual(Object.keys(r.metricsProvenance).filter((k) => k !== 'domainRating'), [],
+      `${r.id} carries provenance for a metric this project does not collect`);
   }
+  // Non-vacuity: domainRatingProblems passes an unrated record, so the loop
+  // proves nothing unless these records really carry ratings.
+  assert.ok(NEW.every((r) => typeof r.domainRating === 'number'),
+    'a wave record has no Domain Rating, so the evidence rule above tested nothing');
 });
 
-test('the wave changed no Domain Rating measurement', () => {
+// WAS: 'the wave changed no Domain Rating measurement', pinned by a count of 64
+// measured domains. Both the title and the pin asserted the freeze, which the
+// repository owner has reversed; new measurements are now expected rather than
+// forbidden, so a fixed count is no longer a fact about anything. The invariant
+// it rested on — one domain, one dated reading, repeated verbatim wherever
+// records share it, and never a number without evidence — is asserted instead.
+test('the corpus holds one evidenced reading per measured domain', () => {
   const measured = ALL.filter((r) => r.domainRating !== null && r.domainRating !== undefined);
   const domains = new Set(measured.map((r) => {
     const p = (r.metricsProvenance || {}).domainRating;
     return p && p.measuredDomain;
   }).filter(Boolean));
-  assert.strictEqual(domains.size, 64, `the measured-domain count moved to ${domains.size}`);
+  for (const r of measured) {
+    assert.deepStrictEqual(S.domainRatingProblems(r), [],
+      `${r.id} carries a Domain Rating without a provider, a date and a measured domain`);
+  }
+  // Non-vacuity: the loop above and the shared-snapshot check both pass an empty
+  // set, so the corpus must actually hold readings for them to mean anything.
+  assert.ok(domains.size > 0, 'no domain in the corpus is measured, so this guard proves nothing');
   assert.deepStrictEqual(S.sharedDomainSnapshotProblems(ALL), [],
     'a shared-domain snapshot became inconsistent');
 });

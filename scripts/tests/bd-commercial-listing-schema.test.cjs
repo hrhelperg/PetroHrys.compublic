@@ -240,13 +240,27 @@ test('a definite listing action is supported by visible prose', () => {
   }
 });
 
-test('the schema change took no new measurement and added no dependency', () => {
-  const domains = new Set();
+test('the schema change invents no measurement and added no dependency', () => {
+  // POLICY REVERSAL (2026-08-19). Domain Rating collection is no longer frozen:
+  // the freeze was written against Ahrefs' plan-gated Site Explorer endpoint,
+  // and /v3/public/domain-rating-free needs only a free key, so every record has
+  // now been read from it. The pinned totals here (64 measured domains, 67 rated
+  // records) described the frozen snapshot and are false. They are replaced by
+  // the invariant they were protecting — that a schema change cannot introduce a
+  // rating nobody measured — checked per record rather than as a total.
   for (const r of ALL) {
+    assert.deepStrictEqual(S.domainRatingProblems(r), [],
+      `${r.id} carries a Domain Rating that is not fully evidenced`);
     const p = r.metricsProvenance && r.metricsProvenance.domainRating;
-    if (p && p.measuredDomain) domains.add(p.measuredDomain);
+    if (p) {
+      assert.strictEqual(p.measuredDomain, S.normaliseDomain(r.website),
+        `${r.id} reports a rating measured on a domain that is not its own`);
+    }
   }
-  assert.strictEqual(domains.size, 64, 'the frozen measurement set changed size');
+  // One measured domain has one dated reading; records sharing a domain repeat
+  // it verbatim rather than each carrying a figure of its own.
+  assert.deepStrictEqual(S.sharedDomainSnapshotProblems(ALL), [],
+    'records sharing a measured domain disagree about its reading');
   assert.ok(!fs.existsSync(path.join(ROOT, 'package.json')), 'a package.json appeared');
   assert.ok(!fs.existsSync(path.join(ROOT, 'node_modules')), 'node_modules appeared');
 });

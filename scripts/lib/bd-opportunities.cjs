@@ -68,11 +68,21 @@ function problemsFor(row, knownCountries, knownCategories) {
   // level a platform was researched at.
   for (const [f, m] of INTEL.problemsFor(row.intelligence, row.id)) p.push([f, m]);
 
-  // Domain Rating is never estimated. A row may not carry one at all: only a
-  // researched editorial record can, and only from a frozen measurement.
-  if (row.domainRating !== undefined && row.domainRating !== null) {
-    at('domainRating', 'may not be set on an operational row. A Domain Rating comes only from a frozen measurement on an editorial record.');
-  }
+  // Domain Rating is never estimated — and that is the whole of the rule.
+  //
+  // An operational row used to be forbidden a rating outright, on the reasoning
+  // that only a researched editorial record could carry one and only from a
+  // frozen measurement. That reasoning was about WHO MEASURED IT, and it was
+  // enforced by forbidding the field, which also forbade measuring it. Now that
+  // every domain in the corpus is read from Ahrefs' public endpoint, an
+  // operational row is measured exactly as an editorial one is: same provider,
+  // same date, same domain policy.
+  //
+  // What is still forbidden is a number with nothing behind it. The shared rule
+  // demands the 0-100 scale and provenance naming the provider, the date and
+  // the domain measured, so an estimated rating cannot get in — which is what
+  // "never estimated" always meant.
+  for (const [field, reason] of S.domainRatingProblems(row)) at(field, reason);
   return p;
 }
 

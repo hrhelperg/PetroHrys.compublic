@@ -154,17 +154,37 @@ test('every critical caveat survives in rendered prose', () => {
 });
 
 // ── metrics ─────────────────────────────────────────────────────────────────
-test('no new record carries a metric and the frozen snapshot is untouched', () => {
+// POLICY REVERSAL — the Domain Rating collection freeze has been lifted. This
+// test asserted that the two Czech records carried no Domain Rating and no
+// provenance, and pinned the frozen set at 64 measured domains. Every domain is
+// now read from Ahrefs' free public /v3/public/domain-rating-free endpoint, so
+// both claims are false. The invariant they protected — a rating is never
+// INVENTED and describes the record's OWN domain — is asserted directly.
+test('no new record invents a Domain Rating', () => {
   for (const r of NEW) {
-    assert.strictEqual(r.domainRating, null, `${r.id} carries a Domain Rating`);
-    assert.deepStrictEqual(r.metricsProvenance, {}, `${r.id} invented metrics provenance`);
+    assert.deepStrictEqual(S.domainRatingProblems(r), [], `${r.id} has an unusable Domain Rating`);
+    assert.strictEqual(r.metricsProvenance.domainRating.measuredDomain, S.normaliseDomain(r.website),
+      `${r.id} reports a rating measured on a domain other than its own`);
   }
-  const domains = new Set();
-  for (const r of ALL) {
-    const p = r.metricsProvenance && r.metricsProvenance.domainRating;
-    if (p && p.measuredDomain) domains.add(p.measuredDomain);
-  }
-  assert.strictEqual(domains.size, 64, 'the frozen measurement set changed size');
+  assert.deepStrictEqual(S.sharedDomainSnapshotProblems(ALL), [],
+    'records sharing a measured domain no longer repeat one identical reading');
+  // FIXTURES. The corpus no longer holds an unmeasured record, so "missing is
+  // not zero" is exercised on objects built here rather than dropped.
+  assert.ok(S.domainRatingProblems({ domainRating: 63, metricsProvenance: {} }).length > 0,
+    'a bare number with no provenance must be rejected as an invented metric');
+  assert.ok(S.domainRatingProblems({
+    domainRating: null,
+    metricsProvenance: {
+      domainRating: {
+        provider: 'Ahrefs',
+        measuredAt: '2026-08-19',
+        status: 'publicApiReading',
+        measuredDomain: 'zlatestranky.cz',
+      },
+    },
+  }).length > 0, 'provenance for a rating that is not set must be rejected');
+  assert.deepStrictEqual(S.domainRatingProblems({ domainRating: null, metricsProvenance: {} }), [],
+    'an unmeasured record must be allowed to carry no rating, rather than a zero');
 });
 
 // ── rendering ───────────────────────────────────────────────────────────────

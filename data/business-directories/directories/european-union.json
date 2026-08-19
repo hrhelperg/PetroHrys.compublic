@@ -44,13 +44,20 @@
       "transparency": 9,
       "moderationQuality": 8
     },
-    "domainRating": null,
+    "domainRating": 96,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-19",
+        "status": "publicApiReading",
+        "measuredDomain": "e-justice.europa.eu"
+      }
+    },
     "submissionModel": "notApplicable",
     "registrationRequired": null,
     "reviewSystem": false,
@@ -191,13 +198,20 @@
       "transparency": 9,
       "moderationQuality": 8
     },
-    "domainRating": null,
+    "domainRating": 96,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-19",
+        "status": "publicApiReading",
+        "measuredDomain": "ec.europa.eu"
+      }
+    },
     "submissionModel": "notApplicable",
     "registrationRequired": null,
     "reviewSystem": false,
@@ -331,13 +345,20 @@
       "transparency": 10,
       "moderationQuality": 8
     },
-    "domainRating": null,
+    "domainRating": 96,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-19",
+        "status": "publicApiReading",
+        "measuredDomain": "ted.europa.eu"
+      }
+    },
     "submissionModel": "notApplicable",
     "registrationRequired": null,
     "reviewSystem": false,
@@ -474,13 +495,20 @@
       "transparency": 10,
       "moderationQuality": 8
     },
-    "domainRating": null,
+    "domainRating": 96,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-19",
+        "status": "publicApiReading",
+        "measuredDomain": "transparency-register.europa.eu"
+      }
+    },
     "submissionModel": "notApplicable",
     "registrationRequired": null,
     "reviewSystem": false,
@@ -613,13 +641,20 @@
       "transparency": 10,
       "moderationQuality": 9
     },
-    "domainRating": null,
+    "domainRating": 96,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-19",
+        "status": "publicApiReading",
+        "measuredDomain": "esma.europa.eu"
+      }
+    },
     "submissionModel": "notApplicable",
     "registrationRequired": null,
     "reviewSystem": false,
@@ -757,13 +792,20 @@
       "transparency": 9,
       "moderationQuality": 8
     },
-    "domainRating": null,
+    "domainRating": 96,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-19",
+        "status": "publicApiReading",
+        "measuredDomain": "eba.europa.eu"
+      }
+    },
     "submissionModel": "notApplicable",
     "registrationRequired": null,
     "reviewSystem": false,
@@ -903,13 +945,20 @@
       "transparency": 9,
       "moderationQuality": 8
     },
-    "domainRating": null,
+    "domainRating": 96,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-19",
+        "status": "publicApiReading",
+        "measuredDomain": "eba.europa.eu"
+      }
+    },
     "submissionModel": "notApplicable",
     "registrationRequired": null,
     "reviewSystem": false,
@@ -1044,13 +1093,20 @@
       "transparency": 8,
       "moderationQuality": 8
     },
-    "domainRating": null,
+    "domainRating": 96,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-19",
+        "status": "publicApiReading",
+        "measuredDomain": "register.eiopa.europa.eu"
+      }
+    },
     "submissionModel": "notApplicable",
     "registrationRequired": null,
     "reviewSystem": false,
@@ -1182,13 +1238,20 @@
       "transparency": 9,
       "moderationQuality": 9
     },
-    "domainRating": null,
+    "domainRating": 96,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-19",
+        "status": "publicApiReading",
+        "measuredDomain": "commission.europa.eu"
+      }
+    },
     "submissionModel": "notApplicable",
     "registrationRequired": null,
     "reviewSystem": false,
@@ -1324,13 +1387,20 @@
       "transparency": 9,
       "moderationQuality": 9
     },
-    "domainRating": null,
+    "domainRating": 96,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-19",
+        "status": "publicApiReading",
+        "measuredDomain": "euipo.europa.eu"
+      }
+    },
     "submissionModel": "notApplicable",
     "registrationRequired": null,
     "reviewSystem": false,
@@ -1472,13 +1542,20 @@
       "transparency": 8,
       "moderationQuality": 8
     },
-    "domainRating": null,
+    "domainRating": 80,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-19",
+        "status": "publicApiReading",
+        "measuredDomain": "tmdn.org"
+      }
+    },
     "submissionModel": "notApplicable",
     "registrationRequired": null,
     "reviewSystem": false,
@@ -1618,13 +1695,20 @@
       "transparency": 8,
       "moderationQuality": 8
     },
-    "domainRating": null,
+    "domainRating": 80,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-19",
+        "status": "publicApiReading",
+        "measuredDomain": "tmdn.org"
+      }
+    },
     "submissionModel": "notApplicable",
     "registrationRequired": null,
     "reviewSystem": false,
@@ -1765,13 +1849,20 @@
       "transparency": 8,
       "moderationQuality": 8
     },
-    "domainRating": null,
+    "domainRating": 96,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-19",
+        "status": "publicApiReading",
+        "measuredDomain": "ec.europa.eu"
+      }
+    },
     "submissionModel": "notApplicable",
     "registrationRequired": null,
     "reviewSystem": false,
@@ -1902,13 +1993,20 @@
       "transparency": 9,
       "moderationQuality": 8
     },
-    "domainRating": null,
+    "domainRating": 96,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-19",
+        "status": "publicApiReading",
+        "measuredDomain": "chem.echa.europa.eu"
+      }
+    },
     "submissionModel": "notApplicable",
     "registrationRequired": null,
     "reviewSystem": false,
@@ -2040,13 +2138,20 @@
       "transparency": 9,
       "moderationQuality": 9
     },
-    "domainRating": null,
+    "domainRating": 84,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-19",
+        "status": "publicApiReading",
+        "measuredDomain": "eib.org"
+      }
+    },
     "submissionModel": "notApplicable",
     "registrationRequired": null,
     "reviewSystem": false,
@@ -2182,13 +2287,20 @@
       "transparency": 10,
       "moderationQuality": 8
     },
-    "domainRating": null,
+    "domainRating": 75,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-19",
+        "status": "publicApiReading",
+        "measuredDomain": "euclinicaltrials.eu"
+      }
+    },
     "submissionModel": "notApplicable",
     "registrationRequired": null,
     "reviewSystem": false,
@@ -2324,13 +2436,20 @@
       "transparency": 8,
       "moderationQuality": 8
     },
-    "domainRating": null,
+    "domainRating": 80,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-19",
+        "status": "publicApiReading",
+        "measuredDomain": "tmdn.org"
+      }
+    },
     "submissionModel": "notApplicable",
     "registrationRequired": null,
     "reviewSystem": false,
@@ -2463,13 +2582,20 @@
       "transparency": 9,
       "moderationQuality": 8
     },
-    "domainRating": null,
+    "domainRating": 78,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-19",
+        "status": "publicApiReading",
+        "measuredDomain": "sanctionsmap.eu"
+      }
+    },
     "submissionModel": "notApplicable",
     "registrationRequired": null,
     "reviewSystem": false,
@@ -2605,13 +2731,20 @@
       "transparency": 8,
       "moderationQuality": 9
     },
-    "domainRating": null,
+    "domainRating": 96,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-19",
+        "status": "publicApiReading",
+        "measuredDomain": "webgate.ec.europa.eu"
+      }
+    },
     "submissionModel": "notApplicable",
     "registrationRequired": null,
     "reviewSystem": false,
@@ -2751,13 +2884,20 @@
       "transparency": 9,
       "moderationQuality": 7
     },
-    "domainRating": null,
+    "domainRating": 96,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-19",
+        "status": "publicApiReading",
+        "measuredDomain": "ec.europa.eu"
+      }
+    },
     "submissionModel": "notApplicable",
     "registrationRequired": null,
     "reviewSystem": false,
@@ -2893,13 +3033,20 @@
       "transparency": 9,
       "moderationQuality": 8
     },
-    "domainRating": null,
+    "domainRating": 96,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-19",
+        "status": "publicApiReading",
+        "measuredDomain": "gadb.berec.europa.eu"
+      }
+    },
     "submissionModel": "notApplicable",
     "registrationRequired": null,
     "reviewSystem": false,

@@ -368,15 +368,13 @@ test('canonical facts are unchanged by this phase', () => {
   //
   // What this pin still guards is that the DETAIL layer changed none of it.
   assert.strictEqual(fp('data/tender-opportunities/opportunities.json'), '3c341d60');
-  // Re-baselined 2026-08-19 (810122a9 -> a6e0ea29). The ONLY change is
-  // `bidAccess` on 7 records: 384 in, 384 out, one field touched, nothing
-  // added or lost. Four are retractions — Find a Tender and PhilGEPS had been
-  // recorded as charging suppliers because "supplier fee" and "membership fee"
-  // are inside "supplier feedback" and "membership feedback"; NATO's free
-  // broadcast video and a German service's free search had been read as free
-  // bidding. Three are new and genuine, all German, all stating that suppliers
-  // register kostenfrei. `searchAccess` is byte-identical.
-  assert.strictEqual(fp('data/tenders-procurement/platforms.json'), 'a6e0ea29');
+  // Re-baselined 2026-08-20 (a6e0ea29 -> d4c2bbba). 384 records in, 384 out;
+  // exactly two fields moved — `domainRating` and `metricsProvenance` — on
+  // every record. Domain Rating collection was unfrozen and every domain in the
+  // corpus was read from Ahrefs' free public endpoint. Each rating names the
+  // record's own officialUrl host as the domain measured, checked across all
+  // 384 with 0 exceptions, so no record borrowed another domain's authority.
+  assert.strictEqual(fp('data/tenders-procurement/platforms.json'), 'd4c2bbba');
   assert.strictEqual(fp('scripts/lib/to-match.cjs'), '5de543fb');
   assert.strictEqual(Object.keys(MATCH.PROFILES).length, 16);
 });

@@ -43,8 +43,8 @@
     "metricsProvenance": {
       "domainRating": {
         "provider": "Ahrefs",
-        "measuredAt": "2026-08-04",
-        "status": "historicalSnapshot",
+        "measuredAt": "2026-08-19",
+        "status": "publicApiReading",
         "measuredDomain": "registroimprese.it"
       }
     },
@@ -183,13 +183,20 @@
       "transparency": 8,
       "moderationQuality": 7
     },
-    "domainRating": null,
+    "domainRating": 73,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-19",
+        "status": "publicApiReading",
+        "measuredDomain": "uibm.gov.it"
+      }
+    },
     "submissionModel": "notApplicable",
     "registrationRequired": null,
     "reviewSystem": false,
@@ -326,13 +333,20 @@
       "transparency": 9,
       "moderationQuality": 8
     },
-    "domainRating": null,
+    "domainRating": 84,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-19",
+        "status": "publicApiReading",
+        "measuredDomain": "pubblicitalegale.anticorruzione.it"
+      }
+    },
     "submissionModel": "notApplicable",
     "registrationRequired": null,
     "reviewSystem": false,
@@ -471,13 +485,20 @@
       "transparency": 9,
       "moderationQuality": 9
     },
-    "domainRating": null,
+    "domainRating": 82,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-19",
+        "status": "publicApiReading",
+        "measuredDomain": "servizi.lavoro.gov.it"
+      }
+    },
     "submissionModel": "notApplicable",
     "registrationRequired": null,
     "reviewSystem": false,
@@ -613,13 +634,20 @@
       "transparency": 10,
       "moderationQuality": 8
     },
-    "domainRating": null,
+    "domainRating": 82,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-19",
+        "status": "publicApiReading",
+        "measuredDomain": "bancaditalia.it"
+      }
+    },
     "submissionModel": "notApplicable",
     "registrationRequired": null,
     "reviewSystem": false,
@@ -756,13 +784,20 @@
       "transparency": 8,
       "moderationQuality": 9
     },
-    "domainRating": null,
+    "domainRating": 72,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-19",
+        "status": "publicApiReading",
+        "measuredDomain": "commercialisti.it"
+      }
+    },
     "submissionModel": "notApplicable",
     "registrationRequired": null,
     "reviewSystem": false,
@@ -901,13 +936,20 @@
       "transparency": 8,
       "moderationQuality": 9
     },
-    "domainRating": null,
+    "domainRating": 74,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-19",
+        "status": "publicApiReading",
+        "measuredDomain": "notariato.it"
+      }
+    },
     "submissionModel": "notApplicable",
     "registrationRequired": null,
     "reviewSystem": false,
@@ -1031,13 +1073,20 @@
       "transparency": 6,
       "moderationQuality": 6
     },
-    "domainRating": null,
+    "domainRating": 90,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-19",
+        "status": "publicApiReading",
+        "measuredDomain": "paginegialle.it"
+      }
+    },
     "submissionModel": "free",
     "registrationRequired": null,
     "reviewSystem": true,

@@ -233,18 +233,45 @@ test('an observed CAPTCHA is recorded rather than assumed absent', () => {
     'the UIBM CAPTCHA was recorded as absent or unknown');
 });
 
-test('no record added by this wave carries a metric', () => {
+// POLICY REVERSAL — the Domain Rating collection freeze has been lifted. This
+// test used to assert that no record in the wave carried a Domain Rating, that
+// its metricStatus stayed "unknown", and that the frozen set held exactly 64
+// measured domains. Every domain is now read from Ahrefs' free public
+// /v3/public/domain-rating-free endpoint, so all three of those are false.
+// What they were protecting is asserted directly instead: a rating is never
+// INVENTED (0-100 scale, provenance naming provider, date and domain), and it
+// describes the record's OWN domain. The other three metrics are collected by
+// nothing at all, so those assertions are left exactly as they were.
+test('no record added by this wave invents a metric', () => {
   for (const r of NEW) {
-    for (const k of ['domainRating', 'authorityScore', 'estimatedTraffic', 'referringDomains']) {
+    for (const k of ['authorityScore', 'estimatedTraffic', 'referringDomains']) {
       assert.strictEqual(r[k], null, `${r.id} carries ${k} = ${r[k]}`);
     }
-    assert.strictEqual(r.metricStatus, 'unknown', r.id);
-    assert.deepStrictEqual(r.metricsProvenance, {}, r.id);
+    assert.deepStrictEqual(S.domainRatingProblems(r), [], `${r.id} has an unusable Domain Rating`);
+    assert.strictEqual(r.metricStatus, 'measured', `${r.id} holds a reading but does not say so`);
+    assert.strictEqual(r.metricsProvenance.domainRating.measuredDomain, S.normaliseDomain(r.website),
+      `${r.id} reports a rating measured on a domain other than its own`);
   }
-  const measured = ALL.filter((r) => r.domainRating !== null);
-  const domains = new Set(measured.map((r) => r.metricsProvenance.domainRating.measuredDomain));
-  assert.strictEqual(domains.size, 64, `${domains.size} measured domains; the freeze pins 64`);
+  // Unchanged: records sharing a measured domain repeat ONE identical reading.
   assert.deepStrictEqual(S.sharedDomainSnapshotProblems(ALL), []);
+  // FIXTURES. "Missing is not zero" was previously checked against the wave's
+  // own unmeasured records; the corpus no longer holds an unmeasured record, so
+  // the rules are exercised on objects built here rather than dropped.
+  assert.ok(S.domainRatingProblems({ domainRating: 73, metricsProvenance: {} }).length > 0,
+    'a bare number with no provenance must be rejected as an invented metric');
+  assert.ok(S.domainRatingProblems({
+    domainRating: null,
+    metricsProvenance: {
+      domainRating: {
+        provider: 'Ahrefs',
+        measuredAt: '2026-08-19',
+        status: 'publicApiReading',
+        measuredDomain: 'ares.gov.cz',
+      },
+    },
+  }).length > 0, 'provenance for a rating that is not set must be rejected');
+  assert.deepStrictEqual(S.domainRatingProblems({ domainRating: null, metricsProvenance: {} }), [],
+    'an unmeasured record must be allowed to carry no rating, rather than a zero');
 });
 
 test('no record overclaims authority or implies inclusion proves anything', () => {

@@ -364,30 +364,81 @@ test('every Canadian statutory register is notApplicable for submission', () => 
   }
 });
 
-test('no record added by this wave carries a newly measured metric', () => {
-  // Domain Rating collection is frozen: no record added here may introduce a
-  // NEW measurement. Exactly one added record carries a Domain Rating at all —
-  // the trademark database — and it does so by repeating the snapshot already
-  // held for its own domain, which measures nothing. Everything else is null.
-  const REUSES_SNAPSHOT = new Set(['ca-cipo-trademarks-database']);
+test('every metric a record in this wave carries is an attributable reading of its own domain', () => {
+  // CHANGED: this test used to read "Domain Rating collection is frozen: no
+  // record added here may introduce a NEW measurement", and allowed exactly one
+  // added record (the trademark database) to carry a rating at all, by reuse.
+  // The repository owner reversed that freeze: it had been written against
+  // Ahrefs' plan-gated Site Explorer endpoint, while
+  // /v3/public/domain-rating-free costs nothing and needs only a free key, and
+  // every domain in the corpus has since been read from it. "Everything else is
+  // null" and the pinned 'historicalSnapshot' status are therefore both false.
+  //
+  // What the freeze was protecting is asserted instead: no rating is invented,
+  // every rating describes the record's OWN domain, and records sharing a
+  // measured domain repeat one identical reading rather than disagreeing.
+  let measured = 0;
   for (const r of NEW) {
-    // No metric other than Domain Rating is ever published.
+    // Unchanged: no metric other than Domain Rating is ever published, because
+    // none of the others has a free source.
     for (const k of ['authorityScore', 'estimatedTraffic', 'referringDomains']) {
       assert.strictEqual(r[k], null, `${r.id} carries ${k} = ${r[k]}`);
     }
-    if (!REUSES_SNAPSHOT.has(r.id)) {
-      assert.strictEqual(r.domainRating, null, `${r.id} carries domainRating = ${r.domainRating}`);
+    // Replaces `domainRating === null` / `metricsProvenance === {}`: the shape
+    // rule is what keeps an invented number out, demanding the 0-100 scale and
+    // provenance naming provider, date and measured domain.
+    assert.deepStrictEqual(S.domainRatingProblems(r), [],
+      `${r.id} publishes a Domain Rating that is not a properly attributed measurement`);
+    if (r.domainRating === null || r.domainRating === undefined) {
+      // Missing is not zero, and a record with no metric claims no status.
+      assert.notStrictEqual(r.domainRating, 0, `${r.id} substitutes 0 for an absent rating`);
       assert.strictEqual(r.metricStatus, 'unknown', r.id);
       assert.deepStrictEqual(r.metricsProvenance, {}, r.id);
       continue;
     }
-    // The reusing record must be reusing, not measuring: its snapshot has to be
-    // identical to one another record already holds for the same domain.
+    measured += 1;
     const p = r.metricsProvenance.domainRating;
-    assert.ok(p, `${r.id} claims a reused snapshot but carries no provenance`);
-    assert.strictEqual(p.status, 'historicalSnapshot', `${r.id} presents its snapshot as current`);
+    assert.ok(p, `${r.id} carries a Domain Rating but no provenance`);
+    // Replaces the pinned 'historicalSnapshot' literal, which asserted that no
+    // measurement had been taken. The surviving rule is that the status must be
+    // one the schema recognises, so a record cannot invent its own.
+    assert.ok(S.METRIC_PROVENANCE_STATUSES.includes(p.status),
+      `${r.id} marks its Domain Rating with an unrecognised status "${p.status}"`);
     assert.strictEqual(p.measuredDomain, S.normaliseDomain(r.website),
       `${r.id} carries a snapshot measured on another domain`);
+  }
+  assert.ok(measured > 0, 'no record added by this wave carries a Domain Rating: the guards above are vacuous');
+
+  // "Missing is not zero" needs an unmeasured example and the corpus no longer
+  // has one — every domain has now been read — so the null branch above cannot
+  // run on real data. A fixture keeps the rule live rather than letting it lapse.
+  const UNMEASURED = {
+    id: 'fixture-unmeasured', website: 'https://never-measured.canada.ca/',
+    domainRating: null, metricStatus: 'unknown', metricsProvenance: {},
+  };
+  assert.deepStrictEqual(S.domainRatingProblems(UNMEASURED), [],
+    'a genuinely unmeasured register must remain publishable as null');
+  assert.notDeepStrictEqual(S.domainRatingProblems({ ...UNMEASURED, domainRating: 0 }), [],
+    'a bare 0 was accepted, so an absent rating would be indistinguishable from a domain measured at zero');
+
+  // A Domain Rating is a fact about a DOMAIN, so two Canadian records on one
+  // measured domain must report one identical reading. ised-isde.canada.ca is
+  // the Canadian instance: the trademark database and Corporations Canada sit
+  // on it, and the checks below are the original reuse assertions, kept because
+  // they are still true — only the reason the two records agree has changed
+  // (one API pass over the corpus, rather than one record copying another).
+  const shared = NEW.filter((r) => (r.metricsProvenance || {}).domainRating
+    && CA.some((o) => o.id !== r.id && (o.metricsProvenance || {}).domainRating
+      && o.metricsProvenance.domainRating.measuredDomain
+        === r.metricsProvenance.domainRating.measuredDomain));
+  // The original pinned this record by name as the only added record carrying a
+  // rating. That half of the pin is dead — every record carries one now — but
+  // the structural half is not: the trademark database is still the only record
+  // this wave added onto a domain another Canadian record already sits on.
+  assert.deepStrictEqual(shared.map((r) => r.id).sort(), ['ca-cipo-trademarks-database'],
+    'the set of added records sharing a measured domain with another Canadian record has changed');
+  for (const r of shared) {
+    const p = r.metricsProvenance.domainRating;
     const source = CA.find((o) => o.id !== r.id
       && (o.metricsProvenance || {}).domainRating
       && o.metricsProvenance.domainRating.measuredDomain === p.measuredDomain);
@@ -397,6 +448,9 @@ test('no record added by this wave carries a newly measured metric', () => {
     assert.ok(source.lastVerified <= r.lastVerified,
       'the snapshot source must predate the record reusing it');
   }
+  // And no Canadian record anywhere may disagree with its domain's one reading.
+  assert.deepStrictEqual(S.sharedDomainSnapshotProblems(CA), [],
+    'Canadian records sharing a measured domain do not repeat one identical reading');
 });
 
 test('an access claim is carried by the access block', () => {

@@ -69,7 +69,23 @@ test('the three exclusion records use the new type as primary', () => {
     assert.strictEqual(r.jurisdiction, null);
     assert.strictEqual(r.submissionModel, 'notApplicable',
       `${id} must not be described as a submission target`);
-    assert.strictEqual(r.domainRating, null, `${id} carries a Domain Rating`);
+    // CHANGED: `domainRating === null` encoded the Domain Rating freeze, which
+    // the repository owner reversed — the frozen policy had been written
+    // against Ahrefs' plan-gated Site Explorer endpoint, while
+    // /v3/public/domain-rating-free costs nothing and has now been read for
+    // every domain. Replaced by what the pin protected: the rating is not
+    // invented (0-100 with provenance naming provider, date and domain) and it
+    // measures this record's own domain — which matters most here, where
+    // us-sam-exclusions shares sam.gov with another register.
+    assert.deepStrictEqual(S.domainRatingProblems(r), [],
+      `${id} publishes a Domain Rating that is not a properly attributed measurement`);
+    if (r.domainRating !== null && r.domainRating !== undefined) {
+      assert.strictEqual(r.metricsProvenance.domainRating.measuredDomain, S.normaliseDomain(r.website),
+        `${id} displays a rating measured on a domain that is not its own`);
+    } else {
+      // Missing is not zero: an unmeasured register stays null, never 0.
+      assert.notStrictEqual(r.domainRating, 0, `${id} substitutes 0 for an absent rating`);
+    }
     // Never described as something a party opts into.
     assert.ok(!/voluntary listing|submit your|get listed|apply to be listed/i.test(JSON.stringify(r)),
       `${id} uses voluntary-listing wording for a statutory exclusion`);
@@ -78,6 +94,17 @@ test('the three exclusion records use the new type as primary', () => {
       `${r.notRecommendedFor.join(' ')} ${r.cons.join(' ')} ${r.editorNotes}`),
     `${id} does not warn against reading absence as eligibility`);
   }
+  // "Missing is not zero" needs an unmeasured example and the corpus no longer
+  // has one — every domain has now been read — so the else branch above cannot
+  // run on real data. A fixture keeps the rule live rather than letting it lapse.
+  const UNMEASURED = {
+    id: 'fixture-unmeasured', website: 'https://never-measured.example.gov/',
+    domainRating: null, metricStatus: 'unknown', metricsProvenance: {},
+  };
+  assert.deepStrictEqual(S.domainRatingProblems(UNMEASURED), [],
+    'a genuinely unmeasured register must remain publishable as null');
+  assert.notDeepStrictEqual(S.domainRatingProblems({ ...UNMEASURED, domainRating: 0 }), [],
+    'a bare 0 was accepted, so an absent rating would be indistinguishable from a domain measured at zero');
 });
 
 // --- shared host: the allowed case ----------------------------------------------
@@ -103,6 +130,12 @@ test('the shipped FDA, SAM and Companies House pairs are the allowed case in pro
     assert.notStrictEqual(a.resourceIdentity.systemKey, b.resourceIdentity.systemKey);
     assert.ok(S.urlsAreMateriallyDifferent(a.website, b.website),
       `${a.id} and ${b.id} do not point anywhere materially different`);
+    // ADDED with the Domain Rating unfreeze. Ratings now exist on these
+    // records, and a shared host is exactly where two of them could disagree: a
+    // Domain Rating is a fact about the DOMAIN, so two systems on one host must
+    // repeat one identical reading rather than each carry a figure of its own.
+    assert.deepStrictEqual(S.sharedDomainSnapshotProblems(records), [],
+      `the ${group} pair does not repeat one identical Domain Rating for its shared domain`);
   }
 });
 

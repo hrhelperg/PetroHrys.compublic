@@ -150,30 +150,97 @@ test('a partially-open record says what is limited', () => {
 });
 
 // --- the open-source data policy still holds ------------------------------------
+//
+// CHANGED: the Domain Rating freeze was reversed by the repository owner. The
+// frozen policy had been written against Ahrefs' plan-gated Site Explorer
+// endpoint, but Domain Rating is also published through
+// /v3/public/domain-rating-free, which costs nothing and needs only a free key.
+// Every federal domain has since been read from that endpoint, so "no federal
+// record carries a Domain Rating" no longer states the data policy — it is
+// simply false about the dataset.
+//
+// The two tests below assert what those pins were protecting instead: that a
+// rating is never INVENTED, that it describes the record's OWN domain, and that
+// one measured domain still yields exactly one reading. The three metrics with
+// no free source (authorityScore, estimatedTraffic, referringDomains) are still
+// never published, and that check is carried over unchanged.
 
-test('no federal record carries a Domain Rating or any third-party metric', () => {
+test('a federal Domain Rating is a real reading of the record’s own domain, and no other metric is published', () => {
+  let measured = 0;
   for (const r of FEDERAL) {
-    for (const field of S.THIRD_PARTY_METRICS) {
+    // Unchanged in substance: Domain Rating is the only third-party metric with
+    // a free source, so the rest of THIRD_PARTY_METRICS stays absent.
+    for (const field of S.THIRD_PARTY_METRICS.filter((f) => f !== 'domainRating')) {
       assert.strictEqual(r[field], null, `${r.id} carries ${field}`);
     }
-    assert.deepStrictEqual(r.metricsProvenance, {}, `${r.id} carries metric provenance`);
-    assert.strictEqual(r.metricStatus, 'unknown', `${r.id} claims a metric status`);
+    // Replaces `domainRating === null`. domainRatingProblems() demands the
+    // 0-100 scale plus provenance naming provider, date and measured domain,
+    // which is precisely what an invented number cannot supply.
+    assert.deepStrictEqual(S.domainRatingProblems(r), [],
+      `${r.id} publishes a Domain Rating that is not a properly attributed measurement`);
+    // Replaces `metricsProvenance === {}`: provenance may only describe a
+    // metric the record actually publishes, never one it does not.
+    assert.deepStrictEqual(Object.keys(r.metricsProvenance).sort(),
+      r.domainRating === null || r.domainRating === undefined ? [] : ['domainRating'],
+      `${r.id} carries provenance for a metric it does not publish`);
+    if (r.domainRating === null || r.domainRating === undefined) {
+      // Missing is not zero: an unmeasured domain stays null, never 0.
+      assert.notStrictEqual(r.domainRating, 0, `${r.id} substitutes 0 for an absent rating`);
+      assert.strictEqual(r.metricStatus, 'unknown', `${r.id} claims a metric status with no metric behind it`);
+      continue;
+    }
+    measured += 1;
+    assert.strictEqual(r.metricsProvenance.domainRating.measuredDomain, S.normaliseDomain(r.website),
+      `${r.id} displays a rating measured on a domain that is not its own`);
+    // Replaces `metricStatus === 'unknown'`, which encoded "no measurement was
+    // taken". What survives is that the status must be one the schema defines
+    // and must not deny a measurement the record is publishing.
+    assert.ok(S.METRIC_STATUSES.includes(r.metricStatus),
+      `${r.id} claims an unrecognised metric status "${r.metricStatus}"`);
+    assert.notStrictEqual(r.metricStatus, 'unknown',
+      `${r.id} publishes a Domain Rating but reports its metric status as unknown`);
   }
+  assert.ok(measured > 0, 'no federal record carries a Domain Rating: the measurement guards are vacuous');
+
+  // "Missing is not zero" needs an unmeasured example and the corpus no longer
+  // has one — every domain has now been read — so the branch above cannot run
+  // on real data. A fixture keeps the rule live rather than letting it lapse.
+  const UNMEASURED = {
+    id: 'fixture-unmeasured', website: 'https://never-measured.example.gov/',
+    domainRating: null, metricStatus: 'unknown', metricsProvenance: {},
+  };
+  assert.deepStrictEqual(S.domainRatingProblems(UNMEASURED), [],
+    'a genuinely unmeasured record must remain publishable as null');
+  assert.notDeepStrictEqual(S.domainRatingProblems({ ...UNMEASURED, domainRating: 0 }), [],
+    'a bare 0 was accepted, so an absent rating would be indistinguishable from a domain measured at zero');
+  assert.notDeepStrictEqual(S.domainRatingProblems({
+    ...UNMEASURED,
+    metricsProvenance: { domainRating: { provider: 'Ahrefs', measuredAt: '2026-08-19', status: 'publicApiReading', measuredDomain: 'never-measured.example.gov' } },
+  }), [], 'provenance was accepted for a rating that is not set');
 });
 
-test('the frozen snapshot count is untouched by this wave', () => {
-  // Counted as MEASUREMENTS, not as records displaying one. Wave 1A added no
-  // record carrying a rating at all; later waves may publish a second registry
-  // on an already-measured domain, which repeats an existing reading rather
-  // than collecting a new one. The number of readings is what is frozen.
-  const measured = REGISTRY.directories.filter((r) => r.domainRating !== null);
+test('one measured domain still carries exactly one reading', () => {
+  // Replaces the pin on 64 frozen measurements. Counted as MEASUREMENTS, not as
+  // records displaying one: several registries may sit on one measured domain
+  // and repeat its single reading. The pinned COUNT died with the freeze — the
+  // corpus is re-read now, so any fixed number would fail on every refresh —
+  // but the rule the count stood for did not, so it is asserted directly.
+  const measured = REGISTRY.directories.filter((r) => r.domainRating !== null && r.domainRating !== undefined);
+  assert.ok(measured.length > 0, 'no record carries a Domain Rating: this guard is vacuous');
+  const rows = new Set(measured.map((r) => {
+    const p = (r.metricsProvenance || {}).domainRating;
+    assert.ok(p, `${r.id} publishes a Domain Rating with no provenance at all`);
+    return `${p.measuredDomain}:${r.domainRating}:${p.provider}:${p.measuredAt}:${p.status}`;
+  }));
   const domains = new Set(measured.map((r) => r.metricsProvenance.domainRating.measuredDomain));
-  assert.strictEqual(domains.size, 64,
-    `${domains.size} domains carry a Domain Rating measurement; Wave 1A must add none`);
-  for (const r of FEDERAL) {
-    assert.strictEqual(r.domainRating, null,
-      `${r.id} was added by Wave 1A and carries a Domain Rating`);
-  }
+  assert.strictEqual(rows.size, domains.size,
+    `${domains.size} measured domains produced ${rows.size} distinct readings; one domain has one reading`);
+  assert.deepStrictEqual(S.sharedDomainSnapshotProblems(REGISTRY.directories), [],
+    'records sharing a measured domain do not repeat one identical reading');
+  // Wave 1A must contribute to that population, or this guard says nothing
+  // about the records the file is scoped to.
+  assert.ok(FEDERAL.some((r) => r.domainRating !== null && r.domainRating !== undefined),
+    'no Wave 1A record carries a Domain Rating: the wave-scoped part of this guard is vacuous');
 });
 
 // --- editorial contract ----------------------------------------------------------

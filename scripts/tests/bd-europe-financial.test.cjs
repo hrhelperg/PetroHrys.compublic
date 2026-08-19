@@ -216,18 +216,48 @@ test('no record implies supervision proves soundness', () => {
 
 // --- metrics and pages ---------------------------------------------------------------------
 
-test('no record in this wave carries a metric and the frozen snapshot is untouched', () => {
+// POLICY REVERSAL — the Domain Rating collection freeze has been lifted. This
+// test asserted that no record in the wave carried a Domain Rating, that every
+// metricStatus stayed "unknown", and that exactly 64 domains were measured.
+// Every domain is now read from Ahrefs' free public
+// /v3/public/domain-rating-free endpoint, so all three are false. The invariant
+// they protected — a rating is never INVENTED and describes the record's OWN
+// domain — is asserted directly. The shared-domain check was never about the
+// freeze and is unchanged; it matters most here, because the two Bank of Spain
+// registers are separate records published on one measured domain.
+test('no record in this wave invents a metric', () => {
   for (const r of NEW) {
-    assert.strictEqual(r.domainRating, null, `${r.id} carries a Domain Rating`);
-    assert.strictEqual(r.metricStatus, 'unknown', `${r.id} claims a metric status`);
-    assert.deepStrictEqual(r.metricsProvenance, {}, `${r.id} carries metric provenance`);
+    assert.deepStrictEqual(S.domainRatingProblems(r), [], `${r.id} has an unusable Domain Rating`);
+    assert.strictEqual(r.metricStatus, 'measured', `${r.id} holds a reading but does not say so`);
+    assert.strictEqual(r.metricsProvenance.domainRating.measuredDomain, S.normaliseDomain(r.website),
+      `${r.id} reports a rating measured on a domain other than its own`);
   }
-  const domains = new Set(ALL
-    .filter((r) => r.domainRating !== null && r.domainRating !== undefined)
-    .map((r) => (r.metricsProvenance || {}).domainRating).filter(Boolean)
-    .map((p) => p.measuredDomain));
-  assert.strictEqual(domains.size, 64, `the measured-domain count moved to ${domains.size}`);
+  // The two app.bde.es records are the concrete case: one domain, one reading.
+  const entidades = byId.get('es-bde-registro-entidades');
+  const agentes = byId.get('es-bde-registro-agentes');
+  assert.strictEqual(entidades.domainRating, agentes.domainRating,
+    'the two Bank of Spain registers report different ratings for one measured domain');
+  assert.deepStrictEqual(entidades.metricsProvenance.domainRating,
+    agentes.metricsProvenance.domainRating,
+    'the two Bank of Spain registers report different provenance for one measured domain');
   assert.deepStrictEqual(S.sharedDomainSnapshotProblems(ALL), [], 'a shared-domain snapshot became inconsistent');
+  // FIXTURES. The corpus no longer holds an unmeasured record, so "missing is
+  // not zero" is exercised on objects built here rather than dropped.
+  assert.ok(S.domainRatingProblems({ domainRating: 82, metricsProvenance: {} }).length > 0,
+    'a bare number with no provenance must be rejected as an invented metric');
+  assert.ok(S.domainRatingProblems({
+    domainRating: null,
+    metricsProvenance: {
+      domainRating: {
+        provider: 'Ahrefs',
+        measuredAt: '2026-08-19',
+        status: 'publicApiReading',
+        measuredDomain: 'app.bde.es',
+      },
+    },
+  }).length > 0, 'provenance for a rating that is not set must be rejected');
+  assert.deepStrictEqual(S.domainRatingProblems({ domainRating: null, metricsProvenance: {} }), [],
+    'an unmeasured record must be allowed to carry no rating, rather than a zero');
 });
 
 test('every record has a page that leaks no schema and keeps its distinction', () => {

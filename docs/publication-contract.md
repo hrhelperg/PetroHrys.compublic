@@ -107,11 +107,22 @@ routinely misread as an endorsement.
 
 ### 2.6 Metrics
 
-19. **No new Domain Rating measurements.** New records carry `domainRating: null`.
-20. **An already-measured domain reuses its stored snapshot verbatim** — same
-    domain, same measurement, so the frozen set stays at **64 measurements** and
-    the digest `aa7e6984…19847a4e` is unchanged.
-21. **No paid API, no API key, no build-time or runtime network request.**
+19. **No invented Domain Rating.** A rating is a reading Ahrefs published, or it
+    is absent. Every one carries provenance naming the provider, the date it was
+    read and the domain it was measured on, and a record with no reading shows an
+    explicit label — never `0`, which is itself a real measurable value.
+20. **An already-measured domain reuses its stored reading verbatim** — one
+    domain has one dated reading, so records sharing a domain repeat it rather
+    than each carrying a figure of its own. They stay separate records; a rating
+    is metadata about a domain and never an identity.
+21. **No paid API and no build-time or runtime network request.** Ratings are
+    collected by a research pass that reads a credential from the environment
+    and commits its findings; the build and the browser only ever read committed
+    data. Clause 19 previously read "no new Domain Rating measurements" and
+    clause 21 forbade an API key outright — that freeze was written against
+    Ahrefs' plan-gated Site Explorer endpoint and was lifted once the free
+    public endpoint was identified. What it protected is intact: the build still
+    reaches no network, and no build, validator or test reads the credential.
 
 ### 2.7 Derived fields
 
@@ -242,7 +253,7 @@ Every wave:
 4. **Full pipeline**: validator exit 0 · migration ×2 rewriting 0 · build ×2
    writing 0 and pruning 0 · sitemap equals indexable set · RSS equals published
    records · zero broken links · JSON-LD parses · titles and descriptions unique ·
-   DR digest unchanged · clean tree.
+   every rating evidenced · clean tree.
 5. **New guards run against the whole existing layer, not only the new records.**
    This is how genuine gaps in older records surface. Scoping a guard to the
    current wave passes cleanly and hides them.
@@ -304,7 +315,7 @@ shared host** (rejects query-parameter and search-mode variants — this enforce
 score derivation · Domain Rating reuse policy.
 
 **Enforced by tests** (46 suites): publication truth · source-of-record
-separation · shared-domain snapshot and DR digest · per-wave content guards ·
+separation · shared-domain reading and DR evidence · per-wave content guards ·
 sitemap, RSS, JSON-LD, routes, rendering, no-JS completeness.
 
 **Not enforced — carried by judgement and review:**

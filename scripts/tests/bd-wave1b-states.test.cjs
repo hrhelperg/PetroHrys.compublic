@@ -93,7 +93,7 @@ test('every subnational record is scope subnational with the right parent', () =
   }
 });
 
-test('every state record carries an operator, a registry type and no Domain Rating', () => {
+test('every state record carries an operator, a registry type and an attributable Domain Rating', () => {
   for (const r of SUBNATIONAL) {
     assert.ok(r.operator && r.operator.name.trim(), `${r.id} has no operator`);
     assert.ok(S.OPERATOR_TYPES.includes(r.operator.type), `${r.id} operator type invalid`);
@@ -101,11 +101,39 @@ test('every state record carries an operator, a registry type and no Domain Rati
     for (const t of r.registryTypes) {
       assert.ok(T.REGISTRY_TYPE_BY_ID.has(t), `${r.id} uses undefined type "${t}"`);
     }
-    assert.strictEqual(r.domainRating, null, `${r.id} carries a Domain Rating`);
+    // CHANGED: `domainRating === null` encoded the Domain Rating freeze, which
+    // the repository owner reversed — the frozen policy was written against
+    // Ahrefs' plan-gated Site Explorer endpoint, while the free
+    // /v3/public/domain-rating-free endpoint has now been read for every
+    // domain. The pin is replaced by what it was protecting: a rating is never
+    // invented (0-100 with provenance naming provider, date and domain) and it
+    // describes this record's OWN domain, not a parent or a neighbour's.
+    assert.deepStrictEqual(S.domainRatingProblems(r), [],
+      `${r.id} publishes a Domain Rating that is not a properly attributed measurement`);
+    if (r.domainRating !== null && r.domainRating !== undefined) {
+      assert.strictEqual(r.metricsProvenance.domainRating.measuredDomain, S.normaliseDomain(r.website),
+        `${r.id} displays a rating measured on a domain that is not its own`);
+    } else {
+      // Missing is not zero: an unmeasured register stays null, never 0.
+      assert.notStrictEqual(r.domainRating, 0, `${r.id} substitutes 0 for an absent rating`);
+    }
     assert.strictEqual(r.submissionModel, 'notApplicable', `${r.id} is not notApplicable`);
     assert.strictEqual(S.computeScore(r.scoreFactors), r.petroHrysScore, `${r.id} score mismatch`);
     assert.deepStrictEqual(S.accessContradictions(r.publicAccess), [], `${r.id} access contradiction`);
   }
+  assert.ok(SUBNATIONAL.some((r) => r.domainRating !== null && r.domainRating !== undefined),
+    'no subnational record carries a Domain Rating: the measurement guards above are vacuous');
+  // "Missing is not zero" needs an unmeasured example and the corpus no longer
+  // has one — every domain has now been read — so the else branch above cannot
+  // run on real data. A fixture keeps the rule live rather than letting it lapse.
+  const UNMEASURED = {
+    id: 'fixture-unmeasured', website: 'https://never-measured.example.gov/',
+    domainRating: null, metricStatus: 'unknown', metricsProvenance: {},
+  };
+  assert.deepStrictEqual(S.domainRatingProblems(UNMEASURED), [],
+    'a genuinely unmeasured register must remain publishable as null');
+  assert.notDeepStrictEqual(S.domainRatingProblems({ ...UNMEASURED, domainRating: 0 }), [],
+    'a bare 0 was accepted, so an absent rating would be indistinguishable from a domain measured at zero');
 });
 
 test('state editorial content is not templated', () => {

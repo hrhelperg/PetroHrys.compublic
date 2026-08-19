@@ -361,14 +361,48 @@ test('a register that excludes firms does not claim to cover businesses', () => 
     'IPReg records firms too and must keep accepts.localBusiness');
 });
 
-test('no new record carries a metric and the frozen snapshot is untouched', () => {
+test('ratings are measured, not invented, and score and cadence still reproduce', () => {
+  // POLICY REVERSAL. The metric half of this test used to assert the Domain
+  // Rating freeze: every record's rating was null, its metricsProvenance was {},
+  // and the corpus held exactly 64 measured domains. The freeze is lifted —
+  // Ahrefs' free public domain-rating endpoint costs nothing, so ratings are
+  // collected again and all three assertions are now false. What they were
+  // protecting is that a number is never invented and never borrowed from
+  // another domain, which is asserted directly below. The score and cadence
+  // assertions have nothing to do with metrics and are unchanged.
+  let rated = 0;
   for (const r of NEW) {
-    assert.strictEqual(r.domainRating, null, `${r.id} carries a Domain Rating`);
-    assert.deepStrictEqual(r.metricsProvenance, {}, `${r.id} carries metric provenance`);
+    if (r.domainRating !== undefined && r.domainRating !== null) {
+      rated += 1;
+      assert.deepStrictEqual(S.domainRatingProblems(r), [],
+        `${r.id} carries a Domain Rating that does not satisfy the shared rule`);
+      assert.strictEqual(r.metricsProvenance.domainRating.measuredDomain,
+        S.normaliseDomain(r.website),
+        `${r.id} reports a rating measured on a domain that is not its own`);
+    }
     assert.strictEqual(S.computeScore(r.scoreFactors), r.petroHrysScore, `${r.id} score does not reproduce`);
     assert.strictEqual(r.nextVerification, S.nextVerificationFor(r), `${r.id} date was hand-set`);
   }
-  const domains = new Set(ALL.filter((r) => r.domainRating !== null && r.domainRating !== undefined)
-    .map((r) => (r.metricsProvenance || {}).domainRating).filter(Boolean).map((p) => p.measuredDomain));
-  assert.strictEqual(domains.size, 64, `the measured-domain count moved to ${domains.size}`);
+  assert.ok(rated > 0, 'no record in this wave carries a Domain Rating, so this guard is vacuous');
+  // In place of the pinned measured-domain count: one domain has one dated
+  // reading, and every record published on it repeats that reading verbatim.
+  // ČKA and ČKAIT stay separate records; sharing a host would not entitle either
+  // to a figure of its own.
+  assert.deepStrictEqual(S.sharedDomainSnapshotProblems(ALL), [],
+    'records sharing one measured domain do not repeat one identical reading');
+  // The old "carries metric provenance" guard needed an unmeasured record and the
+  // corpus no longer holds one, so it runs on a fixture rather than being
+  // dropped: provenance for a rating that is not set is still a fault, and an
+  // unmeasured record is still legitimate rather than a record scoring zero.
+  assert.ok(S.domainRatingProblems({
+    domainRating: null,
+    metricsProvenance: {
+      domainRating: {
+        provider: 'Ahrefs', measuredAt: '2026-08-19',
+        status: 'publicApiReading', measuredDomain: 'arb.org.uk',
+      },
+    },
+  }).length, 'provenance for a rating that is not set was accepted');
+  assert.deepStrictEqual(S.domainRatingProblems({ domainRating: null, metricsProvenance: {} }), [],
+    'an unmeasured record was reported as a fault, which would force a number to be invented');
 });

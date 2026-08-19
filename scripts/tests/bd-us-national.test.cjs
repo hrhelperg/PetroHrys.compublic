@@ -288,21 +288,77 @@ test('no record promises a backlink, ranking, indexing, traffic or lead outcome'
 });
 
 // ── metrics ─────────────────────────────────────────────────────────────────
-test('no new record carries a metric and the frozen snapshot is untouched', () => {
+//
+// CHANGED: this test used to assert that no record in the wave carried a metric
+// and that the frozen snapshot held 64 measured domains across 67 records. The
+// repository owner reversed the Domain Rating freeze: the frozen policy was
+// written against Ahrefs' plan-gated Site Explorer endpoint, while
+// /v3/public/domain-rating-free costs nothing and needs only a free key, so the
+// whole corpus has been read from it. Both a "no metric" assertion and a pinned
+// snapshot count are now false, and a pinned count would fail on every refresh.
+//
+// What replaces them is what they were protecting: a rating is never invented,
+// it describes the record's OWN domain, and one measured domain yields exactly
+// one reading no matter how many records report it.
+test('every published Domain Rating is an attributable reading of its own domain', () => {
   for (const r of NEW) {
-    assert.strictEqual(r.domainRating, null, `${r.id} carries a Domain Rating`);
-    assert.deepStrictEqual(r.metricsProvenance, {}, `${r.id} invented metrics provenance`);
-    assert.strictEqual(r.metricStatus, 'unknown', `${r.id} claims a metric status`);
+    // Replaces `domainRating === null` and `metricsProvenance === {}`: the
+    // shape check is what actually keeps an invented number out, since it
+    // demands the 0-100 scale plus provider, date and measured domain.
+    assert.deepStrictEqual(S.domainRatingProblems(r), [],
+      `${r.id} publishes a Domain Rating that is not a properly attributed measurement`);
+    // No metric OTHER than Domain Rating has a free source, so none is published.
+    for (const k of ['authorityScore', 'estimatedTraffic', 'referringDomains']) {
+      assert.strictEqual(r[k], null, `${r.id} carries ${k}`);
+    }
+    assert.deepStrictEqual(Object.keys(r.metricsProvenance).sort(),
+      r.domainRating === null || r.domainRating === undefined ? [] : ['domainRating'],
+      `${r.id} carries provenance for a metric it does not publish`);
+    if (r.domainRating === null || r.domainRating === undefined) {
+      // Missing is not zero.
+      assert.notStrictEqual(r.domainRating, 0, `${r.id} substitutes 0 for an absent rating`);
+      // Replaces `metricStatus === 'unknown'` for the measured case only: with
+      // no metric there is still no status to claim.
+      assert.strictEqual(r.metricStatus, 'unknown', `${r.id} claims a metric status with no metric behind it`);
+      continue;
+    }
+    assert.strictEqual(r.metricsProvenance.domainRating.measuredDomain, S.normaliseDomain(r.website),
+      `${r.id} displays a rating measured on a domain that is not its own`);
+    assert.ok(S.METRIC_STATUSES.includes(r.metricStatus),
+      `${r.id} claims an unrecognised metric status "${r.metricStatus}"`);
   }
+  // "Missing is not zero" needs an unmeasured example and the corpus no longer
+  // has one — every domain has now been read — so the null branch above cannot
+  // run on real data. A fixture keeps the rule live rather than letting it lapse.
+  const UNMEASURED = {
+    id: 'fixture-unmeasured', website: 'https://never-measured.example.com/',
+    domainRating: null, metricStatus: 'unknown', metricsProvenance: {},
+  };
+  assert.deepStrictEqual(S.domainRatingProblems(UNMEASURED), [],
+    'a genuinely unmeasured record must remain publishable as null');
+  assert.notDeepStrictEqual(S.domainRatingProblems({ ...UNMEASURED, domainRating: 0 }), [],
+    'a bare 0 was accepted, so an absent rating would be indistinguishable from a domain measured at zero');
+
+  // Replaces the two pinned totals. The dataset may hold any number of
+  // readings; what it may not hold is two different readings for one domain, or
+  // fewer records than domains, which would mean a domain nothing reports.
   const domains = new Set();
   let measured = 0;
+  const rows = new Set();
   for (const r of ALL) {
     const p = r.metricsProvenance && r.metricsProvenance.domainRating;
     if (p && p.measuredDomain) domains.add(p.measuredDomain);
-    if (r.domainRating !== null && r.domainRating !== undefined) measured += 1;
+    if (r.domainRating !== null && r.domainRating !== undefined) {
+      measured += 1;
+      assert.ok(p, `${r.id} publishes a Domain Rating with no provenance at all`);
+      rows.add(`${p.measuredDomain}:${r.domainRating}:${p.provider}:${p.measuredAt}:${p.status}`);
+    }
   }
-  assert.strictEqual(domains.size, 64, 'the frozen measurement set changed size');
-  assert.strictEqual(measured, 67, 'the number of records carrying a Domain Rating changed');
+  assert.ok(measured > 0, 'no record carries a Domain Rating: the measurement guards are vacuous');
+  assert.strictEqual(rows.size, domains.size, 'one measured domain produced two different readings');
+  assert.ok(measured >= domains.size, 'more measured domains than records carrying them is impossible');
+  assert.deepStrictEqual(S.sharedDomainSnapshotProblems(ALL), [],
+    'records sharing a measured domain do not repeat one identical reading');
 });
 
 // ── no network dependency ───────────────────────────────────────────────────

@@ -238,17 +238,42 @@ test('every Australian statutory register is notApplicable for submission', () =
   }
 });
 
-test('no Australian record carries a metric', () => {
-  // The two pre-existing records hold frozen snapshots; nothing added may.
-  const PRE = new Set(['au-abn-lookup', 'au-asic-registers']);
+test('every Australian rating is provenanced and measured on its own domain', () => {
+  // POLICY REVERSAL: this held the Domain Rating collection freeze in place —
+  // two pre-existing records kept their hand-measured snapshots and every other
+  // Australian record had to carry domainRating null, metricStatus 'unknown' and
+  // an empty metricsProvenance. The freeze is lifted: the policy was written
+  // against Ahrefs' plan-gated Site Explorer endpoint, while
+  // /v3/public/domain-rating-free costs nothing and needs only a free key. Every
+  // Australian domain has now been read, so the PRE exemption no longer
+  // distinguishes anything and the null pins only restate a dead policy.
+  //
+  // The other three third-party metrics were never collected and still are not,
+  // so those assertions survive unchanged — and now sweep every Australian
+  // record instead of skipping two.
   for (const r of AU) {
-    if (PRE.has(r.id)) continue;
-    for (const k of ['domainRating', 'authorityScore', 'estimatedTraffic', 'referringDomains']) {
+    for (const k of ['authorityScore', 'estimatedTraffic', 'referringDomains']) {
       assert.strictEqual(r[k], null, `${r.id} carries ${k} = ${r[k]}`);
     }
-    assert.strictEqual(r.metricStatus, 'unknown', r.id);
-    assert.deepStrictEqual(r.metricsProvenance, {}, r.id);
+    // What the domainRating pin protected: no rating is invented, and none
+    // describes anything but this record's own domain.
+    assert.deepStrictEqual(S.domainRatingProblems(r), [],
+      `${r.id} carries a Domain Rating that is off-scale or missing its provenance`);
+    assert.strictEqual(r.metricsProvenance.domainRating.measuredDomain, S.normaliseDomain(r.website),
+      `${r.id} reports a rating measured on a domain that is not its own`);
   }
+  // Missing is still not zero. No Australian record is unmeasured any more, so
+  // the shapes that must stay distinguishable are held against record-shaped
+  // fixtures built here rather than dropped with the freeze.
+  const provenance = {
+    provider: 'Ahrefs', measuredAt: '2026-08-19', status: 'publicApiReading', measuredDomain: 'example.gov.au',
+  };
+  assert.deepStrictEqual(S.domainRatingProblems({ domainRating: null, metricsProvenance: {} }), [],
+    'an unmeasured record — no rating and no provenance — is no longer a legal shape');
+  assert.deepStrictEqual(S.domainRatingProblems({ domainRating: 0, metricsProvenance: { domainRating: provenance } }), [],
+    'a measured 0 is refused, which would force an absence to be published as a zero');
+  assert.ok(S.domainRatingProblems({ domainRating: 87, metricsProvenance: {} }).length > 0,
+    'a bare number with no provenance is accepted, which is what an invented metric looks like');
 });
 
 test('an access claim is carried by the access block', () => {

@@ -94,7 +94,11 @@ const OWNERSHIP = {
   // recorded inside the provenance, and a measurement is never a reason to
   // change where a record points.
   metrics: {
-    directories: ['domainRating', 'metricsProvenance'],
+    // `metricStatus` travels with the measurement rather than beside it: the
+    // registry validator refuses a populated metric on a record still marked
+    // "unknown", so writing a rating without moving the status writes an
+    // invalid record. It is owned here for that reason and no other.
+    directories: ['domainRating', 'metricsProvenance', 'metricStatus'],
     'directory-opportunities': ['domainRating', 'metricsProvenance'],
     marketplaces: ['domainRating', 'metricsProvenance'],
     media: ['domainRating', 'metricsProvenance'],
