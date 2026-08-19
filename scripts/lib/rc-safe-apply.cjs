@@ -67,6 +67,16 @@ const OWNERSHIP = {
     media: ['opportunityTypes', 'submissionUrl', 'pitchUrl', 'pressReleaseUrl',
       'advertisingUrl', 'mediaKitUrl', 'contactUrl', 'lastVerified', 'shortNote', 'limitations'],
   },
+  // What does the useful action COST. A third fact, owned separately from the
+  // other two on purpose: a pass that establishes a price has no business
+  // deciding whether the site is reachable or what the action is, and the
+  // contract refused exactly that attempt rather than letting it through.
+  cost: {
+    directories: ['submissionModel'],
+    marketplaces: ['sellerCost', 'costModel'],
+    media: ['costModel'],
+    tenders: ['searchAccess', 'bidAccess'],
+  },
   // Where does this record point, and is it still its own product? Owns the
   // canonical name because a rebrand is exactly a name change — and only with
   // a written decision behind it.

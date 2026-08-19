@@ -130,6 +130,30 @@ function firstUrl(...candidates) {
 // straight through: `invite-only` and `not-applicable` are answers, and
 // dressing either as an action would be the exact failure this collection has
 // been avoiding everywhere else.
+// What it costs a SELLER, which is the question a budget control is asking.
+//
+// `costModel` describes the platform; `sellerCost` describes what a business
+// pays to use it, and where both exist the second is the one that answers
+// "what can I afford". The mapping keeps one judgement explicit:
+// free-listing-commission becomes `free` to the planner, because a business
+// with no money can start today and pays only out of revenue it has already
+// earned. The precise value stays on the record, so the distinction survives
+// everywhere it matters — the data, the export, the row.
+const SELLER_COST_TO_PLANNER = {
+  free: 'free',
+  'free-listing-commission': 'free',
+  'free-tier': 'freemium',
+  'paid-upfront': 'paid',
+};
+
+function marketplaceCost(r) {
+  const seller = r.sellerCost;
+  if (seller && seller !== 'unknown' && SELLER_COST_TO_PLANNER[seller]) {
+    return SELLER_COST_TO_PLANNER[seller];
+  }
+  return r.costModel;
+}
+
 function marketplaceAction(r) {
   const evidenced = r.sellerAction;
   if (evidenced && evidenced !== 'unknown') {
@@ -173,7 +197,7 @@ function project({ directories, marketplaces, media }) {
       // never invented from the website.
       actionUrl: r.sellerActionUrl || null,
       sellerAction: r.sellerAction || 'unknown',
-      cost: r.costModel, nativeQuality: q.value, nativeSignal: q.signal,
+      cost: marketplaceCost(r), nativeQuality: q.value, nativeSignal: q.signal,
       evidence: r.currentStatus === 'unknown' ? 'needs-browser-check' : 'reachable',
       marketplaceType: r.marketplaceType, alsoCovers: r.alsoCovers || [],
       sellerTypes: r.sellerTypes, priority: null, record: r,

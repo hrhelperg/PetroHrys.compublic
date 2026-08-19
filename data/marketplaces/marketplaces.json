@@ -268,7 +268,8 @@
   ],
   "note": "An Austrian free classifieds portal.",
   "sellerAction": "publish-classified",
-  "sellerActionUrl": "https://www.bazar.at/mein/anzeigen-aufgabe"
+  "sellerActionUrl": "https://www.bazar.at/mein/anzeigen-aufgabe",
+  "sellerCost": "free"
  },
  {
   "id": "mp-at-willhaben",
@@ -286,7 +287,8 @@
   ],
   "note": "Austria's largest classifieds marketplace, with dedicated commercial seller tooling.",
   "sellerAction": "publish-classified",
-  "sellerActionUrl": "https://www.willhaben.at/iad/anzeigenaufgabe"
+  "sellerActionUrl": "https://www.willhaben.at/iad/anzeigenaufgabe",
+  "sellerCost": "free"
  },
  {
   "id": "mp-bh-opensooq",
@@ -1446,7 +1448,8 @@
   ],
   "note": "A French classifieds portal for private and professional advertisers.",
   "sellerAction": "publish-classified",
-  "sellerActionUrl": "https://www.paruvendu.fr/depose-annonce-gratuite/"
+  "sellerActionUrl": "https://www.paruvendu.fr/depose-annonce-gratuite/",
+  "sellerCost": "free"
  },
  {
   "id": "mp-fr-vinted",
@@ -2024,7 +2027,8 @@
   "operator": "Adevinta",
   "note": "Italy's dominant classifieds marketplace, with professional seller accounts.",
   "sellerAction": "publish-classified",
-  "sellerActionUrl": "https://www.subito.it/vendere/"
+  "sellerActionUrl": "https://www.subito.it/vendere/",
+  "sellerCost": "free"
  },
  {
   "id": "mp-jm-jacars",
@@ -2383,7 +2387,8 @@
   "currentStatus": "active",
   "note": "The main Luxembourg property marketplace, where agents hold public listings.",
   "sellerAction": "post-advertisement",
-  "sellerActionUrl": "https://www.athome.lu/vendre"
+  "sellerActionUrl": "https://www.athome.lu/vendre",
+  "sellerCost": "free"
  },
  {
   "id": "mp-my-carlist",
@@ -2745,7 +2750,8 @@
   "currentStatus": "active",
   "note": "A New Zealand vehicle marketplace of over 40 years standing, carrying used, new, electric, hybrid and commercial vehicles. It states that a private listing is free with no success or sale fees and stays live until removed, while dealers buy a tailored advertising package.",
   "sellerAction": "publish-classified",
-  "sellerActionUrl": "https://autotrader.co.nz/sell-my-car"
+  "sellerActionUrl": "https://autotrader.co.nz/sell-my-car",
+  "sellerCost": "paid-upfront"
  },
  {
   "id": "mp-nz-oneroof",
@@ -3004,7 +3010,8 @@
   "currentStatus": "active",
   "note": "Pakistan's main vehicle marketplace, where dealers hold public pages.",
   "sellerAction": "publish-classified",
-  "sellerActionUrl": "https://www.pakwheels.com/used-cars/sell"
+  "sellerActionUrl": "https://www.pakwheels.com/used-cars/sell",
+  "sellerCost": "free"
  },
  {
   "id": "mp-pk-propertyfinder",
@@ -3117,7 +3124,8 @@
   "currentStatus": "active",
   "note": "A Philippine vehicle marketplace where dealers hold public pages. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
   "sellerAction": "publish-classified",
-  "sellerActionUrl": "https://www.autodeal.com.ph/sell-your-car"
+  "sellerActionUrl": "https://www.autodeal.com.ph/sell-your-car",
+  "sellerCost": "paid-upfront"
  },
  {
   "id": "mp-ph-carousell",
@@ -3207,7 +3215,8 @@
   "operator": "OLX Group",
   "note": "The main Polish vehicle marketplace, where dealers hold public dealer pages.",
   "sellerAction": "create-seller-profile",
-  "sellerActionUrl": "https://www.otomoto.pl/opcje-sprzedazy"
+  "sellerActionUrl": "https://www.otomoto.pl/opcje-sprzedazy",
+  "sellerCost": "free"
  },
  {
   "id": "mp-pl-sprzedajemy",
@@ -3634,7 +3643,8 @@
   ],
   "note": "A South African auction and marketplace platform, formerly bidorbuy, with public seller shops.",
   "sellerAction": "create-seller-profile",
-  "sellerActionUrl": "https://bobshop.co.za/content/153/index.html"
+  "sellerActionUrl": "https://bobshop.co.za/content/153/index.html",
+  "sellerCost": "free"
  },
  {
   "id": "mp-za-careerjunction",
@@ -3865,7 +3875,8 @@
   ],
   "note": "Sri Lanka's leading classifieds marketplace.",
   "sellerAction": "publish-classified",
-  "sellerActionUrl": "https://ikman.lk/en/sell-anything?login-modal=true&action=post-ad&redirect-url=%2Fen%2Fpost-ad"
+  "sellerActionUrl": "https://ikman.lk/en/sell-anything?login-modal=true&action=post-ad&redirect-url=%2Fen%2Fpost-ad",
+  "sellerCost": "free"
  },
  {
   "id": "mp-sd-sudanjob",
@@ -4114,7 +4125,8 @@
   ],
   "note": "Tunisia's main classifieds marketplace, covering vehicles, property, electronics and household goods. It states that posting a listing is free, and separates private sellers from professionals, who can run branded shops.",
   "sellerAction": "publish-classified",
-  "sellerActionUrl": "https://www.tayara.tn/login/?redirect=%2Fpost-listing%2F"
+  "sellerActionUrl": "https://www.tayara.tn/login/?redirect=%2Fpost-listing%2F",
+  "sellerCost": "free"
  },
  {
   "id": "mp-tr-arabam",
@@ -4239,7 +4251,8 @@
   ],
   "note": "A Ukrainian classifieds network covering vehicles, property and goods.",
   "sellerAction": "publish-classified",
-  "sellerActionUrl": "https://www.ria.com/add/"
+  "sellerActionUrl": "https://www.ria.com/add/",
+  "sellerCost": "free"
  },
  {
   "id": "mp-ae-dubicars",
@@ -4252,7 +4265,8 @@
   "currentStatus": "active",
   "note": "A UAE vehicle marketplace that describes itself as the country’s largest automotive portal with 30,000+ verified new and used cars, carrying dealer stock alongside verified private sellers. Its sell-your-car page advertises pricing plans and \"transparent rates\", so publishing is paid.",
   "sellerAction": "publish-classified",
-  "sellerActionUrl": "https://www.dubicars.com/sell-your-car"
+  "sellerActionUrl": "https://www.dubicars.com/sell-your-car",
+  "sellerCost": "paid-upfront"
  },
  {
   "id": "mp-ae-opensooq",
@@ -4365,7 +4379,8 @@
   ],
   "note": "An international marketplace where independent booksellers hold public storefronts.",
   "sellerAction": "create-seller-profile",
-  "sellerActionUrl": "https://www.abebooks.com/books/sell/"
+  "sellerActionUrl": "https://www.abebooks.com/books/sell/",
+  "sellerCost": "paid-upfront"
  },
  {
   "id": "mp-us-adpost",
@@ -4465,7 +4480,8 @@
   ],
   "note": "A free US classifieds platform.",
   "sellerAction": "publish-classified",
-  "sellerActionUrl": "https://www.classifiedads.com/post.php"
+  "sellerActionUrl": "https://www.classifiedads.com/post.php",
+  "sellerCost": "free"
  },
  {
   "id": "mp-us-craigslist",
@@ -4495,7 +4511,8 @@
   "currentStatus": "active",
   "note": "A fashion resale marketplace with public seller shops. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
   "sellerAction": "create-seller-profile",
-  "sellerActionUrl": "https://www.depop.com/sell/"
+  "sellerActionUrl": "https://www.depop.com/sell/",
+  "sellerCost": "free-listing-commission"
  },
  {
   "id": "mp-us-etsy",
@@ -4696,7 +4713,8 @@
   "currentStatus": "active",
   "note": "A US marketplace where independent brands hold public storefronts.",
   "sellerAction": "create-seller-profile",
-  "sellerActionUrl": "https://www.storenvy.com/open-a-store"
+  "sellerActionUrl": "https://www.storenvy.com/open-a-store",
+  "sellerCost": "free-tier"
  },
  {
   "id": "mp-us-varagesale",
