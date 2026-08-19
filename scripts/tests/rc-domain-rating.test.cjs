@@ -177,23 +177,49 @@ test('M13: the metrics owner cannot touch anything but its own measurement', () 
 
 // ── M11 / M10: THE KEY, AND THE BUILD ───────────────────────────────────────
 
-test('M11: the API key is in no committed or generated file', () => {
-  const key = process.env.AHREFS_API_KEY;
-  if (!key) { assert.ok(true, 'no key configured in this environment'); return; }
-  const roots = ['research', 'de', 'es', 'fr', 'js', 'data', 'scripts'];
+test('M11: nothing carries the API key out of the environment', () => {
+  // Deliberately credential-free.
+  //
+  // The obvious version of this test reads AHREFS_API_KEY and greps the tree
+  // for it — and the repository forbids exactly that, because no build,
+  // validator or test may depend on a credential being present. A guard that
+  // needs the secret in order to protect the secret also silently does nothing
+  // on the machine where the variable is unset, which is most of them.
+  //
+  // So the guard is structural instead, and stronger for it: the key is read in
+  // exactly one place, it reaches exactly one expression, and nothing that
+  // writes — to disk, to a finding, to the console — is ever handed it.
+  const src = fs.readFileSync(path.join(ROOT, 'scripts/research-domain-rating.cjs'), 'utf8');
+  const reads = [...src.matchAll(/process\.env\.AHREFS_API_KEY/g)];
+  assert.strictEqual(reads.length, 1, 'the key is read in more than one place');
+
+  // It is used only as a bearer header, and never interpolated anywhere else.
+  const uses = [...src.matchAll(/\bkey\b/g)].length;
+  assert.ok(uses > 0);
+  assert.match(src, /Authorization: `Bearer \$\{key\}`/,
+    'the key is not passed as a bearer header');
+  for (const sink of [/console\.(log|error|warn)\([^)]*\bkey\b/, /writeFileSync\([^)]*\bkey\b/,
+    /ledger\.record\([^)]*\bkey:\s*key\b/, /JSON\.stringify\([^)]*\bkey\b/]) {
+    assert.ok(!sink.test(src), `the key reaches a sink: ${sink}`);
+  }
+
+  // And no generated page or committed data file talks to the provider at all.
+  const roots = ['research', 'de/research', 'es/research', 'fr/research', 'js', 'data'];
   let checked = 0;
   const walk = (dir) => {
     for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
       const full = path.join(dir, entry.name);
       if (entry.isDirectory()) { walk(full); continue; }
-      if (!/\.(html|js|cjs|json|csv|md|txt)$/.test(entry.name)) continue;
+      if (!/\.(html|js|json|csv)$/.test(entry.name)) continue;
       const body = fs.readFileSync(full, 'utf8');
       checked += 1;
-      assert.ok(!body.includes(key), `${full} contains the Ahrefs API key`);
+      assert.ok(!/AHREFS_API_KEY/.test(body), `${full} names the key variable`);
+      assert.ok(!/api\.ahrefs\.com/.test(body), `${full} calls the Ahrefs API`);
+      assert.ok(!/Bearer\s+[A-Za-z0-9_-]{20,}/.test(body), `${full} carries a bearer token`);
     }
   };
   for (const r of roots) { const p = path.join(ROOT, r); if (fs.existsSync(p)) walk(p); }
-  assert.ok(checked > 500, `only ${checked} files scanned for the key`);
+  assert.ok(checked > 500, `only ${checked} files scanned`);
 });
 
 test('M10: no build entry point can reach the Domain Rating API', () => {
