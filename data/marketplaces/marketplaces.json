@@ -101,7 +101,8 @@
   "sellerTypes": "both",
   "costModel": "freemium",
   "currentStatus": "active",
-  "note": "An Australian services marketplace where providers hold public profiles. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser."
+  "note": "An Australian services marketplace where providers hold public profiles. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
+  "sellerCost": "free"
  },
  {
   "id": "mp-au-graysonline",
@@ -269,7 +270,7 @@
   "note": "An Austrian free classifieds portal.",
   "sellerAction": "publish-classified",
   "sellerActionUrl": "https://www.bazar.at/mein/anzeigen-aufgabe",
-  "sellerCost": "free"
+  "sellerCost": "unknown"
  },
  {
   "id": "mp-at-willhaben",
@@ -499,7 +500,8 @@
   "operator": "OLX Group",
   "note": "Brazil's largest classifieds marketplace. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
   "sellerAction": "publish-classified",
-  "sellerActionUrl": null
+  "sellerActionUrl": null,
+  "sellerCost": "free"
  },
  {
   "id": "mp-br-quintoandar",
@@ -664,7 +666,8 @@
   "sellerTypes": "both",
   "costModel": "paid",
   "currentStatus": "active",
-  "note": "The main Canadian vehicle marketplace, where dealers hold public dealer pages."
+  "note": "The main Canadian vehicle marketplace, where dealers hold public dealer pages.",
+  "sellerCost": "free"
  },
  {
   "id": "mp-ca-bunz",
@@ -732,7 +735,8 @@
   "alsoCovers": [
    "vehicles"
   ],
-  "note": "A regional Canadian classifieds network."
+  "note": "A regional Canadian classifieds network.",
+  "sellerCost": "free"
  },
  {
   "id": "mp-ca-ebay",
@@ -1480,7 +1484,8 @@
    "vehicles"
   ],
   "operator": "Adevinta",
-  "note": "France's dominant classifieds marketplace, with professional seller sections."
+  "note": "France's dominant classifieds marketplace, with professional seller sections.",
+  "sellerCost": "free"
  },
  {
   "id": "mp-de-hood",
@@ -1531,7 +1536,8 @@
   ],
   "note": "A long-running German free classifieds portal.",
   "sellerAction": "publish-classified",
-  "sellerActionUrl": null
+  "sellerActionUrl": null,
+  "sellerCost": "free"
  },
  {
   "id": "mp-de-kalaydo",
@@ -1799,7 +1805,8 @@
   "alsoCovers": [
    "general-classifieds"
   ],
-  "note": "A Hungarian auction and marketplace site with seller shops."
+  "note": "A Hungarian auction and marketplace site with seller shops.",
+  "sellerCost": "free"
  },
  {
   "id": "mp-is-alfred",
@@ -2388,7 +2395,7 @@
   "note": "The main Luxembourg property marketplace, where agents hold public listings.",
   "sellerAction": "post-advertisement",
   "sellerActionUrl": "https://www.athome.lu/vendre",
-  "sellerCost": "free"
+  "sellerCost": "unknown"
  },
  {
   "id": "mp-my-carlist",
@@ -2607,7 +2614,8 @@
    "property",
    "vehicles"
   ],
-  "note": "Montenegro's largest classifieds marketplace, where businesses can also open a shop. A separate site and account from Pazar3.mk in North Macedonia; mojtrg.me redirects here."
+  "note": "Montenegro's largest classifieds marketplace, where businesses can also open a shop. A separate site and account from Pazar3.mk in North Macedonia; mojtrg.me redirects here.",
+  "sellerCost": "free"
  },
  {
   "id": "mp-ma-marocannonces",
@@ -2685,7 +2693,8 @@
   "currentStatus": "active",
   "note": "Myanmar's largest online marketplace, where merchants hold public storefronts.",
   "sellerAction": "create-seller-profile",
-  "sellerActionUrl": "https://pages.shop.com.mm/wow/i/mm/MMCampaign/sell-on-shop?hybrid=1"
+  "sellerActionUrl": "https://pages.shop.com.mm/wow/i/mm/MMCampaign/sell-on-shop?hybrid=1",
+  "sellerCost": "free"
  },
  {
   "id": "mp-mm-imyanmarhouse",
@@ -2709,7 +2718,8 @@
   "currentStatus": "active",
   "note": "Namibia's main vehicle marketplace, carrying the stock of around sixty dealerships alongside private listings.",
   "sellerAction": "post-advertisement",
-  "sellerActionUrl": "https://www.namcars.net/sell"
+  "sellerActionUrl": "https://www.namcars.net/sell",
+  "sellerCost": "free"
  },
  {
   "id": "mp-nl-marktplaats",
@@ -2751,7 +2761,7 @@
   "note": "A New Zealand vehicle marketplace of over 40 years standing, carrying used, new, electric, hybrid and commercial vehicles. It states that a private listing is free with no success or sale fees and stays live until removed, while dealers buy a tailored advertising package.",
   "sellerAction": "publish-classified",
   "sellerActionUrl": "https://autotrader.co.nz/sell-my-car",
-  "sellerCost": "paid-upfront"
+  "sellerCost": "free-tier"
  },
  {
   "id": "mp-nz-oneroof",
@@ -2997,7 +3007,8 @@
    "vehicles"
   ],
   "operator": "OLX Group",
-  "note": "Pakistan's dominant classifieds marketplace."
+  "note": "Pakistan's dominant classifieds marketplace.",
+  "sellerCost": "free"
  },
  {
   "id": "mp-pk-pakwheels",
@@ -3125,7 +3136,7 @@
   "note": "A Philippine vehicle marketplace where dealers hold public pages. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
   "sellerAction": "publish-classified",
   "sellerActionUrl": "https://www.autodeal.com.ph/sell-your-car",
-  "sellerCost": "paid-upfront"
+  "sellerCost": "free"
  },
  {
   "id": "mp-ph-carousell",
@@ -3201,7 +3212,8 @@
   "operator": "OLX Group",
   "note": "Poland's dominant classifieds marketplace. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
   "sellerAction": "publish-classified",
-  "sellerActionUrl": null
+  "sellerActionUrl": null,
+  "sellerCost": "free"
  },
  {
   "id": "mp-pl-otomoto",
@@ -3671,7 +3683,8 @@
    "property",
    "vehicles"
   ],
-  "note": "South Africa's main free classifieds marketplace."
+  "note": "South Africa's main free classifieds marketplace.",
+  "sellerCost": "free"
  },
  {
   "id": "mp-za-junkmail",
@@ -3712,7 +3725,8 @@
   "currentStatus": "active",
   "note": "South Africa's main property marketplace, where agents hold public listings.",
   "sellerAction": "publish-classified",
-  "sellerActionUrl": "https://www.property24.com/private-listing/sell-my-property"
+  "sellerActionUrl": "https://www.property24.com/private-listing/sell-my-property",
+  "sellerCost": "free"
  },
  {
   "id": "mp-kr-albamon",
@@ -3806,7 +3820,8 @@
    "vehicles"
   ],
   "operator": "Adevinta",
-  "note": "A major Spanish classifieds marketplace. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser."
+  "note": "A major Spanish classifieds marketplace. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
+  "sellerCost": "free"
  },
  {
   "id": "mp-es-wallapop",
@@ -4126,7 +4141,7 @@
   "note": "Tunisia's main classifieds marketplace, covering vehicles, property, electronics and household goods. It states that posting a listing is free, and separates private sellers from professionals, who can run branded shops.",
   "sellerAction": "publish-classified",
   "sellerActionUrl": "https://www.tayara.tn/login/?redirect=%2Fpost-listing%2F",
-  "sellerCost": "free"
+  "sellerCost": "unknown"
  },
  {
   "id": "mp-tr-arabam",
@@ -4266,7 +4281,7 @@
   "note": "A UAE vehicle marketplace that describes itself as the country’s largest automotive portal with 30,000+ verified new and used cars, carrying dealer stock alongside verified private sellers. Its sell-your-car page advertises pricing plans and \"transparent rates\", so publishing is paid.",
   "sellerAction": "publish-classified",
   "sellerActionUrl": "https://www.dubicars.com/sell-your-car",
-  "sellerCost": "paid-upfront"
+  "sellerCost": "unknown"
  },
  {
   "id": "mp-ae-opensooq",
@@ -4341,7 +4356,8 @@
   "sellerTypes": "both",
   "costModel": "freemium",
   "currentStatus": "active",
-  "note": "A UK classifieds marketplace for goods and services."
+  "note": "A UK classifieds marketplace for goods and services.",
+  "sellerCost": "free"
  },
  {
   "id": "mp-us-1stdibs",
@@ -4391,7 +4407,8 @@
   "sellerTypes": "both",
   "costModel": "freemium",
   "currentStatus": "active",
-  "note": "An international classifieds platform with a large US section."
+  "note": "An international classifieds platform with a large US section.",
+  "sellerCost": "free"
  },
  {
   "id": "mp-us-apartments",
@@ -4553,7 +4570,8 @@
    "property",
    "vehicles"
   ],
-  "note": "A US classifieds site covering jobs, property and vehicles."
+  "note": "A US classifieds site covering jobs, property and vehicles.",
+  "sellerCost": "free"
  },
  {
   "id": "mp-us-hoobly",
@@ -4663,7 +4681,8 @@
   "sellerTypes": "both",
   "costModel": "freemium",
   "currentStatus": "active",
-  "note": "A US local classifieds and coupons platform."
+  "note": "A US local classifieds and coupons platform.",
+  "sellerCost": "free"
  },
  {
   "id": "mp-us-poshmark",
@@ -4714,7 +4733,7 @@
   "note": "A US marketplace where independent brands hold public storefronts.",
   "sellerAction": "create-seller-profile",
   "sellerActionUrl": "https://www.storenvy.com/open-a-store",
-  "sellerCost": "free-tier"
+  "sellerCost": "free"
  },
  {
   "id": "mp-us-varagesale",

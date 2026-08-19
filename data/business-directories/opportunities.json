@@ -13,7 +13,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "claim",
-  "submissionModel": "paid",
+  "submissionModel": "unknown",
   "note": "The largest US directory brand. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
   "lastVerified": "2026-08-14",
   "claimUrl": "https://www.yellowpages.com/claim-your-listing?from=advertise-with-us-YP"
@@ -69,7 +69,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "unknown",
+  "submissionModel": "paid",
   "note": "Part of the international Cylex network. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
   "lastVerified": "2026-08-14"
  },
@@ -273,7 +273,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "unknown",
+  "submissionModel": "paid",
   "note": "Part of the international Cylex network. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
   "lastVerified": "2026-08-14"
  },
@@ -777,7 +777,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "create",
-  "submissionModel": "unknown",
+  "submissionModel": "free",
   "note": "An agency and software review directory. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
   "lastVerified": "2026-08-14",
   "submissionUrl": "https://www.goodfirms.co/get-listed"
@@ -909,7 +909,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "An international company and telephone directory. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
   "lastVerified": "2026-08-14"
  },
@@ -1017,7 +1017,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "The principal Belgian business directory, published in Dutch and French.",
   "lastVerified": "2026-08-06"
  },
@@ -1426,7 +1426,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "The German-language arm of a global B2B industry platform.",
   "lastVerified": "2026-08-06"
  },
@@ -1463,7 +1463,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "create",
-  "submissionModel": "unknown",
+  "submissionModel": "free",
   "note": "A SaaS product discovery and comparison platform. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
   "lastVerified": "2026-08-14",
   "submissionUrl": "https://www.saasworthy.com/offerings"
@@ -1665,7 +1665,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "paid",
+  "submissionModel": "unknown",
   "note": "A marketing agency directory with public agency profiles. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
   "lastVerified": "2026-08-14"
  },
@@ -1703,7 +1703,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "create",
-  "submissionModel": "paid",
+  "submissionModel": "freemium",
   "note": "A B2B marketplace listing software and IT development companies.",
   "lastVerified": "2026-08-14",
   "submissionUrl": "https://www.topdevelopers.co/listing-packages"
@@ -2141,7 +2141,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "freemium",
+  "submissionModel": "unknown",
   "note": "The German arm of the international Cylex directory network. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
   "lastVerified": "2026-08-14"
  },
@@ -2195,7 +2195,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "A German business review platform with public company profiles and customer ratings.",
   "lastVerified": "2026-08-06"
  },
@@ -2267,7 +2267,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "A German city trade directory. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
   "lastVerified": "2026-08-14"
  },
@@ -2357,7 +2357,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "freemium",
+  "submissionModel": "unknown",
   "note": "The French arm of the international Cylex network. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser. [redirect:2026-08-14] Cylex serves France from a per-market domain; the record now points at the current address.",
   "lastVerified": "2026-08-14"
  },
@@ -2393,7 +2393,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "A Spanish business directory and digital marketing group with public company listings.",
   "lastVerified": "2026-08-06"
  },
@@ -2429,7 +2429,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "The Spanish arm of the international Cylex network. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
   "lastVerified": "2026-08-14"
  },
@@ -2609,7 +2609,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "freemium",
+  "submissionModel": "unknown",
   "note": "The Czech arm of the international Cylex network. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
   "lastVerified": "2026-08-14"
  },
@@ -2862,7 +2862,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "The Brazilian arm of the international Cylex network. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
   "lastVerified": "2026-08-14"
  },
@@ -2989,7 +2989,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "A press release distribution service with an accompanying world media directory.",
   "lastVerified": "2026-08-06"
  },
@@ -3063,7 +3063,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "An open press release publishing service.",
   "lastVerified": "2026-08-06"
  },
@@ -3137,7 +3137,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "paid",
+  "submissionModel": "unknown",
   "note": "A press release distribution service. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser. [redirect:2026-08-14] ACCESSWIRE was renamed ACCESS Newswire; the press-release distribution product is unchanged.",
   "lastVerified": "2026-08-14"
  },
@@ -3441,7 +3441,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "create",
-  "submissionModel": "paid",
+  "submissionModel": "unknown",
   "note": "Microsoft's business application marketplace with public publisher listings.",
   "lastVerified": "2026-08-14",
   "intelligence": {
@@ -3556,7 +3556,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "paid",
+  "submissionModel": "unknown",
   "note": "The PrestaShop module marketplace. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
   "lastVerified": "2026-08-14"
  },
@@ -4142,7 +4142,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "unknown",
+  "submissionModel": "paid",
   "note": "The New Zealand arm of the international Cylex network. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
   "lastVerified": "2026-08-14"
  },
@@ -4179,7 +4179,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "unknown",
+  "submissionModel": "paid",
   "note": "The Irish arm of the international Cylex network. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
   "lastVerified": "2026-08-14"
  },
@@ -4197,7 +4197,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "The Belgian arm of the international Cylex network. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser. [redirect:2026-08-14] Cylex serves Belgium from a per-market domain; the record now points at the current address.",
   "lastVerified": "2026-08-14"
  },
@@ -4323,7 +4323,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "freemium",
+  "submissionModel": "unknown",
   "note": "The Swiss arm of the international Cylex network. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser. [redirect:2026-08-14] Cylex serves Switzerland from a per-market domain; the record now points at the current address.",
   "lastVerified": "2026-08-14"
  },
@@ -4359,7 +4359,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "freemium",
+  "submissionModel": "unknown",
   "note": "The Austrian arm of the international Cylex network. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
   "lastVerified": "2026-08-14"
  },
@@ -4708,7 +4708,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "A major freelance services marketplace with public seller profiles. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
   "lastVerified": "2026-08-14"
  },
@@ -4817,7 +4817,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "A French freelance and agency marketplace with public provider profiles.",
   "lastVerified": "2026-08-06"
  },
@@ -4835,7 +4835,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "paid",
+  "submissionModel": "unknown",
   "note": "An events platform where organisers publish public organiser and event pages.",
   "lastVerified": "2026-08-06"
  },
@@ -4890,7 +4890,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "A German B2B platform for manufacturer and supplier search with public company profiles.",
   "lastVerified": "2026-08-06"
  },
@@ -5434,7 +5434,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "paid",
+  "submissionModel": "unknown",
   "note": "An AI news, tools and learning directory with public listings.",
   "lastVerified": "2026-08-06"
  },
@@ -5600,7 +5600,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "create",
-  "submissionModel": "unknown",
+  "submissionModel": "free",
   "note": "An international business listing directory with public company pages.",
   "lastVerified": "2026-08-14",
   "submissionUrl": "https://www.expressbusinessdirectory.com/search-result/"
@@ -5619,7 +5619,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "create",
-  "submissionModel": "unknown",
+  "submissionModel": "free",
   "note": "A free US local business listing directory.",
   "lastVerified": "2026-08-14",
   "submissionUrl": "https://www.freelistingusa.com/create-listing"
@@ -5728,7 +5728,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "The leading Czech price comparison and shop review service. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
   "lastVerified": "2026-08-14"
  },
@@ -6005,7 +6005,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "freemium",
+  "submissionModel": "free",
   "note": "An appointment scheduling platform that gives businesses a public booking page.",
   "lastVerified": "2026-08-06"
  },
@@ -6041,7 +6041,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "paid",
+  "submissionModel": "unknown",
   "note": "A German appointment booking platform giving businesses a public profile page.",
   "lastVerified": "2026-08-06"
  },
@@ -6077,7 +6077,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "A French-language business software directory with public vendor listings.",
   "lastVerified": "2026-08-06"
  },
@@ -6095,7 +6095,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "The French arm of the Software Advice directory. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
   "lastVerified": "2026-08-14"
  },
@@ -6113,7 +6113,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "A German company database with researched public company entries.",
   "lastVerified": "2026-08-06"
  },
@@ -6203,7 +6203,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "A Swiss directory of companies, products and brands with public entries.",
   "lastVerified": "2026-08-06"
  },
@@ -6276,7 +6276,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "create",
-  "submissionModel": "unknown",
+  "submissionModel": "free",
   "note": "Gartner's enterprise software review platform with public vendor profiles. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
   "lastVerified": "2026-08-14",
   "submissionUrl": "https://www.gartner.com/peer-insights/vendor-portal/overview"
@@ -6498,7 +6498,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "unknown",
+  "submissionModel": "free",
   "note": "A services marketplace with public provider profiles. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
   "lastVerified": "2026-08-14"
  },
@@ -6627,7 +6627,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "create",
-  "submissionModel": "free",
+  "submissionModel": "freemium",
   "note": "An international B2B company directory. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
   "lastVerified": "2026-08-14",
   "submissionUrl": "https://b2bmap.com/business-listing"
@@ -6793,7 +6793,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "paid",
+  "submissionModel": "unknown",
   "note": "Semrush's agency partner directory with public agency profiles.",
   "lastVerified": "2026-08-06"
  },
@@ -7497,7 +7497,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "The French arm of the Opendi business directory and review network.",
   "lastVerified": "2026-08-06"
  },
@@ -7515,7 +7515,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "The Spanish arm of the Opendi business directory and review network.",
   "lastVerified": "2026-08-06"
  },
@@ -7533,7 +7533,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "unknown",
+  "submissionModel": "free",
   "note": "The Italian arm of the Opendi business directory and review network.",
   "lastVerified": "2026-08-06"
  },
@@ -7641,7 +7641,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "The Danish arm of the Opendi business directory and review network.",
   "lastVerified": "2026-08-06"
  },
@@ -7732,7 +7732,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "The Austrian arm of the Firmania business directory network. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
   "lastVerified": "2026-08-14"
  },
@@ -7750,7 +7750,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "The Belgian arm of the Firmania business directory network. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
   "lastVerified": "2026-08-14"
  },
@@ -7786,7 +7786,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "The Spanish arm of the Firmania business directory network. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
   "lastVerified": "2026-08-14"
  },
@@ -8039,7 +8039,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "The German arm of the MisterWhat directory network with public company listings.",
   "lastVerified": "2026-08-06"
  },
@@ -8111,7 +8111,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "The German arm of the Houzz home design platform with public professional profiles.",
   "lastVerified": "2026-08-06"
  },
@@ -8148,7 +8148,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "paid",
+  "submissionModel": "unknown",
   "note": "An international local business and services directory.",
   "lastVerified": "2026-08-06"
  },
@@ -8185,7 +8185,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "An Austrian and German-language trade directory with public company entries.",
   "lastVerified": "2026-08-06"
  },
@@ -8221,7 +8221,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "A French telephone and professional directory with public business entries.",
   "lastVerified": "2026-08-06"
  },
@@ -8257,7 +8257,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "A free French-language business and web directory.",
   "lastVerified": "2026-08-06"
  },
@@ -8311,7 +8311,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "A French telephone and business search directory.",
   "lastVerified": "2026-08-06"
  },
@@ -8329,7 +8329,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "A French website and company directory carrying public reviews.",
   "lastVerified": "2026-08-06"
  },
@@ -8365,7 +8365,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "A French home-renovation professional marketplace. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
   "lastVerified": "2026-08-14"
  },
@@ -8383,7 +8383,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "The French arm of the Houzz home design platform with public professional profiles.",
   "lastVerified": "2026-08-06"
  },
@@ -8768,7 +8768,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "A Belgian local business finder covering companies by area.",
   "lastVerified": "2026-08-06"
  },
@@ -8913,7 +8913,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "unknown",
+  "submissionModel": "paid",
   "note": "An Irish business directory offering free company listings.",
   "lastVerified": "2026-08-06"
  },
@@ -8985,7 +8985,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "A German tradesperson marketplace where craft businesses hold public profiles with customer ratings. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser. [redirect:2026-08-14] the same product on a hyphenated domain; the record now points at the current address.",
   "lastVerified": "2026-08-14"
  },
@@ -9003,7 +9003,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "A German platform for finding regional tradespeople, with company profiles.",
   "lastVerified": "2026-08-06"
  },
@@ -9021,7 +9021,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "A German doctor booking and review portal where practices hold public profiles.",
   "lastVerified": "2026-08-06"
  },
@@ -9093,7 +9093,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "A German opening-hours and trade directory covering local businesses.",
   "lastVerified": "2026-08-06"
  },
@@ -9165,7 +9165,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "An Austrian doctor search and booking portal where practices hold public profiles with reviews.",
   "lastVerified": "2026-08-06"
  },
@@ -9183,7 +9183,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "The Spanish arm of a healthcare booking platform where practitioners hold public profiles.",
   "lastVerified": "2026-08-06"
  },
@@ -9399,7 +9399,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "A Spanish marketplace for technical and professional services with provider profiles. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
   "lastVerified": "2026-08-14"
  },
@@ -9543,7 +9543,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "A Danish construction quote platform listing building companies.",
   "lastVerified": "2026-08-06"
  },
@@ -9561,7 +9561,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "A Danish task and home-services marketplace with provider profiles.",
   "lastVerified": "2026-08-06"
  },
@@ -9687,7 +9687,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "The French arm of an international small-business directory network.",
   "lastVerified": "2026-08-06"
  },
@@ -9723,7 +9723,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "The Danish arm of an international small-business directory network.",
   "lastVerified": "2026-08-06"
  },
@@ -10047,7 +10047,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "The Belgian arm of an international trade directory and rating portal.",
   "lastVerified": "2026-08-06"
  },
@@ -10119,7 +10119,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "The Swiss arm of an international local business directory. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
   "lastVerified": "2026-08-14"
  },
@@ -10137,7 +10137,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "The Danish arm of an international local business directory. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
   "lastVerified": "2026-08-14"
  },
@@ -10173,7 +10173,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "freemium",
+  "submissionModel": "unknown",
   "note": "The Danish arm of an international business directory network. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
   "lastVerified": "2026-08-14"
  },
@@ -10407,7 +10407,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "The Spanish wedding supplier marketplace where vendors hold public profiles. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
   "lastVerified": "2026-08-14"
  },
@@ -10425,7 +10425,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "The French wedding supplier marketplace where vendors hold public profiles. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
   "lastVerified": "2026-08-14"
  },
@@ -10443,7 +10443,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "A German wedding planning directory listing suppliers.",
   "lastVerified": "2026-08-06"
  },
@@ -10497,7 +10497,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "A French local business directory where each company can publish and maintain a free mini-site.",
   "lastVerified": "2026-08-06"
  },
@@ -10515,7 +10515,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "A free French company directory that accepts self-submitted entries.",
   "lastVerified": "2026-08-06"
  },
@@ -10533,7 +10533,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "A French local business directory reserved for professionals.",
   "lastVerified": "2026-08-06"
  },
@@ -10551,7 +10551,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "The company directory of the French chamber of commerce network, covering companies registered with the CCIs.",
   "lastVerified": "2026-08-06"
  },
@@ -10569,7 +10569,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "A Spanish company and professional directory published by El Economista.",
   "lastVerified": "2026-08-06"
  },
@@ -10587,7 +10587,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "A Spanish company directory with public business entries.",
   "lastVerified": "2026-08-06"
  },
@@ -10623,7 +10623,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "A free Spanish online company directory.",
   "lastVerified": "2026-08-06"
  },
@@ -10641,7 +10641,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "A Spanish guide to companies and local businesses.",
   "lastVerified": "2026-08-06"
  },
@@ -10677,7 +10677,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "A Spanish street map and company finder classified by activity and town.",
   "lastVerified": "2026-08-06"
  },
@@ -10767,7 +10767,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "The main Czech job board, where employers hold public company pages.",
   "lastVerified": "2026-08-06"
  },
@@ -10893,7 +10893,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "A German hotel review and booking directory with public hotel pages.",
   "lastVerified": "2026-08-06"
  },
@@ -10929,7 +10929,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "The doctor search directory of Stiftung Gesundheit, listing practices across Germany.",
   "lastVerified": "2026-08-06"
  },
@@ -11001,7 +11001,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "A Swiss restaurant and hotel guide with public venue entries.",
   "lastVerified": "2026-08-06"
  },
@@ -11091,7 +11091,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "create",
-  "submissionModel": "unknown",
+  "submissionModel": "paid",
   "note": "A UK business directory accepting self-submitted company entries.",
   "lastVerified": "2026-08-14",
   "submissionUrl": "https://www.smartbusinessdirectory.co.uk/business-advertising/"
@@ -11146,7 +11146,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "A Czech company catalogue searchable by distance from a location. [redirect:2026-08-14] Atlas firem now trades as Firma Blizko, which is what the destination titles itself.",
   "lastVerified": "2026-08-14"
  },
@@ -11218,7 +11218,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "The main Danish vehicle marketplace, where dealers hold public dealer pages.",
   "lastVerified": "2026-08-06"
  },
@@ -11290,7 +11290,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "The main Belgian classifieds marketplace, with professional seller sections.",
   "lastVerified": "2026-08-06"
  },
@@ -11398,7 +11398,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "The main Czech food delivery platform, where restaurants hold public pages. Rebranded in place from Dáme jídlo to foodora. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser. [redirect:2026-08-14] Dame jidlo was rebranded to foodora in Czechia.",
   "lastVerified": "2026-08-14"
  },
@@ -11489,7 +11489,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "create",
-  "submissionModel": "unknown",
+  "submissionModel": "free",
   "note": "A US local business directory accepting self-submitted listings. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
   "lastVerified": "2026-08-14",
   "submissionUrl": "https://citysquares.com/add_business"
@@ -11841,7 +11841,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "paid",
+  "submissionModel": "unknown",
   "note": "A Canadian renovation marketplace where contractors receive quote requests.",
   "lastVerified": "2026-08-06"
  },
@@ -12440,7 +12440,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "paid",
+  "submissionModel": "unknown",
   "note": "Apple's business profile service, feeding Apple Maps and Siri results.",
   "lastVerified": "2026-08-06"
  },
@@ -12458,7 +12458,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "unknown",
+  "submissionModel": "free",
   "note": "The company page surface of the main global professional network.",
   "lastVerified": "2026-08-06"
  },
@@ -12657,7 +12657,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "create",
-  "submissionModel": "paid",
+  "submissionModel": "unknown",
   "note": "A US health provider directory with public practitioner listings.",
   "lastVerified": "2026-08-14",
   "submissionUrl": "https://www.wellness.com/docs/12761/wellness-provider-program"
@@ -13636,7 +13636,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "create",
-  "submissionModel": "paid",
+  "submissionModel": "free",
   "note": "An app and software developer directory with public company profiles.",
   "lastVerified": "2026-08-14",
   "submissionUrl": "https://clutch.co/get-listed?utm_source=appfutura&utm_medium=getstarted"
@@ -14036,7 +14036,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "A directory of Quebec companies with public business entries.",
   "lastVerified": "2026-08-06"
  },
@@ -14054,7 +14054,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "A Quebec health directory listing clinics and practitioners with public profiles.",
   "lastVerified": "2026-08-06"
  },
@@ -14072,7 +14072,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "paid",
+  "submissionModel": "unknown",
   "note": "The main Canadian food delivery platform, where restaurants hold public pages. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
   "lastVerified": "2026-08-14"
  },
@@ -14345,7 +14345,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "create",
-  "submissionModel": "unknown",
+  "submissionModel": "free",
   "note": "A free Canadian local business listing directory.",
   "lastVerified": "2026-08-14",
   "submissionUrl": "https://www.getlistedcanada.com/create-listing"
@@ -14420,7 +14420,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "create",
-  "submissionModel": "paid",
+  "submissionModel": "unknown",
   "note": "A US city-based yellow pages directory. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
   "lastVerified": "2026-08-14",
   "submissionUrl": "https://yellowpagecity.com/add-listing/"
@@ -15145,7 +15145,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "unknown",
+  "submissionModel": "free",
   "note": "India's largest local search and business directory. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
   "lastVerified": "2026-08-14"
  },
@@ -15181,7 +15181,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "unknown",
+  "submissionModel": "free",
   "note": "An Indian B2B directory of manufacturers, suppliers and exporters.",
   "lastVerified": "2026-08-06"
  },
@@ -15289,7 +15289,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "unknown",
+  "submissionModel": "free",
   "note": "Malaysia's largest classifieds marketplace, with professional seller sections.",
   "lastVerified": "2026-08-06"
  },
@@ -15577,7 +15577,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "A Chinese B2B supplier and product directory with public company profiles.",
   "lastVerified": "2026-08-06"
  },
@@ -16266,7 +16266,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "A Brazilian city guide listing restaurants, shops and services.",
   "lastVerified": "2026-08-06"
  },
@@ -16302,7 +16302,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "The dominant Brazilian marketplace, where sellers hold public storefronts.",
   "lastVerified": "2026-08-06"
  },
@@ -16356,7 +16356,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "A Brazilian services marketplace where professionals hold public profiles.",
   "lastVerified": "2026-08-06"
  },
@@ -16374,7 +16374,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "The Brazilian arm of a healthcare booking platform where practitioners hold public profiles.",
   "lastVerified": "2026-08-06"
  },
@@ -16410,7 +16410,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "The main Brazilian consumer complaint and review platform, where companies hold public profiles. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
   "lastVerified": "2026-08-14"
  },
@@ -16446,7 +16446,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "The Argentine storefront of the dominant Latin American marketplace, where sellers hold public stores.",
   "lastVerified": "2026-08-06"
  },
@@ -16500,7 +16500,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "The Chilean storefront of the dominant Latin American marketplace, where sellers hold public stores.",
   "lastVerified": "2026-08-06"
  },
@@ -16536,7 +16536,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "The Chilean arm of a healthcare booking platform where practitioners hold public profiles.",
   "lastVerified": "2026-08-06"
  },
@@ -16608,7 +16608,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "The Colombian storefront of the dominant Latin American marketplace, where sellers hold public stores.",
   "lastVerified": "2026-08-06"
  },
@@ -16626,7 +16626,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "The Colombian arm of a healthcare booking platform where practitioners hold public profiles.",
   "lastVerified": "2026-08-06"
  },
@@ -16716,7 +16716,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "unknown",
+  "submissionModel": "free",
   "note": "The Venezuelan storefront of the dominant Latin American marketplace, where sellers hold public stores.",
   "lastVerified": "2026-08-06"
  },
@@ -16734,7 +16734,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "The Ecuadorian storefront of the dominant Latin American marketplace, where sellers hold public stores.",
   "lastVerified": "2026-08-06"
  },
@@ -16788,7 +16788,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "unknown",
+  "submissionModel": "free",
   "note": "The Mexican arm of a major Latin American job board where employers hold public company pages.",
   "lastVerified": "2026-08-06"
  },
@@ -16806,7 +16806,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "unknown",
+  "submissionModel": "free",
   "note": "The Peruvian arm of a major Latin American job board where employers hold public company pages.",
   "lastVerified": "2026-08-06"
  },
@@ -16932,7 +16932,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "The Argentine arm of a Latin American delivery marketplace where partner shops hold public pages.",
   "lastVerified": "2026-08-06"
  },
@@ -17025,7 +17025,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "The Argentine arm of an international business directory network. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
   "lastVerified": "2026-08-14"
  },
@@ -17043,7 +17043,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "The Chilean arm of an international business directory network. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
   "lastVerified": "2026-08-14"
  },
@@ -17079,7 +17079,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "The Argentine arm of an international business pages and review network.",
   "lastVerified": "2026-08-06"
  },
@@ -17223,7 +17223,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "unknown",
+  "submissionModel": "free",
   "note": "The Paraguayan storefront of the dominant Latin American marketplace, where sellers hold public stores.",
   "lastVerified": "2026-08-06"
  },
@@ -17584,7 +17584,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "create",
-  "submissionModel": "unknown",
+  "submissionModel": "free",
   "note": "A South African marketplace where local professionals hold public profiles.",
   "lastVerified": "2026-08-14",
   "submissionUrl": "https://www.snupit.co.za/join-as-a-pro.aspx"
@@ -17622,7 +17622,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "unknown",
+  "submissionModel": "paid",
   "note": "The South African arm of an international business directory network. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
   "lastVerified": "2026-08-14"
  },
@@ -17659,7 +17659,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "unknown",
+  "submissionModel": "free",
   "note": "The main South African classifieds marketplace, with professional seller sections.",
   "lastVerified": "2026-08-06"
  },
@@ -18818,7 +18818,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "The German digital economy association, whose member companies appear in a directory.",
   "lastVerified": "2026-08-06"
  },
@@ -18836,7 +18836,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "The German SME association, whose member companies appear in a directory.",
   "lastVerified": "2026-08-06"
  },
@@ -18944,7 +18944,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "The German digital industry association, whose member companies appear in a directory.",
   "lastVerified": "2026-08-06"
  },
@@ -18980,7 +18980,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "A German hotel booking platform where properties hold public pages.",
   "lastVerified": "2026-08-06"
  },
@@ -18998,7 +18998,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "A German business hotel booking platform where properties hold public pages.",
   "lastVerified": "2026-08-06"
  },
@@ -19016,7 +19016,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "A German restaurant guide with menus and public venue pages.",
   "lastVerified": "2026-08-06"
  },
@@ -19052,7 +19052,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "The main Austrian food delivery platform, where restaurants hold public pages. Rebranded in place from Mjam to foodora. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser. [redirect:2026-08-14] mjam was rebranded to foodora in Austria.",
   "lastVerified": "2026-08-14"
  },
@@ -19358,7 +19358,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "create",
-  "submissionModel": "unknown",
+  "submissionModel": "free",
   "note": "An international city guide where venues, bars and restaurants hold public pages.",
   "lastVerified": "2026-08-14",
   "submissionUrl": "https://www.timeout.com/london/get-listed"
@@ -19503,7 +19503,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "A major French industrial supplier directory with public company profiles.",
   "lastVerified": "2026-08-06"
  },
@@ -19593,7 +19593,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "A French verified-review network where tradespeople hold public profiles. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
   "lastVerified": "2026-08-14"
  },
@@ -19611,7 +19611,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "A French home improvement platform where installers hold public profiles.",
   "lastVerified": "2026-08-06"
  },
@@ -19989,7 +19989,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "A Spanish construction portal with a company and product directory. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser. [redirect:2026-08-14] Construmatica now trades as Construnews.",
   "lastVerified": "2026-08-14"
  },
@@ -20061,7 +20061,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "A Spanish activities and restaurant booking platform where venues hold public pages. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
   "lastVerified": "2026-08-14"
  },
@@ -20691,7 +20691,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "unknown",
+  "submissionModel": "free",
   "note": "The main Polish classifieds marketplace, with professional seller sections. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
   "lastVerified": "2026-08-14"
  },
@@ -20907,7 +20907,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "A Czech classifieds marketplace with business seller sections.",
   "lastVerified": "2026-08-06"
  },
@@ -20943,7 +20943,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "A Czech classifieds marketplace with business seller sections.",
   "lastVerified": "2026-08-06"
  },
@@ -21520,7 +21520,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "paid",
+  "submissionModel": "unknown",
   "note": "An Australian automotive marketplace with dealer listings. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
   "lastVerified": "2026-08-14"
  },
@@ -21700,7 +21700,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "unknown",
+  "submissionModel": "free",
   "note": "A major Indian classifieds marketplace with business seller sections.",
   "lastVerified": "2026-08-06"
  },
@@ -22420,7 +22420,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "A Brazilian city and events guide where venues hold public pages. [accessibility:2026-08-14] the site loads and serves its own content, checked in a browser.",
   "lastVerified": "2026-08-14"
  },
@@ -22456,7 +22456,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "A Brazilian marketplace where sellers hold public storefronts.",
   "lastVerified": "2026-08-06"
  },
@@ -22474,7 +22474,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "A major Brazilian marketplace where third-party sellers hold public storefronts.",
   "lastVerified": "2026-08-06"
  },
@@ -23104,7 +23104,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "The Argentine SME confederation, whose member businesses appear in directories.",
   "lastVerified": "2026-08-06"
  },
@@ -23158,7 +23158,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "The main Buenos Aires restaurant guide where venues hold public pages.",
   "lastVerified": "2026-08-06"
  },
@@ -23663,7 +23663,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "paid",
+  "submissionModel": "unknown",
   "note": "A textile and apparel B2B marketplace where suppliers hold public company profiles.",
   "lastVerified": "2026-08-06"
  },
@@ -23699,7 +23699,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "create",
-  "submissionModel": "free",
+  "submissionModel": "freemium",
   "note": "A B2B agency ratings and reviews platform where agencies hold public profiles.",
   "lastVerified": "2026-08-14",
   "submissionUrl": "https://selectedfirms.co/get-listed"
@@ -24514,7 +24514,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "create",
-  "submissionModel": "freemium",
+  "submissionModel": "free",
   "note": "A major Indian local search engine where businesses hold public profiles.",
   "lastVerified": "2026-08-14",
   "submissionUrl": "https://www.indiaonline.in/grow-your-business"
@@ -25491,7 +25491,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "unknown",
+  "submissionModel": "free",
   "note": "The main Pakistani classifieds marketplace, with professional seller sections.",
   "lastVerified": "2026-08-06"
  },
@@ -25527,7 +25527,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "unknown",
+  "submissionModel": "free",
   "note": "The main Pakistani vehicle marketplace, where dealers hold public dealer pages.",
   "lastVerified": "2026-08-06"
  },
@@ -26741,7 +26741,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "paid",
+  "submissionModel": "unknown",
   "note": "An international freight forwarder network where member companies hold public profiles.",
   "lastVerified": "2026-08-06"
  },
@@ -27823,7 +27823,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "free",
+  "submissionModel": "unknown",
   "note": "An international study-programme portal where institutions hold public school and programme listings.",
   "lastVerified": "2026-08-14"
  },
@@ -27841,7 +27841,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "paid",
+  "submissionModel": "unknown",
   "note": "An international course and university search portal operated by IDP, where institutions hold public profiles and course listings.",
   "lastVerified": "2026-08-14"
  },
@@ -27859,7 +27859,7 @@
   ],
   "publicProfileAvailable": true,
   "listingAction": "unknown",
-  "submissionModel": "paid",
+  "submissionModel": "unknown",
   "note": "A directory of study, intern and volunteer abroad programmes where providers hold public program listings.",
   "lastVerified": "2026-08-14"
  },
