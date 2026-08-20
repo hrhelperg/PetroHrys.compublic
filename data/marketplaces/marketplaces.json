@@ -7315,7 +7315,9 @@
     "status": "publicApiReading",
     "measuredDomain": "adpost.com"
    }
-  }
+  },
+  "sellerActionUrl": "https://www.adpost.com/post-ad",
+  "sellerAction": "publish-classified"
  },
  {
   "id": "mp-us-apartments",

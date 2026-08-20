@@ -62,7 +62,13 @@ const COLLECTIONS = {
   directories: {
     file: path.join(ROOT, 'data/business-directories/opportunities.json'),
     urlField: 'website',
-    routeField: 'submissionUrl',
+    // The route field follows the ACTION, because the schema distinguishes
+    // them: `submissionUrl` is where a business submits a new listing and
+    // `claimUrl` is where it claims one that already exists. A fixed field put
+    // MapQuest's claim page — "Claim your business" — into submissionUrl,
+    // which tells a reader to submit a listing at a page that asks them to
+    // prove they own one.
+    routeField: (action) => (action === 'claim' ? 'claimUrl' : 'submissionUrl'),
     actionField: 'listingAction',
     vocabulary: S.LISTING_ACTIONS,
     unresolved: (r) => !r.submissionUrl && !r.claimUrl,
@@ -172,9 +178,13 @@ const CONFIRMS = {
     'verkäufer werden', 'devenir vendeur', 'diventa venditore', 'vender en',
     'daftar penjual', 'jual di',
   ]),
+  // "Advertise with us" is deliberately ABSENT. On a classifieds marketplace it
+  // means buying display advertising from the operator, not listing goods as a
+  // seller — and it resolved a Canadian classifieds site to a seller route on
+  // exactly that wording. What remains names the act of placing the ad.
   'post-advertisement': T.stemMatcher([
-    'advertise with us', 'advertising options', 'rate card', 'book advertising',
-    'werben sie', 'anunciarse', 'annonser hos', 'annonsere hos',
+    'place your advertisement', 'submit your advert', 'book an advertisement',
+    'advertising rate card', 'werbung schalten', 'anuncio publicitario',
   ]),
 };
 
@@ -234,6 +244,11 @@ async function get(url) {
   }
 }
 
+const unescapeHtml = (v) => String(v)
+  .replace(/&amp;/g, '&').replace(/&#38;/g, '&')
+  .replace(/&quot;/g, '"').replace(/&#x27;|&#39;|&apos;/g, "'")
+  .replace(/&lt;/g, '<').replace(/&gt;/g, '>');
+
 const strip = (html) => html
   .replace(/<script[\s\S]*?<\/script>/gi, ' ')
   .replace(/<style[\s\S]*?<\/style>/gi, ' ')
@@ -250,8 +265,12 @@ function candidateLinks(html, base) {
     const text = strip(m[2]);
     if (!text || text.length > 60) continue;
     if (!LINK_MATCH(text)) continue;
+    // An href in markup is HTML-ESCAPED. MapQuest's claim link carries
+    // `utm_medium=inad&amp;utm_source=...`, and storing that verbatim would
+    // publish a broken URL with a literal "&amp;" in its query string. Decoded
+    // before it is resolved, so what is stored is the link a browser follows.
     let href;
-    try { href = new URL(m[1], base).toString(); } catch { continue; }
+    try { href = new URL(unescapeHtml(m[1]), base).toString(); } catch { continue; }
     if (!/^https?:/.test(href)) continue;
     out.push({ href, text });
   }
@@ -461,8 +480,26 @@ function runApply() {
       if (C.vocabulary && !C.vocabulary.includes(f.actionType)) {
         throw new Error(`${r.id}: "${f.actionType}" is not in ${name}'s action vocabulary`);
       }
+      // Decoded again here, not only at harvest time. Findings recorded before
+      // the harvester learned to decode still carry `&amp;` — MapQuest's claim
+      // link did — and an applier that trusts the ledger's shape publishes a
+      // URL nobody can follow. Defence at the point of writing, where it costs
+      // nothing.
+      const route = unescapeHtml(f.actionUrl);
+      if (/&(amp|quot|lt|gt|#\d+);/.test(route)) {
+        throw new Error(`${r.id}: the recorded route still carries an HTML entity`);
+      }
+      // An action this researcher can no longer produce is a verdict from an
+      // older, looser vocabulary. It is refused rather than applied, because a
+      // rule that was tightened for a reason should not leak in through a
+      // finding recorded before the tightening.
+      if (!CONFIRMS[f.actionType] || !CONFIRMS[f.actionType](String(f.anchor || ''))) {
+        tally.skipped += 1;
+        continue;
+      }
+      const field = typeof C.routeField === 'function' ? C.routeField(f.actionType) : C.routeField;
       const patch = {};
-      patch[C.routeField] = f.actionUrl;
+      patch[field] = route;
       if (C.actionField) patch[C.actionField] = f.actionType;
       const same = Object.entries(patch).every(([k, v]) => r[k] === v);
       if (same) { tally.unchanged += 1; continue; }
@@ -495,7 +532,7 @@ function runInventory() {
 
 module.exports = {
   FINDINGS, COLLECTIONS, targets, judgeAction, judgeBid, candidateLinks,
-  runApply, CONFIRMS, LINK_MATCH, BID_FREE, BID_PAID,
+  runApply, CONFIRMS, LINK_MATCH, BID_FREE, BID_PAID, unescapeHtml,
 };
 
 if (require.main === module) {

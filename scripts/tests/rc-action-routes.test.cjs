@@ -299,3 +299,36 @@ test('a recorded route always belongs to a record that names an action', () => {
       `${r.id} has a seller route but no seller action`);
   }
 });
+
+test('a stored route is the link a browser would follow, not the markup', () => {
+  // MapQuest's claim link is written in the page as
+  // `...utm_medium=inad&amp;utm_source=yogi`. Resolved without decoding, the
+  // stored URL carries a literal "&amp;" in its query string and is broken for
+  // every reader who clicks it.
+  assert.strictEqual(R.unescapeHtml('a=1&amp;b=2'), 'a=1&b=2');
+  assert.strictEqual(R.unescapeHtml('x&#38;y'), 'x&y');
+  assert.strictEqual(R.unescapeHtml('plain'), 'plain');
+  const html = '<a href="https://x.test/claim?a=1&amp;b=2">Claim your business</a>';
+  const [link] = R.candidateLinks(html, 'https://x.test/');
+  assert.ok(link, 'the candidate link was not harvested at all');
+  assert.strictEqual(link.href, 'https://x.test/claim?a=1&b=2',
+    'the harvested href still carries HTML entities');
+});
+
+test('no canonical route carries an HTML entity', () => {
+  const files = [
+    ['data/business-directories/opportunities.json', ['submissionUrl', 'claimUrl']],
+    ['data/marketplaces/marketplaces.json', ['sellerActionUrl']],
+    ['data/media-pr-publishing/media-platforms.json',
+      ['submissionUrl', 'pitchUrl', 'pressReleaseUrl', 'advertisingUrl']],
+  ];
+  for (const [rel, fields] of files) {
+    for (const r of JSON.parse(fs.readFileSync(path.join(ROOT, rel), 'utf8'))) {
+      for (const f of fields) {
+        if (!r[f]) continue;
+        assert.ok(!/&(amp|quot|lt|gt|#\d+);/.test(r[f]),
+          `${r.id}.${f} carries an HTML entity: ${r[f]}`);
+      }
+    }
+  }
+});

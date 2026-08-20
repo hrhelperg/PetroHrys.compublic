@@ -23,14 +23,14 @@
    {
     "country": "united-states",
     "total": 442,
-    "withActionRoute": 135,
-    "without": 307
+    "withActionRoute": 137,
+    "without": 305
    },
    {
     "country": "germany",
     "total": 110,
-    "withActionRoute": 14,
-    "without": 96
+    "withActionRoute": 20,
+    "without": 90
    },
    {
     "country": "united-kingdom",
@@ -41,8 +41,8 @@
    {
     "country": "india",
     "total": 83,
-    "withActionRoute": 15,
-    "without": 68
+    "withActionRoute": 16,
+    "without": 67
    },
    {
     "country": "france",
@@ -277,8 +277,8 @@
    "highestDomainRating": 92,
    "medianDomainRating": 73,
    "noUpfrontCost": 3,
-   "ready": 3,
-   "withActionRoute": 4,
+   "ready": 4,
+   "withActionRoute": 5,
    "tendersFreeSearch": 1,
    "tendersFreeBid": 0,
    "gaps": [
@@ -785,8 +785,8 @@
    "highestDomainRating": 86,
    "medianDomainRating": 72,
    "noUpfrontCost": 6,
-   "ready": 2,
-   "withActionRoute": 3,
+   "ready": 5,
+   "withActionRoute": 6,
    "tendersFreeSearch": 1,
    "tendersFreeBid": 0,
    "gaps": [
@@ -1075,8 +1075,8 @@
    "highestDomainRating": 94,
    "medianDomainRating": 76,
    "noUpfrontCost": 26,
-   "ready": 7,
-   "withActionRoute": 14,
+   "ready": 13,
+   "withActionRoute": 20,
    "tendersFreeSearch": 21,
    "tendersFreeBid": 5,
    "gaps": []
@@ -1269,8 +1269,8 @@
    "highestDomainRating": 92,
    "medianDomainRating": 68,
    "noUpfrontCost": 14,
-   "ready": 15,
-   "withActionRoute": 15,
+   "ready": 16,
+   "withActionRoute": 16,
    "tendersFreeSearch": 9,
    "tendersFreeBid": 0,
    "gaps": [
@@ -2399,8 +2399,8 @@
    "highestDomainRating": 86,
    "medianDomainRating": 69,
    "noUpfrontCost": 3,
-   "ready": 1,
-   "withActionRoute": 2,
+   "ready": 2,
+   "withActionRoute": 3,
    "tendersFreeSearch": 1,
    "tendersFreeBid": 0,
    "gaps": [
@@ -2486,8 +2486,8 @@
    "highestDomainRating": 87,
    "medianDomainRating": 53,
    "noUpfrontCost": 5,
-   "ready": 1,
-   "withActionRoute": 1,
+   "ready": 5,
+   "withActionRoute": 5,
    "tendersFreeSearch": 0,
    "tendersFreeBid": 0,
    "gaps": [
@@ -2717,8 +2717,8 @@
    "highestDomainRating": 94,
    "medianDomainRating": 79,
    "noUpfrontCost": 86,
-   "ready": 114,
-   "withActionRoute": 135,
+   "ready": 116,
+   "withActionRoute": 137,
    "tendersFreeSearch": 27,
    "tendersFreeBid": 0,
    "gaps": [
@@ -2761,8 +2761,8 @@
    "highestDomainRating": 52,
    "medianDomainRating": 52,
    "noUpfrontCost": 0,
-   "ready": 0,
-   "withActionRoute": 0,
+   "ready": 1,
+   "withActionRoute": 1,
    "tendersFreeSearch": 0,
    "tendersFreeBid": 0,
    "gaps": [
@@ -2770,7 +2770,6 @@
     "media",
     "tenders",
     "no-upfront-cost",
-    "ready",
     "marketplace-seller-route",
     "media-submission-route"
    ]
