@@ -407,6 +407,84 @@ function runApply() {
   console.log('Applied:', Object.entries(tally).map(([k, v]) => `${k}=${v}`).join(' '));
 }
 
+// ── COVERAGE, WITHOUT TOUCHING THE NETWORK ──────────────────────────────────
+//
+// The question this answers is not "did the API succeed" — it did, for 2896
+// targets — but "does every canonical record actually carry the rating that was
+// measured for it". Those are different questions, and for six weeks the answer
+// to the first was yes while the answer to the second was no: the opportunities
+// loader discarded `domainRating` on the way in, so 1533 rows rendered blank
+// while every file on disk said otherwise.
+//
+// So this walks canonical records, not findings, and reports the gap between
+// them. It makes no request and is safe to run in any workflow.
+function runCoverage() {
+  const inv = INV.inventory();
+  const ledger = new CK.Ledger(FINDINGS);
+  const measured = new Map();
+  for (const f of ledger.all()) if (f.state === 'MEASURED') measured.set(f.target, f);
+  ledger.close();
+
+  const perCollection = {};
+  const unmeasured = new Map();
+  const unapplied = [];
+  const disagreeing = [];
+  for (const r of inv.records) {
+    const c = (perCollection[r.collection] ||= {
+      records: 0, withTarget: 0, withRating: 0, measuredZero: 0, missing: 0,
+    });
+    c.records += 1;
+    if (!r.target) return;
+  }
+  for (const [name, C] of Object.entries(INV.COLLECTIONS)) {
+    const rows = INV.readCollection(name);
+    const c = (perCollection[name] ||= {
+      records: 0, withTarget: 0, withRating: 0, measuredZero: 0, missing: 0,
+    });
+    c.records = rows.length;
+    for (const r of rows) {
+      const target = INV.normaliseDomain(r[C.urlField]);
+      if (!target) continue;
+      c.withTarget += 1;
+      const f = measured.get(target);
+      if (!f) {
+        if (!unmeasured.has(target)) unmeasured.set(target, []);
+        unmeasured.get(target).push(`${name}:${r.id}`);
+        continue;
+      }
+      if (r.domainRating === null || r.domainRating === undefined) {
+        unapplied.push(`${name}:${r.id} (${target} measured ${f.domainRating})`);
+        c.missing += 1;
+        continue;
+      }
+      if (r.domainRating !== f.domainRating) {
+        disagreeing.push(`${name}:${r.id} shows ${r.domainRating}, finding says ${f.domainRating}`);
+      }
+      c.withRating += 1;
+      if (r.domainRating === 0) c.measuredZero += 1;
+    }
+  }
+
+  console.log('DOMAIN RATING COVERAGE');
+  for (const [name, c] of Object.entries(perCollection)) {
+    console.log(`  ${name.padEnd(24)} records ${String(c.records).padStart(5)}`
+      + ` | with a target ${String(c.withTarget).padStart(5)}`
+      + ` | rated ${String(c.withRating).padStart(5)}`
+      + ` | measured 0 ${String(c.measuredZero).padStart(4)}`
+      + ` | MISSING ${String(c.missing).padStart(5)}`);
+  }
+  console.log(`\n  NEW_CANONICAL_DR_TARGETS_NOT_MEASURED: ${unmeasured.size}`);
+  for (const [target, ids] of [...unmeasured.entries()].slice(0, 25)) {
+    console.log(`    ${target}  (${ids.slice(0, 3).join(', ')})`);
+  }
+  if (unmeasured.size > 25) console.log(`    … and ${unmeasured.size - 25} more`);
+  console.log(`  MEASURED_BUT_NOT_APPLIED: ${unapplied.length}`);
+  for (const line of unapplied.slice(0, 15)) console.log(`    ${line}`);
+  console.log(`  RECORD_DISAGREES_WITH_FINDING: ${disagreeing.length}`);
+  for (const line of disagreeing.slice(0, 15)) console.log(`    ${line}`);
+  return { perCollection, unmeasured: [...unmeasured.keys()], unapplied, disagreeing };
+}
+
 function runInventory() {
   const s = INV.summary();
   console.log(JSON.stringify(s, null, 1));
@@ -418,11 +496,13 @@ function runInventory() {
 
 module.exports = {
   FINDINGS, PROVIDER, FRESH_DAYS, API, LICENSE_URL,
-  targets, stale, report, askAhrefs, apiKey, runApply, PROVENANCE_STATUS, provenanceFor,
+  targets, stale, report, askAhrefs, apiKey, runApply, runCoverage,
+  PROVENANCE_STATUS, provenanceFor,
 };
 
 if (require.main === module) {
   if (process.argv.includes('--apply')) runApply();
+  else if (process.argv.includes('--coverage')) runCoverage();
   else if (process.argv.includes('--inventory')) runInventory();
   else if (process.argv.includes('--report')) report(new CK.Ledger(FINDINGS).all());
   else runProbe().catch((e) => { console.error(e.message); process.exit(1); });

@@ -104,13 +104,28 @@ function normalise(row) {
     submissionModel: row.submissionModel ?? 'unknown',
     submissionUrl: row.submissionUrl ?? null,
     claimUrl: row.claimUrl ?? null,
-    domainRating: null,
+    // ── THE RATING IS CARRIED, NOT DISCARDED ─────────────────────────────
+    //
+    // These two lines read `domainRating: null` and `metricsProvenance: {}`,
+    // hard-coded, because an operational row was once forbidden to carry a
+    // rating at all: only a researched editorial record could have one, and
+    // only from a frozen measurement.
+    //
+    // That rule is gone, and leaving the loader behind was the most expensive
+    // possible way to be out of date. The corpus held a measured rating for all
+    // 1541 of these records, every canonical file said so, and this function
+    // threw every one of them away on the way in — so the worklist rendered 77
+    // ratings out of 1610 rows while the data claimed complete coverage. The
+    // JSON was right, the report was right about the JSON, and the product
+    // showed blanks.
+    domainRating: row.domainRating ?? null,
     lastVerified: row.lastVerified ?? null,
     description: row.note ?? '',
     // Shape compatibility with an editorial record, so shared renderers and the
     // CSV need no special cases.
     bestFor: [], cons: [], notRecommendedFor: [], pros: [],
-    metricsProvenance: {},
+    metricsProvenance: row.metricsProvenance
+      ? JSON.parse(JSON.stringify(row.metricsProvenance)) : {},
     intelligence: INTEL.normalise(row.intelligence),
     isOperationalRow: true,
   };
