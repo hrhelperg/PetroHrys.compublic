@@ -402,6 +402,41 @@ function buildTendersMeta({ count, countries }) {
   });
 }
 
+// Country Intelligence. ONE page whose country is a FILTER, and therefore ONE
+// canonical URL with no query string in it.
+//
+// 124 countries x 4 collections is 496 routes, 172 of them under five rows, and
+// this repository settled that question once already: build-business-directories
+// publishes one worklist for every actionable opportunity rather than "a country
+// page per geography", so that sixteen new geographies could arrive without
+// generating a single thin page. The reasoning applies with more force here,
+// because a country's four channel lists are one reading task, not four pages.
+//
+// The consequence for this function is the part that must not drift: the
+// canonical is the bare route. A filtered view — ?country=italy&collection=media
+// — is a state of one page and not a second document, and canonicalizing to it
+// would ask a crawler to index 2,816 rows under thousands of near-identical
+// URLs. absoluteUrl() strips a query string anyway; saying so here is what makes
+// that a decision rather than an accident.
+function buildCountriesMeta({ countries, sources }) {
+  const canonicalPath = '/research/countries/';
+  const title = 'Country Intelligence';
+  // Both numbers are derived from the corpus by the caller. They count what this
+  // research holds — never a share of a market, which would need a denominator
+  // nobody has.
+  const description = `${sources} verified sources across ${countries} countries: business `
+    + 'directories, marketplace and classified platforms, media and PR platforms and tender '
+    + 'portals, filtered by country, cost, readiness and Domain Rating on one page.';
+  const trail = [ROOT_TRAIL[0], { name: 'Country Intelligence', path: canonicalPath }];
+  return meta({
+    title, description, canonicalPath, robots: undefined, breadcrumbTrail: trail,
+    graph: [
+      collectionPage({ name: title, description, url: absoluteUrl(canonicalPath) }),
+      breadcrumbList(trail),
+    ],
+  });
+}
+
 // Procurement Intelligence. ONE page, deliberately. The brief sketched a dozen
 // candidate routes (/best/foreign-suppliers/, /best/telecom/, ...) and warned in
 // the same breath against near-duplicate SEO pages. Those answers share one
@@ -596,6 +631,7 @@ module.exports = {
   buildHubMeta, buildCountryMeta, buildCategoryMeta, buildDirectoryMeta,
   buildArticleMeta, buildArticleIndexMeta, buildOpportunitiesMeta, buildRecommendationMeta,
   buildMarketplacesMeta,
+  buildCountriesMeta,
   buildMediaMeta,
   buildMediaProfileMeta,
   buildPlannerMeta,

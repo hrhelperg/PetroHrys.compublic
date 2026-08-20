@@ -78,6 +78,7 @@ test('every published Domain Rating is a measurement, never an invented number',
 test('no build, validator or test reads AHREFS_API_KEY', () => {
   const active = [
     'scripts/build-business-directories.cjs',
+    'scripts/build-country-intelligence.cjs',
     'scripts/validate-business-directories.cjs',
     'scripts/migrate-business-directories.cjs',
     // Recursive: scripts/lib now contains a subdirectory (to-adapters), and a
@@ -149,6 +150,7 @@ function libFilesRecursive(dir, base = dir) {
 // matches the scripts on disk, so it cannot silently fall behind.
 const BUILD_ENTRY_POINTS = [
   'scripts/build-business-directories.cjs',
+  'scripts/build-country-intelligence.cjs',
   'scripts/build-distribution-planner.cjs',
   'scripts/build-marketplaces.cjs',
   'scripts/build-media-platforms.cjs',

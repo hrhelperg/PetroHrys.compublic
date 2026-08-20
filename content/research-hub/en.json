@@ -33,7 +33,8 @@
       "directories": "A country-by-country index recording what each directory accepts, how it links, and when it was last verified.",
       "opportunities": "The working database: where a company can create, claim or apply for a public profile, with cost, listing action and priority for each.",
       "media": "Where a company publishes, submits, pitches, sponsors, launches or contributes expertise &mdash; media outlets, press release networks, contributor programmes, launch platforms and journalist-source services, with the opportunity type and the route for each.",
-      "marketplaces": "Where a business or a person publishes a listing rather than a profile &mdash; classifieds, vehicles, property, jobs, services, B2B trade, auctions and resale &mdash; with the type, the cost to list and who may list."
+      "marketplaces": "Where a business or a person publishes a listing rather than a profile &mdash; classifieds, vehicles, property, jobs, services, B2B trade, auctions and resale &mdash; with the type, the cost to list and who may list.",
+      "countries": "One country at a time: every directory, marketplace, media outlet and tender platform this project has verified for that market, with Domain Rating, cost and whether anyone can act on it today."
     },
     "chooseHeading": "Choose across all three",
     "chooseBody": "Each database above answers a different question. <strong>{directories}</strong> is where a company creates or claims a professional profile. <strong>{marketplaces}</strong> is where it publishes a listing or an advertisement. <strong>{media}</strong> is where it pitches, publishes, launches or sponsors. The planner picks the best combination for one business, one objective, one market and one budget &mdash; and never pretends the three actions are equivalent.",

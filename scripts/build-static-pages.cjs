@@ -209,6 +209,10 @@ function buildHubPage(locale) {
     item(p(`${routes.hubPath()}opportunities/`), esc(t('opportunity.workingList')), c.collections.items.opportunities),
     item(p(render.MEDIA_PATH), names.media, c.collections.items.media),
     item(p(render.MARKETPLACES_PATH), names.marketplaces, c.collections.items.marketplaces),
+    // The cross-collection country explorer. Listed here because a page with no
+    // inbound link is a page nobody finds: it is in the sitemap, but the hub is
+    // where a reader actually looks for a collection.
+    item(p('/research/countries/'), 'Country Intelligence', c.collections.items.countries),
   ].join('\n');
 
   const main = `    <article class="page-hero">
