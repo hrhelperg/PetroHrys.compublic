@@ -676,3 +676,69 @@ test('a route-health stem cannot hide inside an ordinary word', () => {
   assert.equal(HEALTH.STILL_OFFERS.advertise(pad2('See our advertising rates')), true);
   assert.equal(HEALTH.STILL_OFFERS.advertise(pad2('Download our rate card')), true);
 });
+
+// ── COST VOCABULARY DEFECTS FROM THE SAME AUDIT ────────────────────────────
+
+const FT = require(path.join(ROOT, 'scripts/research-free-and-trusted.cjs'));
+const cost = (text) => {
+  const v = FT.classify({ onRoute: false }, {
+    url: 'https://x.test/', status: 200, title: '', h1: [], head: pad(text), textLen: 5000,
+  });
+  return `${v.state}${v.cost ? `/${v.cost}` : ''}`;
+};
+
+test('a platform saying it takes NO commission is not a commission platform', () => {
+  // The denial list held 'no commission' but not the verb forms, so this
+  // sentence was recorded as free-listing-commission — the exact opposite of
+  // what it says. A matcher that cannot see a negation inverts the fact.
+  assert.equal(cost('Sell for free. No listing fees and you keep 100% of the price '
+    + '- we never take a commission.'), 'ACCEPT_FREE_TRUSTED/free');
+});
+
+test('DA is an abbreviation and cannot be matched as a substring', () => {
+  // 'increase your da' in a stem matcher swallows "increase your DAILY
+  // enquiries", an ordinary local-directory headline, and rejected it as a
+  // link seller. A trailing space does not help — normalize trims it.
+  assert.notEqual(cost('Increase your daily enquiries from customers in your area.'),
+    'REJECT_LOW_QUALITY');
+  assert.equal(cost('We increase your DA 50+ with guaranteed placements.'), 'REJECT_LOW_QUALITY');
+});
+
+test('a directory that LISTS link builders is not selling links', () => {
+  assert.notEqual(cost('Browse by category: Accounting, Link Building Services, '
+    + 'Web Design, Local SEO, PPC Management.'), 'REJECT_LOW_QUALITY');
+  // An actual link seller is still caught.
+  assert.equal(cost('Buy backlinks and dofollow links for your site. Casino guest post available.'),
+    'REJECT_LOW_QUALITY');
+});
+
+test('a free tool giveaway is not the listing\'s price', () => {
+  assert.notEqual(cost('Run a free page speed test before you publish your release.'),
+    'ACCEPT_FREE_TRUSTED/free');
+  // But the verb form still resolves, which is how LinkedIn Pages states it:
+  // "Create a free page" / "You can create a Page for free".
+  assert.equal(cost('Create a free page. You can create a Page for free.'),
+    'ACCEPT_FREE_TRUSTED/free');
+});
+
+test('the cost fixes cost no existing verdict', () => {
+  // Re-judged from every stored observation on disk: nothing moves. The fixes
+  // remove the ABILITY to produce these errors without disturbing a single
+  // fact already established.
+  const file = path.join(ROOT, 'data/business-directories/.free-trusted.json');
+  const raw = JSON.parse(fs.readFileSync(file, 'utf8'));
+  let moved = 0;
+  let judged = 0;
+  for (const f of raw.findings) {
+    const o = f.observed;
+    if (!o || o.head === undefined) continue;
+    judged += 1;
+    const v = FT.classify(f, {
+      title: o.title || '', h1: o.h1 || [], head: o.head || '',
+      textLen: o.textLen || 0, url: o.finalUrl, status: o.status, error: null,
+    });
+    if (v.state !== f.state) moved += 1;
+  }
+  assert.ok(judged > 500, 'the cohort must be non-empty and substantial');
+  assert.equal(moved, 0, 'no stored verdict may change under the corrected vocabulary');
+});
