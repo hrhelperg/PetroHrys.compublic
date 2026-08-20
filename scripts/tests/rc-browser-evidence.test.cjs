@@ -594,3 +594,85 @@ test('M23: the tender researcher never derives one access fact from the other', 
 test('M24: a buyer-side publication fee is not a supplier bid fee', () => {
   assert.equal(judgeTender('Contracting authorities pay a publication fee to advertise notices.'), null);
 });
+
+// ── DEFECTS FOUND BY AUDITING THE RESEARCHERS THIS PHASE TOUCHED ────────────
+//
+// Removing the stealth flags meant reading five researchers closely, and every
+// one of them had a vocabulary defect. Two had already published wrong facts.
+
+const MP = require(path.join(ROOT, 'scripts/research-marketplace-sellers.cjs'));
+const HEALTH = require(path.join(ROOT, 'scripts/research-action-route-health.cjs'));
+
+const assessAnchor = (text, href, type = 'general-classifieds') => MP.assess(
+  { id: 'x', country: 'spain', type, website: 'https://example.test/' },
+  {
+    url: 'https://example.test/', status: 200, title: 'Example',
+    head: 'contenido '.repeat(120), textLen: 5000, anchors: [{ text, href }],
+  },
+);
+
+test('an app-download banner is not a way to become a seller', () => {
+  // MercadoLibre prints "Compra y vende con la app!" across five countries. It
+  // matched the Spanish seller vocabulary, and five records were published
+  // telling a seller that the route to selling is to download an app.
+  // Argentina escaped only because a plain "Vender" link outranked it.
+  const v = assessAnchor('¡Compra y vende con la app!', 'https://example.test/l/app');
+  assert.notEqual(v.state, 'ACTION_ESTABLISHED');
+});
+
+test('a seller-written ad title is not the operator\'s navigation', () => {
+  // A classifieds homepage is mostly seller-written listing titles, and
+  // reflexive "se vende" is how every one of them is phrased.
+  assert.notEqual(assessAnchor('Piso se vende en el centro de Málaga',
+    'https://example.test/anuncio/8841').state, 'ACTION_ESTABLISHED');
+  // The operator's own infinitive still resolves.
+  assert.equal(assessAnchor('Empieza a vender', 'https://example.test/vender').state,
+    'ACTION_ESTABLISHED');
+});
+
+test('partner and supplier programmes are not marketplace seller routes', () => {
+  // "Become a Partner" is affiliate, franchise or API. "Become a supplier" is
+  // corporate procurement — selling TO the operator. cars24 had published
+  // /become-our-partner/ as the place a person goes to sell a car.
+  assert.notEqual(assessAnchor('Become a Partner', 'https://example.test/partner-programme').state,
+    'ACTION_ESTABLISHED');
+  assert.notEqual(assessAnchor('Become a supplier', 'https://example.test/procurement').state,
+    'ACTION_ESTABLISHED');
+  assert.equal(assessAnchor('Become a Seller', 'https://example.test/seller').state,
+    'ACTION_ESTABLISHED');
+});
+
+test('an article about selling is not a route to sell', () => {
+  assert.notEqual(assessAnchor('How to start selling online in 2026',
+    'https://example.test/blog/start-selling').state, 'ACTION_ESTABLISHED');
+});
+
+test('the six retracted marketplace routes stay retracted', () => {
+  const rows = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/marketplaces/marketplaces.json'), 'utf8'));
+  const byId = new Map(rows.map((r) => [r.id, r]));
+  for (const id of ['mp-cl-mercadolibre', 'mp-co-mercadolibre', 'mp-mx-mercadolibre',
+    'mp-pe-mercadolibre', 'mp-ve-mercadolibre', 'mp-in-cars24']) {
+    const r = byId.get(id);
+    assert.ok(r, `${id} must still exist — retraction is not deletion`);
+    assert.ok(!r.sellerActionUrl, `${id} must not carry the refuted route`);
+  }
+  // And the one that was right is untouched.
+  const ar = byId.get('mp-ar-mercadolibre');
+  assert.match(ar.sellerActionUrl, /syi\/core\/list/, 'a correct route must not be collateral damage');
+});
+
+test('a route-health stem cannot hide inside an ordinary word', () => {
+  const pad2 = (t) => `${t} ${'context '.repeat(30)}`;
+  // This file decides whether a route is STILL OFFERED, so a stem that matches
+  // everything never reports anything as gone and a rotted route keeps its
+  // clean bill of health.
+  assert.equal(HEALTH.STILL_OFFERS.claim(pad2('Disclaimer: provided as is')), false);
+  assert.equal(HEALTH.STILL_OFFERS.submit(pad2('Choose from multiple plans')), false);
+  assert.equal(HEALTH.STILL_OFFERS.advertise(pad2('Corporate governance and accurate reporting')), false);
+  // Narrowing was not allowed to cost a real signal: this check can retract a
+  // working route, so a false "dead" is worse than a false "alive".
+  assert.equal(HEALTH.STILL_OFFERS.claim(pad2('Claim your business listing')), true);
+  assert.equal(HEALTH.STILL_OFFERS.submit(pad2('Send us a news tip')), true);
+  assert.equal(HEALTH.STILL_OFFERS.advertise(pad2('See our advertising rates')), true);
+  assert.equal(HEALTH.STILL_OFFERS.advertise(pad2('Download our rate card')), true);
+});

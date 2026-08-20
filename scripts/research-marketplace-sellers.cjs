@@ -102,15 +102,25 @@ const SELLER_WORDING = [
   {
     action: 'create-seller-profile',
     text: [
-      /\b(become|be) an? (seller|vendor|merchant|supplier|partner)\b/i,
+      // "partner" and "supplier" were here and are gone. On a marketplace,
+      // "Become a Partner" is an affiliate, franchise, API or media-partner
+      // programme, and "Become a supplier" is corporate procurement — selling
+      // TO the operator, not through it. Both filed a seller route: cars24
+      // recorded https://www.cars24.com/become-our-partner/ as the place a
+      // person goes to sell a car.
+      /\b(become|be) an? (seller|vendor|merchant)\b/i,
       /\bstart selling\b/i,
       /\bsell (on|with|through) \w+/i,
       /\bseller (registration|sign ?up|account|centre|center|portal)\b/i,
       /\bopen (a |your )?(shop|store)\b/i,
-      /\b(vender|vende) (en|con) \w+/i, /\bempieza a vender\b/i, /\bvender ahora\b/i,
+      // Reflexive "se vende"/"se alquila" is how a SELLER writes an ad title —
+      // "Piso se vende en el centro de Málaga" — and a classifieds homepage is
+      // mostly seller-written titles. Restricted to the infinitive, and never
+      // after "se".
+      /(?<!\bse )\bvender (en|con) \w+/i, /\bempieza a vender\b/i, /\bvender ahora\b/i,
       /\bvendre sur \w+/i, /\bdevenir vendeur\b/i, /commencer à vendre/i,
       /\bverkaufen (auf|bei) \w+/i, /verkäufer werden/i, /\bjetzt verkaufen\b/i,
-      /\bvender no \w+/i, /\bcomece a vender\b/i,
+      /(?<!\ba )\bvender no \w+/i, /\bcomece a vender\b/i,
       /\bvendi su \w+/i, /\bdiventa venditore\b/i,
       /стать продавцом/i, /начать продавать/i,
       /satıcı ol/i, /satış yap/i,
@@ -182,6 +192,18 @@ const ACTION_FOR_TYPE = (type) => (type === 'b2b' ? 'create-seller-profile'
   : type === 'general-classifieds' ? 'publish-classified' : 'post-advertisement');
 
 // Words that look like onboarding and are not. A BUYER gets all of these.
+// Anchors that are not a route to anything, whatever else they say. The app
+// banner is the reason: MercadoLibre prints "¡Compra y vende con la app!"
+// across five countries, it matched the Spanish seller vocabulary, and five
+// records were published telling a seller that the way to sell is to download
+// an app. Argentina escaped only because a plain "Vender" link outranked it.
+const NOT_A_ROUTE = [
+  /(la |the |nuestra |our )?app/i, /descarga(r)?/i, /download/i,
+  /google play/i, /app store/i,
+  // Editorial about selling is not the place to sell.
+  /^how to /i, /blog/i, /gu[ií]a/i, /cómo vender/i,
+];
+
 const BUYER_ACCOUNT = [
   /^(sign ?up|sign ?in|log ?in|register|registration|create an? account|my account|join)$/i,
   /^(registrarse|iniciar sesión|mi cuenta|regístrate)$/i,
@@ -307,6 +329,7 @@ function assess(record, obs) {
       // A buyer account link is never seller evidence, however invitingly it
       // is placed. Recorded so the report can say how often it was offered.
       if (BUYER_ACCOUNT.some((re) => re.test(a.text))) { buyerOnly.push(a.text); continue; }
+      if (NOT_A_ROUTE.some((re) => re.test(a.text))) continue;
       if (!group.text.some((re) => re.test(a.text))) continue;
       return {
         state: 'ACTION_ESTABLISHED',

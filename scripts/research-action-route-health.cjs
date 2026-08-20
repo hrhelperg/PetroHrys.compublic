@@ -141,14 +141,30 @@ const STILL_OFFERS = {
     'registr', 'eintrag', 'promote your', 'developer program', 'partner program',
     'for business', 'business profile', 'listing',
     '新增', '追加', '登録', '掲載', '商戶', '企业', '企業', '리스팅', '등록']),
-  claim: T.stemMatcher(['claim', 'verify', 'manage your', 'is this your', 'own this',
-    'for brands', 'for business', 'business profile', 'business account']),
-  'create-and-claim': T.stemMatcher(['add your', 'add a', 'claim', 'list your', 'register',
-    'for business', 'business profile']),
-  submit: T.stemMatcher(['submit', 'write', 'contribute', 'tip', 'story', 'article']),
+  // Three of these were bare stems short enough to hide inside ordinary words,
+  // and this file decides whether a route is STILL OFFERED. A stem that matches
+  // everything never reports anything as gone, so a route that had rotted away
+  // kept its clean bill of health:
+  //
+  //   'claim' is inside "Disclaimer:", which is in the footer of nearly every
+  //           directory in the corpus
+  //   'tip'   is inside "multiple", as in "choose from multiple plans"
+  //   'rate'  is inside corporate, accurate, generated, operates, moderate and
+  //           separate, all of which are dense on publisher pages
+  //
+  // They keep the same words and gain a boundary, so every genuine use still
+  // matches. Widening was not an option and neither was deleting them: a
+  // narrower vocabulary here would report live routes as dead, and this file's
+  // findings can retract a working route.
+  claim: T.patternMatcher(['claim[a-z]*', 'verify[a-z]*', 'manage your', 'is this your',
+    'own this', 'for brands', 'for business', 'business profile', 'business account']),
+  'create-and-claim': T.patternMatcher(['add your', 'add a', 'claim[a-z]*', 'list your',
+    'register[a-z]*', 'for business', 'business profile']),
+  submit: T.patternMatcher(['submit[a-z]*', 'write[a-z]*', 'contribute[a-z]*', 'tip[a-z]*',
+    'story', 'article[a-z]*']),
   pitch: T.stemMatcher(['pitch', 'editor', 'editorial', 'newsroom', 'contact']),
   'press-release': T.stemMatcher(['press release', 'newswire', 'distribute', 'submit']),
-  advertise: T.stemMatcher(['advertis', 'media kit', 'sponsor', 'rate']),
+  advertise: T.patternMatcher(['advertis[a-z]*', 'media kit', 'sponsor[a-z]*', 'rate[a-z]*']),
 };
 
 // A page that exists to take you somewhere else, or to ask who you are.
