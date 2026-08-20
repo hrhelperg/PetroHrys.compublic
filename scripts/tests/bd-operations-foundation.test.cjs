@@ -404,13 +404,17 @@ test('an operational row never generates a page and never invents a metric', () 
     const slug = row.website.replace(/^https:\/\//, '').replace(/[^a-z0-9]+/gi, '-');
     assert.ok(!fs.existsSync(path.join(root, 'research/business-directories', row.country, slug, 'index.html')),
       `${row.id} generated a detail page`);
-    // Domain Rating is never carried by a row: only a researched editorial
-    // record may hold one, and only with provenance naming the provider, the
-    // date and the domain measured. (The 2026-08-19 policy reversal opened
-    // collection for editorial records; it did not extend to compact rows,
-    // which still carry no reading at all.)
-    assert.strictEqual(row.domainRating, null, `${row.id} carries a Domain Rating`);
-    assert.deepStrictEqual(row.metricsProvenance, {}, `${row.id} invented metrics provenance`);
+    // A row DOES carry a Domain Rating now, and that is the point: these rows
+    // are most of what a reader sees, and excluding them is what made the
+    // worklist render 77 ratings out of 1610 while the corpus held 1610. The
+    // note above once said the reversal "did not extend to compact rows",
+    // which was true of the loader and never of the data.
+    //
+    // What is still forbidden is an INVENTED rating, so the shared rule stands
+    // in for the ban: 0-100, whole, with provenance naming the provider, the
+    // date and the domain measured. A bare number cannot pass it.
+    assert.deepStrictEqual(S.domainRatingProblems(row), [],
+      `${row.id} carries a Domain Rating that is not fully evidenced`);
   }
 });
 

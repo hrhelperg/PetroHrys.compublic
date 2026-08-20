@@ -19,6 +19,7 @@
 //    file reproducible whether or not one ever does.
 
 const test = require('node:test');
+const SCHEMA_DR = require('../lib/bd-schema.cjs');
 const assert = require('node:assert');
 const fs = require('node:fs');
 const path = require('node:path');
@@ -140,8 +141,14 @@ test('every European row carries the operational fields an employee needs', () =
     assert.ok(Array.isArray(r.audienceGeography) && r.audienceGeography.length,
       `${r.id} has no audienceGeography`);
     assert.match(r.website, /^https:\/\//, `${r.id} is not https`);
-    assert.strictEqual(r.domainRating, null,
-      `${r.id} carries a Domain Rating; rows never do`);
+    // An operational row now carries the rating measured for its own domain.
+    // This asserted `null` because a row was once forbidden a reading at all —
+    // and that ban was what made 1533 of 1610 worklist rows render blank while
+    // every canonical file held a measured value. What still must not happen is
+    // an INVENTED one, so the shared rule is asserted instead: 0-100, whole,
+    // with provenance naming the provider, the date and the domain measured.
+    assert.deepStrictEqual(SCHEMA_DR.domainRatingProblems(r), [],
+      `${r.id} carries a Domain Rating that is not fully evidenced`);
   }
 });
 
