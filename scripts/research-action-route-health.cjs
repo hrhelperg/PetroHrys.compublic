@@ -44,7 +44,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const os = require('node:os');
 const { spawn } = require('node:child_process');
-const { openPage } = require('./tests/helpers/cdp.cjs');
+const { openPage, launch } = require('./tests/helpers/cdp.cjs');
 const SAFE = require('./lib/rc-safe-apply.cjs');
 const T = require('./lib/rc-text-match.cjs');
 
@@ -172,31 +172,19 @@ const arg = (name) => {
   return i === -1 ? null : (process.argv[i + 1] || true);
 };
 
+// Every browser researcher in this repository had grown its own copy of this
+// function, each spawning a headless Chrome with the automation flag hidden and
+// a spoofed user agent. The disguise is circumvention, which this corpus does
+// not build, and it did not work: headless Chrome is refused by a large share of
+// the public web whatever its user agent claims. A windowed browser needs no
+// disguise, and there is one launcher for all of them.
 function startChrome() {
-  const profile = fs.mkdtempSync(path.join(os.tmpdir(), 'route-health-'));
-  const proc = spawn(CHROME, [
-    '--headless=new', '--remote-debugging-port=0', `--user-data-dir=${profile}`,
-    '--no-first-run', '--no-default-browser-check', '--disable-gpu',
-    '--disable-dev-shm-usage', '--mute-audio',
-    '--disable-blink-features=AutomationControlled',
-    '--disable-background-networking', '--disable-sync', 'about:blank',
-  ], { stdio: ['ignore', 'ignore', 'pipe'] });
-  return new Promise((resolve, reject) => {
-    let buf = '';
-    const timer = setTimeout(() => reject(new Error('Chrome did not report a DevTools endpoint')), 30000);
-    proc.stderr.on('data', (chunk) => {
-      buf += chunk.toString();
-      const m = /ws:\/\/[^\s]+/.exec(buf);
-      if (m) { clearTimeout(timer); resolve({ proc, wsUrl: m[0], profile }); }
-    });
-    proc.on('exit', (code) => { clearTimeout(timer); reject(new Error(`Chrome exited ${code}`)); });
-  });
+  return launch({ headless: false });
 }
 
 async function probe(wsUrl, route) {
   const page = await openPage(wsUrl);
   try {
-    await page.send('Network.setUserAgentOverride', { userAgent: UA });
     await page.goto(route.url);
     await new Promise((r) => { setTimeout(r, SETTLE_MS); });
     const seen = await page.eval((evidenceChars) => {

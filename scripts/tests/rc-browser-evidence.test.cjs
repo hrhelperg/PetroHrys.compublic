@@ -390,12 +390,29 @@ test('navigation is bounded in time and in depth', () => {
   assert.match(src, /NAV_TIMEOUT_MS/);
 });
 
-test('no anti-bot circumvention is present', () => {
-  const src = fs.readFileSync(path.join(ROOT, 'scripts/research-browser-evidence.cjs'), 'utf8');
-  for (const forbidden of ['webdriver', 'stealth', 'proxy', 'rotateUserAgent',
-    'solveCaptcha', 'setUserAgentOverride']) {
-    assert.ok(!src.includes(forbidden),
-      `${forbidden} would make this circumvention rather than research`);
+test('no researcher in the repository uses circumvention', () => {
+  // Not just this file. The cost researcher shipped with the automation flag
+  // hidden and a spoofed user agent, which is a disguise this corpus does not
+  // build — and which did not work anyway: headless Chrome is refused whatever
+  // its user agent claims. An ordinary windowed browser needs no disguise.
+  const dir = path.join(ROOT, 'scripts');
+  const researchers = fs.readdirSync(dir).filter((f) => f.startsWith('research-') && f.endsWith('.cjs'));
+  assert.ok(researchers.length >= 4, 'the cohort of researchers must not be empty');
+  for (const file of researchers) {
+    const src = fs.readFileSync(path.join(dir, file), 'utf8');
+    for (const forbidden of ['AutomationControlled', 'setUserAgentOverride', 'stealth',
+      'solveCaptcha', 'rotateUserAgent', 'puppeteer-extra']) {
+      assert.ok(!src.includes(forbidden), `${file} contains ${forbidden}`);
+    }
+  }
+});
+
+test('research browsers are launched through the shared harness', () => {
+  const dir = path.join(ROOT, 'scripts');
+  for (const file of fs.readdirSync(dir).filter((f) => f.startsWith('research-') && f.endsWith('.cjs'))) {
+    const src = fs.readFileSync(path.join(dir, file), 'utf8');
+    assert.ok(!src.includes("'--headless=new'"),
+      `${file} spawns its own headless Chrome instead of using launch()`);
   }
 });
 

@@ -35,7 +35,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const os = require('node:os');
 const { spawn } = require('node:child_process');
-const { openPage } = require('./tests/helpers/cdp.cjs');
+const { openPage, launch } = require('./tests/helpers/cdp.cjs');
 const SAFE = require('./lib/rc-safe-apply.cjs');
 const CK = require('./lib/rc-checkpoint.cjs');
 const T = require('./lib/rc-text-match.cjs');
@@ -66,9 +66,6 @@ const CHROME = [
   '/Applications/Chromium.app/Contents/MacOS/Chromium',
   '/usr/bin/google-chrome',
 ].find((p) => fs.existsSync(p));
-
-const UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 '
-  + '(KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36';
 
 const SETTLE_MS = 3500;
 const CONCURRENCY = 4;
@@ -437,33 +434,45 @@ const arg = (name) => {
   return i === -1 ? null : (process.argv[i + 1] || true);
 };
 
+// This used to spawn its own headless Chrome with the automation flag hidden
+// and a spoofed user agent. Two things were wrong with that. The disguise is
+// circumvention, which this corpus does not build. And it did not even work:
+// headless Chrome is refused by a large share of the public web regardless of
+// what its user agent claims, which is why this ledger holds 81 records whose
+// only finding is that almost nothing rendered.
+//
+// An ordinary windowed browser needs no disguise, and the shared launcher is
+// the one the rest of the repository already uses.
 function startChrome() {
-  const profile = fs.mkdtempSync(path.join(os.tmpdir(), 'free-trusted-'));
-  const proc = spawn(CHROME, [
-    '--headless=new', '--remote-debugging-port=0', `--user-data-dir=${profile}`,
-    '--no-first-run', '--no-default-browser-check', '--disable-gpu',
-    '--disable-dev-shm-usage', '--mute-audio',
-    '--disable-blink-features=AutomationControlled',
-    '--disable-background-networking', '--disable-sync', 'about:blank',
-  ], { stdio: ['ignore', 'ignore', 'pipe'] });
-  return new Promise((resolve, reject) => {
-    let buf = '';
-    const timer = setTimeout(() => reject(new Error('Chrome did not report a DevTools endpoint')), 30000);
-    proc.stderr.on('data', (chunk) => {
-      buf += chunk.toString();
-      const m = /ws:\/\/[^\s]+/.exec(buf);
-      if (m) { clearTimeout(timer); resolve({ proc, wsUrl: m[0], profile }); }
-    });
-    proc.on('exit', (code) => { clearTimeout(timer); reject(new Error(`Chrome exited ${code}`)); });
-  });
+  return launch({ headless: false });
+}
+
+async function settleOn(page) {
+  let previous = null;
+  const deadline = Date.now() + SETTLE_MS * 2;
+  for (;;) {
+    // eslint-disable-next-line no-await-in-loop
+    const now = await page.eval(() => ({
+      links: document.querySelectorAll('a[href]').length,
+      len: (document.body ? document.body.innerText || '' : '').length,
+    })).catch(() => null);
+    if (!now) return;
+    const shape = `${now.links}:${now.len}`;
+    if (shape === previous && now.len > 0) return;
+    previous = shape;
+    if (Date.now() > deadline) return;
+    // eslint-disable-next-line no-await-in-loop
+    await new Promise((r) => { setTimeout(r, 350); });
+  }
 }
 
 async function probe(wsUrl, target) {
   const page = await openPage(wsUrl);
   try {
-    await page.send('Network.setUserAgentOverride', { userAgent: UA });
     await page.goto(target.url);
-    await new Promise((r) => { setTimeout(r, SETTLE_MS); });
+    // Two identical observations, not a fixed sleep: a single-page application
+    // fires load with an empty shell and draws the pricing afterwards.
+    await settleOn(page);
     const seen = await page.eval((chars) => {
       const text = document.body ? document.body.innerText : '';
       return {
