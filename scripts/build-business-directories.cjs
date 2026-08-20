@@ -32,6 +32,10 @@ const csv = require('./lib/bd-csv.cjs');
 const opportunities = require('./lib/bd-opportunities.cjs');
 const INTEL = require('./lib/bd-intelligence.cjs');
 const RECOMMEND = require('./lib/bd-recommend.cjs');
+// Readiness is read from the Distribution Planner, never recomputed here. See
+// directoryReadiness() below for why this generator asks instead of answering.
+const PLANNER = require('./lib/distribution-planner.cjs');
+const DP = require('./lib/dp-engine.cjs');
 const { renderCsv } = csv;
 const FEED_FILE = routes.feedOut();
 const MANIFEST_FILE = path.join('data', 'business-directories', '.build-manifest.json');
@@ -182,6 +186,64 @@ function section(id, heading, body) {
       <h2 id="${id}">${heading}</h2>
 ${body}
     </section>`;
+}
+
+// --- readiness --------------------------------------------------------------
+//
+// "Can an employee act on this platform today?" already has exactly one owner:
+// dp-engine's actionability(), which the Distribution Planner publishes on its
+// own page and in its own export. Deriving a second answer here from the same
+// records would drift apart from that one the first time either rule changed,
+// and the worklist would then disagree with the planner about the same platform
+// on the same morning. So this asks, and stores nothing: the status is a view
+// of canonical facts, not a new fact about the record.
+//
+// The projection is loaded ONCE per process. pageModel runs four times, once
+// per locale, and a status is a machine value identical in all four — loading
+// all three collections again per locale would quadruple the build's reading to
+// rebuild the same map.
+let readinessCache = null;
+function directoryReadiness() {
+  if (readinessCache) return readinessCache;
+  const ops = PLANNER.project(PLANNER.loadAll());
+  const map = new Map();
+  for (const op of ops) {
+    // Directories only. The projection spans three collections, and a
+    // marketplace or media id must never answer for a directory.
+    if (op.sourceCollection !== 'directories') continue;
+    map.set(op.platformId, DP.actionability(op).status);
+  }
+  readinessCache = map;
+  return map;
+}
+
+// One more facet attribute on rows bd-components already renders.
+//
+// That module owns the row markup and emits a fixed set of facet attributes,
+// every one of them read from a field the directory record itself carries.
+// Readiness is not such a field: it is computed by another module from a
+// projection of the record, so handing it to the renderer through the schema
+// would mean inventing a stored fact that nothing owns and that no validator
+// could check.
+//
+// So the rendered rows are labelled instead, in the order the table rendered
+// them — the worklist passes `sortKey: null`, which is directoryTable's explicit
+// contract to render the array exactly as given. The count guard is the point
+// of the function: if the table ever emits a different number of rows than the
+// array it was handed, the build stops here rather than shifting every status
+// by one row, so the page's one-identity-one-row invariant is checked once more
+// on the way out.
+const ROW_OPEN = '<tr class="bd-row" ';
+function withRowFacet(tableHtml, rows, name, valueOf) {
+  const parts = tableHtml.split(ROW_OPEN);
+  if (parts.length - 1 !== rows.length) {
+    throw new BuildError(`The worklist table rendered ${parts.length - 1} row(s) for `
+      + `${rows.length} opportunities; refusing to label them.`);
+  }
+  return parts
+    .map((part, i) => (i === 0 ? part
+      : `${ROW_OPEN}data-bd-facet-${name}="${escapeHtml(String(valueOf(rows[i - 1]) || ''))}" ${part}`))
+    .join('');
 }
 
 // --- page model -------------------------------------------------------------
@@ -406,6 +468,7 @@ function pageModel(registry, locale = I18N.DEFAULT_LOCALE) {
     // Decorate once with the computed intelligence view. The score is never
     // stored, so every consumer on this page derives it from the same call
     // rather than from a value someone wrote down.
+    const readiness = directoryReadiness();
     const actionable = csv.actionableOpportunities(allDirectories, opRows).map((r) => {
       const score = INTEL.directoryScore(r);
       const intel = r.intelligence || {};
@@ -422,6 +485,10 @@ function pageModel(registry, locale = I18N.DEFAULT_LOCALE) {
         approvalMode: intel.approvalMode || null,
         countryReach: intel.countryReach || null,
         bestForProfiles,
+        // The canonical Planner status for this platform, or '' where the
+        // projection holds none — an empty value is offered by no option and
+        // matched by no selection, which is what "not established" must do.
+        actionability: readiness.get(r.id) || '',
       };
     });
     // ── ONE CANONICAL OPPORTUNITY, ONE INTERACTIVE ROW ─────────────────────
@@ -530,6 +597,18 @@ function pageModel(registry, locale = I18N.DEFAULT_LOCALE) {
       { name: 'bestfor', key: 'bestForProfiles', multi: true, label: t('col.bestFor'), fallback: '',
         order: RECOMMEND.PROFILES.map((p) => p.key),
         labels: Object.fromEntries(RECOMMEND.PROFILES.map((p) => [p.key, p.label])) },
+      // Readiness, in the Planner's own vocabulary. The option VALUE is the
+      // status dp-engine assigns — READY, NEEDS_RESEARCH, NEEDS_BROWSER,
+      // BLOCKED — because a shared URL carries the value and a localized string
+      // in ?actionability= would filter nothing in the next reader's language.
+      // Only the label is translated. Options come from the rows, so a status
+      // no row holds is never offered: BLOCKED is a real state in the
+      // vocabulary and simply does not occur in this collection today, and
+      // listing it would be a filter that can only empty the table.
+      { name: 'actionability', key: 'actionability', label: t('bd.actionability'), fallback: '',
+        order: ['READY', 'NEEDS_RESEARCH', 'NEEDS_BROWSER', 'BLOCKED'],
+        labels: { READY: t('act.READY'), NEEDS_RESEARCH: t('act.NEEDS_RESEARCH'),
+          NEEDS_BROWSER: t('act.NEEDS_BROWSER'), BLOCKED: t('act.BLOCKED') } },
     ];
 
     pages.push({
@@ -555,6 +634,13 @@ function pageModel(registry, locale = I18N.DEFAULT_LOCALE) {
             idPrefix: 'opp', facet: f, label: f.label, rows: actionable,
             labels: f.labels || {}, order: f.order || [],
           })),
+          // A FLOOR on Domain Rating, not a facet on it. 77 of these rows carry
+          // a reading and the rest were never measured, so an equality facet
+          // would offer a spread of numbers that each hide the whole corpus
+          // behind them; a floor asks the question a reader actually has and
+          // composes with the sort instead of competing with it. The control
+          // returns nothing at all when no row on the page has a rating.
+          c.minDomainRatingControl({ idPrefix: 'opp', rows: actionable }),
           // The same control the country pages use, given the same column set
           // the table below renders. Without a select the client still sorts —
           // js/business-directories.js falls back to 'default' — so the page
@@ -588,12 +674,15 @@ function pageModel(registry, locale = I18N.DEFAULT_LOCALE) {
             name: 'business-listing-opportunities',
             count: actionable.length,
           }),
-          c.directoryTable({
+          // Same rows, same order, one attribute more: every row states its
+          // readiness so the facet above filters on the row itself rather than
+          // on anything the client would have to recompute.
+          withRowFacet(c.directoryTable({
             directories: actionable,
             caption: t('bdx.listingOpps'),
             columns: OPP_COLUMNS,
             sortKey: null,
-          }),
+          }), actionable, 'actionability', (d) => d.actionability),
           `      <p class="bd-note"><a href="${escapeHtml(SCHEMA.AHREFS_ATTRIBUTION.href)}" `
             + `rel="noopener noreferrer" target="_blank">${escapeHtml(SCHEMA.AHREFS_ATTRIBUTION.text)}</a>. `
             + `${escapeHtml(t('bdx.drCaveat'))}</p>`,

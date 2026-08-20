@@ -66,6 +66,8 @@
   }
 
   var sortSelect = document.querySelector('[data-bd-sort]');
+  // The one control that is not an equality match: a floor on Domain Rating.
+  var minDrSelect = document.querySelector('[data-bd-min-dr]');
   var searchInput = document.querySelector('[data-bd-search]');
   var filters = Array.prototype.slice.call(document.querySelectorAll('[data-bd-filter]'));
   // Select-based facets for the opportunities worklist. Each select names the
@@ -86,7 +88,7 @@
   // Reveal the controls only once the behaviour behind them exists. Without
   // JavaScript they stay hidden and the prerendered table is complete.
   ['[data-bd-sort-wrap]', '[data-bd-filter-wrap]', '[data-bd-search-wrap]',
-    '[data-bd-jselect-wrap]'].forEach(function (sel) {
+    '[data-bd-jselect-wrap]', '[data-bd-min-dr-wrap]'].forEach(function (sel) {
     var el = document.querySelector(sel);
     if (el) el.hidden = false;
   });
@@ -131,7 +133,10 @@
       return String(f.getAttribute('data-bd-filter')).toLowerCase();
     }),
     sorts: optionValues(sortSelect),
-    jurisdictions: optionValues(jSelect)
+    jurisdictions: optionValues(jSelect),
+    // The thresholds this page offers. Derived like everything else here, so a
+    // page without the control has no min-dr parameter at all.
+    minDr: optionValues(minDrSelect)
   };
 
   function num(row, key) {
@@ -262,7 +267,16 @@
       // BDDiscovery.evaluate. The row's attributes were read into a plain
       // object once at load; the deciding is not done in this file.
       var verdict = D.evaluate(
-        { haystack: row.getAttribute('data-bd-haystack') || '', facets: record.facets, flags: record.flags },
+        {
+          haystack: row.getAttribute('data-bd-haystack') || '',
+          facets: record.facets,
+          flags: record.flags,
+          // The Domain Rating floor reads this. Building the row without it
+          // meant every record answered "no rating" and any threshold emptied
+          // the table completely — the most alarming possible failure, and one
+          // that only appears once the control is actually used.
+          domainRating: record.domainRating
+        },
         selection
       );
       if (!verdict.visible) show = false;
@@ -388,7 +402,8 @@
       facets: chosen,
       filters: checked,
       jurisdiction: jSelect ? jSelect.value : '',
-      sort: sortSelect ? sortSelect.value : ''
+      sort: sortSelect ? sortSelect.value : '',
+      minDr: minDrSelect ? minDrSelect.value : ''
     };
   }
 
@@ -402,6 +417,7 @@
     });
     if (jSelect) jSelect.value = state.jurisdiction || D.defaultJurisdiction(schema);
     if (sortSelect) sortSelect.value = state.sort || D.defaultSort(schema);
+    if (minDrSelect) minDrSelect.value = state.minDr || '';
   }
 
   function syncUrl(push) {
@@ -486,12 +502,20 @@
   if (searchInput) searchInput.addEventListener('input', typed);
   filters.forEach(function (f) { f.addEventListener('change', interact); });
   facets.forEach(function (sel) { sel.addEventListener('change', interact); });
+  if (minDrSelect) minDrSelect.addEventListener('change', interact);
   if (clearBtn) {
     clearBtn.addEventListener('click', function () {
       if (searchInput) searchInput.value = '';
       filters.forEach(function (f) { f.checked = false; });
       facets.forEach(function (sel) { sel.value = ''; });
       if (jSelect) jSelect.value = D.defaultJurisdiction(schema);
+      if (minDrSelect) minDrSelect.value = '';
+      // The sort goes back to the page's own order too. Leaving it behind made
+      // "clear" mean "clear most of it": a reader who had sorted by Domain
+      // Rating, filtered, then cleared, was returned to an unfiltered list
+      // still ranked by an external metric they had asked for three clicks ago,
+      // with a URL that no longer said so.
+      if (sortSelect) sortSelect.value = D.defaultSort(schema);
       interact();
       if (searchInput) searchInput.focus();
     });

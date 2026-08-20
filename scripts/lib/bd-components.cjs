@@ -754,6 +754,47 @@ ${body}
 // A multi facet counts TOKENS, so the number beside an option is the number of
 // rows selecting it will show. Counting joined strings advertised 24 for
 // local-business where 2 rows matched, which is a second, quieter lie.
+// A floor on Domain Rating, which is the one control here that is not an
+// equality match.
+//
+// ── WHY THRESHOLDS AND NOT BANDS ────────────────────────────────────────────
+//
+// "40-49" reads as a category and invites the reader to believe the corpus is
+// sorted into kinds. A floor asks the only question a reader actually has —
+// "show me the strong ones, and let me decide where strong starts" — and it
+// composes with the sort instead of competing with it.
+//
+// ── WHY NO WORDS ────────────────────────────────────────────────────────────
+//
+// No "Good", "Strong" or "Trusted". Ahrefs publishes a number on a logarithmic
+// scale and publishes no bands for it, so any label here would be this
+// project's opinion wearing Ahrefs' clothes. The numbers say what they say.
+//
+// Thresholds that would match nothing are not offered: a select full of "(0)"
+// options is a control that mostly lies about what it can do.
+const MIN_DR_THRESHOLDS = [10, 20, 30, 40, 50, 60, 70, 80, 90];
+
+function minDomainRatingControl({ idPrefix = 'bd', rows = [] } = {}) {
+  const ratings = rows
+    .map((r) => (r && typeof r.domainRating === 'number' ? r.domainRating : null))
+    .filter((v) => v !== null);
+  if (!ratings.length) return '';
+  const id = `${escapeHtml(idPrefix)}-min-dr`;
+  const options = MIN_DR_THRESHOLDS
+    .map((n) => [n, ratings.filter((v) => v >= n).length])
+    .filter(([, count]) => count > 0)
+    .map(([n, count]) => `          <option value="${n}">${n}+ (${count})</option>`)
+    .join('\n');
+  if (!options) return '';
+  return `      <div class="bd-control" data-bd-min-dr-wrap hidden>
+        <label class="bd-label" for="${id}">${escapeHtml(t('bd.minDr'))}</label>
+        <select class="bd-select" id="${id}" data-bd-min-dr>
+          <option value="">${escapeHtml(t('common.all'))}</option>
+${options}
+        </select>
+      </div>`;
+}
+
 function facetSelect({ idPrefix, facet, label, rows, labels = {}, order = [] }) {
   const id = `${escapeHtml(idPrefix)}-facet-${escapeHtml(facet.name)}`;
   const multi = facet.multi === true;
@@ -1613,6 +1654,7 @@ function editorialGuidance(directory, active) {
   listingInformation,
   recommendationTable,
   searchControls, filterControls, sortControls, pagination, facetSelect, clearFiltersControl,
+  minDomainRatingControl, MIN_DR_THRESHOLDS,
   filteredExportControl,
   verificationBlock, acceptsList, scoreBreakdown, filterValue, filterAttr,
   relatedDirectories, submissionLink, editorialGuidance,

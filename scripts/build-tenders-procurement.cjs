@@ -129,6 +129,21 @@ function jurisdictionLabel(row, countryName) {
   return sub ? `${base} · ${sub.name}` : base;
 }
 
+// ── TWO ACCESS FACTS, TWO CONTROLS ───────────────────────────────────────────
+//
+// `searchAccess` says what it costs to SEE the notices. `bidAccess` says what
+// it costs to BID on them. They are separately researched fields and they do
+// not imply one another: 294 platforms publish notices freely, and only 8 are
+// established as accepting a bid without a fee. A merged "free" control would
+// therefore assert something about ~286 platforms that nobody verified, so the
+// two stay two selects and neither is ever derived from the other.
+//
+// `bidAccess` is absent on most records — the fee was never researched, which
+// is not the same claim as "free". Absence renders as the vocabulary's own
+// 'unknown', the value the schema already allows, so a reader can select it and
+// see exactly which platforms carry no bidding-cost evidence.
+const accessLabels = (t) => Object.fromEntries(TP.ACCESS_MODELS.map((x) => [x, t(`access.${x}`)]));
+
 // The subdivision filter earns its place only when there is something to
 // filter. Below the threshold it is not rendered at all, which is the same rule
 // the rest of the Research Center uses to keep a control panel from filling up
@@ -251,6 +266,8 @@ function renderMain(rows, countryName, t) {
       + `data-bd-facet-scope="${escapeHtml(r.procurementScope)}" `
       + `data-bd-facet-esub="${escapeHtml(r.electronicSubmission || 'unknown')}" `
       + `data-bd-facet-foreign="${escapeHtml(r.foreignSuppliersAccepted || 'unknown')}" `
+      + `data-bd-facet-searchaccess="${escapeHtml(r.searchAccess || 'unknown')}" `
+      + `data-bd-facet-bidaccess="${escapeHtml(r.bidAccess || 'unknown')}" `
       + `data-bd-dr="${escapeHtml(dr)}" `
       + `data-bd-facet-evidence="${escapeHtml(r.browserCheckRequired ? 'browser-check' : r.evidenceClass)}">
             <td data-label="${escapeHtml(t('col.platform'))}"><a href="${escapeHtml(r.officialUrl)}" rel="noopener noreferrer" target="_blank">${escapeHtml(r.name)}</a>${partOf ? `<br><small>${escapeHtml(partOf)}</small>` : ''}</td>
@@ -300,7 +317,10 @@ ${facet({ name: 'type', t, label: t('tp.f.type'), values: rows.map((r) => r.plat
 ${facet({ name: 'scope', t, label: t('tp.f.scope'), values: rows.map((r) => r.procurementScope), labels: Object.fromEntries(TP.PROCUREMENT_SCOPES.map((x) => [x, t(`tpScope.${x}`)])) })}
 ${facet({ name: 'esub', t, label: t('tp.f.esub'), values: rows.map((r) => r.electronicSubmission || 'unknown'), labels: Object.fromEntries(TP.TRI_STATE.map((x) => [x, t(`tri.${x}`)])) })}
 ${facet({ name: 'foreign', t, label: t('tp.f.foreign'), values: rows.map((r) => r.foreignSuppliersAccepted || 'unknown'), labels: Object.fromEntries(TP.TRI_STATE.map((x) => [x, t(`tri.${x}`)])) })}
+${facet({ name: 'searchaccess', t, label: t('tp.f.searchAccess'), values: rows.map((r) => r.searchAccess || 'unknown'), labels: accessLabels(t) })}
+${facet({ name: 'bidaccess', t, label: t('tp.f.bidAccess'), values: rows.map((r) => r.bidAccess || 'unknown'), labels: accessLabels(t) })}
 ${facet({ name: 'evidence', t, label: t('tp.f.evidence'), values: rows.map((r) => (r.browserCheckRequired ? 'browser-check' : r.evidenceClass)), labels: { A: t('tp.evidence.A'), B: t('tp.evidence.B'), C: t('tp.evidence.C'), unknown: t('tp.evidence.unknown'), 'browser-check': t('tp.evidence.browserCheck') } })}
+${c.minDomainRatingControl({ idPrefix: 'tp', rows })}
 ${sortControl(t, hasDomainRating)}
         <div class="bd-control">
           <button class="bd-button bd-button--ghost" type="button" data-bd-clear>${escapeHtml(t('common.clearFilters'))}</button>

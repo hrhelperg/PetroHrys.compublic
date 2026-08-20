@@ -105,8 +105,12 @@
   // AND across every dimension. One filter can never widen another's result,
   // and no dimension may short-circuit the rest.
   //
-  //   row     { haystack, facets: {name: value}, flags: {name: tri} }
-  //   state   { query, facets: {name: {value, multi}}, flags: [name] }
+  //   row     { haystack, domainRating, facets: {name: value}, flags: {name: tri} }
+  //   state   { query, minDr, facets: {name: {value, multi}}, flags: [name] }
+  //
+  // `state` here is the SELECTION shape, not the URL shape: selectionFor()
+  // below converts one into the other, and a caller that skips it silently
+  // loses every dimension the two shapes name differently.
   //
   // Returns { visible, hiddenForUnknown } so the caller can count both.
   function evaluate(row, state) {
@@ -119,6 +123,28 @@
       const want = sel && typeof sel === 'object' ? sel.value : sel;
       const multi = Boolean(sel && typeof sel === 'object' && sel.multi);
       if (!matchesFacet((row.facets || {})[name], want, multi)) visible = false;
+    }
+
+    // ── A MINIMUM DOMAIN RATING ─────────────────────────────────────────────
+    //
+    // The one dimension here that is not an equality match, and the two ways it
+    // could quietly go wrong are both about what "no answer" means.
+    //
+    // Compared as NUMBERS. As strings "9" > "50" > "100", so a lexicographic
+    // comparison would admit every single-digit rating to a 50+ filter and
+    // exclude 100 from it.
+    //
+    // An UNMEASURED domain passes NO threshold. It is tempting to read a
+    // missing rating as 0 and let the arithmetic decide, and that is exactly
+    // the confusion the whole metric is built to avoid: 0 is a real reading
+    // taken on a real domain, and null is nobody having looked. A record with
+    // no rating is not a weak record, so it is not shown as one — it simply
+    // cannot answer the question the reader asked.
+    if (state.minDr !== '' && state.minDr !== null && state.minDr !== undefined) {
+      const floor = Number(state.minDr);
+      const rating = row.domainRating;
+      if (typeof rating !== 'number' || !isFinite(rating) || !isFinite(floor)
+        || rating < floor) visible = false;
     }
 
     let hiddenForUnknown = false;
@@ -193,12 +219,13 @@
   // the two would fight over one key; the generators name facets after data
   // dimensions (country, type, cost), and a test asserts the collision cannot
   // happen rather than trusting that it will not.
-  const RESERVED = ['q', 'filters', 'jurisdiction', 'sort'];
+  const RESERVED = ['q', 'filters', 'jurisdiction', 'sort', 'min-dr'];
 
   function facetsOf(known) { return (known && known.facets) || []; }
   function filtersOf(known) { return (known && known.filters) || []; }
   function sortsOf(known) { return (known && known.sorts) || []; }
   function jurisdictionsOf(known) { return (known && known.jurisdictions) || []; }
+  function minDrOf(known) { return (known && known.minDr) || []; }
 
   // The default is what the page shows before anyone touches it: the first sort
   // option, because that is what a <select> selects on its own.
@@ -221,6 +248,10 @@
       filters: [],
       jurisdiction: defaultJurisdiction(known),
       sort: defaultSort(known),
+      // "Any" — no floor at all. Deliberately not 0: a floor of 0 would be a
+      // filter that admits every measured record and excludes every unmeasured
+      // one, which is a different question and not the one the control asks.
+      minDr: '',
     };
   }
 
@@ -231,6 +262,7 @@
   function paramOrder(known) {
     const order = ['q'];
     for (const facet of facetsOf(known)) order.push(facet.name);
+    if (minDrOf(known).length) order.push('min-dr');
     if (filtersOf(known).length) order.push('filters');
     if (jurisdictionsOf(known).length) order.push('jurisdiction');
     if (sortsOf(known).length) order.push('sort');
@@ -289,6 +321,16 @@
       }
     }
 
+    const thresholds = minDrOf(known);
+    if (thresholds.length) {
+      const value = readParam(searchParams, 'min-dr');
+      // Whitelisted against the thresholds the page actually offers, like every
+      // other parameter here. ?min-dr=73 is not clamped to 70 — it is dropped,
+      // because a link that silently means something other than what it says is
+      // worse than one that means nothing.
+      if (value !== null && thresholds.indexOf(value) !== -1) state.minDr = value;
+    }
+
     const jurisdictions = jurisdictionsOf(known);
     if (jurisdictions.length) {
       const value = readParam(searchParams, 'jurisdiction');
@@ -327,6 +369,9 @@
         const want = s.jurisdiction === null || s.jurisdiction === undefined ? '' : String(s.jurisdiction);
         value = (want !== defaultJurisdiction(known) && jurisdictionsOf(known).indexOf(want) !== -1)
           ? want : '';
+      } else if (key === 'min-dr') {
+        const want = s.minDr === null || s.minDr === undefined ? '' : String(s.minDr);
+        value = minDrOf(known).indexOf(want) !== -1 ? want : '';
       } else if (key === 'sort') {
         const want = s.sort === null || s.sort === undefined ? '' : String(s.sort);
         value = (want !== defaultSort(known) && sortsOf(known).indexOf(want) !== -1) ? want : '';
@@ -349,7 +394,17 @@
   // The state, in the shape evaluate() reads. One conversion in one place, so a
   // URL and a control panel can never be turned into two different selections.
   function selectionFor(state, known) {
-    const selection = { query: (state && state.q) || '', facets: {}, flags: [] };
+    // minDr travels here too. It was added to evaluate() first and forgotten
+    // here, and the result was a threshold that worked perfectly in a unit test
+    // calling evaluate() directly and did nothing at all in the browser — the
+    // control moved, the URL updated, and the table never changed. One
+    // conversion in one place only helps if every dimension goes through it.
+    const selection = {
+      query: (state && state.q) || '',
+      minDr: (state && state.minDr) || '',
+      facets: {},
+      flags: [],
+    };
     for (const facet of facetsOf(known)) {
       selection.facets[facet.name] = {
         value: ((state && state.facets) || {})[facet.name] || '',
