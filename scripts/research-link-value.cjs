@@ -271,14 +271,13 @@ function pickWebsiteAnchor(pageData, listingUrl) {
     // developer.android.com and "Investors" beside investor.pinterestinc.com,
     // so four platform footers were recorded as business website links.
     if (WEBSITE_LABEL.test(label)) score += 5;
-    // Or the label IS the domain, which is how many directories print it —
-    // but only when it points at a HOMEPAGE. A business's website link goes to
-    // its front door. Squarespace's support article printed
-    // "https://sqsp.link/hMaBjw" as its own link text, my rule read that as a
-    // business naming its domain, and a short-link to a help asset became a
-    // dofollow backlink.
-    const deep = (() => { try { const u = new URL(a.href); return u.pathname.replace(/\/+$/, '').length > 1; } catch { return true; } })();
-    if (!deep && (label === host || label === `${host}/`)) score += 4;
+    // The bare-domain path is deliberately gone. Measured over 21 resolutions:
+    // an explicitly LABELLED anchor was right 4 times out of 4, and a label
+    // that was merely the domain was right 9 times out of 16 — mercadopago.cl
+    // off a MercadoLibre help page, sec.gov off an Autodesk investor page,
+    // croisieres.com off a Petit Futé article, mobile.de off a Kleinanzeigen
+    // ad. A coin flip cannot meet a zero-false-positive requirement, and the
+    // recall it buys is not worth what it costs.
     if (score === 0) continue;
     if (target === 'direct') score += 1;
     candidates.push({ ...a, target, score });

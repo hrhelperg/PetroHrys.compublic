@@ -68,6 +68,7 @@
   var sortSelect = document.querySelector('[data-bd-sort]');
   // The one control that is not an equality match: a floor on Domain Rating.
   var minDrSelect = document.querySelector('[data-bd-min-dr]');
+  var linkTypeSelect = document.querySelector('[data-bd-link-type]');
   var searchInput = document.querySelector('[data-bd-search]');
   var filters = Array.prototype.slice.call(document.querySelectorAll('[data-bd-filter]'));
   // Select-based facets for the opportunities worklist. Each select names the
@@ -88,7 +89,8 @@
   // Reveal the controls only once the behaviour behind them exists. Without
   // JavaScript they stay hidden and the prerendered table is complete.
   ['[data-bd-sort-wrap]', '[data-bd-filter-wrap]', '[data-bd-search-wrap]',
-    '[data-bd-jselect-wrap]', '[data-bd-min-dr-wrap]'].forEach(function (sel) {
+    '[data-bd-jselect-wrap]', '[data-bd-min-dr-wrap]',
+    '[data-bd-link-type-wrap]'].forEach(function (sel) {
     var el = document.querySelector(sel);
     if (el) el.hidden = false;
   });
@@ -136,7 +138,10 @@
     jurisdictions: optionValues(jSelect),
     // The thresholds this page offers. Derived like everything else here, so a
     // page without the control has no min-dr parameter at all.
-    minDr: optionValues(minDrSelect)
+    minDr: optionValues(minDrSelect),
+    // Same derivation: a page whose records carry no link evidence renders no
+    // control, so it has no link-type parameter either.
+    linkTypes: optionValues(linkTypeSelect)
   };
 
   function num(row, key) {
@@ -163,6 +168,7 @@
       name: row.getAttribute('data-bd-name') || '',
       petroHrysScore: num(row, 'score'),
       domainRating: num(row, 'dr'),
+      backlinkType: row.getAttribute('data-bd-link-type') || '',
       authorityScore: num(row, 'as'),
       estimatedTraffic: num(row, 'traffic'),
       facets: rowFacets,
@@ -275,7 +281,11 @@
           // meant every record answered "no rating" and any threshold emptied
           // the table completely — the most alarming possible failure, and one
           // that only appears once the control is actually used.
-          domainRating: record.domainRating
+          domainRating: record.domainRating,
+          // The link filter reads this. Omitting it is the mistake the Domain
+          // Rating floor already made once, and it fails the same way: the
+          // control moves, the URL updates, and the table never changes.
+          backlinkType: record.backlinkType
         },
         selection
       );
@@ -403,7 +413,8 @@
       filters: checked,
       jurisdiction: jSelect ? jSelect.value : '',
       sort: sortSelect ? sortSelect.value : '',
-      minDr: minDrSelect ? minDrSelect.value : ''
+      minDr: minDrSelect ? minDrSelect.value : '',
+      linkType: linkTypeSelect ? linkTypeSelect.value : ''
     };
   }
 
@@ -418,6 +429,7 @@
     if (jSelect) jSelect.value = state.jurisdiction || D.defaultJurisdiction(schema);
     if (sortSelect) sortSelect.value = state.sort || D.defaultSort(schema);
     if (minDrSelect) minDrSelect.value = state.minDr || '';
+    if (linkTypeSelect) linkTypeSelect.value = state.linkType || '';
   }
 
   function syncUrl(push) {
@@ -503,6 +515,7 @@
   filters.forEach(function (f) { f.addEventListener('change', interact); });
   facets.forEach(function (sel) { sel.addEventListener('change', interact); });
   if (minDrSelect) minDrSelect.addEventListener('change', interact);
+  if (linkTypeSelect) linkTypeSelect.addEventListener('change', interact);
   if (clearBtn) {
     clearBtn.addEventListener('click', function () {
       if (searchInput) searchInput.value = '';
@@ -510,6 +523,7 @@
       facets.forEach(function (sel) { sel.value = ''; });
       if (jSelect) jSelect.value = D.defaultJurisdiction(schema);
       if (minDrSelect) minDrSelect.value = '';
+      if (linkTypeSelect) linkTypeSelect.value = '';
       // The sort goes back to the page's own order too. Leaving it behind made
       // "clear" mean "clear most of it": a reader who had sorted by Domain
       // Rating, filtered, then cleared, was returned to an unfiltered list

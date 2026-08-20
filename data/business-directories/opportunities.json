@@ -107,6 +107,17 @@
     "status": "publicApiReading",
     "measuredDomain": "cylex.us.com"
    }
+  },
+  "backlinkType": "nofollow",
+  "linkTargetType": "direct",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://www.cylex.us.com/company/rio-rancho-smiles-32178577.html#Special-Offer",
+   "externalUrl": "https://www.rioranchosmiles.com/",
+   "relTokens": [
+    "nofollow"
+   ],
+   "observedAt": "2026-08-20"
   }
  },
  {
@@ -4610,6 +4621,17 @@
     "status": "publicApiReading",
     "measuredDomain": "presseportal.de"
    }
+  },
+  "backlinkType": "dofollow",
+  "linkTargetType": "direct",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://www.presseportal.de/nr/154285",
+   "externalUrl": "https://www.zahnzusatzversicherung-experten.de/",
+   "relTokens": [
+    "noopener"
+   ],
+   "observedAt": "2026-08-20"
   }
  },
  {
@@ -15771,6 +15793,15 @@
     "status": "publicApiReading",
     "measuredDomain": "empresite.eleconomista.es"
    }
+  },
+  "backlinkType": "dofollow",
+  "linkTargetType": "direct",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://empresite.eleconomista.es/PROINMAN-2022.html",
+   "externalUrl": "https://www.pladec.es/es",
+   "relTokens": [],
+   "observedAt": "2026-08-20"
   }
  },
  {
@@ -21069,6 +21100,19 @@
     "status": "publicApiReading",
     "measuredDomain": "kijiji.ca"
    }
+  },
+  "backlinkType": "nofollow",
+  "linkTargetType": "direct",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://www.kijiji.ca/v-brick-masonry-concrete/canada/egress-basement-windows-concrete-cutting-coring/1677549562",
+   "externalUrl": "http://www.concretecuttinggeeks.com/",
+   "relTokens": [
+    "nofollow",
+    "noopener",
+    "noreferrer"
+   ],
+   "observedAt": "2026-08-20"
   }
  },
  {
@@ -39823,6 +39867,18 @@
     "status": "publicApiReading",
     "measuredDomain": "nutanix.com"
    }
+  },
+  "backlinkType": "dofollow",
+  "linkTargetType": "direct",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://www.nutanix.com/partner/taktik-as/CUST-00593894",
+   "externalUrl": "https://taktik.cz/",
+   "relTokens": [
+    "noopener",
+    "noreferrer"
+   ],
+   "observedAt": "2026-08-20"
   }
  },
  {
