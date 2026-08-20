@@ -795,6 +795,39 @@ ${options}
       </div>`;
 }
 
+// The nuanced states, not a "dofollow?" checkbox. A listing that renders no
+// external anchor and one that renders rel="nofollow" are different answers,
+// and "mixed" — two templates that genuinely differ — is a third. The control
+// appears only where records actually carry the evidence, which is why "how it
+// links out" was removed from the methodology note years ago: the field was
+// null on every record and the claim described data the dataset did not have.
+const LINK_TYPE_OPTIONS = [
+  ['follow', 'bd.linkType.follow', (v) => v === 'dofollow'],
+  ['restricted', 'bd.linkType.restricted', (v) => v === 'nofollow' || v === 'ugc' || v === 'sponsored'],
+  ['mixed', 'bd.linkType.mixed', (v) => v === 'mixed'],
+  ['none', 'bd.linkType.none', (v) => v === 'none'],
+  ['unknown', 'bd.linkType.unknown', (v) => !v],
+];
+
+function linkTypeControl({ idPrefix = 'bd', rows = [] } = {}) {
+  const measured = rows.filter((r) => r && r.backlinkType).length;
+  if (!measured) return '';
+  const id = `${escapeHtml(idPrefix)}-link-type`;
+  const options = LINK_TYPE_OPTIONS
+    .map(([value, key, match]) => [value, key, rows.filter((r) => match(r && r.backlinkType)).length])
+    .filter(([, , count]) => count > 0)
+    .map(([value, key, count]) => `          <option value="${value}">${escapeHtml(t(key))} (${count})</option>`)
+    .join('\n');
+  if (!options) return '';
+  return `      <div class="bd-control" data-bd-link-type-wrap hidden>
+        <label class="bd-label" for="${id}">${escapeHtml(t('bd.linkType'))}</label>
+        <select class="bd-select" id="${id}" data-bd-link-type>
+          <option value="">${escapeHtml(t('common.all'))}</option>
+${options}
+        </select>
+      </div>`;
+}
+
 function facetSelect({ idPrefix, facet, label, rows, labels = {}, order = [] }) {
   const id = `${escapeHtml(idPrefix)}-facet-${escapeHtml(facet.name)}`;
   const multi = facet.multi === true;
@@ -938,6 +971,9 @@ function directoryRow(directory, columns) {
     `data-bd-haystack="${escapeHtml(haystack(directory))}"`,
     `data-bd-score="${escapeHtml(numAttr(directory.petroHrysScore))}"`,
     `data-bd-dr="${escapeHtml(numAttr(directory.domainRating))}"`,
+    // Empty when nobody has looked. The client reads this for the link filter,
+    // and an empty attribute is the "unknown" state rather than a value.
+    `data-bd-link-type="${escapeHtml(directory.backlinkType || '')}"`,
     `data-bd-as="${escapeHtml(numAttr(directory.authorityScore))}"`,
     `data-bd-traffic="${escapeHtml(numAttr(directory.estimatedTraffic))}"`,
     // Emitted only for a record that HAS a jurisdiction. A national record adds
@@ -1654,7 +1690,9 @@ function editorialGuidance(directory, active) {
   listingInformation,
   recommendationTable,
   searchControls, filterControls, sortControls, pagination, facetSelect, clearFiltersControl,
-  minDomainRatingControl, MIN_DR_THRESHOLDS,
+  minDomainRatingControl,
+  linkTypeControl,
+  LINK_TYPE_OPTIONS, MIN_DR_THRESHOLDS,
   filteredExportControl,
   verificationBlock, acceptsList, scoreBreakdown, filterValue, filterAttr,
   relatedDirectories, submissionLink, editorialGuidance,

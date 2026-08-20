@@ -77,6 +77,17 @@ const OWNERSHIP = {
     media: ['costModel'],
     tenders: ['searchAccess', 'bidAccess'],
   },
+  // What does a placement here LINK LIKE. A fifth fact, and independent of the
+  // other four on purpose: a high Domain Rating does not make a listing pass a
+  // follow link, a free listing does not either, and an actionable route says
+  // nothing about the anchor the listing eventually renders. This owner may
+  // write none of those fields and none of them may write these.
+  linkvalue: {
+    directories: ['backlinkType', 'linkTargetType', 'listingIndexability', 'backlinkProvenance'],
+    'directory-opportunities': ['backlinkType', 'linkTargetType', 'listingIndexability', 'backlinkProvenance'],
+    marketplaces: ['backlinkType', 'linkTargetType', 'listingIndexability', 'backlinkProvenance'],
+    media: ['backlinkType', 'linkTargetType', 'listingIndexability', 'backlinkProvenance'],
+  },
   // Where does this record point, and is it still its own product? Owns the
   // canonical name because a rebrand is exactly a name change — and only with
   // a written decision behind it.

@@ -8,7 +8,23 @@
 // --- enumerations -----------------------------------------------------------
 
 const TIERS = ['tier1', 'tier2', 'tier3'];
+// `backlinkType` already existed and already carried the right shape, which is
+// why nothing new was invented for it: a listing's outbound link is not a
+// boolean. 'none' means the public listing renders no external website link at
+// all, and that is a different fact from 'nofollow'. UNKNOWN is null — the
+// absence of a measurement, never a value.
 const BACKLINK_TYPES = ['dofollow', 'nofollow', 'sponsored', 'ugc', 'mixed', 'none'];
+
+// How the listing reaches the business site. A wrapper such as /out?url=... is
+// not an external anchor: a crawler sees a link to the directory, and whether
+// anything is passed onward depends on the directory's own redirect and robots
+// rules. Recorded separately so it can never be folded into backlinkType.
+const LINK_TARGET_TYPES = ['direct', 'internal-redirect', 'javascript-redirect'];
+
+// Whether the page carrying the link can be crawled at all. A follow link on a
+// noindex page is a different proposition from one on an indexable page, and
+// collapsing them would overstate both.
+const LISTING_INDEXABILITY = ['indexable', 'noindex', 'robots-blocked', 'login-required'];
 const ROBOTS_STATES = ['allowed', 'disallowed', 'partial', 'unknown'];
 // `notApplicable` is not a fourth pricing tier. It records that the directory has
 // no submission route at all: the entry exists because of incorporation,
@@ -336,6 +352,58 @@ function normaliseDomain(input) {
 // A rating must be a whole number on the 0-100 scale, and it must arrive with
 // provenance naming the provider, the date and the domain measured. A bare
 // number with no provenance is exactly what an invented metric looks like.
+// Link value is four independent facts and a record of how they were seen.
+// Every one of them may be absent; none of them may be guessed.
+function backlinkProblems(row) {
+  const out = [];
+  const p = row.backlinkProvenance;
+  const has = (v) => v !== undefined && v !== null;
+
+  if (has(row.backlinkType) && !BACKLINK_TYPES.includes(row.backlinkType)) {
+    out.push(['backlinkType', `is ${JSON.stringify(row.backlinkType)}, which is not a recognised link type.`]);
+  }
+  if (has(row.linkTargetType) && !LINK_TARGET_TYPES.includes(row.linkTargetType)) {
+    out.push(['linkTargetType', `is ${JSON.stringify(row.linkTargetType)}, which is not a recognised target type.`]);
+  }
+  if (has(row.listingIndexability) && !LISTING_INDEXABILITY.includes(row.listingIndexability)) {
+    out.push(['listingIndexability', `is ${JSON.stringify(row.listingIndexability)}, which is not a recognised indexability state.`]);
+  }
+
+  // A link type without provenance is an assertion. The whole point of this
+  // dimension is that it was observed on a named page on a named date.
+  if (has(row.backlinkType) && !p) {
+    out.push(['backlinkProvenance', 'a link type must record which listing was inspected, and when.']);
+  }
+  if (!p) {
+    if (has(row.linkTargetType)) out.push(['backlinkProvenance', 'a link target type must record which listing was inspected.']);
+    return out;
+  }
+  if (!/^https?:\/\//.test(String(p.listingUrl || ''))) {
+    out.push(['backlinkProvenance.listingUrl', 'must name the public listing that was inspected.']);
+  }
+  if (!DATE_RE.test(String(p.observedAt || ''))) {
+    out.push(['backlinkProvenance.observedAt', `is ${JSON.stringify(p.observedAt)}, which is not a date.`]);
+  }
+  if (p.relTokens !== undefined && !Array.isArray(p.relTokens)) {
+    out.push(['backlinkProvenance.relTokens', 'must be a list of the rel tokens actually seen.']);
+  }
+  // 'none' means no external anchor existed, so there cannot be one recorded.
+  if (row.backlinkType === 'none' && p.externalUrl) {
+    out.push(['backlinkProvenance.externalUrl', 'records an external link on a listing typed as having none.']);
+  }
+  // The reverse: any other type asserts a link, so it has to say which.
+  if (has(row.backlinkType) && row.backlinkType !== 'none' && row.backlinkType !== 'mixed'
+    && !p.externalUrl) {
+    out.push(['backlinkProvenance.externalUrl', 'a link type other than "none" must name the link it describes.']);
+  }
+  // 'mixed' is a claim about more than one template, so one example cannot
+  // support it. This is the guard against propagating a single observation.
+  if (row.backlinkType === 'mixed' && !(Array.isArray(p.templates) && p.templates.length >= 2)) {
+    out.push(['backlinkProvenance.templates', '"mixed" requires at least two inspected templates that differ.']);
+  }
+  return out;
+}
+
 function domainRatingProblems(row) {
   const out = [];
   const v = row.domainRating;
@@ -1276,6 +1344,9 @@ module.exports = {
   SUBMISSION_MODEL_LABELS, SUBMISSION_NOT_APPLICABLE_NOTE, SUBMITTABLE_MODELS,
   METRIC_SNAPSHOT_STATUS, METRIC_READING_STATUS, METRIC_PROVENANCE_STATUSES,
   domainRatingProblems,
+  backlinkProblems,
+  LINK_TARGET_TYPES,
+  LISTING_INDEXABILITY,
   METRIC_PROVIDERS, DOMAIN_RATING_RANGE, AHREFS_ATTRIBUTION,
   DR_COLLECTION_FROZEN, DR_NOT_MEASURED_LABEL, DR_SNAPSHOT_POLICY_NOTE,
   normaliseDomain,

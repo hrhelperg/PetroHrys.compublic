@@ -42,8 +42,10 @@ const ROOT = path.resolve(__dirname, '..');
 const CK = require('./lib/rc-checkpoint.cjs');
 const SAFE = require('./lib/rc-safe-apply.cjs');
 const T = require('./lib/rc-text-match.cjs');
+const REFUSAL = require('./lib/rc-refusal.cjs');
 const S = require('./lib/bd-schema.cjs');
 const MP = require('./lib/mp-schema.cjs');
+const MEDIA = require('./lib/media-schema.cjs');
 
 const FINDINGS = path.join(ROOT, 'data/action-routes/.action-routes.json');
 
@@ -84,9 +86,35 @@ const COLLECTIONS = {
   media: {
     file: path.join(ROOT, 'data/media-pr-publishing/media-platforms.json'),
     urlField: 'website',
-    routeField: 'submissionUrl',
+    // The resolved action IS the field, chosen by what the page actually
+    // offered rather than fixed in advance — the same correction claim/create
+    // needed on directories.
+    routeField: (action) => action,
     actionField: null,
-    vocabulary: null,
+    vocabulary: ['submissionUrl', 'pitchUrl', 'pressReleaseUrl', 'advertisingUrl'],
+    // A route is only filed where the schema says this platform's opportunity
+    // type belongs — and the field is `opportunityTypes`, plural and an array.
+    // Singular skipped every media route silently, which looked exactly like
+    // the guard working.
+    //
+    // Most media records declare ["unknown"], so a strict match would refuse
+    // everything forever. But finding /advertise/ behind "Advertise With Us" IS
+    // evidence of what this publication offers, and actionability owns
+    // opportunityTypes. So an unknown record learns its type from the route;
+    // a record that already claims a type keeps it, and a route that
+    // contradicts that claim is refused rather than overwriting it.
+    accepts: (row, field) => {
+      const declared = (row.opportunityTypes || []).filter((t) => t && t !== 'unknown');
+      if (!declared.length) return true;
+      return declared.some((t) => (MEDIA.URL_REQUIRES[field] || []).includes(t));
+    },
+    // What the route itself establishes, when the record says nothing.
+    typeFor: {
+      pressReleaseUrl: 'press-release',
+      advertisingUrl: 'sponsored-content',
+      pitchUrl: 'editorial-pitch',
+      submissionUrl: 'contributed-article',
+    },
     unresolved: (r) => !r.submissionUrl && !r.pitchUrl && !r.pressReleaseUrl && !r.advertisingUrl,
   },
   tenders: {
@@ -146,6 +174,27 @@ const LINK_WORDS = [
 ];
 const LINK_MATCH = T.stemMatcher(LINK_WORDS);
 
+// ── WHAT TO OPEN, WHICH IS NOT WHAT TO BELIEVE ──────────────────────────────
+//
+// Cylex Austria publishes REGISTRIEREN -> /register-company on its homepage.
+// The anchor is generic account wording and the path is not evidence, so
+// neither may establish anything — but a researcher that will not even OPEN
+// that link can never find the page behind it, which says "Registrieren Sie Ihr
+// Unternehmen" and settles the question outright.
+//
+// So candidate selection is deliberately looser than proof. These words get a
+// page opened. Only CONFIRMS decides what the page then means.
+const FOLLOW_WORDS = LINK_WORDS.concat([
+  'register', 'registrieren', 'registro', 'registrarse', 'inscription',
+  'sign up', 'signup', 'join', 'create account', 'for business', 'for businesses',
+  'business owners', 'für unternehmen', 'firmen', 'pour les entreprises',
+  'para empresas', 'per le aziende', 'dla firm', 'owners', 'partner with us',
+  'suppliers', 'vendors', 'contact us', 'about us', 'advertise', 'press',
+  'submit', 'add', 'sell', 'seller', 'merchant', 'publish',
+]);
+const FOLLOW_MATCH = T.stemMatcher(FOLLOW_WORDS);
+
+
 // What the DESTINATION must say. Deliberately narrower than the link vocabulary:
 // a link may be called anything, but the page it leads to has to describe the
 // act itself.
@@ -160,6 +209,16 @@ const CONFIRMS = {
     'adicionar sua empresa', 'dodaj firmę', 'přidat firmu', 'firma ekle',
     'lisää yrityksesi', 'legg til bedriften', 'lägg till ditt företag',
     'tambah bisnis anda', 'добавить компанию',
+    // "Register your COMPANY" is not generic registration — the object of the
+    // verb is the business, which is the whole distinction. Observed on Cylex
+    // Austria, whose homepage link says only REGISTRIEREN and whose destination
+    // page says this.
+    'registrieren sie ihr unternehmen', 'unternehmen registrieren', 'firma registrieren',
+    'registre su empresa', 'registra tu empresa', 'registrar su empresa',
+    'enregistrez votre entreprise', 'enregistrer votre entreprise',
+    'registra la tua azienda', 'zarejestruj firmę', 'zarejestruj swoją firmę',
+    'cadastre sua empresa', 'registrar empresa', 'зарегистрировать компанию',
+    'firmanızı kaydedin', 'registrujte firmu', 'regisztrálja cégét',
   ]),
   claim: T.stemMatcher([
     'claim your business', 'claim your listing', 'claim this business',
@@ -190,17 +249,32 @@ const CONFIRMS = {
 
 // Tender participation. The one distinction the corpus spent a phase
 // establishing: searching notices is not bidding on them.
-const BID_FREE = T.stemMatcher([
+// Also a phrase matcher, and for the same reason plus one of its own. A stem
+// let "free to register" reach "free to registered users only" — a sentence
+// that describes a RESTRICTION on viewing, not free participation — and let
+// "free to submit" reach "free to submit your details", which is registration
+// wearing the vocabulary of bidding. Where the corpus needs the object of the
+// verb to be a bid, the phrase now says so.
+const BID_FREE = T.phraseMatcher([
   'registration is free', 'free to register', 'no registration fee',
   'no fee to register', 'free for suppliers', 'no charge to suppliers',
-  'free to submit', 'submission is free', 'no cost to participate',
+  'free to submit a bid', 'free to submit a tender', 'free to submit an offer',
+  'submission is free', 'no cost to participate',
   'participation is free', 'kostenlose registrierung', 'kostenlos registrieren',
   'inscription gratuite', 'registro gratuito', 'registrazione gratuita',
   'darmowa rejestracja', 'бесплатная регистрация', 'ücretsiz kayıt',
 ]);
-const BID_PAID = T.stemMatcher([
+// phraseMatcher, not stemMatcher, and the distinction is not cosmetic: a stem
+// lets "fee" reach the end of "feedback", so "supplier feedback form" and
+// "membership feedback" both read as a fee charged to suppliers for bidding.
+// The link vocabulary was hardened against exactly this in an earlier phase and
+// the bid vocabulary was not, which left a platform's feedback page able to
+// declare its bidding paid. Both singular and plural are listed because a
+// phrase matcher will not infer one from the other — that is the point of it.
+const BID_PAID = T.phraseMatcher([
   'registration fee of', 'annual subscription fee', 'supplier fee', 'supplier fees',
-  'membership fee', 'participation fee', 'fee to submit a bid', 'access fee',
+  'membership fee', 'membership fees', 'participation fee', 'participation fees',
+  'fee to submit a bid', 'access fee', 'access fees',
   'subscription required to bid', 'teilnahmegebühr', 'jahresgebühr',
   'cuota de suscripción', 'abonnement payant',
 ]);
@@ -210,14 +284,8 @@ const OPPORTUNITY_LEVEL = T.stemMatcher([
   'tender document fee', 'performance bond', 'wadium', 'caution provisoire',
 ]);
 
-const CHALLENGE = T.patternMatcher([
-  'attention required', 'just a moment', 'checking your browser',
-  'verify (you are|you.re) human', 'access denied', 'unusual traffic', 'captcha',
-]);
-const PARKED = T.patternMatcher([
-  'domain (is|may be) for sale', 'buy this domain', 'parked domain',
-  'hugedomains', 'sedo.com', 'afternic', 'under construction',
-]);
+const CHALLENGE = REFUSAL.isRefusal;
+const PARKED = REFUSAL.isParked;
 
 const arg = (name) => {
   const i = process.argv.indexOf(name);
@@ -282,8 +350,53 @@ function candidateLinks(html, base) {
 
 // ── JUDGEMENT ───────────────────────────────────────────────────────────────
 
+
+// ── MEDIA ───────────────────────────────────────────────────────────────────
+//
+// Media had no vocabulary at all. judgeAction fell through to ['create','claim']
+// for it, so 464 platforms were being asked whether they let you add a business
+// to a directory, and unsurprisingly none of them said yes. That is not a low
+// yield, it is the wrong question.
+//
+// The schema already knows the right one. URL_REQUIRES maps each opportunity
+// type to the field its route belongs in — a press release goes in
+// pressReleaseUrl, a pitch in pitchUrl — so here the resolved "action" IS the
+// field name, and a route is only applied when the platform's own
+// opportunityType is one the schema says that field serves. A publication that
+// exists for press releases does not get a "write for us" page filed as its
+// press-release route.
+const MEDIA_CONFIRMS = {
+  pressReleaseUrl: T.phraseMatcher([
+    'submit a press release', 'submit your press release', 'send us your press release',
+    'press release submission', 'submit press releases', 'distribute your press release',
+    'pressemitteilung einreichen', 'enviar nota de prensa', 'communiqué de presse',
+  ]),
+  submissionUrl: T.phraseMatcher([
+    'write for us', 'contribute an article', 'submit an article', 'submit your article',
+    'become a contributor', 'guest post guidelines', 'submit a guest post',
+    'contributor guidelines', 'submission guidelines', 'submit your story',
+    'schreiben sie für uns', 'escribe para nosotros', 'écrire pour nous',
+  ]),
+  pitchUrl: T.phraseMatcher([
+    'pitch us', 'pitch your story', 'send us a pitch', 'story pitches',
+    'pitch guidelines', 'submit a pitch',
+  ]),
+  advertisingUrl: T.phraseMatcher([
+    'advertise with us', 'advertising options', 'sponsored content',
+    'sponsorship opportunities', 'book advertising', 'werbung schalten',
+  ]),
+};
+const MEDIA_ORDER = ['pressReleaseUrl', 'submissionUrl', 'pitchUrl', 'advertisingUrl'];
+
+function judgeMedia(text) {
+  if (!text || text.length < MIN_TEXT) return null;
+  for (const field of MEDIA_ORDER) if (MEDIA_CONFIRMS[field](text)) return field;
+  return null;
+}
+
 function judgeAction(collection, text) {
   if (!text || text.length < MIN_TEXT) return null;
+  if (collection === 'media') return judgeMedia(text);
   const order = collection === 'marketplaces'
     ? ['publish-classified', 'create-seller-profile', 'post-advertisement']
     : ['create', 'claim'];
@@ -292,6 +405,10 @@ function judgeAction(collection, text) {
   }
   return null;
 }
+
+// The anchor-agreement check consults CONFIRMS by action name. For media the
+// action name is a field name, so the same table answers for both.
+for (const [field, matcher] of Object.entries(MEDIA_CONFIRMS)) CONFIRMS[field] = matcher;
 
 function judgeBid(text) {
   if (!text || text.length < MIN_TEXT) return null;
@@ -493,14 +610,33 @@ function runApply() {
       // older, looser vocabulary. It is refused rather than applied, because a
       // rule that was tightened for a reason should not leak in through a
       // finding recorded before the tightening.
-      if (!CONFIRMS[f.actionType] || !CONFIRMS[f.actionType](String(f.anchor || ''))) {
+      // Re-checked against the CURRENT vocabulary, not trusted from the ledger:
+      // a verdict recorded before a rule was tightened must not leak in through
+      // a stored finding. Either the link's own wording named the act, or the
+      // page it led to did — and for the second the sentence that decided it is
+      // stored, so this can check the actual evidence rather than a summary of
+      // it.
+      const confirms = CONFIRMS[f.actionType];
+      if (!confirms || !(confirms(String(f.anchor || '')) || confirms(String(f.evidenceText || '')))) {
         tally.skipped += 1;
         continue;
       }
       const field = typeof C.routeField === 'function' ? C.routeField(f.actionType) : C.routeField;
+      if (C.accepts && !C.accepts(r, field)) {
+        // The evidence is real, but it is evidence of something this platform
+        // is not listed for. Filing it would misdescribe the record.
+        tally.skipped += 1;
+        continue;
+      }
       const patch = {};
       patch[field] = route;
       if (C.actionField) patch[C.actionField] = f.actionType;
+      // A publication that declared nothing now declares what its own page
+      // offers. Records that already named a type are left alone.
+      if (C.typeFor && C.typeFor[field]) {
+        const declared = (r.opportunityTypes || []).filter((t) => t && t !== 'unknown');
+        if (!declared.length) patch.opportunityTypes = [C.typeFor[field]];
+      }
       const same = Object.entries(patch).every(([k, v]) => r[k] === v);
       if (same) { tally.unchanged += 1; continue; }
       SAFE.applyPatch(r, patch, { owner: 'actionability', collection: name });
@@ -532,7 +668,7 @@ function runInventory() {
 
 module.exports = {
   FINDINGS, COLLECTIONS, targets, judgeAction, judgeBid, candidateLinks,
-  runApply, CONFIRMS, LINK_MATCH, BID_FREE, BID_PAID, unescapeHtml,
+  runApply, CONFIRMS, LINK_MATCH, FOLLOW_MATCH, BID_FREE, BID_PAID, unescapeHtml,
 };
 
 if (require.main === module) {

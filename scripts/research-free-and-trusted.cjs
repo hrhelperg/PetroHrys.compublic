@@ -35,10 +35,11 @@ const fs = require('node:fs');
 const path = require('node:path');
 const os = require('node:os');
 const { spawn } = require('node:child_process');
-const { openPage } = require('./tests/helpers/cdp.cjs');
+const { openPage, launch } = require('./tests/helpers/cdp.cjs');
 const SAFE = require('./lib/rc-safe-apply.cjs');
 const CK = require('./lib/rc-checkpoint.cjs');
 const T = require('./lib/rc-text-match.cjs');
+const REFUSAL = require('./lib/rc-refusal.cjs');
 
 const ROOT = path.resolve(__dirname, '..');
 const FINDINGS = path.join(ROOT, 'data/business-directories/.free-trusted.json');
@@ -67,9 +68,6 @@ const CHROME = [
   '/usr/bin/google-chrome',
 ].find((p) => fs.existsSync(p));
 
-const UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 '
-  + '(KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36';
-
 const SETTLE_MS = 3500;
 const CONCURRENCY = 4;
 const PACE_MS = 600;
@@ -78,15 +76,9 @@ const MIN_TEXT = 200;
 
 // ── VOCABULARY, Unicode-safe throughout ─────────────────────────────────────
 
-const CHALLENGE = T.patternMatcher([
-  'attention required', 'just a moment', 'checking your browser',
-  'verify (you are|you.re) human', 'access denied', 'unusual traffic', 'captcha',
-]);
+const CHALLENGE = REFUSAL.isRefusal;
 
-const PARKED = T.patternMatcher([
-  'domain (is|may be) for sale', 'buy this domain', 'parked domain',
-  'hugedomains', 'sedo.com', 'afternic', 'under construction',
-]);
+const PARKED = REFUSAL.isParked;
 
 // The operator saying, in its own words, that the useful action costs nothing.
 //
@@ -116,7 +108,14 @@ const PARKED = T.patternMatcher([
 const FREE_ANCHORED = T.phraseMatcher([
   'free listing', 'list your business for free', 'list for free', 'free to list',
   'add your business for free', 'free business listing', 'post a free ad',
-  'free ad', 'free ads', 'free classified', 'free claim', 'free page',
+  'free ad', 'free ads', 'free classified', 'free claim',
+  // Bare 'free page' was here and had to go: it is also a lead magnet — "run a
+  // free page speed test" — and it sat on the ANCHORED list, trusted to name
+  // the listing's own cost with no proximity requirement at all. Removing it
+  // outright cost a correct fact, because LinkedIn Pages says "Create a free
+  // page" and "You can create a Page for free", so the verb is what came back
+  // rather than the noun.
+  'create a free page', 'create a page for free', 'create your free page',
   'free plan', 'free forever', 'free submission', 'submit for free', 'free basic',
   'post your task for free', 'sell for free', 'sell your car for free',
   'publicar gratis', 'publica gratis', 'publica ofertas gratis', 'publique gratis',
@@ -413,20 +412,55 @@ const INSTITUTIONAL = T.stemMatcher([
 // in two countries and a Swiss directory, all of which simply list casinos the
 // way they list bakeries. The contamination signal is the SELLING of placement,
 // not the presence of a vice category.
-const LOW_QUALITY = T.stemMatcher([
+// A directory that LISTS link-building agencies is not itself selling links,
+// and "Link Building Services" is a perfectly ordinary category chip on a B2B
+// services directory. Category furniture is removed before the quality
+// vocabulary is asked anything, the same way denials are.
+const CATEGORY_CONTEXT = [
+  'browse by category', 'categories', 'all categories', 'popular categories',
+  'browse categories', 'service categories',
+];
+const LOW_QUALITY_RAW = T.stemMatcher([
   'buy backlinks', 'backlink package', 'buy dofollow', 'link building service',
   'guest post service', 'guest posting service', 'dofollow links for',
-  'seo submission service', 'increase your da', 'boost your domain authority',
+  'seo submission service', 'boost your domain authority',
+  // 'increase your da' — Domain Authority — ended in a stem matcher, where the
+  // two-letter abbreviation swallowed the next word: "increase your DAILY
+  // enquiries" is an ordinary local-directory headline and was rejected as a
+  // link seller. Spelled out, it still catches what it was written for.
+  'increase your domain authority', 'improve your domain authority',
   'sponsored post price', 'we accept paid guest posts', 'paid guest post',
   'casino guest post', 'gambling guest post', 'casino backlink',
   'payday loan backlink', 'essay writing service',
 ]);
+// The abbreviation needs a real word boundary, which a stem matcher cannot
+// give it: 'da' is inside "daily", and a trailing space does not help because
+// normalize trims it. patternMatcher asserts a Unicode-safe boundary on both
+// sides, so "increase your DA 50+" matches and "increase your daily enquiries"
+// does not.
+const LOW_QUALITY_ABBREV = T.patternMatcher([
+  'increase your da', 'boost your da', 'improve your da', 'raise your da',
+]);
+
+const LOW_QUALITY = (text) => {
+  const hay = T.normalize(text);
+  // Only when the page is presenting a category index — otherwise unchanged.
+  const isIndex = CATEGORY_CONTEXT.some((c) => hay.includes(c));
+  const cleaned = isIndex ? hay.split('link building service').join(' ') : hay;
+  return LOW_QUALITY_RAW(cleaned) || LOW_QUALITY_ABBREV(cleaned);
+};
 
 // Denials, removed before the commission vocabulary is asked anything.
 const NO_COMMISSION_PHRASES = [
   'no commission', 'zero commission', '0% commission', 'no commissions',
   'commission free', 'commission-free', 'no selling fee', 'no seller fees',
   'no transaction fee', 'never pay', 'no fees', 'without commission',
+  // "we never take a commission" was read as a platform that takes one. The
+  // list held 'no commission' but not the verb forms, and a matcher that
+  // cannot see a negation reports the opposite of the sentence in front of it.
+  'never take a commission', 'never take commission', 'we take no commission',
+  'don t take a commission', 'do not take a commission', 'take no cut',
+  'never charge commission', 'no cut of your sale', 'keep 100%', 'keep 100 %',
   'keine provision', 'ohne provision', 'sin comisión', 'sin comisiones',
   'sans commission', 'senza commissioni', 'brak prowizji', 'bez prowizji',
   'без комиссии', 'komisyon yok',
@@ -437,33 +471,50 @@ const arg = (name) => {
   return i === -1 ? null : (process.argv[i + 1] || true);
 };
 
+// This used to spawn its own headless Chrome with the automation flag hidden
+// and a spoofed user agent. Two things were wrong with that. The disguise is
+// circumvention, which this corpus does not build. And it did not even work:
+// headless Chrome is refused by a large share of the public web regardless of
+// what its user agent claims, which is why this ledger holds 81 records whose
+// only finding is that almost nothing rendered.
+//
+// An ordinary windowed browser needs no disguise, and the shared launcher is
+// the one the rest of the repository already uses.
 function startChrome() {
-  const profile = fs.mkdtempSync(path.join(os.tmpdir(), 'free-trusted-'));
-  const proc = spawn(CHROME, [
-    '--headless=new', '--remote-debugging-port=0', `--user-data-dir=${profile}`,
-    '--no-first-run', '--no-default-browser-check', '--disable-gpu',
-    '--disable-dev-shm-usage', '--mute-audio',
-    '--disable-blink-features=AutomationControlled',
-    '--disable-background-networking', '--disable-sync', 'about:blank',
-  ], { stdio: ['ignore', 'ignore', 'pipe'] });
-  return new Promise((resolve, reject) => {
-    let buf = '';
-    const timer = setTimeout(() => reject(new Error('Chrome did not report a DevTools endpoint')), 30000);
-    proc.stderr.on('data', (chunk) => {
-      buf += chunk.toString();
-      const m = /ws:\/\/[^\s]+/.exec(buf);
-      if (m) { clearTimeout(timer); resolve({ proc, wsUrl: m[0], profile }); }
-    });
-    proc.on('exit', (code) => { clearTimeout(timer); reject(new Error(`Chrome exited ${code}`)); });
-  });
+  return launch({ headless: false });
+}
+
+async function settleOn(page) {
+  let previous = null;
+  let stable = 0;
+  const started = Date.now();
+  const deadline = started + SETTLE_MS * 3;
+  for (;;) {
+    // eslint-disable-next-line no-await-in-loop
+    const now = await page.eval(() => ({
+      links: document.querySelectorAll('a[href]').length,
+      len: (document.body ? document.body.innerText || '' : '').length,
+    })).catch(() => null);
+    if (!now) return;
+    const shape = `${now.links}:${now.len}`;
+    stable = shape === previous ? stable + 1 : 0;
+    previous = shape;
+    // Two consecutive matches, not one: a page that renders its shell first and
+    // its content afterwards looks settled to a single comparison.
+    if (stable >= 2 && now.len > 0 && Date.now() - started >= 1200) return;
+    if (Date.now() > deadline) return;
+    // eslint-disable-next-line no-await-in-loop
+    await new Promise((r) => { setTimeout(r, 350); });
+  }
 }
 
 async function probe(wsUrl, target) {
   const page = await openPage(wsUrl);
   try {
-    await page.send('Network.setUserAgentOverride', { userAgent: UA });
     await page.goto(target.url);
-    await new Promise((r) => { setTimeout(r, SETTLE_MS); });
+    // Two identical observations, not a fixed sleep: a single-page application
+    // fires load with an empty shell and draws the pricing afterwards.
+    await settleOn(page);
     const seen = await page.eval((chars) => {
       const text = document.body ? document.body.innerText : '';
       return {

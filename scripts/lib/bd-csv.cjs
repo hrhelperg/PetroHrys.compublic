@@ -36,6 +36,11 @@ const COLUMNS = [
   // stored: a score in a file can disagree with the facts it came from the
   // moment one of them changes. Blank means not enough evidence to score.
   'directory_score', 'seo_value', 'approval_mode', 'country_reach', 'has_api',
+  // Link value. Three columns because they are three separate facts, and empty
+  // where nobody has looked — writing "dofollow" into a spreadsheet because a
+  // listing was never inspected is the one error this dimension may not make,
+  // and a spreadsheet is where such a value becomes permanent.
+  'link_type', 'link_target_type', 'listing_page_indexability',
 ];
 
 // Columns that must NEVER appear. Asserted by test rather than trusted.
@@ -78,6 +83,9 @@ function rowFor(record) {
     record.lastVerified || '',
     record.currentStatus || '',
     ...intelligenceCells(record),
+    record.backlinkType || '',
+    record.linkTargetType || '',
+    record.listingIndexability || '',
   ];
 }
 

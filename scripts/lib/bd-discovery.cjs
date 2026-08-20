@@ -147,6 +147,13 @@
         || rating < floor) visible = false;
     }
 
+    // The same rule as the rating above, for the same reason: a source with no
+    // link evidence is not a source with a bad link. It cannot answer the
+    // question, so it is not offered as an answer to it.
+    if (state.linkType !== '' && state.linkType !== null && state.linkType !== undefined) {
+      if (!linkTypeMatches(state.linkType, row.backlinkType)) visible = false;
+    }
+
     let hiddenForUnknown = false;
     for (const name of flags) {
       const tri = triState((row.flags || {})[name]);
@@ -219,7 +226,25 @@
   // the two would fight over one key; the generators name facets after data
   // dimensions (country, type, cost), and a test asserts the collision cannot
   // happen rather than trusting that it will not.
-  const RESERVED = ['q', 'filters', 'jurisdiction', 'sort', 'min-dr'];
+  const RESERVED = ['q', 'filters', 'jurisdiction', 'sort', 'min-dr', 'link-type'];
+
+  // How a listing here links out. Kept as the nuanced states the schema stores
+  // rather than a "dofollow yes/no", because a listing that renders no external
+  // anchor at all and one that renders rel="nofollow" are different answers to
+  // a reader's question, and "mixed" — two templates that genuinely differ — is
+  // a third. Selecting Follow must never return a source we are unsure about,
+  // so mixed and unknown each stand alone.
+  const LINK_TYPE_VALUES = ['follow', 'restricted', 'mixed', 'none', 'unknown'];
+  function linkTypesOf(known) { return (known && known.linkTypes) || []; }
+  function linkTypeMatches(want, value) {
+    if (want === 'follow') return value === 'dofollow';
+    if (want === 'restricted') return value === 'nofollow' || value === 'ugc' || value === 'sponsored';
+    if (want === 'mixed') return value === 'mixed';
+    if (want === 'none') return value === 'none';
+    // Unknown is the absence of a reading, never a value in its own right.
+    if (want === 'unknown') return !value;
+    return true;
+  }
 
   function facetsOf(known) { return (known && known.facets) || []; }
   function filtersOf(known) { return (known && known.filters) || []; }
@@ -252,6 +277,7 @@
       // filter that admits every measured record and excludes every unmeasured
       // one, which is a different question and not the one the control asks.
       minDr: '',
+      linkType: '',
     };
   }
 
@@ -263,6 +289,7 @@
     const order = ['q'];
     for (const facet of facetsOf(known)) order.push(facet.name);
     if (minDrOf(known).length) order.push('min-dr');
+    if (linkTypesOf(known).length) order.push('link-type');
     if (filtersOf(known).length) order.push('filters');
     if (jurisdictionsOf(known).length) order.push('jurisdiction');
     if (sortsOf(known).length) order.push('sort');
@@ -330,6 +357,12 @@
       // worse than one that means nothing.
       if (value !== null && thresholds.indexOf(value) !== -1) state.minDr = value;
     }
+    if (linkTypesOf(known).length) {
+      const want = readParam(searchParams, 'link-type');
+      // Whitelisted the same way the threshold is: an unrecognised value is
+      // dropped rather than coerced into the nearest one.
+      if (want !== null && linkTypesOf(known).indexOf(want) !== -1) state.linkType = want;
+    }
 
     const jurisdictions = jurisdictionsOf(known);
     if (jurisdictions.length) {
@@ -372,6 +405,9 @@
       } else if (key === 'min-dr') {
         const want = s.minDr === null || s.minDr === undefined ? '' : String(s.minDr);
         value = minDrOf(known).indexOf(want) !== -1 ? want : '';
+      } else if (key === 'link-type') {
+        const want = s.linkType === null || s.linkType === undefined ? '' : String(s.linkType);
+        value = linkTypesOf(known).indexOf(want) !== -1 ? want : '';
       } else if (key === 'sort') {
         const want = s.sort === null || s.sort === undefined ? '' : String(s.sort);
         value = (want !== defaultSort(known) && sortsOf(known).indexOf(want) !== -1) ? want : '';
@@ -402,6 +438,8 @@
     const selection = {
       query: (state && state.q) || '',
       minDr: (state && state.minDr) || '',
+      // Through the one conversion, for the reason written above it.
+      linkType: (state && state.linkType) || '',
       facets: {},
       flags: [],
     };
@@ -499,6 +537,14 @@
       columns.push({ key: 'domain_rating', from: 'metric' });
       columns.push({ key: 'domain_rating_provider', from: 'metricProvider' });
     }
+    // Link value travels the same way: present when the page offers it, three
+    // separate columns because they are three separate facts, and empty rather
+    // than guessed when nobody has looked.
+    if (known && linkTypesOf(known).length) {
+      columns.push({ key: 'link_type', from: 'linkType' });
+      columns.push({ key: 'link_target_type', from: 'linkTargetType' });
+      columns.push({ key: 'listing_page_indexability', from: 'listingIndexability' });
+    }
     return columns;
   }
 
@@ -506,6 +552,12 @@
     if (!row || !column) return '';
     if (column.from === 'facet') return (row.facets || {})[column.key];
     if (column.from === 'flag') return (row.flags || {})[column.key];
+    // An unresearched listing exports as an empty cell. Writing "dofollow"
+    // there because nobody looked is the one error this dimension may not make,
+    // and a spreadsheet is where such a value would become permanent.
+    if (column.from === 'linkType') return row.backlinkType || '';
+    if (column.from === 'linkTargetType') return row.linkTargetType || '';
+    if (column.from === 'listingIndexability') return row.listingIndexability || '';
     // An unmeasured domain exports as an EMPTY CELL, never as 0. A spreadsheet
     // is where that confusion becomes permanent: 0 sorts, averages and charts
     // as a real low score, and nothing downstream can tell it apart again.

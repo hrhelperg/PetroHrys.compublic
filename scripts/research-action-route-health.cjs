@@ -44,9 +44,10 @@ const fs = require('node:fs');
 const path = require('node:path');
 const os = require('node:os');
 const { spawn } = require('node:child_process');
-const { openPage } = require('./tests/helpers/cdp.cjs');
+const { openPage, launch } = require('./tests/helpers/cdp.cjs');
 const SAFE = require('./lib/rc-safe-apply.cjs');
 const T = require('./lib/rc-text-match.cjs');
+const REFUSAL = require('./lib/rc-refusal.cjs');
 
 const ROOT = path.resolve(__dirname, '..');
 const FINDINGS = path.join(ROOT, 'data/business-directories/.route-health.json');
@@ -94,11 +95,7 @@ const EVIDENCE_CHARS = 2500;
 
 // ── VOCABULARY, all Unicode-safe ────────────────────────────────────────────
 
-const CHALLENGE = T.patternMatcher([
-  'attention required', 'just a moment', 'checking your browser',
-  'verify (you are|you.re) human', 'access denied', 'enable javascript and cookies',
-  'unusual traffic', 'captcha',
-]);
+const CHALLENGE = REFUSAL.isRefusal;
 
 // The destination still offers the action. Grouped by what was recorded, in the
 // languages these operators publish in.
@@ -141,14 +138,30 @@ const STILL_OFFERS = {
     'registr', 'eintrag', 'promote your', 'developer program', 'partner program',
     'for business', 'business profile', 'listing',
     '新增', '追加', '登録', '掲載', '商戶', '企业', '企業', '리스팅', '등록']),
-  claim: T.stemMatcher(['claim', 'verify', 'manage your', 'is this your', 'own this',
-    'for brands', 'for business', 'business profile', 'business account']),
-  'create-and-claim': T.stemMatcher(['add your', 'add a', 'claim', 'list your', 'register',
-    'for business', 'business profile']),
-  submit: T.stemMatcher(['submit', 'write', 'contribute', 'tip', 'story', 'article']),
+  // Three of these were bare stems short enough to hide inside ordinary words,
+  // and this file decides whether a route is STILL OFFERED. A stem that matches
+  // everything never reports anything as gone, so a route that had rotted away
+  // kept its clean bill of health:
+  //
+  //   'claim' is inside "Disclaimer:", which is in the footer of nearly every
+  //           directory in the corpus
+  //   'tip'   is inside "multiple", as in "choose from multiple plans"
+  //   'rate'  is inside corporate, accurate, generated, operates, moderate and
+  //           separate, all of which are dense on publisher pages
+  //
+  // They keep the same words and gain a boundary, so every genuine use still
+  // matches. Widening was not an option and neither was deleting them: a
+  // narrower vocabulary here would report live routes as dead, and this file's
+  // findings can retract a working route.
+  claim: T.patternMatcher(['claim[a-z]*', 'verify[a-z]*', 'manage your', 'is this your',
+    'own this', 'for brands', 'for business', 'business profile', 'business account']),
+  'create-and-claim': T.patternMatcher(['add your', 'add a', 'claim[a-z]*', 'list your',
+    'register[a-z]*', 'for business', 'business profile']),
+  submit: T.patternMatcher(['submit[a-z]*', 'write[a-z]*', 'contribute[a-z]*', 'tip[a-z]*',
+    'story', 'article[a-z]*']),
   pitch: T.stemMatcher(['pitch', 'editor', 'editorial', 'newsroom', 'contact']),
   'press-release': T.stemMatcher(['press release', 'newswire', 'distribute', 'submit']),
-  advertise: T.stemMatcher(['advertis', 'media kit', 'sponsor', 'rate']),
+  advertise: T.patternMatcher(['advertis[a-z]*', 'media kit', 'sponsor[a-z]*', 'rate[a-z]*']),
 };
 
 // A page that exists to take you somewhere else, or to ask who you are.
@@ -172,31 +185,19 @@ const arg = (name) => {
   return i === -1 ? null : (process.argv[i + 1] || true);
 };
 
+// Every browser researcher in this repository had grown its own copy of this
+// function, each spawning a headless Chrome with the automation flag hidden and
+// a spoofed user agent. The disguise is circumvention, which this corpus does
+// not build, and it did not work: headless Chrome is refused by a large share of
+// the public web whatever its user agent claims. A windowed browser needs no
+// disguise, and there is one launcher for all of them.
 function startChrome() {
-  const profile = fs.mkdtempSync(path.join(os.tmpdir(), 'route-health-'));
-  const proc = spawn(CHROME, [
-    '--headless=new', '--remote-debugging-port=0', `--user-data-dir=${profile}`,
-    '--no-first-run', '--no-default-browser-check', '--disable-gpu',
-    '--disable-dev-shm-usage', '--mute-audio',
-    '--disable-blink-features=AutomationControlled',
-    '--disable-background-networking', '--disable-sync', 'about:blank',
-  ], { stdio: ['ignore', 'ignore', 'pipe'] });
-  return new Promise((resolve, reject) => {
-    let buf = '';
-    const timer = setTimeout(() => reject(new Error('Chrome did not report a DevTools endpoint')), 30000);
-    proc.stderr.on('data', (chunk) => {
-      buf += chunk.toString();
-      const m = /ws:\/\/[^\s]+/.exec(buf);
-      if (m) { clearTimeout(timer); resolve({ proc, wsUrl: m[0], profile }); }
-    });
-    proc.on('exit', (code) => { clearTimeout(timer); reject(new Error(`Chrome exited ${code}`)); });
-  });
+  return launch({ headless: false });
 }
 
 async function probe(wsUrl, route) {
   const page = await openPage(wsUrl);
   try {
-    await page.send('Network.setUserAgentOverride', { userAgent: UA });
     await page.goto(route.url);
     await new Promise((r) => { setTimeout(r, SETTLE_MS); });
     const seen = await page.eval((evidenceChars) => {

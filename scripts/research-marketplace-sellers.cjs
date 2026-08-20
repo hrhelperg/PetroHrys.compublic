@@ -38,8 +38,9 @@ const fs = require('node:fs');
 const path = require('node:path');
 const os = require('node:os');
 const { spawn } = require('node:child_process');
-const { openPage } = require('./tests/helpers/cdp.cjs');
+const { openPage, launch } = require('./tests/helpers/cdp.cjs');
 const SAFE = require('./lib/rc-safe-apply.cjs');
+const REFUSAL = require('./lib/rc-refusal.cjs');
 
 const ROOT = path.resolve(__dirname, '..');
 const DATA = path.join(ROOT, 'data/marketplaces/marketplaces.json');
@@ -61,16 +62,7 @@ const MIN_TEXT = 400;
 const MAX_ANCHOR_TEXT = 60;
 const MAX_HOPS = 2;
 
-const CHALLENGE = [
-  [/attention required/i, 'cloudflare-attention'],
-  [/just a moment/i, 'cloudflare-interstitial'],
-  [/checking your browser/i, 'browser-check'],
-  [/verify (you are|you're) human/i, 'human-verification'],
-  [/access denied|forbidden/i, 'access-denied'],
-  [/enable javascript and cookies/i, 'js-cookie-gate'],
-  [/unusual traffic|automated queries/i, 'rate-limit'],
-  [/captcha/i, 'captcha'],
-];
+
 
 const PARKED = [
   [/\bdomain\b[^!?\n]{0,60}\b(is|are|may be|might be) for sale\b/i, 'domain for sale'],
@@ -102,15 +94,25 @@ const SELLER_WORDING = [
   {
     action: 'create-seller-profile',
     text: [
-      /\b(become|be) an? (seller|vendor|merchant|supplier|partner)\b/i,
+      // "partner" and "supplier" were here and are gone. On a marketplace,
+      // "Become a Partner" is an affiliate, franchise, API or media-partner
+      // programme, and "Become a supplier" is corporate procurement — selling
+      // TO the operator, not through it. Both filed a seller route: cars24
+      // recorded https://www.cars24.com/become-our-partner/ as the place a
+      // person goes to sell a car.
+      /\b(become|be) an? (seller|vendor|merchant)\b/i,
       /\bstart selling\b/i,
       /\bsell (on|with|through) \w+/i,
       /\bseller (registration|sign ?up|account|centre|center|portal)\b/i,
       /\bopen (a |your )?(shop|store)\b/i,
-      /\b(vender|vende) (en|con) \w+/i, /\bempieza a vender\b/i, /\bvender ahora\b/i,
+      // Reflexive "se vende"/"se alquila" is how a SELLER writes an ad title —
+      // "Piso se vende en el centro de Málaga" — and a classifieds homepage is
+      // mostly seller-written titles. Restricted to the infinitive, and never
+      // after "se".
+      /(?<!\bse )\bvender (en|con) \w+/i, /\bempieza a vender\b/i, /\bvender ahora\b/i,
       /\bvendre sur \w+/i, /\bdevenir vendeur\b/i, /commencer à vendre/i,
       /\bverkaufen (auf|bei) \w+/i, /verkäufer werden/i, /\bjetzt verkaufen\b/i,
-      /\bvender no \w+/i, /\bcomece a vender\b/i,
+      /(?<!\ba )\bvender no \w+/i, /\bcomece a vender\b/i,
       /\bvendi su \w+/i, /\bdiventa venditore\b/i,
       /стать продавцом/i, /начать продавать/i,
       /satıcı ol/i, /satış yap/i,
@@ -182,6 +184,18 @@ const ACTION_FOR_TYPE = (type) => (type === 'b2b' ? 'create-seller-profile'
   : type === 'general-classifieds' ? 'publish-classified' : 'post-advertisement');
 
 // Words that look like onboarding and are not. A BUYER gets all of these.
+// Anchors that are not a route to anything, whatever else they say. The app
+// banner is the reason: MercadoLibre prints "¡Compra y vende con la app!"
+// across five countries, it matched the Spanish seller vocabulary, and five
+// records were published telling a seller that the way to sell is to download
+// an app. Argentina escaped only because a plain "Vender" link outranked it.
+const NOT_A_ROUTE = [
+  /(la |the |nuestra |our )?app/i, /descarga(r)?/i, /download/i,
+  /google play/i, /app store/i,
+  // Editorial about selling is not the place to sell.
+  /^how to /i, /blog/i, /gu[ií]a/i, /cómo vender/i,
+];
+
 const BUYER_ACCOUNT = [
   /^(sign ?up|sign ?in|log ?in|register|registration|create an? account|my account|join)$/i,
   /^(registrarse|iniciar sesión|mi cuenta|regístrate)$/i,
@@ -203,25 +217,14 @@ const arg = (name) => {
   return i === -1 ? null : (process.argv[i + 1] || true);
 };
 
+// Every browser researcher in this repository had grown its own copy of this
+// function, each spawning a headless Chrome with the automation flag hidden and
+// a spoofed user agent. The disguise is circumvention, which this corpus does
+// not build, and it did not work: headless Chrome is refused by a large share of
+// the public web whatever its user agent claims. A windowed browser needs no
+// disguise, and there is one launcher for all of them.
 function startChrome() {
-  const profile = fs.mkdtempSync(path.join(os.tmpdir(), 'mp-seller-'));
-  const proc = spawn(CHROME, [
-    '--headless=new', '--remote-debugging-port=0', `--user-data-dir=${profile}`,
-    '--no-first-run', '--no-default-browser-check', '--disable-gpu',
-    '--disable-dev-shm-usage', '--mute-audio',
-    '--disable-blink-features=AutomationControlled',
-    '--disable-background-networking', '--disable-sync', 'about:blank',
-  ], { stdio: ['ignore', 'ignore', 'pipe'] });
-  return new Promise((resolve, reject) => {
-    let buf = '';
-    const timer = setTimeout(() => reject(new Error('Chrome did not report a DevTools endpoint')), 30000);
-    proc.stderr.on('data', (chunk) => {
-      buf += chunk.toString();
-      const m = /ws:\/\/[^\s]+/.exec(buf);
-      if (m) { clearTimeout(timer); resolve({ proc, wsUrl: m[0], profile }); }
-    });
-    proc.on('exit', (code) => { clearTimeout(timer); reject(new Error(`Chrome exited ${code}`)); });
-  });
+  return launch({ headless: false });
 }
 
 const collectAnchors = () => [...document.querySelectorAll('a[href]')].map((a) => ({
@@ -232,7 +235,6 @@ const collectAnchors = () => [...document.querySelectorAll('a[href]')].map((a) =
 async function probe(wsUrl, record) {
   const page = await openPage(wsUrl);
   try {
-    await page.send('Network.setUserAgentOverride', { userAgent: UA });
     await page.goto(record.website);
     await new Promise((r) => { setTimeout(r, SETTLE_MS); });
 
@@ -293,7 +295,8 @@ function assess(record, obs) {
     if (opts && opts.maxText && obs.textLen > opts.maxText) continue;
     return { state: 'ONTOLOGY_REVIEW', why: `${label}, not a marketplace` };
   }
-  for (const [re, label] of CHALLENGE) if (re.test(hay)) return { state: 'UNKNOWN_PROTECTED', why: label };
+  const refusal = REFUSAL.refusalReason(hay);
+  if (refusal) { const label = refusal; return { state: 'UNKNOWN_PROTECTED', why: label }; }
   if (obs.status >= 400) return { state: 'UNKNOWN_PROTECTED', why: `http ${obs.status}` };
   if (obs.textLen < MIN_TEXT) return { state: 'UNRESOLVED', why: `only ${obs.textLen} characters rendered` };
 
@@ -319,6 +322,7 @@ function assess(record, obs) {
       // A buyer account link is never seller evidence, however invitingly it
       // is placed. Recorded so the report can say how often it was offered.
       if (BUYER_ACCOUNT.some((re) => re.test(a.text))) { buyerOnly.push(a.text); continue; }
+      if (NOT_A_ROUTE.some((re) => re.test(a.text))) continue;
       if (!group.text.some((re) => re.test(a.text))) continue;
       return {
         state: 'ACTION_ESTABLISHED',

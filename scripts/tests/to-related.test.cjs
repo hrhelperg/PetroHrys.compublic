@@ -74,7 +74,20 @@ test('1. the canonical corpus is unchanged by this phase', () => {
   // corpus was read from Ahrefs' free public endpoint. Each rating names the
   // record's own officialUrl host as the domain measured, checked across all
   // 384 with 0 exceptions, so no record borrowed another domain's authority.
-  assert.strictEqual(fp('data/tenders-procurement/platforms.json'), 'd4c2bbba');
+  // ── PIN MOVED 2026-08-20: d4c2bbba -> 005d79ef ───────────────────────────
+  //
+  // Browser Evidence Recovery. 384 records in, 384 out. Exactly one field moved
+  // and only on two records: `bidAccess` was DELETED from de-e-vergabe-sh and
+  // au-nsw-local-government-procurement, both of which had published "free".
+  // Neither page says anything about price — the German one says only that you
+  // must register in order to participate, the Australian one describes what
+  // its e-tendering tool does — and both verdicts came from a matcher that read
+  // "free registration for buyers" and "free to submit your details" as
+  // statements about supplier bidding. searchAccess is untouched: free 294,
+  // unknown 78, mixed 11, paid 1.
+  //
+  // A retraction, not a discovery. Nothing was added to this file.
+  assert.strictEqual(fp('data/tenders-procurement/platforms.json'), '005d79ef');
   assert.strictEqual(fp('scripts/lib/to-match.cjs'), '5de543fb');
 });
 

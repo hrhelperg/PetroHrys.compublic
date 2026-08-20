@@ -224,13 +224,24 @@ test('classification recovery changed content, not canonical identity', () => {
 test('protected layers are unchanged by this phase', () => {
   const fp = (rel) => require('node:crypto').createHash('sha256')
     .update(fs.readFileSync(path.join(ROOT, rel))).digest('hex').slice(0, 8);
-  // Re-baselined 2026-08-20 (a6e0ea29 -> d4c2bbba). 384 records in, 384 out;
-  // exactly two fields moved — `domainRating` and `metricsProvenance` — on
-  // every record. Domain Rating collection was unfrozen and every domain in the
-  // corpus was read from Ahrefs' free public endpoint. Each rating names the
-  // record's own officialUrl host as the domain measured, checked across all
-  // 384 with 0 exceptions, so no record borrowed another domain's authority.
-  assert.strictEqual(fp('data/tenders-procurement/platforms.json'), 'd4c2bbba');
+  // ── PIN MOVED 2026-08-20: d4c2bbba -> 005d79ef ───────────────────────────
+  //
+  // Browser Evidence Recovery. 384 records in, 384 out, one field moved on two
+  // records: `bidAccess` was DELETED from de-e-vergabe-sh and
+  // au-nsw-local-government-procurement. Both had published "free" and neither
+  // page states a price — the German one says only that you must register in
+  // order to participate, the Australian one describes its e-tendering tool.
+  // The verdicts came from a matcher that read "free registration for buyers"
+  // and "free to submit your details" as statements about supplier bidding.
+  //
+  // A retraction, not a discovery: nothing was added to this file, and
+  // searchAccess is untouched at free 294 / unknown 78 / mixed 11 / paid 1.
+  //
+  // The previous note is kept because the pin it explains is still the one this
+  // moved from: re-baselined a6e0ea29 -> d4c2bbba when Domain Rating collection
+  // was unfrozen and all 384 domains were read from Ahrefs' free endpoint, each
+  // naming the record's own officialUrl host, checked with 0 exceptions.
+  assert.strictEqual(fp('data/tenders-procurement/platforms.json'), '005d79ef');
   assert.strictEqual(fp('scripts/lib/to-match.cjs'), '5de543fb');
   assert.strictEqual(fp('scripts/lib/to-search.cjs'), 'e11b8246');
   assert.strictEqual(fp('scripts/lib/to-related.cjs'), '001af59b');

@@ -34,10 +34,11 @@ const fs = require('node:fs');
 const path = require('node:path');
 const os = require('node:os');
 const { spawn } = require('node:child_process');
-const { openPage } = require('./tests/helpers/cdp.cjs');
+const { openPage, launch } = require('./tests/helpers/cdp.cjs');
 const SAFE = require('./lib/rc-safe-apply.cjs');
 const CK = require('./lib/rc-checkpoint.cjs');
 const T = require('./lib/rc-text-match.cjs');
+const REFUSAL = require('./lib/rc-refusal.cjs');
 
 const ROOT = path.resolve(__dirname, '..');
 const DATA = path.join(ROOT, 'data/tenders-procurement/platforms.json');
@@ -58,10 +59,7 @@ const PACE_MS = 600;
 const EVIDENCE_CHARS = 4000;
 const MIN_TEXT = 200;
 
-const CHALLENGE = T.patternMatcher([
-  'attention required', 'just a moment', 'checking your browser',
-  'verify (you are|you.re) human', 'access denied', 'unusual traffic', 'captcha',
-]);
+const CHALLENGE = REFUSAL.isRefusal;
 
 // The operator saying participation costs nothing. Deliberately phrase-level:
 // "free" on its own is the single most overloaded word on a procurement site.
@@ -72,17 +70,36 @@ const CHALLENGE = T.patternMatcher([
 // "membership fee" — which is how Find a Tender and PhilGEPS, the two
 // platforms this phase names as regressions, both came to be recorded as
 // charging suppliers to bid.
+// Wording that names the supplier's own cost outright. "free to submit" is
+// deliberately absent: it reached "it is free to submit your company details",
+// which is registration wearing the vocabulary of bidding. Where the corpus
+// needs the object of the verb to be a bid, the phrase says so.
 const FREE_PARTICIPATION = T.phraseMatcher([
-  'registration is free', 'free registration', 'free to register',
   'no registration fee', 'no fee to register', 'no cost to register',
   'no charge to suppliers', 'free for suppliers', 'free supplier registration',
-  'submission is free', 'free to submit', 'no subscription required',
+  'submission is free', 'no subscription required',
+  'free to submit a bid', 'free to submit a tender', 'free to submit an offer',
+  'free to submit your bid', 'free to submit a quotation',
+]);
+
+// Free-registration wording is only about SUPPLIERS when a supplier is nearby.
+// "Free registration for buyers and journalists" is a real sentence on real
+// procurement portals, and it says nothing whatever about what a bidder pays.
+const FREE_REGISTRATION = [
+  'registration is free', 'free registration', 'free to register',
   'registrazione gratuita', 'inscripción gratuita', 'registro gratuito',
   'inscription gratuite', 'kostenlose registrierung', 'kostenlos registrieren',
   'registo gratuito', 'darmowa rejestracja', 'bezpłatna rejestracja',
   'бесплатная регистрация', 'безкоштовна реєстрація', 'ücretsiz kayıt',
   'gratis registratie', 'registrering er gratis',
-]);
+];
+const SUPPLIER_CONTEXT = [
+  'supplier', 'suppliers', 'tenderer', 'tenderers', 'bidder', 'bidders',
+  'vendor', 'vendors', 'contractor', 'economic operator', 'lieferant',
+  'bieter', 'proveedor', 'licitador', 'fournisseur', 'soumissionnaire',
+  'wykonawca', 'dostawca',
+];
+const FREE_REGISTRATION_NEAR = T.proximityMatcher(FREE_REGISTRATION, SUPPLIER_CONTEXT, 120);
 
 // "Free of charge" and "at no cost" are true of something on almost every
 // government page. NATO's says its broadcast video is free of charge; a German
@@ -99,14 +116,24 @@ const PARTICIPATION_CONTEXT = [
 const FREE_GENERIC_NEAR = T.proximityMatcher(FREE_GENERIC, PARTICIPATION_CONTEXT, 80);
 
 // The operator charging for the account or the submission itself.
+// "paid plan" and "pricing plans" were here and are gone. Almost every
+// procurement portal sells optional alerting and analytics, so those phrases
+// marked bidding paid on platforms where bidding is free and only the tender
+// ALERTS cost money — the exact inference this file exists to refuse.
 const PAID_PARTICIPATION = T.phraseMatcher([
   'subscription fee', 'annual subscription', 'registration fee of',
   'supplier fee', 'supplier fees', 'membership fee', 'membership fees',
   'access fee', 'access fees', 'licence fee', 'license fee',
-  'paid plan', 'pricing plans', 'per year to register', 'fee to submit',
+  'per year to register', 'fee to submit a bid', 'fee to submit a tender',
   'cuota de suscripción', 'abonnement payant', 'jahresgebühr', 'teilnahmegebühr',
   'opłata abonamentowa', 'абонентская плата',
 ]);
+
+// A fee the operator itself calls optional is not the price of participating.
+const OPTIONAL_SERVICE = [
+  'optional', 'premium', 'upgrade', 'add-on', 'if you wish', 'alerts',
+  'analytics', 'notification service', 'optionale', 'opcional',
+];
 
 // Conditions a BUYER sets on one contract. Never platform access cost.
 const OPPORTUNITY_LEVEL = T.stemMatcher([
@@ -121,31 +148,19 @@ const arg = (name) => {
   return i === -1 ? null : (process.argv[i + 1] || true);
 };
 
+// Every browser researcher in this repository had grown its own copy of this
+// function, each spawning a headless Chrome with the automation flag hidden and
+// a spoofed user agent. The disguise is circumvention, which this corpus does
+// not build, and it did not work: headless Chrome is refused by a large share of
+// the public web whatever its user agent claims. A windowed browser needs no
+// disguise, and there is one launcher for all of them.
 function startChrome() {
-  const profile = fs.mkdtempSync(path.join(os.tmpdir(), 'bid-access-'));
-  const proc = spawn(CHROME, [
-    '--headless=new', '--remote-debugging-port=0', `--user-data-dir=${profile}`,
-    '--no-first-run', '--no-default-browser-check', '--disable-gpu',
-    '--disable-dev-shm-usage', '--mute-audio',
-    '--disable-blink-features=AutomationControlled',
-    '--disable-background-networking', '--disable-sync', 'about:blank',
-  ], { stdio: ['ignore', 'ignore', 'pipe'] });
-  return new Promise((resolve, reject) => {
-    let buf = '';
-    const timer = setTimeout(() => reject(new Error('Chrome did not report a DevTools endpoint')), 30000);
-    proc.stderr.on('data', (chunk) => {
-      buf += chunk.toString();
-      const m = /ws:\/\/[^\s]+/.exec(buf);
-      if (m) { clearTimeout(timer); resolve({ proc, wsUrl: m[0], profile }); }
-    });
-    proc.on('exit', (code) => { clearTimeout(timer); reject(new Error(`Chrome exited ${code}`)); });
-  });
+  return launch({ headless: false });
 }
 
 async function probe(wsUrl, target) {
   const page = await openPage(wsUrl);
   try {
-    await page.send('Network.setUserAgentOverride', { userAgent: UA });
     await page.goto(target.url);
     await new Promise((r) => { setTimeout(r, SETTLE_MS); });
     const seen = await page.eval((chars) => {
@@ -176,8 +191,13 @@ function classify(target, obs) {
   if (obs.status >= 400) return { state: 'DEFER_PROTECTED', why: `http ${obs.status}` };
   if (obs.textLen < MIN_TEXT) return { state: 'UNRESOLVED', why: `only ${obs.textLen} characters rendered` };
 
-  const free = FREE_PARTICIPATION(hay) || FREE_GENERIC_NEAR(hay);
-  const paid = PAID_PARTICIPATION(hay);
+  const free = FREE_PARTICIPATION(hay) || FREE_GENERIC_NEAR(hay) || FREE_REGISTRATION_NEAR(hay);
+  // A paid statement sitting inside optional-service wording is removed before
+  // it is read, the same way denials are removed elsewhere in this corpus.
+  const paidText = OPTIONAL_SERVICE.reduce(
+    (text, word) => text.split(word).join(' '), T.normalize(hay),
+  );
+  const paid = PAID_PARTICIPATION(paidText);
   const opportunityLevel = OPPORTUNITY_LEVEL(hay);
 
   // Both stated: the platform charges for something and waives something else.

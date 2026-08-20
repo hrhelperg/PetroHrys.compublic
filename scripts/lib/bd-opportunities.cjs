@@ -83,6 +83,7 @@ function problemsFor(row, knownCountries, knownCategories) {
   // the domain measured, so an estimated rating cannot get in — which is what
   // "never estimated" always meant.
   for (const [field, reason] of S.domainRatingProblems(row)) at(field, reason);
+  for (const [field, reason] of S.backlinkProblems(row)) at(field, reason);
   return p;
 }
 
@@ -126,6 +127,15 @@ function normalise(row) {
     bestFor: [], cons: [], notRecommendedFor: [], pros: [],
     metricsProvenance: row.metricsProvenance
       ? JSON.parse(JSON.stringify(row.metricsProvenance)) : {},
+    // Carried for exactly the reason written above about the rating. A loader
+    // that silently drops a field it has not heard of produces the worst
+    // failure this corpus has had: the JSON is right, the report is right about
+    // the JSON, and the product shows blanks.
+    backlinkType: row.backlinkType ?? null,
+    linkTargetType: row.linkTargetType ?? null,
+    listingIndexability: row.listingIndexability ?? null,
+    backlinkProvenance: row.backlinkProvenance
+      ? JSON.parse(JSON.stringify(row.backlinkProvenance)) : {},
     intelligence: INTEL.normalise(row.intelligence),
     isOperationalRow: true,
   };

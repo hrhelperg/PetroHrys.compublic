@@ -1283,8 +1283,8 @@
   ],
   "operator": "Mercado Libre",
   "note": "The dominant Chilean marketplace, where sellers hold public storefronts.",
-  "sellerAction": "create-seller-profile",
-  "sellerActionUrl": "https://www.mercadolibre.cl/l/app#menu-user",
+  "sellerAction": "unknown",
+  "sellerActionUrl": null,
   "domainRating": 80,
   "metricsProvenance": {
    "domainRating": {
@@ -1524,8 +1524,8 @@
   ],
   "operator": "Mercado Libre",
   "note": "The dominant Colombian marketplace, where sellers hold public storefronts.",
-  "sellerAction": "create-seller-profile",
-  "sellerActionUrl": "https://www.mercadolibre.com.co/l/app#menu-user",
+  "sellerAction": "unknown",
+  "sellerActionUrl": null,
   "domainRating": 79,
   "metricsProvenance": {
    "domainRating": {
@@ -3106,8 +3106,8 @@
   "costModel": "freemium",
   "currentStatus": "active",
   "note": "An Indian used-vehicle marketplace.",
-  "sellerAction": "create-seller-profile",
-  "sellerActionUrl": "https://www.cars24.com/become-our-partner/",
+  "sellerAction": "unknown",
+  "sellerActionUrl": null,
   "domainRating": 70,
   "metricsProvenance": {
    "domainRating": {
@@ -3244,7 +3244,9 @@
     "status": "publicApiReading",
     "measuredDomain": "rumah123.com"
    }
-  }
+  },
+  "sellerActionUrl": "https://www.rumah123.com/jual-properti-online/",
+  "sellerAction": "publish-classified"
  },
  {
   "id": "mp-ie-adverts",
@@ -4048,7 +4050,8 @@
     "status": "publicApiReading",
     "measuredDomain": "mudah.my"
    }
-  }
+  },
+  "sellerCost": "free"
  },
  {
   "id": "mp-my-iproperty",
@@ -4188,8 +4191,8 @@
   ],
   "operator": "Mercado Libre",
   "note": "The dominant Mexican marketplace, where sellers hold public storefronts.",
-  "sellerAction": "create-seller-profile",
-  "sellerActionUrl": "https://www.mercadolibre.com.mx/l/app#menu-user",
+  "sellerAction": "unknown",
+  "sellerActionUrl": null,
   "domainRating": 87,
   "metricsProvenance": {
    "domainRating": {
@@ -5142,8 +5145,8 @@
   ],
   "operator": "Mercado Libre",
   "note": "The dominant Peruvian marketplace, where sellers hold public storefronts.",
-  "sellerAction": "create-seller-profile",
-  "sellerActionUrl": "https://www.mercadolibre.com.pe/l/app#menu-user",
+  "sellerAction": "unknown",
+  "sellerActionUrl": null,
   "domainRating": 73,
   "metricsProvenance": {
    "domainRating": {
@@ -7922,7 +7925,9 @@
     "status": "publicApiReading",
     "measuredDomain": "ebay.com"
    }
-  }
+  },
+  "sellerActionUrl": "https://export.ebay.com/en/?utm_source=ebay&utm_medium=flyout&utm_campaign=sell",
+  "sellerAction": "create-seller-profile"
  },
  {
   "id": "mp-ve-mercadolibre",
@@ -7938,8 +7943,8 @@
   ],
   "operator": "Mercado Libre",
   "note": "The dominant Venezuelan marketplace, where sellers hold public storefronts.",
-  "sellerAction": "create-seller-profile",
-  "sellerActionUrl": "https://www.mercadolibre.com.ve/l/app#menu-user",
+  "sellerAction": "unknown",
+  "sellerActionUrl": null,
   "domainRating": 74,
   "metricsProvenance": {
    "domainRating": {
