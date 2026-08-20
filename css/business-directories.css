@@ -578,3 +578,51 @@
   outline: 2px solid var(--blue);
   outline-offset: 2px;
 }
+
+/* ===== Results break out of the article column =====
+ *
+ * The site shell centres `main` in a 720px reading column (--col-main), which
+ * is right for prose and wrong for a fourteen-column comparison table: on a
+ * wide screen the Media worklist sat as a narrow strip in the middle of an
+ * empty page, wrapping headers that had room to spare on either side.
+ *
+ * The fix is here rather than in the shell because the constraint is correct
+ * everywhere else. `main` keeps its reading measure; only the results area —
+ * the table and the controls that filter it — is allowed wider, by centring a
+ * larger box on the column it sits in:
+ *
+ *   width       a share of the viewport, capped, so it never becomes a
+ *               wall-to-wall table on a 5K display
+ *   margin-left half the column minus half the new width, which re-centres the
+ *               wider box on the same axis
+ *
+ * Above 60rem only. Below it the column is already the whole screen and the
+ * existing overflow-x on .bd-table-wrap remains the fallback for genuinely
+ * wide tables, so phones and tablets are untouched.
+ *
+ * Scoped by stylesheet, not by page: only Research Center pages load this file,
+ * so no editorial or article layout can widen by accident. */
+@media (min-width: 60rem) {
+  .bd-table-wrap,
+  .bd-controls,
+  [data-bd-export-wrap] {
+    width: min(94vw, 1500px);
+    /* The existing `.bd-table-wrap { max-width: 100% }` clamps that width back
+     * to the 720px column, so the box has to be released explicitly. Setting
+     * `width` alone changed nothing at all and looked like the media query was
+     * not matching. */
+    max-width: none;
+    margin-left: calc(50% - min(47vw, 750px));
+  }
+  /* A table that now has room should use it rather than staying at its
+   * intrinsic width inside a wider box. */
+  .bd-table-wrap > table { width: 100%; }
+  /* No blanket `white-space: nowrap` on headers.
+   *
+   * It was here, and it made the widest table WORSE: Media carries the most
+   * columns, and forcing every header onto one line pushed the table to 1755px
+   * inside a 1500px box, so a page that had been merely cramped started
+   * scrolling sideways instead. Wrapping a two-word header is a smaller cost
+   * than a scrollbar under a table nobody asked to scroll. The extra width does
+   * most of the work on its own. */
+}

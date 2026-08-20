@@ -53,6 +53,11 @@ const COLLECTION_ROOTS = [
   '/research/tenders-procurement/intelligence/',
   '/research/tenders-procurement/opportunities/',
   '/research/tenders-procurement/monitoring/',
+  // The cross-collection country explorer. One route, four locales, written by
+  // build-country-intelligence.cjs — declared here rather than inferred so a
+  // guard that walks owned routes does not report the page as an orphan the
+  // moment it ships.
+  '/research/countries/',
 ].map((p) => p.replace(/^\//, ''));
 const GENERATED_PREFIXES = COLLECTION_ROOTS;
 

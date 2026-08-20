@@ -22,7 +22,8 @@
       "directories": "Un índice país por país que registra qué acepta cada directorio, cómo enlaza y cuándo se verificó por última vez.",
       "opportunities": "La base de datos de trabajo: dónde una empresa puede crear, reclamar o solicitar un perfil público, con el coste, la acción de registro y la prioridad de cada uno.",
       "media": "Dónde una empresa publica, envía, presenta propuestas, patrocina, lanza o aporta experiencia &mdash; medios, redes de notas de prensa, programas de colaboradores, plataformas de lanzamiento y servicios de consulta a periodistas, con el tipo de oportunidad y la vía para cada uno.",
-      "marketplaces": "Dónde una empresa o una persona publica un anuncio en lugar de un perfil &mdash; clasificados, vehículos, inmuebles, empleo, servicios, comercio B2B, subastas y reventa &mdash; con el tipo, el coste de publicar y quién puede hacerlo."
+      "marketplaces": "Dónde una empresa o una persona publica un anuncio en lugar de un perfil &mdash; clasificados, vehículos, inmuebles, empleo, servicios, comercio B2B, subastas y reventa &mdash; con el tipo, el coste de publicar y quién puede hacerlo.",
+      "countries": "Un país a la vez: cada directorio, mercado, medio y plataforma de licitación que este proyecto ha verificado para ese mercado, con Domain Rating, coste y si alguien puede actuar hoy."
     },
     "chooseHeading": "Elegir entre las tres",
     "chooseBody": "Cada base de datos anterior responde a una pregunta distinta. <strong>{directories}</strong> es donde una empresa crea o reclama un perfil profesional. <strong>{marketplaces}</strong> es donde publica un anuncio o una pieza publicitaria. <strong>{media}</strong> es donde presenta propuestas, publica, lanza o patrocina. El planificador elige la mejor combinación para una empresa, un objetivo, un mercado y un presupuesto &mdash; y nunca finge que las tres acciones sean equivalentes.",
