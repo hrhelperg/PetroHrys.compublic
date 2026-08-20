@@ -72,17 +72,36 @@ const CHALLENGE = T.patternMatcher([
 // "membership fee" — which is how Find a Tender and PhilGEPS, the two
 // platforms this phase names as regressions, both came to be recorded as
 // charging suppliers to bid.
+// Wording that names the supplier's own cost outright. "free to submit" is
+// deliberately absent: it reached "it is free to submit your company details",
+// which is registration wearing the vocabulary of bidding. Where the corpus
+// needs the object of the verb to be a bid, the phrase says so.
 const FREE_PARTICIPATION = T.phraseMatcher([
-  'registration is free', 'free registration', 'free to register',
   'no registration fee', 'no fee to register', 'no cost to register',
   'no charge to suppliers', 'free for suppliers', 'free supplier registration',
-  'submission is free', 'free to submit', 'no subscription required',
+  'submission is free', 'no subscription required',
+  'free to submit a bid', 'free to submit a tender', 'free to submit an offer',
+  'free to submit your bid', 'free to submit a quotation',
+]);
+
+// Free-registration wording is only about SUPPLIERS when a supplier is nearby.
+// "Free registration for buyers and journalists" is a real sentence on real
+// procurement portals, and it says nothing whatever about what a bidder pays.
+const FREE_REGISTRATION = [
+  'registration is free', 'free registration', 'free to register',
   'registrazione gratuita', 'inscripción gratuita', 'registro gratuito',
   'inscription gratuite', 'kostenlose registrierung', 'kostenlos registrieren',
   'registo gratuito', 'darmowa rejestracja', 'bezpłatna rejestracja',
   'бесплатная регистрация', 'безкоштовна реєстрація', 'ücretsiz kayıt',
   'gratis registratie', 'registrering er gratis',
-]);
+];
+const SUPPLIER_CONTEXT = [
+  'supplier', 'suppliers', 'tenderer', 'tenderers', 'bidder', 'bidders',
+  'vendor', 'vendors', 'contractor', 'economic operator', 'lieferant',
+  'bieter', 'proveedor', 'licitador', 'fournisseur', 'soumissionnaire',
+  'wykonawca', 'dostawca',
+];
+const FREE_REGISTRATION_NEAR = T.proximityMatcher(FREE_REGISTRATION, SUPPLIER_CONTEXT, 120);
 
 // "Free of charge" and "at no cost" are true of something on almost every
 // government page. NATO's says its broadcast video is free of charge; a German
@@ -99,14 +118,24 @@ const PARTICIPATION_CONTEXT = [
 const FREE_GENERIC_NEAR = T.proximityMatcher(FREE_GENERIC, PARTICIPATION_CONTEXT, 80);
 
 // The operator charging for the account or the submission itself.
+// "paid plan" and "pricing plans" were here and are gone. Almost every
+// procurement portal sells optional alerting and analytics, so those phrases
+// marked bidding paid on platforms where bidding is free and only the tender
+// ALERTS cost money — the exact inference this file exists to refuse.
 const PAID_PARTICIPATION = T.phraseMatcher([
   'subscription fee', 'annual subscription', 'registration fee of',
   'supplier fee', 'supplier fees', 'membership fee', 'membership fees',
   'access fee', 'access fees', 'licence fee', 'license fee',
-  'paid plan', 'pricing plans', 'per year to register', 'fee to submit',
+  'per year to register', 'fee to submit a bid', 'fee to submit a tender',
   'cuota de suscripción', 'abonnement payant', 'jahresgebühr', 'teilnahmegebühr',
   'opłata abonamentowa', 'абонентская плата',
 ]);
+
+// A fee the operator itself calls optional is not the price of participating.
+const OPTIONAL_SERVICE = [
+  'optional', 'premium', 'upgrade', 'add-on', 'if you wish', 'alerts',
+  'analytics', 'notification service', 'optionale', 'opcional',
+];
 
 // Conditions a BUYER sets on one contract. Never platform access cost.
 const OPPORTUNITY_LEVEL = T.stemMatcher([
@@ -164,8 +193,13 @@ function classify(target, obs) {
   if (obs.status >= 400) return { state: 'DEFER_PROTECTED', why: `http ${obs.status}` };
   if (obs.textLen < MIN_TEXT) return { state: 'UNRESOLVED', why: `only ${obs.textLen} characters rendered` };
 
-  const free = FREE_PARTICIPATION(hay) || FREE_GENERIC_NEAR(hay);
-  const paid = PAID_PARTICIPATION(hay);
+  const free = FREE_PARTICIPATION(hay) || FREE_GENERIC_NEAR(hay) || FREE_REGISTRATION_NEAR(hay);
+  // A paid statement sitting inside optional-service wording is removed before
+  // it is read, the same way denials are removed elsewhere in this corpus.
+  const paidText = OPTIONAL_SERVICE.reduce(
+    (text, word) => text.split(word).join(' '), T.normalize(hay),
+  );
+  const paid = PAID_PARTICIPATION(paidText);
   const opportunityLevel = OPPORTUNITY_LEVEL(hay);
 
   // Both stated: the platform charges for something and waives something else.

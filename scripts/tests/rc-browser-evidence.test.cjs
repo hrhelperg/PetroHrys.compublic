@@ -540,3 +540,57 @@ test('a resolution needs the link or the address to point at a route', () => {
   assert.match(src, /&& promise\(link\) > 0\)/,
     'an About Us link to an /about-us page cannot resolve on page wording alone');
 });
+
+// ── FOUR MUTATIONS THAT WERE SURVIVING IN THE TENDER RESEARCHER ─────────────
+//
+// M9, M10 and M24 are on the standing mutation list, and all three were alive
+// in the file that actually produces tender facts. Nothing wrong had been
+// published only because that researcher had not been re-run since the rules
+// were written down.
+
+const TENDER = require(path.join(ROOT, 'scripts/research-tender-bid-access.cjs'));
+const judgeTender = (text) => {
+  const v = TENDER.classify({}, {
+    title: '', h1: [], head: pad(text), textLen: 9999, url: 'https://x.test/', status: 200,
+  });
+  return v.bidAccess || null;
+};
+
+test('M9: submitting company details is registration, not bidding', () => {
+  assert.equal(judgeTender('It is free to submit your company details to the portal.'), null);
+  // The object of the verb has to be a bid.
+  assert.equal(judgeTender('It is free to submit a bid on any published notice.'), 'free');
+});
+
+test('M24: free registration for BUYERS says nothing about suppliers', () => {
+  // A real sentence on real procurement portals.
+  assert.equal(judgeTender('Free registration for buyers and journalists.'), null);
+  assert.equal(judgeTender('Registration is free for all suppliers and tenderers.'), 'free');
+});
+
+test('M10: an optional premium service is not the price of bidding', () => {
+  // Almost every procurement portal sells alerting and analytics. Reading that
+  // as the cost of participation would mark most of the corpus paid.
+  assert.equal(judgeTender('See our pricing plans for premium tender alerts.'), null);
+  assert.equal(judgeTender('Optional paid plan for advanced analytics and notifications.'), null);
+  assert.equal(judgeTender('An annual subscription fee of 500 applies to suppliers.'), 'paid');
+});
+
+test('M23: the tender researcher never derives one access fact from the other', () => {
+  const src = fs.readFileSync(path.join(ROOT, 'scripts/research-tender-bid-access.cjs'), 'utf8');
+  // The precise claim: the function that DECIDES bidAccess never reads
+  // searchAccess. Elsewhere the file may carry searchAccess along for
+  // reporting, and selecting which platforms to visit is not deriving a fact.
+  const start = src.indexOf('function classify');
+  const end = src.indexOf('\nfunction ', start + 1);
+  const classifyFn = src.slice(start, end);
+  assert.ok(classifyFn.length > 200, 'the classifier must be found');
+  assert.ok(!classifyFn.includes('searchAccess'),
+    'the bid-access verdict must never consult search access');
+  assert.ok(src.includes('free to search but NOT free to bid'),
+    'the divergence between them is reported, not smoothed away');
+});
+
+test('M24: a buyer-side publication fee is not a supplier bid fee', () => {
+  assert.equal(judgeTender('Contracting authorities pay a publication fee to advertise notices.'), null);
+});
