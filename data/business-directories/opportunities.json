@@ -315,7 +315,7 @@
    "united-states"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "claim",
   "submissionModel": "unknown",
   "note": "An established US mapping and local-search service carrying public business places.",
   "lastVerified": "2026-08-06",
@@ -327,7 +327,8 @@
     "status": "publicApiReading",
     "measuredDomain": "mapquest.com"
    }
-  }
+  },
+  "claimUrl": "https://listings.mapquest.com/pl/mapquest-claims/index.html?utm_medium=inad&utm_source=yogi%7cmainnav&utm_term=Claim%20your%20Business"
  },
  {
   "id": "us-chamberofcommerce",
@@ -3265,7 +3266,7 @@
    "dach"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "free",
   "note": "A German local recommendation and review platform with public business profiles.",
   "lastVerified": "2026-08-06",
@@ -3277,7 +3278,8 @@
     "status": "publicApiReading",
     "measuredDomain": "golocal.de"
    }
-  }
+  },
+  "submissionUrl": "https://www.golocal.de/unternehmen/"
  },
  {
   "id": "de-kennstdueinen",
@@ -3292,7 +3294,7 @@
    "dach"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "free",
   "note": "A German business listing and customer review directory.",
   "lastVerified": "2026-08-06",
@@ -3304,7 +3306,8 @@
     "status": "publicApiReading",
     "measuredDomain": "kennstdueinen.de"
    }
-  }
+  },
+  "submissionUrl": "https://www.kennstdueinen.de/serviceProvider/registerForm"
  },
  {
   "id": "de-meinestadt",
@@ -3913,7 +3916,7 @@
    "country-specific"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "Described on the site as the largest independent Czech company catalogue, with public business entries.",
   "lastVerified": "2026-08-06",
@@ -3925,7 +3928,8 @@
     "status": "publicApiReading",
     "measuredDomain": "zivefirmy.cz"
    }
-  }
+  },
+  "submissionUrl": "https://www.zivefirmy.cz/firma-pridat"
  },
  {
   "id": "no-1881",
@@ -9136,7 +9140,7 @@
    "dach"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "A German telephone and business directory. [redirect:2026-08-14] Dialo now serves BundesTelefonbuch, which is what the destination titles itself.",
   "lastVerified": "2026-08-14",
@@ -9148,7 +9152,8 @@
     "status": "publicApiReading",
     "measuredDomain": "bundes-telefonbuch.de"
    }
-  }
+  },
+  "submissionUrl": "https://www.bundes-telefonbuch.de/firma/grund-eintrag"
  },
  {
   "id": "de-yellowmap",
@@ -9163,7 +9168,7 @@
    "dach"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "A German business directory and location search service with public company entries.",
   "lastVerified": "2026-08-06",
@@ -9175,7 +9180,8 @@
     "status": "publicApiReading",
     "measuredDomain": "yellowmap.de"
    }
-  }
+  },
+  "submissionUrl": "https://www.yellowmap.de/ProductsUV.aspx"
  },
  {
   "id": "ch-search-ch",
@@ -11737,7 +11743,7 @@
    "dach"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "A German trade directory with public company entries.",
   "lastVerified": "2026-08-06",
@@ -11749,7 +11755,8 @@
     "status": "publicApiReading",
     "measuredDomain": "branchen-info.net"
    }
-  }
+  },
+  "submissionUrl": "https://www.branchen-info.net/informationen-fuer-unternehmen/"
  },
  {
   "id": "de-branchenbuch24",
@@ -11845,7 +11852,7 @@
    "dach"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "free",
   "note": "A German local company directory built around finding and being found.",
   "lastVerified": "2026-08-06",
@@ -11857,7 +11864,8 @@
     "status": "publicApiReading",
     "measuredDomain": "firmeneintrag.de"
    }
-  }
+  },
+  "submissionUrl": "https://firmeneintrag.de/firmeneintrag-erstellen/"
  },
  {
   "id": "de-firmenindex",
@@ -12171,7 +12179,7 @@
    "dach"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "An Austrian and German-language trade directory with public company entries.",
   "lastVerified": "2026-08-06",
@@ -12183,7 +12191,8 @@
     "status": "publicApiReading",
     "measuredDomain": "branchenverzeichnis.at"
    }
-  }
+  },
+  "submissionUrl": "https://www.branchenverzeichnis.at/index.php?form=Login&RedirectTo=https%3A%2F%2Fwww.branchenverzeichnis.at%2Findex.php%3Fform%3DCompanyAdd"
  },
  {
   "id": "fr-hoodspot",
@@ -13096,7 +13105,7 @@
    "country-specific"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "A Swiss company directory browsable by industry and location.",
   "lastVerified": "2026-08-06",
@@ -13108,7 +13117,8 @@
     "status": "publicApiReading",
     "measuredDomain": "schweizfirmen.ch"
    }
-  }
+  },
+  "submissionUrl": "https://www.schweizfirmen.ch/kontakt"
  },
  {
   "id": "ch-firma-finden",
@@ -13123,7 +13133,7 @@
    "country-specific"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "A Swiss SME portal combining a company directory with business guidance content.",
   "lastVerified": "2026-08-06",
@@ -13135,7 +13145,8 @@
     "status": "publicApiReading",
     "measuredDomain": "firma-finden.ch"
    }
-  }
+  },
+  "submissionUrl": "https://www.firma-finden.ch/join"
  },
  {
   "id": "ch-vschweiz",
@@ -13150,7 +13161,7 @@
    "country-specific"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "free",
   "note": "A Swiss online company directory organised by category.",
   "lastVerified": "2026-08-06",
@@ -13162,7 +13173,8 @@
     "status": "publicApiReading",
     "measuredDomain": "vschweiz.ch"
    }
-  }
+  },
+  "submissionUrl": "https://vschweiz.ch/firmeneintrag/"
  },
  {
   "id": "ch-lokalesgewerbe",
@@ -13177,7 +13189,7 @@
    "country-specific"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "A Swiss trade directory listing local businesses with addresses and opening hours.",
   "lastVerified": "2026-08-06",
@@ -13189,7 +13201,8 @@
     "status": "publicApiReading",
     "measuredDomain": "lokalesgewerbe.ch"
    }
-  }
+  },
+  "submissionUrl": "https://www.lokalesgewerbe.ch/gewerbe-eintragen?packageType=1"
  },
  {
   "id": "ie-askspud",
@@ -15770,7 +15783,7 @@
    "country-specific"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "A Spanish company directory with public business entries.",
   "lastVerified": "2026-08-06",
@@ -15782,7 +15795,8 @@
     "status": "publicApiReading",
     "measuredDomain": "todoenlaces.com"
    }
-  }
+  },
+  "submissionUrl": "https://www.todoenlaces.com/anunciar-mi-empresa-gratis-en-internet/"
  },
  {
   "id": "es-multiguia",
@@ -16608,7 +16622,7 @@
    "country-specific"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "A Czech company catalogue searchable by distance from a location. [redirect:2026-08-14] Atlas firem now trades as Firma Blizko, which is what the destination titles itself.",
   "lastVerified": "2026-08-14",
@@ -16620,7 +16634,8 @@
     "status": "publicApiReading",
     "measuredDomain": "firmablizko.cz"
    }
-  }
+  },
+  "submissionUrl": "https://www.firmablizko.cz/front.add/choose-plan"
  },
  {
   "id": "cz-katalog",
@@ -16635,7 +16650,7 @@
    "country-specific"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "A Czech company catalogue with public business entries.",
   "lastVerified": "2026-08-06",
@@ -16647,7 +16662,8 @@
     "status": "publicApiReading",
     "measuredDomain": "katalog.cz"
    }
-  }
+  },
+  "submissionUrl": "https://www.katalog.cz/pridat-firmu/"
  },
  {
   "id": "pt-guiadacidade",
@@ -22641,7 +22657,7 @@
    "india"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "free",
   "note": "An Indian B2B directory of manufacturers, suppliers and exporters.",
   "lastVerified": "2026-08-06",
@@ -22653,7 +22669,8 @@
     "status": "publicApiReading",
     "measuredDomain": "indianyellowpages.com"
    }
-  }
+  },
+  "submissionUrl": "https://www.indianyellowpages.com/post-free-classified-ads.htm"
  },
  {
   "id": "pk-businesslist",
@@ -41343,7 +41360,8 @@
     "status": "publicApiReading",
     "measuredDomain": "yellowpages.uz"
    }
-  }
+  },
+  "submissionUrl": "https://www.yellowpages.uz/company/add"
  },
  {
   "id": "az-yellowpages",
