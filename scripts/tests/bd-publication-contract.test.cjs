@@ -12,7 +12,7 @@
 //      fifteen statutory registers.
 //   2. Pins Pillar 1's achieved structural standard at 100% as a FLOOR, so it
 //      cannot regress while attention moves to Phases B and C.
-//   3. Holds the contract's own frozen-metric statements to the registry.
+//   3. Holds the contract's own metric rules to the registry.
 //
 // It deliberately does NOT assert the §7 compliance percentages. Those are a
 // dated measurement, not an invariant, and pinning them would force an edit on
@@ -107,20 +107,45 @@ test('every pillar 1 record carries an operator and registry types', () => {
 // operator, which is the defect that actually matters. A guard that needs
 // maintenance to avoid false positives is a liability, not a safeguard.
 
-// §2.6 / §7. The contract states these figures; they must match the registry.
-test('the frozen metric statements in the contract match the registry', () => {
-  const domains = new Set();
-  for (const r of ALL) {
-    const p = r.metricsProvenance && r.metricsProvenance.domainRating;
-    if (p && p.measuredDomain) domains.add(p.measuredDomain);
-  }
-  assert.strictEqual(domains.size, 64, 'the frozen measurement set changed size');
-
+// §2.6. The contract's metric rules must hold on the registry.
+test('the metric rules in the contract hold on the registry', () => {
+  // CHANGED (policy reversal): this pinned the measured-domain set at 64 and
+  // required the contract to keep restating that count and the frozen digest
+  // aa7e6984…. The freeze has been lifted by decision of the repository owner —
+  // Ahrefs publishes Domain Rating through /v3/public/domain-rating-free, which
+  // costs nothing and needs only a free key — and the whole corpus has been read
+  // from it. A pinned count and digest would now fail on every refresh, which is
+  // precisely what a guard must not do.
+  //
+  // I did NOT revise the contract: §2.6 rules 19-21 still state the freeze, the
+  // 64-measurement count and the digest, and that wording is now stale. Editing
+  // docs/ is outside this change, so those sentences are simply no longer pinned
+  // by a test — asserting them would hold the registry to a policy that has been
+  // withdrawn.
+  //
+  // The §2.6 rule that SURVIVED the reversal is the reuse rule, and it is worth
+  // more than a count: it is asserted against the registry itself.
   const doc = fs.readFileSync(CONTRACT, 'utf8');
-  assert.ok(doc.includes('**64 measurements**'),
-    'the contract no longer states the frozen measurement count');
-  assert.ok(doc.includes('aa7e6984'),
-    'the contract no longer states the frozen digest');
+  // "reading" rather than "snapshot": the contract now uses one word for the
+  // thing throughout, because "snapshot" carried the frozen-historical sense
+  // that the policy reversal retired.
+  assert.ok(doc.includes('An already-measured domain reuses its stored reading verbatim'),
+    'the contract no longer states the shared-domain reuse rule');
+  const S = require('../lib/bd-schema.cjs');
+  const shared = S.sharedDomainSnapshotProblems(ALL);
+  assert.deepStrictEqual(shared, [],
+    `records on one measured domain do not repeat one identical reading:\n${shared.map((x) => `${x.id} ${x.field}`).join('\n')}`);
+
+  // And what the frozen digest was standing in for: no published rating is an
+  // invented number, and none is a measurement of somebody else's domain.
+  const measured = ALL.filter((r) => r.domainRating !== null && r.domainRating !== undefined);
+  assert.ok(measured.length > 0, 'no record carries a Domain Rating: this guard is vacuous');
+  for (const r of measured) {
+    assert.deepStrictEqual(S.domainRatingProblems(r), [],
+      `${r.id} publishes a Domain Rating that is not a measurement`);
+    assert.strictEqual(r.metricsProvenance.domainRating.measuredDomain, S.normaliseDomain(r.website),
+      `${r.id} displays a rating measured on a domain that is not its own`);
+  }
 });
 
 // §2.7. Derived fields are derived, contract-wide.

@@ -131,7 +131,38 @@ function exactMatcher(labels) {
   return (text) => set.has(normalize(text));
 }
 
+// ── PROXIMITY ───────────────────────────────────────────────────────────────
+//
+// Two words on one page are not two words about one thing.
+//
+// A homepage that says "envíos gratis" is offering free delivery to shoppers;
+// one that says "Free entry for the public" is running an exhibition; one that
+// says "Makan Bergizi Gratis" is naming an Indonesian school-meals programme.
+// A matcher that only asks "does this page contain a word meaning free" reads
+// all three as a free business listing, and every one of those was recorded
+// before this existed.
+//
+// So the free word has to be found NEAR something that makes it about the
+// action. The window is characters rather than words because the languages
+// this corpus spans do not agree about where words end, and because page text
+// arrives with navigation glued to prose.
+function proximityMatcher(needles, contexts, window = 200) {
+  const near = needles.map(normalize).filter(Boolean);
+  const about = contexts.map(normalize).filter(Boolean);
+  return (text) => {
+    const hay = normalize(text);
+    for (const needle of near) {
+      for (let i = hay.indexOf(needle); i !== -1; i = hay.indexOf(needle, i + 1)) {
+        const slice = hay.slice(Math.max(0, i - window), i + needle.length + window);
+        if (about.some((c) => slice.includes(c))) return true;
+      }
+    }
+    return false;
+  };
+}
+
 module.exports = {
+  proximityMatcher,
   normalize,
   phraseMatcher,
   patternMatcher,

@@ -131,7 +131,19 @@ test('each published system meets the contract for its new type', () => {
     assert.notStrictEqual(r.operator.name.trim(), 'European Union', `${id} uses a bare EU operator`);
     assert.strictEqual(S.computeScore(r.scoreFactors), r.petroHrysScore, `${id} score does not reproduce`);
     assert.strictEqual(r.nextVerification, S.nextVerificationFor(r), `${id} date was hand-set`);
-    assert.strictEqual(r.domainRating, null, `${id} carries a Domain Rating`);
+    // WAS: assert.strictEqual(r.domainRating, null, `${id} carries a Domain
+    // Rating`). Domain Rating collection was frozen when this contract was
+    // written; the repository owner has reversed that policy, because it was
+    // written against the plan-gated Site Explorer endpoint while Ahrefs also
+    // publishes the figure through the free /v3/public/domain-rating-free
+    // endpoint. Every domain in the corpus has now been read, so a null is no
+    // longer the fact. What the clause was keeping out was an invented number,
+    // so the rating is required to be evidenced and to be about this record's
+    // own domain instead.
+    assert.deepStrictEqual(S.domainRatingProblems(r), [],
+      `${id} carries a Domain Rating without a provider, a date and a measured domain`);
+    assert.strictEqual(r.metricsProvenance.domainRating.measuredDomain, S.normaliseDomain(r.website),
+      `${id} reports a rating measured on a domain that is not its own`);
     for (const label of ['LEGAL SOURCE OF RECORD:', 'RESPONSIBLE AUTHORITY:',
       'TECHNICAL PLATFORM:', 'PUBLIC ACCESS INTERFACE:']) {
       assert.ok(r.editorNotes.includes(label), `${id} is missing "${label}"`);

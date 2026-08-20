@@ -436,6 +436,14 @@
     const columns = [{ key: 'name', from: 'name' }];
     for (const facet of facetsOf(known)) columns.push({ key: facet.name, from: 'facet' });
     for (const name of filtersOf(known)) columns.push({ key: name, from: 'flag' });
+    // Domain Rating is exported by the same rule the columns above follow: it
+    // appears when the page offers it, and it is derived rather than listed by
+    // hand. The provider travels with it, because a bare number in a spreadsheet
+    // is a number whose origin the reader cannot check.
+    if (known && known.sorts && known.sorts.indexOf('domain-rating') !== -1) {
+      columns.push({ key: 'domain_rating', from: 'metric' });
+      columns.push({ key: 'domain_rating_provider', from: 'metricProvider' });
+    }
     return columns;
   }
 
@@ -443,6 +451,16 @@
     if (!row || !column) return '';
     if (column.from === 'facet') return (row.facets || {})[column.key];
     if (column.from === 'flag') return (row.flags || {})[column.key];
+    // An unmeasured domain exports as an EMPTY CELL, never as 0. A spreadsheet
+    // is where that confusion becomes permanent: 0 sorts, averages and charts
+    // as a real low score, and nothing downstream can tell it apart again.
+    if (column.from === 'metric') {
+      return (row.domainRating === null || row.domainRating === undefined)
+        ? '' : String(row.domainRating);
+    }
+    if (column.from === 'metricProvider') {
+      return (row.domainRating === null || row.domainRating === undefined) ? '' : 'Ahrefs';
+    }
     return row[column.key];
   }
 

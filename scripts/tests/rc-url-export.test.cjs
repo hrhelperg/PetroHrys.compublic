@@ -916,18 +916,49 @@ test('an empty selection exports no records, never the whole collection', () => 
   assert.strictEqual(csvNames(csv).length, 0);
 });
 
-test('the export columns are the identity plus every dimension the page filters by', () => {
+test('the export columns are the identity plus every dimension the page offers', () => {
+  // CHANGED BY THE DOMAIN RATING POLICY REVERSAL. This expectation used to be
+  // exactly the facets plus the filters, which was a complete list only because
+  // Domain Rating collection was frozen and no export carried a rating. The
+  // freeze has been lifted by the repository's owner — Ahrefs also publishes
+  // Domain Rating through a free public endpoint the frozen policy was never
+  // written against — every record now carries a reading, and the export carries
+  // it with its provider, because a bare number in a spreadsheet is a number
+  // whose origin the reader cannot check. So the old list is false while the
+  // property it was protecting is not.
+  //
+  // That property is that the columns are DERIVED from what the page offers and
+  // never hand-listed, and that the file's header is exactly the derived set. So
+  // the expectation is still built from the page's own controls: facets, then
+  // filters, then the metric pair — and the metric pair only where the page
+  // offers the domain-rating sort that earns it.
+  const METRIC_COLUMNS = ['domain_rating', 'domain_rating_provider'];
   for (const family of FAMILIES) {
     const schema = schemaOf(htmlFor(family.page));
     const columns = D.exportColumns(schema).map((c) => c.key);
     assert.strictEqual(columns[0], 'name', `${family.key}: the identity is not the first column`);
     assert.deepStrictEqual(columns.slice(1),
-      schema.facets.map((f) => f.name).concat(schema.filters),
+      schema.facets.map((f) => f.name).concat(schema.filters)
+        .concat(schema.sorts.includes('domain-rating') ? METRIC_COLUMNS : []),
       `${family.key}: the export columns drifted from the controls`);
     const app = boot(family.page, '');
     assert.deepStrictEqual(parseCsv(app.csv())[0], columns,
       `${family.key}: the file's header is not the derived column set`);
   }
+  // All five families offer the rating sort today, so the real pages exercise
+  // that branch in one direction only. A schema that offers no such sort is
+  // therefore built here rather than left untested: the metric pair has to be
+  // earned by a control the page actually renders, never appended
+  // unconditionally to every export in the collection.
+  const noRatingSort = {
+    facets: [{ name: 'country', multi: false, values: ['czech-republic'] }],
+    filters: ['free-submission'],
+    sorts: ['alphabetical'],
+    jurisdictions: [],
+  };
+  assert.deepStrictEqual(D.exportColumns(noRatingSort).map((c) => c.key),
+    ['name', 'country', 'free-submission'],
+    'a page offering no Domain Rating sort was still given the metric columns');
 });
 
 // ── 7b. EVERY PAGE THAT HAS CONTROLS, NOT ONLY THE FIVE NAMED ONES ──────────

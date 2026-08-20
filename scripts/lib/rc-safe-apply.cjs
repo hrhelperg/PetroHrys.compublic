@@ -85,14 +85,41 @@ const OWNERSHIP = {
     marketplaces: ['website', 'name', 'currentStatus', 'note'],
     media: ['website', 'name', 'currentStatus', 'lastVerified', 'shortNote'],
   },
+  // A third-party measurement of the DOMAIN, and nothing about the record.
+  //
+  // Domain Rating describes a backlink profile. It says nothing about whether
+  // the site answers, what a business can do there, or what that costs — so it
+  // owns none of those fields and none of the owners above can write it back.
+  // It cannot write `website` either: the domain a rating was measured on is
+  // recorded inside the provenance, and a measurement is never a reason to
+  // change where a record points.
+  metrics: {
+    // `metricStatus` travels with the measurement rather than beside it: the
+    // registry validator refuses a populated metric on a record still marked
+    // "unknown", so writing a rating without moving the status writes an
+    // invalid record. It is owned here for that reason and no other.
+    directories: ['domainRating', 'metricsProvenance', 'metricStatus'],
+    'directory-opportunities': ['domainRating', 'metricsProvenance'],
+    marketplaces: ['domainRating', 'metricsProvenance'],
+    media: ['domainRating', 'metricsProvenance'],
+    tenders: ['domainRating', 'metricsProvenance'],
+  },
 };
 
 // Fields no research pass may ever touch, whatever it claims to own. Listed
 // separately so the prohibition is legible rather than implied by absence.
+//
+// `domainRating` used to be here, owned by nobody, because the only ratings in
+// the corpus were hand-curated snapshots and no automated pass had any business
+// touching them. It now has exactly ONE owner — `metrics` — which is stricter
+// than it sounds: every other owner is still refused, so an accessibility or
+// cost pass that tried to write a rating is rejected the same way it was
+// before. What changed is that one named pass may write it, not that the field
+// became open.
 const NEVER = new Set([
   'id', 'country', 'category', 'tier', 'priority', 'audienceGeography',
   'categories', 'industries', 'languages', 'marketplaceType', 'sellerTypes',
-  'intelligence', 'resourceIdentity', 'domainRating', 'sources',
+  'intelligence', 'resourceIdentity', 'sources',
 ]);
 
 class SafeApplyError extends Error {}

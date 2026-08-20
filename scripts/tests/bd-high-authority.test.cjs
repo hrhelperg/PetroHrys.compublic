@@ -79,24 +79,46 @@ test('readers are told the submission reaches three directories', () => {
 });
 
 // ── Domain Rating is never invented ─────────────────────────────────────────
-test('no new record carries a Domain Rating and the frozen set is untouched', () => {
+// POLICY REVERSAL (2026-08-19). The Domain Rating freeze was lifted by the
+// repository owner: it had been written against the plan-gated Site Explorer
+// endpoint, while /v3/public/domain-rating-free costs nothing and needs only a
+// free key. Every record in this registry, these three included, now carries
+// a reading. The four assertions that pinned the freeze — domainRating null,
+// metricsProvenance {}, metricStatus 'unknown', and the 64-domain / 67-record
+// frozen totals — state the opposite of the fact and are replaced by what they
+// were actually protecting: a rating is never INVENTED, and it describes the
+// record's OWN domain.
+test('no new record invents a Domain Rating', () => {
   for (const r of NEW) {
-    assert.strictEqual(r.domainRating, null, `${r.id} carries a Domain Rating`);
-    assert.deepStrictEqual(r.metricsProvenance, {}, `${r.id} invented metrics provenance`);
-    assert.strictEqual(r.metricStatus, 'unknown', `${r.id} claims a metric status`);
-    // And the absence must be explained to a reader rather than left blank.
-    assert.match(limitsOf(r), /No Domain Rating is published for this platform/,
-      `${r.id} does not tell a reader why no metric is shown`);
+    // domainRatingProblems is the invention guard: it demands the 0-100 scale
+    // AND provenance naming the provider, the date and the domain measured, so
+    // a bare number with no provenance cannot pass it.
+    assert.deepStrictEqual(S.domainRatingProblems(r), [],
+      `${r.id} carries a Domain Rating that is not fully evidenced`);
+    assert.strictEqual(r.metricsProvenance.domainRating.measuredDomain,
+      S.normaliseDomain(r.website),
+      `${r.id} reports a rating measured on a domain that is not its own`);
+    // The absence rule survives, gated rather than deleted: where a record has
+    // no rating the limitation must still say so, so a reader never sees a
+    // blank. None of these three is unmeasured now, so the branch is inert
+    // here and the rule is proved on a fixture below instead.
+    if (r.domainRating === null || r.domainRating === undefined) {
+      assert.match(limitsOf(r), /No Domain Rating is published for this platform/,
+        `${r.id} does not tell a reader why no metric is shown`);
+    }
   }
-  const domains = new Set();
-  let measured = 0;
-  for (const r of ALL) {
-    const p = r.metricsProvenance && r.metricsProvenance.domainRating;
-    if (p && p.measuredDomain) domains.add(p.measuredDomain);
-    if (r.domainRating !== null && r.domainRating !== undefined) measured += 1;
-  }
-  assert.strictEqual(domains.size, 64, 'the frozen measurement set changed size');
-  assert.strictEqual(measured, 67, 'the number of records carrying a Domain Rating changed');
+  // One measured domain has one dated reading. Records that share a domain
+  // repeat it verbatim rather than each carrying a figure of its own.
+  assert.deepStrictEqual(S.sharedDomainSnapshotProblems(ALL), [],
+    'records sharing a measured domain disagree about its reading');
+  // Missing is still not zero. The corpus no longer holds an unmeasured record,
+  // so FIXTURES stand in for the two cases the frozen totals used to cover.
+  assert.deepStrictEqual(S.domainRatingProblems({ domainRating: null, metricsProvenance: {} }), [],
+    'an absent rating is now reported as a fault; absence must stay legal');
+  assert.ok(S.domainRatingProblems({ domainRating: 0, metricsProvenance: {} }).length > 0,
+    'a zero with no provenance passed; that is what "missing rendered as 0" looks like');
+  assert.ok(S.domainRatingProblems({ domainRating: 76, metricsProvenance: {} }).length > 0,
+    'a bare number with no provenance passed; that is what an invented rating looks like');
 });
 
 // ── cost truth ──────────────────────────────────────────────────────────────

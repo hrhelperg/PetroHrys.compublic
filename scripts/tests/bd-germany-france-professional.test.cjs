@@ -17,6 +17,7 @@ const assert = require('node:assert');
 const fs = require('node:fs');
 const path = require('node:path');
 
+const S = require('../lib/bd-schema.cjs');
 const { loadRegistry } = require('../lib/bd-registry.cjs');
 // Publication parity, in place of the per-country totals this suite used to pin.
 const PARITY = require('./helpers/country-parity.cjs');
@@ -209,27 +210,50 @@ test('the two systems on inpi.fr are distinct and both declare it', () => {
 });
 
 // ── Metrics ─────────────────────────────────────────────────────────────────
-test('no new measurement was taken and the reused snapshot is verbatim', () => {
+// POLICY REVERSAL — the Domain Rating collection freeze has been lifted. Three
+// things this test asserted were pins on that freeze and are now false: that no
+// record but the inpi.fr pair carried a rating, that the reused snapshot's
+// status was the literal 'historicalSnapshot', and that exactly 64 domains were
+// measured. Every domain is now read from Ahrefs' free public
+// /v3/public/domain-rating-free endpoint, which carries status
+// 'publicApiReading'. The shared-domain half of this test was never about the
+// freeze and is unchanged: fr-inpi and the CPI list are two records on ONE
+// measured domain, so they must repeat one identical reading.
+test('the two records on inpi.fr repeat one reading, and no rating is invented', () => {
   const reused = byId.get('fr-inpi-conseils-propriete-industrielle');
   const origin = byId.get('fr-inpi');
-  // inpi.fr was already measured, so the rule is to reuse it rather than leave
-  // a null beside a measured domain. Same domain, same measurement — the frozen
-  // 64-measurement set is untouched.
   assert.strictEqual(reused.domainRating, origin.domainRating);
   assert.deepStrictEqual(reused.metricsProvenance.domainRating, origin.metricsProvenance.domainRating);
-  assert.strictEqual(reused.metricsProvenance.domainRating.status, 'historicalSnapshot');
+  // Replaces the pinned 'historicalSnapshot' literal: what matters is that the
+  // status is a recognised measurement status, not one particular frozen value.
+  assert.ok(S.METRIC_PROVENANCE_STATUSES.includes(reused.metricsProvenance.domainRating.status),
+    `the reused snapshot carries an unrecognised measurement status `
+    + `"${reused.metricsProvenance.domainRating.status}"`);
 
   for (const r of NEW) {
-    if (r.id === 'fr-inpi-conseils-propriete-industrielle') continue;
-    assert.strictEqual(r.domainRating, null, `${r.id} carries a Domain Rating it did not inherit`);
-    assert.deepStrictEqual(r.metricsProvenance, {}, `${r.id} invented metrics provenance`);
+    assert.deepStrictEqual(S.domainRatingProblems(r), [], `${r.id} has an unusable Domain Rating`);
+    assert.strictEqual(r.metricsProvenance.domainRating.measuredDomain, S.normaliseDomain(r.website),
+      `${r.id} reports a rating measured on a domain other than its own`);
   }
-  const domains = new Set();
-  for (const r of ALL) {
-    const p = r.metricsProvenance && r.metricsProvenance.domainRating;
-    if (p && p.measuredDomain) domains.add(p.measuredDomain);
-  }
-  assert.strictEqual(domains.size, 64, 'the frozen measurement set changed size');
+  assert.deepStrictEqual(S.sharedDomainSnapshotProblems(ALL), [],
+    'records sharing a measured domain no longer repeat one identical reading');
+  // FIXTURES. The corpus no longer holds an unmeasured record, so "missing is
+  // not zero" is exercised on objects built here rather than dropped.
+  assert.ok(S.domainRatingProblems({ domainRating: 85, metricsProvenance: {} }).length > 0,
+    'a bare number with no provenance must be rejected as an invented metric');
+  assert.ok(S.domainRatingProblems({
+    domainRating: null,
+    metricsProvenance: {
+      domainRating: {
+        provider: 'Ahrefs',
+        measuredAt: '2026-08-19',
+        status: 'publicApiReading',
+        measuredDomain: 'inpi.fr',
+      },
+    },
+  }).length > 0, 'provenance for a rating that is not set must be rejected');
+  assert.deepStrictEqual(S.domainRatingProblems({ domainRating: null, metricsProvenance: {} }), [],
+    'an unmeasured record must be allowed to carry no rating, rather than a zero');
 });
 
 // ── Access ──────────────────────────────────────────────────────────────────

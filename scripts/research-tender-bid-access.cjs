@@ -36,6 +36,7 @@ const os = require('node:os');
 const { spawn } = require('node:child_process');
 const { openPage } = require('./tests/helpers/cdp.cjs');
 const SAFE = require('./lib/rc-safe-apply.cjs');
+const CK = require('./lib/rc-checkpoint.cjs');
 const T = require('./lib/rc-text-match.cjs');
 
 const ROOT = path.resolve(__dirname, '..');
@@ -64,9 +65,16 @@ const CHALLENGE = T.patternMatcher([
 
 // The operator saying participation costs nothing. Deliberately phrase-level:
 // "free" on its own is the single most overloaded word on a procurement site.
-const FREE_PARTICIPATION = T.stemMatcher([
-  'registration is free', 'free registration', 'free of charge', 'free to register',
-  'no registration fee', 'no fee to register', 'no cost to register', 'at no cost',
+// ── PARTICIPATION, STATED IN THE OPERATOR'S OWN WORDS ───────────────────────
+//
+// Phrases, matched on word boundaries. A stem match reads "supplier feedback
+// service" as "supplier fee" and "Platinum membership feedback form" as
+// "membership fee" — which is how Find a Tender and PhilGEPS, the two
+// platforms this phase names as regressions, both came to be recorded as
+// charging suppliers to bid.
+const FREE_PARTICIPATION = T.phraseMatcher([
+  'registration is free', 'free registration', 'free to register',
+  'no registration fee', 'no fee to register', 'no cost to register',
   'no charge to suppliers', 'free for suppliers', 'free supplier registration',
   'submission is free', 'free to submit', 'no subscription required',
   'registrazione gratuita', 'inscripción gratuita', 'registro gratuito',
@@ -76,10 +84,25 @@ const FREE_PARTICIPATION = T.stemMatcher([
   'gratis registratie', 'registrering er gratis',
 ]);
 
+// "Free of charge" and "at no cost" are true of something on almost every
+// government page. NATO's says its broadcast video is free of charge; a German
+// notice service says its search functions are. Neither is a statement about
+// bidding, and both were recorded as free participation. So the generic
+// wording only counts beside the thing it would have to be about.
+const FREE_GENERIC = ['free of charge', 'at no cost', 'kostenfrei', 'costs nothing'];
+const PARTICIPATION_CONTEXT = [
+  'register', 'registration', 'registrieren', 'registrierung', 'supplier',
+  'suppliers', 'tenderer', 'bidder', 'bid', 'submit a tender', 'submit your bid',
+  'respond to a tender', 'participate', 'teilnahme', 'lieferant', 'bieter',
+  'proveedor', 'licitador', 'fournisseur', 'soumissionnaire',
+];
+const FREE_GENERIC_NEAR = T.proximityMatcher(FREE_GENERIC, PARTICIPATION_CONTEXT, 80);
+
 // The operator charging for the account or the submission itself.
-const PAID_PARTICIPATION = T.stemMatcher([
+const PAID_PARTICIPATION = T.phraseMatcher([
   'subscription fee', 'annual subscription', 'registration fee of',
-  'supplier fee', 'membership fee', 'access fee', 'licence fee', 'license fee',
+  'supplier fee', 'supplier fees', 'membership fee', 'membership fees',
+  'access fee', 'access fees', 'licence fee', 'license fee',
   'paid plan', 'pricing plans', 'per year to register', 'fee to submit',
   'cuota de suscripción', 'abonnement payant', 'jahresgebühr', 'teilnahmegebühr',
   'opłata abonamentowa', 'абонентская плата',
@@ -153,7 +176,7 @@ function classify(target, obs) {
   if (obs.status >= 400) return { state: 'DEFER_PROTECTED', why: `http ${obs.status}` };
   if (obs.textLen < MIN_TEXT) return { state: 'UNRESOLVED', why: `only ${obs.textLen} characters rendered` };
 
-  const free = FREE_PARTICIPATION(hay);
+  const free = FREE_PARTICIPATION(hay) || FREE_GENERIC_NEAR(hay);
   const paid = PAID_PARTICIPATION(hay);
   const opportunityLevel = OPPORTUNITY_LEVEL(hay);
 
@@ -191,22 +214,41 @@ function targets() {
       url: r.supplierRegistrationUrl || r.officialUrl,
       onRegistrationPage: Boolean(r.supplierRegistrationUrl),
       searchAccess: r.searchAccess,
+      // Identity, not index: a tender platform is country + host + path,
+      // because one ministry runs several distinct systems on one hostname.
+      key: CK.targetKey('tenders', r),
     }))
     .filter((x) => x.url)
     .sort((a, b) => (b.onRegistrationPage ? 1 : 0) - (a.onRegistrationPage ? 1 : 0)
       || (a.id < b.id ? -1 : 1));
 }
 
+function openLedger() {
+  const ledger = new CK.Ledger(FINDINGS);
+  const byId = new Map(JSON.parse(fs.readFileSync(DATA, 'utf8')).map((r) => [r.id, r]));
+  const moved = CK.backfillKeys(ledger, (f) => (byId.has(f.id) ? CK.targetKey('tenders', byId.get(f.id)) : null));
+  if (moved) console.log(`Gave ${moved} pre-checkpoint finding(s) their canonical identity.`);
+  return ledger;
+}
+
 async function runProbe() {
   if (!CHROME) { console.error('No Chrome on this machine.'); process.exit(1); }
+  const ledger = openLedger();
+  if (ledger.recovered) {
+    console.log(`Recovered ${ledger.recovered} finding(s) from an interrupted run's journal.`);
+  }
   let list = targets();
+  const already = list.filter((t) => ledger.has(t.key)).length;
+  if (!process.argv.includes('--refresh')) list = list.filter((t) => !ledger.has(t.key));
   const limit = arg('--limit');
   if (limit) list = list.slice(0, Number(limit));
-  console.log(`Tender bid access: ${list.length} active platform(s) `
-    + `(${list.filter((x) => x.onRegistrationPage).length} with a supplier registration page).`);
+  console.log(`Tender bid access: ${list.length} platform(s) to visit `
+    + `(${already} already answered, ${ledger.size()} finding(s) on disk, `
+    + `${list.filter((x) => x.onRegistrationPage).length} with a supplier registration page).`);
+  if (!list.length) { report(ledger.all()); return; }
 
+  CK.onInterrupt(ledger, 'Tender bid access');
   const chrome = await startChrome();
-  const findings = [];
   const queue = list.slice();
   let done = 0;
   const worker = async () => {
@@ -215,7 +257,7 @@ async function runProbe() {
       if (!target) return;
       // eslint-disable-next-line no-await-in-loop
       const obs = await probe(chrome.wsUrl, target);
-      findings.push({
+      ledger.record({
         ...target,
         observed: {
           status: obs.status, finalUrl: obs.url || null, title: obs.title || null,
@@ -229,25 +271,16 @@ async function runProbe() {
       await new Promise((r) => { setTimeout(r, PACE_MS); });
     }
   };
-  await Promise.all(Array.from({ length: CONCURRENCY }, worker));
-  chrome.proc.kill('SIGKILL');
-
-  let merged = findings;
-  if (fs.existsSync(FINDINGS)) {
-    const prior = JSON.parse(fs.readFileSync(FINDINGS, 'utf8')).findings || [];
-    if (prior.length) {
-      const fresh = new Map(findings.map((f) => [f.id, f]));
-      merged = prior.map((f) => fresh.get(f.id) || f)
-        .concat(findings.filter((f) => !prior.some((p) => p.id === f.id)));
-    }
+  try {
+    await Promise.all(Array.from({ length: CONCURRENCY }, worker));
+  } finally {
+    chrome.proc.kill('SIGKILL');
+    const kept = ledger.compact({ probedAt: new Date().toISOString().slice(0, 10) });
+    console.log(`${kept} finding(s) on disk.`);
+    try { fs.rmSync(chrome.profile, { recursive: true, force: true }); } catch { /* reaped */ }
   }
-  merged.sort((a, b) => (a.id < b.id ? -1 : 1));
-  fs.writeFileSync(FINDINGS, `${JSON.stringify({
-    probedAt: new Date().toISOString().slice(0, 10), findings: merged,
-  }, null, 1)}\n`);
-  report(merged);
+  report(ledger.all());
   console.log('Nothing merged — rerun with --apply.');
-  try { fs.rmSync(chrome.profile, { recursive: true, force: true }); } catch { /* reaped */ }
 }
 
 function report(findings) {
@@ -266,7 +299,8 @@ function report(findings) {
 }
 
 function runRejudge() {
-  const file = JSON.parse(fs.readFileSync(FINDINGS, 'utf8'));
+  const ledger = openLedger();
+  const file = { findings: ledger.all() };
   let moved = 0;
   const rejudged = file.findings.map((f) => {
     const o = f.observed || {};
@@ -280,24 +314,47 @@ function runRejudge() {
     const { state, bidAccess, why, opportunityLevel, ...rest } = f;
     return { ...rest, ...v };
   });
-  fs.writeFileSync(FINDINGS, `${JSON.stringify({ ...file, findings: rejudged }, null, 1)}\n`);
+  for (const f of rejudged) ledger.byKey.set(f.key, f);
+  ledger.compact();
   console.log(`Re-judged from stored evidence: ${moved} verdict(s) changed.`);
   report(rejudged);
 }
 
 function runApply() {
-  const { probedAt, findings } = JSON.parse(fs.readFileSync(FINDINGS, 'utf8'));
+  const ledger = openLedger();
+  ledger.compact();
+  const { probedAt = 'unknown' } = ledger.meta;
+  const findings = ledger.all();
   const rows = JSON.parse(fs.readFileSync(DATA, 'utf8'));
   const before = JSON.parse(JSON.stringify(rows));
   const byId = new Map(rows.map((r) => [r.id, r]));
   const tally = { free: 0, paid: 0, mixed: 0, left: 0 };
 
+  // RECLASSIFICATION REPLACES. An applier that only writes forward makes a
+  // wrong finding permanent: correcting the classifier moved four platforms
+  // off their verdicts — NATO's free video downloads, a German notice service's
+  // free search, and PhilGEPS and Find a Tender, which had been recorded as
+  // charging suppliers because "membership fee" and "supplier fee" are inside
+  // "membership feedback" and "supplier feedback" — and every one of them kept
+  // the fact it no longer earned.
+  const OURS = new Set(['free', 'paid', 'mixed']);
   for (const f of findings) {
     const r = byId.get(f.id);
-    if (!r || !f.bidAccess) { tally.left += 1; continue; }
-    if (f.state !== 'ESTABLISHED' && f.state !== 'DEFER_MIXED') { tally.left += 1; continue; }
-    SAFE.applyPatch(r, { bidAccess: f.bidAccess }, { owner: 'cost', collection: 'tenders' });
-    tally[f.bidAccess] = (tally[f.bidAccess] || 0) + 1;
+    if (!r) { tally.left += 1; continue; }
+    const earned = f.bidAccess && (f.state === 'ESTABLISHED' || f.state === 'DEFER_MIXED')
+      ? f.bidAccess : null;
+    if (!earned) {
+      if (OURS.has(r.bidAccess) && /^DEFER|^UNRESOLVED/.test(f.state || '')) {
+        SAFE.applyPatch(r, { bidAccess: undefined }, { owner: 'cost', collection: 'tenders' });
+        delete r.bidAccess;
+        tally.cleared = (tally.cleared || 0) + 1;
+      } else {
+        tally.left += 1;
+      }
+      continue;
+    }
+    SAFE.applyPatch(r, { bidAccess: earned }, { owner: 'cost', collection: 'tenders' });
+    tally[earned] = (tally[earned] || 0) + 1;
   }
 
   SAFE.assertNoDeletion(before, rows);
@@ -322,6 +379,6 @@ module.exports = {
 if (require.main === module) {
   if (process.argv.includes('--apply')) runApply();
   else if (process.argv.includes('--rejudge')) runRejudge();
-  else if (process.argv.includes('--report')) report(JSON.parse(fs.readFileSync(FINDINGS, 'utf8')).findings);
+  else if (process.argv.includes('--report')) report(openLedger().all());
   else runProbe().catch((e) => { console.error(e); process.exit(1); });
 }

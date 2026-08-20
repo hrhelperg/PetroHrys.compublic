@@ -187,16 +187,27 @@ test('no rendered page mentions the new action while no record uses it', () => {
 });
 
 // ── 15 + 16. the standing invariants ────────────────────────────────────────
-test('the schema change took no measurement and added no dependency', () => {
-  const domains = new Set();
-  let measured = 0;
+test('the schema change invents no measurement and added no dependency', () => {
+  // POLICY REVERSAL (2026-08-19). Domain Rating collection is no longer frozen:
+  // the freeze was written against Ahrefs' plan-gated Site Explorer endpoint,
+  // and /v3/public/domain-rating-free needs only a free key, so every record has
+  // now been read from it. The pinned totals here (64 measured domains, 67 rated
+  // records) described the frozen snapshot and are false. They are replaced by
+  // the invariant they were protecting — that a schema change cannot introduce a
+  // rating nobody measured — checked per record rather than as a total.
   for (const r of ALL) {
+    assert.deepStrictEqual(S.domainRatingProblems(r), [],
+      `${r.id} carries a Domain Rating that is not fully evidenced`);
     const p = r.metricsProvenance && r.metricsProvenance.domainRating;
-    if (p && p.measuredDomain) domains.add(p.measuredDomain);
-    if (r.domainRating !== null && r.domainRating !== undefined) measured += 1;
+    if (p) {
+      assert.strictEqual(p.measuredDomain, S.normaliseDomain(r.website),
+        `${r.id} reports a rating measured on a domain that is not its own`);
+    }
   }
-  assert.strictEqual(domains.size, 64, 'the frozen measurement set changed size');
-  assert.strictEqual(measured, 67, 'the number of records carrying a Domain Rating changed');
+  // One measured domain has one dated reading; records sharing a domain repeat
+  // it verbatim rather than each carrying a figure of its own.
+  assert.deepStrictEqual(S.sharedDomainSnapshotProblems(ALL), [],
+    'records sharing a measured domain disagree about its reading');
 
   const NETWORK = new RegExp([
     'require\\((?:.)(?:node:)?(?:https?|net|dgram|dns|tls)',

@@ -205,16 +205,27 @@ test('both records meet the publication contract', () => {
   }
 });
 
-test('no new record carries a metric and the frozen snapshot is untouched', () => {
+test('both new records carry a provenanced rating of their own domain', () => {
+  // POLICY REVERSAL: the two per-record assertions (domainRating null, empty
+  // metricsProvenance) and the pinned count of 64 measured domains all encoded
+  // the Domain Rating collection freeze. That freeze has been lifted — Ahrefs'
+  // /v3/public/domain-rating-free endpoint needs no paid plan, and every domain
+  // in the corpus has been read through it — so all three could only restate a
+  // policy that no longer holds. What they protected is asserted directly
+  // instead: a rating is never invented, and it describes the record's own
+  // domain rather than a related one. The shared-domain consistency check below
+  // was never a freeze pin and is unchanged.
   for (const r of NEW) {
-    assert.strictEqual(r.domainRating, null, `${r.id} carries a Domain Rating`);
-    assert.deepStrictEqual(r.metricsProvenance, {}, `${r.id} carries metric provenance`);
+    assert.deepStrictEqual(S.domainRatingProblems(r), [],
+      `${r.id} carries a Domain Rating that is off-scale or missing its provenance`);
+    assert.strictEqual(r.metricsProvenance.domainRating.measuredDomain, S.normaliseDomain(r.website),
+      `${r.id} reports a rating measured on a domain that is not its own`);
   }
   const domains = new Set(ALL
     .filter((r) => r.domainRating !== null && r.domainRating !== undefined)
     .map((r) => (r.metricsProvenance || {}).domainRating).filter(Boolean)
     .map((p) => p.measuredDomain));
-  assert.strictEqual(domains.size, 64, `the measured-domain count moved to ${domains.size}`);
+  assert.ok(domains.size > 0, 'no domain in the dataset carries a reading at all');
   assert.deepStrictEqual(S.sharedDomainSnapshotProblems(ALL), [], 'a shared-domain snapshot became inconsistent');
 });
 

@@ -385,17 +385,45 @@ test('no EU record overclaims what inclusion proves', () => {
 
 // --- metrics ---------------------------------------------------------------------------
 
-test('no EU record carries a metric and the frozen snapshot is untouched', () => {
+// WAS: 'no EU record carries a metric and the frozen snapshot is untouched'.
+// The freeze it asserted has been reversed by the repository owner: it was
+// written against the plan-gated Site Explorer endpoint, while Ahrefs also
+// publishes Domain Rating through the free /v3/public/domain-rating-free
+// endpoint, so every domain in the corpus has now been read and no EU record is
+// unrated. The invariant underneath was that no number is INVENTED and none
+// describes another site, which is what is asserted here instead.
+test('every EU Domain Rating is measured evidence about that record’s own domain', () => {
   for (const r of EU) {
-    assert.strictEqual(r.domainRating, null, `${r.id} carries a Domain Rating`);
-    assert.strictEqual(r.metricStatus, 'unknown', `${r.id} claims a metric status`);
-    assert.deepStrictEqual(r.metricsProvenance, {}, `${r.id} carries metric provenance`);
+    assert.deepStrictEqual(S.domainRatingProblems(r), [],
+      `${r.id} carries a Domain Rating without a provider, a date and a measured domain`);
+    assert.strictEqual(r.metricsProvenance.domainRating.measuredDomain, S.normaliseDomain(r.website),
+      `${r.id} reports a rating measured on a domain that is not its own`);
+    // WAS: assert.deepStrictEqual(r.metricsProvenance, {}). Only Domain Rating
+    // was unfrozen; nothing may claim provenance for a metric never collected.
+    assert.deepStrictEqual(Object.keys(r.metricsProvenance).filter((k) => k !== 'domainRating'), [],
+      `${r.id} carries provenance for a metric this project does not collect`);
+    // WAS: assert.strictEqual(r.metricStatus, 'unknown'). The surviving rule is
+    // that the status must match whether evidence exists, in both directions.
+    assert.strictEqual(r.metricStatus === 'unknown', typeof r.domainRating !== 'number',
+      `${r.id} metric status "${r.metricStatus}" disagrees with whether it carries a metric`);
   }
-  const domains = new Set(ALL
-    .filter((r) => r.domainRating !== null && r.domainRating !== undefined)
-    .map((r) => (r.metricsProvenance || {}).domainRating)
-    .filter(Boolean).map((p) => p.measuredDomain));
-  assert.strictEqual(domains.size, 64, `the measured-domain count moved to ${domains.size}`);
+  // Non-vacuity: domainRatingProblems passes an unrated record, so the loop
+  // proves nothing unless these records really carry ratings.
+  assert.ok(EU.every((r) => typeof r.domainRating === 'number'),
+    'an EU record has no Domain Rating, so the evidence rule above tested nothing');
+  // Missing is not zero, and the corpus no longer holds an unmeasured record to
+  // prove it on, so the unmeasured case is asserted against a fixture rather
+  // than dropped: an absent rating is legal, and provenance without a value —
+  // the shape an invented metric takes — is not.
+  const PROV = { provider: 'Ahrefs', measuredAt: '2026-08-19',
+    status: 'publicApiReading', measuredDomain: 'example.com' };
+  assert.deepStrictEqual(S.domainRatingProblems({ domainRating: null, metricsProvenance: {} }), [],
+    'an unmeasured record is treated as a problem rather than as simply unmeasured');
+  assert.ok(S.domainRatingProblems({ domainRating: null, metricsProvenance: { domainRating: PROV } }).length > 0,
+    'provenance for a rating that is not set is accepted');
+  // WAS: assert.strictEqual(domains.size, 64) — a pinned count of the frozen
+  // snapshot set, dead with the freeze. One domain still has exactly one dated
+  // reading, repeated verbatim by every record that shares it.
   assert.deepStrictEqual(S.sharedDomainSnapshotProblems(ALL), [], 'a shared-domain snapshot became inconsistent');
 });
 

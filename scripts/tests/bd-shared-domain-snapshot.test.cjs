@@ -252,8 +252,14 @@ test('the shipped registry holds exactly one snapshot per measured domain', () =
 });
 
 test('the public wording says the rating describes the domain, not the page', () => {
-  assert.match(S.DR_SNAPSHOT_POLICY_NOTE, /historical Ahrefs snapshots/);
-  assert.match(S.DR_SNAPSHOT_POLICY_NOTE, /New measurements are not collected/);
+  // The claim about COLLECTION changed when the freeze lifted. The claim this
+  // test exists for did not: a reader looking at one record among six on a
+  // shared domain must be told the number is the domain's, or they will read it
+  // as a verdict on the page in front of them.
+  assert.match(S.DR_SNAPSHOT_POLICY_NOTE, /measured by Ahrefs/);
   assert.match(S.DR_SNAPSHOT_POLICY_NOTE,
-    /dated historical measurement of the shared domain, not an assessment of this individual registry page/);
+    /describes the whole domain that was measured, not the individual page it appears beside/);
+  assert.match(S.DR_SNAPSHOT_POLICY_NOTE,
+    /repeat that domain’s single dated reading rather than each carrying a figure of its own/);
+  assert.match(S.DR_SNAPSHOT_POLICY_NOTE, /not the same as a record measured at zero/);
 });

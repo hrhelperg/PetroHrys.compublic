@@ -371,24 +371,52 @@ test('the Bizify contradiction is published rather than resolved silently', () =
 });
 
 // ── 14. metrics ─────────────────────────────────────────────────────────────
-test('no new record carries a metric and the frozen snapshot is untouched', () => {
+test('every new record carries a provenanced rating of its own domain, and no other metric', () => {
+  // POLICY REVERSAL: this test asserted domainRating null, an empty
+  // metricsProvenance and metricStatus 'unknown' across all eight records, then
+  // pinned the frozen corpus at 64 measured domains and 67 rating-carrying
+  // records. Domain Rating collection is no longer frozen — the policy was
+  // written against Ahrefs' plan-gated Site Explorer endpoint, while
+  // /v3/public/domain-rating-free costs nothing and needs only a free key — and
+  // every domain in the corpus has now been read. Those five assertions could
+  // only ever restate the freeze, and the two pinned counts were the freeze
+  // itself.
+  //
+  // The three metrics that were never collected still are not, so those
+  // assertions are unchanged. Replacing the Domain Rating pins is what they were
+  // really protecting: a rating is never invented, it describes the record's own
+  // domain, and one domain holds one reading that every record on it repeats.
   for (const r of NEW) {
-    assert.strictEqual(r.domainRating, null, `${r.id} carries a Domain Rating`);
     assert.strictEqual(r.authorityScore, null, `${r.id} carries an authority score`);
     assert.strictEqual(r.estimatedTraffic, null, `${r.id} carries a traffic estimate`);
     assert.strictEqual(r.referringDomains, null, `${r.id} carries a referring-domain count`);
-    assert.deepStrictEqual(r.metricsProvenance, {}, `${r.id} invented metrics provenance`);
-    assert.strictEqual(r.metricStatus, 'unknown', `${r.id} claims a metric status`);
+    assert.deepStrictEqual(S.domainRatingProblems(r), [],
+      `${r.id} carries a Domain Rating that is off-scale or missing its provenance`);
+    assert.strictEqual(r.metricsProvenance.domainRating.measuredDomain, S.normaliseDomain(r.website),
+      `${r.id} reports a rating measured on a domain that is not its own`);
   }
-  const domains = new Set();
-  let measured = 0;
+  // Corpus-wide, in place of the pinned 64 / 67: every rating in the dataset is
+  // usable, and records sharing a measured domain repeat one identical reading
+  // rather than publishing two contradictory facts about one domain.
   for (const r of ALL) {
-    const p = r.metricsProvenance && r.metricsProvenance.domainRating;
-    if (p && p.measuredDomain) { domains.add(p.measuredDomain); }
-    if (r.domainRating !== null && r.domainRating !== undefined) measured += 1;
+    assert.deepStrictEqual(S.domainRatingProblems(r), [], `${r.id} carries an unusable Domain Rating`);
   }
-  assert.strictEqual(domains.size, 64, 'the frozen measurement set changed size');
-  assert.strictEqual(measured, 67, 'the number of records carrying a Domain Rating changed');
+  assert.deepStrictEqual(S.sharedDomainSnapshotProblems(ALL), [],
+    'a shared measured domain reports more than one reading');
+  // Missing is still not zero, and the corpus no longer holds an unmeasured
+  // record to show it with — so the distinction is held against record-shaped
+  // fixtures built here rather than deleted along with the freeze.
+  const provenance = {
+    provider: 'Ahrefs', measuredAt: '2026-08-19', status: 'publicApiReading', measuredDomain: 'example.com',
+  };
+  assert.deepStrictEqual(S.domainRatingProblems({ domainRating: null, metricsProvenance: {} }), [],
+    'an unmeasured record — no rating and no provenance — is no longer a legal shape');
+  assert.deepStrictEqual(S.domainRatingProblems({ domainRating: 0, metricsProvenance: { domainRating: provenance } }), [],
+    'a measured 0 is refused, which would force an absence to be published as a zero');
+  assert.ok(S.domainRatingProblems({ domainRating: 73, metricsProvenance: {} }).length > 0,
+    'a bare number with no provenance is accepted, which is what an invented metric looks like');
+  assert.ok(S.domainRatingProblems({ domainRating: null, metricsProvenance: { domainRating: provenance } }).length > 0,
+    'provenance is accepted for a rating that is not set');
 });
 
 // ── 16. no network or API dependency ────────────────────────────────────────

@@ -11,9 +11,14 @@ const make = (name, over = {}) => ({
   estimatedTraffic: null, ...over,
 });
 
-test('exposes exactly the five specified sort keys', () => {
+test('exposes exactly the specified sort keys, in order', () => {
+  // Two arrived with Domain Rating collection: an ascending direction, and an
+  // order-preserving key for the three collections that had no sort control at
+  // all. The list is pinned rather than counted because these are URL values —
+  // a renamed key silently breaks every shared link that carries it.
   assert.deepStrictEqual(SORT_KEYS,
-    ['default', 'domain-rating', 'authority-score', 'traffic', 'alphabetical']);
+    ['default', 'as-published', 'domain-rating', 'domain-rating-asc',
+      'authority-score', 'traffic', 'alphabetical']);
 });
 
 test('default sort orders by PetroHrys Score descending', () => {

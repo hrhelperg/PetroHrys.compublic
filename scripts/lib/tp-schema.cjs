@@ -55,6 +55,8 @@
 // of dead, and it never on its own justifies publishing the record at all.
 
 const fs = require('node:fs');
+// For the shared Domain Rating rule.
+const BD = require('./bd-schema.cjs');
 const ISO = require('./iso-3166-2.cjs');
 
 class TenderPlatformError extends Error {}
@@ -371,7 +373,15 @@ function problemsFor(row, knownCountries) {
   }
 
   // No invented procurement intelligence, ever (PART 35).
-  for (const banned of ['score', 'tenderScore', 'domainRating', 'traffic', 'authorityScore',
+  //
+  // `domainRating` left this list when Domain Rating collection was unfrozen,
+  // and it is the one entry that never belonged with the others: the rest are
+  // numbers this project would have had to make up, while a Domain Rating is a
+  // measurement somebody else took and published. It is admitted under the
+  // shared rule below, which demands the scale and the provenance; everything
+  // still listed here remains forbidden outright.
+  for (const [field, reason] of BD.domainRatingProblems(row)) at(field, reason);
+  for (const banned of ['score', 'tenderScore', 'traffic', 'authorityScore',
     'contractValue', 'bidderCount', 'winRate', 'tenderCount']) {
     if (row[banned] !== undefined && row[banned] !== null) {
       at(banned, 'may not be set: this dataset takes no measurements and estimates no procurement metrics.');

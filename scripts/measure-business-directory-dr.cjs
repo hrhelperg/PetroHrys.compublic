@@ -2,14 +2,23 @@
 // scripts/measure-business-directory-dr.cjs
 'use strict';
 
-// RETIRED — NOT PART OF ANY ACTIVE WORKFLOW.
+// SUPERSEDED — NOT PART OF ANY ACTIVE WORKFLOW.
 //
-// This utility recorded Ahrefs Domain Rating snapshots into the registry. As of
-// the open-source data policy (2026-08-04) the Research Center collects no
-// metric that requires a paid account, an API subscription or a mandatory
-// credential, and the Ahrefs endpoint below becomes key-mandatory on 2026-08-10.
-// Collection is therefore frozen: the 64 snapshots already in the dataset stay
-// exactly as measured, as dated historical values, and no new ones are taken.
+// Use scripts/research-domain-rating.cjs instead. It asks the same free public
+// endpoint this file asks, and does three things this one cannot: it covers all
+// five record sets rather than the Business Directories registry alone, it
+// checkpoints every reading as it arrives so an interrupted run keeps what it
+// learned, and it separates asking from writing, so a bad pass is a deleted
+// scratch file rather than a git recovery.
+//
+// This file was RETIRED on 2026-08-04 under an open-source data policy — the
+// Research Center collects no metric requiring a paid account or an API
+// subscription — and that policy has since been lifted, because it was written
+// against the plan-gated Site Explorer endpoint rather than the free public one
+// below. See the note in scripts/lib/bd-schema.cjs.
+//
+// It is kept, still refusing to run without an explicit override, so the
+// provenance of the original 64 readings remains reproducible.
 //
 // The file is kept, not deleted, so the provenance of those 64 values remains
 // reproducible and auditable. It refuses to run without an explicit override

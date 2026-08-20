@@ -22,7 +22,10 @@ const E = require(path.join(ROOT, 'scripts/lib/dp-engine.cjs'));
 const page = (title, head, over = {}) => ({
   title, head, h1: [], textLen: 3000, url: 'https://x.test/a', status: 200, error: null, ...over,
 });
-const target = { url: 'https://x.test/a', website: 'https://x.test/' };
+// An action page: the url differs from the website, which is what onRoute
+// means. The field arrived after this fixture did, and without it these reads
+// were judged by the stricter homepage rule and stopped matching.
+const target = { url: 'https://x.test/a', website: 'https://x.test/', onRoute: true };
 const mp = (over = {}) => ({
   id: 'mp-x', name: 'X', website: 'https://x.test/', country: 'spain',
   marketplaceType: 'services', sellerTypes: 'both', costModel: 'unknown',
@@ -30,6 +33,15 @@ const mp = (over = {}) => ({
 });
 
 // ── FREE IS NOT ONE FACT ────────────────────────────────────────────────────
+
+// A homepage read, which is how the remaining unknown cohort is researched:
+// no action page, so nothing about the surrounding text can be assumed.
+function classifyHome(head) {
+  return F.classify(
+    { collection: 'directories', id: 'x', country: 'peru', url: 'https://x.test/', onRoute: false },
+    { title: '', h1: [], head, textLen: 3000, url: 'https://x.test/', status: 200, error: null },
+  );
+}
 
 test('a fee only on a completed sale is not an upfront cost', () => {
   const v = F.classify(target, page('Sell', 'No listing fee. We take a 5% commission when it sells.'));
@@ -179,8 +191,15 @@ test('unknown cost under a free-only budget is a caveat, not a silent free claim
   assert.ok(unknown.length > 1000,
     `only ${unknown.length} directories remain unknown; something was filled in wholesale`);
   const free = rows.filter((r) => r.submissionModel === 'free');
-  assert.ok(free.length > 100 && free.length < unknown.length,
-    'the free cohort is either empty or implausibly large');
+  // The floor used to be 100 and the cohort is now 72. That is not a
+  // regression: tightening the classifier withdrew 133 costs whose evidence
+  // turned out to be free delivery, free admission, a school-meals programme
+  // and free registration. A floor set to yesterday's number would have made
+  // the correction look like a failure and pressured the next pass to refill
+  // it. What the assertion is actually for is that neither extreme happened —
+  // nothing filled the corpus in wholesale, and the free cohort is not empty.
+  assert.ok(free.length > 25 && free.length < unknown.length,
+    `the free cohort is either empty or implausibly large: ${free.length}`);
 });
 
 test('the research ledger records a terminal state for every candidate', () => {
@@ -363,4 +382,326 @@ test('cost research cannot set accessibility in any collection', () => {
     () => SAFE.applyPatch({ id: 'x' }, { listingAction: 'create' }, { owner: 'cost', collection: 'directories' }),
     /owns only/,
   );
+});
+
+// ── A FREE WORD IS NOT A FREE LISTING ───────────────────────────────────────
+//
+// The 1093 records left in the unknown cohort have no action page, so their
+// price question is asked on a homepage — and a homepage says "free" about
+// almost everything except listing. These four are the first four accepts from
+// that cohort, and all four were wrong.
+
+test('free delivery is not free listing', () => {
+  const v = classifyHome('Disfruta de envíos gratis por semanas! Para tus primeros pedidos en Restaurantes');
+  assert.equal(v.state, 'DEFER_COST_UNKNOWN',
+    'a shopper promotion was read as a free business listing');
+});
+
+test('free admission to an exhibition is not free listing', () => {
+  const v = classifyHome('Free entry for the public Salon de time represents the heights of industry acclaim');
+  assert.equal(v.state, 'DEFER_COST_UNKNOWN');
+});
+
+test('a programme whose name contains "free" is not a price', () => {
+  // "Makan Bergizi Gratis" is Indonesia's free school-meals programme, and the
+  // sentence around it — "become an official supplier" — is exactly the shape
+  // of a genuine free-to-sell offer. Proximity alone cannot tell them apart.
+  const v = classifyHome('Jadi supplier resmi dari program Makan Bergizi Gratis Semua Kategori Agriculture');
+  assert.equal(v.state, 'DEFER_COST_UNKNOWN',
+    'a government meals programme was read as a free listing offer');
+});
+
+test('free registration is excluded in every language, not just English', () => {
+  for (const [wording, language] of [
+    ['Δωρεάν Εγγραφή Είσοδος Βρίσκω Εφημερεύοντα Φαρμακεία', 'Greek'],
+    ['Kostenlos registrieren und sofort loslegen', 'German'],
+    ['Darmowa rejestracja w serwisie', 'Polish'],
+    ['Cadastro gratuito para começar', 'Portuguese'],
+    ['Ücretsiz kayıt olun ve başlayın', 'Turkish'],
+  ]) {
+    assert.equal(classifyHome(wording).state, 'DEFER_COST_UNKNOWN',
+      `${language}: free registration was read as a free service`);
+  }
+});
+
+test('free wording still counts when it is about the action', () => {
+  // The rule must not have been tightened into uselessness.
+  for (const [wording, language] of [
+    ['Publica tu anuncio gratis y vende rápido en nuestro portal', 'Spanish'],
+    ['Add your business for free and reach new customers', 'English'],
+    ['Firmeneintrag kostenlos hinzufügen', 'German'],
+    ['Dodaj ogłoszenie za darmo', 'Polish'],
+  ]) {
+    assert.equal(classifyHome(wording).state, 'ACCEPT_FREE_TRUSTED',
+      `${language}: a genuine free listing offer was refused`);
+  }
+});
+
+test('proximity is a window, not a page', () => {
+  const T = require(require('node:path').join(ROOT, 'scripts/lib/rc-text-match.cjs'));
+  const near = T.proximityMatcher(['gratis'], ['anuncio']);
+  assert.ok(near('Publica tu anuncio gratis'));
+  // The same two words, far apart, are two unrelated statements.
+  assert.ok(!near(`anuncio${' x'.repeat(400)} gratis`),
+    'two words 800 characters apart were read as one claim');
+});
+
+// ── STRUCTURED TRUTH AND VISIBLE PROSE MUST AGREE ───────────────────────────
+
+test('no record says one thing about price in prose and another in its field', () => {
+  // A cost classification that changes leaves the curated description behind:
+  // the field says paid, the sentence a reader sees still says free listings.
+  // The cost owner cannot edit prose — deliberately — so the only defence is
+  // noticing when the two disagree.
+  const T = require(require('node:path').join(ROOT, 'scripts/lib/rc-text-match.cjs'));
+  const FREE_CLAIM = T.stemMatcher(['free listing', 'free to list', 'no cost to list',
+    'costs nothing', 'free submission', 'offers a free']);
+  const PAID_CLAIM = T.stemMatcher(['paid only', 'paid-only', 'subscription required',
+    'listing fee', 'paid listing']);
+  // "there is no free submission" contains "free submission" and means its
+  // opposite. A matcher that cannot see the negation reports the one honest
+  // record in the corpus as the contradiction.
+  const denegate = (s) => T.normalize(s)
+    .replace(/\b(?:there is |there are )?no (?:free|cost-free)\b/g, ' ')
+    .replace(/\bnot free\b/g, ' ')
+    .replace(/\bkein(?:e|en)? kostenlos\w*/g, ' ');
+  const FREEISH = new Set(['free', 'freemium', 'free-tier', 'free-listing-commission']);
+  const PAIDISH = new Set(['paid', 'paid-upfront']);
+
+  const bad = [];
+  for (const [file, fields, costField] of [
+    ['data/business-directories/opportunities.json', ['note'], 'submissionModel'],
+    ['data/marketplaces/marketplaces.json', ['note'], 'sellerCost'],
+    ['data/media-pr-publishing/media-platforms.json', ['shortNote', 'limitations'], 'costModel'],
+  ]) {
+    for (const r of JSON.parse(fs.readFileSync(path.join(ROOT, file), 'utf8'))) {
+      const prose = denegate(fields.map((f) => r[f] || '').join(' '));
+      const v = r[costField];
+      if (FREE_CLAIM(prose) && PAIDISH.has(v)) bad.push(`${r.id}: prose says free, field says ${v}`);
+      if (PAID_CLAIM(prose) && FREEISH.has(v)) bad.push(`${r.id}: prose says paid, field says ${v}`);
+    }
+  }
+  assert.deepEqual(bad, [], `structured cost disagrees with what a reader is shown:\n  ${bad.join('\n  ')}`);
+});
+
+test('the cost owner cannot rewrite a curated description', () => {
+  // The reason the audit above is needed rather than an auto-repair: a pass
+  // that could edit prose would have rewritten 62 human descriptions, which is
+  // exactly what the media pass did before field ownership existed.
+  const SAFE = require(path.join(ROOT, 'scripts/lib/rc-safe-apply.cjs'));
+  for (const [collection, field] of [
+    ['directories', 'note'], ['media', 'shortNote'], ['media', 'limitations'],
+    ['marketplaces', 'note'], ['directories', 'name'],
+  ]) {
+    assert.throws(
+      () => SAFE.applyPatch({ id: 'x' }, { [field]: 'rewritten' }, { owner: 'cost', collection }),
+      /owns only/,
+      `cost research can write ${collection}.${field}`,
+    );
+  }
+});
+
+// ── A PRICE ON THE PAGE IS NOT THE PRICE OF THE ACTION ──────────────────────
+//
+// The paid side had the same disease as the free side, and worse: a classifieds
+// homepage is made of prices, none of which is the listing fee. Thirteen of
+// eighteen sampled paid verdicts were somebody else's money.
+
+const classifyRoute = (head) => F.classify(
+  { collection: 'directories', id: 'x', country: 'x', url: 'https://x.test/list', onRoute: true },
+  { title: '', h1: [], head, textLen: 3000, url: 'https://x.test/list', status: 200, error: null },
+);
+
+test('an audience statistic is not a subscription', () => {
+  for (const [wording, what] of [
+    ['nearly 3 million visitors per month look for a local provider', 'traffic'],
+    ['over 4 billion references per year supercharge your prospect', 'references'],
+    ['900 million per month active users of microsoft ai features', 'users'],
+  ]) {
+    assert.notEqual(classifyRoute(wording).state, 'REJECT_PAID_ONLY',
+      `a ${what} figure was read as a price`);
+  }
+});
+
+test('a price needs money beside it, not just a period word', () => {
+  // The discriminator that separates "$29.95/month" from "50,000 leads per
+  // month" is whether an amount in some currency sits next to the period.
+  assert.equal(classifyRoute('enjoy full benefits for $29.95/month unparalleled seo').state,
+    'REJECT_PAID_ONLY');
+  assert.notEqual(classifyRoute('access 50,000+ leads per month and reach new customers').state,
+    'REJECT_PAID_ONLY');
+});
+
+test('a car, a course and an apartment are not listing fees', () => {
+  for (const [wording, what] of [
+    ['2027 hyundai ioniq 3 electric car could start from $40,000 in australia', 'a car'],
+    ['university canada west postgraduate 2 year usd 16133 per year bachelor', 'tuition'],
+    ['colombo apartment rentals rs 1,673,000 /month 10 hours featured', 'rent'],
+    ['nebenjobs und aushilfsjobs für 450 euro/monat gibt es in allen branchen', 'a salary'],
+  ]) {
+    assert.notEqual(classifyHome(wording).state, 'REJECT_PAID_ONLY',
+      `${what} was read as the cost of listing`);
+  }
+});
+
+test('a denial of a fee is not a fee', () => {
+  for (const wording of [
+    'campspot is free to use - no membership required explore the latest deals',
+    'shopping and professional services, no listing fee, fast and reliable shipping',
+    'hear about your brand the moment it is said - no separate subscription required',
+  ]) {
+    assert.notEqual(classifyRoute(wording).state, 'REJECT_PAID_ONLY',
+      'a platform stating it charges nothing was recorded as charging');
+  }
+});
+
+test('a premium tier is evidence of a free tier, not of paid-only', () => {
+  for (const wording of [
+    'choose between free or premium listing plans based on your growth goals',
+    'get listed become a sponsor premium listing promotion badges and logos',
+    'property for rent (0) new project (3) premium listings view more featured',
+  ]) {
+    assert.notEqual(classifyHome(wording).state, 'REJECT_PAID_ONLY',
+      'an upsell was read as proof the base listing costs money');
+  }
+});
+
+test('a news story about a paid programme is not the platform’s own price', () => {
+  assert.notEqual(
+    classifyHome("walmart+, the retailer's paid membership program, has launched in canada").state,
+    'REJECT_PAID_ONLY');
+});
+
+// ── COMMISSION ──────────────────────────────────────────────────────────────
+
+test('a buyer’s guarantee is not a seller’s commission', () => {
+  // "Only pay when you're happy" is Fiverr reassuring a buyer, and it made the
+  // platform free-to-list-with-commission.
+  const v = classifyHome('get quality work done quickly and within budget only pay when you are happy join now');
+  assert.notEqual(v.cost, 'free-listing-commission');
+});
+
+test('a job advert’s salary is not the platform’s pricing', () => {
+  const v = classifyHome('retail executive kuala lumpur full time sales commission, basic pay include commission and incentive');
+  assert.notEqual(v.cost, 'free-listing-commission',
+    'a salary line on a jobs board became the platform’s fee model');
+});
+
+test('"no commission rates" means no commission', () => {
+  const v = classifyHome('showcase your reviews. no commission rates - never pay for your leads from us');
+  assert.notEqual(v.cost, 'free-listing-commission',
+    'a platform stating it takes no commission was recorded as taking commission');
+});
+
+test('a sale fee alone never establishes that listing is free', () => {
+  // §8: absence of evidence is not free. This branch used to conclude
+  // free-to-list from a sale fee plus silence about anything upfront.
+  const v = classifyHome('we charge a final value fee of 10% when it sells');
+  assert.equal(v.state, 'DEFER_COST_UNKNOWN');
+  assert.equal(v.cost, undefined);
+});
+
+test('a phrase that ends is matched to its end', () => {
+  // "free ad" matched "free advice"; "free plan" matched "free planner". The
+  // mirror image of the stem defect that made "advertis" miss "advertising":
+  // stems are right for a word that grows an ending, wrong for a phrase.
+  assert.notEqual(classifyHome('get free advice success stories from our customers').state,
+    'ACCEPT_FREE_TRUSTED');
+  assert.notEqual(classifyHome('our free planner provides moving tips and task reminders').state,
+    'ACCEPT_FREE_TRUSTED');
+  // And the phrases themselves still match, including their plurals.
+  for (const wording of ['post a free ad today', 'browse free ads near you',
+    'south africa favourite free classifieds', 'ingyenes hirdetésfeladás']) {
+    assert.equal(classifyHome(wording).state, 'ACCEPT_FREE_TRUSTED', `"${wording}" stopped matching`);
+  }
+});
+
+test('homepage evidence must name the action; route evidence need only be near it', () => {
+  // The rule that separates the two cohorts, stated once.
+  const wording = 'our pricing is simple. list your business. €19 per month';
+  assert.equal(classifyRoute(wording).state, 'REJECT_PAID_ONLY',
+    'a price on the action page was ignored');
+  assert.equal(classifyHome(wording).state, 'DEFER_COST_UNKNOWN',
+    'a homepage price was treated as the listing price');
+});
+
+// ── BID ACCESS: THE WORD INSIDE THE OTHER WORD ──────────────────────────────
+
+const bid = (head, over = {}) => B.classify(
+  { id: 't', country: 'x', url: 'https://t.test/', searchAccess: 'free', ...over },
+  { title: '', h1: [], head, textLen: 3000, url: 'https://t.test/', status: 200, error: null },
+);
+
+test('"supplier feedback" is not a supplier fee', () => {
+  // Find a Tender was recorded as charging suppliers to bid because its footer
+  // links to Wales' supplier feedback service. §9 names it as a regression.
+  const v = bid("cpd's complaints procedure scotland - single point of enquiry wales - supplier feedback service");
+  assert.notEqual(v.bidAccess, 'paid', 'a feedback link established a participation fee');
+  assert.match(v.state, /^DEFER/);
+});
+
+test('"membership feedback" is not a membership fee', () => {
+  // PhilGEPS, likewise named as a regression, on the strength of a form.
+  const v = bid('modernized philgeps readiness assessment philgeps platinum membership feedback form');
+  assert.notEqual(v.bidAccess, 'paid');
+});
+
+test('free video downloads are not free bidding', () => {
+  // NATO's procurement front door offers its broadcast footage free of charge.
+  const v = bid("front door for industry download nato's broadcast-quality video content free of charge");
+  assert.notEqual(v.bidAccess, 'free',
+    'a media library established that suppliers may bid for nothing');
+});
+
+test('free search functions are not free bidding', () => {
+  // The rule §9 states outright, in the shape a real page produced it.
+  const v = bid('find suitable tenders and lots quickly use convenient functions free of charge with a company account');
+  assert.notEqual(v.bidAccess, 'free');
+});
+
+test('generic free wording counts beside participation, not beside anything', () => {
+  // Not switched off: the same words, next to the thing they would have to be
+  // about, still establish the fact.
+  assert.equal(bid('suppliers may register and participate free of charge').bidAccess, 'free');
+  assert.equal(bid('wie sie sich kostenfrei registrieren können als bieter').bidAccess, 'free');
+});
+
+test('a stated participation fee is still read', () => {
+  assert.equal(bid('the annual subscription fee for each payable trading partner account is sgd$70 per year').bidAccess,
+    'paid', 'GeBIZ stopped being paid');
+});
+
+test('the named regressions hold in the corpus itself', () => {
+  const rows = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/tenders-procurement/platforms.json'), 'utf8'));
+  const by = new Map(rows.map((r) => [r.id, r]));
+  for (const id of ['ph-philgeps-bid-notices', 'uk-find-a-tender']) {
+    const r = by.get(id);
+    assert.ok(r, `${id} is missing`);
+    assert.equal(r.searchAccess, 'free', `${id} lost its free search fact`);
+    assert.equal(r.bidAccess, undefined,
+      `${id} claims bid access ${r.bidAccess} that no evidence established`);
+  }
+  assert.equal(by.get('sg-gebiz').bidAccess, 'paid');
+  assert.equal(by.get('sg-gebiz').searchAccess, 'free');
+});
+
+test('no platform claims free bidding merely because search is free', () => {
+  const rows = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/tenders-procurement/platforms.json'), 'utf8'));
+  const src = fs.readFileSync(path.join(ROOT, 'scripts/research-tender-bid-access.cjs'), 'utf8');
+  // Scoped to the judgement. Asked of the whole file it also matches the line
+  // that REPORTS how many platforms are free to search and not free to bid,
+  // which is the measurement of the distinction rather than a breach of it.
+  const judge = src.slice(src.indexOf('function classify'), src.indexOf('function targets'));
+  assert.ok(judge.length > 200, 'could not isolate the judgement');
+  assert.ok(!/searchAccess/.test(judge),
+    'the judgement reads searchAccess, so free search could become free bidding');
+  // And every free bid fact in the corpus came from a finding, not an inference.
+  const CK = require(path.join(ROOT, 'scripts/lib/rc-checkpoint.cjs'));
+  const led = new CK.Ledger(path.join(ROOT, 'data/tenders-procurement/.bid-access.json'));
+  const established = new Set(led.all().filter((f) => f.state === 'ESTABLISHED').map((f) => f.id));
+  led.close();
+  for (const r of rows) {
+    if (r.bidAccess === undefined) continue;
+    assert.ok(established.has(r.id), `${r.id} carries bidAccess with no established finding`);
+  }
 });

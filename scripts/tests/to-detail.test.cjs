@@ -368,12 +368,13 @@ test('canonical facts are unchanged by this phase', () => {
   //
   // What this pin still guards is that the DETAIL layer changed none of it.
   assert.strictEqual(fp('data/tender-opportunities/opportunities.json'), '3c341d60');
-  // Re-baselined 2026-08-19. The ONLY change is `bidAccess` on 11 records —
-  // 384 records in and 384 out, one field touched, nothing added or lost. What
-  // it costs a supplier to PARTICIPATE is a new fact, established from operator
-  // wording, and deliberately independent of `searchAccess`: three of these
-  // platforms publish every notice openly and charge to bid.
-  assert.strictEqual(fp('data/tenders-procurement/platforms.json'), '810122a9');
+  // Re-baselined 2026-08-20 (a6e0ea29 -> d4c2bbba). 384 records in, 384 out;
+  // exactly two fields moved — `domainRating` and `metricsProvenance` — on
+  // every record. Domain Rating collection was unfrozen and every domain in the
+  // corpus was read from Ahrefs' free public endpoint. Each rating names the
+  // record's own officialUrl host as the domain measured, checked across all
+  // 384 with 0 exceptions, so no record borrowed another domain's authority.
+  assert.strictEqual(fp('data/tenders-procurement/platforms.json'), 'd4c2bbba');
   assert.strictEqual(fp('scripts/lib/to-match.cjs'), '5de543fb');
   assert.strictEqual(Object.keys(MATCH.PROFILES).length, 16);
 });

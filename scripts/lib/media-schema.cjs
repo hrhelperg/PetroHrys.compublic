@@ -34,6 +34,8 @@
 // knowing a publication is relevant but unverified is worth more than a guess.
 
 const fs = require('node:fs');
+// For the shared Domain Rating rule.
+const BD = require('./bd-schema.cjs');
 
 class MediaError extends Error {}
 
@@ -336,9 +338,9 @@ function problemsFor(row, knownCountries) {
   }
   // This dataset takes no metric measurements. The directory dataset holds a
   // frozen set of historical Domain Ratings and nothing here may imply a new one.
-  if (row.domainRating !== undefined && row.domainRating !== null) {
-    at('domainRating', 'may not be set: this dataset takes no metric measurements.');
-  }
+  // See the note in mp-schema.cjs: the ban became a rule when collection was
+  // unfrozen, so a measured rating is admitted and an invented one is not.
+  for (const [field, reason] of BD.domainRatingProblems(row)) at(field, reason);
   // Internal workflow state belongs in nobody's public CSV.
   for (const priv of ['assignedTo', 'internalNote', 'workflowStatus', 'submittedAt',
     'followUpDate', 'owner', 'contactedOn']) {

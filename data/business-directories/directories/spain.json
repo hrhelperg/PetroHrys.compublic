@@ -42,8 +42,8 @@
     "metricsProvenance": {
       "domainRating": {
         "provider": "Ahrefs",
-        "measuredAt": "2026-08-04",
-        "status": "historicalSnapshot",
+        "measuredAt": "2026-08-19",
+        "status": "publicApiReading",
         "measuredDomain": "registradores.org"
       }
     },
@@ -181,13 +181,20 @@
       "transparency": 8,
       "moderationQuality": 8
     },
-    "domainRating": null,
+    "domainRating": 73,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-19",
+        "status": "publicApiReading",
+        "measuredDomain": "rmc.es"
+      }
+    },
     "submissionModel": "notApplicable",
     "registrationRequired": null,
     "reviewSystem": false,
@@ -326,13 +333,20 @@
       "transparency": 9,
       "moderationQuality": 8
     },
-    "domainRating": null,
+    "domainRating": 59,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-19",
+        "status": "publicApiReading",
+        "measuredDomain": "publicidadconcursal.es"
+      }
+    },
     "submissionModel": "notApplicable",
     "registrationRequired": null,
     "reviewSystem": false,
@@ -473,13 +487,20 @@
       "transparency": 8,
       "moderationQuality": 9
     },
-    "domainRating": null,
+    "domainRating": 79,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-19",
+        "status": "publicApiReading",
+        "measuredDomain": "oepm.es"
+      }
+    },
     "submissionModel": "notApplicable",
     "registrationRequired": null,
     "reviewSystem": false,
@@ -615,13 +636,20 @@
       "transparency": 9,
       "moderationQuality": 9
     },
-    "domainRating": null,
+    "domainRating": 80,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-19",
+        "status": "publicApiReading",
+        "measuredDomain": "cnmv.es"
+      }
+    },
     "submissionModel": "notApplicable",
     "registrationRequired": null,
     "reviewSystem": false,
@@ -761,13 +789,20 @@
       "transparency": 8,
       "moderationQuality": 8
     },
-    "domainRating": null,
+    "domainRating": 82,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-19",
+        "status": "publicApiReading",
+        "measuredDomain": "app.bde.es"
+      }
+    },
     "submissionModel": "notApplicable",
     "registrationRequired": null,
     "reviewSystem": false,
@@ -911,13 +946,20 @@
       "transparency": 8,
       "moderationQuality": 8
     },
-    "domainRating": null,
+    "domainRating": 82,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-19",
+        "status": "publicApiReading",
+        "measuredDomain": "app.bde.es"
+      }
+    },
     "submissionModel": "notApplicable",
     "registrationRequired": null,
     "reviewSystem": false,
@@ -1055,13 +1097,20 @@
       "transparency": 9,
       "moderationQuality": 9
     },
-    "domainRating": null,
+    "domainRating": 68,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-19",
+        "status": "publicApiReading",
+        "measuredDomain": "icac.gob.es"
+      }
+    },
     "submissionModel": "notApplicable",
     "registrationRequired": null,
     "reviewSystem": false,
@@ -1204,13 +1253,20 @@
       "transparency": 9,
       "moderationQuality": 9
     },
-    "domainRating": null,
+    "domainRating": 79,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-19",
+        "status": "publicApiReading",
+        "measuredDomain": "cnmc.es"
+      }
+    },
     "submissionModel": "notApplicable",
     "registrationRequired": null,
     "reviewSystem": false,
@@ -1356,13 +1412,20 @@
       "transparency": 9,
       "moderationQuality": 9
     },
-    "domainRating": null,
+    "domainRating": 79,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-19",
+        "status": "publicApiReading",
+        "measuredDomain": "cnmc.es"
+      }
+    },
     "submissionModel": "notApplicable",
     "registrationRequired": null,
     "reviewSystem": false,

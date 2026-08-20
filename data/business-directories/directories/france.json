@@ -53,8 +53,8 @@
     "metricsProvenance": {
       "domainRating": {
         "provider": "Ahrefs",
-        "measuredAt": "2026-08-04",
-        "status": "historicalSnapshot",
+        "measuredAt": "2026-08-19",
+        "status": "publicApiReading",
         "measuredDomain": "annuaire-entreprises.data.gouv.fr"
       }
     },
@@ -198,8 +198,8 @@
     "metricsProvenance": {
       "domainRating": {
         "provider": "Ahrefs",
-        "measuredAt": "2026-08-04",
-        "status": "historicalSnapshot",
+        "measuredAt": "2026-08-19",
+        "status": "publicApiReading",
         "measuredDomain": "inpi.fr"
       }
     },
@@ -332,13 +332,20 @@
       "transparency": 8,
       "moderationQuality": 8
     },
-    "domainRating": null,
+    "domainRating": 85,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-19",
+        "status": "publicApiReading",
+        "measuredDomain": "data.inpi.fr"
+      }
+    },
     "submissionModel": "notApplicable",
     "registrationRequired": null,
     "reviewSystem": false,
@@ -477,13 +484,20 @@
       "transparency": 9,
       "moderationQuality": 8
     },
-    "domainRating": null,
+    "domainRating": 90,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-19",
+        "status": "publicApiReading",
+        "measuredDomain": "insee.fr"
+      }
+    },
     "submissionModel": "notApplicable",
     "registrationRequired": null,
     "reviewSystem": false,
@@ -621,13 +635,20 @@
       "transparency": 10,
       "moderationQuality": 9
     },
-    "domainRating": null,
+    "domainRating": 73,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-19",
+        "status": "publicApiReading",
+        "measuredDomain": "bodacc.fr"
+      }
+    },
     "submissionModel": "notApplicable",
     "registrationRequired": null,
     "reviewSystem": false,
@@ -765,13 +786,20 @@
       "transparency": 9,
       "moderationQuality": 8
     },
-    "domainRating": null,
+    "domainRating": 75,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-19",
+        "status": "publicApiReading",
+        "measuredDomain": "regafi.fr"
+      }
+    },
     "submissionModel": "notApplicable",
     "registrationRequired": null,
     "reviewSystem": false,
@@ -911,13 +939,20 @@
       "transparency": 9,
       "moderationQuality": 8
     },
-    "domainRating": null,
+    "domainRating": 86,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-19",
+        "status": "publicApiReading",
+        "measuredDomain": "orias.fr"
+      }
+    },
     "submissionModel": "notApplicable",
     "registrationRequired": null,
     "reviewSystem": false,
@@ -1056,13 +1091,20 @@
       "transparency": 9,
       "moderationQuality": 9
     },
-    "domainRating": null,
+    "domainRating": 78,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-19",
+        "status": "publicApiReading",
+        "measuredDomain": "annuaire.architectes.org"
+      }
+    },
     "submissionModel": "notApplicable",
     "registrationRequired": null,
     "reviewSystem": false,
@@ -1202,13 +1244,20 @@
       "transparency": 8,
       "moderationQuality": 9
     },
-    "domainRating": null,
+    "domainRating": 74,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-19",
+        "status": "publicApiReading",
+        "measuredDomain": "annuaire.experts-comptables.org"
+      }
+    },
     "submissionModel": "notApplicable",
     "registrationRequired": null,
     "reviewSystem": false,
@@ -1360,8 +1409,8 @@
     "metricsProvenance": {
       "domainRating": {
         "provider": "Ahrefs",
-        "measuredAt": "2026-08-04",
-        "status": "historicalSnapshot",
+        "measuredAt": "2026-08-19",
+        "status": "publicApiReading",
         "measuredDomain": "inpi.fr"
       }
     },
@@ -1507,13 +1556,20 @@
       "transparency": 8,
       "moderationQuality": 9
     },
-    "domainRating": null,
+    "domainRating": 84,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-19",
+        "status": "publicApiReading",
+        "measuredDomain": "notaires.fr"
+      }
+    },
     "submissionModel": "notApplicable",
     "registrationRequired": null,
     "reviewSystem": false,

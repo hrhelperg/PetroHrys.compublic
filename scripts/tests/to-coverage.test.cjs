@@ -224,15 +224,13 @@ test('classification recovery changed content, not canonical identity', () => {
 test('protected layers are unchanged by this phase', () => {
   const fp = (rel) => require('node:crypto').createHash('sha256')
     .update(fs.readFileSync(path.join(ROOT, rel))).digest('hex').slice(0, 8);
-  // The corpus fingerprint MOVES in this phase, and that is the point: 822
-  // CanadaBuys records gained the classifications their source always
-  // published. What must not move is anything that decides meaning.
-  // Re-baselined 2026-08-19. The ONLY change is `bidAccess` on 11 records —
-  // 384 records in and 384 out, one field touched, nothing added or lost. What
-  // it costs a supplier to PARTICIPATE is a new fact, established from operator
-  // wording, and deliberately independent of `searchAccess`: three of these
-  // platforms publish every notice openly and charge to bid.
-  assert.strictEqual(fp('data/tenders-procurement/platforms.json'), '810122a9');
+  // Re-baselined 2026-08-20 (a6e0ea29 -> d4c2bbba). 384 records in, 384 out;
+  // exactly two fields moved — `domainRating` and `metricsProvenance` — on
+  // every record. Domain Rating collection was unfrozen and every domain in the
+  // corpus was read from Ahrefs' free public endpoint. Each rating names the
+  // record's own officialUrl host as the domain measured, checked across all
+  // 384 with 0 exceptions, so no record borrowed another domain's authority.
+  assert.strictEqual(fp('data/tenders-procurement/platforms.json'), 'd4c2bbba');
   assert.strictEqual(fp('scripts/lib/to-match.cjs'), '5de543fb');
   assert.strictEqual(fp('scripts/lib/to-search.cjs'), 'e11b8246');
   assert.strictEqual(fp('scripts/lib/to-related.cjs'), '001af59b');

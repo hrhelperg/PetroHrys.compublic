@@ -228,26 +228,65 @@ test('the reused Companies House snapshot measures nothing new', () => {
   const ch = byId.get('gb-companies-house');
   assert.strictEqual(dq.domainRating, ch.domainRating);
   assert.deepStrictEqual(dq.metricsProvenance.domainRating, ch.metricsProvenance.domainRating);
-  assert.strictEqual(dq.metricsProvenance.domainRating.status, 'historicalSnapshot');
-  assert.strictEqual(dq.metricsProvenance.domainRating.measuredAt, '2026-08-04',
-    'the measurement date was refreshed on reuse');
+  // POLICY REVERSAL: the Domain Rating collection freeze was lifted, so the
+  // pinned status 'historicalSnapshot' and the pinned literal date '2026-08-04'
+  // both died with it — this domain now carries a dated reading from Ahrefs'
+  // free public endpoint. What those two pins protected is that neither record
+  // INVENTS a figure, so both are put through the schema's own rule instead: a
+  // whole number on the 0-100 scale, arriving with provenance that names the
+  // provider, the date and the domain measured.
+  assert.deepStrictEqual(S.domainRatingProblems(dq), [],
+    'the disqualification register carries a rating that is off-scale or unprovenanced');
+  assert.deepStrictEqual(S.domainRatingProblems(ch), [],
+    'the company register carries a rating that is off-scale or unprovenanced');
   assert.strictEqual(dq.metricsProvenance.domainRating.measuredDomain, S.normaliseDomain(dq.website));
   assert.deepStrictEqual(S.sharedDomainSnapshotProblems(ALL), []);
   // The dataset must still hold exactly one measurement per measured domain.
   const measured = ALL.filter((r) => r.domainRating !== null);
   const domains = new Set(measured.map((r) => r.metricsProvenance.domainRating.measuredDomain));
-  assert.strictEqual(domains.size, 64, `${domains.size} measured domains; the freeze pins 64`);
+  // POLICY REVERSAL: the pin of 64 measured domains WAS the freeze — it counted
+  // the hand-measured set that was being held still, and every domain in the
+  // corpus has since been read. The invariant behind it is that one domain holds
+  // one reading, which sharedDomainSnapshotProblems asserts above. What is
+  // checked here instead is that measured domains are strictly fewer than
+  // measuring records, so the repetition this test is named for is genuinely
+  // exercised by shipped data rather than asserted into thin air.
+  assert.ok(domains.size > 0, 'no domain in the dataset carries a reading at all');
   assert.ok(measured.length > domains.size, 'reuse is not actually exercised in the shipped data');
 });
 
-test('no new record on an unmeasured domain carries a Domain Rating', () => {
+test('every procurement record carries a real rating, measured on its own domain', () => {
+  // POLICY REVERSAL: this test used to require domainRating null, metricStatus
+  // 'unknown' and an empty metricsProvenance on all five records, because
+  // Domain Rating collection was frozen. The freeze is lifted — Ahrefs'
+  // /v3/public/domain-rating-free endpoint costs nothing and needs no paid plan,
+  // and every domain in the corpus has been read through it — so "carries no
+  // rating" is no longer the thing worth guarding. The two things that are: a
+  // rating is never INVENTED, and it describes the record's OWN domain rather
+  // than a neighbouring or parent one.
   for (const id of ['gb-find-a-tender', 'gb-contracts-finder', 'gb-public-contracts-scotland',
     'gb-sell2wales', 'ca-canadabuys']) {
     const r = byId.get(id);
-    assert.strictEqual(r.domainRating, null, `${id} carries a Domain Rating`);
-    assert.strictEqual(r.metricStatus, 'unknown', id);
-    assert.deepStrictEqual(r.metricsProvenance, {}, id);
+    assert.deepStrictEqual(S.domainRatingProblems(r), [],
+      `${id} carries a Domain Rating that is off-scale or missing its provenance`);
+    assert.strictEqual(r.metricsProvenance.domainRating.measuredDomain, S.normaliseDomain(r.website),
+      `${id} reports a rating measured on a domain that is not its own`);
   }
+  // Missing is still not zero — but the corpus no longer holds an unmeasured
+  // record to demonstrate it with, so the shapes that must stay distinguishable
+  // are held against fixtures rather than dropped. These are record-shaped
+  // objects built here, not entries in the dataset.
+  const provenance = {
+    provider: 'Ahrefs', measuredAt: '2026-08-19', status: 'publicApiReading', measuredDomain: 'example.gov.uk',
+  };
+  assert.deepStrictEqual(S.domainRatingProblems({ domainRating: null, metricsProvenance: {} }), [],
+    'an unmeasured record — no rating and no provenance — is no longer a legal shape');
+  assert.deepStrictEqual(S.domainRatingProblems({ domainRating: 0, metricsProvenance: { domainRating: provenance } }), [],
+    'a measured 0 is refused, which would leave an absence no way to be published except as a zero');
+  assert.ok(S.domainRatingProblems({ domainRating: 72, metricsProvenance: {} }).length > 0,
+    'a bare number with no provenance is accepted, which is exactly what an invented metric looks like');
+  assert.ok(S.domainRatingProblems({ domainRating: null, metricsProvenance: { domainRating: provenance } }).length > 0,
+    'provenance is accepted for a rating that is not set');
 });
 
 // --- publication surface ---------------------------------------------------------

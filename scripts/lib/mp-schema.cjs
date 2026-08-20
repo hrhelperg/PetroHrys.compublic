@@ -19,6 +19,8 @@
 // let two files disagree about whether Serbia exists.
 
 const fs = require('node:fs');
+// For the shared Domain Rating rule, so one dataset cannot drift from another.
+const BD = require('./bd-schema.cjs');
 const path = require('node:path');
 
 class MarketplaceError extends Error {}
@@ -196,11 +198,12 @@ function problemsFor(row, knownCountries) {
   // The reverse is allowed on purpose: an evidenced action whose URL could not
   // be resolved is a real, partial finding, and forcing a URL to keep the pair
   // symmetrical is how a guessed route gets written down.
-  // A Domain Rating is never carried here. The directory dataset holds 64 frozen
-  // historical measurements and nothing in this dataset may imply a new one.
-  if (row.domainRating !== undefined && row.domainRating !== null) {
-    at('domainRating', 'may not be set: this dataset takes no metric measurements.');
-  }
+  // A Domain Rating may now be carried, and must be a real one. The ban that
+  // stood here was doing two jobs — keeping invented numbers out, and keeping
+  // collected ones out — and only the first still needs doing. The shared rule
+  // requires the 0-100 scale and provenance naming provider, date and domain,
+  // so a hand-typed number still cannot get in.
+  for (const [field, reason] of BD.domainRatingProblems(row)) at(field, reason);
   return p;
 }
 

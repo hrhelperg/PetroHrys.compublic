@@ -24,6 +24,10 @@ const path = require('node:path');
 
 const ROOT = path.join(__dirname, '..', '..');
 const MD = require(path.join(ROOT, 'scripts/lib/media-schema.cjs'));
+// The Domain Rating contract lives in bd-schema and is shared by every
+// collection, so this dataset checks its ratings against the same rules rather
+// than restating them.
+const BD = require(path.join(ROOT, 'scripts/lib/bd-schema.cjs'));
 const build = require(path.join(ROOT, 'scripts/build-media-platforms.cjs'));
 const render = require(path.join(ROOT, 'scripts/lib/bd-render.cjs'));
 const seo = require(path.join(ROOT, 'scripts/lib/bd-seo.cjs'));
@@ -296,10 +300,45 @@ test('no private workflow state reaches the data or the export', () => {
 });
 
 test('no Domain Rating is fabricated', () => {
+  // CHANGED BY THE DOMAIN RATING POLICY REVERSAL. This test used to forbid the
+  // field outright — "this dataset takes no measurements" — which was the right
+  // shape while collection was frozen: with nothing being measured anywhere,
+  // "carries no value" and "carries no INVENTED value" were the same rule, and
+  // the cheaper one to write was the ban. The freeze has been lifted by the
+  // repository's owner, because Ahrefs also publishes Domain Rating through a
+  // free public endpoint the frozen policy was never written against, and every
+  // domain in the corpus has now been read from it. So the ban is false while
+  // the thing it was protecting is untouched, and it becomes the rule it was
+  // standing in for: a rating may exist here, but only a MEASURED one.
+  assert.ok(RAW.some((r) => typeof r.domainRating === 'number'),
+    'no row carries a rating at all, so the rules below assert nothing');
   for (const r of RAW) {
-    assert.ok(r.domainRating === undefined || r.domainRating === null,
-      `${r.id} carries a Domain Rating; this dataset takes no measurements`);
+    // A whole number on the 0-100 scale, arriving with provenance that names
+    // the provider, the date and the domain measured. A bare number with no
+    // provenance is exactly what an invented metric looks like.
+    assert.deepStrictEqual(BD.domainRatingProblems(r), [],
+      `${r.id} carries a Domain Rating that is not a valid, provenanced reading`);
+    // And the reading has to describe THIS record's own domain. A figure copied
+    // from a related domain, or down from a parent to a subdomain, attributes
+    // an authority the measurement never claimed.
+    const p = (r.metricsProvenance || {}).domainRating;
+    if (!p) continue;
+    assert.strictEqual(p.measuredDomain, BD.normaliseDomain(r.website),
+      `${r.id} reports a rating measured on "${p.measuredDomain}", not on its own domain`);
   }
+  // A Domain Rating is a fact about a domain, so records published on one
+  // measured domain repeat that domain's single dated reading verbatim rather
+  // than each carrying a figure of its own.
+  assert.deepStrictEqual(BD.sharedDomainSnapshotProblems(RAW), [],
+    'two records on one measured domain report different readings');
+  // The rules above are only worth running if they can fail, and the corpus no
+  // longer holds an unmeasured or a malformed row to prove it on. Fixtures
+  // rather than a deleted check: missing stays legal, and a bare number — the
+  // fabrication this test is named for — is still refused.
+  assert.deepStrictEqual(BD.domainRatingProblems({ id: 'md-fixture', domainRating: null }), [],
+    'an unmeasured record is now reported as a problem, so "missing" has become "wrong"');
+  assert.ok(BD.domainRatingProblems({ id: 'md-fixture', domainRating: 72 }).length > 0,
+    'a rating carrying no provenance is accepted, which is what a fabricated metric looks like');
   const src = fs.readFileSync(path.join(ROOT, 'scripts/lib/media-schema.cjs'), 'utf8')
     + fs.readFileSync(path.join(ROOT, 'scripts/build-media-platforms.cjs'), 'utf8');
   assert.ok(!/domainRating\s*[:=]\s*\d/.test(src), 'a Domain Rating is assigned in code');

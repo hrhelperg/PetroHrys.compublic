@@ -48,7 +48,7 @@
       "transparency": 9,
       "moderationQuality": 9
     },
-    "domainRating": 92,
+    "domainRating": 93,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
@@ -57,8 +57,8 @@
     "metricsProvenance": {
       "domainRating": {
         "provider": "Ahrefs",
-        "measuredAt": "2026-08-04",
-        "status": "historicalSnapshot",
+        "measuredAt": "2026-08-19",
+        "status": "publicApiReading",
         "measuredDomain": "ised-isde.canada.ca"
       }
     },
@@ -185,13 +185,20 @@
       "transparency": 8,
       "moderationQuality": 7
     },
-    "domainRating": null,
+    "domainRating": 85,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-19",
+        "status": "publicApiReading",
+        "measuredDomain": "brevets-patents.ic.gc.ca"
+      }
+    },
     "submissionModel": "notApplicable",
     "registrationRequired": null,
     "reviewSystem": false,
@@ -326,13 +333,20 @@
       "transparency": 6,
       "moderationQuality": 6
     },
-    "domainRating": null,
+    "domainRating": 61,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-19",
+        "status": "publicApiReading",
+        "measuredDomain": "canadasbusinessregistries.ca"
+      }
+    },
     "submissionModel": "notApplicable",
     "registrationRequired": null,
     "reviewSystem": false,
@@ -468,13 +482,20 @@
       "transparency": 8,
       "moderationQuality": 8
     },
-    "domainRating": null,
+    "domainRating": 84,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-19",
+        "status": "publicApiReading",
+        "measuredDomain": "sedarplus.ca"
+      }
+    },
     "submissionModel": "notApplicable",
     "registrationRequired": null,
     "reviewSystem": false,
@@ -616,13 +637,20 @@
       "transparency": 8,
       "moderationQuality": 8
     },
-    "domainRating": null,
+    "domainRating": 91,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-19",
+        "status": "publicApiReading",
+        "measuredDomain": "ontario.ca"
+      }
+    },
     "submissionModel": "notApplicable",
     "registrationRequired": null,
     "reviewSystem": false,
@@ -770,13 +798,20 @@
       "transparency": 8,
       "moderationQuality": 8
     },
-    "domainRating": null,
+    "domainRating": 91,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-19",
+        "status": "publicApiReading",
+        "measuredDomain": "registreentreprises.gouv.qc.ca"
+      }
+    },
     "submissionModel": "notApplicable",
     "registrationRequired": null,
     "reviewSystem": false,
@@ -923,13 +958,20 @@
       "transparency": 8,
       "moderationQuality": 8
     },
-    "domainRating": null,
+    "domainRating": 91,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-19",
+        "status": "publicApiReading",
+        "measuredDomain": "rbq.gouv.qc.ca"
+      }
+    },
     "submissionModel": "notApplicable",
     "registrationRequired": null,
     "reviewSystem": false,
@@ -1073,13 +1115,20 @@
       "transparency": 7,
       "moderationQuality": 8
     },
-    "domainRating": null,
+    "domainRating": 90,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-19",
+        "status": "publicApiReading",
+        "measuredDomain": "bcregistry.gov.bc.ca"
+      }
+    },
     "submissionModel": "notApplicable",
     "registrationRequired": null,
     "reviewSystem": false,
@@ -1224,13 +1273,20 @@
       "transparency": 8,
       "moderationQuality": 8
     },
-    "domainRating": null,
+    "domainRating": 85,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-19",
+        "status": "publicApiReading",
+        "measuredDomain": "companiesoffice.gov.mb.ca"
+      }
+    },
     "submissionModel": "notApplicable",
     "registrationRequired": null,
     "reviewSystem": false,
@@ -1376,13 +1432,20 @@
       "transparency": 8,
       "moderationQuality": 8
     },
-    "domainRating": null,
+    "domainRating": 85,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-19",
+        "status": "publicApiReading",
+        "measuredDomain": "novascotia.ca"
+      }
+    },
     "submissionModel": "notApplicable",
     "registrationRequired": null,
     "reviewSystem": false,
@@ -1525,13 +1588,20 @@
       "transparency": 6,
       "moderationQuality": 7
     },
-    "domainRating": null,
+    "domainRating": 82,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-19",
+        "status": "publicApiReading",
+        "measuredDomain": "cado.eservices.gov.nl.ca"
+      }
+    },
     "submissionModel": "notApplicable",
     "registrationRequired": null,
     "reviewSystem": false,
@@ -1674,13 +1744,20 @@
       "transparency": 5,
       "moderationQuality": 7
     },
-    "domainRating": null,
+    "domainRating": 60,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-19",
+        "status": "publicApiReading",
+        "measuredDomain": "corporateregistry.isc.ca"
+      }
+    },
     "submissionModel": "notApplicable",
     "registrationRequired": null,
     "reviewSystem": false,
@@ -1823,13 +1900,20 @@
       "transparency": 9,
       "moderationQuality": 8
     },
-    "domainRating": null,
+    "domainRating": 81,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-19",
+        "status": "publicApiReading",
+        "measuredDomain": "justice.gov.nt.ca"
+      }
+    },
     "submissionModel": "notApplicable",
     "registrationRequired": null,
     "reviewSystem": false,
@@ -1974,13 +2058,20 @@
       "transparency": 6,
       "moderationQuality": 6
     },
-    "domainRating": null,
+    "domainRating": 60,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-19",
+        "status": "publicApiReading",
+        "measuredDomain": "nunavutlegalregistries.ca"
+      }
+    },
     "submissionModel": "notApplicable",
     "registrationRequired": null,
     "reviewSystem": false,
@@ -2121,7 +2212,7 @@
       "transparency": 9,
       "moderationQuality": 8
     },
-    "domainRating": 92,
+    "domainRating": 93,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
@@ -2130,8 +2221,8 @@
     "metricsProvenance": {
       "domainRating": {
         "provider": "Ahrefs",
-        "measuredAt": "2026-08-04",
-        "status": "historicalSnapshot",
+        "measuredAt": "2026-08-19",
+        "status": "publicApiReading",
         "measuredDomain": "ised-isde.canada.ca"
       }
     },
@@ -2272,13 +2363,20 @@
       "transparency": 8,
       "moderationQuality": 7
     },
-    "domainRating": null,
+    "domainRating": 93,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-19",
+        "status": "publicApiReading",
+        "measuredDomain": "canadabuys.canada.ca"
+      }
+    },
     "submissionModel": "notApplicable",
     "registrationRequired": null,
     "reviewSystem": false,
@@ -2418,13 +2516,20 @@
       "transparency": 10,
       "moderationQuality": 9
     },
-    "domainRating": null,
+    "domainRating": 93,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-19",
+        "status": "publicApiReading",
+        "measuredDomain": "fintrac-canafe.canada.ca"
+      }
+    },
     "submissionModel": "notApplicable",
     "registrationRequired": null,
     "reviewSystem": false,
@@ -2557,13 +2662,20 @@
       "transparency": 8,
       "moderationQuality": 8
     },
-    "domainRating": null,
+    "domainRating": 82,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-19",
+        "status": "publicApiReading",
+        "measuredDomain": "applications.crtc.gc.ca"
+      }
+    },
     "submissionModel": "notApplicable",
     "registrationRequired": null,
     "reviewSystem": false,
@@ -2683,13 +2795,20 @@
       "transparency": 6,
       "moderationQuality": 6
     },
-    "domainRating": null,
+    "domainRating": 85,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-19",
+        "status": "publicApiReading",
+        "measuredDomain": "yellowpages.ca"
+      }
+    },
     "submissionModel": "freemium",
     "registrationRequired": null,
     "reviewSystem": true,
@@ -2821,13 +2940,20 @@
       "transparency": 9,
       "moderationQuality": 4
     },
-    "domainRating": null,
+    "domainRating": 74,
     "authorityScore": null,
     "estimatedTraffic": null,
     "referringDomains": null,
     "httpStatus": null,
-    "metricStatus": "unknown",
-    "metricsProvenance": {},
+    "metricStatus": "measured",
+    "metricsProvenance": {
+      "domainRating": {
+        "provider": "Ahrefs",
+        "measuredAt": "2026-08-19",
+        "status": "publicApiReading",
+        "measuredDomain": "n49.com"
+      }
+    },
     "submissionModel": "freemium",
     "registrationRequired": true,
     "reviewSystem": true,
