@@ -139,7 +139,7 @@ test('M15: a route on a foreign domain is refused', () => {
 
 test('the sentence that decided a verdict is stored for re-checking', () => {
   const src = fs.readFileSync(path.join(ROOT, 'scripts/research-browser-evidence.cjs'), 'utf8');
-  assert.match(src, /evidenceText: excerpt\(/);
+  assert.match(src, /const evidenceText = action \? excerpt\(/);
   const apply = fs.readFileSync(path.join(ROOT, 'scripts/research-action-routes.cjs'), 'utf8');
   assert.match(apply, /confirms\(String\(f\.evidenceText \|\| ''\)\)/,
     'the applier re-checks the stored evidence against the CURRENT vocabulary');
@@ -491,4 +491,52 @@ test('the bid vocabularies use phrase boundaries, not stems', () => {
   const src = fs.readFileSync(path.join(ROOT, 'scripts/research-action-routes.cjs'), 'utf8');
   assert.match(src, /const BID_PAID = T\.phraseMatcher\(/);
   assert.match(src, /const BID_FREE = T\.phraseMatcher\(/);
+});
+
+
+// ── THE FOUR FALSE POSITIVES THE FIRST LOOSENING PRODUCED ───────────────────
+//
+// Widening candidate selection was right; letting the destination resolve with
+// nothing else required was not. Nine records resolved and four of them were
+// wrong, found by reading all nine rather than by looking at the count.
+
+test('site-wide banner text is not evidence about the page it appears on', () => {
+  const B2 = require(path.join(ROOT, 'scripts/research-browser-evidence.cjs'));
+  // Cylex prints "Register Your Business on Cylex Today!" above every company
+  // record. Followed from a link bearing a business's name, one stranger's
+  // listing page resolved as the directory's submission route.
+  const src = fs.readFileSync(path.join(ROOT, 'scripts/research-browser-evidence.cjs'), 'utf8');
+  assert.match(src, /!isBoilerplate\(evidenceText, home\.text\)/);
+  const fn = src.slice(src.indexOf('function isBoilerplate'), src.indexOf('// How promising'));
+  assert.ok(fn.includes('slice(0, 60)'), 'compared on a window, not whole strings');
+  assert.ok(fn.includes("length < 20"), 'a very short fragment cannot be judged boilerplate');
+});
+
+test('a record inside the directory is not a route to the directory', () => {
+  const src = fs.readFileSync(path.join(ROOT, 'scripts/research-browser-evidence.cjs'), 'utf8');
+  const rx = /URL_IS_A_RECORD = (\/.*\/i);/.exec(src);
+  assert.ok(rx, 'the pattern must exist');
+  // eslint-disable-next-line no-eval
+  const pattern = eval(rx[1]);
+  assert.ok(pattern.test('https://www.cylex.us.com/company/selling-my-mineral-rights-40693918.html'));
+  assert.ok(!pattern.test('https://www.cylex.at/register-company'), 'the real route must survive');
+});
+
+test('documentation is not an action route', () => {
+  const src = fs.readFileSync(path.join(ROOT, 'scripts/research-browser-evidence.cjs'), 'utf8');
+  const rx = /URL_EXPLAINER = (\/.*\/i);/.exec(src);
+  assert.ok(rx);
+  // eslint-disable-next-line no-eval
+  const pattern = eval(rx[1]);
+  // eBay's article names the act perfectly and is documentation.
+  assert.ok(pattern.test('https://export.ebay.com/en/first-steps/how-to-create-listing/'));
+  assert.ok(pattern.test('https://x.test/help/how-to-list'));
+  assert.ok(!pattern.test('https://www.cylex.at/register-company'));
+  assert.ok(!pattern.test('https://techpoint.africa/advertise/'));
+});
+
+test('a resolution needs the link or the address to point at a route', () => {
+  const src = fs.readFileSync(path.join(ROOT, 'scripts/research-browser-evidence.cjs'), 'utf8');
+  assert.match(src, /&& promise\(link\) > 0\)/,
+    'an About Us link to an /about-us page cannot resolve on page wording alone');
 });

@@ -96,6 +96,15 @@ function sameHostFamily(a, b) {
   } catch { return false; }
 }
 
+// Text that also appears on the homepage is the site's furniture, not this
+// page's offer. Compared on a normalised window rather than whole strings,
+// because a banner is often re-wrapped between templates.
+function isBoilerplate(sentence, homeText) {
+  const key = String(sentence).replace(/\s+/g, ' ').trim().slice(0, 60);
+  if (key.length < 20) return false;
+  return String(homeText).replace(/\s+/g, ' ').includes(key);
+}
+
 // How promising a link looks, used ONLY to decide what to open first. This is
 // the one place the URL is allowed to matter, and it is allowed because
 // choosing where to look is not deciding what is true — the destination's own
@@ -106,6 +115,15 @@ function sameHostFamily(a, b) {
 // order never reaches the fourth.
 const URL_PROMISING = /(add|submit|list|claim|register|create|join|sell|seller|merchant|vendor|supplier|advertis|publish|press|contribut|write|pitch)[-_/]?(business|company|firm|listing|entry|profile|shop|store|ad|release|us|you)|register-company|add-business|add-listing|business-listing|for-business/i;
 const URL_DEAD_END = /(sign-?in|log-?in|password|forgot|privacy|cookie|terms|legal|imprint|impressum|datenschutz)/i;
+
+// A page explaining how a thing is done is not the place it is done. eBay's
+// export site has an article at /first-steps/how-to-create-listing/ whose
+// wording names the act perfectly and which is documentation, not a route.
+const URL_EXPLAINER = /(how-to|how_to|\/help\/|\/support\/|\/faq|\/guide|first-steps|getting-started|\/blog\/|\/news\/|\/article)/i;
+// A record inside the directory, rather than a page of the directory. Cylex
+// resolved to /company/selling-my-mineral-rights-40693918.html — one business's
+// own listing, reached by a link bearing that business's name.
+const URL_IS_A_RECORD = /\/(company|companies|business|listing|profile|firma|empresa|entreprise)\/[^/]+[-_]\d{4,}/i;
 
 function promise(link) {
   let score = 0;
@@ -274,7 +292,20 @@ async function researchOne(page, target) {
     }
 
     const action = AR.judgeAction(target.collection, page2.text);
-    if (action && sameHostFamily(target.url, page2.url)) {
+    const evidenceText = action ? excerpt(page2.text, action, target.collection) : '';
+    if (action && sameHostFamily(target.url, page2.url)
+      && !URL_EXPLAINER.test(page2.url) && !URL_IS_A_RECORD.test(page2.url)
+      // The sentence must belong to THIS page. A site-wide banner appears on
+      // the homepage too, and "Register Your Business on Cylex Today!" is
+      // printed above every company record in the directory — which is how a
+      // stranger's listing page became a submission route.
+      && !isBoilerplate(evidenceText, home.text)
+      // Either the link named the act or the address looks like a route.
+      // Neither is proof on its own — the page's wording is still what
+      // resolves — but a page reached by an "About Us" link at an /about-us
+      // address, whose only relevant sentence explains that sponsored content
+      // is LABELLED, is not an offer to advertise.
+      && promise(link) > 0) {
       return {
         state: 'RESOLVED', actionType: action, actionUrl: page2.url,
         why: 'the rendered destination page states the action in the operator\'s own words',
@@ -283,7 +314,7 @@ async function researchOne(page, target) {
         // The sentence that decided it, kept so the applier can re-check the
         // actual evidence against the current vocabulary instead of trusting a
         // verdict recorded under an older one.
-        evidenceText: excerpt(page2.text, action, target.collection),
+        evidenceText,
         rendered: true, visited: visited.length,
       };
     }
