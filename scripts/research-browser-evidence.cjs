@@ -54,12 +54,15 @@ const SOURCE_LEDGER = path.join(ROOT, 'data/action-routes/.action-routes.json');
 // costs the six records behind it in the queue.
 const CONCURRENCY = 3;
 const NAV_TIMEOUT_MS = 18000;
-const SETTLE_TIMEOUT_MS = 8000;
+const SETTLE_TIMEOUT_MS = 10000;
+const SETTLE_FLOOR_MS = 1200;
 const RECORD_BUDGET_MS = 55000;
-const MAX_FOLLOW = 2;
+const MAX_FOLLOW = 3;
 const EVIDENCE_CHARS = 4000;
 const MIN_TEXT = 200;
 const MIN_LINKS = 5;
+// Below this a followed page is chrome, not content.
+const PARTIAL_TEXT = 2000;
 
 const CHALLENGE = T.patternMatcher([
   'attention required', 'just a moment', 'checking your browser',
@@ -82,6 +85,47 @@ const arg = (name) => {
 
 const deadlineExceeded = (started) => Date.now() - started > RECORD_BUDGET_MS;
 
+// fr.example.com is example.com. Treating a language subdomain as a foreign
+// host was a real defect in an earlier phase; treating an unrelated domain as
+// the operator's would be a worse one, because it would publish somebody else's
+// page as this platform's route.
+function sameHostFamily(a, b) {
+  try {
+    const fam = (u) => new URL(u).hostname.replace(/^www\./, '').split('.').slice(-2).join('.');
+    return fam(a) === fam(b);
+  } catch { return false; }
+}
+
+// How promising a link looks, used ONLY to decide what to open first. This is
+// the one place the URL is allowed to matter, and it is allowed because
+// choosing where to look is not deciding what is true — the destination's own
+// wording still has to state the action, and a path that merely LOOKS right
+// resolves nothing. Cylex Austria is why this exists: its homepage offers
+// ANMELDEN, REGISTRIEREN -> /signin, JETZT STARTEN and, further down,
+// REGISTRIEREN -> /register-company. A budget of three pages spent in document
+// order never reaches the fourth.
+const URL_PROMISING = /(add|submit|list|claim|register|create|join|sell|seller|merchant|vendor|supplier|advertis|publish|press|contribut|write|pitch)[-_/]?(business|company|firm|listing|entry|profile|shop|store|ad|release|us|you)|register-company|add-business|add-listing|business-listing|for-business/i;
+const URL_DEAD_END = /(sign-?in|log-?in|password|forgot|privacy|cookie|terms|legal|imprint|impressum|datenschutz)/i;
+
+function promise(link) {
+  let score = 0;
+  if (AR.LINK_MATCH(link.text)) score += 4;
+  if (URL_PROMISING.test(link.href)) score += 2;
+  if (URL_DEAD_END.test(link.href)) score -= 3;
+  return score;
+}
+
+// The window of text around the phrase that resolved it — enough to audit the
+// decision, far too little to be a stored copy of the page.
+function excerpt(text, action, collection) {
+  const confirms = AR.CONFIRMS[action];
+  if (!confirms) return '';
+  for (const sentence of String(text).split(/(?<=[.!?])\s+|\n/)) {
+    if (sentence.length >= 12 && confirms(sentence)) return sentence.slice(0, 300);
+  }
+  return String(text).slice(0, 300);
+}
+
 // ── SETTLING ────────────────────────────────────────────────────────────────
 //
 // Not the load event. A single-page application fires load with an empty shell
@@ -89,9 +133,24 @@ const deadlineExceeded = (started) => Date.now() - started > RECORD_BUDGET_MS;
 // is waiting for the wrong thing. Two identical reads of the rendered text and
 // link count mean the page has stopped changing, which is the property that
 // actually matters.
+// TWO consecutive identical observations, plus a floor on elapsed time.
+//
+// One match was not enough, and the failure was quiet. Cylex Austria's
+// /register-company renders its header and footer first and fetches the main
+// panel afterwards; two reads 350ms apart both saw the same header-and-footer
+// shell, settle declared the page finished, and the researcher judged a page
+// whose actual content — "Firma registrieren", "kostenlosen Firmeneintrag" —
+// had not arrived yet. It recorded "rendered, offers no action" about a page
+// that offers exactly the action, which is the same class of false negative as
+// the headless refusals: a fact invented out of a measurement taken too early.
+//
+// Stability is still what decides; the floor only stops the first two reads
+// from landing inside the same animation frame.
 async function settle(page) {
   let previous = null;
-  const deadline = Date.now() + SETTLE_TIMEOUT_MS;
+  let stable = 0;
+  const started = Date.now();
+  const deadline = started + SETTLE_TIMEOUT_MS;
   for (;;) {
     // eslint-disable-next-line no-await-in-loop
     const now = await page.eval(() => ({
@@ -100,8 +159,9 @@ async function settle(page) {
     })).catch(() => null);
     if (!now) return false;
     const shape = `${now.links}:${now.len}`;
-    if (shape === previous && now.len > 0) return true;
+    stable = shape === previous ? stable + 1 : 0;
     previous = shape;
+    if (stable >= 2 && now.len > 0 && Date.now() - started >= SETTLE_FLOOR_MS) return true;
     if (Date.now() > deadline) return now.len > 0;
     // eslint-disable-next-line no-await-in-loop
     await new Promise((r) => { setTimeout(r, 350); });
@@ -131,6 +191,7 @@ async function readPage(page) {
 async function researchOne(page, target) {
   const started = Date.now();
   const visited = [];
+  let partial = 0;
 
   const open = async (url) => {
     const timer = setTimeout(() => { /* the navigation promise below settles anyway */ }, NAV_TIMEOUT_MS);
@@ -171,18 +232,35 @@ async function researchOne(page, target) {
     return { state: 'PROTECTED', why: 'a bot challenge in the rendered page', evidenceUrl: home.url };
   }
 
-  // The same vocabulary the HTTP pass uses, imported rather than restated.
-  const candidates = home.links.filter((l) => AR.LINK_MATCH(l.text)).slice(0, MAX_FOLLOW * 2);
+  // Candidate selection uses the BROAD vocabulary and proves nothing on its own
+  // — a generic "Registrieren" gets a page opened, and only that page's wording
+  // decides what it means. Strongest wording first, because the budget is three
+  // pages and a homepage may offer a dozen plausible links. Deduplicated by
+  // destination, because a homepage commonly repeats one "add your business"
+  // link in the header, a hero panel and the footer, and three visits to one
+  // URL is not three chances.
+  const ranked = home.links.slice().sort((a, b) => promise(b) - promise(a));
+  const candidates = [];
   const seen = new Set();
+  for (const l of ranked) {
+    if (!AR.FOLLOW_MATCH(l.text) || seen.has(l.href)) continue;
+    seen.add(l.href);
+    candidates.push(l);
+    if (candidates.length >= MAX_FOLLOW * 2) break;
+  }
 
   for (const link of candidates) {
     if (deadlineExceeded(started) || visited.length >= MAX_FOLLOW) break;
-    if (seen.has(link.href)) continue;
-    seen.add(link.href);
     // eslint-disable-next-line no-await-in-loop
     const page2 = await open(link.href);
     if (!page2 || page2.error || !page2.text) { visited.push(link.href); continue; }
     visited.push(link.href);
+    // A followed page that renders only its header and footer has not shown us
+    // its content, and saying "this page states no action" about it would be a
+    // claim we did not earn. Cylex Austria does exactly this: its
+    // /register-company loads fully on a first visit and returns chrome only
+    // once the session has already loaded the homepage. Counted, and reported.
+    if (page2.text.length < PARTIAL_TEXT) partial += 1;
 
     if (target.collection === 'tenders') {
       const bid = AR.judgeBid(page2.text);
@@ -196,12 +274,17 @@ async function researchOne(page, target) {
     }
 
     const action = AR.judgeAction(target.collection, page2.text);
-    const anchorAgrees = action && AR.CONFIRMS[action] && AR.CONFIRMS[action](link.text);
-    if (action && anchorAgrees) {
+    if (action && sameHostFamily(target.url, page2.url)) {
       return {
         state: 'RESOLVED', actionType: action, actionUrl: page2.url,
-        why: 'the rendered destination states the action, and the link that led there names it too',
-        evidenceUrl: page2.url, anchor: link.text, rendered: true, visited: visited.length,
+        why: 'the rendered destination page states the action in the operator\'s own words',
+        evidenceUrl: page2.url,
+        anchor: link.text,
+        // The sentence that decided it, kept so the applier can re-check the
+        // actual evidence against the current vocabulary instead of trusting a
+        // verdict recorded under an older one.
+        evidenceText: excerpt(page2.text, action, target.collection),
+        rendered: true, visited: visited.length,
       };
     }
   }
@@ -213,11 +296,13 @@ async function researchOne(page, target) {
   return {
     state: 'RENDERED_NO_EVIDENCE',
     why: candidates.length
-      ? `followed ${visited.length} rendered candidate(s); none stated the action`
+      ? `followed ${visited.length} candidate(s); none stated the action`
+        + (partial ? `, and ${partial} rendered only navigation` : '')
       : 'the rendered page offered no link whose wording names an action',
     evidenceUrl: home.url,
     rendered: true,
     visited: visited.length,
+    partiallyRendered: partial,
   };
 }
 

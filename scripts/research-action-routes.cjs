@@ -153,6 +153,27 @@ const LINK_WORDS = [
 ];
 const LINK_MATCH = T.stemMatcher(LINK_WORDS);
 
+// ── WHAT TO OPEN, WHICH IS NOT WHAT TO BELIEVE ──────────────────────────────
+//
+// Cylex Austria publishes REGISTRIEREN -> /register-company on its homepage.
+// The anchor is generic account wording and the path is not evidence, so
+// neither may establish anything — but a researcher that will not even OPEN
+// that link can never find the page behind it, which says "Registrieren Sie Ihr
+// Unternehmen" and settles the question outright.
+//
+// So candidate selection is deliberately looser than proof. These words get a
+// page opened. Only CONFIRMS decides what the page then means.
+const FOLLOW_WORDS = LINK_WORDS.concat([
+  'register', 'registrieren', 'registro', 'registrarse', 'inscription',
+  'sign up', 'signup', 'join', 'create account', 'for business', 'for businesses',
+  'business owners', 'für unternehmen', 'firmen', 'pour les entreprises',
+  'para empresas', 'per le aziende', 'dla firm', 'owners', 'partner with us',
+  'suppliers', 'vendors', 'contact us', 'about us', 'advertise', 'press',
+  'submit', 'add', 'sell', 'seller', 'merchant', 'publish',
+]);
+const FOLLOW_MATCH = T.stemMatcher(FOLLOW_WORDS);
+
+
 // What the DESTINATION must say. Deliberately narrower than the link vocabulary:
 // a link may be called anything, but the page it leads to has to describe the
 // act itself.
@@ -167,6 +188,16 @@ const CONFIRMS = {
     'adicionar sua empresa', 'dodaj firmę', 'přidat firmu', 'firma ekle',
     'lisää yrityksesi', 'legg til bedriften', 'lägg till ditt företag',
     'tambah bisnis anda', 'добавить компанию',
+    // "Register your COMPANY" is not generic registration — the object of the
+    // verb is the business, which is the whole distinction. Observed on Cylex
+    // Austria, whose homepage link says only REGISTRIEREN and whose destination
+    // page says this.
+    'registrieren sie ihr unternehmen', 'unternehmen registrieren', 'firma registrieren',
+    'registre su empresa', 'registra tu empresa', 'registrar su empresa',
+    'enregistrez votre entreprise', 'enregistrer votre entreprise',
+    'registra la tua azienda', 'zarejestruj firmę', 'zarejestruj swoją firmę',
+    'cadastre sua empresa', 'registrar empresa', 'зарегистрировать компанию',
+    'firmanızı kaydedin', 'registrujte firmu', 'regisztrálja cégét',
   ]),
   claim: T.stemMatcher([
     'claim your business', 'claim your listing', 'claim this business',
@@ -564,7 +595,14 @@ function runApply() {
       // older, looser vocabulary. It is refused rather than applied, because a
       // rule that was tightened for a reason should not leak in through a
       // finding recorded before the tightening.
-      if (!CONFIRMS[f.actionType] || !CONFIRMS[f.actionType](String(f.anchor || ''))) {
+      // Re-checked against the CURRENT vocabulary, not trusted from the ledger:
+      // a verdict recorded before a rule was tightened must not leak in through
+      // a stored finding. Either the link's own wording named the act, or the
+      // page it led to did — and for the second the sentence that decided it is
+      // stored, so this can check the actual evidence rather than a summary of
+      // it.
+      const confirms = CONFIRMS[f.actionType];
+      if (!confirms || !(confirms(String(f.anchor || '')) || confirms(String(f.evidenceText || '')))) {
         tally.skipped += 1;
         continue;
       }
@@ -609,7 +647,7 @@ function runInventory() {
 
 module.exports = {
   FINDINGS, COLLECTIONS, targets, judgeAction, judgeBid, candidateLinks,
-  runApply, CONFIRMS, LINK_MATCH, BID_FREE, BID_PAID, unescapeHtml,
+  runApply, CONFIRMS, LINK_MATCH, FOLLOW_MATCH, BID_FREE, BID_PAID, unescapeHtml,
 };
 
 if (require.main === module) {

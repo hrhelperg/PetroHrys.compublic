@@ -449,7 +449,9 @@ function startChrome() {
 
 async function settleOn(page) {
   let previous = null;
-  const deadline = Date.now() + SETTLE_MS * 2;
+  let stable = 0;
+  const started = Date.now();
+  const deadline = started + SETTLE_MS * 3;
   for (;;) {
     // eslint-disable-next-line no-await-in-loop
     const now = await page.eval(() => ({
@@ -458,8 +460,11 @@ async function settleOn(page) {
     })).catch(() => null);
     if (!now) return;
     const shape = `${now.links}:${now.len}`;
-    if (shape === previous && now.len > 0) return;
+    stable = shape === previous ? stable + 1 : 0;
     previous = shape;
+    // Two consecutive matches, not one: a page that renders its shell first and
+    // its content afterwards looks settled to a single comparison.
+    if (stable >= 2 && now.len > 0 && Date.now() - started >= 1200) return;
     if (Date.now() > deadline) return;
     // eslint-disable-next-line no-await-in-loop
     await new Promise((r) => { setTimeout(r, 350); });

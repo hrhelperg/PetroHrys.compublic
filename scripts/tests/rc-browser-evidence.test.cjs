@@ -108,11 +108,43 @@ test('M16: a /add-business/ path proves nothing without visible wording', () => 
   assert.equal(R.judgeAction('directories', pad('Welcome. Please choose a category to continue.')), null);
 });
 
-test('M16: resolution requires the anchor and the destination to agree', () => {
+test('M16: only the destination page\'s own wording resolves an action', () => {
   const src = fs.readFileSync(path.join(ROOT, 'scripts/research-browser-evidence.cjs'), 'utf8');
-  assert.match(src, /const anchorAgrees = action && AR\.CONFIRMS\[action\]/);
-  assert.match(src, /if \(action && anchorAgrees\)/,
-    'a destination that states an action must also have been reached by a link naming it');
+  // What is opened and what is believed are deliberately different vocabularies.
+  // Cylex Austria publishes REGISTRIEREN -> /register-company: the anchor is
+  // generic and the path is not evidence, but the page behind it says
+  // "Registrieren Sie Ihr Unternehmen" and settles the question. A researcher
+  // that refuses to open a generic link can never read that page.
+  assert.match(src, /AR\.FOLLOW_MATCH\(l\.text\)/, 'candidates are chosen with the broad vocabulary');
+  assert.match(src, /const action = AR\.judgeAction\(target\.collection, page2\.text\)/,
+    'the verdict is taken from the destination TEXT, never from its URL');
+  assert.ok(!/judgeAction\([^)]*page2\.url/.test(src), 'the URL must never be judged');
+});
+
+test('M16: a generic anchor is followed but cannot itself prove anything', () => {
+  assert.equal(R.FOLLOW_MATCH('REGISTRIEREN'), true, 'it must be opened');
+  assert.equal(R.judgeAction('directories', pad('REGISTRIEREN')), null, 'it must prove nothing');
+  assert.equal(R.judgeAction('directories', pad('Registrieren Sie Ihr Unternehmen kostenlos')), 'create',
+    'the page behind it is what decides');
+});
+
+test('M15: a route on a foreign domain is refused', () => {
+  const src = fs.readFileSync(path.join(ROOT, 'scripts/research-browser-evidence.cjs'), 'utf8');
+  assert.match(src, /action && sameHostFamily\(target\.url, page2\.url\)/,
+    'a resolved route must live on the operator\'s own host family');
+  const fam = src.slice(src.indexOf('function sameHostFamily'), src.indexOf('function excerpt'));
+  assert.ok(fam.includes("replace(/^www\\./, '')"), 'www is not a different site');
+  assert.ok(fam.includes('slice(-2)'), 'a language subdomain is not a foreign host');
+});
+
+test('the sentence that decided a verdict is stored for re-checking', () => {
+  const src = fs.readFileSync(path.join(ROOT, 'scripts/research-browser-evidence.cjs'), 'utf8');
+  assert.match(src, /evidenceText: excerpt\(/);
+  const apply = fs.readFileSync(path.join(ROOT, 'scripts/research-action-routes.cjs'), 'utf8');
+  assert.match(apply, /confirms\(String\(f\.evidenceText \|\| ''\)\)/,
+    'the applier re-checks the stored evidence against the CURRENT vocabulary');
+  // And the excerpt is a sentence, not a copy of the page.
+  assert.match(src, /\.slice\(0, 300\)/);
 });
 
 // ── M6 / M7: LOCALIZED MATCHING ─────────────────────────────────────────────
