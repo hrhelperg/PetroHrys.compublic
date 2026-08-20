@@ -38,6 +38,7 @@ const { openPage, launch } = require('./tests/helpers/cdp.cjs');
 const SAFE = require('./lib/rc-safe-apply.cjs');
 const CK = require('./lib/rc-checkpoint.cjs');
 const T = require('./lib/rc-text-match.cjs');
+const REFUSAL = require('./lib/rc-refusal.cjs');
 
 const ROOT = path.resolve(__dirname, '..');
 const DATA = path.join(ROOT, 'data/tenders-procurement/platforms.json');
@@ -58,10 +59,7 @@ const PACE_MS = 600;
 const EVIDENCE_CHARS = 4000;
 const MIN_TEXT = 200;
 
-const CHALLENGE = T.patternMatcher([
-  'attention required', 'just a moment', 'checking your browser',
-  'verify (you are|you.re) human', 'access denied', 'unusual traffic', 'captcha',
-]);
+const CHALLENGE = REFUSAL.isRefusal;
 
 // The operator saying participation costs nothing. Deliberately phrase-level:
 // "free" on its own is the single most overloaded word on a procurement site.

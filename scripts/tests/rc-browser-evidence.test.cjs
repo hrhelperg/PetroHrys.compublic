@@ -742,3 +742,58 @@ test('the cost fixes cost no existing verdict', () => {
   assert.ok(judged > 500, 'the cohort must be non-empty and substantial');
   assert.equal(moved, 0, 'no stored verdict may change under the corrected vocabulary');
 });
+
+// ── ONE REFUSAL LIST, AND WHAT IT MUST NEVER SAY ───────────────────────────
+
+const REFUSAL = require(path.join(ROOT, 'scripts/lib/rc-refusal.cjs'));
+
+test('a reCAPTCHA attribution is not a challenge', () => {
+  // Required Google wording, printed by every site that puts reCAPTCHA on a
+  // contact or post-an-ad form. It says a challenge MAY be shown to someone
+  // some day; the page carrying it rendered perfectly.
+  assert.equal(REFUSAL.refusalReason('Newsletter signup: get our daily headlines. '
+    + 'This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.'), null);
+  // An actual challenge still is one.
+  assert.ok(REFUSAL.refusalReason('Please complete the CAPTCHA to continue.'));
+});
+
+test('"forbidden" is an ordinary word and a Beijing landmark', () => {
+  assert.equal(REFUSAL.refusalReason('Forbidden City reopens to overseas tour groups.'), null);
+  assert.equal(REFUSAL.refusalReason('It is forbidden to publish ads for weapons or drugs.'), null);
+  assert.equal(REFUSAL.refusalReason('Error 403 Forbidden'), 'access-denied');
+  assert.equal(REFUSAL.refusalReason('Access Denied'), 'access-denied');
+});
+
+test('security-news vocabulary is not a refusal', () => {
+  // Help Net Security's homepage — real datelined headlines — was marked a bot
+  // challenge because 'ddos protection' is its SUBJECT. Cloudflare's credit
+  // line carries the preposition; the topic does not.
+  assert.equal(REFUSAL.refusalReason('Our guide to DDoS protection, and how a '
+    + 'request blocked by a WAF actually looks.'), null);
+  assert.equal(REFUSAL.refusalReason('Attention Required! DDoS protection by Cloudflare.'),
+    'cloudflare-attention');
+});
+
+test('a publication\'s own "coming soon" is not a parked domain', () => {
+  assert.equal(REFUSAL.parkedReason('Breaking: EU delays HGV emissions rule. '
+    + 'Our 2026 Fleet Awards shortlist is coming soon. Subscribe today.'), null);
+  assert.ok(REFUSAL.parkedReason('This domain is parked and may be for sale'));
+  assert.ok(REFUSAL.parkedReason('Website coming soon'));
+});
+
+test('every researcher shares one refusal list', () => {
+  // Eight copies had already drifted, and that duplication is why two defects
+  // survived in all of them at once.
+  const dir = path.join(ROOT, 'scripts');
+  const files = fs.readdirSync(dir).filter((f) => (f.startsWith('research-') || f.startsWith('verify-'))
+    && f.endsWith('.cjs'));
+  assert.ok(files.length >= 6, 'the cohort must be non-empty');
+  for (const file of files) {
+    const src = fs.readFileSync(path.join(dir, file), 'utf8');
+    if (!src.includes('CHALLENGE')) continue;
+    assert.ok(src.includes('rc-refusal.cjs'),
+      `${file} must use the shared refusal list, not its own copy`);
+    assert.ok(!/const CHALLENGE = (T\.patternMatcher\(\[|\[\s*\[\/)/.test(src),
+      `${file} still defines its own challenge vocabulary`);
+  }
+});

@@ -42,6 +42,7 @@ const ROOT = path.resolve(__dirname, '..');
 const CK = require('./lib/rc-checkpoint.cjs');
 const SAFE = require('./lib/rc-safe-apply.cjs');
 const T = require('./lib/rc-text-match.cjs');
+const REFUSAL = require('./lib/rc-refusal.cjs');
 const S = require('./lib/bd-schema.cjs');
 const MP = require('./lib/mp-schema.cjs');
 const MEDIA = require('./lib/media-schema.cjs');
@@ -263,14 +264,8 @@ const OPPORTUNITY_LEVEL = T.stemMatcher([
   'tender document fee', 'performance bond', 'wadium', 'caution provisoire',
 ]);
 
-const CHALLENGE = T.patternMatcher([
-  'attention required', 'just a moment', 'checking your browser',
-  'verify (you are|you.re) human', 'access denied', 'unusual traffic', 'captcha',
-]);
-const PARKED = T.patternMatcher([
-  'domain (is|may be) for sale', 'buy this domain', 'parked domain',
-  'hugedomains', 'sedo.com', 'afternic', 'under construction',
-]);
+const CHALLENGE = REFUSAL.isRefusal;
+const PARKED = REFUSAL.isParked;
 
 const arg = (name) => {
   const i = process.argv.indexOf(name);

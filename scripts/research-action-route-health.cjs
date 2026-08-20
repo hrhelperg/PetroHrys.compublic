@@ -47,6 +47,7 @@ const { spawn } = require('node:child_process');
 const { openPage, launch } = require('./tests/helpers/cdp.cjs');
 const SAFE = require('./lib/rc-safe-apply.cjs');
 const T = require('./lib/rc-text-match.cjs');
+const REFUSAL = require('./lib/rc-refusal.cjs');
 
 const ROOT = path.resolve(__dirname, '..');
 const FINDINGS = path.join(ROOT, 'data/business-directories/.route-health.json');
@@ -94,11 +95,7 @@ const EVIDENCE_CHARS = 2500;
 
 // ── VOCABULARY, all Unicode-safe ────────────────────────────────────────────
 
-const CHALLENGE = T.patternMatcher([
-  'attention required', 'just a moment', 'checking your browser',
-  'verify (you are|you.re) human', 'access denied', 'enable javascript and cookies',
-  'unusual traffic', 'captcha',
-]);
+const CHALLENGE = REFUSAL.isRefusal;
 
 // The destination still offers the action. Grouped by what was recorded, in the
 // languages these operators publish in.

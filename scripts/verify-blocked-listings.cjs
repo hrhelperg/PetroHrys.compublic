@@ -48,6 +48,7 @@ const os = require('node:os');
 const { spawn } = require('node:child_process');
 const { openPage } = require('./tests/helpers/cdp.cjs');
 const SAFE = require('./lib/rc-safe-apply.cjs');
+const REFUSAL = require('./lib/rc-refusal.cjs');
 const TEXT = require('./lib/rc-text-match.cjs');
 
 const ROOT = path.resolve(__dirname, '..');
@@ -98,17 +99,7 @@ const DEEP = process.argv.includes('--actionability');
 
 // Signatures of a challenge, checked against the title as well as the body:
 // Cloudflare puts "Attention Required!" in the title and almost nothing else.
-const CHALLENGE = [
-  [/attention required/i, 'cloudflare-attention'],
-  [/just a moment/i, 'cloudflare-interstitial'],
-  [/checking your browser/i, 'browser-check'],
-  [/verify (you are|you're) human/i, 'human-verification'],
-  [/access denied|forbidden/i, 'access-denied'],
-  [/enable javascript and cookies/i, 'js-cookie-gate'],
-  [/unusual traffic|automated queries/i, 'rate-limit'],
-  [/captcha/i, 'captcha'],
-  [/are you a robot/i, 'robot-check'],
-];
+
 
 // Anchor text that states a route in the operator's own words. Text, not href:
 // a URL containing "signup" says nothing about who may sign up, while a link

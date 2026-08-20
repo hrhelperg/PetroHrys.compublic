@@ -40,6 +40,7 @@ const ROOT = path.resolve(__dirname, '..');
 const CK = require('./lib/rc-checkpoint.cjs');
 const SAFE = require('./lib/rc-safe-apply.cjs');
 const T = require('./lib/rc-text-match.cjs');
+const REFUSAL = require('./lib/rc-refusal.cjs');
 const AR = require('./research-action-routes.cjs');
 const { launch, openPage, chromePath } = require('./tests/helpers/cdp.cjs');
 
@@ -64,19 +65,8 @@ const MIN_LINKS = 5;
 // Below this a followed page is chrome, not content.
 const PARTIAL_TEXT = 2000;
 
-const CHALLENGE = T.patternMatcher([
-  'attention required', 'just a moment', 'checking your browser',
-  'verify (you are|you.re) human', 'access denied', 'unusual traffic', 'captcha',
-  'enable javascript', 'ddos protection',
-  // Seen in the pilot: a Cloudflare interstitial whose entire body is a
-  // performance-and-security credit plus a privacy link.
-  'performance (and|&) security by', 'ray id', 'security check', 'request blocked',
-  'are you a robot', 'client challenge',
-]);
-const PARKED = T.patternMatcher([
-  'domain (is|may be) for sale', 'buy this domain', 'parked domain',
-  'hugedomains', 'sedo.com', 'afternic', 'under construction',
-]);
+const CHALLENGE = REFUSAL.isRefusal;
+const PARKED = REFUSAL.isParked;
 
 const arg = (name) => {
   const i = process.argv.indexOf(name);

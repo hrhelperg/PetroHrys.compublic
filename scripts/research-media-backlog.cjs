@@ -53,6 +53,7 @@ const os = require('node:os');
 const { spawn } = require('node:child_process');
 const { openPage, launch } = require('./tests/helpers/cdp.cjs');
 const SAFE = require('./lib/rc-safe-apply.cjs');
+const REFUSAL = require('./lib/rc-refusal.cjs');
 
 const ROOT = path.resolve(__dirname, '..');
 const DATA = path.join(ROOT, 'data/media-pr-publishing/media-platforms.json');
@@ -73,16 +74,7 @@ const CONCURRENCY = 4;
 const PACE_MS = 800;
 const MIN_TEXT = 400;
 
-const CHALLENGE = [
-  [/attention required/i, 'cloudflare-attention'],
-  [/just a moment/i, 'cloudflare-interstitial'],
-  [/checking your browser/i, 'browser-check'],
-  [/verify (you are|you're) human/i, 'human-verification'],
-  [/access denied|forbidden/i, 'access-denied'],
-  [/enable javascript and cookies/i, 'js-cookie-gate'],
-  [/unusual traffic|automated queries/i, 'rate-limit'],
-  [/captcha/i, 'captcha'],
-];
+
 
 const PARKED = [
   [/\bdomain\b[^!?\n]{0,60}\b(is|are|may be|might be) for sale\b/i, 'domain for sale'],
@@ -300,7 +292,8 @@ function assess(record, obs) {
   if (obs.error || !obs.url) return { state: 'UNRESOLVED', why: obs.error || 'the browser could not open it' };
   const hay = `${obs.title}\n${obs.head}`;
   for (const [re, label] of PARKED) if (re.test(hay)) return { state: 'ONTOLOGY_REJECTED', why: `${label}, not a publication` };
-  for (const [re, label] of CHALLENGE) if (re.test(hay)) return { state: 'UNKNOWN_PROTECTED', why: label };
+  const refusal = REFUSAL.refusalReason(hay);
+  if (refusal) { const label = refusal; return { state: 'UNKNOWN_PROTECTED', why: label }; }
   if (obs.status >= 400) return { state: 'UNKNOWN_PROTECTED', why: `http ${obs.status}` };
   if (obs.textLen < MIN_TEXT) return { state: 'UNRESOLVED', why: `only ${obs.textLen} characters rendered` };
 

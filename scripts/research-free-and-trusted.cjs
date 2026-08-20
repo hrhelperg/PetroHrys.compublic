@@ -39,6 +39,7 @@ const { openPage, launch } = require('./tests/helpers/cdp.cjs');
 const SAFE = require('./lib/rc-safe-apply.cjs');
 const CK = require('./lib/rc-checkpoint.cjs');
 const T = require('./lib/rc-text-match.cjs');
+const REFUSAL = require('./lib/rc-refusal.cjs');
 
 const ROOT = path.resolve(__dirname, '..');
 const FINDINGS = path.join(ROOT, 'data/business-directories/.free-trusted.json');
@@ -75,15 +76,9 @@ const MIN_TEXT = 200;
 
 // ── VOCABULARY, Unicode-safe throughout ─────────────────────────────────────
 
-const CHALLENGE = T.patternMatcher([
-  'attention required', 'just a moment', 'checking your browser',
-  'verify (you are|you.re) human', 'access denied', 'unusual traffic', 'captcha',
-]);
+const CHALLENGE = REFUSAL.isRefusal;
 
-const PARKED = T.patternMatcher([
-  'domain (is|may be) for sale', 'buy this domain', 'parked domain',
-  'hugedomains', 'sedo.com', 'afternic', 'under construction',
-]);
+const PARKED = REFUSAL.isParked;
 
 // The operator saying, in its own words, that the useful action costs nothing.
 //
