@@ -1,0 +1,374 @@
+#!/usr/bin/env node
+// scripts/research-browser-evidence.cjs
+'use strict';
+
+// Reading the pages that refused a script.
+//
+// ── WHAT THIS IS FOR ────────────────────────────────────────────────────────
+//
+// The HTTP pass reached 2115 records and resolved 20. Not because the evidence
+// was absent — because it was unreachable: 278 records answered a plain 403,
+// and 1729 more served a shell whose navigation is assembled by JavaScript, so
+// a fetch saw a page with no links on it. Both are the same finding stated two
+// ways: a script cannot see this site, and a browser can.
+//
+// So this opens a real Chrome, waits for the page to settle, and reads the
+// links a person would actually see. Nothing about the judgement changes — the
+// vocabulary, the anchor/destination agreement and the refusals are imported
+// from the HTTP researcher rather than restated, because two matchers drift and
+// the second one is always the looser.
+//
+// ── WHAT IT WILL NOT DO ─────────────────────────────────────────────────────
+//
+// It does not solve challenges, defeat access controls, rotate identities or
+// pretend to be a browser it is not. It opens the site the way a person would
+// and reads what is there. A site that still refuses is recorded as protected
+// and left alone — an honest UNKNOWN, which is the correct answer and not a
+// failure of the run.
+//
+//   node scripts/research-browser-evidence.cjs --inventory
+//   node scripts/research-browser-evidence.cjs --limit 100
+//   node scripts/research-browser-evidence.cjs --report
+//   node scripts/research-browser-evidence.cjs --apply
+//
+// Nothing in the build, the validator or the test suite invokes this file.
+
+const fs = require('node:fs');
+const path = require('node:path');
+
+const ROOT = path.resolve(__dirname, '..');
+const CK = require('./lib/rc-checkpoint.cjs');
+const SAFE = require('./lib/rc-safe-apply.cjs');
+const T = require('./lib/rc-text-match.cjs');
+const AR = require('./research-action-routes.cjs');
+const { launch, openPage, chromePath } = require('./tests/helpers/cdp.cjs');
+
+const FINDINGS = path.join(ROOT, 'data/action-routes/.browser-evidence.json');
+const SOURCE_LEDGER = path.join(ROOT, 'data/action-routes/.action-routes.json');
+
+// ── BOUNDS ──────────────────────────────────────────────────────────────────
+//
+// Chosen to keep a long run finishing rather than to squeeze the last record.
+// A site that needs more than a minute of a browser's attention is a site whose
+// evidence this pass is not going to get, and spending three minutes on it
+// costs the six records behind it in the queue.
+const CONCURRENCY = 3;
+const NAV_TIMEOUT_MS = 18000;
+const SETTLE_TIMEOUT_MS = 8000;
+const RECORD_BUDGET_MS = 55000;
+const MAX_FOLLOW = 2;
+const EVIDENCE_CHARS = 4000;
+const MIN_TEXT = 200;
+const MIN_LINKS = 5;
+
+const CHALLENGE = T.patternMatcher([
+  'attention required', 'just a moment', 'checking your browser',
+  'verify (you are|you.re) human', 'access denied', 'unusual traffic', 'captcha',
+  'enable javascript', 'ddos protection',
+  // Seen in the pilot: a Cloudflare interstitial whose entire body is a
+  // performance-and-security credit plus a privacy link.
+  'performance (and|&) security by', 'ray id', 'security check', 'request blocked',
+  'are you a robot', 'client challenge',
+]);
+const PARKED = T.patternMatcher([
+  'domain (is|may be) for sale', 'buy this domain', 'parked domain',
+  'hugedomains', 'sedo.com', 'afternic', 'under construction',
+]);
+
+const arg = (name) => {
+  const i = process.argv.indexOf(name);
+  return i === -1 ? null : (process.argv[i + 1] || true);
+};
+
+const deadlineExceeded = (started) => Date.now() - started > RECORD_BUDGET_MS;
+
+// ── SETTLING ────────────────────────────────────────────────────────────────
+//
+// Not the load event. A single-page application fires load with an empty shell
+// and then draws the navigation this pass exists to read, so waiting for load
+// is waiting for the wrong thing. Two identical reads of the rendered text and
+// link count mean the page has stopped changing, which is the property that
+// actually matters.
+async function settle(page) {
+  let previous = null;
+  const deadline = Date.now() + SETTLE_TIMEOUT_MS;
+  for (;;) {
+    // eslint-disable-next-line no-await-in-loop
+    const now = await page.eval(() => ({
+      links: document.querySelectorAll('a[href]').length,
+      len: (document.body ? document.body.innerText || '' : '').length,
+    })).catch(() => null);
+    if (!now) return false;
+    const shape = `${now.links}:${now.len}`;
+    if (shape === previous && now.len > 0) return true;
+    previous = shape;
+    if (Date.now() > deadline) return now.len > 0;
+    // eslint-disable-next-line no-await-in-loop
+    await new Promise((r) => { setTimeout(r, 350); });
+  }
+}
+
+// What a person can see and click. Anchor text comes from innerText, so a link
+// hidden behind a collapsed menu still counts — it is navigation the operator
+// published — while an element with no text does not.
+async function readPage(page) {
+  return page.eval((max) => {
+    const text = (document.body ? document.body.innerText || '' : '').replace(/\s+/g, ' ').trim();
+    const links = [];
+    for (const a of document.querySelectorAll('a[href]')) {
+      const label = (a.innerText || a.textContent || '').replace(/\s+/g, ' ').trim();
+      if (!label || label.length > 60) continue;
+      const href = a.href;
+      if (!/^https?:/.test(href)) continue;
+      links.push({ href, text: label });
+    }
+    return { title: document.title || '', text: text.slice(0, max), url: location.href, links };
+  }, EVIDENCE_CHARS).catch(() => null);
+}
+
+// ── ONE RECORD ──────────────────────────────────────────────────────────────
+
+async function researchOne(page, target) {
+  const started = Date.now();
+  const visited = [];
+
+  const open = async (url) => {
+    const timer = setTimeout(() => { /* the navigation promise below settles anyway */ }, NAV_TIMEOUT_MS);
+    try {
+      await Promise.race([
+        page.goto(url),
+        new Promise((_, reject) => { setTimeout(() => reject(new Error('navigation timeout')), NAV_TIMEOUT_MS); }),
+      ]);
+      await settle(page);
+      return await readPage(page);
+    } catch (e) {
+      return { error: e.message };
+    } finally {
+      clearTimeout(timer);
+    }
+  };
+
+  const home = await open(target.url);
+  if (!home || home.error) {
+    return { state: 'PROTECTED', why: `browser: ${(home && home.error) || 'no response'}`, evidenceUrl: target.url };
+  }
+  // A real homepage carries navigation. A challenge or block page carries a
+  // sentence and a link to a privacy policy. The pilot run mistook the second
+  // for the first and recorded eleven refusals as "rendered, offers nothing",
+  // which understates the corpus twice over: it hides how much is unread, and
+  // it slanders sites that do publish a route.
+  if (!home.text || home.text.length < MIN_TEXT || home.links.length < MIN_LINKS) {
+    return {
+      state: 'PROTECTED',
+      why: `the page rendered ${home.links.length} link(s) and ${home.text ? home.text.length : 0} characters, which is a refusal rather than a site`,
+      evidenceUrl: home.url,
+    };
+  }
+  if (PARKED(home.text)) return { state: 'PARKED', why: 'a parked or for-sale domain', evidenceUrl: home.url };
+  if (CHALLENGE(home.text)) {
+    // The site answered and refused. That is a fact about access, never about
+    // the platform, and it is emphatically not death.
+    return { state: 'PROTECTED', why: 'a bot challenge in the rendered page', evidenceUrl: home.url };
+  }
+
+  // The same vocabulary the HTTP pass uses, imported rather than restated.
+  const candidates = home.links.filter((l) => AR.LINK_MATCH(l.text)).slice(0, MAX_FOLLOW * 2);
+  const seen = new Set();
+
+  for (const link of candidates) {
+    if (deadlineExceeded(started) || visited.length >= MAX_FOLLOW) break;
+    if (seen.has(link.href)) continue;
+    seen.add(link.href);
+    // eslint-disable-next-line no-await-in-loop
+    const page2 = await open(link.href);
+    if (!page2 || page2.error || !page2.text) { visited.push(link.href); continue; }
+    visited.push(link.href);
+
+    if (target.collection === 'tenders') {
+      const bid = AR.judgeBid(page2.text);
+      if (bid && bid.bidAccess) {
+        return {
+          state: 'RESOLVED', bidAccess: bid.bidAccess, why: bid.why,
+          evidenceUrl: page2.url, anchor: link.text, rendered: true, visited: visited.length,
+        };
+      }
+      continue;
+    }
+
+    const action = AR.judgeAction(target.collection, page2.text);
+    const anchorAgrees = action && AR.CONFIRMS[action] && AR.CONFIRMS[action](link.text);
+    if (action && anchorAgrees) {
+      return {
+        state: 'RESOLVED', actionType: action, actionUrl: page2.url,
+        why: 'the rendered destination states the action, and the link that led there names it too',
+        evidenceUrl: page2.url, anchor: link.text, rendered: true, visited: visited.length,
+      };
+    }
+  }
+
+  // Rendered successfully and said nothing actionable. Deliberately its own
+  // state: "the browser could not read this" and "the browser read it and the
+  // site offers nothing" are different facts, and collapsing them would hide
+  // how much of the corpus is genuinely not actionable.
+  return {
+    state: 'RENDERED_NO_EVIDENCE',
+    why: candidates.length
+      ? `followed ${visited.length} rendered candidate(s); none stated the action`
+      : 'the rendered page offered no link whose wording names an action',
+    evidenceUrl: home.url,
+    rendered: true,
+    visited: visited.length,
+  };
+}
+
+// ── TARGETS ─────────────────────────────────────────────────────────────────
+
+function targets() {
+  const source = new CK.Ledger(SOURCE_LEDGER);
+  const wanted = arg('--state') || 'NEEDS_BROWSER';
+  const out = source.all()
+    .filter((f) => f.state === wanted)
+    .map((f) => ({
+      collection: f.collection, id: f.id, country: f.country, url: f.url,
+      domainRating: f.domainRating ?? null,
+      key: `browser|${f.key}`,
+      httpWhy: f.why,
+    }));
+  source.close();
+  const country = arg('--country');
+  const collection = arg('--collection');
+  return out
+    .filter((t) => (!country || t.country === country) && (!collection || t.collection === collection))
+    .sort((a, b) => (b.domainRating ?? -1) - (a.domainRating ?? -1) || (a.id < b.id ? -1 : 1));
+}
+
+// ── RUN ─────────────────────────────────────────────────────────────────────
+
+async function runProbe() {
+  if (!chromePath()) { console.error('No Chrome, Chromium or Edge on this machine.'); process.exit(1); }
+  const ledger = new CK.Ledger(FINDINGS);
+  if (ledger.recovered) {
+    console.log(`Recovered ${ledger.recovered} finding(s) from an interrupted run's journal.`);
+  }
+  let list = targets();
+  const already = list.filter((t) => ledger.has(t.key)).length;
+  if (!process.argv.includes('--refresh')) list = list.filter((t) => !ledger.has(t.key));
+  const limit = arg('--limit');
+  if (limit) list = list.slice(0, Number(limit));
+
+  console.log(`Browser evidence: ${list.length} record(s) to open `
+    + `(${already} already answered, ${ledger.size()} finding(s) on disk).`);
+  if (!list.length) { report(ledger.all()); return; }
+
+  CK.onInterrupt(ledger, 'Browser evidence');
+  const chrome = await launch({ headless: false });
+  if (!chrome) { console.error('Chrome did not start.'); process.exit(1); }
+
+  const queue = list.slice();
+  let done = 0;
+  const started = Date.now();
+
+  // One browser, a few tabs, reused for the whole run. Launching Chrome per
+  // record would spend more time starting browsers than reading pages.
+  const worker = async (n) => {
+    let page = await openPage(chrome.wsUrl);
+    for (;;) {
+      const target = queue.shift();
+      if (!target) break;
+      let verdict;
+      try {
+        // eslint-disable-next-line no-await-in-loop
+        verdict = await researchOne(page, target);
+      } catch (e) {
+        verdict = { state: 'PROTECTED', why: `browser worker: ${e.message}`, evidenceUrl: target.url };
+        // A tab that threw is not trusted again; a fresh one costs a second.
+        try { await page.close(); } catch { /* already gone */ }
+        // eslint-disable-next-line no-await-in-loop
+        page = await openPage(chrome.wsUrl);
+      }
+      ledger.record({ ...target, observedAt: new Date().toISOString().slice(0, 10), ...verdict });
+      done += 1;
+      if (done % 20 === 0) {
+        const rate = Math.round((done / ((Date.now() - started) / 3600000)));
+        console.log(`  ${done}/${list.length}  (~${rate}/hour)`);
+      }
+    }
+    try { await page.close(); } catch { /* already gone */ }
+  };
+
+  try {
+    await Promise.all(Array.from({ length: CONCURRENCY }, (_, i) => worker(i)));
+  } finally {
+    const kept = ledger.compact({ probedAt: new Date().toISOString().slice(0, 10) });
+    try { chrome.proc.kill('SIGKILL'); } catch { /* already gone */ }
+    try { fs.rmSync(chrome.profile, { recursive: true, force: true }); } catch { /* the OS reaps it */ }
+    const mins = Math.max(1, Math.round((Date.now() - started) / 60000));
+    console.log(`${kept} finding(s) on disk. ${done} record(s) in ${mins} min `
+      + `(~${Math.round(done / (mins / 60))}/hour).`);
+  }
+  report(ledger.all());
+}
+
+function report(findings) {
+  const tally = {};
+  for (const f of findings) tally[f.state] = (tally[f.state] || 0) + 1;
+  console.log('\nBROWSER EVIDENCE LEDGER');
+  for (const [k, v] of Object.entries(tally).sort((a, b) => b[1] - a[1])) {
+    console.log(`  ${String(v).padStart(5)}  ${k}`);
+  }
+  const actions = {};
+  for (const f of findings) if (f.actionType) actions[f.actionType] = (actions[f.actionType] || 0) + 1;
+  if (Object.keys(actions).length) console.log('  actions:', JSON.stringify(actions));
+  const bids = {};
+  for (const f of findings) if (f.bidAccess) bids[f.bidAccess] = (bids[f.bidAccess] || 0) + 1;
+  if (Object.keys(bids).length) console.log('  bidAccess:', JSON.stringify(bids));
+  const rendered = findings.filter((f) => f.rendered).length;
+  console.log(`  rendered successfully: ${rendered} of ${findings.length}`);
+}
+
+// ── APPLY ───────────────────────────────────────────────────────────────────
+//
+// Delegated to the HTTP researcher's applier, which already owns the rules
+// this phase must not weaken: the route field follows the action, a stored
+// verdict is re-checked against the current vocabulary, and an HTML entity in
+// a URL is refused. Reimplementing that here is how the two would diverge.
+function runApply() {
+  const browser = new CK.Ledger(FINDINGS);
+  const resolved = browser.all().filter((f) => f.state === 'RESOLVED');
+  browser.close();
+  if (!resolved.length) { console.log('No resolved browser findings to apply.'); return; }
+
+  const main = new CK.Ledger(SOURCE_LEDGER);
+  for (const f of resolved) {
+    // Written into the shared ledger under the HTTP identity, so one applier
+    // and one audit trail cover both stages.
+    const key = f.key.replace(/^browser\|/, '');
+    main.record({ ...f, key, evidenceSource: 'browser' });
+  }
+  const kept = main.compact();
+  console.log(`Merged ${resolved.length} browser finding(s) into the shared ledger (${kept} total).`);
+  AR.runApply();
+}
+
+function runInventory() {
+  const list = targets();
+  const byCollection = {};
+  const byCountry = {};
+  for (const t of list) {
+    byCollection[t.collection] = (byCollection[t.collection] || 0) + 1;
+    byCountry[t.country] = (byCountry[t.country] || 0) + 1;
+  }
+  console.log('records awaiting a browser:', list.length);
+  console.log('by collection:', JSON.stringify(byCollection));
+  console.log('densest:', Object.entries(byCountry).sort((a, b) => b[1] - a[1]).slice(0, 10)
+    .map(([c, n]) => `${c}=${n}`).join(' '));
+}
+
+module.exports = { FINDINGS, targets, settle, researchOne, runApply, CONCURRENCY, MAX_FOLLOW };
+
+if (require.main === module) {
+  if (process.argv.includes('--apply')) runApply();
+  else if (process.argv.includes('--inventory')) runInventory();
+  else if (process.argv.includes('--report')) report(new CK.Ledger(FINDINGS).all());
+  else runProbe().catch((e) => { console.error(e.message); process.exit(1); });
+}

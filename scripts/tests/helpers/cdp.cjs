@@ -161,12 +161,18 @@ function serve(root, preload = []) {
   });
 }
 
-async function launch() {
+// `headless` defaults to true, which is what every test wants: no window, no
+// focus stolen, no display required. Research against live sites passes false,
+// because a headless Chrome announces itself and a large share of the public
+// web declines to serve it — an ordinary windowed browser is not a disguise,
+// it is the same browser without the flag that makes it useless here.
+async function launch(opts = {}) {
+  const headless = opts.headless !== false;
   const bin = chromePath();
   if (!bin) return null;
   const profile = fs.mkdtempSync(path.join(os.tmpdir(), 'cdp-profile-'));
   const proc = spawn(bin, [
-    '--headless=new',
+    ...(headless ? ['--headless=new'] : ['--window-position=0,0', '--window-size=1280,900']),
     '--remote-debugging-port=0',
     `--user-data-dir=${profile}`,
     '--no-first-run', '--no-default-browser-check',

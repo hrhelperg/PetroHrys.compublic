@@ -190,17 +190,32 @@ const CONFIRMS = {
 
 // Tender participation. The one distinction the corpus spent a phase
 // establishing: searching notices is not bidding on them.
-const BID_FREE = T.stemMatcher([
+// Also a phrase matcher, and for the same reason plus one of its own. A stem
+// let "free to register" reach "free to registered users only" — a sentence
+// that describes a RESTRICTION on viewing, not free participation — and let
+// "free to submit" reach "free to submit your details", which is registration
+// wearing the vocabulary of bidding. Where the corpus needs the object of the
+// verb to be a bid, the phrase now says so.
+const BID_FREE = T.phraseMatcher([
   'registration is free', 'free to register', 'no registration fee',
   'no fee to register', 'free for suppliers', 'no charge to suppliers',
-  'free to submit', 'submission is free', 'no cost to participate',
+  'free to submit a bid', 'free to submit a tender', 'free to submit an offer',
+  'submission is free', 'no cost to participate',
   'participation is free', 'kostenlose registrierung', 'kostenlos registrieren',
   'inscription gratuite', 'registro gratuito', 'registrazione gratuita',
   'darmowa rejestracja', 'бесплатная регистрация', 'ücretsiz kayıt',
 ]);
-const BID_PAID = T.stemMatcher([
+// phraseMatcher, not stemMatcher, and the distinction is not cosmetic: a stem
+// lets "fee" reach the end of "feedback", so "supplier feedback form" and
+// "membership feedback" both read as a fee charged to suppliers for bidding.
+// The link vocabulary was hardened against exactly this in an earlier phase and
+// the bid vocabulary was not, which left a platform's feedback page able to
+// declare its bidding paid. Both singular and plural are listed because a
+// phrase matcher will not infer one from the other — that is the point of it.
+const BID_PAID = T.phraseMatcher([
   'registration fee of', 'annual subscription fee', 'supplier fee', 'supplier fees',
-  'membership fee', 'participation fee', 'fee to submit a bid', 'access fee',
+  'membership fee', 'membership fees', 'participation fee', 'participation fees',
+  'fee to submit a bid', 'access fee', 'access fees',
   'subscription required to bid', 'teilnahmegebühr', 'jahresgebühr',
   'cuota de suscripción', 'abonnement payant',
 ]);
