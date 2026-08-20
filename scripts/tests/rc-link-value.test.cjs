@@ -323,3 +323,62 @@ test('the build never invokes link-value research', () => {
     { cwd: ROOT, encoding: 'utf8' });
   assert.equal((r.stdout || '').trim(), '', 'nothing in the build path may invoke it');
 });
+
+// ── THE SIX FALSE DOFOLLOWS FROM THE FIRST REAL BATCH ──────────────────────
+//
+// Twenty-one records resolved and eleven said dofollow. Six of those eleven
+// were the platform's own furniture, and they all got in the same way: the
+// anchor label WAS a bare domain, which is exactly how a real directory prints
+// a business's website.
+
+const page = (text, href, chrome = false) => ({
+  anchors: [{ href, raw: href, rel: '', relRead: true, text, chrome }],
+  text: '', buttonCount: 0,
+});
+
+test('a platform\'s own country domain is not a business website', () => {
+  // "OLX.bg" on an OLX page, "AbeBooks.co.uk" on an AbeBooks page.
+  assert.equal(L.pickWebsiteAnchor(page('OLX.bg', 'https://olx.bg/'), 'https://www.olx.pl/x/y-1234'), null);
+  assert.equal(L.pickWebsiteAnchor(page('AbeBooks.co.uk', 'https://www.abebooks.co.uk/'),
+    'https://www.abebooks.com/books/x-1234'), null);
+  // A genuinely different business is untouched.
+  assert.ok(L.pickWebsiteAnchor(page('theexpress.nl', 'https://www.theexpress.nl/'),
+    'https://www.webwinkelkeur.nl/webshop/TheeXpress-nl_10624'));
+});
+
+test('an anchor in the footer or nav is site furniture', () => {
+  // mobile.de on Kleinanzeigen, dpa.com on Presseportal, superlawyers.com on
+  // FindLaw — three sibling companies under three different names, none of
+  // which shares a brand token, all of them in the chrome of the page.
+  for (const [text, href] of [['mobile.de', 'https://www.mobile.de/'],
+    ['Homepage', 'http://www.dpa.com/'], ['SuperLawyers.com', 'https://www.superlawyers.com/']]) {
+    assert.equal(L.pickWebsiteAnchor(page(text, href, true), 'https://dir.test/company/x-1234'), null,
+      `${text} sits in the furniture`);
+  }
+  // The same anchor inside the profile body is evidence.
+  assert.ok(L.pickWebsiteAnchor(page('acme.test', 'https://acme.test/', false),
+    'https://dir.test/company/x-1234'));
+});
+
+test('a tracking parameter cannot make a category page look like a listing', () => {
+  // OLX's /dla-dzieci/artykuly-szkolne/plecaki-szkolne/?utm_campaign=...2026
+  // satisfied a "path ends in four or more digits" test on its query string.
+  const tail = L.LISTING_TAIL;
+  assert.equal(tail.test('/dla-dzieci/artykuly-szkolne/plecaki-szkolne/'), false);
+  assert.ok(tail.test('/wien/der-bestatter-franz-etl-gmbh-7696884.html'));
+});
+
+test('a blog subdomain is not a listing, however its path reads', () => {
+  const src = fs.readFileSync(path.join(ROOT, 'scripts/research-link-value.cjs'), 'utf8');
+  assert.match(src, /NOT_A_LISTING_HOST/,
+    'blog.mappy.com carried a privacy notice that resolved as a business listing');
+  const rx = /NOT_A_LISTING_HOST = (\/.*\/i);/.exec(src);
+  assert.ok(rx);
+  // eslint-disable-next-line no-eval
+  const pattern = eval(rx[1]);
+  for (const h of ['blog.mappy.com', 'support.example.com', 'rulechannel.alibaba.com', 'hi.omr.com']) {
+    assert.ok(pattern.test(h), `${h} is the platform talking, not listing`);
+  }
+  assert.ok(!pattern.test('www.ibm.com'));
+  assert.ok(!pattern.test('trustedtraders.which.co.uk'));
+});

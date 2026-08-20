@@ -130,9 +130,28 @@ const hostOf = (u) => { try { return new URL(u).hostname.replace(/^www\./, ''); 
 // Listing shape is a property of the PATH. Cylex prints every listing link on
 // its homepage with a "#Special-Offer" fragment appended, and a tail pattern
 // anchored to end-of-string matched none of them.
-const pathOf = (u) => { try { const p2 = new URL(u); return p2.pathname + p2.search; } catch { return String(u).split('#')[0]; } };
+// The PATH only. Including the query string let OLX's
+// /dla-dzieci/artykuly-szkolne/plecaki-szkolne/?utm_campaign=plecakiszkolne2026
+// satisfy a "ends in four or more digits" test on its tracking parameter.
+const pathOf = (u) => { try { return new URL(u).pathname; } catch { return String(u).split('?')[0].split('#')[0]; } };
 const family = (h) => (h ? h.split('.').slice(-2).join('.') : null);
 const sameFamily = (a, b) => family(hostOf(a)) === family(hostOf(b));
+// "olx" out of olx.pl and olx.bg; "abebooks" out of abebooks.com and
+// abebooks.co.uk. Same brand, different country — one company, not a backlink.
+const brandToken = (u) => {
+  const h = hostOf(u);
+  if (!h) return null;
+  const parts = h.split('.');
+  const known = new Set(['co', 'com', 'org', 'net', 'gov', 'ac']);
+  let i = parts.length - 2;
+  if (i > 0 && known.has(parts[i])) i -= 1;
+  return parts[i] || null;
+};
+
+// Subdomains that are the platform talking, not the platform listing. Mappy's
+// privacy notice sits at blog.mappy.com, and "blog" in a HOST is invisible to a
+// pattern that only reads the path.
+const NOT_A_LISTING_HOST = /^(blog|news|support|help|docs|developer|developers|api|status|rulechannel|hi|info|corporate|about|investor|investors|press)\./i;
 
 // ── SETTLING ────────────────────────────────────────────────────────────────
 
@@ -178,6 +197,12 @@ async function readAnchors(page) {
         // than implied by the empty string.
         rel: (a.getAttribute('rel') || '').toLowerCase().trim(),
         relRead: true,
+        // Where the anchor SITS. A country switcher, a partner strip and a
+        // corporate "Homepage" link all live in the furniture, and every one of
+        // them was read as a business's website: olx.bg on an OLX page,
+        // abebooks.co.uk on an AbeBooks page, mobile.de on Kleinanzeigen,
+        // superlawyers.com on FindLaw, dpa.com on Presseportal.
+        chrome: Boolean(a.closest('footer, nav, header, [class*="footer"], [class*="nav"], [id*="footer"], [id*="nav"]')),
         text: (a.innerText || a.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 80),
       });
     }
@@ -231,8 +256,13 @@ function pickWebsiteAnchor(pageData, listingUrl) {
   for (const a of pageData.anchors) {
     const host = hostOf(a.href);
     if (!host || NOT_A_BUSINESS_SITE.test(`${host}.`)) continue;
+    if (a.chrome) continue;
     const target = targetTypeOf(a, listingUrl);
     if (!target) continue;
+    // A platform's other domains are not a business's website. Sharing the
+    // brand token is the cheap half of this; the DOM position above is the half
+    // that catches siblings under a different name.
+    if (brandToken(a.href) && brandToken(a.href) === brandToken(listingUrl)) continue;
     const label = a.text.toLowerCase().replace(/^https?:\/\//, '').replace(/^www\./, '');
     let score = 0;
     // The operator says it is the business's website. This is the only strong
@@ -300,7 +330,8 @@ async function researchOne(page, target) {
     // /store/apps/eventdetails/4828997282539043473 out is the page having to
     // carry contact details and the anchor having to be LABELLED a website.
     .filter((a) => (LISTING_PATH.test(pathOf(a.href)) || LISTING_TAIL.test(pathOf(a.href)))
-      && !NOT_A_LISTING.test(pathOf(a.href)))
+      && !NOT_A_LISTING.test(pathOf(a.href))
+      && !NOT_A_LISTING_HOST.test(hostOf(a.href) || ''))
     .map((a) => a.href);
   const seen = new Set();
   const listings = listingLinks.filter((u) => !seen.has(u) && seen.add(u)).slice(0, MAX_LISTINGS);
@@ -577,8 +608,11 @@ function runApply() {
       SAFE.applyPatch(r, patch, { owner: OWNER, collection: name });
       tally.written += 1;
     }
-    const after = JSON.stringify(rows, null, 2);
-    if (before !== JSON.stringify(rows)) fs.writeFileSync(C.file, `${after}\n`);
+    // Indent 1, which is what these files are stored with. Writing indent 2
+    // reformats all eight thousand lines and buries the two that changed — a
+    // retraction script in this phase did exactly that and the diff was 8118
+    // insertions for six real edits.
+    if (before !== JSON.stringify(rows)) fs.writeFileSync(C.file, `${JSON.stringify(rows, null, 1)}\n`);
   }
   console.log(`Link value applied: written=${tally.written} unchanged=${tally.unchanged} refused=${tally.refused}`);
 }

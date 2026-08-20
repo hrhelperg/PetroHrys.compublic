@@ -79,6 +79,13 @@ const deadlineExceeded = (started) => Date.now() - started > RECORD_BUDGET_MS;
 // host was a real defect in an earlier phase; treating an unrelated domain as
 // the operator's would be a worse one, because it would publish somebody else's
 // page as this platform's route.
+// A blog, a help centre or a newsroom is the operator writing ABOUT its
+// product, not offering the action. Kaidee's blog carried a Thai page headed
+// "contact to advertise" and it resolved as a route to post a classified ad —
+// buying display advertising and placing a classified are different acts, and
+// the same confusion cost an earlier phase a Canadian marketplace.
+const NOT_AN_ACTION_HOST = /^(blog|news|newsroom|support|help|docs|kb|status|about|press|investor|investors|careers|jobs)\./i;
+
 function sameHostFamily(a, b) {
   try {
     const fam = (u) => new URL(u).hostname.replace(/^www\./, '').split('.').slice(-2).join('.');
@@ -283,7 +290,9 @@ async function researchOne(page, target) {
 
     const action = AR.judgeAction(target.collection, page2.text);
     const evidenceText = action ? excerpt(page2.text, action, target.collection) : '';
+    const destHost = (() => { try { return new URL(page2.url).hostname; } catch { return ''; } })();
     if (action && sameHostFamily(target.url, page2.url)
+      && !NOT_AN_ACTION_HOST.test(destHost)
       && !URL_EXPLAINER.test(page2.url) && !URL_IS_A_RECORD.test(page2.url)
       // The sentence must belong to THIS page. A site-wide banner appears on
       // the homepage too, and "Register Your Business on Cylex Today!" is

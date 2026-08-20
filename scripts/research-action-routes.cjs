@@ -92,9 +92,29 @@ const COLLECTIONS = {
     routeField: (action) => action,
     actionField: null,
     vocabulary: ['submissionUrl', 'pitchUrl', 'pressReleaseUrl', 'advertisingUrl'],
-    // A route is only filed where the schema says this platform's own
-    // opportunity type belongs.
-    accepts: (row, field) => (MEDIA.URL_REQUIRES[field] || []).includes(row.opportunityType),
+    // A route is only filed where the schema says this platform's opportunity
+    // type belongs — and the field is `opportunityTypes`, plural and an array.
+    // Singular skipped every media route silently, which looked exactly like
+    // the guard working.
+    //
+    // Most media records declare ["unknown"], so a strict match would refuse
+    // everything forever. But finding /advertise/ behind "Advertise With Us" IS
+    // evidence of what this publication offers, and actionability owns
+    // opportunityTypes. So an unknown record learns its type from the route;
+    // a record that already claims a type keeps it, and a route that
+    // contradicts that claim is refused rather than overwriting it.
+    accepts: (row, field) => {
+      const declared = (row.opportunityTypes || []).filter((t) => t && t !== 'unknown');
+      if (!declared.length) return true;
+      return declared.some((t) => (MEDIA.URL_REQUIRES[field] || []).includes(t));
+    },
+    // What the route itself establishes, when the record says nothing.
+    typeFor: {
+      pressReleaseUrl: 'press-release',
+      advertisingUrl: 'sponsored-content',
+      pitchUrl: 'editorial-pitch',
+      submissionUrl: 'contributed-article',
+    },
     unresolved: (r) => !r.submissionUrl && !r.pitchUrl && !r.pressReleaseUrl && !r.advertisingUrl,
   },
   tenders: {
@@ -611,6 +631,12 @@ function runApply() {
       const patch = {};
       patch[field] = route;
       if (C.actionField) patch[C.actionField] = f.actionType;
+      // A publication that declared nothing now declares what its own page
+      // offers. Records that already named a type are left alone.
+      if (C.typeFor && C.typeFor[field]) {
+        const declared = (r.opportunityTypes || []).filter((t) => t && t !== 'unknown');
+        if (!declared.length) patch.opportunityTypes = [C.typeFor[field]];
+      }
       const same = Object.entries(patch).every(([k, v]) => r[k] === v);
       if (same) { tally.unchanged += 1; continue; }
       SAFE.applyPatch(r, patch, { owner: 'actionability', collection: name });

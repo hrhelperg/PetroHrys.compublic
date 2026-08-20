@@ -1870,7 +1870,7 @@
    "india"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "An Indian B2B marketplace for manufacturers, exporters and suppliers.",
   "lastVerified": "2026-08-06",
@@ -1882,7 +1882,8 @@
     "status": "publicApiReading",
     "measuredDomain": "exportersindia.com"
    }
-  }
+  },
+  "submissionUrl": "https://www.exportersindia.com/register-business-online?joinfree=header"
  },
  {
   "id": "global-tradeindia",
@@ -2092,7 +2093,7 @@
    "dach"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "The German-language arm of a global B2B industry platform.",
   "lastVerified": "2026-08-06",
@@ -2104,7 +2105,8 @@
     "status": "publicApiReading",
     "measuredDomain": "industrystock.de"
    }
-  }
+  },
+  "submissionUrl": "https://www.industrystock.de/de/registrieren"
  },
  {
   "id": "global-softwaresuggest",
@@ -13217,7 +13219,7 @@
    "country-specific"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "An Irish national business discovery directory where businesses submit a listing by category, town and county.",
   "lastVerified": "2026-08-06",
@@ -13229,7 +13231,8 @@
     "status": "publicApiReading",
     "measuredDomain": "askspud.ie"
    }
-  }
+  },
+  "submissionUrl": "https://askspud.ie/add-your-business-ireland/"
  },
  {
   "id": "ie-localsearch",
@@ -15892,7 +15895,7 @@
    "country-specific"
   ],
   "publicProfileAvailable": true,
-  "listingAction": "unknown",
+  "listingAction": "create",
   "submissionModel": "unknown",
   "note": "A Spanish industrial B2B portal with a supplier and product catalogue.",
   "lastVerified": "2026-08-06",
@@ -15904,7 +15907,8 @@
     "status": "publicApiReading",
     "measuredDomain": "interempresas.net"
    }
-  }
+  },
+  "submissionUrl": "https://www.interempresas.net/GestionUsuarios/AltaUsuario.asp?ln=es"
  },
  {
   "id": "es-callejeando",
