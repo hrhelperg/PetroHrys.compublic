@@ -259,7 +259,11 @@ test('a bare-URL label only counts when it points at a front door', () => {
   // backlink. A business's website link goes to its homepage.
   assert.equal(L.pickWebsiteAnchor(anchorPage('https://sqsp.link/hMaBjw', 'https://sqsp.link/hMaBjw'), LISTING), null);
   assert.equal(L.pickWebsiteAnchor(anchorPage('bit.ly/abc123', 'https://bit.ly/abc123'), LISTING), null);
-  assert.ok(L.pickWebsiteAnchor(anchorPage('acme.test', 'https://acme.test/'), LISTING));
+  // A later batch removed the bare-domain path altogether, so this one is now
+  // refused as well. Measured over 21 resolutions, an explicitly LABELLED
+  // anchor was right 4 times out of 4 and a bare domain 9 times out of 16.
+  assert.equal(L.pickWebsiteAnchor(anchorPage('acme.test', 'https://acme.test/'), LISTING), null);
+  assert.ok(L.pickWebsiteAnchor(anchorPage('Website', 'https://acme.test/'), LISTING));
 });
 
 test('the platform talking about itself is not a listing', () => {
@@ -341,8 +345,8 @@ test('a platform\'s own country domain is not a business website', () => {
   assert.equal(L.pickWebsiteAnchor(page('OLX.bg', 'https://olx.bg/'), 'https://www.olx.pl/x/y-1234'), null);
   assert.equal(L.pickWebsiteAnchor(page('AbeBooks.co.uk', 'https://www.abebooks.co.uk/'),
     'https://www.abebooks.com/books/x-1234'), null);
-  // A genuinely different business is untouched.
-  assert.ok(L.pickWebsiteAnchor(page('theexpress.nl', 'https://www.theexpress.nl/'),
+  // A genuinely different business is untouched — when the operator labels it.
+  assert.ok(L.pickWebsiteAnchor(page('Website', 'https://www.theexpress.nl/'),
     'https://www.webwinkelkeur.nl/webshop/TheeXpress-nl_10624'));
 });
 
@@ -355,9 +359,12 @@ test('an anchor in the footer or nav is site furniture', () => {
     assert.equal(L.pickWebsiteAnchor(page(text, href, true), 'https://dir.test/company/x-1234'), null,
       `${text} sits in the furniture`);
   }
-  // The same anchor inside the profile body is evidence.
-  assert.ok(L.pickWebsiteAnchor(page('acme.test', 'https://acme.test/', false),
+  // The same anchor inside the profile body is evidence, once labelled.
+  assert.ok(L.pickWebsiteAnchor(page('Website', 'https://acme.test/', false),
     'https://dir.test/company/x-1234'));
+  // And in the furniture it is not, however it is labelled.
+  assert.equal(L.pickWebsiteAnchor(page('Website', 'https://acme.test/', true),
+    'https://dir.test/company/x-1234'), null);
 });
 
 test('a tracking parameter cannot make a category page look like a listing', () => {

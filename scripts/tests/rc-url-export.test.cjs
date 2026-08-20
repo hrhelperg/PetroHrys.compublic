@@ -67,8 +67,11 @@ function schemaOf(html) {
     }));
   const sort = /<select[^>]*data-bd-sort[^>]*>([\s\S]*?)<\/select>/.exec(html);
   const jurisdiction = /<select[^>]*data-bd-jurisdiction-select[^>]*>([\s\S]*?)<\/select>/.exec(html);
+  // Read the same way every other control is: from the page, never assumed.
+  const linkType = /<select[^>]*data-bd-link-type[^>]*>([\s\S]*?)<\/select>/.exec(html);
   return {
     facets,
+    linkTypes: linkType ? optionValues(linkType[1]) : [],
     filters: [...html.matchAll(/data-bd-filter="([^"]+)"/g)].map((m) => m[1].toLowerCase()),
     sorts: sort ? optionValues(sort[1]) : [],
     jurisdictions: jurisdiction ? optionValues(jurisdiction[1]) : [],
@@ -933,13 +936,21 @@ test('the export columns are the identity plus every dimension the page offers',
   // filters, then the metric pair — and the metric pair only where the page
   // offers the domain-rating sort that earns it.
   const METRIC_COLUMNS = ['domain_rating', 'domain_rating_provider'];
+  // EXTENDED THE SAME WAY, for link value. Three columns rather than one
+  // because they are three separate facts — what the anchor's rel says, how
+  // the link reaches the site, and whether the page carrying it can be crawled
+  // — and they appear only where the page offers the link-type control, which
+  // itself renders only where records carry the evidence. The property is
+  // unchanged: derived from the controls, never hand-listed.
+  const LINK_COLUMNS = ['link_type', 'link_target_type', 'listing_page_indexability'];
   for (const family of FAMILIES) {
     const schema = schemaOf(htmlFor(family.page));
     const columns = D.exportColumns(schema).map((c) => c.key);
     assert.strictEqual(columns[0], 'name', `${family.key}: the identity is not the first column`);
     assert.deepStrictEqual(columns.slice(1),
       schema.facets.map((f) => f.name).concat(schema.filters)
-        .concat(schema.sorts.includes('domain-rating') ? METRIC_COLUMNS : []),
+        .concat(schema.sorts.includes('domain-rating') ? METRIC_COLUMNS : [])
+        .concat((schema.linkTypes || []).length ? LINK_COLUMNS : []),
       `${family.key}: the export columns drifted from the controls`);
     const app = boot(family.page, '');
     assert.deepStrictEqual(parseCsv(app.csv())[0], columns,

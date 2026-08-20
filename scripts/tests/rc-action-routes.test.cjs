@@ -97,13 +97,21 @@ test('every action this researcher can produce already exists in a schema', () =
 test('a media route is only filed where the schema says the platform belongs', () => {
   const MEDIA = require(path.join(ROOT, 'scripts/lib/media-schema.cjs'));
   const accepts = R.COLLECTIONS.media.accepts;
-  // A press-release platform accepts a press-release route.
-  assert.equal(accepts({ opportunityType: 'press-release' }, 'pressReleaseUrl'), true);
-  // The mutation: a "write for us" page found on a press-release platform,
-  // filed as though the platform took contributed articles.
-  assert.equal(accepts({ opportunityType: 'press-release' }, 'pitchUrl'), false);
-  assert.equal(accepts({ opportunityType: 'sponsored-content' }, 'advertisingUrl'), true);
+  // The field is `opportunityTypes` — plural, an array. Singular was undefined
+  // every time, so this guard silently skipped every media route in the corpus
+  // while looking exactly like a guard doing its job.
+  assert.equal(accepts({ opportunityTypes: ['press-release'] }, 'pressReleaseUrl'), true);
+  // The mutation: a press-release platform given a pitch route.
+  assert.equal(accepts({ opportunityTypes: ['press-release'] }, 'pitchUrl'), false);
+  assert.equal(accepts({ opportunityTypes: ['sponsored-content'] }, 'advertisingUrl'), true);
+  // Most records declare ["unknown"], and a strict match would refuse every
+  // route forever. Finding /advertise/ behind "Advertise With Us" IS evidence
+  // of what a publication offers, so a record that declares nothing learns from
+  // its own page — and the applier writes the type alongside the URL.
+  assert.equal(accepts({ opportunityTypes: ['unknown'] }, 'advertisingUrl'), true);
+  assert.equal(accepts({}, 'advertisingUrl'), true);
   assert.ok(MEDIA.URL_REQUIRES.pressReleaseUrl.includes('press-release'));
+  assert.equal(R.COLLECTIONS.media.typeFor.advertisingUrl, 'sponsored-content');
 });
 
 test('a real listing invitation still resolves, in several languages', () => {

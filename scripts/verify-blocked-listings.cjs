@@ -401,9 +401,8 @@ function judge(record, obs) {
   }
 
   const hay = `${obs.title}\n${obs.head}`;
-  for (const [re, label] of CHALLENGE) {
-    if (re.test(hay)) return { verdict: 'blocked', why: label };
-  }
+  const refusal = REFUSAL.refusalReason(hay);
+  if (refusal) return { verdict: 'blocked', why: refusal };
   if (obs.status >= 400) return { verdict: 'blocked', why: `http ${obs.status}` };
   if (obs.textLen < MIN_TEXT) {
     return { verdict: 'inconclusive', why: `only ${obs.textLen} characters rendered` };
