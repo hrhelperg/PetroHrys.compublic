@@ -78,11 +78,32 @@ test('every action this researcher can produce already exists in a schema', () =
   for (const a of ['publish-classified', 'create-seller-profile', 'post-advertisement']) {
     assert.ok(MP.SELLER_ACTIONS.includes(a), `${a} is not a marketplace seller action`);
   }
+  // Media's "action" is the URL field its evidence belongs in, because that is
+  // what the media schema distinguishes — a press release and a pitch are
+  // different routes to different fields, not one generic submission. Those
+  // names still have to come from the schema.
+  const MEDIA = require(path.join(ROOT, 'scripts/lib/media-schema.cjs'));
+  for (const a of ['pressReleaseUrl', 'submissionUrl', 'pitchUrl', 'advertisingUrl']) {
+    assert.ok(MEDIA.URL_FIELDS.includes(a), `${a} is not a media URL field`);
+  }
   // Nothing else may be produced: the keys of CONFIRMS are the whole universe.
   for (const key of Object.keys(R.CONFIRMS)) {
-    assert.ok(S.LISTING_ACTIONS.includes(key) || MP.SELLER_ACTIONS.includes(key),
-      `${key} is an invented action type`);
+    assert.ok(S.LISTING_ACTIONS.includes(key) || MP.SELLER_ACTIONS.includes(key)
+      || MEDIA.URL_FIELDS.includes(key),
+    `${key} is an invented action type`);
   }
+});
+
+test('a media route is only filed where the schema says the platform belongs', () => {
+  const MEDIA = require(path.join(ROOT, 'scripts/lib/media-schema.cjs'));
+  const accepts = R.COLLECTIONS.media.accepts;
+  // A press-release platform accepts a press-release route.
+  assert.equal(accepts({ opportunityType: 'press-release' }, 'pressReleaseUrl'), true);
+  // The mutation: a "write for us" page found on a press-release platform,
+  // filed as though the platform took contributed articles.
+  assert.equal(accepts({ opportunityType: 'press-release' }, 'pitchUrl'), false);
+  assert.equal(accepts({ opportunityType: 'sponsored-content' }, 'advertisingUrl'), true);
+  assert.ok(MEDIA.URL_REQUIRES.pressReleaseUrl.includes('press-release'));
 });
 
 test('a real listing invitation still resolves, in several languages', () => {

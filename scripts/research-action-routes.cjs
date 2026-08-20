@@ -44,6 +44,7 @@ const SAFE = require('./lib/rc-safe-apply.cjs');
 const T = require('./lib/rc-text-match.cjs');
 const S = require('./lib/bd-schema.cjs');
 const MP = require('./lib/mp-schema.cjs');
+const MEDIA = require('./lib/media-schema.cjs');
 
 const FINDINGS = path.join(ROOT, 'data/action-routes/.action-routes.json');
 
@@ -84,9 +85,15 @@ const COLLECTIONS = {
   media: {
     file: path.join(ROOT, 'data/media-pr-publishing/media-platforms.json'),
     urlField: 'website',
-    routeField: 'submissionUrl',
+    // The resolved action IS the field, chosen by what the page actually
+    // offered rather than fixed in advance — the same correction claim/create
+    // needed on directories.
+    routeField: (action) => action,
     actionField: null,
-    vocabulary: null,
+    vocabulary: ['submissionUrl', 'pitchUrl', 'pressReleaseUrl', 'advertisingUrl'],
+    // A route is only filed where the schema says this platform's own
+    // opportunity type belongs.
+    accepts: (row, field) => (MEDIA.URL_REQUIRES[field] || []).includes(row.opportunityType),
     unresolved: (r) => !r.submissionUrl && !r.pitchUrl && !r.pressReleaseUrl && !r.advertisingUrl,
   },
   tenders: {
@@ -297,8 +304,53 @@ function candidateLinks(html, base) {
 
 // ── JUDGEMENT ───────────────────────────────────────────────────────────────
 
+
+// ── MEDIA ───────────────────────────────────────────────────────────────────
+//
+// Media had no vocabulary at all. judgeAction fell through to ['create','claim']
+// for it, so 464 platforms were being asked whether they let you add a business
+// to a directory, and unsurprisingly none of them said yes. That is not a low
+// yield, it is the wrong question.
+//
+// The schema already knows the right one. URL_REQUIRES maps each opportunity
+// type to the field its route belongs in — a press release goes in
+// pressReleaseUrl, a pitch in pitchUrl — so here the resolved "action" IS the
+// field name, and a route is only applied when the platform's own
+// opportunityType is one the schema says that field serves. A publication that
+// exists for press releases does not get a "write for us" page filed as its
+// press-release route.
+const MEDIA_CONFIRMS = {
+  pressReleaseUrl: T.phraseMatcher([
+    'submit a press release', 'submit your press release', 'send us your press release',
+    'press release submission', 'submit press releases', 'distribute your press release',
+    'pressemitteilung einreichen', 'enviar nota de prensa', 'communiqué de presse',
+  ]),
+  submissionUrl: T.phraseMatcher([
+    'write for us', 'contribute an article', 'submit an article', 'submit your article',
+    'become a contributor', 'guest post guidelines', 'submit a guest post',
+    'contributor guidelines', 'submission guidelines', 'submit your story',
+    'schreiben sie für uns', 'escribe para nosotros', 'écrire pour nous',
+  ]),
+  pitchUrl: T.phraseMatcher([
+    'pitch us', 'pitch your story', 'send us a pitch', 'story pitches',
+    'pitch guidelines', 'submit a pitch',
+  ]),
+  advertisingUrl: T.phraseMatcher([
+    'advertise with us', 'advertising options', 'sponsored content',
+    'sponsorship opportunities', 'book advertising', 'werbung schalten',
+  ]),
+};
+const MEDIA_ORDER = ['pressReleaseUrl', 'submissionUrl', 'pitchUrl', 'advertisingUrl'];
+
+function judgeMedia(text) {
+  if (!text || text.length < MIN_TEXT) return null;
+  for (const field of MEDIA_ORDER) if (MEDIA_CONFIRMS[field](text)) return field;
+  return null;
+}
+
 function judgeAction(collection, text) {
   if (!text || text.length < MIN_TEXT) return null;
+  if (collection === 'media') return judgeMedia(text);
   const order = collection === 'marketplaces'
     ? ['publish-classified', 'create-seller-profile', 'post-advertisement']
     : ['create', 'claim'];
@@ -307,6 +359,10 @@ function judgeAction(collection, text) {
   }
   return null;
 }
+
+// The anchor-agreement check consults CONFIRMS by action name. For media the
+// action name is a field name, so the same table answers for both.
+for (const [field, matcher] of Object.entries(MEDIA_CONFIRMS)) CONFIRMS[field] = matcher;
 
 function judgeBid(text) {
   if (!text || text.length < MIN_TEXT) return null;
@@ -513,6 +569,12 @@ function runApply() {
         continue;
       }
       const field = typeof C.routeField === 'function' ? C.routeField(f.actionType) : C.routeField;
+      if (C.accepts && !C.accepts(r, field)) {
+        // The evidence is real, but it is evidence of something this platform
+        // is not listed for. Filing it would misdescribe the record.
+        tally.skipped += 1;
+        continue;
+      }
       const patch = {};
       patch[field] = route;
       if (C.actionField) patch[C.actionField] = f.actionType;
