@@ -22,6 +22,14 @@ const path = require('node:path');
 const MD = require('./lib/media-schema.cjs');
 const MI = require('./lib/media-intelligence.cjs');
 const REC = require('./lib/media-recommend.cjs');
+// Readiness is READ from the Distribution Planner, never recomputed here. The
+// planner already owns the question an employee actually has — "can I act on
+// this today?" — and answers it from the projected opportunity: the action type,
+// the recorded route, and whether that route matches the action. A second
+// implementation on this page would be a second opinion, and the two would drift
+// the first time a rule changed.
+const P = require('./lib/distribution-planner.cjs');
+const E = require('./lib/dp-engine.cjs');
 // Domain Rating vocabulary is owned by the directory schema — the scale, the
 // provider and the attribution the Ahrefs licence requires. Imported rather than
 // restated, so one licence obligation cannot end up worded two ways on one site.
@@ -184,6 +192,31 @@ function renderCsv(rows) {
 }
 
 // ── page ────────────────────────────────────────────────────────────────────
+
+// ── readiness ───────────────────────────────────────────────────────────────
+// The canonical Planner status per media platform: READY, NEEDS_RESEARCH,
+// NEEDS_BROWSER or BLOCKED.
+//
+// Memoised for the process, not for the render. The page is rendered four times
+// — once per locale — from the same 464 records, and P.loadAll() reads all three
+// collections off disk. Doing that per locale would quadruple the build's I/O to
+// produce four identical maps, and a status is a fact about a platform, not
+// about the language the page happens to be written in.
+//
+// Only media opportunities are kept. The projection spans all three collections
+// and platform ids are unique per collection, so a directory or marketplace row
+// carrying the same id would otherwise silently supply this page's status.
+let READINESS = null;
+function readinessByPlatform() {
+  if (READINESS) return READINESS;
+  READINESS = new Map();
+  for (const op of P.project(P.loadAll())) {
+    if (op.sourceCollection !== 'media') continue;
+    READINESS.set(op.platformId, E.actionability(op).status);
+  }
+  return READINESS;
+}
+
 // `multi` marks a facet whose row attribute holds a space-separated list, so the
 // client filters on membership rather than equality. A record has several
 // categories, industries, opportunity types and languages; it has exactly one
@@ -243,6 +276,21 @@ function renderMain(rows, countryName, t) {
   const p1 = rows.filter((r) => r.priority === 'P1').length;
   const cov = MI.coverage(rows);
 
+  // The Planner's status for each platform on this page. The VALUE is always the
+  // canonical machine status — a filter value travels in a shared URL, and a URL
+  // built on the German page must select the same rows on the English one — so
+  // only the option's visible label is translated.
+  //
+  // The fallback is the empty string and never a status. A record the projection
+  // did not reach has no readiness, which is not the same as "needs research":
+  // the empty attribute matches no selection while "All" still includes the row,
+  // which is exactly what "we did not establish this" should do.
+  const readiness = readinessByPlatform();
+  const readinessOf = (r) => readiness.get(r.id) || '';
+  const readinessValues = rows.map(readinessOf).filter(Boolean);
+  const readinessLabels = Object.fromEntries(
+    [...new Set(readinessValues)].map((s) => [s, t(`act.${s}`)]));
+
   // ── Domain Rating ─────────────────────────────────────────────────────────
   // A dated third-party measurement of the DOMAIN, and never a judgement of the
   // publication. It sits beside the Media Score precisely because the two answer
@@ -291,6 +339,14 @@ function renderMain(rows, countryName, t) {
         </select>
       </div>`
     : '';
+  // A FLOOR on Domain Rating, which is a different question from the sort: "show
+  // me nothing below 50" rather than "put the biggest first". The component owns
+  // the thresholds, the counts and the decision to render nothing at all when no
+  // platform on this page carries a reading — so the control cannot appear on a
+  // page whose rows it could only empty. It stays hidden until the client can
+  // honour it, exactly like the sort.
+  const minDrControl = c.minDomainRatingControl({ idPrefix: 'md', rows });
+  const minDr = minDrControl ? `\n${minDrControl}` : '';
 
   const tableRows = rows.map((r) => {
     const typeText = r.opportunityTypes.map((x) => t(`opportunity.${x}`)).join(', ');
@@ -310,6 +366,7 @@ function renderMain(rows, countryName, t) {
       + `data-bd-facet-cost="${escapeHtml(r.costModel)}" `
       + `data-bd-facet-priority="${escapeHtml(r.priority)}" `
       + `data-bd-facet-status="${escapeHtml(r.currentStatus)}" `
+      + `data-bd-facet-actionability="${escapeHtml(readinessOf(r))}" `
       + `data-bd-facet-band="${escapeHtml(scoreOf(r).band || 'unscored')}" `
       + `data-bd-facet-bestfor="${escapeHtml(bestForOf(r).join(' '))}">
             <td class="bd-cell" data-bd-label="${escapeHtml(t('col.platform'))}"><a href="${escapeHtml(r.website)}" rel="noopener noreferrer" target="_blank">${escapeHtml(r.name)}</a></td>
@@ -373,7 +430,7 @@ function renderMain(rows, countryName, t) {
         <div class="bd-control">
           <label class="bd-label" for="md-search">${escapeHtml(t('common.search'))}</label>
           <input class="bd-input" id="md-search" type="search" data-bd-search placeholder="${escapeHtml(t('md.searchPlaceholder'))}">
-        </div>${drSort}
+        </div>${drSort}${minDr}
 ${facet({ name: 'country', t, label: t('col.country'), values: rows.map((r) => r.country), labels: countryLabels })}
 ${facet({ name: 'audience', t, label: t('md.f.audience'), values: rows.map((r) => r.audienceGeography), labels: Object.fromEntries(MD.AUDIENCE_GEOGRAPHIES.map((x) => [x, t(`geo.${x}`)])) })}
 ${facet({ name: 'category', t, label: t('md.f.category'), values: rows.flatMap((r) => r.categories), labels: CATEGORY_LABELS, multi: true })}
@@ -383,6 +440,7 @@ ${facet({ name: 'cost', t, label: t('col.cost'), values: rows.map((r) => r.costM
 ${facet({ name: 'language', t, label: t('md.f.language'), values: rows.flatMap((r) => r.languages), labels: languageLabels, multi: true })}
 ${facet({ name: 'priority', t, label: t('md.f.priority'), values: rows.map((r) => r.priority), labels: Object.fromEntries(['P1', 'P2', 'P3', 'hold'].map((x) => [x, t(`priority.${x}`)])) })}
 ${facet({ name: 'status', t, label: t('col.status'), values: rows.map((r) => r.currentStatus), labels: Object.fromEntries(['active', 'unknown'].map((x) => [x, t(`currentStatus.${x}`)])) })}
+${facet({ name: 'actionability', t, label: t('bd.actionability'), values: readinessValues, labels: readinessLabels })}
 ${facet({ name: 'band', t, label: t('md.f.band'), values: rows.map((r) => scoreOf(r).band || 'unscored'), labels: Object.fromEntries([...MI.BANDS.map((b) => [b.label, t(`band.${b.label}`)]), ['unscored', t('band.unscored')]]) })}
 ${facet({ name: 'bestfor', t, label: t('md.f.bestfor'), values: rows.flatMap((r) => bestForOf(r)), labels: Object.fromEntries(REC.PROFILES.map((p) => [p.slug, p.label])), multi: true })}
         <div class="bd-control">

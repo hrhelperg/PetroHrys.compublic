@@ -258,18 +258,20 @@ test('no dataset is copied per locale', () => {
   // carries its website, so a dataset cannot arrive without tripping it. The
   // key ceiling is the blunt one, and it is calibrated to UI growth: it stood
   // at 500 when three collections used ~450 keys, then 750 when
-  // tenders-procurement added ~50, and now 1000 because Tender Monitoring
-  // added ~127 first-party UI keys — change-type, severity, health, coverage,
-  // reason and uncertainty labels, each of which is a rendered string and none
-  // of which is a record. A real dataset copy is hundreds of records times a
-  // dozen fields — thousands of keys — so the ceiling still catches it by an
-  // order of magnitude.
+  // tenders-procurement added ~50, then 1000 because Tender Monitoring added
+  // ~127 first-party UI keys, and now 1250 because the source finder added 26
+  // — a Domain Rating threshold label, four readiness states, seven seller
+  // routes, two tender access dimensions and four access values. Every one
+  // names a CONCEPT the UI renders, and the shape check below is what actually
+  // distinguishes those from a record copy. A real dataset copy is hundreds of
+  // records times a dozen fields — thousands of keys — so the ceiling still
+  // catches it by an order of magnitude.
   //
   // The shape check below is the one that actually matters: a per-record key
   // is what a dataset copy looks like, whatever the count.
   for (const code of I.LOCALE_CODES) {
     const dict = I.dictionary(code);
-    assert.ok(Object.keys(dict).length < 1000, `${code}.json has ${Object.keys(dict).length} keys; that is a dataset`);
+    assert.ok(Object.keys(dict).length < 1250, `${code}.json has ${Object.keys(dict).length} keys; that is a dataset`);
     // No key may be scoped to an individual record. UI keys name a concept
     // ("mon.severity.CRITICAL"); a dataset copy names an instance
     // ("platform.eu-ted.name"), and that is detectable regardless of volume.

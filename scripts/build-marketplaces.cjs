@@ -30,6 +30,13 @@ const seo = require('./lib/bd-seo.cjs');
 // copy is how one page ends up crediting the wrong provider after a change.
 const S = require('./lib/bd-schema.cjs');
 const I18N = require('./lib/i18n.cjs');
+// The readiness facet below publishes the Distribution Planner's own verdict,
+// read from the one engine that decides it — not a second opinion computed
+// here. A page that re-derived "can an employee act on this today" from the raw
+// fields would drift from the planner the first time either of them changed,
+// and the two would then disagree in public about the same platform.
+const P = require('./lib/distribution-planner.cjs');
+const E = require('./lib/dp-engine.cjs');
 
 const ROOT = path.join(__dirname, '..');
 const DATA_FILE = path.join(ROOT, 'data', 'marketplaces', 'marketplaces.json');
@@ -82,7 +89,16 @@ function renderCsv(rows) {
 // --- page -------------------------------------------------------------------
 function facet({ name, label, values, labels, t }) {
   const counts = new Map();
-  for (const v of values) counts.set(v, (counts.get(v) || 0) + 1);
+  // An absent value is not an option. The empty string is already spoken for by
+  // "All", so a row that carries `data-bd-facet-x=""` is simply unrestricted in
+  // that dimension rather than a category of its own — the same rule
+  // facetSelect() applies in bd-components.cjs. A no-op for the five facets
+  // below, whose fields are required; load-bearing for the two that follow,
+  // whose fields are researched per platform and often absent.
+  for (const v of values) {
+    if (!v) continue;
+    counts.set(v, (counts.get(v) || 0) + 1);
+  }
   const options = [...counts.entries()]
     .sort((a, b) => (b[1] - a[1]) || MP.compareStable(a[0], b[0]))
     .map(([v, n]) => `          <option value="${escapeHtml(v)}">${escapeHtml(labels[v] || v)} (${n})</option>`)
@@ -103,7 +119,31 @@ ${options}
 const hasDr = (r) => r.domainRating !== null && r.domainRating !== undefined;
 const drAttr = (r) => (hasDr(r) ? String(r.domainRating) : '');
 
-function renderPage(rows, countryName, t) {
+// The four states the planner's actionability() can return for a marketplace,
+// named from the engine rather than retyped, so a rename there fails here
+// instead of silently emitting a filter value nothing matches. The order is the
+// order a reader works down: what can be done today, then what is missing.
+const READINESS_STATUSES = [
+  E.STATUS.READY, E.STATUS.NEEDS_RESEARCH, E.STATUS.NEEDS_BROWSER, E.STATUS.BLOCKED,
+];
+
+// Every marketplace's planner status, keyed by platform id. Built ONCE per
+// build: P.loadAll() re-reads all three collections from disk, and calling it
+// per row — or even per locale — would read them 358 or 4 times over for an
+// answer that cannot differ between reads. A platform the planner does not
+// project carries no status rather than a guessed one.
+function readinessByPlatformId() {
+  const readiness = new Map();
+  for (const op of P.project(P.loadAll())) {
+    if (op.sourceCollection !== 'marketplaces') continue;
+    readiness.set(op.platformId, E.actionability(op).status);
+  }
+  return readiness;
+}
+
+// `readiness` defaults to empty so a caller that only wants the table — a test,
+// or a future page — is never forced to load three collections to get one.
+function renderPage(rows, countryName, t, readiness = new Map()) {
   const c = componentsFor(t);
   const countries = new Set(rows.map((r) => r.country));
   // The column renders only when at least one row in THIS set carries a
@@ -113,6 +153,12 @@ function renderPage(rows, countryName, t) {
   // see a column for — the same split as directoryRow() in bd-components.cjs.
   const showDr = rows.some(hasDr);
   const drLabel = t('col.domainRating');
+  // Both are researched per platform and absent far more often than not, and
+  // absence is a finding rather than a value: an unresearched seller route is
+  // not "unknown the category", it is nothing yet. So it becomes an empty facet
+  // attribute, which every filter but "All" excludes.
+  const sellerActionOf = (r) => r.sellerAction || '';
+  const readinessOf = (r) => readiness.get(r.id) || '';
   const tableRows = rows.map((r) => {
     const types = [r.marketplaceType, ...(r.alsoCovers || [])]
       .map((x) => t(`mpType.${x}`)).join(', ');
@@ -135,7 +181,9 @@ function renderPage(rows, countryName, t) {
       + `data-bd-facet-type="${escapeHtml(r.marketplaceType)}" `
       + `data-bd-facet-cost="${escapeHtml(r.costModel)}" `
       + `data-bd-facet-sellers="${escapeHtml(r.sellerTypes)}" `
-      + `data-bd-facet-status="${escapeHtml(r.currentStatus)}">
+      + `data-bd-facet-status="${escapeHtml(r.currentStatus)}" `
+      + `data-bd-facet-selleraction="${escapeHtml(sellerActionOf(r))}" `
+      + `data-bd-facet-actionability="${escapeHtml(readinessOf(r))}">
             <td data-label="${escapeHtml(t('col.platform'))}"><a href="${escapeHtml(r.website)}" rel="noopener noreferrer" target="_blank">${escapeHtml(r.name)}</a></td>
             <td data-label="${escapeHtml(t('col.country'))}">${escapeHtml(countryName(r.country))}</td>
             <td data-label="${escapeHtml(t('col.type'))}">${escapeHtml(types)}</td>
@@ -170,6 +218,14 @@ function renderPage(rows, countryName, t) {
           </select>
         </div>\n` : '';
 
+  // The threshold filter, like the sort control, is client-side and therefore
+  // ships hidden until the script that implements it runs; the component emits
+  // nothing at all when no row on the page carries a reading, so the trailing
+  // newline is added here rather than baked into a component that may return
+  // nothing. Its option values are numbers, never localized.
+  const minDr = c.minDomainRatingControl({ idPrefix: 'mp', rows });
+  const minDrControl = minDr ? `${minDr}\n` : '';
+
   // Required by the Ahrefs licence wherever a Domain Rating is displayed, as a
   // working link. Tied to the column and to nothing else: it appears whenever
   // the number does, and is never hidden.
@@ -198,7 +254,9 @@ ${facet({ name: 'type', t, label: t('mp.f.type'), values: rows.map((r) => r.mark
 ${facet({ name: 'cost', t, label: t('mp.f.cost'), values: rows.map((r) => r.costModel), labels: Object.fromEntries(MP.COST_MODELS.map((x) => [x, t(`cost.${x}`)])) })}
 ${facet({ name: 'sellers', t, label: t('mp.f.sellers'), values: rows.map((r) => r.sellerTypes), labels: Object.fromEntries(MP.SELLER_TYPES.map((x) => [x, t(`seller.${x}`)])) })}
 ${facet({ name: 'status', t, label: t('mp.f.status'), values: rows.map((r) => r.currentStatus), labels: Object.fromEntries(['active', 'unknown'].map((x) => [x, t(`currentStatus.${x}`)])) })}
-${sortControl}        <div class="bd-control">
+${facet({ name: 'selleraction', t, label: t('mp.f.sellerAction'), values: rows.map(sellerActionOf), labels: Object.fromEntries(MP.SELLER_ACTIONS.map((x) => [x, t(`sellerAction.${x}`)])) })}
+${facet({ name: 'actionability', t, label: t('bd.actionability'), values: rows.map(readinessOf), labels: Object.fromEntries(READINESS_STATUSES.map((x) => [x, t(`act.${x}`)])) })}
+${minDrControl}${sortControl}        <div class="bd-control">
           <button class="bd-button bd-button--ghost" type="button" data-bd-clear>${escapeHtml(t('common.clearFilters'))}</button>
         </div>
       </div>
@@ -264,13 +322,16 @@ function main() {
       count: rows.length, countries: new Set(rows.map((r) => r.country)).size,
     });
     // One canonical route, one file per locale. The 286 records are read once
-    // and rendered four times; no locale receives a copy of the data.
+    // and rendered four times; no locale receives a copy of the data. The
+    // planner's statuses are resolved once here for the same reason — a status
+    // is a fact about a platform, not about a language.
+    const readiness = readinessByPlatformId();
     for (const locale of I18N.LOCALE_CODES) {
       const f = path.join(ROOT, I18N.localizedFile(locale, meta.canonicalPath));
       assertOwned(f, ['/research/marketplaces/']);
       fs.mkdirSync(path.dirname(f), { recursive: true });
       writeIfChanged(f, render.renderPage({
-        meta, main: renderPage(rows, countryName, I18N.translator(locale)), locale,
+        meta, main: renderPage(rows, countryName, I18N.translator(locale), readiness), locale,
       }), written);
       ownedPages.push(f);
     }

@@ -290,9 +290,31 @@ test('an execution link is reachable by keyboard and says where it goes',
 test('the localized planners carry the same routes as the English one', { skip }, async () => {
   // Action VALUES are canonical and locale-independent. Labels may translate;
   // the destinations may not move.
+  // Settled on STABILITY, not on goto resolving.
+  //
+  // This read the DOM the instant the document finished loading, which is
+  // before the planner recomputes the campaign for ?market=germany. It was the
+  // only browser test here that did not wait, and it was always racing — it
+  // simply used to lose slowly enough to win, and reported a locale
+  // disagreement the moment the client had a fraction more work to do. Two
+  // identical reads with links on screen means the render is done.
   const routesFor = async (prefix) => {
     await H.page.goto(`${H.origin + prefix}research/distribution-planner/?market=germany`);
-    return H.page.eval(() => [...document.querySelectorAll('#ready a.bd-cta-link')].map((a) => a.href));
+    let previous = null;
+    const deadline = Date.now() + 10000;
+    for (;;) {
+      // eslint-disable-next-line no-await-in-loop
+      const now = await H.page.eval(() => [...document
+        .querySelectorAll('#ready a.bd-cta-link')].map((a) => a.href));
+      const encoded = JSON.stringify(now);
+      if (now.length && encoded === previous) return now;
+      previous = encoded;
+      if (Date.now() > deadline) {
+        throw new Error(`${prefix} never settled: ${now.length} route(s)`);
+      }
+      // eslint-disable-next-line no-await-in-loop
+      await new Promise((r) => { setTimeout(r, 60); });
+    }
   };
   const en = await routesFor('/');
   for (const locale of ['/de/', '/es/', '/fr/']) {
