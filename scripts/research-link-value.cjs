@@ -112,7 +112,7 @@ const LISTING_TAIL = /[-_/]\d{4,}(\.html?)?\/?$/i;
 // Zendesk's startups page, Facebook's page-creation form and three Amazon
 // product pages as business listings — all of which carry the contact words
 // that were supposed to identify a profile, because contact pages do.
-const NOT_A_LISTING = /\/(login|signin|sign-in|register|account|auth|oauth|sso|blog|news|help|support|guide|editorial|grouping|eventdetails|privacy|terms|about|hc|articles?|contact|contact-us|creation|get-started|startups|security|pricing|docs|developer|dp|gp|product|item|category|categories|kategorie|legal|cookie|cookie-policy|policy|policies|imprint|impressum)(\/|\?|#|-|_|$)/i;
+const NOT_A_LISTING = /\/(login|signin|sign-in|register|account|auth|oauth|sso|blog|news|help|support|guide|editorial|grouping|eventdetails|privacy|terms|about|hc|articles?|contact|contact-us|creation|get-started|startups|security|pricing|docs|developer|dp|gp|product|item|category|categories|kategorie|legal|cookie|cookie-policy|policy|policies|imprint|impressum|event|events|veranstaltung|veranstaltungen|evento|eventos|evenement)(\/|\?|#|-|_|$)/i;
 
 // A listing shows contact details. Without at least one of these the page is
 // something else that happens to sit at a plausible address.
@@ -299,7 +299,11 @@ function pickWebsiteAnchor(pageData, listingUrl) {
   const candidates = [];
   for (const a of pageData.anchors) {
     const host = hostOf(a.href);
-    if (!host || NOT_A_BUSINESS_SITE.test(`${host}.`)) continue;
+    // Tested on the registrable domain, not the full host. Checking the host
+    // let ads.google.com through — the anchor was labelled "Zur Website" on a
+    // conference page and the "business website" was Google's ad product.
+    const family2 = `${(host.split('.').slice(-2).join('.'))}.`;
+    if (!host || NOT_A_BUSINESS_SITE.test(`${host}.`) || NOT_A_BUSINESS_SITE.test(family2)) continue;
     if (a.chrome) continue;
     const target = targetTypeOf(a, listingUrl);
     if (!target) continue;

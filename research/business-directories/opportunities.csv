@@ -10,7 +10,7 @@ ar-paginasamarillas,Páginas Amarillas Argentina,https://www.paginasamarillas.co
 ar-rappi,Rappi Argentina,https://www.rappi.com.ar/,argentina,latam,local-business,unknown,unknown,69,tier1,P2,true,,,,,2026-08-06,active,,,,,,,,,
 ar-restorando,Restorando,https://www.restorando.com.ar/,argentina,latam,local-business,unknown,unknown,28,tier2,P2,true,,,,,2026-08-06,active,,,,,,,,,
 ar-came,CAME,https://www.came.org.ar/,argentina,country-specific,industry-associations,unknown,unknown,35,tier2,P3,true,,,,,2026-08-06,active,,,,,,,,,
-ar-cessi,CESSI,https://www.cessi.org.ar/,argentina,country-specific,industry-associations,unknown,unknown,57,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
+ar-cessi,CESSI,https://www.cessi.org.ar/,argentina,country-specific,industry-associations,unknown,unknown,57,tier3,P3,true,,,,,2026-08-06,active,,0,,,,none,,indexable,2026-08-21
 ar-cylex,Cylex Argentina,https://www.cylex.com.ar/,argentina,country-specific,local-business,unknown,unknown,25,tier3,P3,true,,,,,2026-08-14,active,,,,,,,,,
 ar-cac,Cámara Argentina de Comercio,https://www.cac.com.ar/,argentina,country-specific,chambers-of-commerce,unknown,unknown,59,tier2,P3,true,,,,,2026-08-06,active,,,,,,,,,
 ar-endeavor,Endeavor Argentina,https://www.endeavor.org.ar/,argentina,latam,startup,unknown,unknown,52,tier2,P3,true,,,,,2026-08-06,active,,,,,,,,,
@@ -37,7 +37,7 @@ au-broadsheet,Broadsheet,https://www.broadsheet.com.au/,australia,australia,loca
 au-businessnsw,Business NSW,https://www.businessnsw.com/,australia,regional,industry-associations,unknown,unknown,66,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
 au-cpaaustralia,CPA Australia Find a CPA,https://www.cpaaustralia.com.au/,australia,australia,industry-associations,unknown,unknown,79,tier2,P3,true,,,,,2026-08-06,active,,,,,,,,,
 au-charteredaccountantsanz,Chartered Accountants ANZ,https://www.charteredaccountantsanz.com/,australia,australia,industry-associations,unknown,unknown,77,tier2,P3,true,,,,,2026-08-14,active,,,,,,,,,
-au-drive,Drive,https://www.drive.com.au/,australia,australia,general-business,unknown,unknown,77,tier2,P3,true,,,,,2026-08-14,active,,,,,,,,,
+au-drive,Drive,https://www.drive.com.au/,australia,australia,general-business,unknown,unknown,77,tier2,P3,true,,,,,2026-08-14,active,,0,,,,none,,indexable,2026-08-21
 au-fishburners,Fishburners,https://www.fishburners.org/,australia,australia,startup,unknown,unknown,50,tier2,P3,true,,,,,2026-08-06,active,,,,,,,,,
 au-gumtree,Gumtree Australia,https://www.gumtree.com.au/,australia,australia,general-business,unknown,unknown,77,tier1,P3,true,,,,,2026-08-14,unknown,,,,,,,,,
 au-hotfrog,Hotfrog Australia,https://www.hotfrog.com.au/,australia,australia,local-business,create,unknown,71,tier3,P3,true,https://www.hotfrog.com.au/add,,,,2026-08-14,active,,,,,,,,,
@@ -59,7 +59,7 @@ at-branchenverzeichnis,Branchenverzeichnis.at,https://www.branchenverzeichnis.at
 at-cylex,Cylex Österreich,https://www.cylex.at/,austria,dach,local-business,unknown,unknown,36,tier3,P3,true,,,,,2026-08-14,active,,,,,,,,,
 at-firmania,Firmania Österreich,https://www.firmania.at/,austria,dach,local-business,unknown,unknown,7,tier3,P3,true,,,,,2026-08-14,active,,,,,,,,,
 at-hotfrog,Hotfrog Österreich,https://www.hotfrog.at/,austria,dach,local-business,unknown,unknown,33,tier3,P3,true,,,,,2026-08-14,active,,,,,,,,,
-at-infoisinfo,InfoIsInfo Österreich,https://www.infoisinfo.at/,austria,country-specific,general-business,unknown,unknown,0,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
+at-infoisinfo,InfoIsInfo Österreich,https://www.infoisinfo.at/,austria,country-specific,general-business,unknown,unknown,0,tier3,P3,true,,,,,2026-08-06,active,,0,,,,none,,indexable,2026-08-21
 at-opendi,Opendi Österreich,https://www.opendi.at/,austria,dach,local-business,unknown,unknown,4,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
 at-tupalo,Tupalo Österreich,https://www.tupalo.at/,austria,country-specific,local-business,unknown,unknown,31,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
 at-yalwa,Yalwa Österreich,https://www.yalwa.at/,austria,country-specific,local-business,unknown,unknown,39,tier3,P3,true,,,,,2026-08-14,unknown,,,,,,,,,
@@ -79,7 +79,7 @@ bd-fbcci,FBCCI,https://www.fbcci.org/,bangladesh,country-specific,chambers-of-co
 bd-bdbusinessdirectory,BD Business Directory,https://www.bdbusinessdirectory.com/,bangladesh,country-specific,general-business,unknown,unknown,5,tier3,P3,true,,,,,2026-08-14,unknown,,,,,,,,,
 bd-bdyellowpages,BD Yellowpages,https://www.bdyellowpages.com/,bangladesh,country-specific,general-business,unknown,unknown,1,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
 bd-bikroy,Bikroy,https://www.bikroy.com/,bangladesh,country-specific,general-business,unknown,unknown,61,tier1,P3,true,,,,,2026-08-14,unknown,,,,,,,,,
-bb-barbadosyp,Barbados Yellow Pages,https://www.findyello.com/barbados/,barbados,country-specific,general-business,create,unknown,73,tier2,P2,true,https://www.findyello.com/list-business/,,,,2026-08-14,active,,,,,,,,,
+bb-barbadosyp,Barbados Yellow Pages,https://www.findyello.com/barbados/,barbados,country-specific,general-business,create,unknown,73,tier2,P2,true,https://www.findyello.com/list-business/,,,,2026-08-14,active,,60,,,,mixed,,indexable,2026-08-21
 be-goudengids,Gouden Gids,https://www.goudengids.be/,belgium,country-specific,local-business,unknown,unknown,68,tier1,P1,true,,,,,2026-08-06,active,,,,,,,,,
 be-stepstone,StepStone België,https://www.stepstone.be/,belgium,country-specific,general-business,unknown,unknown,61,tier2,P2,true,,,,,2026-08-06,active,,,,,,,,,
 be-2dehands,2dehands,https://www.2dehands.be/,belgium,country-specific,general-business,unknown,unknown,76,tier2,P3,true,,,,,2026-08-06,active,,,,,,,,,
@@ -96,7 +96,7 @@ bz-travelbelize,Travel Belize,https://www.travelbelize.org/,belize,country-speci
 bo-mercadolibre,Mercado Libre Bolivia,https://www.mercadolibre.com.bo/,bolivia,latam,general-business,unknown,free,62,tier1,P2,true,,,,,2026-08-06,active,,,,,,,,,
 bo-pedidosya,PedidosYa Bolivia,https://www.pedidosya.com.bo/,bolivia,latam,local-business,unknown,unknown,59,tier1,P2,true,,,,,2026-08-14,unknown,,,,,,,,,
 ba-yellowpages,Yellow Pages Bosnia,https://yellowpages.ba/,bosnia-and-herzegovina,europe,local-business,unknown,unknown,7,tier2,P2,true,,,,,2026-08-14,active,,,,,,,,,
-ba-companywall,CompanyWall Bosna i Hercegovina,https://www.companywall.ba/,bosnia-and-herzegovina,country-specific,general-business,unknown,unknown,56,tier2,P3,true,,,,,2026-08-14,active,,,,,,,,,
+ba-companywall,CompanyWall Bosna i Hercegovina,https://www.companywall.ba/,bosnia-and-herzegovina,country-specific,general-business,unknown,unknown,56,tier2,P3,true,,,,,2026-08-14,active,,0,,,,none,,indexable,2026-08-21
 br-apontador,Apontador,https://www.apontador.com.br/,brazil,latam,local-business,unknown,unknown,61,tier1,P1,true,,,,,2026-08-06,active,,,,,,,,,
 br-guiamais,Guia Mais,https://www.guiamais.com.br/,brazil,latam,local-business,unknown,unknown,65,tier1,P1,true,,,,,2026-08-06,active,,,,,,,,,
 br-buscja,Buscja,https://www.buscja.com/,brazil,latam,general-business,unknown,unknown,52,tier2,P2,true,,,,,2026-08-06,active,,,,,,,,,
@@ -179,7 +179,7 @@ cl-mercadolibre,Mercado Libre Chile,https://www.mercadolibre.cl/,chile,latam,gen
 cl-amarillas,Páginas Amarillas Chile,https://www.amarillas.cl/,chile,country-specific,general-business,unknown,unknown,62,tier2,P2,true,,,,,2026-08-06,active,,,,,,,,,
 cl-cylex,Cylex Chile,https://www.cylex.cl/,chile,country-specific,local-business,unknown,unknown,26,tier3,P3,true,,,,,2026-08-14,active,,,,,,,,,
 cl-guialocal,GuiaLocal Chile,https://www.guialocal.cl/,chile,country-specific,local-business,unknown,unknown,1,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
-cl-hotfrog,Hotfrog Chile,https://www.hotfrog.cl/,chile,country-specific,local-business,unknown,unknown,31,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
+cl-hotfrog,Hotfrog Chile,https://www.hotfrog.cl/,chile,country-specific,local-business,unknown,unknown,31,tier3,P3,true,,,,,2026-08-06,active,,0,,,,none,,indexable,2026-08-21
 cl-opendi,Opendi Chile,https://www.opendi.cl/,chile,country-specific,general-business,unknown,unknown,3,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
 cl-yapo,Yapo.cl,https://www.yapo.cl/,chile,country-specific,general-business,unknown,unknown,63,tier1,P3,true,,,,,2026-08-06,active,,,,,,,,,
 cn-cantonfair,Canton Fair,https://www.cantonfair.org.cn/,china,global,manufacturing,unknown,unknown,81,tier1,P1,true,,,,,2026-08-06,active,,,,,,,,,
@@ -209,7 +209,7 @@ co-paginasamarillas,Páginas Amarillas Colombia,https://www.paginasamarillas.com
 co-rappi,Rappi Colombia,https://www.rappi.com.co/,colombia,latam,local-business,unknown,unknown,74,tier1,P2,true,,,,,2026-08-06,active,,,,,,,,,
 co-cylex,Cylex Colombia,https://www.cylex.com.co/,colombia,country-specific,local-business,unknown,unknown,32,tier3,P3,true,,,,,2026-08-14,unknown,,,,,,,,,
 co-guialocal,GuiaLocal Colombia,https://www.guialocal.com.co/,colombia,country-specific,local-business,unknown,unknown,4,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
-co-hotfrog,Hotfrog Colombia,https://www.hotfrog.com.co/,colombia,country-specific,local-business,create,unknown,26,tier3,P3,true,https://www.hotfrog.com.co/add,,,,2026-08-14,active,,,,,,,,,
+co-hotfrog,Hotfrog Colombia,https://www.hotfrog.com.co/,colombia,country-specific,local-business,create,unknown,26,tier3,P3,true,https://www.hotfrog.com.co/add,,,,2026-08-14,active,,0,,,,none,,indexable,2026-08-21
 cr-govisitcostarica,Go Visit Costa Rica,https://www.govisitcostarica.co.cr/,costa-rica,country-specific,local-business,unknown,unknown,45,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
 cr-visitcostarica,Visit Costa Rica,https://www.visitcostarica.com/,costa-rica,country-specific,local-business,unknown,unknown,76,tier2,P3,true,,,,,2026-08-06,active,,,,,,,,,
 hr-companywall,CompanyWall Hrvatska,https://www.companywall.hr/,croatia,country-specific,general-business,unknown,unknown,59,tier2,P3,true,,,,,2026-08-14,active,,,,,,,,,
@@ -243,12 +243,12 @@ dk-degulesider,De Gule Sider,https://www.degulesider.dk/,denmark,nordics,local-b
 dk-krak,Krak,https://www.krak.dk/,denmark,nordics,local-business,unknown,unknown,81,tier1,P1,true,,,,,2026-08-14,active,,,,,,,,,
 dk-3byggetilbud,3byggetilbud,https://www.3byggetilbud.dk/,denmark,country-specific,construction,unknown,unknown,71,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
 dk-anmeldelser,Anmeldelser.dk,https://www.anmeldelser.dk/,denmark,country-specific,review-sites,unknown,unknown,0,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
-dk-bilbasen,Bilbasen,https://www.bilbasen.dk/,denmark,country-specific,general-business,unknown,unknown,74,tier2,P3,true,,,,,2026-08-06,active,,,,,,,,,
+dk-bilbasen,Bilbasen,https://www.bilbasen.dk/,denmark,country-specific,general-business,unknown,unknown,74,tier2,P3,true,,,,,2026-08-06,active,,0,,,,none,,indexable,2026-08-21
 dk-cylex,Cylex Danmark,https://www.cylex.dk/,denmark,country-specific,general-business,unknown,unknown,28,tier3,P3,true,,,,,2026-08-14,active,,,,,,,,,
 dk-dba,DBA,https://www.dba.dk/,denmark,country-specific,general-business,unknown,unknown,75,tier2,P3,true,,,,,2026-08-06,active,,,,,,,,,
 dk-firmania,Firmania Danmark,https://www.firmania.dk/,denmark,country-specific,local-business,unknown,unknown,0,tier3,P3,true,,,,,2026-08-14,active,,,,,,,,,
 dk-handyhand,Handyhand,https://www.handyhand.dk/,denmark,country-specific,local-business,unknown,unknown,67,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
-dk-hotfrog,Hotfrog Danmark,https://www.hotfrog.dk/,denmark,nordics,local-business,unknown,unknown,32,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
+dk-hotfrog,Hotfrog Danmark,https://www.hotfrog.dk/,denmark,nordics,local-business,unknown,unknown,32,tier3,P3,true,,,,,2026-08-06,active,,0,,,,none,,indexable,2026-08-21
 dk-jobindex,Jobindex,https://www.jobindex.dk/,denmark,nordics,general-business,unknown,unknown,77,tier2,P3,true,,,,,2026-08-06,active,,,,,,,,,
 dk-misterwhat,MisterWhat Danmark,https://www.misterwhat.dk/,denmark,country-specific,local-business,unknown,unknown,20,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
 dk-opendi,Opendi Danmark,https://www.opendi.dk/,denmark,nordics,local-business,unknown,unknown,10,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
@@ -288,9 +288,9 @@ fr-custplace,Custplace,https://www.custplace.com/,france,country-specific,review
 fr-deliveroo,Deliveroo France,https://www.deliveroo.fr/,france,country-specific,local-business,unknown,unknown,82,tier2,P2,true,,,,,2026-08-06,active,,,,,,,,,
 fr-directindustry,DirectIndustry,https://www.directindustry.fr/,france,europe,manufacturing,unknown,unknown,49,tier1,P2,true,,,,,2026-08-14,active,,,,,,,,,
 fr-doctolib,Doctolib,https://www.doctolib.fr/,france,country-specific,local-business,unknown,unknown,91,tier2,P2,true,,,,,2026-08-14,active,,,,,,,,,
-fr-hoodspot,Hoodspot,https://annuaire.petitesaffiches.fr/,france,country-specific,local-business,unknown,unknown,72,tier2,P2,true,,,,,2026-08-14,active,,,,,,,,,
+fr-hoodspot,Hoodspot,https://annuaire.petitesaffiches.fr/,france,country-specific,local-business,unknown,unknown,72,tier2,P2,true,,,,,2026-08-14,active,,0,,,,none,,indexable,2026-08-21
 fr-houzz,Houzz France,https://www.houzz.fr/,france,country-specific,local-business,unknown,unknown,83,tier1,P2,true,,,,,2026-08-06,active,,,,,,,,,
-fr-indexa,INDEXA,https://www.indexa.fr/,france,country-specific,general-business,unknown,unknown,58,tier2,P2,true,,,,,2026-08-06,active,,,,,,,,,
+fr-indexa,INDEXA,https://www.indexa.fr/,france,country-specific,general-business,unknown,unknown,58,tier2,P2,true,,,,,2026-08-06,active,,100,,,,dofollow,direct,indexable,2026-08-21
 fr-justacote,Justacote,https://www.justacote.com/,france,country-specific,review-sites,unknown,unknown,69,tier2,P2,true,,,,,2026-08-14,unknown,,,,,,,,,
 fr-kompass,Kompass France,https://fr.kompass.com/,france,europe,general-business,unknown,unknown,77,tier2,P2,true,,,,,2026-08-14,unknown,,,,,,,,,
 fr-usinenouvelle-expo,L'Expo Permanente,https://www.usinenouvelle.com/expo/,france,country-specific,manufacturing,unknown,unknown,81,tier1,P2,true,,,,,2026-08-06,active,,,,,,,,,
@@ -301,11 +301,11 @@ fr-mariages,Mariages.net,https://www.mariages.net/,france,country-specific,local
 fr-stationf,STATION F,https://www.stationf.co/,france,europe,startup,unknown,unknown,74,tier1,P2,true,,,,,2026-08-06,active,,,,,,,,,
 fr-starofservice,StarOfService,https://www.starofservice.com/,france,europe,local-business,unknown,unknown,72,tier2,P2,true,,,,,2026-08-06,active,,,,,,,,,
 fr-travaux,Travaux.com,https://www.travaux.com/,france,country-specific,construction,unknown,unknown,75,tier2,P2,true,,,,,2026-08-14,active,,,,,,,,,
-fr-aacc,AACC,https://www.aacc.fr/,france,country-specific,marketing,unknown,unknown,60,tier2,P3,true,,,,,2026-08-06,active,,,,,,,,,
+fr-aacc,AACC,https://www.aacc.fr/,france,country-specific,marketing,unknown,unknown,60,tier2,P3,true,,,,,2026-08-06,active,,0,,,,none,,indexable,2026-08-21
 fr-allo-commercants,Allo-Commercants,https://www.allo-commercants.fr/,france,country-specific,local-business,unknown,unknown,29,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
 fr-telephone-annuaire,Annuaire Téléphone,https://www.telephone-annuaire.fr/,france,country-specific,local-business,unknown,unknown,11,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
 fr-annuaire-entreprises-locales,Annuaire des entreprises locales,https://www.annuaire-des-entreprises-locales.fr/,france,country-specific,local-business,unknown,unknown,29,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
-fr-annuaire-entreprise-co,Annuaire-Entreprise.co,https://www.annuaire-entreprise.co/,france,country-specific,general-business,unknown,unknown,13,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
+fr-annuaire-entreprise-co,Annuaire-Entreprise.co,https://www.annuaire-entreprise.co/,france,country-specific,general-business,unknown,unknown,13,tier3,P3,true,,,,,2026-08-06,active,,0,,,,none,,indexable,2026-08-21
 fr-codeur,Codeur.com,https://www.codeur.com/,france,country-specific,general-business,unknown,unknown,77,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
 fr-coodoeil,Coodoeil,https://www.coodoeil.fr/,france,country-specific,general-business,unknown,unknown,60,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
 fr-cylex,Cylex France,https://www.cylex-locale.fr/,france,country-specific,local-business,unknown,unknown,70,tier3,P3,true,,,,,2026-08-14,active,,,,,,,,,
@@ -368,13 +368,13 @@ de-blauarbeit,Blauarbeit,https://www.blauarbeit.de/,germany,dach,local-business,
 de-branchen-domain,Branchen-Domain,https://www.branchen-domain.de/,germany,dach,local-business,unknown,free,40,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
 de-branchenbuch,Branchenbuch Deutschland,https://www.branchenbuchdeutschland.de/,germany,dach,local-business,unknown,free,51,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
 de-branchenbuch24,Branchenbuch24,https://www.branchenbuch24.com/,germany,dach,local-business,unknown,unknown,11,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
-de-dialo,BundesTelefonbuch,https://www.bundes-telefonbuch.de/,germany,dach,local-business,create,unknown,44,tier3,P3,true,https://www.bundes-telefonbuch.de/firma/grund-eintrag,,,,2026-08-14,active,,,,,,,,,
-de-business-branchenbuch,Business-Branchenbuch,https://www.business-branchenbuch.de/,germany,dach,local-business,unknown,unknown,70,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
+de-dialo,BundesTelefonbuch,https://www.bundes-telefonbuch.de/,germany,dach,local-business,create,unknown,44,tier3,P3,true,https://www.bundes-telefonbuch.de/firma/grund-eintrag,,,,2026-08-14,active,,0,,,,none,,indexable,2026-08-21
+de-business-branchenbuch,Business-Branchenbuch,https://www.business-branchenbuch.de/,germany,dach,local-business,unknown,unknown,70,tier3,P3,true,,,,,2026-08-06,active,,0,,,,none,,indexable,2026-08-21
 de-cylex,Cylex Deutschland,https://www.cylex.de/,germany,dach,local-business,unknown,unknown,78,tier2,P3,true,,,,,2026-08-14,active,,,,,,,,,
 de-dslv,DSLV,https://www.dslv.org/,germany,dach,industry-associations,unknown,unknown,75,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
 de-bvmw,Der Mittelstand BVMW,https://www.bvmw.de/,germany,dach,industry-associations,unknown,unknown,81,tier2,P3,true,,,,,2026-08-06,active,,,,,,,,,
 de-anwaltauskunft,Deutsche Anwaltauskunft,https://www.anwaltauskunft.de/,germany,country-specific,legal,unknown,unknown,73,tier2,P3,true,,,,,2026-08-06,active,,,,,,,,,
-de-firmendb,FirmenDB,https://www.firmendb.de/,germany,dach,general-business,unknown,unknown,45,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
+de-firmendb,FirmenDB,https://www.firmendb.de/,germany,dach,general-business,unknown,unknown,45,tier3,P3,true,,,,,2026-08-06,active,,100,,,,dofollow,direct,indexable,2026-08-21
 de-firmeneintrag,Firmeneintrag.de,https://www.firmeneintrag.de/,germany,dach,local-business,create,free,37,tier3,P3,true,https://firmeneintrag.de/firmeneintrag-erstellen/,,,,2026-08-06,active,,,,,,,,,
 de-firmenindex,Firmenindex Deutschland,https://www.firmenindex-deutschland.de/,germany,dach,general-business,unknown,free,47,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
 de-firmenpresse,Firmenpresse,https://www.firmenpresse.de/,germany,dach,press-release-platforms,unknown,free,67,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
@@ -385,7 +385,7 @@ de-hochzeit-click,Hochzeit.click,https://www.hochzeit.click/,germany,dach,local-
 de-hotelbewertungen,Hotelbewertungen.net,https://www.hotelbewertungen.net/,germany,dach,review-sites,unknown,unknown,9,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
 de-hotfrog,Hotfrog Deutschland,https://www.hotfrog.de/,germany,dach,local-business,unknown,unknown,63,tier3,P3,true,,,,,2026-08-14,active,,,,,,,,,
 de-industrystock,IndustryStock Deutschland,https://www.industrystock.de/,germany,dach,manufacturing,create,unknown,65,tier2,P3,true,https://www.industrystock.de/de/registrieren,,,,2026-08-06,active,,,,,,,,,
-de-kennstdueinen,KennstDuEinen,https://www.kennstdueinen.de/,germany,dach,review-sites,create,free,79,tier3,P3,true,https://www.kennstdueinen.de/serviceProvider/registerForm,,,,2026-08-06,active,,,,,,,,,
+de-kennstdueinen,KennstDuEinen,https://www.kennstdueinen.de/,germany,dach,review-sites,create,free,79,tier3,P3,true,https://www.kennstdueinen.de/serviceProvider/registerForm,,,,2026-08-06,active,37,0,,,,none,,indexable,2026-08-21
 de-klinikbewertungen,Klinikbewertungen,https://www.klinikbewertungen.de/,germany,country-specific,review-sites,unknown,unknown,59,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
 de-makler-empfehlung,Makler-Empfehlung,https://www.makler-empfehlung.de/,germany,country-specific,local-business,unknown,unknown,66,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
 de-medi-karriere,Medi-Karriere,https://www.medi-karriere.de/,germany,country-specific,general-business,unknown,unknown,54,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
@@ -396,13 +396,13 @@ de-salonkee,Salonkee Deutschland,https://www.salonkee.de/,germany,dach,local-bus
 de-shore,Shore,https://www.shore.com/,germany,dach,local-business,unknown,unknown,83,tier2,P3,true,,,,,2026-08-06,active,,,,,,,,,
 de-speisekarte,Speisekarte.de,https://www.speisekarte.de/,germany,dach,local-business,unknown,unknown,69,tier2,P3,true,,,,,2026-08-06,active,,,,,,,,,
 de-stadtbranchenbuch,Stadtbranchenbuch,https://www.stadtbranchenbuch.com/,germany,dach,local-business,unknown,unknown,74,tier3,P3,true,,,,,2026-08-14,active,,,,,,,,,
-de-unternehmensverzeichnis,Unternehmensverzeichnis,https://www.unternehmensverzeichnis.org/,germany,dach,general-business,unknown,unknown,55,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
+de-unternehmensverzeichnis,Unternehmensverzeichnis,https://www.unternehmensverzeichnis.org/,germany,dach,general-business,unknown,unknown,55,tier3,P3,true,,,,,2026-08-06,active,,0,,,,none,,indexable,2026-08-21
 de-yalwa,Yalwa Deutschland,https://www.yalwa.de/,germany,dach,local-business,unknown,unknown,43,tier3,P3,true,,,,,2026-08-14,unknown,,,,,,,,,
 de-zvei,ZVEI,https://www.zvei.org/,germany,europe,industry-associations,unknown,unknown,76,tier2,P3,true,,,,,2026-08-06,active,,,,,,,,,
-de-branchen-info,branchen-info.net,https://www.branchen-info.net/,germany,dach,local-business,create,unknown,76,tier3,P3,true,https://www.branchen-info.net/informationen-fuer-unternehmen/,,,,2026-08-06,active,,,,,,,,,
+de-branchen-info,branchen-info.net,https://www.branchen-info.net/,germany,dach,local-business,create,unknown,76,tier3,P3,true,https://www.branchen-info.net/informationen-fuer-unternehmen/,,,,2026-08-06,active,,0,,,,none,,indexable,2026-08-21
 de-mobile-de,mobile.de,https://www.mobile.de/,germany,dach,general-business,unknown,unknown,89,tier1,P3,true,,,,,2026-08-14,unknown,,,,,,,,,
 de-sanego,sanego,https://www.sanego.de/,germany,country-specific,local-business,unknown,unknown,72,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
-de-wer-zu-wem,wer-zu-wem,https://www.wer-zu-wem.de/,germany,dach,general-business,unknown,unknown,55,tier2,P3,true,,,,,2026-08-06,active,,,,,,,,,
+de-wer-zu-wem,wer-zu-wem,https://www.wer-zu-wem.de/,germany,dach,general-business,unknown,unknown,55,tier2,P3,true,,,,,2026-08-06,active,,0,,,,none,,indexable,2026-08-21
 gh-agi,Association of Ghana Industries,https://www.agighana.org/,ghana,country-specific,industry-associations,unknown,unknown,46,tier2,P2,true,,,,,2026-08-06,active,,,,,,,,,
 gh-gncci,Ghana National Chamber of Commerce,https://www.ghanachamber.org/,ghana,country-specific,chambers-of-commerce,unknown,unknown,42,tier1,P2,true,,,,,2026-08-06,active,,,,,,,,,
 gh-ghanayello,GhanaYello,https://www.ghanayello.com/,ghana,country-specific,general-business,unknown,unknown,42,tier2,P2,true,,,,,2026-08-14,unknown,,,,,,,,,
@@ -638,14 +638,14 @@ global-enrollbusiness,EnrollBusiness,https://www.enrollbusiness.com/,global,glob
 global-eventbrite,Eventbrite,https://www.eventbrite.com/,global,global,general-business,unknown,unknown,94,tier1,P3,true,,,,,2026-08-06,active,,,,,,,,,
 global-expat,Expat.com,https://www.expat.com/,global,global,local-business,unknown,unknown,72,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
 global-exporthub,ExportHub,https://www.exporthub.com/,global,asia; global,manufacturing,unknown,unknown,55,tier3,P3,true,,,,,2026-08-14,unknown,,,,,,,,,
-global-expressbusinessdirectory,Express Business Directory,https://www.expressbusinessdirectory.com/,global,global,local-business,create,free,61,tier3,P3,true,https://www.expressbusinessdirectory.com/search-result/,,,,2026-08-14,active,,,,,,,,,
+global-expressbusinessdirectory,Express Business Directory,https://www.expressbusinessdirectory.com/,global,global,local-business,create,free,61,tier3,P3,true,https://www.expressbusinessdirectory.com/search-result/,,,,2026-08-14,active,37,0,,,,none,,indexable,2026-08-21
 global-f-droid,F-Droid,https://f-droid.org/,global,global,app-directories,unknown,free,85,tier2,P3,,,,,Excludes proprietary applications by design,2026-08-04,active,,,,,,,,,
 global-flathub,Flathub,https://flathub.org/,global,global,app-directories,unknown,free,83,tier1,P3,,,,,Review system not confirmed from the storefront,2026-08-04,active,,,,,,,,,
 global-fordaq,Fordaq,https://www.fordaq.com/,global,europe,manufacturing,unknown,unknown,64,tier2,P3,true,,,,,2026-08-14,unknown,,,,,,,,,
 global-freelancer,Freelancer.com,https://www.freelancer.com/,global,global,general-business,unknown,unknown,86,tier1,P3,true,,,,,2026-08-06,active,,,,,,,,,
 global-getlatka,GetLatka,https://www.getlatka.com/,global,global,software,create,unknown,72,tier3,P3,true,https://getlatka.com/add,,,,2026-08-14,active,,,,,,,,,
 global-pkg-go-dev,Go Packages (pkg.go.dev),https://pkg.go.dev/,global,global,developer,unknown,unknown,91,tier1,P3,true,,,,,2026-08-14,active,,,,,,,,,
-global-goabroad,GoAbroad,https://www.goabroad.com/,global,global,education,unknown,unknown,74,tier3,P3,true,,,,,2026-08-14,active,,,,,,,,,
+global-goabroad,GoAbroad,https://www.goabroad.com/,global,global,education,unknown,unknown,74,tier3,P3,true,,,,,2026-08-14,active,,40,,,,sponsored,direct,indexable,2026-08-21
 global-grotal,Grotal,https://www.grotal.com/,global,india,local-business,unknown,unknown,44,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
 global-guru,Guru.com,https://www.guru.com/,global,global,general-business,unknown,unknown,78,tier2,P3,true,,,,,2026-08-06,active,,,,,,,,,
 global-gust,Gust,https://www.gust.com/,global,global; north-america,startup,unknown,unknown,75,tier2,P3,true,,,,,2026-08-14,active,,,,,,,,,
@@ -720,7 +720,7 @@ global-saashub,SaaSHub,https://www.saashub.com/,global,global,software,unknown,f
 global-saaslist,SaasList,https://www.saaslist.com/,global,global,saas,unknown,unknown,59,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
 global-seedtable,Seedtable,https://www.seedtable.com/,global,europe,startup,unknown,unknown,58,tier3,P3,true,,,,,2026-08-14,active,,,,,,,,,
 global-selecthub,SelectHub,https://www.selecthub.com/,global,global; north-america,software,unknown,unknown,74,tier2,P3,true,,,,,2026-08-06,active,,,,,,,,,
-global-selectedfirms,SelectedFirms,https://www.selectedfirms.co/,global,global,marketing,create,freemium,73,tier3,P3,true,https://selectedfirms.co/get-listed,,,,2026-08-14,active,,,,,,,,,
+global-selectedfirms,SelectedFirms,https://www.selectedfirms.co/,global,global,marketing,create,freemium,73,tier3,P3,true,https://selectedfirms.co/get-listed,,,,2026-08-14,active,44,25,,,,nofollow,direct,indexable,2026-08-21
 global-setmore,Setmore,https://www.setmore.com/,global,global,local-business,unknown,free,91,tier2,P3,true,,,,,2026-08-06,active,,,,,,,,,
 global-shopper-approved,Shopper Approved,https://www.shopperapproved.com/,global,global; north-america,review-sites,unknown,unknown,84,tier2,P3,true,,,,,2026-08-06,active,,,,,,,,,
 global-sideprojectors,SideProjectors,https://www.sideprojectors.com/,global,global,startup,unknown,unknown,70,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
@@ -749,7 +749,7 @@ global-thunderbird-addons,Thunderbird Add-ons,https://addons.thunderbird.net/,gl
 global-timeout,Time Out,https://www.timeout.com/,global,global,local-business,create,free,90,tier1,P3,true,https://www.timeout.com/london/get-listed,,,,2026-08-14,active,,,,,,,,,
 global-tinylaunch,TinyLaunch,https://www.tinylaunch.com/,global,global,startup,unknown,unknown,72,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
 global-toolsforhumans,ToolsForHumans,https://www.toolsforhumans.ai/,global,global,ai,unknown,unknown,40,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
-global-topdevelopers,TopDevelopers.co,https://www.topdevelopers.co/,global,asia; global,marketing,create,freemium,74,tier3,P3,true,https://www.topdevelopers.co/listing-packages,,,,2026-08-14,active,,,,,,,,,
+global-topdevelopers,TopDevelopers.co,https://www.topdevelopers.co/,global,asia; global,marketing,create,freemium,74,tier3,P3,true,https://www.topdevelopers.co/listing-packages,,,,2026-08-14,active,44,25,,,,nofollow,direct,indexable,2026-08-21
 global-toptal,Toptal,https://www.toptal.com/,global,global,general-business,unknown,unknown,90,tier1,P3,true,,,,,2026-08-14,active,,,,,,,,,
 global-tracxn,Tracxn,https://www.tracxn.com/,global,global; india,startup,unknown,unknown,78,tier2,P3,true,,,,,2026-08-06,active,,,,,,,,,
 global-tradeford,TradeFord,https://www.tradeford.com/,global,asia; global,manufacturing,unknown,unknown,52,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
@@ -781,7 +781,7 @@ global-ekomi,eKomi,https://www.ekomi.com/,global,dach; europe,review-sites,unkno
 global-eworldtrade,eWorldTrade,https://www.eworldtrade.com/,global,asia; global,manufacturing,unknown,unknown,63,tier3,P3,true,,,,,2026-08-14,unknown,,,,,,,,,
 global-educations,educations.com,https://www.educations.com/,global,global,education,unknown,unknown,72,tier2,P3,true,,,,,2026-08-14,active,,,,,,,,,
 global-eu-robotics,euRobotics,https://www.eu-robotics.net/,global,europe,industry-associations,unknown,unknown,65,tier2,P3,true,,,,,2026-08-06,active,,,,,,,,,
-global-go4worldbusiness,go4WorldBusiness,https://www.go4worldbusiness.com/,global,asia; global,manufacturing,unknown,unknown,69,tier2,P3,true,,,,,2026-08-06,active,,,,,,,,,
+global-go4worldbusiness,go4WorldBusiness,https://www.go4worldbusiness.com/,global,asia; global,manufacturing,unknown,unknown,69,tier2,P3,true,,,,,2026-08-06,active,,0,,,,none,,indexable,2026-08-21
 global-iglobal,iGlobal,https://www.iglobal.co/,global,global,local-business,unknown,unknown,73,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
 global-opam,opam,https://opam.ocaml.org/,global,global,developer,unknown,unknown,76,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
 global-openpr,openPR,https://www.openpr.com/,global,dach; global,press-release-platforms,unknown,unknown,81,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
@@ -835,10 +835,10 @@ in-freshersworld,Freshersworld,https://www.freshersworld.com/,india,india,genera
 in-goibibo,Goibibo,https://www.goibibo.com/,india,india,local-business,unknown,unknown,77,tier1,P3,true,,,,,2026-08-06,active,,,,,,,,,
 in-inc42,Inc42,https://www.inc42.com/,india,india,startup,unknown,unknown,81,tier2,P3,true,,,,,2026-08-06,active,,,,,,,,,
 in-indiabusinessguide,India Business Guide,https://www.indiabusinessguide.in/,india,india,general-business,create,unknown,7,tier3,P3,true,https://www.indiabusinessguide.in/user/addlisting.html,,,,2026-08-14,active,,,,,,,,,
-in-indiantradebird,Indian TradeBird,https://www.indiantradebird.com/,india,india,manufacturing,unknown,unknown,43,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
+in-indiantradebird,Indian TradeBird,https://www.indiantradebird.com/,india,india,manufacturing,unknown,unknown,43,tier3,P3,true,,,,,2026-08-06,active,,0,,,,none,,indexable,2026-08-21
 in-indianyellowpages,Indian Yellow Pages,https://www.indianyellowpages.com/,india,india,manufacturing,create,free,80,tier3,P3,true,https://www.indianyellowpages.com/post-free-classified-ads.htm,,,,2026-08-06,active,,,,,,,,,
 in-instahyre,Instahyre,https://www.instahyre.com/,india,india,general-business,unknown,unknown,46,tier3,P3,true,,,,,2026-08-14,active,,,,,,,,,
-in-internshala,Internshala,https://www.internshala.com/,india,india,education,unknown,unknown,72,tier2,P3,true,,,,,2026-08-06,active,,,,,,,,,
+in-internshala,Internshala,https://www.internshala.com/,india,india,education,unknown,unknown,72,tier2,P3,true,,,,,2026-08-06,active,,25,,,,nofollow,direct,indexable,2026-08-21
 in-meesho,Meesho,https://www.meesho.com/,india,india,general-business,unknown,unknown,80,tier1,P3,true,,,,,2026-08-14,unknown,,,,,,,,,
 in-mumbaibusinessdirectory,Mumbai Business Directory,https://www.mumbaibusinessdirectory.com/,india,regional,local-business,create,unknown,2,tier3,P3,true,https://forms.gle/wwoCcUF6yPx7WpzB9,,,,2026-08-14,active,,,,,,,,,
 in-oyorooms,OYO,https://www.oyorooms.com/,india,global,local-business,unknown,unknown,76,tier1,P3,true,,,,,2026-08-06,active,,,,,,,,,
@@ -856,13 +856,13 @@ in-yalwa,Yalwa India,https://www.yalwa.in/,india,india,local-business,unknown,un
 in-yourstory,YourStory,https://www.yourstory.com/,india,india,startup,unknown,unknown,85,tier2,P3,true,,,,,2026-08-14,active,,,,,,,,,
 in-zipleaf,ZipLeaf India,https://www.zipleaf.in/,india,india,general-business,create,free,30,tier3,P3,true,https://www.zipleaf.in/Add-Your-Business,,,,2026-08-14,active,,,,,,,,,
 in-eindiabusiness,eIndiaBusiness,https://www.eindiabusiness.com/,india,india,general-business,unknown,unknown,52,tier3,P3,true,,,,,2026-08-14,unknown,,,,,,,,,
-in-magicpin,magicpin,https://www.magicpin.in/,india,india,local-business,unknown,unknown,64,tier2,P3,true,,,,,2026-08-06,active,,,,,,,,,
+in-magicpin,magicpin,https://www.magicpin.in/,india,india,local-business,unknown,unknown,64,tier2,P3,true,,,,,2026-08-06,active,,0,,,,none,,indexable,2026-08-21
 in-nearbuy,nearbuy,https://www.nearbuy.com/,india,india,local-business,create,unknown,41,tier2,P3,true,https://merchants.nearbuy.com/register,,,,2026-08-14,active,,,,,,,,,
 id-alodokter,Alodokter,https://www.alodokter.com/,indonesia,country-specific,local-business,unknown,unknown,80,tier2,P2,true,,,,,2026-08-06,active,,,,,,,,,
 id-bhinneka,Bhinneka,https://www.bhinneka.com/,indonesia,country-specific,manufacturing,unknown,unknown,70,tier2,P2,true,,,,,2026-08-06,active,,,,,,,,,
 id-gojek,Gojek,https://www.gojek.com/,indonesia,asia,local-business,unknown,unknown,79,tier1,P2,true,,,,,2026-08-06,active,,,,,,,,,
 id-halodoc,Halodoc,https://www.halodoc.com/,indonesia,country-specific,local-business,unknown,unknown,78,tier2,P2,true,,,,,2026-08-06,active,,,,,,,,,
-id-indonetwork,Indonetwork,https://www.indonetwork.co.id/,indonesia,country-specific,manufacturing,unknown,unknown,71,tier1,P2,true,,,,,2026-08-06,active,,,,,,,,,
+id-indonetwork,Indonetwork,https://www.indonetwork.co.id/,indonesia,country-specific,manufacturing,unknown,unknown,71,tier1,P2,true,,,,,2026-08-06,active,,100,,,,dofollow,direct,indexable,2026-08-21
 id-indotrading,Indotrading,https://www.indotrading.com/,indonesia,country-specific,manufacturing,unknown,unknown,73,tier2,P2,true,,,,,2026-08-14,active,,,,,,,,,
 id-jobstreet,JobStreet Indonesia,https://www.jobstreet.co.id/,indonesia,country-specific,general-business,unknown,unknown,73,tier1,P2,true,,,,,2026-08-14,unknown,,,,,,,,,
 id-kadin,KADIN Indonesia,https://www.kadin.id/,indonesia,country-specific,chambers-of-commerce,unknown,unknown,64,tier1,P2,true,,,,,2026-08-06,active,,,,,,,,,
@@ -907,7 +907,7 @@ it-trovaprezzi,Trovaprezzi,https://www.trovaprezzi.it/,italy,country-specific,re
 it-tuttocitta,TuttoCittà,https://www.tuttocitta.it/,italy,country-specific,local-business,unknown,unknown,76,tier2,P2,true,,,,,2026-08-06,active,,,,,,,,,
 it-ance,ANCE,https://www.ance.it/,italy,country-specific,industry-associations,unknown,unknown,70,tier2,P3,true,,,,,2026-08-06,active,,,,,,,,,
 it-anitec-assinform,Anitec-Assinform,https://www.anitec-assinform.it/,italy,country-specific,industry-associations,unknown,unknown,54,tier2,P3,true,,,,,2026-08-06,active,,,,,,,,,
-it-archilovers,Archilovers,https://www.archilovers.com/,italy,global,industry-associations,unknown,unknown,77,tier2,P3,true,,,,,2026-08-06,active,,,,,,,,,
+it-archilovers,Archilovers,https://www.archilovers.com/,italy,global,industry-associations,unknown,unknown,77,tier2,P3,true,,,,,2026-08-06,active,,100,,,,dofollow,direct,indexable,2026-08-21
 it-assintel,Assintel,https://www.assintel.it/,italy,country-specific,industry-associations,unknown,unknown,57,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
 it-assolombarda,Assolombarda,https://www.assolombarda.it/,italy,regional,industry-associations,unknown,unknown,72,tier2,P3,true,,,,,2026-08-06,active,,,,,,,,,
 it-cna,CNA,https://www.cna.it/,italy,country-specific,industry-associations,unknown,unknown,74,tier2,P3,true,,,,,2026-08-06,active,,,,,,,,,
@@ -917,7 +917,7 @@ it-confindustria,Confindustria,https://www.confindustria.it/,italy,country-speci
 it-cylex,Cylex Italia,https://www.cylex-italia.it/,italy,country-specific,local-business,unknown,unknown,45,tier3,P3,true,,,,,2026-08-14,active,,,,,,,,,
 it-federfarma,Federfarma,https://www.federfarma.it/,italy,country-specific,industry-associations,unknown,unknown,66,tier2,P3,true,,,,,2026-08-06,active,,,,,,,,,
 it-firmania,Firmania Italia,https://www.firmania.it/,italy,country-specific,local-business,unknown,unknown,18,tier3,P3,true,,,,,2026-08-14,unknown,,,,,,,,,
-it-hotfrog,Hotfrog Italia,https://www.hotfrog.it/,italy,country-specific,local-business,unknown,unknown,41,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
+it-hotfrog,Hotfrog Italia,https://www.hotfrog.it/,italy,country-specific,local-business,unknown,unknown,41,tier3,P3,true,,,,,2026-08-06,active,,0,,,,none,,indexable,2026-08-21
 it-impresaitalia,Impresa Italia,https://www.impresaitalia.info/,italy,country-specific,general-business,unknown,unknown,61,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
 it-infoisinfo,InfoIsInfo Italia,https://www.infoisinfo.it/,italy,country-specific,general-business,unknown,unknown,2,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
 it-instapro,Instapro,https://www.instapro.it/,italy,country-specific,local-business,unknown,unknown,53,tier3,P3,true,,,,,2026-08-14,active,,,,,,,,,
@@ -944,7 +944,7 @@ jp-ipros,Ipros,https://mono.ipros.com/,japan,japan,manufacturing,unknown,unknown
 jp-jcci,Japan Chamber of Commerce and Industry,https://www.jcci.or.jp/,japan,japan,chambers-of-commerce,unknown,unknown,79,tier1,P2,true,,,,,2026-08-06,active,,,,,,,,,
 jp-mapion,Mapion,https://www.mapion.co.jp/,japan,japan,local-business,unknown,unknown,86,tier2,P2,true,,,,,2026-08-06,active,,,,,,,,,
 jp-mynavi,Mynavi,https://www.mynavi.jp/,japan,japan,general-business,unknown,unknown,92,tier1,P2,true,,,,,2026-08-06,active,,,,,,,,,
-jp-nc-net,NC Network,https://www.nc-net.com/,japan,japan,manufacturing,unknown,unknown,68,tier2,P2,true,,,,,2026-08-14,active,,,,,,,,,
+jp-nc-net,NC Network,https://www.nc-net.com/,japan,japan,manufacturing,unknown,unknown,68,tier2,P2,true,,,,,2026-08-14,active,,100,,,,dofollow,direct,indexable,2026-08-21
 jp-openwork,OpenWork,https://www.openwork.jp/,japan,japan,review-sites,unknown,unknown,69,tier1,P2,true,,,,,2026-08-14,unknown,,,,,,,,,
 jp-retty,Retty,https://www.retty.me/,japan,japan,local-business,unknown,unknown,80,tier1,P2,true,,,,,2026-08-14,active,,,,,,,,,
 jp-rikunabi,Rikunabi,https://www.rikunabi.com/,japan,japan,general-business,unknown,unknown,89,tier1,P2,true,,,,,2026-08-14,unknown,,,,,,,,,
@@ -996,7 +996,7 @@ mx-computrabajo,Computrabajo México,https://mx.computrabajo.com/,mexico,latam,g
 mx-doctoralia,Doctoralia México,https://www.doctoralia.com.mx/,mexico,country-specific,local-business,unknown,unknown,83,tier2,P2,true,,,,,2026-08-06,active,,,,,,,,,
 mx-mercadolibre,Mercado Libre México,https://www.mercadolibre.com.mx/,mexico,latam,general-business,unknown,unknown,87,tier1,P2,true,,,,,2026-08-06,active,,,,,,,,,
 mx-occ,OCC Mundial,https://www.occ.com.mx/,mexico,country-specific,general-business,unknown,unknown,72,tier1,P2,true,,,,,2026-08-14,unknown,,,,,,,,,
-mx-yaloencontre,¡Ya lo Encontré!,https://www.yaloencontre.mx/,mexico,country-specific,local-business,unknown,unknown,56,tier2,P2,true,,,,,2026-08-06,active,,,,,,,,,
+mx-yaloencontre,¡Ya lo Encontré!,https://www.yaloencontre.mx/,mexico,country-specific,local-business,unknown,unknown,56,tier2,P2,true,,,,,2026-08-06,active,,0,,,,none,,indexable,2026-08-21
 mx-amiti,AMITI,https://www.amiti.org.mx/,mexico,country-specific,industry-associations,unknown,unknown,51,tier3,P3,true,,,,,2026-08-14,active,,,,,,,,,
 mx-amvo,AMVO,https://www.amvo.org.mx/,mexico,country-specific,industry-associations,unknown,unknown,72,tier2,P3,true,,,,,2026-08-06,active,,,,,,,,,
 mx-canacintra,CANACINTRA,https://www.canacintra.org.mx/directorio,mexico,country-specific,industry-associations,unknown,unknown,61,tier2,P3,true,,,,,2026-08-14,active,,,,,,,,,
@@ -1010,16 +1010,16 @@ mx-cylex,Cylex México,https://www.cylex.com.mx/,mexico,latam,local-business,unk
 mx-directorioelregional,Directorio El Regional,https://directorioelregional.com/,mexico,country-specific,general-business,unknown,unknown,26,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
 mx-directoriodenegocios,Directorio de Negocios México,https://directoriodenegocios.com.mx/,mexico,country-specific,general-business,unknown,unknown,11,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
 mx-encuentren,Encuentren.ME,https://www.encuentren.me/,mexico,country-specific,general-business,unknown,unknown,12,tier3,P3,true,,,,,2026-08-14,active,,,,,,,,,
-mx-hotfrog,Hotfrog México,https://www.hotfrog.com.mx/,mexico,latam,local-business,unknown,unknown,35,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
+mx-hotfrog,Hotfrog México,https://www.hotfrog.com.mx/,mexico,latam,local-business,unknown,unknown,35,tier3,P3,true,,,,,2026-08-06,active,,0,,,,none,,indexable,2026-08-21
 mx-mexicoglobal,Mexico Global,https://www.mexicoglobal.net/,mexico,country-specific,manufacturing,unknown,unknown,7,tier3,P3,true,,,,,2026-08-14,unknown,,,,,,,,,
 mx-mexicoxport,Méxicoxport,https://www.mexicoxport.com/,mexico,country-specific,manufacturing,unknown,unknown,36,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
-mx-rappi,Rappi México,https://www.rappi.com.mx/,mexico,latam,local-business,unknown,unknown,77,tier2,P3,true,,,,,2026-08-06,active,,,,,,,,,
+mx-rappi,Rappi México,https://www.rappi.com.mx/,mexico,latam,local-business,unknown,unknown,77,tier2,P3,true,,,,,2026-08-06,active,,0,,,,none,,indexable,2026-08-21
 mx-sitiosmexico,Sitios México,https://www.sitiosmexico.com/,mexico,country-specific,general-business,unknown,unknown,0,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
 mx-vivanuncios,Vivanuncios,https://www.vivanuncios.com.mx/,mexico,country-specific,general-business,unknown,unknown,62,tier2,P3,true,,,,,2026-08-14,unknown,,,,,,,,,
 mx-zonaturistica,Zona Turística,https://www.zonaturistica.com/,mexico,country-specific,local-business,unknown,unknown,49,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
 moldova-firme,Firme.md,https://firme.md/,moldova,country-specific,general-business,unknown,unknown,2,tier3,P3,true,,,,,2026-08-14,active,,,,,,,,,
 mn-mongolchamber,Mongolian National Chamber of Commerce,https://www.mongolchamber.mn/,mongolia,country-specific,chambers-of-commerce,unknown,unknown,52,tier2,P2,true,,,,,2026-08-06,active,,,,,,,,,
-me-companywall,CompanyWall Crna Gora,https://www.companywall.me/,montenegro,country-specific,general-business,unknown,unknown,53,tier2,P3,true,,,,,2026-08-14,active,,,,,,,,,
+me-companywall,CompanyWall Crna Gora,https://www.companywall.me/,montenegro,country-specific,general-business,unknown,unknown,53,tier2,P3,true,,,,,2026-08-14,active,,0,,,,none,,indexable,2026-08-21
 ma-telecontact,Telecontact,https://www.telecontact.ma/,morocco,country-specific,general-business,unknown,unknown,49,tier2,P2,true,,,,,2026-08-06,active,,,,,,,,,
 ma-avito,Avito Maroc,https://www.avito.ma/,morocco,country-specific,general-business,unknown,unknown,56,tier1,P3,true,,,,,2026-08-14,unknown,,,,,,,,,
 ma-yellowpages,Yellow Pages Morocco,https://www.yellowpages.ma/,morocco,country-specific,general-business,create,unknown,7,tier3,P3,true,https://www.yellowpages.net/business/add/?referer=yellowpages.ma#addcompanyform,,,,2026-08-14,active,,,,,,,,,
@@ -1085,9 +1085,9 @@ ng-nigeriabusinessinfo,Nigeria Business Info,https://www.nigeriabusinessinfo.com
 ng-nigeriagalleria,Nigeria Galleria,https://www.nigeriagalleria.com/,nigeria,country-specific,general-business,unknown,unknown,39,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
 mk-biznismreza,BiznisMreža.mk,https://biznismreza.mk/,north-macedonia,country-specific,general-business,unknown,unknown,21,tier2,P3,true,,,,,2026-08-14,active,,,,,,,,,
 no-gulesider,Gule Sider,https://www.gulesider.no/,norway,nordics,local-business,unknown,unknown,80,tier1,P1,true,,,,,2026-08-14,active,,,,,,,,,
-no-1881,Opplysningen 1881,https://www.1881.no/,norway,nordics,local-business,unknown,unknown,77,tier1,P1,true,,,,,2026-08-06,active,,,,,,,,,
+no-1881,Opplysningen 1881,https://www.1881.no/,norway,nordics,local-business,unknown,unknown,77,tier1,P1,true,,,,,2026-08-06,active,,0,,,,none,,indexable,2026-08-21
 no-finn,FINN.no,https://www.finn.no/,norway,country-specific,general-business,unknown,unknown,86,tier1,P2,true,,,,,2026-08-06,active,,,,,,,,,
-no-mittanbud,Mittanbud,https://www.mittanbud.no/,norway,country-specific,local-business,unknown,unknown,77,tier2,P2,true,,,,,2026-08-06,active,,,,,,,,,
+no-mittanbud,Mittanbud,https://www.mittanbud.no/,norway,country-specific,local-business,unknown,unknown,77,tier2,P2,true,,,,,2026-08-06,active,,0,,,,none,,indexable,2026-08-21
 no-bedrifter,Bedrifter.no,https://www.bedrifter.no/,norway,country-specific,general-business,unknown,unknown,0,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
 no-bedriftsguide,Bedrifts Guide,https://www.bedriftsguide.no/,norway,country-specific,general-business,unknown,unknown,43,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
 no-byggstart,Byggstart,https://www.byggstart.no/,norway,country-specific,construction,unknown,unknown,55,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
@@ -1112,7 +1112,7 @@ pe-pedidosya,PedidosYa Perú,https://www.pedidosya.com.pe/,peru,latam,local-busi
 pe-paginasamarillas,Páginas Amarillas Perú,https://www.paginasamarillas.com.pe/,peru,country-specific,general-business,unknown,unknown,59,tier2,P2,true,,,,,2026-08-06,active,,,,,,,,,
 pe-rappi,Rappi Perú,https://www.rappi.com.pe/,peru,latam,local-business,unknown,unknown,69,tier1,P2,true,,,,,2026-08-06,active,,,,,,,,,
 pe-deperu,DePeru,https://www.deperu.com/,peru,country-specific,local-business,unknown,unknown,56,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
-pe-hotfrog,Hotfrog Perú,https://www.hotfrog.com.pe/,peru,country-specific,local-business,create,unknown,25,tier3,P3,true,https://www.hotfrog.com.pe/add,,,,2026-08-14,active,,,,,,,,,
+pe-hotfrog,Hotfrog Perú,https://www.hotfrog.com.pe/,peru,country-specific,local-business,create,unknown,25,tier3,P3,true,https://www.hotfrog.com.pe/add,,,,2026-08-14,active,,0,,,,none,,indexable,2026-08-21
 ph-jobstreet,JobStreet Philippines,https://www.jobstreet.com.ph/,philippines,country-specific,general-business,unknown,unknown,69,tier1,P2,true,,,,,2026-08-14,unknown,,,,,,,,,
 ph-kalibrr,Kalibrr,https://www.kalibrr.com/,philippines,asia,general-business,unknown,unknown,62,tier1,P2,true,,,,,2026-08-06,active,,,,,,,,,
 ph-philexport,PHILEXPORT,https://www.philexport.ph/,philippines,country-specific,industry-associations,unknown,unknown,39,tier2,P2,true,,,,,2026-08-06,active,,,,,,,,,
@@ -1140,10 +1140,10 @@ pl-firmy-net,Firmy.net,https://www.firmy.net/,poland,country-specific,general-bu
 pl-firmy-pl,Firmy.pl,https://www.firmy.pl/,poland,country-specific,general-business,unknown,unknown,2,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
 pl-fixly,Fixly,https://www.fixly.pl/,poland,country-specific,local-business,unknown,unknown,77,tier2,P3,true,,,,,2026-08-14,active,,,,,,,,,
 pl-gdziepolek,GdziePoLek,https://www.gdziepolek.pl/,poland,country-specific,local-business,unknown,unknown,71,tier2,P3,true,,,,,2026-08-14,active,,,,,,,,,
-pl-gratka,Gratka,https://www.gratka.pl/,poland,country-specific,general-business,unknown,unknown,75,tier2,P3,true,,,,,2026-08-06,active,,,,,,,,,
-pl-hotfrog,Hotfrog Polska,https://www.hotfrog.pl/,poland,country-specific,local-business,unknown,unknown,32,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
+pl-gratka,Gratka,https://www.gratka.pl/,poland,country-specific,general-business,unknown,unknown,75,tier2,P3,true,,,,,2026-08-06,active,,0,,,,none,,indexable,2026-08-21
+pl-hotfrog,Hotfrog Polska,https://www.hotfrog.pl/,poland,country-specific,local-business,unknown,unknown,32,tier3,P3,true,,,,,2026-08-06,active,,0,,,,none,,indexable,2026-08-21
 pl-infoisinfo,InfoIsInfo Polska,https://www.infoisinfo.pl/,poland,country-specific,general-business,unknown,unknown,7,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
-pl-jobs-pl,JOBS.pl,https://www.jobs.pl/,poland,country-specific,general-business,unknown,unknown,52,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
+pl-jobs-pl,JOBS.pl,https://www.jobs.pl/,poland,country-specific,general-business,unknown,unknown,52,tier3,P3,true,,,,,2026-08-06,active,,0,,,,none,,indexable,2026-08-21
 pl-lewiatan,Konfederacja Lewiatan,https://www.lewiatan.org/,poland,country-specific,industry-associations,unknown,unknown,63,tier2,P3,true,,,,,2026-08-06,active,,,,,,,,,
 pl-misterwhat,MisterWhat Polska,https://www.misterwhat.pl/,poland,country-specific,local-business,unknown,unknown,38,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
 pl-nocowanie,Nocowanie.pl,https://www.nocowanie.pl/,poland,country-specific,local-business,unknown,unknown,77,tier2,P3,true,,,,,2026-08-06,active,,,,,,,,,
@@ -1152,12 +1152,12 @@ pl-otomoto,OTOMOTO,https://www.otomoto.pl/,poland,country-specific,general-busin
 pl-opendi,Opendi Polska,https://www.opendi.pl/,poland,country-specific,local-business,unknown,unknown,26,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
 pl-piit,Polska Izba Informatyki i Telekomunikacji,https://www.piit.org.pl/,poland,country-specific,industry-associations,unknown,unknown,57,tier2,P3,true,,,,,2026-08-06,active,,,,,,,,,
 pl-polskiefirmy-info,Polskie Firmy,https://www.polskiefirmy.info/,poland,country-specific,general-business,unknown,unknown,11,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
-pl-praca,Praca.pl,https://www.praca.pl/,poland,country-specific,general-business,unknown,unknown,77,tier2,P3,true,,,,,2026-08-06,active,,,,,,,,,
+pl-praca,Praca.pl,https://www.praca.pl/,poland,country-specific,general-business,unknown,unknown,77,tier2,P3,true,,,,,2026-08-06,active,,0,,,,none,,indexable,2026-08-21
 pl-pracodawcyrp,Pracodawcy RP,https://www.pracodawcyrp.pl/,poland,country-specific,industry-associations,unknown,unknown,64,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
 pl-rzetelnafirma,Rzetelna Firma,https://www.rzetelnafirma.pl/,poland,country-specific,general-business,unknown,unknown,87,tier2,P3,true,,,,,2026-08-06,active,,,,,,,,,
-pl-sooipp,SOOIPP,https://www.sooipp.org.pl/,poland,country-specific,startup,unknown,unknown,31,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
-pl-solidnafirma,Solidna Firma,https://www.solidnafirma.pl/,poland,country-specific,general-business,unknown,unknown,42,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
-pl-startuppoland,Startup Poland,https://www.startuppoland.org/,poland,country-specific,startup,unknown,unknown,47,tier2,P3,true,,,,,2026-08-06,active,,,,,,,,,
+pl-sooipp,SOOIPP,https://www.sooipp.org.pl/,poland,country-specific,startup,unknown,unknown,31,tier3,P3,true,,,,,2026-08-06,active,,0,,,,none,,indexable,2026-08-21
+pl-solidnafirma,Solidna Firma,https://www.solidnafirma.pl/,poland,country-specific,general-business,unknown,unknown,42,tier3,P3,true,,,,,2026-08-06,active,,0,,,,none,,indexable,2026-08-21
+pl-startuppoland,Startup Poland,https://www.startuppoland.org/,poland,country-specific,startup,unknown,unknown,47,tier2,P3,true,,,,,2026-08-06,active,,0,,,,none,,indexable,2026-08-21
 pl-trustmate,TrustMate,https://www.trustmate.io/,poland,europe,review-sites,unknown,unknown,73,tier2,P3,true,,,,,2026-08-06,active,,,,,,,,,
 pl-zpp,ZPP,https://www.zpp.net.pl/,poland,country-specific,industry-associations,unknown,unknown,63,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
 pl-infopraca,infoPraca,https://www.infopraca.pl/,poland,country-specific,general-business,unknown,unknown,54,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
@@ -1180,7 +1180,7 @@ ru-rusprofile,Rusprofile,https://www.rusprofile.ru/,russia,europe,general-busine
 rw-rwandaonline,Rwanda Online,https://www.rwandaonline.rw/,rwanda,country-specific,local-business,create,unknown,10,tier3,P3,true,https://www.rwandaonline.rw/post-a-listing/,,,,2026-08-14,active,,,,,,,,,
 sa-hungerstation,HungerStation,https://www.hungerstation.com/,saudi-arabia,country-specific,local-business,unknown,unknown,68,tier1,P2,true,,,,,2026-08-06,active,,,,,,,,,
 sa-haraj,Haraj,https://www.haraj.com.sa/,saudi-arabia,country-specific,general-business,unknown,unknown,73,tier1,P3,true,,,,,2026-08-06,active,,,,,,,,,
-rs-companywall,CompanyWall Srbija,https://www.companywall.rs/,serbia,country-specific,general-business,unknown,unknown,65,tier2,P3,true,,,,,2026-08-14,active,,,,,,,,,
+rs-companywall,CompanyWall Srbija,https://www.companywall.rs/,serbia,country-specific,general-business,unknown,unknown,65,tier2,P3,true,,,,,2026-08-14,active,,0,,,,none,,indexable,2026-08-21
 rs-imenik,Imenik.rs,https://imenik.rs/,serbia,country-specific,general-business,unknown,unknown,5,tier3,P3,true,,,,,2026-08-14,active,,,,,,,,,
 sg-burpple,Burpple,https://www.burpple.com/,singapore,country-specific,local-business,claim,unknown,57,tier2,P2,true,,https://business.burpple.com/,,,2026-08-14,active,,,,,,,,,
 sg-chope,Chope,https://www.chope.co/,singapore,asia,local-business,unknown,unknown,76,tier2,P2,true,,,,,2026-08-06,active,,,,,,,,,
@@ -1287,13 +1287,13 @@ lk-chamber,Ceylon Chamber of Commerce,https://www.chamber.lk/,sri-lanka,country-
 lk-srilankabusiness,Sri Lanka Business Portal,https://www.srilankabusiness.com/,sri-lanka,country-specific,manufacturing,unknown,unknown,67,tier2,P2,true,,,,,2026-08-06,active,,,,,,,,,
 lk-topjobs,topjobs,https://www.topjobs.lk/,sri-lanka,country-specific,general-business,unknown,unknown,40,tier1,P2,true,,,,,2026-08-06,active,,,,,,,,,
 lk-lankayp,Lanka Yellow Pages,https://www.lankayp.com/,sri-lanka,country-specific,general-business,unknown,unknown,10,tier3,P3,true,,,,,2026-08-14,unknown,,,,,,,,,
-lk-ikman,ikman,https://www.ikman.lk/,sri-lanka,country-specific,general-business,unknown,unknown,60,tier1,P3,true,,,,,2026-08-06,active,,,,,,,,,
+lk-ikman,ikman,https://www.ikman.lk/,sri-lanka,country-specific,general-business,unknown,unknown,60,tier1,P3,true,,,,,2026-08-06,active,,0,,,,none,,indexable,2026-08-21
 se-eniro,Eniro,https://www.eniro.se/,sweden,nordics,local-business,unknown,unknown,84,tier1,P1,true,,,,,2026-08-14,active,,,,,,,,,
 se-hitta,Hitta.se,https://www.hitta.se/,sweden,nordics,local-business,unknown,unknown,85,tier1,P1,true,,,,,2026-08-06,active,,,,,,,,,
 se-foodora,Foodora Sverige,https://www.foodora.se/,sweden,country-specific,local-business,unknown,unknown,77,tier2,P2,true,,,,,2026-08-06,active,,,,,,,,,
 se-offerta,Offerta,https://www.offerta.se/,sweden,country-specific,local-business,unknown,unknown,74,tier2,P2,true,,,,,2026-08-06,active,,,,,,,,,
 se-reco,Reco.se,https://www.reco.se/,sweden,country-specific,review-sites,unknown,unknown,82,tier2,P2,true,,,,,2026-08-06,active,,,,,,,,,
-se-bytbil,Bytbil,https://www.bytbil.com/,sweden,country-specific,general-business,unknown,unknown,71,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
+se-bytbil,Bytbil,https://www.bytbil.com/,sweden,country-specific,general-business,unknown,unknown,71,tier3,P3,true,,,,,2026-08-06,active,,0,,,,none,,indexable,2026-08-21
 se-cylex,Cylex Sverige,https://www.cylex.se/,sweden,nordics,local-business,unknown,unknown,28,tier3,P3,true,,,,,2026-08-14,active,,,,,,,,,
 se-firmania,Firmania Sverige,https://www.firmania.se/,sweden,country-specific,local-business,unknown,unknown,2,tier3,P3,true,,,,,2026-08-14,active,,,,,,,,,
 se-foretagsfakta,Företagsfakta,https://www.foretagsfakta.se/,sweden,nordics,general-business,unknown,unknown,36,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
@@ -1310,7 +1310,7 @@ ch-firmania,Firmania Schweiz,https://www.firmania.ch/,switzerland,country-specif
 ch-gastro,Gastro.ch,https://www.gastro.ch/,switzerland,country-specific,local-business,unknown,unknown,7,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
 ch-hotfrog,Hotfrog Schweiz,https://www.hotfrog.ch/,switzerland,dach,local-business,unknown,unknown,30,tier3,P3,true,,,,,2026-08-14,active,,,,,,,,,
 ch-industrie-schweiz,Industrie-Schweiz,https://www.industrie-schweiz.ch/,switzerland,country-specific,manufacturing,unknown,unknown,12,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
-ch-infoisinfo,InfoIsInfo Schweiz,https://www.infoisinfo.ch/,switzerland,country-specific,general-business,unknown,unknown,4,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
+ch-infoisinfo,InfoIsInfo Schweiz,https://www.infoisinfo.ch/,switzerland,country-specific,general-business,unknown,unknown,4,tier3,P3,true,,,,,2026-08-06,active,,0,,,,none,,indexable,2026-08-21
 ch-lokalesgewerbe,LokalesGewerbe.ch,https://www.lokalesgewerbe.ch/,switzerland,country-specific,local-business,create,unknown,24,tier3,P3,true,https://www.lokalesgewerbe.ch/gewerbe-eintragen?packageType=1,,,,2026-08-06,active,,,,,,,,,
 ch-opendi,Opendi Schweiz,https://www.opendi.ch/,switzerland,dach,local-business,unknown,unknown,5,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
 ch-schweizfirmen,Schweizfirmen,https://www.schweizfirmen.ch/,switzerland,country-specific,general-business,create,unknown,0,tier3,P3,true,https://www.schweizfirmen.ch/kontakt,,,,2026-08-06,active,,,,,,,,,
@@ -1337,7 +1337,7 @@ th-thaitrade,Thaitrade,https://www.thaitrade.com/,thailand,global,manufacturing,
 th-jobbkk,JobBKK,https://www.jobbkk.com/,thailand,country-specific,general-business,unknown,unknown,65,tier2,P3,true,,,,,2026-08-06,active,,,,,,,,,
 th-jobtopgun,JobTopGun,https://www.jobtopgun.com/,thailand,country-specific,general-business,unknown,unknown,55,tier2,P3,true,,,,,2026-08-06,active,,,,,,,,,
 tt-discovertnt,Discover Trinidad & Tobago,https://www.discovertnt.com/,trinidad-and-tobago,country-specific,local-business,unknown,unknown,34,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
-tn-tunisieindex,Tunisie Index,https://www.tunisieindex.com/,tunisia,country-specific,general-business,unknown,unknown,20,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
+tn-tunisieindex,Tunisie Index,https://www.tunisieindex.com/,tunisia,country-specific,general-business,unknown,unknown,20,tier3,P3,true,,,,,2026-08-06,active,,0,,,,none,,indexable,2026-08-21
 tr-bulurum,Bulurum,https://www.bulurum.com/,turkey,country-specific,local-business,unknown,unknown,70,tier2,P2,true,,,,,2026-08-14,active,,,,,,,,,
 ug-jiji,Jiji Uganda,https://www.jiji.ug/,uganda,africa,general-business,unknown,unknown,43,tier1,P2,true,,,,,2026-08-14,unknown,,,,,,,,,
 ug-jumia,Jumia Uganda,https://www.jumia.ug/,uganda,africa,general-business,unknown,unknown,49,tier1,P2,true,,,,,2026-08-14,unknown,,,,,,,,,
@@ -1389,20 +1389,20 @@ uk-britishchambers,British Chambers of Commerce,https://www.britishchambers.org.
 uk-businessmagnet,BusinessMagnet,https://www.businessmagnet.co.uk/,united-kingdom,united-kingdom,general-business,create,free,57,tier3,P3,true,https://www.businessmagnet.co.uk/manage-account/register,,,,2026-08-14,active,,,,,,,,,
 uk-ciob,CIOB,https://www.ciob.org/,united-kingdom,united-kingdom,industry-associations,unknown,unknown,75,tier2,P3,true,,,,,2026-08-06,active,,,,,,,,,
 uk-cv-library,CV-Library,https://www.cv-library.co.uk/,united-kingdom,united-kingdom,general-business,unknown,unknown,77,tier2,P3,true,,,,,2026-08-06,active,,,,,,,,,
-uk-cylex,Cylex UK,https://www.cylex-uk.co.uk/,united-kingdom,united-kingdom,local-business,unknown,paid,75,tier3,P3,true,,,,,2026-08-14,active,,,,,,,,,
+uk-cylex,Cylex UK,https://www.cylex-uk.co.uk/,united-kingdom,united-kingdom,local-business,unknown,paid,75,tier3,P3,true,,,,,2026-08-14,active,53,60,,,,mixed,direct,indexable,2026-08-21
 uk-designmynight,DesignMyNight,https://www.designmynight.com/,united-kingdom,united-kingdom,local-business,unknown,unknown,83,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
 uk-entrepreneurfirst,Entrepreneur First,https://www.joinef.com/,united-kingdom,global,startup,unknown,unknown,72,tier2,P3,true,,,,,2026-08-14,active,,,,,,,,,
 uk-fmb,Federation of Master Builders,https://www.fmb.org.uk/,united-kingdom,united-kingdom,industry-associations,unknown,unknown,81,tier2,P3,true,,,,,2026-08-06,active,,,,,,,,,
 uk-fsb,Federation of Small Businesses,https://www.fsb.org.uk/,united-kingdom,united-kingdom,industry-associations,unknown,unknown,84,tier2,P3,true,,,,,2026-08-14,unknown,,,,,,,,,
-uk-gumtree,Gumtree,https://www.gumtree.com/,united-kingdom,united-kingdom,general-business,unknown,unknown,78,tier1,P3,true,,,,,2026-08-06,active,,,,,,,,,
-uk-hardens,Harden's,https://www.hardens.com/,united-kingdom,united-kingdom,local-business,unknown,unknown,58,tier2,P3,true,,,,,2026-08-06,active,,,,,,,,,
-uk-infoisinfo,Infoisinfo UK,https://www.infoisinfo.co.uk/,united-kingdom,united-kingdom,local-business,create,unknown,26,tier3,P3,true,https://www.infoisinfo.co.uk/account#/register-business,,,,2026-08-14,active,,,,,,,,,
+uk-gumtree,Gumtree,https://www.gumtree.com/,united-kingdom,united-kingdom,general-business,unknown,unknown,78,tier1,P3,true,,,,,2026-08-06,active,,0,,,,none,,indexable,2026-08-21
+uk-hardens,Harden's,https://www.hardens.com/,united-kingdom,united-kingdom,local-business,unknown,unknown,58,tier2,P3,true,,,,,2026-08-06,active,,0,,,,none,,noindex,2026-08-21
+uk-infoisinfo,Infoisinfo UK,https://www.infoisinfo.co.uk/,united-kingdom,united-kingdom,local-business,create,unknown,26,tier3,P3,true,https://www.infoisinfo.co.uk/account#/register-business,,,,2026-08-14,active,,0,,,,none,,indexable,2026-08-21
 uk-knowledgequarter,Knowledge Quarter London,https://www.knowledgequarter.london/,united-kingdom,regional,startup,unknown,unknown,44,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
 uk-level39,Level39,https://www.level39.co/,united-kingdom,regional,startup,unknown,unknown,60,tier2,P3,true,,,,,2026-08-06,active,,,,,,,,,
 uk-local-heroes,Local Heroes,https://www.local-heroes.com/,united-kingdom,united-kingdom,local-business,unknown,unknown,11,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
 uk-locallife,LocalLife,https://www.locallife.co.uk/,united-kingdom,united-kingdom,local-business,unknown,unknown,59,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
 uk-misterwhat,MisterWhat UK,https://www.misterwhat.co.uk/,united-kingdom,united-kingdom,local-business,unknown,unknown,61,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
-uk-mylocalservices,My Local Services,https://www.mylocalservices.co.uk/,united-kingdom,united-kingdom,local-business,create,unknown,59,tier3,P3,true,https://www.mylocalservices.co.uk/list_your_business.php,,,,2026-08-14,active,,,,,,,,,
+uk-mylocalservices,My Local Services,https://www.mylocalservices.co.uk/,united-kingdom,united-kingdom,local-business,create,unknown,59,tier3,P3,true,https://www.mylocalservices.co.uk/list_your_business.php,,,,2026-08-14,active,,0,,,,none,,indexable,2026-08-21
 uk-opendi,Opendi UK,https://www.opendi.co.uk/,united-kingdom,united-kingdom,local-business,create,free,42,tier3,P3,true,https://service.opendi.co.uk/listings,,,,2026-08-14,active,,,,,,,,,
 uk-openingtimes,Opening Times,https://www.openingtimes.co.uk/,united-kingdom,united-kingdom,local-business,unknown,unknown,0,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
 uk-peopleperhour,PeoplePerHour,https://www.peopleperhour.com/,united-kingdom,europe; united-kingdom,general-business,unknown,unknown,80,tier2,P3,true,,,,,2026-08-06,active,,,,,,,,,
@@ -1421,7 +1421,7 @@ us-houzz,Houzz,https://www.houzz.com/,united-states,global; united-states,local-
 us-nextdoor,Nextdoor Business,https://business.nextdoor.com/,united-states,united-states,local-business,create,unknown,91,tier1,P1,true,https://business.nextdoor.com/en-us/getting-started/business-page,,,,2026-08-14,active,,,,,,,,,
 us-thumbtack,Thumbtack,https://www.thumbtack.com/,united-states,united-states,local-business,create,unknown,90,tier1,P1,true,https://www.thumbtack.com/pro,,,,2026-08-14,active,,,,,,,,,
 us-yellowpages,Yellow Pages,https://www.yellowpages.com/,united-states,united-states,local-business,claim,unknown,90,tier1,P1,true,,https://www.yellowpages.com/claim-your-listing?from=advertise-with-us-YP,,,2026-08-14,active,,,,,,,,,
-us-aplaceformom,A Place for Mom,https://www.aplaceformom.com/,united-states,north-america,local-business,unknown,unknown,77,tier2,P2,true,,,,,2026-08-06,active,,,,,,,,,
+us-aplaceformom,A Place for Mom,https://www.aplaceformom.com/,united-states,north-america,local-business,unknown,unknown,77,tier2,P2,true,,,,,2026-08-06,active,,0,,,,none,,indexable,2026-08-21
 us-avvo,Avvo,https://www.avvo.com/,united-states,united-states,legal,unknown,unknown,89,tier1,P2,true,,,,,2026-08-14,active,,,,,,,,,
 us-bbb,Better Business Bureau,https://www.bbb.org/,united-states,united-states,review-sites,unknown,freemium,93,tier1,P2,,,,,"Accreditation is a paid programme, which draws recurring criticism of the rating model",2026-08-04,active,81,75,manual,regional,,,,,
 us-care-com,Care.com,https://www.care.com/,united-states,north-america,local-business,create,unknown,83,tier1,P2,true,https://www.care.com/app/pn-business/early-learning-centers,,,,2026-08-14,active,,,,,,,,,
@@ -1473,7 +1473,7 @@ us-beyondmenu,Beyond Menu,https://www.beyondmenu.com/,united-states,united-state
 us-bizhwy,BizHwy,https://www.bizhwy.com/,united-states,united-states,general-business,create,free,70,tier3,P3,true,https://www.bizhwy.com/addlisting.php,,,,2026-08-14,active,,,,,,,,,
 us-bizratesurveys,Bizrate Surveys,https://www.bizratesurveys.com/,united-states,united-states,review-sites,unknown,unknown,66,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
 us-buildzoom,BuildZoom,https://www.buildzoom.com/,united-states,united-states,construction,unknown,unknown,83,tier2,P3,true,,,,,2026-08-14,unknown,,,,,,,,,
-us-businessyab,BusinessYab,https://www.businessyab.com/,united-states,north-america,local-business,create,unknown,40,tier3,P3,true,https://www.businessyab.com/add-listing/,,,,2026-08-14,active,,,,,,,,,
+us-businessyab,BusinessYab,https://www.businessyab.com/,united-states,north-america,local-business,create,unknown,40,tier3,P3,true,https://www.businessyab.com/add-listing/,,,,2026-08-14,active,,0,,,,none,,indexable,2026-08-21
 us-letsmakeaplan,CFP Board Let's Make a Plan,https://www.letsmakeaplan.org/,united-states,united-states,local-business,unknown,unknown,76,tier2,P3,true,,,,,2026-08-06,active,,,,,,,,,
 us-campspot,Campspot,https://www.campspot.com/,united-states,north-america,local-business,unknown,unknown,82,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
 us-cargurus,CarGurus,https://www.cargurus.com/,united-states,north-america,general-business,unknown,unknown,78,tier1,P3,true,,,,,2026-08-14,active,,,,,,,,,
@@ -1485,7 +1485,7 @@ us-citysquares,CitySquares,https://www.citysquares.com/,united-states,united-sta
 us-citysearch,Citysearch,https://www.citysearch.com/,united-states,united-states,local-business,unknown,unknown,80,tier2,P3,true,,,,,2026-08-06,active,,,,,,,,,
 us-classpass,ClassPass,https://www.classpass.com/,united-states,global,local-business,create,unknown,80,tier2,P3,true,,,,,2026-08-14,active,,,,,,,,,
 us-contractors-com,Contractors.com,https://www.contractors.com/,united-states,united-states,construction,create,unknown,50,tier3,P3,true,https://www.contractors.com/become-a-contractor/,,,,2026-08-14,active,,,,,,,,,
-us-creativehotlist,Creative Hotlist,https://www.creativehotlist.com/,united-states,united-states,marketing,unknown,unknown,55,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
+us-creativehotlist,Creative Hotlist,https://www.creativehotlist.com/,united-states,united-states,marketing,unknown,unknown,55,tier3,P3,true,,,,,2026-08-06,active,,100,,,,dofollow,direct,indexable,2026-08-21
 us-cylex,Cylex US,https://www.cylex.us.com/,united-states,united-states,local-business,unknown,paid,92,tier3,P3,true,,,,,2026-08-14,active,39,25,,,,nofollow,direct,indexable,2026-08-20
 us-dealerrater,DealerRater,https://www.dealerrater.com/,united-states,north-america,review-sites,unknown,unknown,81,tier2,P3,true,,,,,2026-08-14,unknown,,,,,,,,,
 us-dexknows,DexKnows,https://www.dexknows.com/,united-states,united-states,local-business,unknown,unknown,78,tier2,P3,true,,,,,2026-08-14,unknown,,,,,,,,,
@@ -1499,7 +1499,7 @@ us-eventective,Eventective,https://www.eventective.com/,united-states,north-amer
 us-expertise,Expertise.com,https://www.expertise.com/,united-states,united-states,marketing,unknown,unknown,88,tier2,P3,true,,,,,2026-08-06,active,,,,,,,,,
 us-farmersmarketonline,Farmer's Market Online,https://www.farmersmarketonline.com/,united-states,united-states,local-business,unknown,unknown,42,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
 us-freelistingusa,FreeListingUSA,https://www.freelistingusa.com/,united-states,united-states,local-business,create,free,74,tier3,P3,true,https://www.freelistingusa.com/create-listing,,,,2026-08-14,active,,,,,,,,,
-us-fyple,Fyple,https://www.fyple.com/,united-states,united-states,local-business,create,unknown,62,tier3,P3,true,https://www.fyple.com/addcompany/addcompany/,,,,2026-08-14,active,,,,,,,,,
+us-fyple,Fyple,https://www.fyple.com/,united-states,united-states,local-business,create,unknown,62,tier3,P3,true,https://www.fyple.com/addcompany/addcompany/,,,,2026-08-14,active,,0,,,,none,,indexable,2026-08-21
 us-gaf-contractors,GAF Contractor Locator,https://www.gaf.com/en-us/roofing-contractors,united-states,united-states,construction,unknown,unknown,85,tier2,P3,true,,,,,2026-08-14,active,,,,,,,,,
 us-gigsalad,GigSalad,https://www.gigsalad.com/,united-states,united-states,local-business,unknown,unknown,81,tier2,P3,true,,,,,2026-08-14,unknown,,,,,,,,,
 us-golfnow,GolfNow,https://www.golfnow.com/,united-states,north-america,local-business,unknown,unknown,74,tier2,P3,true,,,,,2026-08-14,unknown,,,,,,,,,
@@ -1518,7 +1518,7 @@ us-irrigation,Irrigation Association,https://www.irrigation.org/,united-states,u
 us-judysbook,Judy's Book,https://www.judysbook.com/,united-states,united-states,local-business,unknown,unknown,68,tier3,P3,true,,,,,2026-08-14,unknown,,,,,,,,,
 us-knoji,Knoji,https://www.knoji.com/,united-states,united-states,review-sites,unknown,unknown,68,tier3,P3,true,,,,,2026-08-14,active,,,,,,,,,
 us-lawnstarter,LawnStarter,https://www.lawnstarter.com/,united-states,united-states,local-business,unknown,unknown,75,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
-us-lawyerlegion,Lawyer Legion,https://www.lawyerlegion.com/,united-states,united-states,legal,create,free,58,tier3,P3,true,,,,,2026-08-14,active,,,,,,,,,
+us-lawyerlegion,Lawyer Legion,https://www.lawyerlegion.com/,united-states,united-states,legal,create,free,58,tier3,P3,true,,,,,2026-08-14,active,47,25,,,,nofollow,direct,indexable,2026-08-21
 us-lawyer-com,Lawyer.com,https://www.lawyer.com/,united-states,united-states,legal,unknown,unknown,71,tier3,P3,true,,,,,2026-08-06,active,,,,,,,,,
 us-leapfrog,Leapfrog Hospital Ratings,https://www.leapfroggroup.org/,united-states,united-states,review-sites,unknown,unknown,74,tier2,P3,true,,,,,2026-08-06,active,,,,,,,,,
 us-legalmatch,LegalMatch,https://www.legalmatch.com/,united-states,united-states,legal,unknown,unknown,74,tier3,P3,true,,,,,2026-08-14,active,,,,,,,,,
@@ -1573,7 +1573,7 @@ us-thebash,The Bash,https://www.thebash.com/,united-states,united-states,local-b
 us-trane-dealers,Trane Dealer Locator,https://www.trane.com/residential/en/dealers/,united-states,north-america,construction,unknown,unknown,82,tier2,P3,true,,,,,2026-08-06,active,,,,,,,,,
 us-truckpaper,TruckPaper,https://www.truckpaper.com/,united-states,north-america,general-business,unknown,unknown,75,tier3,P3,true,,,,,2026-08-14,active,,,,,,,,,
 us-truecar,TrueCar,https://www.truecar.com/,united-states,united-states,general-business,unknown,unknown,76,tier2,P3,true,,,,,2026-08-06,active,,,,,,,,,
-us-trustlink,TrustLink,https://www.trustlink.org/,united-states,united-states,review-sites,create,unknown,68,tier3,P3,true,https://www.trustlink.org/NewBusiness.aspx?AspxAutoDetectCookieSupport=1,,,,2026-08-14,active,,,,,,,,,
+us-trustlink,TrustLink,https://www.trustlink.org/,united-states,united-states,review-sites,create,unknown,68,tier3,P3,true,https://www.trustlink.org/NewBusiness.aspx?AspxAutoDetectCookieSupport=1,,,,2026-08-14,active,,0,,,,none,,indexable,2026-08-21
 us-trustedchoice,TrustedChoice,https://www.trustedchoice.com/,united-states,united-states,local-business,unknown,unknown,76,tier2,P3,true,,,,,2026-08-14,unknown,,,,,,,,,
 us-tutors-com,Tutors.com,https://www.tutors.com/,united-states,united-states,education,unknown,unknown,66,tier3,P3,true,,,,,2026-08-14,active,,,,,,,,,
 us-us-info,US-Info,https://www.us-info.com/,united-states,united-states,general-business,create,unknown,49,tier3,P3,true,,,,,2026-08-14,active,,,,,,,,,

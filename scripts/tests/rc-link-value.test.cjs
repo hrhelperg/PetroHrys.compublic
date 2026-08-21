@@ -585,3 +585,115 @@ test('M12: no applied record carries another country\'s listing', () => {
   }
   assert.ok(checked > 0, 'the cohort must not be empty');
 });
+
+// ── EVIDENCE STATES: SEPARATING WITHOUT PROMOTING ──────────────────────────
+//
+// The corpus recorded 1961 sources as UNKNOWN. That one word was covering five
+// different situations the research pass had already distinguished — a listing
+// read and carrying no link, a listing read whose link could not be attributed,
+// a listing discovered and unread, a platform offering no discoverable listing,
+// and a platform that never rendered. Only the last is ignorance.
+//
+// Separating them is worth doing only if it moves nobody up the ladder.
+
+const EV = require(path.join(ROOT, 'scripts/report-link-evidence.cjs'));
+
+test('the deriver opens nothing and writes no canonical field', () => {
+  const src = fs.readFileSync(path.join(ROOT, 'scripts/report-link-evidence.cjs'), 'utf8');
+  for (const forbidden of ['cdp.cjs', 'launch(', 'openPage', 'fetch(', 'https.get', 'http.get']) {
+    assert.ok(!src.includes(forbidden), `${forbidden} would mean new network work`);
+  }
+  // The only file it may write is its own derived artefact.
+  const writes = [...src.matchAll(/writeFileSync\(([A-Za-z_.]+)/g)].map((m) => m[1]);
+  assert.deepEqual(writes, ['ARTEFACT'], 'the deriver may write only its own artefact');
+});
+
+test('nothing is promoted: VERIFIED_FOLLOW only where the corpus already says so', () => {
+  const rows = EV.derive();
+  assert.ok(rows.length > 1000, 'the cohort must not be empty');
+  for (const r of rows) {
+    if (r.evidenceState === 'VERIFIED_FOLLOW') {
+      assert.equal(r.canonicalLinkType, 'dofollow',
+        `${r.id} claims verified follow without the canonical fact`);
+    }
+    if (r.canonicalLinkType === 'dofollow') {
+      assert.equal(r.evidenceState, 'VERIFIED_FOLLOW');
+    }
+  }
+});
+
+test('an absent listing is never read as an absent link', () => {
+  // The distinction the brief is most explicit about: NO_PUBLIC_LISTING_DISCOVERED
+  // is a fact about the platform, and says nothing about what its listings carry.
+  assert.equal(EV.evidenceStateOf({
+    state: 'NO_LISTING_FOUND', why: 'no public business listing was reachable from the front page',
+  }), 'NO_PUBLIC_LISTING_DISCOVERED');
+  assert.equal(EV.evidenceStateOf({
+    state: 'RESOLVED', backlinkType: 'none',
+  }), 'PUBLIC_LISTING_OBSERVED_NO_EXTERNAL_LINK');
+  // And neither of those is the other.
+  assert.notEqual('NO_PUBLIC_LISTING_DISCOVERED', 'PUBLIC_LISTING_OBSERVED_NO_EXTERNAL_LINK');
+
+  const rows = EV.derive();
+  for (const r of rows) {
+    if (r.evidenceState === 'NO_PUBLIC_LISTING_DISCOVERED') {
+      assert.equal(r.canonicalLinkType, null,
+        `${r.id} has a canonical link type from a platform where no listing was found`);
+    }
+  }
+});
+
+test('a discovered-but-unread listing is not evidence about its links', () => {
+  assert.equal(EV.evidenceStateOf({
+    state: 'UNREADABLE', why: 'the listing pages could not be read',
+  }), 'PUBLIC_LISTING_DISCOVERED_NOT_READ');
+  // A platform that never rendered is plain ignorance, and must not borrow the
+  // stronger state just because both were filed as UNREADABLE.
+  assert.equal(EV.evidenceStateOf({
+    state: 'UNREADABLE', why: 'browser: navigation timeout',
+  }), 'UNKNOWN');
+});
+
+test('disqualified evidence is not weak evidence', () => {
+  // An event page, and another country's listing on a shared host. Both were
+  // refused for cause, so neither leaves a residue on the ladder.
+  assert.equal(EV.evidenceStateOf({
+    state: 'UNRESOLVED', why: 'the only evidence came from an event page or a platform link, not a business placement',
+  }), 'UNKNOWN');
+  assert.equal(EV.evidenceStateOf({
+    state: 'UNRESOLVED', why: "the only listings reachable were another country's on a shared host",
+  }), 'UNKNOWN');
+});
+
+test('an unattributed link is not "no link", and not a follow link either', () => {
+  const s = EV.evidenceStateOf({
+    state: 'UNRESOLVED', why: 'the website link was not labelled as one by the operator',
+  });
+  assert.equal(s, 'PUBLIC_LISTING_OBSERVED_LINK_UNATTRIBUTED');
+  assert.notEqual(s, 'PUBLIC_LISTING_OBSERVED_NO_EXTERNAL_LINK');
+  assert.ok(!s.startsWith('VERIFIED'));
+});
+
+test('an indexable page never becomes a follow link', () => {
+  const rows = EV.derive();
+  const indexableUnproven = rows.filter((r) => r.listingIndexability === 'indexable'
+    && !r.canonicalLinkType);
+  for (const r of indexableUnproven) {
+    assert.notEqual(r.evidenceState, 'VERIFIED_FOLLOW',
+      `${r.id} was promoted by its page being indexable`);
+  }
+  // And the two axes stay separate in the schema.
+  const owned = SAFE.ownedFields('linkvalue', 'directories');
+  assert.ok(owned.includes('backlinkType') && owned.includes('listingIndexability'));
+});
+
+test('the derived states cover every record exactly once', () => {
+  const rows = EV.derive();
+  const known = new Set(EV.STATES);
+  for (const r of rows) assert.ok(known.has(r.evidenceState), `${r.evidenceState} is not on the ladder`);
+  // And the separation is real rather than a relabelling of everything as
+  // UNKNOWN: most of the corpus must land on a rung that says something.
+  const informative = rows.filter((r) => r.evidenceState !== 'UNKNOWN').length;
+  assert.ok(informative > rows.length / 2,
+    `only ${informative} of ${rows.length} records carry any observation`);
+});

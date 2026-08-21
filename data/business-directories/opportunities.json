@@ -422,6 +422,29 @@
     "status": "publicApiReading",
     "measuredDomain": "cylex-uk.co.uk"
    }
+  },
+  "backlinkType": "mixed",
+  "linkTargetType": "direct",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://london.cylex-uk.co.uk/company/tailorise---tailoring--alterations---repairs-29079205.html#Special-Offer",
+   "externalUrl": "https://www.tailorise.com/",
+   "relTokens": [],
+   "observedAt": "2026-08-21",
+   "templates": [
+    {
+     "listingUrl": "https://london.cylex-uk.co.uk/company/tailorise---tailoring--alterations---repairs-29079205.html#Special-Offer",
+     "backlinkType": "dofollow"
+    },
+    {
+     "listingUrl": "https://rochdale.cylex-uk.co.uk/company/junction-21-chauffeurs-23738945.html#Special-Offer",
+     "backlinkType": "none"
+    },
+    {
+     "listingUrl": "https://wigan.cylex-uk.co.uk/company/tone-locksmiths-of-wigan-23733519.html#Special-Offer",
+     "backlinkType": "nofollow"
+    }
+   ]
   }
  },
  {
@@ -1950,6 +1973,13 @@
     "status": "publicApiReading",
     "measuredDomain": "go4worldbusiness.com"
    }
+  },
+  "backlinkType": "none",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://www.go4worldbusiness.com/member/view/3945201/jindal-india-limited.html",
+   "relTokens": [],
+   "observedAt": "2026-08-21"
   }
  },
  {
@@ -2530,6 +2560,17 @@
     "status": "publicApiReading",
     "measuredDomain": "topdevelopers.co"
    }
+  },
+  "backlinkType": "nofollow",
+  "linkTargetType": "direct",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://www.topdevelopers.co/companies/app-development",
+   "externalUrl": "https://chopdawg.com/",
+   "relTokens": [
+    "nofollow"
+   ],
+   "observedAt": "2026-08-21"
   }
  },
  {
@@ -3074,6 +3115,13 @@
     "status": "publicApiReading",
     "measuredDomain": "fyple.com"
    }
+  },
+  "backlinkType": "none",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://www.fyple.com/company/o2-mold-testing-of-reston-ykyslcu/#rev_137516",
+   "relTokens": [],
+   "observedAt": "2026-08-21"
   }
  },
  {
@@ -3237,6 +3285,13 @@
     "status": "publicApiReading",
     "measuredDomain": "unternehmensverzeichnis.org"
    }
+  },
+  "backlinkType": "none",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://www.unternehmensverzeichnis.org/lumi-elektro-koblenz-2520043227533",
+   "relTokens": [],
+   "observedAt": "2026-08-21"
   }
  },
  {
@@ -3320,7 +3375,14 @@
     "measuredDomain": "kennstdueinen.de"
    }
   },
-  "submissionUrl": "https://www.kennstdueinen.de/serviceProvider/registerForm"
+  "submissionUrl": "https://www.kennstdueinen.de/serviceProvider/registerForm",
+  "backlinkType": "none",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://www.kennstdueinen.de/ergebnis-einlagerung-in-muehltal-360-1399.html",
+   "relTokens": [],
+   "observedAt": "2026-08-21"
+  }
  },
  {
   "id": "de-meinestadt",
@@ -3725,6 +3787,13 @@
     "status": "publicApiReading",
     "measuredDomain": "hotfrog.it"
    }
+  },
+  "backlinkType": "none",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://www.hotfrog.it/company/d699d16b61913b809dc8ec253fb2a4e4",
+   "relTokens": [],
+   "observedAt": "2026-08-21"
   }
  },
  {
@@ -3969,6 +4038,13 @@
     "status": "publicApiReading",
     "measuredDomain": "1881.no"
    }
+  },
+  "backlinkType": "none",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://om.1881.no/tjenester-1881/ring-1881",
+   "relTokens": [],
+   "observedAt": "2026-08-21"
   }
  },
  {
@@ -6369,6 +6445,13 @@
     "status": "publicApiReading",
     "measuredDomain": "hotfrog.dk"
    }
+  },
+  "backlinkType": "none",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://www.hotfrog.dk/company/bbb4188c90715a8b5d3b80de3b5da507/mirelle/sk%C3%B8rping/jewelry",
+   "relTokens": [],
+   "observedAt": "2026-08-21"
   }
  },
  {
@@ -8358,6 +8441,13 @@
     "status": "publicApiReading",
     "measuredDomain": "expressbusinessdirectory.com"
    }
+  },
+  "backlinkType": "none",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://www.expressbusinessdirectory.com/directory/best-online-casinos-in-south-africa-2026/",
+   "relTokens": [],
+   "observedAt": "2026-08-21"
   }
  },
  {
@@ -9122,6 +9212,13 @@
     "status": "publicApiReading",
     "measuredDomain": "wer-zu-wem.de"
    }
+  },
+  "backlinkType": "none",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://www.wer-zu-wem.de/firma/boesehof.html",
+   "relTokens": [],
+   "observedAt": "2026-08-21"
   }
  },
  {
@@ -9177,7 +9274,14 @@
     "measuredDomain": "bundes-telefonbuch.de"
    }
   },
-  "submissionUrl": "https://www.bundes-telefonbuch.de/firma/grund-eintrag"
+  "submissionUrl": "https://www.bundes-telefonbuch.de/firma/grund-eintrag",
+  "backlinkType": "none",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://www.bundes-telefonbuch.de/firma/grund-eintrag",
+   "relTokens": [],
+   "observedAt": "2026-08-21"
+  }
  },
  {
   "id": "de-yellowmap",
@@ -11671,6 +11775,13 @@
     "status": "publicApiReading",
     "measuredDomain": "infoisinfo.co.uk"
    }
+  },
+  "backlinkType": "none",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://brackley.infoisinfo.co.uk/card/briary-cottages/1227816",
+   "relTokens": [],
+   "observedAt": "2026-08-21"
   }
  },
  {
@@ -11780,7 +11891,14 @@
     "measuredDomain": "branchen-info.net"
    }
   },
-  "submissionUrl": "https://www.branchen-info.net/informationen-fuer-unternehmen/"
+  "submissionUrl": "https://www.branchen-info.net/informationen-fuer-unternehmen/",
+  "backlinkType": "none",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://berlin.branchen-info.net/branche/zahnarzt/4560/",
+   "relTokens": [],
+   "observedAt": "2026-08-21"
+  }
  },
  {
   "id": "de-branchenbuch24",
@@ -11861,6 +11979,13 @@
     "status": "publicApiReading",
     "measuredDomain": "business-branchenbuch.de"
    }
+  },
+  "backlinkType": "none",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://www.business-branchenbuch.de/Freihelden-GmbH-47813457.html",
+   "relTokens": [],
+   "observedAt": "2026-08-21"
   }
  },
  {
@@ -11970,6 +12095,18 @@
     "status": "publicApiReading",
     "measuredDomain": "firmendb.de"
    }
+  },
+  "backlinkType": "dofollow",
+  "linkTargetType": "direct",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://firmendb.de/firma/denkform-gmbh-1329",
+   "externalUrl": "https://www.denkform.net/",
+   "relTokens": [
+    "noopener",
+    "noreferrer"
+   ],
+   "observedAt": "2026-08-21"
   }
  },
  {
@@ -12243,6 +12380,13 @@
     "status": "publicApiReading",
     "measuredDomain": "annuaire.petitesaffiches.fr"
    }
+  },
+  "backlinkType": "none",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://annuaire.petitesaffiches.fr/bar-cafe-discotheque/conseil-de-paris-buvette-21750001617393/",
+   "relTokens": [],
+   "observedAt": "2026-08-21"
   }
  },
  {
@@ -12378,6 +12522,15 @@
     "status": "publicApiReading",
     "measuredDomain": "indexa.fr"
    }
+  },
+  "backlinkType": "dofollow",
+  "linkTargetType": "direct",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://indexa.fr/entreprise/excellence-real-estate/immobilier-agences",
+   "externalUrl": "https://excellence.realestate/fr/",
+   "relTokens": [],
+   "observedAt": "2026-08-21"
   }
  },
  {
@@ -12650,6 +12803,13 @@
     "status": "publicApiReading",
     "measuredDomain": "mylocalservices.co.uk"
    }
+  },
+  "backlinkType": "none",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://www.mylocalservices.co.uk/DP+JOINERY-Wakefield-2537440.html#reviews",
+   "relTokens": [],
+   "observedAt": "2026-08-21"
   }
  },
  {
@@ -14173,6 +14333,13 @@
     "status": "publicApiReading",
     "measuredDomain": "bytbil.com"
    }
+  },
+  "backlinkType": "none",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://www.bytbil.com/stockholms-lan/personbil-t-roc-1-5-tsi-adapt-fart-carplay-p-sensorer-ac-6058-19344810",
+   "relTokens": [],
+   "observedAt": "2026-08-21"
   }
  },
  {
@@ -14200,6 +14367,13 @@
     "status": "publicApiReading",
     "measuredDomain": "mittanbud.no"
    }
+  },
+  "backlinkType": "none",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://mittanbud.no/bedrift/3838256",
+   "relTokens": [],
+   "observedAt": "2026-08-21"
   }
  },
  {
@@ -14902,6 +15076,13 @@
     "status": "publicApiReading",
     "measuredDomain": "infoisinfo.at"
    }
+  },
+  "backlinkType": "none",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://www.infoisinfo.at/karte/alpe-kanal-service-gmbh/thaur/553942",
+   "relTokens": [],
+   "observedAt": "2026-08-21"
   }
  },
  {
@@ -14929,6 +15110,13 @@
     "status": "publicApiReading",
     "measuredDomain": "infoisinfo.ch"
    }
+  },
+  "backlinkType": "none",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://lausanne.infoisinfo.ch/karte/best-western-plus-hotel-mirabeau/954502",
+   "relTokens": [],
+   "observedAt": "2026-08-21"
   }
  },
  {
@@ -15037,6 +15225,13 @@
     "status": "publicApiReading",
     "measuredDomain": "hotfrog.pl"
    }
+  },
+  "backlinkType": "none",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://www.hotfrog.pl/company/895595fda8f4851ddfbcd0d9995516a6",
+   "relTokens": [],
+   "observedAt": "2026-08-21"
   }
  },
  {
@@ -15712,6 +15907,13 @@
     "status": "publicApiReading",
     "measuredDomain": "annuaire-entreprise.co"
    }
+  },
+  "backlinkType": "none",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://www.annuaire-entreprise.co/comment-referencer-son-entreprise-en-ligne-le-guide-complet-2024",
+   "relTokens": [],
+   "observedAt": "2026-08-21"
   }
  },
  {
@@ -16533,6 +16735,13 @@
     "status": "publicApiReading",
     "measuredDomain": "gumtree.com"
    }
+  },
+  "backlinkType": "none",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://www.gumtree.com/p/nissan/nissan-juke-/1801764578",
+   "relTokens": [],
+   "observedAt": "2026-08-21"
   }
  },
  {
@@ -16779,6 +16988,13 @@
     "status": "publicApiReading",
     "measuredDomain": "bilbasen.dk"
    }
+  },
+  "backlinkType": "none",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://www.bilbasen.dk/brugt/bil/bmw/330e/20-m-sport-xdrive-aut/6971497",
+   "relTokens": [],
+   "observedAt": "2026-08-21"
   }
  },
  {
@@ -17352,6 +17568,13 @@
     "status": "publicApiReading",
     "measuredDomain": "trustlink.org"
    }
+  },
+  "backlinkType": "none",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://www.trustlink.org/Reviews/Angelys-Cleaning-207329770",
+   "relTokens": [],
+   "observedAt": "2026-08-21"
   }
  },
  {
@@ -17817,6 +18040,13 @@
     "status": "publicApiReading",
     "measuredDomain": "hotfrog.com.mx"
    }
+  },
+  "backlinkType": "none",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://www.hotfrog.com.mx/company/7ab9de495e47df0cf94d8c5f41c5e845",
+   "relTokens": [],
+   "observedAt": "2026-08-21"
   }
  },
  {
@@ -17925,6 +18155,13 @@
     "status": "publicApiReading",
     "measuredDomain": "yaloencontre.mx"
    }
+  },
+  "backlinkType": "none",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://www.yaloencontre.mx/multiservicios-del-centro/36086",
+   "relTokens": [],
+   "observedAt": "2026-08-21"
   }
  },
  {
@@ -18087,6 +18324,13 @@
     "status": "publicApiReading",
     "measuredDomain": "rappi.com.mx"
    }
+  },
+  "backlinkType": "none",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://www.rappi.com.mx/restaurantes/1930209930-carls-jr-turbo",
+   "relTokens": [],
+   "observedAt": "2026-08-21"
   }
  },
  {
@@ -18333,6 +18577,27 @@
     "status": "publicApiReading",
     "measuredDomain": "findyello.com"
    }
+  },
+  "backlinkType": "mixed",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://www.findyello.com/barbados/a--euro-parts-supplies/profile/",
+   "relTokens": [],
+   "observedAt": "2026-08-21",
+   "templates": [
+    {
+     "listingUrl": "https://www.findyello.com/barbados/a--euro-parts-supplies/profile/",
+     "backlinkType": "none"
+    },
+    {
+     "listingUrl": "https://www.findyello.com/barbados/c-o-williams-construction-ltd/profile/",
+     "backlinkType": "nofollow"
+    },
+    {
+     "listingUrl": "https://www.findyello.com/barbados/brewsters-enterprises-inc/profile/",
+     "backlinkType": "none"
+    }
+   ]
   }
  },
  {
@@ -19311,6 +19576,13 @@
     "status": "publicApiReading",
     "measuredDomain": "aplaceformom.com"
    }
+  },
+  "backlinkType": "none",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://www.aplaceformom.com/community/edina-heights-senior-living-88463",
+   "relTokens": [],
+   "observedAt": "2026-08-21"
   }
  },
  {
@@ -20339,6 +20611,15 @@
     "status": "publicApiReading",
     "measuredDomain": "creativehotlist.com"
    }
+  },
+  "backlinkType": "dofollow",
+  "linkTargetType": "direct",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://www.creativehotlist.com/portfolios/s/details/group1/9036?CurrRowNum=1&TotalRowCount=1&PageUpUrl=%2Fsearch%2Fstudents%3FCode%3D%26Location%3D%26HasPort%3Dtrue%26DateRange%3Dweek%23!s%3D%26sortby%3Ddate%26page%3D1",
+   "externalUrl": "https://readeezy.com/product/squashed-dreams/",
+   "relTokens": [],
+   "observedAt": "2026-08-21"
   }
  },
  {
@@ -21412,6 +21693,13 @@
     "status": "publicApiReading",
     "measuredDomain": "businessyab.com"
    }
+  },
+  "backlinkType": "none",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://www.businessyab.com/explore/united_states/texas/dallas_county/dallas/northwest_dallas/anode_lane/2955/paleteria-san-marcos-214-484-7040.html",
+   "relTokens": [],
+   "observedAt": "2026-08-21"
   }
  },
  {
@@ -22120,6 +22408,15 @@
     "status": "publicApiReading",
     "measuredDomain": "nc-net.com"
    }
+  },
+  "backlinkType": "dofollow",
+  "linkTargetType": "direct",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://en.nc-net.com/company/5741/",
+   "externalUrl": "http://www.nmw-j.co.jp/",
+   "relTokens": [],
+   "observedAt": "2026-08-21"
   }
  },
  {
@@ -22636,6 +22933,13 @@
     "status": "publicApiReading",
     "measuredDomain": "magicpin.in"
    }
+  },
+  "backlinkType": "none",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://magicpin.in/Bangalore/Kalyan-Nagar/Restaurant/Cafe-Azzure/store/264455",
+   "relTokens": [],
+   "observedAt": "2026-08-21"
   }
  },
  {
@@ -25369,6 +25673,13 @@
     "status": "publicApiReading",
     "measuredDomain": "hotfrog.cl"
    }
+  },
+  "backlinkType": "none",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://www.hotfrog.cl/company/0773f57569bc31c06f4267ff37a2e685/termoaluminios/santiago/doors-door-systems",
+   "relTokens": [],
+   "observedAt": "2026-08-21"
   }
  },
  {
@@ -25425,6 +25736,13 @@
     "status": "publicApiReading",
     "measuredDomain": "hotfrog.com.co"
    }
+  },
+  "backlinkType": "none",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://www.hotfrog.com.co/company/bde5436bcda1406bb19dbd87eafe62be/cafore-abogados/bogot%C3%A1/specialized-legal-services",
+   "relTokens": [],
+   "observedAt": "2026-08-21"
   }
  },
  {
@@ -25453,6 +25771,13 @@
     "status": "publicApiReading",
     "measuredDomain": "hotfrog.com.pe"
    }
+  },
+  "backlinkType": "none",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://www.hotfrog.com.pe/company/5b5ecf76850b3e78bc77ec9bbd022aee/tienda-urbana-tocache/tocache/fashion-accessories",
+   "relTokens": [],
+   "observedAt": "2026-08-21"
   }
  },
  {
@@ -26592,6 +26917,13 @@
     "status": "publicApiReading",
     "measuredDomain": "tunisieindex.com"
    }
+  },
+  "backlinkType": "none",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://www.tunisieindex.com/entreprises/",
+   "relTokens": [],
+   "observedAt": "2026-08-21"
   }
  },
  {
@@ -28839,6 +29171,13 @@
     "status": "publicApiReading",
     "measuredDomain": "hardens.com"
    }
+  },
+  "backlinkType": "none",
+  "listingIndexability": "noindex",
+  "backlinkProvenance": {
+   "listingUrl": "https://www.hardens.com/business/Dashboard.php",
+   "relTokens": [],
+   "observedAt": "2026-08-21"
   }
  },
  {
@@ -29002,6 +29341,13 @@
     "status": "publicApiReading",
     "measuredDomain": "aacc.fr"
    }
+  },
+  "backlinkType": "none",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://www.aacc.fr/agence/artefact-3000/",
+   "relTokens": [],
+   "observedAt": "2026-08-21"
   }
  },
  {
@@ -29623,6 +29969,15 @@
     "status": "publicApiReading",
     "measuredDomain": "archilovers.com"
    }
+  },
+  "backlinkType": "dofollow",
+  "linkTargetType": "direct",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://www.archilovers.com/giovanni-squatriti-7185450/",
+   "externalUrl": "https://www.giovannisquatriti.com/",
+   "relTokens": [],
+   "observedAt": "2026-08-21"
   }
  },
  {
@@ -30811,6 +31166,13 @@
     "status": "publicApiReading",
     "measuredDomain": "sooipp.org.pl"
    }
+  },
+  "backlinkType": "none",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://www.sooipp.org.pl/noc-innowacji-2025",
+   "relTokens": [],
+   "observedAt": "2026-08-21"
   }
  },
  {
@@ -30838,6 +31200,13 @@
     "status": "publicApiReading",
     "measuredDomain": "startuppoland.org"
    }
+  },
+  "backlinkType": "none",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://startuppoland.org/report/polskie-startupy-2025/",
+   "relTokens": [],
+   "observedAt": "2026-08-21"
   }
  },
  {
@@ -30892,6 +31261,13 @@
     "status": "publicApiReading",
     "measuredDomain": "solidnafirma.pl"
    }
+  },
+  "backlinkType": "none",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://www.solidnafirma.pl/kandydaci-2025/",
+   "relTokens": [],
+   "observedAt": "2026-08-21"
   }
  },
  {
@@ -30946,6 +31322,13 @@
     "status": "publicApiReading",
     "measuredDomain": "gratka.pl"
    }
+  },
+  "backlinkType": "none",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://gratka.pl/nieruchomosci/mieszkanie-warszawa-ochota-grojecka/ob/48688447",
+   "relTokens": [],
+   "observedAt": "2026-08-21"
   }
  },
  {
@@ -31027,6 +31410,13 @@
     "status": "publicApiReading",
     "measuredDomain": "praca.pl"
    }
+  },
+  "backlinkType": "none",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://www.praca.pl/kierownik-kierowniczka-sekcji-zarzadzania-oferta-soho-smb_11379880.html",
+   "relTokens": [],
+   "observedAt": "2026-08-21"
   }
  },
  {
@@ -31054,6 +31444,13 @@
     "status": "publicApiReading",
     "measuredDomain": "jobs.pl"
    }
+  },
+  "backlinkType": "none",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://www.jobs.pl/mechanik-mechaniczka-samochodow-ciezarowych-i-autobusow-oferta-3940940",
+   "relTokens": [],
+   "observedAt": "2026-08-21"
   }
  },
  {
@@ -32216,6 +32613,13 @@
     "status": "publicApiReading",
     "measuredDomain": "drive.com.au"
    }
+  },
+  "backlinkType": "none",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://www.drive.com.au/cars-for-sale/car/970255400/",
+   "relTokens": [],
+   "observedAt": "2026-08-21"
   }
  },
  {
@@ -32675,6 +33079,19 @@
     "status": "publicApiReading",
     "measuredDomain": "internshala.com"
    }
+  },
+  "backlinkType": "nofollow",
+  "linkTargetType": "direct",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://internshala.com/job/detail/junior-social-media-marketing-associate-job-in-bangalore-at-ileads1786949942?referral=homepage",
+   "externalUrl": "http://ileads.co.in/",
+   "relTokens": [
+    "nofollow",
+    "noopener",
+    "noreferrer"
+   ],
+   "observedAt": "2026-08-21"
   }
  },
  {
@@ -34619,6 +35036,13 @@
     "status": "publicApiReading",
     "measuredDomain": "cessi.org.ar"
    }
+  },
+  "backlinkType": "none",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://cessi.org.ar/talent-summit-2025/",
+   "relTokens": [],
+   "observedAt": "2026-08-21"
   }
  },
  {
@@ -35485,6 +35909,17 @@
     "status": "publicApiReading",
     "measuredDomain": "selectedfirms.co"
    }
+  },
+  "backlinkType": "nofollow",
+  "linkTargetType": "direct",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://selectedfirms.co/companies/blockchain-development",
+   "externalUrl": "https://www.ailoitte.com/",
+   "relTokens": [
+    "nofollow"
+   ],
+   "observedAt": "2026-08-21"
   }
  },
  {
@@ -36434,6 +36869,13 @@
     "status": "publicApiReading",
     "measuredDomain": "indiantradebird.com"
    }
+  },
+  "backlinkType": "none",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://www.indiantradebird.com/admin/company/companysetup",
+   "relTokens": [],
+   "observedAt": "2026-08-21"
   }
  },
  {
@@ -37678,6 +38120,18 @@
     "status": "publicApiReading",
     "measuredDomain": "indonetwork.co.id"
    }
+  },
+  "backlinkType": "dofollow",
+  "linkTargetType": "direct",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://www.indonetwork.co.id/company/pt-hand-lift-indonesia-surabaya",
+   "externalUrl": "http://www.handliftsurabaya.com/",
+   "relTokens": [
+    "noopener",
+    "noreferrer"
+   ],
+   "observedAt": "2026-08-21"
   }
  },
  {
@@ -38654,6 +39108,13 @@
     "status": "publicApiReading",
     "measuredDomain": "ikman.lk"
    }
+  },
+  "backlinkType": "none",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://ikman.lk/en/ad/land-for-sale-in-kandy-for-sale-kandy-3498",
+   "relTokens": [],
+   "observedAt": "2026-08-21"
   }
  },
  {
@@ -40959,6 +41420,13 @@
     "status": "publicApiReading",
     "measuredDomain": "companywall.rs"
    }
+  },
+  "backlinkType": "none",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://www.companywall.rs/firma/brigate-doo-beograd/MMiOWzA0",
+   "relTokens": [],
+   "observedAt": "2026-08-21"
   }
  },
  {
@@ -40986,6 +41454,13 @@
     "status": "publicApiReading",
     "measuredDomain": "companywall.ba"
    }
+  },
+  "backlinkType": "none",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://www.companywall.ba/firma/marbo-doo-laktasi/MMksqnY",
+   "relTokens": [],
+   "observedAt": "2026-08-21"
   }
  },
  {
@@ -41013,6 +41488,13 @@
     "status": "publicApiReading",
     "measuredDomain": "companywall.me"
    }
+  },
+  "backlinkType": "none",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://www.companywall.me/firma/skorpion/MMxsDsKR",
+   "relTokens": [],
+   "observedAt": "2026-08-21"
   }
  },
  {
@@ -41718,6 +42200,18 @@
     "status": "publicApiReading",
     "measuredDomain": "goabroad.com"
    }
+  },
+  "backlinkType": "sponsored",
+  "linkTargetType": "direct",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://www.goabroad.com/providers/international-tefl-academy/programs/get-paid-to-teach-english-abroad-with-ita-96060",
+   "externalUrl": "https://www.internationalteflacademy.com/-ab-variant-d7aeb497-e3d2-46cc-b6a2-a3f43ce7743d",
+   "relTokens": [
+    "sponsored",
+    "noopener"
+   ],
+   "observedAt": "2026-08-21"
   }
  },
  {
@@ -41772,6 +42266,17 @@
     "status": "publicApiReading",
     "measuredDomain": "lawyerlegion.com"
    }
+  },
+  "backlinkType": "nofollow",
+  "linkTargetType": "direct",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://lawyers.lawyerlegion.com/florida/ashley-aulls-27009639",
+   "externalUrl": "http://www.aullslaw.com/",
+   "relTokens": [
+    "nofollow"
+   ],
+   "observedAt": "2026-08-21"
   }
  },
  {
