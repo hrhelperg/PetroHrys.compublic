@@ -821,7 +821,39 @@ function linkTypeControl({ idPrefix = 'bd', rows = [] } = {}) {
   if (!options) return '';
   return `      <div class="bd-control" data-bd-link-type-wrap hidden>
         <label class="bd-label" for="${id}">${escapeHtml(t('bd.linkType'))}</label>
-        <select class="bd-select" id="${id}" data-bd-link-type>
+        <select class="bd-select" id="${id}" data-bd-link-type
+          aria-describedby="${id}-help">
+          <option value="">${escapeHtml(t('common.all'))}</option>
+${options}
+        </select>
+        <p class="bd-note" id="${id}-help">${escapeHtml(t('bd.linkType.help'))}</p>
+      </div>`;
+}
+
+// Whether the page carrying the link can be crawled. Its own control because
+// it is its own fact: a follow link on a noindex page and a nofollow link on an
+// indexable one are different answers to different questions, and neither
+// implies the other.
+const INDEXABILITY_OPTIONS = [
+  ['indexable', 'bd.listingPage.indexable', (v) => v === 'indexable'],
+  ['noindex', 'bd.listingPage.noindex', (v) => v === 'noindex'],
+  ['restricted', 'bd.listingPage.restricted', (v) => v === 'robots-blocked' || v === 'login-required'],
+  ['unknown', 'bd.listingPage.unknown', (v) => !v],
+];
+
+function listingPageControl({ idPrefix = 'bd', rows = [] } = {}) {
+  const measured = rows.filter((r) => r && r.listingIndexability).length;
+  if (!measured) return '';
+  const id = `${escapeHtml(idPrefix)}-listing-page`;
+  const options = INDEXABILITY_OPTIONS
+    .map(([value, key, match]) => [value, key, rows.filter((r) => match(r && r.listingIndexability)).length])
+    .filter(([, , count]) => count > 0)
+    .map(([value, key, count]) => `          <option value="${value}">${escapeHtml(t(key))} (${count})</option>`)
+    .join('\n');
+  if (!options) return '';
+  return `      <div class="bd-control" data-bd-listing-page-wrap hidden>
+        <label class="bd-label" for="${id}">${escapeHtml(t('bd.listingPage'))}</label>
+        <select class="bd-select" id="${id}" data-bd-listing-page>
           <option value="">${escapeHtml(t('common.all'))}</option>
 ${options}
         </select>
@@ -974,6 +1006,10 @@ function directoryRow(directory, columns) {
     // Empty when nobody has looked. The client reads this for the link filter,
     // and an empty attribute is the "unknown" state rather than a value.
     `data-bd-link-type="${escapeHtml(directory.backlinkType || '')}"`,
+    `data-bd-listing-page="${escapeHtml(directory.listingIndexability || '')}"`,
+    // The date the listing was inspected, so an export can say how old the
+    // observation is. Empty where nobody has looked.
+    `data-bd-link-checked="${escapeHtml((directory.backlinkProvenance || {}).observedAt || '')}"`,
     `data-bd-as="${escapeHtml(numAttr(directory.authorityScore))}"`,
     `data-bd-traffic="${escapeHtml(numAttr(directory.estimatedTraffic))}"`,
     // Emitted only for a record that HAS a jurisdiction. A national record adds
@@ -1692,6 +1728,8 @@ function editorialGuidance(directory, active) {
   searchControls, filterControls, sortControls, pagination, facetSelect, clearFiltersControl,
   minDomainRatingControl,
   linkTypeControl,
+  listingPageControl,
+  INDEXABILITY_OPTIONS,
   LINK_TYPE_OPTIONS, MIN_DR_THRESHOLDS,
   filteredExportControl,
   verificationBlock, acceptsList, scoreBreakdown, filterValue, filterAttr,

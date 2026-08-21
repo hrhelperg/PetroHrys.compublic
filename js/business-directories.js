@@ -69,6 +69,7 @@
   // The one control that is not an equality match: a floor on Domain Rating.
   var minDrSelect = document.querySelector('[data-bd-min-dr]');
   var linkTypeSelect = document.querySelector('[data-bd-link-type]');
+  var listingPageSelect = document.querySelector('[data-bd-listing-page]');
   var searchInput = document.querySelector('[data-bd-search]');
   var filters = Array.prototype.slice.call(document.querySelectorAll('[data-bd-filter]'));
   // Select-based facets for the opportunities worklist. Each select names the
@@ -90,7 +91,7 @@
   // JavaScript they stay hidden and the prerendered table is complete.
   ['[data-bd-sort-wrap]', '[data-bd-filter-wrap]', '[data-bd-search-wrap]',
     '[data-bd-jselect-wrap]', '[data-bd-min-dr-wrap]',
-    '[data-bd-link-type-wrap]'].forEach(function (sel) {
+    '[data-bd-link-type-wrap]', '[data-bd-listing-page-wrap]'].forEach(function (sel) {
     var el = document.querySelector(sel);
     if (el) el.hidden = false;
   });
@@ -141,7 +142,8 @@
     minDr: optionValues(minDrSelect),
     // Same derivation: a page whose records carry no link evidence renders no
     // control, so it has no link-type parameter either.
-    linkTypes: optionValues(linkTypeSelect)
+    linkTypes: optionValues(linkTypeSelect),
+    indexability: optionValues(listingPageSelect)
   };
 
   function num(row, key) {
@@ -169,10 +171,25 @@
       petroHrysScore: num(row, 'score'),
       domainRating: num(row, 'dr'),
       backlinkType: row.getAttribute('data-bd-link-type') || '',
+      listingIndexability: row.getAttribute('data-bd-listing-page') || '',
+      linkCheckedAt: row.getAttribute('data-bd-link-checked') || '',
       authorityScore: num(row, 'as'),
       estimatedTraffic: num(row, 'traffic'),
       facets: rowFacets,
       flags: rowFlags,
+      // Read ONCE, like the facets above, and for the same reason. These three
+      // were read per row per interaction instead: the haystack is the longest
+      // string on the row and it was fetched 2816 times for every keystroke,
+      // and the group key walked up the tree to find the enclosing box each
+      // time. None of them can change after the server rendered the page.
+      haystack: row.getAttribute('data-bd-haystack') || '',
+      jurisdictionCode: row.getAttribute('data-bd-jurisdiction-code'),
+      groupKey: groupKeyOf(row),
+      // What this row is currently showing. The engine compares its verdict
+      // against this and writes only where they differ, so a filter that
+      // narrows 2816 rows to 4 stops paying for the 2812 that were already
+      // hidden and stay hidden.
+      visible: true,
       row: row
     };
   }
@@ -220,24 +237,44 @@
   // smuggled into it would silently make both of them vacuous. Measured on the
   // largest page in the collection — 2,167 rows — the second sort costs 4.3 ms
   // of a 15.0 ms render.
+  // The visible records, in the order the DOM is currently showing them.
+  //
+  // It used to re-sort every group on every call, and it is called on every
+  // apply — so a page that had not changed its sort key still paid for a full
+  // comparison sort of 2816 records to answer "what is visible now". The rows
+  // were already re-ordered above when, and only when, the key changed; this
+  // reads the order that is already there and filters it by the verdict the
+  // engine just produced.
   function displayedRecords() {
-    var key = sortSelect ? sortSelect.value : 'default';
     var out = [];
     groups.forEach(function (g) {
-      order.sortRecords(g.records, key).forEach(function (record) {
-        if (!record.row.hidden) out.push(record);
-      });
+      var ordered = g.orderedFor === appliedSortKey && g.ordered
+        ? g.ordered
+        : order.sortRecords(g.records, appliedSortKey || 'default');
+      g.ordered = ordered;
+      g.orderedFor = appliedSortKey;
+      for (var i = 0; i < ordered.length; i += 1) {
+        if (ordered[i].visible) out.push(ordered[i]);
+      }
     });
     return out;
   }
 
+  // The sort key that is currently REFLECTED IN THE DOM. Re-appending a row
+  // that is already in the right place still moves it, and apply() was doing
+  // that to every row on every interaction — 2816 node moves to answer a
+  // keystroke that changed no order at all. Now the rows are re-ordered only
+  // when the order actually changed.
+  // The sort key the DOM currently reflects, and whether the visible sequence
+  // still matches it. Re-appending a row that is already in place still moves
+  // it, and apply() was doing that to every row on every interaction — 2816
+  // node moves to answer a keystroke that changed no order at all.
+  var appliedSortKey = null;
+  var domDirty = true;
+
   function apply() {
     var key = sortSelect ? sortSelect.value : 'default';
-    groups.forEach(function (g) {
-      order.sortRecords(g.records, key).forEach(function (record) {
-        g.body.appendChild(record.row);
-      });
-    });
+    if (key !== appliedSortKey) { appliedSortKey = key; domDirty = true; }
 
     // The selection, in the shape the predicate reads. The conversion is the
     // shared module's and it is the SAME one a URL goes through, so a link and a
@@ -251,52 +288,75 @@
     var wantGroup = jValue.indexOf('group:') === 0 ? jValue.slice(6) : null;
     var wantState = jValue.indexOf('state:') === 0 ? jValue.slice(6) : null;
 
-    records.forEach(function (record) {
-      var row = record.row;
-      var show = true;
-      // Selecting one state shows that state's registries and nothing else;
-      // selecting a group shows that group. The two never combine, because the
-      // control offers one value.
-      if (wantState && row.getAttribute('data-bd-jurisdiction-code') !== wantState) show = false;
-      if (wantGroup && groupKeyOf(row) !== wantGroup) show = false;
-      // Attributes are tri-state: 'yes', 'no' or 'unknown'. A positive filter
-      // matches only 'yes'. 'unknown' is hidden because it is not a confirmed
-      // match, NOT because it is a confirmed miss — the fieldset says so in
-      // words, and the unknown tally is printed next to each filter label.
-      // A facet whose row attribute holds a space-separated list matches on
-      // MEMBERSHIP; every other facet matches on equality, and which is which
-      // was settled in the schema above rather than by this matcher naming the
-      // facets it knows about.
-      // ── ONE PREDICATE, SHARED WITH THE TESTS ────────────────────────────
-      //
-      // Search, facets and tri-state filters all compose with AND inside
-      // BDDiscovery.evaluate. The row's attributes were read into a plain
-      // object once at load; the deciding is not done in this file.
-      var verdict = D.evaluate(
-        {
-          haystack: row.getAttribute('data-bd-haystack') || '',
-          facets: record.facets,
-          flags: record.flags,
-          // The Domain Rating floor reads this. Building the row without it
-          // meant every record answered "no rating" and any threshold emptied
-          // the table completely — the most alarming possible failure, and one
-          // that only appears once the control is actually used.
-          domainRating: record.domainRating,
-          // The link filter reads this. Omitting it is the mistake the Domain
-          // Rating floor already made once, and it fails the same way: the
-          // control moves, the URL updates, and the table never changes.
-          backlinkType: record.backlinkType
-        },
-        selection
-      );
-      if (!verdict.visible) show = false;
+    // ── ONE PURE PASS, THEN ONLY THE WRITES THAT DIFFER ───────────────────
+    //
+    // The jurisdiction narrowing is folded in here rather than read off the
+    // DOM: both values were cached on the record at load.
+    var candidates = records;
+    if (wantState || wantGroup) {
+      candidates = [];
+      for (var ci = 0; ci < records.length; ci += 1) {
+        var cr = records[ci];
+        if (wantState && cr.jurisdictionCode !== wantState) { cr.jurisdictionExcluded = true; continue; }
+        if (wantGroup && cr.groupKey !== wantGroup) { cr.jurisdictionExcluded = true; continue; }
+        cr.jurisdictionExcluded = false;
+        candidates.push(cr);
+      }
+      for (var xi = 0; xi < records.length; xi += 1) {
+        var xr = records[xi];
+        if (xr.jurisdictionExcluded && xr.visible) {
+          xr.row.hidden = true; xr.visible = false; domDirty = true;
+        }
+      }
+    } else {
+      for (var ni = 0; ni < records.length; ni += 1) records[ni].jurisdictionExcluded = false;
+    }
 
-      row.hidden = !show;
-      if (show) shown += 1;
-      if (!show && verdict.hiddenForUnknown) unknownHidden += 1;
-    });
+    var batch = D.evaluateAll(candidates, selection);
+    shown = batch.shown;
+    unknownHidden = batch.unknownHidden;
 
-    // Read back off the page, now that every row carries its verdict.
+    // Writes only. No reads interleaved, so the browser is never asked to
+    // recompute style in the middle of the loop.
+    for (var vi = 0; vi < candidates.length; vi += 1) {
+      var rec = candidates[vi];
+      var want = batch.visible[vi];
+      if (rec.visible !== want) {
+        rec.row.hidden = !want;
+        rec.visible = want;
+        domDirty = true;
+      }
+    }
+
+    // ── ORDER ONLY WHAT IS SHOWN ──────────────────────────────────────────
+    //
+    // A hidden row renders nowhere, so its position in the tbody cannot be
+    // seen. Ordering the whole table cost 2816 node moves to sort a result of
+    // four. Only the visible rows are placed, and a row that becomes visible
+    // later is placed on the pass that reveals it — so the work is proportional
+    // to what the reader is actually looking at.
+    if (domDirty) {
+      groups.forEach(function (g) {
+        var ordered = g.orderedFor === appliedSortKey && g.ordered
+          ? g.ordered
+          : order.sortRecords(g.records, appliedSortKey || 'default');
+        g.ordered = ordered;
+        g.orderedFor = appliedSortKey;
+        var frag = document.createDocumentFragment();
+        var moved = 0;
+        for (var i = 0; i < ordered.length; i += 1) {
+          if (ordered[i].visible) { frag.appendChild(ordered[i].row); moved += 1; }
+        }
+        if (moved) g.body.appendChild(frag);
+      });
+      domDirty = false;
+    }
+
+    // From the engine's own verdicts. This used to read .hidden back off every
+    // row — three times per row on the countries page, 8448 property reads
+    // immediately after 2816 writes, which forces the browser to flush style
+    // before it can answer. The engine already knows; asking the document was
+    // asking a question we had just finished answering.
     visible = displayedRecords();
 
     // The state grid narrows with the selection. Selecting a PENDING state must
@@ -336,7 +396,10 @@
     // is not walked through a heading and a caption over an empty table.
     groups.forEach(function (g) {
       if (!g.box) return;
-      var anyVisible = g.records.some(function (r) { return !r.row.hidden; });
+      var anyVisible = false;
+      for (var gi = 0; gi < g.records.length; gi += 1) {
+        if (g.records[gi].visible) { anyVisible = true; break; }
+      }
       g.box.hidden = !anyVisible;
     });
 
@@ -414,7 +477,8 @@
       jurisdiction: jSelect ? jSelect.value : '',
       sort: sortSelect ? sortSelect.value : '',
       minDr: minDrSelect ? minDrSelect.value : '',
-      linkType: linkTypeSelect ? linkTypeSelect.value : ''
+      linkType: linkTypeSelect ? linkTypeSelect.value : '',
+      indexability: listingPageSelect ? listingPageSelect.value : ''
     };
   }
 
@@ -430,6 +494,7 @@
     if (sortSelect) sortSelect.value = state.sort || D.defaultSort(schema);
     if (minDrSelect) minDrSelect.value = state.minDr || '';
     if (linkTypeSelect) linkTypeSelect.value = state.linkType || '';
+    if (listingPageSelect) listingPageSelect.value = state.indexability || '';
   }
 
   function syncUrl(push) {
@@ -516,6 +581,7 @@
   facets.forEach(function (sel) { sel.addEventListener('change', interact); });
   if (minDrSelect) minDrSelect.addEventListener('change', interact);
   if (linkTypeSelect) linkTypeSelect.addEventListener('change', interact);
+  if (listingPageSelect) listingPageSelect.addEventListener('change', interact);
   if (clearBtn) {
     clearBtn.addEventListener('click', function () {
       if (searchInput) searchInput.value = '';
@@ -524,6 +590,7 @@
       if (jSelect) jSelect.value = D.defaultJurisdiction(schema);
       if (minDrSelect) minDrSelect.value = '';
       if (linkTypeSelect) linkTypeSelect.value = '';
+      if (listingPageSelect) listingPageSelect.value = '';
       // The sort goes back to the page's own order too. Leaving it behind made
       // "clear" mean "clear most of it": a reader who had sorted by Domain
       // Rating, filtered, then cleared, was returned to an unfiltered list

@@ -77,6 +77,16 @@ const COLLECTIONS = {
     file: path.join(ROOT, 'data/marketplaces/marketplaces.json'),
     urlField: 'website',
   },
+  media: {
+    file: path.join(ROOT, 'data/media-pr-publishing/media-platforms.json'),
+    urlField: 'website',
+  },
+  // Tender platforms are deliberately absent. A procurement portal publishes
+  // notices and supplier registrations, not a public business profile carrying
+  // the supplier's website — so the question this file asks has no answer
+  // there, and forcing the field onto them would manufacture UNKNOWNs about a
+  // concept that does not apply. If a portal is later found to publish crawlable
+  // supplier profiles, it belongs here with evidence, not by assumption.
 };
 
 // Hosts a listing links to that are never the business's own website.
@@ -102,7 +112,7 @@ const LISTING_TAIL = /[-_/]\d{4,}(\.html?)?\/?$/i;
 // Zendesk's startups page, Facebook's page-creation form and three Amazon
 // product pages as business listings — all of which carry the contact words
 // that were supposed to identify a profile, because contact pages do.
-const NOT_A_LISTING = /\/(login|signin|sign-in|register|account|auth|oauth|sso|blog|news|help|support|guide|editorial|grouping|eventdetails|privacy|terms|about|hc|articles?|contact|contact-us|creation|get-started|startups|security|pricing|docs|developer|dp|gp|product|item|category|categories|kategorie|legal|cookie|cookie-policy|policy|policies|imprint|impressum)(\/|\?|#|-|_|$)/i;
+const NOT_A_LISTING = /\/(login|signin|sign-in|register|account|auth|oauth|sso|blog|news|help|support|guide|editorial|grouping|eventdetails|privacy|terms|about|hc|articles?|contact|contact-us|creation|get-started|startups|security|pricing|docs|developer|dp|gp|product|item|category|categories|kategorie|legal|cookie|cookie-policy|policy|policies|imprint|impressum|event|events|veranstaltung|veranstaltungen|evento|eventos|evenement)(\/|\?|#|-|_|$)/i;
 
 // A listing shows contact details. Without at least one of these the page is
 // something else that happens to sit at a plausible address.
@@ -118,8 +128,44 @@ const INDEX_PATH = /\/(category|categories|kategorie|kategorien|rubrique|categor
 // A listing that no longer exists is not evidence about listings that do.
 const GONE = /(page not found|not available|404|no longer available|seite nicht gefunden|página no encontrada)/i;
 
+// Country slugs the corpus itself uses, read once from the collections rather
+// than written down here.
+let COUNTRY_SLUGS = null;
+function countrySlugs() {
+  if (COUNTRY_SLUGS) return COUNTRY_SLUGS;
+  COUNTRY_SLUGS = new Set();
+  for (const C of Object.values(COLLECTIONS)) {
+    try {
+      for (const r of JSON.parse(fs.readFileSync(C.file, 'utf8'))) {
+        if (r.country) COUNTRY_SLUGS.add(String(r.country).toLowerCase());
+      }
+    } catch { /* a collection that is not readable contributes nothing */ }
+  }
+  return COUNTRY_SLUGS;
+}
+
+// A listing that announces a DIFFERENT country than the record it would speak
+// for. FindYello is why: jm-findyello is a Jamaica record whose website is the
+// regional root findyello.com/, and every listing reachable from it was
+// /barbados/... — so Jamaica would have been given Barbados's evidence purely
+// because the two share a host. Sharing a host is not sharing a template, and
+// the brief is explicit that it must not be treated as one.
+function wrongCountry(listingUrl, recordCountry) {
+  if (!recordCountry) return false;
+  let segments;
+  try { segments = new URL(listingUrl).pathname.toLowerCase().split('/').filter(Boolean); } catch { return false; }
+  const slugs = countrySlugs();
+  for (const seg of segments) {
+    if (!slugs.has(seg)) continue;
+    return seg !== String(recordCountry).toLowerCase();
+  }
+  return false;
+}
+
 const LOGIN_WALL = ['sign in to view', 'log in to view', 'login required',
   'members only', 'please sign in', 'please log in', 'create an account to see'];
+
+const today = () => new Date().toISOString().slice(0, 10);
 
 const arg = (name) => {
   const i = process.argv.indexOf(name);
@@ -255,7 +301,11 @@ function pickWebsiteAnchor(pageData, listingUrl) {
   const candidates = [];
   for (const a of pageData.anchors) {
     const host = hostOf(a.href);
-    if (!host || NOT_A_BUSINESS_SITE.test(`${host}.`)) continue;
+    // Tested on the registrable domain, not the full host. Checking the host
+    // let ads.google.com through — the anchor was labelled "Zur Website" on a
+    // conference page and the "business website" was Google's ad product.
+    const family2 = `${(host.split('.').slice(-2).join('.'))}.`;
+    if (!host || NOT_A_BUSINESS_SITE.test(`${host}.`) || NOT_A_BUSINESS_SITE.test(family2)) continue;
     if (a.chrome) continue;
     const target = targetTypeOf(a, listingUrl);
     if (!target) continue;
@@ -288,7 +338,10 @@ function pickWebsiteAnchor(pageData, listingUrl) {
 
 function indexabilityOf(pageData) {
   const robots = pageData.metaRobots || '';
-  if (/noindex/.test(robots)) return 'noindex';
+  // `content="none"` is shorthand for noindex,nofollow. Checking only for the
+  // word "noindex" reported such a page as indexable, which is the one
+  // direction this field must never be wrong in.
+  if (/\bnoindex\b/.test(robots) || /(^|[,\s])none([,\s]|$)/.test(robots)) return 'noindex';
   const text = String(pageData.text || '').toLowerCase();
   if (LOGIN_WALL.some((p) => text.includes(p))) return 'login-required';
   return 'indexable';
@@ -312,10 +365,18 @@ async function researchOne(page, target) {
 
   const home = await open(target.url);
   if (!home || home.error) {
-    return { state: 'UNREADABLE', why: `browser: ${(home && home.error) || 'no response'}` };
+    return {
+      state: 'UNREADABLE',
+      why: `browser: ${(home && home.error) || 'no response'}`,
+      observations: [{ observedAt: today(), kind: 'front-page-failed', url: target.url }],
+    };
   }
   if (REFUSAL.isRefusal(`${home.title}\n${home.text}`) || home.anchors.length < 5) {
-    return { state: 'PROTECTED', why: 'the front page refused a browser or rendered nothing' };
+    return {
+      state: 'PROTECTED',
+      why: 'the front page refused a browser or rendered nothing',
+      observations: [{ observedAt: today(), kind: 'front-page-refused', url: home.url }],
+    };
   }
 
   // A page showing ONE business, found among the directory's own links. Never
@@ -361,8 +422,18 @@ async function researchOne(page, target) {
   }
 
   if (!listings.length) {
-    return { state: 'NO_LISTING_FOUND', why: 'no public business listing was reachable from the front page' };
+    return {
+      state: 'NO_LISTING_FOUND',
+      why: 'no public business listing was reachable from the front page',
+      observations: [{ observedAt: today(), kind: 'front-page', url: home.url, listingsFound: 0 }],
+    };
   }
+
+  // Recorded BEFORE any of them is opened. 841 records in the previous pass
+  // said a listing had been discovered without saying which, so "re-read the
+  // page we already found" turned out to be impossible — the URL had only ever
+  // existed in memory.
+  const discovered = listings.map((u) => ({ observedAt: today(), kind: 'listing-discovered', url: u }));
 
   const inspected = [];
   for (const listingUrl of listings) {
@@ -372,6 +443,7 @@ async function researchOne(page, target) {
     if (!listing || listing.error || !listing.anchors) continue;
     if (REFUSAL.isRefusal(`${listing.title}\n${listing.text}`)) continue;
     if (GONE.test(listing.title) || GONE.test(listing.text.slice(0, 200))) continue;
+    if (wrongCountry(listing.url, target.country)) continue;
 
     const indexability = indexabilityOf(listing);
     const anchor = pickWebsiteAnchor(listing, listing.url);
@@ -392,7 +464,13 @@ async function researchOne(page, target) {
       if (signals.size < 2) continue;
       inspected.push({
         listingUrl: listing.url,
-        backlinkType: 'none',
+        // NOT 'none'. Reading listings can never establish that a template has
+        // no website-link capability — only that the ones read did not use it.
+        // IBM Partner Plus is the proof: three profiles under
+        // /partnerplus/directory/company/ carried no website link, and the same
+        // template serves prolifics.de, gbm.net and deloitte.com.au on other
+        // profiles. Absence in a sample is absence in a sample.
+        noLinkObserved: true,
         indexability,
         // Kept so "there is a button but no anchor" stays distinguishable from
         // "there is nothing here at all".
@@ -419,14 +497,50 @@ async function researchOne(page, target) {
   }
 
   if (!inspected.length) {
-    return { state: 'UNREADABLE', why: 'the listing pages could not be read' };
+    return {
+      state: 'UNREADABLE',
+      why: 'the listing pages could not be read',
+      observations: discovered,
+    };
   }
 
   // Two templates that disagree are not one fact. "mixed" is the honest answer
   // and it carries both observations.
+  // What was seen on each page that opened, kept independently of what it was
+  // judged to mean. A verdict can be superseded later; these cannot.
+  const observed = discovered.concat(inspected.map((i) => ({
+    observedAt: today(),
+    kind: 'listing-read',
+    url: i.listingUrl,
+    externalUrl: i.externalUrl || null,
+    relTokens: i.relTokens || null,
+    anchorText: i.anchorText || null,
+    indexability: i.indexability || null,
+    // Why this page did not produce a verdict, where it did not.
+    unattributed: i.backlinkType ? undefined : true,
+  })));
+
+  // Pages that were read and showed no website link. Recorded as an
+  // observation, never promoted to a claim about the platform.
+  const withoutLink = inspected.filter((i) => i.noLinkObserved);
   const usable = inspected.filter((i) => i.backlinkType);
   if (!usable.length) {
-    return { state: 'UNREADABLE', why: 'a website link was found but its rel attribute could not be read' };
+    if (withoutLink.length) {
+      return {
+        // Its own state, deliberately not RESOLVED: the applier writes only
+        // resolved findings, so this can never reach a canonical field.
+        state: 'LISTING_WITHOUT_LINK',
+        why: `${withoutLink.length} public listing(s) read; none rendered an external website link, `
+          + 'which does not establish that the template cannot',
+        listingIndexability: withoutLink[0].indexability,
+        observations: observed,
+      };
+    }
+    return {
+      state: 'UNREADABLE',
+      why: 'a website link was found but its rel attribute could not be read',
+      observations: observed,
+    };
   }
   const types = [...new Set(usable.map((i) => i.backlinkType))];
   if (types.length > 1) {
@@ -437,6 +551,7 @@ async function researchOne(page, target) {
       listingIndexability: usable[0].indexability,
       why: `two listings differ: ${types.join(' and ')}`,
       templates: inspected,
+      observations: observed,
     };
   }
 
@@ -450,6 +565,7 @@ async function researchOne(page, target) {
       ? 'the public listing renders no external website link'
       : `the listing's website anchor carries rel=${JSON.stringify(one.relTokens.join(' '))}`,
     templates: inspected,
+    observations: observed,
   };
 }
 
@@ -457,7 +573,7 @@ async function researchOne(page, target) {
 
 function targets() {
   const wanted = arg('--collection');
-  const out = [];
+  let out = [];
   for (const [name, C] of Object.entries(COLLECTIONS)) {
     if (wanted && wanted !== name) continue;
     const rows = JSON.parse(fs.readFileSync(C.file, 'utf8'));
@@ -469,17 +585,64 @@ function targets() {
       out.push({
         collection: name, id: r.id, country: r.country, url,
         domainRating: r.domainRating ?? null,
+        // Whether this source has a known route. Used ONLY to decide what to
+        // research first: a source somebody can actually publish on is where
+        // knowing the link type changes a decision. It is not evidence, and
+        // the ownership contract will not let it become any.
+        actionable: Boolean(r.submissionUrl || r.claimUrl || r.sellerActionUrl
+          || r.pressReleaseUrl || r.pitchUrl || r.advertisingUrl),
         key: `link|${name}|${r.id}`,
       });
     }
   }
+  // ── COHORT SELECTION ────────────────────────────────────────────────────
+  //
+  // Driven by what the previous pass actually observed, so a re-run spends its
+  // time where evidence is closest rather than starting again. The states come
+  // from the derived report; nothing here reads a canonical field.
+  const cohort = arg('--cohort');
+  if (cohort) {
+    // Required lazily: the reporter reads the collections this file also reads,
+    // and loading it at module scope would make --inventory pay for it.
+    // eslint-disable-next-line global-require
+    const EV = require('./report-link-evidence.cjs');
+    const state = new Map();
+    for (const r of EV.derive()) state.set(`${r.collection}:${r.id}`, r);
+    const wanted = {
+      'discovered-not-read': 'PUBLIC_LISTING_DISCOVERED_NOT_READ',
+      unattributed: 'PUBLIC_LISTING_OBSERVED_LINK_UNATTRIBUTED',
+      'no-labelled-link': 'PUBLIC_LISTING_OBSERVED_NO_LABELLED_LINK',
+      'true-unknown': 'UNKNOWN',
+      'no-listing': 'NO_PUBLIC_LISTING_DISCOVERED',
+    }[cohort];
+    if (!wanted) throw new Error(`unknown cohort ${cohort}`);
+    const readyOnly = process.argv.includes('--ready');
+    const freeOnly = process.argv.includes('--free');
+    out = out.filter((t) => {
+      const r = state.get(`${t.collection}:${t.id}`);
+      if (!r || r.evidenceState !== wanted) return false;
+      if (readyOnly && !r.ready) return false;
+      if (freeOnly && !r.free) return false;
+      return true;
+    });
+  }
+
   const country = arg('--country');
+  const DENSE = new Set(['united-states', 'germany', 'united-kingdom', 'india', 'france',
+    'japan', 'brazil', 'canada', 'spain', 'italy', 'netherlands', 'poland', 'australia']);
+  const actionableOnly = process.argv.includes('--actionable');
   return out
     .filter((t) => !country || t.country === country)
-    // Highest Domain Rating first — as a research ORDER only. DR is not
-    // evidence about anything this file records, and the ownership contract
-    // will not let it become any.
-    .sort((a, b) => (b.domainRating ?? -1) - (a.domainRating ?? -1) || (a.id < b.id ? -1 : 1));
+    .filter((t) => !actionableOnly || t.actionable)
+    // Research ORDER, and nothing more. A source somebody can publish on, in a
+    // market with many of them, is where the answer changes a decision — so
+    // that is where the browser goes first. None of these three is evidence
+    // about the anchor, and the field ownership contract refuses to let any of
+    // them write here.
+    .sort((a, b) => (Number(b.actionable) - Number(a.actionable))
+      || (Number(DENSE.has(b.country)) - Number(DENSE.has(a.country)))
+      || ((b.domainRating ?? -1) - (a.domainRating ?? -1))
+      || (a.id < b.id ? -1 : 1));
 }
 
 // ── RUN ─────────────────────────────────────────────────────────────────────
@@ -625,7 +788,7 @@ function runInventory() {
 
 module.exports = {
   FINDINGS, targets, researchOne, runApply, classifyRel, targetTypeOf,
-  pickWebsiteAnchor, indexabilityOf, settle, REDIRECT_PARAM, REDIRECT_PATH,
+  pickWebsiteAnchor, indexabilityOf, settle, REDIRECT_PARAM, REDIRECT_PATH, wrongCountry,
   NOT_A_LISTING, LISTING_PATH, LISTING_TAIL, WEBSITE_LABEL,
 };
 

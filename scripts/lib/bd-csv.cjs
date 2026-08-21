@@ -41,6 +41,9 @@ const COLUMNS = [
   // listing was never inspected is the one error this dimension may not make,
   // and a spreadsheet is where such a value becomes permanent.
   'link_type', 'link_target_type', 'listing_page_indexability',
+  // When the listing was inspected. A link type without a date is a claim
+  // whose age the reader cannot judge, and directories change this quietly.
+  'link_evidence_checked_at',
 ];
 
 // Columns that must NEVER appear. Asserted by test rather than trusted.
@@ -86,6 +89,7 @@ function rowFor(record) {
     record.backlinkType || '',
     record.linkTargetType || '',
     record.listingIndexability || '',
+    (record.backlinkProvenance || {}).observedAt || '',
   ];
 }
 

@@ -69,9 +69,11 @@ function schemaOf(html) {
   const jurisdiction = /<select[^>]*data-bd-jurisdiction-select[^>]*>([\s\S]*?)<\/select>/.exec(html);
   // Read the same way every other control is: from the page, never assumed.
   const linkType = /<select[^>]*data-bd-link-type[^>]*>([\s\S]*?)<\/select>/.exec(html);
+  const listingPage = /<select[^>]*data-bd-listing-page[^>]*>([\s\S]*?)<\/select>/.exec(html);
   return {
     facets,
     linkTypes: linkType ? optionValues(linkType[1]) : [],
+    indexability: listingPage ? optionValues(listingPage[1]) : [],
     filters: [...html.matchAll(/data-bd-filter="([^"]+)"/g)].map((m) => m[1].toLowerCase()),
     sorts: sort ? optionValues(sort[1]) : [],
     jurisdictions: jurisdiction ? optionValues(jurisdiction[1]) : [],
@@ -942,7 +944,10 @@ test('the export columns are the identity plus every dimension the page offers',
   // — and they appear only where the page offers the link-type control, which
   // itself renders only where records carry the evidence. The property is
   // unchanged: derived from the controls, never hand-listed.
-  const LINK_COLUMNS = ['link_type', 'link_target_type', 'listing_page_indexability'];
+  const LINK_COLUMNS = ['link_type', 'link_target_type', 'listing_page_indexability',
+    // When the listing was inspected. A link type whose age the reader cannot
+    // judge is a claim, not a fact.
+    'link_evidence_checked_at'];
   for (const family of FAMILIES) {
     const schema = schemaOf(htmlFor(family.page));
     const columns = D.exportColumns(schema).map((c) => c.key);

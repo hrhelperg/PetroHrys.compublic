@@ -148,8 +148,43 @@ class Ledger {
 
   // The durable moment. A verdict is on disk before the next navigation
   // starts, so the worst an interruption can cost is the record in flight.
+  // ── RAW EVIDENCE IS APPEND-ONLY ───────────────────────────────────────────
+  //
+  // A verdict may be superseded, retracted, downgraded or reclassified. What
+  // was OBSERVED may not be deleted, because the observation is the expensive
+  // part and the verdict is the cheap one.
+  //
+  // This corpus learned that twice in one phase. Sixteen link-value findings
+  // were retracted by rewriting them with `templates: undefined`, which threw
+  // away real rel tokens and external URLs that could not be recovered from
+  // git, because the retraction preceded the commit. And 841 records recorded
+  // that a listing had been DISCOVERED without ever recording which listing —
+  // so "re-read the page we already found" turned out to be impossible.
+  //
+  // So `observations` may only grow. A rewrite that would shorten or drop it is
+  // refused here rather than in each researcher, because the researchers are
+  // where the mistake was made.
+  static observationsOf(finding) {
+    return Array.isArray(finding && finding.observations) ? finding.observations : [];
+  }
+
   record(finding) {
     if (!finding || !finding.key) throw new Error('a finding without an identity key cannot be checkpointed');
+    const had = Ledger.observationsOf(this.byKey.get(finding.key));
+    if (had.length) {
+      const now = Ledger.observationsOf(finding);
+      if (now.length < had.length) {
+        throw new Error(`${finding.key}: a retraction may not delete raw evidence — `
+          + `${had.length} observation(s) recorded, ${now.length} in the replacement. `
+          + 'Supersede the verdict and keep what was seen.');
+      }
+      for (let i = 0; i < had.length; i += 1) {
+        if (JSON.stringify(now[i]) !== JSON.stringify(had[i])) {
+          throw new Error(`${finding.key}: observation ${i} was rewritten. `
+            + 'Raw evidence is append-only; add a newer observation instead.');
+        }
+      }
+    }
     this.byKey.set(finding.key, finding);
     if (!this.journal) this.journal = fs.openSync(this.journalFile, 'a');
     fs.writeSync(this.journal, `${JSON.stringify(finding)}\n`);

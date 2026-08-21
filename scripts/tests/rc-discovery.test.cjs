@@ -296,7 +296,12 @@ test('the browser and the tests share one implementation, byte for byte', () => 
 test('the client decides nothing on its own', () => {
   const client = read('js/business-directories.js');
   // The matching logic must be delegated, not reimplemented alongside it.
-  assert.ok(/D\.evaluate\(/.test(client), 'the client does not call the shared predicate');
+  // The client now calls the BATCH entry point — one pass over the record
+  // store instead of one call per row — so the guard accepts either. What it
+  // still refuses is a client that decides for itself.
+  assert.ok(/D\.evaluate(All)?\(/.test(client), 'the client does not call the shared predicate');
+  assert.ok(!/function\s+\w*[Mm]atches\w*\s*\(/.test(client),
+    'the client has grown a matcher of its own');
   const body = client.replace(/\/\*[\s\S]*?\*\//g, '').replace(/^\s*\/\/.*$/gm, '');
   assert.ok(!/indexOf\(' ' \+ want \+ ' '\)/.test(body),
     'the client still contains its own facet matcher');

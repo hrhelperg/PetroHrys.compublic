@@ -25,6 +25,7 @@ const ROOT = path.resolve(__dirname, '..', '..');
 const L = require(path.join(ROOT, 'scripts/research-link-value.cjs'));
 const S = require(path.join(ROOT, 'scripts/lib/bd-schema.cjs'));
 const SAFE = require(path.join(ROOT, 'scripts/lib/rc-safe-apply.cjs'));
+const CK = require(path.join(ROOT, 'scripts/lib/rc-checkpoint.cjs'));
 
 const LISTING = 'https://dir.test/company/acme-ltd-1234';
 const anchorPage = (text, href, rel = '') => ({
@@ -388,4 +389,392 @@ test('a blog subdomain is not a listing, however its path reads', () => {
   }
   assert.ok(!pattern.test('www.ibm.com'));
   assert.ok(!pattern.test('trustedtraders.which.co.uk'));
+});
+
+// ── LISTING INDEXABILITY IS ITS OWN FACT ───────────────────────────────────
+
+test('G: page indexability is stored and filtered separately from link type', () => {
+  const owned = SAFE.ownedFields('linkvalue', 'directories');
+  assert.ok(owned.includes('backlinkType') && owned.includes('listingIndexability'));
+  // Two independent filters, neither derived from the other.
+  const known = { linkTypes: ['follow'], indexability: ['indexable'], facets: [], filters: [], sorts: [] };
+  const followOnNoindex = { backlinkType: 'dofollow', listingIndexability: 'noindex' };
+  const nofollowOnIndexable = { backlinkType: 'nofollow', listingIndexability: 'indexable' };
+  const D2 = require(path.join(ROOT, 'scripts/lib/bd-discovery.cjs'));
+  const want = (linkType, indexability) => D2.selectionFor(
+    { linkType, indexability, facets: {}, filters: [] }, known,
+  );
+  assert.equal(D2.evaluate(followOnNoindex, want('follow', '')).visible, true);
+  assert.equal(D2.evaluate(followOnNoindex, want('follow', 'indexable')).visible, false,
+    'a follow link on a noindex page must not answer "indexable"');
+  assert.equal(D2.evaluate(nofollowOnIndexable, want('', 'indexable')).visible, true);
+  assert.equal(D2.evaluate(nofollowOnIndexable, want('follow', 'indexable')).visible, false);
+});
+
+test('M9: a noindex page is never reported as indexable', () => {
+  assert.equal(L.indexabilityOf({ metaRobots: 'noindex', text: '' }), 'noindex');
+  assert.equal(L.indexabilityOf({ metaRobots: 'noindex, nofollow', text: '' }), 'noindex');
+  assert.equal(L.indexabilityOf({ metaRobots: 'none', text: '' }) === 'indexable', false,
+    '"none" means noindex,nofollow');
+});
+
+test('M14: unknown is never converted into "no external link"', () => {
+  const D2 = require(path.join(ROOT, 'scripts/lib/bd-discovery.cjs'));
+  const known = { linkTypes: ['none', 'unknown'], facets: [], filters: [], sorts: [] };
+  const unresearched = {};
+  const noLink = { backlinkType: 'none' };
+  const askNone = D2.selectionFor({ linkType: 'none', facets: {}, filters: [] }, known);
+  assert.equal(D2.evaluate(unresearched, askNone).visible, false,
+    'a source nobody inspected must not answer "no external link"');
+  assert.equal(D2.evaluate(noLink, askNone).visible, true);
+  // And the schema refuses a "none" that carries a link.
+  assert.ok(S.backlinkProblems({
+    backlinkType: 'none',
+    backlinkProvenance: { listingUrl: 'https://d.test/c/1', observedAt: '2026-08-21', externalUrl: 'https://a.test/' },
+  }).length);
+});
+
+// ── M12 / M13: EVIDENCE DOES NOT TRAVEL ────────────────────────────────────
+
+test('M12: one country\'s listing evidence is not propagated to siblings', () => {
+  // Identity is country + host, and the applier keys on the record id. A
+  // finding carries the listing URL it came from, so a sibling record cannot
+  // silently inherit it.
+  const src = fs.readFileSync(path.join(ROOT, 'scripts/research-link-value.cjs'), 'utf8');
+  assert.match(src, /byKey\.set\(`\$\{f\.collection\}:\$\{f\.id\}`, f\)/,
+    'findings are applied per record identity, never per host');
+  assert.ok(!/registrable\(|hostOf\(r\.website\)/.test(src.slice(src.indexOf('function runApply'))),
+    'the applier must not group records by host');
+});
+
+test('M13: a paid template does not speak for the free one', () => {
+  // Two templates that disagree resolve to mixed, and the schema refuses
+  // "mixed" unless two differing templates were actually inspected.
+  const oneOnly = S.backlinkProblems({
+    backlinkType: 'mixed',
+    backlinkProvenance: {
+      listingUrl: 'https://d.test/c/1', observedAt: '2026-08-21',
+      templates: [{ listingUrl: 'https://d.test/c/1', backlinkType: 'dofollow' }],
+    },
+  });
+  assert.ok(oneOnly.some(([f]) => f === 'backlinkProvenance.templates'));
+  const src = fs.readFileSync(path.join(ROOT, 'scripts/research-link-value.cjs'), 'utf8');
+  assert.match(src, /if \(types\.length > 1\)[\s\S]{0,240}backlinkType: 'mixed'/,
+    'the researcher must not pick the more favourable of two templates');
+});
+
+// ── M15: A LINK IS NOT A ROUTE ─────────────────────────────────────────────
+
+test('M15: FOLLOW cannot create Planner READY', () => {
+  const engine = fs.readFileSync(path.join(ROOT, 'scripts/lib/dp-engine.cjs'), 'utf8');
+  for (const field of ['backlinkType', 'listingIndexability', 'linkTargetType', 'backlinkProvenance']) {
+    assert.ok(!engine.includes(field), `the planner must not read ${field}`);
+  }
+});
+
+// ── M17: THE CSV AGREES WITH THE TABLE ─────────────────────────────────────
+
+test('M17: the export reads the same fields the filter does', () => {
+  const D2 = require(path.join(ROOT, 'scripts/lib/bd-discovery.cjs'));
+  const known = { linkTypes: ['follow'], indexability: ['indexable'], facets: [], filters: [], sorts: [] };
+  const cols = D2.exportColumns(known).map((c) => c.key);
+  for (const c of ['link_type', 'link_target_type', 'listing_page_indexability',
+    'link_evidence_checked_at']) {
+    assert.ok(cols.includes(c), `${c} must be exported where the page offers the filter`);
+  }
+  // And an unresearched record exports blank, never a guess.
+  assert.equal(D2.exportCell({}, { key: 'link_type', from: 'linkType' }), '');
+  assert.equal(D2.exportCell({}, { key: 'listing_page_indexability', from: 'listingIndexability' }), '');
+  assert.equal(D2.exportCell({}, { key: 'link_evidence_checked_at', from: 'linkCheckedAt' }), '');
+  // A measured one exports what was measured.
+  assert.equal(D2.exportCell({ backlinkType: 'nofollow' }, { key: 'link_type', from: 'linkType' }), 'nofollow');
+});
+
+// ── M18: THE APPLIER STAYS INSIDE ITS CONTRACT ─────────────────────────────
+
+test('M18: the applier cannot touch a description or a note', () => {
+  const row = { id: 'x', note: 'written by a person', description: 'also written by a person' };
+  for (const field of ['note', 'description', 'shortNote', 'limitations']) {
+    assert.throws(
+      () => SAFE.applyPatch(row, { [field]: 'rewritten' }, { owner: 'linkvalue', collection: 'directories' }),
+      /owns only|no research pass may change/,
+      `linkvalue must not be able to write ${field}`,
+    );
+  }
+  assert.equal(row.note, 'written by a person');
+  assert.equal(row.description, 'also written by a person');
+});
+
+test('the applier validates against the schema before it writes', () => {
+  const src = fs.readFileSync(path.join(ROOT, 'scripts/research-link-value.cjs'), 'utf8');
+  const apply = src.slice(src.indexOf('function runApply'));
+  assert.match(apply, /S\.backlinkProblems\(\{ \.\.\.r, \.\.\.patch \}\)/,
+    'a finding that cannot justify itself must never reach the corpus');
+  assert.match(apply, /tally\.refused \+= 1/);
+});
+
+// ── PRODUCT WORDING STAYS FACTUAL ──────────────────────────────────────────
+
+test('no locale promises an SEO outcome', () => {
+  // Two groups. The first may never appear anywhere. The second is the word
+  // "guarantee" in four languages, which the help text is allowed to use
+  // BECAUSE it is negating it — and the separate test below checks that the
+  // negation is actually there. Keying the exemption off the English stem
+  // missed "garantiert" and "garantiza" entirely.
+  const NEVER = [/passes? authority/i, /will (be )?index/i, /higher rank/i, /boost.*rank/i];
+  const ONLY_NEGATED = [/guarantee/i, /garantiz/i, /garantie/i, /garantiert/i, /garanti/i];
+  for (const loc of ['en', 'de', 'es', 'fr']) {
+    const strings = JSON.parse(fs.readFileSync(path.join(ROOT, `data/i18n/${loc}.json`), 'utf8'));
+    for (const [key, value] of Object.entries(strings)) {
+      if (!/linkType|listingPage/.test(key)) continue;
+      for (const bad of NEVER) {
+        assert.ok(!bad.test(value), `${loc} ${key} promises an outcome: ${value}`);
+      }
+      if (key === 'bd.linkType.help') continue;
+      for (const bad of ONLY_NEGATED) {
+        assert.ok(!bad.test(value), `${loc} ${key} uses the language of guarantees: ${value}`);
+      }
+    }
+  }
+});
+
+test('the help text says plainly that nothing downstream is guaranteed', () => {
+  for (const loc of ['en', 'de', 'es', 'fr']) {
+    const strings = JSON.parse(fs.readFileSync(path.join(ROOT, `data/i18n/${loc}.json`), 'utf8'));
+    const help = strings['bd.linkType.help'];
+    assert.ok(help, `${loc} has no help text`);
+    assert.match(help, /not guaranteed|nicht garantiert|no se garantiza|ne sont pas garantis/i);
+  }
+});
+
+// ── TENDERS ARE OUT OF SCOPE, DELIBERATELY ─────────────────────────────────
+
+test('tender platforms are not given a link-value field they cannot have', () => {
+  const src = fs.readFileSync(path.join(ROOT, 'scripts/research-link-value.cjs'), 'utf8');
+  const collections = src.slice(src.indexOf('const COLLECTIONS'), src.indexOf('// Hosts a listing'));
+  assert.ok(!collections.includes('tenders-procurement/platforms.json'),
+    'a procurement portal publishes no public business profile carrying the supplier website');
+  assert.match(src, /Tender platforms are deliberately absent/);
+  const owned = SAFE.OWNERSHIP.linkvalue;
+  assert.ok(!owned.tenders, 'linkvalue owns nothing on tenders');
+});
+
+test('M12: a shared host does not let one country speak for another', () => {
+  // FindYello is why this exists. jm-findyello is a Jamaica record whose
+  // website is the regional root findyello.com/, and every listing reachable
+  // from it was /barbados/... — so Jamaica was given Barbados's evidence purely
+  // because the two share a host. Sharing a host is not sharing a template.
+  assert.equal(L.wrongCountry('https://www.findyello.com/barbados/steamatic/profile/', 'jamaica'), true);
+  assert.equal(L.wrongCountry('https://www.findyello.com/barbados/steamatic/profile/', 'barbados'), false);
+  // A listing with no country in its path is judged on other grounds.
+  assert.equal(L.wrongCountry('https://www.cylex.us.com/company/x-1234.html', 'united-states'), false);
+  assert.equal(L.wrongCountry('https://www.example.de/firmen/acme-1234.html', 'germany'), false);
+});
+
+test('M12: no applied record carries another country\'s listing', () => {
+  const files = ['data/business-directories/opportunities.json',
+    'data/marketplaces/marketplaces.json', 'data/media-pr-publishing/media-platforms.json'];
+  let checked = 0;
+  for (const rel of files) {
+    for (const r of JSON.parse(fs.readFileSync(path.join(ROOT, rel), 'utf8'))) {
+      const p = r.backlinkProvenance;
+      if (!p || !p.listingUrl) continue;
+      checked += 1;
+      assert.equal(L.wrongCountry(p.listingUrl, r.country), false,
+        `${r.id} (${r.country}) cites ${p.listingUrl}`);
+    }
+  }
+  assert.ok(checked > 0, 'the cohort must not be empty');
+});
+
+// ── EVIDENCE STATES: SEPARATING WITHOUT PROMOTING ──────────────────────────
+//
+// The corpus recorded 1961 sources as UNKNOWN. That one word was covering five
+// different situations the research pass had already distinguished — a listing
+// read and carrying no link, a listing read whose link could not be attributed,
+// a listing discovered and unread, a platform offering no discoverable listing,
+// and a platform that never rendered. Only the last is ignorance.
+//
+// Separating them is worth doing only if it moves nobody up the ladder.
+
+const EV = require(path.join(ROOT, 'scripts/report-link-evidence.cjs'));
+
+test('the deriver opens nothing and writes no canonical field', () => {
+  const src = fs.readFileSync(path.join(ROOT, 'scripts/report-link-evidence.cjs'), 'utf8');
+  for (const forbidden of ['cdp.cjs', 'launch(', 'openPage', 'fetch(', 'https.get', 'http.get']) {
+    assert.ok(!src.includes(forbidden), `${forbidden} would mean new network work`);
+  }
+  // The only file it may write is its own derived artefact.
+  const writes = [...src.matchAll(/writeFileSync\(([A-Za-z_.]+)/g)].map((m) => m[1]);
+  assert.deepEqual(writes, ['ARTEFACT'], 'the deriver may write only its own artefact');
+});
+
+test('nothing is promoted: VERIFIED_FOLLOW only where the corpus already says so', () => {
+  const rows = EV.derive();
+  assert.ok(rows.length > 1000, 'the cohort must not be empty');
+  for (const r of rows) {
+    if (r.evidenceState === 'VERIFIED_FOLLOW') {
+      assert.equal(r.canonicalLinkType, 'dofollow',
+        `${r.id} claims verified follow without the canonical fact`);
+    }
+    if (r.canonicalLinkType === 'dofollow') {
+      assert.equal(r.evidenceState, 'VERIFIED_FOLLOW');
+    }
+  }
+});
+
+test('an absent listing is never read as an absent link', () => {
+  // The distinction the brief is most explicit about: NO_PUBLIC_LISTING_DISCOVERED
+  // is a fact about the platform, and says nothing about what its listings carry.
+  assert.equal(EV.evidenceStateOf({
+    state: 'NO_LISTING_FOUND', why: 'no public business listing was reachable from the front page',
+  }), 'NO_PUBLIC_LISTING_DISCOVERED');
+  assert.equal(EV.evidenceStateOf({
+    state: 'RESOLVED', backlinkType: 'none',
+  }), 'PUBLIC_LISTING_OBSERVED_NO_EXTERNAL_LINK');
+  // And neither of those is the other.
+  assert.notEqual('NO_PUBLIC_LISTING_DISCOVERED', 'PUBLIC_LISTING_OBSERVED_NO_EXTERNAL_LINK');
+
+  const rows = EV.derive();
+  for (const r of rows) {
+    if (r.evidenceState === 'NO_PUBLIC_LISTING_DISCOVERED') {
+      assert.equal(r.canonicalLinkType, null,
+        `${r.id} has a canonical link type from a platform where no listing was found`);
+    }
+  }
+});
+
+test('a discovered-but-unread listing is not evidence about its links', () => {
+  assert.equal(EV.evidenceStateOf({
+    state: 'UNREADABLE', why: 'the listing pages could not be read',
+  }), 'PUBLIC_LISTING_DISCOVERED_NOT_READ');
+  // A platform that never rendered is plain ignorance, and must not borrow the
+  // stronger state just because both were filed as UNREADABLE.
+  assert.equal(EV.evidenceStateOf({
+    state: 'UNREADABLE', why: 'browser: navigation timeout',
+  }), 'UNKNOWN');
+});
+
+test('disqualified evidence is not weak evidence', () => {
+  // An event page, and another country's listing on a shared host. Both were
+  // refused for cause, so neither leaves a residue on the ladder.
+  assert.equal(EV.evidenceStateOf({
+    state: 'UNRESOLVED', why: 'the only evidence came from an event page or a platform link, not a business placement',
+  }), 'UNKNOWN');
+  assert.equal(EV.evidenceStateOf({
+    state: 'UNRESOLVED', why: "the only listings reachable were another country's on a shared host",
+  }), 'UNKNOWN');
+});
+
+test('an unattributed link is not "no link", and not a follow link either', () => {
+  const s = EV.evidenceStateOf({
+    state: 'UNRESOLVED', why: 'the website link was not labelled as one by the operator',
+  });
+  assert.equal(s, 'PUBLIC_LISTING_OBSERVED_LINK_UNATTRIBUTED');
+  assert.notEqual(s, 'PUBLIC_LISTING_OBSERVED_NO_EXTERNAL_LINK');
+  assert.ok(!s.startsWith('VERIFIED'));
+});
+
+test('an indexable page never becomes a follow link', () => {
+  const rows = EV.derive();
+  const indexableUnproven = rows.filter((r) => r.listingIndexability === 'indexable'
+    && !r.canonicalLinkType);
+  for (const r of indexableUnproven) {
+    assert.notEqual(r.evidenceState, 'VERIFIED_FOLLOW',
+      `${r.id} was promoted by its page being indexable`);
+  }
+  // And the two axes stay separate in the schema.
+  const owned = SAFE.ownedFields('linkvalue', 'directories');
+  assert.ok(owned.includes('backlinkType') && owned.includes('listingIndexability'));
+});
+
+test('the derived states cover every record exactly once', () => {
+  const rows = EV.derive();
+  const known = new Set(EV.STATES);
+  for (const r of rows) assert.ok(known.has(r.evidenceState), `${r.evidenceState} is not on the ladder`);
+  // And the separation is real rather than a relabelling of everything as
+  // UNKNOWN: most of the corpus must land on a rung that says something.
+  const informative = rows.filter((r) => r.evidenceState !== 'UNKNOWN').length;
+  assert.ok(informative > rows.length / 2,
+    `only ${informative} of ${rows.length} records carry any observation`);
+});
+
+// ── A SAMPLE OF LISTINGS CANNOT PROVE A TEMPLATE HAS NO LINK ───────────────
+//
+// This one was applied and then withdrawn, which is the useful part. Three IBM
+// Partner Plus profiles under /partnerplus/directory/company/ rendered no
+// website link, and the verdict "this platform provides none" was written into
+// the corpus. The same template serves prolifics.de, gbm.net and
+// deloitte.com.au on other profiles — observed earlier in the same phase. The
+// capability existed; the sample simply had not used it.
+//
+// Absence in a sample is absence in a sample. NO_EXTERNAL_LINK is a claim about
+// what a template CAN do, and reading listings cannot reach it.
+
+test('the researcher never concludes NO_EXTERNAL_LINK from sampled listings', () => {
+  const src = fs.readFileSync(path.join(ROOT, 'scripts/research-link-value.cjs'), 'utf8');
+  assert.ok(!/backlinkType: 'none'/.test(src),
+    'reading listings must not be able to assert that a template has no link capability');
+  assert.match(src, /noLinkObserved: true/, 'it is recorded as an observation instead');
+  assert.match(src, /state: 'LISTING_WITHOUT_LINK'/);
+  // And that state is not RESOLVED, so the applier — which writes only resolved
+  // findings — can never carry it into a canonical field.
+  const apply = src.slice(src.indexOf('function runApply'));
+  assert.match(apply, /f\.state === 'RESOLVED'/);
+  assert.ok(!apply.includes('LISTING_WITHOUT_LINK'));
+});
+
+test('no record claims NO_EXTERNAL_LINK on sampled evidence', () => {
+  let checked = 0;
+  for (const rel of ['data/business-directories/opportunities.json',
+    'data/marketplaces/marketplaces.json', 'data/media-pr-publishing/media-platforms.json']) {
+    for (const r of JSON.parse(fs.readFileSync(path.join(ROOT, rel), 'utf8'))) {
+      checked += 1;
+      assert.notEqual(r.backlinkType, 'none',
+        `${r.id} asserts a template-level absence that listings cannot establish`);
+    }
+  }
+  assert.ok(checked > 1000, 'the cohort must not be empty');
+});
+
+test('the observation survives the downgrade', () => {
+  // The verdict was withdrawn; what was seen was not. This is the append-only
+  // rule doing the job it was added for.
+  const l = new CK.Ledger(path.join(ROOT, 'data/link-value/.link-value.json'));
+  const downgraded = l.all().filter((f) => f.state === 'LISTING_WITHOUT_LINK');
+  l.close();
+  assert.ok(downgraded.length > 50, `expected a substantial cohort, got ${downgraded.length}`);
+  for (const f of downgraded) {
+    assert.equal(f.backlinkType, undefined, `${f.id} still carries a verdict`);
+    assert.ok(f.supersededReason, `${f.id} does not say why it was withdrawn`);
+    assert.ok((f.templates || []).length > 0 || (f.observations || []).length > 0,
+      `${f.id} lost the listings it read`);
+  }
+  // IBM is the case that proves the rule; it must be among them.
+  assert.ok(downgraded.some((f) => f.id === 'global-ibm-partners'));
+  assert.ok(downgraded.some((f) => f.id === 'mp-at-bazar'));
+});
+
+test('the derived state still says what was observed', () => {
+  // Downgrading the canonical claim must not erase the knowledge: these records
+  // are still "a public listing was read and showed no website link", which is
+  // more than UNKNOWN and less than a fact about the platform.
+  assert.equal(EV.evidenceStateOf({ state: 'LISTING_WITHOUT_LINK' }),
+    'PUBLIC_LISTING_OBSERVED_NO_EXTERNAL_LINK');
+  const rows = EV.derive();
+  const observed = rows.filter((r) => r.evidenceState === 'PUBLIC_LISTING_OBSERVED_NO_EXTERNAL_LINK');
+  assert.ok(observed.length > 50);
+  for (const r of observed) {
+    assert.equal(r.canonicalLinkType, null, `${r.id} was downgraded but kept a canonical claim`);
+  }
+});
+
+test('the verified findings were not touched by the downgrade', () => {
+  const rows = EV.derive();
+  const verified = rows.filter((r) => r.canonicalLinkType);
+  const kinds = {};
+  for (const r of verified) kinds[r.canonicalLinkType] = (kinds[r.canonicalLinkType] || 0) + 1;
+  assert.ok(kinds.dofollow >= 12, `follow verdicts lost: ${JSON.stringify(kinds)}`);
+  assert.ok(kinds.nofollow >= 8, `nofollow verdicts lost: ${JSON.stringify(kinds)}`);
+  assert.equal(kinds.none, undefined, 'no canonical none may remain');
 });

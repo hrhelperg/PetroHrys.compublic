@@ -196,6 +196,7 @@ test('every data attribute the client reads is emitted by the components', () =>
     // The link-value control, which renders only where records carry the
     // evidence — so the sample has to carry one.
     + components.linkTypeControl({ idPrefix: 'a', rows: [{ backlinkType: 'dofollow' }] })
+    + components.listingPageControl({ idPrefix: 'a', rows: [{ listingIndexability: 'indexable' }] })
     // The Media, PR & Publishing page shares this client script and emits one
     // attribute of its own: data-bd-facet-multi, which marks a facet whose row
     // value is a space-separated list. The property this audit protects is that
