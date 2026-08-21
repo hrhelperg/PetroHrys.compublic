@@ -275,3 +275,101 @@ test('the journal is scratch and never reaches the tracked corpus', () => {
     { cwd: ROOT, encoding: 'utf8' }).split('\n').filter(Boolean);
   assert.deepEqual(strays, [], `transient research scratch is committed: ${strays.join(', ')}`);
 });
+
+// ── RAW EVIDENCE IS APPEND-ONLY ────────────────────────────────────────────
+//
+// A verdict is cheap and an observation is expensive, so the two get different
+// rules. This corpus learned that twice in one phase: sixteen link-value
+// findings were retracted by rewriting them with `templates: undefined`, which
+// destroyed real rel tokens and external URLs that git could not return because
+// the retraction preceded the commit — and 841 records reported that a listing
+// had been DISCOVERED without ever recording which one, so re-reading a page we
+// had already found turned out to be impossible.
+
+test('retracting a classification cannot delete captured raw evidence', () => {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'ck-append-'));
+  const file = path.join(dir, 'findings.json');
+  const ledger = new CK.Ledger(file);
+
+  const observation = {
+    observedAt: '2026-08-21',
+    kind: 'listing-read',
+    url: 'https://directory.test/company/acme-1234',
+    externalUrl: 'https://acme.test/',
+    relTokens: ['nofollow'],
+  };
+  ledger.record({ key: 'k', state: 'RESOLVED', backlinkType: 'nofollow', observations: [observation] });
+
+  // The exact shape of the mistake: retract by dropping the evidence.
+  assert.throws(
+    () => ledger.record({ key: 'k', state: 'UNRESOLVED', observations: undefined }),
+    /may not delete raw evidence/,
+  );
+  assert.throws(
+    () => ledger.record({ key: 'k', state: 'UNRESOLVED', observations: [] }),
+    /may not delete raw evidence/,
+  );
+  // And quietly editing what was seen is refused too.
+  assert.throws(
+    () => ledger.record({
+      key: 'k',
+      state: 'UNRESOLVED',
+      observations: [{ ...observation, relTokens: [] }],
+    }),
+    /append-only/,
+  );
+
+  // The verdict may still be withdrawn — carrying the evidence forward.
+  ledger.record({
+    key: 'k',
+    state: 'UNRESOLVED',
+    supersededReason: 'the link was not labelled as the business website',
+    backlinkType: undefined,
+    observations: [observation],
+  });
+  const after = ledger.all().find((f) => f.key === 'k');
+  assert.equal(after.state, 'UNRESOLVED');
+  assert.equal(after.backlinkType, undefined, 'the verdict is gone');
+  assert.equal(after.observations.length, 1, 'the observation is not');
+  assert.equal(after.observations[0].relTokens[0], 'nofollow');
+  assert.equal(after.observations[0].externalUrl, 'https://acme.test/');
+
+  // A later look adds to the record rather than replacing it.
+  ledger.record({
+    key: 'k',
+    state: 'RESOLVED',
+    backlinkType: 'nofollow',
+    observations: [observation, { ...observation, observedAt: '2026-08-22' }],
+  });
+  assert.equal(ledger.all().find((f) => f.key === 'k').observations.length, 2);
+
+  ledger.close();
+  fs.rmSync(dir, { recursive: true, force: true });
+});
+
+test('a finding that never carried evidence is not forced to invent it', () => {
+  // The rule constrains loss, not authorship: a researcher may record a verdict
+  // with nothing attached, and may later attach something.
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'ck-append2-'));
+  const ledger = new CK.Ledger(path.join(dir, 'f.json'));
+  ledger.record({ key: 'k', state: 'PROTECTED' });
+  ledger.record({ key: 'k', state: 'PROTECTED', why: 'refused twice' });
+  ledger.record({ key: 'k', state: 'RESOLVED', observations: [{ url: 'https://x.test/1' }] });
+  assert.equal(ledger.all().find((f) => f.key === 'k').observations.length, 1);
+  ledger.close();
+  fs.rmSync(dir, { recursive: true, force: true });
+});
+
+test('the link-value researcher records what it discovered, not only what it read', () => {
+  const src = fs.readFileSync(path.join(ROOT, 'scripts/research-link-value.cjs'), 'utf8');
+  assert.match(src, /kind: 'listing-discovered'/,
+    'a discovered listing URL must be persisted before it is opened');
+  assert.match(src, /observations: discovered/,
+    'a listing that could not be read must still record which listing it was');
+  assert.match(src, /kind: 'listing-read'/);
+  // Every exit that reports a state carries what was seen at it.
+  const exits = src.match(/state: '(RESOLVED|UNREADABLE|PROTECTED|NO_LISTING_FOUND)'/g) || [];
+  const attached = src.match(/observations:/g) || [];
+  assert.ok(attached.length >= exits.length - 1,
+    `${exits.length} state exits but only ${attached.length} carry observations`);
+});

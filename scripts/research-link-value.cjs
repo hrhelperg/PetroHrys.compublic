@@ -165,6 +165,8 @@ function wrongCountry(listingUrl, recordCountry) {
 const LOGIN_WALL = ['sign in to view', 'log in to view', 'login required',
   'members only', 'please sign in', 'please log in', 'create an account to see'];
 
+const today = () => new Date().toISOString().slice(0, 10);
+
 const arg = (name) => {
   const i = process.argv.indexOf(name);
   return i === -1 ? null : (process.argv[i + 1] || true);
@@ -363,10 +365,18 @@ async function researchOne(page, target) {
 
   const home = await open(target.url);
   if (!home || home.error) {
-    return { state: 'UNREADABLE', why: `browser: ${(home && home.error) || 'no response'}` };
+    return {
+      state: 'UNREADABLE',
+      why: `browser: ${(home && home.error) || 'no response'}`,
+      observations: [{ observedAt: today(), kind: 'front-page-failed', url: target.url }],
+    };
   }
   if (REFUSAL.isRefusal(`${home.title}\n${home.text}`) || home.anchors.length < 5) {
-    return { state: 'PROTECTED', why: 'the front page refused a browser or rendered nothing' };
+    return {
+      state: 'PROTECTED',
+      why: 'the front page refused a browser or rendered nothing',
+      observations: [{ observedAt: today(), kind: 'front-page-refused', url: home.url }],
+    };
   }
 
   // A page showing ONE business, found among the directory's own links. Never
@@ -412,8 +422,18 @@ async function researchOne(page, target) {
   }
 
   if (!listings.length) {
-    return { state: 'NO_LISTING_FOUND', why: 'no public business listing was reachable from the front page' };
+    return {
+      state: 'NO_LISTING_FOUND',
+      why: 'no public business listing was reachable from the front page',
+      observations: [{ observedAt: today(), kind: 'front-page', url: home.url, listingsFound: 0 }],
+    };
   }
+
+  // Recorded BEFORE any of them is opened. 841 records in the previous pass
+  // said a listing had been discovered without saying which, so "re-read the
+  // page we already found" turned out to be impossible — the URL had only ever
+  // existed in memory.
+  const discovered = listings.map((u) => ({ observedAt: today(), kind: 'listing-discovered', url: u }));
 
   const inspected = [];
   for (const listingUrl of listings) {
@@ -471,14 +491,36 @@ async function researchOne(page, target) {
   }
 
   if (!inspected.length) {
-    return { state: 'UNREADABLE', why: 'the listing pages could not be read' };
+    return {
+      state: 'UNREADABLE',
+      why: 'the listing pages could not be read',
+      observations: discovered,
+    };
   }
 
   // Two templates that disagree are not one fact. "mixed" is the honest answer
   // and it carries both observations.
+  // What was seen on each page that opened, kept independently of what it was
+  // judged to mean. A verdict can be superseded later; these cannot.
+  const observed = discovered.concat(inspected.map((i) => ({
+    observedAt: today(),
+    kind: 'listing-read',
+    url: i.listingUrl,
+    externalUrl: i.externalUrl || null,
+    relTokens: i.relTokens || null,
+    anchorText: i.anchorText || null,
+    indexability: i.indexability || null,
+    // Why this page did not produce a verdict, where it did not.
+    unattributed: i.backlinkType ? undefined : true,
+  })));
+
   const usable = inspected.filter((i) => i.backlinkType);
   if (!usable.length) {
-    return { state: 'UNREADABLE', why: 'a website link was found but its rel attribute could not be read' };
+    return {
+      state: 'UNREADABLE',
+      why: 'a website link was found but its rel attribute could not be read',
+      observations: observed,
+    };
   }
   const types = [...new Set(usable.map((i) => i.backlinkType))];
   if (types.length > 1) {
@@ -489,6 +531,7 @@ async function researchOne(page, target) {
       listingIndexability: usable[0].indexability,
       why: `two listings differ: ${types.join(' and ')}`,
       templates: inspected,
+      observations: observed,
     };
   }
 
@@ -502,6 +545,7 @@ async function researchOne(page, target) {
       ? 'the public listing renders no external website link'
       : `the listing's website anchor carries rel=${JSON.stringify(one.relTokens.join(' '))}`,
     templates: inspected,
+    observations: observed,
   };
 }
 
