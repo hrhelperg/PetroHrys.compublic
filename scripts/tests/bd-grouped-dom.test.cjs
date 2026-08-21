@@ -299,11 +299,13 @@ test('the suite fails when first-tbody-only selection is reintroduced', () => {
 });
 
 test('the suite fails when sorting is made group-destructive', () => {
-  // Sort every record globally and pour them all into the first tbody.
+  // Pour every group's rows into the FIRST tbody. The engine now places rows
+  // per group inside one re-order pass, so the mutation targets the line that
+  // decides WHICH tbody receives them — which is the same fault the previous
+  // shape injected, expressed against the current code.
   const broken = CLIENT.replace(
-    /    groups\.forEach\(function \(g\) \{\n      order\.sortRecords\(g\.records, key\)\.forEach\(function \(record\) \{\n        g\.body\.appendChild\(record\.row\);\n      \}\);\n    \}\);/,
-    '    order.sortRecords(records, key).forEach(function (record) {\n'
-    + '      groups[0].body.appendChild(record.row);\n    });',
+    'if (moved) g.body.appendChild(frag);',
+    'if (moved) groups[0].body.appendChild(frag);',
   );
   assert.notStrictEqual(broken, CLIENT, 'the mutation did not apply; the probe is vacuous');
   const failures = runSuiteAgainst(broken);

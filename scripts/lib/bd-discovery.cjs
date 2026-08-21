@@ -525,6 +525,29 @@
   // whose columns were listed by hand would drift from the controls exactly the
   // way a hand-written PARAM_ORDER would, and the failure would be quieter —
   // a column that silently stopped being exported.
+  // ── ONE PASS, NO DOM ────────────────────────────────────────────────────
+  //
+  // The predicate above decides one record. This decides all of them, and it is
+  // here rather than in the client because the client is the wrong place to
+  // hold a loop that must agree with the tests.
+  //
+  // What it returns is deliberately not "the rows to show": it is a verdict per
+  // record in the order given, plus the two counts the status line needs. The
+  // caller compares that against what it last applied and touches only the
+  // difference. The engine never learns what a row is.
+  function evaluateAll(records, selection) {
+    var visible = new Array(records.length);
+    var shown = 0;
+    var unknownHidden = 0;
+    for (var i = 0; i < records.length; i += 1) {
+      var verdict = evaluate(records[i], selection);
+      visible[i] = verdict.visible;
+      if (verdict.visible) shown += 1;
+      else if (verdict.hiddenForUnknown) unknownHidden += 1;
+    }
+    return { visible: visible, shown: shown, unknownHidden: unknownHidden };
+  }
+
   function exportColumns(known) {
     const columns = [{ key: 'name', from: 'name' }];
     for (const facet of facetsOf(known)) columns.push({ key: facet.name, from: 'facet' });
@@ -608,6 +631,7 @@
     matchesFacet: matchesFacet,
     triState: triState,
     evaluate: evaluate,
+    evaluateAll: evaluateAll,
     filter: filter,
     Q_MAX: Q_MAX,
     RESERVED: RESERVED,

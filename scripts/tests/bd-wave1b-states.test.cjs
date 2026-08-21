@@ -369,10 +369,11 @@ test('FAULT: first-tbody-only binding breaks the real page', () => {
 });
 
 test('FAULT: group-destructive sorting breaks the real page', () => {
+  // The engine places rows per group inside one re-order pass, so the fault is
+  // injected at the line choosing WHICH tbody receives them.
   const broken = CLIENT.replace(
-    /    groups\.forEach\(function \(g\) \{\n      order\.sortRecords\(g\.records, key\)\.forEach\(function \(record\) \{\n        g\.body\.appendChild\(record\.row\);\n      \}\);\n    \}\);/,
-    '    order.sortRecords(records, key).forEach(function (record) {\n'
-    + '      groups[0].body.appendChild(record.row);\n    });',
+    'if (moved) g.body.appendChild(frag);',
+    'if (moved) groups[0].body.appendChild(frag);',
   );
   assert.notStrictEqual(broken, CLIENT, 'the mutation did not apply; the probe is vacuous');
   const page = boot(US_PAGE, broken);

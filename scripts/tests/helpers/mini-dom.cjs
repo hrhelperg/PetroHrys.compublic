@@ -47,10 +47,30 @@ class Node {
   setAttribute(name, value) { this.attributes[name] = String(value); }
 
   appendChild(child) {
+    // A DocumentFragment appends its CHILDREN and is emptied, which is the
+    // whole reason the engine uses one: a re-order becomes a single insertion
+    // instead of one per row. Modelling it as an ordinary node would have the
+    // shim quietly disagree with the browser about where the rows ended up.
+    if (child.isFragment) {
+      const moving = child.children.slice();
+      child.children.length = 0;
+      for (const node of moving) this.appendChild(node);
+      return child;
+    }
     if (child.parentNode) child.parentNode.removeChild(child);
     child.parentNode = this;
     this.children.push(child);
     return child;
+  }
+
+  replaceChild(next, prev) {
+    const i = this.children.indexOf(prev);
+    if (i < 0) return prev;
+    if (next.parentNode) next.parentNode.removeChild(next);
+    this.children[i] = next;
+    next.parentNode = this;
+    prev.parentNode = null;
+    return prev;
   }
 
   removeChild(child) {
@@ -153,6 +173,12 @@ function createDocument(html) {
     querySelector: (s) => root.querySelector(s),
     querySelectorAll: (s) => root.querySelectorAll(s),
     createElement: (tag) => new Node(tag),
+    createComment: () => new Node('#comment'),
+    createDocumentFragment: () => {
+      const frag = new Node('#fragment');
+      frag.isFragment = true;
+      return frag;
+    },
     root,
   };
   return document;
