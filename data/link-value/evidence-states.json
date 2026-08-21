@@ -16,6 +16,14 @@
  ],
  "records": [
   {
+   "id": "us-yellowpages",
+   "collection": "directories",
+   "country": "united-states",
+   "canonicalLinkType": null,
+   "evidenceState": "NO_PUBLIC_LISTING_DISCOVERED",
+   "listingIndexability": null
+  },
+  {
    "id": "us-manta",
    "collection": "directories",
    "country": "united-states",
@@ -229,14 +237,6 @@
    "country": "global",
    "canonicalLinkType": null,
    "evidenceState": "NO_PUBLIC_LISTING_DISCOVERED",
-   "listingIndexability": null
-  },
-  {
-   "id": "global-goodfirms",
-   "collection": "directories",
-   "country": "global",
-   "canonicalLinkType": null,
-   "evidenceState": "PUBLIC_LISTING_DISCOVERED_NOT_READ",
    "listingIndexability": null
   },
   {
@@ -832,14 +832,6 @@
    "listingIndexability": null
   },
   {
-   "id": "ae-gulfyp",
-   "collection": "directories",
-   "country": "united-arab-emirates",
-   "canonicalLinkType": null,
-   "evidenceState": "PUBLIC_LISTING_DISCOVERED_NOT_READ",
-   "listingIndexability": null
-  },
-  {
    "id": "br-guiamais",
    "collection": "directories",
    "country": "brazil",
@@ -964,7 +956,7 @@
    "collection": "directories",
    "country": "global",
    "canonicalLinkType": null,
-   "evidenceState": "PUBLIC_LISTING_OBSERVED_LINK_UNATTRIBUTED",
+   "evidenceState": "NO_PUBLIC_LISTING_DISCOVERED",
    "listingIndexability": null
   },
   {
@@ -1320,14 +1312,6 @@
    "listingIndexability": null
   },
   {
-   "id": "ie-hotfrog",
-   "collection": "directories",
-   "country": "ireland",
-   "canonicalLinkType": null,
-   "evidenceState": "PUBLIC_LISTING_DISCOVERED_NOT_READ",
-   "listingIndexability": null
-  },
-  {
    "id": "ie-cylex",
    "collection": "directories",
    "country": "ireland",
@@ -1500,7 +1484,7 @@
    "collection": "directories",
    "country": "global",
    "canonicalLinkType": null,
-   "evidenceState": "PUBLIC_LISTING_OBSERVED_LINK_UNATTRIBUTED",
+   "evidenceState": "PUBLIC_LISTING_DISCOVERED_NOT_READ",
    "listingIndexability": null
   },
   {
@@ -1588,7 +1572,7 @@
    "collection": "directories",
    "country": "global",
    "canonicalLinkType": null,
-   "evidenceState": "PUBLIC_LISTING_OBSERVED_LINK_UNATTRIBUTED",
+   "evidenceState": "NO_PUBLIC_LISTING_DISCOVERED",
    "listingIndexability": null
   },
   {
@@ -1684,7 +1668,7 @@
    "collection": "directories",
    "country": "global",
    "canonicalLinkType": null,
-   "evidenceState": "PUBLIC_LISTING_OBSERVED_LINK_UNATTRIBUTED",
+   "evidenceState": "PUBLIC_LISTING_DISCOVERED_NOT_READ",
    "listingIndexability": null
   },
   {
@@ -2300,7 +2284,7 @@
    "collection": "directories",
    "country": "global",
    "canonicalLinkType": null,
-   "evidenceState": "PUBLIC_LISTING_OBSERVED_LINK_UNATTRIBUTED",
+   "evidenceState": "PUBLIC_LISTING_DISCOVERED_NOT_READ",
    "listingIndexability": null
   },
   {
@@ -2360,14 +2344,6 @@
    "listingIndexability": null
   },
   {
-   "id": "global-hotfrog-india",
-   "collection": "directories",
-   "country": "global",
-   "canonicalLinkType": null,
-   "evidenceState": "PUBLIC_LISTING_DISCOVERED_NOT_READ",
-   "listingIndexability": null
-  },
-  {
    "id": "sg-hotfrog",
    "collection": "directories",
    "country": "singapore",
@@ -2380,7 +2356,7 @@
    "collection": "directories",
    "country": "global",
    "canonicalLinkType": null,
-   "evidenceState": "PUBLIC_LISTING_OBSERVED_LINK_UNATTRIBUTED",
+   "evidenceState": "PUBLIC_LISTING_DISCOVERED_NOT_READ",
    "listingIndexability": null
   },
   {
@@ -2756,7 +2732,7 @@
    "collection": "directories",
    "country": "france",
    "canonicalLinkType": null,
-   "evidenceState": "PUBLIC_LISTING_OBSERVED_LINK_UNATTRIBUTED",
+   "evidenceState": "PUBLIC_LISTING_DISCOVERED_NOT_READ",
    "listingIndexability": null
   },
   {
@@ -3912,6 +3888,14 @@
    "listingIndexability": null
   },
   {
+   "id": "us-yellowbot",
+   "collection": "directories",
+   "country": "united-states",
+   "canonicalLinkType": null,
+   "evidenceState": "PUBLIC_LISTING_DISCOVERED_NOT_READ",
+   "listingIndexability": null
+  },
+  {
    "id": "us-trustlink",
    "collection": "directories",
    "country": "united-states",
@@ -4928,14 +4912,6 @@
    "listingIndexability": null
   },
   {
-   "id": "bz-travelbelize",
-   "collection": "directories",
-   "country": "belize",
-   "canonicalLinkType": null,
-   "evidenceState": "PUBLIC_LISTING_DISCOVERED_NOT_READ",
-   "listingIndexability": null
-  },
-  {
    "id": "bs-bahamas-com",
    "collection": "directories",
    "country": "bahamas",
@@ -5064,14 +5040,6 @@
    "listingIndexability": null
   },
   {
-   "id": "sg-burpple",
-   "collection": "directories",
-   "country": "singapore",
-   "canonicalLinkType": null,
-   "evidenceState": "PUBLIC_LISTING_DISCOVERED_NOT_READ",
-   "listingIndexability": null
-  },
-  {
    "id": "sg-chope",
    "collection": "directories",
    "country": "singapore",
@@ -5124,7 +5092,7 @@
    "collection": "directories",
    "country": "india",
    "canonicalLinkType": null,
-   "evidenceState": "PUBLIC_LISTING_OBSERVED_LINK_UNATTRIBUTED",
+   "evidenceState": "PUBLIC_LISTING_DISCOVERED_NOT_READ",
    "listingIndexability": null
   },
   {
@@ -5336,22 +5304,6 @@
    "listingIndexability": null
   },
   {
-   "id": "ph-hotfrog",
-   "collection": "directories",
-   "country": "philippines",
-   "canonicalLinkType": null,
-   "evidenceState": "PUBLIC_LISTING_DISCOVERED_NOT_READ",
-   "listingIndexability": null
-  },
-  {
-   "id": "hk-hotfrog",
-   "collection": "directories",
-   "country": "hong-kong",
-   "canonicalLinkType": null,
-   "evidenceState": "PUBLIC_LISTING_DISCOVERED_NOT_READ",
-   "listingIndexability": null
-  },
-  {
    "id": "jp-hotfrog",
    "collection": "directories",
    "country": "japan",
@@ -5508,7 +5460,7 @@
    "collection": "directories",
    "country": "chile",
    "canonicalLinkType": null,
-   "evidenceState": "PUBLIC_LISTING_OBSERVED_LINK_UNATTRIBUTED",
+   "evidenceState": "PUBLIC_LISTING_DISCOVERED_NOT_READ",
    "listingIndexability": null
   },
   {
@@ -5880,14 +5832,6 @@
    "listingIndexability": null
   },
   {
-   "id": "ng-finelib",
-   "collection": "directories",
-   "country": "nigeria",
-   "canonicalLinkType": null,
-   "evidenceState": "PUBLIC_LISTING_DISCOVERED_NOT_READ",
-   "listingIndexability": null
-  },
-  {
    "id": "ke-yellowpages",
    "collection": "directories",
    "country": "kenya",
@@ -5900,7 +5844,7 @@
    "collection": "directories",
    "country": "ethiopia",
    "canonicalLinkType": null,
-   "evidenceState": "NO_PUBLIC_LISTING_DISCOVERED",
+   "evidenceState": "PUBLIC_LISTING_DISCOVERED_NOT_READ",
    "listingIndexability": null
   },
   {
@@ -6348,7 +6292,7 @@
    "collection": "directories",
    "country": "united-kingdom",
    "canonicalLinkType": null,
-   "evidenceState": "PUBLIC_LISTING_OBSERVED_LINK_UNATTRIBUTED",
+   "evidenceState": "PUBLIC_LISTING_DISCOVERED_NOT_READ",
    "listingIndexability": null
   },
   {
@@ -6460,7 +6404,7 @@
    "collection": "directories",
    "country": "france",
    "canonicalLinkType": null,
-   "evidenceState": "PUBLIC_LISTING_OBSERVED_LINK_UNATTRIBUTED",
+   "evidenceState": "PUBLIC_LISTING_DISCOVERED_NOT_READ",
    "listingIndexability": null
   },
   {
@@ -7388,7 +7332,7 @@
    "collection": "directories",
    "country": "japan",
    "canonicalLinkType": null,
-   "evidenceState": "PUBLIC_LISTING_OBSERVED_LINK_UNATTRIBUTED",
+   "evidenceState": "PUBLIC_LISTING_DISCOVERED_NOT_READ",
    "listingIndexability": null
   },
   {
@@ -8368,14 +8312,6 @@
    "listingIndexability": null
   },
   {
-   "id": "ng-connectnigeria",
-   "collection": "directories",
-   "country": "nigeria",
-   "canonicalLinkType": null,
-   "evidenceState": "PUBLIC_LISTING_DISCOVERED_NOT_READ",
-   "listingIndexability": null
-  },
-  {
    "id": "ug-psfuganda",
    "collection": "directories",
    "country": "uganda",
@@ -8635,9 +8571,9 @@
    "id": "global-ibm-partners",
    "collection": "directories",
    "country": "global",
-   "canonicalLinkType": null,
-   "evidenceState": "PUBLIC_LISTING_OBSERVED_LINK_UNATTRIBUTED",
-   "listingIndexability": null
+   "canonicalLinkType": "none",
+   "evidenceState": "PUBLIC_LISTING_OBSERVED_NO_EXTERNAL_LINK",
+   "listingIndexability": "indexable"
   },
   {
    "id": "global-odoo-partners",
@@ -9340,7 +9276,7 @@
    "collection": "marketplaces",
    "country": "australia",
    "canonicalLinkType": null,
-   "evidenceState": "NO_PUBLIC_LISTING_DISCOVERED",
+   "evidenceState": "PUBLIC_LISTING_DISCOVERED_NOT_READ",
    "listingIndexability": null
   },
   {
@@ -9371,9 +9307,9 @@
    "id": "mp-at-bazar",
    "collection": "marketplaces",
    "country": "austria",
-   "canonicalLinkType": null,
-   "evidenceState": "PUBLIC_LISTING_DISCOVERED_NOT_READ",
-   "listingIndexability": null
+   "canonicalLinkType": "none",
+   "evidenceState": "PUBLIC_LISTING_OBSERVED_NO_EXTERNAL_LINK",
+   "listingIndexability": "indexable"
   },
   {
    "id": "mp-at-willhaben",
@@ -9528,14 +9464,6 @@
    "listingIndexability": null
   },
   {
-   "id": "mp-kh-realestate",
-   "collection": "marketplaces",
-   "country": "cambodia",
-   "canonicalLinkType": null,
-   "evidenceState": "PUBLIC_LISTING_DISCOVERED_NOT_READ",
-   "listingIndexability": null
-  },
-  {
    "id": "mp-ca-autotrader",
    "collection": "marketplaces",
    "country": "canada",
@@ -9580,7 +9508,7 @@
    "collection": "marketplaces",
    "country": "chile",
    "canonicalLinkType": null,
-   "evidenceState": "PUBLIC_LISTING_OBSERVED_LINK_UNATTRIBUTED",
+   "evidenceState": "PUBLIC_LISTING_DISCOVERED_NOT_READ",
    "listingIndexability": null
   },
   {
@@ -9892,7 +9820,7 @@
    "collection": "marketplaces",
    "country": "germany",
    "canonicalLinkType": null,
-   "evidenceState": "PUBLIC_LISTING_OBSERVED_LINK_UNATTRIBUTED",
+   "evidenceState": "PUBLIC_LISTING_DISCOVERED_NOT_READ",
    "listingIndexability": null
   },
   {
@@ -10096,22 +10024,6 @@
    "listingIndexability": null
   },
   {
-   "id": "mp-jm-jacars",
-   "collection": "marketplaces",
-   "country": "jamaica",
-   "canonicalLinkType": null,
-   "evidenceState": "PUBLIC_LISTING_DISCOVERED_NOT_READ",
-   "listingIndexability": null
-  },
-  {
-   "id": "mp-jp-goonet",
-   "collection": "marketplaces",
-   "country": "japan",
-   "canonicalLinkType": null,
-   "evidenceState": "PUBLIC_LISTING_OBSERVED_LINK_UNATTRIBUTED",
-   "listingIndexability": null
-  },
-  {
    "id": "mp-jp-jmty",
    "collection": "marketplaces",
    "country": "japan",
@@ -10227,9 +10139,9 @@
    "id": "mp-lu-athome",
    "collection": "marketplaces",
    "country": "luxembourg",
-   "canonicalLinkType": null,
-   "evidenceState": "NO_PUBLIC_LISTING_DISCOVERED",
-   "listingIndexability": null
+   "canonicalLinkType": "nofollow",
+   "evidenceState": "VERIFIED_NOFOLLOW",
+   "listingIndexability": "indexable"
   },
   {
    "id": "mp-my-carlist",
@@ -10344,14 +10256,6 @@
    "listingIndexability": null
   },
   {
-   "id": "mp-mm-jobnet",
-   "collection": "marketplaces",
-   "country": "myanmar",
-   "canonicalLinkType": null,
-   "evidenceState": "PUBLIC_LISTING_DISCOVERED_NOT_READ",
-   "listingIndexability": null
-  },
-  {
    "id": "mp-mm-shop",
    "collection": "marketplaces",
    "country": "myanmar",
@@ -10405,14 +10309,6 @@
    "country": "nigeria",
    "canonicalLinkType": null,
    "evidenceState": "NO_PUBLIC_LISTING_DISCOVERED",
-   "listingIndexability": null
-  },
-  {
-   "id": "mp-ng-konga",
-   "collection": "marketplaces",
-   "country": "nigeria",
-   "canonicalLinkType": null,
-   "evidenceState": "PUBLIC_LISTING_DISCOVERED_NOT_READ",
    "listingIndexability": null
   },
   {
@@ -10780,7 +10676,7 @@
    "collection": "marketplaces",
    "country": "sri-lanka",
    "canonicalLinkType": null,
-   "evidenceState": "NO_PUBLIC_LISTING_DISCOVERED",
+   "evidenceState": "PUBLIC_LISTING_DISCOVERED_NOT_READ",
    "listingIndexability": null
   },
   {
@@ -10880,14 +10776,6 @@
    "listingIndexability": null
   },
   {
-   "id": "mp-tn-automobiletn",
-   "collection": "marketplaces",
-   "country": "tunisia",
-   "canonicalLinkType": null,
-   "evidenceState": "PUBLIC_LISTING_DISCOVERED_NOT_READ",
-   "listingIndexability": null
-  },
-  {
    "id": "mp-tn-tayara",
    "collection": "marketplaces",
    "country": "tunisia",
@@ -10925,14 +10813,6 @@
    "country": "ukraine",
    "canonicalLinkType": null,
    "evidenceState": "NO_PUBLIC_LISTING_DISCOVERED",
-   "listingIndexability": null
-  },
-  {
-   "id": "mp-ae-dubicars",
-   "collection": "marketplaces",
-   "country": "united-arab-emirates",
-   "canonicalLinkType": null,
-   "evidenceState": "PUBLIC_LISTING_DISCOVERED_NOT_READ",
    "listingIndexability": null
   },
   {
@@ -11347,9 +11227,9 @@
    "id": "md-archdaily",
    "collection": "media",
    "country": "chile",
-   "canonicalLinkType": null,
-   "evidenceState": "PUBLIC_LISTING_DISCOVERED_NOT_READ",
-   "listingIndexability": null
+   "canonicalLinkType": "dofollow",
+   "evidenceState": "VERIFIED_FOLLOW",
+   "listingIndexability": "indexable"
   },
   {
    "id": "md-argaam",
@@ -11500,7 +11380,7 @@
    "collection": "media",
    "country": "united-states",
    "canonicalLinkType": null,
-   "evidenceState": "PUBLIC_LISTING_DISCOVERED_NOT_READ",
+   "evidenceState": "NO_PUBLIC_LISTING_DISCOVERED",
    "listingIndexability": null
   },
   {
@@ -11747,14 +11627,6 @@
    "id": "md-cx-today",
    "collection": "media",
    "country": "united-kingdom",
-   "canonicalLinkType": null,
-   "evidenceState": "PUBLIC_LISTING_DISCOVERED_NOT_READ",
-   "listingIndexability": null
-  },
-  {
-   "id": "md-czechcrunch",
-   "collection": "media",
-   "country": "czech-republic",
    "canonicalLinkType": null,
    "evidenceState": "PUBLIC_LISTING_DISCOVERED_NOT_READ",
    "listingIndexability": null
@@ -13504,14 +13376,6 @@
    "listingIndexability": null
   },
   {
-   "id": "md-scoop-nz",
-   "collection": "media",
-   "country": "new-zealand",
-   "canonicalLinkType": null,
-   "evidenceState": "PUBLIC_LISTING_DISCOVERED_NOT_READ",
-   "listingIndexability": null
-  },
-  {
    "id": "md-search-engine-land",
    "collection": "media",
    "country": "united-states",
@@ -13708,7 +13572,7 @@
    "collection": "media",
    "country": "switzerland",
    "canonicalLinkType": null,
-   "evidenceState": "PUBLIC_LISTING_DISCOVERED_NOT_READ",
+   "evidenceState": "NO_PUBLIC_LISTING_DISCOVERED",
    "listingIndexability": null
   },
   {
@@ -13848,14 +13712,6 @@
    "listingIndexability": null
   },
   {
-   "id": "md-techpoint-africa",
-   "collection": "media",
-   "country": "nigeria",
-   "canonicalLinkType": null,
-   "evidenceState": "PUBLIC_LISTING_DISCOVERED_NOT_READ",
-   "listingIndexability": null
-  },
-  {
    "id": "md-techsauce",
    "collection": "media",
    "country": "thailand",
@@ -13924,7 +13780,7 @@
    "collection": "media",
    "country": "united-states",
    "canonicalLinkType": null,
-   "evidenceState": "PUBLIC_LISTING_DISCOVERED_NOT_READ",
+   "evidenceState": "NO_PUBLIC_LISTING_DISCOVERED",
    "listingIndexability": null
   },
   {
@@ -14041,14 +13897,6 @@
   },
   {
    "id": "md-tlnt",
-   "collection": "media",
-   "country": "united-states",
-   "canonicalLinkType": null,
-   "evidenceState": "NO_PUBLIC_LISTING_DISCOVERED",
-   "listingIndexability": null
-  },
-  {
-   "id": "md-tmcnet",
    "collection": "media",
    "country": "united-states",
    "canonicalLinkType": null,

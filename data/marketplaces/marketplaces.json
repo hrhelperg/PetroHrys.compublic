@@ -461,6 +461,13 @@
     "status": "publicApiReading",
     "measuredDomain": "bazar.at"
    }
+  },
+  "backlinkType": "none",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://www.bazar.at/d/04-figuren/wie-1100/p-1473947",
+   "relTokens": [],
+   "observedAt": "2026-08-21"
   }
  },
  {
@@ -4054,6 +4061,19 @@
     "status": "publicApiReading",
     "measuredDomain": "athome.lu"
    }
+  },
+  "backlinkType": "nofollow",
+  "linkTargetType": "direct",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://www.athome.lu/agence-immobiliere/gr-immotrust/esch-sur-alzette/12699",
+   "externalUrl": "http://www.grimmo.lu/",
+   "relTokens": [
+    "nofollow",
+    "noopener",
+    "noreferrer"
+   ],
+   "observedAt": "2026-08-21"
   }
  },
  {

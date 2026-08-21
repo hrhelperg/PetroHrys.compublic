@@ -553,7 +553,7 @@ async function researchOne(page, target) {
 
 function targets() {
   const wanted = arg('--collection');
-  const out = [];
+  let out = [];
   for (const [name, C] of Object.entries(COLLECTIONS)) {
     if (wanted && wanted !== name) continue;
     const rows = JSON.parse(fs.readFileSync(C.file, 'utf8'));
@@ -575,6 +575,38 @@ function targets() {
       });
     }
   }
+  // ── COHORT SELECTION ────────────────────────────────────────────────────
+  //
+  // Driven by what the previous pass actually observed, so a re-run spends its
+  // time where evidence is closest rather than starting again. The states come
+  // from the derived report; nothing here reads a canonical field.
+  const cohort = arg('--cohort');
+  if (cohort) {
+    // Required lazily: the reporter reads the collections this file also reads,
+    // and loading it at module scope would make --inventory pay for it.
+    // eslint-disable-next-line global-require
+    const EV = require('./report-link-evidence.cjs');
+    const state = new Map();
+    for (const r of EV.derive()) state.set(`${r.collection}:${r.id}`, r);
+    const wanted = {
+      'discovered-not-read': 'PUBLIC_LISTING_DISCOVERED_NOT_READ',
+      unattributed: 'PUBLIC_LISTING_OBSERVED_LINK_UNATTRIBUTED',
+      'no-labelled-link': 'PUBLIC_LISTING_OBSERVED_NO_LABELLED_LINK',
+      'true-unknown': 'UNKNOWN',
+      'no-listing': 'NO_PUBLIC_LISTING_DISCOVERED',
+    }[cohort];
+    if (!wanted) throw new Error(`unknown cohort ${cohort}`);
+    const readyOnly = process.argv.includes('--ready');
+    const freeOnly = process.argv.includes('--free');
+    out = out.filter((t) => {
+      const r = state.get(`${t.collection}:${t.id}`);
+      if (!r || r.evidenceState !== wanted) return false;
+      if (readyOnly && !r.ready) return false;
+      if (freeOnly && !r.free) return false;
+      return true;
+    });
+  }
+
   const country = arg('--country');
   const DENSE = new Set(['united-states', 'germany', 'united-kingdom', 'india', 'france',
     'japan', 'brazil', 'canada', 'spain', 'italy', 'netherlands', 'poland', 'australia']);
