@@ -389,3 +389,171 @@ test('a blog subdomain is not a listing, however its path reads', () => {
   assert.ok(!pattern.test('www.ibm.com'));
   assert.ok(!pattern.test('trustedtraders.which.co.uk'));
 });
+
+// ── LISTING INDEXABILITY IS ITS OWN FACT ───────────────────────────────────
+
+test('G: page indexability is stored and filtered separately from link type', () => {
+  const owned = SAFE.ownedFields('linkvalue', 'directories');
+  assert.ok(owned.includes('backlinkType') && owned.includes('listingIndexability'));
+  // Two independent filters, neither derived from the other.
+  const known = { linkTypes: ['follow'], indexability: ['indexable'], facets: [], filters: [], sorts: [] };
+  const followOnNoindex = { backlinkType: 'dofollow', listingIndexability: 'noindex' };
+  const nofollowOnIndexable = { backlinkType: 'nofollow', listingIndexability: 'indexable' };
+  const D2 = require(path.join(ROOT, 'scripts/lib/bd-discovery.cjs'));
+  const want = (linkType, indexability) => D2.selectionFor(
+    { linkType, indexability, facets: {}, filters: [] }, known,
+  );
+  assert.equal(D2.evaluate(followOnNoindex, want('follow', '')).visible, true);
+  assert.equal(D2.evaluate(followOnNoindex, want('follow', 'indexable')).visible, false,
+    'a follow link on a noindex page must not answer "indexable"');
+  assert.equal(D2.evaluate(nofollowOnIndexable, want('', 'indexable')).visible, true);
+  assert.equal(D2.evaluate(nofollowOnIndexable, want('follow', 'indexable')).visible, false);
+});
+
+test('M9: a noindex page is never reported as indexable', () => {
+  assert.equal(L.indexabilityOf({ metaRobots: 'noindex', text: '' }), 'noindex');
+  assert.equal(L.indexabilityOf({ metaRobots: 'noindex, nofollow', text: '' }), 'noindex');
+  assert.equal(L.indexabilityOf({ metaRobots: 'none', text: '' }) === 'indexable', false,
+    '"none" means noindex,nofollow');
+});
+
+test('M14: unknown is never converted into "no external link"', () => {
+  const D2 = require(path.join(ROOT, 'scripts/lib/bd-discovery.cjs'));
+  const known = { linkTypes: ['none', 'unknown'], facets: [], filters: [], sorts: [] };
+  const unresearched = {};
+  const noLink = { backlinkType: 'none' };
+  const askNone = D2.selectionFor({ linkType: 'none', facets: {}, filters: [] }, known);
+  assert.equal(D2.evaluate(unresearched, askNone).visible, false,
+    'a source nobody inspected must not answer "no external link"');
+  assert.equal(D2.evaluate(noLink, askNone).visible, true);
+  // And the schema refuses a "none" that carries a link.
+  assert.ok(S.backlinkProblems({
+    backlinkType: 'none',
+    backlinkProvenance: { listingUrl: 'https://d.test/c/1', observedAt: '2026-08-21', externalUrl: 'https://a.test/' },
+  }).length);
+});
+
+// ── M12 / M13: EVIDENCE DOES NOT TRAVEL ────────────────────────────────────
+
+test('M12: one country\'s listing evidence is not propagated to siblings', () => {
+  // Identity is country + host, and the applier keys on the record id. A
+  // finding carries the listing URL it came from, so a sibling record cannot
+  // silently inherit it.
+  const src = fs.readFileSync(path.join(ROOT, 'scripts/research-link-value.cjs'), 'utf8');
+  assert.match(src, /byKey\.set\(`\$\{f\.collection\}:\$\{f\.id\}`, f\)/,
+    'findings are applied per record identity, never per host');
+  assert.ok(!/registrable\(|hostOf\(r\.website\)/.test(src.slice(src.indexOf('function runApply'))),
+    'the applier must not group records by host');
+});
+
+test('M13: a paid template does not speak for the free one', () => {
+  // Two templates that disagree resolve to mixed, and the schema refuses
+  // "mixed" unless two differing templates were actually inspected.
+  const oneOnly = S.backlinkProblems({
+    backlinkType: 'mixed',
+    backlinkProvenance: {
+      listingUrl: 'https://d.test/c/1', observedAt: '2026-08-21',
+      templates: [{ listingUrl: 'https://d.test/c/1', backlinkType: 'dofollow' }],
+    },
+  });
+  assert.ok(oneOnly.some(([f]) => f === 'backlinkProvenance.templates'));
+  const src = fs.readFileSync(path.join(ROOT, 'scripts/research-link-value.cjs'), 'utf8');
+  assert.match(src, /if \(types\.length > 1\)[\s\S]{0,240}backlinkType: 'mixed'/,
+    'the researcher must not pick the more favourable of two templates');
+});
+
+// ── M15: A LINK IS NOT A ROUTE ─────────────────────────────────────────────
+
+test('M15: FOLLOW cannot create Planner READY', () => {
+  const engine = fs.readFileSync(path.join(ROOT, 'scripts/lib/dp-engine.cjs'), 'utf8');
+  for (const field of ['backlinkType', 'listingIndexability', 'linkTargetType', 'backlinkProvenance']) {
+    assert.ok(!engine.includes(field), `the planner must not read ${field}`);
+  }
+});
+
+// ── M17: THE CSV AGREES WITH THE TABLE ─────────────────────────────────────
+
+test('M17: the export reads the same fields the filter does', () => {
+  const D2 = require(path.join(ROOT, 'scripts/lib/bd-discovery.cjs'));
+  const known = { linkTypes: ['follow'], indexability: ['indexable'], facets: [], filters: [], sorts: [] };
+  const cols = D2.exportColumns(known).map((c) => c.key);
+  for (const c of ['link_type', 'link_target_type', 'listing_page_indexability',
+    'link_evidence_checked_at']) {
+    assert.ok(cols.includes(c), `${c} must be exported where the page offers the filter`);
+  }
+  // And an unresearched record exports blank, never a guess.
+  assert.equal(D2.exportCell({}, { key: 'link_type', from: 'linkType' }), '');
+  assert.equal(D2.exportCell({}, { key: 'listing_page_indexability', from: 'listingIndexability' }), '');
+  assert.equal(D2.exportCell({}, { key: 'link_evidence_checked_at', from: 'linkCheckedAt' }), '');
+  // A measured one exports what was measured.
+  assert.equal(D2.exportCell({ backlinkType: 'nofollow' }, { key: 'link_type', from: 'linkType' }), 'nofollow');
+});
+
+// ── M18: THE APPLIER STAYS INSIDE ITS CONTRACT ─────────────────────────────
+
+test('M18: the applier cannot touch a description or a note', () => {
+  const row = { id: 'x', note: 'written by a person', description: 'also written by a person' };
+  for (const field of ['note', 'description', 'shortNote', 'limitations']) {
+    assert.throws(
+      () => SAFE.applyPatch(row, { [field]: 'rewritten' }, { owner: 'linkvalue', collection: 'directories' }),
+      /owns only|no research pass may change/,
+      `linkvalue must not be able to write ${field}`,
+    );
+  }
+  assert.equal(row.note, 'written by a person');
+  assert.equal(row.description, 'also written by a person');
+});
+
+test('the applier validates against the schema before it writes', () => {
+  const src = fs.readFileSync(path.join(ROOT, 'scripts/research-link-value.cjs'), 'utf8');
+  const apply = src.slice(src.indexOf('function runApply'));
+  assert.match(apply, /S\.backlinkProblems\(\{ \.\.\.r, \.\.\.patch \}\)/,
+    'a finding that cannot justify itself must never reach the corpus');
+  assert.match(apply, /tally\.refused \+= 1/);
+});
+
+// ── PRODUCT WORDING STAYS FACTUAL ──────────────────────────────────────────
+
+test('no locale promises an SEO outcome', () => {
+  // Two groups. The first may never appear anywhere. The second is the word
+  // "guarantee" in four languages, which the help text is allowed to use
+  // BECAUSE it is negating it — and the separate test below checks that the
+  // negation is actually there. Keying the exemption off the English stem
+  // missed "garantiert" and "garantiza" entirely.
+  const NEVER = [/passes? authority/i, /will (be )?index/i, /higher rank/i, /boost.*rank/i];
+  const ONLY_NEGATED = [/guarantee/i, /garantiz/i, /garantie/i, /garantiert/i, /garanti/i];
+  for (const loc of ['en', 'de', 'es', 'fr']) {
+    const strings = JSON.parse(fs.readFileSync(path.join(ROOT, `data/i18n/${loc}.json`), 'utf8'));
+    for (const [key, value] of Object.entries(strings)) {
+      if (!/linkType|listingPage/.test(key)) continue;
+      for (const bad of NEVER) {
+        assert.ok(!bad.test(value), `${loc} ${key} promises an outcome: ${value}`);
+      }
+      if (key === 'bd.linkType.help') continue;
+      for (const bad of ONLY_NEGATED) {
+        assert.ok(!bad.test(value), `${loc} ${key} uses the language of guarantees: ${value}`);
+      }
+    }
+  }
+});
+
+test('the help text says plainly that nothing downstream is guaranteed', () => {
+  for (const loc of ['en', 'de', 'es', 'fr']) {
+    const strings = JSON.parse(fs.readFileSync(path.join(ROOT, `data/i18n/${loc}.json`), 'utf8'));
+    const help = strings['bd.linkType.help'];
+    assert.ok(help, `${loc} has no help text`);
+    assert.match(help, /not guaranteed|nicht garantiert|no se garantiza|ne sont pas garantis/i);
+  }
+});
+
+// ── TENDERS ARE OUT OF SCOPE, DELIBERATELY ─────────────────────────────────
+
+test('tender platforms are not given a link-value field they cannot have', () => {
+  const src = fs.readFileSync(path.join(ROOT, 'scripts/research-link-value.cjs'), 'utf8');
+  const collections = src.slice(src.indexOf('const COLLECTIONS'), src.indexOf('// Hosts a listing'));
+  assert.ok(!collections.includes('tenders-procurement/platforms.json'),
+    'a procurement portal publishes no public business profile carrying the supplier website');
+  assert.match(src, /Tender platforms are deliberately absent/);
+  const owned = SAFE.OWNERSHIP.linkvalue;
+  assert.ok(!owned.tenders, 'linkvalue owns nothing on tenders');
+});

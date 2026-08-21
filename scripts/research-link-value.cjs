@@ -77,6 +77,16 @@ const COLLECTIONS = {
     file: path.join(ROOT, 'data/marketplaces/marketplaces.json'),
     urlField: 'website',
   },
+  media: {
+    file: path.join(ROOT, 'data/media-pr-publishing/media-platforms.json'),
+    urlField: 'website',
+  },
+  // Tender platforms are deliberately absent. A procurement portal publishes
+  // notices and supplier registrations, not a public business profile carrying
+  // the supplier's website — so the question this file asks has no answer
+  // there, and forcing the field onto them would manufacture UNKNOWNs about a
+  // concept that does not apply. If a portal is later found to publish crawlable
+  // supplier profiles, it belongs here with evidence, not by assumption.
 };
 
 // Hosts a listing links to that are never the business's own website.
@@ -288,7 +298,10 @@ function pickWebsiteAnchor(pageData, listingUrl) {
 
 function indexabilityOf(pageData) {
   const robots = pageData.metaRobots || '';
-  if (/noindex/.test(robots)) return 'noindex';
+  // `content="none"` is shorthand for noindex,nofollow. Checking only for the
+  // word "noindex" reported such a page as indexable, which is the one
+  // direction this field must never be wrong in.
+  if (/\bnoindex\b/.test(robots) || /(^|[,\s])none([,\s]|$)/.test(robots)) return 'noindex';
   const text = String(pageData.text || '').toLowerCase();
   if (LOGIN_WALL.some((p) => text.includes(p))) return 'login-required';
   return 'indexable';
@@ -469,17 +482,32 @@ function targets() {
       out.push({
         collection: name, id: r.id, country: r.country, url,
         domainRating: r.domainRating ?? null,
+        // Whether this source has a known route. Used ONLY to decide what to
+        // research first: a source somebody can actually publish on is where
+        // knowing the link type changes a decision. It is not evidence, and
+        // the ownership contract will not let it become any.
+        actionable: Boolean(r.submissionUrl || r.claimUrl || r.sellerActionUrl
+          || r.pressReleaseUrl || r.pitchUrl || r.advertisingUrl),
         key: `link|${name}|${r.id}`,
       });
     }
   }
   const country = arg('--country');
+  const DENSE = new Set(['united-states', 'germany', 'united-kingdom', 'india', 'france',
+    'japan', 'brazil', 'canada', 'spain', 'italy', 'netherlands', 'poland', 'australia']);
+  const actionableOnly = process.argv.includes('--actionable');
   return out
     .filter((t) => !country || t.country === country)
-    // Highest Domain Rating first — as a research ORDER only. DR is not
-    // evidence about anything this file records, and the ownership contract
-    // will not let it become any.
-    .sort((a, b) => (b.domainRating ?? -1) - (a.domainRating ?? -1) || (a.id < b.id ? -1 : 1));
+    .filter((t) => !actionableOnly || t.actionable)
+    // Research ORDER, and nothing more. A source somebody can publish on, in a
+    // market with many of them, is where the answer changes a decision — so
+    // that is where the browser goes first. None of these three is evidence
+    // about the anchor, and the field ownership contract refuses to let any of
+    // them write here.
+    .sort((a, b) => (Number(b.actionable) - Number(a.actionable))
+      || (Number(DENSE.has(b.country)) - Number(DENSE.has(a.country)))
+      || ((b.domainRating ?? -1) - (a.domainRating ?? -1))
+      || (a.id < b.id ? -1 : 1));
 }
 
 // ── RUN ─────────────────────────────────────────────────────────────────────

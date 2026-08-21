@@ -154,6 +154,12 @@
       if (!linkTypeMatches(state.linkType, row.backlinkType)) visible = false;
     }
 
+    // The same rule again: a page nobody has inspected is not a page that
+    // failed inspection.
+    if (state.indexability !== '' && state.indexability !== null && state.indexability !== undefined) {
+      if (!indexabilityMatches(state.indexability, row.listingIndexability)) visible = false;
+    }
+
     let hiddenForUnknown = false;
     for (const name of flags) {
       const tri = triState((row.flags || {})[name]);
@@ -226,7 +232,7 @@
   // the two would fight over one key; the generators name facets after data
   // dimensions (country, type, cost), and a test asserts the collision cannot
   // happen rather than trusting that it will not.
-  const RESERVED = ['q', 'filters', 'jurisdiction', 'sort', 'min-dr', 'link-type'];
+  const RESERVED = ['q', 'filters', 'jurisdiction', 'sort', 'min-dr', 'link-type', 'listing-page'];
 
   // How a listing here links out. Kept as the nuanced states the schema stores
   // rather than a "dofollow yes/no", because a listing that renders no external
@@ -235,6 +241,23 @@
   // a third. Selecting Follow must never return a source we are unsure about,
   // so mixed and unknown each stand alone.
   const LINK_TYPE_VALUES = ['follow', 'restricted', 'mixed', 'none', 'unknown'];
+
+  // Whether the page CARRYING the link can be crawled. A separate question
+  // from what the anchor says, and stored separately, because a follow link on
+  // a noindex page is a different proposition from one on an indexable page —
+  // and neither answers the other.
+  const INDEXABILITY_VALUES = ['indexable', 'noindex', 'restricted', 'unknown'];
+  function indexabilityOf(known) { return (known && known.indexability) || []; }
+  function indexabilityMatches(want, value) {
+    if (want === 'indexable') return value === 'indexable';
+    if (want === 'noindex') return value === 'noindex';
+    // Blocked by robots or behind a login: reachable by nobody, for two
+    // different reasons that a reader filtering for "not indexable" wants
+    // together.
+    if (want === 'restricted') return value === 'robots-blocked' || value === 'login-required';
+    if (want === 'unknown') return !value;
+    return true;
+  }
   function linkTypesOf(known) { return (known && known.linkTypes) || []; }
   function linkTypeMatches(want, value) {
     if (want === 'follow') return value === 'dofollow';
@@ -278,6 +301,7 @@
       // one, which is a different question and not the one the control asks.
       minDr: '',
       linkType: '',
+      indexability: '',
     };
   }
 
@@ -290,6 +314,7 @@
     for (const facet of facetsOf(known)) order.push(facet.name);
     if (minDrOf(known).length) order.push('min-dr');
     if (linkTypesOf(known).length) order.push('link-type');
+    if (indexabilityOf(known).length) order.push('listing-page');
     if (filtersOf(known).length) order.push('filters');
     if (jurisdictionsOf(known).length) order.push('jurisdiction');
     if (sortsOf(known).length) order.push('sort');
@@ -363,6 +388,10 @@
       // dropped rather than coerced into the nearest one.
       if (want !== null && linkTypesOf(known).indexOf(want) !== -1) state.linkType = want;
     }
+    if (indexabilityOf(known).length) {
+      const page = readParam(searchParams, 'listing-page');
+      if (page !== null && indexabilityOf(known).indexOf(page) !== -1) state.indexability = page;
+    }
 
     const jurisdictions = jurisdictionsOf(known);
     if (jurisdictions.length) {
@@ -408,6 +437,9 @@
       } else if (key === 'link-type') {
         const want = s.linkType === null || s.linkType === undefined ? '' : String(s.linkType);
         value = linkTypesOf(known).indexOf(want) !== -1 ? want : '';
+      } else if (key === 'listing-page') {
+        const want = s.indexability === null || s.indexability === undefined ? '' : String(s.indexability);
+        value = indexabilityOf(known).indexOf(want) !== -1 ? want : '';
       } else if (key === 'sort') {
         const want = s.sort === null || s.sort === undefined ? '' : String(s.sort);
         value = (want !== defaultSort(known) && sortsOf(known).indexOf(want) !== -1) ? want : '';
@@ -440,6 +472,7 @@
       minDr: (state && state.minDr) || '',
       // Through the one conversion, for the reason written above it.
       linkType: (state && state.linkType) || '',
+      indexability: (state && state.indexability) || '',
       facets: {},
       flags: [],
     };
@@ -567,6 +600,10 @@
       columns.push({ key: 'link_type', from: 'linkType' });
       columns.push({ key: 'link_target_type', from: 'linkTargetType' });
       columns.push({ key: 'listing_page_indexability', from: 'listingIndexability' });
+      // When the listing was looked at. A reader deciding whether to trust a
+      // link type needs to know how old the observation is, and directories
+      // change this behaviour quietly.
+      columns.push({ key: 'link_evidence_checked_at', from: 'linkCheckedAt' });
     }
     return columns;
   }
@@ -581,6 +618,7 @@
     if (column.from === 'linkType') return row.backlinkType || '';
     if (column.from === 'linkTargetType') return row.linkTargetType || '';
     if (column.from === 'listingIndexability') return row.listingIndexability || '';
+    if (column.from === 'linkCheckedAt') return row.linkCheckedAt || '';
     // An unmeasured domain exports as an EMPTY CELL, never as 0. A spreadsheet
     // is where that confusion becomes permanent: 0 sorts, averages and charts
     // as a real low score, and nothing downstream can tell it apart again.
@@ -632,6 +670,8 @@
     triState: triState,
     evaluate: evaluate,
     evaluateAll: evaluateAll,
+    indexabilityMatches: indexabilityMatches,
+    INDEXABILITY_VALUES: INDEXABILITY_VALUES,
     filter: filter,
     Q_MAX: Q_MAX,
     RESERVED: RESERVED,

@@ -642,6 +642,7 @@ function pageModel(registry, locale = I18N.DEFAULT_LOCALE) {
           // returns nothing at all when no row on the page has a rating.
           c.minDomainRatingControl({ idPrefix: 'opp', rows: actionable }),
           c.linkTypeControl({ idPrefix: 'opp', rows: actionable }),
+          c.listingPageControl({ idPrefix: 'opp', rows: actionable }),
           // The same control the country pages use, given the same column set
           // the table below renders. Without a select the client still sorts —
           // js/business-directories.js falls back to 'default' — so the page

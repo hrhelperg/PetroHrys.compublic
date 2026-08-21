@@ -69,6 +69,7 @@
   // The one control that is not an equality match: a floor on Domain Rating.
   var minDrSelect = document.querySelector('[data-bd-min-dr]');
   var linkTypeSelect = document.querySelector('[data-bd-link-type]');
+  var listingPageSelect = document.querySelector('[data-bd-listing-page]');
   var searchInput = document.querySelector('[data-bd-search]');
   var filters = Array.prototype.slice.call(document.querySelectorAll('[data-bd-filter]'));
   // Select-based facets for the opportunities worklist. Each select names the
@@ -90,7 +91,7 @@
   // JavaScript they stay hidden and the prerendered table is complete.
   ['[data-bd-sort-wrap]', '[data-bd-filter-wrap]', '[data-bd-search-wrap]',
     '[data-bd-jselect-wrap]', '[data-bd-min-dr-wrap]',
-    '[data-bd-link-type-wrap]'].forEach(function (sel) {
+    '[data-bd-link-type-wrap]', '[data-bd-listing-page-wrap]'].forEach(function (sel) {
     var el = document.querySelector(sel);
     if (el) el.hidden = false;
   });
@@ -141,7 +142,8 @@
     minDr: optionValues(minDrSelect),
     // Same derivation: a page whose records carry no link evidence renders no
     // control, so it has no link-type parameter either.
-    linkTypes: optionValues(linkTypeSelect)
+    linkTypes: optionValues(linkTypeSelect),
+    indexability: optionValues(listingPageSelect)
   };
 
   function num(row, key) {
@@ -169,6 +171,8 @@
       petroHrysScore: num(row, 'score'),
       domainRating: num(row, 'dr'),
       backlinkType: row.getAttribute('data-bd-link-type') || '',
+      listingIndexability: row.getAttribute('data-bd-listing-page') || '',
+      linkCheckedAt: row.getAttribute('data-bd-link-checked') || '',
       authorityScore: num(row, 'as'),
       estimatedTraffic: num(row, 'traffic'),
       facets: rowFacets,
@@ -473,7 +477,8 @@
       jurisdiction: jSelect ? jSelect.value : '',
       sort: sortSelect ? sortSelect.value : '',
       minDr: minDrSelect ? minDrSelect.value : '',
-      linkType: linkTypeSelect ? linkTypeSelect.value : ''
+      linkType: linkTypeSelect ? linkTypeSelect.value : '',
+      indexability: listingPageSelect ? listingPageSelect.value : ''
     };
   }
 
@@ -489,6 +494,7 @@
     if (sortSelect) sortSelect.value = state.sort || D.defaultSort(schema);
     if (minDrSelect) minDrSelect.value = state.minDr || '';
     if (linkTypeSelect) linkTypeSelect.value = state.linkType || '';
+    if (listingPageSelect) listingPageSelect.value = state.indexability || '';
   }
 
   function syncUrl(push) {
@@ -575,6 +581,7 @@
   facets.forEach(function (sel) { sel.addEventListener('change', interact); });
   if (minDrSelect) minDrSelect.addEventListener('change', interact);
   if (linkTypeSelect) linkTypeSelect.addEventListener('change', interact);
+  if (listingPageSelect) listingPageSelect.addEventListener('change', interact);
   if (clearBtn) {
     clearBtn.addEventListener('click', function () {
       if (searchInput) searchInput.value = '';
@@ -583,6 +590,7 @@
       if (jSelect) jSelect.value = D.defaultJurisdiction(schema);
       if (minDrSelect) minDrSelect.value = '';
       if (linkTypeSelect) linkTypeSelect.value = '';
+      if (listingPageSelect) listingPageSelect.value = '';
       // The sort goes back to the page's own order too. Leaving it behind made
       // "clear" mean "clear most of it": a reader who had sorted by Domain
       // Rating, filtered, then cleared, was returned to an unfiltered list
