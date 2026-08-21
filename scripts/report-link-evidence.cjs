@@ -97,6 +97,7 @@ function evidenceStateOf(f) {
     // listing on a shared host. Disqualified evidence is not weak evidence.
     return 'UNKNOWN';
   }
+  if (f.state === 'LISTING_WITHOUT_LINK') return 'PUBLIC_LISTING_OBSERVED_NO_EXTERNAL_LINK';
   if (f.state === 'NO_LISTING_FOUND') return 'NO_PUBLIC_LISTING_DISCOVERED';
   if (f.state === 'UNREADABLE') {
     // Two different situations wearing one state. "the listing pages could not

@@ -464,7 +464,13 @@ async function researchOne(page, target) {
       if (signals.size < 2) continue;
       inspected.push({
         listingUrl: listing.url,
-        backlinkType: 'none',
+        // NOT 'none'. Reading listings can never establish that a template has
+        // no website-link capability — only that the ones read did not use it.
+        // IBM Partner Plus is the proof: three profiles under
+        // /partnerplus/directory/company/ carried no website link, and the same
+        // template serves prolifics.de, gbm.net and deloitte.com.au on other
+        // profiles. Absence in a sample is absence in a sample.
+        noLinkObserved: true,
         indexability,
         // Kept so "there is a button but no anchor" stays distinguishable from
         // "there is nothing here at all".
@@ -514,8 +520,22 @@ async function researchOne(page, target) {
     unattributed: i.backlinkType ? undefined : true,
   })));
 
+  // Pages that were read and showed no website link. Recorded as an
+  // observation, never promoted to a claim about the platform.
+  const withoutLink = inspected.filter((i) => i.noLinkObserved);
   const usable = inspected.filter((i) => i.backlinkType);
   if (!usable.length) {
+    if (withoutLink.length) {
+      return {
+        // Its own state, deliberately not RESOLVED: the applier writes only
+        // resolved findings, so this can never reach a canonical field.
+        state: 'LISTING_WITHOUT_LINK',
+        why: `${withoutLink.length} public listing(s) read; none rendered an external website link, `
+          + 'which does not establish that the template cannot',
+        listingIndexability: withoutLink[0].indexability,
+        observations: observed,
+      };
+    }
     return {
       state: 'UNREADABLE',
       why: 'a website link was found but its rel attribute could not be read',

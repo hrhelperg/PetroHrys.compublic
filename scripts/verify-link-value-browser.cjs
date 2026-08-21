@@ -72,6 +72,19 @@ async function run() {
 
     // ── ONE FILTER AT A TIME ───────────────────────────────────────────────
     const single = async (sel, value, predicate, label) => {
+      // Only options the page actually renders. A control offers a value only
+      // where records carry that state, so when the corpus stops asserting one
+      // the option disappears — and setting a select to a value it does not
+      // offer silently selects nothing, which reads as "the filter matched
+      // everything" rather than "the option is gone".
+      const offered = await page.eval((s2) => {
+        const el = document.querySelector(s2);
+        return el ? [...el.options].map((o) => o.value) : [];
+      }, sel);
+      if (!offered.includes(value)) {
+        console.log(`    · ${label}: not offered on this page — no record carries that state`);
+        return null;
+      }
       await page.eval(SET, sel, value);
       const rows = await page.eval(VISIBLE);
       if (!rows.length) { fail(label, 'the cohort is empty, so the check would be vacuous'); return null; }

@@ -253,11 +253,9 @@
    "actionable": false,
    "key": "link|directories|ar-cessi",
    "observedAt": "2026-08-21",
-   "state": "RESOLVED",
-   "backlinkType": "none",
-   "linkTargetType": null,
+   "state": "LISTING_WITHOUT_LINK",
    "listingIndexability": "indexable",
-   "why": "the public listing renders no external website link",
+   "why": "1 public listing(s) read; none rendered an external website link, which does not establish that the template cannot",
    "templates": [
     {
      "listingUrl": "https://cessi.org.ar/talent-summit-2025/",
@@ -265,7 +263,8 @@
      "indexability": "indexable",
      "buttonCount": 2
     }
-   ]
+   ],
+   "supersededReason": "a sample of listings cannot establish that a template has no website-link capability"
   },
   {
    "collection": "directories",
@@ -503,11 +502,9 @@
    "actionable": false,
    "key": "link|directories|at-infoisinfo",
    "observedAt": "2026-08-21",
-   "state": "RESOLVED",
-   "backlinkType": "none",
-   "linkTargetType": null,
+   "state": "LISTING_WITHOUT_LINK",
    "listingIndexability": "indexable",
-   "why": "the public listing renders no external website link",
+   "why": "3 public listing(s) read; none rendered an external website link, which does not establish that the template cannot",
    "templates": [
     {
      "listingUrl": "https://www.infoisinfo.at/karte/alpe-kanal-service-gmbh/thaur/553942",
@@ -527,7 +524,8 @@
      "indexability": "indexable",
      "buttonCount": 5
     }
-   ]
+   ],
+   "supersededReason": "a sample of listings cannot establish that a template has no website-link capability"
   },
   {
    "collection": "directories",
@@ -744,11 +742,9 @@
    "actionable": false,
    "key": "link|directories|au-drive",
    "observedAt": "2026-08-21",
-   "state": "RESOLVED",
-   "backlinkType": "none",
-   "linkTargetType": null,
+   "state": "LISTING_WITHOUT_LINK",
    "listingIndexability": "indexable",
-   "why": "the public listing renders no external website link",
+   "why": "1 public listing(s) read; none rendered an external website link, which does not establish that the template cannot",
    "templates": [
     {
      "listingUrl": "https://www.drive.com.au/cars-for-sale/car/970255400/",
@@ -756,7 +752,8 @@
      "indexability": "indexable",
      "buttonCount": 735
     }
-   ]
+   ],
+   "supersededReason": "a sample of listings cannot establish that a template has no website-link capability"
   },
   {
    "collection": "directories",
@@ -980,11 +977,9 @@
    "actionable": false,
    "key": "link|directories|ba-companywall",
    "observedAt": "2026-08-21",
-   "state": "RESOLVED",
-   "backlinkType": "none",
-   "linkTargetType": null,
+   "state": "LISTING_WITHOUT_LINK",
    "listingIndexability": "indexable",
-   "why": "the public listing renders no external website link",
+   "why": "3 public listing(s) read; none rendered an external website link, which does not establish that the template cannot",
    "templates": [
     {
      "listingUrl": "https://www.companywall.ba/firma/marbo-doo-laktasi/MMksqnY",
@@ -1004,7 +999,8 @@
      "indexability": "indexable",
      "buttonCount": 32
     }
-   ]
+   ],
+   "supersededReason": "a sample of listings cannot establish that a template has no website-link capability"
   },
   {
    "collection": "directories",
@@ -2249,11 +2245,9 @@
    "actionable": false,
    "key": "link|directories|ch-infoisinfo",
    "observedAt": "2026-08-21",
-   "state": "RESOLVED",
-   "backlinkType": "none",
-   "linkTargetType": null,
+   "state": "LISTING_WITHOUT_LINK",
    "listingIndexability": "indexable",
-   "why": "the public listing renders no external website link",
+   "why": "3 public listing(s) read; none rendered an external website link, which does not establish that the template cannot",
    "templates": [
     {
      "listingUrl": "https://lausanne.infoisinfo.ch/karte/best-western-plus-hotel-mirabeau/954502",
@@ -2273,7 +2267,8 @@
      "indexability": "indexable",
      "buttonCount": 4
     }
-   ]
+   ],
+   "supersededReason": "a sample of listings cannot establish that a template has no website-link capability"
   },
   {
    "collection": "directories",
@@ -2485,11 +2480,9 @@
    "actionable": false,
    "key": "link|directories|cl-hotfrog",
    "observedAt": "2026-08-21",
-   "state": "RESOLVED",
-   "backlinkType": "none",
-   "linkTargetType": null,
+   "state": "LISTING_WITHOUT_LINK",
    "listingIndexability": "indexable",
-   "why": "the public listing renders no external website link",
+   "why": "3 public listing(s) read; none rendered an external website link, which does not establish that the template cannot",
    "templates": [
     {
      "listingUrl": "https://www.hotfrog.cl/company/0773f57569bc31c06f4267ff37a2e685/termoaluminios/santiago/doors-door-systems",
@@ -2509,7 +2502,8 @@
      "indexability": "indexable",
      "buttonCount": 892
     }
-   ]
+   ],
+   "supersededReason": "a sample of listings cannot establish that a template has no website-link capability"
   },
   {
    "collection": "directories",
@@ -2807,11 +2801,9 @@
    "actionable": true,
    "key": "link|directories|co-hotfrog",
    "observedAt": "2026-08-21",
-   "state": "RESOLVED",
-   "backlinkType": "none",
-   "linkTargetType": null,
+   "state": "LISTING_WITHOUT_LINK",
    "listingIndexability": "indexable",
-   "why": "the public listing renders no external website link",
+   "why": "3 public listing(s) read; none rendered an external website link, which does not establish that the template cannot",
    "templates": [
     {
      "listingUrl": "https://www.hotfrog.com.co/company/bde5436bcda1406bb19dbd87eafe62be/cafore-abogados/bogot%C3%A1/specialized-legal-services",
@@ -2831,7 +2823,8 @@
      "indexability": "indexable",
      "buttonCount": 892
     }
-   ]
+   ],
+   "supersededReason": "a sample of listings cannot establish that a template has no website-link capability"
   },
   {
    "collection": "directories",
@@ -3265,11 +3258,9 @@
    "actionable": true,
    "key": "link|directories|de-branchen-info",
    "observedAt": "2026-08-21",
-   "state": "RESOLVED",
-   "backlinkType": "none",
-   "linkTargetType": null,
+   "state": "LISTING_WITHOUT_LINK",
    "listingIndexability": "indexable",
-   "why": "the public listing renders no external website link",
+   "why": "2 public listing(s) read; none rendered an external website link, which does not establish that the template cannot",
    "templates": [
     {
      "listingUrl": "https://berlin.branchen-info.net/branche/zahnarzt/4560/",
@@ -3283,7 +3274,8 @@
      "indexability": "indexable",
      "buttonCount": 57
     }
-   ]
+   ],
+   "supersededReason": "a sample of listings cannot establish that a template has no website-link capability"
   },
   {
    "collection": "directories",
@@ -3318,11 +3310,9 @@
    "actionable": false,
    "key": "link|directories|de-business-branchenbuch",
    "observedAt": "2026-08-21",
-   "state": "RESOLVED",
-   "backlinkType": "none",
-   "linkTargetType": null,
+   "state": "LISTING_WITHOUT_LINK",
    "listingIndexability": "indexable",
-   "why": "the public listing renders no external website link",
+   "why": "2 public listing(s) read; none rendered an external website link, which does not establish that the template cannot",
    "templates": [
     {
      "listingUrl": "https://www.business-branchenbuch.de/Freihelden-GmbH-47813457.html",
@@ -3336,7 +3326,8 @@
      "indexability": "indexable",
      "buttonCount": 4
     }
-   ]
+   ],
+   "supersededReason": "a sample of listings cannot establish that a template has no website-link capability"
   },
   {
    "collection": "directories",
@@ -3382,11 +3373,9 @@
    "actionable": true,
    "key": "link|directories|de-dialo",
    "observedAt": "2026-08-21",
-   "state": "RESOLVED",
-   "backlinkType": "none",
-   "linkTargetType": null,
+   "state": "LISTING_WITHOUT_LINK",
    "listingIndexability": "indexable",
-   "why": "the public listing renders no external website link",
+   "why": "2 public listing(s) read; none rendered an external website link, which does not establish that the template cannot",
    "templates": [
     {
      "listingUrl": "https://www.bundes-telefonbuch.de/firma/grund-eintrag",
@@ -3400,7 +3389,8 @@
      "indexability": "indexable",
      "buttonCount": 27
     }
-   ]
+   ],
+   "supersededReason": "a sample of listings cannot establish that a template has no website-link capability"
   },
   {
    "collection": "directories",
@@ -3707,11 +3697,9 @@
    "actionable": true,
    "key": "link|directories|de-kennstdueinen",
    "observedAt": "2026-08-21",
-   "state": "RESOLVED",
-   "backlinkType": "none",
-   "linkTargetType": null,
+   "state": "LISTING_WITHOUT_LINK",
    "listingIndexability": "indexable",
-   "why": "the public listing renders no external website link",
+   "why": "1 public listing(s) read; none rendered an external website link, which does not establish that the template cannot",
    "templates": [
     {
      "listingUrl": "https://www.kennstdueinen.de/ergebnis-einlagerung-in-muehltal-360-1399.html",
@@ -3719,7 +3707,8 @@
      "indexability": "indexable",
      "buttonCount": 5
     }
-   ]
+   ],
+   "supersededReason": "a sample of listings cannot establish that a template has no website-link capability"
   },
   {
    "collection": "directories",
@@ -3966,11 +3955,9 @@
    "actionable": false,
    "key": "link|directories|de-unternehmensverzeichnis",
    "observedAt": "2026-08-21",
-   "state": "RESOLVED",
-   "backlinkType": "none",
-   "linkTargetType": null,
+   "state": "LISTING_WITHOUT_LINK",
    "listingIndexability": "indexable",
-   "why": "the public listing renders no external website link",
+   "why": "3 public listing(s) read; none rendered an external website link, which does not establish that the template cannot",
    "templates": [
     {
      "listingUrl": "https://www.unternehmensverzeichnis.org/lumi-elektro-koblenz-2520043227533",
@@ -3990,7 +3977,8 @@
      "indexability": "indexable",
      "buttonCount": 41
     }
-   ]
+   ],
+   "supersededReason": "a sample of listings cannot establish that a template has no website-link capability"
   },
   {
    "collection": "directories",
@@ -4012,11 +4000,9 @@
    "actionable": false,
    "key": "link|directories|de-wer-zu-wem",
    "observedAt": "2026-08-21",
-   "state": "RESOLVED",
-   "backlinkType": "none",
-   "linkTargetType": null,
+   "state": "LISTING_WITHOUT_LINK",
    "listingIndexability": "indexable",
-   "why": "the public listing renders no external website link",
+   "why": "3 public listing(s) read; none rendered an external website link, which does not establish that the template cannot",
    "templates": [
     {
      "listingUrl": "https://www.wer-zu-wem.de/firma/boesehof.html",
@@ -4036,7 +4022,8 @@
      "indexability": "indexable",
      "buttonCount": 1
     }
-   ]
+   ],
+   "supersededReason": "a sample of listings cannot establish that a template has no website-link capability"
   },
   {
    "collection": "directories",
@@ -4126,11 +4113,9 @@
    "actionable": false,
    "key": "link|directories|dk-bilbasen",
    "observedAt": "2026-08-21",
-   "state": "RESOLVED",
-   "backlinkType": "none",
-   "linkTargetType": null,
+   "state": "LISTING_WITHOUT_LINK",
    "listingIndexability": "indexable",
-   "why": "the public listing renders no external website link",
+   "why": "1 public listing(s) read; none rendered an external website link, which does not establish that the template cannot",
    "templates": [
     {
      "listingUrl": "https://www.bilbasen.dk/brugt/bil/bmw/330e/20-m-sport-xdrive-aut/6971497",
@@ -4138,7 +4123,8 @@
      "indexability": "indexable",
      "buttonCount": 21
     }
-   ]
+   ],
+   "supersededReason": "a sample of listings cannot establish that a template has no website-link capability"
   },
   {
    "collection": "directories",
@@ -4209,11 +4195,9 @@
    "actionable": false,
    "key": "link|directories|dk-hotfrog",
    "observedAt": "2026-08-21",
-   "state": "RESOLVED",
-   "backlinkType": "none",
-   "linkTargetType": null,
+   "state": "LISTING_WITHOUT_LINK",
    "listingIndexability": "indexable",
-   "why": "the public listing renders no external website link",
+   "why": "3 public listing(s) read; none rendered an external website link, which does not establish that the template cannot",
    "templates": [
     {
      "listingUrl": "https://www.hotfrog.dk/company/bbb4188c90715a8b5d3b80de3b5da507/mirelle/sk%C3%B8rping/jewelry",
@@ -4233,7 +4217,8 @@
      "indexability": "indexable",
      "buttonCount": 16
     }
-   ]
+   ],
+   "supersededReason": "a sample of listings cannot establish that a template has no website-link capability"
   },
   {
    "collection": "directories",
@@ -5042,11 +5027,9 @@
    "actionable": false,
    "key": "link|directories|fr-aacc",
    "observedAt": "2026-08-21",
-   "state": "RESOLVED",
-   "backlinkType": "none",
-   "linkTargetType": null,
+   "state": "LISTING_WITHOUT_LINK",
    "listingIndexability": "indexable",
-   "why": "the public listing renders no external website link",
+   "why": "1 public listing(s) read; none rendered an external website link, which does not establish that the template cannot",
    "templates": [
     {
      "listingUrl": "https://www.aacc.fr/agence/artefact-3000/",
@@ -5054,7 +5037,8 @@
      "indexability": "indexable",
      "buttonCount": 10
     }
-   ]
+   ],
+   "supersededReason": "a sample of listings cannot establish that a template has no website-link capability"
   },
   {
    "collection": "directories",
@@ -5089,11 +5073,9 @@
    "actionable": false,
    "key": "link|directories|fr-annuaire-entreprise-co",
    "observedAt": "2026-08-21",
-   "state": "RESOLVED",
-   "backlinkType": "none",
-   "linkTargetType": null,
+   "state": "LISTING_WITHOUT_LINK",
    "listingIndexability": "indexable",
-   "why": "the public listing renders no external website link",
+   "why": "1 public listing(s) read; none rendered an external website link, which does not establish that the template cannot",
    "templates": [
     {
      "listingUrl": "https://www.annuaire-entreprise.co/comment-referencer-son-entreprise-en-ligne-le-guide-complet-2024",
@@ -5101,7 +5083,8 @@
      "indexability": "indexable",
      "buttonCount": 6
     }
-   ]
+   ],
+   "supersededReason": "a sample of listings cannot establish that a template has no website-link capability"
   },
   {
    "collection": "directories",
@@ -5335,11 +5318,9 @@
    "actionable": false,
    "key": "link|directories|fr-hoodspot",
    "observedAt": "2026-08-21",
-   "state": "RESOLVED",
-   "backlinkType": "none",
-   "linkTargetType": null,
+   "state": "LISTING_WITHOUT_LINK",
    "listingIndexability": "indexable",
-   "why": "the public listing renders no external website link",
+   "why": "3 public listing(s) read; none rendered an external website link, which does not establish that the template cannot",
    "templates": [
     {
      "listingUrl": "https://annuaire.petitesaffiches.fr/bar-cafe-discotheque/conseil-de-paris-buvette-21750001617393/",
@@ -5359,7 +5340,8 @@
      "indexability": "indexable",
      "buttonCount": 19
     }
-   ]
+   ],
+   "supersededReason": "a sample of listings cannot establish that a template has no website-link capability"
   },
   {
    "collection": "directories",
@@ -6876,11 +6858,9 @@
    "actionable": true,
    "key": "link|directories|global-expressbusinessdirectory",
    "observedAt": "2026-08-21",
-   "state": "RESOLVED",
-   "backlinkType": "none",
-   "linkTargetType": null,
+   "state": "LISTING_WITHOUT_LINK",
    "listingIndexability": "indexable",
-   "why": "the public listing renders no external website link",
+   "why": "2 public listing(s) read; none rendered an external website link, which does not establish that the template cannot",
    "templates": [
     {
      "listingUrl": "https://www.expressbusinessdirectory.com/directory/best-online-casinos-in-south-africa-2026/",
@@ -6894,7 +6874,8 @@
      "indexability": "indexable",
      "buttonCount": 839
     }
-   ]
+   ],
+   "supersededReason": "a sample of listings cannot establish that a template has no website-link capability"
   },
   {
    "collection": "directories",
@@ -7133,11 +7114,9 @@
    "actionable": false,
    "key": "link|directories|global-go4worldbusiness",
    "observedAt": "2026-08-21",
-   "state": "RESOLVED",
-   "backlinkType": "none",
-   "linkTargetType": null,
+   "state": "LISTING_WITHOUT_LINK",
    "listingIndexability": "indexable",
-   "why": "the public listing renders no external website link",
+   "why": "1 public listing(s) read; none rendered an external website link, which does not establish that the template cannot",
    "templates": [
     {
      "listingUrl": "https://www.go4worldbusiness.com/member/view/3945201/jindal-india-limited.html",
@@ -7145,7 +7124,8 @@
      "indexability": "indexable",
      "buttonCount": 4
     }
-   ]
+   ],
+   "supersededReason": "a sample of listings cannot establish that a template has no website-link capability"
   },
   {
    "collection": "directories",
@@ -7426,11 +7406,9 @@
    "actionable": false,
    "key": "link|directories|global-ibm-partners",
    "observedAt": "2026-08-21",
-   "state": "RESOLVED",
-   "backlinkType": "none",
-   "linkTargetType": null,
+   "state": "LISTING_WITHOUT_LINK",
    "listingIndexability": "indexable",
-   "why": "the public listing renders no external website link",
+   "why": "3 public listing(s) read; none rendered an external website link, which does not establish that the template cannot",
    "templates": [
     {
      "listingUrl": "https://www.ibm.com/partnerplus/directory/company/7582",
@@ -7494,7 +7472,8 @@
      "anchorText": null,
      "indexability": "indexable"
     }
-   ]
+   ],
+   "supersededReason": "a sample of listings cannot establish that a template has no website-link capability"
   },
   {
    "collection": "directories",
@@ -10413,11 +10392,9 @@
    "actionable": false,
    "key": "link|directories|in-indiantradebird",
    "observedAt": "2026-08-21",
-   "state": "RESOLVED",
-   "backlinkType": "none",
-   "linkTargetType": null,
+   "state": "LISTING_WITHOUT_LINK",
    "listingIndexability": "indexable",
-   "why": "the public listing renders no external website link",
+   "why": "1 public listing(s) read; none rendered an external website link, which does not establish that the template cannot",
    "templates": [
     {
      "listingUrl": "https://www.indiantradebird.com/admin/company/companysetup",
@@ -10425,7 +10402,8 @@
      "indexability": "indexable",
      "buttonCount": 11
     }
-   ]
+   ],
+   "supersededReason": "a sample of listings cannot establish that a template has no website-link capability"
   },
   {
    "collection": "directories",
@@ -10572,11 +10550,9 @@
    "actionable": false,
    "key": "link|directories|in-magicpin",
    "observedAt": "2026-08-21",
-   "state": "RESOLVED",
-   "backlinkType": "none",
-   "linkTargetType": null,
+   "state": "LISTING_WITHOUT_LINK",
    "listingIndexability": "indexable",
-   "why": "the public listing renders no external website link",
+   "why": "2 public listing(s) read; none rendered an external website link, which does not establish that the template cannot",
    "templates": [
     {
      "listingUrl": "https://magicpin.in/Bangalore/Kalyan-Nagar/Restaurant/Cafe-Azzure/store/264455",
@@ -10590,7 +10566,8 @@
      "indexability": "indexable",
      "buttonCount": 30
     }
-   ]
+   ],
+   "supersededReason": "a sample of listings cannot establish that a template has no website-link capability"
   },
   {
    "collection": "directories",
@@ -11097,11 +11074,9 @@
    "actionable": false,
    "key": "link|directories|it-hotfrog",
    "observedAt": "2026-08-21",
-   "state": "RESOLVED",
-   "backlinkType": "none",
-   "linkTargetType": null,
+   "state": "LISTING_WITHOUT_LINK",
    "listingIndexability": "indexable",
-   "why": "the public listing renders no external website link",
+   "why": "1 public listing(s) read; none rendered an external website link, which does not establish that the template cannot",
    "templates": [
     {
      "listingUrl": "https://www.hotfrog.it/company/d699d16b61913b809dc8ec253fb2a4e4",
@@ -11109,7 +11084,8 @@
      "indexability": "indexable",
      "buttonCount": 16
     }
-   ]
+   ],
+   "supersededReason": "a sample of listings cannot establish that a template has no website-link capability"
   },
   {
    "collection": "directories",
@@ -12108,11 +12084,9 @@
    "actionable": false,
    "key": "link|directories|lk-ikman",
    "observedAt": "2026-08-21",
-   "state": "RESOLVED",
-   "backlinkType": "none",
-   "linkTargetType": null,
+   "state": "LISTING_WITHOUT_LINK",
    "listingIndexability": "indexable",
-   "why": "the public listing renders no external website link",
+   "why": "1 public listing(s) read; none rendered an external website link, which does not establish that the template cannot",
    "templates": [
     {
      "listingUrl": "https://ikman.lk/en/ad/land-for-sale-in-kandy-for-sale-kandy-3498",
@@ -12120,7 +12094,8 @@
      "indexability": "indexable",
      "buttonCount": 773
     }
-   ]
+   ],
+   "supersededReason": "a sample of listings cannot establish that a template has no website-link capability"
   },
   {
    "collection": "directories",
@@ -12259,11 +12234,9 @@
    "actionable": false,
    "key": "link|directories|me-companywall",
    "observedAt": "2026-08-21",
-   "state": "RESOLVED",
-   "backlinkType": "none",
-   "linkTargetType": null,
+   "state": "LISTING_WITHOUT_LINK",
    "listingIndexability": "indexable",
-   "why": "the public listing renders no external website link",
+   "why": "3 public listing(s) read; none rendered an external website link, which does not establish that the template cannot",
    "templates": [
     {
      "listingUrl": "https://www.companywall.me/firma/skorpion/MMxsDsKR",
@@ -12283,7 +12256,8 @@
      "indexability": "indexable",
      "buttonCount": 33
     }
-   ]
+   ],
+   "supersededReason": "a sample of listings cannot establish that a template has no website-link capability"
   },
   {
    "collection": "directories",
@@ -12575,11 +12549,9 @@
    "actionable": false,
    "key": "link|directories|mx-hotfrog",
    "observedAt": "2026-08-21",
-   "state": "RESOLVED",
-   "backlinkType": "none",
-   "linkTargetType": null,
+   "state": "LISTING_WITHOUT_LINK",
    "listingIndexability": "indexable",
-   "why": "the public listing renders no external website link",
+   "why": "3 public listing(s) read; none rendered an external website link, which does not establish that the template cannot",
    "templates": [
     {
      "listingUrl": "https://www.hotfrog.com.mx/company/7ab9de495e47df0cf94d8c5f41c5e845",
@@ -12599,7 +12571,8 @@
      "indexability": "indexable",
      "buttonCount": 903
     }
-   ]
+   ],
+   "supersededReason": "a sample of listings cannot establish that a template has no website-link capability"
   },
   {
    "collection": "directories",
@@ -12633,11 +12606,9 @@
    "actionable": false,
    "key": "link|directories|mx-rappi",
    "observedAt": "2026-08-21",
-   "state": "RESOLVED",
-   "backlinkType": "none",
-   "linkTargetType": null,
+   "state": "LISTING_WITHOUT_LINK",
    "listingIndexability": "indexable",
-   "why": "the public listing renders no external website link",
+   "why": "1 public listing(s) read; none rendered an external website link, which does not establish that the template cannot",
    "templates": [
     {
      "listingUrl": "https://www.rappi.com.mx/restaurantes/1930209930-carls-jr-turbo",
@@ -12645,7 +12616,8 @@
      "indexability": "indexable",
      "buttonCount": 15
     }
-   ]
+   ],
+   "supersededReason": "a sample of listings cannot establish that a template has no website-link capability"
   },
   {
    "collection": "directories",
@@ -12680,11 +12652,9 @@
    "actionable": false,
    "key": "link|directories|mx-yaloencontre",
    "observedAt": "2026-08-21",
-   "state": "RESOLVED",
-   "backlinkType": "none",
-   "linkTargetType": null,
+   "state": "LISTING_WITHOUT_LINK",
    "listingIndexability": "indexable",
-   "why": "the public listing renders no external website link",
+   "why": "1 public listing(s) read; none rendered an external website link, which does not establish that the template cannot",
    "templates": [
     {
      "listingUrl": "https://www.yaloencontre.mx/multiservicios-del-centro/36086",
@@ -12692,7 +12662,8 @@
      "indexability": "indexable",
      "buttonCount": 23
     }
-   ]
+   ],
+   "supersededReason": "a sample of listings cannot establish that a template has no website-link capability"
   },
   {
    "collection": "directories",
@@ -13320,11 +13291,9 @@
    "actionable": false,
    "key": "link|directories|no-1881",
    "observedAt": "2026-08-21",
-   "state": "RESOLVED",
-   "backlinkType": "none",
-   "linkTargetType": null,
+   "state": "LISTING_WITHOUT_LINK",
    "listingIndexability": "indexable",
-   "why": "the public listing renders no external website link",
+   "why": "2 public listing(s) read; none rendered an external website link, which does not establish that the template cannot",
    "templates": [
     {
      "listingUrl": "https://om.1881.no/tjenester-1881/ring-1881",
@@ -13338,7 +13307,8 @@
      "indexability": "indexable",
      "buttonCount": 4
     }
-   ]
+   ],
+   "supersededReason": "a sample of listings cannot establish that a template has no website-link capability"
   },
   {
    "collection": "directories",
@@ -13431,11 +13401,9 @@
    "actionable": false,
    "key": "link|directories|no-mittanbud",
    "observedAt": "2026-08-21",
-   "state": "RESOLVED",
-   "backlinkType": "none",
-   "linkTargetType": null,
+   "state": "LISTING_WITHOUT_LINK",
    "listingIndexability": "indexable",
-   "why": "the public listing renders no external website link",
+   "why": "2 public listing(s) read; none rendered an external website link, which does not establish that the template cannot",
    "templates": [
     {
      "listingUrl": "https://mittanbud.no/bedrift/3838256",
@@ -13449,7 +13417,8 @@
      "indexability": "indexable",
      "buttonCount": 30
     }
-   ]
+   ],
+   "supersededReason": "a sample of listings cannot establish that a template has no website-link capability"
   },
   {
    "collection": "directories",
@@ -13633,11 +13602,9 @@
    "actionable": true,
    "key": "link|directories|pe-hotfrog",
    "observedAt": "2026-08-21",
-   "state": "RESOLVED",
-   "backlinkType": "none",
-   "linkTargetType": null,
+   "state": "LISTING_WITHOUT_LINK",
    "listingIndexability": "indexable",
-   "why": "the public listing renders no external website link",
+   "why": "2 public listing(s) read; none rendered an external website link, which does not establish that the template cannot",
    "templates": [
     {
      "listingUrl": "https://www.hotfrog.com.pe/company/5b5ecf76850b3e78bc77ec9bbd022aee/tienda-urbana-tocache/tocache/fashion-accessories",
@@ -13651,7 +13618,8 @@
      "indexability": "indexable",
      "buttonCount": 892
     }
-   ]
+   ],
+   "supersededReason": "a sample of listings cannot establish that a template has no website-link capability"
   },
   {
    "collection": "directories",
@@ -13918,11 +13886,9 @@
    "actionable": false,
    "key": "link|directories|pl-gratka",
    "observedAt": "2026-08-21",
-   "state": "RESOLVED",
-   "backlinkType": "none",
-   "linkTargetType": null,
+   "state": "LISTING_WITHOUT_LINK",
    "listingIndexability": "indexable",
-   "why": "the public listing renders no external website link",
+   "why": "1 public listing(s) read; none rendered an external website link, which does not establish that the template cannot",
    "templates": [
     {
      "listingUrl": "https://gratka.pl/nieruchomosci/mieszkanie-warszawa-ochota-grojecka/ob/48688447",
@@ -13930,7 +13896,8 @@
      "indexability": "indexable",
      "buttonCount": 64
     }
-   ]
+   ],
+   "supersededReason": "a sample of listings cannot establish that a template has no website-link capability"
   },
   {
    "collection": "directories",
@@ -13941,11 +13908,9 @@
    "actionable": false,
    "key": "link|directories|pl-hotfrog",
    "observedAt": "2026-08-21",
-   "state": "RESOLVED",
-   "backlinkType": "none",
-   "linkTargetType": null,
+   "state": "LISTING_WITHOUT_LINK",
    "listingIndexability": "indexable",
-   "why": "the public listing renders no external website link",
+   "why": "3 public listing(s) read; none rendered an external website link, which does not establish that the template cannot",
    "templates": [
     {
      "listingUrl": "https://www.hotfrog.pl/company/895595fda8f4851ddfbcd0d9995516a6",
@@ -13965,7 +13930,8 @@
      "indexability": "indexable",
      "buttonCount": 16
     }
-   ]
+   ],
+   "supersededReason": "a sample of listings cannot establish that a template has no website-link capability"
   },
   {
    "collection": "directories",
@@ -14000,11 +13966,9 @@
    "actionable": false,
    "key": "link|directories|pl-jobs-pl",
    "observedAt": "2026-08-21",
-   "state": "RESOLVED",
-   "backlinkType": "none",
-   "linkTargetType": null,
+   "state": "LISTING_WITHOUT_LINK",
    "listingIndexability": "indexable",
-   "why": "the public listing renders no external website link",
+   "why": "1 public listing(s) read; none rendered an external website link, which does not establish that the template cannot",
    "templates": [
     {
      "listingUrl": "https://www.jobs.pl/mechanik-mechaniczka-samochodow-ciezarowych-i-autobusow-oferta-3940940",
@@ -14012,7 +13976,8 @@
      "indexability": "indexable",
      "buttonCount": 8
     }
-   ]
+   ],
+   "supersededReason": "a sample of listings cannot establish that a template has no website-link capability"
   },
   {
    "collection": "directories",
@@ -14140,11 +14105,9 @@
    "actionable": false,
    "key": "link|directories|pl-praca",
    "observedAt": "2026-08-21",
-   "state": "RESOLVED",
-   "backlinkType": "none",
-   "linkTargetType": null,
+   "state": "LISTING_WITHOUT_LINK",
    "listingIndexability": "indexable",
-   "why": "the public listing renders no external website link",
+   "why": "1 public listing(s) read; none rendered an external website link, which does not establish that the template cannot",
    "templates": [
     {
      "listingUrl": "https://www.praca.pl/kierownik-kierowniczka-sekcji-zarzadzania-oferta-soho-smb_11379880.html",
@@ -14152,7 +14115,8 @@
      "indexability": "indexable",
      "buttonCount": 28
     }
-   ]
+   ],
+   "supersededReason": "a sample of listings cannot establish that a template has no website-link capability"
   },
   {
    "collection": "directories",
@@ -14209,11 +14173,9 @@
    "actionable": false,
    "key": "link|directories|pl-solidnafirma",
    "observedAt": "2026-08-21",
-   "state": "RESOLVED",
-   "backlinkType": "none",
-   "linkTargetType": null,
+   "state": "LISTING_WITHOUT_LINK",
    "listingIndexability": "indexable",
-   "why": "the public listing renders no external website link",
+   "why": "2 public listing(s) read; none rendered an external website link, which does not establish that the template cannot",
    "templates": [
     {
      "listingUrl": "https://www.solidnafirma.pl/kandydaci-2025/",
@@ -14227,7 +14189,8 @@
      "indexability": "indexable",
      "buttonCount": 1
     }
-   ]
+   ],
+   "supersededReason": "a sample of listings cannot establish that a template has no website-link capability"
   },
   {
    "collection": "directories",
@@ -14238,11 +14201,9 @@
    "actionable": false,
    "key": "link|directories|pl-sooipp",
    "observedAt": "2026-08-21",
-   "state": "RESOLVED",
-   "backlinkType": "none",
-   "linkTargetType": null,
+   "state": "LISTING_WITHOUT_LINK",
    "listingIndexability": "indexable",
-   "why": "the public listing renders no external website link",
+   "why": "2 public listing(s) read; none rendered an external website link, which does not establish that the template cannot",
    "templates": [
     {
      "listingUrl": "https://www.sooipp.org.pl/noc-innowacji-2025",
@@ -14256,7 +14217,8 @@
      "indexability": "indexable",
      "buttonCount": 6
     }
-   ]
+   ],
+   "supersededReason": "a sample of listings cannot establish that a template has no website-link capability"
   },
   {
    "collection": "directories",
@@ -14267,11 +14229,9 @@
    "actionable": false,
    "key": "link|directories|pl-startuppoland",
    "observedAt": "2026-08-21",
-   "state": "RESOLVED",
-   "backlinkType": "none",
-   "linkTargetType": null,
+   "state": "LISTING_WITHOUT_LINK",
    "listingIndexability": "indexable",
-   "why": "the public listing renders no external website link",
+   "why": "2 public listing(s) read; none rendered an external website link, which does not establish that the template cannot",
    "templates": [
     {
      "listingUrl": "https://startuppoland.org/report/polskie-startupy-2025/",
@@ -14285,7 +14245,8 @@
      "indexability": "indexable",
      "buttonCount": 4
     }
-   ]
+   ],
+   "supersededReason": "a sample of listings cannot establish that a template has no website-link capability"
   },
   {
    "collection": "directories",
@@ -14499,11 +14460,9 @@
    "actionable": false,
    "key": "link|directories|rs-companywall",
    "observedAt": "2026-08-21",
-   "state": "RESOLVED",
-   "backlinkType": "none",
-   "linkTargetType": null,
+   "state": "LISTING_WITHOUT_LINK",
    "listingIndexability": "indexable",
-   "why": "the public listing renders no external website link",
+   "why": "3 public listing(s) read; none rendered an external website link, which does not establish that the template cannot",
    "templates": [
     {
      "listingUrl": "https://www.companywall.rs/firma/brigate-doo-beograd/MMiOWzA0",
@@ -14523,7 +14482,8 @@
      "indexability": "indexable",
      "buttonCount": 34
     }
-   ]
+   ],
+   "supersededReason": "a sample of listings cannot establish that a template has no website-link capability"
   },
   {
    "collection": "directories",
@@ -14594,11 +14554,9 @@
    "actionable": false,
    "key": "link|directories|se-bytbil",
    "observedAt": "2026-08-21",
-   "state": "RESOLVED",
-   "backlinkType": "none",
-   "linkTargetType": null,
+   "state": "LISTING_WITHOUT_LINK",
    "listingIndexability": "indexable",
-   "why": "the public listing renders no external website link",
+   "why": "2 public listing(s) read; none rendered an external website link, which does not establish that the template cannot",
    "templates": [
     {
      "listingUrl": "https://www.bytbil.com/stockholms-lan/personbil-t-roc-1-5-tsi-adapt-fart-carplay-p-sensorer-ac-6058-19344810",
@@ -14612,7 +14570,8 @@
      "indexability": "indexable",
      "buttonCount": 19
     }
-   ]
+   ],
+   "supersededReason": "a sample of listings cannot establish that a template has no website-link capability"
   },
   {
    "collection": "directories",
@@ -15074,11 +15033,9 @@
    "actionable": false,
    "key": "link|directories|tn-tunisieindex",
    "observedAt": "2026-08-21",
-   "state": "RESOLVED",
-   "backlinkType": "none",
-   "linkTargetType": null,
+   "state": "LISTING_WITHOUT_LINK",
    "listingIndexability": "indexable",
-   "why": "the public listing renders no external website link",
+   "why": "1 public listing(s) read; none rendered an external website link, which does not establish that the template cannot",
    "templates": [
     {
      "listingUrl": "https://www.tunisieindex.com/entreprises/",
@@ -15086,7 +15043,8 @@
      "indexability": "indexable",
      "buttonCount": 816
     }
-   ]
+   ],
+   "supersededReason": "a sample of listings cannot establish that a template has no website-link capability"
   },
   {
    "collection": "directories",
@@ -15426,11 +15384,9 @@
    "actionable": false,
    "key": "link|directories|uk-gumtree",
    "observedAt": "2026-08-21",
-   "state": "RESOLVED",
-   "backlinkType": "none",
-   "linkTargetType": null,
+   "state": "LISTING_WITHOUT_LINK",
    "listingIndexability": "indexable",
-   "why": "the public listing renders no external website link",
+   "why": "1 public listing(s) read; none rendered an external website link, which does not establish that the template cannot",
    "templates": [
     {
      "listingUrl": "https://www.gumtree.com/p/nissan/nissan-juke-/1801764578",
@@ -15438,7 +15394,8 @@
      "indexability": "indexable",
      "buttonCount": 40
     }
-   ]
+   ],
+   "supersededReason": "a sample of listings cannot establish that a template has no website-link capability"
   },
   {
    "collection": "directories",
@@ -15449,11 +15406,9 @@
    "actionable": false,
    "key": "link|directories|uk-hardens",
    "observedAt": "2026-08-21",
-   "state": "RESOLVED",
-   "backlinkType": "none",
-   "linkTargetType": null,
+   "state": "LISTING_WITHOUT_LINK",
    "listingIndexability": "noindex",
-   "why": "the public listing renders no external website link",
+   "why": "1 public listing(s) read; none rendered an external website link, which does not establish that the template cannot",
    "templates": [
     {
      "listingUrl": "https://www.hardens.com/business/Dashboard.php",
@@ -15461,7 +15416,8 @@
      "indexability": "noindex",
      "buttonCount": 0
     }
-   ]
+   ],
+   "supersededReason": "a sample of listings cannot establish that a template has no website-link capability"
   },
   {
    "collection": "directories",
@@ -15541,11 +15497,9 @@
    "actionable": true,
    "key": "link|directories|uk-infoisinfo",
    "observedAt": "2026-08-21",
-   "state": "RESOLVED",
-   "backlinkType": "none",
-   "linkTargetType": null,
+   "state": "LISTING_WITHOUT_LINK",
    "listingIndexability": "indexable",
-   "why": "the public listing renders no external website link",
+   "why": "2 public listing(s) read; none rendered an external website link, which does not establish that the template cannot",
    "templates": [
     {
      "listingUrl": "https://brackley.infoisinfo.co.uk/card/briary-cottages/1227816",
@@ -15559,7 +15513,8 @@
      "indexability": "indexable",
      "buttonCount": 3
     }
-   ]
+   ],
+   "supersededReason": "a sample of listings cannot establish that a template has no website-link capability"
   },
   {
    "collection": "directories",
@@ -15672,11 +15627,9 @@
    "actionable": true,
    "key": "link|directories|uk-mylocalservices",
    "observedAt": "2026-08-21",
-   "state": "RESOLVED",
-   "backlinkType": "none",
-   "linkTargetType": null,
+   "state": "LISTING_WITHOUT_LINK",
    "listingIndexability": "indexable",
-   "why": "the public listing renders no external website link",
+   "why": "2 public listing(s) read; none rendered an external website link, which does not establish that the template cannot",
    "templates": [
     {
      "listingUrl": "https://www.mylocalservices.co.uk/DP+JOINERY-Wakefield-2537440.html#reviews",
@@ -15690,7 +15643,8 @@
      "indexability": "indexable",
      "buttonCount": 0
     }
-   ]
+   ],
+   "supersededReason": "a sample of listings cannot establish that a template has no website-link capability"
   },
   {
    "collection": "directories",
@@ -16105,11 +16059,9 @@
    "actionable": false,
    "key": "link|directories|us-aplaceformom",
    "observedAt": "2026-08-21",
-   "state": "RESOLVED",
-   "backlinkType": "none",
-   "linkTargetType": null,
+   "state": "LISTING_WITHOUT_LINK",
    "listingIndexability": "indexable",
-   "why": "the public listing renders no external website link",
+   "why": "3 public listing(s) read; none rendered an external website link, which does not establish that the template cannot",
    "templates": [
     {
      "listingUrl": "https://www.aplaceformom.com/community/edina-heights-senior-living-88463",
@@ -16129,7 +16081,8 @@
      "indexability": "indexable",
      "buttonCount": 88
     }
-   ]
+   ],
+   "supersededReason": "a sample of listings cannot establish that a template has no website-link capability"
   },
   {
    "collection": "directories",
@@ -16272,11 +16225,9 @@
    "actionable": true,
    "key": "link|directories|us-businessyab",
    "observedAt": "2026-08-21",
-   "state": "RESOLVED",
-   "backlinkType": "none",
-   "linkTargetType": null,
+   "state": "LISTING_WITHOUT_LINK",
    "listingIndexability": "indexable",
-   "why": "the public listing renders no external website link",
+   "why": "3 public listing(s) read; none rendered an external website link, which does not establish that the template cannot",
    "templates": [
     {
      "listingUrl": "https://www.businessyab.com/explore/united_states/texas/dallas_county/dallas/northwest_dallas/anode_lane/2955/paleteria-san-marcos-214-484-7040.html",
@@ -16296,7 +16247,8 @@
      "indexability": "indexable",
      "buttonCount": 824
     }
-   ]
+   ],
+   "supersededReason": "a sample of listings cannot establish that a template has no website-link capability"
   },
   {
    "collection": "directories",
@@ -16716,11 +16668,9 @@
    "actionable": true,
    "key": "link|directories|us-fyple",
    "observedAt": "2026-08-21",
-   "state": "RESOLVED",
-   "backlinkType": "none",
-   "linkTargetType": null,
+   "state": "LISTING_WITHOUT_LINK",
    "listingIndexability": "indexable",
-   "why": "the public listing renders no external website link",
+   "why": "2 public listing(s) read; none rendered an external website link, which does not establish that the template cannot",
    "templates": [
     {
      "listingUrl": "https://www.fyple.com/company/o2-mold-testing-of-reston-ykyslcu/#rev_137516",
@@ -16734,7 +16684,8 @@
      "indexability": "indexable",
      "buttonCount": 821
     }
-   ]
+   ],
+   "supersededReason": "a sample of listings cannot establish that a template has no website-link capability"
   },
   {
    "collection": "directories",
@@ -17817,11 +17768,9 @@
    "actionable": true,
    "key": "link|directories|us-trustlink",
    "observedAt": "2026-08-21",
-   "state": "RESOLVED",
-   "backlinkType": "none",
-   "linkTargetType": null,
+   "state": "LISTING_WITHOUT_LINK",
    "listingIndexability": "indexable",
-   "why": "the public listing renders no external website link",
+   "why": "2 public listing(s) read; none rendered an external website link, which does not establish that the template cannot",
    "templates": [
     {
      "listingUrl": "https://www.trustlink.org/Reviews/Angelys-Cleaning-207329770",
@@ -17835,7 +17784,8 @@
      "indexability": "indexable",
      "buttonCount": 0
     }
-   ]
+   ],
+   "supersededReason": "a sample of listings cannot establish that a template has no website-link capability"
   },
   {
    "collection": "directories",
@@ -18701,11 +18651,9 @@
    "actionable": true,
    "key": "link|marketplaces|mp-at-bazar",
    "observedAt": "2026-08-21",
-   "state": "RESOLVED",
-   "backlinkType": "none",
-   "linkTargetType": null,
+   "state": "LISTING_WITHOUT_LINK",
    "listingIndexability": "indexable",
-   "why": "the public listing renders no external website link",
+   "why": "1 public listing(s) read; none rendered an external website link, which does not establish that the template cannot",
    "templates": [
     {
      "listingUrl": "https://www.bazar.at/d/04-figuren/wie-1100/p-1473947",
@@ -18739,7 +18687,8 @@
      "anchorText": null,
      "indexability": "indexable"
     }
-   ]
+   ],
+   "supersededReason": "a sample of listings cannot establish that a template has no website-link capability"
   },
   {
    "collection": "marketplaces",
@@ -18912,11 +18861,9 @@
    "actionable": false,
    "key": "link|marketplaces|mp-be-2dehands",
    "observedAt": "2026-08-21",
-   "state": "RESOLVED",
-   "backlinkType": "none",
-   "linkTargetType": null,
+   "state": "LISTING_WITHOUT_LINK",
    "listingIndexability": "indexable",
-   "why": "the public listing renders no external website link",
+   "why": "3 public listing(s) read; none rendered an external website link, which does not establish that the template cannot",
    "templates": [
     {
      "listingUrl": "https://www.2dehands.be/v/motoren/onderdelen-suzuki/m2433512972-gsx600f-1998-2005-suzuki-kopkuipsteun-d1-42298",
@@ -18936,7 +18883,8 @@
      "indexability": "indexable",
      "buttonCount": 13
     }
-   ]
+   ],
+   "supersededReason": "a sample of listings cannot establish that a template has no website-link capability"
   },
   {
    "collection": "marketplaces",
@@ -19303,11 +19251,9 @@
    "actionable": false,
    "key": "link|marketplaces|mp-cl-yapo",
    "observedAt": "2026-08-21",
-   "state": "RESOLVED",
-   "backlinkType": "none",
-   "linkTargetType": null,
+   "state": "LISTING_WITHOUT_LINK",
    "listingIndexability": "indexable",
-   "why": "the public listing renders no external website link",
+   "why": "1 public listing(s) read; none rendered an external website link, which does not establish that the template cannot",
    "templates": [
     {
      "listingUrl": "https://www.yapo.cl/bienes-raices-proyectos-nuevos/parquemar-el-tabo/31281191",
@@ -19315,7 +19261,8 @@
      "indexability": "indexable",
      "buttonCount": 50
     }
-   ]
+   ],
+   "supersededReason": "a sample of listings cannot establish that a template has no website-link capability"
   },
   {
    "collection": "marketplaces",
@@ -19726,11 +19673,9 @@
    "actionable": false,
    "key": "link|marketplaces|mp-do-lapulga",
    "observedAt": "2026-08-21",
-   "state": "RESOLVED",
-   "backlinkType": "none",
-   "linkTargetType": null,
+   "state": "LISTING_WITHOUT_LINK",
    "listingIndexability": "indexable",
-   "why": "the public listing renders no external website link",
+   "why": "1 public listing(s) read; none rendered an external website link, which does not establish that the template cannot",
    "templates": [
     {
      "listingUrl": "https://www.lapulga.com.do/cargador-cabeza-supervooc-original-carga-rapida-33w-1m-garantia_7275345.html",
@@ -19738,7 +19683,8 @@
      "indexability": "indexable",
      "buttonCount": 829
     }
-   ]
+   ],
+   "supersededReason": "a sample of listings cannot establish that a template has no website-link capability"
   },
   {
    "collection": "marketplaces",
@@ -20154,11 +20100,9 @@
    "actionable": false,
    "key": "link|marketplaces|mp-gt-encuentra24",
    "observedAt": "2026-08-21",
-   "state": "RESOLVED",
-   "backlinkType": "none",
-   "linkTargetType": null,
+   "state": "LISTING_WITHOUT_LINK",
    "listingIndexability": "indexable",
-   "why": "the public listing renders no external website link",
+   "why": "1 public listing(s) read; none rendered an external website link, which does not establish that the template cannot",
    "templates": [
     {
      "listingUrl": "https://www.encuentra24.com/guatemala-es/bienes-raices-venta-de-propiedades-comercios/bodega-industrial-en-venta-en-santa-catarina-pinula/31803283",
@@ -20166,7 +20110,8 @@
      "indexability": "indexable",
      "buttonCount": 51
     }
-   ]
+   ],
+   "supersededReason": "a sample of listings cannot establish that a template has no website-link capability"
   },
   {
    "collection": "marketplaces",
@@ -20350,11 +20295,9 @@
    "actionable": false,
    "key": "link|marketplaces|mp-ie-donedeal",
    "observedAt": "2026-08-21",
-   "state": "RESOLVED",
-   "backlinkType": "none",
-   "linkTargetType": null,
+   "state": "LISTING_WITHOUT_LINK",
    "listingIndexability": "indexable",
-   "why": "the public listing renders no external website link",
+   "why": "1 public listing(s) read; none rendered an external website link, which does not establish that the template cannot",
    "templates": [
     {
      "listingUrl": "https://www.donedeal.ie/cars-for-sale/ford-focus-1-0-ecoboost-hybrid-mhev-titanium-5dr/42295465?campaign=2",
@@ -20362,7 +20305,8 @@
      "indexability": "indexable",
      "buttonCount": 64
     }
-   ]
+   ],
+   "supersededReason": "a sample of listings cannot establish that a template has no website-link capability"
   },
   {
    "collection": "marketplaces",
@@ -20704,11 +20648,9 @@
    "actionable": true,
    "key": "link|marketplaces|mp-ke-kilimall",
    "observedAt": "2026-08-21",
-   "state": "RESOLVED",
-   "backlinkType": "none",
-   "linkTargetType": null,
+   "state": "LISTING_WITHOUT_LINK",
    "listingIndexability": "indexable",
-   "why": "the public listing renders no external website link",
+   "why": "1 public listing(s) read; none rendered an external website link, which does not establish that the template cannot",
    "templates": [
     {
      "listingUrl": "https://www.kilimall.co.ke/listing/1001896801",
@@ -20716,7 +20658,8 @@
      "indexability": "indexable",
      "buttonCount": 11
     }
-   ]
+   ],
+   "supersededReason": "a sample of listings cannot establish that a template has no website-link capability"
   },
   {
    "collection": "marketplaces",
@@ -20739,11 +20682,9 @@
    "actionable": false,
    "key": "link|marketplaces|mp-kh-bongthom",
    "observedAt": "2026-08-21",
-   "state": "RESOLVED",
-   "backlinkType": "none",
-   "linkTargetType": null,
+   "state": "LISTING_WITHOUT_LINK",
    "listingIndexability": "indexable",
-   "why": "the public listing renders no external website link",
+   "why": "3 public listing(s) read; none rendered an external website link, which does not establish that the template cannot",
    "templates": [
     {
      "listingUrl": "https://www.bongthom.com/job_detail/school_principal_head_of_school_operatio_41035.html",
@@ -20763,7 +20704,8 @@
      "indexability": "indexable",
      "buttonCount": 5
     }
-   ]
+   ],
+   "supersededReason": "a sample of listings cannot establish that a template has no website-link capability"
   },
   {
    "collection": "marketplaces",
@@ -21196,11 +21138,9 @@
    "actionable": false,
    "key": "link|marketplaces|mp-me-oglasicg",
    "observedAt": "2026-08-21",
-   "state": "RESOLVED",
-   "backlinkType": "none",
-   "linkTargetType": null,
+   "state": "LISTING_WITHOUT_LINK",
    "listingIndexability": "indexable",
-   "why": "the public listing renders no external website link",
+   "why": "2 public listing(s) read; none rendered an external website link, which does not establish that the template cannot",
    "templates": [
     {
      "listingUrl": "https://www.oglasicg.me/prelepi-maltipoo-stenci-35399.html",
@@ -21214,7 +21154,8 @@
      "indexability": "indexable",
      "buttonCount": 17
     }
-   ]
+   ],
+   "supersededReason": "a sample of listings cannot establish that a template has no website-link capability"
   },
   {
    "collection": "marketplaces",
@@ -21225,11 +21166,9 @@
    "actionable": false,
    "key": "link|marketplaces|mp-me-pazar3",
    "observedAt": "2026-08-21",
-   "state": "RESOLVED",
-   "backlinkType": "none",
-   "linkTargetType": null,
+   "state": "LISTING_WITHOUT_LINK",
    "listingIndexability": "indexable",
-   "why": "the public listing renders no external website link",
+   "why": "1 public listing(s) read; none rendered an external website link, which does not establish that the template cannot",
    "templates": [
     {
      "listingUrl": "https://www.pazar3.me/oglas/p%D1%80%D0%BE%D0%B4%D0%B0%D1%8E-%D1%81%D0%B2%D0%BE%D0%B8-bmw-114i-f20/3269443",
@@ -21237,7 +21176,8 @@
      "indexability": "indexable",
      "buttonCount": 51
     }
-   ]
+   ],
+   "supersededReason": "a sample of listings cannot establish that a template has no website-link capability"
   },
   {
    "collection": "marketplaces",
@@ -21400,11 +21340,9 @@
    "actionable": false,
    "key": "link|marketplaces|mp-mx-seminuevos",
    "observedAt": "2026-08-21",
-   "state": "RESOLVED",
-   "backlinkType": "none",
-   "linkTargetType": null,
+   "state": "LISTING_WITHOUT_LINK",
    "listingIndexability": "indexable",
-   "why": "the public listing renders no external website link",
+   "why": "3 public listing(s) read; none rendered an external website link, which does not establish that the template cannot",
    "templates": [
     {
      "listingUrl": "https://www.seminuevos.com/vehicle/autos-nissan-np300_frontier-guadalajara-2019/4825758",
@@ -21424,7 +21362,8 @@
      "indexability": "indexable",
      "buttonCount": 343
     }
-   ]
+   ],
+   "supersededReason": "a sample of listings cannot establish that a template has no website-link capability"
   },
   {
    "collection": "marketplaces",
@@ -21808,11 +21747,9 @@
    "actionable": false,
    "key": "link|marketplaces|mp-pl-gratka",
    "observedAt": "2026-08-21",
-   "state": "RESOLVED",
-   "backlinkType": "none",
-   "linkTargetType": null,
+   "state": "LISTING_WITHOUT_LINK",
    "listingIndexability": "indexable",
-   "why": "the public listing renders no external website link",
+   "why": "1 public listing(s) read; none rendered an external website link, which does not establish that the template cannot",
    "templates": [
     {
      "listingUrl": "https://gratka.pl/nieruchomosci/mieszkanie-warszawa-ochota-grojecka/ob/48688447",
@@ -21820,7 +21757,8 @@
      "indexability": "indexable",
      "buttonCount": 64
     }
-   ]
+   ],
+   "supersededReason": "a sample of listings cannot establish that a template has no website-link capability"
   },
   {
    "collection": "marketplaces",
@@ -22125,11 +22063,9 @@
    "actionable": false,
    "key": "link|marketplaces|mp-se-bytbil",
    "observedAt": "2026-08-21",
-   "state": "RESOLVED",
-   "backlinkType": "none",
-   "linkTargetType": null,
+   "state": "LISTING_WITHOUT_LINK",
    "listingIndexability": "indexable",
-   "why": "the public listing renders no external website link",
+   "why": "3 public listing(s) read; none rendered an external website link, which does not establish that the template cannot",
    "templates": [
     {
      "listingUrl": "https://www.bytbil.com/stockholms-lan/personbil-t-roc-1-5-tsi-adapt-fart-carplay-p-sensorer-ac-6058-19344810",
@@ -22149,7 +22085,8 @@
      "indexability": "indexable",
      "buttonCount": 19
     }
-   ]
+   ],
+   "supersededReason": "a sample of listings cannot establish that a template has no website-link capability"
   },
   {
    "collection": "marketplaces",
@@ -22491,11 +22428,9 @@
    "actionable": true,
    "key": "link|marketplaces|mp-uk-gumtree",
    "observedAt": "2026-08-21",
-   "state": "RESOLVED",
-   "backlinkType": "none",
-   "linkTargetType": null,
+   "state": "LISTING_WITHOUT_LINK",
    "listingIndexability": "indexable",
-   "why": "the public listing renders no external website link",
+   "why": "1 public listing(s) read; none rendered an external website link, which does not establish that the template cannot",
    "templates": [
     {
      "listingUrl": "https://www.gumtree.com/p/skoda/2013-skoda-octavia-1.6-tdi-cr-se-4x4-5dr-estate-diesel-manual/1800108438",
@@ -22503,7 +22438,8 @@
      "indexability": "indexable",
      "buttonCount": 46
     }
-   ]
+   ],
+   "supersededReason": "a sample of listings cannot establish that a template has no website-link capability"
   },
   {
    "collection": "marketplaces",
@@ -23065,11 +23001,9 @@
    "actionable": false,
    "key": "link|marketplaces|mp-za-gumtree",
    "observedAt": "2026-08-21",
-   "state": "RESOLVED",
-   "backlinkType": "none",
-   "linkTargetType": null,
+   "state": "LISTING_WITHOUT_LINK",
    "listingIndexability": "indexable",
-   "why": "the public listing renders no external website link",
+   "why": "3 public listing(s) read; none rendered an external website link, which does not establish that the template cannot",
    "templates": [
     {
      "listingUrl": "https://www.gumtree.co.za/a-call-centre-jobs/city-centre/outbound-sales-agents/10013643692381013482101609",
@@ -23089,7 +23023,8 @@
      "indexability": "indexable",
      "buttonCount": 3
     }
-   ]
+   ],
+   "supersededReason": "a sample of listings cannot establish that a template has no website-link capability"
   },
   {
    "collection": "marketplaces",
@@ -23553,11 +23488,9 @@
    "actionable": false,
    "key": "link|media|md-aripaev",
    "observedAt": "2026-08-21",
-   "state": "RESOLVED",
-   "backlinkType": "none",
-   "linkTargetType": null,
+   "state": "LISTING_WITHOUT_LINK",
    "listingIndexability": "indexable",
-   "why": "the public listing renders no external website link",
+   "why": "2 public listing(s) read; none rendered an external website link, which does not establish that the template cannot",
    "templates": [
     {
      "listingUrl": "https://www.aripaev.ee/raadio/episood/tippkohtumine-290426",
@@ -23571,7 +23504,8 @@
      "indexability": "indexable",
      "buttonCount": 23
     }
-   ]
+   ],
+   "supersededReason": "a sample of listings cannot establish that a template has no website-link capability"
   },
   {
    "collection": "media",
@@ -23659,11 +23593,9 @@
    "actionable": true,
    "key": "link|media|md-automation-world",
    "observedAt": "2026-08-21",
-   "state": "RESOLVED",
-   "backlinkType": "none",
-   "linkTargetType": null,
+   "state": "LISTING_WITHOUT_LINK",
    "listingIndexability": "indexable",
-   "why": "the public listing renders no external website link",
+   "why": "1 public listing(s) read; none rendered an external website link, which does not establish that the template cannot",
    "templates": [
     {
      "listingUrl": "https://www.automationworld.com/home/company/13306287/control-system-integrators-association-csia",
@@ -23671,7 +23603,8 @@
      "indexability": "indexable",
      "buttonCount": 22
     }
-   ]
+   ],
+   "supersededReason": "a sample of listings cannot establish that a template has no website-link capability"
   },
   {
    "collection": "media",
@@ -23998,11 +23931,9 @@
    "actionable": false,
    "key": "link|media|md-borsen",
    "observedAt": "2026-08-21",
-   "state": "RESOLVED",
-   "backlinkType": "none",
-   "linkTargetType": null,
+   "state": "LISTING_WITHOUT_LINK",
    "listingIndexability": "indexable",
-   "why": "the public listing renders no external website link",
+   "why": "1 public listing(s) read; none rendered an external website link, which does not establish that the template cannot",
    "templates": [
     {
      "listingUrl": "https://borsen.dk/summit-2026?b_source=borsendk&b_medium=sidebar_row_7&b_campaign=item_1",
@@ -24010,7 +23941,8 @@
      "indexability": "indexable",
      "buttonCount": 16
     }
-   ]
+   ],
+   "supersededReason": "a sample of listings cannot establish that a template has no website-link capability"
   },
   {
    "collection": "media",
@@ -24021,11 +23953,9 @@
    "actionable": false,
    "key": "link|media|md-breakit",
    "observedAt": "2026-08-21",
-   "state": "RESOLVED",
-   "backlinkType": "none",
-   "linkTargetType": null,
+   "state": "LISTING_WITHOUT_LINK",
    "listingIndexability": "noindex",
-   "why": "the public listing renders no external website link",
+   "why": "1 public listing(s) read; none rendered an external website link, which does not establish that the template cannot",
    "templates": [
     {
      "listingUrl": "https://event.breakit.se/exit-forum-2026/",
@@ -24033,7 +23963,8 @@
      "indexability": "noindex",
      "buttonCount": 4
     }
-   ]
+   ],
+   "supersededReason": "a sample of listings cannot establish that a template has no website-link capability"
   },
   {
    "collection": "media",
@@ -24946,11 +24877,9 @@
    "actionable": false,
    "key": "link|media|md-economic-times-tech",
    "observedAt": "2026-08-21",
-   "state": "RESOLVED",
-   "backlinkType": "none",
-   "linkTargetType": null,
+   "state": "LISTING_WITHOUT_LINK",
    "listingIndexability": "indexable",
-   "why": "the public listing renders no external website link",
+   "why": "1 public listing(s) read; none rendered an external website link, which does not establish that the template cannot",
    "templates": [
     {
      "listingUrl": "https://economictimes.indiatimes.com/company/mapsko-builders-private-limited/U45203DL2003PTC118590",
@@ -24958,7 +24887,8 @@
      "indexability": "indexable",
      "buttonCount": 826
     }
-   ]
+   ],
+   "supersededReason": "a sample of listings cannot establish that a template has no website-link capability"
   },
   {
    "collection": "media",
@@ -25951,11 +25881,9 @@
    "actionable": false,
    "key": "link|media|md-hospodarske-noviny",
    "observedAt": "2026-08-21",
-   "state": "RESOLVED",
-   "backlinkType": "none",
-   "linkTargetType": null,
+   "state": "LISTING_WITHOUT_LINK",
    "listingIndexability": "noindex",
-   "why": "the public listing renders no external website link",
+   "why": "1 public listing(s) read; none rendered an external website link, which does not establish that the template cannot",
    "templates": [
     {
      "listingUrl": "https://hn.cz/autori/tomas-kubica-19929040",
@@ -25963,7 +25891,8 @@
      "indexability": "noindex",
      "buttonCount": 4
     }
-   ]
+   ],
+   "supersededReason": "a sample of listings cannot establish that a template has no website-link capability"
   },
   {
    "collection": "media",
@@ -26808,11 +26737,9 @@
    "actionable": false,
    "key": "link|media|md-lupa-cz",
    "observedAt": "2026-08-21",
-   "state": "RESOLVED",
-   "backlinkType": "none",
-   "linkTargetType": null,
+   "state": "LISTING_WITHOUT_LINK",
    "listingIndexability": "indexable",
-   "why": "the public listing renders no external website link",
+   "why": "1 public listing(s) read; none rendered an external website link, which does not establish that the template cannot",
    "templates": [
     {
      "listingUrl": "https://www.lupa.cz/clanky/ceska-televize-podzim-2026/",
@@ -26820,7 +26747,8 @@
      "indexability": "indexable",
      "buttonCount": 13
     }
-   ]
+   ],
+   "supersededReason": "a sample of listings cannot establish that a template has no website-link capability"
   },
   {
    "collection": "media",
@@ -27201,11 +27129,9 @@
    "actionable": false,
    "key": "link|media|md-nbr",
    "observedAt": "2026-08-21",
-   "state": "RESOLVED",
-   "backlinkType": "none",
-   "linkTargetType": null,
+   "state": "LISTING_WITHOUT_LINK",
    "listingIndexability": "indexable",
-   "why": "the public listing renders no external website link",
+   "why": "1 public listing(s) read; none rendered an external website link, which does not establish that the template cannot",
    "templates": [
     {
      "listingUrl": "https://www.nbr.co.nz/business/racing-industry-takes-step-towards-reform/",
@@ -27213,7 +27139,8 @@
      "indexability": "indexable",
      "buttonCount": 13
     }
-   ]
+   ],
+   "supersededReason": "a sample of listings cannot establish that a template has no website-link capability"
   },
   {
    "collection": "media",
@@ -27732,11 +27659,9 @@
    "actionable": false,
    "key": "link|media|md-pressetext",
    "observedAt": "2026-08-21",
-   "state": "RESOLVED",
-   "backlinkType": "none",
-   "linkTargetType": null,
+   "state": "LISTING_WITHOUT_LINK",
    "listingIndexability": "indexable",
-   "why": "the public listing renders no external website link",
+   "why": "2 public listing(s) read; none rendered an external website link, which does not establish that the template cannot",
    "templates": [
     {
      "listingUrl": "https://www.pressetext.com/company/network",
@@ -27750,7 +27675,8 @@
      "indexability": "indexable",
      "buttonCount": 8
     }
-   ]
+   ],
+   "supersededReason": "a sample of listings cannot establish that a template has no website-link capability"
   },
   {
    "collection": "media",
@@ -27853,11 +27779,9 @@
    "actionable": false,
    "key": "link|media|md-puls-biznesu",
    "observedAt": "2026-08-21",
-   "state": "RESOLVED",
-   "backlinkType": "none",
-   "linkTargetType": null,
+   "state": "LISTING_WITHOUT_LINK",
    "listingIndexability": "indexable",
-   "why": "the public listing renders no external website link",
+   "why": "2 public listing(s) read; none rendered an external website link, which does not establish that the template cannot",
    "templates": [
     {
      "listingUrl": "https://www.pb.pl/dino-rosnie-po-slabych-wynikach-wystarczyl-brak-rozczarowan-1265848",
@@ -27871,7 +27795,8 @@
      "indexability": "indexable",
      "buttonCount": 24
     }
-   ]
+   ],
+   "supersededReason": "a sample of listings cannot establish that a template has no website-link capability"
   },
   {
    "collection": "media",
@@ -27947,11 +27872,9 @@
    "actionable": false,
    "key": "link|media|md-rcr-wireless",
    "observedAt": "2026-08-21",
-   "state": "RESOLVED",
-   "backlinkType": "none",
-   "linkTargetType": null,
+   "state": "LISTING_WITHOUT_LINK",
    "listingIndexability": "indexable",
-   "why": "the public listing renders no external website link",
+   "why": "1 public listing(s) read; none rendered an external website link, which does not establish that the template cannot",
    "templates": [
     {
      "listingUrl": "https://rcrwireless.com/page/4960",
@@ -27959,7 +27882,8 @@
      "indexability": "indexable",
      "buttonCount": 25
     }
-   ]
+   ],
+   "supersededReason": "a sample of listings cannot establish that a template has no website-link capability"
   },
   {
    "collection": "media",
@@ -29837,11 +29761,9 @@
    "actionable": false,
    "key": "link|media|md-wirtschaftswoche",
    "observedAt": "2026-08-21",
-   "state": "RESOLVED",
-   "backlinkType": "none",
-   "linkTargetType": null,
+   "state": "LISTING_WITHOUT_LINK",
    "listingIndexability": "indexable",
-   "why": "the public listing renders no external website link",
+   "why": "1 public listing(s) read; none rendered an external website link, which does not establish that the template cannot",
    "templates": [
     {
      "listingUrl": "https://www.wiwo.de/erfolg/beruf/digitale-urlaubsvertretung-ki-uebernimmt-aufgaben-waehrend-der-ferienzeit/100247416.html",
@@ -29849,7 +29771,8 @@
      "indexability": "indexable",
      "buttonCount": 31
     }
-   ]
+   ],
+   "supersededReason": "a sample of listings cannot establish that a template has no website-link capability"
   },
   {
    "collection": "media",

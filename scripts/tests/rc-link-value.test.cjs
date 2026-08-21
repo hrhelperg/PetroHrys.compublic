@@ -25,6 +25,7 @@ const ROOT = path.resolve(__dirname, '..', '..');
 const L = require(path.join(ROOT, 'scripts/research-link-value.cjs'));
 const S = require(path.join(ROOT, 'scripts/lib/bd-schema.cjs'));
 const SAFE = require(path.join(ROOT, 'scripts/lib/rc-safe-apply.cjs'));
+const CK = require(path.join(ROOT, 'scripts/lib/rc-checkpoint.cjs'));
 
 const LISTING = 'https://dir.test/company/acme-ltd-1234';
 const anchorPage = (text, href, rel = '') => ({
@@ -696,4 +697,84 @@ test('the derived states cover every record exactly once', () => {
   const informative = rows.filter((r) => r.evidenceState !== 'UNKNOWN').length;
   assert.ok(informative > rows.length / 2,
     `only ${informative} of ${rows.length} records carry any observation`);
+});
+
+// ── A SAMPLE OF LISTINGS CANNOT PROVE A TEMPLATE HAS NO LINK ───────────────
+//
+// This one was applied and then withdrawn, which is the useful part. Three IBM
+// Partner Plus profiles under /partnerplus/directory/company/ rendered no
+// website link, and the verdict "this platform provides none" was written into
+// the corpus. The same template serves prolifics.de, gbm.net and
+// deloitte.com.au on other profiles — observed earlier in the same phase. The
+// capability existed; the sample simply had not used it.
+//
+// Absence in a sample is absence in a sample. NO_EXTERNAL_LINK is a claim about
+// what a template CAN do, and reading listings cannot reach it.
+
+test('the researcher never concludes NO_EXTERNAL_LINK from sampled listings', () => {
+  const src = fs.readFileSync(path.join(ROOT, 'scripts/research-link-value.cjs'), 'utf8');
+  assert.ok(!/backlinkType: 'none'/.test(src),
+    'reading listings must not be able to assert that a template has no link capability');
+  assert.match(src, /noLinkObserved: true/, 'it is recorded as an observation instead');
+  assert.match(src, /state: 'LISTING_WITHOUT_LINK'/);
+  // And that state is not RESOLVED, so the applier — which writes only resolved
+  // findings — can never carry it into a canonical field.
+  const apply = src.slice(src.indexOf('function runApply'));
+  assert.match(apply, /f\.state === 'RESOLVED'/);
+  assert.ok(!apply.includes('LISTING_WITHOUT_LINK'));
+});
+
+test('no record claims NO_EXTERNAL_LINK on sampled evidence', () => {
+  let checked = 0;
+  for (const rel of ['data/business-directories/opportunities.json',
+    'data/marketplaces/marketplaces.json', 'data/media-pr-publishing/media-platforms.json']) {
+    for (const r of JSON.parse(fs.readFileSync(path.join(ROOT, rel), 'utf8'))) {
+      checked += 1;
+      assert.notEqual(r.backlinkType, 'none',
+        `${r.id} asserts a template-level absence that listings cannot establish`);
+    }
+  }
+  assert.ok(checked > 1000, 'the cohort must not be empty');
+});
+
+test('the observation survives the downgrade', () => {
+  // The verdict was withdrawn; what was seen was not. This is the append-only
+  // rule doing the job it was added for.
+  const l = new CK.Ledger(path.join(ROOT, 'data/link-value/.link-value.json'));
+  const downgraded = l.all().filter((f) => f.state === 'LISTING_WITHOUT_LINK');
+  l.close();
+  assert.ok(downgraded.length > 50, `expected a substantial cohort, got ${downgraded.length}`);
+  for (const f of downgraded) {
+    assert.equal(f.backlinkType, undefined, `${f.id} still carries a verdict`);
+    assert.ok(f.supersededReason, `${f.id} does not say why it was withdrawn`);
+    assert.ok((f.templates || []).length > 0 || (f.observations || []).length > 0,
+      `${f.id} lost the listings it read`);
+  }
+  // IBM is the case that proves the rule; it must be among them.
+  assert.ok(downgraded.some((f) => f.id === 'global-ibm-partners'));
+  assert.ok(downgraded.some((f) => f.id === 'mp-at-bazar'));
+});
+
+test('the derived state still says what was observed', () => {
+  // Downgrading the canonical claim must not erase the knowledge: these records
+  // are still "a public listing was read and showed no website link", which is
+  // more than UNKNOWN and less than a fact about the platform.
+  assert.equal(EV.evidenceStateOf({ state: 'LISTING_WITHOUT_LINK' }),
+    'PUBLIC_LISTING_OBSERVED_NO_EXTERNAL_LINK');
+  const rows = EV.derive();
+  const observed = rows.filter((r) => r.evidenceState === 'PUBLIC_LISTING_OBSERVED_NO_EXTERNAL_LINK');
+  assert.ok(observed.length > 50);
+  for (const r of observed) {
+    assert.equal(r.canonicalLinkType, null, `${r.id} was downgraded but kept a canonical claim`);
+  }
+});
+
+test('the verified findings were not touched by the downgrade', () => {
+  const rows = EV.derive();
+  const verified = rows.filter((r) => r.canonicalLinkType);
+  const kinds = {};
+  for (const r of verified) kinds[r.canonicalLinkType] = (kinds[r.canonicalLinkType] || 0) + 1;
+  assert.ok(kinds.dofollow >= 12, `follow verdicts lost: ${JSON.stringify(kinds)}`);
+  assert.ok(kinds.nofollow >= 8, `nofollow verdicts lost: ${JSON.stringify(kinds)}`);
+  assert.equal(kinds.none, undefined, 'no canonical none may remain');
 });
