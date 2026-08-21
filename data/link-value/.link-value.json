@@ -1,6 +1,30 @@
 {
- "probedAt": "2026-08-20",
+ "probedAt": "2026-08-21",
  "findings": [
+  {
+   "collection": "directories",
+   "id": "ae-gulfyp",
+   "country": "united-arab-emirates",
+   "url": "https://www.dubaiyellowpagesonline.com/",
+   "domainRating": 24,
+   "actionable": true,
+   "key": "link|directories|ae-gulfyp",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "directories",
+   "id": "ae-yellowpages",
+   "country": "united-arab-emirates",
+   "url": "https://www.yellowpages.ae/",
+   "domainRating": 45,
+   "actionable": true,
+   "key": "link|directories|ae-yellowpages",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
   {
    "collection": "directories",
    "id": "ar-computrabajo",
@@ -14,6 +38,18 @@
   },
   {
    "collection": "directories",
+   "id": "ar-hotfrog",
+   "country": "argentina",
+   "url": "https://www.hotfrog.com.ar/",
+   "domainRating": 30,
+   "actionable": true,
+   "key": "link|directories|ar-hotfrog",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "directories",
    "id": "ar-mercadolibre",
    "country": "argentina",
    "url": "https://www.mercadolibre.com.ar/",
@@ -22,6 +58,18 @@
    "observedAt": "2026-08-20",
    "state": "UNREADABLE",
    "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "directories",
+   "id": "at-branchenverzeichnis",
+   "country": "austria",
+   "url": "https://www.branchenverzeichnis.at/",
+   "domainRating": 37,
+   "actionable": true,
+   "key": "link|directories|at-branchenverzeichnis",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
   },
   {
    "collection": "directories",
@@ -58,6 +106,18 @@
   },
   {
    "collection": "directories",
+   "id": "au-dlook",
+   "country": "australia",
+   "url": "https://www.dlook.com.au/",
+   "domainRating": 71,
+   "actionable": true,
+   "key": "link|directories|au-dlook",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "directories",
    "id": "au-hia",
    "country": "australia",
    "url": "https://www.hia.com.au/",
@@ -77,6 +137,18 @@
    "observedAt": "2026-08-20",
    "state": "NO_LISTING_FOUND",
    "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "directories",
+   "id": "au-hotfrog",
+   "country": "australia",
+   "url": "https://www.hotfrog.com.au/",
+   "domainRating": 71,
+   "actionable": true,
+   "key": "link|directories|au-hotfrog",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
   },
   {
    "collection": "directories",
@@ -113,12 +185,88 @@
   },
   {
    "collection": "directories",
+   "id": "au-serviceseeking",
+   "country": "australia",
+   "url": "https://www.serviceseeking.com.au/",
+   "domainRating": 70,
+   "actionable": true,
+   "key": "link|directories|au-serviceseeking",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "directories",
+   "id": "au-techboard",
+   "country": "australia",
+   "url": "https://www.techboard.com.au/",
+   "domainRating": 31,
+   "actionable": true,
+   "key": "link|directories|au-techboard",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "directories",
    "id": "au-yellowpages",
    "country": "australia",
    "url": "https://www.yellowpages.com.au/",
    "domainRating": 83,
    "key": "link|directories|au-yellowpages",
    "observedAt": "2026-08-20",
+   "state": "UNREADABLE",
+   "why": "browser: navigation timeout"
+  },
+  {
+   "collection": "directories",
+   "id": "bb-barbadosyp",
+   "country": "barbados",
+   "url": "https://www.findyello.com/barbados/",
+   "domainRating": 73,
+   "actionable": true,
+   "key": "link|directories|bb-barbadosyp",
+   "observedAt": "2026-08-21",
+   "state": "RESOLVED",
+   "backlinkType": "mixed",
+   "linkTargetType": null,
+   "listingIndexability": "indexable",
+   "why": "two listings differ: none and nofollow",
+   "templates": [
+    {
+     "listingUrl": "https://www.findyello.com/barbados/a--euro-parts-supplies/profile/",
+     "backlinkType": "none",
+     "indexability": "indexable",
+     "buttonCount": 806
+    },
+    {
+     "listingUrl": "https://www.findyello.com/barbados/c-o-williams-construction-ltd/profile/",
+     "backlinkType": "nofollow",
+     "linkTargetType": "direct",
+     "externalUrl": "https://www.cow.bb/",
+     "relTokens": [
+      "nofollow"
+     ],
+     "anchorText": "VISIT WEBSITE",
+     "indexability": "indexable"
+    },
+    {
+     "listingUrl": "https://www.findyello.com/barbados/brewsters-enterprises-inc/profile/",
+     "backlinkType": "none",
+     "indexability": "indexable",
+     "buttonCount": 806
+    }
+   ]
+  },
+  {
+   "collection": "directories",
+   "id": "bd-bdtradeinfo",
+   "country": "bangladesh",
+   "url": "https://www.bdtradeinfo.com/",
+   "domainRating": 40,
+   "actionable": true,
+   "key": "link|directories|bd-bdtradeinfo",
+   "observedAt": "2026-08-21",
    "state": "UNREADABLE",
    "why": "browser: navigation timeout"
   },
@@ -190,6 +338,54 @@
   },
   {
    "collection": "directories",
+   "id": "bs-bahamaslocal",
+   "country": "bahamas",
+   "url": "https://www.bahamaslocal.com/",
+   "domainRating": 65,
+   "actionable": true,
+   "key": "link|directories|bs-bahamaslocal",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "directories",
+   "id": "bz-travelbelize",
+   "country": "belize",
+   "url": "https://www.travelbelize.org/",
+   "domainRating": 71,
+   "actionable": true,
+   "key": "link|directories|bz-travelbelize",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "directories",
+   "id": "ca-411",
+   "country": "canada",
+   "url": "https://www.411.ca/",
+   "domainRating": 66,
+   "actionable": true,
+   "key": "link|directories|ca-411",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "directories",
+   "id": "ca-getlistedcanada",
+   "country": "canada",
+   "url": "https://www.getlistedcanada.com/",
+   "domainRating": 20,
+   "actionable": true,
+   "key": "link|directories|ca-getlistedcanada",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "directories",
    "id": "ca-homestars",
    "country": "canada",
    "url": "https://www.homestars.com/",
@@ -198,6 +394,18 @@
    "observedAt": "2026-08-20",
    "state": "NO_LISTING_FOUND",
    "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "directories",
+   "id": "ca-hotfrog",
+   "country": "canada",
+   "url": "https://www.hotfrog.ca/",
+   "domainRating": 58,
+   "actionable": true,
+   "key": "link|directories|ca-hotfrog",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
   },
   {
    "collection": "directories",
@@ -230,6 +438,18 @@
   },
   {
    "collection": "directories",
+   "id": "ca-opendi",
+   "country": "canada",
+   "url": "https://www.opendi.ca/",
+   "domainRating": 40,
+   "actionable": true,
+   "key": "link|directories|ca-opendi",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "directories",
    "id": "ca-skipthedishes",
    "country": "canada",
    "url": "https://www.skipthedishes.com/",
@@ -238,6 +458,42 @@
    "observedAt": "2026-08-20",
    "state": "NO_LISTING_FOUND",
    "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "directories",
+   "id": "ca-weddingwire",
+   "country": "canada",
+   "url": "https://www.weddingwire.ca/",
+   "domainRating": 78,
+   "actionable": true,
+   "key": "link|directories|ca-weddingwire",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "directories",
+   "id": "ca-zipleaf",
+   "country": "canada",
+   "url": "https://www.zipleaf.ca/",
+   "domainRating": 45,
+   "actionable": true,
+   "key": "link|directories|ca-zipleaf",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "directories",
+   "id": "ch-firma-finden",
+   "country": "switzerland",
+   "url": "https://www.firma-finden.ch/",
+   "domainRating": 27,
+   "actionable": true,
+   "key": "link|directories|ch-firma-finden",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
   },
   {
    "collection": "directories",
@@ -252,12 +508,48 @@
   },
   {
    "collection": "directories",
+   "id": "ch-lokalesgewerbe",
+   "country": "switzerland",
+   "url": "https://www.lokalesgewerbe.ch/",
+   "domainRating": 24,
+   "actionable": true,
+   "key": "link|directories|ch-lokalesgewerbe",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "directories",
+   "id": "ch-schweizfirmen",
+   "country": "switzerland",
+   "url": "https://www.schweizfirmen.ch/",
+   "domainRating": 0,
+   "actionable": true,
+   "key": "link|directories|ch-schweizfirmen",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "directories",
    "id": "ch-search-ch",
    "country": "switzerland",
    "url": "https://www.search.ch/",
    "domainRating": 87,
    "key": "link|directories|ch-search-ch",
    "observedAt": "2026-08-20",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "directories",
+   "id": "ch-vschweiz",
+   "country": "switzerland",
+   "url": "https://vschweiz.ch/",
+   "domainRating": 54,
+   "actionable": true,
+   "key": "link|directories|ch-vschweiz",
+   "observedAt": "2026-08-21",
    "state": "NO_LISTING_FOUND",
    "why": "no public business listing was reachable from the front page"
   },
@@ -373,6 +665,41 @@
   },
   {
    "collection": "directories",
+   "id": "co-hotfrog",
+   "country": "colombia",
+   "url": "https://www.hotfrog.com.co/",
+   "domainRating": 26,
+   "actionable": true,
+   "key": "link|directories|co-hotfrog",
+   "observedAt": "2026-08-21",
+   "state": "RESOLVED",
+   "backlinkType": "none",
+   "linkTargetType": null,
+   "listingIndexability": "indexable",
+   "why": "the public listing renders no external website link",
+   "templates": [
+    {
+     "listingUrl": "https://www.hotfrog.com.co/company/bde5436bcda1406bb19dbd87eafe62be/cafore-abogados/bogot%C3%A1/specialized-legal-services",
+     "backlinkType": "none",
+     "indexability": "indexable",
+     "buttonCount": 892
+    },
+    {
+     "listingUrl": "https://www.hotfrog.com.co/company/efbde6f992fbcb9334e5177cff9b8db0",
+     "backlinkType": "none",
+     "indexability": "indexable",
+     "buttonCount": 892
+    },
+    {
+     "listingUrl": "https://www.hotfrog.com.co/company/ea5c37a5cf94040e486ee460eb58cb31",
+     "backlinkType": "none",
+     "indexability": "indexable",
+     "buttonCount": 892
+    }
+   ]
+  },
+  {
+   "collection": "directories",
    "id": "co-mercadolibre",
    "country": "colombia",
    "url": "https://www.mercadolibre.com.co/",
@@ -381,6 +708,18 @@
    "observedAt": "2026-08-20",
    "state": "UNREADABLE",
    "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "directories",
+   "id": "cz-atlasfirem",
+   "country": "czech-republic",
+   "url": "https://www.firmablizko.cz/",
+   "domainRating": 13,
+   "actionable": true,
+   "key": "link|directories|cz-atlasfirem",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
   },
   {
    "collection": "directories",
@@ -406,6 +745,18 @@
   },
   {
    "collection": "directories",
+   "id": "cz-katalog",
+   "country": "czech-republic",
+   "url": "https://www.katalog.cz/",
+   "domainRating": 57,
+   "actionable": true,
+   "key": "link|directories|cz-katalog",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "directories",
    "id": "cz-zbozi",
    "country": "czech-republic",
    "url": "https://www.zbozi.cz/",
@@ -414,6 +765,18 @@
    "observedAt": "2026-08-20",
    "state": "UNREADABLE",
    "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "directories",
+   "id": "cz-zivefirmy",
+   "country": "czech-republic",
+   "url": "https://www.zivefirmy.cz/",
+   "domainRating": 72,
+   "actionable": true,
+   "key": "link|directories|cz-zivefirmy",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
   },
   {
    "collection": "directories",
@@ -439,6 +802,35 @@
   },
   {
    "collection": "directories",
+   "id": "de-branchen-info",
+   "country": "germany",
+   "url": "https://www.branchen-info.net/",
+   "domainRating": 76,
+   "actionable": true,
+   "key": "link|directories|de-branchen-info",
+   "observedAt": "2026-08-21",
+   "state": "RESOLVED",
+   "backlinkType": "none",
+   "linkTargetType": null,
+   "listingIndexability": "indexable",
+   "why": "the public listing renders no external website link",
+   "templates": [
+    {
+     "listingUrl": "https://berlin.branchen-info.net/branche/zahnarzt/4560/",
+     "backlinkType": "none",
+     "indexability": "indexable",
+     "buttonCount": 58
+    },
+    {
+     "listingUrl": "https://berlin.branchen-info.net/branche/hundesalons/1044/",
+     "backlinkType": "none",
+     "indexability": "indexable",
+     "buttonCount": 57
+    }
+   ]
+  },
+  {
+   "collection": "directories",
    "id": "de-bvmw",
    "country": "germany",
    "url": "https://www.bvmw.de/",
@@ -450,12 +842,65 @@
   },
   {
    "collection": "directories",
+   "id": "de-dialo",
+   "country": "germany",
+   "url": "https://www.bundes-telefonbuch.de/",
+   "domainRating": 44,
+   "actionable": true,
+   "key": "link|directories|de-dialo",
+   "observedAt": "2026-08-21",
+   "state": "RESOLVED",
+   "backlinkType": "none",
+   "linkTargetType": null,
+   "listingIndexability": "indexable",
+   "why": "the public listing renders no external website link",
+   "templates": [
+    {
+     "listingUrl": "https://www.bundes-telefonbuch.de/firma/grund-eintrag",
+     "backlinkType": "none",
+     "indexability": "indexable",
+     "buttonCount": 25
+    },
+    {
+     "listingUrl": "https://www.bundes-telefonbuch.de/muenchen/firma/kardia-muenchen-gmbh-bvg1079537314",
+     "backlinkType": "none",
+     "indexability": "indexable",
+     "buttonCount": 27
+    }
+   ]
+  },
+  {
+   "collection": "directories",
    "id": "de-doctolib",
    "country": "germany",
    "url": "https://www.doctolib.de/",
    "domainRating": 90,
    "key": "link|directories|de-doctolib",
    "observedAt": "2026-08-20",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "directories",
+   "id": "de-firmeneintrag",
+   "country": "germany",
+   "url": "https://www.firmeneintrag.de/",
+   "domainRating": 37,
+   "actionable": true,
+   "key": "link|directories|de-firmeneintrag",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "directories",
+   "id": "de-golocal",
+   "country": "germany",
+   "url": "https://www.golocal.de/",
+   "domainRating": 77,
+   "actionable": true,
+   "key": "link|directories|de-golocal",
+   "observedAt": "2026-08-21",
    "state": "UNREADABLE",
    "why": "the listing pages could not be read"
   },
@@ -494,6 +939,18 @@
   },
   {
    "collection": "directories",
+   "id": "de-industrystock",
+   "country": "germany",
+   "url": "https://www.industrystock.de/",
+   "domainRating": 65,
+   "actionable": true,
+   "key": "link|directories|de-industrystock",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "directories",
    "id": "de-jameda",
    "country": "germany",
    "url": "https://www.jameda.de/",
@@ -502,6 +959,29 @@
    "observedAt": "2026-08-20",
    "state": "NO_LISTING_FOUND",
    "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "directories",
+   "id": "de-kennstdueinen",
+   "country": "germany",
+   "url": "https://www.kennstdueinen.de/",
+   "domainRating": 79,
+   "actionable": true,
+   "key": "link|directories|de-kennstdueinen",
+   "observedAt": "2026-08-21",
+   "state": "RESOLVED",
+   "backlinkType": "none",
+   "linkTargetType": null,
+   "listingIndexability": "indexable",
+   "why": "the public listing renders no external website link",
+   "templates": [
+    {
+     "listingUrl": "https://www.kennstdueinen.de/ergebnis-einlagerung-in-muehltal-360-1399.html",
+     "backlinkType": "none",
+     "indexability": "indexable",
+     "buttonCount": 5
+    }
+   ]
   },
   {
    "collection": "directories",
@@ -631,6 +1111,18 @@
   },
   {
    "collection": "directories",
+   "id": "de-yellowmap",
+   "country": "germany",
+   "url": "https://www.yellowmap.de/",
+   "domainRating": 64,
+   "actionable": true,
+   "key": "link|directories|de-yellowmap",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "directories",
    "id": "dk-krak",
    "country": "denmark",
    "url": "https://www.krak.dk/",
@@ -711,6 +1203,18 @@
   },
   {
    "collection": "directories",
+   "id": "es-interempresas",
+   "country": "spain",
+   "url": "https://www.interempresas.net/",
+   "domainRating": 78,
+   "actionable": true,
+   "key": "link|directories|es-interempresas",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "directories",
    "id": "es-qdq",
    "country": "spain",
    "url": "https://www.qdq.com/",
@@ -722,12 +1226,48 @@
   },
   {
    "collection": "directories",
+   "id": "es-todoenlaces",
+   "country": "spain",
+   "url": "https://www.todoenlaces.com/",
+   "domainRating": 41,
+   "actionable": true,
+   "key": "link|directories|es-todoenlaces",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "directories",
    "id": "es-wallapop",
    "country": "spain",
    "url": "https://www.wallapop.com/",
    "domainRating": 80,
    "key": "link|directories|es-wallapop",
    "observedAt": "2026-08-20",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "directories",
+   "id": "et-2merkato",
+   "country": "ethiopia",
+   "url": "https://www.2merkato.com/",
+   "domainRating": 48,
+   "actionable": true,
+   "key": "link|directories|et-2merkato",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "directories",
+   "id": "et-addisbiz",
+   "country": "ethiopia",
+   "url": "https://www.addisbiz.com/",
+   "domainRating": 44,
+   "actionable": true,
+   "key": "link|directories|et-addisbiz",
+   "observedAt": "2026-08-21",
    "state": "NO_LISTING_FOUND",
    "why": "no public business listing was reachable from the front page"
   },
@@ -931,6 +1471,18 @@
   },
   {
    "collection": "directories",
+   "id": "global-2findlocal",
+   "country": "global",
+   "url": "https://www.2findlocal.com/",
+   "domainRating": 76,
+   "actionable": true,
+   "key": "link|directories|global-2findlocal",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "directories",
    "id": "global-99designs",
    "country": "global",
    "url": "https://www.99designs.com/",
@@ -953,6 +1505,18 @@
   },
   {
    "collection": "directories",
+   "id": "global-adforum",
+   "country": "global",
+   "url": "https://www.adforum.com/",
+   "domainRating": 75,
+   "actionable": true,
+   "key": "link|directories|global-adforum",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "directories",
    "id": "global-adobe-commerce-marketplace",
    "country": "global",
    "url": "https://commercemarketplace.adobe.com/",
@@ -961,6 +1525,18 @@
    "observedAt": "2026-08-20",
    "state": "NO_LISTING_FOUND",
    "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "directories",
+   "id": "global-africa-business",
+   "country": "global",
+   "url": "https://www.africa-business.com/",
+   "domainRating": 45,
+   "actionable": true,
+   "key": "link|directories|global-africa-business",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
   },
   {
    "collection": "directories",
@@ -1093,6 +1669,18 @@
    "observedAt": "2026-08-20",
    "state": "UNRESOLVED",
    "why": "the website link was not labelled as one by the operator"
+  },
+  {
+   "collection": "directories",
+   "id": "global-b2bmap",
+   "country": "global",
+   "url": "https://www.b2bmap.com/",
+   "domainRating": 44,
+   "actionable": true,
+   "key": "link|directories|global-b2bmap",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
   },
   {
    "collection": "directories",
@@ -1371,6 +1959,35 @@
   },
   {
    "collection": "directories",
+   "id": "global-expressbusinessdirectory",
+   "country": "global",
+   "url": "https://www.expressbusinessdirectory.com/",
+   "domainRating": 61,
+   "actionable": true,
+   "key": "link|directories|global-expressbusinessdirectory",
+   "observedAt": "2026-08-21",
+   "state": "RESOLVED",
+   "backlinkType": "none",
+   "linkTargetType": null,
+   "listingIndexability": "indexable",
+   "why": "the public listing renders no external website link",
+   "templates": [
+    {
+     "listingUrl": "https://www.expressbusinessdirectory.com/directory/best-online-casinos-in-south-africa-2026/",
+     "backlinkType": "none",
+     "indexability": "indexable",
+     "buttonCount": 838
+    },
+    {
+     "listingUrl": "https://www.expressbusinessdirectory.com/directory/page-wells-estate-and-letting-agents-in-bearsted/",
+     "backlinkType": "none",
+     "indexability": "indexable",
+     "buttonCount": 839
+    }
+   ]
+  },
+  {
+   "collection": "directories",
    "id": "global-f6s",
    "country": "global",
    "url": "https://www.f6s.com/",
@@ -1467,6 +2084,18 @@
    "observedAt": "2026-08-20",
    "state": "NO_LISTING_FOUND",
    "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "directories",
+   "id": "global-getlatka",
+   "country": "global",
+   "url": "https://www.getlatka.com/",
+   "domainRating": 72,
+   "actionable": true,
+   "key": "link|directories|global-getlatka",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
   },
   {
    "collection": "directories",
@@ -1602,6 +2231,30 @@
   },
   {
    "collection": "directories",
+   "id": "global-hotfrog-india",
+   "country": "global",
+   "url": "https://www.hotfrog.in/",
+   "domainRating": 52,
+   "actionable": true,
+   "key": "link|directories|global-hotfrog-india",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "directories",
+   "id": "global-hubbiz",
+   "country": "global",
+   "url": "https://www.hub.biz/",
+   "domainRating": 72,
+   "actionable": true,
+   "key": "link|directories|global-hubbiz",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "directories",
    "id": "global-hubspot-agencies",
    "country": "global",
    "url": "https://www.hubspot.com/agencies",
@@ -1679,6 +2332,18 @@
   },
   {
    "collection": "directories",
+   "id": "global-industrystock",
+   "country": "global",
+   "url": "https://www.industrystock.com/",
+   "domainRating": 58,
+   "actionable": true,
+   "key": "link|directories|global-industrystock",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "directories",
    "id": "global-instagram-business",
    "country": "global",
    "url": "https://www.instagram.com/",
@@ -1709,6 +2374,42 @@
    "observedAt": "2026-08-20",
    "state": "PROTECTED",
    "why": "the front page refused a browser or rendered nothing"
+  },
+  {
+   "collection": "directories",
+   "id": "global-itfirms",
+   "country": "global",
+   "url": "https://www.itfirms.co/",
+   "domainRating": 59,
+   "actionable": true,
+   "key": "link|directories|global-itfirms",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "browser: navigation timeout"
+  },
+  {
+   "collection": "directories",
+   "id": "global-itrate",
+   "country": "global",
+   "url": "https://www.itrate.co/",
+   "domainRating": 64,
+   "actionable": true,
+   "key": "link|directories|global-itrate",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "directories",
+   "id": "global-jasminedirectory",
+   "country": "global",
+   "url": "https://www.jasminedirectory.com/",
+   "domainRating": 67,
+   "actionable": true,
+   "key": "link|directories|global-jasminedirectory",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
   },
   {
    "collection": "directories",
@@ -1786,6 +2487,18 @@
    "observedAt": "2026-08-20",
    "state": "UNRESOLVED",
    "why": "the website link was not labelled as one by the operator"
+  },
+  {
+   "collection": "directories",
+   "id": "global-mfg",
+   "country": "global",
+   "url": "https://www.mfg.com/",
+   "domainRating": 66,
+   "actionable": true,
+   "key": "link|directories|global-mfg",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
   },
   {
    "collection": "directories",
@@ -1994,6 +2707,18 @@
   },
   {
    "collection": "directories",
+   "id": "global-opentools",
+   "country": "global",
+   "url": "https://www.opentools.ai/",
+   "domainRating": 69,
+   "actionable": true,
+   "key": "link|directories|global-opentools",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "directories",
    "id": "global-oracle-partners",
    "country": "global",
    "url": "https://www.oracle.com/partner/",
@@ -2104,6 +2829,30 @@
   },
   {
    "collection": "directories",
+   "id": "global-saasgenius",
+   "country": "global",
+   "url": "https://www.saasgenius.com/",
+   "domainRating": 58,
+   "actionable": true,
+   "key": "link|directories|global-saasgenius",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "directories",
+   "id": "global-saasworthy",
+   "country": "global",
+   "url": "https://www.saasworthy.com/",
+   "domainRating": 75,
+   "actionable": true,
+   "key": "link|directories|global-saasworthy",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "directories",
    "id": "global-sap-partners",
    "country": "global",
    "url": "https://www.sap.com/partners",
@@ -2123,6 +2872,56 @@
    "observedAt": "2026-08-20",
    "state": "UNREADABLE",
    "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "directories",
+   "id": "global-selectedfirms",
+   "country": "global",
+   "url": "https://www.selectedfirms.co/",
+   "domainRating": 73,
+   "actionable": true,
+   "key": "link|directories|global-selectedfirms",
+   "observedAt": "2026-08-21",
+   "state": "RESOLVED",
+   "backlinkType": "nofollow",
+   "linkTargetType": "direct",
+   "listingIndexability": "indexable",
+   "why": "the listing's website anchor carries rel=\"nofollow\"",
+   "templates": [
+    {
+     "listingUrl": "https://selectedfirms.co/companies/blockchain-development",
+     "backlinkType": "nofollow",
+     "linkTargetType": "direct",
+     "externalUrl": "https://www.ailoitte.com/",
+     "relTokens": [
+      "nofollow"
+     ],
+     "anchorText": "Visit Website",
+     "indexability": "indexable"
+    },
+    {
+     "listingUrl": "https://selectedfirms.co/companies/digital-transformation",
+     "backlinkType": "nofollow",
+     "linkTargetType": "direct",
+     "externalUrl": "https://magnetoitsolutions.com/",
+     "relTokens": [
+      "nofollow"
+     ],
+     "anchorText": "Visit Website",
+     "indexability": "indexable"
+    },
+    {
+     "listingUrl": "https://selectedfirms.co/companies/cms-development",
+     "backlinkType": "nofollow",
+     "linkTargetType": "direct",
+     "externalUrl": "https://magnetoitsolutions.com/",
+     "relTokens": [
+      "nofollow"
+     ],
+     "anchorText": "Visit Website",
+     "indexability": "indexable"
+    }
+   ]
   },
   {
    "collection": "directories",
@@ -2258,6 +3057,18 @@
   },
   {
    "collection": "directories",
+   "id": "global-superbcompanies",
+   "country": "global",
+   "url": "https://www.superbcompanies.com/",
+   "domainRating": 61,
+   "actionable": true,
+   "key": "link|directories|global-superbcompanies",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "directories",
    "id": "global-techinasia",
    "country": "global",
    "url": "https://www.techinasia.com/",
@@ -2275,6 +3086,18 @@
    "domainRating": 82,
    "key": "link|directories|global-techstars",
    "observedAt": "2026-08-20",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "directories",
+   "id": "global-tekpon",
+   "country": "global",
+   "url": "https://www.tekpon.com/",
+   "domainRating": 72,
+   "actionable": true,
+   "key": "link|directories|global-tekpon",
+   "observedAt": "2026-08-21",
    "state": "UNREADABLE",
    "why": "the listing pages could not be read"
   },
@@ -2335,6 +3158,45 @@
   },
   {
    "collection": "directories",
+   "id": "global-topdevelopers",
+   "country": "global",
+   "url": "https://www.topdevelopers.co/",
+   "domainRating": 74,
+   "actionable": true,
+   "key": "link|directories|global-topdevelopers",
+   "observedAt": "2026-08-21",
+   "state": "RESOLVED",
+   "backlinkType": "nofollow",
+   "linkTargetType": "direct",
+   "listingIndexability": "indexable",
+   "why": "the listing's website anchor carries rel=\"nofollow\"",
+   "templates": [
+    {
+     "listingUrl": "https://www.topdevelopers.co/companies/app-development",
+     "backlinkType": "nofollow",
+     "linkTargetType": "direct",
+     "externalUrl": "https://chopdawg.com/",
+     "relTokens": [
+      "nofollow"
+     ],
+     "anchorText": "Visit Website",
+     "indexability": "indexable"
+    },
+    {
+     "listingUrl": "https://www.topdevelopers.co/companies/software-development",
+     "backlinkType": "nofollow",
+     "linkTargetType": "direct",
+     "externalUrl": "https://www.toptal.com/",
+     "relTokens": [
+      "nofollow"
+     ],
+     "anchorText": "Visit Website",
+     "indexability": "indexable"
+    }
+   ]
+  },
+  {
+   "collection": "directories",
    "id": "global-toptal",
    "country": "global",
    "url": "https://www.toptal.com/",
@@ -2363,6 +3225,18 @@
    "domainRating": 90,
    "key": "link|directories|global-trusted-shops",
    "observedAt": "2026-08-20",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "directories",
+   "id": "global-tupalo",
+   "country": "global",
+   "url": "https://tupalo.com/",
+   "domainRating": 72,
+   "actionable": true,
+   "key": "link|directories|global-tupalo",
+   "observedAt": "2026-08-21",
    "state": "NO_LISTING_FOUND",
    "why": "no public business listing was reachable from the front page"
   },
@@ -2418,6 +3292,18 @@
    "domainRating": 91,
    "key": "link|directories|global-vrbo",
    "observedAt": "2026-08-20",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "directories",
+   "id": "global-wadline",
+   "country": "global",
+   "url": "https://www.wadline.com/",
+   "domainRating": 60,
+   "actionable": true,
+   "key": "link|directories|global-wadline",
+   "observedAt": "2026-08-21",
    "state": "UNREADABLE",
    "why": "the listing pages could not be read"
   },
@@ -2555,6 +3441,18 @@
   },
   {
    "collection": "directories",
+   "id": "hk-hotfrog",
+   "country": "hong-kong",
+   "url": "https://www.hotfrog.hk/",
+   "domainRating": 59,
+   "actionable": true,
+   "key": "link|directories|hk-hotfrog",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "directories",
    "id": "id-alodokter",
    "country": "indonesia",
    "url": "https://www.alodokter.com/",
@@ -2588,6 +3486,54 @@
   },
   {
    "collection": "directories",
+   "id": "ie-askspud",
+   "country": "ireland",
+   "url": "https://askspud.ie/",
+   "domainRating": 24,
+   "actionable": true,
+   "key": "link|directories|ie-askspud",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "directories",
+   "id": "ie-hotfrog",
+   "country": "ireland",
+   "url": "https://www.hotfrog.ie/",
+   "domainRating": 36,
+   "actionable": true,
+   "key": "link|directories|ie-hotfrog",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "directories",
+   "id": "ie-localsearch",
+   "country": "ireland",
+   "url": "https://www.localsearch.ie/",
+   "domainRating": 27,
+   "actionable": true,
+   "key": "link|directories|ie-localsearch",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "directories",
+   "id": "in-bizbangboom",
+   "country": "india",
+   "url": "https://www.bizbangboom.com/",
+   "domainRating": 56,
+   "actionable": true,
+   "key": "link|directories|in-bizbangboom",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "directories",
    "id": "in-bookmyshow",
    "country": "india",
    "url": "https://www.bookmyshow.com/",
@@ -2610,6 +3556,18 @@
   },
   {
    "collection": "directories",
+   "id": "in-indiabusinessguide",
+   "country": "india",
+   "url": "https://www.indiabusinessguide.in/",
+   "domainRating": 7,
+   "actionable": true,
+   "key": "link|directories|in-indiabusinessguide",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "browser: navigation timeout"
+  },
+  {
+   "collection": "directories",
    "id": "in-indianyellowpages",
    "country": "india",
    "url": "https://www.indianyellowpages.com/",
@@ -2621,6 +3579,18 @@
   },
   {
    "collection": "directories",
+   "id": "in-indiaonline",
+   "country": "india",
+   "url": "https://www.indiaonline.in/",
+   "domainRating": 41,
+   "actionable": true,
+   "key": "link|directories|in-indiaonline",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "directories",
    "id": "in-justdial",
    "country": "india",
    "url": "https://www.justdial.com/",
@@ -2629,6 +3599,42 @@
    "observedAt": "2026-08-20",
    "state": "UNREADABLE",
    "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "directories",
+   "id": "in-mumbaibusinessdirectory",
+   "country": "india",
+   "url": "https://www.mumbaibusinessdirectory.com/",
+   "domainRating": 2,
+   "actionable": true,
+   "key": "link|directories|in-mumbaibusinessdirectory",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "directories",
+   "id": "in-nearbuy",
+   "country": "india",
+   "url": "https://www.nearbuy.com/",
+   "domainRating": 41,
+   "actionable": true,
+   "key": "link|directories|in-nearbuy",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "directories",
+   "id": "in-opendi",
+   "country": "india",
+   "url": "https://www.opendi.in/",
+   "domainRating": 7,
+   "actionable": true,
+   "key": "link|directories|in-opendi",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
   },
   {
    "collection": "directories",
@@ -2660,6 +3666,18 @@
    "domainRating": 85,
    "key": "link|directories|in-yourstory",
    "observedAt": "2026-08-20",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "directories",
+   "id": "in-zipleaf",
+   "country": "india",
+   "url": "https://www.zipleaf.in/",
+   "domainRating": 30,
+   "actionable": true,
+   "key": "link|directories|in-zipleaf",
+   "observedAt": "2026-08-21",
    "state": "UNREADABLE",
    "why": "the listing pages could not be read"
   },
@@ -2709,6 +3727,18 @@
   },
   {
    "collection": "directories",
+   "id": "jm-findyello",
+   "country": "jamaica",
+   "url": "https://www.findyello.com/",
+   "domainRating": 73,
+   "actionable": true,
+   "key": "link|directories|jm-findyello",
+   "observedAt": "2026-08-21",
+   "state": "UNRESOLVED",
+   "why": "the only listings reachable were another country's on a shared host"
+  },
+  {
+   "collection": "directories",
    "id": "jp-ekiten",
    "country": "japan",
    "url": "https://www.ekiten.jp/",
@@ -2739,6 +3769,18 @@
    "observedAt": "2026-08-20",
    "state": "NO_LISTING_FOUND",
    "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "directories",
+   "id": "jp-hotfrog",
+   "country": "japan",
+   "url": "https://www.hotfrog.jp/",
+   "domainRating": 56,
+   "actionable": true,
+   "key": "link|directories|jp-hotfrog",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
   },
   {
    "collection": "directories",
@@ -2863,6 +3905,18 @@
   },
   {
    "collection": "directories",
+   "id": "ke-yellowpages",
+   "country": "kenya",
+   "url": "https://www.yellowpageskenya.com/",
+   "domainRating": 51,
+   "actionable": true,
+   "key": "link|directories|ke-yellowpages",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "directories",
    "id": "kr-coupang",
    "country": "south-korea",
    "url": "https://www.coupang.com/",
@@ -2918,6 +3972,54 @@
   },
   {
    "collection": "directories",
+   "id": "ma-yellowpages",
+   "country": "morocco",
+   "url": "https://www.yellowpages.ma/",
+   "domainRating": 7,
+   "actionable": true,
+   "key": "link|directories|ma-yellowpages",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "directories",
+   "id": "mm-yellowpages",
+   "country": "myanmar",
+   "url": "https://www.myanmaryellowpages.biz/",
+   "domainRating": 30,
+   "actionable": true,
+   "key": "link|directories|mm-yellowpages",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "directories",
+   "id": "mt-maltabusinessbook",
+   "country": "malta",
+   "url": "https://www.maltabusinessbook.com/",
+   "domainRating": 3,
+   "actionable": true,
+   "key": "link|directories|mt-maltabusinessbook",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "directories",
+   "id": "mt-yellow",
+   "country": "malta",
+   "url": "https://www.yellow.com.mt/",
+   "domainRating": 67,
+   "actionable": true,
+   "key": "link|directories|mt-yellow",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "directories",
    "id": "mx-doctoralia",
    "country": "mexico",
    "url": "https://www.doctoralia.com.mx/",
@@ -2948,6 +4050,42 @@
    "observedAt": "2026-08-20",
    "state": "UNREADABLE",
    "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "directories",
+   "id": "ng-connectnigeria",
+   "country": "nigeria",
+   "url": "https://www.connectnigeria.com/",
+   "domainRating": 50,
+   "actionable": true,
+   "key": "link|directories|ng-connectnigeria",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "directories",
+   "id": "ng-finelib",
+   "country": "nigeria",
+   "url": "https://www.finelib.com/",
+   "domainRating": 46,
+   "actionable": true,
+   "key": "link|directories|ng-finelib",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "directories",
+   "id": "ng-ngex",
+   "country": "nigeria",
+   "url": "https://www.ngex.com/",
+   "domainRating": 33,
+   "actionable": true,
+   "key": "link|directories|ng-ngex",
+   "observedAt": "2026-08-21",
+   "state": "PROTECTED",
+   "why": "the front page refused a browser or rendered nothing"
   },
   {
    "collection": "directories",
@@ -3061,6 +4199,59 @@
   },
   {
    "collection": "directories",
+   "id": "nz-hotfrog",
+   "country": "new-zealand",
+   "url": "https://www.hotfrog.co.nz/",
+   "domainRating": 46,
+   "actionable": true,
+   "key": "link|directories|nz-hotfrog",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "directories",
+   "id": "pe-hotfrog",
+   "country": "peru",
+   "url": "https://www.hotfrog.com.pe/",
+   "domainRating": 25,
+   "actionable": true,
+   "key": "link|directories|pe-hotfrog",
+   "observedAt": "2026-08-21",
+   "state": "RESOLVED",
+   "backlinkType": "none",
+   "linkTargetType": null,
+   "listingIndexability": "indexable",
+   "why": "the public listing renders no external website link",
+   "templates": [
+    {
+     "listingUrl": "https://www.hotfrog.com.pe/company/5b5ecf76850b3e78bc77ec9bbd022aee/tienda-urbana-tocache/tocache/fashion-accessories",
+     "backlinkType": "none",
+     "indexability": "indexable",
+     "buttonCount": 892
+    },
+    {
+     "listingUrl": "https://www.hotfrog.com.pe/company/4960e8f0b19e4a5b74c0e9715cc2487e",
+     "backlinkType": "none",
+     "indexability": "indexable",
+     "buttonCount": 892
+    }
+   ]
+  },
+  {
+   "collection": "directories",
+   "id": "ph-hotfrog",
+   "country": "philippines",
+   "url": "https://www.hotfrog.ph/",
+   "domainRating": 29,
+   "actionable": true,
+   "key": "link|directories|ph-hotfrog",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "directories",
    "id": "ph-lazada",
    "country": "philippines",
    "url": "https://www.lazada.com.ph/",
@@ -3160,6 +4351,18 @@
   },
   {
    "collection": "directories",
+   "id": "rw-rwandaonline",
+   "country": "rwanda",
+   "url": "https://www.rwandaonline.rw/",
+   "domainRating": 10,
+   "actionable": true,
+   "key": "link|directories|rw-rwandaonline",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "browser: navigation timeout"
+  },
+  {
+   "collection": "directories",
    "id": "se-eniro",
    "country": "sweden",
    "url": "https://www.eniro.se/",
@@ -3193,12 +4396,36 @@
   },
   {
    "collection": "directories",
+   "id": "sg-burpple",
+   "country": "singapore",
+   "url": "https://www.burpple.com/",
+   "domainRating": 57,
+   "actionable": true,
+   "key": "link|directories|sg-burpple",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "directories",
    "id": "sg-grab",
    "country": "singapore",
    "url": "https://www.grab.com/",
    "domainRating": 86,
    "key": "link|directories|sg-grab",
    "observedAt": "2026-08-20",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "directories",
+   "id": "sg-hotfrog",
+   "country": "singapore",
+   "url": "https://www.hotfrog.sg/",
+   "domainRating": 33,
+   "actionable": true,
+   "key": "link|directories|sg-hotfrog",
+   "observedAt": "2026-08-21",
    "state": "UNREADABLE",
    "why": "the listing pages could not be read"
   },
@@ -3259,6 +4486,18 @@
   },
   {
    "collection": "directories",
+   "id": "uk-businessmagnet",
+   "country": "united-kingdom",
+   "url": "https://www.businessmagnet.co.uk/",
+   "domainRating": 57,
+   "actionable": true,
+   "key": "link|directories|uk-businessmagnet",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "directories",
    "id": "uk-checkatrade",
    "country": "united-kingdom",
    "url": "https://www.checkatrade.com/",
@@ -3292,6 +4531,18 @@
   },
   {
    "collection": "directories",
+   "id": "uk-hotfrog",
+   "country": "united-kingdom",
+   "url": "https://www.hotfrog.co.uk/",
+   "domainRating": 62,
+   "actionable": true,
+   "key": "link|directories|uk-hotfrog",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "directories",
    "id": "uk-houzz",
    "country": "united-kingdom",
    "url": "https://www.houzz.co.uk/",
@@ -3314,6 +4565,35 @@
   },
   {
    "collection": "directories",
+   "id": "uk-infoisinfo",
+   "country": "united-kingdom",
+   "url": "https://www.infoisinfo.co.uk/",
+   "domainRating": 26,
+   "actionable": true,
+   "key": "link|directories|uk-infoisinfo",
+   "observedAt": "2026-08-21",
+   "state": "RESOLVED",
+   "backlinkType": "none",
+   "linkTargetType": null,
+   "listingIndexability": "indexable",
+   "why": "the public listing renders no external website link",
+   "templates": [
+    {
+     "listingUrl": "https://brackley.infoisinfo.co.uk/card/briary-cottages/1227816",
+     "backlinkType": "none",
+     "indexability": "indexable",
+     "buttonCount": 3
+    },
+    {
+     "listingUrl": "https://highland.infoisinfo.co.uk/card/royal-marine-hotel-brora/1212348",
+     "backlinkType": "none",
+     "indexability": "indexable",
+     "buttonCount": 3
+    }
+   ]
+  },
+  {
+   "collection": "directories",
    "id": "uk-lawsociety",
    "country": "united-kingdom",
    "url": "https://www.lawsociety.org.uk/",
@@ -3325,12 +4605,65 @@
   },
   {
    "collection": "directories",
+   "id": "uk-localpages",
+   "country": "united-kingdom",
+   "url": "https://www.localpages.co.uk/",
+   "domainRating": 41,
+   "actionable": true,
+   "key": "link|directories|uk-localpages",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "directories",
    "id": "uk-mybuilder",
    "country": "united-kingdom",
    "url": "https://www.mybuilder.com/",
    "domainRating": 83,
    "key": "link|directories|uk-mybuilder",
    "observedAt": "2026-08-20",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "directories",
+   "id": "uk-mylocalservices",
+   "country": "united-kingdom",
+   "url": "https://www.mylocalservices.co.uk/",
+   "domainRating": 59,
+   "actionable": true,
+   "key": "link|directories|uk-mylocalservices",
+   "observedAt": "2026-08-21",
+   "state": "RESOLVED",
+   "backlinkType": "none",
+   "linkTargetType": null,
+   "listingIndexability": "indexable",
+   "why": "the public listing renders no external website link",
+   "templates": [
+    {
+     "listingUrl": "https://www.mylocalservices.co.uk/DP+JOINERY-Wakefield-2537440.html#reviews",
+     "backlinkType": "none",
+     "indexability": "indexable",
+     "buttonCount": 0
+    },
+    {
+     "listingUrl": "https://www.mylocalservices.co.uk/Hockett+Cleaning-Bristol-3368887.html#reviews",
+     "backlinkType": "none",
+     "indexability": "indexable",
+     "buttonCount": 0
+    }
+   ]
+  },
+  {
+   "collection": "directories",
+   "id": "uk-opendi",
+   "country": "united-kingdom",
+   "url": "https://www.opendi.co.uk/",
+   "domainRating": 42,
+   "actionable": true,
+   "key": "link|directories|uk-opendi",
+   "observedAt": "2026-08-21",
    "state": "NO_LISTING_FOUND",
    "why": "no public business listing was reachable from the front page"
   },
@@ -3369,6 +4702,18 @@
   },
   {
    "collection": "directories",
+   "id": "uk-smartbusinessdirectory",
+   "country": "united-kingdom",
+   "url": "https://www.smartbusinessdirectory.co.uk/",
+   "domainRating": 61,
+   "actionable": true,
+   "key": "link|directories|uk-smartbusinessdirectory",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "directories",
    "id": "uk-treatwell",
    "country": "united-kingdom",
    "url": "https://www.treatwell.co.uk/",
@@ -3397,6 +4742,18 @@
    "domainRating": 82,
    "key": "link|directories|uk-trustmark",
    "observedAt": "2026-08-20",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "directories",
+   "id": "uk-ukbusinessdirectory",
+   "country": "united-kingdom",
+   "url": "https://www.ukbusinessdirectory.uk/",
+   "domainRating": 0,
+   "actionable": true,
+   "key": "link|directories|uk-ukbusinessdirectory",
+   "observedAt": "2026-08-21",
    "state": "NO_LISTING_FOUND",
    "why": "no public business listing was reachable from the front page"
   },
@@ -3479,6 +4836,18 @@
   },
   {
    "collection": "directories",
+   "id": "us-appfutura",
+   "country": "united-states",
+   "url": "https://www.appfutura.com/",
+   "domainRating": 71,
+   "actionable": true,
+   "key": "link|directories|us-appfutura",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "directories",
    "id": "us-apta",
    "country": "united-states",
    "url": "https://www.apta.org/",
@@ -3520,6 +4889,53 @@
    "observedAt": "2026-08-20",
    "state": "NO_LISTING_FOUND",
    "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "directories",
+   "id": "us-bizhwy",
+   "country": "united-states",
+   "url": "https://www.bizhwy.com/",
+   "domainRating": 70,
+   "actionable": true,
+   "key": "link|directories|us-bizhwy",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "directories",
+   "id": "us-businessyab",
+   "country": "united-states",
+   "url": "https://www.businessyab.com/",
+   "domainRating": 40,
+   "actionable": true,
+   "key": "link|directories|us-businessyab",
+   "observedAt": "2026-08-21",
+   "state": "RESOLVED",
+   "backlinkType": "none",
+   "linkTargetType": null,
+   "listingIndexability": "indexable",
+   "why": "the public listing renders no external website link",
+   "templates": [
+    {
+     "listingUrl": "https://www.businessyab.com/explore/united_states/texas/dallas_county/dallas/northwest_dallas/anode_lane/2955/paleteria-san-marcos-214-484-7040.html",
+     "backlinkType": "none",
+     "indexability": "indexable",
+     "buttonCount": 824
+    },
+    {
+     "listingUrl": "https://www.businessyab.com/explore/united_states/pennsylvania/montgomery_county/whitpain_township/blue_bell/harvest_drive/980/nvr-settlement-services-inc-267-464-3750.html",
+     "backlinkType": "none",
+     "indexability": "indexable",
+     "buttonCount": 824
+    },
+    {
+     "listingUrl": "https://www.businessyab.com/explore/united_states/texas/dallas_county/coppell/north_denton_tap_road/363/andrew-brown-park-west-972-462-5100.html",
+     "backlinkType": "none",
+     "indexability": "indexable",
+     "buttonCount": 824
+    }
+   ]
   },
   {
    "collection": "directories",
@@ -3589,12 +5005,36 @@
   },
   {
    "collection": "directories",
+   "id": "us-citysquares",
+   "country": "united-states",
+   "url": "https://www.citysquares.com/",
+   "domainRating": 74,
+   "actionable": true,
+   "key": "link|directories|us-citysquares",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "directories",
    "id": "us-classpass",
    "country": "united-states",
    "url": "https://www.classpass.com/",
    "domainRating": 80,
    "key": "link|directories|us-classpass",
    "observedAt": "2026-08-20",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "directories",
+   "id": "us-contractors-com",
+   "country": "united-states",
+   "url": "https://www.contractors.com/",
+   "domainRating": 50,
+   "actionable": true,
+   "key": "link|directories|us-contractors-com",
+   "observedAt": "2026-08-21",
    "state": "NO_LISTING_FOUND",
    "why": "no public business listing was reachable from the front page"
   },
@@ -3660,6 +5100,18 @@
   },
   {
    "collection": "directories",
+   "id": "us-eventective",
+   "country": "united-states",
+   "url": "https://www.eventective.com/",
+   "domainRating": 75,
+   "actionable": true,
+   "key": "link|directories|us-eventective",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "directories",
    "id": "us-expertise",
    "country": "united-states",
    "url": "https://www.expertise.com/",
@@ -3679,6 +5131,47 @@
    "observedAt": "2026-08-20",
    "state": "UNREADABLE",
    "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "directories",
+   "id": "us-freelistingusa",
+   "country": "united-states",
+   "url": "https://www.freelistingusa.com/",
+   "domainRating": 74,
+   "actionable": true,
+   "key": "link|directories|us-freelistingusa",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "directories",
+   "id": "us-fyple",
+   "country": "united-states",
+   "url": "https://www.fyple.com/",
+   "domainRating": 62,
+   "actionable": true,
+   "key": "link|directories|us-fyple",
+   "observedAt": "2026-08-21",
+   "state": "RESOLVED",
+   "backlinkType": "none",
+   "linkTargetType": null,
+   "listingIndexability": "indexable",
+   "why": "the public listing renders no external website link",
+   "templates": [
+    {
+     "listingUrl": "https://www.fyple.com/company/o2-mold-testing-of-reston-ykyslcu/#rev_137516",
+     "backlinkType": "none",
+     "indexability": "indexable",
+     "buttonCount": 821
+    },
+    {
+     "listingUrl": "https://www.fyple.com/company/o2-mold-testing-of-reston-ykyslcu/",
+     "backlinkType": "none",
+     "indexability": "indexable",
+     "buttonCount": 821
+    }
+   ]
   },
   {
    "collection": "directories",
@@ -3836,6 +5329,18 @@
   },
   {
    "collection": "directories",
+   "id": "us-networx",
+   "country": "united-states",
+   "url": "https://www.networx.com/",
+   "domainRating": 75,
+   "actionable": true,
+   "key": "link|directories|us-networx",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "directories",
    "id": "us-nextdoor",
    "country": "united-states",
    "url": "https://business.nextdoor.com/",
@@ -3888,6 +5393,18 @@
    "observedAt": "2026-08-20",
    "state": "UNREADABLE",
    "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "directories",
+   "id": "us-opendi",
+   "country": "united-states",
+   "url": "https://www.opendi.us/",
+   "domainRating": 65,
+   "actionable": true,
+   "key": "link|directories|us-opendi",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
   },
   {
    "collection": "directories",
@@ -3968,6 +5485,18 @@
   },
   {
    "collection": "directories",
+   "id": "us-storeboard",
+   "country": "united-states",
+   "url": "https://www.storeboard.com/",
+   "domainRating": 76,
+   "actionable": true,
+   "key": "link|directories|us-storeboard",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "directories",
    "id": "us-styleseat",
    "country": "united-states",
    "url": "https://www.styleseat.com/",
@@ -4001,6 +5530,42 @@
   },
   {
    "collection": "directories",
+   "id": "us-techbehemoths",
+   "country": "united-states",
+   "url": "https://www.techbehemoths.com/",
+   "domainRating": 76,
+   "actionable": true,
+   "key": "link|directories|us-techbehemoths",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "directories",
+   "id": "us-techreviewer",
+   "country": "united-states",
+   "url": "https://www.techreviewer.co/",
+   "domainRating": 71,
+   "actionable": true,
+   "key": "link|directories|us-techreviewer",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "directories",
+   "id": "us-thebluebook",
+   "country": "united-states",
+   "url": "https://www.thebluebook.com/",
+   "domainRating": 79,
+   "actionable": true,
+   "key": "link|directories|us-thebluebook",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "directories",
    "id": "us-thumbtack",
    "country": "united-states",
    "url": "https://www.thumbtack.com/",
@@ -4023,6 +5588,47 @@
   },
   {
    "collection": "directories",
+   "id": "us-trueen",
+   "country": "united-states",
+   "url": "https://www.trueen.com/",
+   "domainRating": 69,
+   "actionable": true,
+   "key": "link|directories|us-trueen",
+   "observedAt": "2026-08-21",
+   "state": "PROTECTED",
+   "why": "the front page refused a browser or rendered nothing"
+  },
+  {
+   "collection": "directories",
+   "id": "us-trustlink",
+   "country": "united-states",
+   "url": "https://www.trustlink.org/",
+   "domainRating": 68,
+   "actionable": true,
+   "key": "link|directories|us-trustlink",
+   "observedAt": "2026-08-21",
+   "state": "RESOLVED",
+   "backlinkType": "none",
+   "linkTargetType": null,
+   "listingIndexability": "indexable",
+   "why": "the public listing renders no external website link",
+   "templates": [
+    {
+     "listingUrl": "https://www.trustlink.org/Reviews/Angelys-Cleaning-207329770",
+     "backlinkType": "none",
+     "indexability": "indexable",
+     "buttonCount": 0
+    },
+    {
+     "listingUrl": "https://www.trustlink.org/Review/Angelys-Cleaning-292802",
+     "backlinkType": "none",
+     "indexability": "indexable",
+     "buttonCount": 0
+    }
+   ]
+  },
+  {
+   "collection": "directories",
    "id": "us-vagaro",
    "country": "united-states",
    "url": "https://www.vagaro.com/",
@@ -4034,12 +5640,60 @@
   },
   {
    "collection": "directories",
+   "id": "us-vitals",
+   "country": "united-states",
+   "url": "https://www.vitals.com/",
+   "domainRating": 78,
+   "actionable": true,
+   "key": "link|directories|us-vitals",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "directories",
    "id": "us-wbenc",
    "country": "united-states",
    "url": "https://www.wbenc.org/",
    "domainRating": 83,
    "key": "link|directories|us-wbenc",
    "observedAt": "2026-08-20",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "directories",
+   "id": "us-wellness-com",
+   "country": "united-states",
+   "url": "https://www.wellness.com/",
+   "domainRating": 72,
+   "actionable": true,
+   "key": "link|directories|us-wellness-com",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "directories",
+   "id": "us-yellowbot",
+   "country": "united-states",
+   "url": "https://www.yellowbot.com/",
+   "domainRating": 69,
+   "actionable": true,
+   "key": "link|directories|us-yellowbot",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "browser: navigation timeout"
+  },
+  {
+   "collection": "directories",
+   "id": "us-yellowpagecity",
+   "country": "united-states",
+   "url": "https://www.yellowpagecity.com/",
+   "domainRating": 57,
+   "actionable": true,
+   "key": "link|directories|us-yellowpagecity",
+   "observedAt": "2026-08-21",
    "state": "NO_LISTING_FOUND",
    "why": "no public business listing was reachable from the front page"
   },
@@ -4067,6 +5721,18 @@
   },
   {
    "collection": "directories",
+   "id": "uz-yellowpages",
+   "country": "uzbekistan",
+   "url": "https://www.yellowpages.uz/",
+   "domainRating": 52,
+   "actionable": true,
+   "key": "link|directories|uz-yellowpages",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "directories",
    "id": "vn-lazada",
    "country": "vietnam",
    "url": "https://www.lazada.vn/",
@@ -4089,6 +5755,30 @@
   },
   {
    "collection": "directories",
+   "id": "za-hotfrog",
+   "country": "south-africa",
+   "url": "https://www.hotfrog.co.za/",
+   "domainRating": 50,
+   "actionable": true,
+   "key": "link|directories|za-hotfrog",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "directories",
+   "id": "za-snupit",
+   "country": "south-africa",
+   "url": "https://www.snupit.co.za/",
+   "domainRating": 43,
+   "actionable": true,
+   "key": "link|directories|za-snupit",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "directories",
    "id": "za-takealot",
    "country": "south-africa",
    "url": "https://www.takealot.com/",
@@ -4100,12 +5790,48 @@
   },
   {
    "collection": "marketplaces",
+   "id": "mp-ae-dubicars",
+   "country": "united-arab-emirates",
+   "url": "https://www.dubicars.com/",
+   "domainRating": 69,
+   "actionable": true,
+   "key": "link|marketplaces|mp-ae-dubicars",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "marketplaces",
+   "id": "mp-ae-propertyfinder",
+   "country": "united-arab-emirates",
+   "url": "https://www.propertyfinder.ae/",
+   "domainRating": 75,
+   "actionable": true,
+   "key": "link|marketplaces|mp-ae-propertyfinder",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "marketplaces",
    "id": "mp-ar-mercadolibre",
    "country": "argentina",
    "url": "https://www.mercadolibre.com.ar/",
    "domainRating": 86,
    "key": "link|marketplaces|mp-ar-mercadolibre",
    "observedAt": "2026-08-20",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "marketplaces",
+   "id": "mp-at-bazar",
+   "country": "austria",
+   "url": "https://www.bazar.at/",
+   "domainRating": 41,
+   "actionable": true,
+   "key": "link|marketplaces|mp-at-bazar",
+   "observedAt": "2026-08-21",
    "state": "UNREADABLE",
    "why": "the listing pages could not be read"
   },
@@ -4122,6 +5848,30 @@
   },
   {
    "collection": "marketplaces",
+   "id": "mp-au-bikesales",
+   "country": "australia",
+   "url": "https://www.bikesales.com.au/",
+   "domainRating": 56,
+   "actionable": true,
+   "key": "link|marketplaces|mp-au-bikesales",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "marketplaces",
+   "id": "mp-au-boatsales",
+   "country": "australia",
+   "url": "https://www.boatsales.com.au/",
+   "domainRating": 60,
+   "actionable": true,
+   "key": "link|marketplaces|mp-au-boatsales",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "marketplaces",
    "id": "mp-au-ebay",
    "country": "australia",
    "url": "https://www.ebay.com.au/",
@@ -4133,12 +5883,60 @@
   },
   {
    "collection": "marketplaces",
+   "id": "mp-au-farmmachinerysales",
+   "country": "australia",
+   "url": "https://www.farmmachinerysales.com.au/",
+   "domainRating": 36,
+   "actionable": true,
+   "key": "link|marketplaces|mp-au-farmmachinerysales",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "marketplaces",
+   "id": "mp-au-pickles",
+   "country": "australia",
+   "url": "https://www.pickles.com.au/",
+   "domainRating": 57,
+   "actionable": true,
+   "key": "link|marketplaces|mp-au-pickles",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "marketplaces",
+   "id": "mp-br-chavesnamao",
+   "country": "brazil",
+   "url": "https://www.chavesnamao.com.br/",
+   "domainRating": 71,
+   "actionable": true,
+   "key": "link|marketplaces|mp-br-chavesnamao",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "marketplaces",
    "id": "mp-br-mercadolivre",
    "country": "brazil",
    "url": "https://www.mercadolivre.com.br/",
    "domainRating": 90,
    "key": "link|marketplaces|mp-br-mercadolivre",
    "observedAt": "2026-08-20",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "marketplaces",
+   "id": "mp-br-webmotors",
+   "country": "brazil",
+   "url": "https://www.webmotors.com.br/",
+   "domainRating": 71,
+   "actionable": true,
+   "key": "link|marketplaces|mp-br-webmotors",
+   "observedAt": "2026-08-21",
    "state": "UNREADABLE",
    "why": "the listing pages could not be read"
   },
@@ -4163,6 +5961,18 @@
    "observedAt": "2026-08-20",
    "state": "NO_LISTING_FOUND",
    "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "marketplaces",
+   "id": "mp-cl-chileautos",
+   "country": "chile",
+   "url": "https://www.chileautos.cl/",
+   "domainRating": 50,
+   "actionable": true,
+   "key": "link|marketplaces|mp-cl-chileautos",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
   },
   {
    "collection": "marketplaces",
@@ -4199,6 +6009,30 @@
   },
   {
    "collection": "marketplaces",
+   "id": "mp-cu-revolico",
+   "country": "cuba",
+   "url": "https://www.revolico.com/",
+   "domainRating": 47,
+   "actionable": true,
+   "key": "link|marketplaces|mp-cu-revolico",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "marketplaces",
+   "id": "mp-cy-bazaraki",
+   "country": "cyprus",
+   "url": "https://www.bazaraki.com/",
+   "domainRating": 51,
+   "actionable": true,
+   "key": "link|marketplaces|mp-cy-bazaraki",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "marketplaces",
    "id": "mp-de-kleinanzeigen",
    "country": "germany",
    "url": "https://www.kleinanzeigen.de/",
@@ -4207,6 +6041,18 @@
    "observedAt": "2026-08-20",
    "state": "UNRESOLVED",
    "why": "the website link was not labelled as one by the operator"
+  },
+  {
+   "collection": "marketplaces",
+   "id": "mp-do-supercarros",
+   "country": "dominican-republic",
+   "url": "https://www.supercarros.com/",
+   "domainRating": 34,
+   "actionable": true,
+   "key": "link|marketplaces|mp-do-supercarros",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "browser: navigation timeout"
   },
   {
    "collection": "marketplaces",
@@ -4232,6 +6078,18 @@
   },
   {
    "collection": "marketplaces",
+   "id": "mp-fr-paruvendu",
+   "country": "france",
+   "url": "https://www.paruvendu.fr/",
+   "domainRating": 71,
+   "actionable": true,
+   "key": "link|marketplaces|mp-fr-paruvendu",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "marketplaces",
    "id": "mp-fr-vinted",
    "country": "france",
    "url": "https://www.vinted.fr/",
@@ -4243,12 +6101,60 @@
   },
   {
    "collection": "marketplaces",
+   "id": "mp-gh-meqasa",
+   "country": "ghana",
+   "url": "https://meqasa.com/",
+   "domainRating": 45,
+   "actionable": true,
+   "key": "link|marketplaces|mp-gh-meqasa",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "marketplaces",
+   "id": "mp-id-rumah123",
+   "country": "indonesia",
+   "url": "https://www.rumah123.com/",
+   "domainRating": 74,
+   "actionable": true,
+   "key": "link|marketplaces|mp-id-rumah123",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "marketplaces",
+   "id": "mp-in-quikr",
+   "country": "india",
+   "url": "https://www.quikr.com/",
+   "domainRating": 61,
+   "actionable": true,
+   "key": "link|marketplaces|mp-in-quikr",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "marketplaces",
    "id": "mp-it-subito",
    "country": "italy",
    "url": "https://www.subito.it/",
    "domainRating": 80,
    "key": "link|marketplaces|mp-it-subito",
    "observedAt": "2026-08-20",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "marketplaces",
+   "id": "mp-jm-jacars",
+   "country": "jamaica",
+   "url": "https://www.jacars.net/",
+   "domainRating": 26,
+   "actionable": true,
+   "key": "link|marketplaces|mp-jm-jacars",
+   "observedAt": "2026-08-21",
    "state": "UNREADABLE",
    "why": "the listing pages could not be read"
   },
@@ -4298,6 +6204,65 @@
   },
   {
    "collection": "marketplaces",
+   "id": "mp-ke-brightermonday",
+   "country": "kenya",
+   "url": "https://www.brightermonday.co.ke/",
+   "domainRating": 53,
+   "actionable": true,
+   "key": "link|marketplaces|mp-ke-brightermonday",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "marketplaces",
+   "id": "mp-ke-buyrentkenya",
+   "country": "kenya",
+   "url": "https://www.buyrentkenya.com/",
+   "domainRating": 47,
+   "actionable": true,
+   "key": "link|marketplaces|mp-ke-buyrentkenya",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "marketplaces",
+   "id": "mp-ke-kilimall",
+   "country": "kenya",
+   "url": "https://www.kilimall.co.ke/",
+   "domainRating": 55,
+   "actionable": true,
+   "key": "link|marketplaces|mp-ke-kilimall",
+   "observedAt": "2026-08-21",
+   "state": "RESOLVED",
+   "backlinkType": "none",
+   "linkTargetType": null,
+   "listingIndexability": "indexable",
+   "why": "the public listing renders no external website link",
+   "templates": [
+    {
+     "listingUrl": "https://www.kilimall.co.ke/listing/1001896801",
+     "backlinkType": "none",
+     "indexability": "indexable",
+     "buttonCount": 11
+    }
+   ]
+  },
+  {
+   "collection": "marketplaces",
+   "id": "mp-kh-realestate",
+   "country": "cambodia",
+   "url": "https://www.realestate.com.kh/",
+   "domainRating": 55,
+   "actionable": true,
+   "key": "link|marketplaces|mp-kh-realestate",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "marketplaces",
    "id": "mp-kr-saramin",
    "country": "south-korea",
    "url": "https://www.saramin.co.kr/",
@@ -4309,12 +6274,168 @@
   },
   {
    "collection": "marketplaces",
+   "id": "mp-lk-ikman",
+   "country": "sri-lanka",
+   "url": "https://www.ikman.lk/",
+   "domainRating": 60,
+   "actionable": true,
+   "key": "link|marketplaces|mp-lk-ikman",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "marketplaces",
+   "id": "mp-lk-lankapropertyweb",
+   "country": "sri-lanka",
+   "url": "https://www.lankapropertyweb.com/",
+   "domainRating": 44,
+   "actionable": true,
+   "key": "link|marketplaces|mp-lk-lankapropertyweb",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "browser: navigation timeout"
+  },
+  {
+   "collection": "marketplaces",
+   "id": "mp-lk-patpat",
+   "country": "sri-lanka",
+   "url": "https://www.patpat.lk/",
+   "domainRating": 26,
+   "actionable": true,
+   "key": "link|marketplaces|mp-lk-patpat",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "marketplaces",
+   "id": "mp-lu-athome",
+   "country": "luxembourg",
+   "url": "https://www.athome.lu/",
+   "domainRating": 61,
+   "actionable": true,
+   "key": "link|marketplaces|mp-lu-athome",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "marketplaces",
+   "id": "mp-ma-moteur",
+   "country": "morocco",
+   "url": "https://www.moteur.ma/",
+   "domainRating": 39,
+   "actionable": true,
+   "key": "link|marketplaces|mp-ma-moteur",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "marketplaces",
+   "id": "mp-ma-mubawab",
+   "country": "morocco",
+   "url": "https://www.mubawab.ma/",
+   "domainRating": 53,
+   "actionable": true,
+   "key": "link|marketplaces|mp-ma-mubawab",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "marketplaces",
+   "id": "mp-mk-reklama5",
+   "country": "north-macedonia",
+   "url": "https://reklama5.com/",
+   "domainRating": 16,
+   "actionable": true,
+   "key": "link|marketplaces|mp-mk-reklama5",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "marketplaces",
+   "id": "mp-mm-jobnet",
+   "country": "myanmar",
+   "url": "https://www.jobnet.com.mm/",
+   "domainRating": 51,
+   "actionable": true,
+   "key": "link|marketplaces|mp-mm-jobnet",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "marketplaces",
+   "id": "mp-mm-shop",
+   "country": "myanmar",
+   "url": "https://www.shop.com.mm/",
+   "domainRating": 72,
+   "actionable": true,
+   "key": "link|marketplaces|mp-mm-shop",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "marketplaces",
    "id": "mp-mx-mercadolibre",
    "country": "mexico",
    "url": "https://www.mercadolibre.com.mx/",
    "domainRating": 87,
    "key": "link|marketplaces|mp-mx-mercadolibre",
    "observedAt": "2026-08-20",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "marketplaces",
+   "id": "mp-my-carlist",
+   "country": "malaysia",
+   "url": "https://www.carlist.my/",
+   "domainRating": 56,
+   "actionable": true,
+   "key": "link|marketplaces|mp-my-carlist",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "marketplaces",
+   "id": "mp-my-mudah",
+   "country": "malaysia",
+   "url": "https://www.mudah.my/",
+   "domainRating": 71,
+   "actionable": true,
+   "key": "link|marketplaces|mp-my-mudah",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "marketplaces",
+   "id": "mp-na-namcars",
+   "country": "namibia",
+   "url": "https://www.namcars.net/",
+   "domainRating": 26,
+   "actionable": true,
+   "key": "link|marketplaces|mp-na-namcars",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "marketplaces",
+   "id": "mp-ng-konga",
+   "country": "nigeria",
+   "url": "https://www.konga.com/",
+   "domainRating": 73,
+   "actionable": true,
+   "key": "link|marketplaces|mp-ng-konga",
+   "observedAt": "2026-08-21",
    "state": "UNREADABLE",
    "why": "the listing pages could not be read"
   },
@@ -4342,6 +6463,42 @@
   },
   {
    "collection": "marketplaces",
+   "id": "mp-nz-autotrader",
+   "country": "new-zealand",
+   "url": "https://www.autotrader.co.nz/",
+   "domainRating": 55,
+   "actionable": true,
+   "key": "link|marketplaces|mp-nz-autotrader",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "marketplaces",
+   "id": "mp-ph-autodeal",
+   "country": "philippines",
+   "url": "https://www.autodeal.com.ph/",
+   "domainRating": 51,
+   "actionable": true,
+   "key": "link|marketplaces|mp-ph-autodeal",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "marketplaces",
+   "id": "mp-pk-pakwheels",
+   "country": "pakistan",
+   "url": "https://www.pakwheels.com/",
+   "domainRating": 71,
+   "actionable": true,
+   "key": "link|marketplaces|mp-pk-pakwheels",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "marketplaces",
    "id": "mp-pl-olx",
    "country": "poland",
    "url": "https://www.olx.pl/",
@@ -4364,6 +6521,30 @@
   },
   {
    "collection": "marketplaces",
+   "id": "mp-pl-sprzedajemy",
+   "country": "poland",
+   "url": "https://www.sprzedajemy.pl/",
+   "domainRating": 72,
+   "actionable": true,
+   "key": "link|marketplaces|mp-pl-sprzedajemy",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "marketplaces",
+   "id": "mp-pt-custojusto",
+   "country": "portugal",
+   "url": "https://www.custojusto.pt/",
+   "domainRating": 52,
+   "actionable": true,
+   "key": "link|marketplaces|mp-pt-custojusto",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "marketplaces",
    "id": "mp-se-blocket",
    "country": "sweden",
    "url": "https://www.blocket.se/",
@@ -4375,6 +6556,30 @@
   },
   {
    "collection": "marketplaces",
+   "id": "mp-tn-automobiletn",
+   "country": "tunisia",
+   "url": "https://www.automobile.tn/",
+   "domainRating": 44,
+   "actionable": true,
+   "key": "link|marketplaces|mp-tn-automobiletn",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "marketplaces",
+   "id": "mp-tn-tayara",
+   "country": "tunisia",
+   "url": "https://www.tayara.tn/",
+   "domainRating": 34,
+   "actionable": true,
+   "key": "link|marketplaces|mp-tn-tayara",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "marketplaces",
    "id": "mp-ua-prom",
    "country": "ukraine",
    "url": "https://www.prom.ua/",
@@ -4383,6 +6588,41 @@
    "observedAt": "2026-08-20",
    "state": "UNREADABLE",
    "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "marketplaces",
+   "id": "mp-ua-ria",
+   "country": "ukraine",
+   "url": "https://www.ria.com/",
+   "domainRating": 72,
+   "actionable": true,
+   "key": "link|marketplaces|mp-ua-ria",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "marketplaces",
+   "id": "mp-uk-gumtree",
+   "country": "united-kingdom",
+   "url": "https://www.gumtree.com/",
+   "domainRating": 78,
+   "actionable": true,
+   "key": "link|marketplaces|mp-uk-gumtree",
+   "observedAt": "2026-08-21",
+   "state": "RESOLVED",
+   "backlinkType": "none",
+   "linkTargetType": null,
+   "listingIndexability": "indexable",
+   "why": "the public listing renders no external website link",
+   "templates": [
+    {
+     "listingUrl": "https://www.gumtree.com/p/skoda/2013-skoda-octavia-1.6-tdi-cr-se-4x4-5dr-estate-diesel-manual/1800108438",
+     "backlinkType": "none",
+     "indexability": "indexable",
+     "buttonCount": 46
+    }
+   ]
   },
   {
    "collection": "marketplaces",
@@ -4405,6 +6645,42 @@
    "observedAt": "2026-08-20",
    "state": "UNREADABLE",
    "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "marketplaces",
+   "id": "mp-us-adpost",
+   "country": "united-states",
+   "url": "https://www.adpost.com/",
+   "domainRating": 72,
+   "actionable": true,
+   "key": "link|marketplaces|mp-us-adpost",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "marketplaces",
+   "id": "mp-us-chairish",
+   "country": "united-states",
+   "url": "https://www.chairish.com/",
+   "domainRating": 79,
+   "actionable": true,
+   "key": "link|marketplaces|mp-us-chairish",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "marketplaces",
+   "id": "mp-us-classifiedads",
+   "country": "united-states",
+   "url": "https://www.classifiedads.com/",
+   "domainRating": 70,
+   "actionable": true,
+   "key": "link|marketplaces|mp-us-classifiedads",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
   },
   {
    "collection": "marketplaces",
@@ -4526,6 +6802,1589 @@
    "observedAt": "2026-08-20",
    "state": "NO_LISTING_FOUND",
    "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "marketplaces",
+   "id": "mp-za-bobshop",
+   "country": "south-africa",
+   "url": "https://bobshop.co.za/",
+   "domainRating": 72,
+   "actionable": true,
+   "key": "link|marketplaces|mp-za-bobshop",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "marketplaces",
+   "id": "mp-za-privateproperty",
+   "country": "south-africa",
+   "url": "https://www.privateproperty.co.za/",
+   "domainRating": 68,
+   "actionable": true,
+   "key": "link|marketplaces|mp-za-privateproperty",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "marketplaces",
+   "id": "mp-za-property24",
+   "country": "south-africa",
+   "url": "https://www.property24.com/",
+   "domainRating": 79,
+   "actionable": true,
+   "key": "link|marketplaces|mp-za-property24",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "marketplaces",
+   "id": "mp-zw-propertybook",
+   "country": "zimbabwe",
+   "url": "https://www.propertybook.co.zw/",
+   "domainRating": 55,
+   "actionable": true,
+   "key": "link|marketplaces|mp-zw-propertybook",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "media",
+   "id": "md-2pm",
+   "country": "united-states",
+   "url": "https://2pml.com",
+   "domainRating": 58,
+   "actionable": true,
+   "key": "link|media|md-2pm",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "media",
+   "id": "md-3d-printing-industry",
+   "country": "united-kingdom",
+   "url": "https://3dprintingindustry.com",
+   "domainRating": 77,
+   "actionable": true,
+   "key": "link|media|md-3d-printing-industry",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "media",
+   "id": "md-access-newswire",
+   "country": "united-states",
+   "url": "https://www.accessnewswire.com",
+   "domainRating": 81,
+   "actionable": true,
+   "key": "link|media|md-access-newswire",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "media",
+   "id": "md-agriculture-dive",
+   "country": "united-states",
+   "url": "https://www.agriculturedive.com",
+   "domainRating": 57,
+   "actionable": true,
+   "key": "link|media|md-agriculture-dive",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "media",
+   "id": "md-archdaily",
+   "country": "chile",
+   "url": "https://www.archdaily.com",
+   "domainRating": 89,
+   "actionable": true,
+   "key": "link|media|md-archdaily",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "media",
+   "id": "md-ars-technica",
+   "country": "united-states",
+   "url": "https://arstechnica.com",
+   "domainRating": 90,
+   "actionable": true,
+   "key": "link|media|md-ars-technica",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "media",
+   "id": "md-assembly-magazine",
+   "country": "united-states",
+   "url": "https://www.assemblymag.com",
+   "domainRating": 74,
+   "actionable": true,
+   "key": "link|media|md-assembly-magazine",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "media",
+   "id": "md-automation-world",
+   "country": "united-states",
+   "url": "https://www.automationworld.com",
+   "domainRating": 74,
+   "actionable": true,
+   "key": "link|media|md-automation-world",
+   "observedAt": "2026-08-21",
+   "state": "RESOLVED",
+   "backlinkType": "none",
+   "linkTargetType": null,
+   "listingIndexability": "indexable",
+   "why": "the public listing renders no external website link",
+   "templates": [
+    {
+     "listingUrl": "https://www.automationworld.com/home/company/13306287/control-system-integrators-association-csia",
+     "backlinkType": "none",
+     "indexability": "indexable",
+     "buttonCount": 22
+    }
+   ]
+  },
+  {
+   "collection": "media",
+   "id": "md-banking-dive",
+   "country": "united-states",
+   "url": "https://www.bankingdive.com",
+   "domainRating": 74,
+   "actionable": true,
+   "key": "link|media|md-banking-dive",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "media",
+   "id": "md-bd-c",
+   "country": "united-states",
+   "url": "https://www.bdcnetwork.com",
+   "domainRating": 77,
+   "actionable": true,
+   "key": "link|media|md-bd-c",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "media",
+   "id": "md-beehiiv-ad-network",
+   "country": "united-states",
+   "url": "https://www.beehiiv.com/ad-network",
+   "domainRating": 91,
+   "actionable": true,
+   "key": "link|media|md-beehiiv-ad-network",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "media",
+   "id": "md-betakit",
+   "country": "canada",
+   "url": "https://betakit.com",
+   "domainRating": 78,
+   "actionable": true,
+   "key": "link|media|md-betakit",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "media",
+   "id": "md-betalist",
+   "country": "netherlands",
+   "url": "https://betalist.com",
+   "domainRating": 76,
+   "actionable": true,
+   "key": "link|media|md-betalist",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "media",
+   "id": "md-bisnow",
+   "country": "united-states",
+   "url": "https://www.bisnow.com",
+   "domainRating": 81,
+   "actionable": true,
+   "key": "link|media|md-bisnow",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "media",
+   "id": "md-bizwest",
+   "country": "united-states",
+   "url": "https://www.bizwest.com",
+   "domainRating": 66,
+   "actionable": true,
+   "key": "link|media|md-bizwest",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "media",
+   "id": "md-bleepingcomputer",
+   "country": "united-states",
+   "url": "https://www.bleepingcomputer.com",
+   "domainRating": 88,
+   "actionable": true,
+   "key": "link|media|md-bleepingcomputer",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "media",
+   "id": "md-bloomberg",
+   "country": "united-states",
+   "url": "https://www.bloomberg.com",
+   "domainRating": 92,
+   "actionable": true,
+   "key": "link|media|md-bloomberg",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "media",
+   "id": "md-business-wire-india",
+   "country": "india",
+   "url": "https://www.businesswireindia.com",
+   "domainRating": 70,
+   "actionable": true,
+   "key": "link|media|md-business-wire-india",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "media",
+   "id": "md-bytebytego",
+   "country": "united-states",
+   "url": "https://bytebytego.com",
+   "domainRating": 72,
+   "actionable": true,
+   "key": "link|media|md-bytebytego",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "media",
+   "id": "md-cfo-com",
+   "country": "united-states",
+   "url": "https://www.cfo.com",
+   "domainRating": 79,
+   "actionable": true,
+   "key": "link|media|md-cfo-com",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "media",
+   "id": "md-cleantechnica",
+   "country": "united-states",
+   "url": "https://cleantechnica.com",
+   "domainRating": 81,
+   "actionable": true,
+   "key": "link|media|md-cleantechnica",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "media",
+   "id": "md-colorado-sun",
+   "country": "united-states",
+   "url": "https://coloradosun.com",
+   "domainRating": 79,
+   "actionable": true,
+   "key": "link|media|md-colorado-sun",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "media",
+   "id": "md-construction-dive",
+   "country": "united-states",
+   "url": "https://www.constructiondive.com",
+   "domainRating": 80,
+   "actionable": true,
+   "key": "link|media|md-construction-dive",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "media",
+   "id": "md-css-tricks",
+   "country": "united-states",
+   "url": "https://css-tricks.com",
+   "domainRating": 90,
+   "actionable": true,
+   "key": "link|media|md-css-tricks",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "media",
+   "id": "md-cx-today",
+   "country": "united-kingdom",
+   "url": "https://www.cxtoday.com",
+   "domainRating": 80,
+   "actionable": true,
+   "key": "link|media|md-cx-today",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "media",
+   "id": "md-czechcrunch",
+   "country": "czech-republic",
+   "url": "https://cc.cz",
+   "domainRating": 77,
+   "actionable": true,
+   "key": "link|media|md-czechcrunch",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "media",
+   "id": "md-dealstreetasia",
+   "country": "singapore",
+   "url": "https://www.dealstreetasia.com",
+   "domainRating": 74,
+   "actionable": true,
+   "key": "link|media|md-dealstreetasia",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "media",
+   "id": "md-deutsche-startups",
+   "country": "germany",
+   "url": "https://www.deutsche-startups.de",
+   "domainRating": 75,
+   "actionable": true,
+   "key": "link|media|md-deutsche-startups",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "media",
+   "id": "md-developing-telecoms",
+   "country": "united-kingdom",
+   "url": "https://www.developingtelecoms.com",
+   "domainRating": 65,
+   "actionable": true,
+   "key": "link|media|md-developing-telecoms",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "media",
+   "id": "md-digital-commerce-360",
+   "country": "united-states",
+   "url": "https://www.digitalcommerce360.com",
+   "domainRating": 86,
+   "actionable": true,
+   "key": "link|media|md-digital-commerce-360",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "media",
+   "id": "md-disrupt-africa",
+   "country": "south-africa",
+   "url": "https://disrupt-africa.com",
+   "domainRating": 70,
+   "actionable": true,
+   "key": "link|media|md-disrupt-africa",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "media",
+   "id": "md-e27",
+   "country": "singapore",
+   "url": "https://e27.co",
+   "domainRating": 76,
+   "actionable": true,
+   "key": "link|media|md-e27",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "media",
+   "id": "md-edison-awards",
+   "country": "united-states",
+   "url": "https://www.edisonawards.com",
+   "domainRating": 72,
+   "actionable": true,
+   "key": "link|media|md-edison-awards",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "media",
+   "id": "md-energy-storage-news",
+   "country": "united-kingdom",
+   "url": "https://www.energy-storage.news",
+   "domainRating": 75,
+   "actionable": true,
+   "key": "link|media|md-energy-storage-news",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "media",
+   "id": "md-eng-leadership",
+   "country": "united-states",
+   "url": "https://newsletter.eng-leadership.com",
+   "domainRating": 53,
+   "actionable": true,
+   "key": "link|media|md-eng-leadership",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "media",
+   "id": "md-enr",
+   "country": "united-states",
+   "url": "https://www.enr.com",
+   "domainRating": 81,
+   "actionable": true,
+   "key": "link|media|md-enr",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "media",
+   "id": "md-entrepreneur-leadership-network",
+   "country": "united-states",
+   "url": "https://www.entrepreneur.com",
+   "domainRating": 91,
+   "actionable": true,
+   "key": "link|media|md-entrepreneur-leadership-network",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "media",
+   "id": "md-food-dive",
+   "country": "united-states",
+   "url": "https://www.fooddive.com",
+   "domainRating": 78,
+   "actionable": true,
+   "key": "link|media|md-food-dive",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "media",
+   "id": "md-forbes",
+   "country": "united-states",
+   "url": "https://www.forbes.com",
+   "domainRating": 94,
+   "actionable": true,
+   "key": "link|media|md-forbes",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "media",
+   "id": "md-freecodecamp-news",
+   "country": "united-states",
+   "url": "https://www.freecodecamp.org/news",
+   "domainRating": 89,
+   "actionable": true,
+   "key": "link|media|md-freecodecamp-news",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "media",
+   "id": "md-freightwaves",
+   "country": "united-states",
+   "url": "https://www.freightwaves.com",
+   "domainRating": 83,
+   "actionable": true,
+   "key": "link|media|md-freightwaves",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "media",
+   "id": "md-future-startup",
+   "country": "bangladesh",
+   "url": "https://futurestartup.com",
+   "domainRating": 53,
+   "actionable": true,
+   "key": "link|media|md-future-startup",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "media",
+   "id": "md-globenewswire",
+   "country": "united-states",
+   "url": "https://www.globenewswire.com",
+   "domainRating": 92,
+   "actionable": true,
+   "key": "link|media|md-globenewswire",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "media",
+   "id": "md-goodfirms",
+   "country": "united-states",
+   "url": "https://www.goodfirms.co",
+   "domainRating": 86,
+   "actionable": true,
+   "key": "link|media|md-goodfirms",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "media",
+   "id": "md-hacker-news",
+   "country": "united-states",
+   "url": "https://news.ycombinator.com",
+   "domainRating": 91,
+   "actionable": true,
+   "key": "link|media|md-hacker-news",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "media",
+   "id": "md-hawaii-business",
+   "country": "united-states",
+   "url": "https://www.hawaiibusiness.com",
+   "domainRating": 72,
+   "actionable": true,
+   "key": "link|media|md-hawaii-business",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "media",
+   "id": "md-hbr",
+   "country": "united-states",
+   "url": "https://hbr.org",
+   "domainRating": 92,
+   "actionable": true,
+   "key": "link|media|md-hbr",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "media",
+   "id": "md-hotel-news-resource",
+   "country": "united-states",
+   "url": "https://www.hotelnewsresource.com",
+   "domainRating": 72,
+   "actionable": true,
+   "key": "link|media|md-hotel-news-resource",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "media",
+   "id": "md-hotel-tech-report",
+   "country": "united-states",
+   "url": "https://hoteltechreport.com",
+   "domainRating": 77,
+   "actionable": true,
+   "key": "link|media|md-hotel-tech-report",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "media",
+   "id": "md-hr-dive",
+   "country": "united-states",
+   "url": "https://www.hrdive.com",
+   "domainRating": 83,
+   "actionable": true,
+   "key": "link|media|md-hr-dive",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "media",
+   "id": "md-hypepotamus",
+   "country": "united-states",
+   "url": "https://www.hypepotamus.com",
+   "domainRating": 71,
+   "actionable": true,
+   "key": "link|media|md-hypepotamus",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "media",
+   "id": "md-inc-5000",
+   "country": "united-states",
+   "url": "https://www.inc.com/inc5000",
+   "domainRating": 91,
+   "actionable": true,
+   "key": "link|media|md-inc-5000",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "media",
+   "id": "md-inc42",
+   "country": "india",
+   "url": "https://inc42.com",
+   "domainRating": 81,
+   "actionable": true,
+   "key": "link|media|md-inc42",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "browser: navigation timeout"
+  },
+  {
+   "collection": "media",
+   "id": "md-indianapolis-business-journal",
+   "country": "united-states",
+   "url": "https://www.ibj.com",
+   "domainRating": 75,
+   "actionable": true,
+   "key": "link|media|md-indianapolis-business-journal",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "media",
+   "id": "md-infoq",
+   "country": "united-states",
+   "url": "https://www.infoq.com",
+   "domainRating": 86,
+   "actionable": true,
+   "key": "link|media|md-infoq",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "media",
+   "id": "md-itnews-australia",
+   "country": "australia",
+   "url": "https://www.itnews.com.au",
+   "domainRating": 79,
+   "actionable": true,
+   "key": "link|media|md-itnews-australia",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "media",
+   "id": "md-itpro",
+   "country": "united-kingdom",
+   "url": "https://www.itpro.com",
+   "domainRating": 84,
+   "actionable": true,
+   "key": "link|media|md-itpro",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "media",
+   "id": "md-itwire",
+   "country": "australia",
+   "url": "https://itwire.com",
+   "domainRating": 76,
+   "actionable": true,
+   "key": "link|media|md-itwire",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "media",
+   "id": "md-launching-next",
+   "country": "united-states",
+   "url": "https://www.launchingnext.com",
+   "domainRating": 54,
+   "actionable": true,
+   "key": "link|media|md-launching-next",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "media",
+   "id": "md-law-com",
+   "country": "united-states",
+   "url": "https://www.law.com",
+   "domainRating": 86,
+   "actionable": true,
+   "key": "link|media|md-law-com",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "media",
+   "id": "md-light-reading",
+   "country": "united-states",
+   "url": "https://www.lightreading.com",
+   "domainRating": 80,
+   "actionable": true,
+   "key": "link|media|md-light-reading",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "media",
+   "id": "md-logistics-management",
+   "country": "united-states",
+   "url": "https://www.logisticsmgmt.com",
+   "domainRating": 75,
+   "actionable": true,
+   "key": "link|media|md-logistics-management",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "media",
+   "id": "md-maddyness",
+   "country": "france",
+   "url": "https://www.maddyness.com",
+   "domainRating": 80,
+   "actionable": true,
+   "key": "link|media|md-maddyness",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "media",
+   "id": "md-marketing-brew",
+   "country": "united-states",
+   "url": "https://www.marketingbrew.com",
+   "domainRating": 79,
+   "actionable": true,
+   "key": "link|media|md-marketing-brew",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "media",
+   "id": "md-martech-org",
+   "country": "united-states",
+   "url": "https://martech.org",
+   "domainRating": 83,
+   "actionable": true,
+   "key": "link|media|md-martech-org",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "media",
+   "id": "md-matchmaker-fm",
+   "country": "united-kingdom",
+   "url": "https://matchmaker.fm",
+   "domainRating": 62,
+   "actionable": true,
+   "key": "link|media|md-matchmaker-fm",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "media",
+   "id": "md-medtech-dive",
+   "country": "united-states",
+   "url": "https://www.medtechdive.com",
+   "domainRating": 73,
+   "actionable": true,
+   "key": "link|media|md-medtech-dive",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "media",
+   "id": "md-menabytes",
+   "country": "united-arab-emirates",
+   "url": "https://menabytes.com",
+   "domainRating": 60,
+   "actionable": true,
+   "key": "link|media|md-menabytes",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "media",
+   "id": "md-mynewsdesk",
+   "country": "sweden",
+   "url": "https://www.mynewsdesk.com",
+   "domainRating": 89,
+   "actionable": true,
+   "key": "link|media|md-mynewsdesk",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "media",
+   "id": "md-newsvoir",
+   "country": "india",
+   "url": "https://www.newsvoir.com",
+   "domainRating": 54,
+   "actionable": true,
+   "key": "link|media|md-newsvoir",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "media",
+   "id": "md-newswire-com",
+   "country": "united-states",
+   "url": "https://www.newswire.com",
+   "domainRating": 83,
+   "actionable": true,
+   "key": "link|media|md-newswire-com",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "media",
+   "id": "md-openpr",
+   "country": "germany",
+   "url": "https://www.openpr.com",
+   "domainRating": 81,
+   "actionable": true,
+   "key": "link|media|md-openpr",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "media",
+   "id": "md-paved",
+   "country": "united-states",
+   "url": "https://paved.com",
+   "domainRating": 67,
+   "actionable": true,
+   "key": "link|media|md-paved",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "media",
+   "id": "md-personnel-today",
+   "country": "united-kingdom",
+   "url": "https://www.personneltoday.com",
+   "domainRating": 78,
+   "actionable": true,
+   "key": "link|media|md-personnel-today",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "browser: navigation timeout"
+  },
+  {
+   "collection": "media",
+   "id": "md-power-engineering",
+   "country": "united-states",
+   "url": "https://www.power-eng.com",
+   "domainRating": 71,
+   "actionable": true,
+   "key": "link|media|md-power-engineering",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "media",
+   "id": "md-pragmatic-engineer",
+   "country": "netherlands",
+   "url": "https://newsletter.pragmaticengineer.com",
+   "domainRating": 79,
+   "actionable": true,
+   "key": "link|media|md-pragmatic-engineer",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "media",
+   "id": "md-prlog",
+   "country": "united-states",
+   "url": "https://www.prlog.org",
+   "domainRating": 83,
+   "actionable": true,
+   "key": "link|media|md-prlog",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "media",
+   "id": "md-product-hunt",
+   "country": "united-states",
+   "url": "https://www.producthunt.com",
+   "domainRating": 91,
+   "actionable": true,
+   "key": "link|media|md-product-hunt",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "media",
+   "id": "md-pv-magazine",
+   "country": "germany",
+   "url": "https://www.pv-magazine.com",
+   "domainRating": 80,
+   "actionable": true,
+   "key": "link|media|md-pv-magazine",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "media",
+   "id": "md-recruitingdaily",
+   "country": "united-states",
+   "url": "https://recruitingdaily.com",
+   "domainRating": 71,
+   "actionable": true,
+   "key": "link|media|md-recruitingdaily",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "media",
+   "id": "md-renewable-energy-world",
+   "country": "united-states",
+   "url": "https://www.renewableenergyworld.com",
+   "domainRating": 77,
+   "actionable": true,
+   "key": "link|media|md-renewable-energy-world",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "media",
+   "id": "md-responsesource",
+   "country": "united-kingdom",
+   "url": "https://www.responsesource.com",
+   "domainRating": 72,
+   "actionable": true,
+   "key": "link|media|md-responsesource",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "media",
+   "id": "md-retail-dive",
+   "country": "united-states",
+   "url": "https://www.retaildive.com",
+   "domainRating": 86,
+   "actionable": true,
+   "key": "link|media|md-retail-dive",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "media",
+   "id": "md-retail-touchpoints",
+   "country": "united-states",
+   "url": "https://www.retailtouchpoints.com",
+   "domainRating": 83,
+   "actionable": true,
+   "key": "link|media|md-retail-touchpoints",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "media",
+   "id": "md-retailwire",
+   "country": "united-states",
+   "url": "https://retailwire.com",
+   "domainRating": 78,
+   "actionable": true,
+   "key": "link|media|md-retailwire",
+   "observedAt": "2026-08-21",
+   "state": "PROTECTED",
+   "why": "the front page refused a browser or rendered nothing"
+  },
+  {
+   "collection": "media",
+   "id": "md-scoop-nz",
+   "country": "new-zealand",
+   "url": "https://www.scoop.co.nz",
+   "domainRating": 79,
+   "actionable": true,
+   "key": "link|media|md-scoop-nz",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "media",
+   "id": "md-search-engine-land",
+   "country": "united-states",
+   "url": "https://searchengineland.com",
+   "domainRating": 91,
+   "actionable": true,
+   "key": "link|media|md-search-engine-land",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "media",
+   "id": "md-securityweek",
+   "country": "united-states",
+   "url": "https://www.securityweek.com",
+   "domainRating": 84,
+   "actionable": true,
+   "key": "link|media|md-securityweek",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "media",
+   "id": "md-shega",
+   "country": "ethiopia",
+   "url": "https://shega.co",
+   "domainRating": 41,
+   "actionable": true,
+   "key": "link|media|md-shega",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "media",
+   "id": "md-sifted",
+   "country": "united-kingdom",
+   "url": "https://sifted.eu",
+   "domainRating": 81,
+   "actionable": true,
+   "key": "link|media|md-sifted",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "media",
+   "id": "md-smashing-magazine",
+   "country": "germany",
+   "url": "https://www.smashingmagazine.com",
+   "domainRating": 90,
+   "actionable": true,
+   "key": "link|media|md-smashing-magazine",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "media",
+   "id": "md-solar-power-world",
+   "country": "united-states",
+   "url": "https://www.solarpowerworldonline.com",
+   "domainRating": 76,
+   "actionable": true,
+   "key": "link|media|md-solar-power-world",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "media",
+   "id": "md-startup-story-media",
+   "country": "india",
+   "url": "https://startupstorymedia.com",
+   "domainRating": 60,
+   "actionable": true,
+   "key": "link|media|md-startup-story-media",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "media",
+   "id": "md-startupticker",
+   "country": "switzerland",
+   "url": "https://www.startupticker.ch",
+   "domainRating": 72,
+   "actionable": true,
+   "key": "link|media|md-startupticker",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "media",
+   "id": "md-stevie-awards",
+   "country": "united-states",
+   "url": "https://www.stevieawards.com",
+   "domainRating": 82,
+   "actionable": true,
+   "key": "link|media|md-stevie-awards",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "media",
+   "id": "md-substack-sponsorships",
+   "country": "united-states",
+   "url": "https://sponsor.substack.com",
+   "domainRating": 94,
+   "actionable": true,
+   "key": "link|media|md-substack-sponsorships",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "media",
+   "id": "md-superhuman-ai",
+   "country": "united-states",
+   "url": "https://superhuman.beehiiv.com",
+   "domainRating": 91,
+   "actionable": true,
+   "key": "link|media|md-superhuman-ai",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "media",
+   "id": "md-supply-chain-dive",
+   "country": "united-states",
+   "url": "https://www.supplychaindive.com",
+   "domainRating": 81,
+   "actionable": true,
+   "key": "link|media|md-supply-chain-dive",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "media",
+   "id": "md-swapstack",
+   "country": "united-states",
+   "url": "https://www.swapstack.co",
+   "domainRating": 55,
+   "actionable": true,
+   "key": "link|media|md-swapstack",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "media",
+   "id": "md-tech-collective-sea",
+   "country": "singapore",
+   "url": "https://techcollectivesea.com",
+   "domainRating": 60,
+   "actionable": true,
+   "key": "link|media|md-tech-collective-sea",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "media",
+   "id": "md-tech-eu",
+   "country": "belgium",
+   "url": "https://tech.eu",
+   "domainRating": 79,
+   "actionable": true,
+   "key": "link|media|md-tech-eu",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "media",
+   "id": "md-techcabal",
+   "country": "nigeria",
+   "url": "https://techcabal.com",
+   "domainRating": 76,
+   "actionable": true,
+   "key": "link|media|md-techcabal",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "media",
+   "id": "md-techcrunch",
+   "country": "united-states",
+   "url": "https://techcrunch.com",
+   "domainRating": 92,
+   "actionable": true,
+   "key": "link|media|md-techcrunch",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "media",
+   "id": "md-technode",
+   "country": "china",
+   "url": "https://technode.com",
+   "domainRating": 77,
+   "actionable": true,
+   "key": "link|media|md-technode",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "media",
+   "id": "md-techpoint-africa",
+   "country": "nigeria",
+   "url": "https://techpoint.africa",
+   "domainRating": 74,
+   "actionable": true,
+   "key": "link|media|md-techpoint-africa",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "media",
+   "id": "md-the-drum-awards",
+   "country": "united-kingdom",
+   "url": "https://www.thedrum.com/awards",
+   "domainRating": 88,
+   "actionable": true,
+   "key": "link|media|md-the-drum-awards",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "media",
+   "id": "md-the-fabricator",
+   "country": "united-states",
+   "url": "https://www.thefabricator.com",
+   "domainRating": 76,
+   "actionable": true,
+   "key": "link|media|md-the-fabricator",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "media",
+   "id": "md-the-hacker-news",
+   "country": "india",
+   "url": "https://thehackernews.com",
+   "domainRating": 87,
+   "actionable": true,
+   "key": "link|media|md-the-hacker-news",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "media",
+   "id": "md-the-new-stack",
+   "country": "united-states",
+   "url": "https://thenewstack.io",
+   "domainRating": 84,
+   "actionable": true,
+   "key": "link|media|md-the-new-stack",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "media",
+   "id": "md-the-packer",
+   "country": "united-states",
+   "url": "https://www.thepacker.com",
+   "domainRating": 73,
+   "actionable": true,
+   "key": "link|media|md-the-packer",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "media",
+   "id": "md-the-register",
+   "country": "united-kingdom",
+   "url": "https://www.theregister.com",
+   "domainRating": 90,
+   "actionable": true,
+   "key": "link|media|md-the-register",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "media",
+   "id": "md-the-rundown-ai",
+   "country": "united-states",
+   "url": "https://www.therundown.ai",
+   "domainRating": 70,
+   "actionable": true,
+   "key": "link|media|md-the-rundown-ai",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "media",
+   "id": "md-times-of-israel",
+   "country": "israel",
+   "url": "https://www.timesofisrael.com",
+   "domainRating": 87,
+   "actionable": true,
+   "key": "link|media|md-times-of-israel",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "media",
+   "id": "md-tldr-tech",
+   "country": "united-states",
+   "url": "https://tldr.tech",
+   "domainRating": 71,
+   "actionable": true,
+   "key": "link|media|md-tldr-tech",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "media",
+   "id": "md-tmcnet",
+   "country": "united-states",
+   "url": "https://www.tmcnet.com",
+   "domainRating": 80,
+   "actionable": true,
+   "key": "link|media|md-tmcnet",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "media",
+   "id": "md-tmtpost",
+   "country": "china",
+   "url": "https://www.tmtpost.com",
+   "domainRating": 75,
+   "actionable": true,
+   "key": "link|media|md-tmtpost",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "browser: navigation timeout"
+  },
+  {
+   "collection": "media",
+   "id": "md-total-telecom",
+   "country": "united-kingdom",
+   "url": "https://www.totaltele.com",
+   "domainRating": 71,
+   "actionable": true,
+   "key": "link|media|md-total-telecom",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "media",
+   "id": "md-towards-data-science",
+   "country": "canada",
+   "url": "https://towardsdatascience.com",
+   "domainRating": 88,
+   "actionable": true,
+   "key": "link|media|md-towards-data-science",
+   "observedAt": "2026-08-21",
+   "state": "NO_LISTING_FOUND",
+   "why": "no public business listing was reachable from the front page"
+  },
+  {
+   "collection": "media",
+   "id": "md-travel-weekly",
+   "country": "united-states",
+   "url": "https://www.travelweekly.com",
+   "domainRating": 79,
+   "actionable": true,
+   "key": "link|media|md-travel-weekly",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "media",
+   "id": "md-uc-today",
+   "country": "united-kingdom",
+   "url": "https://www.uctoday.com",
+   "domainRating": 77,
+   "actionable": true,
+   "key": "link|media|md-uc-today",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "media",
+   "id": "md-uneed",
+   "country": "france",
+   "url": "https://www.uneed.best",
+   "domainRating": 75,
+   "actionable": true,
+   "key": "link|media|md-uneed",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "media",
+   "id": "md-utah-business",
+   "country": "united-states",
+   "url": "https://www.utahbusiness.com",
+   "domainRating": 74,
+   "actionable": true,
+   "key": "link|media|md-utah-business",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "media",
+   "id": "md-utility-dive",
+   "country": "united-states",
+   "url": "https://www.utilitydive.com",
+   "domainRating": 80,
+   "actionable": true,
+   "key": "link|media|md-utility-dive",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "media",
+   "id": "md-ventureburn",
+   "country": "south-africa",
+   "url": "https://ventureburn.com",
+   "domainRating": 70,
+   "actionable": true,
+   "key": "link|media|md-ventureburn",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "media",
+   "id": "md-wamda",
+   "country": "united-arab-emirates",
+   "url": "https://www.wamda.com",
+   "domainRating": 73,
+   "actionable": true,
+   "key": "link|media|md-wamda",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "media",
+   "id": "md-webrazzi",
+   "country": "turkey",
+   "url": "https://webrazzi.com",
+   "domainRating": 74,
+   "actionable": true,
+   "key": "link|media|md-webrazzi",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "media",
+   "id": "md-yourstory",
+   "country": "india",
+   "url": "https://yourstory.com",
+   "domainRating": 85,
+   "actionable": true,
+   "key": "link|media|md-yourstory",
+   "observedAt": "2026-08-21",
+   "state": "UNREADABLE",
+   "why": "the listing pages could not be read"
   }
  ]
 }

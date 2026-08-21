@@ -128,6 +128,40 @@ const INDEX_PATH = /\/(category|categories|kategorie|kategorien|rubrique|categor
 // A listing that no longer exists is not evidence about listings that do.
 const GONE = /(page not found|not available|404|no longer available|seite nicht gefunden|página no encontrada)/i;
 
+// Country slugs the corpus itself uses, read once from the collections rather
+// than written down here.
+let COUNTRY_SLUGS = null;
+function countrySlugs() {
+  if (COUNTRY_SLUGS) return COUNTRY_SLUGS;
+  COUNTRY_SLUGS = new Set();
+  for (const C of Object.values(COLLECTIONS)) {
+    try {
+      for (const r of JSON.parse(fs.readFileSync(C.file, 'utf8'))) {
+        if (r.country) COUNTRY_SLUGS.add(String(r.country).toLowerCase());
+      }
+    } catch { /* a collection that is not readable contributes nothing */ }
+  }
+  return COUNTRY_SLUGS;
+}
+
+// A listing that announces a DIFFERENT country than the record it would speak
+// for. FindYello is why: jm-findyello is a Jamaica record whose website is the
+// regional root findyello.com/, and every listing reachable from it was
+// /barbados/... — so Jamaica would have been given Barbados's evidence purely
+// because the two share a host. Sharing a host is not sharing a template, and
+// the brief is explicit that it must not be treated as one.
+function wrongCountry(listingUrl, recordCountry) {
+  if (!recordCountry) return false;
+  let segments;
+  try { segments = new URL(listingUrl).pathname.toLowerCase().split('/').filter(Boolean); } catch { return false; }
+  const slugs = countrySlugs();
+  for (const seg of segments) {
+    if (!slugs.has(seg)) continue;
+    return seg !== String(recordCountry).toLowerCase();
+  }
+  return false;
+}
+
 const LOGIN_WALL = ['sign in to view', 'log in to view', 'login required',
   'members only', 'please sign in', 'please log in', 'create an account to see'];
 
@@ -385,6 +419,7 @@ async function researchOne(page, target) {
     if (!listing || listing.error || !listing.anchors) continue;
     if (REFUSAL.isRefusal(`${listing.title}\n${listing.text}`)) continue;
     if (GONE.test(listing.title) || GONE.test(listing.text.slice(0, 200))) continue;
+    if (wrongCountry(listing.url, target.country)) continue;
 
     const indexability = indexabilityOf(listing);
     const anchor = pickWebsiteAnchor(listing, listing.url);
@@ -653,7 +688,7 @@ function runInventory() {
 
 module.exports = {
   FINDINGS, targets, researchOne, runApply, classifyRel, targetTypeOf,
-  pickWebsiteAnchor, indexabilityOf, settle, REDIRECT_PARAM, REDIRECT_PATH,
+  pickWebsiteAnchor, indexabilityOf, settle, REDIRECT_PARAM, REDIRECT_PATH, wrongCountry,
   NOT_A_LISTING, LISTING_PATH, LISTING_TAIL, WEBSITE_LABEL,
 };
 

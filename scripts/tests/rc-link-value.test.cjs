@@ -557,3 +557,31 @@ test('tender platforms are not given a link-value field they cannot have', () =>
   const owned = SAFE.OWNERSHIP.linkvalue;
   assert.ok(!owned.tenders, 'linkvalue owns nothing on tenders');
 });
+
+test('M12: a shared host does not let one country speak for another', () => {
+  // FindYello is why this exists. jm-findyello is a Jamaica record whose
+  // website is the regional root findyello.com/, and every listing reachable
+  // from it was /barbados/... — so Jamaica was given Barbados's evidence purely
+  // because the two share a host. Sharing a host is not sharing a template.
+  assert.equal(L.wrongCountry('https://www.findyello.com/barbados/steamatic/profile/', 'jamaica'), true);
+  assert.equal(L.wrongCountry('https://www.findyello.com/barbados/steamatic/profile/', 'barbados'), false);
+  // A listing with no country in its path is judged on other grounds.
+  assert.equal(L.wrongCountry('https://www.cylex.us.com/company/x-1234.html', 'united-states'), false);
+  assert.equal(L.wrongCountry('https://www.example.de/firmen/acme-1234.html', 'germany'), false);
+});
+
+test('M12: no applied record carries another country\'s listing', () => {
+  const files = ['data/business-directories/opportunities.json',
+    'data/marketplaces/marketplaces.json', 'data/media-pr-publishing/media-platforms.json'];
+  let checked = 0;
+  for (const rel of files) {
+    for (const r of JSON.parse(fs.readFileSync(path.join(ROOT, rel), 'utf8'))) {
+      const p = r.backlinkProvenance;
+      if (!p || !p.listingUrl) continue;
+      checked += 1;
+      assert.equal(L.wrongCountry(p.listingUrl, r.country), false,
+        `${r.id} (${r.country}) cites ${p.listingUrl}`);
+    }
+  }
+  assert.ok(checked > 0, 'the cohort must not be empty');
+});
