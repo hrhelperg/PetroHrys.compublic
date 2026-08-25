@@ -55,7 +55,10 @@ const RETIRED = [
   'x.com/petrohrys?s=21',
   'facebook.com/share/178dtga3uH',
   'youtube.com/@petrohrys"',
-  't.me/Petro_Hrysp'
+  't.me/Petro_Hrysp',
+  // Retired at the owner's request: no traffic, and the association is not
+  // one the site wants to carry. Listed here so it cannot drift back in.
+  'truthsocial.com/@HPetro'
 ];
 
 // Identity profiles on platforms the registry does NOT own. They are not part
@@ -67,8 +70,7 @@ const RETIRED = [
 const RETAINED_IDENTITY = [
   'https://www.threads.com/@wwwpetrohryscom',
   'https://www.quora.com/profile/Petro-Hrys',
-  'https://t.me/PetroHryscom',
-  'https://truthsocial.com/@HPetro'
+  'https://t.me/PetroHryscom'
 ];
 
 const PAGES = injector.targets();
