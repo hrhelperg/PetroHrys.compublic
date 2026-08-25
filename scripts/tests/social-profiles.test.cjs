@@ -54,7 +54,21 @@ const RETIRED = [
   'reddit.com/u/PetroHrys"',
   'x.com/petrohrys?s=21',
   'facebook.com/share/178dtga3uH',
-  'youtube.com/@petrohrys"'
+  'youtube.com/@petrohrys"',
+  't.me/Petro_Hrysp'
+];
+
+// Identity profiles on platforms the registry does NOT own. They are not part
+// of the visible twelve-icon footer and are deliberately absent from the
+// registry, so the ONLY thing keeping them alive is updateSameAs() preserving
+// every host it does not own. That is a property worth a test: a future change
+// that rebuilt sameAs from the registry alone would silently delete four real
+// profiles, and nothing else here would notice.
+const RETAINED_IDENTITY = [
+  'https://www.threads.com/@wwwpetrohryscom',
+  'https://www.quora.com/profile/Petro-Hrys',
+  'https://t.me/PetroHryscom',
+  'https://truthsocial.com/@HPetro'
 ];
 
 const PAGES = injector.targets();
@@ -185,7 +199,17 @@ test('Person.sameAs carries the canonical profiles and still parses', () => {
     for (const p of registry.enabled()) {
       assert.ok(person.sameAs.includes(p.url), `${rel} sameAs is missing ${p.id}`);
     }
+    for (const url of RETAINED_IDENTITY) {
+      assert.ok(person.sameAs.includes(url), `${rel} sameAs dropped the retained profile ${url}`);
+    }
     assert.equal(new Set(person.sameAs).size, person.sameAs.length, `${rel} sameAs has duplicates`);
+    assert.equal(person.sameAs.length, registry.enabled().length + RETAINED_IDENTITY.length,
+      `${rel} sameAs has entries that are neither canonical nor retained`);
+    // Retained profiles are sameAs-only: they must not appear in the icon row.
+    const block = html.slice(html.indexOf(injector.START), html.indexOf(injector.END));
+    for (const url of RETAINED_IDENTITY) {
+      assert.ok(!block.includes(url), `${rel} leaked ${url} into the visible footer`);
+    }
     for (const stale of RETIRED) {
       assert.ok(!person.sameAs.some((u) => u.includes(stale)), `${rel} sameAs kept ${stale}`);
     }
