@@ -126,7 +126,35 @@ The authoritative licence for each is the licence file distributed inside the
 installed package. This notice deliberately does not restate those licences,
 because doing so from memory risks misattributing them.
 
-## 8. First-party components shared across HELPERG properties
+## 8. Brand icons vendored into the page shell
+
+Unlike the components in §6, these are **not fetched at runtime — they are
+copied into this repository** and served from it, so they are recorded here
+separately.
+
+`js/social-profiles.js` embeds one single-path SVG mark per social platform, on
+a 24×24 grid, drawn in `currentColor`. Eleven of the twelve are transcribed from
+[Simple Icons](https://github.com/simple-icons/simple-icons), whose collection is
+released under **CC0 1.0 Universal**. The twelfth, LinkedIn, is not carried by
+Simple Icons and is drawn from the platform's own published glyph.
+
+| Item | Source | Notes |
+|---|---|---|
+| X, GitHub, YouTube, Instagram, Bluesky, Substack, Medium, Reddit, Hacker Noon, Facebook, Pinterest marks | Simple Icons (`simple-icons`, v16.28.0) | Collection released under CC0 1.0. No Simple Icons code, package or tooling is bundled — only the eleven path strings, copied verbatim. |
+| LinkedIn mark | LinkedIn's own published glyph | Not present in Simple Icons. Reproduced for identification only. |
+
+The **CC0 dedication covers Simple Icons' own compilation work; it does not and
+cannot waive the trade mark rights of the platforms depicted.** Each mark
+remains the property of its platform, is reproduced here at icon size solely to
+identify a link to the operator's own profile on that platform, and is subject
+to §1 and §2 above. Several of these platforms publish brand-usage guidelines
+that govern any use beyond that. No endorsement or affiliation is implied.
+
+Simple Icons additionally asks that users read its own disclaimer before
+including an icon in a project; that disclaimer, not this notice, governs the
+collection.
+
+## 9. First-party components shared across HELPERG properties
 
 `js/ecosystem-registry.js`, `js/ecosystem-banner.js` and
 `css/ecosystem-banner.css` are described in `docs/helperg-ecosystem-banner.md`
@@ -136,7 +164,7 @@ under an open-source licence by this repository. The HELPERG name and the
 product names in that registry are handled as brand material of their
 respective owners.
 
-## 9. Third-party metrics in the datasets
+## 10. Third-party metrics in the datasets
 
 Domain Rating values recorded in the business directories dataset are
 third-party measurements. Each carries its provider, value, measurement date and
@@ -145,7 +173,7 @@ snapshot. The provider recorded for these snapshots is Ahrefs. Those metrics are
 third-party data; no ownership of them is claimed. See
 `docs/ahrefs-domain-rating-key.md`.
 
-## 10. Provenance flagged for review
+## 11. Provenance flagged for review
 
 The following are recorded honestly rather than guessed at, and are listed for
 the operator to confirm:
@@ -166,7 +194,7 @@ the operator to confirm:
   properties is a question for the operator and, if needed, an attorney; this
   document does not decide it.
 
-## 11. Corrections
+## 12. Corrections
 
 If you believe material of yours is referenced here incorrectly, is attributed
 incorrectly, or should be attributed and is not, please contact the operator:
