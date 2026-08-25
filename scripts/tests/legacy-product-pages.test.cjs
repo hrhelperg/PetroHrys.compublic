@@ -59,8 +59,23 @@ const PRODUCT_SLUGS = CANONICAL.map((page) => page.split('/')[0]);
 // baselined pages recomputed BYTE-IDENTICAL, which is the check that matters:
 // it proves the analytics rewrite that touched all 24 pages does not reach the
 // semantic snapshot at all, so these four moved for the prose and nothing else.
+//
+// ── 2026-08-25 — pdf-editor/index.html moved again, deliberately ────────────
+//
+// The "Join the Community" grid was the last hand-maintained social surface on
+// the site. It shipped four emoji standing in for platform marks (a mathematical
+// double-struck X, a red circle, a play glyph, a notebook) and a fourth card
+// whose href was literally "#" — a link to nowhere, announced to screen readers
+// as a link. It is now rendered from js/social-profiles.js like every other
+// social surface, so the URLs cannot drift from the canonical registry again.
+//
+// Evidence: the visible-text delta on this page is exactly the emoji glyphs, the
+// string "(Twitter)", and the dead "Notion — Coming Soon" card leaving, plus
+// "GitHub" arriving. No prose, image, metadata or JSON-LD changed, and the other
+// 23 baselined pages recomputed BYTE-IDENTICAL — which proves the footer Follow
+// component that landed on all 24 does not reach the semantic snapshot at all.
 const BASELINE_DIGESTS = {
-  'pdf-editor/index.html': 'f1c6aa7f8e224c6b7fdcd54c4e3edabd4d3ab6635649b858320151cebfc15537',
+  'pdf-editor/index.html': '99d871f779440d19916a8c6923eeb915a6e60983fd1549a9b0725b1fd24abff9',
   'pocket-manager/index.html': '0c550678eca6a2abb4b7f5240e5d4225721c49ac37855e9cd60554d581d0afb5',
   'cv-builder/index.html': 'b255db3b1c32c69aa5a1e35c9660a6b0ce9e1bf10b27fb6705516ed60e7f77c9',
   'unzip/index.html': '912721a2593ce718907db8e13288093ab58fa3d72fe0035d6ee34b836355ba56',
