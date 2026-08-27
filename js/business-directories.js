@@ -143,7 +143,10 @@
     // Same derivation: a page whose records carry no link evidence renders no
     // control, so it has no link-type parameter either.
     linkTypes: optionValues(linkTypeSelect),
-    indexability: optionValues(listingPageSelect)
+    indexability: optionValues(listingPageSelect),
+    exportColumns: exportBtn
+      ? String(exportBtn.getAttribute('data-bd-export-columns') || '').split(',').filter(Boolean)
+      : []
   };
 
   function num(row, key) {
@@ -166,6 +169,10 @@
     schema.filters.forEach(function (name) {
       rowFlags[name] = row.getAttribute('data-bd-' + name);
     });
+    var rowExports = {};
+    schema.exportColumns.forEach(function (name) {
+      rowExports[name] = row.getAttribute('data-bd-export-' + name) || '';
+    });
     return {
       name: row.getAttribute('data-bd-name') || '',
       petroHrysScore: num(row, 'score'),
@@ -177,6 +184,7 @@
       estimatedTraffic: num(row, 'traffic'),
       facets: rowFacets,
       flags: rowFlags,
+      exports: rowExports,
       // Read ONCE, like the facets above, and for the same reason. These three
       // were read per row per interaction instead: the haystack is the longest
       // string on the row and it was fetched 2816 times for every keystroke,

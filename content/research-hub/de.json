@@ -5,7 +5,7 @@
     "becomes a claim that the work is already done."
   ],
   "title": "Forschung — Petro Hrys",
-  "description": "Untersuchungen zu Suchsystemen, Indexierungsverhalten und Crawl-Architektur sowie drei geprüfte Datenbanken und ein Planer, der zwischen ihnen auswählt.",
+  "description": "Untersuchungen zu Suchsystemen, Indexierungsverhalten und Crawl-Architektur sowie vier geprüfte Datenbanken und ein Planer für die drei handlungsbezogenen Distributionssammlungen.",
   "h1": "Forschung",
   "lede": "Untersuchungen zu Suchsystemen, Indexierungsverhalten und Crawl-Architektur.",
   "scope": {
@@ -17,16 +17,17 @@
   },
   "collections": {
     "heading": "Sammlungen",
-    "intro": "Drei veröffentlichte Datenbanken und ein Werkzeug, das zwischen ihnen auswählt. Jede ist manuell geprüft, als CSV exportierbar und benennt, was sie ausschließt.",
+    "intro": "Vier veröffentlichte Datenbanken und ein Werkzeug für die drei handlungsbezogenen Distributionssammlungen. Jede Datenbank ist direkt geprüft, als CSV exportierbar und benennt, was sie ausschließt.",
     "items": {
       "directories": "Ein Länderindex, der festhält, was jedes Verzeichnis akzeptiert, wie es verlinkt und wann es zuletzt geprüft wurde.",
       "opportunities": "Die Arbeitsdatenbank: wo ein Unternehmen ein öffentliches Profil anlegen, beanspruchen oder beantragen kann &mdash; jeweils mit Kosten, Eintragungsart und Priorität.",
       "media": "Wo ein Unternehmen veröffentlicht, einreicht, pitcht, sponsert, launcht oder Fachwissen beisteuert &mdash; Medien, Presseverteiler, Autorenprogramme, Launch-Plattformen und Journalisten-Anfragedienste, jeweils mit Art der Gelegenheit und dem Weg dorthin.",
       "marketplaces": "Wo ein Unternehmen oder eine Person ein Inserat statt eines Profils veröffentlicht &mdash; Kleinanzeigen, Fahrzeuge, Immobilien, Stellen, Dienstleistungen, B2B-Handel, Auktionen und Wiederverkauf &mdash; mit Art, Kosten der Anzeige und wer inserieren darf.",
+      "forums": "Ein neutrales Verzeichnis öffentlicher Diskussionsgemeinschaften, direkt geprüft und nach Thema, Land, Sprache, Forentyp, Aktivität und Ahrefs Domain Rating klassifiziert.",
       "countries": "Ein Land auf einmal: jedes Verzeichnis, jeder Marktplatz, jedes Medium und jede Vergabeplattform, die dieses Projekt für diesen Markt geprüft hat &mdash; mit Domain Rating, Kosten und der Frage, ob heute jemand handeln kann."
     },
     "chooseHeading": "Über alle drei hinweg auswählen",
-    "chooseBody": "Jede Datenbank oben beantwortet eine andere Frage. <strong>{directories}</strong> ist der Ort, an dem ein Unternehmen ein professionelles Profil anlegt oder beansprucht. <strong>{marketplaces}</strong> ist der Ort, an dem es ein Inserat oder eine Anzeige veröffentlicht. <strong>{media}</strong> ist der Ort, an dem es pitcht, veröffentlicht, launcht oder sponsert. Der Planer wählt die beste Kombination für ein Unternehmen, ein Ziel, einen Markt und ein Budget &mdash; und tut nie so, als wären die drei Handlungen gleichwertig.",
+    "chooseBody": "Jede Datenbank oben beantwortet eine andere Frage. <strong>{directories}</strong> ist der Ort, an dem ein Unternehmen ein professionelles Profil anlegt oder beansprucht. <strong>{marketplaces}</strong> ist der Ort, an dem es ein Inserat oder eine Anzeige veröffentlicht. <strong>{media}</strong> ist der Ort, an dem es pitcht, veröffentlicht, launcht oder sponsert. <strong>{forums}</strong> erfasst Gemeinschaften, leitet aber keinen Veröffentlichungszugang ab und bleibt deshalb bewusst außerhalb der Planer-Bereitschaft. Der Planer kombiniert nur die drei belegten Handlungsklassen.",
     "plannerDesc": "Wählen Sie Unternehmen, Ziel, Markt und Budgetrahmen und erhalten Sie einen priorisierten Plan über alle drei Datenbanken hinweg &mdash; mit Handlung, Kosten, Belegen und einem direkten Link, sofern einer erfasst ist.",
     "plannerCta": "Distributionsplaner öffnen &rarr;"
   },

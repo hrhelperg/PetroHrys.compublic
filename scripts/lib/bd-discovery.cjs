@@ -582,6 +582,13 @@
   }
 
   function exportColumns(known) {
+    // A collection may declare an exact factual export contract. The client
+    // still reads it from markup and every value from the cached row record;
+    // this is generic schema, not a page-specific DOM scan. Existing pages do
+    // not declare it and retain the derived columns below byte-for-byte.
+    if (known && known.exportColumns && known.exportColumns.length) {
+      return known.exportColumns.map(function (key) { return { key: key, from: 'export' }; });
+    }
     const columns = [{ key: 'name', from: 'name' }];
     for (const facet of facetsOf(known)) columns.push({ key: facet.name, from: 'facet' });
     for (const name of filtersOf(known)) columns.push({ key: name, from: 'flag' });
@@ -612,6 +619,7 @@
     if (!row || !column) return '';
     if (column.from === 'facet') return (row.facets || {})[column.key];
     if (column.from === 'flag') return (row.flags || {})[column.key];
+    if (column.from === 'export') return (row.exports || {})[column.key];
     // An unresearched listing exports as an empty cell. Writing "dofollow"
     // there because nobody looked is the one error this dimension may not make,
     // and a spreadsheet is where such a value would become permanent.

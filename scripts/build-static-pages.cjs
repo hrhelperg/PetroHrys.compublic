@@ -25,6 +25,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const I18N = require('./lib/i18n.cjs');
 const { renderStaticPage } = require('./lib/page-shell.cjs');
+const SOCIAL = require('./inject-social-profiles.cjs');
 
 const ROOT = path.join(__dirname, '..');
 const CONTENT = path.join(ROOT, 'content', 'legal');
@@ -138,6 +139,12 @@ function assertOwned(rel) {
   }
 }
 
+function withSocialProfiles(html, rel) {
+  const result = SOCIAL.transform(html, rel);
+  if (!result.ok) throw new Error(`${rel}: social profile composition failed: ${result.reason}`);
+  return result.html;
+}
+
 // Structured data is carried through from the source page, with the host
 // normalized to the apex. It is NOT regenerated: these blocks contain headlines,
 // dates and FAQ answers that were written by hand, and rebuilding them from
@@ -193,11 +200,13 @@ function buildHubPage(locale) {
     directories: esc(t('collection.directories')),
     marketplaces: esc(t('collection.marketplaces')),
     media: esc(t('collection.media.full')),
+    forums: esc(t('collection.forums')),
   };
   const chooseBody = c.collections.chooseBody
     .replace('{directories}', names.directories)
     .replace('{marketplaces}', names.marketplaces)
-    .replace('{media}', names.media);
+    .replace('{media}', names.media)
+    .replace('{forums}', names.forums);
 
   const item = (href, name, desc) => `        <li><a href="${href}">`
     + `<span class="name">${name}</span>`
@@ -209,6 +218,7 @@ function buildHubPage(locale) {
     item(p(`${routes.hubPath()}opportunities/`), esc(t('opportunity.workingList')), c.collections.items.opportunities),
     item(p(render.MEDIA_PATH), names.media, c.collections.items.media),
     item(p(render.MARKETPLACES_PATH), names.marketplaces, c.collections.items.marketplaces),
+    item(p(render.FORUMS_PATH), names.forums, c.collections.items.forums),
     // The cross-collection country explorer. Listed here because a page with no
     // inbound link is a page nobody finds: it is in the sitemap, but the hub is
     // where a reader actually looks for a collection.
@@ -273,7 +283,7 @@ function main() {
       const rel = fileFor(locale, doc.canonicalPath);
       assertOwned(rel);
       const abs = path.join(ROOT, rel);
-      const html = buildPage(doc, locale);
+      const html = withSocialProfiles(buildPage(doc, locale), rel);
       const existing = fs.existsSync(abs) ? fs.readFileSync(abs, 'utf8') : null;
       if (existing === html) { unchanged += 1; continue; }
       fs.mkdirSync(path.dirname(abs), { recursive: true });
@@ -287,7 +297,7 @@ function main() {
       const rel = fileFor(locale, entry.canonicalPath);
       assertOwned(rel);
       const abs = path.join(ROOT, rel);
-      const html = buildEditorialPage(id, entry, locale);
+      const html = withSocialProfiles(buildEditorialPage(id, entry, locale), rel);
       const existing = fs.existsSync(abs) ? fs.readFileSync(abs, 'utf8') : null;
       if (existing === html) { unchanged += 1; continue; }
       fs.mkdirSync(path.dirname(abs), { recursive: true });
@@ -333,4 +343,5 @@ function main() {
 
 if (require.main === module) main();
 
-module.exports = { DOCUMENTS, HUB_PATH, hubContent, buildHubPage, ownedFiles, fileFor, buildPage, buildEditorialPage, updatedStamp, manifest, editorial, EDITORIAL_LOCALES };
+module.exports = { DOCUMENTS, HUB_PATH, hubContent, buildHubPage, ownedFiles, fileFor, buildPage,
+  buildEditorialPage, withSocialProfiles, updatedStamp, manifest, editorial, EDITORIAL_LOCALES };
