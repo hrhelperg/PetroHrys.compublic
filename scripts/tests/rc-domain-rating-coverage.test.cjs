@@ -63,7 +63,7 @@ function interactivePages(rootRel) {
 // matches if its rating is one the corpus holds for that name.
 function canonicalRatings() {
   const byName = new Map();
-  for (const name of Object.keys(INV.COLLECTIONS)) {
+  for (const name of Object.keys(INV.METRIC_COLLECTIONS)) {
     for (const r of INV.readCollection(name)) {
       const display = String(r.englishName || r.officialName || r.nativeName || r.name || '');
       if (!display) continue;
@@ -130,7 +130,7 @@ test('M11: the opportunity loader carries the rating instead of nulling it', () 
 
 test('M4: a measured 0 survives every truthiness check on the way to the page', () => {
   const zeros = [];
-  for (const name of Object.keys(INV.COLLECTIONS)) {
+  for (const name of Object.keys(INV.METRIC_COLLECTIONS)) {
     for (const r of INV.readCollection(name)) if (r.domainRating === 0) zeros.push(r);
   }
   assert.ok(zeros.length > 0, 'the corpus holds no measured zero, so this guard is vacuous');
@@ -156,7 +156,7 @@ test('M1: every Business Directory dataset is in the Domain Rating inventory', (
   // One dataset was silently omitted once already: data/business-directories
   // holds two record sets with zero ids in common, and reading only one lost
   // 1541 records. Both are named here so dropping one fails loudly.
-  const names = Object.keys(INV.COLLECTIONS);
+  const names = Object.keys(INV.METRIC_COLLECTIONS);
   assert.ok(names.includes('directories'), 'the curated registry is not inventoried');
   assert.ok(names.includes('directory-opportunities'), 'the opportunities corpus is not inventoried');
   const registry = INV.readCollection('directories');
@@ -188,7 +188,7 @@ test('M6: a subdomain is measured as itself, never as its apex', () => {
   assert.notStrictEqual(INV.normaliseDomain('https://appsource.microsoft.com/x'), 'microsoft.com');
   // And every stored rating names the record's own host.
   const wrong = [];
-  for (const [name, C] of Object.entries(INV.COLLECTIONS)) {
+  for (const [name, C] of Object.entries(INV.METRIC_COLLECTIONS)) {
     for (const r of INV.readCollection(name)) {
       const p = (r.metricsProvenance || {}).domainRating;
       if (!p) continue;
@@ -202,7 +202,7 @@ test('M6: a subdomain is measured as itself, never as its apex', () => {
 test('M7: every record on one domain receives that domain’s rating', () => {
   const inv = INV.inventory();
   const byTarget = new Map();
-  for (const [name, C] of Object.entries(INV.COLLECTIONS)) {
+  for (const [name, C] of Object.entries(INV.METRIC_COLLECTIONS)) {
     for (const r of INV.readCollection(name)) {
       const target = INV.normaliseDomain(r[C.urlField]);
       if (!target) continue;

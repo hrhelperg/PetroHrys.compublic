@@ -1125,7 +1125,7 @@ test('there is one CSV writer, and the collection exports use it unchanged', () 
   // publishes the registry's values verbatim, csvField additionally defuses a
   // cell a spreadsheet would execute.
   for (const file of ['scripts/build-tenders-procurement.cjs', 'scripts/build-marketplaces.cjs',
-    'scripts/build-media-platforms.cjs']) {
+    'scripts/build-media-platforms.cjs', 'scripts/build-forums.cjs']) {
     const src = read(file);
     assert.ok(/require\('\.\/lib\/bd-discovery\.cjs'\)/.test(src),
       `${file} does not use the shared CSV writer`);

@@ -190,6 +190,7 @@ test('every data attribute the client reads is emitted by the components', () =>
     // The opportunities worklist controls. Included here so an attribute the
     // client reads but no component emits still fails this audit.
     + components.clearFiltersControl()
+    + components.filteredExportControl({ name: 'sample', count: 2, columns: ['name', 'url'] })
     + components.facetSelect({
       idPrefix: 'a', facet: { name: 'country', key: 'country' }, label: 'Market', rows: [DIR],
     })

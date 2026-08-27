@@ -159,7 +159,7 @@ test('a rating is measured on the record’s own domain, never a parent', () => 
 // ── M13: OWNERSHIP ──────────────────────────────────────────────────────────
 
 test('M13: the metrics owner cannot touch anything but its own measurement', () => {
-  for (const collection of ['directories', 'marketplaces', 'media', 'tenders']) {
+  for (const collection of ['directories', 'marketplaces', 'media', 'tenders', 'forums']) {
     assert.doesNotThrow(() => SAFE.applyPatch({ id: 'x' }, { domainRating: 50 },
       { owner: 'metrics', collection }));
     for (const field of ['note', 'shortNote', 'name', 'website', 'currentStatus',

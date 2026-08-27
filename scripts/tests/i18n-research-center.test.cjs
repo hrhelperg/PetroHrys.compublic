@@ -343,7 +343,7 @@ test('localized pages parse and their internal links resolve', () => {
 test('the generators emit one page per locale from one render path', () => {
   // N locales must not mean N generators.
   const gens = ['build-business-directories', 'build-marketplaces', 'build-media-platforms',
-    'build-distribution-planner'];
+    'build-distribution-planner', 'build-forums'];
   for (const g of gens) {
     const src = read(`scripts/${g}.cjs`);
     assert.ok(src.includes('I18N.LOCALE_CODES') || src.includes('I18N.localizedFile'),
