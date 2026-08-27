@@ -932,7 +932,7 @@ const EXPORT_LABEL = {
   de: 'Gefilterte Ergebnisse herunterladen ({n})',
 };
 
-function filteredExportControl({ name, count = 0 } = {}) {
+function filteredExportControl({ name, count = 0, columns = [] } = {}) {
   const label = EXPORT_LABEL[locale] || EXPORT_LABEL[I18N.DEFAULT_LOCALE];
   // Rendered with the real row count rather than a placeholder, so the markup
   // is truthful in the moment before the client rewrites it.
@@ -940,9 +940,11 @@ function filteredExportControl({ name, count = 0 } = {}) {
   // `hidden` sits on the paragraph, not on the button: .bd-note draws a left
   // rule and a margin, so a hidden button inside a visible paragraph would
   // leave a stray vertical line on every page a reader has no script for.
+  const declared = columns.length
+    ? `data-bd-export-columns="${escapeHtml(columns.join(','))}" ` : '';
   return `      <p class="bd-note" data-bd-export-wrap hidden><button class="bd-button bd-button--ghost" type="button" `
     + `data-bd-export data-bd-export-name="${escapeHtml(String(name || ''))}" `
-    + `data-bd-export-label="${escapeHtml(label)}">${escapeHtml(initial)}</button></p>`;
+    + `${declared}data-bd-export-label="${escapeHtml(label)}">${escapeHtml(initial)}</button></p>`;
 }
 
 // ---------------------------------------------------------------------------

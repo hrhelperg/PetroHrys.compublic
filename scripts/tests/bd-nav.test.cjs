@@ -120,7 +120,8 @@ test('every generator refuses to write outside its own owned routes', () => {
   // Nothing it owns may live inside another generator's collection roots.
   const routes = require(path.join(root, 'scripts', 'lib', 'bd-routes.cjs'));
   const render = require(path.join(root, 'scripts', 'lib', 'bd-render.cjs'));
-  const otherRoots = [routes.hubPath(), render.MARKETPLACES_PATH, render.MEDIA_PATH, render.PLANNER_PATH]
+  const otherRoots = [routes.hubPath(), render.MARKETPLACES_PATH, render.MEDIA_PATH,
+    render.FORUMS_PATH, render.PLANNER_PATH]
     .map((p) => p.replace(/^\//, ''));
   for (const file of owned) {
     for (const rootPath of otherRoots) {

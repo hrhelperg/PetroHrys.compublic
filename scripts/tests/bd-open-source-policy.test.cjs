@@ -152,6 +152,7 @@ const BUILD_ENTRY_POINTS = [
   'scripts/build-business-directories.cjs',
   'scripts/build-country-intelligence.cjs',
   'scripts/build-distribution-planner.cjs',
+  'scripts/build-forums.cjs',
   'scripts/build-marketplaces.cjs',
   'scripts/build-media-platforms.cjs',
   'scripts/build-static-pages.cjs',

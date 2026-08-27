@@ -26,6 +26,7 @@ const PAGES = {
   media: { url: '/research/media-pr-publishing/', label: 'Media, PR & Publishing' },
   marketplaces: { url: '/research/marketplaces/', label: 'Marketplaces' },
   tenders: { url: '/research/tenders-procurement/', label: 'Tender Platforms' },
+  forums: { url: '/research/forums/', label: 'Forum Intelligence' },
   // Its own client and its own controls, so it is measured on its own terms
   // rather than assumed to behave like the shared engine.
   planner: { url: '/research/distribution-planner/', label: 'Distribution Planner', dp: true },
@@ -189,7 +190,8 @@ async function run() {
       const stress = await page.eval((sel, values) => {
         const el = document.querySelector(sel);
         const times = [];
-        for (let i = 0; i < 100; i += 1) {
+        const beforeHeap = performance.memory ? performance.memory.usedJSHeapSize : null;
+        for (let i = 0; i < 250; i += 1) {
           el.value = values[i % values.length] || '';
           const s = performance.now();
           el.dispatchEvent(new Event('change', { bubbles: true }));
@@ -199,18 +201,36 @@ async function run() {
         const last10 = times.slice(-10).reduce((a, b) => a + b, 0) / 10;
         times.sort((a, b) => a - b);
         return {
-          median: +times[50].toFixed(1),
-          p95: +times[95].toFixed(1),
+          median: +times[Math.floor(times.length * 0.5)].toFixed(1),
+          p95: +times[Math.floor(times.length * 0.95)].toFixed(1),
           first10: +first10.toFixed(1),
           last10: +last10.toFixed(1),
           memory: performance.memory ? Math.round(performance.memory.usedJSHeapSize / 1048576) : null,
+          heapGrowth: beforeHeap === null ? null
+            : Math.round((performance.memory.usedJSHeapSize - beforeHeap) / 1048576),
         };
       }, usable[0].sel, usable[0].values.concat(['']));
-      console.log(`  100 changes: median ${stress.median}ms  p95 ${stress.p95}ms  `
+      console.log(`  250 changes: median ${stress.median}ms  p95 ${stress.p95}ms  `
         + `first10 avg ${stress.first10}ms  last10 avg ${stress.last10}ms`
         + `  drift ${(stress.last10 - stress.first10).toFixed(1)}ms`
-        + (stress.memory ? `  heap ${stress.memory}MB` : ''));
+        + (stress.memory ? `  heap ${stress.memory}MB  growth ${stress.heapGrowth}MB` : ''));
     }
+
+    const csv = await page.eval(() => {
+      const button = document.querySelector('[data-bd-export]');
+      if (!button) return { skipped: true };
+      const oldCreate = URL.createObjectURL;
+      const oldClick = HTMLAnchorElement.prototype.click;
+      URL.createObjectURL = () => 'blob:profile';
+      HTMLAnchorElement.prototype.click = () => {};
+      const start = performance.now();
+      button.click();
+      const ms = performance.now() - start;
+      URL.createObjectURL = oldCreate;
+      HTMLAnchorElement.prototype.click = oldClick;
+      return { ms: +ms.toFixed(1) };
+    });
+    if (!csv.skipped) console.log(`  CSV:      ${String(csv.ms).padStart(7)}ms`);
   }
 
   try { chrome.proc.kill('SIGKILL'); } catch { /* gone */ }

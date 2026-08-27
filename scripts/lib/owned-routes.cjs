@@ -36,7 +36,7 @@ const I18N = require('./i18n.cjs');
 // The first version of this said `['research/']`, which looked right and was
 // wrong: /research/ itself is a hand-authored hub page that the nav injector
 // maintains, so claiming the whole subtree told the guards a hand-edited page
-// was generator-owned. Asking bd-render and bd-routes for the four collection
+// was generator-owned. Asking bd-render and bd-routes for the collection
 // roots keeps this honest — if a collection moves, this follows it.
 const routes = require('./bd-routes.cjs');
 const render = require('./bd-render.cjs');
@@ -44,6 +44,7 @@ const COLLECTION_ROOTS = [
   routes.hubPath(),
   render.MARKETPLACES_PATH,
   render.MEDIA_PATH,
+  render.FORUMS_PATH,
   render.PLANNER_PATH,
   render.TENDERS_PATH,
   // The Procurement Intelligence and Tender Opportunities pages are child

@@ -247,7 +247,9 @@ test('no ownership list overlaps the never-touch list', () => {
   for (const [owner, byCollection] of Object.entries(SAFE.OWNERSHIP)) {
     for (const [collection, fields] of Object.entries(byCollection)) {
       for (const f of fields) {
-        assert.ok(!SAFE.NEVER.has(f), `${owner}/${collection} claims "${f}", which nothing may write`);
+        const initialForumFact = owner === 'forumVerification' && collection === 'forums';
+        assert.ok(!SAFE.NEVER.has(f) || initialForumFact,
+          `${owner}/${collection} claims "${f}", which no established-record pass may write`);
       }
     }
   }

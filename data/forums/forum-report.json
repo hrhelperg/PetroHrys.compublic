@@ -1,0 +1,299 @@
+{
+ "candidates": {
+  "discovered": 6159,
+  "sourceDiscoveriesBeforeDedupe": 6159,
+  "discoveryDuplicatesRemoved": 0,
+  "directlyResearched": 6159,
+  "findings": {
+   "REJECTED": 3960,
+   "ACCEPTED": 2185,
+   "UNREAD": 14
+  },
+  "canonicalAccepted": 2172,
+  "rejected": 3960,
+  "unread": 14,
+  "duplicatesAndRedirectsConsolidated": 13
+ },
+ "unique": {
+  "canonicalHosts": 2172,
+  "drTargets": 2172,
+  "countries": 16,
+  "languages": 11,
+  "topics": 38
+ },
+ "status": {
+  "ACTIVE": 1597,
+  "UNKNOWN": 333,
+  "DORMANT": 242
+ },
+ "verificationMethods": {
+  "DIRECT_HTTP": 2148,
+  "DIRECT_BROWSER": 24
+ },
+ "forumTypes": {
+  "INDEPENDENT": 836,
+  "OTHER": 753,
+  "HOBBY_COMMUNITY": 290,
+  "Q_AND_A": 218,
+  "LOCAL_REGIONAL": 24,
+  "EDUCATION_COMMUNITY": 21,
+  "PROFESSIONAL_COMMUNITY": 16,
+  "INDUSTRY_COMMUNITY": 12,
+  "VENDOR_SUPPORT": 2
+ },
+ "primaryTopics": {
+  "GENERAL_MULTI_TOPIC": 624,
+  "GAMING_ESPORTS": 601,
+  "TECHNOLOGY_SOFTWARE": 123,
+  "PROGRAMMING_DEVELOPMENT": 108,
+  "EDUCATION_STUDENTS": 89,
+  "NEWS_POLITICS_SOCIETY": 59,
+  "FINANCE_INVESTING_BANKING": 55,
+  "CYBERSECURITY_IT": 47,
+  "CAREERS_HR_RECRUITMENT": 43,
+  "ECOMMERCE_MARKETPLACES": 38,
+  "MUSIC_ENTERTAINMENT_CULTURE": 36,
+  "HEALTH_MEDICINE": 33,
+  "BUSINESS_ENTREPRENEURSHIP": 31,
+  "ANIMALS_PETS": 29,
+  "SPORTS_FITNESS": 29,
+  "AUTOMOTIVE": 27,
+  "CRYPTO_WEB3": 24,
+  "MARKETING_SEO_GROWTH": 23,
+  "TRAVEL_EXPAT_IMMIGRATION": 20,
+  "SCIENCE": 19,
+  "AI_DATA": 13,
+  "CREATIVE_DESIGN": 12,
+  "CONSTRUCTION": 11,
+  "ENGINEERING": 11,
+  "WEB_HOSTING_DOMAINS": 11,
+  "FOOD_COOKING": 9,
+  "TRANSPORT_LOGISTICS": 9,
+  "AGRICULTURE_GARDENING": 7,
+  "CONSUMER_DEALS_REVIEWS": 5,
+  "HOME_DIY": 5,
+  "LEGAL": 4,
+  "PHOTOGRAPHY_VIDEO": 4,
+  "TELECOM_VOIP": 3,
+  "ARCHITECTURE_DESIGN": 2,
+  "GOVERNMENT_PUBLIC_SECTOR": 2,
+  "HOBBIES_COLLECTING_OUTDOORS": 2,
+  "LOCAL_REGIONAL": 2,
+  "PARENTING_FAMILY": 2
+ },
+ "topicsWithFewerThan10Forums": [
+  "TELECOM_VOIP",
+  "TRANSPORT_LOGISTICS",
+  "HOME_DIY",
+  "ARCHITECTURE_DESIGN",
+  "AGRICULTURE_GARDENING",
+  "PHOTOGRAPHY_VIDEO",
+  "FOOD_COOKING",
+  "PARENTING_FAMILY",
+  "LEGAL",
+  "GOVERNMENT_PUBLIC_SECTOR",
+  "LOCAL_REGIONAL",
+  "CONSUMER_DEALS_REVIEWS",
+  "HOBBIES_COLLECTING_OUTDOORS"
+ ],
+ "topicsWithZeroForums": [],
+ "multiTopicForums": 1092,
+ "geography": {
+  "UNKNOWN": 2141,
+  "global": 8,
+  "australia": 3,
+  "malaysia": 3,
+  "philippines": 3,
+  "serbia": 2,
+  "canada": 1,
+  "china": 1,
+  "france": 1,
+  "india": 1,
+  "indonesia": 1,
+  "japan": 1,
+  "malta": 1,
+  "pakistan": 1,
+  "south-korea": 1,
+  "taiwan": 1,
+  "thailand": 1,
+  "turkey": 1
+ },
+ "primaryLanguages": {
+  "en": 1416,
+  "UNKNOWN": 628,
+  "zh": 46,
+  "fr": 20,
+  "de": 19,
+  "pt": 12,
+  "ar": 8,
+  "ja": 7,
+  "es": 5,
+  "ko": 5,
+  "nl": 4,
+  "it": 2
+ },
+ "multilingualForums": 60,
+ "domainRating": {
+  "bands": {
+   "0": 15,
+   "1-9": 71,
+   "10-19": 63,
+   "20-29": 74,
+   "30-39": 99,
+   "40-49": 126,
+   "50-59": 945,
+   "60-69": 166,
+   "70-79": 228,
+   "80-89": 161,
+   "90-100": 224,
+   "UNKNOWN": 0
+  },
+  "measured": 2172,
+  "median": 57,
+  "uniqueTargets": 2172,
+  "measuredTargets": 2172,
+  "duplicateCallsAvoided": 0,
+  "providerFailuresRemaining": 0,
+  "highest": [
+   {
+    "name": "X Developers",
+    "url": "https://devcommunity.x.com/",
+    "domainRating": 97
+   },
+   {
+    "name": "Mozilla Discourse",
+    "url": "https://discourse.mozilla.org/",
+    "domainRating": 96
+   },
+   {
+    "name": "Shopify Community",
+    "url": "https://community.shopify.com/",
+    "domainRating": 96
+   },
+   {
+    "name": "Cloudflare Community",
+    "url": "https://community.cloudflare.com/",
+    "domainRating": 94
+   },
+   {
+    "name": "OpenStreetMap Community Forum - OSM Community Forum",
+    "url": "https://community.openstreetmap.org/",
+    "domainRating": 94
+   },
+   {
+    "name": "Zoom Developer Forum",
+    "url": "https://devforum.zoom.us/",
+    "domainRating": 94
+   },
+   {
+    "name": "OpenAI Developer Community - Community of developers building with OpenAI.",
+    "url": "https://community.openai.com/",
+    "domainRating": 93
+   },
+   {
+    "name": "Square Developer Forums - Forums for asking about Square APIs and SDKs",
+    "url": "https://developer.squareup.com/forums",
+    "domainRating": 93
+   },
+   {
+    "name": "&#x30B9;&#x30BF;&#x30C3;&#x30AF;&#x30FB;&#x30AA;&#x30FC;&#x30D0;&#x30FC;&#x30D5;&#x30ED;&#x30FC;",
+    "url": "https://ja.stackoverflow.com/",
+    "domainRating": 92
+   },
+   {
+    "name": "Brevo Community",
+    "url": "https://community.brevo.com/",
+    "domainRating": 92
+   },
+   {
+    "name": "Discussions on Python.org",
+    "url": "https://discuss.python.org/",
+    "domainRating": 92
+   },
+   {
+    "name": "Docker Community Forums",
+    "url": "https://forums.docker.com/",
+    "domainRating": 92
+   },
+   {
+    "name": "Elfsight Community",
+    "url": "https://community.elfsight.com/",
+    "domainRating": 92
+   },
+   {
+    "name": "Ghost Forum",
+    "url": "https://forum.ghost.org/",
+    "domainRating": 92
+   },
+   {
+    "name": "GitLab Forum",
+    "url": "https://forum.gitlab.com/",
+    "domainRating": 92
+   },
+   {
+    "name": "Open Data - Transport for NSW forum",
+    "url": "https://opendataforum.transport.nsw.gov.au/",
+    "domainRating": 92
+   },
+   {
+    "name": "Stack Overflow &#x43D;&#x430; &#x440;&#x443;&#x441;&#x441;&#x43A;&#x43E;&#x43C;",
+    "url": "https://ru.stackoverflow.com/",
+    "domainRating": 92
+   },
+   {
+    "name": "Stack Overflow em Portugu&#xEA;s",
+    "url": "https://pt.stackoverflow.com/",
+    "domainRating": 92
+   },
+   {
+    "name": "Stack Overflow en espa&#xF1;ol",
+    "url": "https://es.stackoverflow.com/",
+    "domainRating": 92
+   },
+   {
+    "name": "Stack Overflow for Agents Meta",
+    "url": "https://agents.meta.stackoverflow.com/",
+    "domainRating": 92
+   },
+   {
+    "name": "The Atlassian Developer Community",
+    "url": "https://community.developer.atlassian.com/",
+    "domainRating": 92
+   },
+   {
+    "name": "Vercel Community — Discussions, events, and projects",
+    "url": "https://community.vercel.com/",
+    "domainRating": 92
+   },
+   {
+    "name": "&#x420;&#x443;&#x441;&#x441;&#x43A;&#x438;&#x439; &#x44F;&#x437;&#x44B;&#x43A;",
+    "url": "https://rus.stackexchange.com/",
+    "domainRating": 91
+   },
+   {
+    "name": "3D Printing Stack Exchange",
+    "url": "https://3dprinting.stackexchange.com/",
+    "domainRating": 91
+   },
+   {
+    "name": "Academia Stack Exchange",
+    "url": "https://academia.stackexchange.com/",
+    "domainRating": 91
+   }
+  ]
+ },
+ "nextWave": {
+  "activeDr50": 1213,
+  "activeDr70": 420,
+  "businessMarketingTechnologyDr50": 377,
+  "countrySpecificDr50": 13
+ },
+ "page": {
+  "routeCount": 4,
+  "en": {
+   "rawBytes": 2814750,
+   "gzipBytes": 194537,
+   "rows": 2172
+  }
+ }
+}

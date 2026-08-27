@@ -163,6 +163,7 @@ const MARKETPLACES_PATH = '/research/marketplaces/';
 const MEDIA_PATH = '/research/media-pr-publishing/';
 const PLANNER_PATH = '/research/distribution-planner/';
 const TENDERS_PATH = '/research/tenders-procurement/';
+const FORUMS_PATH = '/research/forums/';
 
 // Every label comes from the dictionary and every internal link is
 // locale-prefixed, so a German reader clicking "Datenschutz" reaches /de/privacy/
@@ -170,10 +171,10 @@ const TENDERS_PATH = '/research/tenders-procurement/';
 // default of null used to let a caller silently render the whole footer in
 // English on a German page.
 
-// The four Research Center collections plus the essay/infrastructure pages.
+// The five Research Center collections plus the essay/infrastructure pages.
 // Collection labels reuse the collection.* vocabulary the Research Center
 // already translates, rather than opening a second set of names for the same
-// four datasets.
+// five datasets.
 const RESEARCH_LINKS = (currentPath, locale, t) => {
   const p = (path) => I18N.localizedPath(locale, path);
   const cur = (path) => (currentPath === path ? ' aria-current="page"' : '');
@@ -184,6 +185,7 @@ const RESEARCH_LINKS = (currentPath, locale, t) => {
     [MARKETPLACES_PATH, t('collection.marketplaces'), true],
     [MEDIA_PATH, t('collection.media'), true],
     [TENDERS_PATH, t('collection.tenders'), true],
+    [FORUMS_PATH, t('collection.forums'), true],
     [PLANNER_PATH, t('collection.planner'), true],
     ['/infrastructure/', t('shell.footer.infrastructure'), false],
     ['/ai-systems/', t('shell.footer.aiSystems'), false],
@@ -384,4 +386,5 @@ ${FOOTER(selfPath, locale, t)}
 module.exports = {
   renderPage, HEADER, FOOTER, ANALYTICS, FONTS, ECO_HEAD, ECO_BODY,
   MARKETPLACES_PATH, MEDIA_PATH, PLANNER_PATH, TENDERS_PATH,
+  FORUMS_PATH,
 };

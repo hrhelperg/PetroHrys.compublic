@@ -402,6 +402,25 @@ function buildTendersMeta({ count, countries }) {
   });
 }
 
+// Forums are a neutral inventory, not a ranking. Counts come from the
+// validated canonical corpus and the page explains what DR does and does not
+// establish; neither the title nor the description calls these "best".
+function buildForumsMeta({ count, countries, languages }) {
+  const canonicalPath = '/research/forums/';
+  const title = 'Forum Intelligence';
+  const description = `${count} directly verified public discussion forums across `
+    + `${countries} known geographies and ${languages} primary languages, classified by topic, `
+    + 'forum type, activity status and Ahrefs Domain Rating.';
+  const trail = [ROOT_TRAIL[0], { name: 'Forum Intelligence', path: canonicalPath }];
+  return meta({
+    title, description, canonicalPath, robots: undefined, breadcrumbTrail: trail,
+    graph: [
+      collectionPage({ name: title, description, url: absoluteUrl(canonicalPath) }),
+      breadcrumbList(trail),
+    ],
+  });
+}
+
 // Country Intelligence. ONE page whose country is a FILTER, and therefore ONE
 // canonical URL with no query string in it.
 //
@@ -636,6 +655,7 @@ module.exports = {
   buildMediaProfileMeta,
   buildPlannerMeta,
   buildTendersMeta,
+  buildForumsMeta,
   buildTendersIntelligenceMeta,
   buildOpportunitiesIntelligenceMeta,
   buildOpportunityDetailMeta,
