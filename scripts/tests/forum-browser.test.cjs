@@ -4,6 +4,7 @@ const { test, before, after } = require('node:test');
 const assert = require('node:assert');
 const path = require('node:path');
 const { harness, chromePath } = require('./helpers/cdp.cjs');
+const BUILD = require('../build-forums.cjs');
 
 const ROOT = path.resolve(__dirname, '..', '..');
 const skip = chromePath() ? false : 'no Chrome, Chromium or Edge on this machine';
@@ -27,6 +28,14 @@ async function open(search = '', prefix = '') {
       topic: r.getAttribute('data-bd-facet-topic'), country: r.getAttribute('data-bd-facet-country'),
       language: r.getAttribute('data-bd-facet-language'), type: r.getAttribute('data-bd-facet-type'),
       status: r.getAttribute('data-bd-facet-status'), haystack: r.getAttribute('data-bd-haystack'),
+      registration: r.getAttribute('data-bd-facet-registration'),
+      registrationcost: r.getAttribute('data-bd-facet-registrationcost'),
+      posting: r.getAttribute('data-bd-facet-posting'),
+      profilewebsite: r.getAttribute('data-bd-facet-profilewebsite'),
+      profilelink: r.getAttribute('data-bd-facet-profilelink'),
+      postlink: r.getAttribute('data-bd-facet-postlink'),
+      threadindex: r.getAttribute('data-bd-facet-threadindex'),
+      profileindex: r.getAttribute('data-bd-facet-profileindex'),
     })),
     search: location.search,
   }));
@@ -69,6 +78,77 @@ test('single Topic, Country, Language and Status filters each return real cohort
     assert.ok(r.visible.length > 0, `${facet}=${value} is vacuous`);
     assert.ok(r.visible.every((x) => (` ${x[facet]} `).includes(` ${value} `)), `${facet} leaked stale rows`);
   }
+});
+
+for (const [facet, value, label] of [
+  ['registration', 'OPEN', 'Registration Open'],
+  ['registrationcost', 'FREE', 'Registration Free'],
+  ['posting', 'AVAILABLE', 'Posting Available'],
+  ['profilewebsite', 'OBSERVED', 'Profile website observed'],
+  ['profilelink', 'FOLLOW', 'Profile Follow'],
+  ['profilelink', 'NOFOLLOW', 'Profile Nofollow'],
+  ['profilelink', 'UGC', 'Profile UGC'],
+  ['postlink', 'FOLLOW', 'Post Follow'],
+  ['postlink', 'NOFOLLOW', 'Post Nofollow'],
+  ['postlink', 'UGC', 'Post UGC'],
+  ['threadindex', 'INDEXABLE', 'Thread Indexable'],
+  ['profileindex', 'INDEXABLE', 'Profile Indexable'],
+]) {
+  test(`V2 ${label} filter returns exactly its measured cohort`, { skip }, async (t) => {
+    await open();
+    const offered = await H.page.eval((args) => {
+      const select = document.querySelector(`[data-bd-facet="${args[0]}"]`);
+      return select && [...select.options].some((option) => option.value === args[1]);
+    }, [facet, value]);
+    if (!offered) { t.skip(`no measured ${label} cohort`); return; }
+    const result = await open(qs({ facets: { [facet]: value } }));
+    assert.ok(result.visible.length > 0, `${label} option was vacuous`);
+    assert.ok(result.visible.every((row) => row[facet] === value), `${label} leaked stale rows`);
+  });
+}
+
+test('V2 high-value combinations are exact, or explicitly skipped when evidence is zero', { skip }, async (t) => {
+  const all = await open();
+  const combinations = [
+    { name: 'FREE + posting + DR50', facets: { registrationcost: 'FREE', posting: 'AVAILABLE' }, minDr: 50 },
+    { name: 'profile FOLLOW + profile indexable + DR50', facets: { profilelink: 'FOLLOW', profileindex: 'INDEXABLE' }, minDr: 50 },
+  ];
+  const postType = ['FOLLOW', 'UGC'].find((type) => all.visible.some((row) =>
+    row.postlink === type && row.threadindex === 'INDEXABLE' && Number(row.dr) >= 50));
+  if (postType) combinations.push({ name: `post ${postType} + thread indexable + DR50`,
+    facets: { postlink: postType, threadindex: 'INDEXABLE' }, minDr: 50 });
+  let exercised = 0;
+  for (const combination of combinations) {
+    const expected = all.visible.filter((row) => Number(row.dr) >= combination.minDr
+      && Object.entries(combination.facets).every(([name, value]) => row[name] === value));
+    if (!expected.length) {
+      // Explicit measured-zero record in test output, rather than a vacuous positive assertion.
+      t.diagnostic(`SKIP COMBINATION: ${combination.name} has zero measured records`);
+      continue;
+    }
+    // eslint-disable-next-line no-await-in-loop
+    const result = await open(qs({ facets: combination.facets, minDr: String(combination.minDr) }));
+    assert.ok(result.visible.length > 0, `${combination.name} became vacuous`);
+    assert.deepEqual(result.visible.map((row) => row.name).sort(), expected.map((row) => row.name).sort());
+    exercised += 1;
+  }
+  if (!exercised) t.skip('all required high-value intersections are measured zero');
+});
+
+test('search, five V2 facets and DR sort compose without resetting state', { skip }, async (t) => {
+  const all = await open(qs({ minDr: '50' }));
+  const seed = all.visible.find((row) => row.status === 'ACTIVE' && row.postlink !== 'UNKNOWN'
+    && row.threadindex !== 'UNKNOWN' && row.profileindex !== 'UNKNOWN');
+  if (!seed) { t.skip('no measured five-way V2 seed'); return; }
+  const term = seed.name.slice(0, Math.min(6, seed.name.length)).toLowerCase();
+  const facets = { status: seed.status, posting: seed.posting, postlink: seed.postlink,
+    threadindex: seed.threadindex, profileindex: seed.profileindex };
+  const result = await open(qs({ q: term, facets, minDr: '50', sort: 'domain-rating' }));
+  assert.ok(result.visible.length > 0, 'five-way + search + sort result is vacuous');
+  assert.ok(result.visible.every((row) => row.haystack.includes(term) && Number(row.dr) >= 50
+    && Object.entries(facets).every(([name, value]) => row[name] === value)));
+  const drs = result.visible.map((row) => Number(row.dr));
+  assert.deepEqual(drs, drs.slice().sort((a, b) => b - a));
 });
 
 for (const floor of ['50', '70']) {
@@ -170,7 +250,7 @@ test('filtered CSV contains exactly the visible rows in visible order', { skip }
   });
   const lines = csv.replace(/^\uFEFF/, '').trim().split('\r\n');
   assert.equal(lines.length - 1, state.visible.length);
-  assert.equal(lines[0], 'forum,url,country,language,primary_topic,topics,forum_type,status,domain_rating,domain_rating_provider,last_verified_at');
+  assert.equal(lines[0], BUILD.EXPORT_COLUMNS.join(','));
   assert.deepEqual(lines.slice(1).map((line) => line.match(/^(?:"((?:[^"]|"")*)"|([^,]*))/)[1]
     || line.match(/^(?:"((?:[^"]|"")*)"|([^,]*))/)[2]), state.visible.map((r) => r.name));
 });
@@ -182,13 +262,18 @@ test('EN, DE, ES and FR render one shared corpus with localized UI', { skip }, a
     const r = await open('', prefix);
     // eslint-disable-next-line no-await-in-loop
     const labels = await H.page.eval(() => ({ lang: document.documentElement.lang,
-      h1: document.querySelector('h1').textContent, topic: document.querySelector('label[for="forums-facet-topic"]').textContent }));
+      h1: document.querySelector('h1').textContent,
+      topic: document.querySelector('label[for="forums-facet-topic"]').textContent,
+      posting: document.querySelector('label[for="forums-facet-posting"]').textContent,
+      disclaimer: document.querySelector('#limitations').textContent }));
     snapshots.push({ prefix, total: r.total, labels });
   }
   assert.ok(snapshots.every((x) => x.total === snapshots[0].total));
   assert.deepEqual(snapshots.map((x) => x.labels.lang), ['en', 'de', 'es', 'fr']);
   assert.equal(new Set(snapshots.map((x) => x.labels.h1)).size, 4);
   assert.equal(new Set(snapshots.map((x) => x.labels.topic)).size, 4);
+  assert.equal(new Set(snapshots.map((x) => x.labels.posting)).size, 4);
+  assert.equal(new Set(snapshots.map((x) => x.labels.disclaimer)).size, 4);
 });
 
 test('Forum controls remain labelled and contained at phone width', { skip }, async () => {
