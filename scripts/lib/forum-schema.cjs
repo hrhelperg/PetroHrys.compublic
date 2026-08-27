@@ -153,6 +153,13 @@ function problemsFor(row, countries) {
     if (!prov || prov.provider !== 'Ahrefs' || !DATE_RE.test(prov.measuredAt || '')
       || !prov.measuredDomain || !prov.status) at('metricsProvenance', 'must accompany every measured DR with Ahrefs provenance.');
   }
+  if (row.forumLinkValue !== undefined) {
+    // Loaded lazily to avoid a module cycle: the V2 schema uses the V1 loader
+    // for cohort identity, while V1 validation delegates only when the optional
+    // V2 field is actually present.
+    const V2 = require('./forum-link-schema.cjs');
+    p.push(...V2.problemsFor(row.forumLinkValue).map((problem) => `${row.id}.${problem}`));
+  }
   return p;
 }
 
