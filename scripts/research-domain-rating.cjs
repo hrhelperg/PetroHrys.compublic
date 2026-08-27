@@ -364,7 +364,7 @@ function runApply() {
   }
 
   const tally = { written: 0, unchanged: 0, noMeasurement: 0 };
-  for (const [name, C] of Object.entries(INV.COLLECTIONS)) {
+  for (const [name, C] of Object.entries(INV.METRIC_COLLECTIONS)) {
     const files = C.file
       ? [C.file]
       : fs.readdirSync(C.registry).filter((f) => f.endsWith('.json'))
@@ -436,7 +436,7 @@ function runCoverage() {
     c.records += 1;
     if (!r.target) return;
   }
-  for (const [name, C] of Object.entries(INV.COLLECTIONS)) {
+  for (const [name, C] of Object.entries(INV.METRIC_COLLECTIONS)) {
     const rows = INV.readCollection(name);
     const c = (perCollection[name] ||= {
       records: 0, withTarget: 0, withRating: 0, measuredZero: 0, missing: 0,

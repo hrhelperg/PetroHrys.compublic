@@ -71,8 +71,19 @@ const COLLECTIONS = {
   },
 };
 
+// Country Intelligence consumes COLLECTIONS as its protected four-product
+// universe. Metrics research is broader: Forums need DR coverage without
+// turning an inventory record into a country distribution channel.
+const METRIC_COLLECTIONS = {
+  ...COLLECTIONS,
+  forums: {
+    file: path.join(ROOT, 'data/forums/forums.json'),
+    urlField: 'url',
+  },
+};
+
 function readCollection(name) {
-  const C = COLLECTIONS[name];
+  const C = METRIC_COLLECTIONS[name];
   if (C.file) return JSON.parse(fs.readFileSync(C.file, 'utf8'));
   const out = [];
   for (const f of fs.readdirSync(C.registry).sort()) {
@@ -93,8 +104,8 @@ function readCollection(name) {
 function inventory() {
   const byTarget = new Map();
   const records = [];
-  for (const name of Object.keys(COLLECTIONS)) {
-    const urlField = COLLECTIONS[name].urlField;
+  for (const name of Object.keys(METRIC_COLLECTIONS)) {
+    const urlField = METRIC_COLLECTIONS[name].urlField;
     for (const r of readCollection(name)) {
       const url = r[urlField];
       const target = S.normaliseDomain(url);
@@ -138,4 +149,7 @@ function summary() {
   };
 }
 
-module.exports = { COLLECTIONS, readCollection, inventory, summary, normaliseDomain: S.normaliseDomain };
+module.exports = {
+  COLLECTIONS, METRIC_COLLECTIONS, readCollection, inventory, summary,
+  normaliseDomain: S.normaliseDomain,
+};

@@ -114,6 +114,15 @@ const OWNERSHIP = {
     marketplaces: ['domainRating', 'metricsProvenance'],
     media: ['domainRating', 'metricsProvenance'],
     tenders: ['domainRating', 'metricsProvenance'],
+    forums: ['domainRating', 'metricsProvenance'],
+  },
+  // A directly verified Forum finding owns the factual Forum record it
+  // creates. Once accepted, later passes use their own narrower owners; this
+  // contract is deliberately unavailable to every other collection.
+  forumVerification: {
+    forums: ['name', 'url', 'canonicalHost', 'forumBasePath', 'country',
+      'languages', 'primaryLanguage', 'primaryTopic', 'topics', 'forumType',
+      'status', 'lastVerifiedAt', 'software', 'description', 'verification'],
   },
 };
 
@@ -150,7 +159,7 @@ function applyPatch(record, patch, { owner, collection }) {
   const changed = [];
   for (const [field, value] of Object.entries(patch)) {
     if (value === undefined) continue;
-    if (NEVER.has(field)) {
+    if (NEVER.has(field) && !(owner === 'forumVerification' && collection === 'forums')) {
       throw new SafeApplyError(`${owner} tried to write "${field}", which no research pass may change.`);
     }
     if (!allowed.has(field)) {
@@ -330,6 +339,7 @@ function registrable(hostname) {
 
 const URL_FIELD = {
   directories: 'website', marketplaces: 'website', media: 'website', tenders: 'officialUrl',
+  forums: 'url',
 };
 
 // Directories, marketplaces and media key on country + host. Tenders key on
@@ -356,6 +366,14 @@ function identityKey(collection, record) {
   let parsed = null;
   try { parsed = new URL(url); } catch { return `${record.country}|${record.id}`; }
   const host = parsed.hostname.toLowerCase().replace(/^www\./, '');
+  // A Forum entity is its canonical host plus the forum root path. This keeps
+  // two genuinely separate hosted communities distinct while collapsing
+  // category, topic, tracking and www variants of the same community.
+  if (collection === 'forums') {
+    const base = String(record.forumBasePath || parsed.pathname || '/')
+      .replace(/\/{2,}/g, '/').replace(/\/+$/, '') || '/';
+    return `${host}${base}`;
+  }
   // Tenders additionally separate by path: one institution runs several
   // distinct procurement systems on one host, with different suppliers and
   // different rules.
