@@ -170,8 +170,15 @@
       rowFlags[name] = row.getAttribute('data-bd-' + name);
     });
     var rowExports = {};
-    schema.exportColumns.forEach(function (name) {
-      rowExports[name] = row.getAttribute('data-bd-export-' + name) || '';
+    var packedExports = [];
+    var packed = row.getAttribute('data-bd-export-packed');
+    if (packed) {
+      try { packedExports = JSON.parse(packed); } catch (ignore) { packedExports = []; }
+    }
+    schema.exportColumns.forEach(function (name, index) {
+      rowExports[name] = packedExports.length === schema.exportColumns.length
+        ? String(packedExports[index] || '')
+        : row.getAttribute('data-bd-export-' + name) || '';
     });
     return {
       name: row.getAttribute('data-bd-name') || '',

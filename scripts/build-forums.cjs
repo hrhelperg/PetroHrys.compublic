@@ -8,6 +8,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const zlib = require('node:zlib');
 const F = require('./lib/forum-schema.cjs');
+const V2 = require('./lib/forum-link-schema.cjs');
 const I18N = require('./lib/i18n.cjs');
 const componentsModule = require('./lib/bd-components.cjs');
 const render = require('./lib/bd-render.cjs');
@@ -24,7 +25,11 @@ const CSV = path.join(OUT, 'forums.csv');
 const ROUTE = '/research/forums/';
 
 const EXPORT_COLUMNS = ['forum', 'url', 'country', 'language', 'primary_topic', 'topics',
-  'forum_type', 'status', 'domain_rating', 'domain_rating_provider', 'last_verified_at'];
+  'forum_type', 'status', 'domain_rating', 'domain_rating_provider', 'last_verified_at',
+  'registration_access', 'registration_cost', 'thread_creation', 'reply_posting',
+  'profile_website_available', 'profile_backlink_type', 'profile_link_target_type',
+  'profile_indexability', 'post_body_backlink_type', 'post_body_link_target_type',
+  'thread_indexability', 'signature_backlink_type', 'evidence_checked_at'];
 
 const esc = (s) => String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;')
   .replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
@@ -35,7 +40,34 @@ const languageName = (code, locale) => {
   catch { return code.toUpperCase(); }
 };
 
+function forumDecisionValues(r) {
+  const evidence = r.forumLinkValue;
+  const participation = evidence && evidence.participation || {};
+  const surfaces = evidence && evidence.linkSurfaces || {};
+  const profile = surfaces.PROFILE_WEBSITE || V2.surfaceEmpty();
+  const post = surfaces.POST_BODY || V2.surfaceEmpty();
+  const signature = surfaces.SIGNATURE || V2.surfaceEmpty();
+  const ordinaryProfile = profile.scope !== 'STAFF_OR_MODERATOR';
+  return {
+    registrationAccess: participation.registrationAccess || 'UNKNOWN',
+    registrationCost: participation.registrationCost || 'UNKNOWN',
+    posting: participation.threadCreation || 'UNKNOWN',
+    replyPosting: participation.replyPosting || 'UNKNOWN',
+    profileWebsite: ordinaryProfile && profile.availability === 'OBSERVED' ? 'OBSERVED' : 'UNKNOWN',
+    profileLink: ordinaryProfile ? profile.backlinkType : 'UNKNOWN',
+    profileTarget: ordinaryProfile ? profile.linkTargetType : 'UNKNOWN',
+    profileIndexability: evidence && evidence.publicProfile.indexability || 'UNKNOWN',
+    postLink: post.backlinkType || 'UNKNOWN',
+    postTarget: post.linkTargetType || 'UNKNOWN',
+    threadIndexability: evidence && evidence.threadPage.indexability || 'UNKNOWN',
+    signatureLink: signature.backlinkType || 'UNKNOWN',
+    evidenceCheckedAt: evidence && evidence.evidenceCheckedAt || '',
+    rawProfileAvailability: profile.availability || 'UNKNOWN',
+  };
+}
+
 function exportValue(r, key, countryName) {
+  const v2 = forumDecisionValues(r);
   const values = {
     forum: r.name,
     url: r.url,
@@ -48,6 +80,19 @@ function exportValue(r, key, countryName) {
     domain_rating: hasDr(r) ? r.domainRating : '',
     domain_rating_provider: hasDr(r) ? 'Ahrefs' : '',
     last_verified_at: r.lastVerifiedAt,
+    registration_access: v2.registrationAccess,
+    registration_cost: v2.registrationCost,
+    thread_creation: v2.posting,
+    reply_posting: v2.replyPosting,
+    profile_website_available: v2.rawProfileAvailability,
+    profile_backlink_type: v2.profileLink,
+    profile_link_target_type: v2.profileTarget,
+    profile_indexability: v2.profileIndexability,
+    post_body_backlink_type: v2.postLink,
+    post_body_link_target_type: v2.postTarget,
+    thread_indexability: v2.threadIndexability,
+    signature_backlink_type: v2.signatureLink,
+    evidence_checked_at: v2.evidenceCheckedAt,
   };
   return values[key];
 }
@@ -71,19 +116,27 @@ function sortControl(t) {
 }
 
 function rowHtml(r, { t, countryName, locale }) {
+  const v2 = forumDecisionValues(r);
   const topicLabels = r.topics.map((x) => t(`forumTopic.${x}`));
   const other = topicLabels.slice(1).join(', ');
   const country = r.country ? countryName(r.country) : t('common.unknown');
   const languages = r.languages.map((x) => languageName(x, locale));
   const haystack = `${r.name} ${r.canonicalHost}`.toLowerCase();
-  const attrs = EXPORT_COLUMNS.map((key) => `data-bd-export-${key}="${esc(
-    Array.isArray(exportValue(r, key, countryName)) ? exportValue(r, key, countryName).join('; ')
-      : exportValue(r, key, countryName))}"`).join(' ');
+  const exportValues = EXPORT_COLUMNS.map((key) => {
+    const value = exportValue(r, key, countryName);
+    return Array.isArray(value) ? value.join('; ') : String(value == null ? '' : value);
+  });
+  const attrs = `data-bd-export-forum="${esc(exportValues[0])}" data-bd-export-url="${esc(exportValues[1])}" `
+    + `data-bd-export-packed="${esc(JSON.stringify(exportValues))}"`;
   return [
     `<tr class="bd-row" data-bd-name="${esc(r.name)}" data-bd-haystack="${esc(haystack)}"`,
     ` data-bd-dr="${hasDr(r) ? r.domainRating : ''}" data-bd-facet-topic="${esc(r.topics.join(' '))}"`,
     ` data-bd-facet-country="${esc(r.country || '')}" data-bd-facet-language="${esc(r.languages.join(' '))}"`,
-    ` data-bd-facet-type="${esc(r.forumType)}" data-bd-facet-status="${esc(r.status)}" ${attrs}>`,
+    ` data-bd-facet-type="${esc(r.forumType)}" data-bd-facet-status="${esc(r.status)}"`,
+    ` data-bd-facet-registration="${esc(v2.registrationAccess)}" data-bd-facet-registrationcost="${esc(v2.registrationCost)}"`,
+    ` data-bd-facet-posting="${esc(v2.posting)}" data-bd-facet-profilewebsite="${esc(v2.profileWebsite)}"`,
+    ` data-bd-facet-profilelink="${esc(v2.profileLink)}" data-bd-facet-postlink="${esc(v2.postLink)}"`,
+    ` data-bd-facet-threadindex="${esc(v2.threadIndexability)}" data-bd-facet-profileindex="${esc(v2.profileIndexability)}" ${attrs}>`,
     `<td data-label="${esc(t('forum.col.forum'))}"><a href="${esc(r.url)}" rel="noopener noreferrer" `,
     `target="_blank">${esc(r.name)}</a></td>`,
     `<td data-label="${esc(t('forum.col.primaryTopic'))}">${esc(topicLabels[0])}</td>`,
@@ -92,7 +145,12 @@ function rowHtml(r, { t, countryName, locale }) {
     `<td data-label="${esc(t('forum.col.language'))}">${esc(languages.join(', ') || t('common.unknown'))}</td>`,
     `<td data-label="${esc(t('forum.col.type'))}">${esc(t(`forumType.${r.forumType}`))}</td>`,
     `<td data-label="${esc(t('col.status'))}">${esc(t(`forumStatus.${r.status}`))}</td>`,
-    `<td data-label="${esc(t('col.domainRating'))}">${esc(hasDr(r) ? r.domainRating : t('bd.drNotMeasured'))}</td></tr>`,
+    `<td data-label="${esc(t('col.domainRating'))}">${esc(hasDr(r) ? r.domainRating : t('bd.drNotMeasured'))}</td>`,
+    `<td data-label="${esc(t('forum.col.registration'))}">${esc(t(`forumRegistration.${v2.registrationAccess}`))}</td>`,
+    `<td data-label="${esc(t('forum.col.posting'))}">${esc(t(`forumPosting.${v2.posting}`))}</td>`,
+    `<td data-label="${esc(t('forum.col.profileLink'))}">${esc(t(`forumBacklink.${v2.profileLink}`))}</td>`,
+    `<td data-label="${esc(t('forum.col.postLink'))}">${esc(t(`forumBacklink.${v2.postLink}`))}</td>`,
+    `<td data-label="${esc(t('forum.col.threadIndexability'))}">${esc(t(`forumIndexability.${v2.threadIndexability}`))}</td></tr>`,
   ].join('');
 }
 
@@ -106,9 +164,11 @@ function renderMain(rows, countryName, locale) {
   const statusLabels = Object.fromEntries(F.STATUSES.map((x) => [x, t(`forumStatus.${x}`)]));
   const countryLabels = Object.fromEntries(countries.map((x) => [x, countryName(x)]));
   const languageLabels = Object.fromEntries(languages.map((x) => [x, languageName(x, locale)]));
-  const tableRows = rows.map((r) => rowHtml(r, { t, countryName, locale })).join('\n');
+  const viewRows = rows.map((r) => ({ ...r, ...forumDecisionValues(r) }));
+  const tableRows = viewRows.map((r) => rowHtml(r, { t, countryName, locale })).join('\n');
   const headers = ['forum.col.forum', 'forum.col.primaryTopic', 'forum.col.otherTopics', 'col.country',
-    'forum.col.language', 'forum.col.type', 'col.status', 'col.domainRating'];
+    'forum.col.language', 'forum.col.type', 'col.status', 'col.domainRating', 'forum.col.registration',
+    'forum.col.posting', 'forum.col.profileLink', 'forum.col.postLink', 'forum.col.threadIndexability'];
   const minDr = c.minDomainRatingControl({ idPrefix: 'forums', rows });
   return [
     c.pageIntro({ title: t('forum.title', { n: rows.length }), lede: t('forum.lede') }),
@@ -125,6 +185,14 @@ ${c.facetSelect({ idPrefix: 'forums', facet: { name: 'country', key: 'country' }
 ${c.facetSelect({ idPrefix: 'forums', facet: { name: 'language', key: 'languages', multi: true }, label: t('forum.f.language'), rows, labels: languageLabels })}
 ${c.facetSelect({ idPrefix: 'forums', facet: { name: 'type', key: 'forumType' }, label: t('forum.f.type'), rows, labels: typeLabels, order: F.FORUM_TYPES })}
 ${c.facetSelect({ idPrefix: 'forums', facet: { name: 'status', key: 'status' }, label: t('forum.f.status'), rows, labels: statusLabels, order: F.STATUSES })}
+${c.facetSelect({ idPrefix: 'forums', facet: { name: 'registration', key: 'registrationAccess' }, label: t('forum.f.registration'), rows: viewRows, labels: Object.fromEntries(V2.REGISTRATION_ACCESS.map((x) => [x, t(`forumRegistration.${x}`)])), order: V2.REGISTRATION_ACCESS })}
+${c.facetSelect({ idPrefix: 'forums', facet: { name: 'registrationcost', key: 'registrationCost' }, label: t('forum.f.registrationCost'), rows: viewRows, labels: Object.fromEntries(V2.REGISTRATION_COST.map((x) => [x, t(`forumRegistrationCost.${x}`)])), order: V2.REGISTRATION_COST })}
+${c.facetSelect({ idPrefix: 'forums', facet: { name: 'posting', key: 'posting' }, label: t('forum.f.posting'), rows: viewRows, labels: Object.fromEntries(V2.POSTING_ACCESS.map((x) => [x, t(`forumPosting.${x}`)])), order: V2.POSTING_ACCESS })}
+${c.facetSelect({ idPrefix: 'forums', facet: { name: 'profilewebsite', key: 'profileWebsite' }, label: t('forum.f.profileWebsite'), rows: viewRows, labels: Object.fromEntries(['OBSERVED', 'UNKNOWN'].map((x) => [x, t(`forumAvailability.${x}`)])), order: ['OBSERVED', 'UNKNOWN'] })}
+${c.facetSelect({ idPrefix: 'forums', facet: { name: 'profilelink', key: 'profileLink' }, label: t('forum.f.profileLink'), rows: viewRows, labels: Object.fromEntries(V2.BACKLINK_TYPES.map((x) => [x, t(`forumBacklink.${x}`)])), order: V2.BACKLINK_TYPES })}
+${c.facetSelect({ idPrefix: 'forums', facet: { name: 'postlink', key: 'postLink' }, label: t('forum.f.postLink'), rows: viewRows, labels: Object.fromEntries(V2.BACKLINK_TYPES.map((x) => [x, t(`forumBacklink.${x}`)])), order: V2.BACKLINK_TYPES })}
+${c.facetSelect({ idPrefix: 'forums', facet: { name: 'threadindex', key: 'threadIndexability' }, label: t('forum.f.threadIndexability'), rows: viewRows, labels: Object.fromEntries(V2.INDEXABILITY.map((x) => [x, t(`forumIndexability.${x}`)])), order: V2.INDEXABILITY })}
+${c.facetSelect({ idPrefix: 'forums', facet: { name: 'profileindex', key: 'profileIndexability' }, label: t('forum.f.profileIndexability'), rows: viewRows, labels: Object.fromEntries(V2.INDEXABILITY.map((x) => [x, t(`forumIndexability.${x}`)])), order: V2.INDEXABILITY })}
 ${minDr}
 ${sortControl(t)}
 ${c.clearFiltersControl()}
@@ -209,4 +277,4 @@ function main() {
 }
 
 if (require.main === module) main();
-module.exports = { ROUTE, EXPORT_COLUMNS, exportValue, renderCsv, rowHtml, renderMain, main };
+module.exports = { ROUTE, EXPORT_COLUMNS, forumDecisionValues, exportValue, renderCsv, rowHtml, renderMain, main };
