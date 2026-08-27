@@ -124,6 +124,12 @@ const OWNERSHIP = {
       'languages', 'primaryLanguage', 'primaryTopic', 'topics', 'forumType',
       'status', 'lastVerifiedAt', 'software', 'description', 'verification'],
   },
+  // Public participation and link-surface evidence for Forums. This owner is
+  // intentionally one structured field: it cannot touch V1 identity,
+  // taxonomy, activity, geography or Ahrefs measurements.
+  forumLinkValue: {
+    forums: ['forumLinkValue'],
+  },
 };
 
 // Fields no research pass may ever touch, whatever it claims to own. Listed

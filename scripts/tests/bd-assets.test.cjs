@@ -205,7 +205,10 @@ test('every data attribute the client reads is emitted by the components', () =>
     // generates. Scanning only bd-components quietly narrowed that to "emitted
     // by bd-components", and a second legitimate generator then failed a rule
     // it had not broken.
-    + fs.readFileSync(path.join(root, 'research', 'media-pr-publishing', 'index.html'), 'utf8');
+    + fs.readFileSync(path.join(root, 'research', 'media-pr-publishing', 'index.html'), 'utf8')
+    // Forum V2 packs its larger factual export vector into one cached row
+    // attribute. It is emitted by the Forum generator rather than a component.
+    + fs.readFileSync(path.join(root, 'research', 'forums', 'index.html'), 'utf8');
   const read = new Set();
   for (const m of js().matchAll(/'(data-bd-[a-z-]+)'/g)) read.add(m[1]);
   for (const m of js().matchAll(/\[(data-bd-[a-z-]+)\]/g)) read.add(m[1]);

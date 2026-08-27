@@ -1,0 +1,25 @@
+{
+ "baselineSha": "23da1f3d66a5dd01d335b06de4ced905c65fce3d",
+ "capturedAt": "2026-08-27",
+ "forumCount": 2172,
+ "forumV1ProjectionSha256": "797eff08fe494a7e7e68dc6d91cc7871bb26de5c987ae307657fad89f5ec94fa",
+ "cohortFileSha256": "b7a2056b586dc0bc8b44205878f612512bfca809a48749362c063b9641b3242a",
+ "cohortIdentitySha256": "e231ca39fd7478d948d3a2a4b11ae5347014992f04a3529458e6225d86dcc995",
+ "files": {
+  "data/business-directories/opportunities.json": "25408056675eb201c25e2c43b80e94be8493444790f12cca7eeab757fc505253",
+  "data/marketplaces/marketplaces.json": "dabcb44ec31ec589d2eb2f840a2c95967e119f5123fe825050df77c72f988ca5",
+  "data/media-pr-publishing/media-platforms.json": "07990b08e51acf0e8e2a8de021bfce80d3f63efba6765cc9d4eca63ef56c6976",
+  "data/tenders-procurement/platforms.json": "005d79ef582b6d7b3e9e8b1db4a68e8b9152cac3e8f4b8a2ed2c727192a77740",
+  "data/tender-opportunities/opportunities.json": "3c341d60617aef891eddd8c14223a4d7ce79074a2da4fe26e0b9af35d55e0120",
+  "research/distribution-planner/planner-data.json": "8446253e39facf7b60ddda27e92f09615353d832e734229c83a28c4eab067d27",
+  "data/link-value/.link-value.json": "935ca87522a95bff400dc7471f4adf02d56fc19454c9b03d1a498e16c3014745",
+  "data/link-value/evidence-states.json": "2b095fed1d5e7cb0e0056d5fd544c87231e95e78b4d5072a2a2a4f813a5451d6",
+  "data/business-directories/.free-trusted.json": "3085fd32bd9bf0052269aeef81339e66af5b8f88d63bc3008fa1f5a241893a0b",
+  "data/tenders-procurement/.bid-access.json": "40562681bf719ce5b5d02c842a76acdb321a248992e4a04f2c416363bc9510e1",
+  "scripts/lib/distribution-planner.cjs": "e2713a6d25b49215139ce3848fa668b22d643c9348023816dc9f6927aa9023cb",
+  "scripts/lib/dp-engine.cjs": "bb69be88af2576e2452791ef56c691f530581bce48c8c6a7a16158c164e5a999",
+  "scripts/lib/rc-country-intelligence.cjs": "2f56b816f04db969bd316a0227d645d5367538bcb4d1d58dc18f2368f6218531",
+  "scripts/lib/to-search.cjs": "e11b8246ca8bafba335533040d1a25f5533f3a242bb0f310c39e6c453b6c3de2",
+  "scripts/lib/to-match.cjs": "5de543fb9826d46f287b0d3e19b3f9819338b292d82bd1fd252dd939e6422ebf"
+ }
+}

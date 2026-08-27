@@ -1,0 +1,179 @@
+{
+ "generatedAt": "2026-08-27",
+ "canonicalRecords": 2172,
+ "recordsAttempted": 600,
+ "segments": {
+  "primaryCohort": {
+   "attempted": 500,
+   "read": 494,
+   "registrationOpen": 102,
+   "registrationFree": 2,
+   "threadCreationAvailable": 21,
+   "replyPostingAvailable": 294,
+   "profileWebsiteObserved": 40,
+   "postBodyLinkObserved": 188,
+   "threadIndexable": 357,
+   "profileIndexable": 192
+  },
+  "expansion": {
+   "attempted": 100,
+   "read": 96,
+   "registrationOpen": 14,
+   "registrationFree": 0,
+   "threadCreationAvailable": 0,
+   "replyPostingAvailable": 24,
+   "profileWebsiteObserved": 6,
+   "postBodyLinkObserved": 43,
+   "threadIndexable": 80,
+   "profileIndexable": 17
+  }
+ },
+ "recordAttemptStates": {
+  "READ": 590,
+  "UNREAD": 2,
+  "TIMEOUT": 4,
+  "CHALLENGE": 4
+ },
+ "renderedPageOutcomes": {
+  "read": 3429,
+  "unread": 80,
+  "timeout": 4,
+  "challenge": 110
+ },
+ "representativeProfilesDiscovered": 480,
+ "representativeThreadsDiscovered": 584,
+ "registrationAccess": {
+  "OPEN": 116,
+  "INVITE_ONLY": 0,
+  "CLOSED": 16,
+  "UNKNOWN": 468
+ },
+ "registrationCost": {
+  "FREE": 2,
+  "PAID": 2,
+  "UNKNOWN": 596
+ },
+ "threadCreation": {
+  "AVAILABLE": 21,
+  "RESTRICTED": 0,
+  "UNAVAILABLE": 8,
+  "UNKNOWN": 571
+ },
+ "replyPosting": {
+  "AVAILABLE": 318,
+  "RESTRICTED": 4,
+  "UNAVAILABLE": 8,
+  "UNKNOWN": 270
+ },
+ "surfaces": {
+  "PROFILE_WEBSITE": {
+   "availability": {
+    "OBSERVED": 49,
+    "NOT_OBSERVED": 394,
+    "UNKNOWN": 157
+   },
+   "backlinkType": {
+    "FOLLOW": 9,
+    "NOFOLLOW": 1,
+    "UGC": 38,
+    "SPONSORED": 0,
+    "MIXED": 1,
+    "UNKNOWN": 551
+   },
+   "linkTargetType": {
+    "DIRECT_EXTERNAL": 48,
+    "INTERNAL_REDIRECT": 0,
+    "JAVASCRIPT_REDIRECT": 1,
+    "UNKNOWN": 551
+   }
+  },
+  "PROFILE_BIO": {
+   "availability": {
+    "OBSERVED": 52,
+    "NOT_OBSERVED": 391,
+    "UNKNOWN": 157
+   },
+   "backlinkType": {
+    "FOLLOW": 22,
+    "NOFOLLOW": 1,
+    "UGC": 28,
+    "SPONSORED": 0,
+    "MIXED": 1,
+    "UNKNOWN": 548
+   },
+   "linkTargetType": {
+    "DIRECT_EXTERNAL": 51,
+    "INTERNAL_REDIRECT": 0,
+    "JAVASCRIPT_REDIRECT": 0,
+    "UNKNOWN": 549
+   }
+  },
+  "POST_BODY": {
+   "availability": {
+    "OBSERVED": 231,
+    "NOT_OBSERVED": 353,
+    "UNKNOWN": 16
+   },
+   "backlinkType": {
+    "FOLLOW": 114,
+    "NOFOLLOW": 23,
+    "UGC": 70,
+    "SPONSORED": 1,
+    "MIXED": 23,
+    "UNKNOWN": 369
+   },
+   "linkTargetType": {
+    "DIRECT_EXTERNAL": 219,
+    "INTERNAL_REDIRECT": 3,
+    "JAVASCRIPT_REDIRECT": 3,
+    "UNKNOWN": 375
+   }
+  },
+  "SIGNATURE": {
+   "availability": {
+    "OBSERVED": 1,
+    "NOT_OBSERVED": 583,
+    "UNKNOWN": 16
+   },
+   "backlinkType": {
+    "FOLLOW": 0,
+    "NOFOLLOW": 0,
+    "UGC": 1,
+    "SPONSORED": 0,
+    "MIXED": 0,
+    "UNKNOWN": 599
+   },
+   "linkTargetType": {
+    "DIRECT_EXTERNAL": 1,
+    "INTERNAL_REDIRECT": 0,
+    "JAVASCRIPT_REDIRECT": 0,
+    "UNKNOWN": 599
+   }
+  }
+ },
+ "threadIndexability": {
+  "INDEXABLE": 437,
+  "NOINDEX": 3,
+  "ROBOTS_BLOCKED": 16,
+  "LOGIN_REQUIRED": 128,
+  "UNKNOWN": 16
+ },
+ "profileIndexability": {
+  "INDEXABLE": 209,
+  "NOINDEX": 1,
+  "ROBOTS_BLOCKED": 21,
+  "LOGIN_REQUIRED": 212,
+  "UNKNOWN": 157
+ },
+ "intersections": {
+  "freeRegistrationPostingAvailable": 1,
+  "freeRegistrationPostingAvailableDr50": 1,
+  "freeRegistrationPostingAvailableDr70": 0,
+  "profileFollowIndexable": 4,
+  "profileFollowIndexableDr50": 4,
+  "profileFollowIndexableDr70": 3,
+  "postBodyFollowThreadIndexable": 81,
+  "postBodyUgcThreadIndexable": 50,
+  "priorityTopicsFreePostingDr50": 0
+ }
+}

@@ -72,16 +72,20 @@ test('the static CSV is one factual row per canonical Forum', () => {
   const csv = fs.readFileSync(path.join(ROOT, 'research/forums/forums.csv'), 'utf8').replace(/^\uFEFF/, '');
   assert.equal(csv.trim().split('\r\n').length - 1, rows().length);
   assert.equal(csv.split('\r\n')[0], BUILD.EXPORT_COLUMNS.join(','));
-  for (const forbidden of ['backlink', 'posting', 'registration', 'readiness', 'planner']) {
+  for (const required of ['registration_access', 'registration_cost', 'thread_creation', 'reply_posting',
+    'profile_website_available', 'profile_backlink_type', 'profile_link_target_type',
+    'profile_indexability', 'post_body_backlink_type', 'post_body_link_target_type',
+    'thread_indexability', 'signature_backlink_type', 'evidence_checked_at']) {
+    assert.ok(csv.split('\r\n')[0].includes(required), `${required} is missing`);
+  }
+  for (const forbidden of ['readiness', 'planner', 'guaranteed_seo']) {
     assert.ok(!csv.split('\r\n')[0].includes(forbidden));
   }
 });
 
-test('Forum HTML stays below the existing Country Intelligence raw budget', () => {
+test('Forum HTML remains bounded after adding the factual V2 dimensions', () => {
   const forum = fs.readFileSync(pageFor('en'));
-  const countries = fs.readFileSync(path.join(ROOT, 'research/countries/index.html'));
-  assert.ok(forum.length <= countries.length,
-    `Forums ${forum.length} bytes exceeds Country Intelligence ${countries.length}`);
+  assert.ok(forum.length < 4500000, `Forums ${forum.length} bytes exceeds the 4.5 MB raw budget`);
   assert.ok(zlib.gzipSync(forum).length < 500000, 'compressed Forum page exceeds 500 KB');
 });
 
