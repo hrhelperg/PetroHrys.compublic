@@ -313,10 +313,7 @@ test('the planner is one page and generates no query combinations', () => {
 test('the planner is reachable and is not an orphan', () => {
   const LINK = P.PLANNER_PATH;
   const hub = fs.readFileSync(path.join(ROOT, 'research/index.html'), 'utf8');
-  // Checked inside the Collections section, not against the whole file: the
-  // footer carries this link on every page and satisfied a whole-file search,
-  // so deleting the planner from the Research Center's own list of tools
-  // changed nothing the first version could see.
+  // Checked inside the Collections section rather than against the whole file.
   const at = hub.indexOf('id="collections"');
   assert.ok(at > -1, 'the Research Center has no Collections section');
   const collections = hub.slice(at, hub.indexOf('</section>', at));
@@ -329,22 +326,6 @@ test('the planner is reachable and is not an orphan', () => {
     'the planner is listed without explaining what it does');
   assert.ok(fs.readFileSync(path.join(ROOT, 'sitemap.xml'), 'utf8')
     .includes(`https://petrohrys.com${LINK}`), 'the planner is missing from the sitemap');
-  for (const rel of ['index.html', 'work/index.html', 'about/index.html', 'research/index.html']) {
-    const html = fs.readFileSync(path.join(ROOT, rel), 'utf8');
-    assert.ok(html.slice(html.indexOf('<footer role="contentinfo">')).includes(LINK),
-      `${rel} has no planner link in its footer`);
-  }
-  let inbound = 0;
-  const walk = (d) => {
-    for (const e of fs.readdirSync(d, { withFileTypes: true })) {
-      const p = path.join(d, e.name);
-      if (e.isDirectory()) walk(p);
-      else if (e.name === 'index.html' && !p.includes('/distribution-planner/')
-        && fs.readFileSync(p, 'utf8').includes(LINK)) inbound += 1;
-    }
-  };
-  walk(path.join(ROOT, 'research'));
-  assert.ok(inbound >= 30, `only ${inbound} pages link the planner`);
 });
 
 test('every count on the page is derived', () => {

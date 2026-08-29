@@ -9,9 +9,8 @@
 // generates a collection is a sibling of the site, and nothing made the site
 // aware the collection had appeared.
 //
-// These tests hold the fix. The important one is the last: the footer path and
-// the build's canonical path are asserted equal, so the link cannot rot into a
-// 404 the next time either side moves.
+// These tests hold the fix at the Research hub and sitemap, where collection
+// discovery belongs without duplicating the whole catalog in every footer.
 
 const test = require('node:test');
 const assert = require('node:assert');
@@ -25,21 +24,11 @@ const seo = require('../lib/bd-seo.cjs');
 const LINK = '/research/marketplaces/';
 const read = (rel) => fs.readFileSync(path.join(ROOT, rel), 'utf8');
 
-// The hand-written pages carrying the site's own footer. The generated pages
-// take theirs from bd-render.cjs and are checked separately.
-const HAND_WRITTEN = ['index.html', 'work/index.html', 'writing/index.html', 'research/index.html',
-  'essays/index.html', 'ai-systems/index.html', 'infrastructure/index.html', 'about/index.html',
-  'de/index.html', 'es/index.html', 'fr/index.html'];
-
-test('the collection cannot drift out of the footer that links it', () => {
-  // The one guard that matters. bd-render.cjs cannot import the marketplace
-  // build's routes — it is a different build with a different manifest — so the
-  // path is written down twice. Asserting the two copies are equal is what
-  // stops the second one going stale silently.
+test('the shared collection route cannot drift from its canonical page', () => {
   assert.strictEqual(render.MARKETPLACES_PATH, seo.buildMarketplacesMeta({ count: 1, countries: 1 }).canonicalPath,
-    'the footer link and the page it points at disagree about the path');
+    'the shared marketplace route and canonical path disagree');
   assert.ok(fs.existsSync(path.join(ROOT, render.MARKETPLACES_PATH.replace(/^\//, ''), 'index.html')),
-    `the footer links ${render.MARKETPLACES_PATH}, which was never generated`);
+    `${render.MARKETPLACES_PATH} was never generated`);
 });
 
 test('the Research Center presents the collection, not merely mentions it', () => {
@@ -55,49 +44,6 @@ test('the Research Center presents the collection, not merely mentions it', () =
     'the collections list lost the worklist');
   assert.ok(/Marketplace &amp; Classified Platforms/.test(section),
     'the collection is linked without being named');
-});
-
-test('every hand-written page carries the link in its footer', () => {
-  for (const rel of HAND_WRITTEN) {
-    const html = read(rel);
-    const footer = html.slice(html.indexOf('<footer role="contentinfo">'));
-    assert.ok(footer.includes(`href="${LINK}"`), `${rel} has no marketplaces link in its footer`);
-    assert.ok(footer.includes('href="/research/business-directories/"'),
-      `${rel} has no business directories link in its footer`);
-  }
-});
-
-test('every generated research page carries the link in its footer', () => {
-  // Sampled across the tree rather than exhaustively: they all come from one
-  // renderer, so a sample that spans several sections proves the renderer, and
-  // an exhaustive walk of thousands of files buys nothing extra.
-  const sampled = [];
-  const walk = (dir, depth) => {
-    if (depth > 3 || sampled.length >= 40) return;
-    for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
-      if (sampled.length >= 40) return;
-      const p = path.join(dir, e.name);
-      if (e.isDirectory()) walk(p, depth + 1);
-      else if (e.name === 'index.html') sampled.push(path.relative(ROOT, p));
-    }
-  };
-  walk(path.join(ROOT, 'research'), 0);
-  assert.ok(sampled.length >= 20, `only ${sampled.length} generated pages found to sample`);
-  for (const rel of sampled) {
-    const html = read(rel);
-    const footer = html.slice(html.indexOf('<footer role="contentinfo">'));
-    assert.ok(footer.includes(LINK), `${rel} has no marketplaces link in its footer`);
-  }
-});
-
-test('the marketplaces page marks itself current and does not link to itself elsewhere', () => {
-  const html = read('research/marketplaces/index.html');
-  const footer = html.slice(html.indexOf('<footer role="contentinfo">'));
-  assert.match(footer, new RegExp(`href="${LINK}" aria-current="page"`),
-    'the marketplaces page does not mark its own footer link as current');
-  // Exactly one current item in the footer's Research & Writing column.
-  assert.strictEqual((footer.match(/aria-current="page"/g) || []).length, 1,
-    'more than one footer link claims to be the current page');
 });
 
 test('the collection is in the site sitemap', () => {
@@ -116,17 +62,7 @@ test('the collection is in the site sitemap', () => {
   }
 });
 
-test('the link count is high enough that removing one page cannot re-orphan it', () => {
-  let inbound = 0;
-  const walk = (dir) => {
-    for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
-      const p = path.join(dir, e.name);
-      if (e.isDirectory()) walk(p);
-      else if (e.name === 'index.html' && !p.includes('/marketplaces/')
-        && fs.readFileSync(p, 'utf8').includes(LINK)) inbound += 1;
-    }
-  };
-  walk(path.join(ROOT, 'research'));
-  for (const rel of HAND_WRITTEN) if (read(rel).includes(LINK)) inbound += 1;
-  assert.ok(inbound >= 30, `only ${inbound} pages link the collection; it is effectively unreachable`);
+test('the collection stays reachable without duplicating it in every footer', () => {
+  assert.ok(read('research/index.html').includes(`href="${LINK}"`));
+  assert.ok(read('sitemap.xml').includes(`https://petrohrys.com${LINK}`));
 });

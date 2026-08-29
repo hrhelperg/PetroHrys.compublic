@@ -261,14 +261,9 @@ test('the section nav item claims section, not page', () => {
   assert.ok(!html.includes('href="/research/" aria-current="page"'));
 });
 
-test('a footer link to the current page is marked aria-current', () => {
-  // The hub's footer links to the hub. The site marks self-links this way
-  // rather than leaving an unannotated loop.
+test('the compact footer points to the Research hub, not every collection', () => {
   const html = hub();
-  assert.ok(html.includes('<a href="/research/business-directories/" aria-current="page">'));
-});
-
-test('a footer link to a different page is not marked', () => {
-  const html = emptyCountry();
-  assert.ok(html.includes('<a href="/research/business-directories/">Business Directories</a>'));
+  const footer = html.slice(html.indexOf('<footer role="contentinfo">'));
+  assert.ok(footer.includes('<a href="/research/">Research</a>'));
+  assert.ok(!footer.includes('<a href="/research/business-directories/"'));
 });

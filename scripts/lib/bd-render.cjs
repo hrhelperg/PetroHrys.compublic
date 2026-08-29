@@ -144,21 +144,9 @@ ${LANGS('            ', canonicalPath, locale, availableLocales)}
 // finds. The path is the one build-marketplaces.cjs writes, and a test asserts
 // the two agree so they cannot drift apart silently.
 
-// Product routes are not localized yet — several product pages exist only in
-// English. Linking a German reader to /de/fax/ would be a 404, so these stay on
-// the canonical route until the page itself has a German twin. The migration
-// audit tracks which ones still do.
-const PRODUCTS = [
-  ['/webmasterid/', 'WebmasterID'], ['/pdf-editor/', 'PDF Editor'], ['/unzip/', 'Unzip'],
-  ['/smart-printer/', 'Smart Printer'], ['/invoice-maker/', 'Invoice Maker'],
-  ['/pocket-manager/', 'Pocket Manager'], ['/fax/', 'FAX'], ['/twinphone/', 'TwinPhone'],
-  ['/esimky/', 'eSIMky'], ['/cv-builder/', 'CV Builder'], ['/tcg-scanner/', 'TCG Scanner'],
-];
-// Product names are brands, not prose: eSIMky is eSIMky in every language.
-const PRODUCT_LINKS = (locale) => PRODUCTS
-  .map(([href, name]) => `          <li><a href="${href}">${name}</a></li>`)
-  .join('\n');
-
+// Shared canonical collection routes. They remain exported for the builders
+// and integration tests even though detailed collection links now live on the
+// Research hub instead of in every footer.
 const MARKETPLACES_PATH = '/research/marketplaces/';
 const MEDIA_PATH = '/research/media-pr-publishing/';
 const PLANNER_PATH = '/research/distribution-planner/';
@@ -171,25 +159,15 @@ const FORUMS_PATH = '/research/forums/';
 // default of null used to let a caller silently render the whole footer in
 // English on a German page.
 
-// The five Research Center collections plus the essay/infrastructure pages.
-// Collection labels reuse the collection.* vocabulary the Research Center
-// already translates, rather than opening a second set of names for the same
-// five datasets.
+// The footer is intentionally a compact orientation layer. Detailed collection
+// navigation belongs on the Research hub, where it has context and can evolve
+// without turning every page footer into a site map.
 const RESEARCH_LINKS = (currentPath, locale, t) => {
   const p = (path) => I18N.localizedPath(locale, path);
   const cur = (path) => (currentPath === path ? ' aria-current="page"' : '');
   return [
     ['/essays/', t('shell.footer.essays'), false],
     ['/research/', t('shell.footer.research'), true],
-    [routes.hubPath(), t('collection.directories'), true],
-    [MARKETPLACES_PATH, t('collection.marketplaces'), true],
-    [MEDIA_PATH, t('collection.media'), true],
-    [TENDERS_PATH, t('collection.tenders'), true],
-    [FORUMS_PATH, t('collection.forums'), true],
-    [PLANNER_PATH, t('collection.planner'), true],
-    ['/infrastructure/', t('shell.footer.infrastructure'), false],
-    ['/ai-systems/', t('shell.footer.aiSystems'), false],
-    ['/artificial-intelligence/', t('shell.footer.artificialIntelligence'), false],
   ]
     .map(([href, label, localized]) => `          <li><a href="${localized ? p(href) : href}"${cur(href)}>${label}</a></li>`)
     .join('\n');
@@ -205,12 +183,6 @@ const FOOTER = (currentPath, locale, t) => {
   }
   return `  <footer role="contentinfo">
     <div class="footer-grid">
-      <section id="footer-tools">
-        <h3>${t('shell.footer.products')}</h3>
-        <ul>
-${PRODUCT_LINKS(locale)}
-        </ul>
-      </section>
       <section>
         <h3>${t('shell.footer.researchWriting')}</h3>
         <ul>
@@ -222,7 +194,6 @@ ${RESEARCH_LINKS(currentPath, locale, t)}
         <ul>
           <li><a href="/blog/">${t('shell.footer.blog')}</a></li>
           <li><a href="/articles/">${t('shell.footer.articles')}</a></li>
-          <li><a href="/sitemap.xml">${t('shell.footer.sitemap')}</a></li>
         </ul>
       </section>
       <section>
