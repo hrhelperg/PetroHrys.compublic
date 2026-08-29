@@ -256,13 +256,6 @@ test('the collection is not an orphan: hub cards and sitemap entries exist', () 
   }
 });
 
-test('every generated page footer reaches the collection in its own locale', () => {
-  for (const p of PAGES) {
-    const target = I18N.localizedPath(p.locale, CANONICAL);
-    assert.ok(p.html.includes(`href="${target}"`), `${p.rel} footer misses ${target}`);
-  }
-});
-
 test('the sitemap lists no phantom and no redirect for this collection', () => {
   const sitemap = read('sitemap.xml');
   const urls = [...sitemap.matchAll(/<loc>(https:\/\/petrohrys\.com[^<]*tenders-procurement[^<]*)<\/loc>/g)]

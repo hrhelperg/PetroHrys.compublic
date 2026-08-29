@@ -219,6 +219,7 @@ function buildHubPage(locale) {
     item(p(render.MEDIA_PATH), names.media, c.collections.items.media),
     item(p(render.MARKETPLACES_PATH), names.marketplaces, c.collections.items.marketplaces),
     item(p(render.FORUMS_PATH), names.forums, c.collections.items.forums),
+    item(p(render.TENDERS_PATH), esc(t('collection.tenders')), c.collections.items.tenders),
     // The cross-collection country explorer. Listed here because a page with no
     // inbound link is a page nobody finds: it is in the sitemap, but the hub is
     // where a reader actually looks for a collection.

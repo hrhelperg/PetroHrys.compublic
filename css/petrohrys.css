@@ -504,7 +504,7 @@ footer[role="contentinfo"] {
   max-width: var(--col-footer);
   margin: 0 auto;
   display: grid;
-  grid-template-columns: minmax(0, 1.45fr) minmax(0, 1.25fr) minmax(0, 0.8fr) minmax(0, 0.8fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: var(--s-6);
 }
 @media (max-width: 959px) {

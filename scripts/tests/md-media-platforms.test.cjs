@@ -606,11 +606,8 @@ test('the page does not declare another collection’s feed as its own', () => {
 test('the collection is reachable and is not an orphan', () => {
   const LINK = '/research/media-pr-publishing/';
   assert.strictEqual(render.MEDIA_PATH, seo.buildMediaMeta({ count: 1, countries: 1, p1: 1 }).canonicalPath,
-    'the footer link and the page it points at disagree about the path');
-  // Checked inside the Collections section, not against the whole file. The
-  // first version searched the page, and the footer — which carries the same
-  // link on every page — satisfied it, so deleting the collection from the
-  // Research Center's own list of databases changed nothing this test could see.
+    'the shared media route and canonical path disagree');
+  // Checked inside the Collections section rather than against the whole file.
   const hub = fs.readFileSync(path.join(ROOT, 'research/index.html'), 'utf8');
   const at = hub.indexOf('id="collections"');
   assert.ok(at > -1, 'the Research Center has no Collections section');
@@ -621,23 +618,6 @@ test('the collection is reachable and is not an orphan', () => {
     'the collection is linked from the hub without being named');
   assert.ok(fs.readFileSync(path.join(ROOT, 'sitemap.xml'), 'utf8')
     .includes(`https://petrohrys.com${LINK}`), 'the collection is missing from the sitemap');
-  for (const rel of ['index.html', 'work/index.html', 'research/index.html', 'about/index.html',
-    'de/index.html', 'es/index.html', 'fr/index.html']) {
-    const html = fs.readFileSync(path.join(ROOT, rel), 'utf8');
-    assert.ok(html.slice(html.indexOf('<footer role="contentinfo">')).includes(LINK),
-      `${rel} has no link to the collection in its footer`);
-  }
-  let inbound = 0;
-  const walk = (d) => {
-    for (const e of fs.readdirSync(d, { withFileTypes: true })) {
-      const p = path.join(d, e.name);
-      if (e.isDirectory()) walk(p);
-      else if (e.name === 'index.html' && !p.includes('/media-pr-publishing/')
-        && fs.readFileSync(p, 'utf8').includes(LINK)) inbound += 1;
-    }
-  };
-  walk(path.join(ROOT, 'research'));
-  assert.ok(inbound >= 30, `only ${inbound} pages link the collection; it is effectively unreachable`);
 });
 
 test('the page states the boundary between the three datasets', () => {

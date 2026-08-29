@@ -46,7 +46,7 @@ test('the shell renders in the page\'s own language, not English', () => {
       assert.ok(header.includes(I18N.raw(code, key)),
         `${code}: header is missing ${key} ("${I18N.raw(code, key)}")`);
     }
-    for (const key of ['shell.footer.products', 'shell.footer.legal', 'shell.footer.credit']) {
+    for (const key of ['shell.footer.researchWriting', 'shell.footer.legal', 'shell.footer.credit']) {
       assert.ok(footer.includes(I18N.raw(code, key)),
         `${code}: footer is missing ${key} ("${I18N.raw(code, key)}")`);
     }
@@ -97,7 +97,7 @@ test('a shipped localized page carries a localized shell on disk', () => {
       `${file}: skip link is not in ${code}`);
     assert.ok(html.includes(I18N.raw(code, 'shell.menu')),
       `${file}: mobile menu label is not in ${code}`);
-    assert.ok(html.includes(I18N.raw(code, 'shell.footer.products')),
+    assert.ok(html.includes(I18N.raw(code, 'shell.footer.researchWriting')),
       `${file}: footer heading is not in ${code}`);
   }
 });
@@ -131,12 +131,12 @@ test('the shell refuses to render English into a localized page', () => {
   assert.throws(() => render.HEADER('/research/', 'de'), /HEADER requires a translator/);
 });
 
-test('eSIMky is reachable from the footer of every page that has one', () => {
-  // It was absent from the shared footer entirely while appearing in the
-  // hand-written one — so the product was unreachable from 1,700 generated
-  // pages. A missing product link is a product nobody finds.
-  const t = I18N.translator('en');
-  assert.match(render.FOOTER('/research/', 'en', t), /href="\/esimky\/"/);
+test('the footer stays a compact orientation layer', () => {
+  const footer = render.FOOTER('/research/', 'en', I18N.translator('en'));
+  assert.ok(!footer.includes('id="footer-tools"'), 'the removed product directory returned');
+  assert.ok(!footer.includes('/sitemap.xml'), 'the machine sitemap returned as a visible link');
+  assert.strictEqual((footer.match(/<li>/g) || []).length, 6,
+    'the compact footer should expose exactly six navigation links');
 });
 
 // ── the ratchet ─────────────────────────────────────────────────────────────
