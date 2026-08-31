@@ -801,6 +801,39 @@ test('the second launch-platform batch preserves observed follow behavior', () =
     'Smol Launch was added despite both inspected free listings using nofollow links');
 });
 
+test('the third launch-platform batch keeps free and paid link evidence separate', () => {
+  const expected = new Map([
+    ['md-nick-launches', 'dofollow'],
+    ['md-magicbox-tools', 'dofollow'],
+    ['md-aura-plus-plus', 'nofollow'],
+    ['md-deeplaunch', 'dofollow'],
+    ['md-shinylaunch', 'dofollow'],
+    ['md-tinylaunchpad', 'mixed'],
+    ['md-shipboost', 'mixed'],
+    ['md-indiehunt', 'mixed'],
+    ['md-hunt0', 'dofollow'],
+    ['md-shipybara', 'nofollow'],
+  ]);
+
+  for (const [id, backlinkType] of expected) {
+    const row = ROWS.find((r) => r.id === id);
+    assert.ok(row, `${id} is missing from the media registry`);
+    assert.strictEqual(row.priority, 'P3', `${id} was promoted without independent audience evidence`);
+    assert.strictEqual(row.backlinkType, backlinkType,
+      `${id} no longer matches the inspected listing template`);
+    assert.strictEqual(row.listingIndexability, 'indexable');
+    assert.ok(row.domainRating !== null, `${id} has no measured Ahrefs Domain Rating`);
+    assert.ok(row.backlinkProvenance && row.backlinkProvenance.listingUrl,
+      `${id} has no public evidence page`);
+  }
+
+  for (const id of ['md-aura-plus-plus', 'md-shipybara']) {
+    const row = ROWS.find((r) => r.id === id);
+    assert.match(row.limitations, /no (?:paid follow|Premium) template was independently observed/i,
+      `${id} presents a paid follow promise as observed evidence`);
+  }
+});
+
 test('the mobile card layout keeps filtered rows hidden', () => {
   const css = fs.readFileSync(path.join(ROOT, 'css/business-directories.css'), 'utf8');
   assert.match(css, /\.bd-table \.bd-row\[hidden\]\s*\{\s*display:\s*none;/,

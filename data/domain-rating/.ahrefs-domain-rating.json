@@ -4196,6 +4196,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|auraplusplus.com",
+   "target": "auraplusplus.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 73,
+   "checkedAt": "2026-08-31",
+   "records": [
+    {
+     "collection": "media",
+     "id": "md-aura-plus-plus"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|ausconnect.dfat.gov.au",
    "target": "ausconnect.dfat.gov.au",
    "provider": "Ahrefs",
@@ -17548,6 +17562,20 @@
     {
      "collection": "forums",
      "id": "forum-debmitchell-forumotion-net-forum-f997b53d"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|deeplaunch.io",
+   "target": "deeplaunch.io",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 70,
+   "checkedAt": "2026-08-31",
+   "records": [
+    {
+     "collection": "media",
+     "id": "md-deeplaunch"
     }
    ]
   },
@@ -36382,6 +36410,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|hunt0.com",
+   "target": "hunt0.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 32,
+   "checkedAt": "2026-08-31",
+   "records": [
+    {
+     "collection": "media",
+     "id": "md-hunt0"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|huntthedead.rpg-board.net",
    "target": "huntthedead.rpg-board.net",
    "provider": "Ahrefs",
@@ -37304,6 +37346,20 @@
     {
      "collection": "media",
      "id": "md-indie-hackers"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|indiehunt.io",
+   "target": "indiehunt.io",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 62,
+   "checkedAt": "2026-08-31",
+   "records": [
+    {
+     "collection": "media",
+     "id": "md-indiehunt"
     }
    ]
   },
@@ -42668,6 +42724,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|magicbox.tools",
+   "target": "magicbox.tools",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 68,
+   "checkedAt": "2026-08-31",
+   "records": [
+    {
+     "collection": "media",
+     "id": "md-magicbox-tools"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|magicbricks.com",
    "target": "magicbricks.com",
    "provider": "Ahrefs",
@@ -47942,6 +48012,20 @@
     {
      "collection": "directory-opportunities",
      "id": "us-niche"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|nicklaunches.com",
+   "target": "nicklaunches.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 73,
+   "checkedAt": "2026-08-31",
+   "records": [
+    {
+     "collection": "media",
+     "id": "md-nick-launches"
     }
    ]
   },
@@ -58794,6 +58878,34 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|shinylaunch.com",
+   "target": "shinylaunch.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 55,
+   "checkedAt": "2026-08-31",
+   "records": [
+    {
+     "collection": "media",
+     "id": "md-shinylaunch"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|shipboost.io",
+   "target": "shipboost.io",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 49,
+   "checkedAt": "2026-08-31",
+   "records": [
+    {
+     "collection": "media",
+     "id": "md-shipboost"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|shippudenfaithrpg.rpg-board.net",
    "target": "shippudenfaithrpg.rpg-board.net",
    "provider": "Ahrefs",
@@ -58804,6 +58916,20 @@
     {
      "collection": "forums",
      "id": "forum-shippudenfaithrpg-rpg-board-net-a65ec090"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|shipybara.com",
+   "target": "shipybara.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 52,
+   "checkedAt": "2026-08-31",
+   "records": [
+    {
+     "collection": "media",
+     "id": "md-shipybara"
     }
    ]
   },
@@ -65138,6 +65264,20 @@
     {
      "collection": "media",
      "id": "md-tinylaunch"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|tinylaunchpad.com",
+   "target": "tinylaunchpad.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 45,
+   "checkedAt": "2026-08-31",
+   "records": [
+    {
+     "collection": "media",
+     "id": "md-tinylaunchpad"
     }
    ]
   },

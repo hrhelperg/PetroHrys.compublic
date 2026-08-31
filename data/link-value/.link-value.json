@@ -30411,6 +30411,269 @@
      "indexability": "indexable"
     }
    ]
+  },
+  {
+   "collection": "media",
+   "id": "md-nick-launches",
+   "country": "global",
+   "url": "https://nicklaunches.com",
+   "actionable": true,
+   "key": "link|media|md-nick-launches",
+   "observedAt": "2026-09-01",
+   "state": "RESOLVED",
+   "backlinkType": "dofollow",
+   "linkTargetType": "direct",
+   "listingIndexability": "indexable",
+   "why": "the product page Visit anchor carries only noreferrer and noopener",
+   "templates": [{
+    "listingUrl": "https://nicklaunches.com/products/spacebrain/",
+    "backlinkType": "dofollow",
+    "linkTargetType": "direct",
+    "externalUrl": "https://spacebrain.ai/",
+    "relTokens": ["noreferrer", "noopener"],
+    "anchorText": "Visit",
+    "indexability": "indexable"
+   }]
+  },
+  {
+   "collection": "media",
+   "id": "md-magicbox-tools",
+   "country": "global",
+   "url": "https://magicbox.tools",
+   "actionable": true,
+   "key": "link|media|md-magicbox-tools",
+   "observedAt": "2026-09-01",
+   "state": "RESOLVED",
+   "backlinkType": "dofollow",
+   "linkTargetType": "direct",
+   "listingIndexability": "indexable",
+   "why": "the detail-page Visit anchors carry only noopener and noreferrer",
+   "templates": [{
+    "listingUrl": "https://magicbox.tools/ai/inspia-ai",
+    "backlinkType": "dofollow",
+    "linkTargetType": "direct",
+    "externalUrl": "https://inspia.ai/",
+    "relTokens": ["noopener", "noreferrer"],
+    "anchorText": "Visit",
+    "indexability": "indexable"
+   }]
+  },
+  {
+   "collection": "media",
+   "id": "md-aura-plus-plus",
+   "country": "global",
+   "url": "https://auraplusplus.com",
+   "actionable": true,
+   "key": "link|media|md-aura-plus-plus",
+   "observedAt": "2026-09-01",
+   "state": "RESOLVED",
+   "backlinkType": "nofollow",
+   "linkTargetType": "direct",
+   "listingIndexability": "indexable",
+   "why": "the inspected free project Visit anchor carries nofollow",
+   "templates": [{
+    "listingUrl": "https://auraplusplus.com/projects/aire-software",
+    "backlinkType": "nofollow",
+    "linkTargetType": "direct",
+    "externalUrl": "https://www.aire-realestate.com/aire-feasibility-study-software?utm_source=auraplusplus&utm_medium=project_page&utm_campaign=project_launch&ref=auraplusplus&source=auraplusplus",
+    "relTokens": ["noopener", "nofollow"],
+    "anchorText": "Visit",
+    "indexability": "indexable"
+   }]
+  },
+  {
+   "collection": "media",
+   "id": "md-deeplaunch",
+   "country": "global",
+   "url": "https://deeplaunch.io",
+   "actionable": true,
+   "key": "link|media|md-deeplaunch",
+   "observedAt": "2026-09-01",
+   "state": "RESOLVED",
+   "backlinkType": "dofollow",
+   "linkTargetType": "direct",
+   "listingIndexability": "indexable",
+   "why": "the product page Visit Website anchor has an empty rel attribute",
+   "templates": [{
+    "listingUrl": "https://deeplaunch.io/product/ai-text-cleaner",
+    "backlinkType": "dofollow",
+    "linkTargetType": "direct",
+    "externalUrl": "https://aitextcleaner.pro/",
+    "relTokens": [],
+    "anchorText": "Visit Website",
+    "indexability": "indexable"
+   }]
+  },
+  {
+   "collection": "media",
+   "id": "md-shinylaunch",
+   "country": "global",
+   "url": "https://shinylaunch.com",
+   "actionable": true,
+   "key": "link|media|md-shinylaunch",
+   "observedAt": "2026-09-01",
+   "state": "RESOLVED",
+   "backlinkType": "dofollow",
+   "linkTargetType": "direct",
+   "listingIndexability": "indexable",
+   "why": "the product page Visit anchor carries only noopener and noreferrer",
+   "templates": [{
+    "listingUrl": "https://shinylaunch.com/product/bellqr",
+    "backlinkType": "dofollow",
+    "linkTargetType": "direct",
+    "externalUrl": "https://www.bellqr.app/",
+    "relTokens": ["noopener", "noreferrer"],
+    "anchorText": "Visit",
+    "indexability": "indexable"
+   }]
+  },
+  {
+   "collection": "media",
+   "id": "md-tinylaunchpad",
+   "country": "global",
+   "url": "https://tinylaunchpad.com",
+   "actionable": true,
+   "key": "link|media|md-tinylaunchpad",
+   "observedAt": "2026-09-01",
+   "state": "RESOLVED",
+   "backlinkType": "mixed",
+   "linkTargetType": "direct",
+   "listingIndexability": "indexable",
+   "why": "a winner page is follow while a pending free page is nofollow and noindex",
+   "templates": [
+    {
+     "listingUrl": "https://tinylaunchpad.com/projects/spark7",
+     "backlinkType": "dofollow",
+     "linkTargetType": "direct",
+     "externalUrl": "https://spark7.app/get?utm_source=TinyLaunchpad.com",
+     "relTokens": ["noopener"],
+     "anchorText": "Visit Website",
+     "indexability": "indexable"
+    },
+    {
+     "listingUrl": "https://tinylaunchpad.com/projects/appbanana",
+     "backlinkType": "nofollow",
+     "linkTargetType": "direct",
+     "externalUrl": "https://appbanana.io/?utm_source=TinyLaunchpad.com",
+     "relTokens": ["noopener", "nofollow"],
+     "anchorText": "Visit Website",
+     "indexability": "noindex"
+    }
+   ]
+  },
+  {
+   "collection": "media",
+   "id": "md-shipboost",
+   "country": "global",
+   "url": "https://shipboost.io",
+   "actionable": true,
+   "key": "link|media|md-shipboost",
+   "observedAt": "2026-09-01",
+   "state": "RESOLVED",
+   "backlinkType": "mixed",
+   "linkTargetType": "direct",
+   "listingIndexability": "indexable",
+   "why": "the free listing is nofollow while the editorial launch article is follow",
+   "templates": [
+    {
+     "listingUrl": "https://shipboost.io/blog/funding-predicts-prediction-market-prop-firm",
+     "backlinkType": "dofollow",
+     "linkTargetType": "direct",
+     "externalUrl": "https://fundingpredicts.com/?utm_source=shipboost&utm_medium=referral&utm_campaign=blog_content&utm_content=Visit+Funding+Predicts",
+     "relTokens": ["noreferrer"],
+     "anchorText": "Visit Funding Predicts",
+     "indexability": "indexable"
+    },
+    {
+     "listingUrl": "https://shipboost.io/tools/readless",
+     "backlinkType": "nofollow",
+     "linkTargetType": "direct",
+     "externalUrl": "https://www.readless.app/?utm_source=shipboost&utm_medium=referral&utm_campaign=tool_page&utm_content=readless",
+     "relTokens": ["nofollow", "noopener"],
+     "anchorText": "Visit website",
+     "indexability": "indexable"
+    }
+   ]
+  },
+  {
+   "collection": "media",
+   "id": "md-indiehunt",
+   "country": "global",
+   "url": "https://indiehunt.io",
+   "actionable": true,
+   "key": "link|media|md-indiehunt",
+   "observedAt": "2026-09-01",
+   "state": "RESOLVED",
+   "backlinkType": "mixed",
+   "linkTargetType": "direct",
+   "listingIndexability": "indexable",
+   "why": "Premium and free project pages use different rel attributes",
+   "templates": [
+    {
+     "listingUrl": "https://indiehunt.io/project/url2pin",
+     "backlinkType": "dofollow",
+     "linkTargetType": "direct",
+     "externalUrl": "https://url2pin.com/?utm_source=indiehunt&utm_medium=referral&utm_campaign=project-page&ref=indiehunt",
+     "relTokens": ["noopener"],
+     "anchorText": "Visit website",
+     "indexability": "indexable"
+    },
+    {
+     "listingUrl": "https://indiehunt.io/project/still-cloud",
+     "backlinkType": "nofollow",
+     "linkTargetType": "direct",
+     "externalUrl": "https://stillcloud.app/?utm_source=indiehunt&utm_medium=referral&utm_campaign=project-page&ref=indiehunt",
+     "relTokens": ["nofollow", "noopener"],
+     "anchorText": "Visit website",
+     "indexability": "indexable"
+    }
+   ]
+  },
+  {
+   "collection": "media",
+   "id": "md-hunt0",
+   "country": "global",
+   "url": "https://hunt0.com",
+   "actionable": true,
+   "key": "link|media|md-hunt0",
+   "observedAt": "2026-09-01",
+   "state": "RESOLVED",
+   "backlinkType": "dofollow",
+   "linkTargetType": "direct",
+   "listingIndexability": "indexable",
+   "why": "the zero-vote product page website anchors carry only noopener",
+   "templates": [{
+    "listingUrl": "https://hunt0.com/products/autobacklinks-ai-link-building-outreach-tool",
+    "backlinkType": "dofollow",
+    "linkTargetType": "direct",
+    "externalUrl": "https://www.autobacklinks.ai/",
+    "relTokens": ["noopener"],
+    "anchorText": "Website",
+    "indexability": "indexable"
+   }]
+  },
+  {
+   "collection": "media",
+   "id": "md-shipybara",
+   "country": "global",
+   "url": "https://shipybara.com",
+   "actionable": true,
+   "key": "link|media|md-shipybara",
+   "observedAt": "2026-09-01",
+   "state": "RESOLVED",
+   "backlinkType": "nofollow",
+   "linkTargetType": "direct",
+   "listingIndexability": "indexable",
+   "why": "the inspected free project Visit anchor carries nofollow",
+   "templates": [{
+    "listingUrl": "https://shipybara.com/projects/accesstive",
+    "backlinkType": "nofollow",
+    "linkTargetType": "direct",
+    "externalUrl": "https://accesstive.com/?utm_source=shipybara.com",
+    "relTokens": ["noopener", "nofollow"],
+    "anchorText": "Visit",
+    "indexability": "indexable"
+   }]
   }
  ]
 }
