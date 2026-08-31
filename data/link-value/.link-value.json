@@ -1,5 +1,5 @@
 {
- "probedAt": "2026-08-31",
+ "probedAt": "2026-09-01",
  "findings": [
   {
    "collection": "directories",
@@ -30126,6 +30126,286 @@
      "externalUrl": "https://horizonx.so",
      "relTokens": [
       "noopener"
+     ],
+     "anchorText": "Visit site",
+     "indexability": "indexable"
+    }
+   ]
+  },
+  {
+   "collection": "media",
+   "id": "md-betalist",
+   "country": "netherlands",
+   "url": "https://betalist.com",
+   "actionable": true,
+   "key": "link|media|md-betalist",
+   "observedAt": "2026-09-01",
+   "state": "RESOLVED",
+   "backlinkType": "nofollow",
+   "linkTargetType": "internal-redirect",
+   "listingIndexability": "indexable",
+   "why": "the listing uses an internal Visit Site redirect marked nofollow",
+   "templates": [
+    {
+     "listingUrl": "https://betalist.com/startups/startupforstartups",
+     "backlinkType": "nofollow",
+     "linkTargetType": "internal-redirect",
+     "externalUrl": "https://betalist.com/startups/startupforstartups/visit",
+     "relTokens": [
+      "noopener",
+      "nofollow"
+     ],
+     "anchorText": "Visit Site",
+     "indexability": "indexable"
+    }
+   ]
+  },
+  {
+   "collection": "media",
+   "id": "md-fazier",
+   "country": "united-states",
+   "url": "https://fazier.com",
+   "actionable": true,
+   "key": "link|media|md-fazier",
+   "observedAt": "2026-09-01",
+   "state": "RESOLVED",
+   "backlinkType": "dofollow",
+   "linkTargetType": "direct",
+   "listingIndexability": "indexable",
+   "why": "the product page Visit anchor carries rel=\"noopener\"",
+   "templates": [
+    {
+     "listingUrl": "https://fazier.com/launches/firsto",
+     "backlinkType": "dofollow",
+     "linkTargetType": "direct",
+     "externalUrl": "https://firsto.co?ref=fazier",
+     "relTokens": [
+      "noopener"
+     ],
+     "anchorText": "Visit",
+     "indexability": "indexable"
+    }
+   ]
+  },
+  {
+   "collection": "media",
+   "id": "md-saashub",
+   "country": "bulgaria",
+   "url": "https://www.saashub.com",
+   "actionable": true,
+   "key": "link|media|md-saashub",
+   "observedAt": "2026-09-01",
+   "state": "RESOLVED",
+   "backlinkType": "dofollow",
+   "linkTargetType": "direct",
+   "listingIndexability": "indexable",
+   "why": "the primary product CTA has an empty rel attribute",
+   "templates": [
+    {
+     "listingUrl": "https://www.saashub.com/peerpush",
+     "backlinkType": "dofollow",
+     "linkTargetType": "direct",
+     "externalUrl": "https://peerpush.com/",
+     "relTokens": [],
+     "anchorText": "Visit website",
+     "indexability": "indexable"
+    }
+   ]
+  },
+  {
+   "collection": "media",
+   "id": "md-startupbase",
+   "country": "united-states",
+   "url": "https://startupbase.io",
+   "actionable": true,
+   "key": "link|media|md-startupbase",
+   "observedAt": "2026-09-01",
+   "state": "RESOLVED",
+   "backlinkType": "mixed",
+   "linkTargetType": "direct",
+   "listingIndexability": "indexable",
+   "why": "two product pages use different rel attributes",
+   "templates": [
+    {
+     "listingUrl": "https://startupbase.io/products/liinks",
+     "backlinkType": "dofollow",
+     "linkTargetType": "direct",
+     "externalUrl": "https://liinks.co/?ref=startupbase",
+     "relTokens": [
+      "noopener",
+      "noreferrer"
+     ],
+     "anchorText": "Visit website",
+     "indexability": "indexable"
+    },
+    {
+     "listingUrl": "https://startupbase.io/products/voombat",
+     "backlinkType": "nofollow",
+     "linkTargetType": "direct",
+     "externalUrl": "https://voombat.com?ref=startupbase",
+     "relTokens": [
+      "nofollow",
+      "noopener",
+      "noreferrer"
+     ],
+     "anchorText": "Visit website",
+     "indexability": "indexable"
+    }
+   ]
+  },
+  {
+   "collection": "media",
+   "id": "md-uneed",
+   "country": "france",
+   "url": "https://www.uneed.best",
+   "actionable": true,
+   "key": "link|media|md-uneed",
+   "observedAt": "2026-09-01",
+   "state": "RESOLVED",
+   "backlinkType": "dofollow",
+   "linkTargetType": "direct",
+   "listingIndexability": "indexable",
+   "why": "the product page website anchor carries rel=\"noopener\"",
+   "templates": [
+    {
+     "listingUrl": "https://www.uneed.best/tool/launchsaas",
+     "backlinkType": "dofollow",
+     "linkTargetType": "direct",
+     "externalUrl": "https://launchsaas.org/?ref=uneed.best&ref_type=adv",
+     "relTokens": [
+      "noopener"
+     ],
+     "anchorText": "Visit website",
+     "indexability": "indexable"
+    }
+   ]
+  },
+  {
+   "collection": "media",
+   "id": "md-toolfound",
+   "country": "global",
+   "url": "https://toolfound.com",
+   "actionable": true,
+   "key": "link|media|md-toolfound",
+   "observedAt": "2026-09-01",
+   "state": "RESOLVED",
+   "backlinkType": "dofollow",
+   "linkTargetType": "direct",
+   "listingIndexability": "indexable",
+   "why": "the listing Visit anchor carries rel=\"noopener\"",
+   "templates": [
+    {
+     "listingUrl": "https://toolfound.com/tool/awstats",
+     "backlinkType": "dofollow",
+     "linkTargetType": "direct",
+     "externalUrl": "https://www.awstats.org/",
+     "relTokens": [
+      "noopener"
+     ],
+     "anchorText": "Visit awstats.org",
+     "indexability": "indexable"
+    }
+   ]
+  },
+  {
+   "collection": "media",
+   "id": "md-startup-fame",
+   "country": "global",
+   "url": "https://startupfa.me",
+   "actionable": true,
+   "key": "link|media|md-startup-fame",
+   "observedAt": "2026-09-01",
+   "state": "RESOLVED",
+   "backlinkType": "dofollow",
+   "linkTargetType": "direct",
+   "listingIndexability": "indexable",
+   "why": "the verified startup page website anchors carry no rel token",
+   "templates": [
+    {
+     "listingUrl": "https://startupfa.me/s/twinphone",
+     "backlinkType": "dofollow",
+     "linkTargetType": "direct",
+     "externalUrl": "https://twin-phone.com/?utm_source=startupfa.me&utm_medium=referral&utm_campaign=verified",
+     "relTokens": [],
+     "anchorText": "Visit website",
+     "indexability": "indexable"
+    }
+   ]
+  },
+  {
+   "collection": "media",
+   "id": "md-firsto",
+   "country": "global",
+   "url": "https://firsto.co",
+   "actionable": true,
+   "key": "link|media|md-firsto",
+   "observedAt": "2026-09-01",
+   "state": "RESOLVED",
+   "backlinkType": "mixed",
+   "linkTargetType": "direct",
+   "listingIndexability": "indexable",
+   "why": "two project pages use different rel attributes",
+   "templates": [
+    {
+     "listingUrl": "https://firsto.co/projects/fromflow",
+     "backlinkType": "dofollow",
+     "linkTargetType": "direct",
+     "externalUrl": "https://fromflow.dev",
+     "relTokens": [
+      "noopener"
+     ],
+     "anchorText": "Visit website",
+     "indexability": "indexable"
+    },
+    {
+     "listingUrl": "https://firsto.co/projects/cardshopdir",
+     "backlinkType": "nofollow",
+     "linkTargetType": "direct",
+     "externalUrl": "https://cardshopdir.com/",
+     "relTokens": [
+      "noopener",
+      "nofollow"
+     ],
+     "anchorText": "Visit website",
+     "indexability": "indexable"
+    }
+   ]
+  },
+  {
+   "collection": "media",
+   "id": "md-earlyhunt",
+   "country": "global",
+   "url": "https://earlyhunt.com",
+   "actionable": true,
+   "key": "link|media|md-earlyhunt",
+   "observedAt": "2026-09-01",
+   "state": "RESOLVED",
+   "backlinkType": "mixed",
+   "linkTargetType": "direct",
+   "listingIndexability": "indexable",
+   "why": "Premium and free project pages use different rel attributes",
+   "templates": [
+    {
+     "listingUrl": "https://earlyhunt.com/project/realcostlabs",
+     "backlinkType": "dofollow",
+     "linkTargetType": "direct",
+     "externalUrl": "https://realcostlabs.com/?utm_source=earlyhunt&utm_medium=referral&utm_campaign=project_page&ref=earlyhunt",
+     "relTokens": [
+      "noopener",
+      "noreferrer"
+     ],
+     "anchorText": "Visit site",
+     "indexability": "indexable"
+    },
+    {
+     "listingUrl": "https://earlyhunt.com/project/nebs-dev",
+     "backlinkType": "nofollow",
+     "linkTargetType": "direct",
+     "externalUrl": "https://www.nebs-dev.com/?utm_source=earlyhunt&utm_medium=referral&utm_campaign=project_page&ref=earlyhunt",
+     "relTokens": [
+      "nofollow",
+      "noopener",
+      "noreferrer"
      ],
      "anchorText": "Visit site",
      "indexability": "indexable"

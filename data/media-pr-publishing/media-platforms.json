@@ -1961,15 +1961,28 @@
   "mediaKitUrl": null,
   "contactUrl": null,
   "editorialContact": null,
-  "publicProfileAvailable": null,
-  "requiresEditorialApproval": null,
+  "publicProfileAvailable": true,
+  "requiresEditorialApproval": true,
   "sponsoredContentAvailable": null,
   "shortNote": "Early-stage startup discovery aimed at pre-launch and beta products, with a submission queue and a paid option to skip it.",
-  "limitations": "Free submissions wait in a queue; paid submissions are published sooner. Best fit for genuinely early products.",
-  "lastVerified": "2026-08-07",
+  "limitations": "Free submissions wait in a queue and paid submissions are published sooner. The inspected listing sends its Visit Site control through an internal BetaList redirect marked nofollow, so this is not a follow-link opportunity.",
+  "lastVerified": "2026-09-01",
   "sources": [
-   "https://betalist.com/submit"
+   "https://betalist.com/submit",
+   "https://betalist.com/startups/startupforstartups"
   ],
+  "backlinkType": "nofollow",
+  "linkTargetType": "internal-redirect",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://betalist.com/startups/startupforstartups",
+   "externalUrl": "https://betalist.com/startups/startupforstartups/visit",
+   "relTokens": [
+    "noopener",
+    "nofollow"
+   ],
+   "observedAt": "2026-09-01"
+  },
   "domainRating": 76,
   "metricsProvenance": {
    "domainRating": {
@@ -7007,22 +7020,34 @@
    "product-launch"
   ],
   "costModel": "freemium",
-  "submissionUrl": null,
+  "submissionUrl": "https://fazier.com/submit",
   "pitchUrl": null,
   "pressReleaseUrl": null,
   "advertisingUrl": null,
   "mediaKitUrl": null,
   "contactUrl": null,
   "editorialContact": null,
-  "publicProfileAvailable": null,
-  "requiresEditorialApproval": null,
+  "publicProfileAvailable": true,
+  "requiresEditorialApproval": true,
   "sponsoredContentAvailable": null,
   "shortNote": "A launch board for new products with weekly and monthly leaderboards.",
-  "limitations": "Small audience relative to Product Hunt; useful as one stop in a launch sequence rather than the whole of it.",
-  "lastVerified": "2026-08-07",
+  "limitations": "The free Basic route requires a reciprocal badge and may wait up to 30 days. A direct follow link was observed on an indexable product page; Fazier separately advertised $29 Lite and $49 Premium launch tiers when checked. Traffic and conversion claims were not independently measured.",
+  "lastVerified": "2026-09-01",
   "sources": [
-   "https://fazier.com/"
+   "https://fazier.com/launches/firsto",
+   "https://fazier.com/submit"
   ],
+  "backlinkType": "dofollow",
+  "linkTargetType": "direct",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://fazier.com/launches/firsto",
+   "externalUrl": "https://firsto.co?ref=fazier",
+   "relTokens": [
+    "noopener"
+   ],
+   "observedAt": "2026-09-01"
+  },
   "domainRating": 82,
   "metricsProvenance": {
    "domainRating": {
@@ -16548,22 +16573,32 @@
    "product-launch"
   ],
   "costModel": "freemium",
-  "submissionUrl": null,
+  "submissionUrl": "https://www.saashub.com/services/submit",
   "pitchUrl": null,
   "pressReleaseUrl": null,
   "advertisingUrl": null,
   "mediaKitUrl": null,
   "contactUrl": null,
   "editorialContact": null,
-  "publicProfileAvailable": null,
-  "requiresEditorialApproval": null,
+  "publicProfileAvailable": true,
+  "requiresEditorialApproval": true,
   "sponsoredContentAvailable": null,
   "shortNote": "A software alternatives and discovery site where a product gets a persistent profile page alongside competitors.",
-  "limitations": "The profile is the durable asset; the launch is secondary. Overlaps software review directories.",
-  "lastVerified": "2026-08-07",
+  "limitations": "The profile is the durable asset and the launch is secondary. The primary Visit website button on the inspected product profile was a direct follow link, while several secondary and duplicate controls on the same page were marked nofollow. Do not treat every outbound surface as equivalent.",
+  "lastVerified": "2026-09-01",
   "sources": [
-   "https://www.saashub.com/"
+   "https://www.saashub.com/peerpush",
+   "https://www.saashub.com/services/submit"
   ],
+  "backlinkType": "dofollow",
+  "linkTargetType": "direct",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://www.saashub.com/peerpush",
+   "externalUrl": "https://peerpush.com/",
+   "relTokens": [],
+   "observedAt": "2026-09-01"
+  },
   "domainRating": 80,
   "metricsProvenance": {
    "domainRating": {
@@ -17981,22 +18016,42 @@
    "startup-launch"
   ],
   "costModel": "freemium",
-  "submissionUrl": null,
+  "submissionUrl": "https://startupbase.io/submit",
   "pitchUrl": null,
   "pressReleaseUrl": null,
   "advertisingUrl": null,
   "mediaKitUrl": null,
   "contactUrl": null,
   "editorialContact": null,
-  "publicProfileAvailable": null,
-  "requiresEditorialApproval": null,
+  "publicProfileAvailable": true,
+  "requiresEditorialApproval": true,
   "sponsoredContentAvailable": null,
   "shortNote": "A daily launch and discovery board for new products, requiring an account to submit.",
-  "limitations": "Smaller audience than Product Hunt.",
-  "lastVerified": "2026-08-07",
+  "limitations": "Observed product pages were mixed: one primary website CTA was follow and another was nofollow. StartupBase says free launches enter a queue while paid launches start at $39 and carry permanent follow links. Do not assume the free tier receives follow treatment.",
+  "lastVerified": "2026-09-01",
   "sources": [
+   "https://startupbase.io/about",
+   "https://startupbase.io/products/liinks",
+   "https://startupbase.io/products/voombat",
    "https://startupbase.io/submit"
   ],
+  "backlinkType": "mixed",
+  "linkTargetType": "direct",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://startupbase.io/products/liinks",
+   "observedAt": "2026-09-01",
+   "templates": [
+    {
+     "listingUrl": "https://startupbase.io/products/liinks",
+     "backlinkType": "dofollow"
+    },
+    {
+     "listingUrl": "https://startupbase.io/products/voombat",
+     "backlinkType": "nofollow"
+    }
+   ]
+  },
   "domainRating": 71,
   "metricsProvenance": {
    "domainRating": {
@@ -21116,15 +21171,27 @@
   "mediaKitUrl": null,
   "contactUrl": null,
   "editorialContact": null,
-  "publicProfileAvailable": null,
-  "requiresEditorialApproval": null,
+  "publicProfileAvailable": true,
+  "requiresEditorialApproval": true,
   "sponsoredContentAvailable": null,
   "shortNote": "A launch board for tools and SaaS products. The submission form pre-fills from the product page before an account is needed.",
-  "limitations": "Free listings queue; paid slots are promoted.",
-  "lastVerified": "2026-08-07",
+  "limitations": "Free listings enter a queue and paid options accelerate publication or promotion. A direct follow website link was observed on an indexable product page. No traffic, ranking or conversion outcome is guaranteed.",
+  "lastVerified": "2026-09-01",
   "sources": [
-   "https://uneed.best/submit-a-tool"
+   "https://www.uneed.best/submit-a-tool",
+   "https://www.uneed.best/tool/launchsaas"
   ],
+  "backlinkType": "dofollow",
+  "linkTargetType": "direct",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://www.uneed.best/tool/launchsaas",
+   "externalUrl": "https://launchsaas.org/?ref=uneed.best&ref_type=adv",
+   "relTokens": [
+    "noopener"
+   ],
+   "observedAt": "2026-09-01"
+  },
   "domainRating": 75,
   "metricsProvenance": {
    "domainRating": {
@@ -22851,6 +22918,274 @@
     "measuredAt": "2026-08-31",
     "status": "publicApiReading",
     "measuredDomain": "launchfree.io"
+   }
+  }
+ },
+ {
+  "id": "md-toolfound",
+  "name": "Toolfound",
+  "website": "https://toolfound.com",
+  "country": "global",
+  "audienceGeography": "global",
+  "categories": [
+   "startup-launch-platform"
+  ],
+  "industries": [
+   "ai",
+   "saas",
+   "software"
+  ],
+  "languages": [
+   "en"
+  ],
+  "currentStatus": "active",
+  "priority": "P3",
+  "opportunityTypes": [
+   "company-profile",
+   "product-launch",
+   "sponsored-content"
+  ],
+  "costModel": "mixed",
+  "submissionUrl": "https://toolfound.com/submit",
+  "pitchUrl": null,
+  "pressReleaseUrl": null,
+  "advertisingUrl": "https://toolfound.com/advertise",
+  "mediaKitUrl": null,
+  "contactUrl": null,
+  "editorialContact": null,
+  "publicProfileAvailable": true,
+  "requiresEditorialApproval": true,
+  "sponsoredContentAvailable": true,
+  "shortNote": "A transparent software index and launch board with free submissions, domain ownership verification and permanent product pages.",
+  "limitations": "A direct follow link was observed on an indexable listing. Toolfound says launching is free for its founding cohort and follow treatment is not conditioned on a badge or payment; sponsored rails are separately marked sponsored and nofollow. The platform is young, so traffic and conversion value remain unproven.",
+  "lastVerified": "2026-09-01",
+  "sources": [
+   "https://toolfound.com/",
+   "https://toolfound.com/methodology",
+   "https://toolfound.com/tool/awstats"
+  ],
+  "backlinkType": "dofollow",
+  "linkTargetType": "direct",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://toolfound.com/tool/awstats",
+   "externalUrl": "https://www.awstats.org/",
+   "relTokens": [
+    "noopener"
+   ],
+   "observedAt": "2026-09-01"
+  },
+  "domainRating": 3,
+  "metricsProvenance": {
+   "domainRating": {
+    "provider": "Ahrefs",
+    "measuredAt": "2026-08-31",
+    "status": "publicApiReading",
+    "measuredDomain": "toolfound.com"
+   }
+  }
+ },
+ {
+  "id": "md-startup-fame",
+  "name": "Startup Fame",
+  "website": "https://startupfa.me",
+  "country": "global",
+  "audienceGeography": "global",
+  "categories": [
+   "startup-launch-platform"
+  ],
+  "industries": [
+   "ai",
+   "saas",
+   "software"
+  ],
+  "languages": [
+   "en"
+  ],
+  "currentStatus": "active",
+  "priority": "P3",
+  "opportunityTypes": [
+   "company-profile",
+   "product-launch",
+   "startup-launch"
+  ],
+  "costModel": "freemium",
+  "submissionUrl": "https://startupfa.me/submit",
+  "pitchUrl": null,
+  "pressReleaseUrl": null,
+  "advertisingUrl": null,
+  "mediaKitUrl": null,
+  "contactUrl": null,
+  "editorialContact": null,
+  "publicProfileAvailable": true,
+  "requiresEditorialApproval": true,
+  "sponsoredContentAvailable": null,
+  "shortNote": "A curated startup directory with dedicated company pages and a free badge-verified publication route.",
+  "limitations": "A direct follow website link was observed on the badge-verified TwinPhone listing. The free route requires a reciprocal badge and review; Highlight was $19 per month and Spotlight $149 per month when checked. Secondary user-supplied links on the same page carried ugc.",
+  "lastVerified": "2026-09-01",
+  "sources": [
+   "https://startupfa.me/pricing",
+   "https://startupfa.me/s/twinphone",
+   "https://startupfa.me/submit"
+  ],
+  "backlinkType": "dofollow",
+  "linkTargetType": "direct",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://startupfa.me/s/twinphone",
+   "externalUrl": "https://twin-phone.com/?utm_source=startupfa.me&utm_medium=referral&utm_campaign=verified",
+   "relTokens": [],
+   "observedAt": "2026-09-01"
+  },
+  "domainRating": 83,
+  "metricsProvenance": {
+   "domainRating": {
+    "provider": "Ahrefs",
+    "measuredAt": "2026-08-31",
+    "status": "publicApiReading",
+    "measuredDomain": "startupfa.me"
+   }
+  }
+ },
+ {
+  "id": "md-firsto",
+  "name": "Firsto",
+  "website": "https://firsto.co",
+  "country": "global",
+  "audienceGeography": "global",
+  "categories": [
+   "startup-launch-platform"
+  ],
+  "industries": [
+   "ai",
+   "saas",
+   "software"
+  ],
+  "languages": [
+   "en"
+  ],
+  "currentStatus": "active",
+  "priority": "P3",
+  "opportunityTypes": [
+   "product-launch",
+   "sponsored-content",
+   "startup-launch"
+  ],
+  "costModel": "freemium",
+  "submissionUrl": "https://firsto.co/projects/submit",
+  "pitchUrl": null,
+  "pressReleaseUrl": null,
+  "advertisingUrl": "https://firsto.co/sponsor",
+  "mediaKitUrl": null,
+  "contactUrl": null,
+  "editorialContact": null,
+  "publicProfileAvailable": true,
+  "requiresEditorialApproval": true,
+  "sponsoredContentAvailable": true,
+  "shortNote": "A daily product launch board with permanent project pages, categories, rankings and free or paid scheduling.",
+  "limitations": "Observed project pages were mixed: one website link was follow and another was nofollow. The free queue was approximately 180 days and offered follow treatment only to eligible top-three projects with a badge; the $19.90 Premium tier advertised a guaranteed follow link when checked.",
+  "lastVerified": "2026-09-01",
+  "sources": [
+   "https://firsto.co/pricing",
+   "https://firsto.co/projects/cardshopdir",
+   "https://firsto.co/projects/fromflow"
+  ],
+  "backlinkType": "mixed",
+  "linkTargetType": "direct",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://firsto.co/projects/fromflow",
+   "observedAt": "2026-09-01",
+   "templates": [
+    {
+     "listingUrl": "https://firsto.co/projects/fromflow",
+     "backlinkType": "dofollow"
+    },
+    {
+     "listingUrl": "https://firsto.co/projects/cardshopdir",
+     "backlinkType": "nofollow"
+    }
+   ]
+  },
+  "domainRating": 55,
+  "metricsProvenance": {
+   "domainRating": {
+    "provider": "Ahrefs",
+    "measuredAt": "2026-08-31",
+    "status": "publicApiReading",
+    "measuredDomain": "firsto.co"
+   }
+  }
+ },
+ {
+  "id": "md-earlyhunt",
+  "name": "EarlyHunt",
+  "website": "https://earlyhunt.com",
+  "country": "global",
+  "audienceGeography": "global",
+  "categories": [
+   "ai-media",
+   "startup-launch-platform"
+  ],
+  "industries": [
+   "ai",
+   "saas",
+   "software"
+  ],
+  "languages": [
+   "en"
+  ],
+  "currentStatus": "active",
+  "priority": "P3",
+  "opportunityTypes": [
+   "product-launch",
+   "sponsored-content",
+   "startup-launch"
+  ],
+  "costModel": "freemium",
+  "submissionUrl": "https://earlyhunt.com/submit",
+  "pitchUrl": null,
+  "pressReleaseUrl": null,
+  "advertisingUrl": "https://earlyhunt.com/advertising",
+  "mediaKitUrl": null,
+  "contactUrl": "https://earlyhunt.com/contact",
+  "editorialContact": null,
+  "publicProfileAvailable": true,
+  "requiresEditorialApproval": true,
+  "sponsoredContentAvailable": true,
+  "shortNote": "A weekly launch competition for AI products and indie software with permanent project pages and launch stories.",
+  "limitations": "Observed pages were mixed: a Premium listing carried a direct follow website link while a free listing was nofollow. The free badge tier can earn follow treatment only by finishing in the top three; Premium was $19 one time with guaranteed follow treatment when checked.",
+  "lastVerified": "2026-09-01",
+  "sources": [
+   "https://earlyhunt.com/help",
+   "https://earlyhunt.com/pricing",
+   "https://earlyhunt.com/project/nebs-dev",
+   "https://earlyhunt.com/project/realcostlabs"
+  ],
+  "backlinkType": "mixed",
+  "linkTargetType": "direct",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://earlyhunt.com/project/realcostlabs",
+   "observedAt": "2026-09-01",
+   "templates": [
+    {
+     "listingUrl": "https://earlyhunt.com/project/realcostlabs",
+     "backlinkType": "dofollow"
+    },
+    {
+     "listingUrl": "https://earlyhunt.com/project/nebs-dev",
+     "backlinkType": "nofollow"
+    }
+   ]
+  },
+  "domainRating": 62,
+  "metricsProvenance": {
+   "domainRating": {
+    "provider": "Ahrefs",
+    "measuredAt": "2026-08-31",
+    "status": "publicApiReading",
+    "measuredDomain": "earlyhunt.com"
    }
   }
  }
