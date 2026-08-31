@@ -77,7 +77,7 @@ jobs:
 
     steps:
       - name: Check out main
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           ref: main
           # Full history: the promotion step compares against main, and a
@@ -85,7 +85,7 @@ jobs:
           fetch-depth: 0
 
       - name: Set up Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           # The project has no package.json and no dependencies by design.
           # Node 20 is the floor for the fetch() and zlib APIs the ingester uses.
@@ -94,7 +94,7 @@ jobs:
       - name: Baseline tests
         # If the repository is already broken, a refresh must not run. This is
         # cheap (~5s) and prevents a bad main from being blamed on the data.
-        run: node --test "scripts/tests/*.test.cjs"
+        run: node --test scripts/tests/*.test.cjs
 
       - name: Refresh sources
         id: refresh
@@ -122,7 +122,7 @@ jobs:
         # The full suite again, now against the refreshed data. This is the
         # gate that decides whether the new corpus is publishable: schema,
         # provenance, dedup, lot safety, PII, determinism, canonical drift.
-        run: node --test "scripts/tests/*.test.cjs"
+        run: node --test scripts/tests/*.test.cjs
 
       - name: Determinism check
         if: ${{ !inputs.dry_run }}
