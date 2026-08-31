@@ -1,5 +1,5 @@
 {
- "probedAt": "2026-08-21",
+ "probedAt": "2026-08-31",
  "findings": [
   {
    "collection": "directories",
@@ -29886,6 +29886,251 @@
    "observedAt": "2026-08-21",
    "state": "UNREADABLE",
    "why": "the listing pages could not be read"
+  },
+  {
+   "collection": "media",
+   "id": "md-peerpush",
+   "country": "global",
+   "url": "https://peerpush.com",
+   "actionable": true,
+   "key": "link|media|md-peerpush",
+   "observedAt": "2026-08-31",
+   "state": "RESOLVED",
+   "backlinkType": "dofollow",
+   "linkTargetType": "direct",
+   "listingIndexability": "indexable",
+   "why": "the product page website anchor carries rel=\"noopener\"",
+   "templates": [
+    {
+     "listingUrl": "https://peerpush.com/p/founderbest",
+     "backlinkType": "dofollow",
+     "linkTargetType": "direct",
+     "externalUrl": "https://www.founder.best/?utm_source=peerpush&ref=peerpush",
+     "relTokens": [
+      "noopener"
+     ],
+     "anchorText": "Visit website",
+     "indexability": "indexable"
+    }
+   ]
+  },
+  {
+   "collection": "media",
+   "id": "md-codehype",
+   "country": "global",
+   "url": "https://www.codehype.ai",
+   "actionable": true,
+   "key": "link|media|md-codehype",
+   "observedAt": "2026-08-31",
+   "state": "RESOLVED",
+   "backlinkType": "mixed",
+   "linkTargetType": "direct",
+   "listingIndexability": "indexable",
+   "why": "verified and unverified product pages use different rel attributes",
+   "templates": [
+    {
+     "listingUrl": "https://www.codehype.ai/product/buildrship",
+     "backlinkType": "nofollow",
+     "linkTargetType": "direct",
+     "externalUrl": "https://buildrship.xyz",
+     "relTokens": [
+      "nofollow",
+      "noopener",
+      "noreferrer"
+     ],
+     "anchorText": "Visit",
+     "indexability": "indexable"
+    },
+    {
+     "listingUrl": "https://www.codehype.ai/product/cursor",
+     "backlinkType": "dofollow",
+     "linkTargetType": "direct",
+     "externalUrl": "https://cursor.com",
+     "relTokens": [
+      "noopener",
+      "noreferrer"
+     ],
+     "anchorText": "Visit",
+     "indexability": "indexable"
+    }
+   ]
+  },
+  {
+   "collection": "media",
+   "id": "md-launchit",
+   "country": "global",
+   "url": "https://www.launchit.site",
+   "actionable": true,
+   "key": "link|media|md-launchit",
+   "observedAt": "2026-08-31",
+   "state": "RESOLVED",
+   "backlinkType": "nofollow",
+   "linkTargetType": "direct",
+   "listingIndexability": "indexable",
+   "why": "the inspected free product page website anchor carries nofollow",
+   "templates": [
+    {
+     "listingUrl": "https://www.launchit.site/launches/artist-kit",
+     "backlinkType": "nofollow",
+     "linkTargetType": "direct",
+     "externalUrl": "https://www.artistkit.co/?utm_source=launchit&utm_medium=referral&utm_campaign=project_launch",
+     "relTokens": [
+      "nofollow",
+      "noopener"
+     ],
+     "anchorText": "Visit Website",
+     "indexability": "indexable"
+    }
+   ]
+  },
+  {
+   "collection": "media",
+   "id": "md-openhunts",
+   "country": "global",
+   "url": "https://openhunts.com",
+   "actionable": true,
+   "key": "link|media|md-openhunts",
+   "observedAt": "2026-08-31",
+   "state": "RESOLVED",
+   "backlinkType": "dofollow",
+   "linkTargetType": "direct",
+   "listingIndexability": "indexable",
+   "why": "the highlighted product page website anchor carries rel=\"noopener\"",
+   "templates": [
+    {
+     "listingUrl": "https://openhunts.com/projects/gorules",
+     "backlinkType": "dofollow",
+     "linkTargetType": "direct",
+     "externalUrl": "https://gorules.io?ref=openhunts",
+     "relTokens": [
+      "noopener"
+     ],
+     "anchorText": "Visit",
+     "indexability": "indexable"
+    }
+   ]
+  },
+  {
+   "collection": "media",
+   "id": "md-betterlaunch",
+   "country": "global",
+   "url": "https://www.betterlaunch.co",
+   "actionable": true,
+   "key": "link|media|md-betterlaunch",
+   "observedAt": "2026-08-31",
+   "state": "RESOLVED",
+   "backlinkType": "dofollow",
+   "linkTargetType": "direct",
+   "listingIndexability": "indexable",
+   "why": "the inspected product page website anchor carries rel=\"noopener\"",
+   "templates": [
+    {
+     "listingUrl": "https://www.betterlaunch.co/product/calmcompliance",
+     "backlinkType": "dofollow",
+     "linkTargetType": "direct",
+     "externalUrl": "https://www.calmcompliance.com/?utm_source=betterlaunch.co&utm_medium=referral",
+     "relTokens": [
+      "noopener"
+     ],
+     "anchorText": "Visit Website",
+     "indexability": "indexable"
+    }
+   ]
+  },
+  {
+   "collection": "media",
+   "id": "md-launchzone",
+   "country": "global",
+   "url": "https://launchzone.co",
+   "actionable": true,
+   "key": "link|media|md-launchzone",
+   "observedAt": "2026-08-31",
+   "state": "RESOLVED",
+   "backlinkType": "dofollow",
+   "linkTargetType": "direct",
+   "listingIndexability": "indexable",
+   "why": "the primary product website button carries rel=\"noopener\"",
+   "templates": [
+    {
+     "listingUrl": "https://launchzone.co/p/aisa",
+     "backlinkType": "dofollow",
+     "linkTargetType": "direct",
+     "externalUrl": "https://aisa.to?utm_source=launchzone.co&utm_medium=referral&utm_campaign=launchzone_product_click",
+     "relTokens": [
+      "noopener"
+     ],
+     "anchorText": "Visit",
+     "indexability": "indexable"
+    }
+   ]
+  },
+  {
+   "collection": "media",
+   "id": "md-founder-best",
+   "country": "global",
+   "url": "https://www.founder.best",
+   "actionable": true,
+   "key": "link|media|md-founder-best",
+   "observedAt": "2026-08-31",
+   "state": "RESOLVED",
+   "backlinkType": "mixed",
+   "linkTargetType": "direct",
+   "listingIndexability": "indexable",
+   "why": "product pages use different rel attributes by listing",
+   "templates": [
+    {
+     "listingUrl": "https://www.founder.best/products/focusstack",
+     "backlinkType": "dofollow",
+     "linkTargetType": "direct",
+     "externalUrl": "https://usefocusstack.com/?ref=founderbest",
+     "relTokens": [
+      "noopener",
+      "noreferrer"
+     ],
+     "anchorText": "Visit FocusStack website",
+     "indexability": "indexable"
+    },
+    {
+     "listingUrl": "https://www.founder.best/products/agentreacher",
+     "backlinkType": "nofollow",
+     "linkTargetType": "direct",
+     "externalUrl": "https://agentreacher.com/?ref=founderbest",
+     "relTokens": [
+      "nofollow",
+      "noopener",
+      "noreferrer"
+     ],
+     "anchorText": "Visit AgentReacher website",
+     "indexability": "indexable"
+    }
+   ]
+  },
+  {
+   "collection": "media",
+   "id": "md-launchfree",
+   "country": "global",
+   "url": "https://launchfree.io",
+   "actionable": true,
+   "key": "link|media|md-launchfree",
+   "observedAt": "2026-08-31",
+   "state": "RESOLVED",
+   "backlinkType": "dofollow",
+   "linkTargetType": "direct",
+   "listingIndexability": "indexable",
+   "why": "the product page website anchor carries rel=\"noopener\"",
+   "templates": [
+    {
+     "listingUrl": "https://launchfree.io/listings/horizonx.html",
+     "backlinkType": "dofollow",
+     "linkTargetType": "direct",
+     "externalUrl": "https://horizonx.so",
+     "relTokens": [
+      "noopener"
+     ],
+     "anchorText": "Visit site",
+     "indexability": "indexable"
+    }
+   ]
   }
  ]
 }

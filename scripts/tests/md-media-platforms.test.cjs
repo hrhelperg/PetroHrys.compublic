@@ -752,3 +752,29 @@ test('a local-language publication is not labelled English', () => {
     }
   }
 });
+
+test('the affordable launch-platform batch stays qualified by observed link evidence', () => {
+  const ids = ['md-betterlaunch', 'md-codehype', 'md-founder-best', 'md-launchfree',
+    'md-launchit', 'md-launchzone', 'md-openhunts', 'md-peerpush'];
+  for (const id of ids) {
+    const row = ROWS.find((r) => r.id === id);
+    assert.ok(row, `${id} is missing from the media registry`);
+    assert.strictEqual(row.priority, 'P3', `${id} was promoted without independent audience evidence`);
+    assert.ok(row.submissionUrl, `${id} has no actionable submission route`);
+    assert.ok(row.backlinkType, `${id} has no observed link type`);
+    assert.ok(row.backlinkProvenance && row.backlinkProvenance.listingUrl,
+      `${id} has no public evidence page`);
+    assert.strictEqual(row.listingIndexability, 'indexable',
+      `${id} no longer has an observed indexable evidence page`);
+  }
+  assert.strictEqual(ROWS.find((r) => r.id === 'md-peerpush').backlinkType, 'dofollow');
+  assert.strictEqual(ROWS.find((r) => r.id === 'md-launchit').backlinkType, 'nofollow');
+  assert.strictEqual(ROWS.find((r) => r.id === 'md-codehype').backlinkType, 'mixed');
+  assert.strictEqual(ROWS.find((r) => r.id === 'md-founder-best').backlinkType, 'mixed');
+});
+
+test('the mobile card layout keeps filtered rows hidden', () => {
+  const css = fs.readFileSync(path.join(ROOT, 'css/business-directories.css'), 'utf8');
+  assert.match(css, /\.bd-table \.bd-row\[hidden\]\s*\{\s*display:\s*none;/,
+    'the mobile display:block rule overrides filtered rows');
+});

@@ -257,7 +257,7 @@ test('M25 APPLIED -> CAUGHT -> RESTORED: Forum existence cannot create Planner R
   assert.ok(!/data\/forums|forums\.json|sourceCollection:\s*['"]forums/.test(src));
   const P = require('../lib/distribution-planner.cjs');
   const projected = P.project(P.loadAll());
-  assert.equal(projected.length, 2432);
+  assert.equal(projected.length, 2440);
   assert.ok(projected.every((x) => x.sourceCollection !== 'forums'));
 });
 

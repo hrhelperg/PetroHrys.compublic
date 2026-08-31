@@ -1,5 +1,5 @@
 {
- "derivedAt": "2026-08-21",
+ "derivedAt": "2026-08-31",
  "note": "Derived from existing link-value findings. Not canonical. No record is promoted: FOLLOW appears only where a public external anchor was observed.",
  "states": [
   "VERIFIED_FOLLOW",
@@ -14134,6 +14134,70 @@
    "canonicalLinkType": null,
    "evidenceState": "PUBLIC_LISTING_DISCOVERED_NOT_READ",
    "listingIndexability": null
+  },
+  {
+   "id": "md-peerpush",
+   "collection": "media",
+   "country": "global",
+   "canonicalLinkType": "dofollow",
+   "evidenceState": "VERIFIED_FOLLOW",
+   "listingIndexability": "indexable"
+  },
+  {
+   "id": "md-codehype",
+   "collection": "media",
+   "country": "global",
+   "canonicalLinkType": "mixed",
+   "evidenceState": "VERIFIED_MIXED",
+   "listingIndexability": "indexable"
+  },
+  {
+   "id": "md-launchit",
+   "collection": "media",
+   "country": "global",
+   "canonicalLinkType": "nofollow",
+   "evidenceState": "VERIFIED_NOFOLLOW",
+   "listingIndexability": "indexable"
+  },
+  {
+   "id": "md-openhunts",
+   "collection": "media",
+   "country": "global",
+   "canonicalLinkType": "dofollow",
+   "evidenceState": "VERIFIED_FOLLOW",
+   "listingIndexability": "indexable"
+  },
+  {
+   "id": "md-betterlaunch",
+   "collection": "media",
+   "country": "global",
+   "canonicalLinkType": "dofollow",
+   "evidenceState": "VERIFIED_FOLLOW",
+   "listingIndexability": "indexable"
+  },
+  {
+   "id": "md-launchzone",
+   "collection": "media",
+   "country": "global",
+   "canonicalLinkType": "dofollow",
+   "evidenceState": "VERIFIED_FOLLOW",
+   "listingIndexability": "indexable"
+  },
+  {
+   "id": "md-founder-best",
+   "collection": "media",
+   "country": "global",
+   "canonicalLinkType": "mixed",
+   "evidenceState": "VERIFIED_MIXED",
+   "listingIndexability": "indexable"
+  },
+  {
+   "id": "md-launchfree",
+   "collection": "media",
+   "country": "global",
+   "canonicalLinkType": "dofollow",
+   "evidenceState": "VERIFIED_FOLLOW",
+   "listingIndexability": "indexable"
   }
  ]
 }

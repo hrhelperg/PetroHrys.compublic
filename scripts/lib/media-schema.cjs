@@ -341,6 +341,7 @@ function problemsFor(row, knownCountries) {
   // See the note in mp-schema.cjs: the ban became a rule when collection was
   // unfrozen, so a measured rating is admitted and an invented one is not.
   for (const [field, reason] of BD.domainRatingProblems(row)) at(field, reason);
+  for (const [field, reason] of BD.backlinkProblems(row)) at(field, reason);
   // Internal workflow state belongs in nobody's public CSV.
   for (const priv of ['assignedTo', 'internalNote', 'workflowStatus', 'submittedAt',
     'followUpDate', 'owner', 'contactedOn']) {

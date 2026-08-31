@@ -1,5 +1,5 @@
 {
- "probedAt": "2026-08-27",
+ "probedAt": "2026-08-31",
  "provider": "Ahrefs",
  "freshDays": 90,
  "findings": [
@@ -5924,6 +5924,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|betterlaunch.co",
+   "target": "betterlaunch.co",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 58,
+   "checkedAt": "2026-08-31",
+   "records": [
+    {
+     "collection": "media",
+     "id": "md-betterlaunch"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|beyondmenu.com",
    "target": "beyondmenu.com",
    "provider": "Ahrefs",
@@ -11718,6 +11732,20 @@
     {
      "collection": "forums",
      "id": "forum-codegolf-stackexchange-com-71439220"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|codehype.ai",
+   "target": "codehype.ai",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 12,
+   "checkedAt": "2026-08-31",
+   "records": [
+    {
+     "collection": "media",
+     "id": "md-codehype"
     }
    ]
   },
@@ -31328,6 +31356,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|founder.best",
+   "target": "founder.best",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 37,
+   "checkedAt": "2026-08-31",
+   "records": [
+    {
+     "collection": "media",
+     "id": "md-founder-best"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|foundit.in",
    "target": "foundit.in",
    "provider": "Ahrefs",
@@ -41154,6 +41196,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|launchfree.io",
+   "target": "launchfree.io",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 3,
+   "checkedAt": "2026-08-31",
+   "records": [
+    {
+     "collection": "media",
+     "id": "md-launchfree"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|launchingnext.com",
    "target": "launchingnext.com",
    "provider": "Ahrefs",
@@ -41168,6 +41224,34 @@
     {
      "collection": "media",
      "id": "md-launching-next"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|launchit.site",
+   "target": "launchit.site",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 45,
+   "checkedAt": "2026-08-31",
+   "records": [
+    {
+     "collection": "media",
+     "id": "md-launchit"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|launchzone.co",
+   "target": "launchzone.co",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 52,
+   "checkedAt": "2026-08-31",
+   "records": [
+    {
+     "collection": "media",
+     "id": "md-launchzone"
     }
    ]
   },
@@ -50086,6 +50170,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|openhunts.com",
+   "target": "openhunts.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 70,
+   "checkedAt": "2026-08-31",
+   "records": [
+    {
+     "collection": "media",
+     "id": "md-openhunts"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|openinfra.org",
    "target": "openinfra.org",
    "provider": "Ahrefs",
@@ -51530,6 +51628,20 @@
     {
      "collection": "media",
      "id": "md-peerlist"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|peerpush.com",
+   "target": "peerpush.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 73,
+   "checkedAt": "2026-08-31",
+   "records": [
+    {
+     "collection": "media",
+     "id": "md-peerpush"
     }
    ]
   },
