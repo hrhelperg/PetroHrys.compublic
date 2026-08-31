@@ -140,6 +140,8 @@ const COLUMNS = ['id', 'name', 'website', 'country', 'audience_geography', 'cate
   'industries', 'languages', 'opportunity_types', 'cost_model', 'priority', 'current_status',
   'submission_url', 'pitch_url', 'press_release_url', 'advertising_url', 'media_kit_url',
   'requires_editorial_approval', 'sponsored_content_available',
+  'backlink_type', 'link_target_type', 'listing_page_indexability',
+  'link_evidence_url', 'link_evidence_checked_at',
   // Derived columns. Computed at export time, never stored on a record, and
   // deliberately only four: the CSV is an employee work queue, not a dump of
   // every internal dimension.
@@ -185,6 +187,9 @@ function renderCsv(rows) {
       r.industries, r.languages, r.opportunityTypes, r.costModel, r.priority, r.currentStatus,
       r.submissionUrl, r.pitchUrl, r.pressReleaseUrl, r.advertisingUrl, r.mediaKitUrl,
       bool(r.requiresEditorialApproval), bool(r.sponsoredContentAvailable),
+      r.backlinkType, r.linkTargetType, r.listingIndexability,
+      r.backlinkProvenance && r.backlinkProvenance.listingUrl,
+      r.backlinkProvenance && r.backlinkProvenance.observedAt,
       scoreOf(r).score ?? '', scoreOf(r).band ?? '', MI.publishingModel(r), bestForOf(r),
       r.shortNote, r.limitations, r.lastVerified].map(csvField).join(','));
   }
@@ -347,6 +352,15 @@ function renderMain(rows, countryName, t) {
   // honour it, exactly like the sort.
   const minDrControl = c.minDomainRatingControl({ idPrefix: 'md', rows });
   const minDr = minDrControl ? `\n${minDrControl}` : '';
+  const linkType = c.linkTypeControl({ idPrefix: 'md', rows });
+  const listingPage = c.listingPageControl({ idPrefix: 'md', rows });
+  const linkLabel = (r) => {
+    if (r.backlinkType === 'dofollow') return t('bd.linkType.follow');
+    if (['nofollow', 'ugc', 'sponsored'].includes(r.backlinkType)) return t('bd.linkType.restricted');
+    if (r.backlinkType === 'mixed') return t('bd.linkType.mixed');
+    if (r.backlinkType === 'none') return t('bd.linkType.none');
+    return t('bd.linkType.unknown');
+  };
 
   const tableRows = rows.map((r) => {
     const typeText = r.opportunityTypes.map((x) => t(`opportunity.${x}`)).join(', ');
@@ -357,6 +371,8 @@ function renderMain(rows, countryName, t) {
     return `          <tr class="bd-row" data-bd-name="${escapeHtml(r.name)}" `
       + `data-bd-haystack="${escapeHtml(haystack)}" `
       + `data-bd-dr="${escapeHtml(drAttr(r))}" `
+      + `data-bd-link-type="${escapeHtml(r.backlinkType || '')}" `
+      + `data-bd-listing-page="${escapeHtml(r.listingIndexability || '')}" `
       + `data-bd-facet-country="${escapeHtml(r.country)}" `
       + `data-bd-facet-audience="${escapeHtml(r.audienceGeography)}" `
       + `data-bd-facet-category="${escapeHtml(r.categories.join(' '))}" `
@@ -369,7 +385,8 @@ function renderMain(rows, countryName, t) {
       + `data-bd-facet-actionability="${escapeHtml(readinessOf(r))}" `
       + `data-bd-facet-band="${escapeHtml(scoreOf(r).band || 'unscored')}" `
       + `data-bd-facet-bestfor="${escapeHtml(bestForOf(r).join(' '))}">
-            <td class="bd-cell" data-bd-label="${escapeHtml(t('col.platform'))}"><a href="${escapeHtml(r.website)}" rel="noopener noreferrer" target="_blank">${escapeHtml(r.name)}</a></td>
+            <td class="bd-cell" data-bd-label="${escapeHtml(t('col.platform'))}"><a href="${escapeHtml(r.website)}" rel="noopener noreferrer" target="_blank">${escapeHtml(r.name)}</a>${r.backlinkType
+    ? ` <span class="bd-metric">${escapeHtml(linkLabel(r))}</span>` : ''}</td>
             <td class="bd-cell" data-bd-label="${escapeHtml(t('col.country'))}">${escapeHtml(countryName(r.country))}</td>
             <td class="bd-cell" data-bd-label="${escapeHtml(t('col.audience'))}">${escapeHtml(t(`geo.${r.audienceGeography}`))}</td>
             <td class="bd-cell" data-bd-label="${escapeHtml(t('col.category'))}">${escapeHtml(catText)}</td>
@@ -437,6 +454,8 @@ ${facet({ name: 'category', t, label: t('md.f.category'), values: rows.flatMap((
 ${facet({ name: 'industry', t, label: t('md.f.industry'), values: rows.flatMap((r) => r.industries), labels: industryLabels, multi: true })}
 ${facet({ name: 'opportunity', t, label: t('md.f.opportunity'), values: rows.flatMap((r) => r.opportunityTypes), labels: Object.fromEntries(MD.OPPORTUNITY_TYPES.map((x) => [x, t(`opportunity.${x}`)])), multi: true })}
 ${facet({ name: 'cost', t, label: t('col.cost'), values: rows.map((r) => r.costModel), labels: Object.fromEntries(MD.COST_MODELS.map((x) => [x, t(`cost.${x}`)])) })}
+${linkType}
+${listingPage}
 ${facet({ name: 'language', t, label: t('md.f.language'), values: rows.flatMap((r) => r.languages), labels: languageLabels, multi: true })}
 ${facet({ name: 'priority', t, label: t('md.f.priority'), values: rows.map((r) => r.priority), labels: Object.fromEntries(['P1', 'P2', 'P3', 'hold'].map((x) => [x, t(`priority.${x}`)])) })}
 ${facet({ name: 'status', t, label: t('col.status'), values: rows.map((r) => r.currentStatus), labels: Object.fromEntries(['active', 'unknown'].map((x) => [x, t(`currentStatus.${x}`)])) })}

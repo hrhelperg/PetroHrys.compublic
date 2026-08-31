@@ -22335,5 +22335,523 @@
     "measuredDomain": "zf.ro"
    }
   }
+ },
+ {
+  "id": "md-peerpush",
+  "name": "PeerPush",
+  "website": "https://peerpush.com",
+  "country": "global",
+  "audienceGeography": "global",
+  "categories": [
+   "startup-launch-platform"
+  ],
+  "industries": [
+   "ai",
+   "saas",
+   "software"
+  ],
+  "languages": [
+   "en"
+  ],
+  "currentStatus": "active",
+  "priority": "P3",
+  "opportunityTypes": [
+   "product-launch",
+   "startup-launch"
+  ],
+  "costModel": "freemium",
+  "submissionUrl": "https://peerpush.com/submit",
+  "pitchUrl": null,
+  "pressReleaseUrl": null,
+  "advertisingUrl": null,
+  "mediaKitUrl": null,
+  "contactUrl": null,
+  "editorialContact": null,
+  "publicProfileAvailable": true,
+  "requiresEditorialApproval": true,
+  "sponsoredContentAvailable": null,
+  "shortNote": "A Product Hunt-style launch and discovery platform with permanent product pages and free queued submissions.",
+  "limitations": "The free route waits in the publishing queue; the Basic instant-publishing option was $39 when checked. A direct follow link was observed on an organic product page, while sponsored placements use sponsored and nofollow attributes. Domain authority and referral traffic were not independently measured.",
+  "lastVerified": "2026-08-31",
+  "sources": [
+   "https://peerpush.com/how-it-works",
+   "https://peerpush.com/p/founderbest",
+   "https://peerpush.com/pricing"
+  ],
+  "backlinkType": "dofollow",
+  "linkTargetType": "direct",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://peerpush.com/p/founderbest",
+   "externalUrl": "https://www.founder.best/?utm_source=peerpush&ref=peerpush",
+   "relTokens": [
+    "noopener"
+   ],
+   "observedAt": "2026-08-31"
+  },
+  "domainRating": 73,
+  "metricsProvenance": {
+   "domainRating": {
+    "provider": "Ahrefs",
+    "measuredAt": "2026-08-31",
+    "status": "publicApiReading",
+    "measuredDomain": "peerpush.com"
+   }
+  }
+ },
+ {
+  "id": "md-codehype",
+  "name": "CodeHype",
+  "website": "https://www.codehype.ai",
+  "country": "global",
+  "audienceGeography": "global",
+  "categories": [
+   "ai-media",
+   "startup-launch-platform"
+  ],
+  "industries": [
+   "ai",
+   "devops",
+   "saas",
+   "software"
+  ],
+  "languages": [
+   "en"
+  ],
+  "currentStatus": "active",
+  "priority": "P3",
+  "opportunityTypes": [
+   "product-launch",
+   "startup-launch"
+  ],
+  "costModel": "freemium",
+  "submissionUrl": "https://www.codehype.ai/submit",
+  "pitchUrl": null,
+  "pressReleaseUrl": null,
+  "advertisingUrl": null,
+  "mediaKitUrl": null,
+  "contactUrl": null,
+  "editorialContact": null,
+  "publicProfileAvailable": true,
+  "requiresEditorialApproval": true,
+  "sponsoredContentAvailable": null,
+  "shortNote": "A human-reviewed launch platform for SaaS, AI products, agents and developer tools, with scheduled launch dates.",
+  "limitations": "Link treatment varies by listing: an unverified product page was nofollow while a verified example was follow. The free plan requires a verified CodeHype badge to retain follow treatment; permanent follow plans were $15 and $25 one time when checked.",
+  "lastVerified": "2026-08-31",
+  "sources": [
+   "https://www.codehype.ai/pricing",
+   "https://www.codehype.ai/product-hunt-alternative",
+   "https://www.codehype.ai/submit"
+  ],
+  "backlinkType": "mixed",
+  "linkTargetType": "direct",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://www.codehype.ai/product/buildrship",
+   "observedAt": "2026-08-31",
+   "templates": [
+    {
+     "listingUrl": "https://www.codehype.ai/product/buildrship",
+     "backlinkType": "nofollow"
+    },
+    {
+     "listingUrl": "https://www.codehype.ai/product/cursor",
+     "backlinkType": "dofollow"
+    }
+   ]
+  },
+  "domainRating": 12,
+  "metricsProvenance": {
+   "domainRating": {
+    "provider": "Ahrefs",
+    "measuredAt": "2026-08-31",
+    "status": "publicApiReading",
+    "measuredDomain": "codehype.ai"
+   }
+  }
+ },
+ {
+  "id": "md-launchit",
+  "name": "Launchit",
+  "website": "https://www.launchit.site",
+  "country": "global",
+  "audienceGeography": "global",
+  "categories": [
+   "startup-launch-platform"
+  ],
+  "industries": [
+   "ai",
+   "saas",
+   "software"
+  ],
+  "languages": [
+   "en"
+  ],
+  "currentStatus": "active",
+  "priority": "P3",
+  "opportunityTypes": [
+   "product-launch",
+   "startup-launch"
+  ],
+  "costModel": "freemium",
+  "submissionUrl": "https://www.launchit.site/submit",
+  "pitchUrl": null,
+  "pressReleaseUrl": null,
+  "advertisingUrl": null,
+  "mediaKitUrl": null,
+  "contactUrl": null,
+  "editorialContact": null,
+  "publicProfileAvailable": true,
+  "requiresEditorialApproval": true,
+  "sponsoredContentAvailable": null,
+  "shortNote": "A startup launch directory for indie makers, SaaS products and AI tools, with free and one-time paid plans.",
+  "limitations": "The inspected unverified Free listing used nofollow. Launchit says a verified reciprocal badge unlocks one follow link; the $9 one-time plan advertised five permanent follow links. Treat paid link acquisition as a search-policy risk, not guaranteed ranking value.",
+  "lastVerified": "2026-08-31",
+  "sources": [
+   "https://www.launchit.site/launches/artist-kit",
+   "https://www.launchit.site/pricing",
+   "https://www.launchit.site/submit"
+  ],
+  "backlinkType": "nofollow",
+  "linkTargetType": "direct",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://www.launchit.site/launches/artist-kit",
+   "externalUrl": "https://www.artistkit.co/?utm_source=launchit&utm_medium=referral&utm_campaign=project_launch",
+   "relTokens": [
+    "nofollow",
+    "noopener"
+   ],
+   "observedAt": "2026-08-31"
+  },
+  "domainRating": 45,
+  "metricsProvenance": {
+   "domainRating": {
+    "provider": "Ahrefs",
+    "measuredAt": "2026-08-31",
+    "status": "publicApiReading",
+    "measuredDomain": "launchit.site"
+   }
+  }
+ },
+ {
+  "id": "md-openhunts",
+  "name": "OpenHunts",
+  "website": "https://openhunts.com",
+  "country": "global",
+  "audienceGeography": "global",
+  "categories": [
+   "startup-launch-platform"
+  ],
+  "industries": [
+   "ai",
+   "saas",
+   "software"
+  ],
+  "languages": [
+   "en"
+  ],
+  "currentStatus": "active",
+  "priority": "P3",
+  "opportunityTypes": [
+   "product-launch",
+   "startup-launch"
+  ],
+  "costModel": "freemium",
+  "submissionUrl": "https://openhunts.com/projects/submit",
+  "pitchUrl": null,
+  "pressReleaseUrl": null,
+  "advertisingUrl": null,
+  "mediaKitUrl": null,
+  "contactUrl": null,
+  "editorialContact": null,
+  "publicProfileAvailable": true,
+  "requiresEditorialApproval": true,
+  "sponsoredContentAvailable": null,
+  "shortNote": "A launch and discovery board for makers and developers with voting, product pages and free or paid scheduling.",
+  "limitations": "The free queue was approximately 100 weeks and only a top-three free launch earned follow treatment when checked. The $9.90 Premium plan guaranteed it; the inspected Highlight listing had a direct follow link. Prices and queues can change quickly.",
+  "lastVerified": "2026-08-31",
+  "sources": [
+   "https://openhunts.com/pricing",
+   "https://openhunts.com/projects/gorules",
+   "https://openhunts.com/projects/submit"
+  ],
+  "backlinkType": "dofollow",
+  "linkTargetType": "direct",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://openhunts.com/projects/gorules",
+   "externalUrl": "https://gorules.io?ref=openhunts",
+   "relTokens": [
+    "noopener"
+   ],
+   "observedAt": "2026-08-31"
+  },
+  "domainRating": 70,
+  "metricsProvenance": {
+   "domainRating": {
+    "provider": "Ahrefs",
+    "measuredAt": "2026-08-31",
+    "status": "publicApiReading",
+    "measuredDomain": "openhunts.com"
+   }
+  }
+ },
+ {
+  "id": "md-betterlaunch",
+  "name": "BetterLaunch",
+  "website": "https://www.betterlaunch.co",
+  "country": "global",
+  "audienceGeography": "global",
+  "categories": [
+   "startup-launch-platform"
+  ],
+  "industries": [
+   "ai",
+   "saas",
+   "software"
+  ],
+  "languages": [
+   "en"
+  ],
+  "currentStatus": "active",
+  "priority": "P3",
+  "opportunityTypes": [
+   "product-launch",
+   "startup-launch"
+  ],
+  "costModel": "freemium",
+  "submissionUrl": "https://www.betterlaunch.co/submit",
+  "pitchUrl": null,
+  "pressReleaseUrl": null,
+  "advertisingUrl": null,
+  "mediaKitUrl": null,
+  "contactUrl": null,
+  "editorialContact": null,
+  "publicProfileAvailable": true,
+  "requiresEditorialApproval": true,
+  "sponsoredContentAvailable": null,
+  "shortNote": "An editorial product launch directory for indie founders with free delayed launches and one-time featured plans.",
+  "limitations": "The free plan is nofollow unless the product wins the week or adds a verified badge. A direct follow link was observed on a product page; the guaranteed follow Starter plan was $24 one time when checked. Domain authority claims were not independently verified.",
+  "lastVerified": "2026-08-31",
+  "sources": [
+   "https://www.betterlaunch.co/pricing",
+   "https://www.betterlaunch.co/product/calmcompliance",
+   "https://www.betterlaunch.co/submit"
+  ],
+  "backlinkType": "dofollow",
+  "linkTargetType": "direct",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://www.betterlaunch.co/product/calmcompliance",
+   "externalUrl": "https://www.calmcompliance.com/?utm_source=betterlaunch.co&utm_medium=referral",
+   "relTokens": [
+    "noopener"
+   ],
+   "observedAt": "2026-08-31"
+  },
+  "domainRating": 58,
+  "metricsProvenance": {
+   "domainRating": {
+    "provider": "Ahrefs",
+    "measuredAt": "2026-08-31",
+    "status": "publicApiReading",
+    "measuredDomain": "betterlaunch.co"
+   }
+  }
+ },
+ {
+  "id": "md-launchzone",
+  "name": "LaunchZone",
+  "website": "https://launchzone.co",
+  "country": "global",
+  "audienceGeography": "global",
+  "categories": [
+   "startup-launch-platform"
+  ],
+  "industries": [
+   "ai",
+   "saas",
+   "software"
+  ],
+  "languages": [
+   "en"
+  ],
+  "currentStatus": "active",
+  "priority": "P3",
+  "opportunityTypes": [
+   "product-launch",
+   "startup-launch"
+  ],
+  "costModel": "freemium",
+  "submissionUrl": "https://launchzone.co/dashboard/submit",
+  "pitchUrl": null,
+  "pressReleaseUrl": null,
+  "advertisingUrl": null,
+  "mediaKitUrl": null,
+  "contactUrl": null,
+  "editorialContact": null,
+  "publicProfileAvailable": true,
+  "requiresEditorialApproval": true,
+  "sponsoredContentAvailable": null,
+  "shortNote": "A weekly product launch platform with permanent product pages, community voting and optional visibility boosts.",
+  "limitations": "The primary website button on the inspected product page was follow, while links inside user-written description copy were marked nofollow and ugc. Free follow treatment requires platform verification; paid boosts are optional and do not establish traffic quality.",
+  "lastVerified": "2026-08-31",
+  "sources": [
+   "https://launchzone.co/p/aisa",
+   "https://launchzone.co/pricing",
+   "https://launchzone.co/product-hunt-alternative"
+  ],
+  "backlinkType": "dofollow",
+  "linkTargetType": "direct",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://launchzone.co/p/aisa",
+   "externalUrl": "https://aisa.to?utm_source=launchzone.co&utm_medium=referral&utm_campaign=launchzone_product_click",
+   "relTokens": [
+    "noopener"
+   ],
+   "observedAt": "2026-08-31"
+  },
+  "domainRating": 52,
+  "metricsProvenance": {
+   "domainRating": {
+    "provider": "Ahrefs",
+    "measuredAt": "2026-08-31",
+    "status": "publicApiReading",
+    "measuredDomain": "launchzone.co"
+   }
+  }
+ },
+ {
+  "id": "md-founder-best",
+  "name": "Founder.best",
+  "website": "https://www.founder.best",
+  "country": "global",
+  "audienceGeography": "global",
+  "categories": [
+   "startup-launch-platform"
+  ],
+  "industries": [
+   "ai",
+   "saas",
+   "software"
+  ],
+  "languages": [
+   "en"
+  ],
+  "currentStatus": "active",
+  "priority": "P3",
+  "opportunityTypes": [
+   "product-launch",
+   "startup-launch"
+  ],
+  "costModel": "freemium",
+  "submissionUrl": "https://www.founder.best/submit",
+  "pitchUrl": null,
+  "pressReleaseUrl": null,
+  "advertisingUrl": null,
+  "mediaKitUrl": null,
+  "contactUrl": null,
+  "editorialContact": null,
+  "publicProfileAvailable": true,
+  "requiresEditorialApproval": true,
+  "sponsoredContentAvailable": null,
+  "shortNote": "A weekly startup launch board with founder profiles, product updates and free or low-cost launch plans.",
+  "limitations": "Observed product pages were mixed: one direct website link was follow and another was nofollow. The $2.99 Standard plan advertised follow treatment; the free launch starts from week four and requires approval. Do not assume every listing has the same link attribute.",
+  "lastVerified": "2026-08-31",
+  "sources": [
+   "https://www.founder.best/pricing",
+   "https://www.founder.best/products/agentreacher",
+   "https://www.founder.best/products/focusstack"
+  ],
+  "backlinkType": "mixed",
+  "linkTargetType": "direct",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://www.founder.best/products/focusstack",
+   "observedAt": "2026-08-31",
+   "templates": [
+    {
+     "listingUrl": "https://www.founder.best/products/focusstack",
+     "backlinkType": "dofollow"
+    },
+    {
+     "listingUrl": "https://www.founder.best/products/agentreacher",
+     "backlinkType": "nofollow"
+    }
+   ]
+  },
+  "domainRating": 37,
+  "metricsProvenance": {
+   "domainRating": {
+    "provider": "Ahrefs",
+    "measuredAt": "2026-08-31",
+    "status": "publicApiReading",
+    "measuredDomain": "founder.best"
+   }
+  }
+ },
+ {
+  "id": "md-launchfree",
+  "name": "LaunchFree.io",
+  "website": "https://launchfree.io",
+  "country": "global",
+  "audienceGeography": "global",
+  "categories": [
+   "startup-launch-platform"
+  ],
+  "industries": [
+   "ai",
+   "saas",
+   "software"
+  ],
+  "languages": [
+   "en"
+  ],
+  "currentStatus": "active",
+  "priority": "P3",
+  "opportunityTypes": [
+   "product-launch",
+   "startup-launch"
+  ],
+  "costModel": "free",
+  "submissionUrl": "https://launchfree.io/submit.html",
+  "pitchUrl": null,
+  "pressReleaseUrl": null,
+  "advertisingUrl": null,
+  "mediaKitUrl": null,
+  "contactUrl": null,
+  "editorialContact": null,
+  "publicProfileAvailable": true,
+  "requiresEditorialApproval": true,
+  "sponsoredContentAvailable": null,
+  "shortNote": "A free human-reviewed launch directory with permanent product pages across SaaS, AI and other product categories.",
+  "limitations": "A direct follow link and indexable product page were observed. The platform is young and its traffic and domain authority were not independently measured, so treat it as a low-cost citation rather than a proven acquisition channel.",
+  "lastVerified": "2026-08-31",
+  "sources": [
+   "https://launchfree.io/listings/horizonx.html",
+   "https://launchfree.io/submit.html"
+  ],
+  "backlinkType": "dofollow",
+  "linkTargetType": "direct",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://launchfree.io/listings/horizonx.html",
+   "externalUrl": "https://horizonx.so",
+   "relTokens": [
+    "noopener"
+   ],
+   "observedAt": "2026-08-31"
+  },
+  "domainRating": 3,
+  "metricsProvenance": {
+   "domainRating": {
+    "provider": "Ahrefs",
+    "measuredAt": "2026-08-31",
+    "status": "publicApiReading",
+    "measuredDomain": "launchfree.io"
+   }
+  }
  }
 ]

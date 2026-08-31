@@ -342,6 +342,9 @@
     padding: var(--s-2);
     margin-bottom: var(--s-2);
   }
+  /* Author-level display rules outrank the browser's built-in [hidden] rule.
+     Keep filtered rows out of the mobile card stack as well as the desktop table. */
+  .bd-table .bd-row[hidden] { display: none; }
   .bd-table .bd-cell {
     display: flex;
     justify-content: space-between;
