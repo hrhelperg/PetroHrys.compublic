@@ -773,6 +773,34 @@ test('the affordable launch-platform batch stays qualified by observed link evid
   assert.strictEqual(ROWS.find((r) => r.id === 'md-founder-best').backlinkType, 'mixed');
 });
 
+test('the second launch-platform batch preserves observed follow behavior', () => {
+  const expected = new Map([
+    ['md-toolfound', 'dofollow'],
+    ['md-startup-fame', 'dofollow'],
+    ['md-firsto', 'mixed'],
+    ['md-earlyhunt', 'mixed'],
+    ['md-fazier', 'dofollow'],
+    ['md-uneed', 'dofollow'],
+    ['md-startupbase', 'mixed'],
+    ['md-saashub', 'dofollow'],
+    ['md-betalist', 'nofollow'],
+  ]);
+
+  for (const [id, backlinkType] of expected) {
+    const row = ROWS.find((r) => r.id === id);
+    assert.ok(row, `${id} is missing from the media registry`);
+    assert.strictEqual(row.backlinkType, backlinkType,
+      `${id} no longer matches the observed link behavior`);
+    assert.strictEqual(row.listingIndexability, 'indexable',
+      `${id} no longer has an observed indexable evidence page`);
+    assert.ok(row.backlinkProvenance && row.backlinkProvenance.listingUrl,
+      `${id} has no public evidence page`);
+  }
+
+  assert.strictEqual(ROWS.some((r) => MD.hostOf(r.website) === 'smollaunch.com'), false,
+    'Smol Launch was added despite both inspected free listings using nofollow links');
+});
+
 test('the mobile card layout keeps filtered rows hidden', () => {
   const css = fs.readFileSync(path.join(ROOT, 'css/business-directories.css'), 'utf8');
   assert.match(css, /\.bd-table \.bd-row\[hidden\]\s*\{\s*display:\s*none;/,

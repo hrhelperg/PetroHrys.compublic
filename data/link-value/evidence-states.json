@@ -11355,9 +11355,9 @@
    "id": "md-betalist",
    "collection": "media",
    "country": "netherlands",
-   "canonicalLinkType": null,
-   "evidenceState": "NO_PUBLIC_LISTING_DISCOVERED",
-   "listingIndexability": null
+   "canonicalLinkType": "nofollow",
+   "evidenceState": "VERIFIED_NOFOLLOW",
+   "listingIndexability": "indexable"
   },
   {
    "id": "md-bisnow",
@@ -12019,9 +12019,9 @@
    "id": "md-fazier",
    "collection": "media",
    "country": "united-states",
-   "canonicalLinkType": null,
-   "evidenceState": "NO_PUBLIC_LISTING_DISCOVERED",
-   "listingIndexability": null
+   "canonicalLinkType": "dofollow",
+   "evidenceState": "VERIFIED_FOLLOW",
+   "listingIndexability": "indexable"
   },
   {
    "id": "md-featured",
@@ -13347,9 +13347,9 @@
    "id": "md-saashub",
    "collection": "media",
    "country": "bulgaria",
-   "canonicalLinkType": null,
-   "evidenceState": "PUBLIC_LISTING_DISCOVERED_NOT_READ",
-   "listingIndexability": null
+   "canonicalLinkType": "dofollow",
+   "evidenceState": "VERIFIED_FOLLOW",
+   "listingIndexability": "indexable"
   },
   {
    "id": "md-saastr",
@@ -13547,9 +13547,9 @@
    "id": "md-startupbase",
    "collection": "media",
    "country": "united-states",
-   "canonicalLinkType": null,
-   "evidenceState": "NO_PUBLIC_LISTING_DISCOVERED",
-   "listingIndexability": null
+   "canonicalLinkType": "mixed",
+   "evidenceState": "VERIFIED_MIXED",
+   "listingIndexability": "indexable"
   },
   {
    "id": "md-startupi",
@@ -13963,9 +13963,9 @@
    "id": "md-uneed",
    "collection": "media",
    "country": "france",
-   "canonicalLinkType": null,
-   "evidenceState": "PUBLIC_LISTING_DISCOVERED_NOT_READ",
-   "listingIndexability": null
+   "canonicalLinkType": "dofollow",
+   "evidenceState": "VERIFIED_FOLLOW",
+   "listingIndexability": "indexable"
   },
   {
    "id": "md-unite-ai",
@@ -14197,6 +14197,38 @@
    "country": "global",
    "canonicalLinkType": "dofollow",
    "evidenceState": "VERIFIED_FOLLOW",
+   "listingIndexability": "indexable"
+  },
+  {
+   "id": "md-toolfound",
+   "collection": "media",
+   "country": "global",
+   "canonicalLinkType": "dofollow",
+   "evidenceState": "VERIFIED_FOLLOW",
+   "listingIndexability": "indexable"
+  },
+  {
+   "id": "md-startup-fame",
+   "collection": "media",
+   "country": "global",
+   "canonicalLinkType": "dofollow",
+   "evidenceState": "VERIFIED_FOLLOW",
+   "listingIndexability": "indexable"
+  },
+  {
+   "id": "md-firsto",
+   "collection": "media",
+   "country": "global",
+   "canonicalLinkType": "mixed",
+   "evidenceState": "VERIFIED_MIXED",
+   "listingIndexability": "indexable"
+  },
+  {
+   "id": "md-earlyhunt",
+   "collection": "media",
+   "country": "global",
+   "canonicalLinkType": "mixed",
+   "evidenceState": "VERIFIED_MIXED",
    "listingIndexability": "indexable"
   }
  ]
