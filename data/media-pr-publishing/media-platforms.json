@@ -23188,5 +23188,674 @@
     "measuredDomain": "earlyhunt.com"
    }
   }
+ },
+ {
+  "id": "md-nick-launches",
+  "name": "Nick Launches",
+  "website": "https://nicklaunches.com",
+  "country": "global",
+  "audienceGeography": "global",
+  "categories": [
+   "startup-launch-platform"
+  ],
+  "industries": [
+   "ai",
+   "saas",
+   "software"
+  ],
+  "languages": [
+   "en"
+  ],
+  "currentStatus": "active",
+  "priority": "P3",
+  "opportunityTypes": [
+   "product-launch",
+   "startup-launch"
+  ],
+  "costModel": "freemium",
+  "submissionUrl": "https://nicklaunches.com/submit/",
+  "pitchUrl": null,
+  "pressReleaseUrl": null,
+  "advertisingUrl": null,
+  "mediaKitUrl": null,
+  "contactUrl": null,
+  "editorialContact": null,
+  "publicProfileAvailable": true,
+  "requiresEditorialApproval": true,
+  "sponsoredContentAvailable": false,
+  "shortNote": "A weekly product launch board with voting, permanent product pages and a free badge-verified launch route.",
+  "limitations": "A direct follow Visit link was observed on an indexable product page. The documented free route requires a live reciprocal badge and admin review; paid launch options are separate. Audience and conversion claims were not independently verified.",
+  "lastVerified": "2026-09-01",
+  "sources": [
+   "https://nicklaunches.com/",
+   "https://nicklaunches.com/docs/mcp/tools/submit-product/",
+   "https://nicklaunches.com/products/spacebrain/",
+   "https://nicklaunches.com/submit/"
+  ],
+  "backlinkType": "dofollow",
+  "linkTargetType": "direct",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://nicklaunches.com/products/spacebrain/",
+   "externalUrl": "https://spacebrain.ai/",
+   "relTokens": [
+    "noreferrer",
+    "noopener"
+   ],
+   "observedAt": "2026-09-01"
+  },
+  "domainRating": 73,
+  "metricsProvenance": {
+   "domainRating": {
+    "provider": "Ahrefs",
+    "measuredAt": "2026-08-31",
+    "status": "publicApiReading",
+    "measuredDomain": "nicklaunches.com"
+   }
+  }
+ },
+ {
+  "id": "md-magicbox-tools",
+  "name": "MagicBox.tools",
+  "website": "https://magicbox.tools",
+  "country": "global",
+  "audienceGeography": "global",
+  "categories": [
+   "ai-media",
+   "startup-launch-platform"
+  ],
+  "industries": [
+   "ai",
+   "saas",
+   "software"
+  ],
+  "languages": [
+   "en",
+   "ja",
+   "ko",
+   "zh"
+  ],
+  "currentStatus": "active",
+  "priority": "P3",
+  "opportunityTypes": [
+   "company-profile",
+   "product-launch",
+   "sponsored-content"
+  ],
+  "costModel": "paid",
+  "submissionUrl": "https://magicbox.tools/submit",
+  "pitchUrl": null,
+  "pressReleaseUrl": null,
+  "advertisingUrl": "https://magicbox.tools/pricing",
+  "mediaKitUrl": null,
+  "contactUrl": null,
+  "editorialContact": null,
+  "publicProfileAvailable": true,
+  "requiresEditorialApproval": true,
+  "sponsoredContentAvailable": true,
+  "shortNote": "A multilingual AI tools directory with permanent content pages and one-time listing plans.",
+  "limitations": "A direct follow Visit link was observed on an indexable detail page. Basic was $15.90 one time and Featured $19.90 one time when checked; the platform's DR and traffic claims were not used as evidence or independently accepted.",
+  "lastVerified": "2026-09-01",
+  "sources": [
+   "https://magicbox.tools/",
+   "https://magicbox.tools/ai/inspia-ai",
+   "https://magicbox.tools/pricing",
+   "https://magicbox.tools/submit"
+  ],
+  "backlinkType": "dofollow",
+  "linkTargetType": "direct",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://magicbox.tools/ai/inspia-ai",
+   "externalUrl": "https://inspia.ai/",
+   "relTokens": [
+    "noopener",
+    "noreferrer"
+   ],
+   "observedAt": "2026-09-01"
+  },
+  "domainRating": 68,
+  "metricsProvenance": {
+   "domainRating": {
+    "provider": "Ahrefs",
+    "measuredAt": "2026-08-31",
+    "status": "publicApiReading",
+    "measuredDomain": "magicbox.tools"
+   }
+  }
+ },
+ {
+  "id": "md-aura-plus-plus",
+  "name": "Aura++",
+  "website": "https://auraplusplus.com",
+  "country": "global",
+  "audienceGeography": "global",
+  "categories": [
+   "startup-launch-platform"
+  ],
+  "industries": [
+   "ai",
+   "saas",
+   "software"
+  ],
+  "languages": [
+   "en"
+  ],
+  "currentStatus": "active",
+  "priority": "P3",
+  "opportunityTypes": [
+   "product-launch",
+   "sponsored-content",
+   "startup-launch"
+  ],
+  "costModel": "freemium",
+  "submissionUrl": "https://auraplusplus.com/projects/submit",
+  "pitchUrl": null,
+  "pressReleaseUrl": null,
+  "advertisingUrl": "https://auraplusplus.com/pricing",
+  "mediaKitUrl": null,
+  "contactUrl": "https://auraplusplus.com/contact",
+  "editorialContact": null,
+  "publicProfileAvailable": true,
+  "requiresEditorialApproval": true,
+  "sponsoredContentAvailable": true,
+  "shortNote": "A daily launch platform with free ranking, badge verification and one-time premium distribution plans.",
+  "limitations": "The inspected free project page used nofollow. Aura++ says free listings earn follow treatment only with a badge or top-three finish, while the $29 one-time Premium plan guarantees it; no paid follow template was independently observed, so this record remains nofollow rather than mixed.",
+  "lastVerified": "2026-09-01",
+  "sources": [
+   "https://auraplusplus.com/pricing",
+   "https://auraplusplus.com/projects/aire-software",
+   "https://auraplusplus.com/projects/submit"
+  ],
+  "backlinkType": "nofollow",
+  "linkTargetType": "direct",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://auraplusplus.com/projects/aire-software",
+   "externalUrl": "https://www.aire-realestate.com/aire-feasibility-study-software",
+   "relTokens": [
+    "noopener",
+    "nofollow"
+   ],
+   "observedAt": "2026-09-01"
+  },
+  "domainRating": 73,
+  "metricsProvenance": {
+   "domainRating": {
+    "provider": "Ahrefs",
+    "measuredAt": "2026-08-31",
+    "status": "publicApiReading",
+    "measuredDomain": "auraplusplus.com"
+   }
+  }
+ },
+ {
+  "id": "md-deeplaunch",
+  "name": "DeepLaunch.io",
+  "website": "https://deeplaunch.io",
+  "country": "global",
+  "audienceGeography": "global",
+  "categories": [
+   "startup-launch-platform"
+  ],
+  "industries": [
+   "ai",
+   "saas",
+   "software"
+  ],
+  "languages": [
+   "en"
+  ],
+  "currentStatus": "active",
+  "priority": "P3",
+  "opportunityTypes": [
+   "company-profile",
+   "product-launch"
+  ],
+  "costModel": "freemium",
+  "submissionUrl": "https://deeplaunch.io/submit",
+  "pitchUrl": null,
+  "pressReleaseUrl": null,
+  "advertisingUrl": null,
+  "mediaKitUrl": null,
+  "contactUrl": null,
+  "editorialContact": null,
+  "publicProfileAvailable": true,
+  "requiresEditorialApproval": true,
+  "sponsoredContentAvailable": false,
+  "shortNote": "A curated tools directory with free reciprocal-badge submissions and inexpensive lifetime listing plans.",
+  "limitations": "A direct follow website link was observed on an indexable product page. The free route requires a reciprocal follow badge; One-Time Pro was $9.90 lifetime when checked. Traffic and conversion value remain unverified.",
+  "lastVerified": "2026-09-01",
+  "sources": [
+   "https://deeplaunch.io/",
+   "https://deeplaunch.io/pricing",
+   "https://deeplaunch.io/product/ai-text-cleaner",
+   "https://deeplaunch.io/submit"
+  ],
+  "backlinkType": "dofollow",
+  "linkTargetType": "direct",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://deeplaunch.io/product/ai-text-cleaner",
+   "externalUrl": "https://aitextcleaner.pro/",
+   "relTokens": [],
+   "observedAt": "2026-09-01"
+  },
+  "domainRating": 70,
+  "metricsProvenance": {
+   "domainRating": {
+    "provider": "Ahrefs",
+    "measuredAt": "2026-08-31",
+    "status": "publicApiReading",
+    "measuredDomain": "deeplaunch.io"
+   }
+  }
+ },
+ {
+  "id": "md-shinylaunch",
+  "name": "ShinyLaunch",
+  "website": "https://shinylaunch.com",
+  "country": "global",
+  "audienceGeography": "global",
+  "categories": [
+   "startup-launch-platform"
+  ],
+  "industries": [
+   "ai",
+   "saas",
+   "software"
+  ],
+  "languages": [
+   "en"
+  ],
+  "currentStatus": "active",
+  "priority": "P3",
+  "opportunityTypes": [
+   "product-launch",
+   "startup-launch"
+  ],
+  "costModel": "free",
+  "submissionUrl": "https://shinylaunch.com/submit",
+  "pitchUrl": null,
+  "pressReleaseUrl": null,
+  "advertisingUrl": null,
+  "mediaKitUrl": null,
+  "contactUrl": null,
+  "editorialContact": null,
+  "publicProfileAvailable": true,
+  "requiresEditorialApproval": true,
+  "sponsoredContentAvailable": false,
+  "shortNote": "A weekly product discovery board with public detail pages, voting and account-based submissions.",
+  "limitations": "A direct follow Visit link was observed on an indexable product page. Submission requires an account; no fee was exposed on the public submission route when checked, and audience quality was not independently measured.",
+  "lastVerified": "2026-09-01",
+  "sources": [
+   "https://shinylaunch.com/",
+   "https://shinylaunch.com/product/bellqr",
+   "https://shinylaunch.com/submit"
+  ],
+  "backlinkType": "dofollow",
+  "linkTargetType": "direct",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://shinylaunch.com/product/bellqr",
+   "externalUrl": "https://www.bellqr.app/",
+   "relTokens": [
+    "noopener",
+    "noreferrer"
+   ],
+   "observedAt": "2026-09-01"
+  },
+  "domainRating": 55,
+  "metricsProvenance": {
+   "domainRating": {
+    "provider": "Ahrefs",
+    "measuredAt": "2026-08-31",
+    "status": "publicApiReading",
+    "measuredDomain": "shinylaunch.com"
+   }
+  }
+ },
+ {
+  "id": "md-tinylaunchpad",
+  "name": "TinyLaunchpad",
+  "website": "https://tinylaunchpad.com",
+  "country": "global",
+  "audienceGeography": "global",
+  "categories": [
+   "startup-launch-platform"
+  ],
+  "industries": [
+   "ai",
+   "saas",
+   "software"
+  ],
+  "languages": [
+   "en"
+  ],
+  "currentStatus": "active",
+  "priority": "P3",
+  "opportunityTypes": [
+   "product-launch",
+   "sponsored-content",
+   "startup-launch"
+  ],
+  "costModel": "freemium",
+  "submissionUrl": "https://tinylaunchpad.com/projects/submit",
+  "pitchUrl": null,
+  "pressReleaseUrl": null,
+  "advertisingUrl": "https://tinylaunchpad.com/pricing",
+  "mediaKitUrl": null,
+  "contactUrl": "https://tinylaunchpad.com/contact",
+  "editorialContact": null,
+  "publicProfileAvailable": true,
+  "requiresEditorialApproval": true,
+  "sponsoredContentAvailable": true,
+  "shortNote": "A curated Monday launch board with free submissions and low-cost one-time premium plans.",
+  "limitations": "Observed templates were mixed: a winner page used a direct follow link while a pending free page was noindex and nofollow. Free follow treatment is limited to top-three projects; Premium was $9.99 one time and advertised guaranteed follow treatment when checked.",
+  "lastVerified": "2026-09-01",
+  "sources": [
+   "https://tinylaunchpad.com/pricing",
+   "https://tinylaunchpad.com/projects/appbanana",
+   "https://tinylaunchpad.com/projects/spark7",
+   "https://tinylaunchpad.com/projects/submit"
+  ],
+  "backlinkType": "mixed",
+  "linkTargetType": "direct",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://tinylaunchpad.com/projects/spark7",
+   "observedAt": "2026-09-01",
+   "templates": [
+    {
+     "listingUrl": "https://tinylaunchpad.com/projects/spark7",
+     "backlinkType": "dofollow"
+    },
+    {
+     "listingUrl": "https://tinylaunchpad.com/projects/appbanana",
+     "backlinkType": "nofollow"
+    }
+   ]
+  },
+  "domainRating": 45,
+  "metricsProvenance": {
+   "domainRating": {
+    "provider": "Ahrefs",
+    "measuredAt": "2026-08-31",
+    "status": "publicApiReading",
+    "measuredDomain": "tinylaunchpad.com"
+   }
+  }
+ },
+ {
+  "id": "md-shipboost",
+  "name": "ShipBoost",
+  "website": "https://shipboost.io",
+  "country": "global",
+  "audienceGeography": "global",
+  "categories": [
+   "startup-launch-platform"
+  ],
+  "industries": [
+   "ai",
+   "saas",
+   "software"
+  ],
+  "languages": [
+   "en"
+  ],
+  "currentStatus": "active",
+  "priority": "P3",
+  "opportunityTypes": [
+   "product-launch",
+   "sponsored-content",
+   "startup-launch"
+  ],
+  "costModel": "freemium",
+  "submissionUrl": "https://shipboost.io/submit",
+  "pitchUrl": null,
+  "pressReleaseUrl": null,
+  "advertisingUrl": "https://shipboost.io/pricing",
+  "mediaKitUrl": null,
+  "contactUrl": "https://shipboost.io/contact",
+  "editorialContact": null,
+  "publicProfileAvailable": true,
+  "requiresEditorialApproval": true,
+  "sponsoredContentAvailable": true,
+  "shortNote": "A weekly SaaS launch board with permanent listings and low-cost editorial launch packages.",
+  "limitations": "Observed templates were mixed: a free listing used nofollow while a launch spotlight article used a direct follow link. Free requires a verified badge; the founding Premium offer was $9 one time and included a hand-written article plus guaranteed follow links when checked.",
+  "lastVerified": "2026-09-01",
+  "sources": [
+   "https://shipboost.io/pricing",
+   "https://shipboost.io/tools/readless",
+   "https://shipboost.io/blog/funding-predicts-prediction-market-prop-firm",
+   "https://shipboost.io/submit"
+  ],
+  "backlinkType": "mixed",
+  "linkTargetType": "direct",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://shipboost.io/blog/funding-predicts-prediction-market-prop-firm",
+   "observedAt": "2026-09-01",
+   "templates": [
+    {
+     "listingUrl": "https://shipboost.io/blog/funding-predicts-prediction-market-prop-firm",
+     "backlinkType": "dofollow"
+    },
+    {
+     "listingUrl": "https://shipboost.io/tools/readless",
+     "backlinkType": "nofollow"
+    }
+   ]
+  },
+  "domainRating": 49,
+  "metricsProvenance": {
+   "domainRating": {
+    "provider": "Ahrefs",
+    "measuredAt": "2026-08-31",
+    "status": "publicApiReading",
+    "measuredDomain": "shipboost.io"
+   }
+  }
+ },
+ {
+  "id": "md-indiehunt",
+  "name": "IndieHunt",
+  "website": "https://indiehunt.io",
+  "country": "global",
+  "audienceGeography": "global",
+  "categories": [
+   "ai-media",
+   "startup-launch-platform"
+  ],
+  "industries": [
+   "ai",
+   "saas",
+   "software"
+  ],
+  "languages": [
+   "en"
+  ],
+  "currentStatus": "active",
+  "priority": "P3",
+  "opportunityTypes": [
+   "product-launch",
+   "sponsored-content",
+   "startup-launch"
+  ],
+  "costModel": "freemium",
+  "submissionUrl": "https://indiehunt.io/submit",
+  "pitchUrl": null,
+  "pressReleaseUrl": null,
+  "advertisingUrl": "https://indiehunt.io/pricing",
+  "mediaKitUrl": null,
+  "contactUrl": "https://indiehunt.io/contact",
+  "editorialContact": null,
+  "publicProfileAvailable": true,
+  "requiresEditorialApproval": true,
+  "sponsoredContentAvailable": true,
+  "shortNote": "A weekly AI and indie-product launch competition with permanent project pages and launch stories.",
+  "limitations": "Observed project pages were mixed: a Premium live project used follow while a free project used nofollow. Free requires a reciprocal badge and can earn follow treatment by finishing top three; Premium was $19 one time with a guaranteed follow link when checked.",
+  "lastVerified": "2026-09-01",
+  "sources": [
+   "https://indiehunt.io/pricing",
+   "https://indiehunt.io/project/still-cloud",
+   "https://indiehunt.io/project/url2pin",
+   "https://indiehunt.io/submit"
+  ],
+  "backlinkType": "mixed",
+  "linkTargetType": "direct",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://indiehunt.io/project/url2pin",
+   "observedAt": "2026-09-01",
+   "templates": [
+    {
+     "listingUrl": "https://indiehunt.io/project/url2pin",
+     "backlinkType": "dofollow"
+    },
+    {
+     "listingUrl": "https://indiehunt.io/project/still-cloud",
+     "backlinkType": "nofollow"
+    }
+   ]
+  },
+  "domainRating": 62,
+  "metricsProvenance": {
+   "domainRating": {
+    "provider": "Ahrefs",
+    "measuredAt": "2026-08-31",
+    "status": "publicApiReading",
+    "measuredDomain": "indiehunt.io"
+   }
+  }
+ },
+ {
+  "id": "md-hunt0",
+  "name": "HUNT0",
+  "website": "https://hunt0.com",
+  "country": "global",
+  "audienceGeography": "global",
+  "categories": [
+   "startup-launch-platform"
+  ],
+  "industries": [
+   "ai",
+   "saas",
+   "software"
+  ],
+  "languages": [
+   "en"
+  ],
+  "currentStatus": "active",
+  "priority": "P3",
+  "opportunityTypes": [
+   "product-launch",
+   "startup-launch"
+  ],
+  "costModel": "freemium",
+  "submissionUrl": "https://hunt0.com/submit",
+  "pitchUrl": null,
+  "pressReleaseUrl": null,
+  "advertisingUrl": null,
+  "mediaKitUrl": null,
+  "contactUrl": "https://hunt0.com/contact",
+  "editorialContact": null,
+  "publicProfileAvailable": true,
+  "requiresEditorialApproval": true,
+  "sponsoredContentAvailable": false,
+  "shortNote": "A daily early-product launch board with a free queue, voting and inexpensive priority scheduling.",
+  "limitations": "Direct follow website links were observed on indexable product pages, including a zero-vote page. The submit route says free follow treatment is limited to the top three, which conflicts with the current rendered template; recheck before relying on it. Premium was $16.90 when checked.",
+  "lastVerified": "2026-09-01",
+  "sources": [
+   "https://hunt0.com/",
+   "https://hunt0.com/products/autobacklinks-ai-link-building-outreach-tool",
+   "https://hunt0.com/products/dodosolve",
+   "https://hunt0.com/submit"
+  ],
+  "backlinkType": "dofollow",
+  "linkTargetType": "direct",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://hunt0.com/products/autobacklinks-ai-link-building-outreach-tool",
+   "externalUrl": "https://www.autobacklinks.ai/",
+   "relTokens": [
+    "noopener"
+   ],
+   "observedAt": "2026-09-01"
+  },
+  "domainRating": 32,
+  "metricsProvenance": {
+   "domainRating": {
+    "provider": "Ahrefs",
+    "measuredAt": "2026-08-31",
+    "status": "publicApiReading",
+    "measuredDomain": "hunt0.com"
+   }
+  }
+ },
+ {
+  "id": "md-shipybara",
+  "name": "Shipybara",
+  "website": "https://shipybara.com",
+  "country": "global",
+  "audienceGeography": "global",
+  "categories": [
+   "startup-launch-platform"
+  ],
+  "industries": [
+   "ai",
+   "saas",
+   "software"
+  ],
+  "languages": [
+   "en"
+  ],
+  "currentStatus": "active",
+  "priority": "P3",
+  "opportunityTypes": [
+   "product-launch",
+   "sponsored-content",
+   "startup-launch"
+  ],
+  "costModel": "freemium",
+  "submissionUrl": "https://shipybara.com/projects/submit",
+  "pitchUrl": null,
+  "pressReleaseUrl": null,
+  "advertisingUrl": "https://shipybara.com/pricing",
+  "mediaKitUrl": null,
+  "contactUrl": null,
+  "editorialContact": null,
+  "publicProfileAvailable": true,
+  "requiresEditorialApproval": true,
+  "sponsoredContentAvailable": true,
+  "shortNote": "A Monday product launch board with free badge verification and one-time premium scheduling.",
+  "limitations": "The inspected free listing used nofollow. Shipybara says free follow treatment requires a top-three finish or reciprocal badge, and its $18 Premium plan guarantees a follow link; no Premium template was independently observed, so the stored verdict remains nofollow.",
+  "lastVerified": "2026-09-01",
+  "sources": [
+   "https://shipybara.com/pricing",
+   "https://shipybara.com/projects/accesstive",
+   "https://shipybara.com/projects/submit"
+  ],
+  "backlinkType": "nofollow",
+  "linkTargetType": "direct",
+  "listingIndexability": "indexable",
+  "backlinkProvenance": {
+   "listingUrl": "https://shipybara.com/projects/accesstive",
+   "externalUrl": "https://accesstive.com/",
+   "relTokens": [
+    "noopener",
+    "nofollow"
+   ],
+   "observedAt": "2026-09-01"
+  },
+  "domainRating": 52,
+  "metricsProvenance": {
+   "domainRating": {
+    "provider": "Ahrefs",
+    "measuredAt": "2026-08-31",
+    "status": "publicApiReading",
+    "measuredDomain": "shipybara.com"
+   }
+  }
  }
 ]

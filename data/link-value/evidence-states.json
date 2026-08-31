@@ -14230,6 +14230,86 @@
    "canonicalLinkType": "mixed",
    "evidenceState": "VERIFIED_MIXED",
    "listingIndexability": "indexable"
+  },
+  {
+   "id": "md-nick-launches",
+   "collection": "media",
+   "country": "global",
+   "canonicalLinkType": "dofollow",
+   "evidenceState": "VERIFIED_FOLLOW",
+   "listingIndexability": "indexable"
+  },
+  {
+   "id": "md-magicbox-tools",
+   "collection": "media",
+   "country": "global",
+   "canonicalLinkType": "dofollow",
+   "evidenceState": "VERIFIED_FOLLOW",
+   "listingIndexability": "indexable"
+  },
+  {
+   "id": "md-aura-plus-plus",
+   "collection": "media",
+   "country": "global",
+   "canonicalLinkType": "nofollow",
+   "evidenceState": "VERIFIED_NOFOLLOW",
+   "listingIndexability": "indexable"
+  },
+  {
+   "id": "md-deeplaunch",
+   "collection": "media",
+   "country": "global",
+   "canonicalLinkType": "dofollow",
+   "evidenceState": "VERIFIED_FOLLOW",
+   "listingIndexability": "indexable"
+  },
+  {
+   "id": "md-shinylaunch",
+   "collection": "media",
+   "country": "global",
+   "canonicalLinkType": "dofollow",
+   "evidenceState": "VERIFIED_FOLLOW",
+   "listingIndexability": "indexable"
+  },
+  {
+   "id": "md-tinylaunchpad",
+   "collection": "media",
+   "country": "global",
+   "canonicalLinkType": "mixed",
+   "evidenceState": "VERIFIED_MIXED",
+   "listingIndexability": "indexable"
+  },
+  {
+   "id": "md-shipboost",
+   "collection": "media",
+   "country": "global",
+   "canonicalLinkType": "mixed",
+   "evidenceState": "VERIFIED_MIXED",
+   "listingIndexability": "indexable"
+  },
+  {
+   "id": "md-indiehunt",
+   "collection": "media",
+   "country": "global",
+   "canonicalLinkType": "mixed",
+   "evidenceState": "VERIFIED_MIXED",
+   "listingIndexability": "indexable"
+  },
+  {
+   "id": "md-hunt0",
+   "collection": "media",
+   "country": "global",
+   "canonicalLinkType": "dofollow",
+   "evidenceState": "VERIFIED_FOLLOW",
+   "listingIndexability": "indexable"
+  },
+  {
+   "id": "md-shipybara",
+   "collection": "media",
+   "country": "global",
+   "canonicalLinkType": "nofollow",
+   "evidenceState": "VERIFIED_NOFOLLOW",
+   "listingIndexability": "indexable"
   }
  ]
 }
