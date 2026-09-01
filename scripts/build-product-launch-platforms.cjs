@@ -7,6 +7,7 @@ const render = require('./lib/bd-render.cjs');
 const seo = require('./lib/bd-seo.cjs');
 
 const ROOT = path.resolve(__dirname, '..');
+const CANONICAL_PATH = '/research/product-launch-platforms/';
 const DATA_FILE = path.join(ROOT, 'data/product-launch-platforms/platforms.json');
 const OUT_DIR = path.join(ROOT, 'research/product-launch-platforms');
 const PAGE_FILE = path.join(OUT_DIR, 'index.html');
@@ -233,7 +234,7 @@ ${values.map((value) => `            <option value="${escapeHtml(value)}">${esca
     <section class="bd-summary" aria-label="Collection summary">
       <p><strong>${observed}</strong> follow observed &middot; <strong>${nofollow}</strong> nofollow observed &middot; <strong>${mixed}</strong> mixed &middot; <strong>${claims}</strong> follow claims &middot; <strong>${nofollowClaims}</strong> nofollow claims &middot; <strong>${terminal}</strong> inspected without a verifiable public listing link &middot; <strong>0</strong> unresolved unknown &middot; <strong>${free}</strong> free or freemium.</p>
       <p><strong>${verified}</strong> verified evidence &middot; <strong>${actionable}</strong> actionable leads &middot; <strong>${research}</strong> research candidates.</p>
-      <p><a class="bd-cta-link" href="/research/product-launch-platforms/platforms.csv" download>Download CSV</a></p>
+      <p><a class="bd-cta-link" href="${CANONICAL_PATH}platforms.csv" download>Download CSV</a></p>
     </section>
 
     <section class="prose" aria-labelledby="methodology">
@@ -302,4 +303,4 @@ function main() {
 
 if (require.main === module) main();
 module.exports = { validate, scoreFor, compareForRanking, renderCsv, renderMain,
-  qualityTierFor, TYPES, PRICES, AVAILABILITY, EVIDENCE, QUALITY_LABELS };
+  qualityTierFor, TYPES, PRICES, AVAILABILITY, EVIDENCE, QUALITY_LABELS, CANONICAL_PATH };
