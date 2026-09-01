@@ -67,8 +67,8 @@ function scoreFor(row) {
 }
 
 function validate(rows) {
-  if (!Array.isArray(rows) || rows.length !== 450) {
-    throw new Error(`Product launch collection must contain exactly 450 rows; found ${rows.length}.`);
+  if (!Array.isArray(rows) || rows.length !== 600) {
+    throw new Error(`Product launch collection must contain exactly 600 rows; found ${rows.length}.`);
   }
   const ids = new Set();
   const hosts = new Set();
