@@ -5,7 +5,7 @@
     "becomes a claim that the work is already done."
   ],
   "title": "Forschung — Petro Hrys",
-  "description": "Untersuchungen zu Suchsystemen, Indexierungsverhalten und Crawl-Architektur sowie vier geprüfte Datenbanken und ein Planer für die drei handlungsbezogenen Distributionssammlungen.",
+  "description": "Untersuchungen zu Suchsystemen, Indexierungsverhalten und Crawl-Architektur sowie geprüfte Forschungsdatenbanken und ein Planer für drei handlungsbezogene Distributionssammlungen.",
   "h1": "Forschung",
   "lede": "Untersuchungen zu Suchsystemen, Indexierungsverhalten und Crawl-Architektur.",
   "scope": {
@@ -17,18 +17,19 @@
   },
   "collections": {
     "heading": "Sammlungen",
-    "intro": "Vier veröffentlichte Datenbanken und ein Werkzeug für die drei handlungsbezogenen Distributionssammlungen. Jede Datenbank ist direkt geprüft, als CSV exportierbar und benennt, was sie ausschließt.",
+    "intro": "Veröffentlichte Forschungsdatenbanken und ein Werkzeug für die drei handlungsbezogenen Distributionssammlungen. Jede Datenbank definiert ihre Evidenzgrenze, ist als CSV exportierbar und benennt, was sie ausschließt.",
     "items": {
       "directories": "Ein Länderindex, der festhält, was jedes Verzeichnis akzeptiert, wie es verlinkt und wann es zuletzt geprüft wurde.",
       "opportunities": "Die Arbeitsdatenbank: wo ein Unternehmen ein öffentliches Profil anlegen, beanspruchen oder beantragen kann &mdash; jeweils mit Kosten, Eintragungsart und Priorität.",
       "media": "Wo ein Unternehmen veröffentlicht, einreicht, pitcht, sponsert, launcht oder Fachwissen beisteuert &mdash; Medien, Presseverteiler, Autorenprogramme, Launch-Plattformen und Journalisten-Anfragedienste, jeweils mit Art der Gelegenheit und dem Weg dorthin.",
+      "regionalMedia": "Regionale und lokale Nachrichtenmedien, geordnet nach Weltregion, Teilregion, Land, Abdeckungsgebiet, Ahrefs Domain Rating, Publikationsweg und beobachteter Link-Evidenz.",
       "marketplaces": "Wo ein Unternehmen oder eine Person ein Inserat statt eines Profils veröffentlicht &mdash; Kleinanzeigen, Fahrzeuge, Immobilien, Stellen, Dienstleistungen, B2B-Handel, Auktionen und Wiederverkauf &mdash; mit Art, Kosten der Anzeige und wer inserieren darf.",
       "forums": "Ein neutrales Verzeichnis öffentlicher Diskussionsgemeinschaften, direkt geprüft und nach Thema, Land, Sprache, Forentyp, Aktivität und Ahrefs Domain Rating klassifiziert.",
       "tenders": "Geprüfte Portale für öffentliche Ausschreibungen und Beschaffung, jeweils mit Zuständigkeit, Zugangsmodell, Abdeckung und Belegen.",
       "countries": "Ein Land auf einmal: jedes Verzeichnis, jeder Marktplatz, jedes Medium und jede Vergabeplattform, die dieses Projekt für diesen Markt geprüft hat &mdash; mit Domain Rating, Kosten und der Frage, ob heute jemand handeln kann."
     },
     "chooseHeading": "Über alle drei hinweg auswählen",
-    "chooseBody": "Jede Datenbank oben beantwortet eine andere Frage. <strong>{directories}</strong> ist der Ort, an dem ein Unternehmen ein professionelles Profil anlegt oder beansprucht. <strong>{marketplaces}</strong> ist der Ort, an dem es ein Inserat oder eine Anzeige veröffentlicht. <strong>{media}</strong> ist der Ort, an dem es pitcht, veröffentlicht, launcht oder sponsert. <strong>{forums}</strong> erfasst Gemeinschaften, leitet aber keinen Veröffentlichungszugang ab und bleibt deshalb bewusst außerhalb der Planer-Bereitschaft. Der Planer kombiniert nur die drei belegten Handlungsklassen.",
+    "chooseBody": "Jede Datenbank oben beantwortet eine andere Frage. <strong>{directories}</strong> ist der Ort, an dem ein Unternehmen ein professionelles Profil anlegt oder beansprucht. <strong>{marketplaces}</strong> ist der Ort, an dem es ein Inserat oder eine Anzeige veröffentlicht. <strong>{media}</strong> ist der Ort, an dem es pitcht, veröffentlicht, launcht oder sponsert. Regionale Medien und <strong>{forums}</strong> erfassen Verlage und Gemeinschaften, leiten aber keinen Veröffentlichungszugang ab und bleiben deshalb bewusst außerhalb der Planer-Bereitschaft. Der Planer kombiniert nur die drei belegten Handlungsklassen.",
     "plannerDesc": "Wählen Sie Unternehmen, Ziel, Markt und Budgetrahmen und erhalten Sie einen priorisierten Plan über alle drei Datenbanken hinweg &mdash; mit Handlung, Kosten, Belegen und einem direkten Link, sofern einer erfasst ist.",
     "plannerCta": "Distributionsplaner öffnen &rarr;"
   },

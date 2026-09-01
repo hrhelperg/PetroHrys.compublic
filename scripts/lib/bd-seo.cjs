@@ -385,6 +385,26 @@ function buildMediaMeta({ count, countries, p1 }) {
   });
 }
 
+// Regional Media is a geographic publisher registry, distinct from the media
+// opportunity collection. Counts are derived from its rows so future expansion
+// cannot leave a stale coverage claim in title metadata or structured data.
+function buildRegionalMediaMeta({ count, countries, regions, drRated, followVerified }) {
+  const canonicalPath = '/research/regional-media/';
+  const title = 'Regional Media Directory';
+  const description = `${count} regional and local news outlets across ${countries} countries and `
+    + `${regions} world regions, sortable by geography, Ahrefs Domain Rating, publication route `
+    + `and observed link type. ${drRated} carry DR measurements and ${followVerified} have `
+    + 'page-level follow-link evidence.';
+  const trail = [ROOT_TRAIL[0], { name: 'Regional Media', path: canonicalPath }];
+  return meta({
+    title, description, canonicalPath, robots: undefined, breadcrumbTrail: trail,
+    graph: [
+      collectionPage({ name: title, description, url: absoluteUrl(canonicalPath) }),
+      breadcrumbList(trail),
+    ],
+  });
+}
+
 // A media recommendation page. Indexable only where it carries real utility —
 // the generator refuses to emit one below a minimum recommendation count, so a
 // thin page cannot exist to be indexed in the first place.
@@ -675,6 +695,7 @@ module.exports = {
   buildMarketplacesMeta,
   buildCountriesMeta,
   buildMediaMeta,
+  buildRegionalMediaMeta,
   buildMediaProfileMeta,
   buildPlannerMeta,
   buildTendersMeta,

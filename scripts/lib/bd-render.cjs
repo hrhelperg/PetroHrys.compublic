@@ -149,6 +149,7 @@ ${LANGS('            ', canonicalPath, locale, availableLocales)}
 // Research hub instead of in every footer.
 const MARKETPLACES_PATH = '/research/marketplaces/';
 const MEDIA_PATH = '/research/media-pr-publishing/';
+const REGIONAL_MEDIA_PATH = '/research/regional-media/';
 const PLANNER_PATH = '/research/distribution-planner/';
 const TENDERS_PATH = '/research/tenders-procurement/';
 const FORUMS_PATH = '/research/forums/';
@@ -228,6 +229,7 @@ const CRUMB_KEYS = {
   Home: 'nav.home',
   Research: 'nav.researchCenter',
   'Media, PR & Publishing': 'collection.media',
+  'Regional Media': 'collection.regionalMedia',
   'Business Directories': 'collection.directories',
   Marketplaces: 'collection.marketplaces',
   'Distribution Planner': 'collection.planner',
@@ -356,6 +358,6 @@ ${FOOTER(selfPath, locale, t)}
 // snippet that drifts the first time one of them is updated.
 module.exports = {
   renderPage, HEADER, FOOTER, ANALYTICS, FONTS, ECO_HEAD, ECO_BODY,
-  MARKETPLACES_PATH, MEDIA_PATH, PLANNER_PATH, TENDERS_PATH,
+  MARKETPLACES_PATH, MEDIA_PATH, REGIONAL_MEDIA_PATH, PLANNER_PATH, TENDERS_PATH,
   FORUMS_PATH,
 };

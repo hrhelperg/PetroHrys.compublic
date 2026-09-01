@@ -5,7 +5,7 @@
     "reste une affirmation au futur."
   ],
   "title": "Recherche — Petro Hrys",
-  "description": "Études sur les systèmes de recherche, l’indexation et l’exploration, avec quatre bases vérifiées et un planificateur pour les trois collections de distribution exploitables.",
+  "description": "Études sur les systèmes de recherche, l’indexation et l’exploration, avec des bases de recherche vérifiées et un planificateur pour trois collections de distribution exploitables.",
   "h1": "Recherche",
   "lede": "Études sur les systèmes de recherche, le comportement d'indexation et l'architecture d'exploration.",
   "scope": {
@@ -17,18 +17,19 @@
   },
   "collections": {
     "heading": "Collections",
-    "intro": "Quatre bases de données publiées et un outil pour les trois collections de distribution exploitables. Chaque base est vérifiée directement, exportable en CSV et indique ce qu’elle exclut.",
+    "intro": "Des bases de données de recherche publiées et un outil pour les trois collections de distribution exploitables. Chaque base définit sa limite de preuve, est exportable en CSV et indique ce qu’elle exclut.",
     "items": {
       "directories": "Un index pays par pays qui consigne ce que chaque annuaire accepte, comment il établit ses liens et quand il a été vérifié pour la dernière fois.",
       "opportunities": "La base de données de travail : où une entreprise peut créer, revendiquer ou demander un profil public, avec le coût, le type d'inscription et la priorité pour chacun.",
       "media": "Où une entreprise publie, soumet, propose des sujets, sponsorise, lance ou apporte son expertise &mdash; médias, réseaux de communiqués de presse, programmes de contributeurs, plateformes de lancement et services de mise en relation avec des journalistes, avec le type d'opportunité et la voie à suivre pour chacun.",
+      "regionalMedia": "Médias d'information régionaux et locaux organisés par région du monde, sous-région, pays, zone de couverture, Domain Rating Ahrefs, voie de publication et preuves de liens observées.",
       "marketplaces": "Où une entreprise ou un particulier publie une annonce plutôt qu'un profil &mdash; petites annonces, véhicules, immobilier, emploi, services, commerce B2B, enchères et revente &mdash; avec le type, le coût de publication et qui peut publier.",
       "forums": "Un inventaire neutre de communautés publiques de discussion, vérifiées directement et classées par thème, pays, langue, type, activité et Domain Rating Ahrefs.",
       "tenders": "Des portails vérifiés d'appels d'offres et de marchés publics, avec juridiction, modèle d'accès, couverture et preuves pour chaque source.",
       "countries": "Un pays à la fois : chaque annuaire, place de marché, média et plateforme d&rsquo;appels d&rsquo;offres que ce projet a vérifié pour ce marché, avec le Domain Rating, le coût et la possibilité d&rsquo;agir dès aujourd&rsquo;hui."
     },
     "chooseHeading": "Choisir parmi les trois",
-    "chooseBody": "Chaque base de données ci-dessus répond à une question différente. <strong>{directories}</strong> est l’endroit où une entreprise crée ou revendique un profil professionnel. <strong>{marketplaces}</strong> est l’endroit où elle publie une annonce. <strong>{media}</strong> est l’endroit où elle propose des sujets, publie, lance ou sponsorise. <strong>{forums}</strong> inventorie les communautés sans déduire l’accès à la publication et reste donc volontairement hors de la préparation du Planificateur. Celui-ci combine uniquement les trois classes d’action établies.",
+    "chooseBody": "Chaque base de données ci-dessus répond à une question différente. <strong>{directories}</strong> est l’endroit où une entreprise crée ou revendique un profil professionnel. <strong>{marketplaces}</strong> est l’endroit où elle publie une annonce. <strong>{media}</strong> est l’endroit où elle propose des sujets, publie, lance ou sponsorise. Les médias régionaux et <strong>{forums}</strong> inventorient les éditeurs et les communautés sans déduire l’accès à la publication et restent donc volontairement hors de la préparation du Planificateur. Celui-ci combine uniquement les trois classes d’action établies.",
     "plannerDesc": "Sélectionnez une entreprise, un objectif, un marché et une posture budgétaire, et obtenez un plan hiérarchisé couvrant les trois bases de données, avec l'action, le coût, les preuves et un lien direct lorsqu'il en existe un.",
     "plannerCta": "Ouvrir le Planificateur de Distribution &rarr;"
   },
