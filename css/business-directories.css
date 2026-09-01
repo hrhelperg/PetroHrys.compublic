@@ -358,6 +358,9 @@
     font-size: var(--fs-xs);
     flex: 0 0 auto;
   }
+  .bd-table .bd-cell--stack { align-items: flex-start; }
+  .bd-table .bd-cell--stack .bd-cell-main { flex: 1 1 auto; min-width: 0; }
+  .bd-table .bd-cell--stack .bd-note { display: block; margin-top: var(--s-1); }
   /* The name leads the card, so it does not repeat its own label. */
   .bd-table th.bd-cell[data-bd-label="Directory"] { display: block; font-size: var(--fs-md); }
   .bd-table th.bd-cell[data-bd-label="Directory"]::before { content: none; }
