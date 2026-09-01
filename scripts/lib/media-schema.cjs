@@ -81,6 +81,10 @@ const SELF_SERVE_TYPES = new Set(['self-publish', 'press-release', 'company-prof
 const CATEGORIES = [
   'global-business-media',
   'local-business-media',
+  // Publications and community portals built for people living outside their
+  // home country. Kept separate from local-business-media so the first 300
+  // records cannot silently turn into the much larger regional-media backlog.
+  'expat-community-media',
   'technology-media',
   'startup-media',
   'ai-media',

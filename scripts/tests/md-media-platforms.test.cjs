@@ -728,6 +728,38 @@ test('a distribution wire carries a release route, never a submission route', ()
   }
 });
 
+test('the expat and international-community wave is bounded, measured and evidence-safe', () => {
+  const wave = ROWS.filter((r) => r.categories.includes('expat-community-media'));
+  assert.strictEqual(wave.length, 300,
+    `the expat-media wave must contain exactly 300 records, found ${wave.length}`);
+  assert.ok(new Set(wave.map((r) => r.country)).size >= 45,
+    'the wave does not cover enough countries to be an international collection');
+
+  for (const r of wave) {
+    assert.ok(r.domainRating >= 30,
+      `${r.id} entered the quality wave below the measured DR 30 floor`);
+    assert.strictEqual(r.metricsProvenance.domainRating.provider, 'Ahrefs');
+    assert.strictEqual(r.metricsProvenance.domainRating.status, 'publicApiReading');
+    assert.match(r.shortNote,
+      /expatriate|international community|English-language|diaspora|global mobility/i,
+      `${r.id} does not explain its expat or international-community audience fit`);
+    if (r.backlinkType) {
+      assert.ok(r.backlinkProvenance && r.backlinkProvenance.listingUrl,
+        `${r.id} claims a link type without an inspected public page`);
+    }
+  }
+
+  const follow = wave.filter((r) => r.backlinkType === 'dofollow');
+  assert.deepStrictEqual(follow.map((r) => MD.hostOf(r.website)).sort(), ['expat.com', 'expats.cz'],
+    'the wave gained an uninspected follow-link claim');
+  for (const host of ['expat.com', 'expats.cz']) {
+    const row = follow.find((r) => MD.hostOf(r.website) === host);
+    assert.ok(row, `${host} lost its inspected follow-link evidence`);
+    assert.strictEqual(row.linkTargetType, 'direct');
+    assert.strictEqual(row.listingIndexability, 'indexable');
+  }
+});
+
 test('a local-language publication is not labelled English', () => {
   // Wave 3 was the first to research Japanese, Korean and Chinese surfaces. A
   // row for a Japanese-language publication that declares languages: ['en']

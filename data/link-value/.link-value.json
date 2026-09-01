@@ -30674,6 +30674,90 @@
     "anchorText": "Visit",
     "indexability": "indexable"
    }]
+  },
+  {
+   "collection": "media",
+   "id": "md-expat-com-expat-com",
+   "country": "global",
+   "url": "https://www.expat.com",
+   "domainRating": 72,
+   "actionable": true,
+   "key": "link|media|md-expat-com-expat-com",
+   "observedAt": "2026-09-01",
+   "state": "RESOLVED",
+   "backlinkType": "dofollow",
+   "linkTargetType": "direct",
+   "listingIndexability": "indexable",
+   "why": "the inspected public profile website anchor carries no restrictive rel token",
+   "templates": [
+    {
+     "listingUrl": "https://www.expat.com/en/business/27315_ags-movers-czech-republic-prague.html",
+     "backlinkType": "dofollow",
+     "linkTargetType": "direct",
+     "externalUrl": "https://www.agsmovers.com/moving-quote?utm_source=expat.com&utm_medium=listing-texte-republique-tcheque-en&utm_campaign=ags-expat-sites&campaign_id=360",
+     "relTokens": [],
+     "anchorText": "Website",
+     "indexability": "indexable"
+    }
+   ],
+   "observations": [
+    {
+     "observedAt": "2026-09-01",
+     "kind": "listing-discovered",
+     "url": "https://www.expat.com/en/business/27315_ags-movers-czech-republic-prague.html"
+    },
+    {
+     "observedAt": "2026-09-01",
+     "kind": "listing-read",
+     "url": "https://www.expat.com/en/business/27315_ags-movers-czech-republic-prague.html",
+     "externalUrl": "https://www.agsmovers.com/moving-quote?utm_source=expat.com&utm_medium=listing-texte-republique-tcheque-en&utm_campaign=ags-expat-sites&campaign_id=360",
+     "relTokens": [],
+     "anchorText": "Website",
+     "indexability": "indexable"
+    }
+   ]
+  },
+  {
+   "collection": "media",
+   "id": "md-expats-cz-expats-cz",
+   "country": "czech-republic",
+   "url": "https://www.expats.cz",
+   "domainRating": 72,
+   "actionable": true,
+   "key": "link|media|md-expats-cz-expats-cz",
+   "observedAt": "2026-09-01",
+   "state": "RESOLVED",
+   "backlinkType": "dofollow",
+   "linkTargetType": "direct",
+   "listingIndexability": "indexable",
+   "why": "the inspected public profile website anchor carries no restrictive rel token",
+   "templates": [
+    {
+     "listingUrl": "https://www.expats.cz/directory/listing/kronossoftware",
+     "backlinkType": "dofollow",
+     "linkTargetType": "direct",
+     "externalUrl": "http://www.kronos-software.eu",
+     "relTokens": [],
+     "anchorText": "Website",
+     "indexability": "indexable"
+    }
+   ],
+   "observations": [
+    {
+     "observedAt": "2026-09-01",
+     "kind": "listing-discovered",
+     "url": "https://www.expats.cz/directory/listing/kronossoftware"
+    },
+    {
+     "observedAt": "2026-09-01",
+     "kind": "listing-read",
+     "url": "https://www.expats.cz/directory/listing/kronossoftware",
+     "externalUrl": "http://www.kronos-software.eu",
+     "relTokens": [],
+     "anchorText": "Website",
+     "indexability": "indexable"
+    }
+   ]
   }
  ]
 }
