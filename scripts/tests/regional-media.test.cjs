@@ -18,7 +18,7 @@ const countrySet = new Set(countries.map((row) => row.slug));
 const rows = S.loadRegionalMedia(path.join(ROOT, 'data/regional-media/regional-media.json'), countrySet);
 
 test('Regional Media contains 1,100 schema-valid outlets across three waves', () => {
-  assert.strictEqual(rows.length, EXPAND.WAVE_SIZE);
+  assert.strictEqual(rows.length, EXPAND.BASELINE_SIZE);
   assert.strictEqual(new Set(rows.map((row) => row.id)).size, rows.length);
   assert.strictEqual(new Set(rows.map((row) => S.normaliseHost(row.website))).size, rows.length);
   assert.ok(rows.every(S.isActionable));
@@ -29,7 +29,7 @@ test('wave history proves 300 immutable records, then append-only waves of 500 a
   assert.deepStrictEqual(history.waves.map(({ id, count }) => ({ id, count })), [
     { id: 'wave-1', count: 300 },
     { id: 'wave-2', count: 500 },
-    { id: 'wave-3', count: EXPAND.EXPANSION_SIZE },
+    { id: 'wave-3', count: 300 },
   ]);
   const byId = new Map(rows.map((row) => [row.id, row]));
   const seen = new Set();
@@ -61,7 +61,7 @@ test('wave history proves 300 immutable records, then append-only waves of 500 a
     counts[row.macroRegion] = (counts[row.macroRegion] || 0) + 1;
     return counts;
   }, {});
-  assert.strictEqual(waveThree.length, EXPAND.EXPANSION_SIZE);
+  assert.strictEqual(waveThree.length, 300);
   assert.ok(waveThreeRegions['north-america'] >= 200);
   assert.ok(waveThreeRegions.oceania >= 60);
   assert.ok(waveThreeRegions['latin-america-caribbean'] >= 15);

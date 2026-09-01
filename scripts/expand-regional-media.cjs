@@ -30,10 +30,10 @@ const MEDIA = path.join(ROOT, 'data', 'media-pr-publishing', 'media-platforms.js
 const DR_LEDGER = path.join(ROOT, 'data', 'domain-rating', '.ahrefs-domain-rating.json');
 const WAVE_HISTORY = path.join(DATA_DIR, '.wave-history.json');
 
-const WAVE_SIZE = 1100;
-const EXPANSION_SIZE = 300;
+const WAVE_SIZE = 2100;
+const EXPANSION_SIZE = 1000;
 const BASELINE_SIZE = WAVE_SIZE - EXPANSION_SIZE;
-const CURRENT_WAVE_ID = 'wave-3';
+const CURRENT_WAVE_ID = 'wave-4';
 const MIN_DR = 30;
 const TODAY = new Date().toISOString().slice(0, 10);
 const USER_AGENT = 'PetroHrys Research Center/1.0 (+https://petrohrys.com)';
@@ -41,8 +41,8 @@ const WIKIDATA_ENDPOINT = 'https://query.wikidata.org/sparql';
 const WIKIDATA_API = 'https://www.wikidata.org/w/api.php';
 const US_LOCAL_SOURCE = 'https://raw.githubusercontent.com/yinleon/LocalNewsDataset/master/data/local_news_dataset_2018_for_domain_analysis.csv';
 const PIPI_SOURCE = 'https://gary-dickson.com/wp-content/uploads/2026/07/2606-PIPI-Q2.zip';
-const US_LOCAL_LIMIT = 1000;
-const PIPI_LIMIT = 450;
+const US_LOCAL_LIMIT = 3000;
+const PIPI_LIMIT = 2000;
 const ARCHIVE_HOST = /(^|\.)(archive\.org|britishnewspaperarchive\.co\.uk|calameo\.com|gallica\.bnf\.fr|loc\.gov|retronews\.fr|digi\.kansalliskirjasto\.fi|archives?\.[^.]+\.[a-z]{2,})$/i;
 const ARCHIVE_PATH = /\/(archive|archives|archivio|chroniclingamerica|digitised|fonds|historic-newspapers|newspaper-archive|presse-regionale)(\/|\?|$)/i;
 const SHARED_PUBLISHING_HOST = /(^|\.)(beehiiv\.com|blogspot\.[a-z.]+|campaign-archive\.com|medium\.com|sites\.google\.com|substack\.com|webflow\.io|weebly\.com|wixsite\.com|wordpress\.com)$/i;
@@ -70,12 +70,12 @@ const CONTEXTUAL_WIKIDATA_CLASSES = [
 ];
 const CONTEXTUAL_CLASS_SET = new Set(CONTEXTUAL_WIKIDATA_CLASSES);
 const EXPANSION_TARGETS = {
-  europe: 60,
-  'north-america': 130,
-  oceania: 60,
-  asia: 25,
-  'latin-america-caribbean': 15,
-  africa: 10,
+  europe: 350,
+  'north-america': 300,
+  oceania: 100,
+  asia: 150,
+  'latin-america-caribbean': 60,
+  africa: 40,
 };
 const EXPANSION_REGION_ORDER = [
   'europe', 'north-america', 'oceania', 'asia', 'latin-america-caribbean', 'africa',
@@ -682,6 +682,177 @@ async function wikidataCandidates() {
   return [...grouped.values()];
 }
 
+// Wave-4 broadening: for each target country, query all instances-of any
+// subclass (transitively) of newspaper, online newspaper, television station,
+// radio station, magazine, or news website that has an official website. This
+// yields significantly more candidates than the flat class-by-class query
+// above, especially in European and Asian countries where subclasses proliferate
+// (regional dailies, weekly local papers, city magazines, PSB regional
+// stations). The existing regional-vs-national description filter still
+// decides publication; a candidate lacking any subnational signal is dropped.
+const COUNTRY_QUERY_ISOS = [
+  // Europe (wave-4 priority 1) — 39 countries
+  'DE', 'FR', 'IT', 'ES', 'GB', 'NL', 'BE', 'CH', 'AT', 'IE', 'PT', 'GR',
+  'SE', 'NO', 'DK', 'FI', 'IS', 'EE', 'LV', 'LT', 'PL', 'CZ', 'SK', 'HU',
+  'RO', 'BG', 'HR', 'SI', 'RS', 'BA', 'MK', 'AL', 'MT', 'CY', 'LU', 'UA',
+  'MD', 'BY', 'RU', 'TR',
+  // North America — 2 countries
+  'US', 'CA',
+  // Oceania — 4 countries
+  'AU', 'NZ', 'FJ', 'PG',
+  // Asia — 17 countries
+  'JP', 'KR', 'CN', 'HK', 'TW', 'IN', 'PK', 'BD', 'LK', 'PH', 'ID', 'TH',
+  'MY', 'SG', 'VN', 'AE', 'IL',
+  // Latin America and Caribbean — 12 countries
+  'BR', 'AR', 'CL', 'MX', 'CO', 'PE', 'EC', 'UY', 'VE', 'PY', 'BO', 'CR',
+  // Africa — 12 countries
+  'ZA', 'KE', 'NG', 'GH', 'ET', 'MA', 'EG', 'TN', 'DZ', 'ZW', 'TZ', 'UG',
+];
+
+// Root classes for the country-scoped query. All descendants (P279*) of these
+// are eligible; the description/scope filter still enforces regional coverage.
+const COUNTRY_QUERY_ROOTS = [
+  'Q11032',    // newspaper
+  'Q1153191',  // online newspaper
+  'Q1616075',  // television station
+  'Q14350',    // radio station
+  'Q1580166',  // news website
+];
+
+async function sparqlByCountry(iso2) {
+  // Values-list of root classes keeps a single query per country and lets WDQS
+  // stream the union efficiently. Transitivity is bounded by "instance of any
+  // subclass of a root class", never by unrelated deep chains.
+  const rootValues = COUNTRY_QUERY_ROOTS.map((qidValue) => `wd:${qidValue}`).join(' ');
+  const query = `SELECT ?item ?rootClass ?website ?country ?iso2 ?hq ?publicationPlace ?scope ?languageCode WHERE {
+    VALUES ?rootClass { ${rootValues} }
+    ?item wdt:P31/wdt:P279* ?rootClass;
+          wdt:P856 ?website;
+          wdt:P17 ?country.
+    ?country wdt:P297 "${iso2}".
+    BIND("${iso2}" AS ?iso2)
+    OPTIONAL { ?item wdt:P159 ?hq. }
+    OPTIONAL { ?item wdt:P291 ?publicationPlace. }
+    OPTIONAL { ?item wdt:P1001 ?scope. }
+    OPTIONAL { ?item wdt:P407 ?language. OPTIONAL { ?language wdt:P424 ?languageCode. } }
+  }`;
+  for (let attempt = 1; attempt <= 3; attempt += 1) {
+    const url = new URL(WIKIDATA_ENDPOINT);
+    url.searchParams.set('query', query);
+    url.searchParams.set('format', 'json');
+    // eslint-disable-next-line no-await-in-loop
+    const res = await fetch(url, { headers: { 'User-Agent': USER_AGENT, Accept: 'application/sparql-results+json' } });
+    if (res.ok) {
+      // eslint-disable-next-line no-await-in-loop
+      const body = await res.json();
+      return body.results.bindings;
+    }
+    if (![429, 502, 503, 504].includes(res.status) || attempt === 3) {
+      throw new Error(`Wikidata country ${iso2}: HTTP ${res.status}`);
+    }
+    // eslint-disable-next-line no-await-in-loop
+    await new Promise((resolve) => { setTimeout(resolve, attempt * 2000); });
+  }
+  return [];
+}
+
+// National-broadcaster hosts that carry a country-wide newsroom despite being
+// classified under a broadcaster subclass. They are removed here rather than
+// via the description filter because their Wikidata descriptions are terse.
+const NATIONAL_BROADCASTER_HOSTS = new Set([
+  'bbc.co.uk', 'bbc.com', 'itv.com', 'channel4.com', 'channel5.com',
+  'france24.com', 'ard.de', 'zdf.de', 'rai.it', 'rtve.es', 'rtp.pt', 'rtbf.be',
+  'vrt.be', 'nos.nl', 'nhk.or.jp', 'nhk.jp', 'cctv.com', 'kbs.co.kr', 'mbc.co.kr',
+  'sbs.com.au', 'abc.net.au', 'cbc.ca', 'radio-canada.ca', 'sabc.co.za',
+  'npr.org', 'pbs.org', 'yle.fi', 'svt.se', 'sr.se', 'nrk.no', 'dr.dk',
+  'ceskatelevize.cz', 'polskieradio.pl', 'tvp.pl',
+]);
+
+async function wikidataCountryCandidates() {
+  const perCountry = [];
+  for (const iso2 of COUNTRY_QUERY_ISOS) {
+    try {
+      // eslint-disable-next-line no-await-in-loop
+      const rows = await sparqlByCountry(iso2);
+      perCountry.push(...rows);
+      console.log(`  Wikidata ${iso2}: ${rows.length} raw rows`);
+    } catch (error) {
+      console.warn(`Wikidata country ${iso2} unavailable: ${error.message}`);
+    }
+    // eslint-disable-next-line no-await-in-loop
+    await new Promise((resolve) => { setTimeout(resolve, 400); });
+  }
+  const itemIds = perCountry.map((row) => qid(row, 'item'));
+  const placeIds = perCountry.flatMap((row) => ['hq', 'publicationPlace', 'scope']
+    .map((field) => qid(row, field))).filter(Boolean);
+  const { labels, descriptions } = await entityDetails([...itemIds, ...placeIds]);
+  const { byIso } = countryContext();
+  const grouped = new Map();
+  for (const row of perCountry) {
+    const item = qid(row, 'item');
+    const iso2 = row.iso2 && row.iso2.value.toUpperCase();
+    const country = byIso.get(iso2);
+    const region = GEO.get(iso2);
+    const website = httpsUrl(row.website && row.website.value);
+    if (!item || !country || !region || !website) continue;
+    const host = cleanHost(website);
+    if (!host || NATIONAL_BROADCASTER_HOSTS.has(host)) continue;
+    const rootClass = qid(row, 'rootClass');
+    const description = descriptions.get(item) || '';
+    const scopeId = qid(row, 'scope');
+    const countryId = qid(row, 'country');
+    const publicationPlaceId = qid(row, 'publicationPlace');
+    const hqId = qid(row, 'hq');
+    const explicitSubnationalScope = Boolean(scopeId && scopeId !== countryId);
+    const regionalDescription = /\b(local|regional|community|municipal|metropolitan|county|district|provincial|state|province|prefecture|territorial|city|town|village|borough|neighbou?rhood|island|serving|areas?\s+of|market)\b/i
+      .test(description);
+    const nationalDescription = /\b(national|nationwide|countrywide|newspaper of record|public-service broadcaster|state broadcaster|national broadcaster)\b/i
+      .test(description);
+    const hasHqOrPubPlace = Boolean(publicationPlaceId || hqId);
+    const coverageArea = labels.get(scopeId) || labels.get(publicationPlaceId)
+      || labels.get(hqId) || `Local or regional market in ${country.name}`;
+    const locationMatch = coverageArea && description.toLocaleLowerCase()
+      .includes(coverageArea.toLocaleLowerCase());
+    // A candidate needs at least one subnational signal: explicit jurisdiction,
+    // a regional description, description mentions its HQ city, OR an HQ that
+    // is not the country capital. Otherwise it is national and dropped.
+    if (!explicitSubnationalScope && !regionalDescription && !locationMatch && !hasHqOrPubPlace) continue;
+    if (nationalDescription && !explicitSubnationalScope && !regionalDescription) continue;
+    const coverageType = /\b(county|district|borough)\b/i.test(description) ? 'county-district'
+      : /\b(state|province|prefecture|territor)\b/i.test(description) ? 'state-province'
+        : /\b(city|metropolitan|municipal|town)\b/i.test(description) ? 'metro-city'
+          : /\b(multi-region|several regions)\b/i.test(description) ? 'multi-region'
+            : /\bregional|region\b/i.test(description) ? 'region'
+              : hasHqOrPubPlace ? 'metro-city' : 'local-area';
+    const publicationType = rootClass === 'Q1153191' || rootClass === 'Q1580166' ? 'digital-news'
+      : rootClass === 'Q1616075' || rootClass === 'Q14350' ? 'news-broadcaster'
+        : 'newspaper';
+    const existing = grouped.get(host) || {
+      name: labels.get(item) || host,
+      website, host, country: country.slug, countryName: country.name, iso2,
+      ...region,
+      coverageArea,
+      coverageType,
+      languages: [],
+      publicationType,
+      sourceKind: 'wikidata-country-scoped',
+      regionalEvidence: explicitSubnationalScope ? 'structured-jurisdiction'
+        : regionalDescription ? 'regional-description'
+          : locationMatch ? 'description-location-match'
+            : 'weekly-publication-place',
+      sourceUrl: `https://www.wikidata.org/wiki/${item}`, wikidataId: item,
+    };
+    const code = row.languageCode && row.languageCode.value.toLowerCase();
+    if (code && /^[a-z]{2}$/.test(code)) existing.languages.push(code);
+    grouped.set(host, existing);
+  }
+  for (const candidate of grouped.values()) {
+    if (!candidate.languages.length) candidate.languages.push(DEFAULT_LANGUAGE[candidate.iso2] || 'en');
+    candidate.languages = [...new Set(candidate.languages)].sort();
+  }
+  return [...grouped.values()];
+}
+
 function dedupe(rows) {
   const existingMediaHosts = new Set(JSON.parse(fs.readFileSync(MEDIA, 'utf8'))
     .map((row) => cleanHost(row.website)).filter(Boolean));
@@ -734,7 +905,7 @@ function loadFreshDomainRatings() {
   }]));
 }
 
-function measurementQueue(candidates, findings, limit = 950) {
+function measurementQueue(candidates, findings, limit = 6000) {
   const existingHosts = new Set(loadExistingRecords().map((row) => cleanHost(row.website)));
   const confidence = {
     'regional-class': 5, 'curated-regional-dataset': 5, 'structured-jurisdiction': 4,
@@ -749,12 +920,12 @@ function measurementQueue(candidates, findings, limit = 950) {
   }).sort((a, b) => (confidence[b.regionalEvidence] || 0) - (confidence[a.regionalEvidence] || 0)
     || compareStable(a.name, b.name) || compareStable(a.host, b.host));
   const budgets = {
-    europe: 200, 'north-america': 550, oceania: 300, asia: 120,
-    'latin-america-caribbean': 80, africa: 60,
+    europe: 2000, 'north-america': 1500, oceania: 800, asia: 900,
+    'latin-america-caribbean': 500, africa: 300,
   };
   const weights = {
-    europe: 4, 'north-america': 4, oceania: 2, asia: 1,
-    'latin-america-caribbean': 1, africa: 1,
+    europe: 4, 'north-america': 3, oceania: 2, asia: 3,
+    'latin-america-caribbean': 2, africa: 1,
   };
   const queues = Object.fromEntries(EXPANSION_REGION_ORDER.map((region) => [region,
     eligible.filter((candidate) => candidate.macroRegion === region).slice(0, budgets[region]),
@@ -820,9 +991,13 @@ async function resumeResearch() {
 async function research() {
   const key = apiKey();
   if (!key) throw new Error('AHREFS_API_KEY is required for --research.');
-  const [discovered, usLocal, pipi] = await Promise.all([
+  const [discovered, countryScoped, usLocal, pipi] = await Promise.all([
     wikidataCandidates().catch((error) => {
       console.warn(`Wikidata discovery unavailable: ${error.message}; continuing with curated sources.`);
+      return [];
+    }),
+    wikidataCountryCandidates().catch((error) => {
+      console.warn(`Wikidata country-scoped discovery unavailable: ${error.message}`);
       return [];
     }),
     usLocalCandidates().catch((error) => {
@@ -834,8 +1009,8 @@ async function research() {
       return [];
     }),
   ]);
-  console.log(`Sources: Wikidata=${discovered.length}, US-local=${usLocal.length}, PIPI=${pipi.length}.`);
-  const candidates = dedupe([...seedCandidates(), ...discovered, ...usLocal, ...pipi]);
+  console.log(`Sources: Wikidata-class=${discovered.length}, Wikidata-country-scoped=${countryScoped.length}, US-local=${usLocal.length}, PIPI=${pipi.length}.`);
+  const candidates = dedupe([...seedCandidates(), ...discovered, ...countryScoped, ...usLocal, ...pipi]);
   const findings = fs.existsSync(FINDINGS)
     ? JSON.parse(fs.readFileSync(FINDINGS, 'utf8'))
     : { version: 1, generatedAt: TODAY, candidates: {} };
