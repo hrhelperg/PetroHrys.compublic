@@ -13,10 +13,10 @@ const build = require('../build-product-launch-platforms.cjs');
 const safeApply = require('../lib/rc-safe-apply.cjs');
 const rows = JSON.parse(fs.readFileSync(DATA, 'utf8'));
 
-test('the collection contains exactly 450 ranked unique platforms', () => {
+test('the collection contains exactly 600 ranked unique platforms', () => {
   assert.doesNotThrow(() => build.validate(rows));
-  assert.strictEqual(rows.length, 450);
-  assert.strictEqual(new Set(rows.map((row) => new URL(row.website).hostname.replace(/^www\./, ''))).size, 450);
+  assert.strictEqual(rows.length, 600);
+  assert.strictEqual(new Set(rows.map((row) => new URL(row.website).hostname.replace(/^www\./, ''))).size, 600);
 });
 
 test('the metrics owner can update only DR fields on this collection', () => {
@@ -55,9 +55,9 @@ test('every score is reproducible and the stored order is descending', () => {
 test('the generated page and CSV contain every platform once', () => {
   const page = fs.readFileSync(PAGE, 'utf8');
   const csv = fs.readFileSync(CSV, 'utf8');
-  assert.strictEqual((page.match(/<tr class="bd-row" /g) || []).length, 450);
-  assert.strictEqual((page.match(/class="bd-cell bd-cell--stack"/g) || []).length, 900);
-  assert.strictEqual(csv.replace(/^﻿/, '').trim().split(/\r?\n/).length, 451);
+  assert.strictEqual((page.match(/<tr class="bd-row" /g) || []).length, 600);
+  assert.strictEqual((page.match(/class="bd-cell bd-cell--stack"/g) || []).length, 1200);
+  assert.strictEqual(csv.replace(/^﻿/, '').trim().split(/\r?\n/).length, 601);
   assert.match(page, /<link rel="canonical" href="https:\/\/petrohrys\.com\/research\/product-launch-platforms\/">/);
   assert.doesNotMatch(page, /hreflang="(?:es|fr|de)"/);
   assert.match(page, /https:\/\/ahrefs\.com\/legal\/domain-rating-license/);

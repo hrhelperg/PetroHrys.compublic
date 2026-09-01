@@ -702,6 +702,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|9sites.net",
+   "target": "9sites.net",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 35,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-9sites-net"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|a-battle-of-crowns.rpg-board.net",
    "target": "a-battle-of-crowns.rpg-board.net",
    "provider": "Ahrefs",
@@ -1816,6 +1830,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|ai-hunter.io",
+   "target": "ai-hunter.io",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 21,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-ai-hunter-io"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|ai-nav.net",
    "target": "ai-nav.net",
    "provider": "Ahrefs",
@@ -2212,6 +2240,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|aimojo.io",
+   "target": "aimojo.io",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 44,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-aimojo-io"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|ain.ua",
    "target": "ain.ua",
    "provider": "Ahrefs",
@@ -2510,6 +2552,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|aitools.lol",
+   "target": "aitools.lol",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 28,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-aitools-lol"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|aitools.neilpatel.com",
    "target": "aitools.neilpatel.com",
    "provider": "Ahrefs",
@@ -2576,6 +2632,20 @@
     {
      "collection": "product-launch-platforms",
      "id": "plp-ai-tools-corner"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|aitoolsdirectory.com",
+   "target": "aitoolsdirectory.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 52,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-aitoolsdirectory-com"
     }
    ]
   },
@@ -2744,6 +2814,20 @@
     {
      "collection": "product-launch-platforms",
      "id": "plp-ai-top-tools"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|aivalley.ai",
+   "target": "aivalley.ai",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 32,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-aivalley-ai"
     }
    ]
   },
@@ -3078,6 +3162,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|allstatesusadirectory.com",
+   "target": "allstatesusadirectory.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 24,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-allstatesusadirectory-com"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|alltopstartups.com",
    "target": "alltopstartups.com",
    "provider": "Ahrefs",
@@ -3116,6 +3214,20 @@
     {
      "collection": "marketplaces",
      "id": "mp-vn-alonhadat"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|alphadigits.com",
+   "target": "alphadigits.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 34,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-alphadigits-com"
     }
    ]
   },
@@ -3394,6 +3506,20 @@
     {
      "collection": "forums",
      "id": "forum-android-stackexchange-com-fe1b8608"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|androidappsreview.com",
+   "target": "androidappsreview.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 27,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-androidappsreview-com"
     }
    ]
   },
@@ -4022,6 +4148,34 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|appagg.com",
+   "target": "appagg.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 50,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-appagg-com"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|appbrain.com",
+   "target": "appbrain.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 75,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-appbrain-com"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|appexchange.salesforce.com",
    "target": "appexchange.salesforce.com",
    "provider": "Ahrefs",
@@ -4046,6 +4200,20 @@
     {
      "collection": "directory-opportunities",
      "id": "us-appfutura"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|appgallery.huawei.com",
+   "target": "appgallery.huawei.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 92,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-appgallery-huawei-com"
     }
    ]
   },
@@ -4288,6 +4456,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|appsandwebsites.com",
+   "target": "appsandwebsites.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 15,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-appsandwebsites-com"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|appscribed.com",
    "target": "appscribed.com",
    "provider": "Ahrefs",
@@ -4354,6 +4536,20 @@
     {
      "collection": "directory-opportunities",
      "id": "global-microsoft-appsource"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|appsthunder.com",
+   "target": "appsthunder.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 20,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-appsthunder-com"
     }
    ]
   },
@@ -5998,6 +6194,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|awesomeindie.com",
+   "target": "awesomeindie.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 32,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-awesomeindie-com"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|awesomeopensource.com",
    "target": "awesomeopensource.com",
    "provider": "Ahrefs",
@@ -7000,6 +7210,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|beingguru.com",
+   "target": "beingguru.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 45,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-beingguru-com"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|belize.com",
    "target": "belize.com",
    "provider": "Ahrefs",
@@ -7108,6 +7332,34 @@
     {
      "collection": "forums",
      "id": "forum-best-frm-rpg-board-net-cb730830"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|bestcompany.com",
+   "target": "bestcompany.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 70,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-bestcompany-com"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|bestmobileappawards.com",
+   "target": "bestmobileappawards.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 58,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-bestmobileappawards-com"
     }
    ]
   },
@@ -11560,6 +11812,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|cartcraze.com",
+   "target": "cartcraze.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 29,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-cartcraze-com"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|carzone.ie",
    "target": "carzone.ie",
    "provider": "Ahrefs",
@@ -12190,6 +12456,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|changelog.com",
+   "target": "changelog.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 78,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-changelog-com"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|channelfutures.com",
    "target": "channelfutures.com",
    "provider": "Ahrefs",
@@ -12638,6 +12918,20 @@
     {
      "collection": "directory-opportunities",
      "id": "uk-ciob"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|cipinet.com",
+   "target": "cipinet.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 38,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-cipinet-com"
     }
    ]
   },
@@ -13400,6 +13694,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|cofounderslab.com",
+   "target": "cofounderslab.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 62,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-cofounderslab-com"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|coinafrique.com",
    "target": "coinafrique.com",
    "provider": "Ahrefs",
@@ -13424,6 +13732,20 @@
     {
      "collection": "forums",
      "id": "forum-coitroleplay-rpg-board-net-a2349139"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|collaborizm.com",
+   "target": "collaborizm.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 16,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-collaborizm-com"
     }
    ]
   },
@@ -16816,6 +17138,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|comparasoftware.com",
+   "target": "comparasoftware.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 66,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-comparasoftware-com"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|compare-software.com",
    "target": "compare-software.com",
    "provider": "Ahrefs",
@@ -17870,6 +18206,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|crowdreviews.com",
+   "target": "crowdreviews.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 66,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-crowdreviews-com"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|crozdesk.com",
    "target": "crozdesk.com",
    "provider": "Ahrefs",
@@ -18138,6 +18488,20 @@
     {
      "collection": "product-launch-platforms",
      "id": "plp-curlship-com"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|cuspera.com",
+   "target": "cuspera.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 50,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-cuspera-com"
     }
    ]
   },
@@ -19242,6 +19606,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|dealfuel.com",
+   "target": "dealfuel.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 72,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-dealfuel-com"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|dealify.com",
    "target": "dealify.com",
    "provider": "Ahrefs",
@@ -19252,6 +19630,20 @@
     {
      "collection": "product-launch-platforms",
      "id": "plp-dealify-com"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|dealmirror.com",
+   "target": "dealmirror.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 48,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-dealmirror-com"
     }
    ]
   },
@@ -19564,6 +19956,20 @@
     {
      "collection": "product-launch-platforms",
      "id": "plp-desifounder"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|designernews.co",
+   "target": "designernews.co",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 69,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-designernews-co"
     }
    ]
   },
@@ -19918,6 +20324,20 @@
     {
      "collection": "forums",
      "id": "forum-devops-stackexchange-com-8ea6c877"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|devpages.io",
+   "target": "devpages.io",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 23,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-devpages-io"
     }
    ]
   },
@@ -23302,6 +23722,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|ebool.com",
+   "target": "ebool.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 51,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-ebool-com"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|ebuy.gsa.gov",
    "target": "ebuy.gsa.gov",
    "provider": "Ahrefs",
@@ -24372,6 +24806,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|emojilaunch.com",
+   "target": "emojilaunch.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 7,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-emojilaunch-com"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|emploitic.com",
    "target": "emploitic.com",
    "provider": "Ahrefs",
@@ -24396,6 +24844,20 @@
     {
      "collection": "directory-opportunities",
      "id": "es-empresite"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|en.aptoide.com",
+   "target": "en.aptoide.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 77,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-aptoide-com"
     }
    ]
   },
@@ -25940,6 +26402,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|exactseek.com",
+   "target": "exactseek.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 70,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-exactseek-com"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|exame.com",
    "target": "exame.com",
    "provider": "Ahrefs",
@@ -27044,6 +27520,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|feedmystartup.com",
+   "target": "feedmystartup.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 17,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-feedmystartup-com"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|feedstuffs.com",
    "target": "feedstuffs.com",
    "provider": "Ahrefs",
@@ -28138,6 +28628,20 @@
     {
      "collection": "directories",
      "id": "global-flathub"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|flattrendz.com",
+   "target": "flattrendz.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 19,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-flattrendz-com"
     }
    ]
   },
@@ -33848,6 +34352,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|free-ai-tools-directory.com",
+   "target": "free-ai-tools-directory.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 14,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-free-ai-tools-directory-com"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|free-for.dev",
    "target": "free-for.dev",
    "provider": "Ahrefs",
@@ -35050,6 +35568,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|getworm.com",
+   "target": "getworm.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 31,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-getworm-com"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|getyourguide.com",
    "target": "getyourguide.com",
    "provider": "Ahrefs",
@@ -35814,6 +36346,20 @@
     {
      "collection": "tenders",
      "id": "th-e-gp-electronic-governme"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|gptdemo.net",
+   "target": "gptdemo.net",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 27,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-gptdemo-net"
     }
    ]
   },
@@ -37052,6 +37598,20 @@
     {
      "collection": "directories",
      "id": "gb-hcpc-register"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|hdrobots.com",
+   "target": "hdrobots.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 18,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-hdrobots-com"
     }
    ]
   },
@@ -38680,6 +39240,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|howtobuysaas.com",
+   "target": "howtobuysaas.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 19,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-howtobuysaas-com"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|hrbrew.com",
    "target": "hrbrew.com",
    "provider": "Ahrefs",
@@ -39982,6 +40556,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|indiestack.co",
+   "target": "indiestack.co",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 9,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-indiestack-co"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|indietool.io",
    "target": "indietool.io",
    "provider": "Ahrefs",
@@ -40486,6 +41074,20 @@
     {
      "collection": "marketplaces",
      "id": "mp-mx-inmuebles24"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|innmind.com",
+   "target": "innmind.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 50,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-innmind-com"
     }
    ]
   },
@@ -42202,6 +42804,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|joinly.xyz",
+   "target": "joinly.xyz",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 15,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-joinly-xyz"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|joneps.gov.jo",
    "target": "joneps.gov.jo",
    "provider": "Ahrefs",
@@ -43772,6 +44388,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|lachief.io",
+   "target": "lachief.io",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 20,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-lachief-io"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|laguiadelocio.com.ar",
    "target": "laguiadelocio.com.ar",
    "provider": "Ahrefs",
@@ -43838,6 +44468,20 @@
     {
      "collection": "product-launch-platforms",
      "id": "plp-land-book-com"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|landingfolio.com",
+   "target": "landingfolio.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 64,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-landingfolio-com"
     }
    ]
   },
@@ -44804,6 +45448,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|library.phygital.plus",
+   "target": "library.phygital.plus",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 45,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-library-phygital-plus"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|licensingnt.nt.gov.au",
    "target": "licensingnt.nt.gov.au",
    "provider": "Ahrefs",
@@ -45084,6 +45742,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|listingbott.com",
+   "target": "listingbott.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 43,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-listingbott-com"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|listmysaas.xyz",
    "target": "listmysaas.xyz",
    "provider": "Ahrefs",
@@ -45164,6 +45836,20 @@
     {
      "collection": "forums",
      "id": "forum-lnd1-rpg-board-net-b915018e"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|lobste.rs",
+   "target": "lobste.rs",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 75,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-lobste-rs"
     }
    ]
   },
@@ -45504,6 +46190,20 @@
     {
      "collection": "forums",
      "id": "forum-lrocr-rpg-board-net-f0904d26"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|ltdhunt.com",
+   "target": "ltdhunt.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 15,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-ltdhunt-com"
     }
    ]
   },
@@ -46174,6 +46874,20 @@
     {
      "collection": "directory-opportunities",
      "id": "us-mapquest"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|maqtoob.com",
+   "target": "maqtoob.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 53,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-maqtoob-com"
     }
    ]
   },
@@ -47598,6 +48312,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|mintfunnel.co",
+   "target": "mintfunnel.co",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 36,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-mintfunnel-co"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|miodottore.it",
    "target": "miodottore.it",
    "provider": "Ahrefs",
@@ -47948,6 +48676,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|mobileappdaily.com",
+   "target": "mobileappdaily.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 71,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-mobileappdaily-com"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|mobileworldlive.com",
    "target": "mobileworldlive.com",
    "provider": "Ahrefs",
@@ -47958,6 +48700,20 @@
     {
      "collection": "media",
      "id": "md-mobile-world-live"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|moddb.com",
+   "target": "moddb.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 79,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-moddb-com"
     }
    ]
   },
@@ -48918,6 +49674,20 @@
     {
      "collection": "forums",
      "id": "forum-myrparchive-rpg-board-net-9dc5aaa5"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|mystartuptool.com",
+   "target": "mystartuptool.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 8,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-mystartuptool-com"
     }
    ]
   },
@@ -51254,6 +52024,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|niceoneilike.com",
+   "target": "niceoneilike.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 37,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-niceoneilike-com"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|niche.com",
    "target": "niche.com",
    "provider": "Ahrefs",
@@ -53104,6 +53888,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|onlinegeniuses.com",
+   "target": "onlinegeniuses.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 57,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-onlinegeniuses-com"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|onlynocode.com",
    "target": "onlynocode.com",
    "provider": "Ahrefs",
@@ -53896,6 +54694,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|openstartuplist.com",
+   "target": "openstartuplist.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 25,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-openstartuplist-com"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|openstreetmap.org",
    "target": "openstreetmap.org",
    "provider": "Ahrefs",
@@ -54276,6 +55088,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|owwly.com",
+   "target": "owwly.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 22,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-owwly-com"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|oxygen.offdem.net",
    "target": "oxygen.offdem.net",
    "provider": "Ahrefs",
@@ -54412,6 +55238,20 @@
     {
      "collection": "directory-opportunities",
      "id": "fr-pagesjaunes"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|paggu.com",
+   "target": "paggu.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 25,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-paggu-com"
     }
    ]
   },
@@ -57054,6 +57894,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|preapps.com",
+   "target": "preapps.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 47,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-preapps-com"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|precice.discourse.group",
    "target": "precice.discourse.group",
    "provider": "Ahrefs",
@@ -57078,6 +57932,20 @@
     {
      "collection": "media",
      "id": "md-precision-farming-dealer"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|prefundia.com",
+   "target": "prefundia.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 34,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-prefundia-com"
     }
    ]
   },
@@ -57612,6 +58480,20 @@
     {
      "collection": "media",
      "id": "md-profit-ro"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|profithunt.co",
+   "target": "profithunt.co",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 6,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-profithunt-co"
     }
    ]
   },
@@ -58490,6 +59372,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|qualityinternetdirectory.com",
+   "target": "qualityinternetdirectory.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 39,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-qualityinternetdirectory-com"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|quandoo.co.uk",
    "target": "quandoo.co.uk",
    "provider": "Ahrefs",
@@ -59078,6 +59974,20 @@
     {
      "collection": "forums",
      "id": "forum-readfairytailrebirth-rpg-board-net-44199873"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|readysaasgo.com",
+   "target": "readysaasgo.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 23,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-readysaasgo-com"
     }
    ]
   },
@@ -60458,6 +61368,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|romanianstartups.com",
+   "target": "romanianstartups.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 22,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-romanianstartups-com"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|romantictravel.forumieren.de",
    "target": "romantictravel.forumieren.de",
    "provider": "Ahrefs",
@@ -60976,6 +61900,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|saascss.com",
+   "target": "saascss.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 9,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-saascss-com"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|saascubes.com",
    "target": "saascubes.com",
    "provider": "Ahrefs",
@@ -60986,6 +61924,20 @@
     {
      "collection": "product-launch-platforms",
      "id": "plp-saascubes-com"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|saasdirectory.com",
+   "target": "saasdirectory.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 33,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-saasdirectory-com"
     }
    ]
   },
@@ -61096,6 +62048,20 @@
     {
      "collection": "product-launch-platforms",
      "id": "plp-saasmantra-com"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|saasplace.io",
+   "target": "saasplace.io",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 4,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-saasplace-io"
     }
    ]
   },
@@ -63082,6 +64048,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|sideprojects.net",
+   "target": "sideprojects.net",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 13,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-sideprojects-net"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|sidetmedord.mentalhelse.no",
    "target": "sidetmedord.mentalhelse.no",
    "provider": "Ahrefs",
@@ -63288,6 +64268,34 @@
     {
      "collection": "product-launch-platforms",
      "id": "plp-similarlabs"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|similarsites.com",
+   "target": "similarsites.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 59,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-similarsites-com"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|similarsitesearch.com",
+   "target": "similarsitesearch.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 50,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-similarsitesearch-com"
     }
    ]
   },
@@ -63660,6 +64668,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|smartmoneymatch.com",
+   "target": "smartmoneymatch.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 54,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-smartmoneymatch-com"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|smartpassiveincome.com",
    "target": "smartpassiveincome.com",
    "provider": "Ahrefs",
@@ -63754,6 +64776,20 @@
     {
      "collection": "directory-opportunities",
      "id": "in-snapdeal"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|snapmunk.com",
+   "target": "snapmunk.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 53,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-snapmunk-com"
     }
    ]
   },
@@ -63880,6 +64916,20 @@
     {
      "collection": "directory-opportunities",
      "id": "global-softpedia"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|software.informer.com",
+   "target": "software.informer.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 84,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-software-informer-com"
     }
    ]
   },
@@ -64586,6 +65636,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|spacebandits.io",
+   "target": "spacebandits.io",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 17,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-spacebandits-io"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|spanish.stackexchange.com",
    "target": "spanish.stackexchange.com",
    "provider": "Ahrefs",
@@ -64778,6 +65842,34 @@
     {
      "collection": "forums",
      "id": "forum-sportszone-forumotion-net-b6e6f9a6"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|spotsaas.com",
+   "target": "spotsaas.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 66,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-spotsaas-com"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|springwise.com",
+   "target": "springwise.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 72,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-springwise-com"
     }
    ]
   },
@@ -65234,6 +66326,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|starterstory.com",
+   "target": "starterstory.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 76,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-starterstory-com"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|startit.rs",
    "target": "startit.rs",
    "provider": "Ahrefs",
@@ -65290,6 +66396,34 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|startupaitools.com",
+   "target": "startupaitools.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 18,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-startupaitools-com"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|startupanz.com",
+   "target": "startupanz.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 32,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-startupanz-com"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|startupaus.org",
    "target": "startupaus.org",
    "provider": "Ahrefs",
@@ -65318,6 +66452,34 @@
     {
      "collection": "product-launch-platforms",
      "id": "plp-startupbase"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|startupbeat.com",
+   "target": "startupbeat.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 55,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-startupbeat-com"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|startupbenchmarks.com",
+   "target": "startupbenchmarks.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 58,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-startupbenchmarks-com"
     }
    ]
   },
@@ -65378,6 +66540,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|startupcollections.com",
+   "target": "startupcollections.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 18,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-startupcollections-com"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|startupdaily.net",
    "target": "startupdaily.net",
    "provider": "Ahrefs",
@@ -65388,6 +66564,34 @@
     {
      "collection": "media",
      "id": "md-startup-daily"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|startupdope.com",
+   "target": "startupdope.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 27,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-startupdope-com"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|startupeurope.net",
+   "target": "startupeurope.net",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 31,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-startupeurope-net"
     }
    ]
   },
@@ -65512,6 +66716,34 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|startupresources.io",
+   "target": "startupresources.io",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 61,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-startupresources-io"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|startups-list.com",
+   "target": "startups-list.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 40,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-startups-list-com"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|startups.co.uk",
    "target": "startups.co.uk",
    "provider": "Ahrefs",
@@ -65554,6 +66786,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|startups.watch",
+   "target": "startups.watch",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 39,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-startups-watch"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|startupslab.site",
    "target": "startupslab.site",
    "provider": "Ahrefs",
@@ -65564,6 +66810,20 @@
     {
      "collection": "product-launch-platforms",
      "id": "plp-startups-lab"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|startupsoflondon.com",
+   "target": "startupsoflondon.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 31,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-startupsoflondon-com"
     }
    ]
   },
@@ -65600,6 +66860,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|startupsubmit.com",
+   "target": "startupsubmit.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 8,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-startupsubmit-com"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|startupticker.ch",
    "target": "startupticker.ch",
    "provider": "Ahrefs",
@@ -65632,6 +66906,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|startuptracker.io",
+   "target": "startuptracker.io",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 44,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-startuptracker-io"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|startuptrusted.com",
    "target": "startuptrusted.com",
    "provider": "Ahrefs",
@@ -65642,6 +66930,20 @@
     {
      "collection": "product-launch-platforms",
      "id": "plp-startuptrusted"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|startupvideos.com",
+   "target": "startupvideos.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 22,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-startupvideos-com"
     }
    ]
   },
@@ -65866,6 +67168,20 @@
     {
      "collection": "marketplaces",
      "id": "mp-us-storenvy"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|stork.ai",
+   "target": "stork.ai",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 47,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-stork-ai"
     }
    ]
   },
@@ -66182,6 +67498,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|submt.com",
+   "target": "submt.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 0,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-submt-com"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|substack.com",
    "target": "substack.com",
    "provider": "Ahrefs",
@@ -66332,6 +67662,20 @@
     {
      "collection": "media",
      "id": "md-superhuman-ai"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|superlaunch.io",
+   "target": "superlaunch.io",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 10,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-superlaunch-io"
     }
    ]
   },
@@ -66892,6 +68236,20 @@
     {
      "collection": "media",
      "id": "md-t3n"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|taalk.com",
+   "target": "taalk.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 16,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-taalk-com"
     }
    ]
   },
@@ -67610,6 +68968,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|techendo.com",
+   "target": "techendo.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 34,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-techendo-com"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|techimply.com",
    "target": "techimply.com",
    "provider": "Ahrefs",
@@ -67722,6 +69094,20 @@
     {
      "collection": "directory-opportunities",
      "id": "global-techpilot"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|techpluto.com",
+   "target": "techpluto.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 54,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-techpluto-com"
     }
    ]
   },
@@ -68458,6 +69844,34 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|thataicollection.com",
+   "target": "thataicollection.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 43,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-thataicollection-com"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|thatappshow.com",
+   "target": "thatappshow.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 50,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-thatappshow-com"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|thatsmy.ai",
    "target": "thatsmy.ai",
    "provider": "Ahrefs",
@@ -68566,6 +69980,20 @@
     {
      "collection": "product-launch-platforms",
      "id": "plp-theagentrank"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|theaigeneration.com",
+   "target": "theaigeneration.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 9,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-theaigeneration-com"
     }
    ]
   },
@@ -69004,6 +70432,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|thehiveindex.com",
+   "target": "thehiveindex.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 51,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-thehiveindex-com"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|thehungergamesbalkan.rpg-board.net",
    "target": "thehungergamesbalkan.rpg-board.net",
    "provider": "Ahrefs",
@@ -69326,6 +70768,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|thepopularapps.com",
+   "target": "thepopularapps.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 28,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-thepopularapps-com"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|therealdeal.com",
    "target": "therealdeal.com",
    "provider": "Ahrefs",
@@ -69456,6 +70912,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|thesaasdirectory.com",
+   "target": "thesaasdirectory.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 12,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-thesaasdirectory-com"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|thesanbox.rpg-board.net",
    "target": "thesanbox.rpg-board.net",
    "provider": "Ahrefs",
@@ -69540,6 +71010,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|thestartupinc.com",
+   "target": "thestartupinc.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 33,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-thestartupinc-com"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|thestickcult.rpg-board.net",
    "target": "thestickcult.rpg-board.net",
    "provider": "Ahrefs",
@@ -69550,6 +71034,20 @@
     {
      "collection": "forums",
      "id": "forum-thestickcult-rpg-board-net-980d4999"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|thetechmap.com",
+   "target": "thetechmap.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 14,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-thetechmap-com"
     }
    ]
   },
@@ -69676,6 +71174,20 @@
     {
      "collection": "forums",
      "id": "forum-thexgene-rpg-board-net-6c9c26c2"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|thingtesting.com",
+   "target": "thingtesting.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 70,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-thingtesting-com"
     }
    ]
   },
@@ -70302,6 +71814,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|tooldirectory.ai",
+   "target": "tooldirectory.ai",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 48,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-tooldirectory-ai"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|tooldirs.com",
    "target": "tooldirs.com",
    "provider": "Ahrefs",
@@ -70464,6 +71990,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|tools.robingood.com",
+   "target": "tools.robingood.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 29,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-tools-robingood-com"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|tools.so",
    "target": "tools.so",
    "provider": "Ahrefs",
@@ -70548,6 +72088,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|toools.design",
+   "target": "toools.design",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 46,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-toools-design"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|top10collect.com",
    "target": "top10collect.com",
    "provider": "Ahrefs",
@@ -70628,6 +72182,20 @@
     {
      "collection": "product-launch-platforms",
      "id": "plp-topfreeaitools"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|topionetworks.com",
+   "target": "topionetworks.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 59,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-topionetworks-com"
     }
    ]
   },
@@ -70748,6 +72316,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|toshilist.com",
+   "target": "toshilist.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 44,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-toshilist-com"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|totaljobs.com",
    "target": "totaljobs.com",
    "provider": "Ahrefs",
@@ -70772,6 +72354,20 @@
     {
      "collection": "media",
      "id": "md-total-telecom"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|toucharcade.com",
+   "target": "toucharcade.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 76,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-toucharcade-com"
     }
    ]
   },
@@ -71262,6 +72858,20 @@
     {
      "collection": "media",
      "id": "md-trending-topics"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|trendystartups.com",
+   "target": "trendystartups.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 33,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-trendystartups-com"
     }
    ]
   },
@@ -72326,6 +73936,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|unita.co",
+   "target": "unita.co",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 48,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-unita-co"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|unite.ai",
    "target": "unite.ai",
    "provider": "Ahrefs",
@@ -72406,6 +74030,20 @@
     {
      "collection": "forums",
      "id": "forum-unix-stackexchange-com-70afcc00"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|unmatchedstyle.com",
+   "target": "unmatchedstyle.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 62,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-unmatchedstyle-com"
     }
    ]
   },
@@ -72536,6 +74174,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|uplabs.com",
+   "target": "uplabs.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 71,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-uplabs-com"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|upperfield.rpg-board.net",
    "target": "upperfield.rpg-board.net",
    "provider": "Ahrefs",
@@ -72546,6 +74198,20 @@
     {
      "collection": "forums",
      "id": "forum-upperfield-rpg-board-net-c681c6a8"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|uptodown.com",
+   "target": "uptodown.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 83,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-uptodown-com"
     }
    ]
   },
@@ -73002,6 +74668,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|vator.tv",
+   "target": "vator.tv",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 70,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-vator-tv"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|vault.com",
    "target": "vault.com",
    "provider": "Ahrefs",
@@ -73166,6 +74846,20 @@
     {
      "collection": "directory-opportunities",
      "id": "ch-venturelab"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|ventureradar.com",
+   "target": "ventureradar.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 51,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-ventureradar-com"
     }
    ]
   },
@@ -73604,6 +75298,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|viralindiandiary.com",
+   "target": "viralindiandiary.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 18,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-viralindiandiary-com"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|virginiabusiness.com",
    "target": "virginiabusiness.com",
    "provider": "Ahrefs",
@@ -73930,6 +75638,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|w3catalog.com",
+   "target": "w3catalog.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 14,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-w3catalog-com"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|wadline.com",
    "target": "wadline.com",
    "provider": "Ahrefs",
@@ -73954,6 +75676,20 @@
     {
      "collection": "forums",
      "id": "forum-wahoox-forum-wahoofitness-com-5ab30c43"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|waildworld.com",
+   "target": "waildworld.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 10,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-waildworld-com"
     }
    ]
   },
@@ -74214,6 +75950,48 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|wearenocode.com",
+   "target": "wearenocode.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 28,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-wearenocode-com"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|web3canvas.com",
+   "target": "web3canvas.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 68,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-web3canvas-com"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|webapprater.com",
+   "target": "webapprater.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 34,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-webapprater-com"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|webapps.stackexchange.com",
    "target": "webapps.stackexchange.com",
    "provider": "Ahrefs",
@@ -74400,6 +76178,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|webwide.io",
+   "target": "webwide.io",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 40,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-webwide-io"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|webwiki.com",
    "target": "webwiki.com",
    "provider": "Ahrefs",
@@ -74526,6 +76318,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|wep.gov.in",
+   "target": "wep.gov.in",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 44,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-wep-gov-in"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|wer-zu-wem.de",
    "target": "wer-zu-wem.de",
    "provider": "Ahrefs",
@@ -74648,6 +76454,20 @@
     {
      "collection": "forums",
      "id": "forum-whatsyourstory-rpg-board-net-85bf3b40"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|whattheai.tech",
+   "target": "whattheai.tech",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 36,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-whattheai-tech"
     }
    ]
   },
@@ -74900,6 +76720,20 @@
     {
      "collection": "forums",
      "id": "forum-winrumbleset-forumotion-net-af94fb1e"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|wip.co",
+   "target": "wip.co",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 56,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-wip-co"
     }
    ]
   },
@@ -76392,6 +78226,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|younoodle.com",
+   "target": "younoodle.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 65,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-younoodle-com"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|yourgreenpal.com",
    "target": "yourgreenpal.com",
    "provider": "Ahrefs",
@@ -76430,6 +78278,20 @@
     {
      "collection": "forums",
      "id": "forum-yourownworld-rpg-board-net-35542a18"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|yourstack.com",
+   "target": "yourstack.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 34,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-yourstack-com"
     }
    ]
   },
@@ -76756,6 +78618,20 @@
     {
      "collection": "forums",
      "id": "forum-zeroduelacademy-rpg-board-net-forum-30a3ab79"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|zeroqode.com",
+   "target": "zeroqode.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 60,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-zeroqode-com"
     }
    ]
   },
@@ -77124,6 +79000,20 @@
     {
      "collection": "directory-opportunities",
      "id": "pl-zpp"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|zumvu.com",
+   "target": "zumvu.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 72,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "product-launch-platforms",
+     "id": "plp-zumvu-com"
     }
    ]
   },
