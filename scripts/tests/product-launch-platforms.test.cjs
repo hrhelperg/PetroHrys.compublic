@@ -10,6 +10,7 @@ const DATA = path.join(ROOT, 'data/product-launch-platforms/platforms.json');
 const PAGE = path.join(ROOT, 'research/product-launch-platforms/index.html');
 const CSV = path.join(ROOT, 'research/product-launch-platforms/platforms.csv');
 const QUALITY_FINDINGS = path.join(ROOT, 'data/product-launch-platforms/.quality-findings.json');
+const EVIDENCE_FINDINGS = path.join(ROOT, 'data/product-launch-platforms/.evidence-resolution-findings.json');
 const build = require('../build-product-launch-platforms.cjs');
 const safeApply = require('../lib/rc-safe-apply.cjs');
 const rows = JSON.parse(fs.readFileSync(DATA, 'utf8'));
@@ -32,7 +33,7 @@ test('the metrics owner can update only DR fields on this collection', () => {
 });
 
 test('follow claims never masquerade as observed backlink evidence', () => {
-  const claims = rows.filter((row) => row.followEvidence === 'source-claimed-follow');
+  const claims = rows.filter((row) => row.followEvidence.startsWith('source-claimed-'));
   assert.ok(claims.length > 0);
   for (const row of claims) {
     assert.strictEqual(row.evidenceUrl, null, `${row.id} attaches evidence to an unverified claim`);
@@ -46,6 +47,21 @@ test('follow claims never masquerade as observed backlink evidence', () => {
   }
 });
 
+test('all former unknowns have a truthful terminal evidence resolution', () => {
+  const findings = JSON.parse(fs.readFileSync(EVIDENCE_FINDINGS, 'utf8'));
+  assert.strictEqual(findings.initialUnknownIds.length, 582);
+  assert.strictEqual(findings.findings.length, 582);
+  assert.strictEqual(new Set(findings.findings.map((finding) => finding.id)).size, 582);
+  assert.strictEqual(rows.filter((row) => row.followEvidence === 'unknown').length, 0);
+  for (const id of findings.initialUnknownIds) {
+    const row = rows.find((item) => item.id === id);
+    assert.ok(row, `${id} disappeared during evidence resolution`);
+    assert.notStrictEqual(row.followEvidence, 'unknown', `${id} remained unknown`);
+    assert.match(row.limitations, /observed|claims|protected|unreachable|no verifiable|not applicable/i,
+      `${id} does not disclose its evidence limit`);
+  }
+});
+
 test('every score is reproducible and the stored order uses deterministic evidence-first ties', () => {
   for (const row of rows) assert.strictEqual(row.opportunityScore, build.scoreFor(row), row.id);
   for (let i = 1; i < rows.length; i += 1) {
@@ -55,7 +71,7 @@ test('every score is reproducible and the stored order uses deterministic eviden
 });
 
 test('verified actionability outranks raw authority', () => {
-  const base = structuredClone(rows.find((row) => row.followEvidence === 'unknown'));
+  const base = structuredClone(rows.find((row) => row.followEvidence === 'unverified-no-template'));
   const authorityOnly = { ...base, domainRating: 100, submissionUrl: null,
     submissionRouteObserved: false, listingIndexability: 'unknown' };
   authorityOnly.opportunityScore = build.scoreFor(authorityOnly);

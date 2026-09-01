@@ -18,7 +18,8 @@ const TYPES = new Set(['launch-board', 'startup-directory', 'ai-software-directo
 const PRICES = new Set(['free', 'freemium', 'mixed', 'paid', 'unknown']);
 const AVAILABILITY = new Set(['live', 'protected', 'not-probed', 'unreachable']);
 const EVIDENCE = new Set(['observed-follow', 'observed-mixed', 'observed-nofollow',
-  'source-claimed-follow', 'unknown']);
+  'source-claimed-follow', 'source-claimed-nofollow', 'unverified-protected',
+  'unverified-unreachable', 'unverified-no-template', 'not-applicable']);
 const TYPE_LABELS = {
   'launch-board': 'Launch board',
   'startup-directory': 'Startup directory',
@@ -36,7 +37,11 @@ const EVIDENCE_LABELS = {
   'observed-mixed': 'Conditional / mixed',
   'observed-nofollow': 'Nofollow observed',
   'source-claimed-follow': 'Follow claim to verify',
-  unknown: 'Link type unknown',
+  'source-claimed-nofollow': 'Nofollow claim to verify',
+  'unverified-protected': 'Protected from inspection',
+  'unverified-unreachable': 'Unreachable when checked',
+  'unverified-no-template': 'No public listing template found',
+  'not-applicable': 'No public listing model',
 };
 const PRICE_LABELS = {
   free: 'Free', freemium: 'Free tier', mixed: 'Free and paid', paid: 'Paid', unknown: 'Unknown',
@@ -56,7 +61,9 @@ const csv = (value) => {
 
 function scoreFor(row) {
   const evidence = { 'observed-follow': 34, 'observed-mixed': 24, 'source-claimed-follow': 12,
-    'observed-nofollow': 7, unknown: 0 };
+    'observed-nofollow': 7, 'source-claimed-nofollow': 2, 'unverified-no-template': -2,
+    'unverified-protected': -4, 'not-applicable': -6, 'unverified-unreachable': -20,
+    unknown: 0 };
   const availability = { live: 12, protected: 5, 'not-probed': 0, unreachable: -20 };
   const type = { 'launch-board': 20, 'startup-directory': 17, 'ai-software-directory': 15,
     'product-directory': 13, 'developer-community': 11, 'software-review': 11,
@@ -75,7 +82,9 @@ function scoreFor(row) {
 
 function compareForRanking(a, b) {
   const evidence = { 'observed-follow': 4, 'observed-mixed': 3, 'source-claimed-follow': 2,
-    'observed-nofollow': 1, unknown: 0 };
+    'observed-nofollow': 1, 'source-claimed-nofollow': 0, 'unverified-no-template': -1,
+    'unverified-protected': -2, 'not-applicable': -3, 'unverified-unreachable': -4,
+    unknown: -5 };
   const indexability = { indexable: 3, mixed: 2, unknown: 1, noindex: 0 };
   const availability = { live: 3, protected: 2, 'not-probed': 1, unreachable: 0 };
   const actionability = (row) => row.submissionUrl && row.submissionRouteObserved ? 2
@@ -98,7 +107,9 @@ function qualityTierFor(row) {
     .includes(row.followEvidence);
   if (route && observed && row.listingIndexability === 'indexable') return 'verified';
   if (route && row.listingIndexability !== 'noindex'
-    && (observed || row.followEvidence === 'source-claimed-follow')) return 'actionable';
+    && (observed || (row.followEvidence === 'source-claimed-follow'
+      && !/reports? a reciprocal backlink|reciprocal backlink or badge requirement|link-exchange risk/i
+        .test(row.limitations)))) return 'actionable';
   return 'research';
 }
 
@@ -126,6 +137,9 @@ function validate(rows) {
     if (!EVIDENCE.has(row.followEvidence)) throw new Error(`${label}: invalid evidence state.`);
     if (row.followEvidence.startsWith('observed') && !row.evidenceUrl) {
       throw new Error(`${label}: observed evidence has no public listing URL.`);
+    }
+    if (!row.followEvidence.startsWith('observed') && row.evidenceUrl) {
+      throw new Error(`${label}: unobserved state must not attach a listing evidence URL.`);
     }
     const provenance = row.metricsProvenance && row.metricsProvenance.domainRating;
     if (!Number.isInteger(row.domainRating) || row.domainRating < 0 || row.domainRating > 100
@@ -159,7 +173,9 @@ function renderMain(rows) {
   const mixed = rows.filter((row) => row.followEvidence === 'observed-mixed').length;
   const nofollow = rows.filter((row) => row.followEvidence === 'observed-nofollow').length;
   const claims = rows.filter((row) => row.followEvidence === 'source-claimed-follow').length;
-  const unknown = rows.filter((row) => row.followEvidence === 'unknown').length;
+  const nofollowClaims = rows.filter((row) => row.followEvidence === 'source-claimed-nofollow').length;
+  const terminal = rows.filter((row) => row.followEvidence.startsWith('unverified-')
+    || row.followEvidence === 'not-applicable').length;
   const free = rows.filter((row) => ['free', 'freemium'].includes(row.pricing)).length;
   const verified = rows.filter((row) => qualityTierFor(row) === 'verified').length;
   const actionable = rows.filter((row) => qualityTierFor(row) === 'actionable').length;
@@ -168,7 +184,10 @@ function renderMain(rows) {
     if (row.followEvidence === 'observed-follow') return 'follow';
     if (row.followEvidence === 'observed-nofollow') return 'nofollow';
     if (row.followEvidence === 'observed-mixed') return 'mixed';
-    return 'unknown';
+    if (row.followEvidence === 'source-claimed-follow') return 'follow-claim';
+    if (row.followEvidence === 'source-claimed-nofollow') return 'nofollow-claim';
+    if (row.followEvidence === 'not-applicable') return 'not-applicable';
+    return 'unverified';
   };
   const facet = ({ id, label, values, labels }) => `        <div class="bd-control">
           <label class="bd-label" for="plp-${id}">${escapeHtml(label)}</label>
@@ -178,7 +197,9 @@ ${values.map((value) => `            <option value="${escapeHtml(value)}">${esca
           </select>
         </div>`;
   const linkLabels = { follow: 'Follow observed', nofollow: 'Nofollow observed',
-    mixed: 'Mixed / conditional', unknown: 'Unknown or claimed' };
+    mixed: 'Mixed / conditional', 'follow-claim': 'Follow claim',
+    'nofollow-claim': 'Nofollow claim', unverified: 'Inspected, not determined',
+    'not-applicable': 'No public listing model' };
   const availabilityLabels = { live: 'Live', protected: 'Browser protected',
     'not-probed': 'Not probed', unreachable: 'Unreachable' };
   const indexabilityLabels = { indexable: 'Indexable', noindex: 'Noindex', mixed: 'Mixed',
@@ -187,7 +208,8 @@ ${values.map((value) => `            <option value="${escapeHtml(value)}">${esca
     const actions = [`<a class="bd-cta-link" href="${escapeHtml(row.website)}" rel="noopener noreferrer" target="_blank">Visit</a>`];
     if (row.submissionUrl) actions.push(`<a class="bd-cta-link" href="${escapeHtml(row.submissionUrl)}" rel="noopener noreferrer" target="_blank">Submit</a>`);
     if (row.evidenceUrl) actions.push(`<a class="bd-cta-link" href="${escapeHtml(row.evidenceUrl)}" rel="noopener noreferrer" target="_blank">Evidence</a>`);
-    if (['source-claimed-follow', 'unknown'].includes(row.followEvidence)) {
+    if (row.followEvidence.startsWith('source-claimed')
+      || row.followEvidence.startsWith('unverified-')) {
       const researchSource = row.sources.find((source) => /launch-directories\.nicklaunches\.com|github\.com\/truvery|thestacc\.com|submitmap\.com\/platform\//.test(source));
       if (researchSource) actions.push(`<a class="bd-cta-link" href="${escapeHtml(researchSource)}" rel="noopener noreferrer" target="_blank">Research source</a>`);
     }
@@ -209,14 +231,14 @@ ${values.map((value) => `            <option value="${escapeHtml(value)}">${esca
     </article>
 
     <section class="bd-summary" aria-label="Collection summary">
-      <p><strong>${observed}</strong> follow observed &middot; <strong>${nofollow}</strong> nofollow observed &middot; <strong>${mixed}</strong> mixed &middot; <strong>${claims}</strong> follow claims &middot; <strong>${unknown}</strong> unknown &middot; <strong>${free}</strong> free or freemium.</p>
+      <p><strong>${observed}</strong> follow observed &middot; <strong>${nofollow}</strong> nofollow observed &middot; <strong>${mixed}</strong> mixed &middot; <strong>${claims}</strong> follow claims &middot; <strong>${nofollowClaims}</strong> nofollow claims &middot; <strong>${terminal}</strong> inspected without a verifiable public listing link &middot; <strong>0</strong> unresolved unknown &middot; <strong>${free}</strong> free or freemium.</p>
       <p><strong>${verified}</strong> verified evidence &middot; <strong>${actionable}</strong> actionable leads &middot; <strong>${research}</strong> research candidates.</p>
       <p><a class="bd-cta-link" href="/research/product-launch-platforms/platforms.csv" download>Download CSV</a></p>
     </section>
 
     <section class="prose" aria-labelledby="methodology">
       <h2 id="methodology">How to read the ranking</h2>
-      <p><strong>Follow observed</strong> means a direct external link without <code>nofollow</code>, <code>ugc</code> or <code>sponsored</code> was inspected on a public listing. <strong>Conditional / mixed</strong> means templates or tiers differed. <strong>Follow claim to verify</strong> is a discovery lead, not verified backlink evidence.</p>
+      <p><strong>Follow observed</strong> means a direct external link without <code>nofollow</code>, <code>ugc</code> or <code>sponsored</code> was inspected on a public listing. <strong>Conditional / mixed</strong> means links on the inspected template used both qualified and unqualified treatment. A <strong>claim to verify</strong> comes from a cited source and is not backlink evidence. Protected, unreachable, no-template and not-applicable states are completed research outcomes; they do not imply either follow or nofollow.</p>
       <p>The opportunity score weights observed link evidence and listing indexability first, followed by a verified submission route, availability, platform relevance and price. Ahrefs Domain Rating contributes at most eight points, so authority cannot outrank a materially better verified opportunity. Paid placements should use the appropriate <a href="https://developers.google.com/search/docs/crawling-indexing/qualify-outbound-links" rel="noopener noreferrer" target="_blank">link qualification</a>; this table does not promise ranking gains.</p>
     </section>
 
@@ -244,7 +266,7 @@ ${values.map((value) => `            <option value="${escapeHtml(value)}">${esca
             <option value="60">60+</option><option value="80">80+</option>
           </select>
         </div>
-${facet({ id: 'link', label: 'Link status', values: ['follow', 'nofollow', 'mixed', 'unknown'], labels: linkLabels })}
+${facet({ id: 'link', label: 'Link status', values: ['follow', 'nofollow', 'mixed', 'follow-claim', 'nofollow-claim', 'unverified', 'not-applicable'], labels: linkLabels })}
 ${facet({ id: 'quality', label: 'Quality tier', values: ['verified', 'actionable', 'research'], labels: QUALITY_LABELS })}
 ${facet({ id: 'evidence', label: 'Evidence quality', values: [...EVIDENCE], labels: EVIDENCE_LABELS })}
 ${facet({ id: 'cost', label: 'Price', values: [...PRICES], labels: PRICE_LABELS })}
