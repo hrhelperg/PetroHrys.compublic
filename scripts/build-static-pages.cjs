@@ -186,6 +186,7 @@ function buildHubPage(locale) {
   const p = (route) => I18N.localizedPath(locale, route);
   const routes = require('./lib/bd-routes.cjs');
   const render = require('./lib/bd-render.cjs');
+  const productLaunch = require('./build-product-launch-platforms.cjs');
 
   // Escape bare ampersands. The dictionary is inconsistent by history — some
   // values store "&" and some store "&amp;" — so emitting a value straight into
@@ -200,6 +201,7 @@ function buildHubPage(locale) {
     directories: esc(t('collection.directories')),
     marketplaces: esc(t('collection.marketplaces')),
     media: esc(t('collection.media.full')),
+    productLaunch: esc(t('collection.productLaunchPlatforms')),
     regionalMedia: esc(t('collection.regionalMedia')),
     forums: esc(t('collection.forums')),
   };
@@ -218,6 +220,9 @@ function buildHubPage(locale) {
     item(p(routes.hubPath()), names.directories, c.collections.items.directories),
     item(p(`${routes.hubPath()}opportunities/`), esc(t('opportunity.workingList')), c.collections.items.opportunities),
     item(p(render.MEDIA_PATH), names.media, c.collections.items.media),
+    // Product Launch Platforms is English-only. Localized hubs point to its
+    // real canonical route instead of advertising locale-prefixed 404s.
+    item(productLaunch.CANONICAL_PATH, names.productLaunch, c.collections.items.productLaunch),
     item(p(render.REGIONAL_MEDIA_PATH), names.regionalMedia, c.collections.items.regionalMedia),
     item(p(render.MARKETPLACES_PATH), names.marketplaces, c.collections.items.marketplaces),
     item(p(render.FORUMS_PATH), names.forums, c.collections.items.forums),

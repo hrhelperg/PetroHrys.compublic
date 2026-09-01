@@ -123,6 +123,19 @@ test('the localized route count is derived, not asserted', () => {
     `${found} localized pages exist for an expected universe of ${expected}`);
 });
 
+test('every Research hub exposes the English-only Product Launch Platforms collection', () => {
+  const route = '/research/product-launch-platforms/';
+  for (const code of I.LOCALE_CODES) {
+    const html = read(I.localizedFile(code, '/research/'));
+    assert.ok(html.includes(`href="${route}"`),
+      `${code} Research hub does not link to Product Launch Platforms`);
+    if (code !== 'en') {
+      assert.ok(!html.includes(`href="/${code}${route}"`),
+        `${code} Research hub advertises a nonexistent localized Product Launch route`);
+    }
+  }
+});
+
 // ── 7-10. SEO correctness ───────────────────────────────────────────────────
 
 const sample = () => {
