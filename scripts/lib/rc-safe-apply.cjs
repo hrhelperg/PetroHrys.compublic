@@ -114,6 +114,7 @@ const OWNERSHIP = {
     marketplaces: ['domainRating', 'metricsProvenance'],
     media: ['domainRating', 'metricsProvenance'],
     tenders: ['domainRating', 'metricsProvenance'],
+    'product-launch-platforms': ['domainRating', 'metricsProvenance'],
     forums: ['domainRating', 'metricsProvenance'],
   },
   // A directly verified Forum finding owns the factual Forum record it
