@@ -30,8 +30,10 @@ const MEDIA = path.join(ROOT, 'data', 'media-pr-publishing', 'media-platforms.js
 const DR_LEDGER = path.join(ROOT, 'data', 'domain-rating', '.ahrefs-domain-rating.json');
 const WAVE_HISTORY = path.join(DATA_DIR, '.wave-history.json');
 
-const WAVE_SIZE = 800;
-const EXPANSION_SIZE = 500;
+const WAVE_SIZE = 1100;
+const EXPANSION_SIZE = 300;
+const BASELINE_SIZE = WAVE_SIZE - EXPANSION_SIZE;
+const CURRENT_WAVE_ID = 'wave-3';
 const MIN_DR = 30;
 const TODAY = new Date().toISOString().slice(0, 10);
 const USER_AGENT = 'PetroHrys Research Center/1.0 (+https://petrohrys.com)';
@@ -39,11 +41,13 @@ const WIKIDATA_ENDPOINT = 'https://query.wikidata.org/sparql';
 const WIKIDATA_API = 'https://www.wikidata.org/w/api.php';
 const US_LOCAL_SOURCE = 'https://raw.githubusercontent.com/yinleon/LocalNewsDataset/master/data/local_news_dataset_2018_for_domain_analysis.csv';
 const PIPI_SOURCE = 'https://gary-dickson.com/wp-content/uploads/2026/07/2606-PIPI-Q2.zip';
-const US_LOCAL_LIMIT = 450;
-const PIPI_LIMIT = 220;
+const US_LOCAL_LIMIT = 1000;
+const PIPI_LIMIT = 450;
 const ARCHIVE_HOST = /(^|\.)(archive\.org|britishnewspaperarchive\.co\.uk|calameo\.com|gallica\.bnf\.fr|loc\.gov|retronews\.fr|digi\.kansalliskirjasto\.fi|archives?\.[^.]+\.[a-z]{2,})$/i;
 const ARCHIVE_PATH = /\/(archive|archives|archivio|chroniclingamerica|digitised|fonds|historic-newspapers|newspaper-archive|presse-regionale)(\/|\?|$)/i;
-const SHARED_PUBLISHING_HOST = /(^|\.)(beehiiv\.com|blogspot\.[a-z.]+|medium\.com|substack\.com|weebly\.com|wixsite\.com|wordpress\.com)$/i;
+const SHARED_PUBLISHING_HOST = /(^|\.)(beehiiv\.com|blogspot\.[a-z.]+|campaign-archive\.com|medium\.com|sites\.google\.com|substack\.com|webflow\.io|weebly\.com|wixsite\.com|wordpress\.com)$/i;
+const NON_NEWS_HOST = /(^|\.)(crl\.edu|revistas\.usp\.br|scielo\.br)$/i;
+const INSTITUTIONAL_HOST = /\.(ac|edu)\.[a-z]{2}$|\.edu$/i;
 const SOCIAL_HOST = /(^|\.)(facebook\.com|instagram\.com|linkedin\.com|linktr\.ee|x\.com|twitter\.com|youtube\.com)$/i;
 
 // Exact local/regional classes are always eligible. Broader publication
@@ -66,12 +70,16 @@ const CONTEXTUAL_WIKIDATA_CLASSES = [
 ];
 const CONTEXTUAL_CLASS_SET = new Set(CONTEXTUAL_WIKIDATA_CLASSES);
 const EXPANSION_TARGETS = {
-  europe: 260,
-  'north-america': 140,
-  oceania: 45,
-  asia: 55,
+  europe: 60,
+  'north-america': 130,
+  oceania: 60,
+  asia: 25,
+  'latin-america-caribbean': 15,
+  africa: 10,
 };
-const EXPANSION_REGION_ORDER = ['europe', 'north-america', 'oceania', 'asia'];
+const EXPANSION_REGION_ORDER = [
+  'europe', 'north-america', 'oceania', 'asia', 'latin-america-caribbean', 'africa',
+];
 
 const US_STATE_NAMES = {
   AK: 'Alaska', AL: 'Alabama', AR: 'Arkansas', AZ: 'Arizona', CA: 'California',
@@ -105,7 +113,9 @@ const slug = (value) => String(value || '').toLowerCase()
 
 const cleanHost = (url) => S.normaliseHost(url);
 const isPublisherOwnedTarget = (row) => {
-  if (!row || !row.host || ARCHIVE_HOST.test(row.host) || SHARED_PUBLISHING_HOST.test(row.host)) return false;
+  if (!row || !row.host || ARCHIVE_HOST.test(row.host)
+    || SHARED_PUBLISHING_HOST.test(row.host) || NON_NEWS_HOST.test(row.host)
+    || INSTITUTIONAL_HOST.test(row.host)) return false;
   try { return !ARCHIVE_PATH.test(new URL(row.website).pathname); } catch { return false; }
 };
 const httpsUrl = (url) => {
@@ -738,8 +748,14 @@ function measurementQueue(candidates, findings, limit = 950) {
       && !(finding.domainRating && Number.isInteger(finding.domainRating.value));
   }).sort((a, b) => (confidence[b.regionalEvidence] || 0) - (confidence[a.regionalEvidence] || 0)
     || compareStable(a.name, b.name) || compareStable(a.host, b.host));
-  const budgets = { europe: 420, 'north-america': 280, oceania: 130, asia: 120 };
-  const weights = { europe: 4, 'north-america': 3, oceania: 1, asia: 1 };
+  const budgets = {
+    europe: 200, 'north-america': 550, oceania: 300, asia: 120,
+    'latin-america-caribbean': 80, africa: 60,
+  };
+  const weights = {
+    europe: 4, 'north-america': 4, oceania: 2, asia: 1,
+    'latin-america-caribbean': 1, africa: 1,
+  };
   const queues = Object.fromEntries(EXPANSION_REGION_ORDER.map((region) => [region,
     eligible.filter((candidate) => candidate.macroRegion === region).slice(0, budgets[region]),
   ]));
@@ -880,12 +896,13 @@ function loadExistingRecords() {
   return fs.existsSync(DATA) ? JSON.parse(fs.readFileSync(DATA, 'utf8')) : [];
 }
 
-function expansionBaseline(records = loadExistingRecords()) {
+function expansionBaseline(records = loadExistingRecords(), history = null) {
   if (records.length !== WAVE_SIZE || !fs.existsSync(WAVE_HISTORY)) return records;
-  const history = JSON.parse(fs.readFileSync(WAVE_HISTORY, 'utf8'));
-  const firstWave = history.waves.find((wave) => wave.id === 'wave-1');
-  const firstWaveIds = new Set(Object.keys((firstWave && firstWave.recordHashes) || {}));
-  return records.filter((row) => firstWaveIds.has(row.id));
+  const waveHistory = history || JSON.parse(fs.readFileSync(WAVE_HISTORY, 'utf8'));
+  const currentWave = waveHistory.waves.find((wave) => wave.id === CURRENT_WAVE_ID);
+  if (!currentWave) return records;
+  const currentIds = new Set(Object.keys(currentWave.recordHashes || {}));
+  return records.filter((row) => !currentIds.has(row.id));
 }
 
 function selectExpansion(findings, existingRecords = loadExistingRecords()) {
@@ -1017,9 +1034,9 @@ function apply() {
   const publishedRecords = loadExistingRecords();
   const history = loadWaveHistory(publishedRecords);
   assertHistoricalRecords(publishedRecords, history);
-  const existingRecords = expansionBaseline(publishedRecords);
-  if (existingRecords.length !== WAVE_SIZE - EXPANSION_SIZE) {
-    throw new Error(`Expected ${WAVE_SIZE - EXPANSION_SIZE} immutable wave-1 records; found ${existingRecords.length}.`);
+  const existingRecords = expansionBaseline(publishedRecords, history);
+  if (existingRecords.length !== BASELINE_SIZE) {
+    throw new Error(`Expected ${BASELINE_SIZE} immutable records before ${CURRENT_WAVE_ID}; found ${existingRecords.length}.`);
   }
   const selected = selectExpansion(findings, existingRecords);
   if (selected.length !== EXPANSION_SIZE || existingRecords.length + selected.length !== WAVE_SIZE) {
@@ -1035,9 +1052,9 @@ function apply() {
   }
   const records = [...existingRecords, ...additions]
     .sort((a, b) => compareStable(a.id, b.id));
-  history.waves = history.waves.filter((wave) => wave.id !== 'wave-2');
+  history.waves = history.waves.filter((wave) => wave.id !== CURRENT_WAVE_ID);
   history.waves.push({
-    id: 'wave-2', addedAt: TODAY, count: additions.length,
+    id: CURRENT_WAVE_ID, addedAt: TODAY, count: additions.length,
     geographicPriority: EXPANSION_REGION_ORDER,
     recordHashes: Object.fromEntries(additions.map((row) => [row.id, hashRecord(row)])),
   });
@@ -1091,7 +1108,8 @@ if (require.main === module) {
 }
 
 module.exports = {
-  WAVE_SIZE, EXPANSION_SIZE, MIN_DR, GEO, seedCandidates, wikidataCandidates, dedupe,
+  WAVE_SIZE, EXPANSION_SIZE, BASELINE_SIZE, CURRENT_WAVE_ID, MIN_DR, GEO,
+  seedCandidates, wikidataCandidates, dedupe,
   parseCsv, usLocalCandidates, pipiCandidates, sparql, entityDetails, probeSite,
   isPublisherOwnedTarget, viable, selectExpansion, expansionBaseline, makeRecord, measureFindings,
   research, resumeResearch, apply, report,
