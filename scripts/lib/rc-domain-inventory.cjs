@@ -72,10 +72,15 @@ const COLLECTIONS = {
 };
 
 // Country Intelligence consumes COLLECTIONS as its protected four-product
-// universe. Metrics research is broader: Forums need DR coverage without
-// turning an inventory record into a country distribution channel.
+// universe. Metrics research is broader: Forums and the regional media
+// worklist need DR coverage without turning an inventory record into a country
+// distribution channel.
 const METRIC_COLLECTIONS = {
   ...COLLECTIONS,
+  'regional-media': {
+    file: path.join(ROOT, 'data/regional-media/regional-media.json'),
+    urlField: 'website',
+  },
   'product-launch-platforms': {
     file: path.join(ROOT, 'data/product-launch-platforms/platforms.json'),
     urlField: 'website',

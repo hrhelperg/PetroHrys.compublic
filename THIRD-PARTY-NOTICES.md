@@ -173,7 +173,25 @@ snapshot. The provider recorded for these snapshots is Ahrefs. Those metrics are
 third-party data; no ownership of them is claimed. See
 `docs/ahrefs-domain-rating-key.md`.
 
-## 11. Provenance flagged for review
+## 11. Research datasets used for discovery
+
+The Regional Media registry uses the following public datasets to discover
+candidate outlets. The project republishes only selected factual outlet fields,
+its own verification notes and dated Ahrefs measurements; it does not mirror
+the source datasets.
+
+| Dataset | Provider / licence | Use and attribution |
+|---|---|---|
+| Local News Dataset | Leon Yin, [GitHub repository](https://github.com/yinleon/LocalNewsDataset), MIT License | Used to discover United States local newspapers and broadcasters. Copyright (c) 2018 Leon Yin. The repository's MIT licence governs the source dataset and code. |
+| Public Interest Publishers Index (PIPI) Q2 2026 | Gary Dickson, [project page](https://gary-dickson.com/pipi/) | Used to discover current open Australian community, local, metro and state publishers. Source export dated 1 July 2026. Citation: Dickson G. 2025. *Public Interest Publishers Index*. |
+| Wikidata | Wikimedia Foundation and contributors, [Wikidata](https://www.wikidata.org/) | Used for structured discovery and geographic classification. Wikidata structured data is available under CC0 1.0. |
+
+The source links stored on individual registry records identify where a
+candidate was discovered; they are not evidence of publication access, cost or
+link attributes. Those fields remain unknown until verified on the relevant
+outlet page.
+
+## 12. Provenance flagged for review
 
 The following are recorded honestly rather than guessed at, and are listed for
 the operator to confirm:
@@ -194,7 +212,7 @@ the operator to confirm:
   properties is a question for the operator and, if needed, an attorney; this
   document does not decide it.
 
-## 12. Corrections
+## 13. Corrections
 
 If you believe material of yours is referenced here incorrectly, is attributed
 incorrectly, or should be attributed and is not, please contact the operator:

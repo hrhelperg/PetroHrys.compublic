@@ -2,6 +2,7 @@
 
 const test = require('node:test');
 const assert = require('node:assert');
+const crypto = require('node:crypto');
 const fs = require('node:fs');
 const path = require('node:path');
 
@@ -16,16 +17,63 @@ const countries = require(path.join(ROOT, 'data/business-directories/countries.j
 const countrySet = new Set(countries.map((row) => row.slug));
 const rows = S.loadRegionalMedia(path.join(ROOT, 'data/regional-media/regional-media.json'), countrySet);
 
-test('first Regional Media wave contains 300 schema-valid outlets', () => {
-  assert.strictEqual(rows.length, 300);
+test('Regional Media contains 1,100 schema-valid outlets across three waves', () => {
+  assert.strictEqual(rows.length, EXPAND.WAVE_SIZE);
   assert.strictEqual(new Set(rows.map((row) => row.id)).size, rows.length);
   assert.strictEqual(new Set(rows.map((row) => S.normaliseHost(row.website))).size, rows.length);
   assert.ok(rows.every(S.isActionable));
 });
 
-test('the wave covers all six macro regions and at least forty countries', () => {
+test('wave history proves 300 immutable records, then append-only waves of 500 and 300', () => {
+  const history = JSON.parse(read('data/regional-media/.wave-history.json'));
+  assert.deepStrictEqual(history.waves.map(({ id, count }) => ({ id, count })), [
+    { id: 'wave-1', count: 300 },
+    { id: 'wave-2', count: 500 },
+    { id: 'wave-3', count: EXPAND.EXPANSION_SIZE },
+  ]);
+  const byId = new Map(rows.map((row) => [row.id, row]));
+  const seen = new Set();
+  for (const wave of history.waves) {
+    for (const [id, expectedHash] of Object.entries(wave.recordHashes)) {
+      assert.ok(byId.has(id), `${id}: wave record is missing`);
+      assert.ok(!seen.has(id), `${id}: assigned to more than one wave`);
+      const actualHash = crypto.createHash('sha256')
+        .update(JSON.stringify(byId.get(id))).digest('hex');
+      assert.strictEqual(actualHash, expectedHash, `${id}: published wave record changed`);
+      seen.add(id);
+    }
+  }
+  assert.strictEqual(seen.size, rows.length);
+
+  const waveTwoIds = new Set(Object.keys(history.waves[1].recordHashes));
+  const regionCounts = rows.filter((row) => waveTwoIds.has(row.id)).reduce((counts, row) => {
+    counts[row.macroRegion] = (counts[row.macroRegion] || 0) + 1;
+    return counts;
+  }, {});
+  assert.ok(regionCounts.europe > regionCounts['north-america']);
+  assert.ok(regionCounts['north-america'] >= 140);
+  assert.ok(regionCounts.oceania >= 45);
+  assert.ok(regionCounts.asia >= 30);
+
+  const waveThreeIds = new Set(Object.keys(history.waves[2].recordHashes));
+  const waveThree = rows.filter((row) => waveThreeIds.has(row.id));
+  const waveThreeRegions = waveThree.reduce((counts, row) => {
+    counts[row.macroRegion] = (counts[row.macroRegion] || 0) + 1;
+    return counts;
+  }, {});
+  assert.strictEqual(waveThree.length, EXPAND.EXPANSION_SIZE);
+  assert.ok(waveThreeRegions['north-america'] >= 200);
+  assert.ok(waveThreeRegions.oceania >= 60);
+  assert.ok(waveThreeRegions['latin-america-caribbean'] >= 15);
+  assert.ok(new Set(waveThree.map((row) => row.country)).size >= 10);
+  assert.ok(waveThree.every((row) => EXPAND.isPublisherOwnedTarget({
+    host: S.normaliseHost(row.website), website: row.website,
+  })), 'wave 3 contains an archive or shared publishing platform target');
+});
+
+test('the corpus covers all six macro regions and at least sixty countries', () => {
   assert.deepStrictEqual([...new Set(rows.map((row) => row.macroRegion))].sort(), S.MACRO_REGIONS);
-  assert.ok(new Set(rows.map((row) => row.country)).size >= 40);
+  assert.ok(new Set(rows.map((row) => row.country)).size >= 60);
   for (const region of S.MACRO_REGIONS) {
     assert.ok(rows.filter((row) => row.macroRegion === region).length >= 10,
       `${region} has fewer than ten records`);
@@ -92,7 +140,7 @@ test('the page exposes geography, DR, follow, cost and route controls', () => {
     'data-bd-facet-coverage', 'data-bd-facet-publication', 'data-bd-facet-language',
     'data-bd-facet-route', 'data-bd-facet-cost',
   ]) assert.ok(html.includes(marker), `missing ${marker}`);
-  assert.ok(html.includes('<option value="unknown">Unknown (300)</option>'));
+  assert.ok(html.includes(`<option value="unknown">Unknown (${rows.length})</option>`));
   assert.ok(html.includes('data-rm-status-all="{total} outlets shown"'));
 });
 
@@ -124,6 +172,8 @@ test('manifest owns only the four locale pages and CSV', () => {
 });
 
 test('central Ahrefs ledger references every regional media record', () => {
+  const inventory = require('../lib/rc-domain-inventory.cjs');
+  assert.strictEqual(inventory.readCollection('regional-media').length, rows.length);
   const ledger = JSON.parse(read('data/domain-rating/.ahrefs-domain-rating.json'));
   const refs = ledger.findings.flatMap((finding) => (finding.records || [])
     .filter((record) => record.collection === 'regional-media').map((record) => record.id));
@@ -145,4 +195,10 @@ test('schema refuses invented DR and homepage-as-follow evidence', () => {
   };
   assert.ok(S.problemsFor(link, countrySet)
     .some(([field, reason]) => field.includes('listingUrl') && /homepage/.test(reason)));
+});
+
+test('research CSV parser preserves quoted commas, newlines and escaped quotes', () => {
+  assert.deepStrictEqual(EXPAND.parseCsv('\ufeffname,note\r\n"Paper, The","Line 1\nLine ""2"""\r\n'), [{
+    name: 'Paper, The', note: 'Line 1\nLine "2"',
+  }]);
 });
