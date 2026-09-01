@@ -14,10 +14,11 @@ const CSV_FILE = path.join(OUT_DIR, 'platforms.csv');
 
 const TYPES = new Set(['launch-board', 'startup-directory', 'ai-software-directory',
   'product-directory', 'developer-community', 'software-review', 'crowdfunding',
-  'business-directory']);
+  'business-directory', 'newsletter-directory', 'submission-service']);
 const PRICES = new Set(['free', 'freemium', 'mixed', 'paid', 'unknown']);
 const AVAILABILITY = new Set(['live', 'protected', 'not-probed', 'unreachable']);
-const EVIDENCE = new Set(['observed-follow', 'observed-mixed', 'source-claimed-follow']);
+const EVIDENCE = new Set(['observed-follow', 'observed-mixed', 'observed-nofollow',
+  'source-claimed-follow', 'unknown']);
 const TYPE_LABELS = {
   'launch-board': 'Launch board',
   'startup-directory': 'Startup directory',
@@ -27,11 +28,15 @@ const TYPE_LABELS = {
   'software-review': 'Software review',
   crowdfunding: 'Crowdfunding',
   'business-directory': 'Business directory',
+  'newsletter-directory': 'Newsletter',
+  'submission-service': 'Submission service',
 };
 const EVIDENCE_LABELS = {
   'observed-follow': 'Follow observed',
   'observed-mixed': 'Conditional / mixed',
+  'observed-nofollow': 'Nofollow observed',
   'source-claimed-follow': 'Follow claim to verify',
+  unknown: 'Link type unknown',
 };
 const PRICE_LABELS = {
   free: 'Free', freemium: 'Free tier', mixed: 'Free and paid', paid: 'Paid', unknown: 'Unknown',
@@ -47,11 +52,13 @@ const csv = (value) => {
 };
 
 function scoreFor(row) {
-  const evidence = { 'observed-follow': 28, 'observed-mixed': 24, 'source-claimed-follow': 12 };
+  const evidence = { 'observed-follow': 28, 'observed-mixed': 24, 'source-claimed-follow': 12,
+    'observed-nofollow': 8, unknown: 4 };
   const availability = { live: 12, protected: 6, 'not-probed': 4, unreachable: -15 };
   const type = { 'launch-board': 20, 'startup-directory': 16, 'ai-software-directory': 14,
     'product-directory': 12, 'developer-community': 11, 'software-review': 10,
-    crowdfunding: 9, 'business-directory': 6 };
+    crowdfunding: 9, 'business-directory': 6, 'newsletter-directory': 8,
+    'submission-service': 5 };
   const pricing = { free: 10, freemium: 8, mixed: 6, paid: 3, unknown: 2 };
   const indexability = { indexable: 8, mixed: 4, unknown: 0, noindex: -6 };
   return evidence[row.followEvidence] + availability[row.availability]
@@ -60,8 +67,8 @@ function scoreFor(row) {
 }
 
 function validate(rows) {
-  if (!Array.isArray(rows) || rows.length !== 150) {
-    throw new Error(`Product launch collection must contain exactly 150 rows; found ${rows.length}.`);
+  if (!Array.isArray(rows) || rows.length !== 300) {
+    throw new Error(`Product launch collection must contain exactly 300 rows; found ${rows.length}.`);
   }
   const ids = new Set();
   const hosts = new Set();
@@ -105,23 +112,45 @@ function renderCsv(rows) {
       row.listingIndexability, row.domainRating, row.opportunityScore, row.lastVerified,
       row.limitations].map(csv).join(','));
   }
-  return `﻿${lines.join('\r\n')}\r\n`;
+  return `﻿${lines.join('\n')}\n`;
 }
 
 function renderMain(rows) {
   const observed = rows.filter((row) => row.followEvidence === 'observed-follow').length;
   const mixed = rows.filter((row) => row.followEvidence === 'observed-mixed').length;
-  const claims = rows.length - observed - mixed;
+  const nofollow = rows.filter((row) => row.followEvidence === 'observed-nofollow').length;
+  const claims = rows.filter((row) => row.followEvidence === 'source-claimed-follow').length;
+  const unknown = rows.filter((row) => row.followEvidence === 'unknown').length;
   const free = rows.filter((row) => ['free', 'freemium'].includes(row.pricing)).length;
+  const linkStatusOf = (row) => {
+    if (row.followEvidence === 'observed-follow') return 'follow';
+    if (row.followEvidence === 'observed-nofollow') return 'nofollow';
+    if (row.followEvidence === 'observed-mixed') return 'mixed';
+    return 'unknown';
+  };
+  const facet = ({ id, label, values, labels }) => `        <div class="bd-control">
+          <label class="bd-label" for="plp-${id}">${escapeHtml(label)}</label>
+          <select class="bd-select" id="plp-${id}" data-bd-facet="${escapeHtml(id)}">
+            <option value="">All</option>
+${values.map((value) => `            <option value="${escapeHtml(value)}">${escapeHtml(labels[value] || value)}</option>`).join('\n')}
+          </select>
+        </div>`;
+  const linkLabels = { follow: 'Follow observed', nofollow: 'Nofollow observed',
+    mixed: 'Mixed / conditional', unknown: 'Unknown or claimed' };
+  const availabilityLabels = { live: 'Live', protected: 'Browser protected',
+    'not-probed': 'Not probed', unreachable: 'Unreachable' };
+  const indexabilityLabels = { indexable: 'Indexable', noindex: 'Noindex', mixed: 'Mixed',
+    unknown: 'Unknown' };
   const body = rows.map((row) => {
     const actions = [`<a class="bd-cta-link" href="${escapeHtml(row.website)}" rel="noopener noreferrer" target="_blank">Visit</a>`];
     if (row.submissionUrl) actions.push(`<a class="bd-cta-link" href="${escapeHtml(row.submissionUrl)}" rel="noopener noreferrer" target="_blank">Submit</a>`);
     if (row.evidenceUrl) actions.push(`<a class="bd-cta-link" href="${escapeHtml(row.evidenceUrl)}" rel="noopener noreferrer" target="_blank">Evidence</a>`);
-    if (row.followEvidence === 'source-claimed-follow') {
-      const claimSource = row.sources.find((source) => source.includes('launch-directories.nicklaunches.com'));
-      if (claimSource) actions.push(`<a class="bd-cta-link" href="${escapeHtml(claimSource)}" rel="noopener noreferrer" target="_blank">Claim source</a>`);
+    if (['source-claimed-follow', 'unknown'].includes(row.followEvidence)) {
+      const researchSource = row.sources.find((source) => /launch-directories\.nicklaunches\.com|github\.com\/truvery|thestacc\.com/.test(source));
+      if (researchSource) actions.push(`<a class="bd-cta-link" href="${escapeHtml(researchSource)}" rel="noopener noreferrer" target="_blank">Research source</a>`);
     }
-    return `          <tr class="bd-row">
+    const haystack = [row.name, row.platformType, row.focus, row.shortNote].join(' ').toLowerCase();
+    return `          <tr class="bd-row" data-bd-name="${escapeHtml(row.name)}" data-bd-haystack="${escapeHtml(haystack)}" data-bd-score="${row.opportunityScore}" data-bd-dr="${row.domainRating}" data-bd-facet-link="${linkStatusOf(row)}" data-bd-facet-evidence="${escapeHtml(row.followEvidence)}" data-bd-facet-cost="${escapeHtml(row.pricing)}" data-bd-facet-type="${escapeHtml(row.platformType)}" data-bd-facet-availability="${escapeHtml(row.availability)}" data-bd-facet-indexability="${escapeHtml(row.listingIndexability)}">
             <td class="bd-cell" data-bd-label="Rank"><strong>#${row.rank}</strong></td>
             <td class="bd-cell bd-cell--stack" data-bd-label="Platform"><div class="bd-cell-main"><a href="${escapeHtml(row.website)}" rel="noopener noreferrer" target="_blank">${escapeHtml(row.name)}</a><span class="bd-note">${escapeHtml(row.shortNote)}</span></div></td>
             <td class="bd-cell" data-bd-label="Type">${escapeHtml(TYPE_LABELS[row.platformType])}</td>
@@ -134,11 +163,11 @@ function renderMain(rows) {
   }).join('\n');
   return `    <article class="page-hero">
       <h1>Product Launch Platforms</h1>
-      <p class="lede">150 ranked launch, startup, AI and software discovery platforms where a follow link is observed, conditional, or reported and awaiting template verification.</p>
+      <p class="lede">${rows.length} ranked launch, startup, AI and software discovery platforms with separated follow evidence, pricing, submission routes and Domain Rating.</p>
     </article>
 
     <section class="bd-summary" aria-label="Collection summary">
-      <p><strong>${observed}</strong> follow links observed &middot; <strong>${mixed}</strong> conditional or mixed templates &middot; <strong>${claims}</strong> third-party follow claims to verify &middot; <strong>${free}</strong> free or freemium routes.</p>
+      <p><strong>${observed}</strong> follow observed &middot; <strong>${nofollow}</strong> nofollow observed &middot; <strong>${mixed}</strong> mixed &middot; <strong>${claims}</strong> follow claims &middot; <strong>${unknown}</strong> unknown &middot; <strong>${free}</strong> free or freemium.</p>
       <p><a class="bd-cta-link" href="/research/product-launch-platforms/platforms.csv" download>Download CSV</a></p>
     </section>
 
@@ -150,10 +179,40 @@ function renderMain(rows) {
 
     <section aria-labelledby="ranked-platforms">
       <h2 id="ranked-platforms">Ranked platforms</h2>
+      <div class="bd-controls" data-bd-filter-wrap hidden>
+        <div class="bd-control" data-bd-search-wrap hidden>
+          <label class="bd-label" for="plp-search">Search</label>
+          <input class="bd-input" id="plp-search" type="search" data-bd-search autocomplete="off">
+        </div>
+        <div class="bd-control" data-bd-sort-wrap hidden>
+          <label class="bd-label" for="plp-sort">Sort by</label>
+          <select class="bd-select" id="plp-sort" data-bd-sort>
+            <option value="as-published">Opportunity score</option>
+            <option value="domain-rating">Domain Rating: high to low</option>
+            <option value="domain-rating-asc">Domain Rating: low to high</option>
+            <option value="alphabetical">Name: A to Z</option>
+          </select>
+        </div>
+        <div class="bd-control" data-bd-min-dr-wrap hidden>
+          <label class="bd-label" for="plp-min-dr">Minimum Domain Rating</label>
+          <select class="bd-select" id="plp-min-dr" data-bd-min-dr>
+            <option value="">Any DR</option>
+            <option value="20">20+</option><option value="40">40+</option>
+            <option value="60">60+</option><option value="80">80+</option>
+          </select>
+        </div>
+${facet({ id: 'link', label: 'Link status', values: ['follow', 'nofollow', 'mixed', 'unknown'], labels: linkLabels })}
+${facet({ id: 'evidence', label: 'Evidence quality', values: [...EVIDENCE], labels: EVIDENCE_LABELS })}
+${facet({ id: 'cost', label: 'Price', values: [...PRICES], labels: PRICE_LABELS })}
+${facet({ id: 'type', label: 'Platform type', values: [...TYPES], labels: TYPE_LABELS })}
+${facet({ id: 'availability', label: 'Availability', values: [...AVAILABILITY], labels: availabilityLabels })}
+${facet({ id: 'indexability', label: 'Listing indexability', values: ['indexable', 'noindex', 'mixed', 'unknown'], labels: indexabilityLabels })}
+        <div class="bd-control"><button class="bd-button" type="button" data-bd-clear>Clear filters</button></div>
+      </div>
       <div class="bd-table-wrap">
         <table class="bd-table">
           <thead><tr><th>Rank</th><th>Platform</th><th>Type</th><th>Follow evidence</th><th>Price</th><th>DR</th><th>Score</th><th>Actions</th></tr></thead>
-          <tbody>
+          <tbody data-bd-rows>
 ${body}
           </tbody>
         </table>

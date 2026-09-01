@@ -12,10 +12,10 @@ const CSV = path.join(ROOT, 'research/product-launch-platforms/platforms.csv');
 const build = require('../build-product-launch-platforms.cjs');
 const rows = JSON.parse(fs.readFileSync(DATA, 'utf8'));
 
-test('the collection contains exactly 150 ranked unique platforms', () => {
+test('the collection contains exactly 300 ranked unique platforms', () => {
   assert.doesNotThrow(() => build.validate(rows));
-  assert.strictEqual(rows.length, 150);
-  assert.strictEqual(new Set(rows.map((row) => new URL(row.website).hostname.replace(/^www\./, ''))).size, 150);
+  assert.strictEqual(rows.length, 300);
+  assert.strictEqual(new Set(rows.map((row) => new URL(row.website).hostname.replace(/^www\./, ''))).size, 300);
 });
 
 test('follow claims never masquerade as observed backlink evidence', () => {
@@ -43,13 +43,27 @@ test('every score is reproducible and the stored order is descending', () => {
 test('the generated page and CSV contain every platform once', () => {
   const page = fs.readFileSync(PAGE, 'utf8');
   const csv = fs.readFileSync(CSV, 'utf8');
-  assert.strictEqual((page.match(/<tr class="bd-row">/g) || []).length, 150);
-  assert.strictEqual((page.match(/class="bd-cell bd-cell--stack"/g) || []).length, 300);
-  assert.strictEqual(csv.replace(/^﻿/, '').trim().split(/\r?\n/).length, 151);
+  assert.strictEqual((page.match(/<tr class="bd-row" /g) || []).length, 300);
+  assert.strictEqual((page.match(/class="bd-cell bd-cell--stack"/g) || []).length, 600);
+  assert.strictEqual(csv.replace(/^﻿/, '').trim().split(/\r?\n/).length, 301);
   assert.match(page, /<link rel="canonical" href="https:\/\/petrohrys\.com\/research\/product-launch-platforms\/">/);
   assert.doesNotMatch(page, /hreflang="(?:es|fr|de)"/);
   assert.match(page, /https:\/\/ahrefs\.com\/legal\/domain-rating-license/);
   assert.match(page, /https:\/\/developers\.google\.com\/search\/docs\/crawling-indexing\/qualify-outbound-links/);
+});
+
+test('the worklist exposes DR sorting and the requested filters', () => {
+  const page = fs.readFileSync(PAGE, 'utf8');
+  for (const sort of ['as-published', 'domain-rating', 'domain-rating-asc', 'alphabetical']) {
+    assert.match(page, new RegExp(`<option value="${sort}">`), `missing ${sort} sort`);
+  }
+  for (const facet of ['link', 'evidence', 'cost', 'type', 'availability', 'indexability']) {
+    assert.match(page, new RegExp(`data-bd-facet="${facet}"`), `missing ${facet} filter`);
+    assert.match(page, new RegExp(`data-bd-facet-${facet}="`), `rows omit ${facet} values`);
+  }
+  assert.match(page, /data-bd-min-dr/);
+  assert.match(page, /data-bd-search/);
+  assert.match(page, /data-bd-clear/);
 });
 
 test('the Research hub and sitemap expose the collection', () => {
