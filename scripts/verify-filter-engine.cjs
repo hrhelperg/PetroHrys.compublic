@@ -30,6 +30,7 @@ const PAGES = {
   media: '/research/media-pr-publishing/',
   marketplaces: '/research/marketplaces/',
   tenders: '/research/tenders-procurement/',
+  'product-launch-platforms': '/research/product-launch-platforms/',
 };
 const LOCALES = ['', '/de', '/es', '/fr'];
 
