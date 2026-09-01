@@ -52,23 +52,45 @@ const csv = (value) => {
 };
 
 function scoreFor(row) {
-  const evidence = { 'observed-follow': 28, 'observed-mixed': 24, 'source-claimed-follow': 12,
-    'observed-nofollow': 8, unknown: 4 };
-  const availability = { live: 12, protected: 6, 'not-probed': 4, unreachable: -15 };
-  const type = { 'launch-board': 20, 'startup-directory': 16, 'ai-software-directory': 14,
-    'product-directory': 12, 'developer-community': 11, 'software-review': 10,
-    crowdfunding: 9, 'business-directory': 6, 'newsletter-directory': 8,
+  const evidence = { 'observed-follow': 34, 'observed-mixed': 24, 'source-claimed-follow': 12,
+    'observed-nofollow': 7, unknown: 0 };
+  const availability = { live: 12, protected: 5, 'not-probed': 0, unreachable: -20 };
+  const type = { 'launch-board': 20, 'startup-directory': 17, 'ai-software-directory': 15,
+    'product-directory': 13, 'developer-community': 11, 'software-review': 11,
+    crowdfunding: 9, 'business-directory': 6, 'newsletter-directory': 7,
     'submission-service': 5 };
-  const pricing = { free: 10, freemium: 8, mixed: 6, paid: 3, unknown: 2 };
-  const indexability = { indexable: 8, mixed: 4, unknown: 0, noindex: -6 };
+  const pricing = { free: 10, freemium: 8, mixed: 6, paid: 3, unknown: 0 };
+  const indexability = { indexable: 10, mixed: 5, unknown: 0, noindex: -10 };
+  const authority = row.domainRating >= 80 ? 8 : row.domainRating >= 60 ? 7
+    : row.domainRating >= 40 ? 5 : row.domainRating >= 20 ? 3 : row.domainRating > 0 ? 1 : 0;
+  const submission = row.submissionUrl && row.submissionRouteObserved ? 18
+    : row.submissionUrl ? 10 : 0;
   return evidence[row.followEvidence] + availability[row.availability]
-    + (row.submissionUrl ? 12 : 3) + type[row.platformType] + pricing[row.pricing]
-    + Math.round(row.domainRating / 10) + (indexability[row.listingIndexability] || 0);
+    + submission + type[row.platformType] + pricing[row.pricing]
+    + authority + (indexability[row.listingIndexability] || 0);
+}
+
+function compareForRanking(a, b) {
+  const evidence = { 'observed-follow': 4, 'observed-mixed': 3, 'source-claimed-follow': 2,
+    'observed-nofollow': 1, unknown: 0 };
+  const indexability = { indexable: 3, mixed: 2, unknown: 1, noindex: 0 };
+  const availability = { live: 3, protected: 2, 'not-probed': 1, unreachable: 0 };
+  const actionability = (row) => row.submissionUrl && row.submissionRouteObserved ? 2
+    : row.submissionUrl ? 1 : 0;
+  const nameOf = (row) => String(row.name || '').toLowerCase();
+  return b.opportunityScore - a.opportunityScore
+    || evidence[b.followEvidence] - evidence[a.followEvidence]
+    || actionability(b) - actionability(a)
+    || indexability[b.listingIndexability] - indexability[a.listingIndexability]
+    || availability[b.availability] - availability[a.availability]
+    || b.domainRating - a.domainRating
+    || (nameOf(a) < nameOf(b) ? -1 : nameOf(a) > nameOf(b) ? 1 : 0)
+    || (String(a.id) < String(b.id) ? -1 : String(a.id) > String(b.id) ? 1 : 0);
 }
 
 function validate(rows) {
-  if (!Array.isArray(rows) || rows.length !== 600) {
-    throw new Error(`Product launch collection must contain exactly 600 rows; found ${rows.length}.`);
+  if (!Array.isArray(rows) || rows.length !== 900) {
+    throw new Error(`Product launch collection must contain exactly 900 rows; found ${rows.length}.`);
   }
   const ids = new Set();
   const hosts = new Set();
@@ -97,6 +119,9 @@ function validate(rows) {
       throw new Error(`${label}: invalid Domain Rating provenance.`);
     }
     if (row.opportunityScore !== scoreFor(row)) throw new Error(`${label}: stale opportunity score.`);
+    if (index > 0 && compareForRanking(rows[index - 1], row) > 0) {
+      throw new Error(`${label}: collection is not in evidence-first ranking order.`);
+    }
   });
   return rows;
 }
@@ -174,7 +199,7 @@ ${values.map((value) => `            <option value="${escapeHtml(value)}">${esca
     <section class="prose" aria-labelledby="methodology">
       <h2 id="methodology">How to read the ranking</h2>
       <p><strong>Follow observed</strong> means a direct external link without <code>nofollow</code>, <code>ugc</code> or <code>sponsored</code> was inspected on a public listing. <strong>Conditional / mixed</strong> means templates or tiers differed. <strong>Follow claim to verify</strong> is a discovery lead, not verified backlink evidence.</p>
-      <p>The opportunity score weights evidence first, then availability, a visible submission route, platform relevance, price, Ahrefs Domain Rating and listing indexability. Paid placements should use the appropriate <a href="https://developers.google.com/search/docs/crawling-indexing/qualify-outbound-links" rel="noopener noreferrer" target="_blank">link qualification</a>; this table does not promise ranking gains.</p>
+      <p>The opportunity score weights observed link evidence and listing indexability first, followed by a verified submission route, availability, platform relevance and price. Ahrefs Domain Rating contributes at most eight points, so authority cannot outrank a materially better verified opportunity. Paid placements should use the appropriate <a href="https://developers.google.com/search/docs/crawling-indexing/qualify-outbound-links" rel="noopener noreferrer" target="_blank">link qualification</a>; this table does not promise ranking gains.</p>
     </section>
 
     <section aria-labelledby="ranked-platforms">
@@ -187,7 +212,7 @@ ${values.map((value) => `            <option value="${escapeHtml(value)}">${esca
         <div class="bd-control" data-bd-sort-wrap hidden>
           <label class="bd-label" for="plp-sort">Sort by</label>
           <select class="bd-select" id="plp-sort" data-bd-sort>
-            <option value="as-published">Opportunity score</option>
+            <option value="as-published">Recommended order</option>
             <option value="domain-rating">Domain Rating: high to low</option>
             <option value="domain-rating-asc">Domain Rating: low to high</option>
             <option value="alphabetical">Name: A to Z</option>
@@ -235,4 +260,5 @@ function main() {
 }
 
 if (require.main === module) main();
-module.exports = { validate, scoreFor, renderCsv, renderMain, TYPES, PRICES, AVAILABILITY, EVIDENCE };
+module.exports = { validate, scoreFor, compareForRanking, renderCsv, renderMain,
+  TYPES, PRICES, AVAILABILITY, EVIDENCE };
