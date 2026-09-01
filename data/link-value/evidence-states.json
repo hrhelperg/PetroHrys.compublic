@@ -1,5 +1,5 @@
 {
- "derivedAt": "2026-08-31",
+ "derivedAt": "2026-09-01",
  "note": "Derived from existing link-value findings. Not canonical. No record is promoted: FOLLOW appears only where a public external anchor was observed.",
  "states": [
   "VERIFIED_FOLLOW",
@@ -14309,6 +14309,22 @@
    "country": "global",
    "canonicalLinkType": "nofollow",
    "evidenceState": "VERIFIED_NOFOLLOW",
+   "listingIndexability": "indexable"
+  },
+  {
+   "id": "md-expat-com-expat-com",
+   "collection": "media",
+   "country": "global",
+   "canonicalLinkType": "dofollow",
+   "evidenceState": "VERIFIED_FOLLOW",
+   "listingIndexability": "indexable"
+  },
+  {
+   "id": "md-expats-cz-expats-cz",
+   "collection": "media",
+   "country": "czech-republic",
+   "canonicalLinkType": "dofollow",
+   "evidenceState": "VERIFIED_FOLLOW",
    "listingIndexability": "indexable"
   }
  ]

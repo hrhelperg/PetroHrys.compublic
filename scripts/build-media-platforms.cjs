@@ -87,6 +87,7 @@ const OPPORTUNITY_LABELS = {
 const CATEGORY_LABELS = {
   'global-business-media': 'Global business media',
   'local-business-media': 'Local business media',
+  'expat-community-media': 'Expat & international community media',
   'technology-media': 'Technology media',
   'startup-media': 'Startup media',
   'ai-media': 'AI media',
