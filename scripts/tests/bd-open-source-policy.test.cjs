@@ -155,6 +155,8 @@ const BUILD_ENTRY_POINTS = [
   'scripts/build-forums.cjs',
   'scripts/build-marketplaces.cjs',
   'scripts/build-media-platforms.cjs',
+  'scripts/build-product-launch-platforms.cjs',
+  'scripts/build-regional-media.cjs',
   'scripts/build-static-pages.cjs',
   'scripts/build-tender-detail.cjs',
   'scripts/build-tender-monitoring.cjs',

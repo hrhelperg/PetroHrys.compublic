@@ -18,7 +18,7 @@ const ROOT = path.join(__dirname, '..', '..');
 const I = require(path.join(ROOT, 'scripts/lib/i18n.cjs'));
 const ORIGIN = 'https://petrohrys.com';
 
-const manifests = ['business-directories', 'marketplaces', 'media-pr-publishing', 'distribution-planner']
+const manifests = ['business-directories', 'marketplaces', 'media-pr-publishing', 'regional-media', 'distribution-planner']
   .map((d) => JSON.parse(fs.readFileSync(path.join(ROOT, 'data', d, '.build-manifest.json'), 'utf8')));
 const allOwned = manifests.flatMap((m) => (Array.isArray(m.files) ? m.files : Object.keys(m.files)));
 const ownedHtml = allOwned.filter((f) => f.endsWith('.html'));
@@ -127,6 +127,7 @@ test('the localized route count is derived, not asserted', () => {
 
 const sample = () => {
   const picks = ['research/marketplaces/index.html', 'research/media-pr-publishing/index.html',
+    'research/regional-media/index.html',
     'research/distribution-planner/index.html', 'research/business-directories/index.html',
     'research/media-pr-publishing/for/telecom-voip-ucaas/index.html'];
   return picks.filter((p) => fs.existsSync(path.join(ROOT, p)));

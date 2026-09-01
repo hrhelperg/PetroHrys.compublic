@@ -418,11 +418,17 @@
       g.box.hidden = !anyVisible;
     });
 
-    // The noun agrees with the total, not the subset: "1 of 4 directories".
+    // A collection may provide a localized full-sentence template. Existing
+    // directory pages have no template and keep the established English copy.
+    var allTemplate = groups[0].body.getAttribute('data-rm-status-all');
+    var someTemplate = groups[0].body.getAttribute('data-rm-status-some');
     var noun = records.length === 1 ? ' directory shown' : ' directories shown';
-    var base = shown === records.length
-      ? String(records.length) + noun
-      : String(shown) + ' of ' + String(records.length) + noun;
+    var base = allTemplate && someTemplate
+      ? (shown === records.length ? allTemplate : someTemplate)
+        .replace(/\{shown\}/g, String(shown)).replace(/\{total\}/g, String(records.length))
+      : (shown === records.length
+        ? String(records.length) + noun
+        : String(shown) + ' of ' + String(records.length) + noun);
     var text = unknownHidden > 0
       ? base + ' (' + String(unknownHidden) + ' with unknown eligibility not shown)'
       : base;

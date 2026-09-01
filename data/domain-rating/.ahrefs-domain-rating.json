@@ -898,6 +898,34 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|aamuposti.fi",
+   "target": "aamuposti.fi",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 53,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-aamuposti-aamuposti-fi"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|aasanetidende.no",
+   "target": "aasanetidende.no",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 47,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-asane-tidende-aasanetidende-no"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|abc-directory.com",
    "target": "abc-directory.com",
    "provider": "Ahrefs",
@@ -954,6 +982,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|abendblatt.de",
+   "target": "abendblatt.de",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 83,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-hamburger-abendblatt-abendblatt-de"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|abih.com.br",
    "target": "abih.com.br",
    "provider": "Ahrefs",
@@ -1006,6 +1048,20 @@
     {
      "collection": "media",
      "id": "md-above-the-law"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|abqjournal.com",
+   "target": "abqjournal.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 80,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-albuquerque-journal-abqjournal-com"
     }
    ]
   },
@@ -1550,6 +1606,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|adressa.no",
+   "target": "adressa.no",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 76,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-adresseavisen-adressa-no"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|advancedcombat.rpg-board.net",
    "target": "advancedcombat.rpg-board.net",
    "provider": "Ahrefs",
@@ -1802,6 +1872,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|aftenbladet.no",
+   "target": "aftenbladet.no",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 77,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-stavanger-aftenblad-aftenbladet-no"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|afwrpg.com",
    "target": "afwrpg.com",
    "provider": "Ahrefs",
@@ -1830,6 +1914,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|agara.co.jp",
+   "target": "agara.co.jp",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 68,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-kii-minpo-agara-co-jp"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|agc.org",
    "target": "agc.org",
    "provider": "Ahrefs",
@@ -1840,6 +1938,20 @@
     {
      "collection": "directory-opportunities",
      "id": "us-agc"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|agderposten.no",
+   "target": "agderposten.no",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 63,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-agderposten-agderposten-no"
     }
    ]
   },
@@ -3564,6 +3676,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|ajc.com",
+   "target": "ajc.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 86,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-atlanta-journal-constitution-ajc-com"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|akama.com",
    "target": "akama.com",
    "provider": "Ahrefs",
@@ -3616,6 +3742,20 @@
     {
      "collection": "product-launch-platforms",
      "id": "plp-akonter"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|alaskabeacon.com",
+   "target": "alaskabeacon.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 71,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-alaska-beacon-alaskabeacon-com"
     }
    ]
   },
@@ -4210,6 +4350,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|amta.no",
+   "target": "amta.no",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 56,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-akershus-amtstidende-amta-no"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|amvo.org.mx",
    "target": "amvo.org.mx",
    "provider": "Ahrefs",
@@ -4220,6 +4374,20 @@
     {
      "collection": "directory-opportunities",
      "id": "mx-amvo"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|an.no",
+   "target": "an.no",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 68,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-avisa-nordland-an-no"
     }
    ]
   },
@@ -6220,6 +6388,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|assamtribune.com",
+   "target": "assamtribune.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 65,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-the-assam-tribune-assamtribune-com"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|assemblymag.com",
    "target": "assemblymag.com",
    "provider": "Ahrefs",
@@ -6328,6 +6510,20 @@
     {
      "collection": "marketplaces",
      "id": "mp-fi-oikotie"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|atarde.com.br",
+   "target": "atarde.com.br",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 69,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-a-tarde-atarde-com-br"
     }
    ]
   },
@@ -6894,6 +7090,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|av-avis.no",
+   "target": "av-avis.no",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 40,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-ask-yv-ringen-av-avis-no"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|av.by",
    "target": "av.by",
    "provider": "Ahrefs",
@@ -7062,6 +7272,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|avisenagder.no",
+   "target": "avisenagder.no",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 52,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-agder-flekkefjords-tidende-avisenagder-no"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|avito.ma",
    "target": "avito.ma",
    "provider": "Ahrefs",
@@ -7128,6 +7352,20 @@
     {
      "collection": "directory-opportunities",
      "id": "fr-avocat"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|avondhupress.ie",
+   "target": "avondhupress.ie",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 43,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-the-avondhu-avondhupress-ie"
     }
    ]
   },
@@ -7258,6 +7496,15 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|azcentral.com",
+   "target": "azcentral.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 86,
+   "checkedAt": "2026-09-01",
+   "records": []
+  },
+  {
    "key": "ahrefs|domain-rating|azet.sk",
    "target": "azet.sk",
    "provider": "Ahrefs",
@@ -7268,6 +7515,20 @@
     {
      "collection": "directory-opportunities",
      "id": "sk-azet-katalog"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|azmirror.com",
+   "target": "azmirror.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 72,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-arizona-mirror-azmirror-com"
     }
    ]
   },
@@ -7426,6 +7687,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|badische-zeitung.de",
+   "target": "badische-zeitung.de",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 84,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-badische-zeitung-badische-zeitung-de"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|baemin.com",
    "target": "baemin.com",
    "provider": "Ahrefs",
@@ -7538,6 +7813,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|baltimoresun.com",
+   "target": "baltimoresun.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 86,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-the-baltimore-sun-baltimoresun-com"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|bambimiri.forumth.com",
    "target": "bambimiri.forumth.com",
    "provider": "Ahrefs",
@@ -7562,6 +7851,20 @@
     {
      "collection": "directories",
      "id": "it-banca-ditalia-albi-elenchi"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|banett.no",
+   "target": "banett.no",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 49,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-br-nn-ysunds-avis-banett-no"
     }
    ]
   },
@@ -8302,6 +8605,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|belfasttelegraph.co.uk",
+   "target": "belfasttelegraph.co.uk",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 80,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-belfast-telegraph-belfasttelegraph-co-uk"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|belize.com",
    "target": "belize.com",
    "provider": "Ahrefs",
@@ -8382,6 +8699,20 @@
     {
      "collection": "tenders",
      "id": "de-vergabeplattform-berlin"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|berliner-zeitung.de",
+   "target": "berliner-zeitung.de",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 82,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-berliner-zeitung-berliner-zeitung-de"
     }
    ]
   },
@@ -9004,6 +9335,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|birminghammail.co.uk",
+   "target": "birminghammail.co.uk",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 79,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-birminghamlive-birminghammail-co-uk"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|bisnow.com",
    "target": "bisnow.com",
    "provider": "Ahrefs",
@@ -9330,6 +9675,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|bjd.com.cn",
+   "target": "bjd.com.cn",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 79,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-beijing-daily-bjd-com-cn"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|bkmagazine.com",
    "target": "bkmagazine.com",
    "provider": "Ahrefs",
@@ -9466,6 +9825,20 @@
     {
      "collection": "forums",
      "id": "forum-bladesofdestiny-rpg-board-net-25750db2"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|bladet.no",
+   "target": "bladet.no",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 51,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-bladet-bladet-no"
     }
    ]
   },
@@ -10352,6 +10725,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|blv.no",
+   "target": "blv.no",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 57,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-bladet-vesteralen-blv-no"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|bna.nl",
    "target": "bna.nl",
    "provider": "Ahrefs",
@@ -10706,6 +11093,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|bostonglobe.com",
+   "target": "bostonglobe.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 90,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-the-boston-globe-bostonglobe-com"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|botw.org",
    "target": "botw.org",
    "provider": "Ahrefs",
@@ -10860,6 +11261,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|braunschweiger-zeitung.de",
+   "target": "braunschweiger-zeitung.de",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 76,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-braunschweiger-zeitung-braunschweiger-zeitung-de"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|bravsearch.bea-brak.de",
    "target": "bravsearch.bea-brak.de",
    "provider": "Ahrefs",
@@ -10912,6 +11327,20 @@
     {
      "collection": "forums",
      "id": "forum-breakthechains-rpg-board-net-14350837"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|bredavandaag.nl",
+   "target": "bredavandaag.nl",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 59,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-bredavandaag-bredavandaag-nl"
     }
    ]
   },
@@ -11014,6 +11443,34 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|brisbanetimes.com.au",
+   "target": "brisbanetimes.com.au",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 78,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-brisbane-times-brisbanetimes-com-au"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|bristolpost.co.uk",
+   "target": "bristolpost.co.uk",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 77,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-bristol-live-bristolpost-co-uk"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|britishchambers.org.uk",
    "target": "britishchambers.org.uk",
    "provider": "Ahrefs",
@@ -11024,6 +11481,29 @@
     {
      "collection": "directory-opportunities",
      "id": "uk-britishchambers"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|britishnewspaperarchive.co.uk",
+   "target": "britishnewspaperarchive.co.uk",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 74,
+   "checkedAt": "2026-09-01",
+   "records": []
+  },
+  {
+   "key": "ahrefs|domain-rating|brnensky.denik.cz",
+   "target": "brnensky.denik.cz",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 85,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-brnensky-denik-brnensky-denik-cz"
     }
    ]
   },
@@ -11172,6 +11652,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|brugnieuws.nl",
+   "target": "brugnieuws.nl",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 51,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-de-brug-brugnieuws-nl"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|brusselsmorning.com",
    "target": "brusselsmorning.com",
    "provider": "Ahrefs",
@@ -11284,6 +11778,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|bt.no",
+   "target": "bt.no",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 76,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-bergens-tidende-bt-no"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|btis.rpg-board.net",
    "target": "btis.rpg-board.net",
    "provider": "Ahrefs",
@@ -11368,6 +11876,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|budstikka.no",
+   "target": "budstikka.no",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 71,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-budstikka-budstikka-no"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|buenosairescompras.gob.ar",
    "target": "buenosairescompras.gob.ar",
    "provider": "Ahrefs",
@@ -11392,6 +11914,20 @@
     {
      "collection": "media",
      "id": "md-buenos-aires-herald-buenosairesherald-com"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|buffalonews.com",
+   "target": "buffalonews.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 81,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-the-buffalo-news-buffalonews-com"
     }
    ]
   },
@@ -11564,6 +12100,20 @@
     {
      "collection": "directory-opportunities",
      "id": "tr-bulurum"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|bunburymail.com.au",
+   "target": "bunburymail.com.au",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 44,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-bunbury-mail-bunburymail-com-au"
     }
    ]
   },
@@ -12340,6 +12890,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|bz-berlin.de",
+   "target": "bz-berlin.de",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 78,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-b-z-bz-berlin-de"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|bzpb.rpg-board.net",
    "target": "bzpb.rpg-board.net",
    "provider": "Ahrefs",
@@ -12564,6 +13128,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|calgaryherald.com",
+   "target": "calgaryherald.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 81,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-calgary-herald-calgaryherald-com"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|callejeando.com",
    "target": "callejeando.com",
    "provider": "Ahrefs",
@@ -12588,6 +13166,20 @@
     {
      "collection": "product-launch-platforms",
      "id": "plp-callupcontact"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|calmatters.org",
+   "target": "calmatters.org",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 81,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-calmatters-calmatters-org"
     }
    ]
   },
@@ -12788,6 +13380,20 @@
     {
      "collection": "media",
      "id": "md-canary-media"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|canberratimes.com.au",
+   "target": "canberratimes.com.au",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 80,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-the-canberra-times-canberratimes-com-au"
     }
    ]
   },
@@ -13632,6 +14238,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|cebudailynews.inquirer.net",
+   "target": "cebudailynews.inquirer.net",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 84,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-cebu-daily-news-cebudailynews-inquirer-net"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|cebutambayan.forumotion.co.uk",
    "target": "cebutambayan.forumotion.co.uk",
    "provider": "Ahrefs",
@@ -14094,6 +14714,15 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|chathamdailynews.ca",
+   "target": "chathamdailynews.ca",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 67,
+   "checkedAt": "2026-09-01",
+   "records": []
+  },
+  {
    "key": "ahrefs|domain-rating|chavesnamao.com.br",
    "target": "chavesnamao.com.br",
    "provider": "Ahrefs",
@@ -14216,6 +14845,34 @@
     {
      "collection": "media",
      "id": "md-chiang-mai-citylife-chiangmaicitylife-com"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|chibanippo.co.jp",
+   "target": "chibanippo.co.jp",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 73,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-chiba-nipposha-chibanippo-co-jp"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|chicagotribune.com",
+   "target": "chicagotribune.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 90,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-chicago-tribune-chicagotribune-com"
     }
    ]
   },
@@ -14462,6 +15119,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|chronicle.co.zw",
+   "target": "chronicle.co.zw",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 65,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-the-chronicle-zimbabwe-chronicle-co-zw"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|chronicle.lu",
    "target": "chronicle.lu",
    "provider": "Ahrefs",
@@ -14472,6 +15143,34 @@
     {
      "collection": "media",
      "id": "md-chronicle-lu-chronicle-lu"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|chroniclelive.co.uk",
+   "target": "chroniclelive.co.uk",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 78,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-chroniclelive-chroniclelive-co-uk"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|chunichi.co.jp",
+   "target": "chunichi.co.jp",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 83,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-chunichi-shimbun-chunichi-co-jp"
     }
    ]
   },
@@ -14560,6 +15259,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|citizen.co.za",
+   "target": "citizen.co.za",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 77,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-lowvelder-citizen-co-za"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|citypages.pro",
    "target": "citypages.pro",
    "provider": "Ahrefs",
@@ -14640,6 +15353,20 @@
     {
      "collection": "media",
      "id": "md-civil-georgia-civil-ge"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|civilbeat.org",
+   "target": "civilbeat.org",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 77,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-honolulu-civil-beat-civilbeat-org"
     }
    ]
   },
@@ -14798,6 +15525,20 @@
     {
      "collection": "media",
      "id": "md-cleantechnica"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|cleveland.com",
+   "target": "cleveland.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 85,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-cleveland-com-cleveland-com"
     }
    ]
   },
@@ -14980,6 +15721,20 @@
     {
      "collection": "forums",
      "id": "forum-clubpenguinsurf-rpg-board-net-eff68495"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|cluj24.ro",
+   "target": "cluj24.ro",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 46,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-cluj24-cluj24-ro"
     }
    ]
   },
@@ -19550,6 +20305,15 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|coronadonewsca.com",
+   "target": "coronadonewsca.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 51,
+   "checkedAt": "2026-09-01",
+   "records": []
+  },
+  {
    "key": "ahrefs|domain-rating|corp.sec.state.ma.us",
    "target": "corp.sec.state.ma.us",
    "provider": "Ahrefs",
@@ -19616,6 +20380,20 @@
     {
      "collection": "directories",
      "id": "us-us-virgin-islands-corporate-registry"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|correiobraziliense.com.br",
+   "target": "correiobraziliense.com.br",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 81,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-correio-braziliense-correiobraziliense-com-br"
     }
    ]
   },
@@ -20862,6 +21640,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|daily-tohoku.news",
+   "target": "daily-tohoku.news",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 65,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-daily-tohoku-daily-tohoku-news"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|daily.dev",
    "target": "daily.dev",
    "provider": "Ahrefs",
@@ -20900,6 +21692,34 @@
     {
      "collection": "media",
      "id": "md-daily-mirror-sri-lanka-dailymirror-lk"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|dailynews.co.tz",
+   "target": "dailynews.co.tz",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 68,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-daily-news-tanzania-dailynews-co-tz"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|dailynews.co.zw",
+   "target": "dailynews.co.zw",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 56,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-daily-news-zimbabwe-dailynews-co-zw"
     }
    ]
   },
@@ -20988,6 +21808,34 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|dailytrust.com",
+   "target": "dailytrust.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 74,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-daily-trust-dailytrust-com"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|dalane-tidende.no",
+   "target": "dalane-tidende.no",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 53,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-dalane-tidende-dalane-tidende-no"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|dallasinnovates.com",
    "target": "dallasinnovates.com",
    "provider": "Ahrefs",
@@ -20998,6 +21846,20 @@
     {
      "collection": "media",
      "id": "md-dallas-innovates"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|dallasnews.com",
+   "target": "dallasnews.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 87,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-the-dallas-morning-news-dallasnews-com"
     }
    ]
   },
@@ -21636,6 +22498,34 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|deccanchronicle.com",
+   "target": "deccanchronicle.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 80,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-deccan-chronicle-deccanchronicle-com"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|deccanherald.com",
+   "target": "deccanherald.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 83,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-deccan-herald-deccanherald-com"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|deeplaunch.io",
    "target": "deeplaunch.io",
    "provider": "Ahrefs",
@@ -21818,6 +22708,20 @@
     {
      "collection": "forums",
      "id": "forum-demoactif-forumactif-com-e66d8e39"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|denverpost.com",
+   "target": "denverpost.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 87,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-the-denver-post-denverpost-com"
     }
    ]
   },
@@ -22498,6 +23402,48 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|diariodejerez.es",
+   "target": "diariodejerez.es",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 68,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-diario-de-jerez-diariodejerez-es"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|diariodesevilla.es",
+   "target": "diariodesevilla.es",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 78,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-diario-de-sevilla-diariodesevilla-es"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|diariodonordeste.verdesmares.com.br",
+   "target": "diariodonordeste.verdesmares.com.br",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 74,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-diario-do-nordeste-diariodonordeste-verdesmares"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|dibbs.bsm.dla.mil",
    "target": "dibbs.bsm.dla.mil",
    "provider": "Ahrefs",
@@ -22554,6 +23500,15 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|digi.kansalliskirjasto.fi",
+   "target": "digi.kansalliskirjasto.fi",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 72,
+   "checkedAt": "2026-09-01",
+   "records": []
+  },
+  {
    "key": "ahrefs|domain-rating|digiday.com",
    "target": "digiday.com",
    "provider": "Ahrefs",
@@ -22578,6 +23533,20 @@
     {
      "collection": "forums",
      "id": "forum-digirevolutionwars-rpg-board-net-0fdac222"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|digital.izu-np.co.jp",
+   "target": "digital.izu-np.co.jp",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 54,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-izu-shimbun-digital-izu-np-co-jp"
     }
    ]
   },
@@ -24756,6 +25725,15 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|dolenjskilist.si",
+   "target": "dolenjskilist.si",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 49,
+   "checkedAt": "2026-09-01",
+   "records": []
+  },
+  {
    "key": "ahrefs|domain-rating|dominicantoday.com",
    "target": "dominicantoday.com",
    "provider": "Ahrefs",
@@ -25064,6 +26042,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|dresden.de",
+   "target": "dresden.de",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 82,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-hochland-kurier-dresden-de"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|dribbble.com",
    "target": "dribbble.com",
    "provider": "Ahrefs",
@@ -25074,6 +26066,20 @@
     {
      "collection": "directory-opportunities",
      "id": "global-dribbble"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|driva.no",
+   "target": "driva.no",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 46,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-driva-driva-no"
     }
    ]
   },
@@ -25432,6 +26438,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|dvhn.nl",
+   "target": "dvhn.nl",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 78,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-dagblad-van-het-noorden-dvhn-nl"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|dwma-rpg.rpg-board.net",
    "target": "dwma-rpg.rpg-board.net",
    "provider": "Ahrefs",
@@ -25484,6 +26504,20 @@
     {
      "collection": "product-launch-platforms",
      "id": "plp-dynamite-ai"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|dziennikzachodni.pl",
+   "target": "dziennikzachodni.pl",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 74,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-dziennik-zachodni-dziennikzachodni-pl"
     }
    ]
   },
@@ -25962,6 +26996,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|ebihoreanul.ro",
+   "target": "ebihoreanul.ro",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 57,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-bihoreanul-ebihoreanul-ro"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|ebooks.stackexchange.com",
    "target": "ebooks.stackexchange.com",
    "provider": "Ahrefs",
@@ -26114,6 +27162,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|echo-online.de",
+   "target": "echo-online.de",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 76,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-darmstadter-echo-echo-online-de"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|echojs.com",
    "target": "echojs.com",
    "provider": "Ahrefs",
@@ -26166,6 +27228,20 @@
     {
      "collection": "media",
      "id": "md-eco-sapo"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|ecodibergamo.it",
+   "target": "ecodibergamo.it",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 73,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-l-eco-di-bergamo-ecodibergamo-it"
     }
    ]
   },
@@ -26376,6 +27452,29 @@
     {
      "collection": "media",
      "id": "md-edison-awards"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|edmontonexaminer.com",
+   "target": "edmontonexaminer.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 50,
+   "checkedAt": "2026-09-01",
+   "records": []
+  },
+  {
+   "key": "ahrefs|domain-rating|edmontonjournal.com",
+   "target": "edmontonjournal.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 78,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-edmonton-journal-edmontonjournal-com"
     }
    ]
   },
@@ -26604,6 +27703,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|ehime-np.co.jp",
+   "target": "ehime-np.co.jp",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 73,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-ehime-shimbun-ehime-np-co-jp"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|eib.org",
    "target": "eib.org",
    "provider": "Ahrefs",
@@ -26794,6 +27907,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|el1digital.com.ar",
+   "target": "el1digital.com.ar",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 44,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-el1-el1digital-com-ar"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|elastic.co",
    "target": "elastic.co",
    "provider": "Ahrefs",
@@ -26804,6 +27931,34 @@
     {
      "collection": "directory-opportunities",
      "id": "global-elastic-partners"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|elbuho.pe",
+   "target": "elbuho.pe",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 45,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-el-buho-elbuho-pe"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|elcolombiano.com",
+   "target": "elcolombiano.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 77,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-el-colombiano-elcolombiano-com"
     }
    ]
   },
@@ -26920,6 +28075,34 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|elheraldo.co",
+   "target": "elheraldo.co",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 74,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-el-heraldo-elheraldo-co"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|elimparcial.com",
+   "target": "elimparcial.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 72,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-el-imparcial-elimparcial-com"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|eliteai.tools",
    "target": "eliteai.tools",
    "provider": "Ahrefs",
@@ -26976,6 +28159,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|ellitoral.com",
+   "target": "ellitoral.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 71,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-el-litoral-ellitoral-com"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|elmenus.com",
    "target": "elmenus.com",
    "provider": "Ahrefs",
@@ -26990,6 +28187,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|elmercurio.com.ec",
+   "target": "elmercurio.com.ec",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 57,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-el-mercurio-elmercurio-com-ec"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|elocal.com",
    "target": "elocal.com",
    "provider": "Ahrefs",
@@ -27000,6 +28211,34 @@
     {
      "collection": "directory-opportunities",
      "id": "us-elocal"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|elpais.com.co",
+   "target": "elpais.com.co",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 75,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-el-pais-cali-elpais-com-co"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|elperiodico.com",
+   "target": "elperiodico.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 84,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-el-periodico-elperiodico-com"
     }
    ]
   },
@@ -27032,6 +28271,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|elsiglodetorreon.com.mx",
+   "target": "elsiglodetorreon.com.mx",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 70,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-el-siglo-de-torreon-elsiglodetorreon-com-mx"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|eluta.ca",
    "target": "eluta.ca",
    "provider": "Ahrefs",
@@ -27042,6 +28295,20 @@
     {
      "collection": "directory-opportunities",
      "id": "ca-eluta"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|em.com.br",
+   "target": "em.com.br",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 79,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-estado-de-minas-em-com-br"
     }
    ]
   },
@@ -29532,6 +30799,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|f-b.no",
+   "target": "f-b.no",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 70,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-fredriksstad-blad-f-b-no"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|f-droid.org",
    "target": "f-droid.org",
    "provider": "Ahrefs",
@@ -29998,6 +31279,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|fanaposten.no",
+   "target": "fanaposten.no",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 51,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-fanaposten-fanaposten-no"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|fandomplay.rpg-board.net",
    "target": "fandomplay.rpg-board.net",
    "provider": "Ahrefs",
@@ -30096,6 +31391,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|farodevigo.es",
+   "target": "farodevigo.es",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 76,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-faro-de-vigo-farodevigo-es"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|fashiontalia.rpg-board.net",
    "target": "fashiontalia.rpg-board.net",
    "provider": "Ahrefs",
@@ -30122,6 +31431,15 @@
      "id": "plp-fastlaunch-io"
     }
    ]
+  },
+  {
+   "key": "ahrefs|domain-rating|favrskov.lokalavisen.dk",
+   "target": "favrskov.lokalavisen.dk",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 73,
+   "checkedAt": "2026-09-01",
+   "records": []
   },
   {
    "key": "ahrefs|domain-rating|fayz.rpg-board.net",
@@ -30956,6 +32274,34 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|firda.no",
+   "target": "firda.no",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 58,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-firda-firda-no"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|firdaposten.no",
+   "target": "firdaposten.no",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 54,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-firdaposten-firdaposten-no"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|fireandice.aforumfree.com",
    "target": "fireandice.aforumfree.com",
    "provider": "Ahrefs",
@@ -31478,6 +32824,62 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|fjordabladet.no",
+   "target": "fjordabladet.no",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 39,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-fjordabladet-fjordabladet-no"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|fjordingen.no",
+   "target": "fjordingen.no",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 47,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-fjordingen-fjordingen-no"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|fjt.no",
+   "target": "fjt.no",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 49,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-fjordenes-tidende-fjt-no"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|fjuken.no",
+   "target": "fjuken.no",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 39,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-fjuken-fjuken-no"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|flaex.ai",
    "target": "flaex.ai",
    "provider": "Ahrefs",
@@ -31530,6 +32932,34 @@
     {
      "collection": "product-launch-platforms",
      "id": "plp-flattrendz-com"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|flevopost.nl",
+   "target": "flevopost.nl",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 60,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-flevopost-flevopost-nl"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|floridaphoenix.com",
+   "target": "floridaphoenix.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 71,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-florida-phoenix-floridaphoenix-com"
     }
    ]
   },
@@ -37282,6 +38712,15 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|fr.calameo.com",
+   "target": "fr.calameo.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 91,
+   "checkedAt": "2026-09-01",
+   "records": []
+  },
+  {
    "key": "ahrefs|domain-rating|fr.kompass.com",
    "target": "fr.kompass.com",
    "provider": "Ahrefs",
@@ -37478,6 +38917,15 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|freep.com",
+   "target": "freep.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 85,
+   "checkedAt": "2026-09-01",
+   "records": []
+  },
+  {
    "key": "ahrefs|domain-rating|freeware.rpg-board.net",
    "target": "freeware.rpg-board.net",
    "provider": "Ahrefs",
@@ -37506,6 +38954,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|freiepresse.de",
+   "target": "freiepresse.de",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 78,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-freie-presse-freiepresse-de"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|freightwaves.com",
    "target": "freightwaves.com",
    "provider": "Ahrefs",
@@ -37530,6 +38992,20 @@
     {
      "collection": "forums",
      "id": "forum-frekans-rpg-board-net-21e1e8dd"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|fremover.no",
+   "target": "fremover.no",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 57,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-fremover-fremover-no"
     }
    ]
   },
@@ -37828,6 +39304,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|fukuishimbun.co.jp",
+   "target": "fukuishimbun.co.jp",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 74,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-fukui-shimbun-fukuishimbun-co-jp"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|fullstackai.co",
    "target": "fullstackai.co",
    "provider": "Ahrefs",
@@ -37986,6 +39476,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|fvn.no",
+   "target": "fvn.no",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 73,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-f-drelandsvennen-fvn-no"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|fxsforexsrbijaforum.com",
    "target": "fxsforexsrbijaforum.com",
    "provider": "Ahrefs",
@@ -38116,6 +39620,15 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|gallica.bnf.fr",
+   "target": "gallica.bnf.fr",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 88,
+   "checkedAt": "2026-09-01",
+   "records": []
+  },
+  {
    "key": "ahrefs|domain-rating|gamberorosso.it",
    "target": "gamberorosso.it",
    "provider": "Ahrefs",
@@ -38200,6 +39713,15 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|gananoquereporter.com",
+   "target": "gananoquereporter.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 47,
+   "checkedAt": "2026-09-01",
+   "records": []
+  },
+  {
    "key": "ahrefs|domain-rating|gardening.stackexchange.com",
    "target": "gardening.stackexchange.com",
    "provider": "Ahrefs",
@@ -38266,6 +39788,62 @@
     {
      "collection": "directory-opportunities",
      "id": "fr-gaultmillau"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|gazetadopovo.com.br",
+   "target": "gazetadopovo.com.br",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 80,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-gazeta-do-povo-gazetadopovo-com-br"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|gazetakrakowska.pl",
+   "target": "gazetakrakowska.pl",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 74,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-gazeta-krakowska-gazetakrakowska-pl"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|gazzettadiparma.it",
+   "target": "gazzettadiparma.it",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 66,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-gazzetta-di-parma-gazzettadiparma-it"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|gbnett.no",
+   "target": "gbnett.no",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 43,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-gjesdalbuen-gbnett-no"
     }
    ]
   },
@@ -38438,6 +40016,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|geelongadvertiser.com.au",
+   "target": "geelongadvertiser.com.au",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 69,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-geelong-advertiser-geelongadvertiser-com-au"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|geenius.delfi.ee",
    "target": "geenius.delfi.ee",
    "provider": "Ahrefs",
@@ -38532,6 +40124,20 @@
     {
      "collection": "forums",
      "id": "forum-genio-community-mediatek-com-5cba9224"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|georgeherald.com",
+   "target": "georgeherald.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 51,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-george-herald-georgeherald-com"
     }
    ]
   },
@@ -38834,6 +40440,48 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|giessener-allgemeine.de",
+   "target": "giessener-allgemeine.de",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 74,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-gie-ener-allgemeine-zeitung-giessener-allgemeine-de"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|giessener-anzeiger.de",
+   "target": "giessener-anzeiger.de",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 72,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-gie-ener-anzeiger-giessener-anzeiger-de"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|gifu-np.co.jp",
+   "target": "gifu-np.co.jp",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 72,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-gifu-shimbun-gifu-np-co-jp"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|gigsalad.com",
    "target": "gigsalad.com",
    "provider": "Ahrefs",
@@ -39048,6 +40696,34 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|glomdalen.no",
+   "target": "glomdalen.no",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 60,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-glamdalen-glomdalen-no"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|gloswielkopolski.pl",
+   "target": "gloswielkopolski.pl",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 73,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-g-os-wielkopolski-gloswielkopolski-pl"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|glovoapp.com",
    "target": "glovoapp.com",
    "provider": "Ahrefs",
@@ -39212,6 +40888,20 @@
     {
      "collection": "directory-opportunities",
      "id": "do-godominicanrepublic"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|goettinger-tageblatt.de",
+   "target": "goettinger-tageblatt.de",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 73,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-gottinger-tageblatt-goettinger-tageblatt-de"
     }
    ]
   },
@@ -39588,6 +41278,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|gp.se",
+   "target": "gp.se",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 81,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-goteborgs-posten-gp-se"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|gprocurement.go.th",
    "target": "gprocurement.go.th",
    "provider": "Ahrefs",
@@ -39742,6 +41446,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|graphic.com.gh",
+   "target": "graphic.com.gh",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 74,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-graphic-online-graphic-com-gh"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|graphicdesign.stackexchange.com",
    "target": "graphicdesign.stackexchange.com",
    "provider": "Ahrefs",
@@ -39784,6 +41502,20 @@
     {
      "collection": "marketplaces",
      "id": "mp-au-graysonline"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|greaterkashmir.com",
+   "target": "greaterkashmir.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 68,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-greater-kashmir-greaterkashmir-com"
     }
    ]
   },
@@ -40514,6 +42246,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|gva.be",
+   "target": "gva.be",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 79,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-gazet-van-antwerpen-gva-be"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|gwa.de",
    "target": "gwa.de",
    "provider": "Ahrefs",
@@ -40608,6 +42354,20 @@
     {
      "collection": "tenders",
      "id": "de-had"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|hadeland.no",
+   "target": "hadeland.no",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 56,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-hadeland-hadeland-no"
     }
    ]
   },
@@ -40938,6 +42698,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|harzkurier.de",
+   "target": "harzkurier.de",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 60,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-harz-kurier-harzkurier-de"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|hashicorp.com",
    "target": "hashicorp.com",
    "provider": "Ahrefs",
@@ -41036,6 +42810,29 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|hawkesburygazette.com.au",
+   "target": "hawkesburygazette.com.au",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 52,
+   "checkedAt": "2026-09-01",
+   "records": []
+  },
+  {
+   "key": "ahrefs|domain-rating|haz.de",
+   "target": "haz.de",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 79,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-hannoversche-allgemeine-haz-de"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|hazira.gpa.gov.il",
    "target": "hazira.gpa.gov.il",
    "provider": "Ahrefs",
@@ -41078,6 +42875,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|hbvl.be",
+   "target": "hbvl.be",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 76,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-het-belang-van-limburg-hbvl-be"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|hcilab.org",
    "target": "hcilab.org",
    "provider": "Ahrefs",
@@ -41104,6 +42915,15 @@
      "id": "gb-hcpc-register"
     }
    ]
+  },
+  {
+   "key": "ahrefs|domain-rating|hdl.loc.gov",
+   "target": "hdl.loc.gov",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 91,
+   "checkedAt": "2026-09-01",
+   "records": []
   },
   {
    "key": "ahrefs|domain-rating|hdrobots.com",
@@ -41372,6 +43192,34 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|herald.co.zw",
+   "target": "herald.co.zw",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 72,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-the-herald-zimbabwe-herald-co-zw"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|heraldo.es",
+   "target": "heraldo.es",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 79,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-heraldo-de-aragon-heraldo-es"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|here.com",
    "target": "here.com",
    "provider": "Ahrefs",
@@ -41424,6 +43272,20 @@
     {
      "collection": "forums",
      "id": "forum-hersacredrose-rpg-board-net-2251ec9c"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|hersfelder-zeitung.de",
+   "target": "hersfelder-zeitung.de",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 63,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-hersfelder-zeitung-hersfelder-zeitung-de"
     }
    ]
   },
@@ -41578,6 +43440,20 @@
     {
      "collection": "directory-opportunities",
      "id": "au-hia"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|hibishinbun.com",
+   "target": "hibishinbun.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 40,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-ishinomaki-hibi-shinbun-hibishinbun-com"
     }
    ]
   },
@@ -41858,6 +43734,48 @@
     {
      "collection": "forums",
      "id": "forum-hogwartsau-rpg-board-net-8985d5e1"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|hokkaido-np.co.jp",
+   "target": "hokkaido-np.co.jp",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 79,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-hokkaido-shimbun-hokkaido-np-co-jp"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|hokkoku.co.jp",
+   "target": "hokkoku.co.jp",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 73,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-toyama-shimbun-hokkoku-co-jp"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|hokuu.co.jp",
+   "target": "hokuu.co.jp",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 38,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-hokuu-shimpo-hokuu-co-jp"
     }
    ]
   },
@@ -42758,6 +44676,34 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|houstonchronicle.com",
+   "target": "houstonchronicle.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 85,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-houston-chronicle-houstonchronicle-com"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|houtensnieuws.nl",
+   "target": "houtensnieuws.nl",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 52,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-houten-nieuws-houtensnieuws-nl"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|houzz.co.uk",
    "target": "houzz.co.uk",
    "provider": "Ahrefs",
@@ -43480,6 +45426,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|ibarakinews.jp",
+   "target": "ibarakinews.jp",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 72,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-ibaraki-shimbun-ibarakinews-jp"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|ibiza-spotlight.com",
    "target": "ibiza-spotlight.com",
    "provider": "Ahrefs",
@@ -43782,6 +45742,34 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|illawarramercury.com.au",
+   "target": "illawarramercury.com.au",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 72,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-illawarra-mercury-illawarramercury-com-au"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|ilmattino.it",
+   "target": "ilmattino.it",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 77,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-il-mattino-ilmattino-it"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|ilomar.forumotion.eu",
    "target": "ilomar.forumotion.eu",
    "provider": "Ahrefs",
@@ -43834,6 +45822,20 @@
     {
      "collection": "directory-opportunities",
      "id": "qa-ilovequatar"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|ilrestodelcarlino.it",
+   "target": "ilrestodelcarlino.it",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 77,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-il-resto-del-carlino-ilrestodelcarlino-it"
     }
    ]
   },
@@ -44078,6 +46080,15 @@
      "id": "md-inc42"
     }
    ]
+  },
+  {
+   "key": "ahrefs|domain-rating|indaily.com.au",
+   "target": "indaily.com.au",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 72,
+   "checkedAt": "2026-09-01",
+   "records": []
   },
   {
    "key": "ahrefs|domain-rating|indeed.com",
@@ -44904,6 +46915,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|informador.mx",
+   "target": "informador.mx",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 74,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-el-informador-informador-mx"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|information1.gov-procurement.go.jp",
    "target": "information1.gov-procurement.go.jp",
    "provider": "Ahrefs",
@@ -45048,6 +47073,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|inquirer.com",
+   "target": "inquirer.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 88,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-the-philadelphia-inquirer-inquirer-com"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|inquirer.net",
    "target": "inquirer.net",
    "provider": "Ahrefs",
@@ -45086,6 +47125,20 @@
     {
      "collection": "directories",
      "id": "fr-sirene"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|insidehalton.com",
+   "target": "insidehalton.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 71,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-burlington-post-insidehalton-com"
     }
    ]
   },
@@ -45538,6 +47591,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|iol.co.za",
+   "target": "iol.co.za",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 83,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-cape-times-iol-co-za"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|iom.int",
    "target": "iom.int",
    "provider": "Ahrefs",
@@ -45576,6 +47643,20 @@
     {
      "collection": "forums",
      "id": "forum-iota-stackexchange-com-4084493b"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|iowacapitaldispatch.com",
+   "target": "iowacapitaldispatch.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 72,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-iowa-capital-dispatch-iowacapitaldispatch-com"
     }
    ]
   },
@@ -45702,6 +47783,20 @@
     {
      "collection": "tenders",
      "id": "in-indian-railways-e-procurement-system"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|irishexaminer.com",
+   "target": "irishexaminer.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 82,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-the-irish-examiner-irishexaminer-com"
     }
    ]
   },
@@ -46344,6 +48439,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|jamsanseutu.fi",
+   "target": "jamsanseutu.fi",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 43,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-jamsan-seutu-jamsanseutu-fi"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|jandamuda.forumotion.asia",
    "target": "jandamuda.forumotion.asia",
    "provider": "Ahrefs",
@@ -46438,6 +48547,20 @@
     {
      "collection": "product-launch-platforms",
      "id": "plp-jayde-com"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|jbl.no",
+   "target": "jbl.no",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 57,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-j-rbladet-jbl-no"
     }
    ]
   },
@@ -47050,6 +49173,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|jomo-news.co.jp",
+   "target": "jomo-news.co.jp",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 73,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-jomo-shimbun-jomo-news-co-jp"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|joneps.gov.jo",
    "target": "joneps.gov.jo",
    "provider": "Ahrefs",
@@ -47192,6 +49329,15 @@
      "id": "md-the-jerusalem-post-jpost-com"
     }
    ]
+  },
+  {
+   "key": "ahrefs|domain-rating|jsonline.com",
+   "target": "jsonline.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 84,
+   "checkedAt": "2026-09-01",
+   "records": []
   },
   {
    "key": "ahrefs|domain-rating|jtblf2.rpg-board.net",
@@ -47594,6 +49740,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|kahoku.news",
+   "target": "kahoku.news",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 73,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-kahoku-shimpo-kahoku-news"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|kaibacorpacademy.rpg-board.net",
    "target": "kaibacorpacademy.rpg-board.net",
    "provider": "Ahrefs",
@@ -47688,6 +49848,20 @@
     {
      "collection": "forums",
      "id": "forum-kaminojishin-rpg-board-net-92ad7a49"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|kanaloco.jp",
+   "target": "kanaloco.jp",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 77,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-kanagawa-shimbun-kanaloco-jp"
     }
    ]
   },
@@ -47986,6 +50160,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|keskilaakso.fi",
+   "target": "keskilaakso.fi",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 39,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-keskilaakso-keskilaakso-fi"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|khaleejtimes.com",
    "target": "khaleejtimes.com",
    "provider": "Ahrefs",
@@ -48084,6 +50272,20 @@
     {
      "collection": "marketplaces",
      "id": "mp-ca-kijiji"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|kildare-nationalist.ie",
+   "target": "kildare-nationalist.ie",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 47,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-kildare-nationalist-kildare-nationalist-ie"
     }
    ]
   },
@@ -48312,6 +50514,15 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|kmvlehti.fi",
+   "target": "kmvlehti.fi",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 43,
+   "checkedAt": "2026-09-01",
+   "records": []
+  },
+  {
    "key": "ahrefs|domain-rating|knf.gov.pl",
    "target": "knf.gov.pl",
    "provider": "Ahrefs",
@@ -48378,6 +50589,57 @@
     {
      "collection": "forums",
      "id": "forum-kobayashihigh-rpg-board-net-5c323a12"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|kobe-np.co.jp",
+   "target": "kobe-np.co.jp",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 79,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-kobe-shimbun-kobe-np-co-jp"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|kobenhavnliv.dk",
+   "target": "kobenhavnliv.dk",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 59,
+   "checkedAt": "2026-09-01",
+   "records": []
+  },
+  {
+   "key": "ahrefs|domain-rating|kochinews.co.jp",
+   "target": "kochinews.co.jp",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 72,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-kochi-shimbun-kochinews-co-jp"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|koillissanomat.fi",
+   "target": "koillissanomat.fi",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 48,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-koillissanomat-koillissanomat-fi"
     }
    ]
   },
@@ -48606,6 +50868,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|ksta.de",
+   "target": "ksta.de",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 82,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-kolner-stadt-anzeiger-ksta-de"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|kufar.by",
    "target": "kufar.by",
    "provider": "Ahrefs",
@@ -48644,6 +50920,20 @@
     {
      "collection": "forums",
      "id": "forum-kumajirousloft-rpg-board-net-5062db3d"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|kumanichi.com",
+   "target": "kumanichi.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 74,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-kumamoto-nichinichi-shimbun-kumanichi-com"
     }
    ]
   },
@@ -48774,6 +51064,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|l-a.no",
+   "target": "l-a.no",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 49,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-lindesnes-l-a-no"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|l2darkzone.rpg-board.net",
    "target": "l2darkzone.rpg-board.net",
    "provider": "Ahrefs",
@@ -48816,6 +51120,29 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|lacapital.com.ar",
+   "target": "lacapital.com.ar",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 72,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-la-capital-lacapital-com-ar"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|lacapitale.be",
+   "target": "lacapitale.be",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 52,
+   "checkedAt": "2026-09-01",
+   "records": []
+  },
+  {
    "key": "ahrefs|domain-rating|lacartes.com",
    "target": "lacartes.com",
    "provider": "Ahrefs",
@@ -48844,6 +51171,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|ladepeche.fr",
+   "target": "ladepeche.fr",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 86,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-la-depeche-du-midi-ladepeche-fr"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|laguiadelocio.com.ar",
    "target": "laguiadelocio.com.ar",
    "provider": "Ahrefs",
@@ -48854,6 +51195,20 @@
     {
      "collection": "directory-opportunities",
      "id": "ar-laguiadelocio"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|lailluminator.com",
+   "target": "lailluminator.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 73,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-louisiana-illuminator-lailluminator-com"
     }
    ]
   },
@@ -48872,6 +51227,15 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|lameuse.be",
+   "target": "lameuse.be",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 63,
+   "checkedAt": "2026-09-01",
+   "records": []
+  },
+  {
    "key": "ahrefs|domain-rating|lamudi.com.ph",
    "target": "lamudi.com.ph",
    "provider": "Ahrefs",
@@ -48882,6 +51246,20 @@
     {
      "collection": "marketplaces",
      "id": "mp-ph-lamudi"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|lanazione.it",
+   "target": "lanazione.it",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 77,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-la-nazione-lanazione-it"
     }
    ]
   },
@@ -48998,6 +51376,29 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|lanouvellegazette.be",
+   "target": "lanouvellegazette.be",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 54,
+   "checkedAt": "2026-09-01",
+   "records": []
+  },
+  {
+   "key": "ahrefs|domain-rating|laois-nationalist.ie",
+   "target": "laois-nationalist.ie",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 42,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-the-laois-nationalist-laois-nationalist-ie"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|laotiantimes.com",
    "target": "laotiantimes.com",
    "provider": "Ahrefs",
@@ -49024,6 +51425,24 @@
      "id": "plp-lapa-ninja"
     }
    ]
+  },
+  {
+   "key": "ahrefs|domain-rating|lapressedevesoul.com",
+   "target": "lapressedevesoul.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 42,
+   "checkedAt": "2026-09-01",
+   "records": []
+  },
+  {
+   "key": "ahrefs|domain-rating|laprovince.be",
+   "target": "laprovince.be",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 49,
+   "checkedAt": "2026-09-01",
+   "records": []
   },
   {
    "key": "ahrefs|domain-rating|lapulga.com.do",
@@ -49064,6 +51483,20 @@
     {
      "collection": "forums",
      "id": "forum-lastingbonds-rpg-board-net-809205ec"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|latimes.com",
+   "target": "latimes.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 92,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-los-angeles-times-latimes-com"
     }
    ]
   },
@@ -49294,6 +51727,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|lavanguardia.com",
+   "target": "lavanguardia.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 88,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-la-vanguardia-lavanguardia-com"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|lavocedinewyork.com",
    "target": "lavocedinewyork.com",
    "provider": "Ahrefs",
@@ -49304,6 +51751,62 @@
     {
      "collection": "media",
      "id": "md-la-voce-di-new-york-lavocedinewyork-com"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|lavoixdunord.fr",
+   "target": "lavoixdunord.fr",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 83,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-la-voix-du-nord-lavoixdunord-fr"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|lavoz.com.ar",
+   "target": "lavoz.com.ar",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 77,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-la-voz-del-interior-lavoz-com-ar"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|lavozdegalicia.es",
+   "target": "lavozdegalicia.es",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 82,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-la-voz-de-galicia-lavozdegalicia-es"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|lavozdelsur.es",
+   "target": "lavozdelsur.es",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 67,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-la-voz-del-sur-lavozdelsur-es"
     }
    ]
   },
@@ -49704,6 +52207,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|leicestermercury.co.uk",
+   "target": "leicestermercury.co.uk",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 74,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-leicestershire-live-leicestermercury-co-uk"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|leiphone.com",
    "target": "leiphone.com",
    "provider": "Ahrefs",
@@ -49714,6 +52231,20 @@
     {
      "collection": "media",
      "id": "md-leiphone"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|lejournaldejoliette.ca",
+   "target": "lejournaldejoliette.ca",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 41,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-le-journal-de-joliette-lejournaldejoliette-ca"
     }
    ]
   },
@@ -49756,6 +52287,34 @@
     {
      "collection": "forums",
      "id": "forum-leopardgecko-forumotion-co-uk-34caf822"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|leprogres.fr",
+   "target": "leprogres.fr",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 82,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-le-progres-leprogres-fr"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|leregional.ch",
+   "target": "leregional.ch",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 47,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-le-regional-leregional-ch"
     }
    ]
   },
@@ -49820,6 +52379,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|letelegramme.fr",
+   "target": "letelegramme.fr",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 84,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-le-telegramme-letelegramme-fr"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|letsmakeaplan.org",
    "target": "letsmakeaplan.org",
    "provider": "Ahrefs",
@@ -49858,6 +52431,20 @@
     {
      "collection": "product-launch-platforms",
      "id": "plp-letterlist"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|levante-emv.com",
+   "target": "levante-emv.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 78,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-levante-emv-levante-emv-com"
     }
    ]
   },
@@ -50086,6 +52673,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|lieksanlehti.fi",
+   "target": "lieksanlehti.fi",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 40,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-lieksan-lehti-lieksanlehti-fi"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|lifehacks.stackexchange.com",
    "target": "lifehacks.stackexchange.com",
    "provider": "Ahrefs",
@@ -50168,6 +52769,15 @@
      "id": "forum-limitlessrp-rpg-board-net-a16c849f"
     }
    ]
+  },
+  {
+   "key": "ahrefs|domain-rating|lincsonline.co.uk",
+   "target": "lincsonline.co.uk",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 64,
+   "checkedAt": "2026-09-01",
+   "records": []
   },
   {
    "key": "ahrefs|domain-rating|lineage2blueheaven.rpg-board.net",
@@ -50310,6 +52920,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|lister24.no",
+   "target": "lister24.no",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 46,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-lister-lister24-no"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|listingbott.com",
    "target": "listingbott.com",
    "provider": "Ahrefs",
@@ -50418,6 +53042,20 @@
     {
      "collection": "media",
      "id": "md-livemint"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|liverpoolecho.co.uk",
+   "target": "liverpoolecho.co.uk",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 80,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-liverpool-echo-liverpoolecho-co-uk"
     }
    ]
   },
@@ -50720,6 +53358,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|losandes.com.ar",
+   "target": "losandes.com.ar",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 72,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-los-andes-losandes-com-ar"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|losangeleslife.rpg-board.net",
    "target": "losangeleslife.rpg-board.net",
    "provider": "Ahrefs",
@@ -50996,6 +53648,20 @@
     {
      "collection": "media",
      "id": "md-luxembourg-times-luxtimes-lu"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|lvz.de",
+   "target": "lvz.de",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 77,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-leipziger-volkszeitung-lvz-de"
     }
    ]
   },
@@ -51526,6 +54192,34 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|manchestereveningnews.co.uk",
+   "target": "manchestereveningnews.co.uk",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 82,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-manchester-evening-news-manchestereveningnews-co-uk"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|manchestermill.co.uk",
+   "target": "manchestermill.co.uk",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 50,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-the-mill-manchestermill-co-uk"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|mandalorians.forumotion.net",
    "target": "mandalorians.forumotion.net",
    "provider": "Ahrefs",
@@ -51722,6 +54416,20 @@
     {
      "collection": "product-launch-platforms",
      "id": "plp-maqtoob-com"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|maravipost.com",
+   "target": "maravipost.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 50,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-maravi-post-maravipost-com"
     }
    ]
   },
@@ -52458,6 +55166,15 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|melabes.co.il",
+   "target": "melabes.co.il",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 51,
+   "checkedAt": "2026-09-01",
+   "records": []
+  },
+  {
    "key": "ahrefs|domain-rating|melancholyac.rpg-board.net",
    "target": "melancholyac.rpg-board.net",
    "provider": "Ahrefs",
@@ -52812,6 +55529,20 @@
     {
      "collection": "product-launch-platforms",
      "id": "plp-merchantcircle"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|merkur.de",
+   "target": "merkur.de",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 85,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-munchner-merkur-merkur-de"
     }
    ]
   },
@@ -53258,6 +55989,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|mindanews.com",
+   "target": "mindanews.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 59,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-mindanews-mindanews-com"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|minislashrevo.all-up.com",
    "target": "minislashrevo.all-up.com",
    "provider": "Ahrefs",
@@ -53286,6 +56031,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|minnpost.com",
+   "target": "minnpost.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 79,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-minnpost-minnpost-com"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|mintfunnel.co",
    "target": "mintfunnel.co",
    "provider": "Ahrefs",
@@ -53296,6 +56055,20 @@
     {
      "collection": "product-launch-platforms",
      "id": "plp-mintfunnel-co"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|minyu-net.com",
+   "target": "minyu-net.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 72,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-fukushima-minyu-shimbun-minyu-net-com"
     }
    ]
   },
@@ -53324,6 +56097,20 @@
     {
      "collection": "forums",
      "id": "forum-mirea-ninja-8d29d1d2"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|mississippitoday.org",
+   "target": "mississippitoday.org",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 74,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-mississippi-today-mississippitoday-org"
     }
    ]
   },
@@ -53562,6 +56349,20 @@
     {
      "collection": "product-launch-platforms",
      "id": "plp-mlyearning-org"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|mmegi.bw",
+   "target": "mmegi.bw",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 62,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-mmegi-mmegi-bw"
     }
    ]
   },
@@ -53934,6 +56735,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|monitor.co.ug",
+   "target": "monitor.co.ug",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 76,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-daily-monitor-monitor-co-ug"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|mono.ipros.com",
    "target": "mono.ipros.com",
    "provider": "Ahrefs",
@@ -53986,6 +56801,20 @@
     {
      "collection": "forums",
      "id": "forum-monte-rosa-rpg-board-net-03976397"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|montrealgazette.com",
+   "target": "montrealgazette.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 80,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-montreal-gazette-montrealgazette-com"
     }
    ]
   },
@@ -54060,6 +56889,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|morenytt.no",
+   "target": "morenytt.no",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 43,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-m-re-nytt-morenytt-no"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|morningbrew.com",
    "target": "morningbrew.com",
    "provider": "Ahrefs",
@@ -54084,6 +56927,20 @@
     {
      "collection": "media",
      "id": "md-morocco-world-news-moroccoworldnews-com"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|moss-avis.no",
+   "target": "moss-avis.no",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 66,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-moss-avis-moss-avis-no"
     }
    ]
   },
@@ -54224,6 +57081,20 @@
     {
      "collection": "tenders",
      "id": "il-government-procurement-a"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|mre.no",
+   "target": "mre.no",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 38,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-m-re-mre-no"
     }
    ]
   },
@@ -54564,6 +57435,20 @@
     {
      "collection": "forums",
      "id": "forum-mvtips-forumotion-me-3b379356"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|mwananchi.co.tz",
+   "target": "mwananchi.co.tz",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 56,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-mwananchi-mwananchi-co-tz"
     }
    ]
   },
@@ -55006,6 +57891,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|namdalsavisa.no",
+   "target": "namdalsavisa.no",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 59,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-namdalsavisa-namdalsavisa-no"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|namibian.com.na",
    "target": "namibian.com.na",
    "provider": "Ahrefs",
@@ -55058,6 +57957,20 @@
     {
      "collection": "directory-opportunities",
      "id": "us-napfa"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|nara-np.co.jp",
+   "target": "nara-np.co.jp",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 70,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-nara-shinbun-nara-np-co-jp"
     }
    ]
   },
@@ -56252,6 +59165,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|nashazorya.ucoz.ua",
+   "target": "nashazorya.ucoz.ua",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 69,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-nasha-zorya-nashazorya-ucoz-ua"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|nashvillepost.com",
    "target": "nashvillepost.com",
    "provider": "Ahrefs",
@@ -56602,6 +59529,15 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|nelsonstar.com",
+   "target": "nelsonstar.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 58,
+   "checkedAt": "2026-09-01",
+   "records": []
+  },
+  {
    "key": "ahrefs|domain-rating|nemesis-divine.rpg-board.net",
    "target": "nemesis-divine.rpg-board.net",
    "provider": "Ahrefs",
@@ -56882,6 +59818,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|nevadacurrent.com",
+   "target": "nevadacurrent.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 71,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-nevada-current-nevadacurrent-com"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|new-age.rpg-board.net",
    "target": "new-age.rpg-board.net",
    "provider": "Ahrefs",
@@ -56920,6 +59870,20 @@
     {
      "collection": "forums",
      "id": "forum-newagerp-rpg-board-net-862caebd"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|newcastleherald.com.au",
+   "target": "newcastleherald.com.au",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 72,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-newcastle-herald-newcastleherald-com-au"
     }
    ]
   },
@@ -57348,6 +60312,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|nicematin.com",
+   "target": "nicematin.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 80,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-nice-matin-nicematin-com"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|niceoneilike.com",
    "target": "niceoneilike.com",
    "provider": "Ahrefs",
@@ -57660,6 +60638,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|nishinippon.co.jp",
+   "target": "nishinippon.co.jp",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 79,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-nishinippon-shimbun-nishinippon-co-jp"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|njportal.com",
    "target": "njportal.com",
    "provider": "Ahrefs",
@@ -57670,6 +60662,20 @@
     {
      "collection": "directories",
      "id": "us-new-jersey-business-records-service"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|njspotlightnews.org",
+   "target": "njspotlightnews.org",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 72,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-nj-spotlight-news-njspotlightnews-org"
     }
    ]
   },
@@ -57786,6 +60792,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|nmindepth.com",
+   "target": "nmindepth.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 57,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-new-mexico-in-depth-nmindepth-com"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|nms-serbia.rpg-board.net",
    "target": "nms-serbia.rpg-board.net",
    "provider": "Ahrefs",
@@ -57810,6 +60830,20 @@
     {
      "collection": "directory-opportunities",
      "id": "us-nmsdc"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|nn.de",
+   "target": "nn.de",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 74,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-nurnberger-nachrichten-nn-de"
     }
    ]
   },
@@ -58010,6 +61044,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|nordhordland.no",
+   "target": "nordhordland.no",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 53,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-nordhordland-nordhordland-no"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|nordiclabourjournal.org",
    "target": "nordiclabourjournal.org",
    "provider": "Ahrefs",
@@ -58020,6 +61068,29 @@
     {
      "collection": "media",
      "id": "md-nordic-labour-journal-nordiclabourjournal-org"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|norfolkandtillsonburgnews.com",
+   "target": "norfolkandtillsonburgnews.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 47,
+   "checkedAt": "2026-09-01",
+   "records": []
+  },
+  {
+   "key": "ahrefs|domain-rating|noroeste.com.mx",
+   "target": "noroeste.com.mx",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 64,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-noroeste-noroeste-com-mx"
     }
    ]
   },
@@ -58122,6 +61193,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|nottinghampost.com",
+   "target": "nottinghampost.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 76,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-nottinghamshire-live-nottinghampost-com"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|novascotia.ca",
    "target": "novascotia.ca",
    "provider": "Ahrefs",
@@ -58132,6 +61217,20 @@
     {
      "collection": "directories",
      "id": "ca-ns-registry-joint-stock-companies"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|novilist.hr",
+   "target": "novilist.hr",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 72,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-novi-list-novilist-hr"
     }
    ]
   },
@@ -58472,6 +61571,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|nwzonline.de",
+   "target": "nwzonline.de",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 80,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-nordwest-zeitung-nwzonline-de"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|nxgntools.com",
    "target": "nxgntools.com",
    "provider": "Ahrefs",
@@ -58496,6 +61609,20 @@
     {
      "collection": "tenders",
      "id": "us-ny-new-york-state-contract"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|oa.no",
+   "target": "oa.no",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 65,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-oppland-arbeiderblad-oa-no"
     }
    ]
   },
@@ -58654,6 +61781,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|odt.co.nz",
+   "target": "odt.co.nz",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 79,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-otago-daily-times-odt-co-nz"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|oecs.int",
    "target": "oecs.int",
    "provider": "Ahrefs",
@@ -58790,6 +61931,20 @@
     {
      "collection": "media",
      "id": "md-okayafrica-okayafrica-com"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|okinawatimes.co.jp",
+   "target": "okinawatimes.co.jp",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 78,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-okinawa-times-okinawatimes-co-jp"
     }
    ]
   },
@@ -59478,6 +62633,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|op-online.de",
+   "target": "op-online.de",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 76,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-offenbach-post-op-online-de"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|op-piratenation.rpg-board.net",
    "target": "op-piratenation.rpg-board.net",
    "provider": "Ahrefs",
@@ -59488,6 +62657,20 @@
     {
      "collection": "forums",
      "id": "forum-op-piratenation-rpg-board-net-16518a8c"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|op.no",
+   "target": "op.no",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 62,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-stlands-posten-op-no"
     }
    ]
   },
@@ -60386,6 +63569,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|oregonlive.com",
+   "target": "oregonlive.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 86,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-the-oregonian-oregonlive-com"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|orias.fr",
    "target": "orias.fr",
    "provider": "Ahrefs",
@@ -60484,6 +63681,34 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|ostlendingen.no",
+   "target": "ostlendingen.no",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 64,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-stlendingen-ostlendingen-no"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|otempo.com.br",
+   "target": "otempo.com.br",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 77,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-o-tempo-otempo-com-br"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|otomoto.pl",
    "target": "otomoto.pl",
    "provider": "Ahrefs",
@@ -60516,6 +63741,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|ottawacitizen.com",
+   "target": "ottawacitizen.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 80,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-ottawa-citizen-ottawacitizen-com"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|ouedkniss.com",
    "target": "ouedkniss.com",
    "provider": "Ahrefs",
@@ -60530,6 +63769,20 @@
     {
      "collection": "marketplaces",
      "id": "mp-dz-ouedkniss"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|ouest-france.fr",
+   "target": "ouest-france.fr",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 90,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-ouest-france-ouest-france-fr"
     }
    ]
   },
@@ -61186,6 +64439,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|parkbugle.org",
+   "target": "parkbugle.org",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 42,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-park-bugle-parkbugle-org"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|partiell-zugelassene-personen-in-steuersachen.berufs-org.de",
    "target": "partiell-zugelassene-personen-in-steuersachen.berufs-org.de",
    "provider": "Ahrefs",
@@ -61772,6 +65039,15 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|peninsulanewsreview.com",
+   "target": "peninsulanewsreview.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 47,
+   "checkedAt": "2026-09-01",
+   "records": []
+  },
+  {
    "key": "ahrefs|domain-rating|pennysaverusa.com",
    "target": "pennysaverusa.com",
    "provider": "Ahrefs",
@@ -61922,6 +65198,20 @@
     {
      "collection": "forums",
      "id": "forum-petawawa247-rpg-board-net-1144c532"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|peterboroughtoday.co.uk",
+   "target": "peterboroughtoday.co.uk",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 66,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-peterborough-evening-telegraph-peterboroughtoday-co-uk"
     }
    ]
   },
@@ -62426,6 +65716,20 @@
     {
      "collection": "directory-opportunities",
      "id": "global-pissedconsumer"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|pitajanuutiset.fi",
+   "target": "pitajanuutiset.fi",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 42,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-pitajanuutiset-pitajanuutiset-fi"
     }
    ]
   },
@@ -63372,6 +66676,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|posavskiobzornik.si",
+   "target": "posavskiobzornik.si",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 48,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-posavski-obzornik-posavskiobzornik-si"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|poshmark.com",
    "target": "poshmark.com",
    "provider": "Ahrefs",
@@ -63382,6 +66700,20 @@
     {
      "collection": "marketplaces",
      "id": "mp-us-poshmark"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|post-gazette.com",
+   "target": "post-gazette.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 85,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-pittsburgh-post-gazette-post-gazette-com"
     }
    ]
   },
@@ -63722,6 +67054,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|pressandjournal.co.uk",
+   "target": "pressandjournal.co.uk",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 76,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-the-press-and-journal-pressandjournal-co-uk"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|pressat.co.uk",
    "target": "pressat.co.uk",
    "provider": "Ahrefs",
@@ -63810,6 +67156,34 @@
     {
      "collection": "forums",
      "id": "forum-primalserenade-rpg-board-net-forum-3e5ce223"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|primorske.si",
+   "target": "primorske.si",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 61,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-primorske-novice-primorske-si"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|primorski.eu",
+   "target": "primorski.eu",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 46,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-primorski-dnevnik-primorski-eu"
     }
    ]
   },
@@ -65516,6 +68890,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|ranablad.no",
+   "target": "ranablad.no",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 60,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-rana-blad-ranablad-no"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|randomskittles.rpg-board.net",
    "target": "randomskittles.rpg-board.net",
    "provider": "Ahrefs",
@@ -65768,6 +69156,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|rb.no",
+   "target": "rb.no",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 70,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-romerikes-blad-rb-no"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|rbelysium.rpg-board.net",
    "target": "rbelysium.rpg-board.net",
    "provider": "Ahrefs",
@@ -65778,6 +69180,20 @@
     {
      "collection": "forums",
      "id": "forum-rbelysium-rpg-board-net-60efbdf3"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|rbnett.no",
+   "target": "rbnett.no",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 64,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-romsdals-budstikke-rbnett-no"
     }
    ]
   },
@@ -66738,6 +70154,15 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|rethnea.gr",
+   "target": "rethnea.gr",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 41,
+   "checkedAt": "2026-09-01",
+   "records": []
+  },
+  {
    "key": "ahrefs|domain-rating|retrocomputing.stackexchange.com",
    "target": "retrocomputing.stackexchange.com",
    "provider": "Ahrefs",
@@ -66764,6 +70189,15 @@
      "id": "forum-retrogameboards-com-0fb56efd"
     }
    ]
+  },
+  {
+   "key": "ahrefs|domain-rating|retronews.fr",
+   "target": "retronews.fr",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 72,
+   "checkedAt": "2026-09-01",
+   "records": []
   },
   {
    "key": "ahrefs|domain-rating|retty.me",
@@ -66794,6 +70228,15 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|revelstokereview.com",
+   "target": "revelstokereview.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 49,
+   "checkedAt": "2026-09-01",
+   "records": []
+  },
+  {
    "key": "ahrefs|domain-rating|reverb.com",
    "target": "reverb.com",
    "provider": "Ahrefs",
@@ -66818,6 +70261,20 @@
     {
      "collection": "forums",
      "id": "forum-reverseengineering-stackexchange-com-00aed390"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|reviewjournal.com",
+   "target": "reviewjournal.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 84,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-las-vegas-review-journal-reviewjournal-com"
     }
    ]
   },
@@ -66902,6 +70359,34 @@
     {
      "collection": "forums",
      "id": "forum-rf-tactical-rpg-board-net-206730cb"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|rha.no",
+   "target": "rha.no",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 50,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-r-yken-og-hurums-avis-rha-no"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|rheinpfalz.de",
+   "target": "rheinpfalz.de",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 78,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-die-rheinpfalz-rheinpfalz-de"
     }
    ]
   },
@@ -67014,6 +70499,20 @@
     {
      "collection": "directory-opportunities",
      "id": "jp-rikunabi"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|ringblad.no",
+   "target": "ringblad.no",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 62,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-ringerikes-blad-ringblad-no"
     }
    ]
   },
@@ -67508,6 +71007,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|rp-online.de",
+   "target": "rp-online.de",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 86,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-rheinische-post-rp-online-de"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|rpcentral.forumotion.net",
    "target": "rpcentral.forumotion.net",
    "provider": "Ahrefs",
@@ -67816,6 +71329,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|ryukyushimpo.jp",
+   "target": "ryukyushimpo.jp",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 76,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-ryukyu-shimpo-ryukyushimpo-jp"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|rzetelnafirma.pl",
    "target": "rzetelnafirma.pl",
    "provider": "Ahrefs",
@@ -67826,6 +71353,20 @@
     {
      "collection": "directory-opportunities",
      "id": "pl-rzetelnafirma"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|s-n.no",
+   "target": "s-n.no",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 42,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-stj-rdals-nytt-s-n-no"
     }
    ]
   },
@@ -67868,6 +71409,20 @@
     {
      "collection": "marketplaces",
      "id": "mp-sa-aqar"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|sa.no",
+   "target": "sa.no",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 61,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-sarpsborg-arbeiderblad-sa-no"
     }
    ]
   },
@@ -68364,6 +71919,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|saga-s.co.jp",
+   "target": "saga-s.co.jp",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 74,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-saga-shimbun-saga-s-co-jp"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|sagaflyff.rpg-board.net",
    "target": "sagaflyff.rpg-board.net",
    "provider": "Ahrefs",
@@ -68476,6 +72045,34 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|saltenposten.no",
+   "target": "saltenposten.no",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 47,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-saltenposten-saltenposten-no"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|saltwire.com",
+   "target": "saltwire.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 80,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-the-chronicle-herald-saltwire-com"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|sam.gov",
    "target": "sam.gov",
    "provider": "Ahrefs",
@@ -68540,6 +72137,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|sandiegouniontribune.com",
+   "target": "sandiegouniontribune.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 86,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-the-san-diego-union-tribune-sandiegouniontribune-com"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|sanego.de",
    "target": "sanego.de",
    "provider": "Ahrefs",
@@ -68564,6 +72175,20 @@
     {
      "collection": "forums",
      "id": "forum-sanforum-at-96a1bb81"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|sannichi.co.jp",
+   "target": "sannichi.co.jp",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 70,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-yamanashi-nichinichi-shimbun-sannichi-co-jp"
     }
    ]
   },
@@ -68782,6 +72407,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|sb.no",
+   "target": "sb.no",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 60,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-sandefjords-blad-sb-no"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|sba.gov",
    "target": "sba.gov",
    "provider": "Ahrefs",
@@ -68894,6 +72533,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|schwaebische.de",
+   "target": "schwaebische.de",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 81,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-schwabische-zeitung-schwaebische-de"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|schweizfirmen.ch",
    "target": "schweizfirmen.ch",
    "provider": "Ahrefs",
@@ -68988,6 +72641,20 @@
     {
      "collection": "directories",
      "id": "uk-scoot"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|scotsman.com",
+   "target": "scotsman.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 84,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-the-scotsman-scotsman-com"
     }
    ]
   },
@@ -69100,6 +72767,20 @@
     {
      "collection": "forums",
      "id": "forum-seasonal-trackers-rpg-board-net-b6b6b634"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|seattletimes.com",
+   "target": "seattletimes.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 90,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-the-seattle-times-seattletimes-com"
     }
    ]
   },
@@ -69678,6 +73359,20 @@
     {
      "collection": "directory-opportunities",
      "id": "us-sfchamber"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|sfchronicle.com",
+   "target": "sfchronicle.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 88,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-san-francisco-chronicle-sfchronicle-com"
     }
    ]
   },
@@ -70748,6 +74443,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|sipoonsanomat.fi",
+   "target": "sipoonsanomat.fi",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 40,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-sipoon-sanomat-sipoonsanomat-fi"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|sirt.cftc.gov",
    "target": "sirt.cftc.gov",
    "provider": "Ahrefs",
@@ -71000,6 +74709,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|slobodnadalmacija.hr",
+   "target": "slobodnadalmacija.hr",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 74,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-slobodna-dalmacija-slobodnadalmacija-hr"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|slotpoker.forumotion.asia",
    "target": "slotpoker.forumotion.asia",
    "provider": "Ahrefs",
@@ -71038,6 +74761,20 @@
     {
      "collection": "media",
      "id": "md-the-slovenia-times-sloveniatimes-com"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|sltrib.com",
+   "target": "sltrib.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 83,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-the-salt-lake-tribune-sltrib-com"
     }
    ]
   },
@@ -71200,6 +74937,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|smh.com.au",
+   "target": "smh.com.au",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 90,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-the-sydney-morning-herald-smh-com-au"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|smithery.ai",
    "target": "smithery.ai",
    "provider": "Ahrefs",
@@ -71224,6 +74975,20 @@
     {
      "collection": "product-launch-platforms",
      "id": "plp-smollaunch-com"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|sn.dk",
+   "target": "sn.dk",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 78,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-hiller-d-posten-sn-dk"
     }
    ]
   },
@@ -71572,6 +75337,20 @@
     {
      "collection": "product-launch-platforms",
      "id": "plp-softwareworld"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|sognavis.no",
+   "target": "sognavis.no",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 58,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-sogn-avis-sognavis-no"
     }
    ]
   },
@@ -72136,6 +75915,20 @@
     {
      "collection": "product-launch-platforms",
      "id": "plp-sourceforge"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|sourceofthespring.com",
+   "target": "sourceofthespring.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 43,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-source-of-the-spring-sourceofthespring-com"
     }
    ]
   },
@@ -72966,6 +76759,20 @@
     {
      "collection": "media",
      "id": "md-startland-news"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|startribune.com",
+   "target": "startribune.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 87,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-minnesota-star-tribune-startribune-com"
     }
    ]
   },
@@ -73900,6 +77707,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|stimme.de",
+   "target": "stimme.de",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 73,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-heilbronner-stimme-stimme-de"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|stlanimeclub.forummotion.com",
    "target": "stlanimeclub.forummotion.com",
    "provider": "Ahrefs",
@@ -73914,6 +77735,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|stltoday.com",
+   "target": "stltoday.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 83,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-st-louis-post-dispatch-stltoday-com"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|storagecafe.com",
    "target": "storagecafe.com",
    "provider": "Ahrefs",
@@ -73924,6 +77759,20 @@
     {
      "collection": "directory-opportunities",
      "id": "us-storagecafe"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|stord24.no",
+   "target": "stord24.no",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 39,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-stord24-stord24-no"
     }
    ]
   },
@@ -73984,6 +77833,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|strandbuen.no",
+   "target": "strandbuen.no",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 45,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-strandbuen-strandbuen-no"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|stratup.ai",
    "target": "stratup.ai",
    "provider": "Ahrefs",
@@ -74036,6 +77899,20 @@
     {
      "collection": "directory-opportunities",
      "id": "sg-streetdirectory"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|strilen.no",
+   "target": "strilen.no",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 47,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-strilen-strilen-no"
     }
    ]
   },
@@ -74120,6 +77997,20 @@
     {
      "collection": "forums",
      "id": "forum-studmed-dk-6fe29fd8"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|stuttgarter-nachrichten.de",
+   "target": "stuttgarter-nachrichten.de",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 79,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-stuttgarter-nachrichten-stuttgarter-nachrichten-de"
     }
    ]
   },
@@ -74394,6 +78285,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|sudouest.fr",
+   "target": "sudouest.fr",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 85,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-sud-ouest-sudouest-fr"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|sulekha.com",
    "target": "sulekha.com",
    "provider": "Ahrefs",
@@ -74404,6 +78309,34 @@
     {
      "collection": "directory-opportunities",
      "id": "global-sulekha"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|sunnhordland.no",
+   "target": "sunnhordland.no",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 53,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-sunnhordland-sunnhordland-no"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|sunstar.com.ph",
+   "target": "sunstar.com.ph",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 75,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-sunstar-sunstar-com-ph"
     }
    ]
   },
@@ -74842,6 +78775,15 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|sussexexpress.co.uk",
+   "target": "sussexexpress.co.uk",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 76,
+   "checkedAt": "2026-09-01",
+   "records": []
+  },
+  {
    "key": "ahrefs|domain-rating|sustainability.stackexchange.com",
    "target": "sustainability.stackexchange.com",
    "provider": "Ahrefs",
@@ -74894,6 +78836,34 @@
     {
      "collection": "forums",
      "id": "forum-suzukix7-forumotion-co-uk-172f6898"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|sva.no",
+   "target": "sva.no",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 42,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-s-r-varanger-avis-sva-no"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|svalbardposten.no",
+   "target": "svalbardposten.no",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 55,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-svalbardposten-svalbardposten-no"
     }
    ]
   },
@@ -75052,6 +79022,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|sydsvenskan.se",
+   "target": "sydsvenskan.se",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 80,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-sydsvenskan-sydsvenskan-se"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|syncedreview.com",
    "target": "syncedreview.com",
    "provider": "Ahrefs",
@@ -75122,6 +79106,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|ta.no",
+   "target": "ta.no",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 65,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-telemarksavisa-ta-no"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|taalk.com",
    "target": "taalk.com",
    "provider": "Ahrefs",
@@ -75160,6 +79158,29 @@
     {
      "collection": "directory-opportunities",
      "id": "us-tablelist"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|tageblatt.de",
+   "target": "tageblatt.de",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 66,
+   "checkedAt": "2026-09-01",
+   "records": []
+  },
+  {
+   "key": "ahrefs|domain-rating|tagesspiegel.de",
+   "target": "tagesspiegel.de",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 88,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-der-tagesspiegel-tagesspiegel-de"
     }
    ]
   },
@@ -75454,6 +79475,20 @@
     {
      "collection": "forums",
      "id": "forum-tamilunit-rpg-board-net-66fedb6f"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|tampabay.com",
+   "target": "tampabay.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 85,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-tampa-bay-times-tampabay-com"
     }
    ]
   },
@@ -76264,6 +80299,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|tednik.svet24.si",
+   "target": "tednik.svet24.si",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 73,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-stajerski-tednik-tednik-svet24-si"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|teens-world.bbactif.com",
    "target": "teens-world.bbactif.com",
    "provider": "Ahrefs",
@@ -76414,6 +80463,20 @@
     {
      "collection": "directory-opportunities",
      "id": "nl-telefoonboek"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|telen.no",
+   "target": "telen.no",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 52,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-telen-telen-no"
     }
    ]
   },
@@ -76754,6 +80817,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|texastribune.org",
+   "target": "texastribune.org",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 84,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-the-texas-tribune-texastribune-org"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|tezos.stackexchange.com",
    "target": "tezos.stackexchange.com",
    "provider": "Ahrefs",
@@ -76950,6 +81027,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|the-londoner.co.uk",
+   "target": "the-londoner.co.uk",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 46,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-the-londoner-the-londoner-co-uk"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|the-originals-rpg.rpg-board.net",
    "target": "the-originals-rpg.rpg-board.net",
    "provider": "Ahrefs",
@@ -77002,6 +81093,20 @@
     {
      "collection": "media",
      "id": "md-the-africa-report"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|theage.com.au",
+   "target": "theage.com.au",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 86,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-the-age-theage-com-au"
     }
    ]
   },
@@ -77156,6 +81261,20 @@
     {
      "collection": "media",
      "id": "md-the-arabian-stories-thearabianstories-com"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|theargus.co.uk",
+   "target": "theargus.co.uk",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 75,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-the-argus-theargus-co-uk"
     }
    ]
   },
@@ -77408,6 +81527,20 @@
     {
      "collection": "forums",
      "id": "forum-thecorruptions-keuf-net-9eee8262"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|thecourier.co.uk",
+   "target": "thecourier.co.uk",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 75,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-the-courier-thecourier-co-uk"
     }
    ]
   },
@@ -78308,6 +82441,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|thepoint.gm",
+   "target": "thepoint.gm",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 61,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-the-point-thepoint-gm"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|thepopularapps.com",
    "target": "thepopularapps.com",
    "provider": "Ahrefs",
@@ -78332,6 +82479,20 @@
     {
      "collection": "media",
      "id": "md-the-real-deal"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|therecord.com",
+   "target": "therecord.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 75,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-waterloo-region-record-therecord-com"
     }
    ]
   },
@@ -78512,6 +82673,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|theshillongtimes.com",
+   "target": "theshillongtimes.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 62,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-the-shillong-times-theshillongtimes-com"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|theshinobiwayrp.rpg-board.net",
    "target": "theshinobiwayrp.rpg-board.net",
    "provider": "Ahrefs",
@@ -78592,6 +82767,20 @@
     {
      "collection": "forums",
      "id": "forum-thesouthpacific-org-1145bb3c"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|thespec.com",
+   "target": "thespec.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 78,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-the-hamilton-spectator-thespec-com"
     }
    ]
   },
@@ -79118,6 +83307,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|timescolonist.com",
+   "target": "timescolonist.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 78,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-times-colonist-timescolonist-com"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|timesjobs.com",
    "target": "timesjobs.com",
    "provider": "Ahrefs",
@@ -79564,6 +83767,20 @@
     {
      "collection": "directory-opportunities",
      "id": "jp-tokyo-cci"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|tokyo-np.co.jp",
+   "target": "tokyo-np.co.jp",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 82,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-tokyo-shimbun-tokyo-np-co-jp"
     }
    ]
   },
@@ -80206,6 +84423,20 @@
     {
      "collection": "product-launch-platforms",
      "id": "plp-topfreeaitools"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|topics.or.jp",
+   "target": "topics.or.jp",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 72,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-tokushima-shimbun-topics-or-jp"
     }
    ]
   },
@@ -81026,6 +85257,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|tribuneonlineng.com",
+   "target": "tribuneonlineng.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 75,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-nigerian-tribune-tribuneonlineng-com"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|tridge.com",
    "target": "tridge.com",
    "provider": "Ahrefs",
@@ -81092,6 +85337,20 @@
     {
      "collection": "forums",
      "id": "forum-triumphmotorcycleforum-com-5c80ff8a"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|trojmiasto.pl",
+   "target": "trojmiasto.pl",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 78,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-trojmiasto-pl-trojmiasto-pl"
     }
    ]
   },
@@ -81366,6 +85625,20 @@
     {
      "collection": "product-launch-platforms",
      "id": "plp-trylaunch-ai"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|ts.fi",
+   "target": "ts.fi",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 75,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-turun-sanomat-ts-fi"
     }
    ]
   },
@@ -81746,6 +86019,15 @@
      "id": "ae-uaebusinessdirectory"
     }
    ]
+  },
+  {
+   "key": "ahrefs|domain-rating|uain.press",
+   "target": "uain.press",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 50,
+   "checkedAt": "2026-09-01",
+   "records": []
   },
   {
    "key": "ahrefs|domain-rating|ubereats.com",
@@ -82916,6 +87198,34 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|vancouversun.com",
+   "target": "vancouversun.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 83,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-vancouver-sun-vancouversun-com"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|vanguardia.com",
+   "target": "vanguardia.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 72,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-vanguardia-vanguardia-com"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|varagesale.com",
    "target": "varagesale.com",
    "provider": "Ahrefs",
@@ -83038,6 +87348,20 @@
     {
      "collection": "directory-opportunities",
      "id": "de-vdma"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|ve.lt",
+   "target": "ve.lt",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 69,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-vakaru-ekspresas-ve-lt"
     }
    ]
   },
@@ -83388,6 +87712,20 @@
     {
      "collection": "tenders",
      "id": "de-e-vergabe-plattform-des-freistaats"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|vestnytt.no",
+   "target": "vestnytt.no",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 46,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-vestnytt-vestnytt-no"
     }
    ]
   },
@@ -83858,6 +88196,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|volksstimme.de",
+   "target": "volksstimme.de",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 76,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-volksstimme-volksstimme-de"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|voxeurop.eu",
    "target": "voxeurop.eu",
    "provider": "Ahrefs",
@@ -83924,6 +88276,20 @@
     {
      "collection": "forums",
      "id": "forum-vstuning-forumotion-net-7d1226ef"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|vtb.no",
+   "target": "vtb.no",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 42,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-vest-telemark-blad-vtb-no"
     }
    ]
   },
@@ -84064,6 +88430,20 @@
     {
      "collection": "product-launch-platforms",
      "id": "plp-waildworld-com"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|walesonline.co.uk",
+   "target": "walesonline.co.uk",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 82,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-walesonline-walesonline-co-uk"
     }
    ]
   },
@@ -84254,6 +88634,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|watoday.com.au",
+   "target": "watoday.com.au",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 75,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-watoday-watoday-com-au"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|wayfindio.com",
    "target": "wayfindio.com",
    "provider": "Ahrefs",
@@ -84266,6 +88660,15 @@
      "id": "plp-wayfindio"
     }
    ]
+  },
+  {
+   "key": "ahrefs|domain-rating|waz-online.de",
+   "target": "waz-online.de",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 69,
+   "checkedAt": "2026-09-01",
+   "records": []
   },
   {
    "key": "ahrefs|domain-rating|wbenc.org",
@@ -84604,6 +89007,20 @@
     {
      "collection": "product-launch-platforms",
      "id": "plp-webtoolsweekly"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|webun.jp",
+   "target": "webun.jp",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 71,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-the-kitanippon-shimbun-webun-jp"
     }
    ]
   },
@@ -85186,6 +89603,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|winnipegfreepress.com",
+   "target": "winnipegfreepress.com",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 80,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-winnipeg-free-press-winnipegfreepress-com"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|winred.es",
    "target": "winred.es",
    "provider": "Ahrefs",
@@ -85312,6 +89743,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|witness.co.za",
+   "target": "witness.co.za",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 53,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-the-witness-witness-co-za"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|wiwo.de",
    "target": "wiwo.de",
    "provider": "Ahrefs",
@@ -85392,6 +89837,20 @@
     {
      "collection": "directories",
      "id": "de-wlw"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|wnti.ch",
+   "target": "wnti.ch",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 41,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-wnti-wnti-ch"
     }
    ]
   },
@@ -86250,6 +90709,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|yamagata-np.jp",
+   "target": "yamagata-np.jp",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 71,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-yamagata-shimbun-yamagata-np-jp"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|yanolja.com",
    "target": "yanolja.com",
    "provider": "Ahrefs",
@@ -86744,6 +91217,20 @@
    ]
   },
   {
+   "key": "ahrefs|domain-rating|yorkshirepost.co.uk",
+   "target": "yorkshirepost.co.uk",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 79,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-the-yorkshire-post-yorkshirepost-co-uk"
+    }
+   ]
+  },
+  {
    "key": "ahrefs|domain-rating|yosplinter.catsboard.com",
    "target": "yosplinter.catsboard.com",
    "provider": "Ahrefs",
@@ -86884,6 +91371,20 @@
     {
      "collection": "media",
      "id": "md-yourstory"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|yucatan.com.mx",
+   "target": "yucatan.com.mx",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 71,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-diario-de-yucatan-yucatan-com-mx"
     }
    ]
   },
@@ -87262,6 +91763,20 @@
     {
      "collection": "marketplaces",
      "id": "mp-cn-zhuanzhuan"
+    }
+   ]
+  },
+  {
+   "key": "ahrefs|domain-rating|ziaruldeiasi.ro",
+   "target": "ziaruldeiasi.ro",
+   "provider": "Ahrefs",
+   "state": "MEASURED",
+   "domainRating": 65,
+   "checkedAt": "2026-09-01",
+   "records": [
+    {
+     "collection": "regional-media",
+     "id": "rm-ziarul-de-iasi-ziaruldeiasi-ro"
     }
    ]
   },

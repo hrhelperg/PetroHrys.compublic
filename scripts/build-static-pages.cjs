@@ -200,6 +200,7 @@ function buildHubPage(locale) {
     directories: esc(t('collection.directories')),
     marketplaces: esc(t('collection.marketplaces')),
     media: esc(t('collection.media.full')),
+    regionalMedia: esc(t('collection.regionalMedia')),
     forums: esc(t('collection.forums')),
   };
   const chooseBody = c.collections.chooseBody
@@ -217,6 +218,7 @@ function buildHubPage(locale) {
     item(p(routes.hubPath()), names.directories, c.collections.items.directories),
     item(p(`${routes.hubPath()}opportunities/`), esc(t('opportunity.workingList')), c.collections.items.opportunities),
     item(p(render.MEDIA_PATH), names.media, c.collections.items.media),
+    item(p(render.REGIONAL_MEDIA_PATH), names.regionalMedia, c.collections.items.regionalMedia),
     item(p(render.MARKETPLACES_PATH), names.marketplaces, c.collections.items.marketplaces),
     item(p(render.FORUMS_PATH), names.forums, c.collections.items.forums),
     item(p(render.TENDERS_PATH), esc(t('collection.tenders')), c.collections.items.tenders),

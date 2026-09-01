@@ -27,6 +27,7 @@ const COLLECTIONS = [
   { key: 'directories', file: 'data/business-directories/opportunities.json', url: 'website' },
   { key: 'marketplaces', file: 'data/marketplaces/marketplaces.json', url: 'website' },
   { key: 'media', file: 'data/media-pr-publishing/media-platforms.json', url: 'website' },
+  { key: 'regional-media', file: 'data/regional-media/regional-media.json', url: 'website' },
   { key: 'tenders', file: 'data/tenders-procurement/platforms.json', url: 'officialUrl' },
 ];
 

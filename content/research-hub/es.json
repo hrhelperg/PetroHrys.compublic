@@ -5,7 +5,7 @@
     "Phase 2' sigue siendo una afirmación en futuro."
   ],
   "title": "Investigación — Petro Hrys",
-  "description": "Estudios sobre sistemas de búsqueda, comportamiento de indexación y arquitectura de rastreo, más cuatro bases verificadas y un planificador para las tres colecciones de distribución accionables.",
+  "description": "Estudios sobre sistemas de búsqueda, comportamiento de indexación y arquitectura de rastreo, más bases de investigación verificadas y un planificador para tres colecciones de distribución accionables.",
   "h1": "Investigación",
   "lede": "Estudios sobre sistemas de búsqueda, comportamiento de indexación y arquitectura de rastreo.",
   "scope": {
@@ -17,18 +17,19 @@
   },
   "collections": {
     "heading": "Colecciones",
-    "intro": "Cuatro bases de datos publicadas y una herramienta para las tres colecciones de distribución accionables. Cada base se verifica directamente, se puede exportar como CSV e indica qué excluye.",
+    "intro": "Bases de datos de investigación publicadas y una herramienta para las tres colecciones de distribución accionables. Cada base define el límite de su evidencia, se puede exportar como CSV e indica qué excluye.",
     "items": {
       "directories": "Un índice país por país que registra qué acepta cada directorio, cómo enlaza y cuándo se verificó por última vez.",
       "opportunities": "La base de datos de trabajo: dónde una empresa puede crear, reclamar o solicitar un perfil público, con el coste, la acción de registro y la prioridad de cada uno.",
       "media": "Dónde una empresa publica, envía, presenta propuestas, patrocina, lanza o aporta experiencia &mdash; medios, redes de notas de prensa, programas de colaboradores, plataformas de lanzamiento y servicios de consulta a periodistas, con el tipo de oportunidad y la vía para cada uno.",
+      "regionalMedia": "Medios informativos regionales y locales organizados por región mundial, subregión, país, área de cobertura, Domain Rating de Ahrefs, vía de publicación y evidencia de enlaces observada.",
       "marketplaces": "Dónde una empresa o una persona publica un anuncio en lugar de un perfil &mdash; clasificados, vehículos, inmuebles, empleo, servicios, comercio B2B, subastas y reventa &mdash; con el tipo, el coste de publicar y quién puede hacerlo.",
       "forums": "Un inventario neutral de comunidades públicas de debate, verificadas directamente y clasificadas por tema, país, idioma, tipo, actividad y Domain Rating de Ahrefs.",
       "tenders": "Portales verificados de licitaciones y contratación pública, con jurisdicción, modelo de acceso, cobertura y evidencia para cada fuente.",
       "countries": "Un país a la vez: cada directorio, mercado, medio y plataforma de licitación que este proyecto ha verificado para ese mercado, con Domain Rating, coste y si alguien puede actuar hoy."
     },
     "chooseHeading": "Elegir entre las tres",
-    "chooseBody": "Cada base de datos anterior responde a una pregunta distinta. <strong>{directories}</strong> es donde una empresa crea o reclama un perfil profesional. <strong>{marketplaces}</strong> es donde publica un anuncio. <strong>{media}</strong> es donde presenta propuestas, publica, lanza o patrocina. <strong>{forums}</strong> inventaría comunidades, pero no deduce el acceso para publicar, por lo que queda deliberadamente fuera de la preparación del Planificador. El Planificador combina solo las tres clases de acción demostradas.",
+    "chooseBody": "Cada base de datos anterior responde a una pregunta distinta. <strong>{directories}</strong> es donde una empresa crea o reclama un perfil profesional. <strong>{marketplaces}</strong> es donde publica un anuncio. <strong>{media}</strong> es donde presenta propuestas, publica, lanza o patrocina. Regional Media y <strong>{forums}</strong> inventarían editoriales y comunidades, pero no deducen el acceso para publicar, por lo que quedan deliberadamente fuera de la preparación del Planificador. El Planificador combina solo las tres clases de acción demostradas.",
     "plannerDesc": "Seleccione empresa, objetivo, mercado y postura presupuestaria y obtenga un plan priorizado en las tres bases de datos, con la acción, el coste, la evidencia y un enlace directo cuando exista uno registrado.",
     "plannerCta": "Abrir el Planificador de Distribución &rarr;"
   },

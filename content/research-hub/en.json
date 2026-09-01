@@ -16,7 +16,7 @@
     "constants, so a moved collection cannot leave a stale link behind."
   ],
   "title": "Research — Petro Hrys",
-  "description": "Studies of search systems, indexing behavior, and crawl architecture, plus four verified databases and a planner for the three actionable distribution collections.",
+  "description": "Studies of search systems, indexing behavior and crawl architecture, plus verified research databases and a planner for three actionable distribution collections.",
   "h1": "Research",
   "lede": "Studies of search systems, indexing behavior, and crawl architecture.",
   "scope": {
@@ -28,18 +28,19 @@
   },
   "collections": {
     "heading": "Collections",
-    "intro": "Four published databases and one tool for the three actionable distribution collections. Each database is directly verified, exportable as CSV, and states what it excludes.",
+    "intro": "Published research databases and one tool for the three actionable distribution collections. Each database defines its evidence boundary, is exportable as CSV and states what it excludes.",
     "items": {
       "directories": "A country-by-country index recording what each directory accepts, how it links, and when it was last verified.",
       "opportunities": "The working database: where a company can create, claim or apply for a public profile, with cost, listing action and priority for each.",
       "media": "Where a company publishes, submits, pitches, sponsors, launches or contributes expertise &mdash; media outlets, press release networks, contributor programmes, launch platforms and journalist-source services, with the opportunity type and the route for each.",
+      "regionalMedia": "Regional and local news publishers organized by world region, subregion, country, coverage area, Ahrefs Domain Rating, publication route and observed link evidence.",
       "marketplaces": "Where a business or a person publishes a listing rather than a profile &mdash; classifieds, vehicles, property, jobs, services, B2B trade, auctions and resale &mdash; with the type, the cost to list and who may list.",
       "forums": "A neutral inventory of public discussion communities, directly verified and classified by topic, country, language, forum type, activity and Ahrefs Domain Rating.",
       "tenders": "Verified public-sector tender and procurement portals, with jurisdiction, access model, opportunity coverage and evidence for each source.",
       "countries": "One country at a time: every directory, marketplace, media outlet and tender platform this project has verified for that market, with Domain Rating, cost and whether anyone can act on it today."
     },
     "chooseHeading": "Choose across all three",
-    "chooseBody": "Each database above answers a different question. <strong>{directories}</strong> is where a company creates or claims a professional profile. <strong>{marketplaces}</strong> is where it publishes a listing or an advertisement. <strong>{media}</strong> is where it pitches, publishes, launches or sponsors. <strong>{forums}</strong> inventories communities but does not infer posting access, so it is deliberately outside Planner readiness. The planner combines only the three evidenced action classes and never pretends they are equivalent.",
+    "chooseBody": "Each database above answers a different question. <strong>{directories}</strong> is where a company creates or claims a professional profile. <strong>{marketplaces}</strong> is where it publishes a listing or an advertisement. <strong>{media}</strong> is where it pitches, publishes, launches or sponsors. Regional Media and <strong>{forums}</strong> inventory publishers and communities but do not infer publication or posting access, so they are deliberately outside Planner readiness. The planner combines only the three evidenced action classes and never pretends they are equivalent.",
     "plannerDesc": "Select a business, objective, market and budget posture and get a ranked plan across all three databases, with the action, the cost, the evidence and a direct link where one is recorded.",
     "plannerCta": "Open the Distribution Planner &rarr;"
   },
