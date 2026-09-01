@@ -41,6 +41,9 @@ const EVIDENCE_LABELS = {
 const PRICE_LABELS = {
   free: 'Free', freemium: 'Free tier', mixed: 'Free and paid', paid: 'Paid', unknown: 'Unknown',
 };
+const QUALITY_LABELS = {
+  verified: 'Verified evidence', actionable: 'Actionable lead', research: 'Research candidate',
+};
 
 const escapeHtml = (value) => String(value)
   .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
@@ -88,9 +91,20 @@ function compareForRanking(a, b) {
     || (String(a.id) < String(b.id) ? -1 : String(a.id) > String(b.id) ? 1 : 0);
 }
 
+function qualityTierFor(row) {
+  const route = ['live', 'protected'].includes(row.availability)
+    && row.submissionUrl && row.submissionRouteObserved;
+  const observed = ['observed-follow', 'observed-mixed', 'observed-nofollow']
+    .includes(row.followEvidence);
+  if (route && observed && row.listingIndexability === 'indexable') return 'verified';
+  if (route && row.listingIndexability !== 'noindex'
+    && (observed || row.followEvidence === 'source-claimed-follow')) return 'actionable';
+  return 'research';
+}
+
 function validate(rows) {
-  if (!Array.isArray(rows) || rows.length !== 900) {
-    throw new Error(`Product launch collection must contain exactly 900 rows; found ${rows.length}.`);
+  if (!Array.isArray(rows) || rows.length < 900) {
+    throw new Error(`Product launch collection must contain at least 900 rows; found ${rows.length}.`);
   }
   const ids = new Set();
   const hosts = new Set();
@@ -129,12 +143,12 @@ function validate(rows) {
 function renderCsv(rows) {
   const columns = ['rank', 'id', 'name', 'website', 'platform_type', 'pricing', 'availability',
     'submission_url', 'follow_evidence', 'evidence_url', 'listing_indexability',
-    'domain_rating', 'opportunity_score', 'last_verified', 'limitations'];
+    'quality_tier', 'domain_rating', 'opportunity_score', 'last_verified', 'limitations'];
   const lines = [columns.join(',')];
   for (const row of rows) {
     lines.push([row.rank, row.id, row.name, row.website, row.platformType, row.pricing,
       row.availability, row.submissionUrl, row.followEvidence, row.evidenceUrl,
-      row.listingIndexability, row.domainRating, row.opportunityScore, row.lastVerified,
+      row.listingIndexability, qualityTierFor(row), row.domainRating, row.opportunityScore, row.lastVerified,
       row.limitations].map(csv).join(','));
   }
   return `﻿${lines.join('\n')}\n`;
@@ -147,6 +161,9 @@ function renderMain(rows) {
   const claims = rows.filter((row) => row.followEvidence === 'source-claimed-follow').length;
   const unknown = rows.filter((row) => row.followEvidence === 'unknown').length;
   const free = rows.filter((row) => ['free', 'freemium'].includes(row.pricing)).length;
+  const verified = rows.filter((row) => qualityTierFor(row) === 'verified').length;
+  const actionable = rows.filter((row) => qualityTierFor(row) === 'actionable').length;
+  const research = rows.filter((row) => qualityTierFor(row) === 'research').length;
   const linkStatusOf = (row) => {
     if (row.followEvidence === 'observed-follow') return 'follow';
     if (row.followEvidence === 'observed-nofollow') return 'nofollow';
@@ -171,11 +188,11 @@ ${values.map((value) => `            <option value="${escapeHtml(value)}">${esca
     if (row.submissionUrl) actions.push(`<a class="bd-cta-link" href="${escapeHtml(row.submissionUrl)}" rel="noopener noreferrer" target="_blank">Submit</a>`);
     if (row.evidenceUrl) actions.push(`<a class="bd-cta-link" href="${escapeHtml(row.evidenceUrl)}" rel="noopener noreferrer" target="_blank">Evidence</a>`);
     if (['source-claimed-follow', 'unknown'].includes(row.followEvidence)) {
-      const researchSource = row.sources.find((source) => /launch-directories\.nicklaunches\.com|github\.com\/truvery|thestacc\.com/.test(source));
+      const researchSource = row.sources.find((source) => /launch-directories\.nicklaunches\.com|github\.com\/truvery|thestacc\.com|submitmap\.com\/platform\//.test(source));
       if (researchSource) actions.push(`<a class="bd-cta-link" href="${escapeHtml(researchSource)}" rel="noopener noreferrer" target="_blank">Research source</a>`);
     }
     const haystack = [row.name, row.platformType, row.focus, row.shortNote].join(' ').toLowerCase();
-    return `          <tr class="bd-row" data-bd-name="${escapeHtml(row.name)}" data-bd-haystack="${escapeHtml(haystack)}" data-bd-score="${row.opportunityScore}" data-bd-dr="${row.domainRating}" data-bd-facet-link="${linkStatusOf(row)}" data-bd-facet-evidence="${escapeHtml(row.followEvidence)}" data-bd-facet-cost="${escapeHtml(row.pricing)}" data-bd-facet-type="${escapeHtml(row.platformType)}" data-bd-facet-availability="${escapeHtml(row.availability)}" data-bd-facet-indexability="${escapeHtml(row.listingIndexability)}">
+    return `          <tr class="bd-row" data-bd-name="${escapeHtml(row.name)}" data-bd-haystack="${escapeHtml(haystack)}" data-bd-score="${row.opportunityScore}" data-bd-dr="${row.domainRating}" data-bd-facet-quality="${qualityTierFor(row)}" data-bd-facet-link="${linkStatusOf(row)}" data-bd-facet-evidence="${escapeHtml(row.followEvidence)}" data-bd-facet-cost="${escapeHtml(row.pricing)}" data-bd-facet-type="${escapeHtml(row.platformType)}" data-bd-facet-availability="${escapeHtml(row.availability)}" data-bd-facet-indexability="${escapeHtml(row.listingIndexability)}">
             <td class="bd-cell" data-bd-label="Rank"><strong>#${row.rank}</strong></td>
             <td class="bd-cell bd-cell--stack" data-bd-label="Platform"><div class="bd-cell-main"><a href="${escapeHtml(row.website)}" rel="noopener noreferrer" target="_blank">${escapeHtml(row.name)}</a><span class="bd-note">${escapeHtml(row.shortNote)}</span></div></td>
             <td class="bd-cell" data-bd-label="Type">${escapeHtml(TYPE_LABELS[row.platformType])}</td>
@@ -193,6 +210,7 @@ ${values.map((value) => `            <option value="${escapeHtml(value)}">${esca
 
     <section class="bd-summary" aria-label="Collection summary">
       <p><strong>${observed}</strong> follow observed &middot; <strong>${nofollow}</strong> nofollow observed &middot; <strong>${mixed}</strong> mixed &middot; <strong>${claims}</strong> follow claims &middot; <strong>${unknown}</strong> unknown &middot; <strong>${free}</strong> free or freemium.</p>
+      <p><strong>${verified}</strong> verified evidence &middot; <strong>${actionable}</strong> actionable leads &middot; <strong>${research}</strong> research candidates.</p>
       <p><a class="bd-cta-link" href="/research/product-launch-platforms/platforms.csv" download>Download CSV</a></p>
     </section>
 
@@ -227,6 +245,7 @@ ${values.map((value) => `            <option value="${escapeHtml(value)}">${esca
           </select>
         </div>
 ${facet({ id: 'link', label: 'Link status', values: ['follow', 'nofollow', 'mixed', 'unknown'], labels: linkLabels })}
+${facet({ id: 'quality', label: 'Quality tier', values: ['verified', 'actionable', 'research'], labels: QUALITY_LABELS })}
 ${facet({ id: 'evidence', label: 'Evidence quality', values: [...EVIDENCE], labels: EVIDENCE_LABELS })}
 ${facet({ id: 'cost', label: 'Price', values: [...PRICES], labels: PRICE_LABELS })}
 ${facet({ id: 'type', label: 'Platform type', values: [...TYPES], labels: TYPE_LABELS })}
@@ -261,4 +280,4 @@ function main() {
 
 if (require.main === module) main();
 module.exports = { validate, scoreFor, compareForRanking, renderCsv, renderMain,
-  TYPES, PRICES, AVAILABILITY, EVIDENCE };
+  qualityTierFor, TYPES, PRICES, AVAILABILITY, EVIDENCE, QUALITY_LABELS };

@@ -9,14 +9,15 @@ const ROOT = path.resolve(__dirname, '..', '..');
 const DATA = path.join(ROOT, 'data/product-launch-platforms/platforms.json');
 const PAGE = path.join(ROOT, 'research/product-launch-platforms/index.html');
 const CSV = path.join(ROOT, 'research/product-launch-platforms/platforms.csv');
+const QUALITY_FINDINGS = path.join(ROOT, 'data/product-launch-platforms/.quality-findings.json');
 const build = require('../build-product-launch-platforms.cjs');
 const safeApply = require('../lib/rc-safe-apply.cjs');
 const rows = JSON.parse(fs.readFileSync(DATA, 'utf8'));
 
-test('the collection contains exactly 900 ranked unique platforms', () => {
+test('the collection remains an expanding ranked set of unique platforms', () => {
   assert.doesNotThrow(() => build.validate(rows));
-  assert.strictEqual(rows.length, 900);
-  assert.strictEqual(new Set(rows.map((row) => new URL(row.website).hostname.replace(/^www\./, ''))).size, 900);
+  assert.ok(rows.length >= 960);
+  assert.strictEqual(new Set(rows.map((row) => new URL(row.website).hostname.replace(/^www\./, ''))).size, rows.length);
 });
 
 test('the metrics owner can update only DR fields on this collection', () => {
@@ -35,8 +36,9 @@ test('follow claims never masquerade as observed backlink evidence', () => {
   assert.ok(claims.length > 0);
   for (const row of claims) {
     assert.strictEqual(row.evidenceUrl, null, `${row.id} attaches evidence to an unverified claim`);
-    assert.match(row.limitations, /not a guaranteed backlink/i, `${row.id} hides its evidence limit`);
-    assert.ok(row.sources.some((source) => source.includes('launch-directories.nicklaunches.com')),
+    assert.match(row.limitations, /not a guaranteed backlink|not guaranteed backlink|rather than guaranteed backlink evidence/i,
+      `${row.id} hides its evidence limit`);
+    assert.ok(row.sources.some((source) => /launch-directories\.nicklaunches\.com|submitmap\.com\/platform\//.test(source)),
       `${row.id} has no source for its follow claim`);
   }
   for (const row of rows.filter((item) => item.followEvidence.startsWith('observed'))) {
@@ -68,9 +70,9 @@ test('verified actionability outranks raw authority', () => {
 test('the generated page and CSV contain every platform once', () => {
   const page = fs.readFileSync(PAGE, 'utf8');
   const csv = fs.readFileSync(CSV, 'utf8');
-  assert.strictEqual((page.match(/<tr class="bd-row" /g) || []).length, 900);
-  assert.strictEqual((page.match(/class="bd-cell bd-cell--stack"/g) || []).length, 1800);
-  assert.strictEqual(csv.replace(/^﻿/, '').trim().split(/\r?\n/).length, 901);
+  assert.strictEqual((page.match(/<tr class="bd-row" /g) || []).length, rows.length);
+  assert.strictEqual((page.match(/class="bd-cell bd-cell--stack"/g) || []).length, rows.length * 2);
+  assert.strictEqual(csv.replace(/^﻿/, '').trim().split(/\r?\n/).length, rows.length + 1);
   assert.match(page, /<link rel="canonical" href="https:\/\/petrohrys\.com\/research\/product-launch-platforms\/">/);
   assert.doesNotMatch(page, /hreflang="(?:es|fr|de)"/);
   assert.match(page, /https:\/\/ahrefs\.com\/legal\/domain-rating-license/);
@@ -82,7 +84,7 @@ test('the worklist exposes DR sorting and the requested filters', () => {
   for (const sort of ['as-published', 'domain-rating', 'domain-rating-asc', 'alphabetical']) {
     assert.match(page, new RegExp(`<option value="${sort}">`), `missing ${sort} sort`);
   }
-  for (const facet of ['link', 'evidence', 'cost', 'type', 'availability', 'indexability']) {
+  for (const facet of ['quality', 'link', 'evidence', 'cost', 'type', 'availability', 'indexability']) {
     assert.match(page, new RegExp(`data-bd-facet="${facet}"`), `missing ${facet} filter`);
     assert.match(page, new RegExp(`data-bd-facet-${facet}="`), `rows omit ${facet} values`);
   }
@@ -90,6 +92,20 @@ test('the worklist exposes DR sorting and the requested filters', () => {
   assert.match(page, /data-bd-search/);
   assert.match(page, /data-bd-clear/);
   assert.match(page, /Recommended order/);
+});
+
+test('the quality wave publishes actionable candidates without reciprocal-link requirements', () => {
+  const findings = JSON.parse(fs.readFileSync(QUALITY_FINDINGS, 'utf8'));
+  const additions = rows.filter((row) => row.shortNote.includes('quality audit'));
+  assert.ok(additions.length >= 60);
+  for (const row of additions) {
+    assert.strictEqual(build.qualityTierFor(row), 'actionable', row.id);
+    assert.strictEqual(row.submissionRouteObserved, true, row.id);
+    assert.match(row.limitations, /no required reciprocal backlink/i, row.id);
+    assert.ok(row.sources.some((source) => /submitmap\.com\/platform\//.test(source)), row.id);
+  }
+  assert.ok(findings.details.filter((row) => row.backlinkRequired === 'Yes').length >= 50,
+    'reciprocal-link candidates disappeared instead of remaining research findings');
 });
 
 test('the Research hub and sitemap expose the collection', () => {
