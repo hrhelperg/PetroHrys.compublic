@@ -76,6 +76,10 @@ const COLLECTIONS = {
 // turning an inventory record into a country distribution channel.
 const METRIC_COLLECTIONS = {
   ...COLLECTIONS,
+  'product-launch-platforms': {
+    file: path.join(ROOT, 'data/product-launch-platforms/platforms.json'),
+    urlField: 'website',
+  },
   forums: {
     file: path.join(ROOT, 'data/forums/forums.json'),
     urlField: 'url',

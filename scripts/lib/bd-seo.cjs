@@ -194,6 +194,28 @@ function buildHubMeta({ countries = [], faqs = [] } = {}) {
   });
 }
 
+function buildProductLaunchPlatformsMeta({ count }) {
+  const title = 'Product Launch Platforms';
+  const description = `${count} ranked product launch and software discovery platforms with `
+    + 'follow-link evidence, submission routes, price models and Ahrefs Domain Rating snapshots.';
+  const canonicalPath = '/research/product-launch-platforms/';
+  const trail = [
+    { name: 'Home', path: '/' },
+    { name: 'Research', path: '/research/' },
+    { name: title, path: canonicalPath },
+  ];
+  return meta({
+    title,
+    description,
+    canonicalPath,
+    breadcrumbTrail: trail,
+    graph: [
+      collectionPage({ name: title, description, url: absoluteUrl(canonicalPath) }),
+      breadcrumbList(trail),
+    ],
+  });
+}
+
 function buildCountryMeta({ country, categories = [], directories = [], faqs = [] }) {
   const canonicalPath = routes.countryPath(country.slug);
   // A country may override the generated title. "Business Directories in
@@ -647,6 +669,7 @@ function renderJsonLd(graph) {
 module.exports = {
   ORIGIN, SeoError, absoluteUrl, safeExternalUrl, renderJsonLd,
   breadcrumbList, collectionPage, webPage, itemList, faqPage, organisationAbout,
+  buildProductLaunchPlatformsMeta,
   buildHubMeta, buildCountryMeta, buildCategoryMeta, buildDirectoryMeta,
   buildArticleMeta, buildArticleIndexMeta, buildOpportunitiesMeta, buildRecommendationMeta,
   buildMarketplacesMeta,
