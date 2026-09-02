@@ -8,6 +8,7 @@ const path = require('node:path');
 
 const ROOT = path.join(__dirname, '..', '..');
 const S = require('../lib/regional-media-schema.cjs');
+const D = require('../lib/regional-media-discovery.cjs');
 const I = require('../lib/i18n.cjs');
 const BUILD = require('../build-regional-media.cjs');
 const EXPAND = require('../expand-regional-media.cjs');
@@ -17,20 +18,23 @@ const countries = require(path.join(ROOT, 'data/business-directories/countries.j
 const countrySet = new Set(countries.map((row) => row.slug));
 const rows = S.loadRegionalMedia(path.join(ROOT, 'data/regional-media/regional-media.json'), countrySet);
 
-test('Regional Media contains 1,100 schema-valid outlets across three waves', () => {
-  assert.strictEqual(rows.length, EXPAND.BASELINE_SIZE);
+test('the corpus is exactly four waves of schema-valid, uniquely hosted outlets', () => {
+  assert.strictEqual(rows.length, EXPAND.WAVE_SIZE);
   assert.strictEqual(new Set(rows.map((row) => row.id)).size, rows.length);
   assert.strictEqual(new Set(rows.map((row) => S.normaliseHost(row.website))).size, rows.length);
   assert.ok(rows.every(S.isActionable));
 });
 
-test('wave history proves 300 immutable records, then append-only waves of 500 and 300', () => {
+test('wave history proves four immutable, append-only waves', () => {
   const history = JSON.parse(read('data/regional-media/.wave-history.json'));
   assert.deepStrictEqual(history.waves.map(({ id, count }) => ({ id, count })), [
     { id: 'wave-1', count: 300 },
     { id: 'wave-2', count: 500 },
     { id: 'wave-3', count: 300 },
+    { id: 'wave-4', count: EXPAND.EXPANSION_SIZE },
   ]);
+  assert.strictEqual(300 + 500 + 300, EXPAND.BASELINE_SIZE);
+  assert.strictEqual(history.waves.reduce((n, wave) => n + wave.count, 0), EXPAND.WAVE_SIZE);
   const byId = new Map(rows.map((row) => [row.id, row]));
   const seen = new Set();
   for (const wave of history.waves) {
@@ -66,14 +70,69 @@ test('wave history proves 300 immutable records, then append-only waves of 500 a
   assert.ok(waveThreeRegions.oceania >= 60);
   assert.ok(waveThreeRegions['latin-america-caribbean'] >= 15);
   assert.ok(new Set(waveThree.map((row) => row.country)).size >= 10);
-  assert.ok(waveThree.every((row) => EXPAND.isPublisherOwnedTarget({
-    host: S.normaliseHost(row.website), website: row.website,
-  })), 'wave 3 contains an archive or shared publishing platform target');
+  // Wave 3 is checked against the rule it was PUBLISHED under — no newspaper
+  // archive, no shared publishing platform. `isPublisherOwnedTarget` has since
+  // been tightened for wave 4 (university roots, government domains,
+  // aggregators, section pages), and asserting the new rule here would either
+  // fail on records the append-only contract forbids editing or force the new
+  // rule to be watered down to match old data. The stricter gate is asserted
+  // on wave 4, where it actually governed selection, and the wave 1-3 records
+  // that would not pass it today are recorded in
+  // docs/followup-regional-media-legacy-hosts.md.
+  assert.ok(waveThree.every((row) => {
+    const host = S.normaliseHost(row.website);
+    return host && !D.isArchiveHost(host) && !D.isSharedPublishingHost(host)
+      && !D.isSocialHost(host);
+  }), 'wave 3 contains an archive or shared publishing platform target');
+});
+
+test('wave 4 adds its outlets under the tightened regional and publisher gates', () => {
+  const history = JSON.parse(read('data/regional-media/.wave-history.json'));
+  const waveFourIds = new Set(Object.keys(history.waves[3].recordHashes));
+  const waveFour = rows.filter((row) => waveFourIds.has(row.id));
+  assert.strictEqual(waveFour.length, EXPAND.EXPANSION_SIZE);
+
+  // Nothing published in an earlier wave may reappear as a wave-4 record, and
+  // no wave-4 host may collide with an earlier one.
+  const earlier = new Set(history.waves.slice(0, 3)
+    .flatMap((wave) => Object.keys(wave.recordHashes)));
+  assert.ok(waveFour.every((row) => !earlier.has(row.id)));
+
+  for (const row of waveFour) {
+    const host = S.normaliseHost(row.website);
+    assert.strictEqual(D.hostRejection(host, row.website), null,
+      `${row.id}: ${host} is not a publisher-owned root`);
+    assert.ok(Number.isInteger(row.domainRating) && row.domainRating >= EXPAND.MIN_DR, row.id);
+    assert.deepStrictEqual(row.publicationRoutes, ['unknown'],
+      `${row.id}: a publication route was asserted without page-level evidence`);
+    assert.strictEqual(row.costModel, 'unknown', `${row.id}: a cost was asserted`);
+    assert.ok(!row.backlinkType, `${row.id}: a link type was asserted`);
+    assert.ok(!row.listingIndexability, `${row.id}: indexability was asserted`);
+    assert.ok(!/^https:\/\/[^/]+\/.+\.(html?|php|aspx?)$/i.test(row.website),
+      `${row.id}: stores an article page rather than a publisher root`);
+  }
+
+  const regions = waveFour.reduce((counts, row) => {
+    counts[row.macroRegion] = (counts[row.macroRegion] || 0) + 1;
+    return counts;
+  }, {});
+  for (const region of S.MACRO_REGIONS) {
+    assert.ok(regions[region] > 0, `wave 4 reaches no outlet in ${region}`);
+  }
+  assert.ok(new Set(waveFour.map((row) => row.country)).size >= 30,
+    'wave 4 is concentrated in too few countries');
+
+  // The soft geographic targets are minimums, not quotas: wave 4 is sized by
+  // what qualified, so every region should meet or exceed its floor.
+  for (const [region, floor] of Object.entries(EXPAND.EXPANSION_TARGETS)) {
+    assert.ok(regions[region] >= Math.min(floor, 20),
+      `${region} has ${regions[region] || 0} wave-4 outlets`);
+  }
 });
 
 test('the corpus covers all six macro regions and at least sixty countries', () => {
   assert.deepStrictEqual([...new Set(rows.map((row) => row.macroRegion))].sort(), S.MACRO_REGIONS);
-  assert.ok(new Set(rows.map((row) => row.country)).size >= 60);
+  assert.ok(new Set(rows.map((row) => row.country)).size >= 64);
   for (const region of S.MACRO_REGIONS) {
     assert.ok(rows.filter((row) => row.macroRegion === region).length >= 10,
       `${region} has fewer than ten records`);
@@ -152,6 +211,38 @@ test('CSV is one-to-one with canonical records and keeps unknown link state expl
   assert.ok(lines[0].includes('domain_rating_provider'));
   assert.ok(lines[0].includes('link_type,link_evidence_url'));
   assert.strictEqual(BUILD.renderCsv(rows.slice().sort(S.compareRecords)), csv);
+});
+
+test('structured data, robots and the download all describe the same corpus', () => {
+  for (const locale of I.LOCALE_CODES) {
+    const html = read(I.localizedFile(locale, S.collectionPath()));
+    const blocks = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)]
+      .map(([, json]) => JSON.parse(json));
+    assert.strictEqual(blocks.length, 1, `${locale}: expected exactly one JSON-LD block`);
+    const graph = blocks[0]['@graph'];
+    const page = graph.find((node) => node['@type'] === 'CollectionPage');
+    assert.ok(page, `${locale}: no CollectionPage node`);
+    // Site-wide convention: every locale's JSON-LD names the x-default URL,
+    // while `rel="canonical"` is self-referential per locale (asserted above).
+    // Business Directories does the same, so this is the shared `bd-seo`
+    // contract rather than a Regional Media quirk. Worth revisiting across all
+    // collections at some point; not worth diverging one collection from the
+    // other four here.
+    assert.strictEqual(page.url, `https://petrohrys.com${S.collectionPath()}`);
+    // The count in the description is the count on the page. A stale number
+    // here is a claim to search engines that the page does not support.
+    assert.ok(page.description.includes(String(rows.length)),
+      `${locale}: JSON-LD description does not state ${rows.length}`);
+    assert.ok(graph.some((node) => node['@type'] === 'BreadcrumbList'));
+    assert.ok(html.includes(`<strong>${rows.length}</strong>`), `${locale}: overview stat`);
+    assert.ok(/<a class="bd-button" href="\/research\/regional-media\/regional-media\.csv" download>/.test(html),
+      `${locale}: CSV download link`);
+  }
+
+  const robots = read('robots.txt');
+  assert.match(robots, /^User-agent: \*\nAllow: \//m);
+  assert.ok(!/Disallow: \/research/.test(robots), 'robots.txt blocks the research tree');
+  assert.ok(robots.includes('Sitemap: https://petrohrys.com/sitemap.xml'));
 });
 
 test('Research hubs and sitemap discover every localized collection route', () => {
