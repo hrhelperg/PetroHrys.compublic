@@ -203,6 +203,18 @@ test('the page exposes geography, DR, follow, cost and route controls', () => {
   assert.ok(html.includes('data-rm-status-all="{total} outlets shown"'));
 });
 
+test('the worklist keeps Domain Rating and sorting in the primary comparison view', () => {
+  const html = read('research/regional-media/index.html');
+  assert.ok(html.includes('class="bd-controls bd-rm-primary-controls"'));
+  assert.ok(html.includes('<option value="domain-rating" selected>Domain Rating (highest first)</option>'));
+  assert.ok(html.includes('class="bd-table bd-rm-table"'));
+  const head = html.match(/<thead><tr>(.*?)<\/tr><\/thead>/s);
+  assert.ok(head, 'regional media table head is missing');
+  assert.strictEqual((head[1].match(/<th /g) || []).length, 9);
+  assert.ok(head[1].indexOf('Outlet') < head[1].indexOf('Domain Rating'));
+  assert.ok(head[1].indexOf('Domain Rating') < head[1].indexOf('Country'));
+});
+
 test('CSV is one-to-one with canonical records and keeps unknown link state explicit', () => {
   const csv = read('research/regional-media/regional-media.csv');
   const lines = csv.trim().split(/\r?\n/);

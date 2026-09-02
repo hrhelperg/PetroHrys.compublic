@@ -333,6 +333,7 @@
      test cannot inspect the first selector inside an at-rule. */
   .bd-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
   .bd-table { display: block; width: 100%; }
+  .bd-rm-table > .bd-caption { display: block; width: 100%; }
   .bd-table tbody { display: block; width: 100%; }
   .bd-table .bd-row {
     display: block;
@@ -585,6 +586,65 @@
   outline-offset: 2px;
 }
 
+/* Regional Media keeps the three high-frequency controls attached to the
+ * worklist. The remaining facets stay available without making readers cross
+ * a wall of controls before they can compare outlets. */
+.bd-rm-primary-controls {
+  align-items: flex-end;
+  padding: var(--s-2) 0;
+  background: var(--surface);
+  border-top: var(--rule-w) solid var(--rule);
+  border-bottom: var(--rule-w) solid var(--rule);
+}
+.bd-rm-primary-controls .bd-control {
+  flex: 1 1 12rem;
+  margin-top: 0;
+}
+.bd-rm-primary-controls .bd-control:first-child { flex-basis: 20rem; }
+.bd-rm-primary-controls .bd-input,
+.bd-rm-primary-controls .bd-select { width: 100%; }
+.bd-rm-primary-status {
+  flex: 0 0 100%;
+  margin: 0;
+}
+.bd-rm-filter-panel {
+  margin-top: var(--s-3);
+  border-bottom: var(--rule-w) solid var(--rule);
+  padding-bottom: var(--s-3);
+}
+.bd-rm-filter-panel > summary {
+  width: fit-content;
+  cursor: pointer;
+  color: var(--blue);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+}
+.bd-rm-filter-panel > summary:hover { color: var(--blue-strong); }
+.bd-rm-secondary-controls .bd-control { margin-top: var(--s-3); }
+
+@media (min-width: 40.01rem) {
+  .bd-rm-primary-controls {
+    position: sticky;
+    top: var(--sticky-stack-height);
+    z-index: 80;
+  }
+  .bd-rm-table {
+    table-layout: fixed;
+    min-width: 70rem;
+  }
+  .bd-rm-table .bd-cell { overflow-wrap: anywhere; }
+  .bd-rm-table th:nth-child(1) { width: 15%; }
+  .bd-rm-table th:nth-child(2) { width: 10%; }
+  .bd-rm-table th:nth-child(3) { width: 10%; }
+  .bd-rm-table th:nth-child(4) { width: 17%; }
+  .bd-rm-table th:nth-child(5) { width: 11%; }
+  .bd-rm-table th:nth-child(6) { width: 11%; }
+  .bd-rm-table th:nth-child(7) { width: 10%; }
+  .bd-rm-table th:nth-child(8) { width: 7%; }
+  .bd-rm-table th:nth-child(9) { width: 9%; }
+  .bd-rm-dr-cell strong { font-size: var(--fs-md); }
+}
+
 /* ===== Results break out of the article column =====
  *
  * The site shell centres `main` in a 720px reading column (--col-main), which
@@ -611,6 +671,7 @@
 @media (min-width: 60rem) {
   .bd-table-wrap,
   .bd-controls,
+  .bd-rm-filter-panel,
   [data-bd-export-wrap] {
     width: min(94vw, 1500px);
     /* The existing `.bd-table-wrap { max-width: 100% }` clamps that width back

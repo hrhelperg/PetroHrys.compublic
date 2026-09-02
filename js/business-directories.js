@@ -225,13 +225,15 @@
   // Created only once we know there is something to count. An empty table must
   // be left exactly as the server rendered it — announcing "0 directories
   // shown" over a page the script is not managing would be a lie about state.
-  var status = document.createElement('p');
+  var status = document.querySelector('.bd-status[role="status"]') || document.createElement('p');
   status.className = 'bd-status';
   status.setAttribute('role', 'status');
   status.setAttribute('aria-live', 'polite');
-  var firstBox = groups[0].box;
-  var anchor = firstBox || groups[0].body.parentNode;
-  if (anchor && anchor.parentNode) anchor.parentNode.insertBefore(status, anchor);
+  if (!status.parentNode) {
+    var firstBox = groups[0].box;
+    var anchor = firstBox || groups[0].body.parentNode;
+    if (anchor && anchor.parentNode) anchor.parentNode.insertBefore(status, anchor);
+  }
 
   // The records currently on screen, in the order they are on screen. Held
   // because the filtered export must hand back exactly those identities in
