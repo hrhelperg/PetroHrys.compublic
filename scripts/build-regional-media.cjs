@@ -82,7 +82,7 @@ function drCell(row) {
   if (!Number.isInteger(row.domainRating) || !provenance) {
     return '<span class="bd-metric bd-metric--empty">Unknown</span>';
   }
-  return `<span class="bd-metric"><strong>${row.domainRating}</strong><span class="bd-metric-source">Ahrefs snapshot, measured <time datetime="${escapeHtml(provenance.measuredAt)}">${escapeHtml(provenance.measuredAt)}</time></span></span>`;
+  return `<span class="bd-metric"><strong>${row.domainRating}</strong><span class="bd-metric-source"><span class="bd-vh">Ahrefs snapshot, measured </span><span aria-hidden="true">Ahrefs · </span><time datetime="${escapeHtml(provenance.measuredAt)}">${escapeHtml(provenance.measuredAt)}</time></span></span>`;
 }
 
 function actions(row, t) {
@@ -124,26 +124,19 @@ function renderMain(rows, countryName, t) {
             data-bd-facet-priority="${escapeHtml(row.priority)}"
             data-bd-facet-status="${escapeHtml(row.currentStatus)}">
             <td class="bd-cell" data-bd-label="${escapeHtml(t('rm.colOutlet'))}"><a href="${escapeHtml(row.website)}" rel="noopener noreferrer" target="_blank">${escapeHtml(row.name)}</a></td>
-            <td class="bd-cell" data-bd-label="${escapeHtml(t('rm.colRegion'))}">${escapeHtml(humanize(row.macroRegion))}</td>
-            <td class="bd-cell" data-bd-label="${escapeHtml(t('rm.colSubregion'))}">${escapeHtml(humanize(row.subregion))}</td>
+            <td class="bd-cell bd-rm-dr-cell" data-bd-label="${escapeHtml(t('col.domainRating'))}">${drCell(row)}</td>
             <td class="bd-cell" data-bd-label="${escapeHtml(t('col.country'))}">${escapeHtml(countryName(row.country))}</td>
-            <td class="bd-cell" data-bd-label="${escapeHtml(t('rm.colCoverage'))}"><strong>${escapeHtml(row.coverageArea)}</strong><br><span class="bd-muted">${escapeHtml(humanize(row.coverageType))}</span></td>
-            <td class="bd-cell" data-bd-label="${escapeHtml(t('rm.colPublication'))}">${escapeHtml(humanize(row.publicationType))}</td>
-            <td class="bd-cell" data-bd-label="${escapeHtml(t('rm.colLanguages'))}">${escapeHtml(row.languages.map((value) => value.toUpperCase()).join(', '))}</td>
-            <td class="bd-cell" data-bd-label="${escapeHtml(t('col.domainRating'))}">${drCell(row)}</td>
+            <td class="bd-cell" data-bd-label="${escapeHtml(t('rm.colCoverage'))}"><strong>${escapeHtml(row.coverageArea)}</strong><br><span class="bd-muted">${escapeHtml(humanize(row.coverageType))} · ${escapeHtml(humanize(row.macroRegion))} / ${escapeHtml(humanize(row.subregion))}</span></td>
+            <td class="bd-cell" data-bd-label="${escapeHtml(t('rm.colPublication'))}">${escapeHtml(humanize(row.publicationType))}<br><span class="bd-muted">${escapeHtml(row.languages.map((value) => value.toUpperCase()).join(', '))}</span></td>
             <td class="bd-cell" data-bd-label="${escapeHtml(t('bd.linkType'))}">${escapeHtml(linkLabel(row, t))}${row.backlinkProvenance ? `<br><a href="${escapeHtml(row.backlinkProvenance.listingUrl)}" rel="noopener noreferrer" target="_blank">${escapeHtml(t('rm.evidence'))}</a>` : ''}</td>
-            <td class="bd-cell" data-bd-label="${escapeHtml(t('rm.colRoute'))}">${escapeHtml(routes)}</td>
-            <td class="bd-cell" data-bd-label="${escapeHtml(t('col.cost'))}">${escapeHtml(t(`cost.${row.costModel}`))}</td>
-            <td class="bd-cell" data-bd-label="${escapeHtml(t('col.priority'))}">${escapeHtml(t(`priority.${row.priority}`))}</td>
-            <td class="bd-cell" data-bd-label="${escapeHtml(t('col.status'))}">${escapeHtml(t(`currentStatus.${row.currentStatus}`))}</td>
+            <td class="bd-cell" data-bd-label="${escapeHtml(t('rm.colRoute'))}">${escapeHtml(routes)}<br><span class="bd-muted">${escapeHtml(t('col.cost'))}: ${escapeHtml(t(`cost.${row.costModel}`))}</span></td>
+            <td class="bd-cell" data-bd-label="${escapeHtml(t('col.status'))}">${escapeHtml(t(`currentStatus.${row.currentStatus}`))}<br><span class="bd-muted">${escapeHtml(t('col.priority'))}: ${escapeHtml(t(`priority.${row.priority}`))}</span></td>
             <td class="bd-cell bd-actions" data-bd-label="${escapeHtml(t('col.actions'))}">${actions(row, t)}</td>
           </tr>`;
   }).join('\n');
 
-  const head = [t('rm.colOutlet'), t('rm.colRegion'), t('rm.colSubregion'), t('col.country'),
-    t('rm.colCoverage'), t('rm.colPublication'), t('rm.colLanguages'), t('col.domainRating'),
-    t('bd.linkType'), t('rm.colRoute'), t('col.cost'), t('col.priority'), t('col.status'),
-    t('col.actions')];
+  const head = [t('rm.colOutlet'), t('col.domainRating'), t('col.country'), t('rm.colCoverage'),
+    t('rm.colPublication'), t('bd.linkType'), t('rm.colRoute'), t('col.status'), t('col.actions')];
 
   return [
     c.pageIntro({ title: t('rm.title'), lede: t('rm.lede') }),
@@ -163,9 +156,9 @@ function renderMain(rows, countryName, t) {
       <p>${escapeHtml(t('rm.how2'))}</p>
       <p>${escapeHtml(t('rm.how3'))}</p>
     </section>`,
-    `<section id="outlets" aria-labelledby="outlets-heading">
+    `<section id="outlets" class="bd-rm-registry" aria-labelledby="outlets-heading">
       <h2 id="outlets-heading">${escapeHtml(t('rm.list'))}</h2>
-      <div class="bd-controls">
+      <div class="bd-controls bd-rm-primary-controls" aria-label="${escapeHtml(t('rm.list'))}">
         <div class="bd-control">
           <label class="bd-label" for="rm-search">${escapeHtml(t('common.search'))}</label>
           <input class="bd-input" id="rm-search" type="search" data-bd-search placeholder="${escapeHtml(t('rm.searchPlaceholder'))}">
@@ -173,13 +166,18 @@ function renderMain(rows, countryName, t) {
         <div class="bd-control" data-bd-sort-wrap hidden>
           <label class="bd-label" for="rm-sort">${escapeHtml(t('bd.sortBy'))}</label>
           <select class="bd-select" id="rm-sort" data-bd-sort>
-            <option value="as-published">${escapeHtml(t('sort.asPublished'))}</option>
-            <option value="domain-rating">${escapeHtml(t('sort.drDesc'))}</option>
+            <option value="domain-rating" selected>${escapeHtml(t('sort.drDesc'))}</option>
             <option value="domain-rating-asc">${escapeHtml(t('sort.drAsc'))}</option>
             <option value="alphabetical">${escapeHtml(t('sort.alphabetical'))}</option>
+            <option value="as-published">${escapeHtml(t('sort.asPublished'))}</option>
           </select>
         </div>
 ${c.minDomainRatingControl({ idPrefix: 'rm', rows })}
+        <p class="bd-status bd-rm-primary-status" role="status" aria-live="polite"></p>
+      </div>
+      <details class="bd-rm-filter-panel">
+        <summary>${escapeHtml(t('bd.filter'))}</summary>
+        <div class="bd-controls bd-rm-secondary-controls">
 ${linkControl(rows, t)}
 ${facet({ name: 'region', label: t('rm.colRegion'), values: rows.map((row) => row.macroRegion), labels: macroLabels, t })}
 ${facet({ name: 'subregion', label: t('rm.colSubregion'), values: rows.map((row) => row.subregion), labels: subregionLabels, t })}
@@ -191,12 +189,13 @@ ${facet({ name: 'route', label: t('rm.colRoute'), values: rows.flatMap((row) => 
 ${facet({ name: 'cost', label: t('col.cost'), values: rows.map((row) => row.costModel), t })}
 ${facet({ name: 'priority', label: t('col.priority'), values: rows.map((row) => row.priority), t })}
 ${facet({ name: 'status', label: t('col.status'), values: rows.map((row) => row.currentStatus), t })}
-        <div class="bd-control"><button class="bd-button bd-button--ghost" type="button" data-bd-clear>${escapeHtml(t('common.clearFilters'))}</button></div>
-      </div>
+          <div class="bd-control"><button class="bd-button bd-button--ghost" type="button" data-bd-clear>${escapeHtml(t('common.clearFilters'))}</button></div>
+        </div>
+      </details>
       <p class="bd-note"><a class="bd-button" href="${RM.collectionPath()}regional-media.csv" download>${escapeHtml(t('rm.downloadCsv', { n: rows.length }))}</a></p>
       <div class="bd-table-wrap" tabindex="0" aria-label="${escapeHtml(t('rm.tableScroll'))}">
-        <table class="bd-table">
-          <caption>${escapeHtml(t('rm.caption'))}</caption>
+        <table class="bd-table bd-rm-table">
+          <caption class="bd-caption">${escapeHtml(t('rm.caption'))}</caption>
           <thead><tr>${head.map((label) => `<th class="bd-cell" scope="col">${escapeHtml(label)}</th>`).join('')}</tr></thead>
           <tbody data-bd-rows data-rm-status-all="${escapeHtml(I18N.raw(t.locale, 'rm.countAll'))}" data-rm-status-some="${escapeHtml(I18N.raw(t.locale, 'rm.countSome'))}">
 ${body}
